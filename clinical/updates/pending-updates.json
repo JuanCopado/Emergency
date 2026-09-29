@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.1",
+  "pending_updates": [
+    {
+      "module": "myxedema-coma",
+      "identified_on": "2026-09-27",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42466568/",
+      "status": "focused_enteral_literature_review_completed_no_general_regimen_adopted_local_review_pending",
+      "action": "Focused review completed 2026-09-28. The ETA/BTA/Society for Endocrinology/Welsh consensus (2026) recommends IV loading initially and describes switching to oral once fully conscious; it does not provide an acute oral/NG loading fallback for IV unavailability in its accessible primary text. One retrospective single-centre series (n=14; ages 11–82) reported oral LT4 loading 300–500 micrograms followed by taper over 3–5 days, but this small uncontrolled series is insufficient to make that a general adult emergency regimen. Kept module dose-free for enteral fallback. Endocrinology/pharmacy and local product/protocol review remain necessary. See updates/myxedema-enteral-review-2026-09-28.md.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13452032/",
+      "human_review_required": true
+    },
+    {
+      "module": "acute-mesenteric-ischemia",
+      "identified_on": "2026-09-27",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1078588425005167",
+      "status": "focused_anticoagulation_review_integrated_local_nomogram_and_procedural_review_pending",
+      "action": "Completed focused ESVS 2025/WSES 2022 review in v1.29. Clarified acute MVT first-line therapeutic UFH/LMWH and nonoperative vs peritonitis/deterioration escalation; UFH reversibility in acute phase; 3–6 month VKA/LMWH duration, conditional DOAC alternative and indefinite treatment for idiopathic/persistent risk; separated arterial AMI and NOMI from MVT. Neither guideline gives a universal UFH load/infusion nomogram for this pathway, so no fixed dose/rate was invented. Local weight-based UFH/LMWH protocols, monitoring and case-specific peri-procedural decisions remain pending. No new module ID added.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://ris.utwente.nl/ws/portalfiles/portal/502462657/PIIS1078588425005167.pdf",
+      "human_review_required": true
+    },
+    {
+      "module": "upper-gi-bleeding",
+      "identified_on": "2026-09-27",
+      "source_url": "https://doi.org/10.1055/a-2863-8314",
+      "status": "focused_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Expanded existing module in v1.28: ED triage/resuscitation and GBS caveat; airway and NG tube boundaries; erythromycin 250 mg IV 30–120 min before endoscopy only for selected severe/ongoing active UGIB; conditional IV metoclopramide alternative if erythromycin unavailable with adverse-effect cautions; 2026 nonvariceal timing, Forrest-directed peptic-ulcer hemostasis and rescue; and separate suspected-variceal vasoactive/antibiotic/endoscopy/EBL-TIPS/secondary-prevention pathway. Sources: ESGE 2026 peptic-ulcer guideline (including May 22 corrected graphical abstract) and ESGE 2022 variceal guideline. Human clinical release review, Portugal/Azores local protocol/formulary verification, and antithrombotic reversal/restart reconciliation completed in v1.31; human release review and Portugal/Azores local protocol/formulary check remain pending. No new module ID added. See updates/gi-antithrombotic-review-2026-09-28.md; no module ID added.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.esge.com/assets/downloads/pdfs/guidelines/2026_a-2863-8314.pdf",
+      "human_review_required": true
+    },
+    {
+      "module": "thyroid-storm",
+      "identified_on": "2026-09-27",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13506520/",
+      "status": "consensus_reconciled_human_release_review_pending",
+      "action": "Reconciled v1.26 regimen with ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society 2026 joint consensus. Working draft labels its hydrocortisone schedule (100 mg IV once then 50 mg q6h or 200 mg/24h) separately from ATA 2016 (300 mg load then 100 mg q8h), adds liver/PTU selection and post-steroid potassium safety, and retains caution about beta-blockade in low-output failure. Clinician review and local Portuguese product/protocol verification remain before treating this snapshot as a released clinical protocol.",
+      "reviewed_on": "2026-09-27",
+      "human_review_required": true
+    },
+    {
+      "module": "lower-gi-bleeding",
+      "identified_on": "2026-09-28",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36735555/",
+      "status": "focused_pathway_antithrombotic_and_small_bowel_review_integrated_human_local_review_pending",
+      "action": "Index confirms lower-gi-bleeding already exists; no duplicate ID created. v1.31 reconciled antithrombotics. v1.32 adds suspected small-bowel bleeding after adequate nondiagnostic EGD/colonoscopy: no routine second look, early capsule (ideally within 48 h for overt bleed when stable/no obstruction), CTA/angiography escalation for active severe bleed, retention-risk screening, capsule-directed enteroscopy and follow-up after negative study. See updates/small-bowel-bleeding-review-2026-09-28.md. Human clinical review and local GI/IR availability/protocol remain pending.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.esge.com/small-bowel-ce-and-dae-for-diagnosis-and-treatment-of-sb-update-2022",
+      "human_review_required": true
+    },
+    {
+      "module": "febrile-infant-0-90-days",
+      "identified_on": "2026-09-28",
+      "source_url": "https://cps.ca/en/documents/position/management-of-well-appearing-febrile-young-infants-aged-90-days",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Focused module for fever ≥38.0°C/hypothermia in well-appearing term infants ≤90 days integrated into special-populations.md in v1.33; CPS statement updated May 2026, age-stratified assessment and exclusions. Human neonatology/pediatrics review and Portugal/Azores pathway/antibiogram review remain pending.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://cps.ca/en/documents/position/management-of-well-appearing-febrile-young-infants-aged-90-days",
+      "human_review_required": true
+    },
+    {
+      "module": "bronchiolitis",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.nice.org.uk/guidance/ng9",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Focused supportive-care module added to special-populations.md in v1.33; oxygen thresholds stratified by <6-week/underlying-risk status and avoid routine ineffective tests/medications. Local respiratory-support/PICU escalation review pending.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.nice.org.uk/guidance/ng9",
+      "human_review_required": true
+    },
+    {
+      "module": "croup",
+      "identified_on": "2026-09-28",
+      "source_url": "https://cps.ca/en/documents/position/acute-management-of-croup",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Focused croup module added to special-populations.md in v1.33, including single-dose dexamethasone, nebulized epinephrine bridge and observation/airway red flags. Verify local formulation/concentration and human airway review.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://cps.ca/en/documents/position/acute-management-of-croup",
+      "human_review_required": true
+    },
+    {
+      "module": "pediatric-dehydration-shock",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.nice.org.uk/guidance/ng254",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Focused dehydration/shock module added to special-populations.md in v1.33; enteral-first rehydration without shock and 10 mL/kg isotonic crystalloid with reassessment for shock, distinct syndrome pathways preserved. Human review and local pediatric fluid/PICU protocol pending.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.nice.org.uk/guidance/ng254",
+      "human_review_required": true
+    },
+    {
+      "module": "pediatric-status-epilepticus",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www2.healthservice.hse.ie/files/584/",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Age-specific module added in v1.33 using HSE national 2025 guideline (1 month–18 years), NICE and local-dose caution; excludes <1-month neonates and individualized breakthrough seizures. Human pediatric neurology/anesthesia and Portugal/Azores formulary/protocol review pending.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www2.healthservice.hse.ie/files/584/",
+      "human_review_required": true
+    },
+    {
+      "module": "undifferentiated-shock",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Added in v1.34 after index audit identified missing age-specific rhythm/arrest or undifferentiated shock pathway. ERC/RCUK 2025 guidance checked; verify local Portugal/Azores pathway, energy/drug charts, implementation, and obtain human specialty review. See updates/shock-arrhythmia-arrest-review-2026-09-28.md.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "human_review_required": true
+    },
+    {
+      "module": "pediatric-shock",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Added in v1.34 after index audit identified missing age-specific rhythm/arrest or undifferentiated shock pathway. ERC/RCUK 2025 guidance checked; verify local Portugal/Azores pathway, energy/drug charts, implementation, and obtain human specialty review. See updates/shock-arrhythmia-arrest-review-2026-09-28.md.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "human_review_required": true
+    },
+    {
+      "module": "adult-arrhythmias",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Added in v1.34 after index audit identified missing age-specific rhythm/arrest or undifferentiated shock pathway. ERC/RCUK 2025 guidance checked; verify local Portugal/Azores pathway, energy/drug charts, implementation, and obtain human specialty review. See updates/shock-arrhythmia-arrest-review-2026-09-28.md.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "human_review_required": true
+    },
+    {
+      "module": "adult-cardiac-arrest",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Added in v1.34 after index audit identified missing age-specific rhythm/arrest or undifferentiated shock pathway. ERC/RCUK 2025 guidance checked; verify local Portugal/Azores pathway, energy/drug charts, implementation, and obtain human specialty review. See updates/shock-arrhythmia-arrest-review-2026-09-28.md.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "human_review_required": true
+    },
+    {
+      "module": "pediatric-arrhythmias",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Added in v1.34 after index audit identified missing age-specific rhythm/arrest or undifferentiated shock pathway. ERC/RCUK 2025 guidance checked; verify local Portugal/Azores pathway, energy/drug charts, implementation, and obtain human specialty review. See updates/shock-arrhythmia-arrest-review-2026-09-28.md.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "human_review_required": true
+    },
+    {
+      "module": "pediatric-cardiac-arrest",
+      "identified_on": "2026-09-28",
+      "source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "status": "focused_guideline_review_integrated_human_and_local_protocol_review_pending",
+      "action": "Added in v1.34 after index audit identified missing age-specific rhythm/arrest or undifferentiated shock pathway. ERC/RCUK 2025 guidance checked; verify local Portugal/Azores pathway, energy/drug charts, implementation, and obtain human specialty review. See updates/shock-arrhythmia-arrest-review-2026-09-28.md.",
+      "reviewed_on": "2026-09-28",
+      "review_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "human_review_required": true
+    },
+    {
+      "module": "vasoactive-inotrope-infusions",
+      "identified_on": "2026-09-29",
+      "source_url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+      "status": "new_draft_module_focused_source_check_human_and_local_protocol_review_pending",
+      "action": "Added in v1.35 draft: adult norepinephrine, vasopressin, epinephrine, dopamine, dobutamine, milrinone, levosimendan, phenylephrine and angiotensin II (availability-caveated) with position by phenotype, label/guideline doses, 70 kg mL/h arithmetic (unit-tested), peripheral/central caveats, extravasation and weaning. Open discrepancies: vasopressin label start 0.01 units/min vs fixed 0.03 units/min practice; norepinephrine starting dose varies (US label 8-12 micrograms/min, UK SmPC 0.4-0.8 mg/h base, ESC 2021 0.2 micrograms/kg/min criticised); peripheral start per SSC vs central access in UK SmPC; norepinephrine base vs tartrate labelling. SSC 2026 full text and ESC 2021 dose table not directly accessed. Verify Portuguese RCM (INFARMED), local standard concentrations, angiotensin II/levosimendan availability and obtain ICU/cardiology/pharmacy human review. See updates/icu-infusions-review-2026-09-29.md.",
+      "reviewed_on": "2026-09-29",
+      "review_source_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=b1147beb-743e-4c62-8927-91192447f8b8",
+      "human_review_required": true
+    },
+    {
+      "module": "icu-sedation-analgesia-infusions",
+      "identified_on": "2026-09-29",
+      "source_url": "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+      "status": "new_draft_module_focused_source_check_human_and_local_protocol_review_pending",
+      "action": "Added in v1.35 draft: adult ICU analgesia-first continuous infusions (fentanyl, remifentanil, morphine, hydromorphone, propofol, dexmedetomidine, midazolam, ketamine adjunct) with PADIS 2018/2025 positions, RASS/CPOT/BPS targets, PRIS, triglycerides, dexmedetomidine bradycardia and <=65-year mortality warning, benzodiazepine accumulation/delirium, 70 kg mL/h arithmetic (unit-tested). Open issues: ICU opioid infusion ranges derive from KSCCM 2021 table (no ICU range in fentanyl SmPC); EU dexmedetomidine SmPC (no loading, max 1.4 micrograms/kg/h) differs from US labelling not re-verified; no universal triglyceride threshold adopted. Verify Portuguese RCM, local concentrations/protocol and obtain ICU/pharmacy human review. Pediatric infusions out of scope. See updates/icu-infusions-review-2026-09-29.md.",
+      "reviewed_on": "2026-09-29",
+      "review_source_url": "https://www.ema.europa.eu/en/documents/product-information/dexdor-epar-product-information_en.pdf",
+      "human_review_required": true
+    }
+  ]
+}

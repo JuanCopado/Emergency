@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "notice": "Synthetic test data only; not evidence of clinical performance.",
+  "cases": [
+    {
+      "id": "synthetic-critical-fracture",
+      "reference": {"accepted_diagnoses": ["fractura desplazada"], "diagnostic_quality": "adequate", "abnormal": true, "critical": true, "urgency": "urgent"},
+      "prediction": {"leading_diagnosis": "fractura desplazada", "differential": [], "abstained": false, "critical_flag": true, "normal_claim": false, "urgency": "urgent"}
+    },
+    {
+      "id": "synthetic-nondiagnostic",
+      "reference": {"accepted_diagnoses": [], "diagnostic_quality": "non_diagnostic", "abnormal": false, "critical": false, "urgency": "routine"},
+      "prediction": {"leading_diagnosis": null, "differential": [], "abstained": true, "critical_flag": false, "normal_claim": false, "urgency": "routine"}
+    },
+    {
+      "id": "awaiting-independent-reference",
+      "reference": null,
+      "prediction": null
+    }
+  ]
+}

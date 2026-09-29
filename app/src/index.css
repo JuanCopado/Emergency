@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --c-bg: 244 246 250;
+    --c-surface: 255 255 255;
+    --c-surface-2: 238 241 246;
+    --c-border: 214 220 230;
+    --c-fg: 15 23 42;
+    --c-muted: 71 85 105;
+    --c-primary: 3 105 161;
+    --c-primary-fg: 255 255 255;
+    --c-brand: 225 29 72;
+    --c-warn: 146 64 14;
+    --c-warn-bg: 254 243 199;
+    --c-danger: 185 28 28;
+    --c-ok: 21 128 61;
+    --c-vaso: 190 18 60;
+    --c-sed: 91 33 182;
+    color-scheme: light;
+  }
+  .dark {
+    --c-bg: 8 12 22;
+    --c-surface: 16 23 38;
+    --c-surface-2: 24 33 52;
+    --c-border: 41 54 78;
+    --c-fg: 232 237 245;
+    --c-muted: 152 166 190;
+    --c-primary: 56 189 248;
+    --c-primary-fg: 8 12 22;
+    --c-brand: 251 113 133;
+    --c-warn: 252 211 77;
+    --c-warn-bg: 66 45 10;
+    --c-danger: 248 113 113;
+    --c-ok: 74 222 128;
+    --c-vaso: 251 113 133;
+    --c-sed: 196 181 253;
+    color-scheme: dark;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-bg text-fg antialiased;
+    font-feature-settings: 'tnum' 1, 'cv11' 1;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-primary));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+}
+
+@layer components {
+  .card { @apply rounded-2xl border border-border bg-surface shadow-card; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors disabled:opacity-50 min-h-[44px]; }
+  .btn-primary { @apply btn bg-primary text-primary-fg hover:opacity-90; }
+  .btn-ghost { @apply btn border border-border bg-surface text-fg hover:bg-surface-2; }
+  .input { @apply w-full rounded-xl border border-border bg-surface px-3 py-2.5 text-base text-fg placeholder:text-muted/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 min-h-[44px]; }
+  .label { @apply mb-1.5 block text-sm font-medium text-fg; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-sm font-medium min-h-[36px]; }
+  .section-title { @apply text-xs font-semibold uppercase tracking-wider text-muted; }
+  .num { font-variant-numeric: tabular-nums; }
+}

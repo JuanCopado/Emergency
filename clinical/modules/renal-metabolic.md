@@ -1,0 +1,136 @@
+# Renal, metabolic and toxicology modules
+
+Shared gate: obtain glucose, ECG, electrolytes, acid-base status, renal function,
+medications/toxins and volume/perfusion assessment. Repeat critical values and
+verify whether results are affected by sampling error.
+
+## electrolytes
+
+- Treat symptomatic or ECG-threatening abnormalities before complete diagnostic workup; confirm unexpected results without delaying life-saving therapy.
+- For sodium disorders, determine acuity and symptoms, calculate correction explicitly and prevent overcorrection with frequent monitoring and a rescue plan.
+- For potassium, calcium and magnesium disorders, integrate ECG, renal function and causative drugs; verify IV concentrations, rates and monitoring requirements.
+- Route the named ion to `sodium-emergencies`, `potassium-emergencies` or `calcium-magnesium-emergencies`; do not use a generic replacement plan.
+
+## sodium-emergencies
+
+- Confirm glucose, measured serum osmolality, volume status, urine osmolality, urine sodium, urine potassium, hourly urine volume, renal function, medications and relevant adrenal/thyroid context. Do not omit the serum/urine diagnostic classification when discussing hypernatremia.
+- Calculate serum osmolality and effective tonicity when the inputs are available. With mmol/L units: `calculated osmolality = 2 x serum Na + glucose + urea`; `effective tonicity = 2 x serum Na + glucose`. With mg/dL units use `2 x serum Na + glucose/18 + BUN/2.8`. Calculate `osmolal gap = measured osmolality - calculated osmolality`. State explicitly that urine osmolality and urine sodium are measured laboratory values, not derivable from serum sodium alone.
+- Interpret urine osmolality with urine volume: above about 800 mOsm/kg indicates appropriate renal concentration and favors extrarenal loss or inadequate intake; below 300 mOsm/kg with polyuria suggests diabetes insipidus; 300--800 mOsm/kg is indeterminate and includes partial diabetes insipidus, osmotic diuresis and renal dysfunction. A urine sodium below about 20 mmol/L supports renal sodium conservation/hypovolemia; higher values require context for diuretics, osmotic diuresis and kidney disease.
+- When urine sodium, urine potassium and hourly urine volume are supplied, calculate electrolyte-free water clearance: `CeH2O = urine volume x [1 - (urine Na + urine K) / serum Na]`. A positive value indicates ongoing renal electrolyte-free water loss; a negative value indicates renal retention. Add measured stool/insensible losses separately.
+- Use `scripts/sodium_water_balance.py` for deterministic arithmetic when these inputs are supplied. Distinguish hypotonic hyponatremia from hyperglycemic/translocational hyponatremia and pseudohyponatremia.
+- In severe or moderately severe neurologic symptoms attributable to hyponatremia, give 150 mL sodium chloride 3% IV over 20 minutes and reassess symptoms and sodium. Repeat according to the current protocol until approximately a 5 mmol/L initial rise or clinical improvement; symptoms, not the sodium number alone, determine emergency treatment.
+- After the initial response, stop hypertonic saline and set explicit correction ceilings. Avoid a rise greater than 10 mmol/L in the first 24 hours and 8 mmol/L per 24 hours thereafter; use a stricter ceiling in patients at high risk of osmotic demyelination. Check sodium frequently during active correction and urine output for emerging water diuresis.
+- If correction is exceeding the limit, stop active sodium therapy and urgently use a specialist-directed relowering strategy such as electrolyte-free water and desmopressin. Do not improvise a universal desmopressin dose without the actual trajectory, urine output and local protocol.
+- For hypernatremia, restore shock first with an appropriate isotonic crystalloid, then calculate water deficit and replace enterally or with IV electrolyte-free water while accounting for ongoing losses. Establish acuity before selecting the correction rate; chronic or unknown-duration hypernatremia generally requires slower correction and serial sodium measurements.
+
+## potassium-emergencies
+
+- Obtain an immediate 12-lead ECG and continuous monitoring for severe potassium disturbance. Repeat an unexpected non-urgent value from a non-hemolyzed sample, but do not delay treatment for severe hyperkalemia, compatible ECG change, weakness or peri-arrest physiology.
+- For hyperkalemic ECG toxicity outside cardiac arrest, give calcium gluconate 10% 30 mL IV over 10 minutes; in cardiac arrest/peri-arrest, give calcium chloride 10% 10 mL IV over 5 minutes. Reassess the ECG and repeat calcium according to response/protocol. Calcium stabilizes myocardium but does not lower potassium.
+- Shift potassium with soluble insulin 10 units IV plus glucose 25 g over 5--15 minutes. State the available glucose concentration and volume: 50 mL of 50%, 125 mL of 20%, or 250 mL of 10% each provides 25 g. If pretreatment glucose is below 7 mmol/L, UKKA recommends glucose 10% at 50 mL/h for 5 hours after the initial regimen. Monitor glucose for at least 6 hours and potassium for rebound.
+- Add nebulized salbutamol 10--20 mg for moderate/severe hyperkalemia, but never use it as monotherapy. Remove potassium with dialysis when indicated and consider a current potassium binder as an adjunct; bicarbonate is not routine unless a separate acid-base indication exists.
+- For hypokalemia, identify symptoms, ECG change, magnesium deficiency, renal function and ongoing losses. Prefer oral replacement when safe. For IV potassium, use a ready-prepared solution when possible; a usual monitored rate is 10 mmol/h and a short emergency rate up to 20 mmol/h requires continuous ECG, a controlled pump and protocol-approved concentration/access. Never IV-push potassium and never write potassium only in mL without mmol and final concentration.
+
+## calcium-magnesium-emergencies
+
+- Interpret calcium using ionized calcium when available or albumin context, and obtain magnesium, phosphate, renal function, ECG/QTc and causative drugs. Treat tetany, seizure, laryngospasm, hypotension or dysrhythmia immediately.
+- For severe symptomatic hypocalcemia, give calcium gluconate 10% 10--20 mL diluted in 50--100 mL glucose 5% IV over 10 minutes with ECG monitoring; repeat until symptoms improve, then use a protocol/pharmacy-verified infusion while treating the cause. Calcium chloride contains more elemental calcium and is more damaging if extravasated; reserve it for central/resuscitation use.
+- For torsades de pointes or severe symptomatic hypomagnesemia, give magnesium sulfate 2 g IV over 10--15 minutes; in cardiac arrest follow the resuscitation protocol. Reduce or avoid repeat magnesium in renal failure and monitor reflexes, respiration, BP and magnesium.
+- For symptomatic hypermagnesemia, stop magnesium, stabilize the myocardium with calcium gluconate 10% 10--20 mL IV, support ventilation and circulation, and obtain urgent renal/dialysis input when severe or renal clearance is impaired.
+- For severe hypercalcemia, restore intravascular volume with isotonic crystalloid while avoiding overload; add calcitonin/bisphosphonate only after cause, renal function and current specialist protocol are verified. Do not use loop diuretics routinely except to manage fluid overload.
+
+## toxicology
+
+- Stabilize ABCs, glucose, temperature and seizures; identify toxidrome, timing, formulation, co-ingestants and intent.
+- Use ECG intervals, acid-base status, osmolar/anion gaps and targeted levels. Contact a poison center/toxicologist for severe, unknown or antidote/dialysis-relevant exposure.
+- Give decontamination or antidote only when indication, timing, contraindications and dose are verified. Plan recurrent-toxicity observation and psychiatric assessment when intentional.
+
+## urologic-emergencies
+
+- Threats: infected obstruction, torsion, retention with complications, Fournier gangrene, priapism and major hematuria with clot retention.
+- Obtain urinalysis/culture, renal function, pregnancy test and targeted ultrasound/CT. Analgesia must not delay torsion or source-control pathways.
+- Infected obstruction requires antibiotics, resuscitation and urgent drainage consultation; discharge only uncomplicated stable disease with follow-up and return precautions.
+
+## endocrine-metabolic
+
+- Consider DKA/HHS, adrenal crisis, thyroid storm, myxedema coma, severe hypoglycemia and pituitary emergencies.
+- Treat airway/shock/glucose first; obtain ketones, electrolytes, osmolality and acid-base data as relevant.
+- For insulin and electrolyte replacement, verify weight, potassium, renal function, concentration and monitoring frequency; show calculations and avoid insulin when unsafe due to potassium.
+
+## adrenal-crisis
+
+- Suspect adrenal crisis with unexplained shock, vomiting, weakness, hypoglycemia or hyponatremia, especially after steroid interruption or with known adrenal/pituitary disease. Hyperkalemia may be absent in secondary adrenal insufficiency. Draw cortisol/ACTH if immediately feasible; do not delay treatment for sampling or results.
+- Adult treatment: hydrocortisone 100 mg IV immediately (IM if IV access is delayed), then 200 mg over 24 hours or 50 mg IV/IM every 6 hours. If pharmacy confirms the product/diluent and stability, 200 mg to a final 100 mL = 2 mg/mL, delivering 8.33 mg/h at 4.17 mL/h; 200 mg/200 mL = 1 mg/mL at 8.33 mL/h. Confirm bag replacement interval; never assume 24-hour stability from this arithmetic.
+- Restore circulation with isotonic saline; an adult without fluid-overload risk commonly receives 1 L in the first hour, then reassessment. Use smaller reassessed aliquots in cardiac/renal disease. Treat hypoglycemia promptly, monitor sodium correction, glucose, potassium, urine output and perfusion, and treat the precipitant.
+- The intermittent hydrocortisone regimen is an alternative when a pump is unavailable. If hydrocortisone itself is unavailable, urgently obtain an endocrinology/pharmacy-verified parenteral glucocorticoid alternative; do not substitute milligram-for-milligram or assume equal mineralocorticoid effect. Admit, taper after recovery with endocrinology and provide sick-day education.
+
+## thyroid-storm
+
+- Suspect clinical thyrotoxic decompensation with fever, marked tachycardia/arrhythmia, CNS disturbance, heart failure or GI/hepatic dysfunction. Scores support diagnosis but should not delay ICU/endocrine treatment. Obtain thyroid tests, glucose, electrolytes, liver tests, ECG, cultures and cardiac assessment while treating the precipitant.
+- Control hormone synthesis when due to hyperfunction: ATA adult reference regimens are propylthiouracil 500--1,000 mg enteral loading then 250 mg every 4 hours, OR methimazole/thiamazole 60--80 mg/day in divided enteral doses. Select around hepatic injury, pregnancy, contraindications and actual availability; do not combine automatically. Thyroiditis/exogenous hormone requires a different strategy.
+- Under the ATA sequence, give iodine at least 1 hour after the thionamide. Verify iodine concentration and formulation before converting to drops; products are not interchangeable. Other guideline sequences require explicit specialist reconciliation.
+- Give stress-dose glucocorticoid using one verified storm protocol. The 2026 ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society consensus proposes hydrocortisone 100 mg IV once, then 50 mg IV every 6 hours (or 200 mg over 24 hours by syringe driver in HDU/ICU). ATA 2016 lists a different regimen (300 mg IV loading, then 100 mg every 8 hours); do not combine or silently interchange regimens—follow the current specialist/local protocol. Monitor potassium after glucocorticoids, especially when thyrotoxic periodic paralysis is plausible. Do not confuse storm treatment with adrenal-crisis dosing. Provide external cooling and suitable antipyresis; avoid aspirin/salicylates. Manage fluids and oxygen according to cardiac status.
+- Assess shock and ventricular function BEFORE beta-blockade. Decompensated low-output failure can collapse after propranolol or even esmolol. In a well-perfused patient, select/titrate a verified beta-blocker regimen with continuous monitoring. If esmolol is appropriate, use the existing preparation/calculation in `acute-aortic-syndrome`, but do not copy its aortic BP/HR targets. Avoid automatic loading in tenuous circulation; stop for worsening perfusion, bradycardia, block or bronchospasm. Diltiazem is not automatically safe in systolic failure either.
+- If significant hepatic dysfunction is present (e.g. transaminases around >3 times the upper limit of normal or rising bilirubin), the 2026 consensus favours considering methimazole/carbimazole over PTU because of PTU hepatotoxicity risk, except where patient-specific factors such as first-trimester pregnancy alter selection. Observational data have not shown a clear mortality advantage for PTU. Once clinically improving, reduce thionamide dosing as directed by endocrinology. If not clinically stabilising within 24–48 hours, reassess precipitant, absorption, cardiac dysfunction and need for rescue. Cholestyramine, lithium, plasma exchange or thyroidectomy are specialist adjunct/rescue options, not automatic steps. If thionamides are unavailable/contraindicated or treatment fails, obtain urgent specialist rescue planning; do not replace them with an unrelated antihypertensive. Verify Portuguese products via the localization workflow.
+
+## myxedema-coma
+
+- Recognize severe decompensated hypothyroidism with altered consciousness, hypothermia, hypoventilation, bradycardia, hypotension and/or hyponatremia; coma is not required. TSH may not be elevated with central disease. Obtain TSH/free T4, cortisol, gas, glucose/electrolytes and precipitant assessment without delaying treatment.
+- Give empiric stress-dose hydrocortisone BEFORE thyroid hormone while adrenal insufficiency is being excluded; the adrenal-crisis module supplies 100 mg IV followed by 200 mg/24 h or 50 mg every 6 hours. Reconcile ongoing doses with the endocrine team.
+- Adult ATA reference: levothyroxine 200--400 micrograms IV ONCE as a loading dose, reduced for older/smaller patients, coronary disease or arrhythmia. Subsequent daily IV replacement is approximately 75% of an oral 1.6 micrograms/kg/day reference, individualized with specialist monitoring. Never repeat the loading dose as daily maintenance or confuse micrograms with milligrams.
+- If IV levothyroxine is unavailable, arrange urgent endocrine/pharmacy-directed enteral treatment; absorption with ileus is unreliable and oral and IV doses are not equivalent. Liothyronine is a selected specialist adjunct, not a routine substitute; cardiac risk and local availability matter.
+- Admit to ICU, support ventilation early if needed, use cautious fluids and passive warming, correct hypoglycemia and sodium safely, and treat infection/other triggers. Avoid aggressive peripheral warming and unnecessary sedatives. Follow consciousness, ventilation, temperature, ECG/perfusion and free hormone trends.
+- The 2026 ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society joint consensus supports IV levothyroxine loading at 200–400 micrograms, reducing the dose in older/smaller patients and those with ischaemic heart disease or significant arrhythmia, plus empiric IV hydrocortisone 100 mg then 50 mg every 6 hours (or 200 mg/24 hours by syringe driver). This agrees with the module's cautious loading and hydrocortisone schedule. The exact enteral fallback regimen when IV levothyroxine is unavailable still requires source-level and pharmacy/local-protocol confirmation; do not invent an oral/NG loading dose or claim it is dose-equivalent.
+
+## diabetic-ketoacidosis-hhs
+
+- Diagnose adult DKA only when all three domains are present: diabetes/history or glucose at least 200 mg/dL (11.1 mmol/L), ketosis with beta-hydroxybutyrate at least 3.0 mmol/L or urine ketones at least 2+, and metabolic acidosis with pH below 7.3 or bicarbonate below 18 mmol/L. Actively consider euglycemic DKA with SGLT2 inhibitors, pregnancy, fasting or partial insulin treatment; do not exclude DKA from glucose alone.
+- Diagnose HHS only when all four domains are present: glucose at least 600 mg/dL (33.3 mmol/L), effective osmolality above 300 mOsm/kg or total calculated osmolality above 320 mOsm/kg, beta-hydroxybutyrate below 3.0 mmol/L or urine ketones below 2+, and pH at least 7.3 with bicarbonate at least 15 mmol/L. Classify significant ketonaemia/acidosis with hyperosmolality as mixed DKA/HHS.
+- Obtain glucose, beta-hydroxybutyrate, venous blood gas, sodium, potassium, chloride, bicarbonate, urea/creatinine, magnesium, phosphate, measured osmolality when available, ECG, fluid balance and precipitant evaluation. Calculate anion gap, albumin-corrected gap when albumin is known, effective/total osmolality and corrected sodium. Prefer beta-hydroxybutyrate to urine ketones and use `scripts/acid_base_hyperglycemia.py` for deterministic arithmetic.
+- Restore perfusion first. In adults without cardiac or renal compromise, give isotonic saline or a balanced crystalloid at 500--1000 mL/h for the first 2--4 hours, then individualize by hemodynamics, sodium, osmolality and fluid balance. In older adults, pregnancy, heart failure or kidney failure, use smaller aliquots such as 250 mL with frequent reassessment; do not apply a fixed large-volume protocol.
+- Check potassium before insulin. If potassium is below 3.5 mmol/L, replace potassium at 10 mmol/h and delay insulin until potassium is above 3.5 mmol/L. One conditional reference preparation is potassium chloride 20 mmol in a compatible final volume of 100 mL = 0.2 mmol/mL, delivered at 50 mL/h = 10 mmol/h; use only when the local protocol permits that concentration for the verified access, with a controlled pump and ECG/electrolyte monitoring. Once potassium falls below 5.0 mmol/L, usually add 20--30 mmol potassium per litre of IV fluid to target 4--5 mmol/L; withhold initial potassium when elevated and monitor closely. Never IV-push potassium.
+- For DKA or mixed DKA/HHS, use soluble/regular insulin IV at 0.1 units/kg/h after the potassium safety gate. A practical pump preparation is 100 units in a final volume of 100 mL compatible 0.9% saline = 1 unit/mL: the numeric units/h equals mL/h. Prime tubing according to local protocol. Do not routinely give an insulin bolus when the infusion can start promptly.
+- When glucose falls below 250 mg/dL (13.9 mmol/L) in DKA, add 5--10% dextrose and reduce insulin to 0.05 units/kg/h, targeting glucose near 200 mg/dL while continuing insulin until ketoacidosis resolves. In euglycemic DKA, begin dextrose with the insulin pathway rather than withholding insulin because glucose is near normal.
+- In HHS without significant ketosis/acidosis, prioritize controlled fluid/osmolality correction and use insulin IV at 0.05 units/kg/h; a fluid-only glucose fall may occur before insulin. Do not exceed a glucose decline of 90--120 mg/dL/h, a sodium fall of 10 mmol/L/24 h or an osmolality fall of 3--8 mOsm/kg/h. An initial sodium rise as glucose falls is expected and alone is not an indication for hypotonic saline.
+- Check capillary glucose every 1--2 hours. Repeat electrolytes, creatinine, phosphate, beta-hydroxybutyrate and venous pH every 4 hours; in HHS also repeat osmolality every 4 hours. Recheck potassium 2 hours after insulin starts and at least every 4 hours, more often when unstable or actively replacing.
+- Assess bleeding, renal function, weight and venous/arterial thrombosis. Unless thrombosis is suspected or anticoagulation is contraindicated, use prophylactic-dose low-molecular-weight heparin according to the locally available product and renal/weight protocol; do not escalate automatically to therapeutic anticoagulation merely because HHS is prothrombotic.
+- Do not give bicarbonate routinely. Consider it only for severe DKA acidosis below pH 7.0 under a current protocol; if used, the 2024 consensus regimen is sodium bicarbonate 100 mmol in 400 mL sterile water every 2 hours until pH exceeds 7.0, with potassium and sodium monitoring. Do not replace phosphate routinely unless phosphate below 1.0 mmol/L is accompanied by respiratory/cardiac muscle weakness or another specific indication.
+- Define DKA resolution by beta-hydroxybutyrate below 0.6 mmol/L plus venous pH at least 7.3 or bicarbonate at least 18 mmol/L; ideally glucose is below 200 mg/dL. Do not use anion gap or urine ketones alone because recovery hyperchloremic acidosis and ketone conversion can mislead. Consider HHS resolved when osmolality is below 300 mOsm/kg, cognition and hyperglycemia improve, urine output exceeds 0.5 mL/kg/h and glucose is below 250 mg/dL.
+- Continue or initiate an appropriate basal insulin plan and overlap subcutaneous insulin by 1--2 hours before stopping IV insulin. Treat the precipitant, stop SGLT2 inhibitors during the event, and admit severe DKA, HHS, mixed crises, altered consciousness, shock or major comorbidity to a high-acuity setting.
+
+## acid-base-emergencies
+
+- Confirm sample type (arterial, venous or capillary), oxygen delivery/FiO2, collection time and clinical context. Venous pH/bicarbonate are often sufficient for DKA trending, but venous PO2 must not be used to assess arterial oxygenation; use pulse oximetry and an arterial sample when oxygenation or an arterial-venous discrepancy matters.
+- Read pH, PCO2 and bicarbonate together. Then obtain sodium, chloride, albumin, lactate, beta-hydroxybutyrate, glucose, urea/creatinine and relevant toxins. A normal pH does not exclude a mixed disorder.
+- Calculate anion gap as `Na - (Cl + HCO3)` and, when albumin is known in g/dL, corrected gap as `AG + 2.5 x (4 - albumin)`. For high-gap metabolic acidosis calculate the delta ratio `(corrected AG - 12) / (24 - HCO3)` while treating cutoffs as approximate and context-dependent.
+- For metabolic acidosis, calculate Winter compensation: expected PCO2 `1.5 x HCO3 + 8 +/- 2 mmHg`. A measured PCO2 above this range indicates an added respiratory acidosis; below it indicates an added respiratory alkalosis. For metabolic alkalosis use expected PCO2 approximately `40 + 0.7 x (HCO3 - 24) +/- 5`.
+- For respiratory disorders, compare acute and chronic expected bicarbonate responses instead of declaring chronicity from one gas: respiratory acidosis raises bicarbonate by about 1 mmol/L per 10 mmHg acute and 3.5--4 chronic; respiratory alkalosis lowers it by about 2 acute and 4--5 chronic.
+- Use `scripts/acid_base_hyperglycemia.py` for reproducible calculations. Treat the patient and cause: restore perfusion/oxygenation, address sepsis, DKA, renal failure, diarrhea, vomiting, salicylate/toxic alcohol exposure or ventilatory failure. Do not administer bicarbonate solely because bicarbonate is low.
+- In severe metabolic acidosis, avoid unnecessary intubation. If intubation is unavoidable, minimize apnea and match or initially approximate the pre-intubation minute ventilation; an abrupt PCO2 rise can cause profound acidemia and cardiovascular collapse. Obtain an early post-intubation gas and reassess ventilation.
+
+## aki-nephrology
+
+- Determine baseline, perfusion, obstruction, nephrotoxins, urinalysis findings and complications. Use bladder/renal ultrasound when obstruction is plausible.
+- Treat shock and cause while avoiding both under-resuscitation and congestion; adjust renally cleared drugs.
+- Escalate refractory hyperkalemia, severe acidosis, pulmonary edema, uremic complication or toxin indication for nephrology/dialysis; do not use creatinine alone to decide.
+
+## rhabdomyolysis
+
+- Identify trauma/compression, exertion/heat, seizure, drugs/toxins and ischemia; check CK trend, potassium, calcium, phosphate, renal function and ECG.
+- Give goal-directed isotonic crystalloid while tracking urine output, perfusion and congestion; a commonly used adult urine-output target is about 1--3 mL/kg/h (up to roughly 300 mL/h), but stop escalating fluid if oliguria persists with overload risk. Treat hyperkalemia urgently and trend CK until a clear peak/downtrend.
+- Do not use bicarbonate, mannitol or loop diuretics routinely to prevent rhabdomyolysis-associated AKI; reserve them for another specific indication or specialist protocol. Do not chase CK with unlimited fluid.
+- Evaluate compartment syndrome and dialysis indications; admit significant electrolyte disturbance, AKI, systemic illness or ongoing muscle injury.
+
+## acute-liver-failure
+
+- Recognize acute liver injury with coagulopathy and encephalopathy; assess glucose frequently and seek toxins, viral, ischemic, autoimmune and pregnancy causes.
+- Start N-acetylcysteine immediately for suspected acetaminophen toxicity without waiting for a level; discuss early IV N-acetylcysteine for selected non-acetaminophen acute liver failure with a liver/transplant specialist. Obtain an accurate timeline, acetaminophen concentration, toxicology and serial hepatic, renal, glucose, lactate, ammonia and coagulation data.
+- Manage cerebral/airway risk and avoid unnecessary correction of INR without bleeding or an invasive-procedure need because INR does not measure the full hemostatic balance and correction can obscure prognosis.
+- Contact a transplant-capable liver center at first recognition rather than after deterioration; worsening encephalopathy, lactate, acidosis, hypoglycemia or multiorgan failure requires critical care and urgent transplant assessment.
+
+## alcohol-withdrawal
+
+- Determine last intake, prior seizures/delirium, co-ingestion, trauma, infection, liver disease, glucose and electrolytes.
+- Benzodiazepines are first-line. Use symptom-triggered dosing only when a reliable validated assessment can be performed; use fixed or front-loaded treatment for severe/high-risk withdrawal, inability to score reliably or according to monitored protocol. Match agent to liver function and age, verify dose, monitor ventilation and define refractory escalation.
+- Phenobarbital may be an alternative or adjunct only in experienced hands with close cardiorespiratory monitoring and a clear cumulative-dose/rescue-airway plan; avoid unstructured stacking with other sedatives.
+- Give thiamine and correct metabolic abnormalities without delaying glucose for hypoglycemia. Severe withdrawal, delirium or repeated medication needs requires monitored admission.

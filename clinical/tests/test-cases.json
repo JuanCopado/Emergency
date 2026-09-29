@@ -1,0 +1,219 @@
+[
+  {
+    "name": "Noradrenaline infusion calculation",
+    "input": {
+      "drug_mg": 8,
+      "volume_ml": 100,
+      "dose_mcg_kg_min": 0.1,
+      "weight_kg": 80
+    },
+    "expected_ml_h": 6.0
+  },
+  {
+    "name": "Noradrenaline infusion calculation in 200 mL",
+    "input": {
+      "drug_mg": 8,
+      "volume_ml": 200,
+      "dose_mcg_kg_min": 0.1,
+      "weight_kg": 80
+    },
+    "expected_ml_h": 12.0
+  },
+  {
+    "name": "Weight based dose with cap",
+    "input": {
+      "weight_kg": 90,
+      "dose_per_kg": 1.5,
+      "max_dose": 100
+    },
+    "expected": 100
+  },
+  {
+    "name": "Bedside routing - shock",
+    "prompt": "Paciente hipotenso, febril, lactato alto",
+    "expected_modules": [
+      "sepsis-shock",
+      "ecg-pocus-integration"
+    ]
+  },
+  {
+    "name": "Bedside routing - stroke",
+    "prompt": "Déficit neurológico focal súbito hace 90 minutos",
+    "expected_modules": [
+      "acute-ischemic-stroke"
+    ]
+  },
+  {
+    "name": "Bedside routing - toxicology",
+    "prompt": "Sobredosis con alteración del nivel de conciencia",
+    "expected_modules": [
+      "toxicology",
+      "altered-consciousness"
+    ]
+  },
+  {
+    "name": "Bedside respiratory regression - tension pneumothorax",
+    "prompt": "Varón de 22 años, fumador, disnea súbita con dolor torácico, sudoración, TA 90/40, FC 90 y murmullo vesicular disminuido en el lado derecho.",
+    "expected_priority_diagnosis": "tension-pneumothorax",
+    "expected_modules": [
+      "tension-pneumothorax",
+      "pocus",
+      "emergency-procedures"
+    ],
+    "safety_invariants": [
+      "shock_overrides_apparently_normal_heart_rate",
+      "do_not_delay_for_radiography",
+      "pocus_only_if_no_delay",
+      "decompression_requires_rescue_plan",
+      "immediate_reassessment_and_definitive_drainage"
+    ]
+  },
+  {
+    "name": "Living evidence red status forces re-check",
+    "input": {
+      "module": "example",
+      "status": "red"
+    },
+    "expected": "external_verification_required"
+  },
+  {
+    "name": "Bedside electrolyte regression - hyperkalemia",
+    "prompt": "Adulto con K 7.1 mmol/L, ondas T picudas y enfermedad renal: indique tratamiento con dosis y perfusiones.",
+    "expected_priority_diagnosis": "potassium-emergencies",
+    "expected_modules": ["potassium-emergencies", "medication-selection-safety"],
+    "safety_invariants": [
+      "calcium_stabilizes_but_does_not_remove_potassium",
+      "insulin_glucose_requires_six_hour_glucose_monitoring",
+      "salbutamol_is_not_monotherapy",
+      "assess_dialysis_and_rebound"
+    ]
+  },
+  {
+    "name": "Bedside electrolyte regression - symptomatic hyponatremia",
+    "prompt": "Paciente con sodio 112 mmol/L, convulsion y duracion desconocida.",
+    "expected_priority_diagnosis": "sodium-emergencies",
+    "expected_modules": ["sodium-emergencies", "medication-selection-safety"],
+    "safety_invariants": [
+      "hypertonic_bolus_is_symptom_driven",
+      "initial_five_mmol_rise",
+      "correction_ceiling_and_relowering_plan"
+    ]
+  },
+  {
+    "name": "Bedside electrolyte regression - hypernatremia diagnostic classification",
+    "prompt": "Paciente con sodio 155 mmol/L: calcular deficit y orientar tratamiento.",
+    "expected_priority_diagnosis": "sodium-emergencies",
+    "expected_modules": ["sodium-emergencies", "medication-selection-safety"],
+    "safety_invariants": [
+      "request_and_calculate_serum_osmolar_indices",
+      "request_measured_urine_osmolality_sodium_potassium_and_volume",
+      "calculate_electrolyte_free_water_clearance_when_possible",
+      "do_not_invent_missing_urine_values"
+    ]
+  },
+  {
+    "name": "Bedside vascular regression - ruptured AAA",
+    "prompt": "Varon de 74 anos con dolor lumbar subito, sincope, TA 75/45 y aneurisma abdominal en POCUS.",
+    "expected_priority_diagnosis": "abdominal-aortic-aneurysm",
+    "expected_modules": ["abdominal-aortic-aneurysm", "trauma-major-hemorrhage", "pocus"],
+    "safety_invariants": [
+      "immediate_vascular_activation",
+      "pocus_does_not_exclude_rupture",
+      "restricted_crystalloid_and_permissive_resuscitation",
+      "definitive_repair_not_delayed"
+    ]
+  },
+  {
+    "name": "Procedure regression - sedation and RSI rescue",
+    "prompt": "Preparar sedacion para reduccion y posteriormente una intubacion de secuencia rapida en un paciente inestable.",
+    "expected_modules": ["sedoanalgesia", "airway-rsi", "medication-selection-safety"],
+    "safety_invariants": [
+      "dedicated_sedation_monitoring_and_capnography",
+      "anatomic_and_physiologic_airway_assessment",
+      "plan_a_b_c_d",
+      "post_intubation_analgesia_and_sedation"
+    ]
+  },
+  {
+    "name": "Bedside neurologic regression - extra-axial mass effect",
+    "prompt": "Adulto con hematoma extraaxial traumatico, desviacion de linea media e hipertension: indicar tratamiento de TA y solucion hipertonica.",
+    "expected_priority_diagnosis": "traumatic-intracranial-mass-effect",
+    "expected_modules": [
+      "traumatic-intracranial-mass-effect",
+      "trauma-major-hemorrhage",
+      "medication-selection-safety"
+    ],
+    "safety_invariants": [
+      "neurosurgical_evacuation_is_definitive",
+      "do_not_apply_spontaneous_ich_bp_target",
+      "protect_age_stratified_sbp_floor",
+      "hypertonic_saline_is_weight_based_bolus",
+      "hyperosmolar_therapy_does_not_delay_surgery"
+    ]
+  },
+  {
+    "name": "Yellow high-risk module forces re-check",
+    "input": {
+      "module": "pulmonary-embolism",
+      "status": "yellow",
+      "priority": "high"
+    },
+    "expected": "external_verification_required"
+  },
+  {
+    "name": "New evidence does not silently overwrite module",
+    "input": {
+      "new_guideline_detected": true
+    },
+    "expected": "pending_updates_queue"
+  },
+  {
+    "name": "Metabolic regression - DKA with unsafe potassium",
+    "prompt": "Adulto 70 kg, glucosa 420 mg/dL, beta-hidroxibutirato 5 mmol/L, pH 7.12, bicarbonato 9 y potasio 3.1 mmol/L. Preparar insulina en 100 mL.",
+    "expected_priority_diagnosis": "diabetic-ketoacidosis-hhs",
+    "expected_modules": ["diabetic-ketoacidosis-hhs", "acid-base-emergencies", "medication-selection-safety"],
+    "safety_invariants": [
+      "all_three_dka_domains",
+      "replace_potassium_before_insulin",
+      "one_unit_per_ml_preparation",
+      "add_dextrose_and_continue_insulin_until_ketosis_resolves",
+      "do_not_use_anion_gap_alone_for_resolution"
+    ]
+  },
+  {
+    "name": "Clinical image regression - blood gas screen photograph",
+    "prompt": "Interprete esta fotografia de una gasometria y calcule el trastorno acido-base.",
+    "expected_modules": ["clinical-image-interpretation", "blood-gas-image", "acid-base-emergencies"],
+    "safety_invariants": [
+      "inspect_actual_pixels",
+      "verify_sample_type_and_oxygen_context",
+      "verify_each_digit_decimal_and_unit",
+      "do_not_treat_unlabeled_po2_as_arterial",
+      "calculate_only_from_verified_values"
+    ]
+  },
+  {
+    "name": "Respiratory support regression - hypercapnic COPD",
+    "prompt": "Adulto con EPOC, somnolencia, pH 7.22, PaCO2 80 mmHg y SpO2 78%: seleccionar oxigeno, NIV y criterios de intubacion.",
+    "expected_priority_diagnosis": "acute-respiratory-failure",
+    "expected_modules": ["acute-respiratory-failure", "oxygen-therapy-emergency", "noninvasive-ventilation"],
+    "safety_invariants": [
+      "target_spo2_88_92",
+      "bilevel_niv_for_reversible_hypercapnic_acidosis",
+      "repeat_gas_at_one_hour",
+      "do_not_delay_intubation_for_failed_niv"
+    ]
+  },
+  {
+    "name": "Respiratory support regression - falling ROX",
+    "prompt": "Adulto con neumonia en HFNO: calcular ROX seriado y decidir escalada sin retrasar intubacion.",
+    "expected_priority_diagnosis": "acute-respiratory-failure",
+    "expected_modules": ["acute-respiratory-failure", "oxygen-therapy-emergency", "high-flow-nasal-oxygen"],
+    "safety_invariants": [
+      "use_set_hfno_fio2_fraction",
+      "trend_over_single_rox",
+      "pneumonia_specific_validation_limits",
+      "clinical_deterioration_overrides_rox"
+    ]
+  }
+]

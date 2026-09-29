@@ -1,0 +1,14 @@
+interface:
+  display_name: Emergency Medicine
+  short_description: Safety-focused emergency bedside decision support
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+  default_prompt: Use $emergency-medicine to assess this emergency case, prioritize
+    immediate threats, and give an action-oriented stabilization plan.
+policy:
+  allow_implicit_invocation: true
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas

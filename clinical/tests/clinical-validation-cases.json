@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "validation_boundary": "Synthetic, de-identified cases derived from authoritative guidance. Passing these cases is regression testing, not prospective clinical validation.",
+  "cases": [
+    {
+      "id": "ongoing-unstable-hematochezia",
+      "prompt": "Adulto con hematoquecia abundante persistente, TA 82/45, FC 118 y Hb inicial 11 g/dL. No hay preparación de colon.",
+      "expected_modules": ["lower-gi-bleeding", "upper-gi-bleeding"],
+      "must_do": ["resuscitate_without_waiting_for_hb_drop", "consider_upper_source", "urgent_cta_for_ongoing_significant_bleeding", "prompt_ir_if_extravasation"],
+      "must_not_do": ["delay_control_for_bowel_preparation", "routine_tranexamic_acid", "reassure_from_initial_hb"],
+      "source": {"organization": "ACG", "title": "Management of Patients With Acute Lower Gastrointestinal Bleeding", "year": 2023, "url": "https://pubmed.ncbi.nlm.nih.gov/36735555/"}
+    },
+    {
+      "id": "mesenteric-ischemia-normal-lactate",
+      "prompt": "Varón 78 años con fibrilación auricular, dolor abdominal súbito intenso, abdomen inicialmente blando, lactato 1.8 y creatinina 2.2 mg/dL.",
+      "expected_modules": ["acute-mesenteric-ischemia", "acute-abdomen", "empiric-antibiotics", "medication-selection-safety"],
+      "must_do": ["urgent_cta", "early_surgical_vascular_contact", "distinguish_arterial_venous_nonocclusive", "verify_latest_vascular_guidance"],
+      "must_not_do": ["exclude_from_normal_lactate", "delay_cta_only_for_creatinine", "automatic_systemic_thrombolysis"],
+      "source": {"organization": "WSES", "title": "Acute mesenteric ischemia: updated guidelines", "year": 2022, "url": "https://doi.org/10.1186/s13017-022-00443-x"}
+    },
+    {
+      "id": "adult-burn-fluid-clock",
+      "prompt": "Adulto 80 kg, quemadura parcial profunda del 30% hace dos horas; recibió 600 mL de Ringer. Sin hemorragia, estable, diuresis vigilada. Calcular pauta inicial y ajustes.",
+      "expected_modules": ["major-burns", "medication-selection-safety"],
+      "must_do": ["exclude_superficial_erythema", "use_time_from_injury", "subtract_prior_fluid", "titrate_hourly_to_perfusion_and_urine"],
+      "must_not_do": ["restart_clock_at_admission", "blind_catch_up_bolus", "fixed_formula_without_reassessment"],
+      "source": {"organization": "ABA", "title": "Clinical Practice Guidelines on Burn Shock Resuscitation", "year": 2024, "url": "https://pubmed.ncbi.nlm.nih.gov/38051821/"}
+    },
+    {
+      "id": "smoke-collapse-normal-spo2",
+      "prompt": "Adulto rescatado de incendio en recinto cerrado, confuso, TA 75/40, hollín oral, SpO2 99% convencional y lactato 12 mmol/L.",
+      "expected_modules": ["smoke-inhalation-toxic-injury", "toxicology", "oxygen-therapy-emergency", "medication-selection-safety"],
+      "must_do": ["immediate_high_concentration_oxygen", "co_oximetry", "assess_airway_trajectory", "consider_empiric_hydroxocobalamin_for_severe_suspicion"],
+      "must_not_do": ["exclude_co_from_normal_spo2", "wait_for_cyanide_assay", "use_antidote_as_maintenance_infusion"],
+      "source": {"organization": "EMA", "title": "Cyanokit product information", "year": 2026, "url": "https://www.ema.europa.eu/en/documents/product-information/cyanokit-epar-product-information_en.pdf"}
+    },
+    {
+      "id": "sepsis-shock-unstable",
+      "prompt": "Adulto con infección probable, confusión, lactato 5 mmol/L y TA 72/38 pese a un bolo inicial pequeño.",
+      "expected_modules": ["sepsis-shock", "medication-selection-safety"],
+      "must_do": ["antibiotics_within_one_hour", "individualized_crystalloid_reassessment", "early_norepinephrine", "source_control"],
+      "must_not_do": ["delay_antibiotics_for_cultures", "delay_vasopressor_for_central_line", "fluid_until_lactate_normalizes"],
+      "source": {"organization": "SCCM", "title": "Surviving Sepsis Campaign Adult Guidelines", "year": 2026, "url": "https://sccm.org/survivingsepsiscampaign/guidelines-and-resources/surviving-sepsis-campaign-adult-guidelines"}
+    },
+    {
+      "id": "possible-sepsis-no-shock",
+      "prompt": "Adulto estable con fiebre, diagnóstico infeccioso incierto y sin hipoperfusión ni shock.",
+      "expected_modules": ["sepsis-shock"],
+      "must_do": ["rapid_time_limited_investigation", "antibiotics_within_three_hours_if_concern_persists", "close_monitoring"],
+      "must_not_do": ["automatic_one_hour_antibiotic_rule_for_every_possible_infection"],
+      "source": {"organization": "SCCM", "title": "Surviving Sepsis Campaign Adult Guidelines", "year": 2026, "url": "https://sccm.org/survivingsepsiscampaign/guidelines-and-resources/surviving-sepsis-campaign-adult-guidelines"}
+    },
+    {
+      "id": "stemi-on-apixaban",
+      "prompt": "Varón de 80 años con elevación anterior del ST, dolor persistente y tratamiento con apixabán.",
+      "expected_modules": ["acute-coronary-syndrome", "anticoagulation-reversal", "medication-selection-safety"],
+      "must_do": ["activate_primary_pci", "verify_last_anticoagulant_dose", "individualize_antithrombotics"],
+      "must_not_do": ["automatic_fibrinolysis", "assume_normal_inr_excludes_apixaban"],
+      "source": {"organization": "ESC", "title": "2023 ESC Guidelines for Acute Coronary Syndromes", "year": 2023, "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/acute-coronary-syndromes/"}
+    },
+    {
+      "id": "high-risk-pe-shock",
+      "prompt": "Adulto con inmovilización reciente, disnea súbita, hipoxemia grave, TA 80/40 y alta sospecha de embolia pulmonar.",
+      "expected_modules": ["pulmonary-embolism", "acute-respiratory-failure", "medication-selection-safety"],
+      "must_do": ["classify_hemodynamic_instability", "urgent_reperfusion_assessment", "bedside_imaging_if_it_does_not_delay"],
+      "must_not_do": ["use_d_dimer_to_delay_high_risk_pathway", "exclude_pe_with_negative_bedside_ultrasound"],
+      "source": {"organization": "ESC", "title": "2019 ESC Guidelines for Acute Pulmonary Embolism", "year": 2019, "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/acute-pulmonary-embolism/"}
+    },
+    {
+      "id": "acute-disabling-stroke",
+      "prompt": "Adulto con déficit focal discapacitante, última vez bien hace 100 minutos, glucosa normal y sin hemorragia en TC.",
+      "expected_modules": ["acute-ischemic-stroke", "medication-selection-safety"],
+      "must_do": ["activate_stroke_pathway", "evaluate_thrombolysis", "evaluate_large_vessel_occlusion_independently"],
+      "must_not_do": ["dismiss_disabling_deficit_because_nihss_is_low", "delay_reperfusion_for_nonessential_tests"],
+      "source": {"organization": "AHA/ASA", "title": "2026 Guideline for Early Management of Acute Ischemic Stroke", "year": 2026, "url": "https://professional.heart.org/en/science-news/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-stroke"}
+    },
+    {
+      "id": "convulsive-status-five-minutes",
+      "prompt": "Adulto con convulsión tónico-clónica continua durante 6 minutos y acceso IV disponible.",
+      "expected_modules": ["status-epilepticus", "medication-selection-safety"],
+      "must_do": ["treat_at_five_minutes", "full_first_line_benzodiazepine_dose", "prompt_second_line_if_persistent"],
+      "must_not_do": ["wait_thirty_minutes", "serial_ineffective_benzodiazepine_microdoses"],
+      "source": {"organization": "ILAE", "title": "Inadequate first-line treatment for status epilepticus", "year": 2022, "url": "https://www.ilae.org/journals/epigraph/epigraph-vol-24-issue-4-fall-2022/inadequate-first-line-treatment-for-status-epilepticus-the-issue-and-solutions"}
+    },
+    {
+      "id": "traumatic-major-hemorrhage",
+      "prompt": "Adulto 90 minutos después de trauma cerrado con shock hemorrágico, pelvis inestable e hipotermia.",
+      "expected_modules": ["trauma-major-hemorrhage", "medication-selection-safety"],
+      "must_do": ["major_hemorrhage_activation", "early_tranexamic_acid_within_three_hours", "warming_and_calcium_monitoring", "definitive_source_control"],
+      "must_not_do": ["large_unstructured_crystalloid_resuscitation", "tranexamic_acid_after_three_hours_as_routine"],
+      "source": {"organization": "European trauma guideline task force", "title": "European guideline on major bleeding and coagulopathy following trauma: sixth edition", "year": 2023, "url": "https://doi.org/10.1186/s13054-023-04327-7"}
+    },
+    {
+      "id": "eclampsia-severe-hypertension",
+      "prompt": "Gestante con convulsión, TA persistente 175/115 y cefalea intensa.",
+      "expected_modules": ["obstetric-emergencies", "status-epilepticus", "medication-selection-safety"],
+      "must_do": ["magnesium_for_eclampsia", "urgent_pregnancy_specific_antihypertensive", "maternal_stabilization", "obstetric_escalation"],
+      "must_not_do": ["use_magnesium_as_the_antihypertensive", "withhold_maternal_resuscitation_for_fetal_concern"],
+      "source": {"organization": "ACOG", "title": "Gestational Hypertension and Preeclampsia", "year": 2020, "url": "https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2020/06/gestational-hypertension-and-preeclampsia"}
+    },
+    {
+      "id": "critical-bleeding-apixaban",
+      "prompt": "Adulto en apixabán con hemorragia intracraneal aguda y PT/INR normal.",
+      "expected_modules": ["anticoagulation-reversal", "traumatic-intracranial-mass-effect"],
+      "must_do": ["identify_last_dose_and_renal_function", "agent_specific_reversal", "source_control_and_specialist_escalation"],
+      "must_not_do": ["use_normal_inr_to_clear_apixaban", "reverse_nonmajor_bleeding_reflexively"],
+      "source": {"organization": "ACC", "title": "Expert Consensus Decision Pathway on Bleeding in Patients on Oral Anticoagulants", "year": 2020, "url": "https://www.acc.org/about-acc/press-releases/2020/07/14/14/55/media-alert---2020-acc-expert-consensus-decision-pathway-on-management-of-bleeding-in-patients-on-oral-anticoagulants"}
+    },
+    {
+      "id": "hyperglycemic-crisis-low-potassium",
+      "prompt": "Adulto con cetoacidosis diabética y potasio 3.1 mmol/L antes de iniciar insulina.",
+      "expected_modules": ["diabetic-ketoacidosis-hhs", "potassium-emergencies", "acid-base-emergencies"],
+      "must_do": ["replace_potassium_before_insulin", "monitor_beta_hydroxybutyrate_and_electrolytes", "controlled_fluid_resuscitation"],
+      "must_not_do": ["start_insulin_while_potassium_below_3_5", "use_anion_gap_alone_for_resolution"],
+      "source": {"organization": "ADA/EASD/JBDS/AACE/DTS", "title": "Hyperglycemic Crises in Adults With Diabetes: Consensus Report", "year": 2024, "url": "https://doi.org/10.2337/dci24-0032"}
+    },
+    {
+      "id": "unstable-irregular-wide-tachycardia",
+      "prompt": "Adulto con taquicardia irregular de QRS ancho, dolor torácico, edema pulmonar e hipotensión.",
+      "expected_modules": ["arrhythmias-cardiac-arrest", "medication-selection-safety"],
+      "must_do": ["recognize_instability", "synchronized_cardioversion", "expert_escalation"],
+      "must_not_do": ["adenosine_for_irregular_broad_complex_tachycardia", "delay_for_full_ecg_workup"],
+      "source": {"organization": "Resuscitation Council UK", "title": "Adult tachyarrhythmia algorithm 2025", "year": 2025, "url": "https://www.resus.org.uk/sites/default/files/2025-10/Adult%20tachyarrhythmia%20algorithm%202025.pdf"}
+    },
+    {
+      "id": "hypertensive-pulmonary-edema",
+      "prompt": "Adulto con TA 230/130, edema pulmonar agudo e hipoxemia, sin signos de ictus ni síndrome aórtico.",
+      "expected_modules": ["hypertensive-emergencies", "acute-heart-failure", "noninvasive-ventilation"],
+      "must_do": ["identify_acute_organ_injury", "syndrome_specific_titratable_iv_treatment", "consider_niv_if_safe", "frequent_reassessment"],
+      "must_not_do": ["treat_number_without_phenotype", "uncontrolled_rapid_bp_drop"],
+      "source": {"organization": "ESC", "title": "2024 ESC Guidelines for Elevated Blood Pressure and Hypertension", "year": 2024, "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/elevated-blood-pressure-and-hypertension/"}
+    },
+    {
+      "id": "critical-aortic-stenosis-pulmonary-edema",
+      "prompt": "Mujer de 80 años con estenosis aórtica crítica conocida, edema pulmonar, taquicardia e hipoxemia con presión conservada.",
+      "expected_modules": ["critical-valvular-disease", "acute-heart-failure", "oxygen-therapy-emergency"],
+      "must_do": ["urgent_expert_echo", "preserve_coronary_perfusion", "cautious_phenotype_based_decongestion", "structural_team_escalation"],
+      "must_not_do": ["abrupt_unstructured_preload_reduction", "treat_as_generic_heart_failure"],
+      "source": {"organization": "ESC/EACTS", "title": "2021 Guidelines for Valvular Heart Disease", "year": 2021, "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/valvular-heart-disease/"}
+    },
+    {
+      "id": "ami-cardiogenic-shock-deteriorating",
+      "prompt": "Varón de 68 años con IAM anterior reperfundido, piel fría, oliguria, lactato ascendente, TA 82/54 y congestión pulmonar pese a norepinefrina inicial.",
+      "expected_modules": ["cardiogenic-shock", "acute-coronary-syndrome", "medication-selection-safety", "ecg-pocus-integration"],
+      "must_do": ["assign_and_trend_scai_stage", "identify_mechanical_or_reversible_cause", "phenotype_guided_vasoactive_support", "activate_shock_team_and_advanced_center"],
+      "must_not_do": ["automatic_large_fluid_bolus", "automatic_mechanical_circulatory_support", "treat_blood_pressure_without_perfusion_reassessment"],
+      "source": {"organization": "ACC", "title": "2025 Concise Clinical Guidance: Evaluation and Management of Cardiogenic Shock", "year": 2025, "url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.02.018"}
+    },
+    {
+      "id": "acute-type-a-dissection-hypertensive",
+      "prompt": "Mujer de 62 años con dolor torácico súbito irradiado a espalda, déficit focal transitorio, soplo diastólico nuevo, FC 112 y TA 210/115.",
+      "expected_modules": ["acute-aortic-syndrome", "medication-selection-safety", "ecg-pocus-integration"],
+      "must_do": ["activate_aortic_surgical_team", "urgent_definitive_aortic_imaging", "beta_blocker_before_vasodilator", "immediate_type_a_repair"],
+      "must_not_do": ["fibrinolysis_before_dissection_excluded", "vasodilator_before_impulse_control", "delay_for_normal_chest_radiograph"],
+      "source": {"organization": "ACC/AHA", "title": "2022 Guideline for the Diagnosis and Management of Aortic Disease", "year": 2022, "url": "https://www.acc.org/Guidelines/Guidelines/2022/11/02/14/08/Aortic-Disease"}
+    },
+    {
+      "id": "tamponade-obstructive-shock",
+      "prompt": "Paciente oncológico con disnea, presión yugular elevada, TA 78/48, pulso estrecho y derrame pericárdico con colapso diastólico del ventrículo derecho.",
+      "expected_modules": ["cardiac-tamponade-pericardial-emergency", "pocus", "emergency-procedures", "medication-selection-safety"],
+      "must_do": ["urgent_definitive_drainage", "choose_drainage_by_cause_and_anatomy", "bridge_without_delaying_decompression", "immediate_post_drainage_reassessment"],
+      "must_not_do": ["routine_diuresis_or_nitrates", "unnecessary_positive_pressure_ventilation", "use_effusion_size_alone_to_define_tamponade"],
+      "source": {"organization": "ESC", "title": "2025 Guidelines for the Management of Myocarditis and Pericarditis", "year": 2025, "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/myocarditis-and-pericarditis/"}
+    },
+    {
+      "id": "acute-severe-asthma-fatigue",
+      "prompt": "Adulto con asma, habla entrecortada, uso intenso de accesorios, entrada aérea mínima, SpO2 89% y PaCO2 que ha subido de 30 a 43 mmHg pese a salbutamol inicial.",
+      "expected_modules": ["acute-severe-asthma", "oxygen-therapy-emergency", "acute-respiratory-failure", "medication-selection-safety"],
+      "must_do": ["recognize_impending_ventilatory_failure", "repeat_adequate_inhaled_bronchodilator", "early_systemic_corticosteroid", "selective_iv_magnesium", "early_icu_airway_escalation"],
+      "must_not_do": ["reassure_from_normal_paco2", "routine_sedation", "delay_intubation_with_niv", "routine_iv_aminophylline"],
+      "source": {"organization": "GINA", "title": "Global Strategy for Asthma Management and Prevention 2026", "year": 2026, "url": "https://ginasthma.org/2026-gina-strategy-report/"}
+    },
+    {
+      "id": "copd-hypercapnic-acidosis",
+      "prompt": "Varón de 72 años con EPOC, disnea y esputo purulento, SpO2 79%, pH 7.27 y PaCO2 72 mmHg tras oxígeno no controlado.",
+      "expected_modules": ["copd-exacerbation", "oxygen-therapy-emergency", "noninvasive-ventilation", "medication-selection-safety", "empiric-antibiotics"],
+      "must_do": ["controlled_oxygen_88_92", "short_acting_bronchodilators", "five_day_systemic_steroid", "conditional_antibiotics", "early_bilevel_niv_and_repeat_gas"],
+      "must_not_do": ["withhold_oxygen_from_hypoxemia", "continue_uncontrolled_hyperoxia", "use_hfno_as_substitute_for_niv_in_acidosis", "routine_methylxanthine"],
+      "source": {"organization": "GOLD", "title": "Global Strategy for Prevention, Diagnosis and Management of COPD 2026", "year": 2026, "url": "https://goldcopd.org/2026-gold-report-and-pocket-guide/"}
+    },
+    {
+      "id": "life-threatening-hemoptysis-airway",
+      "prompt": "Paciente con bronquiectasias, hemoptisis activa, hipoxemia, caída del nivel de conciencia y sangre/coágulos que impiden ventilar; el lado derecho parece ser el origen.",
+      "expected_modules": ["life-threatening-hemoptysis", "airway-rsi", "anticoagulation-reversal", "emergency-procedures"],
+      "must_do": ["bleeding_lung_down", "large_single_lumen_tube_and_therapeutic_bronchoscopy", "urgent_multidisciplinary_source_control", "embolization_after_stabilization"],
+      "must_not_do": ["define_severity_by_volume_alone", "routine_double_lumen_tube", "send_unstable_patient_to_ct", "delay_source_control_for_tranexamic_acid"],
+      "source": {"organization": "SCII", "title": "Consensus Guidelines for Interventional Radiology Management of Hemoptysis", "year": 2023, "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10289864/"}
+    },
+    {
+      "id": "spontaneous-ich-apixaban-severe-hypertension",
+      "prompt": "Varón de 76 años en apixabán con hemiparesia aguda, hematoma gangliobasal espontáneo en TC, TA 205/110 y deterioro progresivo del nivel de conciencia.",
+      "expected_modules": ["spontaneous-intracerebral-hemorrhage", "anticoagulation-reversal", "medication-selection-safety"],
+      "must_do": ["smooth_bp_lowering_with_130_150_range", "immediate_agent_specific_reversal", "serial_neurologic_and_repeat_imaging", "urgent_neurocritical_and_neurosurgical_escalation"],
+      "must_not_do": ["lower_sbp_below_130", "wait_for_deterioration_to_reverse", "routine_platelet_transfusion", "transfer_traumatic_ich_bp_rule"],
+      "source": {"organization": "ESO/EANS", "title": "Guideline on stroke due to spontaneous intracerebral haemorrhage", "year": 2025, "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12098356/"}
+    },
+    {
+      "id": "malignant-spinal-cord-compression-progressive-deficit",
+      "prompt": "Mujer de 65 años con cáncer de mama, dolor torácico vertebral, debilidad progresiva de ambas piernas, nivel sensitivo y nueva dificultad para orinar.",
+      "expected_modules": ["acute-spinal-cord-compression", "medication-selection-safety"],
+      "must_do": ["urgent_whole_spine_mri", "dexamethasone_16_mg_for_neurologic_mscc", "immediate_spinal_oncology_discussion", "cause_specific_definitive_treatment"],
+      "must_not_do": ["delay_mri_beyond_24_hours", "apply_steroids_to_every_compression_cause", "perform_lumbar_puncture_before_excluding_compression"],
+      "source": {"organization": "NICE", "title": "Spinal metastases and metastatic spinal cord compression NG234", "year": 2023, "url": "https://www.nice.org.uk/guidance/ng234"}
+    },
+    {
+      "id": "cauda-equina-urinary-dysfunction-low-pvr",
+      "prompt": "Varón de 44 años con lumbociática bilateral, anestesia en silla de montar, nueva dificultad para iniciar la micción y residuo posmiccional de 120 mL.",
+      "expected_modules": ["cauda-equina-conus-emergency", "acute-spinal-cord-compression"],
+      "must_do": ["emergency_lumbosacral_mri", "urgent_spinal_surgical_contact", "record_sacral_and_bladder_findings", "decompress_by_symptoms_and_imaging_without_avoidable_delay"],
+      "must_not_do": ["exclude_cauda_equina_from_pvr_below_200", "use_48_hours_as_safe_waiting_window", "routine_dexamethasone_for_disc_cauda_equina"],
+      "source": {"organization": "GIRFT/NHS England", "title": "National Suspected Cauda Equina Syndrome Pathway", "year": 2026, "url": "https://gettingitrightfirsttime.co.uk/wp-content/uploads/2026/04/National-Suspected-Cauda-Equina-Pathway-March-2026.pdf"}
+    },
+    {
+      "id": "spontaneous-ich-nicardipine-unavailable",
+      "prompt": "Mujer de 70 años con hemorragia intracerebral espontánea, TA 214/118; no hay nicardipino disponible y se propone nimodipino como sustituto.",
+      "expected_modules": ["spontaneous-intracerebral-hemorrhage", "iv-antihypertensive-selection", "medication-selection-safety"],
+      "must_do": ["reject_nimodipine_substitution", "define_ich_bp_target_and_lower_bound", "offer_labetalol_or_clevidipine_by_contraindications", "show_concentration_and_ml_per_hour_for_infusion"],
+      "must_not_do": ["use_nimodipine_as_general_antihypertensive", "give_name_only_substitution", "apply_generic_25_percent_rule_to_ich", "ignore_bradycardia_block_bronchospasm_or_heart_failure"],
+      "source": {"organization": "ESC/AHA/ASA", "title": "Syndrome-specific treatment of hypertensive emergencies and spontaneous ICH", "year": 2024, "url": "https://academic.oup.com/eurheartj/article/45/38/3912/7741010"}
+    }
+  ]
+}

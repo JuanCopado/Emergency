@@ -1,0 +1,111 @@
+# Special-population modules
+
+Shared gate: adjust thresholds, communication, consent, safeguarding, doses and
+disposition to physiology, developmental stage, pregnancy and baseline function.
+
+## pediatric-emergencies
+
+- Use pediatric assessment triangle/ABCDE, age-specific vitals and weight in kilograms; use measured weight or a validated estimate when necessary.
+- Calculate every high-risk drug and fluid dose with units, maximum cap, concentration and independent check. Use current pediatric resuscitation guidance.
+- Consider safeguarding and family communication. Lower the threshold for pediatric critical-care input when trajectory, age or resources increase risk.
+
+## obstetric-emergencies
+
+- Stabilize the pregnant/postpartum patient first while assessing gestation and fetal needs; involve obstetrics/anesthesia/neonatology early.
+- Threats include ectopic pregnancy, hemorrhage, severe pre-eclampsia/eclampsia, sepsis, embolism, placental disease and uterine rupture.
+- Persistent acute severe hypertension (systolic at least 160 or diastolic at least 110 mm Hg) requires urgent pregnancy-specific antihypertensive treatment, generally within 30--60 minutes of confirmation. Magnesium sulfate prevents/treats eclamptic seizures but is not the antihypertensive; verify loading/maintenance regimen, renal function, reflexes, respiration and toxicity rescue.
+- Urgent adult options are IV labetalol (20 mg over 2 minutes, then 40 mg after 10 minutes and 80 mg after another 10 minutes if still severe; usual algorithm maximum 220 mg), IV hydralazine (5--10 mg over 2 minutes, reassess at 20 minutes and repeat according to the obstetric protocol), or immediate-release nifedipine 10 mg PO, then 20 mg at 20-minute intervals when still severe, to a usual first-hour maximum of 50 mg. Never give nifedipine sublingually. Select around asthma/bradycardia/heart failure, maternal hemodynamics and fetal status, and use the current local obstetric algorithm.
+- Use pregnancy-specific hemorrhage, pressure and seizure protocols after verification. Do not withhold necessary maternal imaging, defibrillation, drugs or resuscitation because of pregnancy alone; optimize the mother first and arrange definitive obstetric management.
+
+## geriatric-emergencies
+
+- Establish baseline cognition/function, frailty, goals of care, medications, sensory needs and caregiver observations.
+- Expect atypical presentation and multifactorial illness; screen for delirium, falls, infection, medication toxicity, dehydration, pain and occult injury.
+- Use cautious but timely treatment, avoid age alone as a reason to undertreat, and plan disposition around function, support and risk of decompensation.
+
+## delirium
+
+- Diagnose acute fluctuating inattention/cognitive change with a validated bedside method appropriate to the setting and obtain collateral baseline; hypoactive delirium is easily missed. Search urgently for hypoxia, infection, glucose/electrolyte disorder, medication/toxin/withdrawal, urinary retention, constipation, pain and neurologic disease.
+- Prioritize pain control, orientation, hydration, mobility, sensory aids, sleep and removal of triggers. Use an antipsychotic only for severe distress or immediate danger after de-escalation fails, at the lowest effective dose and shortest duration, with ECG/drug-risk and Parkinson/Lewy-body contraindication review; benzodiazepines are generally reserved for withdrawal or another specific indication.
+- Avoid physical restraint when possible; reassess capacity, safeguarding and safe disposition.
+
+## syncope-falls-frailty
+
+- Separate syncope from seizure, mechanical fall and unexplained collapse. Obtain history/witness account, examination, 12-lead ECG and standing BP when safe; evaluate bleeding, structural/electrical heart disease, medication effect and neurologic findings.
+- Do not order routine broad laboratory panels, EEG or head CT for uncomplicated syncope without findings that indicate them. Continuous monitoring and urgent cardiac assessment are warranted for high-risk ECG, exertional/supine syncope, persistent hypotension, major structural heart disease, family history of sudden death or serious injury.
+- In older/frail patients, assess occult head/hip injury, anticoagulation, gait, cognition and home support.
+- Do not discharge based on a risk score alone; integrate cause, recurrence risk, function and reliable follow-up.
+
+## psychiatric-emergencies
+
+- Exclude delirium, intoxication/withdrawal, neurologic disease, metabolic illness and trauma before attributing symptoms to primary psychiatric disease.
+- Use verbal de-escalation and the least restrictive safe approach. If medication is required, match it to etiology and verify QT, respiratory, age and interaction risks.
+- Assess capacity, violence/self-neglect risk, safeguarding and need for psychiatric or medical admission.
+
+## suicide-risk
+
+- Ask directly about thoughts, intent, plan, access to means, recent acts, substance use, psychosis, supports and protective factors.
+- Treat medical consequences and maintain a safe environment with observation proportional to immediate clinical need. Do not use a risk scale, global low/medium/high label or protective-factor count alone to predict suicide, decide discharge or deny psychosocial assessment.
+- Arrange timely psychosocial/specialist assessment, collaborative safety planning, lethal-means restriction and named follow-up. Do not use a no-suicide contract as disposition; confirm a safe transfer and provide explicit crisis/return instructions.
+
+## febrile-infant-0-90-days
+
+- Scope: infant ≤90 days with documented rectal temperature ≥38.0 °C at home or in care, or temperature <36.0 °C/ill appearance. This pathway is for a previously healthy, term, well-appearing infant only; prematurity, significant comorbidity, immunodeficiency, recent antibiotics, focal bacterial infection, or ill appearance excludes low-risk algorithms. Stabilize ill-appearing infants and activate neonatal/pediatric sepsis care immediately.
+- Obtain age-appropriate history/exam and reliable temperature; collect urine for urinalysis and culture by catheter, suprapubic aspiration or reliable clean-catch (not a bag culture). A positive viral test does not cancel age-based bacterial evaluation. Blood/urine cultures and inflammatory markers (prefer procalcitonin when available) are used by age and validated local algorithm; do not use one biomarker or appearance alone to exclude invasive bacterial infection.
+- 0–28 days: highest-risk group; urgent pediatric/neonatal assessment, blood/urine studies and inflammatory markers, with lumbar puncture, empiric antimicrobials and admission based on age, appearance and validated risk approach. A low-risk label does not make newborn outpatient care routine.
+- 29–60 days: use a validated algorithm (e.g., PECARN or Step-by-Step) with urinalysis, urine culture, blood culture and inflammatory markers. LP, antibiotics and admission are guided by clinical status and marker risk; a positive urinalysis alone with reassuring markers does not automatically establish high IBI risk in well-appearing infants.
+- 61–90 days: at minimum urine evaluation/culture; consider applying a validated 29–60-day pathway, with close follow-up if managed as outpatient. Ensure reassessment within 24–48 h and reliable caregiver access.
+- Consider HSV in young infants with vesicles, seizures, ill appearance, CSF pleocytosis, thrombocytopenia or transaminitis; do not delay LP when neurologic signs are present. Route empiric antibiotic/acyclovir selection to `empiric-antibiotics` and neonatal/local guidance; verify age, weight, renal function, allergy and local resistance. Arrange admission/transfer if the necessary evaluation, monitoring or follow-up cannot be safely provided.
+- Viral bronchiolitis/RSV lowers but does not eliminate bacterial risk. Fever in a young infant still follows the age-specific pathway; do not let a viral syndrome prematurely close the assessment.
+
+## bronchiolitis
+
+- Typical first episode of viral upper-respiratory symptoms followed by cough, tachypnea, crackles/wheeze and increased work of breathing in a child under 2 years (often <12 months). Assess apnea, exhaustion, cyanosis, feeding/hydration, perfusion and risk factors: age <3 months (especially <6 weeks), prematurity, chronic lung disease, hemodynamically significant congenital heart disease, neuromuscular disease or immunodeficiency.
+- Clinical diagnosis. Do not routinely order chest radiograph, blood tests or viral PCR; test only if an alternative diagnosis/severe course/cohorting decision makes it useful. Consider bacterial pneumonia, sepsis, heart failure, foreign body or asthma when features are atypical.
+- Supportive treatment: nasal saline/superficial suction only when secretions impair breathing or feeding; small frequent feeds or NG/IV hydration if intake inadequate. Give supplemental oxygen for persistent SpO₂ <90% in most infants aged ≥6 weeks without underlying disease, or <92% if age <6 weeks or underlying condition, following NICE persistent-hypoxemia thresholds and accounting for measurement quality and clinical state. Escalate respiratory support and PICU consultation for apnea, exhaustion, worsening hypoxemia or impending failure; CPAP/high-flow follow local pediatric pathway.
+- Do not routinely give salbutamol, corticosteroids, antibiotics, nebulized hypertonic saline, chest physiotherapy, or epinephrine. If diagnosis is uncertain and a bronchodilator trial is contemplated for an alternate wheezing phenotype, document objective response and stop if ineffective; it is not routine bronchiolitis treatment.
+- Admit/observe for apnea, significant work of breathing, persistent hypoxemia, inability to maintain hydration, very young age/high-risk condition, or unsafe home observation. Discharge only when work of breathing is manageable, oxygenation is stable on room air per age/risk threshold, feeding/urine output are adequate and caregivers can recognize apnea, cyanosis, worsening effort or dehydration.
+
+## croup
+
+- Viral upper-airway syndrome with barky cough, hoarseness and inspiratory stridor. Assess at rest, work of breathing, air entry, color, fatigue and mental status while minimizing distress; avoid unnecessary examination, IV access or imaging in a typical case.
+- Red flags for alternate/critical diagnosis: drooling, dysphagia, toxic appearance/high fever, tripod posture, abrupt choking, neck stiffness, poor response to epinephrine, or progressive fatigue/silent airway. Consider epiglottitis, bacterial tracheitis, deep neck infection, foreign body or anaphylaxis; call anesthesia/ENT/PICU early for severe obstruction.
+- Give one oral dexamethasone dose 0.6 mg/kg (maximum 16 mg per RCH guidance); use IM if persistent vomiting or severe distress prevents oral administration. Lower doses (0.15–0.3 mg/kg) appear in studies but equivalence is less certain; use a consistent local protocol. Nebulized epinephrine for moderate/severe croup or stridor at rest: L-epinephrine 1 mg/mL, 5 mL nebulized (or racemic epinephrine 0.5 mL per formulation); this is a bridge, not definitive airway care.
+- Reassess response and observe at least 2–4 h after nebulized epinephrine; discharge only if stridor/retractions do not recur, child drinks, no oxygen need, and caregivers have return precautions. Admit/escalate for persistent/recurrent stridor at rest, repeated epinephrine, hypoxemia, poor intake, exhaustion, atypical diagnosis or limited access to return care. Do not use humidified mist/heliox routinely or delay airway escalation.
+
+## pediatric-dehydration-shock
+
+- Assess mental state, heart rate, pulse quality, capillary refill, temperature/peripheries, work of breathing, blood pressure (hypotension is late), mucosa/tears, urine output, intake/losses and recent weight. Estimated dehydration by weight change is preferred when a reliable recent weight exists. Identify sodium/glucose risk, DKA, sepsis, hemorrhage, cardiac/renal disease and malnutrition; do not apply a gastroenteritis fluid plan to these syndromes.
+- Mild/moderate dehydration without shock: oral rehydration solution in small, frequent amounts is first line; NG rehydration if oral intake fails and there is no contraindication. Continue breastfeeding/age-appropriate feeds and replace ongoing losses. Check glucose/electrolytes when severe dehydration, IV fluids, young infant/large losses, neurologic signs or comorbidity.
+- Shock/poor perfusion: first classify likely cause; suspected cardiogenic shock is not a routine fluid-bolus pathway. ABC, monitor, obtain IV/IO access, glucose and cause-directed tests, senior pediatric support. Give glucose-free isotonic crystalloid 10 mL/kg IV/IO over <10 min, then reassess immediately (per NICE pediatric sepsis/IV-fluid guidance; NG254 caps each bolus at 250 mL in suspected sepsis). Repeat only if persistent shock and no overload, with reassessment after each bolus and early vasoactive/PICU escalation; use blood for hemorrhagic shock and smaller/individualized aliquots in cardiac/renal disease or malnutrition. Avoid unreviewed repeated large boluses.
+- If perfusion normalizes, calculate deficit + maintenance + ongoing losses, choose oral/NG where possible, and use isotonic IV fluids with glucose/electrolytes guided by measured labs and local protocol. Hypernatremic dehydration requires controlled correction and serial sodium; DKA, burns, sepsis and neonatal fluid pathways take precedence over this generic module.
+- Reassess vitals, perfusion, mental status, urine output, glucose and electrolytes after intervention; document response and escalation trigger. Admit/transfer for shock, severe dehydration/electrolyte disturbance, persistent vomiting, failed enteral rehydration, high-risk age/comorbidity or unsafe follow-up.
+
+## pediatric-status-epilepticus
+
+- Convulsive status: generalized convulsion ≥5 min or recurrent seizures without recovery. Time seizure; ABC, lateral position/suction, oxygen/continuous SpO₂ and cardiorespiratory monitoring, bedside glucose, temperature, IV/IO access without delaying first benzodiazepine. Check glucose and rapidly correct hypoglycemia with age-appropriate dextrose; pursue cause (febrile infection/meningitis, trauma, toxins, metabolic/electrolytes, missed antiseizure medication). If consciousness does not recover after motor seizure stops, consider nonconvulsive status/EEG.
+- If an individualized seizure plan exists, follow it. Count prehospital/home benzodiazepines: give no more than 2 total doses to reduce respiratory depression. First-line options for age ≥1 month: buccal midazolam 0.3 mg/kg (dose bands 1–3 months 0.3 mg/kg max 2.5 mg; 3–11 months 2.5 mg; 1–4 y 5 mg; 5–9 y 7.5 mg; 10–17 y 10 mg) OR IV lorazepam 0.1 mg/kg (max 4 mg) slow IV; if still seizing 5 min later, repeat once. Rectal diazepam is an alternative if buccal/IV route unavailable, per local formulation/dose protocol. Monitor ventilation and be ready to support airway.
+- If seizure persists after 2 benzodiazepine doses / around 15 min from onset: urgently involve senior pediatrics, anesthesia/PICU and give IV levetiracetam 40 mg/kg (max 3 g) diluted to 50 mg/mL over 5 min, following the HSE 2025 pediatric guideline and local drug policy. It may be loaded even if the child takes maintenance levetiracetam.
+- Ongoing seizure after levetiracetam: critical-care/anesthesia-led escalation. HSE 2025 next steps include IV phenytoin 20 mg/kg (max 2 g; large vein/ECG monitoring due to arrhythmia/extravasation) then phenobarbital 20 mg/kg (max 1 g) with airway/intubation readiness; local protocols may choose valproate or another agent instead. Avoid valproate in hepatic dysfunction/metabolic disease, pancreatitis, thrombocytopenia, pregnancy, and in children <2 y with unknown etiology. Refractory status requires PICU, airway control and EEG-guided therapy.
+- This HSE pathway covers 1 month–18 years and does not cover neonates <1 month or breakthrough seizures in a child with epilepsy; use neonatal/individualized specialist pathway for those groups. Do not stack repeated benzodiazepines or allow medication preparation/access attempts to delay time-critical treatment.
+
+## pediatric-shock
+
+- For infants/children beyond the newborn transition: recognize compensated shock early (altered interaction, tachycardia, weak pulses, prolonged refill, cool/mottled skin or reduced urine output); hypotension is late. Call pediatric resuscitation/PICU support, use ABCDE, weight-based monitoring, IV/IO access and frequent reassessment. Follow pediatric life support guidance for age-specific vital signs; do not apply adult thresholds or fluid/vasopressor doses.
+- Classify likely hypovolemic/hemorrhagic, distributive (sepsis, anaphylaxis, adrenal or neurogenic), cardiogenic, obstructive or mixed shock. Look for cause using focused history/exam, glucose, blood gas/lactate, labs/cultures as indicated and expert POCUS without delaying treatment or treating a negative scan as exclusion.
+- Give only cautious, weight-based isotonic fluid increments with reassessment after each; stop for worsening work of breathing, hepatomegaly, crackles, gallop or other overload. For suspected sepsis use the local pediatric sepsis protocol; `pediatric-dehydration-shock` covers gastroenteritis-related dehydration, not every shock phenotype. Hemorrhage, DKA, burns, cardiac/renal disease, anaphylaxis and adrenal crisis need their own pathways.
+- Route to cause-specific modules when supported: `pediatric-dehydration-shock`, `sepsis-shock` with pediatric dosing/local sepsis protocol, `trauma-major-hemorrhage`, `anaphylaxis`, `cardiogenic-shock`, `pulmonary-embolism`, `cardiac-tamponade-pericardial-emergency`, `tension-pneumothorax`, `adrenal-crisis` or `obstetric-emergencies` as age/context allows. Neonatal transition and newborn resuscitation are excluded; use neonatal life support.
+
+## pediatric-arrhythmias
+
+- Confirm age/weight, pulse and perfusion; call pediatric resuscitation/cardiology support, attach monitor/defibrillator, obtain IV/IO access and ECG when this will not delay treatment. In children, tachycardia commonly reflects hypoxia, fever, pain, dehydration or shock; treat the cause and do not label sinus tachycardia as primary arrhythmia without evidence.
+- With a pulse and poor perfusion/altered consciousness/shock, follow the current pediatric advanced-life-support arrhythmia algorithm. Prepare synchronized cardioversion for unstable tachyarrhythmia and pediatric bradycardia escalation for severe bradycardia; use age/weight-based energy and drugs only from current local/ERC pediatric charts with an independent dose check.
+- Stable regular narrow-complex tachycardia: use age-appropriate vagal maneuvers and protocol-directed adenosine with continuous ECG/defibrillator readiness. Broad-complex, irregular, pre-excited, long-QT or recurrent rhythms require expert help; avoid adult drug/energy settings and AV-nodal blockers in suspected pre-excited AF.
+- If pulse is lost, immediately switch to `pediatric-cardiac-arrest`; do not continue the peri-arrest algorithm. Excludes newborn resuscitation at birth.
+
+## pediatric-cardiac-arrest
+
+- For infant/child arrest beyond birth transition: call pediatric resuscitation team, start high-quality CPR and ventilation, attach defibrillator and obtain IV/IO access without interrupting compressions. Pediatric arrest is commonly preceded by respiratory failure or shock; prioritize effective oxygenation/ventilation and correct reversible causes.
+- Follow the current pediatric ALS algorithm: distinguish shockable VF/pulseless VT from PEA/asystole; deliver defibrillation and resume CPR promptly for shockable rhythm; continue 2-minute CPR cycles, rhythm checks, age/weight-based protocol medications and reversible-cause treatment. For bradycardia <60/min with poor perfusion despite oxygenation/ventilation, follow pediatric CPR pathway. Use local/ERC 2025 pediatric doses and energy chart; no adult settings.
+- Search hypoxia, hypovolemia/hemorrhage, electrolyte/metabolic causes, hypothermia, tension pneumothorax, tamponade, toxins and thrombosis. Use capnography with advanced airway; POCUS only by a trained operator during planned pauses without delaying compressions or causing prolonged pulse checks.
+- After ROSC, transition to pediatric post-resuscitation care with controlled oxygen/ventilation, hemodynamic stabilization, temperature/glucose/seizure management and PICU/cause-directed evaluation. Newborn resuscitation immediately after birth follows neonatal life support, not this module.

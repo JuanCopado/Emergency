@@ -1,0 +1,14 @@
+{
+  "module": "",
+  "detected_on": "",
+  "current_source": "",
+  "current_recommendation": "",
+  "new_source": "",
+  "new_publication_date": "",
+  "new_recommendation": "",
+  "evidence_level": "",
+  "clinical_impact": "high|moderate|low",
+  "changes_bedside_action": false,
+  "status": "pending_review",
+  "review_notes": ""
+}

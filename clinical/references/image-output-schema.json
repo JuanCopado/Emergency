@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Emergency medicine provisional clinical image review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["image_access", "quality", "observed_findings", "leading_impression", "alternatives", "not_assessable", "confidence", "urgency", "next_actions"],
+  "properties": {
+    "image_access": {
+      "type": "object",
+      "required": ["pixels_inspected", "source_type", "images_reviewed"],
+      "properties": {
+        "pixels_inspected": {"type": "boolean"},
+        "source_type": {"enum": ["original_export", "screenshot", "screen_photo", "pdf_render", "unknown"]},
+        "images_reviewed": {"type": "integer", "minimum": 0},
+        "modality": {"type": ["string", "null"]},
+        "body_region": {"type": ["string", "null"]},
+        "laterality": {"enum": ["left", "right", "bilateral", "not_applicable", "unknown"]}
+      }
+    },
+    "quality": {
+      "type": "object",
+      "required": ["category", "limitations"],
+      "properties": {
+        "category": {"enum": ["adequate", "limited_but_interpretable", "non_diagnostic"]},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "observed_findings": {"type": "array", "items": {"type": "string"}},
+    "leading_impression": {
+      "type": "object",
+      "required": ["diagnosis", "provisional", "classification"],
+      "properties": {
+        "diagnosis": {"type": ["string", "null"]},
+        "provisional": {"const": true},
+        "classification": {"type": ["string", "null"]}
+      }
+    },
+    "alternatives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["diagnosis", "discriminator"],
+        "properties": {"diagnosis": {"type": "string"}, "discriminator": {"type": "string"}}
+      }
+    },
+    "not_assessable": {"type": "array", "items": {"type": "string"}},
+    "confidence": {
+      "type": "object",
+      "required": ["level", "reason"],
+      "properties": {"level": {"enum": ["low", "moderate", "high"]}, "reason": {"type": "string"}}
+    },
+    "urgency": {
+      "type": "object",
+      "required": ["level", "reason"],
+      "properties": {"level": {"enum": ["routine", "urgent", "emergent", "unknown"]}, "reason": {"type": "string"}}
+    },
+    "next_actions": {"type": "array", "items": {"type": "string"}},
+    "questions": {"type": "array", "maxItems": 3, "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,903 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "contentVersion": "v1.35",
+    "contentLanguage": "en",
+    "extractedFrom": "emergency-medicine skill package v1.35 (modules/cardiovascular.md, modules/procedures-pharmacology.md, references/evidence-registry.json)",
+    "extractedAt": "2026-09-29",
+    "reviewStatus": "draft-pending-clinical-review",
+    "population": "adult",
+    "note": "Values transcribed from module text only. Fields absent in the source are null. Worked examples use 70 kg and are arithmetic references, not a prescription. Local/pharmacy standard concentrations override these examples."
+  },
+  "modules": {
+    "vasoactive-inotrope-infusions": {
+      "id": "vasoactive-inotrope-infusions",
+      "bundle": "modules/cardiovascular.md",
+      "title": "Vasoactive and inotrope infusions (adult)",
+      "scope": "Adult continuous vasopressor/inotrope reference (draft v1.35, human review pending). Pediatric infusions are out of scope. Choose the agent from the shock phenotype and cause using `undifferentiated-shock`, `sepsis-shock`, `cardiogenic-shock` or `acute-heart-failure`; this module supplies drug position, preparation, arithmetic and safety only and does not replace those pathways. Always apply `medication-selection-safety`.",
+      "rules": [
+        "Confirm the ampoule strength and whether it is expressed as base or salt, diluent, final volume and concentration before every calculation.",
+        "Rate formula: mL/h = dose (micrograms/kg/min) x weight (kg) x 60 / concentration (micrograms/mL); for fixed doses mL/h = dose per hour / concentration per mL.",
+        "Use a dedicated lumen/line, a smart pump with the local drug library, arterial pressure monitoring when escalating, and double-check preparation.",
+        "Worked examples use 70 kg and are arithmetic references, not a patient's prescription. Where a local/pharmacy standard concentration exists, it overrides these examples.",
+        "Peripheral versus central: SSC 2026 suggests starting vasopressors peripherally to restore MAP rather than delaying for central access (conditional, very low certainty); SSC 2021 qualified this as a short period through a well-functioning vein at or proximal to the antecubital fossa. Some product labels (for example the UK noradrenaline SmPC) state central venous access, and US labels say to infuse into a large vein. Therefore: peripheral start is acceptable only in a large proximal vein, with site checks at least hourly per local policy and a plan for central access if requirements persist or rise; angiotensin II labelling recommends a central line.",
+        "Extravasation of a catecholamine vasopressor: stop the infusion at that site, restart via another line without interrupting support, and per US norepinephrine/dopamine labelling infiltrate phentolamine 5-10 mg in 10-15 mL sodium chloride 0.9% as soon as possible (most effective within 12 hours). Mark the area, escalate to plastic surgery/local extravasation protocol, and document.",
+        "Monitoring for all agents: continuous ECG, arterial pressure when escalating or on more than one agent, SpO2, mental status, capillary refill/skin mottling, urine output, lactate trend, glucose and potassium, limb/digital/mesenteric ischemia, and echocardiographic phenotype when the response is inadequate. Reassess every 5-15 minutes during titration.",
+        "Hold/stop and escalate: new ventricular arrhythmia or rapid AF, myocardial ischemia, digital/mesenteric/limb ischemia, extravasation, or MAP above the individualized upper bound. Escalating requirement (for example two vasopressors, or norepinephrine at or above about 0.25 micrograms/kg/min) requires senior/ICU review, echocardiography, reassessment of volume status, source control, adrenal insufficiency/steroid use (see `sepsis-shock`, `adrenal-crisis`) and mechanical-support referral in cardiogenic shock. Wean one agent at a time in small steps, observing MAP and perfusion; follow the label taper where one exists."
+      ],
+      "evidence": {
+        "status": "yellow",
+        "priority": "high",
+        "primarySource": "Surviving Sepsis Campaign 2026 (Crit Care Med 2026, doi:10.1097/CCM.0000000000007075); SSC 2021; US product labels (norepinephrine, Vasostrict, epinephrine, dopamine, dobutamine, milrinone, phenylephrine, Giapreza); EU/UK SmPC (noradrenaline, Simdax)",
+        "primarySourceUrl": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+        "storedVersion": "Draft v1.35 infusion reference, focused source check 2026-09-29",
+        "lastChecked": "2026-09-29",
+        "note": "New draft module. SSC 2026 positions and label doses checked via accessible official summaries/labels; SSC 2026 full text (Springer/LWW) and ESC 2021 HF dose table not directly accessible. Vasopressin label start (0.01 units/min) differs from fixed 0.03 units/min practice; norepinephrine base vs tartrate labelling must be verified. Portuguese RCM/INFARMED, local concentrations and human review pending."
+      }
+    },
+    "icu-sedation-analgesia-infusions": {
+      "id": "icu-sedation-analgesia-infusions",
+      "bundle": "modules/procedures-pharmacology.md",
+      "title": "ICU sedation and analgesia infusions (adult)",
+      "scope": "Adult, intubated/ICU continuous analgesia and sedation (draft v1.35, human review pending). Procedural sedation remains in `sedoanalgesia`; RSI induction in `airway-rsi`; pediatric infusions are out of scope. Always apply `medication-selection-safety`.",
+      "rules": [
+        "Analgesia first: assess pain before sedating, using self-report (0-10 NRS) when possible and CPOT or BPS when the patient cannot self-report (PADIS 2018). Use an assessment-driven, protocol-based stepwise approach and multimodal opioid-sparing adjuncts (PADIS 2018, conditional).",
+        "Sedation depth: set and document a target at least daily. PADIS 2018 suggests light rather than deep sedation (conditional, low quality; light is about RASS -2 to +1). Either daily sedative interruption or nurse-protocolized targeted sedation can achieve light sedation (ungraded). Coordinate awakening with spontaneous breathing trials when safety screens are met. Deep sedation is reserved for specific indications (e.g. refractory hypoxemia with ventilator dyssynchrony, neuromuscular blockade, raised ICP, status epilepticus) and must be explicitly justified and reassessed.",
+        "Sedative choice: PADIS 2018 suggests propofol or dexmedetomidine over benzodiazepines (conditional, low quality). The PADIS 2025 focused update suggests dexmedetomidine over propofol when light sedation and/or delirium reduction are highest priorities (conditional, moderate certainty), but not for patients needing deep sedation or at high bradycardia risk. It found insufficient evidence to recommend benzodiazepines for anxiety. Screen for delirium (e.g. CAM-ICU) every shift.",
+        "Arithmetic rules: state total drug, diluent, final volume and concentration; show mL/h = dose (micrograms/kg/min) x kg x 60 / concentration (micrograms/mL), or for per-hour doses mL/h = (dose per kg per hour x kg) / concentration. Worked 70 kg examples are arithmetic references only; local standard concentrations override.",
+        "Before a bolus, check BP; in shock reduce or avoid boluses and titrate slowly. Before stopping infusions of several days, taper to limit withdrawal.",
+        "Hold/stop and reassess: over-sedation below the RASS target, hypotension needing vasopressor escalation attributable to sedation, bradycardia/AV block (dexmedetomidine), PRIS features (propofol), new delirium (review benzodiazepines/anticholinergics, sleep, mobility; PADIS 2025 suggests enhanced mobilization and melatonin, and makes no recommendation for or against antipsychotics for delirium treatment). Document target, achieved RASS and CPOT/BPS every nursing assessment."
+      ],
+      "evidence": {
+        "status": "yellow",
+        "priority": "high",
+        "primarySource": "SCCM PADIS 2018 (Crit Care Med 2018;46:e825-e873) and PADIS 2025 focused update (Crit Care Med 2025;53:e711-e727); EU/UK SmPC (Dexdor, remifentanil, midazolam, fentanyl, Ketalar); US Diprivan label; KSCCM 2021 PADIS opioid table",
+        "primarySourceUrl": "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+        "storedVersion": "Draft v1.35 infusion reference, focused source check 2026-09-29",
+        "lastChecked": "2026-09-29",
+        "note": "New draft module. PADIS recommendations checked via SCCM official pages and a guideline-author handout; full PADIS texts not opened. Fentanyl/morphine/hydromorphone ICU infusion ranges rely on KSCCM 2021 table (no ICU range in SmPC). Local concentrations, Portuguese RCM and human review pending; pediatric infusions out of scope."
+      }
+    },
+    "medication-selection-safety": {
+      "id": "medication-selection-safety",
+      "bundle": "modules/procedures-pharmacology.md",
+      "title": "Medication selection and safety",
+      "scope": "Safety workflow applied to every drug, dose and infusion decision.",
+      "rules": [
+        "For every continuous infusion, state the total drug amount, compatible diluent, final volume and final concentration. Do not invent compatibility or override a pharmacy/local standard concentration.",
+        "Convert every continuous dose to a pump rate in mL/h. Show the arithmetic, the starting rate, each titration step in both dose units and mL/h, the titration interval, maximum or ceiling when applicable, and explicit hold/stop thresholds.",
+        "If weight or formulation is missing, do not invent it: provide the symbolic formula and request the missing value before presenting a patient-specific pump setting. A clearly labelled reference table may be added, but never presented as the patient's rate.",
+        "Do not force bolus or intermittent medication into mL/h. For those, state the dose, stock strength, dilution when needed, final volume in mL and administration time/rate.",
+        "If the evidence is update-sensitive, the exact formulation is unavailable locally, or the proposed use is off-label, verify an authoritative current source and local protocol before presenting the regimen as definitive."
+      ],
+      "evidence": {
+        "status": "yellow",
+        "priority": "high",
+        "primarySource": "Drug labeling, syndrome-specific guidelines and independently checked infusion arithmetic",
+        "primarySourceUrl": null,
+        "storedVersion": "workflow v1.16",
+        "lastChecked": "2026-09-27",
+        "note": "This is a safety workflow, not an independent formulary. Every high-risk drug remains syndrome-, patient- and protocol-specific."
+      }
+    }
+  },
+  "drugs": [
+    {
+      "id": "norepinephrine",
+      "name": "Norepinephrine",
+      "synonyms": ["noradrenaline"],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "SSC 2026 recommends it first-line in septic shock over dopamine, epinephrine or selepressin (strong; high certainty versus dopamine) and suggests it over vasopressin or angiotensin II (conditional). It is also the usual first vasopressor when hypotension threatens perfusion in cardiogenic shock (see `cardiogenic-shock`).",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": { "min": 0.05, "max": 0.1, "text": "Draft reference start 0.05-0.1 micrograms/kg/min, individualized." },
+        "range": null,
+        "max": { "value": null, "text": "No absolute labelled maximum: at about 0.25-0.5 micrograms/kg/min SSC 2021 describes adding vasopressin rather than escalating alone, and rising requirements should prompt reassessment of cause, volume, cardiac function, adrenal insufficiency and source control." },
+        "titration": { "stepMin": 0.02, "stepMax": 0.05, "text": "BP every 2 minutes until target, then every 5 minutes (US label); adjust in small steps (for example 0.02-0.05 micrograms/kg/min) every 2-5 minutes to an initial MAP 65 mm Hg in septic shock (60-65 mm Hg is suggested at age 65 years or older)." },
+        "alternativeDosing": [
+          "Starting dose varies by source: US label 8-12 micrograms/min then 2-4 micrograms/min maintenance; UK SmPC 0.4-0.8 mg/h base initially; ESC 2021 heart-failure table 0.2-1.0 micrograms/kg/min, a starting dose criticised as unnecessarily high, with AHA-cited 0.05 micrograms/kg/min for cardiogenic shock."
+        ],
+        "loading": null,
+        "weaning": "Wean gradually, never abrupt stop (label/SmPC).",
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "ne-8mg-200ml",
+          "amount": { "value": 8, "unit": "mg" },
+          "finalVolumeMl": 200,
+          "diluent": "Glucose 5%, sodium chloride 0.9% or glucose-saline (UK SmPC); US labelling uses dextrose-containing diluents",
+          "concentration": { "value": 40, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "8 mg norepinephrine base to a final volume of 200 mL = 40 micrograms/mL (the UK SmPC standard concentration is 40 mg/L base)."
+        },
+        {
+          "id": "ne-8mg-100ml",
+          "amount": { "value": 8, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 80, "unit": "mcg/mL" },
+          "isDefault": false,
+          "label": "Fluid-restricted",
+          "note": "Fluid-restricted alternative 8 mg/100 mL = 80 micrograms/mL."
+        }
+      ],
+      "cautions": [
+        "Critical check: 8 mg of tartrate salt contains about 4 mg base; confirm how the ampoule is labelled.",
+        "Rising requirements should prompt reassessment of cause, volume, cardiac function, adrenal insufficiency and source control."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.05, "doseUnit": "mcg/kg/min", "preparationId": "ne-8mg-200ml", "expectedMlH": 5.25, "text": "0.05 x 70 x 60 = 210 micrograms/h; 210 / 40 = 5.25 mL/h" },
+        { "weightKg": 70, "dose": 0.05, "doseUnit": "mcg/kg/min", "preparationId": "ne-8mg-100ml", "expectedMlH": 2.6, "text": "2.6 mL/h at 80 micrograms/mL" },
+        { "weightKg": 70, "dose": 0.1, "doseUnit": "mcg/kg/min", "preparationId": "ne-8mg-200ml", "expectedMlH": 10.5, "text": "70 kg at 0.1 micrograms/kg/min = 10.5 mL/h at 40 micrograms/mL" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "vasopressin",
+      "name": "Vasopressin",
+      "synonyms": ["argipressin"],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "Add in septic shock on escalating norepinephrine rather than escalating norepinephrine alone (SSC 2026 conditional, moderate certainty; SSC 2021: usually started at norepinephrine 0.25-0.5 micrograms/kg/min). Not first-line. Fixed dose, not weight-based.",
+      "doseUnit": "units/min",
+      "dosing": {
+        "start": { "min": 0.01, "max": 0.03, "text": "Doses differ: the US Vasostrict label starts septic shock at 0.01 units/min, while guideline practice and trials commonly use a fixed 0.03 units/min (post-cardiotomy start 0.03 units/min)." },
+        "range": null,
+        "max": { "value": 0.07, "text": "Maximum 0.07 units/min in septic shock (US label); post-cardiotomy maximum 0.1 units/min." },
+        "titration": { "stepMin": 0.005, "stepMax": 0.005, "text": "Titrates by 0.005 units/min every 10-15 minutes (US Vasostrict label)." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": "Label taper after 8 hours at target without catecholamines: reduce 0.005 units/min every hour as tolerated.",
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "vp-100u-100ml",
+          "amount": { "value": 100, "unit": "units" },
+          "finalVolumeMl": 100,
+          "diluent": "Sodium chloride 0.9% or glucose 5%",
+          "concentration": { "value": 1, "unit": "units/mL" },
+          "isDefault": true,
+          "label": "Fluid restriction",
+          "note": "Preparation (label): 100 units to a final volume of 100 mL = 1 unit/mL (fluid restriction)."
+        },
+        {
+          "id": "vp-50u-500ml",
+          "amount": { "value": 50, "unit": "units" },
+          "finalVolumeMl": 500,
+          "diluent": "Sodium chloride 0.9% or glucose 5%",
+          "concentration": { "value": 0.1, "unit": "units/mL" },
+          "isDefault": false,
+          "label": "Dilute",
+          "note": "50 units/500 mL = 0.1 unit/mL."
+        }
+      ],
+      "cautions": [
+        "Watch digital/mesenteric ischemia, hyponatremia and reduced cardiac output.",
+        "Diluted solution: discard after 18 hours at room temperature or 24 hours refrigerated (label)."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": null, "dose": 0.03, "doseUnit": "units/min", "preparationId": "vp-100u-100ml", "expectedMlH": 1.8, "text": "0.03 units/min x 60 = 1.8 units/h = 1.8 mL/h" },
+        { "weightKg": null, "dose": 0.01, "doseUnit": "units/min", "preparationId": "vp-100u-100ml", "expectedMlH": 0.6, "text": "0.01 units/min = 0.6 mL/h" },
+        { "weightKg": null, "dose": 0.005, "doseUnit": "units/min", "preparationId": "vp-100u-100ml", "expectedMlH": 0.3, "text": "each 0.005 units/min step = 0.3 mL/h" },
+        { "weightKg": null, "dose": 0.07, "doseUnit": "units/min", "preparationId": "vp-100u-100ml", "expectedMlH": 4.2, "text": "0.07 units/min = 4.2 mL/h" },
+        { "weightKg": null, "dose": 0.03, "doseUnit": "units/min", "preparationId": "vp-50u-500ml", "expectedMlH": 18, "text": "At 0.1 unit/mL, 0.03 units/min = 18 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "epinephrine",
+      "name": "Epinephrine",
+      "synonyms": ["adrenaline"],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "Third agent when MAP is inadequate despite norepinephrine plus vasopressin in septic shock (SSC 2026 conditional, very low certainty); in septic shock with cardiac dysfunction norepinephrine or epinephrine may be first-line (SSC 2026 new, very low certainty), and epinephrine alone is an alternative to norepinephrine plus dobutamine for persistent hypoperfusion. In cardiogenic shock do not use it reflexively (see `cardiogenic-shock`).",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": null,
+        "range": { "min": 0.05, "max": 2, "text": "Label: 0.05-2 micrograms/kg/min." },
+        "max": null,
+        "titration": { "stepMin": 0.05, "stepMax": 0.2, "text": "Titrated every 10-15 minutes in steps of 0.05-0.2 micrograms/kg/min." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": "After stability wean incrementally, e.g. every 30 minutes over 12-24 hours.",
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "epi-4mg-100ml",
+          "amount": { "value": 4, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 40, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "4 mg to a final volume of 100 mL = 40 micrograms/mL. US label uses glucose 5% and a 1 microgram/mL dilution, so confirm local diluent/concentration."
+        },
+        {
+          "id": "epi-8mg-200ml",
+          "amount": { "value": 8, "unit": "mg" },
+          "finalVolumeMl": 200,
+          "diluent": null,
+          "concentration": { "value": 40, "unit": "mcg/mL" },
+          "isDefault": false,
+          "label": "Standard (200 mL)",
+          "note": "Or 8 mg/200 mL; confirm local diluent/concentration."
+        }
+      ],
+      "cautions": [
+        "Monitor tachyarrhythmia, myocardial ischemia, hyperglycemia and a beta-2-mediated lactate rise that must not be misread in isolation as worsening perfusion."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.05, "doseUnit": "mcg/kg/min", "preparationId": "epi-4mg-100ml", "expectedMlH": 5.25, "text": "0.05 x 70 x 60 = 210 micrograms/h; 210 / 40 = 5.25 mL/h; each 0.05 micrograms/kg/min step = 5.25 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "dopamine",
+      "name": "Dopamine",
+      "synonyms": [],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "Not first-line in septic shock (SSC 2026 recommends norepinephrine over dopamine, strong, high certainty); consider only as an alternative when norepinephrine is unavailable, in selected patients at low tachyarrhythmia risk, or as a chronotropic bridge in bradycardia per the adult bradyarrhythmia pathway. Do not use low-dose dopamine as renal protection.",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": { "min": 2, "max": 5, "text": "Label: start 2-5 micrograms/kg/min." },
+        "range": null,
+        "max": { "value": 50, "text": "Not more than 50 micrograms/kg/min." },
+        "titration": { "stepMin": 5, "stepMax": 10, "text": "Titrate in 5-10 micrograms/kg/min steps to response." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": "Wean gradually.",
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "dopa-400mg-250ml",
+          "amount": { "value": 400, "unit": "mg" },
+          "finalVolumeMl": 250,
+          "diluent": null,
+          "concentration": { "value": 1600, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Premix",
+          "note": "Premixed 400 mg/250 mL = 1,600 micrograms/mL (labelled premix; 250 mL is the common standard)."
+        }
+      ],
+      "cautions": [
+        "Into a large vein.",
+        "Stop for tachyarrhythmia or ischemia; extravasation as above."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 5, "doseUnit": "mcg/kg/min", "preparationId": "dopa-400mg-250ml", "expectedMlH": 13.1, "text": "5 x 70 x 60 = 21,000 micrograms/h; 21,000 / 1,600 = 13.1 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "dobutamine",
+      "name": "Dobutamine",
+      "synonyms": [],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "Inotrope for persistent hypoperfusion with cardiac dysfunction after MAP, rhythm, preload and cause are addressed (SSC 2026 conditional; ESC 2021 advises against routine inotropes without cardiogenic shock). It can lower BP; add or increase norepinephrine rather than accept hypotension.",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": { "min": 0.5, "max": 1, "text": "Label: start 0.5-1 micrograms/kg/min." },
+        "range": { "min": 2, "max": 20, "text": "Usual 2-20 micrograms/kg/min." },
+        "max": { "value": 40, "text": "Maximum 40 micrograms/kg/min." },
+        "titration": { "stepMin": 2.5, "stepMax": 2.5, "text": "The label does not fix a titration interval, so use small steps (e.g. 2.5 micrograms/kg/min) with perfusion/cardiac-output reassessment per local protocol." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "dobu-250mg-100ml",
+          "amount": { "value": 250, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 2500, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "250 mg to a final volume of 100 mL = 2,500 micrograms/mL."
+        },
+        {
+          "id": "dobu-250mg-200ml",
+          "amount": { "value": 250, "unit": "mg" },
+          "finalVolumeMl": 200,
+          "diluent": null,
+          "concentration": { "value": 1250, "unit": "mcg/mL" },
+          "isDefault": false,
+          "label": "Dilute",
+          "note": "Or 250 mg/200 mL = 1,250 micrograms/mL."
+        }
+      ],
+      "cautions": [
+        "Reduce or stop for tachyarrhythmia, ischemia or worsening hypotension."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 2.5, "doseUnit": "mcg/kg/min", "preparationId": "dobu-250mg-100ml", "expectedMlH": 4.2, "text": "2.5 x 70 x 60 = 10,500 micrograms/h; 10,500 / 2,500 = 4.2 mL/h" },
+        { "weightKg": 70, "dose": 2.5, "doseUnit": "mcg/kg/min", "preparationId": "dobu-250mg-200ml", "expectedMlH": 8.4, "text": "8.4 mL/h at 1,250 micrograms/mL" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "milrinone",
+      "name": "Milrinone",
+      "synonyms": [],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "PDE-3 inodilator for low-output states, e.g. beta-blocked patients or right-ventricular/pulmonary-vascular load under specialist guidance; not a default substitute in hypotension or renal impairment (vasodilation and renal accumulation).",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": null,
+        "range": { "min": 0.375, "max": 0.75, "text": "Label: maintenance 0.375-0.75 micrograms/kg/min." },
+        "max": null,
+        "titration": null,
+        "alternativeDosing": [],
+        "loading": { "doseMin": 50, "doseMax": 50, "unit": "mcg/kg", "durationMin": 10, "optional": true, "text": "Label: optional loading 50 micrograms/kg over 10 minutes; in shock or hypotension the loading dose is commonly omitted (practice, not label)." },
+        "weaning": null,
+        "organAdjustment": "Renal adjustment (label, CrCl mL/min/1.73 m2): 50 -> 0.43, 40 -> 0.38, 30 -> 0.33, 20 -> 0.28, 10 -> 0.23, 5 -> 0.2 micrograms/kg/min."
+      },
+      "preparations": [
+        {
+          "id": "mil-20mg-100ml",
+          "amount": { "value": 20, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": "Sodium chloride 0.45%/0.9% or glucose 5%",
+          "concentration": { "value": 200, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "Preparation (label): 20 mg to a final volume of 100 mL = 200 micrograms/mL."
+        }
+      ],
+      "cautions": [
+        "Long half-life: a rate change takes hours to reach steady state; monitor BP, arrhythmia, renal function and platelets."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.375, "doseUnit": "mcg/kg/min", "preparationId": "mil-20mg-100ml", "expectedMlH": 7.9, "text": "0.375 x 70 x 60 = 1,575 micrograms/h; 1,575 / 200 = 7.9 mL/h" }
+      ],
+      "bolusExamples": [
+        { "weightKg": 70, "dosePerKg": 50, "unit": "mcg/kg", "preparationId": "mil-20mg-100ml", "expectedAmount": 3500, "expectedAmountUnit": "mcg", "expectedVolumeMl": 17.5, "durationMin": 10, "text": "loading 50 x 70 = 3,500 micrograms = 17.5 mL over 10 minutes if used" }
+      ],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "levosimendan",
+      "name": "Levosimendan",
+      "synonyms": [],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "Calcium sensitizer for selected low-output heart failure under cardiology/ICU direction; SSC 2026 suggests against it in septic shock with cardiac dysfunction (conditional, low certainty).",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": { "min": 0.1, "max": 0.1, "text": "EU SmPC (Simdax): then 0.1 micrograms/kg/min (range 0.05-0.2) for a recommended 24 hours." },
+        "range": { "min": 0.05, "max": 0.2, "text": "Range 0.05-0.2 micrograms/kg/min for a recommended 24 hours." },
+        "max": null,
+        "titration": null,
+        "alternativeDosing": [],
+        "loading": { "doseMin": 6, "doseMax": 12, "unit": "mcg/kg", "durationMin": 10, "optional": true, "text": "EU SmPC (Simdax): loading 6-12 micrograms/kg over 10 minutes (6 micrograms/kg or omit when already on IV inotropes/vasodilators or BP is low, per SmPC caution)." },
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "levo-12.5mg-500ml",
+          "amount": { "value": 12.5, "unit": "mg" },
+          "finalVolumeMl": 500,
+          "diluent": "Glucose 5%",
+          "concentration": { "value": 25, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "SmPC",
+          "note": "Preparation (SmPC): 12.5 mg (5 mL) in 500 mL glucose 5% = 25 micrograms/mL (500 mL is the labelled volume)."
+        },
+        {
+          "id": "levo-0.05mg-ml",
+          "amount": null,
+          "finalVolumeMl": null,
+          "diluent": null,
+          "concentration": { "value": 0.05, "unit": "mg/mL" },
+          "isDefault": false,
+          "label": "Alternative",
+          "note": "0.05 mg/mL is the alternative (amount and volume not stated in source)."
+        }
+      ],
+      "cautions": [
+        "Active metabolites peak about 48 hours after stopping, so monitor for at least 3 days (5 days with mild-moderate renal/hepatic impairment)."
+      ],
+      "contraindications": [
+        "Contraindicated with severe hypotension/tachycardia, CrCl below 30 mL/min or severe hepatic impairment."
+      ],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.1, "doseUnit": "mcg/kg/min", "preparationId": "levo-12.5mg-500ml", "expectedMlH": 16.8, "text": "0.1 x 70 x 60 = 420 micrograms/h; 420 / 25 = 16.8 mL/h" }
+      ],
+      "bolusExamples": [
+        { "weightKg": 70, "dosePerKg": 6, "unit": "mcg/kg", "preparationId": "levo-12.5mg-500ml", "expectedAmount": 420, "expectedAmountUnit": "mcg", "expectedVolumeMl": 16.8, "durationMin": 10, "text": "Optional 6 micrograms/kg load = 420 micrograms = 16.8 mL over 10 minutes" }
+      ],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "phenylephrine",
+      "name": "Phenylephrine",
+      "synonyms": [],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "Pure alpha-agonist with limited role; not a first-line shock vasopressor in SSC; may be considered when tachyarrhythmia limits beta-agonists or for dynamic outflow obstruction under specialist direction.",
+      "doseUnit": "mcg/min",
+      "dosing": {
+        "start": { "min": 10, "max": 35, "text": "US label (hypotension from vasodilation during anesthesia): infusion start 10-35 micrograms/min, titrate to effect." },
+        "range": null,
+        "max": { "value": 200, "text": "Not above 200 micrograms/min." },
+        "titration": { "stepMin": null, "stepMax": null, "text": "Titrate to effect." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "phe-10mg-500ml",
+          "amount": { "value": 10, "unit": "mg" },
+          "finalVolumeMl": 500,
+          "diluent": null,
+          "concentration": { "value": 20, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Label",
+          "note": "Preparation (label): 10 mg in 500 mL = 20 micrograms/mL. Diluted solution use within 4 hours at room temperature or 24 hours refrigerated."
+        },
+        {
+          "id": "phe-2mg-100ml",
+          "amount": { "value": 2, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 20, "unit": "mcg/mL" },
+          "isDefault": false,
+          "label": "Label (100 mL)",
+          "note": "Proportionally 2 mg/100 mL gives the same concentration."
+        }
+      ],
+      "cautions": [
+        "It can reduce cardiac output and cause reflex bradycardia.",
+        "This dilute concentration is volume-heavy; higher concentrations only per pharmacy/local protocol."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": null, "dose": 20, "doseUnit": "mcg/min", "preparationId": "phe-10mg-500ml", "expectedMlH": 60, "text": "20 micrograms/min x 60 = 1,200 micrograms/h; 1,200 / 20 = 60 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "angiotensin-ii",
+      "name": "Angiotensin II",
+      "synonyms": ["Giapreza"],
+      "category": "vasoactive-inotrope",
+      "moduleId": "vasoactive-inotrope-infusions",
+      "position": "Only if authorised, supplied and in local protocol; EU/Portuguese availability not verified here. SSC 2026 suggests norepinephrine over angiotensin II (conditional, very low certainty).",
+      "doseUnit": "ng/kg/min",
+      "dosing": {
+        "start": { "min": 20, "max": 20, "text": "Label (Giapreza): start 20 ng/kg/min." },
+        "range": null,
+        "max": { "value": 80, "text": "Maximum 80 ng/kg/min in the first 3 hours then 40 ng/kg/min." },
+        "titration": { "stepMin": null, "stepMax": 15, "text": "Titrate every 5 minutes by up to 15 ng/kg/min; down-titrate every 5-15 minutes by up to 15 ng/kg/min." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": "Down-titrate every 5-15 minutes by up to 15 ng/kg/min.",
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "at2-2.5mg-250ml",
+          "amount": { "value": 2.5, "unit": "mg" },
+          "finalVolumeMl": 250,
+          "diluent": "Sodium chloride 0.9%",
+          "concentration": { "value": 10000, "unit": "ng/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "2.5 mg in 250 mL sodium chloride 0.9% = 10,000 ng/mL."
+        },
+        {
+          "id": "at2-2.5mg-500ml",
+          "amount": { "value": 2.5, "unit": "mg" },
+          "finalVolumeMl": 500,
+          "diluent": null,
+          "concentration": { "value": 5000, "unit": "ng/mL" },
+          "isDefault": false,
+          "label": "Dilute",
+          "note": "Or 2.5 mg/500 mL = 5,000 ng/mL."
+        }
+      ],
+      "cautions": [
+        "Central line recommended.",
+        "Give concurrent VTE prophylaxis (thrombosis excess in trial)."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 20, "doseUnit": "ng/kg/min", "preparationId": "at2-2.5mg-250ml", "expectedMlH": 8.4, "text": "20 x 70 x 60 = 84,000 ng/h; 84,000 / 10,000 = 8.4 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "fentanyl",
+      "name": "Fentanyl",
+      "synonyms": [],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": "Preferred opioid for hemodynamic instability/renal impairment in many ICUs.",
+      "doseUnit": "mcg/kg/h",
+      "dosing": {
+        "start": null,
+        "range": { "min": 0.7, "max": 10, "text": "Infusion range 0.7-10 micrograms/kg/h (KSCCM 2021 PADIS table; start low after titrated boluses to CPOT/BPS)." },
+        "max": null,
+        "titration": null,
+        "alternativeDosing": [
+          "The UK SmPC infusion of about 0.1 micrograms/kg/min is written for operative anaesthesia and is not an ICU starting dose."
+        ],
+        "loading": null,
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "fen-1000mcg-100ml",
+          "amount": { "value": 1000, "unit": "mcg" },
+          "finalVolumeMl": 100,
+          "diluent": "Glucose 5% or sodium chloride 0.9% (SmPC)",
+          "concentration": { "value": 10, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "1,000 micrograms (20 mL of 50 micrograms/mL) to a final volume of 100 mL = 10 micrograms/mL."
+        }
+      ],
+      "cautions": [
+        "Lipophilic accumulation with prolonged infusion; CYP3A4 inhibitors increase exposure; serotonergic co-medication risk."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.7, "doseUnit": "mcg/kg/h", "preparationId": "fen-1000mcg-100ml", "expectedMlH": 4.9, "text": "0.7 x 70 = 49 micrograms/h; 49 / 10 = 4.9 mL/h" },
+        { "weightKg": 70, "dose": 1.5, "doseUnit": "mcg/kg/h", "preparationId": "fen-1000mcg-100ml", "expectedMlH": 10.5, "text": "at 1.5 micrograms/kg/h = 105 micrograms/h = 10.5 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "remifentanil",
+      "name": "Remifentanil",
+      "synonyms": [],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": null,
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": { "min": 0.1, "max": 0.15, "text": "UK SmPC ICU start 0.1-0.15 micrograms/kg/min." },
+        "range": { "min": 0.006, "max": 0.74, "text": "SmPC range 0.006-0.74 micrograms/kg/min; if analgesia is inadequate at 0.2 micrograms/kg/min add a sedative." },
+        "max": null,
+        "titration": { "stepMin": 0.025, "stepMax": 0.025, "text": "Adjust by 0.025 micrograms/kg/min at intervals of at least 5 minutes." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": "Before stopping, establish alternative analgesia and reduce by 25% decrements at least 10 minutes apart (rapid offset causes abrupt pain).",
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "remi-5mg-100ml",
+          "amount": { "value": 5, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 50, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "5 mg to a final volume of 100 mL = 50 micrograms/mL (SmPC range 20-50 micrograms/mL)."
+        }
+      ],
+      "cautions": [
+        "Boluses not recommended in ICU; studied up to 3 days.",
+        "Rapid offset causes abrupt pain: establish alternative analgesia before stopping."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.1, "doseUnit": "mcg/kg/min", "preparationId": "remi-5mg-100ml", "expectedMlH": 8.4, "text": "0.1 x 70 x 60 = 420 micrograms/h; 420 / 50 = 8.4 mL/h" },
+        { "weightKg": 70, "dose": 0.025, "doseUnit": "mcg/kg/min", "preparationId": "remi-5mg-100ml", "expectedMlH": 2.1, "text": "each 0.025 step = 2.1 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "morphine",
+      "name": "Morphine",
+      "synonyms": [],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": "Less suitable for continuous ICU infusion when renal/hepatic function is impaired or unstable because active metabolites/parent drug accumulate (KSCCM 2021 notes accumulation in organ dysfunction).",
+      "doseUnit": "mg/h",
+      "dosing": {
+        "start": null,
+        "range": { "min": 2, "max": 30, "text": "Reference range (KSCCM 2021): morphine 2-30 mg/h; not weight-based." },
+        "max": null,
+        "titration": null,
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "mor-100mg-100ml",
+          "amount": { "value": 100, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 1, "unit": "mg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "Morphine 100 mg to 100 mL = 1 mg/mL."
+        }
+      ],
+      "cautions": [
+        "Morphine also releases histamine.",
+        "Accumulation of active metabolites in renal/hepatic dysfunction.",
+        "Verify local restrictions before use."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": null, "dose": 2, "doseUnit": "mg/h", "preparationId": "mor-100mg-100ml", "expectedMlH": 2, "text": "2 mg/h = 2 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "hydromorphone",
+      "name": "Hydromorphone",
+      "synonyms": [],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": "Less suitable for continuous ICU infusion when renal/hepatic function is impaired or unstable because active metabolites/parent drug accumulate (KSCCM 2021 notes accumulation in organ dysfunction).",
+      "doseUnit": "mg/h",
+      "dosing": {
+        "start": null,
+        "range": { "min": 0.5, "max": 3, "text": "Reference range (KSCCM 2021): hydromorphone 0.5-3 mg/h; not weight-based." },
+        "max": null,
+        "titration": null,
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "hm-10mg-100ml",
+          "amount": { "value": 10, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 0.1, "unit": "mg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "Hydromorphone 10 mg to 100 mL = 0.1 mg/mL."
+        }
+      ],
+      "cautions": [
+        "Verify the product strength (high-potency hydromorphone presentations exist) and local restrictions before use.",
+        "Accumulation in renal/hepatic dysfunction."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": null, "dose": 0.5, "doseUnit": "mg/h", "preparationId": "hm-10mg-100ml", "expectedMlH": 5, "text": "0.5 mg/h = 5 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "propofol",
+      "name": "Propofol",
+      "synonyms": [],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": "PADIS 2018 suggests propofol or dexmedetomidine over benzodiazepines (conditional, low quality). Not analgesic.",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": { "min": 5, "max": 5, "text": "US label ICU sedation start 5 micrograms/kg/min (0.3 mg/kg/h)." },
+        "range": { "min": 5, "max": 50, "text": "Most patients need 5-50 micrograms/kg/min (0.3-3 mg/kg/h)." },
+        "max": { "value": null, "text": "Do not exceed 4 mg/kg/h without careful risk-benefit review." },
+        "titration": { "stepMin": 5, "stepMax": 10, "text": "Increase by 5-10 micrograms/kg/min with at least 5 minutes between adjustments." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "prop-1pct",
+          "amount": { "value": 1000, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": "Undiluted",
+          "concentration": { "value": 10, "unit": "mg/mL" },
+          "isDefault": true,
+          "label": "1% undiluted",
+          "note": "Undiluted 10 mg/mL (1%; 1,000 mg in a 100 mL vial)."
+        },
+        {
+          "id": "prop-2pct",
+          "amount": null,
+          "finalVolumeMl": null,
+          "diluent": "Undiluted",
+          "concentration": { "value": 20, "unit": "mg/mL" },
+          "isDefault": false,
+          "label": "2% undiluted",
+          "note": "20 mg/mL presentations halve the mL/h (vial size not stated in source)."
+        }
+      ],
+      "cautions": [
+        "Not analgesic; causes hypotension and respiratory depression.",
+        "Lipid 0.1 g/mL, about 1.1 kcal/mL: include in nutrition.",
+        "Check triglycerides at baseline/early and periodically during prolonged or high-dose use (no universal threshold verified in this review).",
+        "PRIS: suspect with unexplained metabolic acidosis, hyperkalemia, rhabdomyolysis/rising CK, arrhythmia, AKI or rising triglycerides, especially with high doses (label highlights more than 5 mg/kg/h for more than 48 hours) or concurrent catecholamines/steroids; stop propofol and switch sedative.",
+        "Strict asepsis; discard tubing and product per label interval (12 hours)."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 5, "doseUnit": "mcg/kg/min", "preparationId": "prop-1pct", "expectedMlH": 2.1, "text": "5 x 70 x 60 = 21,000 micrograms/h = 21 mg/h; 21 / 10 = 2.1 mL/h" },
+        { "weightKg": 70, "dose": 25, "doseUnit": "mcg/kg/min", "preparationId": "prop-1pct", "expectedMlH": 10.5, "text": "at 25 micrograms/kg/min = 10.5 mL/h" },
+        { "weightKg": 70, "dose": 50, "doseUnit": "mcg/kg/min", "preparationId": "prop-1pct", "expectedMlH": 21, "text": "at 50 micrograms/kg/min = 21 mL/h" },
+        { "weightKg": 70, "dose": 4, "doseUnit": "mg/kg/h", "preparationId": "prop-1pct", "expectedMlH": 28, "text": "4 mg/kg/h = 280 mg/h = 28 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "dexmedetomidine",
+      "name": "Dexmedetomidine",
+      "synonyms": ["Dexdor"],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": "The PADIS 2025 focused update suggests dexmedetomidine over propofol when light sedation and/or delirium reduction are highest priorities (conditional, moderate certainty), but not for patients needing deep sedation or at high bradycardia risk. Intended for sedation no deeper than RASS 0 to -3; not suitable alone when deep sedation is required.",
+      "doseUnit": "mcg/kg/h",
+      "dosing": {
+        "start": { "min": 0.7, "max": 0.7, "text": "EU SmPC (Dexdor) start 0.7 micrograms/kg/h." },
+        "range": { "min": 0.2, "max": 1.4, "text": "Adjust stepwise within 0.2-1.4 micrograms/kg/h." },
+        "max": { "value": 1.4, "text": "Do not exceed 1.4 micrograms/kg/h." },
+        "titration": { "stepMin": null, "stepMax": null, "text": "Adjust stepwise; a new level may take up to 1 hour." },
+        "alternativeDosing": [],
+        "loading": null,
+        "weaning": null,
+        "organAdjustment": "Reduce in hepatic impairment; experience beyond 14 days is limited."
+      },
+      "preparations": [
+        {
+          "id": "dex-400mcg-100ml",
+          "amount": { "value": 400, "unit": "mcg" },
+          "finalVolumeMl": 100,
+          "diluent": null,
+          "concentration": { "value": 4, "unit": "mcg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "400 micrograms (4 mL of 100 micrograms/mL) to a final volume of 100 mL = 4 micrograms/mL."
+        },
+        {
+          "id": "dex-8mcg-ml",
+          "amount": null,
+          "finalVolumeMl": null,
+          "diluent": null,
+          "concentration": { "value": 8, "unit": "mcg/mL" },
+          "isDefault": false,
+          "label": "SmPC alternative",
+          "note": "SmPC allows 4 or 8 micrograms/mL (amount and volume for 8 micrograms/mL not stated in source)."
+        }
+      ],
+      "cautions": [
+        "A loading dose is not recommended (more adverse reactions).",
+        "Bradycardia (about 25%) and hypotension (about 13%) are common.",
+        "The SmPC warns of increased mortality with dexmedetomidine in patients aged 65 years or younger versus alternative sedatives (SPICE III signal); weigh this in younger patients."
+      ],
+      "contraindications": [
+        "Contraindicated with second/third-degree AV block without pacing, uncontrolled hypotension and acute cerebrovascular conditions."
+      ],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.7, "doseUnit": "mcg/kg/h", "preparationId": "dex-400mcg-100ml", "expectedMlH": 12.25, "text": "0.7 x 70 = 49 micrograms/h; 49 / 4 = 12.25 mL/h" },
+        { "weightKg": 70, "dose": 0.2, "doseUnit": "mcg/kg/h", "preparationId": "dex-400mcg-100ml", "expectedMlH": 3.5, "text": "0.2 micrograms/kg/h = 3.5 mL/h" },
+        { "weightKg": 70, "dose": 1.4, "doseUnit": "mcg/kg/h", "preparationId": "dex-400mcg-100ml", "expectedMlH": 24.5, "text": "1.4 micrograms/kg/h = 24.5 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "midazolam",
+      "name": "Midazolam",
+      "synonyms": [],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": "Third-line for continuous sedation; reserve for specific indications (e.g. seizures, alcohol withdrawal, need for deep sedation when propofol is unsuitable) because benzodiazepine infusions are associated with accumulation, prolonged ventilation and delirium.",
+      "doseUnit": "mg/kg/h",
+      "dosing": {
+        "start": null,
+        "range": { "min": 0.03, "max": 0.2, "text": "UK SmPC: maintenance 0.03-0.2 mg/kg/h." },
+        "max": null,
+        "titration": null,
+        "alternativeDosing": [],
+        "loading": { "doseMin": 0.03, "doseMax": 0.3, "unit": "mg/kg", "durationMin": null, "optional": true, "text": "Loading 0.03-0.3 mg/kg in small increments only if hemodynamically appropriate (reduce/omit in hypovolemia, vasoconstriction, hypothermia, older or debilitated patients)." },
+        "weaning": "Taper to avoid withdrawal.",
+        "organAdjustment": "Accumulates with renal impairment (active glucuronide), hepatic dysfunction, obesity and CYP3A4 inhibitors."
+      },
+      "preparations": [
+        {
+          "id": "mid-100mg-100ml",
+          "amount": { "value": 100, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": "Sodium chloride 0.9% or glucose 5%",
+          "concentration": { "value": 1, "unit": "mg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "100 mg to a final volume of 100 mL = 1 mg/mL (confirm local standard; SmPC lists compatible diluents)."
+        }
+      ],
+      "cautions": [
+        "Accumulates with renal impairment (active glucuronide), hepatic dysfunction, obesity and CYP3A4 inhibitors; taper to avoid withdrawal."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 0.03, "doseUnit": "mg/kg/h", "preparationId": "mid-100mg-100ml", "expectedMlH": 2.1, "text": "0.03 x 70 = 2.1 mg/h = 2.1 mL/h" },
+        { "weightKg": 70, "dose": 0.1, "doseUnit": "mg/kg/h", "preparationId": "mid-100mg-100ml", "expectedMlH": 7, "text": "0.1 mg/kg/h = 7 mL/h" },
+        { "weightKg": 70, "dose": 0.2, "doseUnit": "mg/kg/h", "preparationId": "mid-100mg-100ml", "expectedMlH": 14, "text": "0.2 mg/kg/h = 14 mL/h" }
+      ],
+      "bolusExamples": [],
+      "reviewStatus": "draft-pending-clinical-review"
+    },
+    {
+      "id": "ketamine",
+      "name": "Ketamine",
+      "synonyms": ["Ketalar"],
+      "category": "icu-sedation-analgesia",
+      "moduleId": "icu-sedation-analgesia-infusions",
+      "position": "Infusion as adjunct: PADIS 2018 suggests low-dose ketamine as an opioid-sparing adjunct in post-surgical ICU adults (conditional, very low quality). It is not a stand-alone long-term sedative in this module.",
+      "doseUnit": "mcg/kg/min",
+      "dosing": {
+        "start": null,
+        "range": { "min": 1, "max": 2, "text": "0.5 mg/kg IV once, then 1-2 micrograms/kg/min." },
+        "max": null,
+        "titration": null,
+        "alternativeDosing": [],
+        "loading": { "doseMin": 0.5, "doseMax": 0.5, "unit": "mg/kg", "durationMin": null, "optional": false, "text": "0.5 mg/kg IV once, then 1-2 micrograms/kg/min." },
+        "weaning": null,
+        "organAdjustment": null
+      },
+      "preparations": [
+        {
+          "id": "ket-100mg-100ml",
+          "amount": { "value": 100, "unit": "mg" },
+          "finalVolumeMl": 100,
+          "diluent": "Glucose 5% or sodium chloride 0.9% (SmPC)",
+          "concentration": { "value": 1, "unit": "mg/mL" },
+          "isDefault": true,
+          "label": "Standard",
+          "note": "100 mg to a final volume of 100 mL = 1 mg/mL."
+        }
+      ],
+      "cautions": [
+        "The SmPC warns it is not for long-term use (cystitis, hepatotoxicity reported with prolonged use).",
+        "Watch hypertension/tachycardia, emergence phenomena and secretions."
+      ],
+      "contraindications": [],
+      "workedExamples": [
+        { "weightKg": 70, "dose": 1, "doseUnit": "mcg/kg/min", "preparationId": "ket-100mg-100ml", "expectedMlH": 4.2, "text": "1 x 70 x 60 = 4,200 micrograms/h = 4.2 mg/h = 4.2 mL/h" },
+        { "weightKg": 70, "dose": 2, "doseUnit": "mcg/kg/min", "preparationId": "ket-100mg-100ml", "expectedMlH": 8.4, "text": "2 micrograms/kg/min = 8.4 mL/h" }
+      ],
+      "bolusExamples": [
+        { "weightKg": 70, "dosePerKg": 0.5, "unit": "mg/kg", "preparationId": null, "expectedAmount": 35, "expectedAmountUnit": "mg", "expectedVolumeMl": null, "durationMin": null, "text": "bolus 0.5 mg/kg = 35 mg" }
+      ],
+      "reviewStatus": "draft-pending-clinical-review"
+    }
+  ]
+}

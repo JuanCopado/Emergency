@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Published real-case workflow checks. These source-known reviews are not a blinded diagnostic-accuracy dataset.",
+  "require_blinded_for_metrics": true,
+  "cases": [
+    {
+      "id": "published-acute-on-chronic-subdural",
+      "modality": "ct",
+      "source": {
+        "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3047849/",
+        "image_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/12b5/3047849/bc944dd82ba1/12245_2010_230_Fig2_HTML.jpg",
+        "reference_standard": "Published case diagnosis and operative clinical course",
+        "license": "CC BY-NC as stated by the article",
+        "redistribution_permitted": false
+      },
+      "evaluation": {"mode": "unblinded", "annotated": false, "date": "2026-09-27"},
+      "reference": {
+        "accepted_diagnoses": ["acute-on-chronic subdural hematoma"],
+        "diagnostic_quality": "adequate", "abnormal": true,
+        "critical": true, "urgency": "emergent"
+      },
+      "prediction": {
+        "leading_diagnosis": "acute-on-chronic subdural hematoma",
+        "differential": ["subdural hematoma"], "abstained": false,
+        "critical_flag": true, "normal_claim": false, "urgency": "emergent"
+      },
+      "workflow_check": "Recognized a large crescentic mixed-density extra-axial collection, sulcal/ventricular compression and midline shift; escalated as a neurosurgical emergency."
+    },
+    {
+      "id": "published-tension-pneumothorax",
+      "modality": "xray",
+      "source": {
+        "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10332764/",
+        "image_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/31c2/10332764/54b8747bdb3e/jetem-6-1-v26f1.jpg",
+        "reference_standard": "Published case diagnosis and treatment response",
+        "license": "CC BY 4.0 as stated by the article",
+        "redistribution_permitted": true
+      },
+      "evaluation": {"mode": "unblinded", "annotated": true, "date": "2026-09-27"},
+      "reference": {
+        "accepted_diagnoses": ["tension pneumothorax"],
+        "diagnostic_quality": "adequate", "abnormal": true,
+        "critical": true, "urgency": "emergent"
+      },
+      "prediction": {
+        "leading_diagnosis": "tension pneumothorax",
+        "differential": ["large pneumothorax"], "abstained": false,
+        "critical_flag": true, "normal_claim": false, "urgency": "emergent"
+      },
+      "workflow_check": "Recognized a large right pneumothorax with collapsed lung and contralateral mediastinal displacement; treatment remains physiology-led and must not wait for radiography in an unstable patient."
+    },
+    {
+      "id": "published-subtle-occlusion-mi-ecg",
+      "modality": "ecg",
+      "source": {
+        "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9053662/",
+        "image_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/bffe/9053662/f89123eccd66/i1526-6702-49-2-e207545-f01.jpg",
+        "reference_standard": "Published coronary angiography showing thrombotic obtuse-marginal occlusion",
+        "license": "Copyright status not confirmed for redistribution",
+        "redistribution_permitted": false
+      },
+      "evaluation": {"mode": "unblinded", "annotated": false, "date": "2026-09-27"},
+      "reference": {
+        "accepted_diagnoses": ["occlusion myocardial infarction"],
+        "diagnostic_quality": "adequate", "abnormal": true,
+        "critical": true, "urgency": "emergent"
+      },
+      "prediction": {
+        "leading_diagnosis": "occlusion myocardial infarction",
+        "differential": ["reperfused or advanced st-elevation myocardial infarction"],
+        "abstained": false, "critical_flag": true,
+        "normal_claim": false, "urgency": "emergent"
+      },
+      "workflow_check": "Did not call a subtle but clinically concordant tracing normal; required serial ECG/troponin and urgent occlusion-pathway review rather than threshold-only reassurance."
+    },
+    {
+      "id": "published-syndesmotic-ankle-injury",
+      "modality": "xray",
+      "source": {
+        "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9348588/",
+        "image_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4315/9348588/5e206c6382d8/orthopedicreviews_2022_14_3_35494_89402.jpg",
+        "reference_standard": "Published orthopedic diagnosis with stress radiographs",
+        "license": "Article license must be reconfirmed before redistribution",
+        "redistribution_permitted": false
+      },
+      "evaluation": {"mode": "unblinded", "annotated": false, "date": "2026-09-27"},
+      "reference": {
+        "accepted_diagnoses": ["syndesmotic ankle injury"],
+        "diagnostic_quality": "adequate", "abnormal": true,
+        "critical": false, "urgency": "urgent"
+      },
+      "prediction": {
+        "leading_diagnosis": "syndesmotic ankle injury",
+        "differential": ["ankle ligament injury"], "abstained": false,
+        "critical_flag": false, "normal_claim": false, "urgency": "urgent"
+      },
+      "workflow_check": "Recognized abnormal syndesmotic widening/loss of tibiofibular overlap and avoided a normal-fracture-only interpretation."
+    }
+  ]
+}

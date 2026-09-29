@@ -1,0 +1,867 @@
+{
+  "schema_version": "1.2",
+  "last_global_review": "2026-09-27",
+  "review_policy": {
+    "high_risk_days": 30,
+    "standard_days": 90,
+    "low_change_days": 180
+  },
+  "modules": {
+    "adrenal-crisis": {
+      "priority": "high",
+      "primary_source": "Society for Endocrinology adrenal crisis guidance",
+      "primary_source_url": "https://www.endocrinology.org/adrenal-crisis",
+      "stored_version": "Online guidance checked 2026-09-27",
+      "last_checked": "2026-09-27",
+      "status": "green"
+    },
+    "thyroid-storm": {
+      "priority": "high",
+      "primary_source": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society joint consensus on thyroid storm; ATA hyperthyroidism guideline for comparison",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13506520/",
+      "stored_version": "Joint consensus 2026 (ETJ-26-0043); compared with ATA 2016",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "New 2026 joint consensus treatment text reviewed and incorporated into the v1.27 working package. Clinician release review and Portuguese product/hospital-protocol confirmation remain pending; do not present the draft as a locally adopted protocol."
+    },
+    "myxedema-coma": {
+      "priority": "high",
+      "primary_source": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society joint consensus on myxoedema coma; ATA hypothyroidism guideline for comparison",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13452032/",
+      "stored_version": "Joint consensus 2026 (ETJ-26-0044), focused regimen reconciliation; ATA 2014",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "2026 joint consensus IV regimen remains concordant. Focused enteral review found the consensus supports transition to oral therapy after full consciousness but does not specify an acute oral/NG loading fallback when IV is unavailable. One retrospective single-centre series (n=14, mixed ages) reported oral loading/taper; not sufficient to adopt as a general adult emergency regimen. Local endocrine/pharmacy review remains required."
+    },
+    "lower-gi-bleeding": {
+      "priority": "high",
+      "primary_source": "ESGE small-bowel capsule/DAE guideline 2022; ACG small-bowel bleeding 2015; ACG LGIB 2023; ESGE LGIB 2021",
+      "primary_source_url": "https://www.esge.com/small-bowel-ce-and-dae-for-diagnosis-and-treatment-of-sb-update-2022",
+      "stored_version": "ACG small-bowel bleeding 2015; ESGE capsule/DAE update 2022; ACG LGIB 2023; ESGE LGIB 2021",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "v1.32 focused small-bowel extension integrated into existing lower-gi-bleeding ID. ESGE 2022 supports capsule first-line and ideally within 48 h after overt bleeding, no routine second look, and device-assisted enteroscopy for capsule-positive lesions; ACG 2015 details unstable CTA/angiography and enterography in obstruction/negative capsule. Acute protocol crossovers are stated. Yellow pending human/local review; evidence base on some acute imaging branches includes older ACG guidance."
+    },
+    "acute-mesenteric-ischemia": {
+      "priority": "high",
+      "primary_source": "WSES 2022 and ESVS 2025 mesenteric guideline",
+      "primary_source_url": "https://run.unl.pt/server/api/core/bitstreams/ff44be38-db6a-460d-aae9-62d3993b3920/content",
+      "stored_version": "WSES 2022; ESVS 2025, focused anticoagulation reconciliation 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused anticoagulation review completed against ESVS 2025 and WSES 2022. Acute MVT: therapeutic UFH or LMWH first line; UFH practical when renal failure/urgent reversibility matters; ESVS recommends 3–6 months VKA/LMWH, DOAC alternative conditional, indefinite therapy for idiopathic/persistent risk. No universal acute UFH dose/nomogram is supplied by these guidelines; local weight-based protocol, monitoring, patient factors and human procedural review remain required. Other procedural recommendations are not exhaustively re-audited."
+    },
+    "major-burns": {
+      "priority": "high",
+      "primary_source": "ABA Burn Shock Resuscitation guideline and burn referral guidance",
+      "primary_source_url": "https://pubmed.ncbi.nlm.nih.gov/38051821/",
+      "stored_version": "2024; referral guidance checked September 2026",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "2 mL/kg/%TBSA starting estimate applies to adults with at least 20% TBSA; titration and local burn-center protocol remain necessary."
+    },
+    "smoke-inhalation-toxic-injury": {
+      "priority": "high",
+      "primary_source": "CDC carbon monoxide clinical guidance, EMA Cyanokit product information and ABA referral guidance",
+      "primary_source_url": "https://www.cdc.gov/carbon-monoxide/hcp/clinical-guidance/index.html",
+      "stored_version": "Current online guidance and EMA label checked September 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "CO/antidote instructions verified; airway and inhalation adjunct protocols vary. EMA source: https://www.ema.europa.eu/en/documents/product-information/cyanokit-epar-product-information_en.pdf"
+    },
+    "acute-ischemic-stroke": {
+      "priority": "high",
+      "primary_source": "AHA/ASA acute ischemic stroke guideline",
+      "stored_version": "2026",
+      "last_checked": "2026-09-14",
+      "status": "green"
+    },
+    "spontaneous-intracerebral-hemorrhage": {
+      "priority": "high",
+      "primary_source": "ESO/EANS guideline on spontaneous intracerebral haemorrhage plus AHA/ASA spontaneous ICH guideline",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12098356/",
+      "stored_version": "ESO/EANS 2025; AHA/ASA 2022",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "BP, reversal, surgery, seizure and thromboprophylaxis boundaries cross-checked; prospective clinical validation remains pending."
+    },
+    "acute-spinal-cord-compression": {
+      "priority": "high",
+      "primary_source": "NICE NG234 spinal metastases/MSCC plus 2024 acute traumatic spinal cord injury hemodynamic guideline",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng234",
+      "stored_version": "NICE 2023; Global Spine Journal guideline 2024",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Etiology-specific steroid and source-control gates preserved; traumatic MAP recommendation has very-low-certainty evidence."
+    },
+    "cauda-equina-conus-emergency": {
+      "priority": "high",
+      "primary_source": "UK National Suspected Cauda Equina Syndrome Pathway",
+      "primary_source_url": "https://gettingitrightfirsttime.co.uk/wp-content/uploads/2026/04/National-Suspected-Cauda-Equina-Pathway-March-2026.pdf",
+      "stored_version": "March 2026",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Emergency MRI timing, PVR limitation and non-delay referral rules cross-checked; prospective outcome validation remains pending."
+    },
+    "acute-coronary-syndrome": {
+      "priority": "high",
+      "primary_source": "ESC acute coronary syndromes guideline",
+      "stored_version": "2023",
+      "last_checked": "2026-09-14",
+      "status": "green"
+    },
+    "pulmonary-embolism": {
+      "priority": "high",
+      "primary_source": "ESC acute pulmonary embolism guideline",
+      "stored_version": "2019",
+      "last_checked": "2026-09-14",
+      "status": "yellow",
+      "note": "High-priority topic; verify whether a newer definitive ESC guideline is available before protocol-level advice."
+    },
+    "sepsis-shock": {
+      "priority": "high",
+      "primary_source": "Surviving Sepsis Campaign adult guideline",
+      "stored_version": "2026",
+      "last_checked": "2026-09-14",
+      "status": "green"
+    },
+    "arrhythmias-cardiac-arrest": {
+      "priority": "high",
+      "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+      "stored_version": "2025",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "note": "Refactored as shared age-selection/safety router; use the separate age-specific rhythm or arrest module. Verify operational details against current local ERC implementation."
+    },
+    "hypertensive-emergencies": {
+      "priority": "high",
+      "primary_source": "2024 ESC Guidelines for elevated blood pressure and hypertension plus syndrome-specific stroke, aortic, ACS and pregnancy guidance",
+      "stored_version": "ESC 2024; workflow v1.16",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Acute organ injury defines emergency. The general 20-25% first-hour MAP reduction must not be transferred to aortic, stroke or pregnancy syndromes."
+    },
+    "acute-heart-failure": {
+      "priority": "high",
+      "primary_source": "ESC acute and chronic heart failure guideline and ESC acute cardiovascular care materials",
+      "stored_version": "ESC 2021 with current online review 2026; workflow v1.16",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Treatment is phenotype-based: congestion, blood pressure, perfusion and mechanical cause. Exact diuretic, vasodilator and inotrope dosing requires current protocol."
+    },
+    "cardiogenic-shock": {
+      "priority": "high",
+      "primary_source": "ACC Expert Consensus Statement on Evaluation and Management of Cardiogenic Shock",
+      "stored_version": "ACC 2025; workflow v1.18",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Uses SCAI staging, serial perfusion assessment, rapid cause control and shock-team escalation. Vasoactive concentrations are pump-ready examples that still require local formulation and ceiling verification; temporary MCS is phenotype- and destination-dependent, not automatic."
+    },
+    "acute-aortic-syndrome": {
+      "priority": "high",
+      "primary_source": "2022 ACC/AHA Guideline for the Diagnosis and Management of Aortic Disease, checked against the existence of 2024 ESC PAAD guidance",
+      "stored_version": "ACC/AHA 2022; external currency check 2026; workflow v1.18",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Preserves anti-impulse sequencing, HR 60-80/min, SBP below 120 mm Hg or the lowest pressure maintaining perfusion, immediate type A surgery and urgent intervention for complicated type B disease."
+    },
+    "cardiac-tamponade-pericardial-emergency": {
+      "priority": "high",
+      "primary_source": "2025 ESC Guidelines for myocarditis and pericarditis plus current image-guided pericardiocentesis literature",
+      "stored_version": "ESC 2025; workflow v1.18",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Definitive drainage is physiology- and cause-driven. The module distinguishes medical effusion from trauma, clot, postoperative collections, free-wall rupture and type A dissection, where surgical strategy or controlled bridge drainage may be required."
+    },
+    "critical-valvular-disease": {
+      "priority": "high",
+      "primary_source": "ESC/EACTS valvular heart disease guideline",
+      "stored_version": "ESC/EACTS 2021 with current online review 2026; workflow v1.16",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Emergency stabilization differs by lesion; expert echocardiography and definitive structural intervention remain central."
+    },
+    "airway-rsi": {
+      "priority": "high",
+      "primary_source": "Difficult Airway Society adult intubation guideline and SCCM rapid sequence intubation guideline",
+      "stored_version": "DAS 2025; SCCM 2023",
+      "last_checked": "2026-09-26",
+      "status": "green",
+      "note": "Drug and weight-basis choices remain physiology- and formulary-dependent; continuous waveform capnography and post-intubation sedation are mandatory safety gates."
+    },
+    "status-epilepticus": {
+      "priority": "high",
+      "primary_source": "American Epilepsy Society convulsive status epilepticus guideline plus ILAE current evidence updates",
+      "stored_version": "AES 2016; ILAE online review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Five-minute treatment threshold and adequate benzodiazepine dosing are stable; verify local second-line agent, dose, contraindications and refractory pathway."
+    },
+    "pediatric-emergencies": {
+      "priority": "high",
+      "primary_source": "European Resuscitation Council pediatric life support",
+      "stored_version": "2025",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "General pediatric assessment rules retained. Five age/syndrome-specific emergency modules were added in draft v1.33 and sourced individually; local pediatric medication/formulary and human release review remain pending."
+    },
+    "iv-antihypertensive-selection": {
+      "priority": "high",
+      "primary_source": "2024 ESC hypertension guideline plus syndrome-specific ACC/AHA, AHA/ASA and ACOG guidance and current product labels",
+      "primary_source_url": "https://academic.oup.com/eurheartj/article/45/38/3912/7741010",
+      "stored_version": "ESC 2024; ACC/AHA aorta 2022; AHA/ASA ICH 2022; ACOG current bundle; DailyMed labels reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Alternatives are syndrome-specific; clevidipine and labetalol concentrations were cross-checked against current product labels."
+    },
+    "obstetric-emergencies": {
+      "priority": "high",
+      "primary_source": "ACOG Gestational Hypertension and Preeclampsia guidance and maternal emergency bundles",
+      "stored_version": "ACOG Practice Bulletin 2020; current online review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Urgent treatment of persistent severe hypertension and magnesium for eclampsia are safety anchors; exact drug regimens and delivery decisions require current local obstetric protocol."
+    },
+    "anticoagulation-reversal": {
+      "priority": "high",
+      "primary_source": "ACC Expert Consensus Decision Pathway on bleeding with oral anticoagulants",
+      "stored_version": "ACG-CAG 2022; ESGE 2026 UGIB / ESGE 2021 LGIB, checked 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused GI reconciliation integrated in v1.31. Guidelines differ on routine DOAC reversal (low/very-low certainty); selective use only in individualized severe ongoing/life-threatening bleeding with plausible residual effect. Restart timing is source- and thrombosis-risk-dependent. Yellow pending clinician and local protocol/formulary review.",
+      "primary_source_url": "https://mediacdn.gi.org/giorgcdn/wp-content/uploads/2022/03/ACG-CAG-Guideline.pdf"
+    },
+    "empiric-antibiotics": {
+      "priority": "high",
+      "primary_source": "Syndrome-specific IDSA, ESCMID, WHO and local antibiogram guidance",
+      "stored_version": "dynamic local verification required",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "No universal regimen is stored because syndrome, resistance ecology, allergy and organ function are decisive. Verify current local guidance before exact dosing."
+    },
+    "toxicology": {
+      "priority": "high",
+      "primary_source": "Current poison-centre and agent-specific toxicology guidance",
+      "stored_version": "dynamic verification required",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Agent-specific antidote indications and doses require current poison-centre or authoritative verification."
+    },
+    "medication-selection-safety": {
+      "priority": "high",
+      "primary_source": "Drug labeling, syndrome-specific guidelines and independently checked infusion arithmetic",
+      "stored_version": "workflow v1.16",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "This is a safety workflow, not an independent formulary. Every high-risk drug remains syndrome-, patient- and protocol-specific."
+    },
+    "upper-gi-bleeding": {
+      "priority": "standard",
+      "primary_source": "ESGE peptic ulcer bleeding guideline 2026 and Baveno portal-hypertension consensus",
+      "primary_source_url": "https://www.esge.com/assets/downloads/pdfs/guidelines/2026_a-2863-8314.pdf",
+      "stored_version": "ESGE peptic-ulcer guideline 2026; Baveno VII 2022; antithrombotic reconciliation 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused upper-GI route and antithrombotic reconciliation completed in working draft v1.31. ESGE 2026 antithrombotic recommendations largely carried forward without re-evaluation; reversal/restart remain individualized. Yellow pending human and Portugal/Azores local protocol/formulary review."
+    },
+    "trauma-major-hemorrhage": {
+      "priority": "high",
+      "primary_source": "European guideline on major bleeding and coagulopathy following trauma",
+      "stored_version": "sixth edition 2023",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Early hemorrhage control, balanced resuscitation, warming, calcium surveillance and tranexamic acid within three hours are preserved; exact blood-pack ratios remain protocol-specific."
+    },
+    "anaphylaxis": {
+      "priority": "high",
+      "primary_source": "Resuscitation Council UK emergency treatment of anaphylaxis guidance",
+      "stored_version": "current online guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "IM adrenaline is first-line; age/weight dose, observation and refractory infusion protocols require current local verification."
+    },
+    "urologic-emergencies": {
+      "priority": "standard",
+      "primary_source": "EAU guidelines",
+      "stored_version": "2026",
+      "last_checked": "2026-09-14",
+      "status": "green"
+    },
+    "aki-nephrology": {
+      "priority": "standard",
+      "primary_source": "KDIGO acute kidney injury guideline",
+      "stored_version": "existing/current guidance",
+      "last_checked": "2026-09-14",
+      "status": "yellow",
+      "note": "Verify publication status of any new KDIGO AKI update before citing it as final."
+    },
+    "soft-tissue-infections": {
+      "priority": "high",
+      "primary_source": "IDSA skin and soft tissue infection guidance",
+      "stored_version": "current guidance to be verified",
+      "last_checked": "2026-09-14",
+      "status": "yellow"
+    },
+    "clinical-image-interpretation": {
+      "priority": "high",
+      "primary_source": "Modality-specific professional guidance plus independent local reference diagnosis",
+      "stored_version": "workflow v1.4; diagnostic performance not established",
+      "last_checked": "2026-09-17",
+      "status": "yellow",
+      "note": "Technical workflow only. Do not promote to green until representative de-identified cases are independently adjudicated and safety metrics are reviewed. Verify syndrome-specific guidance for management advice."
+    },
+    "tension-pneumothorax": {
+      "priority": "high",
+      "primary_source": "Resuscitation Council UK 2025 guidance and BTS Pleural Disease/Procedures guidance 2023",
+      "stored_version": "RCUK 2025; BTS 2023",
+      "last_checked": "2026-09-26",
+      "status": "green",
+      "note": "Immediate decompression is physiology-led when tension is strongly suspected; technique and anatomical site remain context- and protocol-sensitive."
+    },
+    "traumatic-intracranial-mass-effect": {
+      "priority": "high",
+      "primary_source": "Brain Trauma Foundation severe TBI 4th edition; Neurocritical Care Society cerebral edema guideline 2020; ENLS Pharmacotherapy Protocol 6.0; FDA nicardipine labeling",
+      "stored_version": "BTF 2016 current online; NCS 2020; ENLS 6.0; FDA label 2022",
+      "last_checked": "2026-09-26",
+      "status": "green",
+      "note": "BTF supports age-stratified SBP floors and CPP 60-70 mm Hg but not a universal upper BP target. NCS preference for HTS over mannitol in TBI is conditional with low-quality evidence; exact repeat dosing and sodium limits remain protocol-specific."
+    },
+    "sodium-emergencies": {
+      "priority": "high",
+      "primary_source": "European Society of Endocrinology hyponatraemia guideline and Society for Endocrinology emergency guidance",
+      "stored_version": "ESE 2014; SfE update 2022",
+      "last_checked": "2026-09-26",
+      "status": "yellow",
+      "note": "The 150 mL 3% bolus strategy remains current European guidance; individualize ceilings and relowering in high-risk patients. Hypernatremia assessment must include serum osmolar indices plus measured urine osmolality/electrolytes and ongoing losses."
+    },
+    "potassium-emergencies": {
+      "priority": "high",
+      "primary_source": "UK Kidney Association Clinical Practice Guideline Management of Hyperkalaemia in Adults",
+      "stored_version": "2023",
+      "last_checked": "2026-09-26",
+      "status": "green",
+      "note": "Calcium formulation and dose are setting-specific; insulin-glucose requires six-hour glucose surveillance and a hypoglycemia-prevention plan."
+    },
+    "calcium-magnesium-emergencies": {
+      "priority": "high",
+      "primary_source": "Society for Endocrinology endocrine emergency guidance and current resuscitation guidance",
+      "stored_version": "2016 guidance; current online review 2026",
+      "last_checked": "2026-09-26",
+      "status": "yellow",
+      "note": "Verify locally available calcium/magnesium formulation and infusion protocol before continuous replacement."
+    },
+    "abdominal-aortic-aneurysm": {
+      "priority": "high",
+      "primary_source": "European Society for Vascular Surgery abdominal aorto-iliac aneurysm guideline",
+      "stored_version": "2024; workflow v1.12",
+      "last_checked": "2026-09-26",
+      "status": "green",
+      "note": "Permissive hypotension, rapid vascular activation and definitive repair are central; POCUS confirms aneurysm but does not exclude rupture."
+    },
+    "sedoanalgesia": {
+      "priority": "high",
+      "primary_source": "Royal College of Emergency Medicine Procedural Sedation in the Emergency Department",
+      "stored_version": "2022 current guidance",
+      "last_checked": "2026-09-26",
+      "status": "green",
+      "note": "Requires credentialed clinicians, continuous capnography, dedicated monitoring and immediate airway rescue capability."
+    },
+    "diabetic-ketoacidosis-hhs": {
+      "priority": "high",
+      "primary_source": "ADA/EASD/JBDS/AACE/DTS Hyperglycemic Crises in Adults with Diabetes consensus report",
+      "stored_version": "2024",
+      "last_checked": "2026-09-26",
+      "status": "green",
+      "note": "Uses revised adult DKA/HHS diagnostic and resolution criteria, potassium-first insulin safety, controlled HHS osmolality correction, beta-hydroxybutyrate monitoring and conditional prophylactic LMWH. Local fluid, potassium, insulin and renal/weight anticoagulant protocols still apply."
+    },
+    "acid-base-emergencies": {
+      "priority": "high",
+      "primary_source": "Standard quantitative acid-base physiology plus syndrome-specific current guidance",
+      "stored_version": "calculation workflow v1.11",
+      "last_checked": "2026-09-26",
+      "status": "yellow",
+      "note": "Formulas are decision aids; sample type, albumin, clinical context and mixed disorders must be verified. Treatment recommendations require the relevant syndrome module."
+    },
+    "blood-gas-image": {
+      "priority": "high",
+      "primary_source": "Clinical image workflow with independent value verification",
+      "stored_version": "workflow v1.13; oxygenation calculations; diagnostic performance not established",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "No OCR accuracy claim. Every value, decimal and unit must be visually verified; unlabeled specimens cannot be treated as arterial. P/F and A-a gradient quantify impairment but do not alone establish ARDS."
+    },
+    "acute-respiratory-failure": {
+      "priority": "high",
+      "primary_source": "ATS/ESICM/SCCM ARDS mechanical ventilation guidance plus syndrome-specific current guidance",
+      "stored_version": "ATS implementation guidance current online review 2026; workflow v1.13",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "P/F severity must be interpreted with actual FiO2, respiratory support/PEEP, timing, imaging and edema origin; verify current local ventilatory and proning protocols."
+    },
+    "acute-severe-asthma": {
+      "priority": "high",
+      "primary_source": "Global Initiative for Asthma strategy report",
+      "primary_source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "stored_version": "GINA 2026; workflow v1.19",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Adult emergency pathway uses controlled oxygen, repeated inhaled SABA, ipratropium for severe attacks, early systemic steroid and one-time IV magnesium when response is inadequate. Intubation and dynamic-hyperinflation management remain expert/local-protocol dependent."
+    },
+    "copd-exacerbation": {
+      "priority": "high",
+      "primary_source": "Global Initiative for Chronic Obstructive Lung Disease report and pocket guide",
+      "primary_source_url": "https://goldcopd.org/2026-gold-report-and-pocket-guide/",
+      "stored_version": "GOLD 2026; workflow v1.19",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Preserves controlled oxygen, short-acting bronchodilators, prednisone-equivalent 40 mg for five days, conditional antibiotics and early bilevel NIV for hypercapnic acidosis. Antibiotic agent remains culture-, ecology- and patient-dependent."
+    },
+    "life-threatening-hemoptysis": {
+      "priority": "high",
+      "primary_source": "Society of Chest Imaging and Interventions consensus guideline and CIRSE bronchial-artery embolisation standards",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10289864/",
+      "stored_version": "SCII 2023; CIRSE 2022; workflow v1.19",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Life threat is physiology-based rather than volume-only. Airway/lung isolation, CTA versus bronchoscopy order and definitive embolization or surgery depend on stability, source and local capability; tranexamic acid is adjunctive and must not delay source control."
+    },
+    "oxygen-therapy-emergency": {
+      "priority": "high",
+      "primary_source": "British Thoracic Society emergency oxygen guidance; Resuscitation Council UK ABCDE and adult emergency handbook; device-specific NHS oxygen policies",
+      "stored_version": "BTS current online recommendations; RCUK current online review 2026; workflow v1.14",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Target saturation is primary. Low-flow FiO2 is approximate; Venturi settings must follow the exact device label because colours and source-flow requirements can vary by manufacturer."
+    },
+    "high-flow-nasal-oxygen": {
+      "priority": "high",
+      "primary_source": "ERS clinical practice guideline for HFNC in acute respiratory failure; Roca multicenter ROX validation study",
+      "stored_version": "ERS 2022; ROX validation 2019; workflow v1.15",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "ROX cutoffs derive from adults with pneumonia and must be used as serial risk signals, not universal intubation thresholds. Clinical deterioration overrides ROX."
+    },
+    "noninvasive-ventilation": {
+      "priority": "high",
+      "primary_source": "Official ERS/ATS NIV guideline; BTS/ICS acute hypercapnic respiratory failure guideline and NIV quality-improvement algorithm",
+      "stored_version": "ERS/ATS 2017; BTS/ICS 2016 with 2017 correction; workflow v1.15",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Core COPD and cardiogenic pulmonary edema indications remain supported, but exact settings, circuits, interfaces and escalation thresholds require local protocol and expert review."
+    },
+    "acute-abdomen": {
+      "priority": "standard",
+      "primary_source": "WSES syndrome-specific emergency-surgery guidance and ACR Appropriateness Criteria",
+      "stored_version": "current syndrome-specific guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "This umbrella module requires diagnosis-specific imaging and surgical guidance."
+    },
+    "acute-liver-failure": {
+      "priority": "high",
+      "primary_source": "AASLD acute liver failure position paper and current AASLD clinical education",
+      "primary_source_url": "https://www.aasld.org/practice-guidelines/management-acute-liver-failure",
+      "stored_version": "AASLD position paper 2011; current online review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Early transplant-center discussion and immediate NAC for suspected acetaminophen toxicity are preserved; non-acetaminophen NAC is specialist/context dependent."
+    },
+    "acute-musculoskeletal-pain": {
+      "priority": "standard",
+      "primary_source": "ACP/AAFP acute musculoskeletal injury pain guideline plus diagnosis-specific emergency guidance",
+      "stored_version": "2020 guideline; current review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "alcohol-withdrawal": {
+      "priority": "high",
+      "primary_source": "ASAM Clinical Practice Guideline on Alcohol Withdrawal Management",
+      "primary_source_url": "https://www.asam.org/quality-care/clinical-guidelines/alcohol-withdrawal-management-guideline",
+      "stored_version": "2020",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Agent, cumulative dose and monitoring remain setting-, age- and liver-function dependent."
+    },
+    "altered-consciousness": {
+      "priority": "high",
+      "primary_source": "ACR Appropriateness Criteria for altered mental status/coma/delirium plus syndrome-specific resuscitation guidance",
+      "stored_version": "current online criteria reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "chest-xray": {
+      "priority": "standard",
+      "primary_source": "ACR Appropriateness Criteria and modality-specific radiographic quality standards",
+      "stored_version": "current online criteria reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Image workflow guidance does not establish diagnostic accuracy."
+    },
+    "cns-infection": {
+      "priority": "high",
+      "primary_source": "WHO guidelines on meningitis diagnosis, treatment and care plus encephalitis guidance",
+      "primary_source_url": "https://www.who.int/publications/i/item/9789240108042",
+      "stored_version": "WHO 2025",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Empiric treatment must not be delayed by lumbar puncture or imaging when delay is unsafe."
+    },
+    "ct-mri-screenshot": {
+      "priority": "high",
+      "primary_source": "ACR Appropriateness Criteria plus image-review safety workflow",
+      "stored_version": "current online criteria; workflow v1.17",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "A screenshot or incomplete series cannot exclude whole-study pathology; diagnostic performance is not established."
+    },
+    "delirium": {
+      "priority": "standard",
+      "primary_source": "NICE delirium guideline and geriatric emergency-care guidance",
+      "stored_version": "NICE CG103 with current surveillance; review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "dermatology-severe": {
+      "priority": "high",
+      "primary_source": "Diagnosis-specific dermatology guidance for SJS/TEN, DRESS and severe cutaneous infection",
+      "stored_version": "current syndrome-specific guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "device-complications": {
+      "priority": "high",
+      "primary_source": "EHRA/HRS device-management and infection guidance",
+      "stored_version": "current society guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "dvt": {
+      "priority": "standard",
+      "primary_source": "ESVS venous thrombosis guideline and CHEST antithrombotic guidance",
+      "stored_version": "ESVS 2021; CHEST 2021",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "ecg-image": {
+      "priority": "high",
+      "primary_source": "AHA/ACC/ESC ECG standards plus image-review safety workflow",
+      "stored_version": "workflow v1.17; diagnostic performance not established",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "ecg-pocus-integration": {
+      "priority": "high",
+      "primary_source": "ACEP ultrasound guidance plus syndrome-specific ECG guidance",
+      "stored_version": "ACEP 2023; current syndrome guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "electrolytes": {
+      "priority": "high",
+      "primary_source": "Child sodium, potassium and calcium-magnesium module evidence records",
+      "stored_version": "umbrella record v1.17",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "emergency-infectious-diseases": {
+      "priority": "high",
+      "primary_source": "WHO, CDC and IDSA syndrome-specific guidance",
+      "stored_version": "dynamic umbrella guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "emergency-procedures": {
+      "priority": "high",
+      "primary_source": "Procedure-specific RCEM, ACEP, WHO and specialty guidance",
+      "stored_version": "dynamic procedure umbrella reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Every invasive procedure requires a current local protocol, credentialing and rescue plan."
+    },
+    "endocrine-metabolic": {
+      "priority": "high",
+      "primary_source": "Society for Endocrinology emergency guidance and diagnosis-specific consensus statements",
+      "stored_version": "current online guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "ent-emergencies": {
+      "priority": "high",
+      "primary_source": "ENT UK and diagnosis-specific airway/foreign-body guidance",
+      "stored_version": "current syndrome guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "environmental-emergencies": {
+      "priority": "high",
+      "primary_source": "Wilderness Medical Society and ERC syndrome-specific environmental guidance",
+      "stored_version": "current syndrome guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "geriatric-emergencies": {
+      "priority": "standard",
+      "primary_source": "ACEP Geriatric Emergency Department Guidelines",
+      "primary_source_url": "https://www.acep.org/geda",
+      "stored_version": "current online guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "headache-sah": {
+      "priority": "high",
+      "primary_source": "AHA/ASA aneurysmal subarachnoid hemorrhage guideline and ACEP acute headache policy",
+      "primary_source_url": "https://professional.heart.org/en/science-news/2023-guideline-for-the-management-of-patients-with-aneurysmal-subarachnoid-hemorrhage",
+      "stored_version": "AHA/ASA 2023; ACEP policy current online review 2026",
+      "last_checked": "2026-09-27",
+      "status": "green"
+    },
+    "hematology-oncology": {
+      "priority": "high",
+      "primary_source": "ASCO/ESMO and specialty syndrome-specific oncologic emergency guidance",
+      "stored_version": "dynamic umbrella guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "infective-endocarditis": {
+      "priority": "high",
+      "primary_source": "ESC Guidelines for the management of endocarditis",
+      "primary_source_url": "https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Endocarditis-Guidelines",
+      "stored_version": "ESC 2023",
+      "last_checked": "2026-09-27",
+      "status": "green"
+    },
+    "musculoskeletal-xray": {
+      "priority": "standard",
+      "primary_source": "ACR trauma Appropriateness Criteria and NICE fracture guidance",
+      "stored_version": "current online criteria reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Published figures used for workflow checks are excluded from accuracy metrics unless blinded and independently adjudicated."
+    },
+    "non-coronary-chest-pain": {
+      "priority": "high",
+      "primary_source": "AHA/ACC chest-pain guidance plus ESC/ACR syndrome-specific guidance",
+      "stored_version": "2021 chest-pain guideline; current syndrome review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "observation-discharge": {
+      "priority": "standard",
+      "primary_source": "ACEP clinical policies and diagnosis-specific discharge/safety-net standards",
+      "stored_version": "dynamic cross-cutting workflow reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "ophthalmology-emergencies": {
+      "priority": "high",
+      "primary_source": "American Academy of Ophthalmology Preferred Practice Patterns and emergency diagnosis-specific guidance",
+      "primary_source_url": "https://www.aao.org/guidelines-browse",
+      "stored_version": "current PPP collection reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "ophthalmology-image": {
+      "priority": "high",
+      "primary_source": "AAO Preferred Practice Patterns plus image-review safety workflow",
+      "stored_version": "current PPP collection; workflow v1.17",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "orthopedic-emergencies": {
+      "priority": "high",
+      "primary_source": "NICE non-complex and complex fracture guidance plus specialty standards",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng38",
+      "stored_version": "NICE NG37/NG38 current online review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "other-clinical-image": {
+      "priority": "standard",
+      "primary_source": "Clinical image-review safety workflow and syndrome-specific guidance",
+      "stored_version": "workflow v1.17; diagnostic performance not established",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "pancreatitis": {
+      "priority": "standard",
+      "primary_source": "American College of Gastroenterology guideline on acute pancreatitis",
+      "primary_source_url": "https://journals.lww.com/ajg/fulltext/2024/03000/american_college_of_gastroenterology_guidelines_.14.aspx",
+      "stored_version": "ACG 2024",
+      "last_checked": "2026-09-27",
+      "status": "green"
+    },
+    "pocus": {
+      "priority": "high",
+      "primary_source": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine",
+      "stored_version": "ACEP 2023",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Guidance supports governance and focused use; it does not validate model interpretation of ultrasound images."
+    },
+    "pocus-image": {
+      "priority": "high",
+      "primary_source": "ACEP ultrasound guidance plus image-review safety workflow",
+      "stored_version": "ACEP 2023; workflow v1.17; diagnostic performance not established",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "psychiatric-emergencies": {
+      "priority": "high",
+      "primary_source": "NICE and ACEP diagnosis-specific behavioral emergency guidance",
+      "stored_version": "dynamic syndrome guidance reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "rhabdomyolysis": {
+      "priority": "high",
+      "primary_source": "AAST Critical Care Committee Clinical Consensus Document on Rhabdomyolysis",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8804685/",
+      "stored_version": "2022",
+      "last_checked": "2026-09-27",
+      "status": "green"
+    },
+    "skin-wound-image": {
+      "priority": "standard",
+      "primary_source": "Clinical image-review workflow plus diagnosis-specific wound/dermatology guidance",
+      "stored_version": "workflow v1.17; diagnostic performance not established",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "suicide-risk": {
+      "priority": "high",
+      "primary_source": "NICE Self-harm: assessment, management and preventing recurrence",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng225",
+      "stored_version": "NICE NG225 2022",
+      "last_checked": "2026-09-27",
+      "status": "green",
+      "note": "Risk scales must not be used alone to predict suicide or decide discharge."
+    },
+    "syncope-falls-frailty": {
+      "priority": "standard",
+      "primary_source": "ESC syncope guideline plus ACEP geriatric emergency guidance",
+      "primary_source_url": "https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Syncope-Guidelines-on-Diagnosis-and-Management-of",
+      "stored_version": "ESC 2018; current online review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Core initial evaluation remains current; source age warrants continued surveillance."
+    },
+    "febrile-infant-0-90-days": {
+      "priority": "high",
+      "primary_source": "Canadian Paediatric Society ≤90-day febrile infant statement (updated 2026); AAP febrile infant CPG",
+      "primary_source_url": "https://cps.ca/en/documents/position/management-of-well-appearing-febrile-young-infants-aged-90-days",
+      "stored_version": "CPS 2023; updated 2026-05-27; AAP 2021",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused term, well-appearing infant pathway; explicit exclusions and age bands 0–28, 29–60, 61–90 days. Prematurity/comorbidity/ill appearance require separate pathway; locally approved Portugal/Azores algorithm and empiric antimicrobial choices need review."
+    },
+    "bronchiolitis": {
+      "priority": "high",
+      "primary_source": "NICE NG9 bronchiolitis (oxygen threshold update 2021); Canadian Paediatric Society bronchiolitis position statement",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng9",
+      "stored_version": "NICE NG9 current online, threshold update 2021; CPS 2021",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Supportive care and oxygen thresholds checked against NICE/CPS. Local oxygen escalation/high-flow/PICU thresholds vary; yellow pending human/local review."
+    },
+    "croup": {
+      "priority": "high",
+      "primary_source": "Canadian Paediatric Society acute croup statement; Royal Children’s Hospital acute upper-airway obstruction CPG",
+      "primary_source_url": "https://cps.ca/en/documents/position/acute-management-of-croup",
+      "stored_version": "CPS 2017; RCH current online reviewed 2026",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused steroid/epinephrine bridge and observation boundary; local concentration/formulation and airway escalation protocol must be verified."
+    },
+    "pediatric-dehydration-shock": {
+      "priority": "high",
+      "primary_source": "NICE NG254 suspected sepsis under 16 (2025); NICE NG29 pediatric IV fluids; RCH dehydration/gastroenteritis CPG",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng254",
+      "stored_version": "NICE NG254 2025; NG29; RCH current online 2026",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Shock bolus is cautious 10 mL/kg with reassessment; maximum 250 mL per bolus in suspected sepsis per NG254. DKA, neonates, hemorrhage, burns, cardiac/renal disease need syndrome-specific fluid plans."
+    },
+    "pediatric-status-epilepticus": {
+      "priority": "high",
+      "primary_source": "HSE National Clinical Guideline CDI/0277/1.0/2025; NICE NG217",
+      "primary_source_url": "https://www2.healthservice.hse.ie/files/584/",
+      "stored_version": "HSE effective 2025-10-15, review due 2028-10-15; NICE NG217 2025 update",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Weight/age-based 1 month–18 year convulsive status pathway. HSE explicitly excludes neonates <1 month and breakthrough seizures in established epilepsy; use individualized/neonatal pathway. Local Portugal drug protocol/formulary and specialist review pending."
+    },
+    "adult-arrhythmias": {
+      "priority": "high",
+      "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+    },
+    "adult-cardiac-arrest": {
+      "priority": "high",
+      "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+    },
+    "pediatric-arrhythmias": {
+      "priority": "high",
+      "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+    },
+    "pediatric-cardiac-arrest": {
+      "priority": "high",
+      "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+    },
+    "undifferentiated-shock": {
+      "priority": "high",
+      "primary_source": "ERC 2025 resuscitation guidance and cause-specific authoritative pathways indexed in router",
+      "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
+      "stored_version": "Focused shock phenotype and routing audit 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Etiology coverage mapped to existing indexed modules. Reassessment, fluid/vasopressor choices remain phenotype- and cause-specific; human/local review required."
+    },
+    "pediatric-shock": {
+      "priority": "high",
+      "primary_source": "ERC/RCUK Paediatric Life Support Guidelines 2025; NICE NG254; existing pediatric cause-specific guidance",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
+      "last_checked": "2026-09-28",
+      "status": "yellow",
+      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+    },
+    "vasoactive-inotrope-infusions": {
+      "priority": "high",
+      "primary_source": "Surviving Sepsis Campaign 2026 (Crit Care Med 2026, doi:10.1097/CCM.0000000000007075); SSC 2021; US product labels (norepinephrine, Vasostrict, epinephrine, dopamine, dobutamine, milrinone, phenylephrine, Giapreza); EU/UK SmPC (noradrenaline, Simdax)",
+      "primary_source_url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+      "stored_version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
+      "last_checked": "2026-09-29",
+      "status": "yellow",
+      "note": "New draft module. SSC 2026 positions and label doses checked via accessible official summaries/labels; SSC 2026 full text (Springer/LWW) and ESC 2021 HF dose table not directly accessible. Vasopressin label start (0.01 units/min) differs from fixed 0.03 units/min practice; norepinephrine base vs tartrate labelling must be verified. Portuguese RCM/INFARMED, local concentrations and human review pending."
+    },
+    "icu-sedation-analgesia-infusions": {
+      "priority": "high",
+      "primary_source": "SCCM PADIS 2018 (Crit Care Med 2018;46:e825-e873) and PADIS 2025 focused update (Crit Care Med 2025;53:e711-e727); EU/UK SmPC (Dexdor, remifentanil, midazolam, fentanyl, Ketalar); US Diprivan label; KSCCM 2021 PADIS opioid table",
+      "primary_source_url": "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+      "stored_version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
+      "last_checked": "2026-09-29",
+      "status": "yellow",
+      "note": "New draft module. PADIS recommendations checked via SCCM official pages and a guideline-author handout; full PADIS texts not opened. Fentanyl/morphine/hydromorphone ICU infusion ranges rely on KSCCM 2021 table (no ICU range in SmPC). Local concentrations, Portuguese RCM and human review pending; pediatric infusions out of scope."
+    }
+  }
+}

@@ -1,0 +1,311 @@
+{
+ "source": "v1.35 scripts/infusion_calculator.py",
+ "cases": [
+  {
+   "drug": "norepinephrine",
+   "preparationId": "ne-8mg-200ml",
+   "dose": 0.05,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 5.25
+  },
+  {
+   "drug": "norepinephrine",
+   "preparationId": "ne-8mg-100ml",
+   "dose": 0.05,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 2.625
+  },
+  {
+   "drug": "norepinephrine",
+   "preparationId": "ne-8mg-200ml",
+   "dose": 0.1,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 10.5
+  },
+  {
+   "drug": "vasopressin",
+   "preparationId": "vp-100u-100ml",
+   "dose": 0.03,
+   "doseUnit": "units/min",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 1.7999999999999998
+  },
+  {
+   "drug": "vasopressin",
+   "preparationId": "vp-100u-100ml",
+   "dose": 0.01,
+   "doseUnit": "units/min",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 0.6
+  },
+  {
+   "drug": "vasopressin",
+   "preparationId": "vp-100u-100ml",
+   "dose": 0.005,
+   "doseUnit": "units/min",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 0.3
+  },
+  {
+   "drug": "vasopressin",
+   "preparationId": "vp-100u-100ml",
+   "dose": 0.07,
+   "doseUnit": "units/min",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 4.2
+  },
+  {
+   "drug": "vasopressin",
+   "preparationId": "vp-50u-500ml",
+   "dose": 0.03,
+   "doseUnit": "units/min",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 17.999999999999996
+  },
+  {
+   "drug": "epinephrine",
+   "preparationId": "epi-4mg-100ml",
+   "dose": 0.05,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 5.25
+  },
+  {
+   "drug": "dopamine",
+   "preparationId": "dopa-400mg-250ml",
+   "dose": 5,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 13.125
+  },
+  {
+   "drug": "dobutamine",
+   "preparationId": "dobu-250mg-100ml",
+   "dose": 2.5,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 4.2
+  },
+  {
+   "drug": "dobutamine",
+   "preparationId": "dobu-250mg-200ml",
+   "dose": 2.5,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 8.4
+  },
+  {
+   "drug": "milrinone",
+   "preparationId": "mil-20mg-100ml",
+   "dose": 0.375,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 7.875
+  },
+  {
+   "drug": "levosimendan",
+   "preparationId": "levo-12.5mg-500ml",
+   "dose": 0.1,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 16.8
+  },
+  {
+   "drug": "phenylephrine",
+   "preparationId": "phe-10mg-500ml",
+   "dose": 20,
+   "doseUnit": "mcg/min",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 60.0
+  },
+  {
+   "drug": "angiotensin-ii",
+   "preparationId": "at2-2.5mg-250ml",
+   "dose": 20,
+   "doseUnit": "ng/kg/min",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 8.4
+  },
+  {
+   "drug": "fentanyl",
+   "preparationId": "fen-1000mcg-100ml",
+   "dose": 0.7,
+   "doseUnit": "mcg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 4.9
+  },
+  {
+   "drug": "fentanyl",
+   "preparationId": "fen-1000mcg-100ml",
+   "dose": 1.5,
+   "doseUnit": "mcg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 10.5
+  },
+  {
+   "drug": "remifentanil",
+   "preparationId": "remi-5mg-100ml",
+   "dose": 0.1,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 8.4
+  },
+  {
+   "drug": "remifentanil",
+   "preparationId": "remi-5mg-100ml",
+   "dose": 0.025,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "infusion_ml_h",
+   "mlPerHour": 2.1
+  },
+  {
+   "drug": "morphine",
+   "preparationId": "mor-100mg-100ml",
+   "dose": 2,
+   "doseUnit": "mg/h",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 2.0
+  },
+  {
+   "drug": "hydromorphone",
+   "preparationId": "hm-10mg-100ml",
+   "dose": 0.5,
+   "doseUnit": "mg/h",
+   "weightKg": null,
+   "method": "fixed_dose_ml_h",
+   "mlPerHour": 5.0
+  },
+  {
+   "drug": "propofol",
+   "preparationId": "prop-1pct",
+   "dose": 5,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 2.1
+  },
+  {
+   "drug": "propofol",
+   "preparationId": "prop-1pct",
+   "dose": 25,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 10.5
+  },
+  {
+   "drug": "propofol",
+   "preparationId": "prop-1pct",
+   "dose": 50,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 21.0
+  },
+  {
+   "drug": "propofol",
+   "preparationId": "prop-1pct",
+   "dose": 4,
+   "doseUnit": "mg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 28.0
+  },
+  {
+   "drug": "dexmedetomidine",
+   "preparationId": "dex-400mcg-100ml",
+   "dose": 0.7,
+   "doseUnit": "mcg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 12.25
+  },
+  {
+   "drug": "dexmedetomidine",
+   "preparationId": "dex-400mcg-100ml",
+   "dose": 0.2,
+   "doseUnit": "mcg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 3.5
+  },
+  {
+   "drug": "dexmedetomidine",
+   "preparationId": "dex-400mcg-100ml",
+   "dose": 1.4,
+   "doseUnit": "mcg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 24.5
+  },
+  {
+   "drug": "midazolam",
+   "preparationId": "mid-100mg-100ml",
+   "dose": 0.03,
+   "doseUnit": "mg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 2.1
+  },
+  {
+   "drug": "midazolam",
+   "preparationId": "mid-100mg-100ml",
+   "dose": 0.1,
+   "doseUnit": "mg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 7.0
+  },
+  {
+   "drug": "midazolam",
+   "preparationId": "mid-100mg-100ml",
+   "dose": 0.2,
+   "doseUnit": "mg/kg/h",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 14.0
+  },
+  {
+   "drug": "ketamine",
+   "preparationId": "ket-100mg-100ml",
+   "dose": 1,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 4.2
+  },
+  {
+   "drug": "ketamine",
+   "preparationId": "ket-100mg-100ml",
+   "dose": 2,
+   "doseUnit": "mcg/kg/min",
+   "weightKg": 70,
+   "method": "weight_per_hour_ml_h",
+   "mlPerHour": 8.4
+  }
+ ]
+}
