@@ -401,3 +401,12 @@ Further versions should prioritize validation and targeted refinement over uncon
 
 - Added freeze/reveal finalizer regression coverage: incomplete prediction sets and late freezes are blocked; valid finalized manifests strip source ECG identifiers and preserve abstentions.
 - Current test file: **159 test functions**. GitHub Actions `Clinical QA` run #285 completed successfully: **Ran 159 tests ... OK** and `automated_status: PASS`.
+
+## PTB-XL real blinded pipeline pilot — 02/10/2026
+- GitHub Actions `PTB-XL Blinded ECG Intake` run #6 (37042742831): **SUCCESS**.
+- Builder, blind/reference separation, blinded upload and sealed-reference upload all passed.
+- Blind artifact: 10 PNG + 1 manifest; target AFIB; `selection_mode=balanced_pipeline_pilot_5_per_class`; `performance_metrics_allowed=false`.
+- Static inspection confirmed no target labels or original PTB-XL ECG/patient IDs in the blinded manifest.
+- One rendered ECG was visually inspected for layout integrity; no source label was revealed.
+- The sealed-reference artifact was not downloaded/opened for diagnostic interpretation.
+- This is pipeline validation only. Balanced class selection discloses prevalence and therefore must not be used for blinded diagnostic-performance claims.
