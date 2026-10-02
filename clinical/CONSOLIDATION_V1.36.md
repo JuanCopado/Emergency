@@ -162,3 +162,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Registro `qa/pediatric-antibiotics.json` + calculador por síndrome para sepsis, CAP grave, ITU, pielonefritis y celulitis. Meningitis: selección ceftriaxona verificada por NICE NG240; dosis automática bloqueada porque NICE remite a BNFC.
 
 - [x] Se consolida un **registro antibiótico canónico único**: `qa/pediatric-antibiotics.json`; el calculador deja de apuntar a registros paralelos.
+
+- [x] Conversor de líquidos domiciliarios: dosis fuente-verificada -> mL únicamente tras introducir la concentración real del frasco; no se asume una concentración comercial.
