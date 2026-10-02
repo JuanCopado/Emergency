@@ -1,3 +1,12 @@
+## Audit hardening — validation, evidence freshness and CI (02/10/2026)
+- Manifest validation now rejects duplicate IDs/sections and uses exact module-ID boundaries in router checks.
+- Living Evidence now enforces configured 30/90/180-day review windows; expired green records fail the audit instead of remaining silently current.
+- Added regression tests for evidence expiry, duplicate manifest IDs and exact router matching.
+- Added dedicated PWA CI: install, unit tests, lint, typecheck and production build.
+- Clinical CI now covers architecture/model policy paths and uses current Node-24-based GitHub Actions.
+- Generated Graphify/Knowledge Graph/RAG artifacts and common local secret files are excluded from Git.
+- No clinical recommendation, dose or module content changed.
+
 ## Project consolidation — Graph/RAG/Graphify infrastructure (02/10/2026)
 - Added project architecture, Graphify guidance/exclusions, RAG contract and external-model registry.
 - Added deterministic module→bundle→evidence-source graph builder and tests; it performs no clinical inference and fails on manifest/evidence mismatch.
