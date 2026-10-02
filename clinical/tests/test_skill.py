@@ -22,6 +22,17 @@ from respiratory_support import calculate as respiratory_support
 from pediatric_pump_table import pump_table as pediatric_pump_table
 from pediatric_bolus_calculator import calculate as pediatric_bolus_calculate
 from pediatric_antibiotic_calculator import calculate as pediatric_antibiotic_calculate
+from pediatric_fluid_calculator import (
+    maintenance_ml_day as pediatric_fluid_maintenance_ml_day,
+    maintenance_ml_h as pediatric_fluid_maintenance_ml_h,
+    shock_bolus as pediatric_fluid_shock_bolus,
+    ors_rehydration as pediatric_ors_rehydration,
+    dehydration_deficit_ml as pediatric_dehydration_deficit_ml,
+    generic_deficit_48h_plan as pediatric_generic_deficit_48h_plan,
+    gastroenteritis_iv_deficit as pediatric_gastroenteritis_iv_deficit,
+    hypernatremia_deficit_rate as pediatric_hypernatremia_deficit_rate,
+    symptomatic_hyponatremia_bolus as pediatric_symptomatic_hyponatremia_bolus,
+)
 from pediatric_emergency_calculator import (
     weight_based_total as pediatric_weight_based_total,
     volume_for_dose as pediatric_volume_for_dose,
@@ -190,7 +201,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 107)
+        self.assertEqual(len(manifest), 108)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1275,6 +1286,58 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(croup['dose'], 12.0)
         ors = pediatric_bolus_calculate('gastroenteritis-ors-rehydration', 12)
         self.assertAlmostEqual(ors['volume_ml'], 600.0)
+
+
+    def test_v136_pediatric_iv_fluid_module_core_invariants(self):
+        module = ' '.join(load(ROOT, 'pediatric-iv-fluid-therapy').split())
+        for invariant in (
+            'glucose-free isotonic crystalloid with sodium 131--154 mmol/L',
+            '10 mL/kg IV/IO over <10 min',
+            '10--20 mL/kg per bolus',
+            '40--60 mL/kg during the first hour',
+            '50 mL/kg over 4 h plus maintenance',
+            '100 mL/kg deficit replacement',
+            '50 mL/kg deficit replacement',
+            'replace the water deficit **over 48 h**',
+            '<=0.5 mmol/L/h',
+            '2.7% sodium chloride 2 mL/kg, max 100 mL, over 10--15 min',
+            '0.9% saline 10--20 mL/kg over 20--30 min',
+            '24--48 h',
+            '100/50/20 mL/kg/day',
+            '50--80% of calculated maintenance'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_fluid_calculator_core_examples(self):
+        bolus = pediatric_fluid_shock_bolus(12)
+        self.assertAlmostEqual(bolus['volume_ml'], 120.0)
+        self.assertAlmostEqual(bolus['equivalent_ml_h'], 720.0)
+        ors = pediatric_ors_rehydration(18)
+        self.assertAlmostEqual(ors['volume_ml'], 900.0)
+        self.assertAlmostEqual(ors['average_ml_h'], 225.0)
+        self.assertAlmostEqual(pediatric_fluid_maintenance_ml_day(25), 1600.0)
+        self.assertAlmostEqual(pediatric_fluid_maintenance_ml_h(25), 1600.0/24.0)
+        self.assertAlmostEqual(pediatric_fluid_maintenance_ml_h(25, 2/3), (1600.0/24.0)*(2/3))
+
+    def test_v136_pediatric_dehydration_deficit_and_special_timing(self):
+        self.assertAlmostEqual(pediatric_dehydration_deficit_ml(20, 7), 1400.0)
+        plan = pediatric_generic_deficit_48h_plan(20, 7)
+        self.assertAlmostEqual(plan['first_24h_deficit_ml'], 1000.0)
+        self.assertAlmostEqual(plan['second_24h_deficit_ml'], 400.0)
+        self.assertAlmostEqual(pediatric_gastroenteritis_iv_deficit(20, False), 1000.0)
+        self.assertAlmostEqual(pediatric_gastroenteritis_iv_deficit(20, True), 2000.0)
+        hyper = pediatric_hypernatremia_deficit_rate(20, 7)
+        self.assertAlmostEqual(hyper['deficit_ml_h'], 1400.0/48.0)
+        hypo = pediatric_symptomatic_hyponatremia_bolus(60)
+        self.assertAlmostEqual(hypo['volume_ml'], 100.0)
+
+    def test_v136_pediatric_fluid_calculator_fails_closed(self):
+        with self.assertRaises(ValueError):
+            pediatric_fluid_shock_bolus(0)
+        with self.assertRaises(ValueError):
+            pediatric_dehydration_deficit_ml(20, 25)
+        with self.assertRaises(ValueError):
+            pediatric_fluid_maintenance_ml_h(20, 0)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
