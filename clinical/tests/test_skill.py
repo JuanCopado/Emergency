@@ -903,6 +903,24 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, cm)
 
+
+    def test_v136_trauma_major_hemorrhage_portugal_reconciliation(self):
+        trauma = ' '.join(load(ROOT, 'trauma-major-hemorrhage').split())
+        for invariant in (
+            'updated **18/07/2017**',
+            'do not hard-code the older DGS pack',
+            'FFP:pRBC ratio of at least **1:2**',
+            '1 g IV over 10 min, followed by 1 g IV over 8 h',
+            '<=1.5 g/L',
+            '3--4 g fibrinogen concentrate',
+            '1.1--1.3 mmol/L',
+            '>50 x 10^9/L',
+            '>100 x 10^9/L',
+            'do **not** use recombinant activated factor VII as first-line therapy',
+            'Local release gate (Portugal/Azores/Horta)'
+        ):
+            self.assertIn(invariant, trauma)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
