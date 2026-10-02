@@ -400,4 +400,4 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Draft validation PR: #12. It is explicitly non-release/non-merge and does not change the v1.35 clinical line.
 
 - Added freeze/reveal finalizer regression coverage: incomplete prediction sets and late freezes are blocked; valid finalized manifests strip source ECG identifiers and preserve abstentions.
-- Current test file: **159 test functions**. Last complete externally observed suite remains **151 PASS** pending an observable CI run for the new branch head.
+- Current test file: **159 test functions**. GitHub Actions `Clinical QA` run #285 completed successfully: **Ran 159 tests ... OK** and `automated_status: PASS`.
