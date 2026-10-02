@@ -59,6 +59,7 @@ from audit_evidence_coverage import audit as audit_evidence_coverage
 from validate_real_image_cases import validate as validate_real_image_cases
 from validate_blinded_image_dataset import validate as validate_blinded_image_dataset
 from calculate_blinded_image_metrics import calculate as calculate_blinded_image_metrics
+from create_blinded_image_dataset import build as build_blinded_image_dataset
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -1990,6 +1991,21 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(result['metrics']['abstain'], 1)
         self.assertIsNone(result['metrics']['sensitivity'])
         self.assertIsNone(result['metrics']['specificity'])
+
+
+    def test_v136_blinded_image_manifest_generator_starts_fail_closed(self):
+        data = build_blinded_image_dataset('ecg', 'target rhythm', 'Is target rhythm present?')
+        self.assertFalse(data['authorized'])
+        self.assertFalse(data['deidentified'])
+        self.assertFalse(data['independent_reference'])
+        self.assertEqual(data['modality'], 'ecg')
+        result = validate_blinded_image_dataset(data)
+        self.assertFalse(result['metrics_eligible'])
+        self.assertTrue(result['errors'])
+
+    def test_v136_blinded_image_manifest_generator_rejects_invalid_modality(self):
+        with self.assertRaises(ValueError):
+            build_blinded_image_dataset('invalid', 'x', 'y')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
