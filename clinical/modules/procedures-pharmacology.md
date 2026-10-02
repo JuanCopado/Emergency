@@ -13,6 +13,19 @@ rescue plan and post-intervention reassessment.
 - Avoid suxamethonium when hyperkalemia or high-risk potassium release, neuromuscular disease, denervation, significant burns/crush after the vulnerable interval, malignant-hyperthermia susceptibility or relevant contraindication is present. Rocuronium requires a plan for prolonged paralysis and immediate post-intubation sedation.
 - Confirm tracheal placement with continuous waveform capnography, then reassess depth, bilateral ventilation, BP and complications. Start analgesia/sedation immediately, set lung-protective ventilation, obtain blood gas/appropriate imaging and document the airway plan.
 
+
+## pediatric-airway-rsi
+
+- Scope: emergency tracheal intubation in infants/children beyond newborn resuscitation. Use a pediatric airway lead, weight in kg, age/size-appropriate equipment and a challenge-response checklist. Prepare post-intubation analgesia/sedation before giving neuromuscular blockade.
+- Correct physiologic risk before induction when possible: hypoxaemia, shock, severe metabolic acidosis, right-heart failure, raised ICP and hypoglycaemia. Have suction, bag-mask ventilation, supraglottic rescue, video/direct laryngoscopy options and front-of-neck rescue appropriate to size immediately available.
+- **Preoxygenation/oxygenation:** optimize position, use high-flow oxygen appropriate to size and gentle positive-pressure ventilation with PEEP when needed. Avoid prolonged apnoea in critically ill children; prioritize oxygenation over a rigid no-ventilation RSI dogma.
+- **Induction:** RCH emergency-airway guidance uses ketamine **0.5--2 mg/kg IV** as the preferred default induction agent for many emergency intubations. Reduce toward the lower end in profound shock because all induction agents can precipitate hypotension.
+- **Neuromuscular blockade:** RCH uses rocuronium **1.2--1.6 mg/kg IV** as the preferred default muscle relaxant for emergency intubation. A separate 2025 national pediatric protocol also lists rocuronium **1--2 mg/kg IV** and succinylcholine **1--2 mg/kg IV** where not contraindicated.
+- **Suxamethonium/succinylcholine safety:** avoid with hyperkalaemia/high-risk potassium release, neuromuscular disease/denervation, significant burns/crush after the vulnerable interval, malignant-hyperthermia susceptibility or another product contraindication. If used, have a bradycardia/arrest plan appropriate to age and context.
+- **First-pass strategy:** use the device/operator combination with the highest expected first-pass success. Limit repeated attempts; reoxygenate and change operator/device/technique after failure rather than repeating the same approach.
+- **Confirm placement:** continuous waveform capnography is mandatory when available; also reassess chest movement/air entry, depth, oxygenation and haemodynamics. A colorimetric detector alone is not adequate when waveform capnography is available.
+- **Post-intubation:** immediately start age/physiology-appropriate analgesia and sedation; set lung-protective ventilation, obtain blood gas as indicated and actively prevent tube displacement/pressure injury. If rocuronium was used, remember paralysis can outlast induction and does not provide sedation or analgesia.
+- **CICO:** if cannot intubate/cannot oxygenate, transition rapidly to the pediatric difficult-airway/CICO algorithm. Oxygenation takes priority over repeated laryngoscopy attempts.
 ## sedoanalgesia
 
 - Choose the least depth needed and assess ASA status, airway, aspiration risk, fasting context, pregnancy, age/frailty, prior opioids and cardiorespiratory reserve. Urgent procedures need an explicit risk-benefit decision rather than automatic delay for fasting time.
