@@ -106,3 +106,12 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Fase 5 imagen iniciada con contrato ciego v1.1, métricas fail-closed, generador de manifiestos y candidatos PTB-XL, RSNA ICH, CheXpert/MIMIC-CXR y EchoNet. Aún no existe dataset real suficiente para claims de precisión.
 - Handoff para nuevo hilo actualizado en `clinical/HANDOFF_PROMPT.md`.
 - Siguiente paso recomendado: primer dataset real autorizado/desidentificado con referencia independiente, freeze de manifest antes de labels y ejecución ciega; o revisión humana de high-risk yellow si se prioriza consolidación clínica.
+
+
+## Avance Fase 5 — 02/10/2026
+- Nuevo gate de admisión de fuentes: `qa/image-dataset-source-registry.json` + `scripts/validate_image_dataset_source.py`.
+- PTB-XL queda **intake-ready** tras congelar protocolo fold 10 y separación de referencia: `qa/PTBXL_BLINDED_PROTOCOL.md` + `scripts/prepare_ptbxl_blinded_cohort.py`.
+- No se han importado todavía casos reales al banco final y no se calculan métricas clínicas.
+- Estado clínico/evidencia sin cambios: **127 módulos / 127/127 evidencia / 29 green / 98 yellow / 0 red**.
+- El archivo de tests contiene **156 funciones de test** tras este bloque. El último run completo previamente confirmado sigue siendo **151 PASS**; los nuevos tests requieren confirmación por GitHub Actions antes de documentarlos como PASS.
+- Fase 4 pediátrica sigue bloqueada únicamente por revisión humana pediatría/farmacia; se añadió `qa/PEDIATRIC_HUMAN_REVIEW_READINESS.md` sin auto-promoción a green.
