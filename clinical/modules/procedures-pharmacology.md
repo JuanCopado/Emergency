@@ -41,9 +41,16 @@ rescue plan and post-intervention reassessment.
 
 ## empiric-antibiotics
 
-- Define syndrome/source, severity, immune status, allergies, renal/hepatic function, recent antibiotics, prior cultures and MDR risk.
-- Obtain cultures when useful without delaying treatment in shock or other time-critical infection.
-- Use local formulary/antibiogram for agent choice; verify loading and maintenance dose, infusion strategy and renal adjustment. Document indication, review time and source-control plan; narrow or stop when data support it.
+- Scope: framework for adult emergency empirical antimicrobial selection. It is **not** a universal regimen table. Agent choice must follow syndrome/source, severity, local resistance ecology, prior microbiology, allergy history, organ function, immune status, recent antibiotics, device exposure and local formulary.
+- **Timing in sepsis (SSC 2026):** probable/definite sepsis without shock -> administer antimicrobials immediately, ideally **within 1 hour** of recognition. Possible sepsis without shock -> perform a rapid time-limited evaluation and, if concern for infection persists, give antimicrobials **within 3 hours** of first suspicion. Septic shock -> do not delay effective therapy for nonessential diagnostics.
+- Obtain blood/other cultures before antibiotics when this can be done rapidly **without delaying** treatment in shock or another time-critical infection.
+- **MDR coverage:** use empirical coverage for a specific MDR pathogen only when patient-level or local epidemiologic risk is high (e.g. previous colonization/infection, prolonged broad-spectrum antibiotics, prolonged hospitalization/high-prevalence unit). If MDR risk is low, avoid reflex broad-spectrum MDR coverage. De-escalate promptly when microbiology and clinical response permit.
+- **Anaerobes/antifungals:** do not add routine anaerobic coverage in sepsis without a plausible anaerobic source. Do not use routine empirical antifungal therapy in sepsis/septic shock; consider it only in selected patients with specific fungal-risk factors.
+- **Source control:** identify an anatomic source requiring drainage/debridement/device removal and pursue early source control; SSC 2026 suggests ideally within **6 hours** once such a source is diagnosed in sepsis/septic shock.
+- **Complicated UTI (IDSA 2025):** in sepsis attributed to cUTI/pyelonephritis, choose empirically among a **third- or fourth-generation cephalosporin, carbapenem, piperacillin-tazobactam, or fluoroquinolone** using a four-step assessment: severity, resistance risk, patient-specific factors, and—if septic—a current local antibiogram. If using an antibiogram, IDSA suggests aiming for approximately **>=90% susceptibility in septic shock** or **>=80% in sepsis without shock** for the relevant pathogens. Broader anti-Pseudomonas/MRSA/Enterococcus coverage is reserved for corresponding risk.
+- **Do not infer local doses from this module.** Exact loading dose, maintenance dose, prolonged/extended infusion strategy, renal/hepatic adjustment, allergy alternative and compatibility must come from the syndrome-specific guideline plus current local hospital/Portugal-Azores formulary.
+- Review at 24--48 h (or earlier when cultures return): confirm infection, narrow/stop unnecessary agents, optimize route/dose, document duration and source-control status. Procalcitonin should not replace clinical assessment when deciding whether to start therapy.
+- Mandatory local QA inputs before a regimen is presented as operational in Horta/Azores: current antibiogram (preferably <=12 months), formulary/stock, beta-lactam allergy pathway, renal-dose references, infusion standards and microbiology turnaround.
 
 ## anticoagulation-reversal
 
