@@ -416,3 +416,10 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Unified QA: `automated_status: PASS`.
 - Unit regression suite: **Ran 161 tests ... OK**.
 - Sharding preserves patient groups; prediction merge fails closed on missing shards, incomplete classes or missing freeze timestamps.
+
+## PTB-XL full-fold engineering hardening — 02/10/2026
+- Clinical QA #297: SUCCESS after artifact sharding/leakage-gate integration.
+- Clinical QA #298: SUCCESS after parallel deterministic ECG rendering.
+- Current regression suite: **162 tests PASS**.
+- Optimization changes execution only: concurrent record downloads and 4-process rendering. Selection, hashes, fold, target, layout, blinded manifest and sealed reference semantics are unchanged.
+- Full-fold accelerated intake run #11 (37050506581) launched with `FULL_FOLD` / AFIB; reference remains sealed.
