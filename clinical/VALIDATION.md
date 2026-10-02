@@ -1,5 +1,12 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 pediatric electrolyte emergencies
+- Adds `pediatric-electrolyte-emergencies` (110 -> 111 modules).
+- Sources: RCH pediatric hyperkalaemia/hypokalaemia/hypomagnesaemia, NICE NG29 sodium emergencies, calcium gluconate SmPC and RCH hypoglycaemia.
+- Expected registry state: 111/111 evidence records; 31 green / 80 yellow / 0 red.
+- Automated checks verify sourced dose/monitoring invariants; this is not clinical validation.
+
+
 ## v1.36 pediatric asthma and RSI
 - Adds `pediatric-acute-asthma` and `pediatric-airway-rsi` (108 -> 110 modules).
 - Sources: GINA 2026 pediatric acute asthma and RCH current emergency airway management.
