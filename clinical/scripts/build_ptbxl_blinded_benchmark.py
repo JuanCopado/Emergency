@@ -322,8 +322,6 @@ if __name__ == "__main__":
     )
     print(json.dumps({
         "case_count": len(cohort["cases"]),
-        "positive_reference_cases": sealed["positive_reference_cases"],
-        "negative_reference_cases": sealed["negative_reference_cases"],
         "blinded_manifest": str(args.output_dir / "blinded_manifest.json"),
-        "sealed_reference": str(args.output_dir / "SEALED_REFERENCE_DO_NOT_REVEAL.json")
+        "sealed_reference_created": True
     }, ensure_ascii=False))
