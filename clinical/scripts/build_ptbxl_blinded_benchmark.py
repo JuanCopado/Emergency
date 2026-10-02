@@ -136,7 +136,7 @@ def _render_standard(record_path, output_png):
     fig.savefig(output_png, bbox_inches="tight")
     plt.close(fig)
 
-def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pilot_per_class=0):
+def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pilot_per_class=0, natural_limit=0):
     if not target_code.strip():
         raise ValueError("target_code is required")
     if len(salt) < 16:
@@ -163,12 +163,15 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
     if not rows:
         raise ValueError("no fold cases selected")
 
+    selection_mode = "full_fold"
+    if natural_limit and natural_limit > 0:
+        rows = sorted(rows, key=lambda r: int(r["ecg_id"]))[:natural_limit]
+        selection_mode = f"natural_label_agnostic_first_{natural_limit}"
     positives = [r for r in rows if r["_target_positive"]]
     negatives = [r for r in rows if not r["_target_positive"]]
     if not positives or not negatives:
-        raise ValueError("target must have both positive and negative cases in selected fold")
+        raise ValueError("target must have both positive and negative cases in selected cohort")
 
-    selection_mode = "full_fold"
     if pilot_per_class and pilot_per_class > 0:
         if len(positives) < pilot_per_class or len(negatives) < pilot_per_class:
             raise ValueError("pilot_per_class exceeds available positive/negative cases")
@@ -267,7 +270,7 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
         },
         "selection_rule": f"strat_fold == {int(fold)}",
         "selection_mode": selection_mode,
-        "performance_metrics_allowed": selection_mode == "full_fold",
+        "performance_metrics_allowed": selection_mode == "full_fold" or selection_mode.startswith("natural_label_agnostic_"),
         "patient_grouping_prespecified": True,
         "metrics_requested": False,
         "render_protocol": "qa/PTBXL_BLINDED_PROTOCOL.md",
@@ -302,10 +305,12 @@ if __name__ == "__main__":
     p.add_argument("--fold", type=int, default=10)
     p.add_argument("--max-cases", type=int, default=0)
     p.add_argument("--pilot-per-class", type=int, default=0)
+    p.add_argument("--natural-limit", type=int, default=0)
     args = p.parse_args()
     cohort, sealed = build(
         args.database_csv, args.target_code, args.salt, args.output_dir,
-        fold=args.fold, max_cases=args.max_cases, pilot_per_class=args.pilot_per_class
+        fold=args.fold, max_cases=args.max_cases, pilot_per_class=args.pilot_per_class,
+        natural_limit=args.natural_limit
     )
     print(json.dumps({
         "case_count": len(cohort["cases"]),
