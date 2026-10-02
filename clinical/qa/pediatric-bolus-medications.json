@@ -232,6 +232,43 @@
       "source_concentration_per_ml": null,
       "source": "RCH Acute Pain Management 2024: further 100 micrograms/kg, max 2 mg if inadequate response",
       "status": "source_verified_dose_only"
+    },
+    {
+      "id": "asthma-discharge-salbutamol-pmdi",
+      "drug": "salbutamol",
+      "indication": "post-exacerbation reliever after improvement/discharge in child <=5 y with confirmed asthma/wheeze response",
+      "fixed_dose": 2,
+      "fixed_dose_unit": "inhalations",
+      "route": "pMDI via spacer",
+      "source_concentration_per_ml": null,
+      "frequency": "as needed for symptom relief; seek acute care if needed within 4 h of previous dose",
+      "source": "GINA 2026: prescribe salbutamol by pMDI and spacer, 2 inhalations as needed after discharge in children <=5 y",
+      "status": "source_verified_fixed"
+    },
+    {
+      "id": "croup-dexamethasone-severe",
+      "drug": "dexamethasone",
+      "indication": "severe or life-threatening croup",
+      "dose_per_kg": 0.6,
+      "dose_unit": "mg/kg",
+      "max_dose": 12,
+      "max_dose_unit": "mg",
+      "route": "PO/IM/IV according to severity/ability",
+      "source_concentration_per_ml": null,
+      "source": "Royal Children's Hospital Croup guideline current online: dexamethasone 0.6 mg/kg, max 12 mg",
+      "status": "source_verified_dose_only"
+    },
+    {
+      "id": "gastroenteritis-ors-rehydration",
+      "drug": "low-osmolarity oral rehydration solution",
+      "indication": "clinical dehydration from gastroenteritis in child under 5 without shock requiring IV resuscitation",
+      "dose_per_kg": 50,
+      "dose_unit": "mL/kg",
+      "max_dose": null,
+      "route": "PO/NG",
+      "frequency": "over 4 h, in small frequent amounts; plus maintenance",
+      "source": "NICE CG84: 50 mL/kg low-osmolarity ORS over 4 h plus maintenance",
+      "status": "source_verified_volume"
     }
   ]
 }
