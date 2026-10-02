@@ -39,13 +39,23 @@ def _parse_codes(raw):
         raise ValueError("scp_codes must decode to a dict")
     return value
 
-def _download(url, dest):
+def _download(urls, dest):
     dest.parent.mkdir(parents=True, exist_ok=True)
-    with urllib.request.urlopen(url, timeout=60) as src, dest.open("wb") as dst:
-        shutil.copyfileobj(src, dst)
+    last_error = None
+    for url in urls:
+        try:
+            with urllib.request.urlopen(url, timeout=30) as src, dest.open("wb") as dst:
+                shutil.copyfileobj(src, dst)
+            return
+        except Exception as exc:
+            last_error = exc
+    raise RuntimeError(f"all PTB-XL download mirrors failed for {dest.name}: {last_error}")
 
 def _record_urls(filename_lr):
-    return [BASE_URL + filename_lr + ".hea", BASE_URL + filename_lr + ".dat"]
+    return (
+        [base + filename_lr + ".hea" for base in BASE_URLS],
+        [base + filename_lr + ".dat" for base in BASE_URLS],
+    )
 
 def _render_standard(record_path, output_png):
     rec = wfdb.rdrecord(str(record_path))
