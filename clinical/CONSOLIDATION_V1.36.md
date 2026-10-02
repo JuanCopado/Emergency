@@ -113,3 +113,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [REFERENCE FOUND / LOCAL PENDING] propofol, dexmedetomidina, midazolam y remifentanilo: referencias portuguesas encontradas en INFARMED. No equivalen a stock actual ni a concentración estándar local de Horta.
 - [PENDING] fentanilo IV de perfusión: las referencias públicas revisadas no permiten todavía fijar una presentación IV local operativa.
+
+- [x] Gate local creado: `qa/HORTA_FORMULARY_VERIFICATION.md`. Ningún fármaco puede pasar a `verified` sin producto/RCM real, concentración estándar, estabilidad, smart-pump y revisión farmacia + médica.
