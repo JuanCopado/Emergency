@@ -732,8 +732,8 @@ class ModularCoreTests(unittest.TestCase):
         for invariant in (
             '10 mL/kg', '40--60 mL/kg in the first hour',
             '5 mL/kg', '3--4 boluses (30--40 mL/kg)',
-            'noradrenaline is first-line vasopressor',
-            'adrenaline first-line inotrope',
+            'noradrenaline as first-line vasopressor',
+            'adrenaline as first-line inotrope',
             'max 20 mL/kg'
         ):
             self.assertIn(invariant, shock)
