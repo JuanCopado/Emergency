@@ -155,6 +155,23 @@
       "stability": null,
       "smart_pump_entry": null,
       "status": "local_pending"
+    },
+    {
+      "drug": "propofol",
+      "category": "sedative/anaesthetic",
+      "clinical_position": "Current SmPCs: may not be used for ICU sedation in patients 16 years of age or younger; procedural/anaesthetic use is a separate indication and must not be conflated with PICU sedation",
+      "dose_unit": "milligrams/kg/hour",
+      "dose_ladder": [],
+      "local_product": null,
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": null,
+      "final_concentration_per_ml": null,
+      "concentration_unit": "mg/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "not_for_pediatric_icu_sedation"
     }
   ]
 }
