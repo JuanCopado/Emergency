@@ -20,7 +20,7 @@ from sodium_water_balance import calculate as sodium_water_balance
 from acid_base_hyperglycemia import calculate as acid_base_hyperglycemia
 from respiratory_support import calculate as respiratory_support
 from pediatric_pump_table import pump_table as pediatric_pump_table
-from pediatric_bolus_calculator import calculate as pediatric_bolus_calculate
+from pediatric_bolus_calculator import calculate as pediatric_bolus_calculate, calculate_with_selected_concentration as pediatric_bolus_with_concentration
 from pediatric_antibiotic_calculator import calculate as pediatric_antibiotic_calculate
 from pediatric_blood_product_calculator import (
     trauma_rbc_ml as pediatric_trauma_rbc_ml,
@@ -1799,6 +1799,17 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(men['dose'], 2000.0)
         with self.assertRaises(ValueError):
             pediatric_antibiotic_calculate('unknown-entry', 20)
+
+
+    def test_v136_home_liquid_volume_requires_selected_product_concentration(self):
+        para = pediatric_bolus_with_concentration('pain-paracetamol-po', 20, 40)
+        self.assertAlmostEqual(para['dose'], 300.0)
+        self.assertAlmostEqual(para['volume_ml'], 7.5)
+        ibu = pediatric_bolus_with_concentration('pain-ibuprofen-po', 20, 20)
+        self.assertAlmostEqual(ibu['dose'], 200.0)
+        self.assertAlmostEqual(ibu['volume_ml'], 10.0)
+        with self.assertRaises(ValueError):
+            pediatric_bolus_with_concentration('pain-paracetamol-po', 20, 0)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
