@@ -212,7 +212,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 120)
+        self.assertEqual(len(manifest), 122)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1610,6 +1610,28 @@ class ModularCoreTests(unittest.TestCase):
             '0.9% sodium chloride + 5% glucose',
             '30 mg/m2/day',
             '20 mg/m2/day'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_head_injury_core(self):
+        module = ' '.join(load(ROOT, 'pediatric-head-injury').split())
+        for invariant in (
+            'GCS <=13',
+            'observe for up to **4 h after injury**',
+            '30-minutely neurological observations for the first 2 h',
+            'persistent **GCS <8**',
+            'fall of >2 GCS points',
+            'returned to normal consciousness/behaviour for at least 1 h'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_abdominal_surgical_red_flags(self):
+        module = ' '.join(load(ROOT, 'pediatric-abdominal-surgical-emergencies').split())
+        for invariant in (
+            'Ultrasound is the initial study of choice',
+            'Do **not** attempt enema reduction with peritonitis, shock, radiological perforation or clinical instability',
+            'success >80%',
+            'urgent surgical review',
+            'within **4--6 h**',
+            'bilious vomiting in an infant/child is a surgical emergency until proven otherwise'
         ): self.assertIn(invariant, module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):

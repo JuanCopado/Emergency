@@ -1,6 +1,6 @@
 # MODULES — índice verificado
 
-Propuesta de consolidación v1.36 (rama de trabajo): 120 IDs únicos; todos tienen sección y registro.
+Propuesta de consolidación v1.36 (rama de trabajo): 122 IDs únicos; todos tienen sección y registro.
 El estado green/yellow corresponde al registro de evidencia, no a una declaración de validación clínica.
 
 | ID | Archivo de módulos | Evidencia |
@@ -41,6 +41,8 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `pediatric-cns-infection` | `modules/special-populations.md` | yellow |
 | `pediatric-dka` | `modules/special-populations.md` | yellow |
 | `pediatric-sepsis` | `modules/special-populations.md` | yellow |
+| `pediatric-head-injury` | `modules/special-populations.md` | yellow |
+| `pediatric-abdominal-surgical-emergencies` | `modules/special-populations.md` | yellow |
 | `pediatric-adrenal-crisis` | `modules/special-populations.md` | yellow |
 | `pediatric-burns` | `modules/special-populations.md` | yellow |
 | `pediatric-toxicology` | `modules/special-populations.md` | yellow |

@@ -140,3 +140,6 @@ each changes immediate decisions; do not load an entire category.
 
 - pediatric sepsis or septic shock -> pediatric-sepsis + pediatric-shock + pediatric-iv-fluid-therapy + pediatric-emergency-medications
 - pediatric adrenal crisis, steroid-dependent child with shock/hypoglycaemia or suspected adrenal insufficiency -> pediatric-adrenal-crisis + pediatric-iv-fluid-therapy + pediatric-electrolyte-emergencies
+
+- pediatric head injury, concussion, skull fracture or CT/observation decision -> pediatric-head-injury + pediatric-emergencies; add pediatric-airway-rsi for severe deterioration
+- pediatric bilious vomiting, intussusception, appendicitis, testicular/adnexal torsion or acute surgical abdomen -> pediatric-abdominal-surgical-emergencies + pediatric-emergencies + pediatric-emergency-medications

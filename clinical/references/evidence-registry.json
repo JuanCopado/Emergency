@@ -1001,6 +1001,24 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric adrenal-crisis pathway includes age-based hydrocortisone, fluids/glucose/electrolyte management and sick-day escalation. Human pediatric endocrine review pending."
+    },
+    "pediatric-head-injury": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Head injury current guideline + pediatric trauma guidance",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Head_injury/",
+      "stored_version": "RCH/PIC current online reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric head-injury pathway separates CT/observation criteria, severe deterioration and concussion from adult TBI. Human pediatric trauma/neurosurgery review pending."
+    },
+    "pediatric-abdominal-surgical-emergencies": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Intussusception updated Feb 2026 + Acute abdominal pain + Acute scrotal pain Jan 2026 + adolescent gynecology Aug 2025",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Intussusception/",
+      "stored_version": "RCH/PIC current online 2025-2026; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric surgical-abdomen router covers intussusception, torsion, obstruction/malrotation, appendicitis and pyloric stenosis with escalation boundaries. Human pediatric surgery review pending."
     }
   }
 }
