@@ -57,6 +57,7 @@ from pediatric_hypertension_calculator import labetalol_ml_h as pediatric_labeta
 from validate_clinical_cases import validate as validate_clinical_cases
 from audit_evidence_coverage import audit as audit_evidence_coverage
 from validate_real_image_cases import validate as validate_real_image_cases
+from validate_blinded_image_dataset import validate as validate_blinded_image_dataset
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -1810,6 +1811,73 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(ibu['volume_ml'], 10.0)
         with self.assertRaises(ValueError):
             pediatric_bolus_with_concentration('pain-paracetamol-po', 20, 0)
+
+
+    def test_v136_blinded_image_dataset_gate_accepts_valid_structure(self):
+        data = {
+            'dataset_class': 'blinded_accuracy',
+            'authorized': True,
+            'deidentified': True,
+            'protocol_prespecified': True,
+            'independent_reference': True,
+            'target_question': 'detect target condition',
+            'metrics_requested': True,
+            'cases': [
+                {
+                    'id': 'p1',
+                    'study_uid_hash': 'hash-p1',
+                    'evaluation': {'mode': 'blinded', 'annotated': False,
+                                   'reference_revealed_after_prediction': True,
+                                   'prediction_frozen': True},
+                    'reference': {'target_positive': True},
+                    'prediction': {'target_positive': True}
+                },
+                {
+                    'id': 'n1',
+                    'study_uid_hash': 'hash-n1',
+                    'evaluation': {'mode': 'blinded', 'annotated': False,
+                                   'reference_revealed_after_prediction': True,
+                                   'prediction_frozen': True},
+                    'reference': {'target_positive': False},
+                    'prediction': {'target_positive': False}
+                }
+            ]
+        }
+        result = validate_blinded_image_dataset(data)
+        self.assertEqual(result['errors'], [])
+        self.assertTrue(result['metrics_eligible'])
+
+    def test_v136_image_metrics_fail_closed_for_source_known_or_annotated_cases(self):
+        teaching = {
+            'dataset_class': 'teaching_source_known',
+            'metrics_requested': True,
+            'cases': []
+        }
+        result = validate_blinded_image_dataset(teaching)
+        self.assertFalse(result['metrics_eligible'])
+        self.assertTrue(result['errors'])
+
+        annotated = {
+            'dataset_class': 'blinded_accuracy',
+            'authorized': True,
+            'deidentified': True,
+            'protocol_prespecified': True,
+            'independent_reference': True,
+            'target_question': 'detect target condition',
+            'metrics_requested': False,
+            'cases': [{
+                'id': 'bad1',
+                'study_uid_hash': 'hash-bad1',
+                'evaluation': {'mode': 'blinded', 'annotated': True,
+                               'reference_revealed_after_prediction': True,
+                               'prediction_frozen': True},
+                'reference': {'target_positive': True},
+                'prediction': {'target_positive': True}
+            }]
+        }
+        result2 = validate_blinded_image_dataset(annotated)
+        self.assertFalse(result2['metrics_eligible'])
+        self.assertIn('bad1: annotated must be false', result2['errors'])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
