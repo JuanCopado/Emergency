@@ -1,4 +1,5 @@
 import importlib.util
+import sys
 import tempfile
 import unittest
 from datetime import date
@@ -6,6 +7,9 @@ from pathlib import Path
 
 
 CLINICAL_ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS_DIR = CLINICAL_ROOT / "scripts"
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
 
 
 def load_script(name: str):
