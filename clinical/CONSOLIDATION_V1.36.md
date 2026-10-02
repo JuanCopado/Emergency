@@ -174,6 +174,8 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Gate `scripts/validate_blinded_image_dataset.py`: fail-closed para blinding, anotaciones, referencia independiente, freeze de predicción y leakage.
 - [x] Plantilla `tests/blinded-image-dataset-template.json` integrada en CI; casos publicados siguen fuera de métricas de precisión.
 - [ ] Construir banco ciego autorizado y desidentificado por modalidad antes de afirmar sensibilidad/especificidad.
+- [x] Gate de admisión de fuentes `qa/image-dataset-source-registry.json` + `scripts/validate_image_dataset_source.py`: licencia/DUA, redistribución, desidentificación, referencia y separación de labels son independientes y fail-closed.
+- [x] Primer protocolo de intake congelado: PTB-XL fold 10, hashes paciente/estudio y referencias separadas (`qa/PTBXL_BLINDED_PROTOCOL.md`, `scripts/prepare_ptbxl_blinded_cohort.py`). PTB-XL queda intake-ready, no validado.
 
 - [x] Generador fail-closed `scripts/create_blinded_image_dataset.py`: crea manifiestos por modalidad/target con autorización, desidentificación y referencia independiente inicialmente en falso.
 - [x] Métricas ciegas v1.1: TP/FP/TN/FN, cobertura, abstención/no-diagnóstico e IC Wilson; sensibilidad/especificidad solo con cobertura binaria completa.
