@@ -100,7 +100,7 @@ delay stabilization for diagnostic certainty.
 
 ## noninvasive-ventilation
 
-- Match NIV to a **supported syndrome**. ERS/ATS recommends bilevel NIV for COPD exacerbation with acute or acute-on-chronic respiratory acidosis (generally pH at most 7.35 with elevated PaCO2 after initial medical therapy) and recommends CPAP or bilevel NIV for acute cardiogenic pulmonary edema when shock or another immediate airway indication is absent.
+- Match NIV to a **supported syndrome**. ERS/ATS recommends bilevel NIV for COPD exacerbation with acute or acute-on-chronic respiratory acidosis (generally pH at most 7.35 (pH <=7.35) with elevated PaCO2 after initial medical therapy) and recommends CPAP or bilevel NIV for acute cardiogenic pulmonary edema when shock or another immediate airway indication is absent.
 - For **de-novo acute hypoxemic respiratory failure**, NIV has a higher risk of harmful delayed intubation; ERS 2022 HFNO guidance conditionally favors HFNO over NIV. If NIV is nevertheless selected for a specific reason, use close critical-care surveillance and a low threshold for invasive escalation.
 - NIV is not routine treatment for acute asthma. Before starting any trial, document reversibility, escalation/ceiling plan and contraindications. Do not use NIV in respiratory arrest, inability to protect the airway, uncontrolled vomiting, fixed upper-airway obstruction, undrained pneumothorax, severe facial injury/burn preventing an interface, or rapidly worsening shock.
 - Agitation, heavy secretions, reduced consciousness and severe acidosis increase failure risk and require senior critical-care assessment rather than an automatic exclusion or automatic trial.
