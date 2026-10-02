@@ -880,10 +880,10 @@
       "priority": "high",
       "primary_source": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
       "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
-      "stored_version": "ERC/RCUK 2025; AHA/AAP PALS 2025; GINA 2026; NICE 2025/2026; RCH current pediatric guidelines; NHSGGC pediatric ED guidance; HSE/PANDEM/SmPC current set; v1.36 home-use expansion 2026-10-02",
+      "stored_version": "ERC/RCUK 2025; AHA/AAP PALS 2025; NICE NG51/NG250/NG109/NG111/NG141/NG240; GINA 2026; RCH/NHSGGC analgesia; HSE/PANDEM current set; v1.36 pediatric antibiotic expansion 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Cross-cutting pediatric module includes source-verified infusion, bolus, syndrome-specific antibiotic and discharge/home-use medication registries. Home-use entries are diagnosis-linked and preserve anaphylaxis, bilious-vomiting and rehydration safety boundaries. Remains yellow pending human pediatric/pharmacy review."
+      "note": "Cross-cutting pediatric module now includes source-verified syndrome-specific antibiotic arithmetic for sepsis, pneumonia, UTI/pyelonephritis and cellulitis. Meningitis agent selection is verified from NICE NG240 but dose automation remains blocked because NICE delegates exact dose to BNFC. Remains yellow pending human pediatric/pharmacy review."
     },
     "pediatric-iv-fluid-therapy": {
       "priority": "high",
