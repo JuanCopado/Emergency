@@ -893,6 +893,24 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Comprehensive pediatric fluid module separates resuscitation, maintenance, gastroenteritis, generic dehydration, hypernatraemia, symptomatic hyponatraemia, DKA, sepsis, haemorrhage and cardiogenic shock. Includes volume/timing arithmetic. Remains yellow pending human pediatric/critical-care review."
+    },
+    "pediatric-acute-asthma": {
+      "priority": "high",
+      "primary_source": "GINA Strategy Report 2026",
+      "primary_source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "stored_version": "GINA 2026 pediatric acute asthma sections; v1.36 build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Age-specific acute asthma dosing and escalation separated from adult pathway. Remains yellow pending human pediatric respiratory review."
+    },
+    "pediatric-airway-rsi": {
+      "priority": "high",
+      "primary_source": "Royal Children's Hospital Emergency Airway Management current guideline + pediatric emergency airway/CICO guidance",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Emergency_airway_management/",
+      "stored_version": "RCH emergency airway current online 2026; v1.36 build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric emergency intubation separated from adult RSI with ketamine/rocuronium ranges, oxygenation-first and post-intubation sedation requirements. Remains yellow pending human pediatric airway/anesthesia review."
     }
   }
 }
