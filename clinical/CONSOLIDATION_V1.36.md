@@ -149,3 +149,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Nuevos módulos high-risk `pediatric-acute-asthma` (GINA 2026) y `pediatric-airway-rsi` (RCH emergency airway). Dosis pediátricas separadas de las rutas adultas.
 
 - [x] Nuevo módulo high-risk `pediatric-electrolyte-emergencies`: hiper/hipopotasemia, hipomagnesemia, hipocalcemia sintomática, sodio e hipoglucemia con dosis pediátricas separadas de adulto.
+
+- [x] Nuevo módulo high-risk `pediatric-blood-transfusion-major-hemorrhage`: trauma/hemorragia crítica, hematíes, plasma, plaquetas y crioprecipitado por peso; separa transfusión crítica de transfusión estable y no impone un pack masivo universal.
