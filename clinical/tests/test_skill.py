@@ -65,6 +65,8 @@ from finalize_blinded_image_dataset import finalize as finalize_blinded_image_da
 from merge_blinded_prediction_shards import merge as merge_blinded_prediction_shards
 from prepare_rsna_ich_blinded_cohort import prepare as prepare_rsna_ich_blinded_cohort
 from prepare_chexpert_expert_blinded_cohort import prepare as prepare_chexpert_expert_blinded_cohort
+from prepare_echonet_dynamic_blinded_cohort import prepare as prepare_echonet_dynamic_blinded_cohort
+from prepare_mimic_cxr_curated_blinded_cohort import prepare as prepare_mimic_cxr_curated_blinded_cohort
 from create_blinded_prediction_template import build as build_blinded_prediction_template
 from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
 
@@ -2045,8 +2047,12 @@ class ModularCoreTests(unittest.TestCase):
         self.assertTrue(items['rsna-ich-2019']['reference_strategy_prespecified'])
         self.assertTrue(items['rsna-ich-2019']['label_separation_plan'])
         self.assertFalse(items['chexpert']['license_or_dua_verified'])
-        self.assertFalse(items['mimic-cxr-2.1.0']['intake_ready'])
-        self.assertFalse(items['echonet-dynamic']['intake_ready'])
+        self.assertTrue(items['mimic-cxr-2.1.0']['intake_ready'])
+        self.assertFalse(items['mimic-cxr-2.1.0']['actual_access_verified'])
+        self.assertTrue(items['mimic-cxr-2.1.0']['reference_strategy_prespecified'])
+        self.assertTrue(items['echonet-dynamic']['intake_ready'])
+        self.assertFalse(items['echonet-dynamic']['actual_access_verified'])
+        self.assertTrue(items['echonet-dynamic']['reference_strategy_prespecified'])
 
     def test_v136_ptbxl_blinded_cohort_separates_labels_and_hashes_patients(self):
         csv_text = (
@@ -2348,6 +2354,58 @@ class ModularCoreTests(unittest.TestCase):
                 prepare_chexpert_expert_blinded_cohort(
                     images, gt, 'Pneumothorax', '0123456789abcdef'
                 )
+
+    def test_v136_mimic_curated_preparer_excludes_uncertain_and_blank(self):
+        with tempfile.TemporaryDirectory() as directory:
+            d = Path(directory)
+            images = d / 'images.csv'
+            labels = d / 'labels.csv'
+            images.write_text(
+                'subject_id,study_id,dicom_id,image_path,ViewPosition\n'
+                'p1,s1,d1,/m/a.jpg,PA\n'
+                'p2,s2,d2,/m/b.jpg,AP\n'
+                'p3,s3,d3,/m/c.jpg,AP\n'
+                'p4,s4,d4,/m/d.jpg,PA\n',
+                encoding='utf-8'
+            )
+            labels.write_text(
+                'study_id,Pneumothorax\n'
+                's1,1.0\n'
+                's2,0.0\n'
+                's3,-1.0\n'
+                's4,\n',
+                encoding='utf-8'
+            )
+            blind, ref = prepare_mimic_cxr_curated_blinded_cohort(
+                images, labels, 'Pneumothorax', '0123456789abcdef'
+            )
+            self.assertFalse(blind['authorized'])
+            self.assertEqual(len(blind['cases']), 2)
+            self.assertEqual(ref['positive_reference_cases'], 1)
+            self.assertEqual(ref['negative_reference_cases'], 1)
+            serialized = json.dumps(blind)
+            self.assertNotIn('target_positive', serialized)
+            self.assertNotIn('/m/a.jpg', serialized)
+
+    def test_v136_echonet_preparer_uses_official_test_split_and_ef_threshold(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p = Path(directory) / 'FileList.csv'
+            p.write_text(
+                'FileName,EF,Split\n'
+                'a.avi,35,TEST\n'
+                'b.avi,55,TEST\n'
+                'c.avi,20,TRAIN\n',
+                encoding='utf-8'
+            )
+            blind, ref = prepare_echonet_dynamic_blinded_cohort(
+                p, '0123456789abcdef'
+            )
+            self.assertFalse(blind['authorized'])
+            self.assertEqual(blind['target_condition'], 'lvef_below_40_percent')
+            self.assertEqual(len(blind['cases']), 2)
+            self.assertEqual(ref['positive_reference_cases'], 1)
+            self.assertEqual(ref['negative_reference_cases'], 1)
+            self.assertNotIn('ejection_fraction', json.dumps(blind))
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
