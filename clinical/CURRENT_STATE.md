@@ -147,3 +147,16 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Clinical QA #297 y #298: SUCCESS; suite actual **162/162 PASS**.
 - Builder PTB-XL optimizado con descarga concurrente y render multiproceso determinista; no cambia selección, referencia ni protocolo.
 - Full-fold acelerado activo: run #11 / 37050506581, target AFIB, mode FULL_FOLD; referencia sellada.
+
+## Cierre banco ECG ciego — PTB-XL AFIB NATURAL_500
+- GitHub Actions run #13 / `37051568918`: **SUCCESS**.
+- Cohorte: `natural_label_agnostic_systematic_500`, fold 10, target AFIB, selección sistemática independiente del diagnóstico.
+- Artefacto ciego: **500 ECG PNG / 500 IDs únicos / 500 study hashes únicos / 488 pacientes**.
+- Agrupación: 11 pacientes aportan >1 ECG (máximo 3); **0 pacientes cruzan shards**.
+- Evaluación escalable: **11 shards + 11 prediction templates**; IDs de shards/templates coinciden exactamente con el manifiesto.
+- Leakage audit: no aparecen `target_positive`, `source_ecg_id`, `source_patient_id`, `scp_codes`, `patient_id` ni `filename_lr` en el paquete ciego.
+- Referencia sellada ausente del paquete ciego y **no descargada/abierta**.
+- Digest artefacto ciego: `sha256:c932d356b5fddf19f4e41417ac9320656a0d6d8af7f3219730cff916291ee6be`.
+- Digest referencia sellada (solo metadata GitHub, sin abrir contenido): `sha256:eb45838c51863ce1512a906f56d639fe2a368d608de5b0f552c6232709571c34`.
+- QA visual distribuido sobre 9 ECG del banco: layout 12 derivaciones + tira II íntegro, sin texto diagnóstico/IDs fuente visibles.
+- Este banco **sí queda apto metodológicamente para evaluación ciega exploratoria**, pero no existen métricas hasta ejecutar un intérprete/modelo real y congelar predicciones antes del reveal.
