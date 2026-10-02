@@ -920,6 +920,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric electrolyte route separates hyper/hypokalemia, magnesium, calcium, sodium and hypoglycemia from adult pathways with source-specific doses and monitoring. Remains yellow pending human pediatric/renal/endocrine/pharmacy review."
+    },
+    "pediatric-blood-transfusion-major-hemorrhage": {
+      "priority": "high",
+      "primary_source": "ERC/RCUK Paediatric Life Support 2025 + RCH Blood Product Prescription + RCH Trauma Primary Survey",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "stored_version": "ERC/RCUK PLS 2025; RCH blood product prescription current online (last updated Nov 2023); RCH trauma primary survey current online 2026; v1.36 build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Separates critical bleeding/trauma from non-bleeding component prescription; preserves protocol variability for massive-transfusion packs while providing source-based RBC/platelet/FFP/cryo volumes and rates. Remains yellow pending human pediatric trauma/haematology/transfusion review."
     }
   }
 }
