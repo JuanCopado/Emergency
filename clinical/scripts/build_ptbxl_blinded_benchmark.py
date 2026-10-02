@@ -170,7 +170,10 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
             patient_hash = _hash(row["patient_id"], salt)
             study_hash = _hash(row["ecg_id"], salt)
             case_id = f"ptbxl-{study_hash[:16]}"
-            recbase = tmp / case_id
+            local_dir = tmp / case_id
+            local_dir.mkdir(parents=True, exist_ok=True)
+            original_base = Path(row["filename_lr"]).name
+            recbase = local_dir / original_base
             hea_url, dat_url = _record_urls(row["filename_lr"])
             _download(hea_url, recbase.with_suffix(".hea"))
             _download(dat_url, recbase.with_suffix(".dat"))
