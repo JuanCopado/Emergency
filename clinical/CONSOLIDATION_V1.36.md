@@ -22,7 +22,7 @@ Reducir deuda clínica y documental de v1.35 antes de añadir módulos de bajo v
 
 ## Fase 2 — yellow de máximo riesgo
 Orden de revisión:
-1. `adult-cardiac-arrest`, `adult-arrhythmias`, `arrhythmias-cardiac-arrest`
+1. [IN REVIEW] `adult-cardiac-arrest`, `adult-arrhythmias`, `arrhythmias-cardiac-arrest` — ERC/RCUK 2025 reconciled 02/10/2026; explicit energies/doses/pacing added; remains yellow pending human + Portugal/Azores operational review
 2. `pediatric-cardiac-arrest`, `pediatric-arrhythmias`, `pediatric-shock`
 3. `vasoactive-inotrope-infusions`
 4. `icu-sedation-analgesia-infusions`
