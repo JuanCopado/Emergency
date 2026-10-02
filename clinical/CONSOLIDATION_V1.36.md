@@ -122,9 +122,11 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Motor determinista `scripts/pediatric_emergency_calculator.py`: dosis por kg con máximo, volumen por concentración, perfusión mL/h, bolos, mantenimiento Holliday-Segar y déficit IV de gastroenteritis.
 - [x] Dosis de resucitación referenciadas a ERC/RCUK 2025; fluidos a NICE NG29/CG84.
 - [x] Diferencia explícita de glucosa 10%: ERC PLS general 2 mL/kg vs HSE status 3 mL/kg; no fusionarlas.
-- [x] Regla anti-error: ninguna concentración pediátrica local se infiere si no está verificada por farmacia/Horta.
-- [ ] Verificar concentraciones locales pediátricas, smart-pump y productos reales.
+- [x] Regla anti-error: ninguna concentración pediátrica se infiere si no está respaldada por guía, ficha técnica oficial o fuente farmacológica pediátrica reconocida.
+- [ ] Completar concentraciones/dose ladders solo cuando exista una fuente pediátrica/SmPC explícita; no se exige protocolo local de Horta.
 - [ ] Revisión humana pediatría/farmacia antes de promover a green.
 
-- [x] Registro `qa/pediatric-infusion-localization.json` y generador de tablas de bomba pediátricas `scripts/pediatric_pump_table.py`: fail-closed hasta que concentración y escalera de dosis estén verificadas localmente.
+- [x] Registro `qa/pediatric-infusion-localization.json` y generador de tablas de bomba pediátricas `scripts/pediatric_pump_table.py`: fail-closed hasta que concentración y escalera de dosis estén verificadas por fuente pediátrica/SmPC.
 - [x] Propofol bloqueado como perfusión de sedación UCI pediátrica <=16 años según ficha técnica; no confundir con anestesia/sedación procedimental.
+
+- [x] Jerarquía pediátrica actualizada: ERC/RCUK 2025 (ruta europea primaria), AHA/AAP PALS 2025 (contraste), SSC pediátrica 2026 (sepsis/shock), NICE NG29/CG84 (fluidos), HSE 2025 (status), PANDEM 2022 (PICU sedación/delirium), fichas técnicas oficiales (restricciones/formulación).
