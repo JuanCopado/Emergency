@@ -1,0 +1,78 @@
+name: PTB-XL Blinded ECG Intake
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_code:
+        description: 'PTB-XL SCP-ECG target code'
+        required: true
+        default: 'AFIB'
+      max_cases:
+        description: '0 = all fold-10 cases; otherwise deterministic pilot retaining all positives'
+        required: true
+        default: '0'
+
+permissions:
+  contents: read
+
+jobs:
+  build-blinded-benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout consolidation branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install benchmark dependencies
+        run: python -m pip install --upgrade pip wfdb matplotlib numpy
+
+      - name: Download PTB-XL metadata v1.0.3
+        run: |
+          mkdir -p .ptbxl-input
+          curl --fail --location --retry 4             https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv             --output .ptbxl-input/ptbxl_database.csv
+
+      - name: Verify source intake gate
+        working-directory: clinical
+        run: |
+          python scripts/validate_image_dataset_source.py             qa/image-dataset-source-registry.json             --require-ready-source ptb-xl
+
+      - name: Build blinded fold-10 ECG benchmark
+        env:
+          PTBXL_BLINDING_SALT: ${{ secrets.PTBXL_BLINDING_SALT }}
+          TARGET_CODE: ${{ inputs.target_code }}
+          MAX_CASES: ${{ inputs.max_cases }}
+        run: |
+          if [ -z "$PTBXL_BLINDING_SALT" ]; then
+            echo "Missing required repository secret PTBXL_BLINDING_SALT"
+            exit 1
+          fi
+          python clinical/scripts/build_ptbxl_blinded_benchmark.py             .ptbxl-input/ptbxl_database.csv             "$TARGET_CODE"             .ptbxl-output             --salt "$PTBXL_BLINDING_SALT"             --fold 10             --max-cases "$MAX_CASES"
+
+      - name: Ensure sealed reference is absent from blinded artifact directory
+        run: |
+          mkdir -p .ptbxl-blinded-artifact .ptbxl-sealed-artifact
+          cp .ptbxl-output/blinded_manifest.json .ptbxl-blinded-artifact/
+          cp -r .ptbxl-output/images .ptbxl-blinded-artifact/
+          cp .ptbxl-output/SEALED_REFERENCE_DO_NOT_REVEAL.json .ptbxl-sealed-artifact/
+          test ! -e .ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json
+
+      - name: Upload blinded image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ptbxl-blinded-${{ inputs.target_code }}-fold10
+          path: .ptbxl-blinded-artifact/
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Upload sealed reference artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ptbxl-sealed-reference-${{ inputs.target_code }}-fold10
+          path: .ptbxl-sealed-artifact/
+          retention-days: 14
+          if-no-files-found: error
