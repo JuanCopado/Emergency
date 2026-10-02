@@ -39,7 +39,12 @@ jobs:
       - name: Download PTB-XL metadata v1.0.3
         run: |
           mkdir -p .ptbxl-input
-          curl --fail --location --retry 4 "https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv" --output .ptbxl-input/ptbxl_database.csv
+          curl --fail --location --retry 3 --connect-timeout 20 --max-time 60 \
+            "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/ptbxl_database.csv" \
+            --output .ptbxl-input/ptbxl_database.csv \
+          || curl --fail --location --retry 2 --connect-timeout 20 --max-time 90 \
+            "https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv" \
+            --output .ptbxl-input/ptbxl_database.csv
 
       - name: Verify source intake gate
         working-directory: clinical
