@@ -68,11 +68,11 @@ jobs:
             echo "PTBXL_NATURAL_LIMIT=0" >> "$GITHUB_ENV"
             echo "PTBXL_MAX_CASES=0" >> "$GITHUB_ENV"
             echo "PTBXL_INTAKE_MODE=full_fold" >> "$GITHUB_ENV"
-          elif [ "${{ github.event_name }}" = "push" ] && grep -q "^NATURAL_250$" .github/ptbxl-intake-trigger; then
+          elif [ "${{ github.event_name }}" = "push" ] && grep -q "^NATURAL_500$" .github/ptbxl-intake-trigger; then
             echo "PTBXL_PILOT_PER_CLASS=0" >> "$GITHUB_ENV"
-            echo "PTBXL_NATURAL_LIMIT=250" >> "$GITHUB_ENV"
+            echo "PTBXL_NATURAL_LIMIT=500" >> "$GITHUB_ENV"
             echo "PTBXL_MAX_CASES=0" >> "$GITHUB_ENV"
-            echo "PTBXL_INTAKE_MODE=natural_250" >> "$GITHUB_ENV"
+            echo "PTBXL_INTAKE_MODE=natural_500" >> "$GITHUB_ENV"
           elif [ "${{ github.event_name }}" = "push" ]; then
             echo "PTBXL_PILOT_PER_CLASS=5" >> "$GITHUB_ENV"
             echo "PTBXL_NATURAL_LIMIT=0" >> "$GITHUB_ENV"
