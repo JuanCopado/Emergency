@@ -1,5 +1,14 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 blinded image evaluation infrastructure
+- Dataset contract v1.1 requires one modality/target, patient/study hashes, prediction-freeze and reference-reveal timestamps, independent reference and leakage controls.
+- Allowed prediction classes: positive, negative, abstain, nondiagnostic.
+- Standard sensitivity/specificity/PPV/NPV/accuracy are suppressed whenever any case is abstain/nondiagnostic; coverage and unresolved counts remain visible.
+- Wilson 95% intervals are computed only when binary metrics are available.
+- `scripts/create_blinded_image_dataset.py` creates new manifests fail-closed with authorization/deidentification/reference flags false.
+- Current Clinical QA after this infrastructure: 151 tests PASS. This validates methodology/structure, not diagnostic accuracy.
+
+
 ## v1.36 current branch snapshot — 127 modules
 - `scripts/validate_modules.py`: 127 modules resolved.
 - Evidence registry: 127/127; 29 green / 98 yellow / 0 red.
