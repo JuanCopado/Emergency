@@ -56,3 +56,6 @@ This file explains why they receive stricter release gates.
 
 ## Imaging
 - clinical-image-interpretation
+
+- pediatric-cns-infection
+- pediatric-toxicology

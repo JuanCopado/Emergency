@@ -189,6 +189,45 @@
       "frequency": "every 6 hours for 4 days",
       "source": "RCH Meningitis/Encephalitis current guideline: 0.15 mg/kg IV q6h, max 10 mg; give first dose just before or with first antibiotic when indicated",
       "status": "source_verified"
+    },
+    {
+      "id": "meningitis-ceftriaxone-ge2m",
+      "syndrome": "suspected bacterial meningitis, age >=2 months",
+      "drug": "ceftriaxone",
+      "dose_per_kg": 100,
+      "dose_unit": "mg/kg",
+      "max_dose": 4000,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 24 h",
+      "source": "RCH/PIC Meningitis and encephalitis current",
+      "status": "source_verified"
+    },
+    {
+      "id": "meningitis-cefotaxime-ge2m",
+      "syndrome": "suspected bacterial meningitis, age >=2 months",
+      "drug": "cefotaxime",
+      "dose_per_kg": 50,
+      "dose_unit": "mg/kg",
+      "max_dose": 2000,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 6 h",
+      "source": "RCH/PIC Meningitis and encephalitis current",
+      "status": "source_verified"
+    },
+    {
+      "id": "meningitis-vancomycin-pneumococcal-risk",
+      "syndrome": "suspected bacterial meningitis with resistant pneumococcal concern",
+      "drug": "vancomycin",
+      "dose_per_kg": 15,
+      "dose_unit": "mg/kg",
+      "max_dose": 750,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 6 h",
+      "source": "RCH/PIC Meningitis and encephalitis current",
+      "status": "source_verified"
     }
   ]
 }

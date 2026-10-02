@@ -131,3 +131,6 @@ each changes immediate decisions; do not load an entire category.
 - Continuous ICU analgesia/sedation of an intubated or ventilated adult (fentanyl, remifentanil, morphine, hydromorphone, propofol, dexmedetomidine, midazolam, ketamine infusion; RASS/CPOT/BPS targets, PRIS, daily interruption) -> icu-sedation-analgesia-infusions + medication-selection-safety; add delirium or airway-rsi when relevant. Pediatric infusions are not covered.
 
 - pediatric acute respiratory support, HFNO/HFNC, CPAP/NIV or pediatric ventilation calculation -> pediatric-acute-respiratory-support + pediatric-emergencies + the cause-specific respiratory syndrome
+
+- pediatric meningitis, meningococcal disease or encephalitis -> pediatric-cns-infection + pediatric-emergencies + pediatric-emergency-medications
+- pediatric accidental/deliberate poisoning, paracetamol overdose, toxidrome or antidote question -> pediatric-toxicology + pediatric-emergency-medications + toxicology

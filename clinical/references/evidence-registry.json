@@ -947,6 +947,24 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric acute respiratory-support module covers oxygen targets, HFNO weight-based flow, escalation gates, CPAP/NIV boundaries, bag-mask ventilation and post-intubation ventilation references. Remains yellow pending human pediatric/critical-care review."
+    },
+    "pediatric-cns-infection": {
+      "priority": "high",
+      "primary_source": "WHO meningitis guideline 2025 + NICE NG240 2024 + RCH/PIC Meningitis and encephalitis current",
+      "primary_source_url": "https://www.who.int/publications/i/item/9789240108042",
+      "stored_version": "WHO 2025; NICE NG240 2024; RCH/PIC current online reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Age-stratified meningitis/encephalitis treatment with explicit ceftriaxone/cefotaxime/benzylpenicillin, dexamethasone and aciclovir references; human pediatric ID/neurology review pending."
+    },
+    "pediatric-toxicology": {
+      "priority": "high",
+      "primary_source": "RCH/PIC acute poisoning + activated charcoal + paracetamol + TCA poisoning",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Poisoning_-_Acute_Guidelines_For_Initial_Management/",
+      "stored_version": "RCH/PIC current online; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric toxicology framework includes limited charcoal use, two-stage acetylcysteine regimen, TCA bicarbonate rescue and naloxone routing; agent-specific review remains required."
     }
   }
 }

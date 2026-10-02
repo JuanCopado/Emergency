@@ -210,7 +210,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 114)
+        self.assertEqual(len(manifest), 116)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1505,6 +1505,45 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(pediatric_ventilation_rate_reference(4), 20)
         self.assertEqual(pediatric_ventilation_rate_reference(10), 15)
         self.assertEqual(pediatric_ventilation_rate_reference(14), 10)
+
+    def test_v136_pediatric_cns_infection_core_regimens(self):
+        module = ' '.join(load(ROOT, 'pediatric-cns-infection').split())
+        for invariant in (
+            'within **30 min of the decision to treat**',
+            'within 1 h of hospital arrival',
+            'ceftriaxone **100 mg/kg IV every 24 h, max 4 g**',
+            'cefotaxime **50 mg/kg IV every 6 h, max 2 g**',
+            'vancomycin **15 mg/kg IV every 6 h**',
+            '0.15 mg/kg IV every 6 h, max 10 mg',
+            '20 mg/kg IV every 8 h',
+            '500 mg/m2 IV every 8 h'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_toxicology_core_safety(self):
+        module = ' '.join(load(ROOT, 'pediatric-toxicology').split())
+        for invariant in (
+            'very limited role',
+            'within **1--2 h**',
+            '>200 mg/kg or >10 g',
+            '200 mg/kg over 4 h',
+            '100 mg/kg over 16 h',
+            'sodium bicarbonate **2 mmol/kg IV**',
+            'restoration of adequate ventilation'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_meningitis_antibiotic_registry(self):
+        c = pediatric_antibiotic_calculate('meningitis-ceftriaxone-ge2m', 20)
+        self.assertAlmostEqual(c['dose'], 2000.0)
+        v = pediatric_antibiotic_calculate('meningitis-vancomycin-pneumococcal-risk', 60)
+        self.assertAlmostEqual(v['dose'], 750.0)
+
+    def test_v136_croup_current_rch_maximum(self):
+        module = ' '.join(load(ROOT, 'croup').split())
+        self.assertIn('maximum 12 mg per current RCH guidance', module)
+        self.assertIn('observe at least 3 h after nebulized epinephrine', module)
+        self.assertNotIn('maximum 16 mg per RCH guidance', module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
