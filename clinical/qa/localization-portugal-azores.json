@@ -111,12 +111,12 @@
       "drug": "dexmedetomidine",
       "status": "portugal_reference_found_local_pending",
       "product_strength": "INFARMED Portuguese product reference: Dexdor concentrate for solution for infusion 100 micrograms/mL",
-      "base_or_salt": "dexmedetomidine (product-specific RCM/Infomed still required for exact excipients/dilution handling)",
+      "base_or_salt": "dexmedetomidine; product-specific RCM/Infomed still required for exact excipients and dilution handling",
       "diluent": null,
       "standard_concentration": null,
       "stability": null,
       "access": null,
-      "source": "INFARMED Infarmedia / prior-evaluation documentation for Dexdor 100 micrograms/mL; local Horta stock/RCM not verified",
+      "source": "INFARMED Portuguese Dexdor documentation; local Horta stock/RCM not verified",
       "reviewed_by": null,
       "reviewed_on": "2026-10-02"
     },
@@ -155,7 +155,7 @@
       "standard_concentration": null,
       "stability": null,
       "access": null,
-      "source": "INFARMED Infarmedia generic-authorisation reference; local Horta stock/RCM not verified",
+      "source": "INFARMED Portuguese generic-authorisation reference; local Horta stock/RCM not verified",
       "reviewed_by": null,
       "reviewed_on": "2026-10-02"
     }
