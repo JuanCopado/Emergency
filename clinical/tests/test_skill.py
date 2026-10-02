@@ -888,6 +888,21 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, a)
 
+
+    def test_v136_calcium_magnesium_consolidation(self):
+        cm = ' '.join(load(ROOT, 'calcium-magnesium-emergencies').split())
+        for invariant in (
+            '10--20 mL of 10% calcium gluconate IV',
+            '50--100 mL',
+            '10 mL 10% calcium chloride ≈ 6.8 mmol Ca2+',
+            '10 mL 10% calcium gluconate ≈ 2.26 mmol Ca2+',
+            'magnesium sulfate **2 g IV**',
+            '10--15 min',
+            'not routine calcium-lowering therapy',
+            'compatibility/stability'
+        ):
+            self.assertIn(invariant, cm)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
