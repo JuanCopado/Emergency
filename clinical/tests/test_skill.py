@@ -209,7 +209,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 112)
+        self.assertEqual(len(manifest), 113)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1462,6 +1462,24 @@ class ModularCoreTests(unittest.TestCase):
             pediatric_stable_rbc_ml(10, 25)
         with self.assertRaises(ValueError):
             pediatric_platelets_ml(15)
+
+
+    def test_v136_pediatric_procedural_sedation_module(self):
+        module = ' '.join(load(ROOT, 'pediatric-procedural-sedation').split())
+        for invariant in (
+            '1--1.5 mg/kg IV over 1--2 min',
+            '0.25--0.5 mg/kg IV every 10 min',
+            'Maximum cumulative **4.5 mg/kg**',
+            '4 mg/kg IM',
+            '2 mg/kg IM after 10 min',
+            'infants **<3 months**',
+            '30--70% nitrous oxide',
+            'safe to start at **70%**',
+            '1.5 micrograms/kg IN',
+            '0.75--1.5 micrograms/kg after 5--10 min',
+            'premorbid neurologic baseline'
+        ):
+            self.assertIn(invariant, module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
