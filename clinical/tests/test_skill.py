@@ -63,6 +63,7 @@ from create_blinded_image_dataset import build as build_blinded_image_dataset
 from prepare_ptbxl_blinded_cohort import prepare as prepare_ptbxl_blinded_cohort
 from finalize_blinded_image_dataset import finalize as finalize_blinded_image_dataset
 from merge_blinded_prediction_shards import merge as merge_blinded_prediction_shards
+from prepare_rsna_ich_blinded_cohort import prepare as prepare_rsna_ich_blinded_cohort
 from create_blinded_prediction_template import build as build_blinded_prediction_template
 from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
 
@@ -2237,6 +2238,57 @@ class ModularCoreTests(unittest.TestCase):
             'test ! -e ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json',
             workflow
         )
+
+    def test_v136_rsna_ich_preparer_accepts_only_verified_multireader_reference(self):
+        with tempfile.TemporaryDirectory() as directory:
+            d = Path(directory)
+            images = d / 'images.csv'
+            refs = d / 'refs.csv'
+            images.write_text(
+                'study_id,image_id,dicom_path,patient_id\n'
+                's1,i1,/data/i1.dcm,p1\n'
+                's1,i2,/data/i2.dcm,p1\n'
+                's2,i3,/data/i3.dcm,p2\n',
+                encoding='utf-8'
+            )
+            refs.write_text(
+                'study_id,target_positive,reference_type\n'
+                's1,true,majority_3_neuroradiologists\n'
+                's2,false,senior_neuroradiologist_adjudication\n',
+                encoding='utf-8'
+            )
+            blinded, sealed = prepare_rsna_ich_blinded_cohort(
+                images, refs, '0123456789abcdef'
+            )
+            self.assertEqual(len(blinded['cases']), 2)
+            self.assertEqual(sealed['positive_reference_cases'], 1)
+            self.assertEqual(sealed['negative_reference_cases'], 1)
+            serialized = json.dumps(blinded)
+            self.assertNotIn('target_positive', serialized)
+            self.assertNotIn('/data/i1.dcm', serialized)
+            self.assertEqual(blinded['target_condition'], 'any_acute_ich')
+
+    def test_v136_rsna_ich_preparer_rejects_single_reader_reference(self):
+        with tempfile.TemporaryDirectory() as directory:
+            d = Path(directory)
+            images = d / 'images.csv'
+            refs = d / 'refs.csv'
+            images.write_text(
+                'study_id,image_id,dicom_path\n'
+                's1,i1,/data/i1.dcm\n'
+                's2,i2,/data/i2.dcm\n',
+                encoding='utf-8'
+            )
+            refs.write_text(
+                'study_id,target_positive,reference_type\n'
+                's1,true,single_reader\n'
+                's2,false,majority_3_neuroradiologists\n',
+                encoding='utf-8'
+            )
+            with self.assertRaises(ValueError):
+                prepare_rsna_ich_blinded_cohort(
+                    images, refs, '0123456789abcdef'
+                )
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
