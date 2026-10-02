@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "dataset_class": "blinded_accuracy",
+  "authorized": true,
+  "deidentified": true,
+  "protocol_prespecified": true,
+  "independent_reference": true,
+  "target_question": "Define one modality-specific target before evaluation",
+  "metrics_requested": false,
+  "cases": []
+}
