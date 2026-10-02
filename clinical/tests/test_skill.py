@@ -22,6 +22,14 @@ from respiratory_support import calculate as respiratory_support
 from pediatric_pump_table import pump_table as pediatric_pump_table
 from pediatric_bolus_calculator import calculate as pediatric_bolus_calculate
 from pediatric_antibiotic_calculator import calculate as pediatric_antibiotic_calculate
+from pediatric_blood_product_calculator import (
+    trauma_rbc_ml as pediatric_trauma_rbc_ml,
+    stable_rbc_ml as pediatric_stable_rbc_ml,
+    stable_rbc_rate_ml_h as pediatric_stable_rbc_rate_ml_h,
+    platelets_ml as pediatric_platelets_ml,
+    ffp_range_ml as pediatric_ffp_range_ml,
+    cryoprecipitate_range_ml as pediatric_cryo_range_ml,
+)
 from pediatric_fluid_calculator import (
     maintenance_ml_day as pediatric_fluid_maintenance_ml_day,
     maintenance_ml_h as pediatric_fluid_maintenance_ml_h,
@@ -201,7 +209,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 111)
+        self.assertEqual(len(manifest), 112)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1420,6 +1428,40 @@ class ModularCoreTests(unittest.TestCase):
             'glucose 10% **2 mL/kg IV/IO**'
         ):
             self.assertIn(invariant, module)
+
+
+    def test_v136_pediatric_transfusion_major_hemorrhage_module(self):
+        module = ' '.join(load(ROOT, 'pediatric-blood-transfusion-major-hemorrhage').split())
+        for invariant in (
+            'maximum about 20 mL/kg',
+            'packed red cells **10 mL/kg**',
+            '15--20 mg/kg IV, max 1 g over 10 min',
+            'RBC volume (mL) = weight (kg) x 0.5 x desired Hb rise (g/L)',
+            '**10 mL/kg**',
+            'Fresh frozen plasma',
+            '**10--20 mL/kg**',
+            'Cryoprecipitate',
+            '**5--10 mL/kg**',
+            'fibrinogen is **<1.5 g/L**',
+            'as fast as clinically indicated'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_blood_product_calculator(self):
+        self.assertAlmostEqual(pediatric_trauma_rbc_ml(12), 120.0)
+        self.assertAlmostEqual(pediatric_stable_rbc_ml(10, 20), 100.0)
+        self.assertAlmostEqual(pediatric_stable_rbc_rate_ml_h(10), 50.0)
+        self.assertAlmostEqual(pediatric_platelets_ml(12), 120.0)
+        self.assertEqual(pediatric_ffp_range_ml(12), [120.0, 240.0])
+        self.assertEqual(pediatric_cryo_range_ml(12), [60.0, 120.0])
+
+    def test_v136_pediatric_blood_product_calculator_boundaries(self):
+        with self.assertRaises(ValueError):
+            pediatric_stable_rbc_ml(20, 20)
+        with self.assertRaises(ValueError):
+            pediatric_stable_rbc_ml(10, 25)
+        with self.assertRaises(ValueError):
+            pediatric_platelets_ml(15)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
