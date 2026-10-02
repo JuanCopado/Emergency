@@ -880,10 +880,10 @@
       "priority": "high",
       "primary_source": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
       "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
-      "stored_version": "ERC/RCUK PLS 2025; ERC anaphylaxis 2025; AHA/AAP PALS 2025; GINA 2026; Malaysia Paediatric Protocols 5th ed 2025; NICE/HSE/PANDEM current set; v1.36 pediatric bolus expansion 2026-10-02",
+      "stored_version": "ERC/RCUK 2025; AHA/AAP PALS 2025; GINA 2026; Malaysia Paediatric Protocols 2025; RCH Acute Pain 2024; NHSGGC pediatric ED pain 2025; NICE/HSE/PANDEM current set; v1.36 pediatric non-infusion expansion 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Cross-cutting pediatric module now includes source-verified continuous infusion registry and source-verified high-risk bolus/non-infusion registry. Automatic volume conversion occurs only when the source explicitly provides a concentration. Remains yellow pending human pediatric/pharmacy review."
+      "note": "Pediatric module now includes source-verified emergency bolus, analgesia and home-dose references plus explicit syndrome-specific antibiotic routing. Automatic mL is generated only when the source contains a product concentration. Remains yellow pending human pediatric/pharmacy review."
     }
   }
 }
