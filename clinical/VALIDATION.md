@@ -385,3 +385,11 @@ Further versions should prioritize validation and targeted refinement over uncon
 - `scripts/check_evidence_registry.py`: completed; outputs review-due status for yellow/high-priority records, no release approval implied.
 - `unzip -t`: PASS.
 - Clinical performance and local protocol validation are not established by these technical checks.
+
+
+## v1.36 — image source intake gate / PTB-XL blinded protocol — 02/10/2026
+- Added fail-closed candidate-source registry and validator.
+- Added PTB-XL prespecified fold-10 intake protocol with patient/study hashing and a physically separate sealed reference file.
+- Synthetic targeted check: 2 fold-10 rows (1 positive, 1 negative) -> patient hashing stable across repeated patient; no `target_positive` field in the model-facing cohort.
+- Registry logic check: 5 candidates, no structural errors; PTB-XL intake-ready only after license + protocol + label-separation gates; no source is described as clinically validated.
+- `test_skill.py` currently contains 156 test functions. **Do not record 156 PASS until a complete CI/local run is observed.** Last complete verified run remains 151 PASS.
