@@ -884,6 +884,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Cross-cutting pediatric module includes source-verified infusions, high-risk bolus/home-dose entries and syndrome-specific antibiotic registry. Meningitis intentionally stores agent/timing but delegates exact pediatric dose to BNFC because NICE NG240 does so. Remains yellow pending human pediatric/pharmacy review."
+    },
+    "pediatric-iv-fluid-therapy": {
+      "priority": "high",
+      "primary_source": "NICE NG29 IV fluid therapy + NICE CG84 gastroenteritis + SSC Pediatric Sepsis 2026 + ISPAD DKA 2022 + RCH Dehydration/Hypernatraemia 2026",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng29/chapter/recommendations",
+      "stored_version": "NICE NG29 current recommendations incl 2022 bolus update; NICE CG84 current online 2026; SSC pediatric sepsis 2026; ISPAD DKA 2022; RCH dehydration/hypernatraemia updated 2026; v1.36 fluid build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Comprehensive pediatric fluid module separates resuscitation, maintenance, gastroenteritis, generic dehydration, hypernatraemia, symptomatic hyponatraemia, DKA, sepsis, haemorrhage and cardiogenic shock. Includes volume/timing arithmetic. Remains yellow pending human pediatric/critical-care review."
     }
   }
 }
