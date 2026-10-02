@@ -929,6 +929,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Separates critical bleeding/trauma from non-bleeding component prescription; preserves protocol variability for massive-transfusion packs while providing source-based RBC/platelet/FFP/cryo volumes and rates. Remains yellow pending human pediatric trauma/haematology/transfusion review."
+    },
+    "pediatric-procedural-sedation": {
+      "priority": "high",
+      "primary_source": "RCH Procedural Sedation + RCH Ketamine Procedural Sedation + RCH Nitrous Oxide + RCH Intranasal Fentanyl",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Procedural_sedation/",
+      "stored_version": "RCH procedural sedation current online 2026; ketamine CPG current online; nitrous oxide current online; intranasal fentanyl current online; v1.36 build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Separates pediatric procedural sedation from RSI and PICU sedation; includes ketamine IV/IM, nitrous oxide and intranasal fentanyl source envelopes and recovery/airway gates. Remains yellow pending human pediatric sedation/anesthesia review."
     }
   }
 }
