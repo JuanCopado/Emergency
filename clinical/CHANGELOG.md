@@ -1,3 +1,10 @@
+## High-risk evidence source splitting — batch 1 (02/10/2026)
+- Added verified source overrides for airway RSI, anticoagulation reversal, paediatric status epilepticus, paediatric shock/emergencies/arrhythmias/arrest, adult resuscitation/arrhythmias, sepsis and vasoactive infusions.
+- Normalized source catalog increased from 103 to 112 identities; compound identities reduced from 36 to 34.
+- Verified sources include official DAS 2025, SCCM RSI 2023, ACC 2020, ACG-CAG 2022, ESGE 2021/2026, HSE 2025, NICE NG217/NG254, ERC/RCUK 2025, SSC 2021/2026, norepinephrine SmPC and dopamine DailyMed.
+- Remaining vasoactive product-label set stays explicitly compound until each label is individually verified.
+- Source overrides are deterministic and included in the normalizer; no clinical recommendation, dose or module text changed.
+
 ## Evidence provenance normalization (02/10/2026)
 - Added `references/evidence-sources.json`: 103 normalized source identities mapped to all 106 modules.
 - Added deterministic regeneration/check script; unknown organization/date/language/jurisdiction/license metadata remains null/unknown instead of being invented.

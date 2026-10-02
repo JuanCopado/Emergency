@@ -6,7 +6,8 @@
     "no_source_splitting_without_verified_identity": true,
     "compound_legacy_sources_flagged": true,
     "unknown_metadata_is_null": true,
-    "clinical_recommendations_modified": false
+    "clinical_recommendations_modified": false,
+    "verified_override_file": "clinical/references/evidence-source-overrides.json"
   },
   "sources": [
     {
@@ -124,25 +125,6 @@
       ]
     },
     {
-      "source_id": "src-260ca1ac",
-      "title": "ERC/RCUK Paediatric Life Support Guidelines 2025; NICE NG254; existing pediatric cause-specific guidance",
-      "organization": "ERC",
-      "source_type": "guideline",
-      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
-      "persistent_id": null,
-      "version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "pediatric-shock"
-      ]
-    },
-    {
       "source_id": "src-27d9a887",
       "title": "AHA/ACC chest-pain guidance plus ESC/ACR syndrome-specific guidance",
       "organization": "ESC",
@@ -216,47 +198,6 @@
       "compound_identity": false,
       "modules": [
         "diabetic-ketoacidosis-hhs"
-      ]
-    },
-    {
-      "source_id": "src-2ccd9663",
-      "title": "Resuscitation Council UK/ERC Guidelines 2025",
-      "organization": "ERC",
-      "source_type": "guideline",
-      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
-      "persistent_id": null,
-      "version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "adult-arrhythmias",
-        "adult-cardiac-arrest",
-        "pediatric-arrhythmias",
-        "pediatric-cardiac-arrest"
-      ]
-    },
-    {
-      "source_id": "src-2e611b3a",
-      "title": "Surviving Sepsis Campaign 2026 (Crit Care Med 2026, doi:10.1097/CCM.0000000000007075); SSC 2021; US product labels (norepinephrine, Vasostrict, epinephrine, dopamine, dobutamine, milrinone, phenylephrine, Giapreza); EU/UK SmPC (noradrenaline, Simdax)",
-      "organization": "Surviving Sepsis Campaign",
-      "source_type": "regulatory_product_info",
-      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
-      "persistent_id": null,
-      "version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
-      "publication_date": null,
-      "last_verified": "2026-09-29",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "vasoactive-inotrope-infusions"
       ]
     },
     {
@@ -466,25 +407,6 @@
       "compound_identity": false,
       "modules": [
         "device-complications"
-      ]
-    },
-    {
-      "source_id": "src-4a12faee",
-      "title": "ACC Expert Consensus Decision Pathway on bleeding with oral anticoagulants",
-      "organization": null,
-      "source_type": "consensus",
-      "url": "https://mediacdn.gi.org/giorgcdn/wp-content/uploads/2022/03/ACG-CAG-Guideline.pdf",
-      "persistent_id": null,
-      "version": "ACG-CAG 2022; ESGE 2026 UGIB / ESGE 2021 LGIB, checked 2026-09-28",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "anticoagulation-reversal"
       ]
     },
     {
@@ -1134,6 +1056,44 @@
       ]
     },
     {
+      "source_id": "src-acc-oac-bleeding-2020",
+      "title": "2020 ACC Expert Consensus Decision Pathway on Management of Bleeding in Patients on Oral Anticoagulants",
+      "organization": "ACC",
+      "source_type": "consensus",
+      "url": "https://www.acc.org/Guidelines/Guidelines/2020/07/14/08/32/Management-of-Bleeding-in-Patients-on-Oral-Anticoagulants",
+      "persistent_id": "doi:10.1016/j.jacc.2020.04.053",
+      "version": "2020",
+      "publication_date": "2020-07-14",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "anticoagulation-reversal"
+      ]
+    },
+    {
+      "source_id": "src-acg-cag-antithrombotic-gi-2022",
+      "title": "ACG-CAG Clinical Practice Guideline: Management of Anticoagulants and Antiplatelets During Acute Gastrointestinal Bleeding and the Periendoscopic Period",
+      "organization": "ACG/CAG",
+      "source_type": "guideline",
+      "url": "https://mediacdn.gi.org/giorgcdn/wp-content/uploads/2022/03/ACG-CAG-Guideline.pdf",
+      "persistent_id": null,
+      "version": "2022",
+      "publication_date": "2022",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US/Canada",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "anticoagulation-reversal"
+      ]
+    },
+    {
       "source_id": "src-b159130a",
       "title": "European guideline on major bleeding and coagulopathy following trauma",
       "organization": null,
@@ -1153,25 +1113,6 @@
       ]
     },
     {
-      "source_id": "src-b5fc6585",
-      "title": "HSE National Clinical Guideline CDI/0277/1.0/2025; NICE NG217",
-      "organization": "NICE",
-      "source_type": "guideline",
-      "url": "https://www2.healthservice.hse.ie/files/584/",
-      "persistent_id": null,
-      "version": "HSE effective 2025-10-15, review due 2028-10-15; NICE NG217 2025 update",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "pediatric-status-epilepticus"
-      ]
-    },
-    {
       "source_id": "src-b5fda787",
       "title": "2025 ESC Guidelines for myocarditis and pericarditis plus current image-guided pericardiocentesis literature",
       "organization": "ESC",
@@ -1188,25 +1129,6 @@
       "compound_identity": true,
       "modules": [
         "cardiac-tamponade-pericardial-emergency"
-      ]
-    },
-    {
-      "source_id": "src-b9535419",
-      "title": "Surviving Sepsis Campaign adult guideline",
-      "organization": "Surviving Sepsis Campaign",
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "2026",
-      "publication_date": null,
-      "last_verified": "2026-09-14",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "sepsis-shock"
       ]
     },
     {
@@ -1419,25 +1341,6 @@
       ]
     },
     {
-      "source_id": "src-d26706d0",
-      "title": "Difficult Airway Society adult intubation guideline and SCCM rapid sequence intubation guideline",
-      "organization": "SCCM",
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "DAS 2025; SCCM 2023",
-      "publication_date": null,
-      "last_verified": "2026-09-26",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "airway-rsi"
-      ]
-    },
-    {
       "source_id": "src-d48ca946",
       "title": "ACEP ultrasound guidance plus image-review safety workflow",
       "organization": "ACEP",
@@ -1552,6 +1455,44 @@
       ]
     },
     {
+      "source_id": "src-das-difficult-intubation-2025",
+      "title": "Difficult Airway Society 2025 guidelines for management of unanticipated difficult intubation in adults",
+      "organization": "Difficult Airway Society",
+      "source_type": "guideline",
+      "url": "https://das.uk.com/guidelines/das_intubation_guidelines/",
+      "persistent_id": null,
+      "version": "2025",
+      "publication_date": "2025",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "airway-rsi"
+      ]
+    },
+    {
+      "source_id": "src-dopamine-dailymed-2026",
+      "title": "Dopamine Hydrochloride in Dextrose Injection — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=08f23f6e-150d-45ea-098e-f2edf64c21a1",
+      "persistent_id": null,
+      "version": "label updated 2026-05-12",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
       "source_id": "src-e0ca9573",
       "title": "ESC acute and chronic heart failure guideline and ESC acute cardiovascular care materials",
       "organization": "ESC",
@@ -1647,25 +1588,6 @@
       ]
     },
     {
-      "source_id": "src-e67765ec",
-      "title": "Resuscitation Council UK/ERC Guidelines 2025",
-      "organization": "ERC",
-      "source_type": "guideline",
-      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
-      "persistent_id": null,
-      "version": "2025",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "arrhythmias-cardiac-arrest"
-      ]
-    },
-    {
       "source_id": "src-e77cbd42",
       "title": "Clinical image-review safety workflow and syndrome-specific guidance",
       "organization": null,
@@ -1682,25 +1604,6 @@
       "compound_identity": false,
       "modules": [
         "other-clinical-image"
-      ]
-    },
-    {
-      "source_id": "src-e7ffcb3e",
-      "title": "European Resuscitation Council pediatric life support",
-      "organization": "ERC",
-      "source_type": "other",
-      "url": null,
-      "persistent_id": null,
-      "version": "2025",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "pediatric-emergencies"
       ]
     },
     {
@@ -1796,6 +1699,87 @@
       "compound_identity": false,
       "modules": [
         "major-burns"
+      ]
+    },
+    {
+      "source_id": "src-erc-guidelines-2025",
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "ERC",
+      "source_type": "guideline",
+      "url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
+      "persistent_id": null,
+      "version": "2025",
+      "publication_date": "2025",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "adult-arrhythmias",
+        "adult-cardiac-arrest",
+        "arrhythmias-cardiac-arrest"
+      ]
+    },
+    {
+      "source_id": "src-erc-pls-2025",
+      "title": "European Resuscitation Council Guidelines 2025: Paediatric Life Support",
+      "organization": "ERC",
+      "source_type": "guideline",
+      "url": "https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf",
+      "persistent_id": "doi:10.1016/j.resuscitation.2025.110767",
+      "version": "2025",
+      "publication_date": "2025",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-arrhythmias",
+        "pediatric-cardiac-arrest",
+        "pediatric-emergencies",
+        "pediatric-shock"
+      ]
+    },
+    {
+      "source_id": "src-esge-lgib-2021",
+      "title": "ESGE Guideline: Diagnosis and management of acute lower gastrointestinal bleeding",
+      "organization": "ESGE",
+      "source_type": "guideline",
+      "url": "https://www.esge.com/diagnosis-and-management-of-acute-lower-gastrointestinal-bleeding-esge-guideline",
+      "persistent_id": "doi:10.1055/a-1496-8969",
+      "version": "2021",
+      "publication_date": "2021-06-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "anticoagulation-reversal"
+      ]
+    },
+    {
+      "source_id": "src-esge-peptic-ulcer-2026",
+      "title": "ESGE guideline on endoscopic diagnosis and management of peptic ulcer bleeding",
+      "organization": "ESGE",
+      "source_type": "guideline",
+      "url": "https://www.esge.com/assets/downloads/pdfs/guidelines/2026_a-2863-8314.pdf",
+      "persistent_id": null,
+      "version": "2026",
+      "publication_date": "2026",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "anticoagulation-reversal"
       ]
     },
     {
@@ -1968,6 +1952,202 @@
       "modules": [
         "obstetric-emergencies"
       ]
+    },
+    {
+      "source_id": "src-hse-pediatric-status-2025",
+      "title": "HSE National Clinical Guideline CDI/0277/1.0/2025 — Convulsive status epilepticus in children",
+      "organization": "HSE",
+      "source_type": "guideline",
+      "url": "https://www2.healthservice.hse.ie/files/584/",
+      "persistent_id": null,
+      "version": "CDI/0277/1.0/2025",
+      "publication_date": "2025",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Ireland",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-status-epilepticus"
+      ]
+    },
+    {
+      "source_id": "src-legacy-vasoactive-label-set",
+      "title": "Legacy unresolved product-label set: vasopressin, epinephrine, dobutamine, milrinone, phenylephrine, angiotensin II and levosimendan",
+      "organization": null,
+      "source_type": "regulatory_product_info",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy v1.35 source set",
+      "publication_date": null,
+      "last_verified": "2026-09-29",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-nice-ng217-2025",
+      "title": "NICE NG217 Epilepsies in children, young people and adults — status epilepticus section",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng217/chapter/7-Treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures",
+      "persistent_id": "NICE:NG217",
+      "version": "updated 2025-01-30",
+      "publication_date": "2022-04-27",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-status-epilepticus"
+      ]
+    },
+    {
+      "source_id": "src-nice-ng254-2025",
+      "title": "NICE NG254 Suspected sepsis in under 16s: recognition, diagnosis and early management",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/NG254/chapter/managing-suspected-sepsis",
+      "persistent_id": "NICE:NG254",
+      "version": "2025",
+      "publication_date": "2025-11-19",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-shock"
+      ]
+    },
+    {
+      "source_id": "src-norepinephrine-smpc-2026",
+      "title": "Noradrenaline (Norepinephrine) 1 mg/ml Concentrate for Solution for Infusion — SmPC",
+      "organization": "electronic Medicines Compendium",
+      "source_type": "regulatory_product_info",
+      "url": "https://www.medicines.org.uk/emc/product/102137/smpc",
+      "persistent_id": null,
+      "version": "text updated 2026-05-06",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-rcuk-als-2025",
+      "title": "Resuscitation Council UK 2025 Adult Advanced Life Support Guidelines",
+      "organization": "Resuscitation Council UK",
+      "source_type": "guideline",
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "persistent_id": null,
+      "version": "2025",
+      "publication_date": "2025",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "adult-arrhythmias",
+        "adult-cardiac-arrest",
+        "arrhythmias-cardiac-arrest"
+      ]
+    },
+    {
+      "source_id": "src-rcuk-pls-2025",
+      "title": "Resuscitation Council UK 2025 Paediatric Life Support (basic and advanced)",
+      "organization": "Resuscitation Council UK",
+      "source_type": "guideline",
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "persistent_id": null,
+      "version": "2025",
+      "publication_date": "2025-10-27",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-arrhythmias",
+        "pediatric-cardiac-arrest",
+        "pediatric-emergencies",
+        "pediatric-shock"
+      ]
+    },
+    {
+      "source_id": "src-sccm-rsi-2023",
+      "title": "SCCM Clinical Practice Guidelines for Rapid Sequence Intubation in the Critically Ill Adult Patient",
+      "organization": "SCCM",
+      "source_type": "guideline",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-rapid-sequence-intubation",
+      "persistent_id": null,
+      "version": "2023",
+      "publication_date": "2023-09-12",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "airway-rsi"
+      ]
+    },
+    {
+      "source_id": "src-ssc-sepsis-2021",
+      "title": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021",
+      "organization": "Surviving Sepsis Campaign",
+      "source_type": "guideline",
+      "url": "https://doi.org/10.1007/s00134-021-06506-y",
+      "persistent_id": "doi:10.1007/s00134-021-06506-y",
+      "version": "2021",
+      "publication_date": "2021-10-02",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-ssc-sepsis-2026",
+      "title": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026",
+      "organization": "Surviving Sepsis Campaign",
+      "source_type": "guideline",
+      "url": "https://sccm.org/survivingsepsiscampaign/guidelines-and-resources/surviving-sepsis-campaign-adult-guidelines",
+      "persistent_id": "doi:10.1007/s00134-026-08361-1",
+      "version": "2026",
+      "publication_date": "2026-03-23",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_and_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "sepsis-shock",
+        "vasoactive-inotrope-infusions"
+      ]
     }
   ],
   "module_sources": {
@@ -2064,16 +2244,21 @@
     ],
     "sepsis-shock": [
       {
-        "source_id": "src-b9535419",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-ssc-sepsis-2026",
+        "role": "guideline",
+        "claim_scope": "adult sepsis and septic shock"
       }
     ],
     "arrhythmias-cardiac-arrest": [
       {
-        "source_id": "src-e67765ec",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-rcuk-als-2025",
+        "role": "guideline",
+        "claim_scope": "adult ALS and rhythm algorithms"
+      },
+      {
+        "source_id": "src-erc-guidelines-2025",
+        "role": "guideline",
+        "claim_scope": "European resuscitation guidance"
       }
     ],
     "hypertensive-emergencies": [
@@ -2120,9 +2305,14 @@
     ],
     "airway-rsi": [
       {
-        "source_id": "src-d26706d0",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-das-difficult-intubation-2025",
+        "role": "guideline",
+        "claim_scope": "difficult-airway strategy"
+      },
+      {
+        "source_id": "src-sccm-rsi-2023",
+        "role": "guideline",
+        "claim_scope": "critically-ill RSI"
       }
     ],
     "status-epilepticus": [
@@ -2134,9 +2324,14 @@
     ],
     "pediatric-emergencies": [
       {
-        "source_id": "src-e7ffcb3e",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-erc-pls-2025",
+        "role": "guideline",
+        "claim_scope": "general paediatric life support"
+      },
+      {
+        "source_id": "src-rcuk-pls-2025",
+        "role": "guideline",
+        "claim_scope": "UK paediatric life support"
       }
     ],
     "iv-antihypertensive-selection": [
@@ -2155,9 +2350,24 @@
     ],
     "anticoagulation-reversal": [
       {
-        "source_id": "src-4a12faee",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-acc-oac-bleeding-2020",
+        "role": "consensus",
+        "claim_scope": "general oral-anticoagulant bleeding"
+      },
+      {
+        "source_id": "src-acg-cag-antithrombotic-gi-2022",
+        "role": "guideline",
+        "claim_scope": "acute GI bleeding and periendoscopic antithrombotics"
+      },
+      {
+        "source_id": "src-esge-peptic-ulcer-2026",
+        "role": "guideline",
+        "claim_scope": "upper GI bleeding"
+      },
+      {
+        "source_id": "src-esge-lgib-2021",
+        "role": "guideline",
+        "claim_scope": "lower GI bleeding"
       }
     ],
     "empiric-antibiotics": [
@@ -2652,37 +2862,62 @@
     ],
     "pediatric-status-epilepticus": [
       {
-        "source_id": "src-b5fc6585",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-hse-pediatric-status-2025",
+        "role": "guideline",
+        "claim_scope": "pediatric convulsive status pathway"
+      },
+      {
+        "source_id": "src-nice-ng217-2025",
+        "role": "guideline",
+        "claim_scope": "status epilepticus recommendations"
       }
     ],
     "adult-arrhythmias": [
       {
-        "source_id": "src-2ccd9663",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-rcuk-als-2025",
+        "role": "guideline",
+        "claim_scope": "adult arrhythmia algorithms"
+      },
+      {
+        "source_id": "src-erc-guidelines-2025",
+        "role": "guideline",
+        "claim_scope": "European resuscitation guidance"
       }
     ],
     "adult-cardiac-arrest": [
       {
-        "source_id": "src-2ccd9663",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-rcuk-als-2025",
+        "role": "guideline",
+        "claim_scope": "adult cardiac arrest"
+      },
+      {
+        "source_id": "src-erc-guidelines-2025",
+        "role": "guideline",
+        "claim_scope": "European resuscitation guidance"
       }
     ],
     "pediatric-arrhythmias": [
       {
-        "source_id": "src-2ccd9663",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-erc-pls-2025",
+        "role": "guideline",
+        "claim_scope": "paediatric arrhythmia/resuscitation"
+      },
+      {
+        "source_id": "src-rcuk-pls-2025",
+        "role": "guideline",
+        "claim_scope": "UK paediatric arrhythmia/resuscitation"
       }
     ],
     "pediatric-cardiac-arrest": [
       {
-        "source_id": "src-2ccd9663",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-erc-pls-2025",
+        "role": "guideline",
+        "claim_scope": "paediatric cardiac arrest"
+      },
+      {
+        "source_id": "src-rcuk-pls-2025",
+        "role": "guideline",
+        "claim_scope": "UK paediatric cardiac arrest"
       }
     ],
     "undifferentiated-shock": [
@@ -2694,16 +2929,46 @@
     ],
     "pediatric-shock": [
       {
-        "source_id": "src-260ca1ac",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-erc-pls-2025",
+        "role": "guideline",
+        "claim_scope": "paediatric resuscitation/shock"
+      },
+      {
+        "source_id": "src-rcuk-pls-2025",
+        "role": "guideline",
+        "claim_scope": "UK paediatric life support"
+      },
+      {
+        "source_id": "src-nice-ng254-2025",
+        "role": "guideline",
+        "claim_scope": "suspected paediatric sepsis"
       }
     ],
     "vasoactive-inotrope-infusions": [
       {
-        "source_id": "src-2e611b3a",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-ssc-sepsis-2026",
+        "role": "guideline",
+        "claim_scope": "vasopressor/inotrope positioning in sepsis"
+      },
+      {
+        "source_id": "src-ssc-sepsis-2021",
+        "role": "guideline",
+        "claim_scope": "historical comparison and unchanged recommendations"
+      },
+      {
+        "source_id": "src-norepinephrine-smpc-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "norepinephrine formulation/concentration"
+      },
+      {
+        "source_id": "src-dopamine-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "dopamine prescribing information"
+      },
+      {
+        "source_id": "src-legacy-vasoactive-label-set",
+        "role": "legacy_compound",
+        "claim_scope": "remaining product labels pending individual verification"
       }
     ],
     "icu-sedation-analgesia-infusions": [
