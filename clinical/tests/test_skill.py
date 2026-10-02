@@ -2069,6 +2069,8 @@ class ModularCoreTests(unittest.TestCase):
         workflow = (ROOT.parent / '.github' / 'workflows' / 'ptbxl-blinded-intake.yml').read_text(encoding='utf-8')
         self.assertIn('workflow_dispatch:', workflow)
         self.assertIn('PTBXL_BLINDING_SALT', workflow)
+        self.assertIn('openssl rand -hex 32', workflow)
+        self.assertIn('PTBXL_RUN_SALT', workflow)
         self.assertIn('--require-ready-source ptb-xl', workflow)
         self.assertIn('ptbxl-blinded-', workflow)
         self.assertIn('ptbxl-sealed-reference-', workflow)
