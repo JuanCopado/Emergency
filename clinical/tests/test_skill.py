@@ -767,6 +767,40 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('epinephrine versus norepinephrine', shock)
         self.assertIn('do not present one universal septic-shock catecholamine as mandatory', shock)
 
+
+    def test_v136_pulmonary_embolism_consolidation(self):
+        pe = ' '.join(load(ROOT, 'pulmonary-embolism').split())
+        for invariant in (
+            '2019 ESC/ERS acute PE guideline',
+            '2025 ACVC Clinical Decision-Making Toolkit',
+            'routine full-dose systemic thrombolysis is not recommended',
+            'alteplase **100 mg IV over 2 h**',
+            '0.6 mg/kg over 15 min (max 50 mg)',
+            '80 IU/kg bolus then 18 IU/kg/h',
+            '1 mg/kg SC BID',
+            '15 mg BID for 3 weeks then 20 mg daily',
+            '10 mg BID for 7 days then 5 mg BID',
+            'PRAGUE-26'
+        ):
+            self.assertIn(invariant, pe)
+
+    def test_v136_anticoagulation_reversal_consolidation(self):
+        rev = ' '.join(load(ROOT, 'anticoagulation-reversal').split())
+        for invariant in (
+            '>50--75 ng/mL',
+            '30 ng/mL',
+            'idarucizumab 5 g IV',
+            '400 mg IV bolus',
+            '4 mg/min for 120 min',
+            '800 mg IV bolus',
+            '8 mg/min for 120 min',
+            '25--50 IU/kg',
+            '2,000 IU',
+            '5--10 mg IV vitamin K',
+            'does **not** exclude clinically relevant apixaban/rivaroxaban effect'
+        ):
+            self.assertIn(invariant, rev)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
