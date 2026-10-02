@@ -896,7 +896,7 @@ class ModularCoreTests(unittest.TestCase):
             '50--100 mL',
             '10 mL 10% calcium chloride ≈ 6.8 mmol Ca2+',
             '10 mL 10% calcium gluconate ≈ 2.26 mmol Ca2+',
-            'magnesium sulfate **2 g IV**',
+            'magnesium sulfate 2 g IV over 10--15 minutes',
             '10--15 min',
             'not routine calcium-lowering therapy',
             'compatibility/stability'
