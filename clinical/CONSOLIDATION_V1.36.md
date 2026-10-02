@@ -168,3 +168,9 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Estado real recalculado tras antibióticos + domicilio: **127 módulos / 127 evidencia / 29 green / 98 yellow / 0 red / 147 tests PASS**.
 
 - [x] Pediatría: protocolo local Horta no requerido como gate. Se mantienen guías internacionales/SmPC + revisión humana especialista.
+
+## Fase 5 — imagen (iniciada)
+- [x] Política `qa/IMAGE_VALIDATION_POLICY.md`: workflow/docente/blinded/prospectivo separados.
+- [x] Gate `scripts/validate_blinded_image_dataset.py`: fail-closed para blinding, anotaciones, referencia independiente, freeze de predicción y leakage.
+- [x] Plantilla `tests/blinded-image-dataset-template.json` integrada en CI; casos publicados siguen fuera de métricas de precisión.
+- [ ] Construir banco ciego autorizado y desidentificado por modalidad antes de afirmar sensibilidad/especificidad.
