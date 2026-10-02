@@ -94,3 +94,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [AUDITED / NO CHANGE] `diabetic-ketoacidosis-hhs` — already green; 2024 ADA/EASD/JBDS/AACE/DTS consensus remains current.
 - [AUDITED / NO CHANGE] `potassium-emergencies` — already green; RCUK 2025 operational hyperkalaemia details are concordant with the module.
 - [IN REVIEW] `calcium-magnesium-emergencies` — SfE + RCUK/ERC 2025 reconciled 02/10/2026; remains yellow pending endocrine/pharmacy + Portugal/Azores infusion/formulary review.
+
+- [IN REVIEW] `trauma-major-hemorrhage` — reconciled 02/10/2026 with DGS Norma 011/2013 (current DGS listing updated 18/07/2017) + European trauma guideline 2023. Historical fixed pack/TXA/rFVIIa wording corrected; status changed green -> yellow pending human transfusion/trauma review and current Horta/Azores operational verification.
