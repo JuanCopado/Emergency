@@ -63,11 +63,10 @@ def _render_standard(record_path, output_png):
         raise ValueError(f"expected 100 Hz PTB-XL record, got {rec.fs}")
     signal = np.asarray(rec.p_signal, dtype=float)
     names = list(rec.sig_name)
-    missing = [lead for lead in LEADS if lead not in names]
+    lead_idx = {name.upper(): i for i, name in enumerate(names)}
+    missing = [lead for lead in LEADS if lead.upper() not in lead_idx]
     if missing:
         raise ValueError(f"missing leads: {missing}")
-
-    lead_idx = {name: i for i, name in enumerate(names)}
     fig = plt.figure(figsize=(16, 12), dpi=150)
     gs = fig.add_gridspec(4, 4, height_ratios=[1,1,1,1.15])
 
@@ -81,7 +80,7 @@ def _render_standard(record_path, output_png):
         ax = fig.add_subplot(gs[row, col])
         start = int(col * 2.5 * rec.fs)
         stop = start + int(2.5 * rec.fs)
-        y = signal[start:stop, lead_idx[lead]]
+        y = signal[start:stop, lead_idx[lead.upper()]]
         t = np.arange(len(y)) / rec.fs
         ax.plot(t, y, linewidth=0.8)
         ax.set_xlim(0, 2.5)
