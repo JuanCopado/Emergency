@@ -1,0 +1,32 @@
+name: Clinical QA
+
+on:
+  push:
+    branches:
+      - main
+      - v1.36-consolidation
+    paths:
+      - 'clinical/**'
+      - '.github/workflows/clinical-qa.yml'
+  pull_request:
+    paths:
+      - 'clinical/**'
+      - '.github/workflows/clinical-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run unified clinical QA
+        working-directory: clinical
+        run: python3 qa/qa_runner.py
