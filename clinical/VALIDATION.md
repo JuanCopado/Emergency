@@ -3,9 +3,10 @@
 ## v1.36 pediatric emergency medication layer
 - Working branch adds one high-risk module ID: `pediatric-emergency-medications` (106 -> 107).
 - Adds deterministic arithmetic in `scripts/pediatric_emergency_calculator.py` for capped weight-based doses, volume-from-concentration, weight-based infusion mL/h, fluid boluses, Holliday-Segar maintenance and NICE gastroenteritis deficit references.
-- Clinical source layer: ERC/RCUK PLS 2025 + NICE NG29/CG84 + HSE pediatric status guideline where syndrome-specific comparison is needed.
-- The calculator does **not** select a drug/dose/concentration and does not establish local Horta concentrations.
-- Expected evidence state after registration: 107/107 records; 31 green / 76 yellow / 0 red. CI result to be recorded after the branch run completes.
+- Clinical source layer: ERC/RCUK PLS 2025 + AHA/AAP PALS 2025 + SSC pediatric sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + PANDEM 2022 + official product information.
+- The calculator does **not** select a diagnosis or indication. The pump generator only uses dose/concentration entries explicitly source-verified in the pediatric infusion registry; Horta-local verification is not required for pediatrics.
+- Current branch state: 107/107 records; 31 green / 76 yellow / 0 red; **94 automated tests PASS**.
+- Source-verified continuous infusion entries: epinephrine, norepinephrine, dopamine (with source weight restriction), dobutamine, milrinone, fentanyl and midazolam. Dexmedetomidine/propofol remain fail-closed because of guideline/product-label conflict; ketamine continuous dosing remains pending.
 
 
 ## v1.35 ICU/ED continuous infusion modules
