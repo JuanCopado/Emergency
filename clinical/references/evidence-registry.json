@@ -880,10 +880,10 @@
       "priority": "high",
       "primary_source": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
       "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
-      "stored_version": "ERC/RCUK 2025; AHA/AAP PALS 2025; GINA 2026; NICE NG254/NG250/NG240/NG224/NG111/NG109/NG141/CG84 current online 2026; RCH croup current online; Malaysia Paediatric Protocols 2025; RCH/NHSGGC pain; HSE/PANDEM; v1.36 pediatric discharge expansion 2026-10-02",
+      "stored_version": "ERC/RCUK 2025; AHA/AAP PALS 2025; GINA 2026; NICE pediatric antimicrobial/fluid set current online 2026; RCH meningitis/ketamine current online 2026; Malaysia Paediatric Protocols 2025; HSE/PANDEM; v1.36 pediatric expansion 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Cross-cutting pediatric module includes source-verified infusions, high-risk bolus/home-dose entries and syndrome-specific antibiotic registry. Meningitis intentionally stores agent/timing but delegates exact pediatric dose to BNFC because NICE NG240 does so. Remains yellow pending human pediatric/pharmacy review."
+      "note": "Pediatric module includes source-verified infusions, bolus/home-dose entries, syndrome-specific antibiotics, explicit meningitis doses >=2 months, and weight-banded ketamine analgesic infusion. Dexmedetomidine/propofol remain fail-closed where guideline/product labeling conflicts. Remains yellow pending human pediatric/pharmacy review."
     },
     "pediatric-iv-fluid-therapy": {
       "priority": "high",
