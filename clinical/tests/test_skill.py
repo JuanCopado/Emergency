@@ -2407,6 +2407,14 @@ class ModularCoreTests(unittest.TestCase):
             self.assertEqual(ref['negative_reference_cases'], 1)
             self.assertNotIn('ejection_fraction', json.dumps(blind))
 
+    def test_v136_ptbxl_builder_does_not_log_prevalence_before_reveal(self):
+        builder = (ROOT / 'scripts' / 'build_ptbxl_blinded_benchmark.py').read_text(encoding='utf-8')
+        main_block = builder.split('if __name__ == "__main__":', 1)[1]
+        print_block = main_block.split('print(json.dumps({', 1)[1].split('}, ensure_ascii=False))', 1)[0]
+        self.assertNotIn('positive_reference_cases', print_block)
+        self.assertNotIn('negative_reference_cases', print_block)
+        self.assertIn('sealed_reference_created', print_block)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
