@@ -37,6 +37,7 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | toxicology | `modules/renal-metabolic.md` |
 | pediatric-emergencies | `modules/special-populations.md` |
 | pediatric-emergency-medications | `modules/special-populations.md` |
+| pediatric-iv-fluid-therapy | `modules/special-populations.md` |
 | febrile-infant-0-90-days | `modules/special-populations.md` |
 | bronchiolitis | `modules/special-populations.md` |
 | croup | `modules/special-populations.md` |
