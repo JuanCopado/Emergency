@@ -19,6 +19,7 @@ from evaluate_image_cases import evaluate
 from sodium_water_balance import calculate as sodium_water_balance
 from acid_base_hyperglycemia import calculate as acid_base_hyperglycemia
 from respiratory_support import calculate as respiratory_support
+from pediatric_pump_table import pump_table as pediatric_pump_table
 from pediatric_emergency_calculator import (
     weight_based_total as pediatric_weight_based_total,
     volume_for_dose as pediatric_volume_for_dose,
@@ -1110,6 +1111,41 @@ class ModularCoreTests(unittest.TestCase):
         ):
             with self.assertRaises(ValueError):
                 fn(*args)
+
+
+    def test_v136_pediatric_pump_table_fails_closed_until_local_verification(self):
+        for drug in ('norepinephrine', 'epinephrine', 'midazolam', 'fentanyl'):
+            with self.assertRaises(ValueError):
+                pediatric_pump_table(drug, 20)
+        with self.assertRaises(ValueError):
+            pediatric_pump_table('propofol', 20)
+
+    def test_v136_pediatric_pump_table_works_only_with_verified_synthetic_registry(self):
+        payload = {
+            'schema_version': 'test',
+            'drugs': [{
+                'drug': 'norepinephrine',
+                'dose_unit': 'micrograms/kg/min',
+                'dose_ladder': [0.05, 0.1, 0.2],
+                'final_concentration_per_ml': 20,
+                'concentration_unit': 'micrograms/mL',
+                'status': 'verified'
+            }]
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            p = Path(directory) / 'registry.json'
+            p.write_text(json.dumps(payload), encoding='utf-8')
+            table = pediatric_pump_table('norepinephrine', 20, p)
+            self.assertAlmostEqual(table['rows'][0]['ml_h'], 3.0)
+            self.assertAlmostEqual(table['rows'][1]['ml_h'], 6.0)
+            self.assertAlmostEqual(table['rows'][2]['ml_h'], 12.0)
+
+    def test_v136_propofol_is_not_a_pediatric_icu_sedation_pump_option(self):
+        module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
+        self.assertIn('must not be used for intensive-care sedation in patients **16 years of age or younger**', module)
+        data = json.loads((ROOT / 'qa' / 'pediatric-infusion-localization.json').read_text(encoding='utf-8'))
+        item = next(x for x in data['drugs'] if x['drug'] == 'propofol')
+        self.assertEqual(item['status'], 'not_for_pediatric_icu_sedation')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
