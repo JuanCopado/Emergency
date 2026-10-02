@@ -201,7 +201,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 110)
+        self.assertEqual(len(manifest), 111)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1401,6 +1401,25 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(p3['dose_range'], [30.0, 40.0])
         dex = pediatric_bolus_calculate('asthma-dexamethasone', 20)
         self.assertEqual(dex['dose_range'], [6.0, 12.0])
+
+
+    def test_v136_pediatric_electrolyte_emergency_module(self):
+        module = ' '.join(load(ROOT, 'pediatric-electrolyte-emergencies').split())
+        for invariant in (
+            '0.68 mL/kg (0.15 mmol/kg), max 30 mL',
+            '0.2 mL/kg (0.14 mmol/kg), max 10 mL',
+            'glucose 10% **5 mL/kg IV**',
+            'insulin **0.1 unit/kg IV, max 10 units**',
+            '2.5 mg if <=25 kg',
+            '1--2 mmol/kg/dose, max 20 mmol/dose',
+            '0.2 mmol/kg/h for 3 h, max 10 mmol/h',
+            '0.4 mmol/kg/h for 1--2 h, max 20 mmol/h',
+            '0.1--0.2 mmol/kg, up to 0.4 mmol/kg, max 8 mmol',
+            '0.3--0.6 mL/kg IV',
+            '2.7% sodium chloride 2 mL/kg, max 100 mL',
+            'glucose 10% **2 mL/kg IV/IO**'
+        ):
+            self.assertIn(invariant, module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
