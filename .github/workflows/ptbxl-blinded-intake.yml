@@ -1,6 +1,11 @@
 name: PTB-XL Blinded ECG Intake
 
 on:
+  push:
+    branches:
+      - v1.36-consolidation
+    paths:
+      - '.github/ptbxl-intake-trigger'
   workflow_dispatch:
     inputs:
       target_code:
@@ -56,10 +61,11 @@ jobs:
 
       - name: Build blinded fold-10 ECG benchmark
         env:
-          TARGET_CODE: ${{ inputs.target_code }}
-          MAX_CASES: ${{ inputs.max_cases }}
+          TARGET_CODE: ${{ github.event.inputs.target_code || 'AFIB' }}
+          MAX_CASES: ${{ github.event.inputs.max_cases || '0' }}
+          PILOT_PER_CLASS: ${{ github.event_name == 'push' && '5' || '0' }}
         run: |
-          python clinical/scripts/build_ptbxl_blinded_benchmark.py .ptbxl-input/ptbxl_database.csv "$TARGET_CODE" .ptbxl-output --salt "$PTBXL_RUN_SALT" --fold 10 --max-cases "$MAX_CASES"
+          python clinical/scripts/build_ptbxl_blinded_benchmark.py .ptbxl-input/ptbxl_database.csv "$TARGET_CODE" .ptbxl-output --salt "$PTBXL_RUN_SALT" --fold 10 --max-cases "$MAX_CASES" --pilot-per-class "$PILOT_PER_CLASS"
 
       - name: Ensure sealed reference is absent from blinded artifact directory
         run: |
