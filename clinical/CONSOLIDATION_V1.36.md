@@ -142,3 +142,6 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Registro `qa/pediatric-antibiotics.json` + calculador por síndrome: sepsis, pielonefritis/ITU y celulitis con dosis NICE; meningitis conserva agente/tiempo y delega dosis exacta a BNFC, sin trasplantar dosis de sepsis.
 
 - [x] Capa domicilio/alta pediátrica: salbutamol pMDI con spacer tras mejoría de exacerbación, dexametasona en crup grave y SRO 50 mL/kg/4 h; siempre vinculados al síndrome, no como lista genérica.
+
+- [x] Nuevo módulo high-risk `pediatric-iv-fluid-therapy`: resucitación, mantenimiento, gastroenteritis, deshidratación por %, sepsis, cardiogénico, hemorragia, hipernatremia, hiponatremia sintomática y DKA; incluye tipo de suero, mL/kg y ventana temporal.
+- [x] `scripts/pediatric_fluid_calculator.py` calcula mantenimiento, bolos, SRO, déficit por %, plan 24+24 h, hipernatremia 48 h y bolos de hiponatremia.
