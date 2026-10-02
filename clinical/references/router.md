@@ -134,3 +134,6 @@ each changes immediate decisions; do not load an entire category.
 
 - pediatric meningitis, meningococcal disease or encephalitis -> pediatric-cns-infection + pediatric-emergencies + pediatric-emergency-medications
 - pediatric accidental/deliberate poisoning, paracetamol overdose, toxidrome or antidote question -> pediatric-toxicology + pediatric-emergency-medications + toxicology
+
+- pediatric DKA, HHS or cerebral injury during DKA -> pediatric-dka + pediatric-iv-fluid-therapy + pediatric-electrolyte-emergencies
+- pediatric burn, scald, chemical/electrical burn or burn fluid calculation -> pediatric-burns + pediatric-iv-fluid-therapy + pediatric-emergency-medications

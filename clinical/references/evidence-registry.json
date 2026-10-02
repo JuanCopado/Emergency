@@ -965,6 +965,24 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric toxicology framework includes limited charcoal use, two-stage acetylcysteine regimen, TCA bicarbonate rescue and naloxone routing; agent-specific review remains required."
+    },
+    "pediatric-dka": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Diabetic ketoacidosis updated July 2025 + ISPAD DKA/HHS consensus 2022",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Diabetic_ketoacidosis/",
+      "stored_version": "RCH July 2025; ISPAD 2022 current pediatric DKA consensus; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric-specific DKA pathway separates fluids, insulin timing/concentrations, potassium/glucose handling and cerebral-injury rescue from adult DKA. Human pediatric endocrine/critical-care review pending."
+    },
+    "pediatric-burns": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Burns acute management updated April 2026 + NSW ACI Burn fluid resuscitation Feb 2026",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Burns/",
+      "stored_version": "RCH April 2026; NSW ACI Feb 2026; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric burns pathway includes first aid, >=10% TBSA resuscitation threshold, 3 mL/kg/%TBSA Modified Parkland, pediatric maintenance and urine-output titration. Human burns/trauma review pending."
     }
   }
 }

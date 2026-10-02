@@ -51,6 +51,8 @@ from pediatric_emergency_calculator import (
     gastroenteritis_deficit_ml as pediatric_gastroenteritis_deficit_ml,
 )
 from pediatric_respiratory_support import hfno_flow_l_min as pediatric_hfno_flow_l_min, ventilation_rate_reference as pediatric_ventilation_rate_reference
+from pediatric_dka_calculator import corrected_sodium as pediatric_dka_corrected_sodium, insulin_ml_h as pediatric_dka_insulin_ml_h, cerebral_injury_rescue as pediatric_dka_cerebral_rescue
+from pediatric_burn_calculator import burn_plan as pediatric_burn_plan
 from validate_clinical_cases import validate as validate_clinical_cases
 from audit_evidence_coverage import audit as audit_evidence_coverage
 from validate_real_image_cases import validate as validate_real_image_cases
@@ -210,7 +212,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 116)
+        self.assertEqual(len(manifest), 118)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1544,6 +1546,46 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('maximum 12 mg per current RCH guidance', module)
         self.assertIn('observe at least 3 h after nebulized epinephrine', module)
         self.assertNotIn('maximum 16 mg per RCH guidance', module)
+
+    def test_v136_pediatric_dka_core_safety(self):
+        module = ' '.join(load(ROOT, 'pediatric-dka').split())
+        for invariant in (
+            '10 mL/kg 0.9% sodium chloride over 30 min',
+            '1 h of IV rehydration',
+            '0.1 units/kg/h',
+            '0.05 units/kg/h',
+            '40 mmol/L KCl',
+            '10% glucose 2 mL/kg IV',
+            'mannitol 20% 0.5 g/kg IV over 20 min',
+            '3% sodium chloride 3 mL/kg IV over 15 min'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_dka_calculator(self):
+        self.assertAlmostEqual(pediatric_dka_corrected_sodium(130, 25), 137.8)
+        self.assertAlmostEqual(pediatric_dka_insulin_ml_h(20, 0.1, 1.0), 2.0)
+        self.assertAlmostEqual(pediatric_dka_insulin_ml_h(20, 0.1, 0.1), 20.0)
+        rescue = pediatric_dka_cerebral_rescue(20)
+        self.assertAlmostEqual(rescue['mannitol_20_percent_ml'], 50.0)
+        self.assertAlmostEqual(rescue['hypertonic_3_percent_ml'], 60.0)
+
+    def test_v136_pediatric_burns_core(self):
+        module = ' '.join(load(ROOT, 'pediatric-burns').split())
+        for invariant in (
+            '20 min of cool running water within 3 h of injury',
+            '>=10% TBSA',
+            '3 mL x weight (kg) x %TBSA',
+            'half in the first 8 h from injury',
+            '1 mL/kg/h'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_burn_calculator(self):
+        p = pediatric_burn_plan(20, 15, hours_since_burn=2)
+        self.assertAlmostEqual(p['resuscitation_24h_ml'], 900.0)
+        self.assertAlmostEqual(p['first_half_ml'], 450.0)
+        self.assertAlmostEqual(p['first_phase_rate_ml_h'], 75.0)
+        self.assertAlmostEqual(p['second_phase_rate_ml_h'], 28.125)
+        self.assertAlmostEqual(p['maintenance_ml_day'], 1500.0)
+        self.assertAlmostEqual(p['urine_target_ml_h'], 20.0)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):

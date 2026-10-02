@@ -210,6 +210,36 @@ disposition to physiology, developmental stage, pregnancy and baseline function.
 - If perfusion normalizes, calculate deficit + maintenance + ongoing losses, choose oral/NG where possible, and use isotonic IV fluids with glucose/electrolytes guided by measured labs and local protocol. Hypernatremic dehydration requires controlled correction and serial sodium; DKA, burns, sepsis and neonatal fluid pathways take precedence over this generic module.
 - Reassess vitals, perfusion, mental status, urine output, glucose and electrolytes after intervention; document response and escalation trigger. Admit/transfer for shock, severe dehydration/electrolyte disturbance, persistent vomiting, failed enteral rehydration, high-risk age/comorbidity or unsafe follow-up.
 
+## pediatric-dka
+
+- Scope: diabetic ketoacidosis in children/adolescents. Do not use the adult DKA/HHS fluid/bicarbonate pathway. Diagnostic triad: glucose >11 mmol/L, venous pH <7.3 or bicarbonate <18 mmol/L, and ketonaemia >=3 mmol/L or urine ketones >=2+.
+- Start ABC monitoring, neurological observations, cardiac monitoring when potassium is abnormal, measured weight and frequent bedside glucose/electrolyte/ketone checks. Cerebral injury is the key life-threatening complication.
+- Fluids: RCH 2025 starts with 0.9% sodium chloride. In a tachycardic child with delayed central capillary refill, give **10 mL/kg 0.9% sodium chloride over 30 min** and reassess. Rare shock requires cause-directed resuscitation and senior/PICU input; avoid reflex repeated rapid boluses.
+- Potassium: use **40 mmol/L KCl** in rehydration fluid when serum K <=5.5 mmol/L and urine output is established; may increase to **60 mmol/L** if required. If K <3.0 mmol/L, replace potassium before insulin. Do not add potassium to a bag already hanging.
+- Begin IV insulin only after **1 h of IV rehydration**. Do **not** give an insulin bolus. RCH: **0.1 units/kg/h** for most children; consider **0.05 units/kg/h** for age <5 y, inter-hospital transfer/limited biochemical monitoring, or BGL <15 mmol/L when insulin starts.
+- Source-supported pump preparations: **1 unit/mL** (50 units in final 50 mL) or **0.1 unit/mL** (50 units in final 500 mL). The calculator reports mL/h for both concentrations; use one clearly labelled concentration and avoid decimal/concentration switching.
+- Glucose: when BGL <=15 mmol/L, change to 0.9% sodium chloride with **5% glucose** plus potassium as indicated. If glucose falls <5 mmol/L or is dropping >5 mmol/L/h while acidosis persists, increase glucose to **10%** before reducing insulin. Aim BGL about 5--10 mmol/L while ketosis/acidosis resolves.
+- Hypoglycaemia <4 mmol/L: give **10% glucose 2 mL/kg IV**, repeat if needed, and continue insulin while increasing glucose delivery. If glucose continues to fall despite 10% glucose, step insulin down (for example 0.1 -> 0.05 units/kg/h) under the pediatric DKA pathway.
+- Corrected sodium (RCH): **corrected Na = measured Na + 0.4 x (glucose - 5.5)** with glucose in mmol/L. Track direction of corrected sodium and osmolality; discuss corrected Na <125 or >150 mmol/L early.
+- Cerebral injury: do not wait for imaging. Elevate head, reduce fluid rate by about one-third and give either **mannitol 20% 0.5 g/kg IV over 20 min** or **3% sodium chloride 3 mL/kg IV over 15 min**; if no response within 15 min, escalate urgently to PICU/critical care.
+- Bicarbonate is not routine. RCH restricts it to exceptional situations such as life-threatening hyperkalaemia or severe circulatory failure requiring inotropes, with intensive-care input.
+- Transition to subcutaneous insulin only when alert, eating and metabolically stable (pH >7.3, bicarbonate >18 mmol/L); overlap rapid-acting subcutaneous insulin with the IV infusion for **30--60 min**.
+- Use pediatric_dka_calculator.py for corrected sodium, insulin pump rates and emergency cerebral-injury doses. These arithmetic outputs do not replace serial biochemical/neurological reassessment.
+
+## pediatric-burns
+
+- Scope: acute thermal/chemical/electrical burns in children. Manage as trauma first; do not let burn appearance distract from airway, breathing, circulation, associated injury or non-accidental injury.
+- First aid: cool the burn with **20 min of cool running water within 3 h of injury** when feasible. Remove hot/wet clothing and jewellery. Do not use ice. Prevent hypothermia, especially in infants/young children.
+- Estimate burn size using a pediatric Lund-Browder chart. Do **not** include simple epidermal erythema in TBSA. Consider inhalation injury with facial burns, soot, hoarseness/stridor, enclosed-space exposure or respiratory distress; give high-concentration oxygen and plan early expert airway management when airway oedema is plausible.
+- Burns **>=10% TBSA** require formal IV fluid resuscitation in children. RCH uses Hartmann solution for resuscitation and separate maintenance fluid (0.9% sodium chloride with 5% glucose). Calculate from the **time of burn**, not arrival time.
+- Modified Parkland reference: **3 mL x weight (kg) x %TBSA** Hartmann over the first 24 h. Give **half in the first 8 h from injury** and the other half over the next 16 h. Maintenance fluid is additional in children using the **100/50/20 mL/kg/day** formula.
+- If presentation is delayed during the first 8 h, the remaining first-half volume must be delivered over the time left until hour 8; do not restart a fresh 8-hour clock at hospital arrival. The calculated formula is only a starting estimate.
+- Titrate resuscitation every 1--2 h to physiology and urine output rather than blindly following the formula. Target urine output about **1 mL/kg/h** in children. Electrical injury, inhalation injury and delayed resuscitation may increase requirements.
+- Early shock immediately after a burn should prompt assessment for another cause (bleeding, trauma, sepsis, etc.); the burn itself does not explain early profound shock reliably.
+- Provide early weight-based analgesia; procedural sedation may be required for debridement/dressings. Keep tetanus status current. Circumferential deep burns with impaired perfusion/ventilation require urgent burns/surgical assessment for possible escharotomy.
+- Consult/transfer to a pediatric burns service for complex burns, including >5% TBSA, >5% full-thickness, special areas (face/eyes/ears/neck/hands/feet/genitalia/perineum/major joints), inhalation injury, circumferential, chemical/electrical, associated trauma, age <12 months or suspected non-accidental injury.
+- Use pediatric_burn_calculator.py for Modified Parkland and maintenance arithmetic. Always adjust the calculated rate to urine output, perfusion, oedema and specialist burns guidance.
+
 ## pediatric-cns-infection
 
 - Scope: suspected bacterial meningitis or encephalitis in children beyond the neonatal pathway. Obtain blood cultures and perform lumbar puncture before antimicrobials only when safe and when this does not materially delay treatment.
