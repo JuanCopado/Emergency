@@ -64,6 +64,23 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
 
     raise ValueError(f"{entry_id}: unsupported registry shape")
 
+def calculate_with_selected_concentration(entry_id, weight_kg, concentration_per_ml, path=DEFAULT_REGISTRY):
+    """Convert a source-verified dose to mL using the actual selected product concentration.
+
+    The concentration is supplied at the point of use; this function never assumes
+    a commercial liquid strength.
+    """
+    concentration = float(concentration_per_ml)
+    if concentration <= 0:
+        raise ValueError("concentration_per_ml must be > 0")
+    result = calculate(entry_id, weight_kg, path)
+    if "dose" not in result:
+        raise ValueError(f"{entry_id}: a single numeric dose is required for mL conversion")
+    result = dict(result)
+    result["selected_concentration_per_ml"] = concentration
+    result["volume_ml"] = float(result["dose"]) / concentration
+    return result
+
 if __name__ == "__main__":
     import argparse
     p = argparse.ArgumentParser()
