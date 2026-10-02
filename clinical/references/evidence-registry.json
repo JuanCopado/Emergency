@@ -878,12 +878,12 @@
     },
     "pediatric-emergency-medications": {
       "priority": "high",
-      "primary_source": "ERC/RCUK Paediatric Life Support 2025 + NICE NG29 IV fluids + NICE CG84 gastroenteritis + HSE pediatric status guideline for syndrome-specific comparison",
-      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
-      "stored_version": "ERC/RCUK PLS 2025; NICE NG29 updated 2020/current online 2026; NICE CG84 current online 2026; HSE CDI/0277/1.0/2025; v1.36 phase-4 build 2026-10-02",
+      "primary_source": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
+      "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
+      "stored_version": "ERC/RCUK PLS 2025; AHA/AAP PALS 2025; SSC pediatric sepsis 2026; NICE NG29/CG84 current online 2026; HSE CDI/0277/1.0/2025; PANDEM 2022; product labels current online 2026",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Cross-cutting pediatric dose/volume engine added. It stores selected verified resuscitation/fluid references and deterministic arithmetic, but does not choose diagnosis or local concentration. Remains yellow pending pediatric/pharmacy review and Portugal/Azores concentration/formulary/smart-pump verification."
+      "note": "Cross-cutting pediatric dose/volume engine uses current international pediatric sources. Local Hospital da Horta protocol is not required. Pump-rate tables remain fail-closed until both dose ladder and final concentration are source-verified from guideline/product/pediatric pharmacology references. Remains yellow pending human pediatric/pharmacy review."
     }
   }
 }
