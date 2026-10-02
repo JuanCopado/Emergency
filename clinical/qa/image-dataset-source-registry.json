@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Fail-closed intake registry for candidate blinded image datasets. Intake readiness is not diagnostic validation.",
+  "last_reviewed": "2026-10-02",
+  "required_for_real_dataset_intake": [
+    "license_or_dua_verified",
+    "redistribution_rule_documented",
+    "deidentified_source",
+    "reference_strategy_prespecified",
+    "label_separation_plan"
+  ],
+  "sources": [
+    {
+      "id": "ptb-xl",
+      "modality": "ecg",
+      "official_url": "https://physionet.org/content/ptb-xl/",
+      "access_model": "open",
+      "license_or_dua": "CC BY 4.0",
+      "license_or_dua_verified": true,
+      "redistribution_rule_documented": true,
+      "deidentified_source": true,
+      "reference_strategy_prespecified": false,
+      "label_separation_plan": false,
+      "intake_ready": false,
+      "notes": "Open waveform dataset. A target-specific independent reference strategy and label-isolation workflow must be frozen before blinded image benchmarking."
+    },
+    {
+      "id": "rsna-ich-2019",
+      "modality": "ct_mri",
+      "official_url": "https://www.rsna.org/artificial-intelligence/ai-image-challenge/rsna-intracranial-hemorrhage-detection-challenge-2019",
+      "access_model": "public/non-commercial terms",
+      "license_or_dua": "RSNA ICH Challenge Terms of Use and Attribution",
+      "license_or_dua_verified": true,
+      "redistribution_rule_documented": true,
+      "deidentified_source": true,
+      "reference_strategy_prespecified": false,
+      "label_separation_plan": false,
+      "intake_ready": false,
+      "notes": "Expert annotations exist, but the exact target, study-level grouping, adjudication/reference method and label-isolation workflow must be prespecified before use."
+    },
+    {
+      "id": "chexpert",
+      "modality": "chest_xray",
+      "official_url": "https://stanfordmlgroup.github.io/competitions/chexpert/",
+      "access_model": "Stanford dataset access",
+      "license_or_dua": "Manual current access/license review required before import",
+      "license_or_dua_verified": false,
+      "redistribution_rule_documented": false,
+      "deidentified_source": true,
+      "reference_strategy_prespecified": false,
+      "label_separation_plan": false,
+      "intake_ready": false,
+      "notes": "Many training labels are extracted from reports by a rule-based labeler; do not treat them automatically as independent expert ground truth. Prefer a target-specific radiologist-labeled reference subset when appropriate."
+    },
+    {
+      "id": "mimic-cxr-2.1.0",
+      "modality": "chest_xray",
+      "official_url": "https://physionet.org/content/mimic-cxr/",
+      "access_model": "credentialed PhysioNet access + DUA",
+      "license_or_dua": "PhysioNet credentialed-data terms/DUA",
+      "license_or_dua_verified": false,
+      "redistribution_rule_documented": false,
+      "deidentified_source": true,
+      "reference_strategy_prespecified": false,
+      "label_separation_plan": false,
+      "intake_ready": false,
+      "notes": "Do not place restricted images in the repository. NLP-derived labels are not automatically an independent expert reference."
+    },
+    {
+      "id": "echonet-dynamic",
+      "modality": "pocus",
+      "official_url": "https://aimi.stanford.edu/datasets/echonet-dynamic-cardiac-ultrasound",
+      "access_model": "Stanford AIMI download/research terms",
+      "license_or_dua": "Manual current agreement review required before import",
+      "license_or_dua_verified": false,
+      "redistribution_rule_documented": false,
+      "deidentified_source": true,
+      "reference_strategy_prespecified": false,
+      "label_separation_plan": false,
+      "intake_ready": false,
+      "notes": "Appropriate only for a narrow apical-4-chamber LV-function task unless a different reference is independently justified."
+    }
+  ]
+}
