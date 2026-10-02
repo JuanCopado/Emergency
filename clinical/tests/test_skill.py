@@ -2007,6 +2007,36 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             build_blinded_image_dataset('invalid', 'x', 'y')
 
+
+    def test_v136_image_source_registry_is_fail_closed(self):
+        data = json.loads((ROOT / 'qa' / 'image-dataset-source-registry.json').read_text(encoding='utf-8'))
+        self.assertGreaterEqual(len(data['sources']), 5)
+        ids = [x['id'] for x in data['sources']]
+        self.assertEqual(len(ids), len(set(ids)))
+        for source in data['sources']:
+            self.assertIn('official_url', source)
+            self.assertIn('license_or_dua_verified', source)
+            self.assertIn('reference_strategy_prespecified', source)
+            self.assertIn('label_separation_plan', source)
+            if source['intake_ready']:
+                self.assertTrue(source['license_or_dua_verified'])
+                self.assertTrue(source['redistribution_rule_documented'])
+                self.assertTrue(source['deidentified_source'])
+                self.assertTrue(source['reference_strategy_prespecified'])
+                self.assertTrue(source['label_separation_plan'])
+
+    def test_v136_image_source_registry_does_not_overclaim_candidate_readiness(self):
+        data = json.loads((ROOT / 'qa' / 'image-dataset-source-registry.json').read_text(encoding='utf-8'))
+        items = {x['id']: x for x in data['sources']}
+        self.assertEqual(items['ptb-xl']['license_or_dua'], 'CC BY 4.0')
+        self.assertTrue(items['ptb-xl']['license_or_dua_verified'])
+        self.assertFalse(items['ptb-xl']['intake_ready'])
+        self.assertTrue(items['rsna-ich-2019']['license_or_dua_verified'])
+        self.assertFalse(items['rsna-ich-2019']['intake_ready'])
+        self.assertFalse(items['chexpert']['license_or_dua_verified'])
+        self.assertFalse(items['mimic-cxr-2.1.0']['intake_ready'])
+        self.assertFalse(items['echonet-dynamic']['intake_ready'])
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
