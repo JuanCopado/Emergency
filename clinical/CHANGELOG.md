@@ -1,3 +1,10 @@
+## High-risk evidence source splitting — batch 2 (02/10/2026)
+- Split and verified sources for ICU sedation/PADIS, hypertensive emergencies, IV antihypertensive selection, pediatric dehydration/shock, lower-GI/small-bowel bleeding and traumatic intracranial mass effect.
+- Catalog increased from 112 to 123 normalized sources; compound identities reduced from 34 to 31.
+- Added verified SCCM PADIS 2018/2025, ESC hypertension 2024, ACC/AHA aortic 2022, AHA/ASA ICH 2022, DailyMed nicardipine 2026, NICE NG29, RCH dehydration 2026, ESGE small-bowel 2022, ACG small-bowel 2015, ACG LGIB 2023, BTF severe TBI 4th edition, NCS cerebral-edema 2020 and ENLS 6.0 ICP/herniation.
+- Remaining mixed ICU-drug-label, hypertensive syndrome-specific and obstetric/product-label sets stay explicitly compound pending individual verification.
+- Added regression coverage for this batch. No clinical recommendation, dose or module text changed.
+
 ## High-risk evidence source splitting — batch 1 (02/10/2026)
 - Added verified source overrides for airway RSI, anticoagulation reversal, paediatric status epilepticus, paediatric shock/emergencies/arrhythmias/arrest, adult resuscitation/arrhythmias, sepsis and vasoactive infusions.
 - Normalized source catalog increased from 103 to 112 identities; compound identities reduced from 36 to 34.
