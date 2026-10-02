@@ -132,3 +132,8 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Sealed-reference artifact was created separately (digest `sha256:63c01ab13bb0e8d1ca8702a4d4c389b83daa598b245fe3e6492aa5747b23a850`) and was **not opened/downloaded for interpretation**.
 - Visual QA of one rendered ECG: 12 leads + 10 s lead-II rhythm strip visible; no label/source leakage observed.
 - This pilot was deliberately balanced 5 positive / 5 negative for pipeline engineering and has `performance_metrics_allowed=false`; its known prevalence makes it unsuitable for diagnostic-performance claims.
+
+
+- Full natural-prevalence PTB-XL fold-10 intake launched as GitHub Actions **run #9 / 37043554986**, target `AFIB`, trigger mode `FULL_FOLD`.
+- At the latest verified checkpoint the run had passed setup, metadata download, source gate, salt creation and intake-mode selection; `Build blinded fold-10 ECG benchmark` was still in progress with no reported failure.
+- The sealed reference for the full-fold run has not been opened or used. Diagnostic metrics remain blocked until predictions are frozen and the run completes.
