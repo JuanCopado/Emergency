@@ -5,3 +5,19 @@ __pycache__/
 *.pyc
 app/screenshots/*-full.png
 .DS_Store
+
+# Generated graph/RAG artifacts
+graphify-out/
+knowledge-graph/generated/
+rag/index/
+rag/cache/
+
+# Local environments and secrets
+.venv/
+venv/
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.keystore
