@@ -93,7 +93,8 @@ each changes immediate decisions; do not load an entire category.
 - rhabdomyolysis -> rhabdomyolysis
 - undifferentiated electrolyte disorder -> electrolytes
 - hyponatremia or hypernatremia -> sodium-emergencies + medication-selection-safety
-- hyperkalemia or hypokalemia -> potassium-emergencies + medication-selection-safety
+- pediatric electrolyte emergency, hyperkalemia, hypokalemia, hypocalcaemia, hypomagnesaemia, symptomatic hyponatraemia/hypernatraemia or severe hypoglycaemia -> pediatric-electrolyte-emergencies + pediatric-emergencies + pediatric-emergency-medications; add pediatric-iv-fluid-therapy for sodium/fluid disorders
+- adult/general hyperkalemia or hypokalemia -> potassium-emergencies + medication-selection-safety
 - calcium or magnesium emergency -> calcium-magnesium-emergencies + medication-selection-safety
 - DKA, euglycemic DKA, HHS or mixed DKA/HHS -> diabetic-ketoacidosis-hhs + acid-base-emergencies + medication-selection-safety
 - blood gas or acid-base disorder -> acid-base-emergencies; add diabetic-ketoacidosis-hhs, toxicology, sepsis-shock, acute-respiratory-failure or aki-nephrology only when supported
