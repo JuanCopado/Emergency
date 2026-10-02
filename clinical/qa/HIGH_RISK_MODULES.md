@@ -45,6 +45,7 @@ This file explains why they receive stricter release gates.
 - pediatric-airway-rsi
 - pediatric-electrolyte-emergencies
 - pediatric-blood-transfusion-major-hemorrhage
+- pediatric-procedural-sedation
 - pediatric-status-epilepticus
 - obstetric-emergencies
 - diabetic-ketoacidosis-hhs
