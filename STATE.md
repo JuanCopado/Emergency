@@ -1,7 +1,7 @@
 # STATE — 02/10/2026
 
 ## Clínico (`clinical/`) — borrador v1.35, no instalado
-- 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 78 tests clínicos verificados en CI.
+- 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 79 tests clínicos verificados en CI.
 - v1.35: `vasoactive-inotrope-infusions` y `icu-sedation-analgesia-infusions`.
 - Pendiente: revisión UCI/cardio/farmacia, RCM/INFARMED Portugal, concentraciones locales y perfusiones pediátricas.
 
@@ -12,7 +12,7 @@
 
 ## Consolidación y seguridad
 - Arquitectura maestra: `docs/ARCHITECTURE.md`; Graphify: `docs/GRAPHIFY.md`.
-- Grafo determinista módulo→bundle→fuente; 106/106 manifiesto/registro coinciden. Catálogo normalizado: 147 identidades de fuente para 106 módulos; 12 identidades compuestas restantes. Este sexto lote separa ortopedia, ácido-base y fuentes regulatorias prioritarias de vasopresina, dexmedetomidina, remifentanilo y clevidipino; Grafo: 263 nodos / 275 relaciones.
+- Grafo determinista módulo→bundle→fuente; 106/106 manifiesto/registro coinciden. Catálogo normalizado: 154 identidades de fuente para 106 módulos; 9 identidades compuestas restantes. Este séptimo lote separa hipertensión por síndrome, referencias internas de imagen y varias fichas regulatorias de sedación/vasoactivos; Grafo: 270 nodos / 286 relaciones.
 - Validador detecta IDs/secciones duplicadas y usa coincidencia exacta en el router.
 - Living Evidence hace cumplir ventanas 30/90/180 días; un green vencido bloquea CI.
 - Artefactos Graphify/Knowledge Graph/RAG y secretos locales quedan fuera de Git.

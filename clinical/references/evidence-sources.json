@@ -11,25 +11,6 @@
   },
   "sources": [
     {
-      "source_id": "src-07b12d3f",
-      "title": "Modality-specific professional guidance plus independent local reference diagnosis",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "workflow v1.4; diagnostic performance not established",
-      "publication_date": null,
-      "last_verified": "2026-09-17",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "clinical-image-interpretation"
-      ]
-    },
-    {
       "source_id": "src-207dbc2a",
       "title": "Drug labeling, syndrome-specific guidelines and independently checked infusion arithmetic",
       "organization": null,
@@ -843,6 +824,7 @@
       "provenance": "verified_official_source",
       "compound_identity": false,
       "modules": [
+        "hypertensive-emergencies",
         "iv-antihypertensive-selection"
       ]
     },
@@ -962,6 +944,26 @@
       ]
     },
     {
+      "source_id": "src-acog-severe-htn-pregnancy-2019",
+      "title": "ACOG Committee Opinion No. 767: Emergent Therapy for Acute-Onset, Severe Hypertension During Pregnancy and the Postpartum Period",
+      "organization": "ACOG",
+      "source_type": "guideline",
+      "url": "https://www.acog.org/news/news-releases/2018/12/acog-issues-updated-hypertension-guidance",
+      "persistent_id": null,
+      "version": "Committee Opinion No. 767",
+      "publication_date": "2019-02",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "hypertensive-emergencies",
+        "iv-antihypertensive-selection"
+      ]
+    },
+    {
       "source_id": "src-acp-aafp-acute-msk-pain-2020",
       "title": "ACP/AAFP Clinical Guideline: Non-Pharmacological and Pharmacological Management of Acute Pain from Non-Low Back Musculoskeletal Injuries in Adults",
       "organization": "ACP/AAFP",
@@ -1077,6 +1079,25 @@
       ]
     },
     {
+      "source_id": "src-aha-asa-ischemic-stroke-2026",
+      "title": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+      "organization": "AHA/ASA",
+      "source_type": "guideline",
+      "url": "https://professional.heart.org/en/guidelines-statements/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-strokestr0000000000000513",
+      "persistent_id": "doi:10.1161/STR.0000000000000513",
+      "version": "2026",
+      "publication_date": "2026-01-26",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "hypertensive-emergencies"
+      ]
+    },
+    {
       "source_id": "src-aha-ecg-standards-2007-2009",
       "title": "AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the Electrocardiogram",
       "organization": "AHA/ACCF/HRS",
@@ -1112,6 +1133,7 @@
       "provenance": "verified_official_source",
       "compound_identity": false,
       "modules": [
+        "hypertensive-emergencies",
         "iv-antihypertensive-selection",
         "spontaneous-intracerebral-hemorrhage"
       ]
@@ -1535,6 +1557,25 @@
       ]
     },
     {
+      "source_id": "src-dobutamine-dailymed-2026",
+      "title": "Dobutamine injection, solution, concentrate — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=89becb0c-da60-4f43-0a98-29ff7a9eca58",
+      "persistent_id": null,
+      "version": "updated 2026-05-27",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
       "source_id": "src-dopamine-dailymed-2026",
       "title": "Dopamine Hydrochloride in Dextrose Injection — US prescribing information",
       "organization": "DailyMed/NLM",
@@ -1687,6 +1728,25 @@
       ]
     },
     {
+      "source_id": "src-epinephrine-dailymed-2026",
+      "title": "Epinephrine injection — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?audience=professional&setid=1e8ebac1-5b32-47f9-a930-86a98a24dccc",
+      "persistent_id": null,
+      "version": "updated 2026-05-05",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
       "source_id": "src-erc-guidelines-2025",
       "title": "European Resuscitation Council Guidelines 2025",
       "organization": "ERC",
@@ -1765,6 +1825,25 @@
       "compound_identity": false,
       "modules": [
         "high-flow-nasal-oxygen"
+      ]
+    },
+    {
+      "source_id": "src-esc-acs-2023",
+      "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": "https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Acute-Coronary-Syndromes-ACS",
+      "persistent_id": null,
+      "version": "2023",
+      "publication_date": "2023",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "hypertensive-emergencies"
       ]
     },
     {
@@ -2036,6 +2115,25 @@
       ]
     },
     {
+      "source_id": "src-giapreza-dailymed-2026",
+      "title": "GIAPREZA (angiotensin II) injection — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c265d69a-3efe-4107-9a9e-e6fd3d531c48",
+      "persistent_id": null,
+      "version": "SPL version 18; effective 2026-07-22",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
       "source_id": "src-hse-pediatric-status-2025",
       "title": "HSE National Clinical Guideline CDI/0277/1.0/2025 — Convulsive status epilepticus in children",
       "organization": "HSE",
@@ -2074,6 +2172,25 @@
       ]
     },
     {
+      "source_id": "src-internal-clinical-image-reference-set",
+      "title": "Emergency project independent local clinical-image reference diagnosis set",
+      "organization": "Emergency project",
+      "source_type": "internal_reference_set",
+      "url": null,
+      "persistent_id": null,
+      "version": "current internal reference set",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": null,
+      "jurisdiction": "internal",
+      "license_status": "unknown",
+      "provenance": "repository_internal_reference_set",
+      "compound_identity": false,
+      "modules": [
+        "clinical-image-interpretation"
+      ]
+    },
+    {
       "source_id": "src-internal-image-safety-workflow",
       "title": "Emergency project clinical image-review safety workflow",
       "organization": "Emergency project",
@@ -2089,10 +2206,30 @@
       "provenance": "repository_internal_workflow",
       "compound_identity": false,
       "modules": [
+        "clinical-image-interpretation",
         "ct-mri-screenshot",
         "ecg-image",
         "ophthalmology-image",
         "pocus-image"
+      ]
+    },
+    {
+      "source_id": "src-ketamine-dailymed-2026",
+      "title": "Ketamine hydrochloride injection — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bb912318-2e22-4469-b0a2-774803ee1bb8",
+      "persistent_id": null,
+      "version": "updated 2026-05-12",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
       ]
     },
     {
@@ -2153,32 +2290,13 @@
       ]
     },
     {
-      "source_id": "src-legacy-hypertensive-syndrome-guidance",
-      "title": "Legacy syndrome-specific hypertensive emergency guidance set: stroke, aortic syndrome, ACS and pregnancy",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "legacy v1.16 source set",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry_pending_individual_verification",
-      "compound_identity": true,
-      "modules": [
-        "hypertensive-emergencies"
-      ]
-    },
-    {
-      "source_id": "src-legacy-icu-sedation-remaining-labels",
-      "title": "Legacy unresolved ICU sedation labels: midazolam, fentanyl, ketamine, propofol and KSCCM opioid table",
+      "source_id": "src-legacy-icu-midazolam-fentanyl-ksccm",
+      "title": "Legacy unresolved ICU sedation sources: midazolam, fentanyl and KSCCM opioid table",
       "organization": null,
       "source_type": "regulatory_product_info",
       "url": null,
       "persistent_id": null,
-      "version": "legacy v1.35 source set after verified Dexdor/remifentanil split",
+      "version": "legacy v1.35 source set after 2026-10-02 splits",
       "publication_date": null,
       "last_verified": "2026-10-02",
       "language": null,
@@ -2188,25 +2306,6 @@
       "compound_identity": true,
       "modules": [
         "icu-sedation-analgesia-infusions"
-      ]
-    },
-    {
-      "source_id": "src-legacy-iv-antihypertensive-remaining",
-      "title": "Legacy unresolved obstetric guidance and remaining IV antihypertensive product labels after nicardipine/clevidipine split",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "legacy v1.21 source set",
-      "publication_date": null,
-      "last_verified": "2026-10-02",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry_pending_individual_verification",
-      "compound_identity": true,
-      "modules": [
-        "iv-antihypertensive-selection"
       ]
     },
     {
@@ -2267,13 +2366,13 @@
       ]
     },
     {
-      "source_id": "src-legacy-vasoactive-remaining-labels",
-      "title": "Legacy unresolved vasoactive labels: epinephrine, dobutamine, milrinone, phenylephrine, angiotensin II and levosimendan",
+      "source_id": "src-legacy-vasoactive-milrinone-levosimendan",
+      "title": "Legacy unresolved vasoactive labels: milrinone and levosimendan",
       "organization": null,
       "source_type": "regulatory_product_info",
       "url": null,
       "persistent_id": null,
-      "version": "legacy v1.35 source set after verified vasopressin split",
+      "version": "legacy v1.35 source set after 2026-10-02 splits",
       "publication_date": null,
       "last_verified": "2026-10-02",
       "language": null,
@@ -2532,6 +2631,44 @@
       "compound_identity": false,
       "modules": [
         "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-phenylephrine-dailymed-2026",
+      "title": "Phenylephrine hydrochloride injection — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1b9f1d54-ea46-49c8-a33e-c94a61bc0460",
+      "persistent_id": null,
+      "version": "updated 2026-04-28",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-propofol-dailymed-2026",
+      "title": "Propofol injectable emulsion — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f23fe3c5-aa37-4ecc-ad76-f13c1a1dabe2",
+      "persistent_id": null,
+      "version": "updated 2026-07-15",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
       ]
     },
     {
@@ -2976,12 +3113,32 @@
       {
         "source_id": "src-esc-hypertension-2024",
         "role": "guideline",
-        "claim_scope": "general hypertension and hypertensive emergency framework"
+        "claim_scope": "general hypertensive emergency framework"
       },
       {
-        "source_id": "src-legacy-hypertensive-syndrome-guidance",
-        "role": "legacy_compound",
-        "claim_scope": "stroke/aortic/ACS/pregnancy syndrome-specific targets pending individual split"
+        "source_id": "src-acc-aortic-2022",
+        "role": "guideline",
+        "claim_scope": "acute aortic syndrome blood-pressure strategy"
+      },
+      {
+        "source_id": "src-aha-ich-2022",
+        "role": "guideline",
+        "claim_scope": "intracerebral hemorrhage blood-pressure strategy"
+      },
+      {
+        "source_id": "src-esc-acs-2023",
+        "role": "guideline",
+        "claim_scope": "acute coronary syndrome context"
+      },
+      {
+        "source_id": "src-acog-severe-htn-pregnancy-2019",
+        "role": "guideline",
+        "claim_scope": "pregnancy/postpartum severe hypertension"
+      },
+      {
+        "source_id": "src-aha-asa-ischemic-stroke-2026",
+        "role": "guideline",
+        "claim_scope": "acute ischemic stroke blood-pressure context"
       }
     ],
     "acute-heart-failure": [
@@ -3087,9 +3244,9 @@
         "claim_scope": "clevidipine formulation and labeled dosing"
       },
       {
-        "source_id": "src-legacy-iv-antihypertensive-remaining",
-        "role": "legacy_compound",
-        "claim_scope": "obstetric guidance and remaining product labels pending individual verification"
+        "source_id": "src-acog-severe-htn-pregnancy-2019",
+        "role": "guideline",
+        "claim_scope": "pregnancy/postpartum severe hypertension"
       }
     ],
     "obstetric-emergencies": [
@@ -3186,9 +3343,14 @@
     ],
     "clinical-image-interpretation": [
       {
-        "source_id": "src-07b12d3f",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-internal-image-safety-workflow",
+        "role": "internal_workflow",
+        "claim_scope": "image intake, quality, uncertainty and abstention"
+      },
+      {
+        "source_id": "src-internal-clinical-image-reference-set",
+        "role": "internal_reference_set",
+        "claim_scope": "independent local reference diagnoses for evaluation"
       }
     ],
     "tension-pneumothorax": [
@@ -3852,9 +4014,29 @@
         "claim_scope": "vasopressin formulation, dilution and labeled dosing"
       },
       {
-        "source_id": "src-legacy-vasoactive-remaining-labels",
+        "source_id": "src-epinephrine-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "epinephrine infusion label"
+      },
+      {
+        "source_id": "src-dobutamine-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "dobutamine formulation and infusion label"
+      },
+      {
+        "source_id": "src-phenylephrine-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "phenylephrine formulation and infusion label"
+      },
+      {
+        "source_id": "src-giapreza-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "angiotensin II formulation and label"
+      },
+      {
+        "source_id": "src-legacy-vasoactive-milrinone-levosimendan",
         "role": "legacy_compound",
-        "claim_scope": "remaining vasoactive product labels pending individual verification"
+        "claim_scope": "milrinone and levosimendan labels pending individual verification"
       }
     ],
     "icu-sedation-analgesia-infusions": [
@@ -3879,9 +4061,19 @@
         "claim_scope": "remifentanil formulation and infusion dosing"
       },
       {
-        "source_id": "src-legacy-icu-sedation-remaining-labels",
+        "source_id": "src-propofol-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "propofol formulation and sedation label"
+      },
+      {
+        "source_id": "src-ketamine-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "ketamine formulation and label"
+      },
+      {
+        "source_id": "src-legacy-icu-midazolam-fentanyl-ksccm",
         "role": "legacy_compound",
-        "claim_scope": "remaining ICU sedative/opioid labels pending individual verification"
+        "claim_scope": "midazolam/fentanyl labels and KSCCM opioid table pending individual verification"
       }
     ]
   }

@@ -1,3 +1,12 @@
+## High-risk evidence source splitting — batch 7 (02/10/2026)
+- Split and verified additional vasoactive regulatory sources: epinephrine, dobutamine, phenylephrine and angiotensin II.
+- Split additional ICU sedation labels for propofol and ketamine.
+- Replaced the hypertensive-emergency compound source with explicit ESC hypertension 2024, ACC/AHA aorta 2022, AHA/ASA ICH 2022, ESC ACS 2023, ACOG severe pregnancy hypertension and AHA/ASA acute ischemic stroke 2026.
+- Replaced the generic clinical-image compound identity with explicit internal workflow + independent local reference-set identities.
+- Catalog increased from 147 to 154 normalized sources; compound identities reduced from 12 to 9.
+- Residual milrinone/levosimendan and midazolam/fentanyl/KSCCM sets remain explicitly compound pending individual verification.
+- Added regression coverage for this batch. No clinical recommendation, dose or module text changed.
+
 ## High-risk evidence source splitting — batch 6 (02/10/2026)
 - Split and verified sources for orthopedic emergencies and acid-base emergencies.
 - Added regulatory-source splits for vasopressin, dexmedetomidine, remifentanil and clevidipine; residual drug-label sets remain explicit compounds.
