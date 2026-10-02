@@ -62,3 +62,6 @@ This file explains why they receive stricter release gates.
 
 - pediatric-dka
 - pediatric-burns
+
+- pediatric-sepsis
+- pediatric-adrenal-crisis

@@ -41,6 +41,8 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | pediatric-acute-respiratory-support | `modules/special-populations.md` |
 | pediatric-cns-infection | `modules/special-populations.md` |
 | pediatric-dka | `modules/special-populations.md` |
+| pediatric-sepsis | `modules/special-populations.md` |
+| pediatric-adrenal-crisis | `modules/special-populations.md` |
 | pediatric-burns | `modules/special-populations.md` |
 | pediatric-toxicology | `modules/special-populations.md` |
 | pediatric-acute-asthma | `modules/special-populations.md` |

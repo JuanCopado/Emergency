@@ -212,7 +212,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 118)
+        self.assertEqual(len(manifest), 120)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1586,6 +1586,31 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(p['second_phase_rate_ml_h'], 28.125)
         self.assertAlmostEqual(p['maintenance_ml_day'], 1500.0)
         self.assertAlmostEqual(p['urine_target_ml_h'], 20.0)
+
+    def test_v136_pediatric_sepsis_current_guidance(self):
+        module = ' '.join(load(ROOT, 'pediatric-sepsis').split())
+        for invariant in (
+            'ideally within 1 h',
+            'ideally within 3 h',
+            '80 mg/kg IV once daily, max 4 g',
+            '10--20 mL/kg per bolus',
+            '40--60 mL/kg in the first hour',
+            'insufficient evidence to prefer epinephrine over norepinephrine or vice versa universally',
+            'do **not** routinely give hydrocortisone'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_adrenal_crisis_doses(self):
+        module = ' '.join(load(ROOT, 'pediatric-adrenal-crisis').split())
+        for invariant in (
+            'birth--6 weeks 25 mg; 6 weeks--2 years 25 mg; 3--12 years 50 mg; >12 years 100 mg',
+            '5--10 mg q6h',
+            '12.5 mg q6h',
+            '25 mg q6h',
+            '0.9% sodium chloride 10 mL/kg IV',
+            '0.9% sodium chloride + 5% glucose',
+            '30 mg/m2/day',
+            '20 mg/m2/day'
+        ): self.assertIn(invariant, module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):

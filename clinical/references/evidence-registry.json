@@ -983,6 +983,24 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric burns pathway includes first aid, >=10% TBSA resuscitation threshold, 3 mL/kg/%TBSA Modified Parkland, pediatric maintenance and urine-output titration. Human burns/trauma review pending."
+    },
+    "pediatric-sepsis": {
+      "priority": "high",
+      "primary_source": "Surviving Sepsis Campaign pediatric 2026 + NICE NG254 2025",
+      "primary_source_url": "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-the-management-of-sepsis-and-septic-shock-in",
+      "stored_version": "SSC pediatric sepsis 2026; NICE NG254 published 2025; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric sepsis pathway separates antimicrobial timing, age-specific empiric therapy, fluid limits, vasoactive uncertainty and corticosteroid boundaries from adult sepsis. Human pediatric ID/critical-care review pending."
+    },
+    "pediatric-adrenal-crisis": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Adrenal crisis and acute adrenal insufficiency current + Starship Stress Steroid Management 2024",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Adrenal_crisis_and_acute_adrenal_insufficiency/",
+      "stored_version": "RCH/PIC current online reviewed 2026-10-02; Starship 2024",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric adrenal-crisis pathway includes age-based hydrocortisone, fluids/glucose/electrolyte management and sick-day escalation. Human pediatric endocrine review pending."
     }
   }
 }

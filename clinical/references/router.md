@@ -137,3 +137,6 @@ each changes immediate decisions; do not load an entire category.
 
 - pediatric DKA, HHS or cerebral injury during DKA -> pediatric-dka + pediatric-iv-fluid-therapy + pediatric-electrolyte-emergencies
 - pediatric burn, scald, chemical/electrical burn or burn fluid calculation -> pediatric-burns + pediatric-iv-fluid-therapy + pediatric-emergency-medications
+
+- pediatric sepsis or septic shock -> pediatric-sepsis + pediatric-shock + pediatric-iv-fluid-therapy + pediatric-emergency-medications
+- pediatric adrenal crisis, steroid-dependent child with shock/hypoglycaemia or suspected adrenal insufficiency -> pediatric-adrenal-crisis + pediatric-iv-fluid-therapy + pediatric-electrolyte-emergencies
