@@ -19,6 +19,15 @@ from evaluate_image_cases import evaluate
 from sodium_water_balance import calculate as sodium_water_balance
 from acid_base_hyperglycemia import calculate as acid_base_hyperglycemia
 from respiratory_support import calculate as respiratory_support
+from pediatric_emergency_calculator import (
+    weight_based_total as pediatric_weight_based_total,
+    volume_for_dose as pediatric_volume_for_dose,
+    infusion_per_kg_min_ml_h as pediatric_infusion_per_kg_min_ml_h,
+    fluid_bolus_ml as pediatric_fluid_bolus_ml,
+    maintenance_ml_day as pediatric_maintenance_ml_day,
+    maintenance_ml_h as pediatric_maintenance_ml_h,
+    gastroenteritis_deficit_ml as pediatric_gastroenteritis_deficit_ml,
+)
 from validate_clinical_cases import validate as validate_clinical_cases
 from audit_evidence_coverage import audit as audit_evidence_coverage
 from validate_real_image_cases import validate as validate_real_image_cases
@@ -178,7 +187,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 106)
+        self.assertEqual(len(manifest), 107)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1053,6 +1062,54 @@ class ModularCoreTests(unittest.TestCase):
             'La promoción local **no cambia automáticamente**'
         ):
             self.assertIn(invariant, text)
+
+
+    def test_v136_pediatric_emergency_medication_module_is_routable(self):
+        module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
+        for invariant in (
+            '10 micrograms/kg IV/IO, max 1 mg',
+            '5 mg/kg, max 300 mg after the 3rd shock',
+            '5 mg/kg, max 150 mg after the 5th shock',
+            '10 mL/kg',
+            '5 mL/kg',
+            'no more than 20 mL/kg',
+            '15--20 mg/kg IV, max 1 g over 10 min',
+            '2 mg/kg/h, max 1 g',
+            '100 mL/kg/day for the first 10 kg',
+            '50 mL/kg/day for the next 10 kg',
+            '20 mL/kg/day for each kg above 20 kg',
+            '2 mL/kg of 10% glucose',
+            '10% glucose 3 mL/kg'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_calculator_weight_caps_and_volume(self):
+        dose = pediatric_weight_based_total(10, 20, max_dose=1000)
+        self.assertAlmostEqual(dose['total_dose'], 200.0)
+        self.assertFalse(dose['capped'])
+        self.assertAlmostEqual(pediatric_volume_for_dose(200, 100), 2.0)
+        capped = pediatric_weight_based_total(10, 150, max_dose=1000)
+        self.assertAlmostEqual(capped['total_dose'], 1000.0)
+        self.assertTrue(capped['capped'])
+
+    def test_v136_pediatric_calculator_infusions_and_fluids(self):
+        self.assertAlmostEqual(pediatric_infusion_per_kg_min_ml_h(0.1, 20, 20), 6.0)
+        self.assertAlmostEqual(pediatric_fluid_bolus_ml(20, 10), 200.0)
+        self.assertAlmostEqual(pediatric_maintenance_ml_day(25), 1600.0)
+        self.assertAlmostEqual(pediatric_maintenance_ml_h(25), 1600.0 / 24.0)
+        self.assertAlmostEqual(pediatric_gastroenteritis_deficit_ml(20, False), 1000.0)
+        self.assertAlmostEqual(pediatric_gastroenteritis_deficit_ml(20, True), 2000.0)
+
+    def test_v136_pediatric_calculator_fails_closed_on_invalid_inputs(self):
+        for fn, args in (
+            (pediatric_weight_based_total, (10, 0)),
+            (pediatric_volume_for_dose, (100, 0)),
+            (pediatric_infusion_per_kg_min_ml_h, (0.1, 20, 0)),
+            (pediatric_fluid_bolus_ml, (-1, 10)),
+            (pediatric_maintenance_ml_day, (0,))
+        ):
+            with self.assertRaises(ValueError):
+                fn(*args)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
