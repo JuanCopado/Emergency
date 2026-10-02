@@ -40,6 +40,7 @@ This file explains why they receive stricter release gates.
 - status-epilepticus
 - pediatric-emergencies
 - pediatric-emergency-medications
+- pediatric-iv-fluid-therapy
 - pediatric-status-epilepticus
 - obstetric-emergencies
 - diabetic-ketoacidosis-hhs
