@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit evidence-registry coverage without equating coverage with validation."""
+"""Audit evidence coverage, freshness and normalized source provenance."""
 
 import json
 import sys
@@ -23,6 +23,13 @@ HIGH_RISK = {
     "vasoactive-inotrope-infusions", "icu-sedation-analgesia-infusions",
 }
 
+REQUIRED_SOURCE_FIELDS = {
+    "source_id", "title", "organization", "source_type", "url",
+    "persistent_id", "version", "publication_date", "last_verified",
+    "language", "jurisdiction", "license_status", "provenance",
+    "compound_identity", "modules",
+}
+
 
 def _review_days(priority: str, policy: dict) -> int:
     if priority == "high":
@@ -38,10 +45,19 @@ def audit(root: Path, today: date | None = None):
     registry_doc = json.loads(
         (root / "references/evidence-registry.json").read_text(encoding="utf-8")
     )
+    source_doc = json.loads(
+        (root / "references/evidence-sources.json").read_text(encoding="utf-8")
+    )
     registry = registry_doc.get("modules", {})
     policy = registry_doc.get("review_policy", {})
+    source_items = source_doc.get("sources", [])
+    sources = {item.get("source_id"): item for item in source_items}
+    module_sources = source_doc.get("module_sources", {})
     errors = list(module_errors)
     warnings = []
+
+    if len(sources) != len(source_items):
+        errors.append("normalized source catalog contains duplicate source_id values")
 
     unknown = sorted(set(registry) - set(manifest))
     if unknown:
@@ -49,6 +65,45 @@ def audit(root: Path, today: date | None = None):
     missing_high_risk = sorted(HIGH_RISK - set(registry))
     if missing_high_risk:
         errors.append(f"high-risk modules missing evidence records: {missing_high_risk}")
+
+    for source_id, source in sources.items():
+        if not source_id:
+            errors.append("normalized source without source_id")
+            continue
+        missing_fields = sorted(REQUIRED_SOURCE_FIELDS - set(source))
+        if missing_fields:
+            errors.append(
+                f"{source_id}: missing normalized source fields: {', '.join(missing_fields)}"
+            )
+        if not source.get("title"):
+            errors.append(f"{source_id}: empty source title")
+        if source.get("license_status") not in {"unknown", "verified", "restricted"}:
+            errors.append(f"{source_id}: invalid license_status")
+
+    manifest_ids = set(manifest)
+    if set(module_sources) != manifest_ids:
+        missing = sorted(manifest_ids - set(module_sources))
+        extra = sorted(set(module_sources) - manifest_ids)
+        if missing:
+            errors.append(f"modules missing normalized source map: {', '.join(missing)}")
+        if extra:
+            errors.append(f"unknown modules in normalized source map: {', '.join(extra)}")
+
+    for module_id, refs in module_sources.items():
+        if not refs:
+            errors.append(f"{module_id}: normalized source list is empty")
+            continue
+        for ref in refs:
+            source_id = ref.get("source_id")
+            if source_id not in sources:
+                errors.append(f"{module_id}: unknown normalized source_id {source_id}")
+                continue
+            if module_id not in sources[source_id].get("modules", []):
+                errors.append(
+                    f"{module_id}: reverse source mapping missing in {source_id}"
+                )
+            if not ref.get("role") or not ref.get("claim_scope"):
+                errors.append(f"{module_id}: incomplete source relationship metadata")
 
     for module_id, record in registry.items():
         status = record.get("status")
@@ -81,17 +136,21 @@ def audit(root: Path, today: date | None = None):
 
     absent = sorted(set(manifest) - set(registry))
     if absent:
-        errors.append(
-            f"modules missing evidence records: {', '.join(absent)}"
-        )
+        errors.append(f"modules missing evidence records: {', '.join(absent)}")
+
     counts = {
         status: sum(1 for item in registry.values() if item.get("status") == status)
         for status in ("green", "yellow", "red")
     }
+    compound_count = sum(
+        1 for item in sources.values() if item.get("compound_identity")
+    )
     return {
         "audit_date": today.isoformat(),
         "total_modules": len(manifest),
         "registered": len(registry),
+        "normalized_sources": len(sources),
+        "compound_sources_pending_split": compound_count,
         "unregistered": len(absent),
         "status_counts": counts,
         "errors": errors,
