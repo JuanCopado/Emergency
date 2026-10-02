@@ -21,6 +21,9 @@ HIGH_RISK = {
     "calcium-magnesium-emergencies", "acute-respiratory-failure",
     "oxygen-therapy-emergency", "high-flow-nasal-oxygen", "noninvasive-ventilation",
     "vasoactive-inotrope-infusions", "icu-sedation-analgesia-infusions",
+    "adult-arrhythmias", "adult-cardiac-arrest", "undifferentiated-shock",
+    "pediatric-arrhythmias", "pediatric-cardiac-arrest", "pediatric-shock",
+    "pediatric-status-epilepticus",
 }
 
 
