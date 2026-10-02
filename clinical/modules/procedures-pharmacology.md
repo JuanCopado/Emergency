@@ -73,52 +73,23 @@ rescue plan and post-intervention reassessment.
 
 ## medication-selection-safety
 
-- Define the exact syndrome, therapeutic purpose, current value and target before
-  selecting a drug. Distinguish treating the underlying disease from changing a
-  physiologic number or treating a similarly named condition.
-- When a user proposes an agent, state one of: recommended, not routinely indicated,
-  conditional, contraindicated or uncertain. Give the decisive indication mismatch,
-  contraindication or monitoring issue before offering a dose.
-- For a recommendation, provide generic drug, route, initial dose, titration/redosing,
-  maximum when applicable, organ-function adjustment, key contraindications,
-  monitoring, hold/stop condition and reassessment interval. Do not imply a checklist
-  is prescribing clearance.
-- For every continuous infusion, state the total drug amount, compatible diluent,
-  final volume and final concentration. Prefer a 100 mL or 200 mL final volume when
-  clinically appropriate and compatible with the locally available formulation;
-  do not invent compatibility or override a pharmacy/local standard concentration.
-- Convert every continuous dose to a pump rate in mL/h. Show the arithmetic, the
-  starting rate, each titration step in both dose units and mL/h, the titration
-  interval, maximum or ceiling when applicable, and explicit hold/stop thresholds.
-  For a weight-based infusion use:
-  `mL/h = dose (mcg/kg/min) × weight (kg) × 60 ÷ concentration (mcg/mL)`.
-- If weight or formulation is missing, do not invent it: provide the symbolic formula
-  and request the missing value before presenting a patient-specific pump setting.
-  A clearly labelled reference table may be added, but never presented as the patient's rate.
-- Do not force bolus or intermittent medication into mL/h. For those, state the dose,
-  stock strength, dilution when needed, final volume in mL and administration time/rate.
-- Prefer titratable IV agents for time-critical hemodynamic control. Define both upper
-  and lower safety bounds when cerebral, coronary or renal perfusion could be harmed;
-  avoid an isolated target number without the syndrome and current pressure.
-- Do not transfer targets or drugs among subdural hematoma, intraparenchymal hemorrhage,
-  aneurysmal subarachnoid hemorrhage and ischemic stroke. Nimodipine is disease-modifying
-  treatment for aneurysmal subarachnoid hemorrhage, not a general antihypertensive or
-  routine treatment for isolated subdural hematoma. Nitrates are not default blood-
-  pressure agents when intracranial mass effect or raised pressure is a concern.
-- When an IV antihypertensive is unavailable, do not offer a name-only substitution.
-  Route to `iv-antihypertensive-selection` and select by the organ-injury syndrome,
-  heart rate/conduction, ventricular function, bronchospasm, pregnancy, renal/hepatic
-  function and local formulation. Give a feasible alternative when one is supported
-  and explain why it fits; if none is suitable or availability is unknown, state
-  that limitation and the escalation plan rather than inventing availability.
-  Explicitly reject nimodipine as a nicardipine substitute.
-- In traumatic intracranial mass effect, treat hypertension as potentially compensatory until
-  perfusion and raised-ICP physiology are assessed. Do not reflexively target SBP 140 mm Hg.
-  Hypertonic saline for an ICP crisis is a weight-based bolus over a defined time, not a routine
-  continuous infusion; preserve its bolus order even when a pump is used for delivery.
-- If the evidence is update-sensitive, the exact formulation is unavailable locally,
-  or the proposed use is off-label, verify an authoritative current source and local
-  protocol before presenting the regimen as definitive.
+- Define the exact syndrome, therapeutic purpose, current value and target before selecting a drug. Distinguish treating the underlying disease from changing a physiologic number or treating a similarly named condition.
+- When a user proposes an agent, state one of: recommended, not routinely indicated, conditional, contraindicated or uncertain. Give the decisive indication mismatch, contraindication or monitoring issue before offering a dose.
+- For a recommendation, provide generic drug, route, initial dose, titration/redosing, maximum when applicable, organ-function adjustment, key contraindications, monitoring, hold/stop condition and reassessment interval. Do not imply a checklist is prescribing clearance.
+- **High-alert medication gate:** WHO Medication Without Harm and the ISMP 2024 acute-care list identify high-risk situations and high-alert medicines as requiring stronger system controls. Treat insulin, anticoagulants/thrombolytics, opioids, neuromuscular blockers, concentrated electrolytes/hypertonic saline and other locally designated high-alert drugs as requiring extra verification before administration.
+- **Unit/concentration safety:** explicitly distinguish mg, micrograms, units and mmol; never silently convert between them. Use a leading zero for doses below 1 (for example 0.5 mg), never a trailing zero, and avoid ambiguous abbreviations. Confirm whether a label expresses active base, salt, equivalent drug amount or units before calculating a patient dose.
+- **Patient-product match before calculation:** verify patient weight when weight-based dosing is used, age/pregnancy where relevant, allergy, renal/hepatic function, current interacting drugs, last dose/time for anticoagulants or antidote-sensitive agents, and the exact locally available product strength/concentration. If any critical input is missing, stop at a symbolic/reference calculation.
+- For every continuous infusion, state the total drug amount, compatible diluent, final volume and final concentration. Prefer a 100 mL or 200 mL final volume when clinically appropriate and compatible with the locally available formulation; do not invent compatibility or override a pharmacy/local standard concentration.
+- Convert every continuous dose to a pump rate in mL/h. Show the arithmetic, the starting rate, each titration step in both dose units and mL/h, the titration interval, maximum or ceiling when applicable, and explicit hold/stop thresholds. For a weight-based infusion use: `mL/h = dose (mcg/kg/min) × weight (kg) × 60 ÷ concentration (mcg/mL)`.
+- **Independent verification for high-risk infusions:** where local policy requires it, verify drug, patient, weight, dose units, concentration, final volume, pump library entry/channel and calculated mL/h independently before starting or after a material concentration change. A second check must not be described as a substitute for correct prescribing/pharmacy controls.
+- If weight or formulation is missing, do not invent it: provide the symbolic formula and request the missing value before presenting a patient-specific pump setting. A clearly labelled reference table may be added, but never presented as the patient's rate.
+- Do not force bolus or intermittent medication into mL/h. For those, state the dose, stock strength, dilution when needed, final volume in mL and administration time/rate.
+- **Look-alike/sound-alike and duplicate-therapy gate:** use generic name plus concentration/route; compare with the active medication list and recent administrations before recommending a duplicate, interacting or similarly named drug. Medication reconciliation is especially important at ED-ICU/ward transfers.
+- Prefer titratable IV agents for time-critical hemodynamic control. Define both upper and lower safety bounds when cerebral, coronary or renal perfusion could be harmed; avoid an isolated target number without the syndrome and current pressure.
+- Do not transfer targets or drugs among subdural hematoma, intraparenchymal hemorrhage, aneurysmal subarachnoid hemorrhage and ischemic stroke. Nimodipine is disease-modifying treatment for aneurysmal subarachnoid hemorrhage, not a general antihypertensive or routine treatment for isolated subdural hematoma. Nitrates are not default blood-pressure agents when intracranial mass effect or raised pressure is a concern.
+- When an IV antihypertensive is unavailable, do not offer a name-only substitution. Route to `iv-antihypertensive-selection` and select by the organ-injury syndrome, heart rate/conduction, ventricular function, bronchospasm, pregnancy, renal/hepatic function and local formulation. Give a feasible alternative when one is supported and explain why it fits; if none is suitable or availability is unknown, state that limitation and the escalation plan rather than inventing availability. Explicitly reject nimodipine as a nicardipine substitute.
+- In traumatic intracranial mass effect, treat hypertension as potentially compensatory until perfusion and raised-ICP physiology are assessed. Do not reflexively target SBP 140 mm Hg. Hypertonic saline for an ICP crisis is a weight-based bolus over a defined time, not a routine continuous infusion; preserve its bolus order even when a pump is used for delivery.
+- If the evidence is update-sensitive, the exact formulation is unavailable locally, or the proposed use is off-label, verify an authoritative current source and local protocol before presenting the regimen as definitive.
 
 ## emergency-procedures
 
