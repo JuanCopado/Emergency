@@ -11,10 +11,7 @@ Cada fuente conserva estos campos, aunque el valor sea `null` si no está
 verificado: organización, tipo, URL, identificador persistente, versión, fecha de
 publicación, última verificación, idioma, jurisdicción y licencia.
 
-Regla importante: una cita histórica que combina varias fuentes en un único texto
-no se divide automáticamente. Se marca `compound_identity=true` hasta que sus
-componentes se verifiquen individualmente. Es preferible conservar incertidumbre
-estructurada a inventar metadatos.
+Regla importante: una cita histórica que combina varias fuentes en un único texto no se divide automáticamente. Se marca `compound_identity=true` hasta que sus componentes se verifiquen individualmente. Las separaciones verificadas se guardan en `clinical/references/evidence-source-overrides.json`; el normalizador aplica esas excepciones de forma determinista. Es preferible conservar incertidumbre estructurada a inventar metadatos.
 
 Regenerar/comprobar:
 ```bash
