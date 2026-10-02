@@ -2076,7 +2076,7 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('ptbxl-blinded-', workflow)
         self.assertIn('ptbxl-sealed-reference-', workflow)
         self.assertIn(
-            'test ! -e .ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json',
+            'test ! -e ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json',
             workflow
         )
         builder = (ROOT / 'scripts' / 'build_ptbxl_blinded_benchmark.py').read_text(encoding='utf-8')
