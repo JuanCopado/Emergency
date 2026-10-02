@@ -1,4 +1,4 @@
-# Module manifest v1.35 (draft)
+# Module manifest v1.36 consolidation
 
 Read only the bundles required by `router.md`. Within a bundle, locate the exact
 heading `## <module-id>`. Every routed ID must resolve here and in its target
@@ -36,6 +36,7 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | anaphylaxis | `modules/infection-respiratory.md` |
 | toxicology | `modules/renal-metabolic.md` |
 | pediatric-emergencies | `modules/special-populations.md` |
+| pediatric-emergency-medications | `modules/special-populations.md` |
 | febrile-infant-0-90-days | `modules/special-populations.md` |
 | bronchiolitis | `modules/special-populations.md` |
 | croup | `modules/special-populations.md` |
