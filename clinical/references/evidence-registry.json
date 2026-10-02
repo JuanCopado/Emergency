@@ -352,11 +352,12 @@
     },
     "calcium-magnesium-emergencies": {
       "priority": "high",
-      "primary_source": "Society for Endocrinology endocrine emergency guidance and current resuscitation guidance",
-      "stored_version": "2016 guidance; current online review 2026",
-      "last_checked": "2026-09-26",
+      "primary_source": "Society for Endocrinology emergency guidance for acute hypo/hypercalcaemia + RCUK/ERC 2025 resuscitation guidance",
+      "stored_version": "SfE acute hypocalcaemia 2016 addendum 2019; acute hypercalcaemia 2016; RCUK/ERC 2025; v1.36 review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Verify locally available calcium/magnesium formulation and infusion protocol before continuous replacement."
+      "note": "v1.36 strengthens calcium-gluconate dosing, elemental-calcium non-equivalence with calcium chloride, magnesium/torsades dosing and hypermagnesaemia rescue. Remains yellow because endocrine emergency guidance is older and Portugal/Azores concentrations/compatibility/local infusion protocols require human/pharmacy review.",
+      "primary_source_url": "https://www.endocrinology.org/clinical-practice/clinical-guidance/society-for-endocrinology-guidance/"
     },
     "abdominal-aortic-aneurysm": {
       "priority": "high",
