@@ -1,3 +1,10 @@
+## High-risk evidence source splitting — batch 6 (02/10/2026)
+- Split and verified sources for orthopedic emergencies and acid-base emergencies.
+- Added regulatory-source splits for vasopressin, dexmedetomidine, remifentanil and clevidipine; residual drug-label sets remain explicit compounds.
+- Catalog increased from 140 to 147 normalized sources; compound identities reduced from 14 to 12.
+- Added verified NICE NG37/NG38, ACP/AAFP acute musculoskeletal pain 2020, NEJM acid-base reviews, DailyMed Vasostrict 2026, Dexdor SmPC, remifentanil SmPC and Cleviprex DailyMed.
+- Added regression coverage for this batch. No clinical recommendation, dose or module text changed.
+
 ## High-risk evidence source splitting — batch 5 (02/10/2026)
 - Split and verified sources for CNS infection, acute respiratory failure/ARDS, pericardial/tamponade guidance, syncope/falls/frailty, croup, febrile infant, bronchiolitis and non-coronary chest-pain framing.
 - Catalog increased from 132 to 140 normalized sources; compound identities reduced from 19 to 14.
