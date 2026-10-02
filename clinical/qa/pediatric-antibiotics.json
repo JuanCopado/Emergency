@@ -142,14 +142,37 @@
       "id": "cellulitis-clarithromycin-po",
       "syndrome": "cellulitis/erysipelas, penicillin allergy or flucloxacillin unsuitable, age 1 month to 11 years",
       "drug": "clarithromycin",
-      "dose_per_kg": 7.5,
       "dose_unit": "mg/kg",
-      "max_dose": 500,
-      "max_dose_unit": "mg",
       "route": "PO",
       "frequency": "twice daily, usually 5-7 days",
-      "source": "NICE NG141; weight-based dose is explicit for children under 8 kg and IV for 1 month-11 years; oral older-child bands remain age/weight-band based",
-      "status": "source_verified_with_scope_note"
+      "source": "NICE NG141: oral clarithromycin uses weight bands for 1 month-11 years; only children under 8 kg use 7.5 mg/kg twice daily",
+      "status": "agent_verified_dose_external",
+      "weight_band_doses": [
+        {
+          "weight": "<8 kg",
+          "dose": "7.5 mg/kg twice daily"
+        },
+        {
+          "weight": "8-11 kg",
+          "dose": "62.5 mg twice daily"
+        },
+        {
+          "weight": "12-19 kg",
+          "dose": "125 mg twice daily"
+        },
+        {
+          "weight": "20-29 kg",
+          "dose": "187.5 mg twice daily"
+        },
+        {
+          "weight": "30-40 kg",
+          "dose": "250 mg twice daily"
+        },
+        {
+          "age": "12-17 years",
+          "dose": "250-500 mg twice daily"
+        }
+      ]
     },
     {
       "id": "meningitis-ceftriaxone-ge2mo",
@@ -188,32 +211,6 @@
       "route": "IV",
       "frequency": "every 6 hours for 4 days",
       "source": "RCH Meningitis/Encephalitis current guideline: 0.15 mg/kg IV q6h, max 10 mg; give first dose just before or with first antibiotic when indicated",
-      "status": "source_verified"
-    },
-    {
-      "id": "meningitis-ceftriaxone-ge2m",
-      "syndrome": "suspected bacterial meningitis, age >=2 months",
-      "drug": "ceftriaxone",
-      "dose_per_kg": 100,
-      "dose_unit": "mg/kg",
-      "max_dose": 4000,
-      "max_dose_unit": "mg",
-      "route": "IV",
-      "frequency": "every 24 h",
-      "source": "RCH/PIC Meningitis and encephalitis current",
-      "status": "source_verified"
-    },
-    {
-      "id": "meningitis-cefotaxime-ge2m",
-      "syndrome": "suspected bacterial meningitis, age >=2 months",
-      "drug": "cefotaxime",
-      "dose_per_kg": 50,
-      "dose_unit": "mg/kg",
-      "max_dose": 2000,
-      "max_dose_unit": "mg",
-      "route": "IV",
-      "frequency": "every 6 h",
-      "source": "RCH/PIC Meningitis and encephalitis current",
       "status": "source_verified"
     },
     {
@@ -279,6 +276,79 @@
       "route": "IV",
       "frequency": "every 6 h with TDM",
       "source": "RCH/PIC Fever and suspected or confirmed neutropenia",
+      "status": "source_verified"
+    },
+    {
+      "id": "cap-nonsevere-amoxicillin-age-bands",
+      "syndrome": "community-acquired pneumonia, non-severe, age >=1 month",
+      "drug": "amoxicillin",
+      "route": "PO",
+      "age_band_doses": [
+        {
+          "age": "1-2 months",
+          "dose": "125 mg three times daily",
+          "duration": "5 days"
+        },
+        {
+          "age": "3-11 months",
+          "dose": "125 mg three times daily",
+          "duration": "3 days"
+        },
+        {
+          "age": "1-4 years",
+          "dose": "250 mg three times daily",
+          "duration": "3 days"
+        },
+        {
+          "age": "5-11 years",
+          "dose": "500 mg three times daily",
+          "duration": "3 days"
+        },
+        {
+          "age": "12-17 years",
+          "dose": "500 mg three times daily",
+          "duration": "5 days"
+        }
+      ],
+      "source": "NICE NG250 2025 table 2",
+      "status": "age_band_only"
+    },
+    {
+      "id": "cap-severe-coamoxiclav-iv-1to2mo",
+      "syndrome": "community-acquired pneumonia, severe, age 1-2 months",
+      "drug": "co-amoxiclav",
+      "dose_per_kg": 30,
+      "dose_unit": "mg/kg",
+      "max_dose": null,
+      "route": "IV",
+      "frequency": "twice daily",
+      "source": "NICE NG250 2025 table 2",
+      "status": "source_verified"
+    },
+    {
+      "id": "cap-severe-coamoxiclav-iv-ge3mo",
+      "syndrome": "community-acquired pneumonia, severe, age 3 months-17 years",
+      "drug": "co-amoxiclav",
+      "dose_per_kg": 30,
+      "dose_unit": "mg/kg",
+      "max_dose": 1200,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "three times daily",
+      "source": "NICE NG250 2025 table 2",
+      "status": "source_verified"
+    },
+    {
+      "id": "cap-severe-clarithromycin-iv-1mto11y",
+      "syndrome": "community-acquired pneumonia, severe with suspected atypical pathogen, age 1 month-11 years",
+      "drug": "clarithromycin",
+      "dose_per_kg": 7.5,
+      "dose_unit": "mg/kg",
+      "max_dose": 500,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "twice daily",
+      "source": "NICE NG250 2025 table 2",
       "status": "source_verified"
     }
   ]
