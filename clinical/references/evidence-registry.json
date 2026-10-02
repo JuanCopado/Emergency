@@ -911,6 +911,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric emergency intubation separated from adult RSI with ketamine/rocuronium ranges, oxygenation-first and post-intubation sedation requirements. Remains yellow pending human pediatric airway/anesthesia review."
+    },
+    "pediatric-electrolyte-emergencies": {
+      "priority": "high",
+      "primary_source": "RCH pediatric hyperkalaemia/hypokalaemia/hypomagnesaemia guidelines + NICE NG29 sodium emergencies + Calcium Gluconate 10% SmPC + RCH hypoglycaemia",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Hyperkalaemia/",
+      "stored_version": "RCH hyperkalaemia 2024; hypokalaemia current 2026; hypomagnesaemia current; NICE NG29 current; calcium gluconate SmPC current 2026; RCH hypoglycaemia current; v1.36 build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric electrolyte route separates hyper/hypokalemia, magnesium, calcium, sodium and hypoglycemia from adult pathways with source-specific doses and monitoring. Remains yellow pending human pediatric/renal/endocrine/pharmacy review."
     }
   }
 }
