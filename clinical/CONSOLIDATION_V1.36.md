@@ -192,3 +192,8 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] TC cerebral / RSNA ICH: referencia preespecificada para target `any_acute_ich`; solo mayoría 2/3 de tres neurorradiólogos o adjudicación sénior verificable. Single-reader bloqueado.
 - [x] Preparador fail-closed `scripts/prepare_rsna_ich_blinded_cohort.py`; unidad de análisis examen completo, slices agrupados por estudio/paciente, referencia sellada.
 - [ ] RSNA ICH: congelar estrategia DICOM→render antes de predicción visual e importar casos únicamente cuando pueda demostrarse la procedencia multi-reader/adjudicada desde los archivos fuente disponibles.
+
+
+- [x] CheXpert: expert-test reference frozen (500 studies, 500 unseen patients, majority vote 5/8 board-certified radiologists); training report-derived labels excluded from expert ground truth.
+- [x] CheXpert preparer `prepare_chexpert_expert_blinded_cohort.py` separates study/patient hashes from expert truth and defaults `authorized=false`.
+- [ ] CheXpert remains blocked for real intake until the dataset-specific current AIMI/Redivis download/license agreement is verified and documented.
