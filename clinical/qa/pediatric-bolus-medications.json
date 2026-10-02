@@ -151,6 +151,87 @@
       "source_concentration_per_ml": null,
       "source": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: succinylcholine 1-2 mg/kg IV",
       "status": "source_verified_range_only"
+    },
+    {
+      "id": "pain-paracetamol-po",
+      "drug": "paracetamol",
+      "indication": "mild/moderate acute pain or fever; child >1 month",
+      "dose_per_kg": 15,
+      "dose_unit": "mg/kg",
+      "max_dose": 1000,
+      "max_dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every 4-6 h as clinically indicated",
+      "daily_limit": "RCH acute-pain reference: >1 month up to 90 mg/kg/day (max 4 g) for severe pain for max 48 h, then 60 mg/kg/day; use a lower product/age-specific ceiling when applicable",
+      "source_concentration_per_ml": null,
+      "source": "Royal Children's Hospital Acute Pain Management guideline, updated Oct 2024",
+      "status": "source_verified_dose_only"
+    },
+    {
+      "id": "pain-ibuprofen-po",
+      "drug": "ibuprofen",
+      "indication": "mild/moderate acute pain; child >3 months when NSAID appropriate",
+      "dose_per_kg": 10,
+      "dose_unit": "mg/kg",
+      "max_dose": 400,
+      "max_dose_unit": "mg",
+      "route": "PO",
+      "frequency": "every 6-8 h with food",
+      "daily_limit": "30 mg/kg/day, max 2.4 g/day in cited acute-pain reference",
+      "cautions": [
+        "renal impairment",
+        "dehydration",
+        "bleeding/anticoagulation"
+      ],
+      "source_concentration_per_ml": null,
+      "source": "Royal Children's Hospital Acute Pain Management guideline, updated Oct 2024",
+      "status": "source_verified_dose_only"
+    },
+    {
+      "id": "pain-fentanyl-intranasal",
+      "drug": "fentanyl",
+      "indication": "acute severe pain without IV access; age >=1 y / weight >=10 kg in cited ED guidance",
+      "dose_per_kg": 1.5,
+      "dose_unit": "micrograms/kg",
+      "max_dose": 100,
+      "max_dose_unit": "micrograms",
+      "route": "intranasal",
+      "source_concentration_per_ml": 50,
+      "concentration_unit": "micrograms/mL",
+      "repeat": "reassess; cited NHS/RCH protocols permit repeat dosing with reduced/repeat dose depending protocol",
+      "cautions": [
+        "continuous SpO2 monitoring",
+        "significant head injury/altered consciousness",
+        "nasal obstruction/trauma"
+      ],
+      "source": "NHSGGC pediatric ED pain guideline 2025 + RCH Acute Pain Management 2024: fentanyl 1.5 micrograms/kg; 50 micrograms/mL injection used intranasally",
+      "status": "source_verified"
+    },
+    {
+      "id": "opioid-toxicity-naloxone-initial",
+      "drug": "naloxone",
+      "indication": "opioid toxicity with respiratory depression",
+      "dose_per_kg": 10,
+      "dose_unit": "micrograms/kg",
+      "max_dose": 400,
+      "max_dose_unit": "micrograms",
+      "route": "IV/IM",
+      "source_concentration_per_ml": null,
+      "source": "RCH Acute Pain Management 2024: naloxone 10 micrograms/kg, max 400 micrograms initially",
+      "status": "source_verified_dose_only"
+    },
+    {
+      "id": "opioid-toxicity-naloxone-escalation",
+      "drug": "naloxone",
+      "indication": "opioid toxicity with inadequate response to initial naloxone",
+      "dose_per_kg": 100,
+      "dose_unit": "micrograms/kg",
+      "max_dose": 2000,
+      "max_dose_unit": "micrograms",
+      "route": "IV/IM",
+      "source_concentration_per_ml": null,
+      "source": "RCH Acute Pain Management 2024: further 100 micrograms/kg, max 2 mg if inadequate response",
+      "status": "source_verified_dose_only"
     }
   ]
 }
