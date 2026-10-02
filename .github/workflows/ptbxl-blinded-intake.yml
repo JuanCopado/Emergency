@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - name: Checkout consolidation branch
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -34,24 +34,32 @@ jobs:
       - name: Download PTB-XL metadata v1.0.3
         run: |
           mkdir -p .ptbxl-input
-          curl --fail --location --retry 4             https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv             --output .ptbxl-input/ptbxl_database.csv
+          curl --fail --location --retry 4 "https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv" --output .ptbxl-input/ptbxl_database.csv
 
       - name: Verify source intake gate
         working-directory: clinical
+        run: python scripts/validate_image_dataset_source.py qa/image-dataset-source-registry.json --require-ready-source ptb-xl
+
+      - name: Prepare blinded-run salt
+        env:
+          CONFIGURED_SALT: ${{ secrets.PTBXL_BLINDING_SALT }}
         run: |
-          python scripts/validate_image_dataset_source.py             qa/image-dataset-source-registry.json             --require-ready-source ptb-xl
+          SALT="$CONFIGURED_SALT"
+          if [ -z "$SALT" ]; then
+            SALT="$(openssl rand -hex 32)"
+            echo "Using ephemeral per-run blinding salt"
+          else
+            echo "Using configured repository blinding salt"
+          fi
+          echo "::add-mask::$SALT"
+          echo "PTBXL_RUN_SALT=$SALT" >> "$GITHUB_ENV"
 
       - name: Build blinded fold-10 ECG benchmark
         env:
-          PTBXL_BLINDING_SALT: ${{ secrets.PTBXL_BLINDING_SALT }}
           TARGET_CODE: ${{ inputs.target_code }}
           MAX_CASES: ${{ inputs.max_cases }}
         run: |
-          if [ -z "$PTBXL_BLINDING_SALT" ]; then
-            echo "Missing required repository secret PTBXL_BLINDING_SALT"
-            exit 1
-          fi
-          python clinical/scripts/build_ptbxl_blinded_benchmark.py             .ptbxl-input/ptbxl_database.csv             "$TARGET_CODE"             .ptbxl-output             --salt "$PTBXL_BLINDING_SALT"             --fold 10             --max-cases "$MAX_CASES"
+          python clinical/scripts/build_ptbxl_blinded_benchmark.py .ptbxl-input/ptbxl_database.csv "$TARGET_CODE" .ptbxl-output --salt "$PTBXL_RUN_SALT" --fold 10 --max-cases "$MAX_CASES"
 
       - name: Ensure sealed reference is absent from blinded artifact directory
         run: |
