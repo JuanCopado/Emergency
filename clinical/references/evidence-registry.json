@@ -328,11 +328,11 @@
     },
     "traumatic-intracranial-mass-effect": {
       "priority": "high",
-      "primary_source": "Hospital da Horta local TCE protocol (supplied 2026-10-02) + NICE NG232 2023 + Brain Trauma Foundation severe TBI 4th edition/2020 update + ENLS 6.0",
+      "primary_source": "Hospital da Horta local TCE protocol (supplied 2026-10-02) + NICE NG232 2023 + Brain Trauma Foundation severe TBI 4th edition + ENLS 6.0",
       "stored_version": "Hospital da Horta local TCE card supplied 2026-10-02 (version/date not visible on image); NICE NG232 2023; BTF severe TBI current online; ENLS 6.0; v1.36 reconciliation 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Local Horta CT/observation/neurosurgery routing integrated. Marked yellow because the local card has no visible version/date and contains evidence-boundary differences: local SBP red line <90 versus higher BTF severe-TBI age-stratified floors; local mild-TBI CT/antiplatelet criteria are more conservative than NICE 2023. Human local review should confirm these are intentional.",
+      "note": "Local Horta CT/observation/neurosurgery routing integrated. Marked yellow because the card has no visible version/date and contains evidence-boundary differences: local SBP red line <90 versus higher BTF severe-TBI age-stratified floors; local mild-TBI CT/antiplatelet criteria are more conservative than NICE 2023. Human local review should confirm these are intentional.",
       "primary_source_url": "https://www.nice.org.uk/guidance/ng232"
     },
     "sodium-emergencies": {
