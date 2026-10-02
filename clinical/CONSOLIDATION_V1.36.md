@@ -115,3 +115,13 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [PENDING] fentanilo IV de perfusión: las referencias públicas revisadas no permiten todavía fijar una presentación IV local operativa.
 
 - [x] Gate local creado: `qa/HORTA_FORMULARY_VERIFICATION.md`. Ningún fármaco puede pasar a `verified` sin producto/RCM real, concentración estándar, estabilidad, smart-pump y revisión farmacia + médica.
+
+
+## Fase 4 — pediatría (en curso)
+- [x] Nuevo módulo transversal `pediatric-emergency-medications` registrado como high-risk.
+- [x] Motor determinista `scripts/pediatric_emergency_calculator.py`: dosis por kg con máximo, volumen por concentración, perfusión mL/h, bolos, mantenimiento Holliday-Segar y déficit IV de gastroenteritis.
+- [x] Dosis de resucitación referenciadas a ERC/RCUK 2025; fluidos a NICE NG29/CG84.
+- [x] Diferencia explícita de glucosa 10%: ERC PLS general 2 mL/kg vs HSE status 3 mL/kg; no fusionarlas.
+- [x] Regla anti-error: ninguna concentración pediátrica local se infiere si no está verificada por farmacia/Horta.
+- [ ] Verificar concentraciones locales pediátricas, smart-pump y productos reales.
+- [ ] Revisión humana pediatría/farmacia antes de promover a green.
