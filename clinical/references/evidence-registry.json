@@ -193,11 +193,12 @@
     },
     "status-epilepticus": {
       "priority": "high",
-      "primary_source": "American Epilepsy Society convulsive status epilepticus guideline plus ILAE current evidence updates",
-      "stored_version": "AES 2016; ILAE online review 2026",
-      "last_checked": "2026-09-27",
+      "primary_source": "NICE NG217 (updated 2025) + ACEP 2024 seizure clinical policy + AES convulsive status guidance/ESETT",
+      "stored_version": "NICE NG217 updated Jan 2025; ACEP 2024; AES/ESETT dosing evidence; v1.36 review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Five-minute treatment threshold and adequate benzodiazepine dosing are stable; verify local second-line agent, dose, contraindications and refractory pathway."
+      "note": "v1.36 adds explicit first-line benzodiazepine and second-line levetiracetam/fosphenytoin/valproate doses and refractory escalation. Remains yellow pending neurology/ICU review and Portugal/Azores formulary/EEG/escalation reconciliation.",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng217/chapter/7-Treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures"
     },
     "pediatric-emergencies": {
       "priority": "high",
@@ -235,11 +236,12 @@
     },
     "empiric-antibiotics": {
       "priority": "high",
-      "primary_source": "Syndrome-specific IDSA, ESCMID, WHO and local antibiogram guidance",
-      "stored_version": "dynamic local verification required",
-      "last_checked": "2026-09-27",
+      "primary_source": "Surviving Sepsis Campaign 2026 + IDSA cUTI 2025 + current syndrome-specific IDSA/ESCMID guidance",
+      "stored_version": "SSC 2026; IDSA complicated UTI 2025; v1.36 consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "No universal regimen is stored because syndrome, resistance ecology, allergy and organ function are decisive. Verify current local guidance before exact dosing."
+      "note": "v1.36 formalizes timing, MDR/anaerobe/antifungal stewardship, source-control and IDSA 2025 cUTI selection principles. No universal regimen table is stored. Remains yellow pending infectious-disease/pharmacy review and current Horta/Azores antibiogram/formulary validation.",
+      "primary_source_url": "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026"
     },
     "toxicology": {
       "priority": "high",
