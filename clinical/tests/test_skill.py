@@ -1264,8 +1264,9 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(sepsis['dose'], 4000.0)
         uti = pediatric_antibiotic_calculate('lower-uti-trimethoprim', 80)
         self.assertAlmostEqual(uti['dose'], 200.0)
-        with self.assertRaises(ValueError):
-            pediatric_antibiotic_calculate('meningitis-empiric-agent', 20)
+        meningitis = pediatric_antibiotic_calculate('meningitis-ceftriaxone-ge2mo', 20)
+        self.assertAlmostEqual(meningitis['dose'], 2000.0)
+        self.assertEqual(meningitis['frequency'], 'once daily')
         with self.assertRaises(ValueError):
             pediatric_antibiotic_calculate('unknown-antibiotic', 20)
 
@@ -1274,9 +1275,10 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('Canonical pediatric antibiotic registry', module)
         self.assertIn('do **not** build a universal weight-based antibiotic table', module)
         data = json.loads((ROOT / 'qa' / 'pediatric-antibiotics.json').read_text(encoding='utf-8'))
-        meningitis = next(x for x in data['entries'] if x['id'] == 'meningitis-empiric-agent')
-        self.assertEqual(meningitis['status'], 'agent_verified_dose_external')
-        self.assertIn('BNFC', meningitis['source'])
+        meningitis = next(x for x in data['entries'] if x['id'] == 'meningitis-ceftriaxone-ge2mo')
+        self.assertEqual(meningitis['status'], 'source_verified')
+        self.assertIn('NICE NG240', meningitis['source'])
+        self.assertIn('RCH', meningitis['source'])
 
 
     def test_v136_pediatric_discharge_home_use_entries(self):
@@ -1338,6 +1340,27 @@ class ModularCoreTests(unittest.TestCase):
             pediatric_dehydration_deficit_ml(20, 25)
         with self.assertRaises(ValueError):
             pediatric_fluid_maintenance_ml_h(20, 0)
+
+
+    def test_v136_pediatric_ketamine_weight_banded_infusion(self):
+        k8 = pediatric_pump_table('ketamine', 8)
+        self.assertAlmostEqual(k8['concentration_per_ml'], 1.0)
+        self.assertAlmostEqual(next(x['ml_h'] for x in k8['rows'] if x['dose'] == 0.2), 1.6)
+        k20 = pediatric_pump_table('ketamine', 20)
+        self.assertAlmostEqual(k20['concentration_per_ml'], 2.0)
+        self.assertAlmostEqual(next(x['ml_h'] for x in k20['rows'] if x['dose'] == 0.2), 2.0)
+        k50 = pediatric_pump_table('ketamine', 50)
+        self.assertAlmostEqual(k50['concentration_per_ml'], 4.0)
+        self.assertAlmostEqual(next(x['ml_h'] for x in k50['rows'] if x['dose'] == 0.2), 2.5)
+
+    def test_v136_pediatric_meningitis_doses_are_age_specific(self):
+        cef = pediatric_antibiotic_calculate('meningitis-ceftriaxone-ge2mo', 20)
+        self.assertAlmostEqual(cef['dose'], 2000.0)
+        cefotax = pediatric_antibiotic_calculate('meningitis-cefotaxime-ge2mo', 20)
+        self.assertAlmostEqual(cefotax['dose'], 1000.0)
+        dex = pediatric_antibiotic_calculate('meningitis-dexamethasone-ge2mo', 20)
+        self.assertAlmostEqual(dex['dose'], 3.0)
+        self.assertEqual(dex['frequency'], 'every 6 hours for 4 days')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
