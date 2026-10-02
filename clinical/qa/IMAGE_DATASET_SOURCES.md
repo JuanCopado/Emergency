@@ -72,6 +72,6 @@ Estos datasets son **fuentes candidatas**, no resultados de validación. Antes d
 
 ## Estado de intake — 02/10/2026
 - **PTB-XL:** licencia CC BY 4.0 verificada en PhysioNet; protocolo preespecificado en `qa/PTBXL_BLINDED_PROTOCOL.md`; separación de labels/hashes implementada en `scripts/prepare_ptbxl_blinded_cohort.py`. Estado: **intake-ready**, no validado.
-- **RSNA ICH 2019:** términos RSNA de uso/atribución revisados; sigue bloqueado hasta congelar estrategia exacta de referencia y aislamiento de labels.
+- **RSNA ICH 2019:** términos RSNA revisados; protocolo de referencia/label isolation congelado en `qa/RSNA_ICH_BLINDED_PROTOCOL.md`. Solo multi-reader majority/adjudicated verified; single-reader fail-closed. Estado: **raw intake-ready**, evaluación visual aún requiere congelar DICOM→render.
 - **CheXpert / MIMIC-CXR / EchoNet-Dynamic:** permanecen candidatos; no importar hasta completar revisión actual de licencia/DUA y estrategia de referencia según `qa/image-dataset-source-registry.json`.
 - `intake-ready` significa únicamente que la fuente puede entrar al pipeline de preparación. **No implica sensibilidad/especificidad ni validación clínica.**
