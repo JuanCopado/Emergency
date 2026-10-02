@@ -2065,6 +2065,22 @@ class ModularCoreTests(unittest.TestCase):
         self.assertNotIn('target_positive', cohort['cases'][0])
         self.assertIn('target_positive', reference['references'][0])
 
+    def test_v136_ptbxl_github_intake_keeps_reference_out_of_blinded_artifact(self):
+        workflow = (ROOT.parent / '.github' / 'workflows' / 'ptbxl-blinded-intake.yml').read_text(encoding='utf-8')
+        self.assertIn('workflow_dispatch:', workflow)
+        self.assertIn('PTBXL_BLINDING_SALT', workflow)
+        self.assertIn('--require-ready-source ptb-xl', workflow)
+        self.assertIn('ptbxl-blinded-', workflow)
+        self.assertIn('ptbxl-sealed-reference-', workflow)
+        self.assertIn(
+            'test ! -e .ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json',
+            workflow
+        )
+        builder = (ROOT / 'scripts' / 'build_ptbxl_blinded_benchmark.py').read_text(encoding='utf-8')
+        self.assertIn('0.04 s / 0.1 mV minor divisions', builder)
+        self.assertIn('benchmark_contamination_risk', builder)
+        self.assertNotIn('25 mm/s equivalent', builder)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
