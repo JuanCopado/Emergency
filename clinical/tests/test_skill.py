@@ -20,6 +20,7 @@ from sodium_water_balance import calculate as sodium_water_balance
 from acid_base_hyperglycemia import calculate as acid_base_hyperglycemia
 from respiratory_support import calculate as respiratory_support
 from pediatric_pump_table import pump_table as pediatric_pump_table
+from pediatric_bolus_calculator import calculate as pediatric_bolus_calculate
 from pediatric_emergency_calculator import (
     weight_based_total as pediatric_weight_based_total,
     volume_for_dose as pediatric_volume_for_dose,
@@ -1179,6 +1180,38 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('Hospital da Horta local protocol is not required', data['rule'])
         for item in data['drugs']:
             self.assertNotEqual(item['status'], 'local_pending')
+
+
+    def test_v136_pediatric_bolus_registry_core_calculations(self):
+        ana = pediatric_bolus_calculate('anaphylaxis-epinephrine-im', 20)
+        self.assertAlmostEqual(ana['dose'], 0.2)
+        self.assertAlmostEqual(ana['volume_ml'], 0.2)
+        hyp = pediatric_bolus_calculate('hypoglycemia-dextrose10', 20)
+        self.assertAlmostEqual(hyp['dose'], 4.0)
+        self.assertAlmostEqual(hyp['volume_ml'], 40.0)
+        hk = pediatric_bolus_calculate('hyperkalemia-arrest-dextrose10', 20)
+        self.assertAlmostEqual(hk['volume_ml'], 100.0)
+        k = pediatric_bolus_calculate('severe-hypokalemia-potassium', 20)
+        self.assertAlmostEqual(k['dose'], 20.0)
+        rsi = pediatric_bolus_calculate('rsi-ketamine', 20)
+        self.assertEqual(rsi['dose_range'], [20.0, 40.0])
+
+    def test_v136_pediatric_bolus_caps_and_fixed_doses(self):
+        ana = pediatric_bolus_calculate('anaphylaxis-epinephrine-im', 80)
+        self.assertAlmostEqual(ana['dose'], 0.5)
+        self.assertAlmostEqual(ana['volume_ml'], 0.5)
+        insulin = pediatric_bolus_calculate('hyperkalemia-arrest-insulin', 150)
+        self.assertAlmostEqual(insulin['dose'], 10.0)
+        mg = pediatric_bolus_calculate('acute-asthma-magnesium', 60)
+        self.assertEqual(mg['dose_range'], [2000.0, 2000.0])
+        ipra = pediatric_bolus_calculate('acute-asthma-ipratropium', 18)
+        self.assertAlmostEqual(ipra['dose'], 250.0)
+
+    def test_v136_pediatric_bolus_calculator_fails_closed(self):
+        with self.assertRaises(ValueError):
+            pediatric_bolus_calculate('unknown-entry', 20)
+        with self.assertRaises(ValueError):
+            pediatric_bolus_calculate('anaphylaxis-epinephrine-im', 0)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
