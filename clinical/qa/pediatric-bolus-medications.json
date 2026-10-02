@@ -269,6 +269,59 @@
       "frequency": "over 4 h, in small frequent amounts; plus maintenance",
       "source": "NICE CG84: 50 mL/kg low-osmolarity ORS over 4 h plus maintenance",
       "status": "source_verified_volume"
+    },
+    {
+      "id": "asthma-prednisolone-lt2",
+      "drug": "prednisolone",
+      "indication": "moderately severe/severe asthma exacerbation, age <2 years",
+      "dose_per_kg_min": 1,
+      "dose_per_kg_max": 2,
+      "dose_unit": "mg/kg/day",
+      "max_dose": 20,
+      "max_dose_unit": "mg/day",
+      "route": "PO",
+      "source": "GINA 2026: 1-2 mg/kg/day, max 20 mg/day if <2 years, usually 3-5 days",
+      "status": "source_verified_range_only"
+    },
+    {
+      "id": "asthma-prednisolone-2to5",
+      "drug": "prednisolone",
+      "indication": "moderately severe/severe asthma exacerbation, age 2-5 years",
+      "dose_per_kg_min": 1,
+      "dose_per_kg_max": 2,
+      "dose_unit": "mg/kg/day",
+      "max_dose": 30,
+      "max_dose_unit": "mg/day",
+      "route": "PO",
+      "source": "GINA 2026: 1-2 mg/kg/day, max 30 mg/day age 2-5 years, usually 3-5 days",
+      "status": "source_verified_range_only"
+    },
+    {
+      "id": "asthma-prednisolone-6to11",
+      "drug": "prednisolone",
+      "indication": "acute asthma exacerbation, age 6-11 years when systemic steroid indicated",
+      "dose_per_kg_min": 1,
+      "dose_per_kg_max": 2,
+      "dose_unit": "mg/kg/day",
+      "max_dose": 40,
+      "max_dose_unit": "mg/day",
+      "route": "PO",
+      "source": "GINA 2026: 1-2 mg/kg/day, max 40 mg/day age 6-11 years, usually 3-5 days",
+      "status": "source_verified_range_only"
+    },
+    {
+      "id": "asthma-dexamethasone",
+      "drug": "dexamethasone",
+      "indication": "acute asthma exacerbation when dexamethasone strategy selected",
+      "dose_per_kg_min": 0.3,
+      "dose_per_kg_max": 0.6,
+      "dose_unit": "mg/kg",
+      "max_dose": 12,
+      "max_dose_unit": "mg",
+      "route": "PO",
+      "frequency": "1 dose with/without second dose next day depending age/pathway",
+      "source": "GINA 2026",
+      "status": "source_verified_range_only"
     }
   ]
 }
