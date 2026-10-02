@@ -880,10 +880,10 @@
       "priority": "high",
       "primary_source": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
       "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
-      "stored_version": "ERC/RCUK PLS 2025; AHA/AAP PALS 2025; SSC pediatric sepsis 2026; NICE NG29/CG84 current online 2026; HSE CDI/0277/1.0/2025; PANDEM 2022; product labels current online 2026",
+      "stored_version": "ERC/RCUK PLS 2025; ERC anaphylaxis 2025; AHA/AAP PALS 2025; GINA 2026; Malaysia Paediatric Protocols 5th ed 2025; NICE/HSE/PANDEM current set; v1.36 pediatric bolus expansion 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Cross-cutting pediatric dose/volume engine uses current international pediatric sources. Local Hospital da Horta protocol is not required. Pump-rate tables remain fail-closed until both dose ladder and final concentration are source-verified from guideline/product/pediatric pharmacology references. Remains yellow pending human pediatric/pharmacy review."
+      "note": "Cross-cutting pediatric module now includes source-verified continuous infusion registry and source-verified high-risk bolus/non-infusion registry. Automatic volume conversion occurs only when the source explicitly provides a concentration. Remains yellow pending human pediatric/pharmacy review."
     }
   }
 }
