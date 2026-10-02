@@ -1,5 +1,13 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 pediatric IV fluid therapy
+- Adds one high-risk module ID: `pediatric-iv-fluid-therapy` (107 -> 108).
+- Current evidence set: NICE NG29/CG84, SSC pediatric sepsis 2026, ISPAD DKA 2022, RCH dehydration/hypernatraemia 2026.
+- Adds deterministic calculations for shock bolus, ORS 4-hour rehydration, Holliday-Segar maintenance, percentage deficit, staged 24+24 h generic deficit replacement, gastroenteritis IV deficit, hypernatraemia 48-hour deficit rate and symptomatic hyponatraemia bolus.
+- Expected branch evidence state after registration: 108/108; 31 green / 77 yellow / 0 red.
+- These are structural/arithmetic checks, not clinical validation.
+
+
 ## v1.36 pediatric emergency medication layer
 - Working branch adds one high-risk module ID: `pediatric-emergency-medications` (106 -> 107).
 - Adds deterministic arithmetic in `scripts/pediatric_emergency_calculator.py` for capped weight-based doses, volume-from-concentration, weight-based infusion mL/h, fluid boluses, Holliday-Segar maintenance and NICE gastroenteritis deficit references.
