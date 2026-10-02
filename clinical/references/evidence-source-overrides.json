@@ -1882,19 +1882,19 @@
       ]
     },
     {
-      "source_id": "src-aaha-ischemic-stroke-2026",
-      "title": "AHA/ASA guideline for early management of acute ischemic stroke",
+      "source_id": "src-aha-asa-ischemic-stroke-2026",
+      "title": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
       "organization": "AHA/ASA",
       "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
+      "url": "https://professional.heart.org/en/guidelines-statements/2026-guideline-for-the-early-management-of-patients-with-acute-ischemic-strokestr0000000000000513",
+      "persistent_id": "doi:10.1161/STR.0000000000000513",
       "version": "2026",
-      "publication_date": "2026",
+      "publication_date": "2026-01-26",
       "last_verified": "2026-10-02",
       "language": "en",
       "jurisdiction": "US",
       "license_status": "unknown",
-      "provenance": "verified_identity_from_repository_record",
+      "provenance": "verified_official_source",
       "compound_identity": false,
       "modules": [
         "hypertensive-emergencies"
@@ -2179,7 +2179,7 @@
         "claim_scope": "pregnancy/postpartum severe hypertension"
       },
       {
-        "source_id": "src-aaha-ischemic-stroke-2026",
+        "source_id": "src-aha-asa-ischemic-stroke-2026",
         "role": "guideline",
         "claim_scope": "acute ischemic stroke blood-pressure context"
       }
