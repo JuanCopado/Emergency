@@ -96,68 +96,68 @@
     },
     {
       "drug": "propofol",
-      "status": "pending",
-      "product_strength": null,
-      "base_or_salt": null,
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: propofol emulsion 10 mg/mL and 20 mg/mL; 20 mL ampoule and 50 mL prefilled syringe listed",
+      "base_or_salt": "propofol",
       "diluent": null,
       "standard_concentration": null,
       "stability": null,
       "access": null,
-      "source": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, general anaesthetics section, p.39; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": null
+      "reviewed_on": "2026-10-02"
     },
     {
       "drug": "dexmedetomidine",
-      "status": "pending",
-      "product_strength": null,
-      "base_or_salt": null,
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED Portuguese product reference: Dexdor concentrate for solution for infusion 100 micrograms/mL",
+      "base_or_salt": "dexmedetomidine (product-specific RCM/Infomed still required for exact excipients/dilution handling)",
       "diluent": null,
       "standard_concentration": null,
       "stability": null,
       "access": null,
-      "source": null,
+      "source": "INFARMED Infarmedia / prior-evaluation documentation for Dexdor 100 micrograms/mL; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": null
+      "reviewed_on": "2026-10-02"
     },
     {
       "drug": "midazolam",
-      "status": "pending",
-      "product_strength": null,
-      "base_or_salt": null,
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: midazolam injection 5 mg/mL; ampoules 3 mL and 10 mL",
+      "base_or_salt": "midazolam hydrochloride",
       "diluent": null,
       "standard_concentration": null,
       "stability": null,
       "access": null,
-      "source": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, benzodiazepines section, p.47; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": null
+      "reviewed_on": "2026-10-02"
     },
     {
       "drug": "fentanyl",
-      "status": "pending",
+      "status": "portugal_public_reference_insufficient_local_pending",
       "product_strength": null,
       "base_or_salt": null,
       "diluent": null,
       "standard_concentration": null,
       "stability": null,
       "access": null,
-      "source": null,
+      "source": "INFARMED references to fentanyl were found, but the public material reviewed did not provide a sufficiently clear current IV ICU-infusion presentation/strength for local operational use; local Horta/Infomed product verification required",
       "reviewed_by": null,
-      "reviewed_on": null
+      "reviewed_on": "2026-10-02"
     },
     {
       "drug": "remifentanil",
-      "status": "pending",
-      "product_strength": null,
-      "base_or_salt": null,
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED Portuguese reference: remifentanil powder for concentrate for solution for injection/infusion 1 mg, 2 mg and 5 mg",
+      "base_or_salt": "remifentanil; exact local brand/product reconstitution and final concentration must follow product RCM",
       "diluent": null,
       "standard_concentration": null,
       "stability": null,
       "access": null,
-      "source": null,
+      "source": "INFARMED Infarmedia generic-authorisation reference; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": null
+      "reviewed_on": "2026-10-02"
     }
   ]
 }
