@@ -185,6 +185,20 @@ class ProjectGraphTests(unittest.TestCase):
         ]
         self.assertEqual(len(unresolved), 1)
 
+    def test_source_catalog_has_no_orphan_sources(self):
+        source_doc = json.loads(
+            (CLINICAL_ROOT / "references/evidence-sources.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        referenced = {
+            ref["source_id"]
+            for refs in source_doc["module_sources"].values()
+            for ref in refs
+        }
+        catalog = {item["source_id"] for item in source_doc["sources"]}
+        self.assertEqual(catalog, referenced)
+
 
 if __name__ == "__main__":
     unittest.main()
