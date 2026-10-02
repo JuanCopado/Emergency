@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "replace-with-run-id",
+  "instructions": "One prediction for every blinded case. Freeze all predictions before opening the sealed reference.",
+  "predictions": [
+    {
+      "id": "replace-with-case-id",
+      "class": "positive",
+      "prediction_frozen_at": "2026-10-02T17:30:00Z"
+    }
+  ]
+}
