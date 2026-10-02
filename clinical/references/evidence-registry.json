@@ -255,11 +255,12 @@
     },
     "medication-selection-safety": {
       "priority": "high",
-      "primary_source": "Drug labeling, syndrome-specific guidelines and independently checked infusion arithmetic",
-      "stored_version": "workflow v1.16",
-      "last_checked": "2026-09-27",
+      "primary_source": "WHO Medication Without Harm (policy brief 2024/high-risk situations) + ISMP High-Alert Medications in Acute Care Settings 2024 + syndrome-specific drug labeling",
+      "stored_version": "WHO policy brief 2024; ISMP acute-care high-alert list 2024; v1.36 safety consolidation 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "This is a safety workflow, not an independent formulary. Every high-risk drug remains syndrome-, patient- and protocol-specific."
+      "note": "v1.36 adds high-alert medication, unit/concentration, product-label, independent-verification and transitions-of-care gates. Remains yellow because this is a cross-cutting workflow and local Horta pharmacy/smart-pump/double-check policies must be verified.",
+      "primary_source_url": "https://www.who.int/publications/i/item/9789240062764/"
     },
     "upper-gi-bleeding": {
       "priority": "standard",
@@ -796,12 +797,12 @@
     },
     "pediatric-status-epilepticus": {
       "priority": "high",
-      "primary_source": "HSE National Clinical Guideline CDI/0277/1.0/2025; NICE NG217",
+      "primary_source": "HSE National Clinical Guideline CDI/0277/1.0/2025 + NICE NG217",
       "primary_source_url": "https://www2.healthservice.hse.ie/files/584/",
-      "stored_version": "HSE effective 2025-10-15, review due 2028-10-15; NICE NG217 2025 update",
-      "last_checked": "2026-09-28",
+      "stored_version": "HSE Version 0 effective 15/10/2025, review 15/10/2028; NICE NG217; v1.36 reconciliation 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Weight/age-based 1 month–18 year convulsive status pathway. HSE explicitly excludes neonates <1 month and breakthrough seizures in established epilepsy; use individualized/neonatal pathway. Local Portugal drug protocol/formulary and specialist review pending."
+      "note": "v1.36 confirms HSE 2025 algorithm and adds hypoglycemia treatment, rectal diazepam dose, exact levetiracetam dilution/infusion and consultant lacosamide/valproate options. Remains yellow pending pediatric neurology/pharmacy and Portugal/Azores formulary/transfer/EEG verification."
     },
     "adult-arrhythmias": {
       "priority": "high",
