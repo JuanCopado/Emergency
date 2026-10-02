@@ -849,19 +849,19 @@
       "priority": "high",
       "primary_source": "Surviving Sepsis Campaign 2026 (Crit Care Med 2026, doi:10.1097/CCM.0000000000007075); SSC 2021; US product labels (norepinephrine, Vasostrict, epinephrine, dopamine, dobutamine, milrinone, phenylephrine, Giapreza); EU/UK SmPC (noradrenaline, Simdax)",
       "primary_source_url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
-      "stored_version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
-      "last_checked": "2026-09-29",
+      "stored_version": "SSC adult 2026 + current product labels; v1.36 consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "New draft module. SSC 2026 positions and label doses checked via accessible official summaries/labels; SSC 2026 full text (Springer/LWW) and ESC 2021 HF dose table not directly accessible. Vasopressin label start (0.01 units/min) differs from fixed 0.03 units/min practice; norepinephrine base vs tartrate labelling must be verified. Portuguese RCM/INFARMED, local concentrations and human review pending."
+      "note": "SSC 2026 adult vasopressor sequence reconfirmed. Vasopressin 0.01-0.07 U/min and 0.1/1 U/mL label concentrations reconfirmed. Norepinephrine base/salt wording hardened: use the exact product's declared norepinephrine-equivalent strength and never infer tartrate conversion. Remains yellow pending human ICU/pharmacy review and Portugal/Azores RCM/formulary/standard-concentration verification."
     },
     "icu-sedation-analgesia-infusions": {
       "priority": "high",
       "primary_source": "SCCM PADIS 2018 (Crit Care Med 2018;46:e825-e873) and PADIS 2025 focused update (Crit Care Med 2025;53:e711-e727); EU/UK SmPC (Dexdor, remifentanil, midazolam, fentanyl, Ketalar); US Diprivan label; KSCCM 2021 PADIS opioid table",
       "primary_source_url": "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
-      "stored_version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
-      "last_checked": "2026-09-29",
+      "stored_version": "SCCM PADIS 2018 + 2025 focused update + current product information; v1.36 consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "New draft module. PADIS recommendations checked via SCCM official pages and a guideline-author handout; full PADIS texts not opened. Fentanyl/morphine/hydromorphone ICU infusion ranges rely on KSCCM 2021 table (no ICU range in SmPC). Local concentrations, Portuguese RCM and human review pending; pediatric infusions out of scope."
+      "note": "PADIS 2025 conditional preference for dexmedetomidine over propofol when light sedation and/or delirium reduction are highest priorities reconfirmed; 2018 preference for propofol/dexmedetomidine over benzodiazepines retained. Dexmedetomidine ICU no-loading and max 1.4 micrograms/kg/h product information reconfirmed. Remains yellow pending human ICU/pharmacy review and Portugal/Azores product/formulary reconciliation."
     }
   }
 }
