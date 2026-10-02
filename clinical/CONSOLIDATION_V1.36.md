@@ -33,7 +33,7 @@ Reducir deuda clínica y documental de v1.35 antes de añadir módulos de bajo v
 ## Fase 2 — yellow de máximo riesgo
 Orden de revisión:
 1. [IN REVIEW] `adult-cardiac-arrest`, `adult-arrhythmias`, `arrhythmias-cardiac-arrest` — ERC/RCUK 2025 reconciled 02/10/2026; explicit energies/doses/pacing added; remains yellow pending human + Portugal/Azores operational review
-2. [IN REVIEW] `pediatric-cardiac-arrest`, `pediatric-arrhythmias`, `pediatric-shock` — ERC/RCUK PLS 2025 reconciled 02/10/2026; explicit shock fluids/vasoactive timing, arrhythmia doses/energies and arrest drugs/defibrillation added; remains yellow pending human + Portugal/Azores operational review
+2. [IN REVIEW] `pediatric-cardiac-arrest`, `pediatric-arrhythmias`, `pediatric-shock` — ERC/RCUK PLS 2025 + SSC pediatric 2026 reconciled 02/10/2026; explicit shock fluids/vasoactive timing, arrhythmia doses/energies and arrest drugs/defibrillation added; remains yellow pending human pediatric/critical-care review. Horta-local protocol is not required.
 3. [IN REVIEW] `vasoactive-inotrope-infusions` — SSC 2026 + current labels rechecked 02/10/2026; base/salt safety rule hardened; remains yellow pending ICU/pharmacy + Portugal/Azores product/formulary review
 4. [IN REVIEW] `icu-sedation-analgesia-infusions` — PADIS 2018/2025 + current dexmedetomidine product information rechecked 02/10/2026; remains yellow pending ICU/pharmacy + Portugal/Azores product/formulary review
 5. [IN REVIEW] `pulmonary-embolism` — ESC formal guideline 2019 + ACVC 2025 operational update reconciled 02/10/2026; 2026 PRAGUE-26 retained as emerging evidence; remains yellow pending human + Portugal/Azores reperfusion/anticoagulation review
@@ -104,7 +104,7 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [AUDITED / NO CHANGE] `oxygen-therapy-emergency` — already green; target-based oxygen and device limitations preserved.
 
 - [IN REVIEW] `medication-selection-safety` — WHO Medication Without Harm 2024 + ISMP high-alert list 2024 reconciled 02/10/2026; unit/concentration/high-alert/double-check/transition gates strengthened; remains yellow pending Horta pharmacy/smart-pump/local-policy review.
-- [IN REVIEW] `pediatric-status-epilepticus` — HSE CDI/0277/1.0/2025 rechecked 02/10/2026; glucose, rectal diazepam, levetiracetam administration and consultant alternatives completed; remains yellow pending pediatric neurology/pharmacy + Portugal/Azores operational review.
+- [IN REVIEW] `pediatric-status-epilepticus` — HSE CDI/0277/1.0/2025 rechecked 02/10/2026; glucose, rectal diazepam, levetiracetam administration and consultant alternatives completed; remains yellow pending human pediatric neurology/pharmacy review.
 
 ## Fase 3 — farmacología Portugal/Azores (iniciada)
 - [REFERENCE FOUND / LOCAL PENDING] noradrenalina, adrenalina, dopamina, dobutamina, amiodarona e isoprenalina: presentaciones de referencia encontradas en el Formulário Hospitalar Nacional de Medicamentos de INFARMED. **No equivalen a stock actual, RCM del producto concreto ni estándar local del Hospital da Horta.**
@@ -166,3 +166,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Conversor de líquidos domiciliarios: dosis fuente-verificada -> mL únicamente tras introducir la concentración real del frasco; no se asume una concentración comercial.
 
 - [x] Estado real recalculado tras antibióticos + domicilio: **127 módulos / 127 evidencia / 29 green / 98 yellow / 0 red / 147 tests PASS**.
+
+- [x] Pediatría: protocolo local Horta no requerido como gate. Se mantienen guías internacionales/SmPC + revisión humana especialista.
