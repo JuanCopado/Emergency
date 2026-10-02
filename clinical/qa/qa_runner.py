@@ -18,6 +18,7 @@ CHECKS = [
     ("evidence-coverage", [sys.executable, str(SCRIPTS / "audit_evidence_coverage.py"), str(ROOT)]),
     ("clinical-case-provenance", [sys.executable, str(SCRIPTS / "validate_clinical_cases.py"), str(ROOT)]),
     ("real-image-provenance", [sys.executable, str(SCRIPTS / "validate_real_image_cases.py"), str(ROOT)]),
+    ("blinded-image-template", [sys.executable, str(SCRIPTS / "validate_blinded_image_dataset.py"), str(ROOT / "tests/blinded-image-dataset-template.json")]),
     ("unit-regression-tests", [sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "tests"), "-p", "test_skill.py"]),
 ]
 
