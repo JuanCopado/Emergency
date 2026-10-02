@@ -124,4 +124,4 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Gate freeze/reveal añadido: `scripts/finalize_blinded_image_dataset.py` + `qa/BLINDED_PREDICTION_FREEZE.md`.
 - El finalizador exige coincidencia exacta de IDs entre artefacto ciego, predicciones y referencia sellada; bloquea duplicados, clases inválidas y cualquier predicción congelada en/tras el timestamp de revelado.
 - La salida final v1.1 elimina identificadores fuente y conserva `abstain/nondiagnostic`, permitiendo que el calculador suprima sensibilidad/especificidad estándar cuando la cobertura no es binaria completa.
-- El archivo de tests contiene ahora **159 funciones de test**. El último run completo confirmado continúa en **151 PASS** porque el conector no expone un workflow asociado al nuevo head del PR #12.
+- El archivo de tests contiene ahora **159 funciones de test**. `Clinical QA` run #285 fue verificado directamente en GitHub Actions: **159/159 tests PASS**, `automated_status: PASS`.
