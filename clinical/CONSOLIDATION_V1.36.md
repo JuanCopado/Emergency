@@ -174,3 +174,6 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Gate `scripts/validate_blinded_image_dataset.py`: fail-closed para blinding, anotaciones, referencia independiente, freeze de predicción y leakage.
 - [x] Plantilla `tests/blinded-image-dataset-template.json` integrada en CI; casos publicados siguen fuera de métricas de precisión.
 - [ ] Construir banco ciego autorizado y desidentificado por modalidad antes de afirmar sensibilidad/especificidad.
+
+- [x] Generador fail-closed `scripts/create_blinded_image_dataset.py`: crea manifiestos por modalidad/target con autorización, desidentificación y referencia independiente inicialmente en falso.
+- [x] Métricas ciegas v1.1: TP/FP/TN/FN, cobertura, abstención/no-diagnóstico e IC Wilson; sensibilidad/especificidad solo con cobertura binaria completa.
