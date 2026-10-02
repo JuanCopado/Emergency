@@ -1,5 +1,13 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 pediatric emergency medication layer
+- Working branch adds one high-risk module ID: `pediatric-emergency-medications` (106 -> 107).
+- Adds deterministic arithmetic in `scripts/pediatric_emergency_calculator.py` for capped weight-based doses, volume-from-concentration, weight-based infusion mL/h, fluid boluses, Holliday-Segar maintenance and NICE gastroenteritis deficit references.
+- Clinical source layer: ERC/RCUK PLS 2025 + NICE NG29/CG84 + HSE pediatric status guideline where syndrome-specific comparison is needed.
+- The calculator does **not** select a drug/dose/concentration and does not establish local Horta concentrations.
+- Expected evidence state after registration: 107/107 records; 31 green / 76 yellow / 0 red. CI result to be recorded after the branch run completes.
+
+
 ## v1.35 ICU/ED continuous infusion modules
 - Added two module IDs (104 -> 106) in existing bundles; no new bundle and no duplicated ID.
 - Worked 70 kg pump-rate examples for every continuous infusion are reproduced by unit tests using `scripts/infusion_calculator.py`.
