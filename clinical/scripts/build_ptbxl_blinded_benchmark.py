@@ -103,7 +103,7 @@ def _render_standard(record_path, output_png):
     for spine in ax.spines.values():
         spine.set_visible(False)
 
-    fig.suptitle("12-lead ECG — 25 mm/s equivalent, 10 mm/mV equivalent", fontsize=11)
+    fig.suptitle("12-lead ECG — standardized grid: 0.04 s / 0.1 mV minor divisions", fontsize=11)
     fig.tight_layout(rect=[0, 0, 1, 0.98])
     output_png.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_png, bbox_inches="tight")
