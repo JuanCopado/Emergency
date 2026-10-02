@@ -679,6 +679,235 @@
       "modules": [
         "traumatic-intracranial-mass-effect"
       ]
+    },
+    {
+      "source_id": "src-ers-ats-niv-2017",
+      "title": "Official ERS/ATS Clinical Practice Guidelines: Noninvasive Ventilation for Acute Respiratory Failure",
+      "organization": "ERS/ATS",
+      "source_type": "guideline",
+      "url": "https://www.thoracic.org/statements/resources/cc/niv-guidelines.pdf",
+      "persistent_id": "doi:10.1183/13993003.02426-2016",
+      "version": "2017",
+      "publication_date": "2017-08-31",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "noninvasive-ventilation"
+      ]
+    },
+    {
+      "source_id": "src-bts-ics-niv-2016",
+      "title": "BTS/ICS Guideline for the Ventilatory Management of Acute Hypercapnic Respiratory Failure in Adults",
+      "organization": "BTS/ICS",
+      "source_type": "guideline",
+      "url": "https://www.brit-thoracic.org.uk/clinical-resources/guidelines/niv/",
+      "persistent_id": null,
+      "version": "2016; correction 2017",
+      "publication_date": "2016-03-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "noninvasive-ventilation"
+      ]
+    },
+    {
+      "source_id": "src-ers-hfnc-2022",
+      "title": "ERS Clinical Practice Guidelines: High-Flow Nasal Cannula in Acute Respiratory Failure",
+      "organization": "ERS",
+      "source_type": "guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34649974/",
+      "persistent_id": "doi:10.1183/13993003.01574-2021",
+      "version": "2022",
+      "publication_date": "2022-04-14",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe/international",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "high-flow-nasal-oxygen"
+      ]
+    },
+    {
+      "source_id": "src-rox-validation-2019",
+      "title": "An Index Combining Respiratory Rate and Oxygenation to Predict Outcome of Nasal High-Flow Therapy",
+      "organization": null,
+      "source_type": "literature",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30576221/",
+      "persistent_id": "doi:10.1164/rccm.201803-0589OC",
+      "version": "2019 multicenter prospective validation",
+      "publication_date": "2019-06-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "multicenter",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "high-flow-nasal-oxygen"
+      ]
+    },
+    {
+      "source_id": "src-bts-oxygen-2017",
+      "title": "BTS Guideline for Oxygen Use in Adults in Healthcare and Emergency Settings",
+      "organization": "BTS",
+      "source_type": "guideline",
+      "url": "https://www.brit-thoracic.org.uk/clinical-resources/guidelines/emergency-oxygen/",
+      "persistent_id": null,
+      "version": "2017",
+      "publication_date": "2017-05-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "oxygen-therapy-emergency"
+      ]
+    },
+    {
+      "source_id": "src-legacy-oxygen-implementation-set",
+      "title": "Legacy oxygen implementation set: RCUK ABCDE/emergency handbook and device-specific NHS oxygen policies",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy workflow v1.15 source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "oxygen-therapy-emergency"
+      ]
+    },
+    {
+      "source_id": "src-acep-pocus-2023",
+      "title": "ACEP Ultrasound Guidelines: Emergency, Point-of-care, and Clinical Ultrasound Guidelines in Medicine",
+      "organization": "ACEP",
+      "source_type": "guideline",
+      "url": "https://www.acep.org/siteassets/new-pdfs/policy-statements/ultrasound-guidelines--emergency-point-of-care-and-clinical-ultrasound-guidelines-in-medicine.pdf",
+      "persistent_id": null,
+      "version": "approved April 2023",
+      "publication_date": "2023-04",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "pocus-image",
+        "ecg-pocus-integration"
+      ]
+    },
+    {
+      "source_id": "src-internal-image-safety-workflow",
+      "title": "Emergency project clinical image-review safety workflow",
+      "organization": "Emergency project",
+      "source_type": "internal_workflow",
+      "url": null,
+      "persistent_id": null,
+      "version": null,
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": null,
+      "jurisdiction": "internal",
+      "license_status": "verified",
+      "provenance": "repository_internal_workflow",
+      "compound_identity": false,
+      "modules": [
+        "pocus-image"
+      ]
+    },
+    {
+      "source_id": "src-legacy-ecg-syndrome-guidance",
+      "title": "Legacy syndrome-specific ECG guidance set used by ECG/POCUS integration",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy workflow source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "ecg-pocus-integration"
+      ]
+    },
+    {
+      "source_id": "src-eso-eans-ich-2025",
+      "title": "European Stroke Organisation (ESO) and European Association of Neurosurgical Societies (EANS) Guideline on Stroke Due to Spontaneous Intracerebral Haemorrhage",
+      "organization": "ESO/EANS",
+      "source_type": "guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40401775/",
+      "persistent_id": "doi:10.1177/23969873251340815",
+      "version": "2025",
+      "publication_date": "2025-05-22",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "spontaneous-intracerebral-hemorrhage"
+      ]
+    },
+    {
+      "source_id": "src-aes-cse-2016",
+      "title": "Evidence-Based Guideline: Treatment of Convulsive Status Epilepticus in Children and Adults",
+      "organization": "American Epilepsy Society",
+      "source_type": "guideline",
+      "url": "https://cms.aesnet.org/clinical-care/clinical-guidance/guideline-prolonged-seizures/guideline-for-treatment-of-prolonged-seizures-in-children-and-adults",
+      "persistent_id": "doi:10.5698/1535-7597-16.1.48",
+      "version": "2016",
+      "publication_date": "2016-02-09",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "status-epilepticus"
+      ]
+    },
+    {
+      "source_id": "src-ilae-status-definition-2015",
+      "title": "A Definition and Classification of Status Epilepticus — Report of the ILAE Task Force on Classification of Status Epilepticus",
+      "organization": "ILAE",
+      "source_type": "consensus",
+      "url": "https://www.ilae.org/guidelines/definition-and-classification",
+      "persistent_id": null,
+      "version": "2015",
+      "publication_date": "2015",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "status-epilepticus"
+      ]
     }
   ],
   "module_sources": {
@@ -966,6 +1195,90 @@
         "source_id": "src-nicardipine-dailymed-2026",
         "role": "regulatory_product_info",
         "claim_scope": "nicardipine infusion reference"
+      }
+    ],
+    "noninvasive-ventilation": [
+      {
+        "source_id": "src-ers-ats-niv-2017",
+        "role": "guideline",
+        "claim_scope": "acute respiratory failure NIV indications/contraindications"
+      },
+      {
+        "source_id": "src-bts-ics-niv-2016",
+        "role": "guideline",
+        "claim_scope": "acute hypercapnic respiratory failure and operational NIV"
+      }
+    ],
+    "high-flow-nasal-oxygen": [
+      {
+        "source_id": "src-ers-hfnc-2022",
+        "role": "guideline",
+        "claim_scope": "HFNC use in acute respiratory failure"
+      },
+      {
+        "source_id": "src-rox-validation-2019",
+        "role": "validation_study",
+        "claim_scope": "ROX index derivation/validation context"
+      }
+    ],
+    "oxygen-therapy-emergency": [
+      {
+        "source_id": "src-bts-oxygen-2017",
+        "role": "guideline",
+        "claim_scope": "emergency oxygen targets and delivery"
+      },
+      {
+        "source_id": "src-legacy-oxygen-implementation-set",
+        "role": "legacy_compound",
+        "claim_scope": "implementation/device policy details pending individual verification"
+      }
+    ],
+    "pocus-image": [
+      {
+        "source_id": "src-acep-pocus-2023",
+        "role": "guideline",
+        "claim_scope": "emergency POCUS scope, acquisition and governance"
+      },
+      {
+        "source_id": "src-internal-image-safety-workflow",
+        "role": "internal_workflow",
+        "claim_scope": "image intake, uncertainty and abstention safety"
+      }
+    ],
+    "ecg-pocus-integration": [
+      {
+        "source_id": "src-acep-pocus-2023",
+        "role": "guideline",
+        "claim_scope": "POCUS component"
+      },
+      {
+        "source_id": "src-legacy-ecg-syndrome-guidance",
+        "role": "legacy_compound",
+        "claim_scope": "ECG syndrome-specific guidance pending individual split"
+      }
+    ],
+    "spontaneous-intracerebral-hemorrhage": [
+      {
+        "source_id": "src-eso-eans-ich-2025",
+        "role": "guideline",
+        "claim_scope": "European spontaneous ICH management"
+      },
+      {
+        "source_id": "src-aha-ich-2022",
+        "role": "guideline",
+        "claim_scope": "AHA/ASA spontaneous ICH management"
+      }
+    ],
+    "status-epilepticus": [
+      {
+        "source_id": "src-aes-cse-2016",
+        "role": "guideline",
+        "claim_scope": "convulsive status epilepticus treatment algorithm"
+      },
+      {
+        "source_id": "src-ilae-status-definition-2015",
+        "role": "consensus",
+        "claim_scope": "status epilepticus definition/classification"
       }
     ]
   }

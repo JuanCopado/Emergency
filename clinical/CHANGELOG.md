@@ -1,3 +1,10 @@
+## High-risk evidence source splitting — batch 3 (02/10/2026)
+- Split and verified sources for noninvasive ventilation, high-flow nasal oxygen, emergency oxygen, POCUS image review, ECG/POCUS integration, spontaneous intracerebral hemorrhage and status epilepticus.
+- Catalog increased from 123 to 128 normalized sources; compound identities reduced from 31 to 26.
+- Added verified ERS/ATS NIV 2017, BTS/ICS NIV 2016, ERS HFNC 2022, ROX multicenter validation 2019, BTS emergency oxygen 2017, ACEP POCUS 2023, ESO/EANS ICH 2025, AHA/ASA ICH 2022, AES convulsive status epilepticus 2016 and ILAE status definition/classification 2015.
+- Oxygen implementation details and syndrome-specific ECG guidance remain explicitly compound pending individual verification.
+- Added regression coverage for this batch. No clinical recommendation, dose or module text changed.
+
 ## High-risk evidence source splitting — batch 2 (02/10/2026)
 - Split and verified sources for ICU sedation/PADIS, hypertensive emergencies, IV antihypertensive selection, pediatric dehydration/shock, lower-GI/small-bowel bleeding and traumatic intracranial mass effect.
 - Catalog increased from 112 to 123 normalized sources; compound identities reduced from 34 to 31.
