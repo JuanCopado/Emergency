@@ -84,13 +84,25 @@ jobs:
           echo "Intake mode: $PTBXL_INTAKE_MODE"
           python clinical/scripts/build_ptbxl_blinded_benchmark.py             .ptbxl-input/ptbxl_database.csv             "$TARGET_CODE"             .ptbxl-output             --salt "$PTBXL_RUN_SALT"             --fold 10             --max-cases "$PTBXL_MAX_CASES"             --pilot-per-class "$PTBXL_PILOT_PER_CLASS"
 
+      - name: Build blinded evaluation shards and prediction templates
+        run: |
+          mkdir -p .ptbxl-output/shards .ptbxl-output/prediction-templates
+          python clinical/scripts/shard_blinded_image_manifest.py             .ptbxl-output/blinded_manifest.json             .ptbxl-output/shards             --max-cases 50
+          for shard in .ptbxl-output/shards/shard-*.json; do
+            base="$(basename "$shard" .json)"
+            python clinical/scripts/create_blinded_prediction_template.py               "$shard"               ".ptbxl-output/prediction-templates/${base}-predictions.json"
+          done
+
       - name: Ensure sealed reference is absent from blinded artifact directory
         run: |
           mkdir -p ptbxl-blinded-artifact ptbxl-sealed-artifact
           cp .ptbxl-output/blinded_manifest.json ptbxl-blinded-artifact/
           cp -r .ptbxl-output/images ptbxl-blinded-artifact/
+          cp -r .ptbxl-output/shards ptbxl-blinded-artifact/
+          cp -r .ptbxl-output/prediction-templates ptbxl-blinded-artifact/
           cp .ptbxl-output/SEALED_REFERENCE_DO_NOT_REVEAL.json ptbxl-sealed-artifact/
           test ! -e ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json
+          ! grep -R -E '"target_positive"|"source_ecg_id"|"source_patient_id"' ptbxl-blinded-artifact/
 
       - name: Upload blinded image artifact
         uses: actions/upload-artifact@v4
