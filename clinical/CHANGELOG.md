@@ -1,3 +1,10 @@
+## High-risk evidence source splitting — batch 5 (02/10/2026)
+- Split and verified sources for CNS infection, acute respiratory failure/ARDS, pericardial/tamponade guidance, syncope/falls/frailty, croup, febrile infant, bronchiolitis and non-coronary chest-pain framing.
+- Catalog increased from 132 to 140 normalized sources; compound identities reduced from 19 to 14.
+- Added verified WHO meningitis 2025 + practical manual 2026, ATS/ESICM/SCCM ARDS ventilation 2017, ESC myocarditis/pericarditis 2025, ESC syncope 2018, ACEP geriatric ED guidance, CPS croup 2026, RCH upper-airway guidance, CPS febrile-infant 2026, AAP febrile-infant 2021, NICE NG9, CPS bronchiolitis 2021 and AHA/ACC chest-pain 2021.
+- Residual syndrome-specific respiratory, pericardiocentesis and non-coronary chest-pain sets remain explicitly compound pending individual verification.
+- Added regression coverage for this batch. No clinical recommendation, dose or module text changed.
+
 ## High-risk evidence source splitting — batch 4 (02/10/2026)
 - Split and verified sources for ECG image interpretation, ECG/POCUS integration, thyroid storm, myxoedema coma, acute spinal cord compression, altered consciousness imaging, CT/MRI screenshot context and ophthalmology image review.
 - Catalog increased from 128 to 132 normalized sources; compound identities reduced from 26 to 19.

@@ -1138,6 +1138,310 @@
       "modules": [
         "altered-consciousness"
       ]
+    },
+    {
+      "source_id": "src-who-meningitis-2025",
+      "title": "WHO guidelines on meningitis diagnosis, treatment and care",
+      "organization": "WHO",
+      "source_type": "guideline",
+      "url": "https://www.who.int/publications/i/item/9789240108042",
+      "persistent_id": "ISBN:978-92-4-010804-2",
+      "version": "2025",
+      "publication_date": "2025-04-10",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "global",
+      "license_status": "verified",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "cns-infection"
+      ]
+    },
+    {
+      "source_id": "src-who-meningitis-manual-2026",
+      "title": "WHO practical manual on meningitis diagnosis, treatment and care",
+      "organization": "WHO",
+      "source_type": "guideline",
+      "url": "https://www.who.int/publications/b/82488",
+      "persistent_id": null,
+      "version": "2026",
+      "publication_date": "2026",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "global",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "cns-infection"
+      ]
+    },
+    {
+      "source_id": "src-ats-esicm-sccm-ards-2017",
+      "title": "Official ATS/ESICM/SCCM Clinical Practice Guideline: Mechanical Ventilation in Adult Patients with ARDS",
+      "organization": "ATS/ESICM/SCCM",
+      "source_type": "guideline",
+      "url": "https://www.thoracic.org/statements/resources/cc/ards-guidelines.pdf",
+      "persistent_id": "doi:10.1164/rccm.201703-0548ST",
+      "version": "2017",
+      "publication_date": "2017-05-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "acute-respiratory-failure"
+      ]
+    },
+    {
+      "source_id": "src-legacy-acute-respiratory-syndrome-set",
+      "title": "Legacy syndrome-specific acute respiratory failure guidance beyond core ARDS ventilation",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy workflow v1.13 source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "acute-respiratory-failure"
+      ]
+    },
+    {
+      "source_id": "src-esc-myocarditis-pericarditis-2025",
+      "title": "2025 ESC Guidelines for the management of myocarditis and pericarditis",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/myocarditis-and-pericarditis",
+      "persistent_id": null,
+      "version": "2025",
+      "publication_date": "2025-08-29",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "cardiac-tamponade-pericardial-emergency"
+      ]
+    },
+    {
+      "source_id": "src-legacy-pericardiocentesis-literature",
+      "title": "Legacy image-guided pericardiocentesis literature set pending individual verification",
+      "organization": null,
+      "source_type": "literature",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy workflow v1.18 source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "cardiac-tamponade-pericardial-emergency"
+      ]
+    },
+    {
+      "source_id": "src-esc-syncope-2018",
+      "title": "2018 ESC Guidelines for the diagnosis and management of syncope",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/syncope/",
+      "persistent_id": null,
+      "version": "2018",
+      "publication_date": "2018-08-25",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "syncope-falls-frailty"
+      ]
+    },
+    {
+      "source_id": "src-acep-geriatric-ed-guidelines",
+      "title": "Geriatric Emergency Department Guidelines",
+      "organization": "ACEP/AGS/ENA/SAEM",
+      "source_type": "guideline",
+      "url": "https://www.acep.org/by-medical-focus/geriatrics/geriatric-emergency-department-guidelines",
+      "persistent_id": null,
+      "version": "current online edition reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "syncope-falls-frailty"
+      ]
+    },
+    {
+      "source_id": "src-cps-croup-2026",
+      "title": "Canadian Paediatric Society: Acute management of croup in the emergency department",
+      "organization": "Canadian Paediatric Society",
+      "source_type": "guideline",
+      "url": "https://cps.ca/en/documents/position/acute-management-of-croup",
+      "persistent_id": null,
+      "version": "updated 2026-03-06",
+      "publication_date": "2017-05-24",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Canada",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "croup"
+      ]
+    },
+    {
+      "source_id": "src-rch-upper-airway-2021",
+      "title": "Royal Children's Hospital Melbourne Clinical Practice Guideline: Acute upper airway obstruction",
+      "organization": "Royal Children's Hospital Melbourne",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_upper_airway_obstruction/",
+      "persistent_id": null,
+      "version": "last updated March 2021",
+      "publication_date": "2021-03",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Australia",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "croup"
+      ]
+    },
+    {
+      "source_id": "src-cps-febrile-infant-2026",
+      "title": "Canadian Paediatric Society: Management of well-appearing febrile young infants aged ≤90 days",
+      "organization": "Canadian Paediatric Society",
+      "source_type": "guideline",
+      "url": "https://cps.ca/en/documents/position/management-of-well-appearing-febrile-young-infants-aged-90-days",
+      "persistent_id": null,
+      "version": "updated 2026-05-27",
+      "publication_date": "2023",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Canada",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "febrile-infant-0-90-days"
+      ]
+    },
+    {
+      "source_id": "src-aap-febrile-infant-2021",
+      "title": "AAP Clinical Practice Guideline: Evaluation and Management of Well-Appearing Febrile Infants 8 to 60 Days Old",
+      "organization": "American Academy of Pediatrics",
+      "source_type": "guideline",
+      "url": "https://publications.aap.org/pediatrics/article/148/2/e2021052228/179783/",
+      "persistent_id": "doi:10.1542/peds.2021-052228",
+      "version": "2021 with published correction",
+      "publication_date": "2021-08-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "febrile-infant-0-90-days"
+      ]
+    },
+    {
+      "source_id": "src-nice-ng9-2021",
+      "title": "NICE NG9 Bronchiolitis in children: diagnosis and management",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng9",
+      "persistent_id": "NICE:NG9",
+      "version": "2015; updated 2021-08-09",
+      "publication_date": "2015-06-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "bronchiolitis"
+      ]
+    },
+    {
+      "source_id": "src-cps-bronchiolitis-2021",
+      "title": "Canadian Paediatric Society: Bronchiolitis recommendations for diagnosis, monitoring and management",
+      "organization": "Canadian Paediatric Society",
+      "source_type": "guideline",
+      "url": "https://cps.ca/en/documents/position/bronchiolitis",
+      "persistent_id": null,
+      "version": "updated 2021-11-30",
+      "publication_date": "2014-11-03",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Canada",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "bronchiolitis"
+      ]
+    },
+    {
+      "source_id": "src-aha-acc-chest-pain-2021",
+      "title": "2021 AHA/ACC/ASE/CHEST/SAEM/SCCT/SCMR Guideline for the Evaluation and Diagnosis of Chest Pain",
+      "organization": "AHA/ACC",
+      "source_type": "guideline",
+      "url": "https://professional.heart.org/en/guidelines-statements/2021-ahaaccasechestsaemscctscmr-guideline-for-the-evaluation-and-diagnosis-ofcir0000000000001029",
+      "persistent_id": null,
+      "version": "2021",
+      "publication_date": "2021",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "non-coronary-chest-pain"
+      ]
+    },
+    {
+      "source_id": "src-legacy-noncoronary-chest-pain-set",
+      "title": "Legacy ESC/ACR syndrome-specific non-coronary chest-pain guidance set",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy module source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "non-coronary-chest-pain"
+      ]
     }
   ],
   "module_sources": {
@@ -1603,6 +1907,102 @@
         "source_id": "src-internal-image-safety-workflow",
         "role": "internal_workflow",
         "claim_scope": "image intake, uncertainty and abstention safety"
+      }
+    ],
+    "cns-infection": [
+      {
+        "source_id": "src-who-meningitis-2025",
+        "role": "guideline",
+        "claim_scope": "community-acquired meningitis diagnosis/treatment/care"
+      },
+      {
+        "source_id": "src-who-meningitis-manual-2026",
+        "role": "guideline",
+        "claim_scope": "operational implementation of meningitis guidance"
+      }
+    ],
+    "acute-respiratory-failure": [
+      {
+        "source_id": "src-ats-esicm-sccm-ards-2017",
+        "role": "guideline",
+        "claim_scope": "ARDS invasive mechanical ventilation"
+      },
+      {
+        "source_id": "src-legacy-acute-respiratory-syndrome-set",
+        "role": "legacy_compound",
+        "claim_scope": "remaining syndrome-specific acute respiratory failure guidance"
+      }
+    ],
+    "cardiac-tamponade-pericardial-emergency": [
+      {
+        "source_id": "src-esc-myocarditis-pericarditis-2025",
+        "role": "guideline",
+        "claim_scope": "pericardial disease/tamponade management"
+      },
+      {
+        "source_id": "src-legacy-pericardiocentesis-literature",
+        "role": "legacy_compound",
+        "claim_scope": "image-guided pericardiocentesis literature pending individual verification"
+      }
+    ],
+    "syncope-falls-frailty": [
+      {
+        "source_id": "src-esc-syncope-2018",
+        "role": "guideline",
+        "claim_scope": "syncope diagnosis and management"
+      },
+      {
+        "source_id": "src-acep-geriatric-ed-guidelines",
+        "role": "guideline",
+        "claim_scope": "geriatric ED/falls/frailty context"
+      }
+    ],
+    "croup": [
+      {
+        "source_id": "src-cps-croup-2026",
+        "role": "guideline",
+        "claim_scope": "typical croup ED management"
+      },
+      {
+        "source_id": "src-rch-upper-airway-2021",
+        "role": "guideline",
+        "claim_scope": "acute upper-airway obstruction differential and escalation"
+      }
+    ],
+    "febrile-infant-0-90-days": [
+      {
+        "source_id": "src-cps-febrile-infant-2026",
+        "role": "guideline",
+        "claim_scope": "well-appearing febrile infants ≤90 days"
+      },
+      {
+        "source_id": "src-aap-febrile-infant-2021",
+        "role": "guideline",
+        "claim_scope": "well-appearing febrile infants 8–60 days"
+      }
+    ],
+    "bronchiolitis": [
+      {
+        "source_id": "src-nice-ng9-2021",
+        "role": "guideline",
+        "claim_scope": "bronchiolitis diagnosis, oxygen thresholds, admission/discharge"
+      },
+      {
+        "source_id": "src-cps-bronchiolitis-2021",
+        "role": "guideline",
+        "claim_scope": "bronchiolitis supportive care"
+      }
+    ],
+    "non-coronary-chest-pain": [
+      {
+        "source_id": "src-aha-acc-chest-pain-2021",
+        "role": "guideline",
+        "claim_scope": "initial chest-pain evaluation and diagnostic framing"
+      },
+      {
+        "source_id": "src-legacy-noncoronary-chest-pain-set",
+        "role": "legacy_compound",
+        "claim_scope": "ESC/ACR syndrome-specific non-coronary causes pending individual split"
       }
     ]
   }

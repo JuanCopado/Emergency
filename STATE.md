@@ -1,7 +1,7 @@
 # STATE — 02/10/2026
 
 ## Clínico (`clinical/`) — borrador v1.35, no instalado
-- 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 76 tests clínicos verificados en CI.
+- 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 77 tests clínicos verificados en CI.
 - v1.35: `vasoactive-inotrope-infusions` y `icu-sedation-analgesia-infusions`.
 - Pendiente: revisión UCI/cardio/farmacia, RCM/INFARMED Portugal, concentraciones locales y perfusiones pediátricas.
 
@@ -12,7 +12,7 @@
 
 ## Consolidación y seguridad
 - Arquitectura maestra: `docs/ARCHITECTURE.md`; Graphify: `docs/GRAPHIFY.md`.
-- Grafo determinista módulo→bundle→fuente; 106/106 manifiesto/registro coinciden. Catálogo normalizado: 132 identidades de fuente para 106 módulos; 19 identidades compuestas restantes. Este cuarto lote separa ECG/ECG+POCUS, endocrino crítico, compresión medular, CT/MRI y oftalmología; Grafo: 248 nodos / 260 relaciones.
+- Grafo determinista módulo→bundle→fuente; 106/106 manifiesto/registro coinciden. Catálogo normalizado: 140 identidades de fuente para 106 módulos; 14 identidades compuestas restantes. Este quinto lote separa CNS infeccioso, ARDS, pericardio/taponamiento, síncope/frailty y pediatría respiratoria/fiebre; Grafo: 256 nodos / 268 relaciones.
 - Validador detecta IDs/secciones duplicadas y usa coincidencia exacta en el router.
 - Living Evidence hace cumplir ventanas 30/90/180 días; un green vencido bloquea CI.
 - Artefactos Graphify/Knowledge Graph/RAG y secretos locales quedan fuera de Git.

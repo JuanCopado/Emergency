@@ -185,6 +185,41 @@ class ProjectGraphTests(unittest.TestCase):
         ]
         self.assertEqual(len(unresolved), 1)
 
+    def test_priority_source_splits_batch5(self):
+        source_doc = json.loads(
+            (CLINICAL_ROOT / "references/evidence-sources.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        sources = {item["source_id"]: item for item in source_doc["sources"]}
+        module_sources = source_doc["module_sources"]
+
+        for module_id in (
+            "cns-infection",
+            "syncope-falls-frailty",
+            "croup",
+            "febrile-infant-0-90-days",
+            "bronchiolitis",
+        ):
+            refs = module_sources[module_id]
+            self.assertGreaterEqual(len(refs), 2)
+            self.assertTrue(
+                all(not sources[ref["source_id"]]["compound_identity"] for ref in refs)
+            )
+
+        for module_id in (
+            "acute-respiratory-failure",
+            "cardiac-tamponade-pericardial-emergency",
+            "non-coronary-chest-pain",
+        ):
+            refs = module_sources[module_id]
+            unresolved = [
+                sources[ref["source_id"]]
+                for ref in refs
+                if sources[ref["source_id"]]["compound_identity"]
+            ]
+            self.assertEqual(len(unresolved), 1)
+
     def test_source_catalog_has_no_orphan_sources(self):
         source_doc = json.loads(
             (CLINICAL_ROOT / "references/evidence-sources.json").read_text(
