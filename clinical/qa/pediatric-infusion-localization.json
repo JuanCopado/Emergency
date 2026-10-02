@@ -85,7 +85,8 @@
       "source": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: dopamine 5-20 mcg/kg/min; for <30 kg, 30 mg/kg in 50 mL gives 1 mL/h = 10 mcg/kg/min",
       "restrictions": [
         "source concentration formula explicitly stated for children <30 kg in the cited protocol"
-      ]
+      ],
+      "max_weight_kg": 29.999
     },
     {
       "drug": "dobutamine",
