@@ -801,6 +801,37 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, rev)
 
+
+    def test_v136_empiric_antibiotic_stewardship_gates(self):
+        abx = ' '.join(load(ROOT, 'empiric-antibiotics').split())
+        for invariant in (
+            'within 1 hour',
+            'within 3 hours',
+            'MDR coverage',
+            'routine empirical antifungal therapy',
+            'within **6 hours**',
+            'third- or fourth-generation cephalosporin',
+            '>=90% susceptibility in septic shock',
+            '>=80% in sepsis without shock',
+            'current antibiogram'
+        ):
+            self.assertIn(invariant, abx)
+
+    def test_v136_status_epilepticus_operational_doses(self):
+        se = ' '.join(load(ROOT, 'status-epilepticus').split())
+        for invariant in (
+            '>=5 minutes',
+            '0.1 mg/kg IV (max 4 mg)',
+            '0.15--0.2 mg/kg IV (max 10 mg)',
+            '0.2 mg/kg (max 10 mg when >40 kg)',
+            '60 mg/kg IV, max 4,500 mg',
+            '20 mg PE/kg IV, max 1,500 mg PE',
+            '40 mg/kg IV, max 3,000 mg',
+            'non-convulsive status',
+            'continuous EEG'
+        ):
+            self.assertIn(invariant, se)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
