@@ -26,9 +26,7 @@ y protocolos del servicio. La competencia documenta un error HTTP 403 en el
 portal de normas DGS el 27/09/2026; no constan normas individuales verificadas
 en esa integración. No inferir del registro que la guía siga vigente hoy.
 
-Prioridad: revisar los 59 módulos yellow al dar recomendaciones cambiantes,
-especialmente pauta tiroidea y regímenes pendientes de isquemia mesentérica.
-Registrar URL, edición, fecha de publicación, revisión, aplicabilidad y diferencias.
+Prioridad de consolidación v1.36: revisar los **75 módulos yellow** del estado v1.35, empezando por los de mayor riesgo (reanimación/arritmias, pediatría, vasoactivos, sedación UCI, TEP, anticoagulación, antibióticos, estatus epiléptico, sodio, obstetricia y toxicología). Registrar URL, edición, fecha de publicación, fecha de revisión, aplicabilidad Portugal/Azores, discrepancias y decisión humana.
 
 La propuesta v1.34 separa arritmias y parada por adulto/pediatría y añade evaluación de shock indiferenciado. Fuentes principales: [ERC Guidelines 2025](https://www.erc.edu/science-research/guidelines/guidelines-2025/), [RCUK Adult ALS 2025](https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines), [RCUK Paediatric Life Support 2025](https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines), [algoritmo pediátrico de arritmia](https://www.resus.org.uk/sites/default/files/2025-10/Paediatric%20arrhythmia%20algorithm%202025.pdf), [algoritmo pediátrico de soporte vital avanzado](https://www.resus.org.uk/sites/default/files/2025-10/Paediatric%20advanced%20life%20support%20algorithm%202025.pdf). Ver `updates/shock-arrhythmia-arrest-review-2026-09-28.md`.
 
