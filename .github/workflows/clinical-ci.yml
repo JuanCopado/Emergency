@@ -1,0 +1,38 @@
+name: Clinical CI
+
+on:
+  pull_request:
+    paths:
+      - "clinical/**"
+      - "knowledge-graph/**"
+      - "rag/**"
+      - ".github/workflows/clinical-ci.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "clinical/**"
+      - "knowledge-graph/**"
+      - "rag/**"
+
+permissions:
+  contents: read
+
+jobs:
+  clinical-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate module manifest
+        working-directory: clinical
+        run: python3 scripts/validate_modules.py
+      - name: Audit evidence coverage
+        working-directory: clinical
+        run: python3 scripts/audit_evidence_coverage.py
+      - name: Unit and regression tests
+        working-directory: clinical
+        run: python3 -m unittest discover -s tests -q
+      - name: Build deterministic knowledge graph
+        run: python3 clinical/scripts/build_project_graph.py --output /tmp/project-graph.json
