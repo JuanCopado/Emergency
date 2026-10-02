@@ -61,6 +61,7 @@ from validate_blinded_image_dataset import validate as validate_blinded_image_da
 from calculate_blinded_image_metrics import calculate as calculate_blinded_image_metrics
 from create_blinded_image_dataset import build as build_blinded_image_dataset
 from prepare_ptbxl_blinded_cohort import prepare as prepare_ptbxl_blinded_cohort
+from finalize_blinded_image_dataset import finalize as finalize_blinded_image_dataset
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2082,6 +2083,87 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('0.04 s / 0.1 mV minor divisions', builder)
         self.assertIn('benchmark_contamination_risk', builder)
         self.assertNotIn('25 mm/s equivalent', builder)
+
+    def test_v136_blinded_finalizer_requires_complete_prediction_set_and_freeze_order(self):
+        blinded = {
+            'dataset_class':'blinded_accuracy',
+            'authorized':True,
+            'deidentified':True,
+            'protocol_prespecified':True,
+            'independent_reference':True,
+            'modality':'ecg',
+            'target_condition':'AFIB',
+            'target_question':'AFIB?',
+            'reference_standard':{'type':'sealed independent reference'},
+            'patient_grouping_prespecified':True,
+            'source_id':'ptb-xl',
+            'source_version':'1.0.3',
+            'cases':[
+                {'id':'a','patient_uid_hash':'pa','study_uid_hash':'sa','image_file':'images/a.png'},
+                {'id':'b','patient_uid_hash':'pb','study_uid_hash':'sb','image_file':'images/b.png'}
+            ]
+        }
+        refs = {'references':[
+            {'id':'a','study_uid_hash':'sa','target_positive':True},
+            {'id':'b','study_uid_hash':'sb','target_positive':False}
+        ]}
+        incomplete = {'predictions':[
+            {'id':'a','class':'positive','prediction_frozen_at':'2026-10-02T17:00:00Z'}
+        ]}
+        with self.assertRaises(ValueError):
+            finalize_blinded_image_dataset(
+                blinded, incomplete, refs, '2026-10-02T17:10:00Z'
+            )
+
+        late = {'predictions':[
+            {'id':'a','class':'positive','prediction_frozen_at':'2026-10-02T17:11:00Z'},
+            {'id':'b','class':'negative','prediction_frozen_at':'2026-10-02T17:00:00Z'}
+        ]}
+        with self.assertRaises(ValueError):
+            finalize_blinded_image_dataset(
+                blinded, late, refs, '2026-10-02T17:10:00Z'
+            )
+
+    def test_v136_blinded_finalizer_builds_policy_v11_manifest_without_source_ids(self):
+        blinded = {
+            'dataset_class':'blinded_accuracy',
+            'authorized':True,
+            'deidentified':True,
+            'protocol_prespecified':True,
+            'independent_reference':True,
+            'modality':'ecg',
+            'target_condition':'AFIB',
+            'target_question':'AFIB?',
+            'reference_standard':{'type':'PTB-XL sealed reference'},
+            'patient_grouping_prespecified':True,
+            'source_id':'ptb-xl',
+            'source_version':'1.0.3',
+            'benchmark_contamination_risk':'unknown_model_pretraining_exposure',
+            'cases':[
+                {'id':'a','patient_uid_hash':'pa','study_uid_hash':'sa','image_file':'images/a.png'},
+                {'id':'b','patient_uid_hash':'pb','study_uid_hash':'sb','image_file':'images/b.png'}
+            ]
+        }
+        preds = {'predictions':[
+            {'id':'a','class':'positive','prediction_frozen_at':'2026-10-02T17:00:00Z'},
+            {'id':'b','class':'abstain','prediction_frozen_at':'2026-10-02T17:01:00Z'}
+        ]}
+        refs = {'references':[
+            {'id':'a','study_uid_hash':'sa','target_positive':True,'source_ecg_id':'1'},
+            {'id':'b','study_uid_hash':'sb','target_positive':False,'source_ecg_id':'2'}
+        ]}
+        result = finalize_blinded_image_dataset(
+            blinded, preds, refs, '2026-10-02T17:10:00Z'
+        )
+        self.assertEqual(result['schema_version'], '1.1')
+        self.assertEqual(result['cases'][0]['prediction']['class'], 'positive')
+        self.assertEqual(result['cases'][1]['prediction']['class'], 'abstain')
+        self.assertNotIn('source_ecg_id', json.dumps(result))
+        gated = validate_blinded_image_dataset(result)
+        self.assertEqual(gated['errors'], [])
+        metrics = calculate_blinded_image_metrics(result)
+        self.assertFalse(metrics['metrics']['standard_binary_metrics_available'])
+        self.assertAlmostEqual(metrics['metrics']['coverage'], 0.5)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
