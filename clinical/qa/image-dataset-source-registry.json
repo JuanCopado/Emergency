@@ -33,10 +33,10 @@
       "license_or_dua_verified": true,
       "redistribution_rule_documented": true,
       "deidentified_source": true,
-      "reference_strategy_prespecified": false,
-      "label_separation_plan": false,
-      "intake_ready": false,
-      "notes": "Expert annotations exist, but the exact target, study-level grouping, adjudication/reference method and label-isolation workflow must be prespecified before use."
+      "reference_strategy_prespecified": true,
+      "label_separation_plan": true,
+      "intake_ready": true,
+      "notes": "Terms and redistribution requirements reviewed from official RSNA sources. Intake protocol frozen in qa/RSNA_ICH_BLINDED_PROTOCOL.md. Only studies with explicitly verified multi-reader majority or senior-neuroradiologist adjudicated reference are eligible for blinded_accuracy; single-reader cases fail closed. Intake-ready does not imply diagnostic validation or a frozen DICOM rendering strategy."
     },
     {
       "id": "chexpert",
