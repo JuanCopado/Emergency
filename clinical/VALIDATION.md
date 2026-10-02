@@ -7,6 +7,7 @@
 - Wilson 95% intervals are computed only when binary metrics are available.
 - `scripts/create_blinded_image_dataset.py` creates new manifests fail-closed with authorization/deidentification/reference flags false.
 - Current Clinical QA after this infrastructure: 151 tests PASS. This validates methodology/structure, not diagnostic accuracy.
+- Candidate real-world sources are documented separately in `qa/IMAGE_DATASET_SOURCES.md`; none is counted as an evaluated case merely by being listed.
 
 
 ## v1.36 current branch snapshot — 127 modules
