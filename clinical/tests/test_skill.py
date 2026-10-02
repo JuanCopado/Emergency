@@ -921,6 +921,26 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, trauma)
 
+
+    def test_v136_horta_tbi_local_protocol_reconciliation(self):
+        tbi = ' '.join(load(ROOT, 'traumatic-intracranial-mass-effect').split())
+        for invariant in (
+            'Hospital da Horta local pathway',
+            'SpO2 <94% or PaO2 <60 mmHg',
+            'SBP <90 mmHg',
+            'GCS <=8',
+            'observe in ED >=6 h',
+            'GCS 15 with >=1 local intracranial-injury risk factor',
+            'ED surveillance for >=12 h',
+            'GCS 9--12',
+            'fall of >=2 GCS points',
+            'more CT-intensive',
+            'SBP >=100 mmHg',
+            '>=110 mmHg',
+            'ICP >22 mmHg'
+        ):
+            self.assertIn(invariant, tbi)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
