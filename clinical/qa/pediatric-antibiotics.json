@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "scope": "Source-verified pediatric antibiotic regimens by syndrome",
-  "rule": "This registry is syndrome-specific. It is not a universal antibiotic table. Selection still requires diagnosis, age, allergy, renal function, culture history and resistance context.",
+  "rule": "This registry is syndrome- and age-specific. It is not a universal antibiotic table. Selection still requires diagnosis, age, allergy, renal function, culture history and resistance context.",
   "entries": [
     {
       "id": "sepsis-community-ceftriaxone",
@@ -26,7 +26,10 @@
       "route": "IV",
       "frequency": "once daily",
       "source": "NICE NG254, updated 2025",
-      "restrictions": [">40 weeks corrected gestational age", "not receiving IV calcium infusion"],
+      "restrictions": [
+        ">40 weeks corrected gestational age",
+        "not receiving IV calcium infusion"
+      ],
       "status": "source_verified_with_restriction"
     },
     {
@@ -115,7 +118,10 @@
       "route": "PO",
       "frequency": "four times daily for 3 days",
       "source": "NICE NG109",
-      "restrictions": ["eGFR >=45 mL/min", "not for pyelonephritis"],
+      "restrictions": [
+        "eGFR >=45 mL/min",
+        "not for pyelonephritis"
+      ],
       "status": "source_verified_with_restriction"
     },
     {
@@ -146,15 +152,43 @@
       "status": "source_verified_with_scope_note"
     },
     {
-      "id": "meningitis-empiric-agent",
-      "syndrome": "suspected bacterial meningitis, age beyond neonatal pathway",
+      "id": "meningitis-ceftriaxone-ge2mo",
+      "syndrome": "suspected bacterial meningitis, age >=2 months",
       "drug": "ceftriaxone",
-      "dose_per_kg": null,
-      "dose_unit": null,
+      "dose_per_kg": 100,
+      "dose_unit": "mg/kg",
+      "max_dose": 4000,
+      "max_dose_unit": "mg",
       "route": "IV",
-      "frequency": "start within 1 h of hospital arrival",
-      "source": "NICE NG240 2024: ceftriaxone first choice; use highest BNFC dose. Exact pediatric dose is intentionally not duplicated here because NG240 delegates it to BNFC.",
-      "status": "agent_verified_dose_external"
+      "frequency": "once daily",
+      "source": "NICE NG240: ceftriaxone first choice using highest BNFC dose; RCH Meningitis/Encephalitis current guideline gives 100 mg/kg IV daily, max 4 g, for age >=2 months",
+      "status": "source_verified"
+    },
+    {
+      "id": "meningitis-cefotaxime-ge2mo",
+      "syndrome": "suspected bacterial meningitis, age >=2 months, ceftriaxone unsuitable",
+      "drug": "cefotaxime",
+      "dose_per_kg": 50,
+      "dose_unit": "mg/kg",
+      "max_dose": 2000,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 6 hours",
+      "source": "NICE NG240: consider cefotaxime if ceftriaxone contraindicated; RCH current guideline gives 50 mg/kg IV every 6 h, max 2 g, for age >4 weeks / meningitis >=2 months",
+      "status": "source_verified"
+    },
+    {
+      "id": "meningitis-dexamethasone-ge2mo",
+      "syndrome": "suspected bacterial meningitis, age >=2 months when steroid criteria met",
+      "drug": "dexamethasone",
+      "dose_per_kg": 0.15,
+      "dose_unit": "mg/kg",
+      "max_dose": 10,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 6 hours for 4 days",
+      "source": "RCH Meningitis/Encephalitis current guideline: 0.15 mg/kg IV q6h, max 10 mg; give first dose just before or with first antibiotic when indicated",
+      "status": "source_verified"
     }
   ]
 }
