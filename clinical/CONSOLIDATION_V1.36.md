@@ -87,3 +87,10 @@ Mantener el motor como workflow no validado hasta disponer de banco ciego con re
 
 ## Regla de liberación
 No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen tests. Requieren revisión humana y actualización del registro de evidencia.
+
+
+## Segunda ola de consolidación
+- [AUDITED / NO CHANGE] `airway-rsi` — already green; DAS 2025/SCCM 2023 basis preserved.
+- [AUDITED / NO CHANGE] `diabetic-ketoacidosis-hhs` — already green; 2024 ADA/EASD/JBDS/AACE/DTS consensus remains current.
+- [AUDITED / NO CHANGE] `potassium-emergencies` — already green; RCUK 2025 operational hyperkalaemia details are concordant with the module.
+- [IN REVIEW] `calcium-magnesium-emergencies` — SfE + RCUK/ERC 2025 reconciled 02/10/2026; remains yellow pending endocrine/pharmacy + Portugal/Azores infusion/formulary review.
