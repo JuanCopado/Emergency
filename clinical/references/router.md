@@ -59,6 +59,7 @@ each changes immediate decisions; do not load an entire category.
 - CPAP, BiPAP, bilevel or noninvasive ventilation -> noninvasive-ventilation + oxygen-therapy-emergency + acute-respiratory-failure
 - respiratory failure -> acute-respiratory-failure + oxygen-therapy-emergency; add high-flow-nasal-oxygen or noninvasive-ventilation only when the corresponding support is being considered or used
 - sudden dyspnea/chest pain with hypotension and unilateral reduced breath sounds, or suspected tension pneumothorax -> tension-pneumothorax + pocus + emergency-procedures
+- pediatric procedural sedation, ketamine dissociation for a procedure, nitrous oxide sedation or intranasal fentanyl for a procedure -> pediatric-procedural-sedation + pediatric-emergencies + pediatric-emergency-medications + medication-selection-safety
 - pediatric emergency intubation or RSI -> pediatric-airway-rsi + pediatric-emergencies + pediatric-emergency-medications + medication-selection-safety
 - adult emergency airway, failed oxygenation/ventilation, reduced consciousness requiring airway protection or intubation request -> airway-rsi + medication-selection-safety
 - drowning/environmental -> environmental-emergencies
