@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
-DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-antibiotics-by-syndrome.json"
+DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-antibiotics.json"
 
 def load_registry(path=DEFAULT_REGISTRY):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
