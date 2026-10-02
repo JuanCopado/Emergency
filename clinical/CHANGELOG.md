@@ -1,3 +1,12 @@
+## Evidence provenance normalization (02/10/2026)
+- Added `references/evidence-sources.json`: 103 normalized source identities mapped to all 106 modules.
+- Added deterministic regeneration/check script; unknown organization/date/language/jurisdiction/license metadata remains null/unknown instead of being invented.
+- 36 legacy compound source identities are explicitly flagged and are not automatically split without documentary verification.
+- Knowledge Graph now consumes normalized source nodes and module→source relationships with role/claim scope.
+- Evidence audit now fails on missing/unknown source IDs or broken reverse mappings.
+- Clinical CI verifies that the normalized catalog is reproducible and current.
+- No clinical recommendation, dose or module content changed.
+
 ## Audit hardening — validation, evidence freshness and CI (02/10/2026)
 - Manifest validation now rejects duplicate IDs/sections and uses exact module-ID boundaries in router checks.
 - Living Evidence now enforces configured 30/90/180-day review windows; expired green records fail the audit instead of remaining silently current.
