@@ -22,7 +22,7 @@ Primer protocolo de intake real para Fase 5. Evalúa ECG de 12 derivaciones deri
 1. Ejecutar `scripts/prepare_ptbxl_blinded_cohort.py`.
 2. Generar un archivo de cohorte sin labels y un archivo de referencia separado.
 3. Mantener el archivo de referencia fuera del contexto del intérprete/modelo.
-4. Renderizar los waveforms a imagen con parámetros congelados antes de interpretar.
+4. Renderizar los waveforms a imagen con parámetros congelados antes de interpretar. La representación digital usa divisiones temporales de 0,04 s y de voltaje de 0,1 mV; no afirmar velocidad física en mm/s ni ganancia mm/mV sin calibrar el tamaño físico de salida.
 5. Registrar y congelar `positive / negative / abstain / nondiagnostic`.
 6. Solo después revelar la referencia y construir el manifiesto completo v1.1.
 7. Ejecutar `validate_blinded_image_dataset.py` y después `calculate_blinded_image_metrics.py`.
