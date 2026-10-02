@@ -185,3 +185,6 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Workflow manual `ptbxl-blinded-intake.yml` preparado para ejecutar intake real fuera del repo: descarga PTB-XL v1.0.3, renderiza fold 10, usa IDs hash y separa referencia sellada del artefacto ciego. Aún no se ha observado una ejecución real del workflow.
 - [ ] Aún no existe un dataset real suficiente para calcular métricas clínicas.
 - [x] Gate post-predicción `finalize_blinded_image_dataset.py`: exige predicciones completas/congeladas antes de revelar referencia, une por IDs/hash y genera manifiesto v1.1 sin identificadores fuente.
+
+- [x] Evaluación ciega escalable preparada: `shard_blinded_image_manifest.py`, `create_blinded_prediction_template.py` y `merge_blinded_prediction_shards.py`.
+- [x] Los shards preservan grupos de paciente y el merge falla si falta un shard, falta una predicción o una predicción no está congelada.
