@@ -39,6 +39,7 @@ This file explains why they receive stricter release gates.
 - traumatic-intracranial-mass-effect
 - status-epilepticus
 - pediatric-emergencies
+- pediatric-emergency-medications
 - pediatric-status-epilepticus
 - obstetric-emergencies
 - diabetic-ketoacidosis-hhs
