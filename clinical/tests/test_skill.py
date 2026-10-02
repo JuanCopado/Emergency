@@ -963,6 +963,44 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, niv)
 
+
+    def test_v136_medication_selection_safety_gates(self):
+        med = ' '.join(load(ROOT, 'medication-selection-safety').split())
+        for invariant in (
+            'High-alert medication gate',
+            'Unit/concentration safety',
+            'never silently convert',
+            'leading zero',
+            'never a trailing zero',
+            'base, salt, equivalent drug amount or units',
+            'Independent verification for high-risk infusions',
+            'mL/h = dose (mcg/kg/min) × weight (kg) × 60 ÷ concentration (mcg/mL)',
+            'Look-alike/sound-alike',
+            'Medication reconciliation'
+        ):
+            self.assertIn(invariant, med)
+
+    def test_v136_pediatric_status_epilepticus_hse_2025(self):
+        p = ' '.join(load(ROOT, 'pediatric-status-epilepticus').split())
+        for invariant in (
+            '<2.6 mmol/L',
+            '10% glucose 3 mL/kg',
+            '10 min',
+            '2 total doses',
+            '0.3 mg/kg',
+            '0.1 mg/kg (max 4 mg)',
+            '0.5 mg/kg (max 20 mg)',
+            '40 mg/kg (max 3 g)',
+            '50 mg/mL',
+            '5 min',
+            '20 mg/kg (max 2 g)',
+            '20 mg/kg (max 1 g)',
+            'lacosamide **10 mg/kg**',
+            '20 mg/kg IV (max 3 g)',
+            '1 month--18 years'
+        ):
+            self.assertIn(invariant, p)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
