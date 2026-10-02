@@ -27,9 +27,19 @@ time-critical diagnosis.
 
 ## status-epilepticus
 
-- Treat a continuous convulsive seizure lasting 5 minutes or recurrent seizures without recovery as status epilepticus; do not wait for 30 minutes. Correct glucose, oxygenation and reversible causes in parallel and recognize nonconvulsive status after motor activity stops without recovery.
-- Give one adequately dosed first-line benzodiazepine promptly and repeat once if required by the current protocol; do not fractionate into ineffective small doses. If seizure persists, promptly give one verified weight-based second-line agent (levetiracetam, fosphenytoin/phenytoin or valproate according to patient-specific contraindications and availability). Prepare airway/rescue treatment before sedating doses.
-- Check pregnancy, toxins, electrolytes, adherence, infection and structural causes. Refractory disease requires critical care, EEG and anesthetic pathway escalation.
+- Treat generalized convulsive status epilepticus when a seizure lasts **>=5 minutes** or recurrent seizures occur without recovery. Do not wait for 30 minutes. Stabilize airway/breathing/circulation, check glucose immediately, obtain IV/IO access, correct hypoxia/electrolytes and investigate toxins, infection, pregnancy/eclampsia, structural lesions and medication nonadherence in parallel.
+- **First-line benzodiazepine — give a full effective dose promptly, not repeated small fractions.** If IV access and resuscitation facilities are available: lorazepam **0.1 mg/kg IV (max 4 mg)**, may repeat once if seizure persists. Alternative: diazepam **0.15--0.2 mg/kg IV (max 10 mg)**, may repeat once. If no IV access: IM midazolam **0.2 mg/kg (max 10 mg when >40 kg)** is an evidence-based option. Prepare airway support before/while giving benzodiazepines; respiratory depression risk is real but undertreatment of status is also dangerous.
+- **Established benzodiazepine-refractory status:** promptly give one adequately dosed IV second-line antiseizure medication. Current ED evidence supports clinical equipoise among:
+  - levetiracetam **60 mg/kg IV, max 4,500 mg**;
+  - fosphenytoin **20 mg PE/kg IV, max 1,500 mg PE**;
+  - sodium valproate **40 mg/kg IV, max 3,000 mg**.
+  Choose according to contraindications, interactions, pregnancy, liver disease, cardiac conduction disease and local availability; do not delay escalation searching for a theoretically superior agent.
+- Where fosphenytoin is unavailable and local protocol uses phenytoin, use the local monitored loading pathway; IV phenytoin carries hypotension/arrhythmia risk and requires ECG/BP monitoring and strict infusion-rate control.
+- **Important selection boundaries:** avoid valproate where contraindicated (notably significant hepatic disease and pregnancy/people with childbearing potential unless specialist benefit clearly outweighs risk); use caution with fosphenytoin/phenytoin in bradycardia, AV block or major conduction disease. Levetiracetam is often operationally simpler but is not universally superior.
+- If convulsive activity stops but consciousness does not recover as expected, suspect **non-convulsive status** and obtain urgent EEG/neurology input rather than assuming a postictal state.
+- **Refractory status epilepticus:** after adequate benzodiazepine plus an adequate second-line load, involve ICU/neurology, secure airway as required, start continuous EEG and use an anesthetic-infusion pathway (e.g. midazolam/propofol/other specialist regimen) with hemodynamic and ventilation support. No single anesthetic strategy has definitive superiority.
+- Pregnancy/eclampsia, toxin-mediated seizures, alcohol withdrawal and severe metabolic disturbances require the corresponding cause-specific pathway; do not apply this generic algorithm without modification.
+- Portugal/Azores operational release requires confirmation of local presentations/concentrations, fosphenytoin vs phenytoin availability, infusion pumps, EEG access and neurology/ICU escalation pathway.
 
 ## altered-consciousness
 
