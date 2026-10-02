@@ -16,7 +16,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve()
 CLINICAL_ROOT = HERE.parents[1]
 REGISTRY_PATH = CLINICAL_ROOT / "references" / "evidence-registry.json"
-OUTPUT_PATH = CLINICAL_ROOT / "references" / "evidence-sources.json"
+OUTPUT_PATH = CLINICAL_ROOT / "references" / "evidence-sources.json"\nOVERRIDES_PATH = CLINICAL_ROOT / "references" / "evidence-source-overrides.json"
 
 ORG_PATTERNS = [
     (re.compile(r"AHA/ASA|American Heart Association", re.I), "AHA/ASA"),
@@ -88,7 +88,7 @@ def persistent_id(url: str | None) -> str | None:
     return f"doi:{match.group(1)}" if match else None
 
 
-def normalize(registry_doc: dict) -> dict:
+def normalize(registry_doc: dict, overrides_doc: dict | None = None) -> dict:
     by_id: dict[str, dict] = {}
     keys: dict[str, str] = {}
     module_sources: dict[str, list[dict]] = {}
@@ -129,9 +129,58 @@ def normalize(registry_doc: dict) -> dict:
             "claim_scope": "module-level",
         }]
 
+    overrides_doc = overrides_doc or {}
+    override_modules = overrides_doc.get("module_sources", {})
+    override_sources = overrides_doc.get("sources", [])
+
+    # Replace legacy module mappings only for explicitly verified override modules.
+    for module_id, refs in override_modules.items():
+        if module_id not in module_sources:
+            raise ValueError(f"override references unknown module: {module_id}")
+        module_sources[module_id] = refs
+
+    # Remove legacy generated sources that are no longer referenced after overrides.
+    referenced_ids = {
+        ref["source_id"]
+        for refs in module_sources.values()
+        for ref in refs
+    }
+    by_id = {
+        source_id: source
+        for source_id, source in by_id.items()
+        if source_id in referenced_ids
+    }
+
+    for source in override_sources:
+        source_id = source.get("source_id")
+        if not source_id:
+            raise ValueError("override source without source_id")
+        if source_id in by_id:
+            raise ValueError(f"override source_id collides with generated source: {source_id}")
+        by_id[source_id] = dict(source)
+
+    # Ensure every relationship resolves after overrides.
+    known_ids = set(by_id)
+    unresolved = sorted(
+        {
+            ref["source_id"]
+            for refs in module_sources.values()
+            for ref in refs
+            if ref.get("source_id") not in known_ids
+        }
+    )
+    if unresolved:
+        raise ValueError(f"unresolved source IDs after overrides: {unresolved}")
+
+    # Recompute reverse module lists from authoritative relationships.
+    reverse = {source_id: [] for source_id in by_id}
+    for module_id, refs in module_sources.items():
+        for ref in refs:
+            reverse[ref["source_id"]].append(module_id)
+    for source_id, source in by_id.items():
+        source["modules"] = sorted(set(reverse[source_id]))
+
     sources = sorted(by_id.values(), key=lambda item: item["source_id"])
-    for source in sources:
-        source["modules"].sort()
 
     return {
         "schema_version": "1.0",
@@ -141,8 +190,7 @@ def normalize(registry_doc: dict) -> dict:
             "no_source_splitting_without_verified_identity": True,
             "compound_legacy_sources_flagged": True,
             "unknown_metadata_is_null": True,
-            "clinical_recommendations_modified": False,
-        },
+            "clinical_recommendations_modified": False,\n            "verified_override_file": "clinical/references/evidence-source-overrides.json",\n        },
         "sources": sources,
         "module_sources": module_sources,
     }
@@ -154,8 +202,7 @@ def main() -> int:
     parser.add_argument("--output", default=str(OUTPUT_PATH))
     args = parser.parse_args()
 
-    registry_doc = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
-    normalized = normalize(registry_doc)
+    registry_doc = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))\n    overrides_doc = (\n        json.loads(OVERRIDES_PATH.read_text(encoding="utf-8"))\n        if OVERRIDES_PATH.is_file() else {}\n    )\n    normalized = normalize(registry_doc, overrides_doc)
     output_path = Path(args.output)
 
     if args.check:
