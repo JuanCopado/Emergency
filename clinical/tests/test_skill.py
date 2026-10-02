@@ -212,7 +212,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 122)
+        self.assertEqual(len(manifest), 123)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1632,6 +1632,21 @@ class ModularCoreTests(unittest.TestCase):
             'urgent surgical review',
             'within **4--6 h**',
             'bilious vomiting in an infant/child is a surgical emergency until proven otherwise'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_major_trauma_core(self):
+        module = ' '.join(load(ROOT, 'pediatric-major-trauma').split())
+        for invariant in (
+            '**<c>ABCDE**',
+            'tourniquet for life-threatening extremity bleeding',
+            'rigid/hard collars are not routinely recommended',
+            'Do not use flexion-extension radiographs',
+            'eFAST has a **limited rule-out role**',
+            '0.9% sodium chloride 10 mL/kg',
+            'packed red cells **10 mL/kg**',
+            '**15 mg/kg IV**',
+            'tertiary survey within **24 h**',
+            'non-accidental injury'
         ): self.assertIn(invariant, module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):

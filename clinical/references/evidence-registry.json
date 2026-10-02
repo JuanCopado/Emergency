@@ -1019,6 +1019,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric surgical-abdomen router covers intussusception, torsion, obstruction/malrotation, appendicitis and pyloric stenosis with escalation boundaries. Human pediatric surgery review pending."
+    },
+    "pediatric-major-trauma": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Major paediatric trauma primary/secondary/tertiary survey + cervical spine assessment, current 2026",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Major_paediatric_trauma_the_primary_survey/",
+      "stored_version": "RCH/PIC current online 2026; cervical-spine flowchart updated July 2026; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Integrating pediatric major-trauma route coordinates <c>ABCDE, cervical-spine precautions, hemorrhage/blood/TXA, secondary and tertiary survey without duplicating injury-specific modules. Human pediatric trauma review pending."
     }
   }
 }

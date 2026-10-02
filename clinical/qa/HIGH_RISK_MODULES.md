@@ -68,3 +68,5 @@ This file explains why they receive stricter release gates.
 
 - pediatric-head-injury
 - pediatric-abdominal-surgical-emergencies
+
+- pediatric-major-trauma
