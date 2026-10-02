@@ -1,6 +1,6 @@
 # MODULES — índice verificado
 
-Propuesta de consolidación v1.36 (rama de trabajo): 108 IDs únicos; todos tienen sección y registro.
+Propuesta de consolidación v1.36 (rama de trabajo): 110 IDs únicos; todos tienen sección y registro.
 El estado green/yellow corresponde al registro de evidencia, no a una declaración de validación clínica.
 
 | ID | Archivo de módulos | Evidencia |
@@ -21,6 +21,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `pulmonary-embolism` | `modules/cardiovascular.md` | yellow |
 | `sepsis-shock` | `modules/infection-respiratory.md` | green |
 | `airway-rsi` | `modules/procedures-pharmacology.md` | green |
+| `pediatric-airway-rsi` | `modules/procedures-pharmacology.md` | yellow |
 | `arrhythmias-cardiac-arrest` | `modules/cardiovascular.md` | yellow |
 | `adult-arrhythmias` | `modules/cardiovascular.md` | yellow |
 | `adult-cardiac-arrest` | `modules/cardiovascular.md` | yellow |
@@ -35,6 +36,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `anaphylaxis` | `modules/infection-respiratory.md` | yellow |
 | `toxicology` | `modules/renal-metabolic.md` | yellow |
 | `pediatric-emergencies` | `modules/special-populations.md` | yellow |
+| `pediatric-acute-asthma` | `modules/special-populations.md` | yellow |
 | `pediatric-emergency-medications` | `modules/special-populations.md` | yellow |
 | `pediatric-iv-fluid-therapy` | `modules/special-populations.md` | yellow |
 | `febrile-infant-0-90-days` | `modules/special-populations.md` | yellow |
