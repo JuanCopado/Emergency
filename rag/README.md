@@ -13,8 +13,7 @@ URL/identificador persistente, versión, fecha de publicación, última verifica
 idioma, jurisdicción y licencia. Un valor desconocido se representa como `null`;
 no se infiere.
 
-Las fuentes históricas compuestas se marcan `compound_identity=true` y no deben
-descomponerse automáticamente sin verificación documental.
+Las fuentes históricas compuestas se marcan `compound_identity=true` y no deben descomponerse automáticamente sin verificación documental. Las fuentes ya separadas y verificadas quedan registradas en `clinical/references/evidence-source-overrides.json`.
 
 ## Corpus permitido
 - guías y consensos oficiales;
