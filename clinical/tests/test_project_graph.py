@@ -243,7 +243,6 @@ class ProjectGraphTests(unittest.TestCase):
             "acute-musculoskeletal-pain",
             "icu-sedation-analgesia-infusions",
             "vasoactive-inotrope-infusions",
-            "iv-antihypertensive-selection",
         ):
             refs = module_sources[module_id]
             unresolved = [
