@@ -13,7 +13,7 @@
 ## v1.36 current branch snapshot — 127 modules
 - `scripts/validate_modules.py`: 127 modules resolved.
 - Evidence registry: 127/127; 29 green / 98 yellow / 0 red.
-- `Clinical QA`: 141 automated tests PASS on the latest pediatric-antibiotic boundary run.
+- `Clinical QA`: **151 automated tests PASS** on the current v1.36 branch snapshot.
 - These are structural/arithmetic/regression checks, not clinical validation.
 
 
@@ -60,7 +60,7 @@
 - Adds deterministic arithmetic in `scripts/pediatric_emergency_calculator.py` for capped weight-based doses, volume-from-concentration, weight-based infusion mL/h, fluid boluses, Holliday-Segar maintenance and NICE gastroenteritis deficit references.
 - Clinical source layer: ERC/RCUK PLS 2025 + AHA/AAP PALS 2025 + SSC pediatric sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + PANDEM 2022 + official product information.
 - The calculator does **not** select a diagnosis or indication. The pump generator only uses dose/concentration entries explicitly source-verified in the pediatric infusion registry; Horta-local verification is not required for pediatrics.
-- Current branch state: 127/127 records; 29 green / 98 yellow / 0 red; **147 automated tests PASS**.
+- Current branch state: 127/127 records; 29 green / 98 yellow / 0 red; **151 automated tests PASS**.
 - Source-verified continuous infusion entries: epinephrine, norepinephrine, dopamine (with source weight restriction), dobutamine, milrinone, fentanyl and midazolam. Dexmedetomidine/propofol remain fail-closed because of guideline/product-label conflict; ketamine continuous dosing remains pending.
 
 
