@@ -938,6 +938,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Separates pediatric procedural sedation from RSI and PICU sedation; includes ketamine IV/IM, nitrous oxide and intranasal fentanyl source envelopes and recovery/airway gates. Remains yellow pending human pediatric sedation/anesthesia review."
+    },
+    "pediatric-acute-respiratory-support": {
+      "priority": "high",
+      "primary_source": "ERC/RCUK Paediatric Life Support 2025 + Royal Children's Hospital HFNP and CPAP/NIV guidance",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "stored_version": "ERC/RCUK PLS 2025; RCH HFNP/CPAP-NIV current online; v1.36 respiratory-support build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric acute respiratory-support module covers oxygen targets, HFNO weight-based flow, escalation gates, CPAP/NIV boundaries, bag-mask ventilation and post-intubation ventilation references. Remains yellow pending human pediatric/critical-care review."
     }
   }
 }

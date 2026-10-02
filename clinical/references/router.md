@@ -129,3 +129,5 @@ each changes immediate decisions; do not load an entire category.
 - Add `sedoanalgesia` and `medication-selection-safety` when procedural sedation or high-risk analgesia is requested.
 - Pediatric continuous infusion arithmetic -> pediatric-emergency-medications + medication-selection-safety + the relevant pediatric syndrome; exact pediatric concentration must come from a verified local/product source.
 - Continuous ICU analgesia/sedation of an intubated or ventilated adult (fentanyl, remifentanil, morphine, hydromorphone, propofol, dexmedetomidine, midazolam, ketamine infusion; RASS/CPOT/BPS targets, PRIS, daily interruption) -> icu-sedation-analgesia-infusions + medication-selection-safety; add delirium or airway-rsi when relevant. Pediatric infusions are not covered.
+
+- pediatric acute respiratory support, HFNO/HFNC, CPAP/NIV or pediatric ventilation calculation -> pediatric-acute-respiratory-support + pediatric-emergencies + the cause-specific respiratory syndrome

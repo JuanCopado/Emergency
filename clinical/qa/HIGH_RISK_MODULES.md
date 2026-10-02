@@ -46,6 +46,7 @@ This file explains why they receive stricter release gates.
 - pediatric-electrolyte-emergencies
 - pediatric-blood-transfusion-major-hemorrhage
 - pediatric-procedural-sedation
+- pediatric-acute-respiratory-support
 - pediatric-status-epilepticus
 - obstetric-emergencies
 - diabetic-ketoacidosis-hhs

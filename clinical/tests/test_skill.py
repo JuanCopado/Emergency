@@ -50,6 +50,7 @@ from pediatric_emergency_calculator import (
     maintenance_ml_h as pediatric_maintenance_ml_h,
     gastroenteritis_deficit_ml as pediatric_gastroenteritis_deficit_ml,
 )
+from pediatric_respiratory_support import hfno_flow_l_min as pediatric_hfno_flow_l_min, ventilation_rate_reference as pediatric_ventilation_rate_reference
 from validate_clinical_cases import validate as validate_clinical_cases
 from audit_evidence_coverage import audit as audit_evidence_coverage
 from validate_real_image_cases import validate as validate_real_image_cases
@@ -209,7 +210,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 113)
+        self.assertEqual(len(manifest), 114)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1480,6 +1481,30 @@ class ModularCoreTests(unittest.TestCase):
             'premorbid neurologic baseline'
         ):
             self.assertIn(invariant, module)
+
+
+    def test_v136_pediatric_acute_respiratory_support_is_registered(self):
+        module = ' '.join(load(ROOT, 'pediatric-acute-respiratory-support').split())
+        for invariant in (
+            'SpO2 94--98%',
+            '<=12 kg use 2 L/kg/min',
+            'maximum **50 L/min**',
+            'no clinical stabilisation within **2 h**',
+            'not stabilising within **4 h**',
+            '6--8 mL/kg ideal body weight',
+            'PEEP 5 cm H2O',
+            'Do not import adult NIV settings'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_respiratory_support_calculator(self):
+        self.assertAlmostEqual(pediatric_hfno_flow_l_min(10), 20.0)
+        self.assertAlmostEqual(pediatric_hfno_flow_l_min(20), 28.0)
+        self.assertAlmostEqual(pediatric_hfno_flow_l_min(80), 50.0)
+        self.assertEqual(pediatric_ventilation_rate_reference(0.5), 25)
+        self.assertEqual(pediatric_ventilation_rate_reference(4), 20)
+        self.assertEqual(pediatric_ventilation_rate_reference(10), 15)
+        self.assertEqual(pediatric_ventilation_rate_reference(14), 10)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):

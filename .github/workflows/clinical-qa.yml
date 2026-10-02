@@ -6,12 +6,30 @@ on:
       - main
       - v1.36-consolidation
     paths:
-      - 'clinical/**'
+      - 'clinical/modules/**'
+      - 'clinical/references/module-index.md'
+      - 'clinical/references/router.md'
+      - 'clinical/references/evidence-registry.json'
+      - 'clinical/scripts/**'
+      - 'clinical/tests/**'
+      - 'clinical/qa/**'
+      - 'clinical/SKILL.md'
       - '.github/workflows/clinical-qa.yml'
   pull_request:
     paths:
-      - 'clinical/**'
+      - 'clinical/modules/**'
+      - 'clinical/references/module-index.md'
+      - 'clinical/references/router.md'
+      - 'clinical/references/evidence-registry.json'
+      - 'clinical/scripts/**'
+      - 'clinical/tests/**'
+      - 'clinical/qa/**'
+      - 'clinical/SKILL.md'
       - '.github/workflows/clinical-qa.yml'
+
+concurrency:
+  group: clinical-qa-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
