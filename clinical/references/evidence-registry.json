@@ -128,11 +128,11 @@
     "arrhythmias-cardiac-arrest": {
       "priority": "high",
       "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
-      "stored_version": "2025",
-      "last_checked": "2026-09-28",
+      "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
       "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
-      "note": "Refactored as shared age-selection/safety router; use the separate age-specific rhythm or arrest module. Verify operational details against current local ERC implementation."
+      "note": "Shared age-selection/safety router confirmed against ERC/RCUK 2025. Age-specific adult modules now include explicit 2025 energies, drug timing/doses and bradycardia escalation. Remains yellow pending human review and Portugal/Azores local operational reconciliation."
     },
     "hypertensive-emergencies": {
       "priority": "high",
@@ -795,19 +795,19 @@
       "priority": "high",
       "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
       "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
-      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
-      "last_checked": "2026-09-28",
+      "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+      "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
     },
     "adult-cardiac-arrest": {
       "priority": "high",
       "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
       "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
-      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
-      "last_checked": "2026-09-28",
+      "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+      "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
     },
     "pediatric-arrhythmias": {
       "priority": "high",
