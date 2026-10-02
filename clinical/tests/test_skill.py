@@ -633,7 +633,7 @@ class ModularCoreTests(unittest.TestCase):
                           'starting vasopressors peripherally',
                           'at or proximal to the antecubital fossa',
                           'phentolamine 5--10 mg',
-                          '8 mg of tartrate salt contains about 4 mg base',
+                          'never infer a base/salt conversion',
                           'suggests against it in septic shock',
                           'VTE prophylaxis', 'Pediatric infusions are out of scope',
                           'does not replace those pathways'):
@@ -759,6 +759,13 @@ class ModularCoreTests(unittest.TestCase):
             'Lidocaine **1 mg/kg IV**'
         ):
             self.assertIn(invariant, arrest)
+
+
+    def test_v136_pediatric_sepsis_vasoactive_uncertainty_is_explicit(self):
+        shock = ' '.join(load(ROOT, 'pediatric-shock').split())
+        self.assertIn('SSC 2026 found insufficient evidence', shock)
+        self.assertIn('epinephrine versus norepinephrine', shock)
+        self.assertIn('do not present one universal septic-shock catecholamine as mandatory', shock)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
