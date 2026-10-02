@@ -137,3 +137,7 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Full natural-prevalence PTB-XL fold-10 intake launched as GitHub Actions **run #9 / 37043554986**, target `AFIB`, trigger mode `FULL_FOLD`.
 - At the latest verified checkpoint the run had passed setup, metadata download, source gate, salt creation and intake-mode selection; `Build blinded fold-10 ECG benchmark` was still in progress with no reported failure.
 - The sealed reference for the full-fold run has not been opened or used. Diagnostic metrics remain blocked until predictions are frozen and the run completes.
+
+- Pipeline de evaluación por lotes añadido para el full-fold: sharding determinista por paciente, plantilla de predicción por shard y merge fail-closed.
+- Nuevo Clinical QA run #295 asociado a estas regresiones está en ejecución al último checkpoint.
+- Full-fold PTB-XL AFIB run #9 continúa en `Build blinded fold-10 ECG benchmark`; sin error reportado y referencia aún sellada.
