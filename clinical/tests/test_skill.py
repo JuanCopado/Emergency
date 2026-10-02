@@ -1113,14 +1113,14 @@ class ModularCoreTests(unittest.TestCase):
                 fn(*args)
 
 
-    def test_v136_pediatric_pump_table_fails_closed_until_local_verification(self):
+    def test_v136_pediatric_pump_table_fails_closed_until_source_verification(self):
         for drug in ('norepinephrine', 'epinephrine', 'midazolam', 'fentanyl'):
             with self.assertRaises(ValueError):
                 pediatric_pump_table(drug, 20)
         with self.assertRaises(ValueError):
             pediatric_pump_table('propofol', 20)
 
-    def test_v136_pediatric_pump_table_works_only_with_verified_synthetic_registry(self):
+    def test_v136_pediatric_pump_table_works_only_with_source_verified_synthetic_registry(self):
         payload = {
             'schema_version': 'test',
             'drugs': [{
@@ -1129,7 +1129,7 @@ class ModularCoreTests(unittest.TestCase):
                 'dose_ladder': [0.05, 0.1, 0.2],
                 'final_concentration_per_ml': 20,
                 'concentration_unit': 'micrograms/mL',
-                'status': 'verified'
+                'status': 'source_verified'
             }]
         }
         with tempfile.TemporaryDirectory() as directory:
@@ -1146,6 +1146,20 @@ class ModularCoreTests(unittest.TestCase):
         data = json.loads((ROOT / 'qa' / 'pediatric-infusion-localization.json').read_text(encoding='utf-8'))
         item = next(x for x in data['drugs'] if x['drug'] == 'propofol')
         self.assertEqual(item['status'], 'not_for_pediatric_icu_sedation')
+
+
+    def test_v136_pediatric_source_hierarchy_is_not_local_dependent(self):
+        module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
+        self.assertIn('ERC/RCUK 2025 as the primary European resuscitation pathway', module)
+        self.assertIn('AHA/AAP PALS 2025', module)
+        self.assertIn('SSC pediatric sepsis 2026', module)
+        self.assertIn('PANDEM 2022', module)
+        self.assertNotIn('pharmacy/Horta has not verified it', module)
+        data = json.loads((ROOT / 'qa' / 'pediatric-infusion-localization.json').read_text(encoding='utf-8'))
+        self.assertIn('Hospital da Horta local protocol is not required', data['rule'])
+        for item in data['drugs']:
+            if item['drug'] != 'propofol':
+                self.assertNotEqual(item['status'], 'local_pending')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
