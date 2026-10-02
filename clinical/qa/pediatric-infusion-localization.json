@@ -221,9 +221,14 @@
     {
       "drug": "ketamine",
       "category": "sedative/analgesic",
-      "clinical_position": "PANDEM suggests adjunct ketamine when optimal sedation depth is not achieved, but no sufficiently explicit pediatric continuous-infusion dose was identified in the guideline page reviewed",
+      "clinical_position": "Analgesic continuous infusion for severe pain/major trauma/burns/mucositis under pediatric pain/ICU/anesthesia supervision; this is not a generic PICU sedation ladder",
       "dose_unit": "milligrams/kg/hour",
-      "dose_ladder": [],
+      "dose_ladder": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -232,7 +237,32 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "source_pending"
+      "status": "source_verified_with_restriction",
+      "preparation_mode": "weight_banded_concentration",
+      "concentration_bands": [
+        {
+          "min_weight_kg": 0,
+          "max_weight_kg": 10,
+          "concentration_per_ml": 1,
+          "concentration_unit": "mg/mL"
+        },
+        {
+          "min_weight_kg": 10.0001,
+          "max_weight_kg": 40,
+          "concentration_per_ml": 2,
+          "concentration_unit": "mg/mL"
+        },
+        {
+          "min_weight_kg": 40.0001,
+          "max_weight_kg": null,
+          "concentration_per_ml": 4,
+          "concentration_unit": "mg/mL"
+        }
+      ],
+      "source": "Royal Children's Hospital Ketamine Infusion current online: 100-200 mcg/kg/h usual start, range 0-400 mcg/kg/h; standard concentrations 1 mg/mL (0-10 kg), 2 mg/mL (10-40 kg), 4 mg/mL (>=40 kg/fluid restricted)",
+      "restrictions": [
+        "analgesia/pain-service or ICU/anesthesia supervised use; not a universal sedation regimen"
+      ]
     },
     {
       "drug": "propofol",
