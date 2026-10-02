@@ -797,7 +797,7 @@ class ModularCoreTests(unittest.TestCase):
             '25--50 IU/kg',
             '2,000 IU',
             '5--10 mg IV vitamin K',
-            'does **not** exclude clinically relevant apixaban/rivaroxaban effect'
+            'does not exclude clinically relevant apixaban/rivaroxaban effect'
         ):
             self.assertIn(invariant, rev)
 
