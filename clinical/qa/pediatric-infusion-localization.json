@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "scope": "Hospital da Horta pediatric continuous-infusion localization gate",
-  "rule": "No pump-rate table may be generated from this registry unless status is verified and final_concentration_per_ml plus dose ladder are populated from an approved source/local protocol.",
+  "scope": "Pediatric continuous-infusion evidence/product verification gate",
+  "rule": "Pump-rate tables may be generated only when the dose ladder and final concentration are explicitly verified from an authoritative pediatric guideline, official product information, or a recognized pediatric pharmacology source. A Hospital da Horta local protocol is not required.",
   "drugs": [
     {
       "drug": "norepinephrine",
@@ -9,7 +9,6 @@
       "clinical_position": "ERC/RCUK 2025: first-line vasopressor according to shock phenotype",
       "dose_unit": "micrograms/kg/min",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -18,7 +17,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "epinephrine",
@@ -26,7 +25,6 @@
       "clinical_position": "ERC/RCUK 2025: first-line inotrope according to shock phenotype",
       "dose_unit": "micrograms/kg/min",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -35,7 +33,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "dopamine",
@@ -43,7 +41,6 @@
       "clinical_position": "Not a universal first-line pediatric shock agent; use only when syndrome/local protocol supports it",
       "dose_unit": "micrograms/kg/min",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -52,7 +49,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "dobutamine",
@@ -60,7 +57,6 @@
       "clinical_position": "Phenotype/local-protocol dependent",
       "dose_unit": "micrograms/kg/min",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -69,7 +65,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "milrinone",
@@ -77,7 +73,6 @@
       "clinical_position": "ERC/RCUK 2025: first-line inodilator according to phenotype",
       "dose_unit": "micrograms/kg/min",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -86,7 +81,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "midazolam",
@@ -94,7 +89,6 @@
       "clinical_position": "Continuous pediatric sedation requires PICU/local protocol; no dose ladder stored until verified",
       "dose_unit": "milligrams/kg/hour",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -103,7 +97,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "fentanyl",
@@ -111,7 +105,6 @@
       "clinical_position": "Continuous pediatric analgesia requires PICU/local protocol; no dose ladder stored until verified",
       "dose_unit": "micrograms/kg/hour",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -120,7 +113,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "dexmedetomidine",
@@ -128,7 +121,6 @@
       "clinical_position": "Pediatric ICU use must follow specialist/local protocol and product restrictions; no dose ladder stored until verified",
       "dose_unit": "micrograms/kg/hour",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -137,7 +129,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "ketamine",
@@ -145,7 +137,6 @@
       "clinical_position": "Continuous use requires specialist/local protocol; no dose ladder stored until verified",
       "dose_unit": "milligrams/kg/hour",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
@@ -154,7 +145,7 @@
       "peripheral_policy": null,
       "stability": null,
       "smart_pump_entry": null,
-      "status": "local_pending"
+      "status": "source_pending"
     },
     {
       "drug": "propofol",
@@ -162,7 +153,6 @@
       "clinical_position": "Current SmPCs: may not be used for ICU sedation in patients 16 years of age or younger; procedural/anaesthetic use is a separate indication and must not be conflated with PICU sedation",
       "dose_unit": "milligrams/kg/hour",
       "dose_ladder": [],
-      "local_product": null,
       "product_strength": null,
       "diluent": null,
       "final_volume_ml": null,
