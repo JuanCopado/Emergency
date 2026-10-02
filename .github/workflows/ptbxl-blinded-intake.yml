@@ -83,7 +83,7 @@ jobs:
       - name: Upload blinded image artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ptbxl-blinded-${{ inputs.target_code }}-fold10
+          name: ptbxl-blinded-${{ github.event.inputs.target_code || 'AFIB' }}-fold10
           path: ptbxl-blinded-artifact/
           retention-days: 14
           if-no-files-found: error
@@ -91,7 +91,7 @@ jobs:
       - name: Upload sealed reference artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ptbxl-sealed-reference-${{ inputs.target_code }}-fold10
+          name: ptbxl-sealed-reference-${{ github.event.inputs.target_code || 'AFIB' }}-fold10
           path: ptbxl-sealed-artifact/
           retention-days: 14
           if-no-files-found: error
