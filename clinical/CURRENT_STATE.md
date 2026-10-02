@@ -113,5 +113,10 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - PTB-XL queda **intake-ready** tras congelar protocolo fold 10 y separación de referencia: `qa/PTBXL_BLINDED_PROTOCOL.md` + `scripts/prepare_ptbxl_blinded_cohort.py`.
 - No se han importado todavía casos reales al banco final y no se calculan métricas clínicas.
 - Estado clínico/evidencia sin cambios: **127 módulos / 127/127 evidencia / 29 green / 98 yellow / 0 red**.
-- El archivo de tests contiene **156 funciones de test** tras este bloque. El último run completo previamente confirmado sigue siendo **151 PASS**; los nuevos tests requieren confirmación por GitHub Actions antes de documentarlos como PASS.
+- El archivo de tests contiene **157 funciones de test** tras este bloque. El último run completo previamente confirmado sigue siendo **151 PASS**; los nuevos tests requieren confirmación por GitHub Actions antes de documentarlos como PASS.
 - Fase 4 pediátrica sigue bloqueada únicamente por revisión humana pediatría/farmacia; se añadió `qa/PEDIATRIC_HUMAN_REVIEW_READINESS.md` sin auto-promoción a green.
+
+- Workflow manual real añadido: `.github/workflows/ptbxl-blinded-intake.yml`. Descarga metadatos PTB-XL v1.0.3, valida el gate de fuente, genera salt efímero si no hay secreto configurado, descarga solo los waveforms seleccionados y separa artefacto ciego de referencia sellada.
+- Render digital congelado con divisiones 0,04 s / 0,1 mV; no se afirma calibración física mm/s o mm/mV.
+- PR draft de validación creado: **#12 — v1.36 consolidation — validation only (do not merge)**. No modifica ni promueve `main`.
+- GitHub todavía no expone un run de Clinical QA para el nuevo head; por tanto el último run completo confirmado sigue siendo **151 PASS**.
