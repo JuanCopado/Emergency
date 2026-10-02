@@ -140,3 +140,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Antibióticos pediátricos: regla explícita de selección por síndrome/guía actual; no tabla universal por peso.
 
 - [x] Registro `qa/pediatric-antibiotics.json` + calculador por síndrome: sepsis, pielonefritis/ITU y celulitis con dosis NICE; meningitis conserva agente/tiempo y delega dosis exacta a BNFC, sin trasplantar dosis de sepsis.
+
+- [x] Capa domicilio/alta pediátrica: salbutamol pMDI con spacer tras mejoría de exacerbación, dexametasona en crup grave y SRO 50 mL/kg/4 h; siempre vinculados al síndrome, no como lista genérica.
