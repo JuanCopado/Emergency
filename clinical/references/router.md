@@ -106,6 +106,7 @@ each changes immediate decisions; do not load an entire category.
 - infant/child <2 years with typical first-episode bronchiolitis -> bronchiolitis + pediatric-emergencies; add acute-respiratory-failure for respiratory failure
 - barky cough/stridor consistent with croup -> croup + pediatric-emergencies; add airway-rsi only for airway intervention
 - pediatric dehydration, gastroenteritis with dehydration, IV fluid selection/rate, maintenance or deficit calculation -> pediatric-dehydration-shock + pediatric-iv-fluid-therapy + pediatric-emergencies + pediatric-emergency-medications; add pediatric-shock, sepsis-shock, diabetic-ketoacidosis-hhs, trauma-major-hemorrhage or cardiogenic-shock when supported
+- pediatric major haemorrhage, traumatic bleeding, blood-product volume/rate or component transfusion -> pediatric-blood-transfusion-major-hemorrhage + pediatric-shock + pediatric-emergencies + pediatric-emergency-medications; add trauma-major-hemorrhage and anticoagulation-reversal when applicable
 - pediatric medication dose, dilution, bolus or infusion calculation -> pediatric-emergency-medications + medication-selection-safety + the relevant pediatric syndrome module
 - pediatric IV fluid type, maintenance, dehydration deficit, ongoing-loss replacement, bolus timing or rehydration rate -> pediatric-iv-fluid-therapy + pediatric-emergencies + the relevant syndrome module
 - pediatrics -> pediatric-emergencies; add pediatric-emergency-medications only when a dose, fluid volume or infusion calculation is requested
