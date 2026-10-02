@@ -139,5 +139,7 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - The sealed reference for the full-fold run has not been opened or used. Diagnostic metrics remain blocked until predictions are frozen and the run completes.
 
 - Pipeline de evaluación por lotes añadido para el full-fold: sharding determinista por paciente, plantilla de predicción por shard y merge fail-closed.
-- Nuevo Clinical QA run #295 asociado a estas regresiones está en ejecución al último checkpoint.
+- Clinical QA run #295 verificado: **161/161 tests PASS**, `automated_status: PASS`.
 - Full-fold PTB-XL AFIB run #9 continúa en `Build blinded fold-10 ECG benchmark`; sin error reportado y referencia aún sellada.
+
+- Estado de tests actualizado tras sharding/merge: **161 PASS**.
