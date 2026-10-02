@@ -423,3 +423,14 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Current regression suite: **162 tests PASS**.
 - Optimization changes execution only: concurrent record downloads and 4-process rendering. Selection, hashes, fold, target, layout, blinded manifest and sealed reference semantics are unchanged.
 - Full-fold accelerated intake run #11 (37050506581) launched with `FULL_FOLD` / AFIB; reference remains sealed.
+
+## PTB-XL AFIB NATURAL_500 blinded bank — 02/10/2026
+- Intake run #13 (37051568918): **SUCCESS**.
+- Selection: systematic label-agnostic sample across fold 10, n=500.
+- Blinded package audit: 500 PNG, 11 shards, 11 prediction templates, 500 unique study hashes, 488 patient hashes.
+- 11 repeated-patient groups, max 3 studies/patient; zero patient groups cross shards.
+- No sealed reference file and no source/reference leakage terms were found in the blinded package.
+- Blinded artifact digest: `sha256:c932d356b5fddf19f4e41417ac9320656a0d6d8af7f3219730cff916291ee6be`.
+- Reference artifact remains sealed; only its GitHub artifact digest was recorded.
+- Nine evenly distributed rendered ECGs were visually inspected for layout integrity; no diagnostic/source annotation leakage observed.
+- No sensitivity/specificity/accuracy claim is made because predictions have not been generated/frozen by an actual blinded interpreter.
