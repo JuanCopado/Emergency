@@ -12,7 +12,7 @@
 
 ## Consolidación y seguridad
 - Arquitectura maestra: `docs/ARCHITECTURE.md`; Graphify: `docs/GRAPHIFY.md`.
-- Grafo determinista módulo→bundle→fuente; 106/106 manifiesto/registro coinciden. Catálogo normalizado: 103 identidades de fuente para 106 módulos; 36 identidades compuestas marcadas para separación verificada.
+- Grafo determinista módulo→bundle→fuente; 106/106 manifiesto/registro coinciden. Catálogo normalizado: 112 identidades de fuente para 106 módulos; 34 identidades compuestas restantes. Se han separado y verificado fuentes prioritarias de vía aérea, anticoagulación, pediatría, reanimación, sepsis y parte del módulo vasoactivo.
 - Validador detecta IDs/secciones duplicadas y usa coincidencia exacta en el router.
 - Living Evidence hace cumplir ventanas 30/90/180 días; un green vencido bloquea CI.
 - Artefactos Graphify/Knowledge Graph/RAG y secretos locales quedan fuera de Git.
