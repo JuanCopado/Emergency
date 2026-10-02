@@ -16,7 +16,7 @@ import json
 import shutil
 import tempfile
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 import matplotlib
@@ -67,6 +67,10 @@ def _download_case_files(row, case_id, tmp_dir):
     _download(hea_urls, recbase.with_suffix(".hea"))
     _download(dat_urls, recbase.with_suffix(".dat"))
     return case_id, recbase
+
+def _render_case(record_path, output_png):
+    _render_standard(record_path, output_png)
+    return str(output_png)
 
 def _render_standard(record_path, output_png):
     rec = wfdb.rdrecord(str(record_path))
@@ -207,10 +211,21 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
                 case_id, recbase = future.result()
                 record_paths[case_id] = recbase
 
-        for row, patient_hash, study_hash, case_id in prepared:
-            recbase = record_paths[case_id]
-            image_name = f"{case_id}.png"
-            _render_standard(recbase, images_dir / image_name)
+        render_jobs = []
+        render_workers = min(4, max(1, len(prepared)))
+        with ProcessPoolExecutor(max_workers=render_workers) as pool:
+            future_map = {}
+            for row, patient_hash, study_hash, case_id in prepared:
+                recbase = record_paths[case_id]
+                image_name = f"{case_id}.png"
+                output_png = images_dir / image_name
+                future = pool.submit(_render_case, recbase, output_png)
+                future_map[future] = case_id
+                render_jobs.append((row, patient_hash, study_hash, case_id, image_name))
+            for future in as_completed(future_map):
+                future.result()
+
+        for row, patient_hash, study_hash, case_id, image_name in render_jobs:
             blinded_cases.append({
                 "id": case_id,
                 "patient_uid_hash": patient_hash,
