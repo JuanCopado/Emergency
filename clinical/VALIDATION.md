@@ -393,3 +393,8 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Synthetic targeted check: 2 fold-10 rows (1 positive, 1 negative) -> patient hashing stable across repeated patient; no `target_positive` field in the model-facing cohort.
 - Registry logic check: 5 candidates, no structural errors; PTB-XL intake-ready only after license + protocol + label-separation gates; no source is described as clinically validated.
 - `test_skill.py` currently contains 156 test functions. **Do not record 156 PASS until a complete CI/local run is observed.** Last complete verified run remains 151 PASS.
+
+- Added manual GitHub Actions real-intake workflow for PTB-XL v1.0.3. It keeps blinded images/manifest separate from the sealed reference and can use an ephemeral masked salt when no repository secret exists.
+- Added structural regression ensuring the sealed reference is not copied into the blinded artifact and that render wording does not claim unverified physical calibration.
+- Test file now contains **157 test functions**. Full-suite PASS count remains **151 confirmed** until the new PR-triggered Clinical QA run is observable.
+- Draft validation PR: #12. It is explicitly non-release/non-merge and does not change the v1.35 clinical line.
