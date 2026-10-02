@@ -125,3 +125,10 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - El finalizador exige coincidencia exacta de IDs entre artefacto ciego, predicciones y referencia sellada; bloquea duplicados, clases inválidas y cualquier predicción congelada en/tras el timestamp de revelado.
 - La salida final v1.1 elimina identificadores fuente y conserva `abstain/nondiagnostic`, permitiendo que el calculador suprima sensibilidad/especificidad estándar cuando la cobertura no es binaria completa.
 - El archivo de tests contiene ahora **159 funciones de test**. `Clinical QA` run #285 fue verificado directamente en GitHub Actions: **159/159 tests PASS**, `automated_status: PASS`.
+
+- **PTB-XL real pilot run #6: SUCCESS** (GitHub Actions run 37042742831).
+- Blind artifact verified locally: 10 rendered ECG PNG + `blinded_manifest.json`; target `AFIB`; no `target_positive`, `source_ecg_id` or `patient_id` present.
+- Blinded artifact digest: `sha256:080bf99e0937637074377b11eb900d4699decdbc0f82168da661e426a5e97350`.
+- Sealed-reference artifact was created separately (digest `sha256:63c01ab13bb0e8d1ca8702a4d4c389b83daa598b245fe3e6492aa5747b23a850`) and was **not opened/downloaded for interpretation**.
+- Visual QA of one rendered ECG: 12 leads + 10 s lead-II rhythm strip visible; no label/source leakage observed.
+- This pilot was deliberately balanced 5 positive / 5 negative for pipeline engineering and has `performance_metrics_allowed=false`; its known prevalence makes it unsuitable for diagnostic-performance claims.
