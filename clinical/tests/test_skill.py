@@ -710,6 +710,20 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, arrest)
 
+
+    def test_v136_qa_layer_is_present_and_fail_closed(self):
+        qa_root = ROOT / 'qa'
+        for name in ('QA_POLICY.md', 'QA_MATRIX.md', 'RELEASE_GATES.md',
+                     'HIGH_RISK_MODULES.md', 'localization-portugal-azores.json',
+                     'qa_runner.py', 'HUMAN_REVIEW_TEMPLATE.md'):
+            self.assertTrue((qa_root / name).is_file(), name)
+        policy = (qa_root / 'QA_POLICY.md').read_text(encoding='utf-8')
+        gates = (qa_root / 'RELEASE_GATES.md').read_text(encoding='utf-8')
+        runner = (qa_root / 'qa_runner.py').read_text(encoding='utf-8')
+        self.assertIn('High-risk changes require human review', policy)
+        self.assertIn('must never auto-promote', gates)
+        self.assertIn('Automated QA PASS is not clinical validation', runner)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
