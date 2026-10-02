@@ -880,10 +880,10 @@
       "priority": "high",
       "primary_source": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
       "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
-      "stored_version": "ERC/RCUK 2025; AHA/AAP PALS 2025; GINA 2026; Malaysia Paediatric Protocols 2025; RCH Acute Pain 2024; NHSGGC pediatric ED pain 2025; NICE/HSE/PANDEM current set; v1.36 pediatric non-infusion expansion 2026-10-02",
+      "stored_version": "ERC/RCUK 2025; AHA/AAP PALS 2025; GINA 2026; NICE NG254/NG250/NG240/NG224/NG111/NG109/NG141 current online 2026; Malaysia Paediatric Protocols 2025; RCH/NHSGGC pain; HSE/PANDEM; v1.36 pediatric antibiotic expansion 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Pediatric module now includes source-verified emergency bolus, analgesia and home-dose references plus explicit syndrome-specific antibiotic routing. Automatic mL is generated only when the source contains a product concentration. Remains yellow pending human pediatric/pharmacy review."
+      "note": "Cross-cutting pediatric module includes source-verified infusions, high-risk bolus/home-dose entries and syndrome-specific antibiotic registry. Meningitis intentionally stores agent/timing but delegates exact pediatric dose to BNFC because NICE NG240 does so. Remains yellow pending human pediatric/pharmacy review."
     }
   }
 }
