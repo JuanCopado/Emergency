@@ -1267,6 +1267,15 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(meningitis['status'], 'agent_verified_dose_external')
         self.assertIn('BNFC', meningitis['source'])
 
+
+    def test_v136_pediatric_discharge_home_use_entries(self):
+        sal = pediatric_bolus_calculate('asthma-discharge-salbutamol-pmdi', 18)
+        self.assertAlmostEqual(sal['dose'], 2.0)
+        croup = pediatric_bolus_calculate('croup-dexamethasone-severe', 20)
+        self.assertAlmostEqual(croup['dose'], 12.0)
+        ors = pediatric_bolus_calculate('gastroenteritis-ors-rehydration', 12)
+        self.assertAlmostEqual(ors['volume_ml'], 600.0)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
