@@ -145,3 +145,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Nuevo módulo high-risk `pediatric-iv-fluid-therapy`: resucitación, mantenimiento, gastroenteritis, deshidratación por %, sepsis, cardiogénico, hemorragia, hipernatremia, hiponatremia sintomática y DKA; incluye tipo de suero, mL/kg y ventana temporal.
 - [x] `scripts/pediatric_fluid_calculator.py` calcula mantenimiento, bolos, SRO, déficit por %, plan 24+24 h, hipernatremia 48 h y bolos de hiponatremia.
+
+- [x] Nuevos módulos high-risk `pediatric-acute-asthma` (GINA 2026) y `pediatric-airway-rsi` (RCH emergency airway). Dosis pediátricas separadas de las rutas adultas.
