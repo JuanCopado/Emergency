@@ -204,9 +204,9 @@
       "priority": "high",
       "primary_source": "European Resuscitation Council pediatric life support",
       "stored_version": "2025",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "General pediatric assessment rules retained. Five age/syndrome-specific emergency modules were added in draft v1.33 and sourced individually; local pediatric medication/formulary and human release review remain pending."
+      "note": "General pediatric assessment framework retained; current international pediatric guidelines and syndrome-specific modules provide dosing/management. Remains yellow pending human pediatric review, not a Hospital da Horta protocol."
     },
     "iv-antihypertensive-selection": {
       "priority": "high",
@@ -764,27 +764,27 @@
       "primary_source": "Canadian Paediatric Society ≤90-day febrile infant statement (updated 2026); AAP febrile infant CPG",
       "primary_source_url": "https://cps.ca/en/documents/position/management-of-well-appearing-febrile-young-infants-aged-90-days",
       "stored_version": "CPS 2023; updated 2026-05-27; AAP 2021",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused term, well-appearing infant pathway; explicit exclusions and age bands 0–28, 29–60, 61–90 days. Prematurity/comorbidity/ill appearance require separate pathway; locally approved Portugal/Azores algorithm and empiric antimicrobial choices need review."
+      "note": "Focused term, well-appearing infant pathway with explicit exclusions and age bands 0–28, 29–60 and 61–90 days. Prematurity/comorbidity/ill appearance require separate specialist pathway. Remains yellow pending human pediatric/infectious-disease review."
     },
     "bronchiolitis": {
       "priority": "high",
       "primary_source": "NICE NG9 bronchiolitis (oxygen threshold update 2021); Canadian Paediatric Society bronchiolitis position statement",
       "primary_source_url": "https://www.nice.org.uk/guidance/ng9",
       "stored_version": "NICE NG9 current online, threshold update 2021; CPS 2021",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Supportive care and oxygen thresholds checked against NICE/CPS. Local oxygen escalation/high-flow/PICU thresholds vary; yellow pending human/local review."
+      "note": "Supportive care and oxygen thresholds checked against current NICE/CPS guidance. Remains yellow pending human pediatric respiratory review; no Horta-specific guideline is required."
     },
     "croup": {
       "priority": "high",
       "primary_source": "Canadian Paediatric Society acute croup statement; Royal Children’s Hospital acute upper-airway obstruction CPG",
       "primary_source_url": "https://cps.ca/en/documents/position/acute-management-of-croup",
       "stored_version": "CPS 2017; RCH current online reviewed 2026",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused steroid/epinephrine bridge and observation boundary; local concentration/formulation and airway escalation protocol must be verified."
+      "note": "Steroid/epinephrine bridge and observation boundaries sourced to current pediatric guidance. Remains yellow pending human pediatric/airway review; no Horta-specific formulation protocol is required."
     },
     "pediatric-dehydration-shock": {
       "priority": "high",
@@ -802,7 +802,7 @@
       "stored_version": "HSE Version 0 effective 15/10/2025, review 15/10/2028; NICE NG217; v1.36 reconciliation 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "v1.36 confirms HSE 2025 algorithm and adds hypoglycemia treatment, rectal diazepam dose, exact levetiracetam dilution/infusion and consultant lacosamide/valproate options. Remains yellow pending pediatric neurology/pharmacy and Portugal/Azores formulary/transfer/EEG verification."
+      "note": "v1.36 confirms HSE 2025 algorithm and adds hypoglycemia treatment, rectal diazepam, levetiracetam administration and specialist alternatives. Remains yellow pending human pediatric neurology/pharmacy review."
     },
     "adult-arrhythmias": {
       "priority": "high",
@@ -829,7 +829,7 @@
       "stored_version": "ERC/RCUK Paediatric Life Support 2025; v1.36 focused consolidation review 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "v1.36 focused review added explicit 2025 pediatric shock, arrhythmia and arrest operational details. Remains yellow pending human pediatric/critical-care review plus Portugal/Azores equipment, formulary, concentration and local protocol reconciliation."
+      "note": "ERC/RCUK 2025 pediatric arrhythmia operational details are explicit. Remains yellow pending human pediatric/critical-care review; local protocol is not a release prerequisite."
     },
     "pediatric-cardiac-arrest": {
       "priority": "high",
@@ -838,7 +838,7 @@
       "stored_version": "ERC/RCUK Paediatric Life Support 2025; v1.36 focused consolidation review 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "v1.36 focused review added explicit 2025 pediatric shock, arrhythmia and arrest operational details. Remains yellow pending human pediatric/critical-care review plus Portugal/Azores equipment, formulary, concentration and local protocol reconciliation."
+      "note": "ERC/RCUK 2025 pediatric arrest energies/drugs/timing are explicit. Remains yellow pending human pediatric/critical-care review; local protocol is not a release prerequisite."
     },
     "undifferentiated-shock": {
       "priority": "high",
@@ -856,7 +856,7 @@
       "stored_version": "ERC/RCUK Paediatric Life Support 2025; v1.36 focused consolidation review 2026-10-02",
       "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "v1.36 focused review added explicit 2025 pediatric shock, arrhythmia and arrest operational details. Remains yellow pending human pediatric/critical-care review plus Portugal/Azores equipment, formulary, concentration and local protocol reconciliation."
+      "note": "ERC/RCUK 2025 + SSC pediatric 2026 shock/fluid/vasoactive framework reconciled. Remains yellow pending human pediatric critical-care review; local protocol is not a release prerequisite."
     },
     "vasoactive-inotrope-infusions": {
       "priority": "high",
