@@ -16,6 +16,7 @@ import json
 import shutil
 import tempfile
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import matplotlib
@@ -56,6 +57,16 @@ def _record_urls(filename_lr):
         [base + filename_lr + ".hea" for base in BASE_URLS],
         [base + filename_lr + ".dat" for base in BASE_URLS],
     )
+
+def _download_case_files(row, case_id, tmp_dir):
+    local_dir = Path(tmp_dir) / case_id
+    local_dir.mkdir(parents=True, exist_ok=True)
+    original_base = Path(row["filename_lr"]).name
+    recbase = local_dir / original_base
+    hea_urls, dat_urls = _record_urls(row["filename_lr"])
+    _download(hea_urls, recbase.with_suffix(".hea"))
+    _download(dat_urls, recbase.with_suffix(".dat"))
+    return case_id, recbase
 
 def _render_standard(record_path, output_png):
     rec = wfdb.rdrecord(str(record_path))
@@ -178,18 +189,26 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
     references = []
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
+        prepared = []
         for row in rows:
             patient_hash = _hash(row["patient_id"], salt)
             study_hash = _hash(row["ecg_id"], salt)
             case_id = f"ptbxl-{study_hash[:16]}"
-            local_dir = tmp / case_id
-            local_dir.mkdir(parents=True, exist_ok=True)
-            original_base = Path(row["filename_lr"]).name
-            recbase = local_dir / original_base
-            hea_url, dat_url = _record_urls(row["filename_lr"])
-            _download(hea_url, recbase.with_suffix(".hea"))
-            _download(dat_url, recbase.with_suffix(".dat"))
+            prepared.append((row, patient_hash, study_hash, case_id))
 
+        workers = min(16, max(4, len(prepared)))
+        record_paths = {}
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = {
+                pool.submit(_download_case_files, row, case_id, tmp): case_id
+                for row, _, _, case_id in prepared
+            }
+            for future in as_completed(futures):
+                case_id, recbase = future.result()
+                record_paths[case_id] = recbase
+
+        for row, patient_hash, study_hash, case_id in prepared:
+            recbase = record_paths[case_id]
             image_name = f"{case_id}.png"
             _render_standard(recbase, images_dir / image_name)
             blinded_cases.append({
