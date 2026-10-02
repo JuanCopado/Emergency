@@ -153,3 +153,6 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Nuevo módulo high-risk `pediatric-blood-transfusion-major-hemorrhage`: trauma/hemorragia crítica, hematíes, plasma, plaquetas y crioprecipitado por peso; separa transfusión crítica de transfusión estable y no impone un pack masivo universal.
 
 - [x] Nuevo módulo high-risk `pediatric-procedural-sedation`: ketamina IV/IM, óxido nitroso y fentanilo intranasal, separado de RSI y sedación UCI.
+
+- [x] Estado real de rama tras expansión pediátrica: **127 módulos / 127 evidencia / 29 green / 98 yellow / 0 red / 141 tests PASS**.
+- [x] Antibióticos pediátricos depurados: duplicados de meningitis eliminados, claritromicina oral de celulitis corregida a bandas de peso, neumonía pediátrica NICE NG250 2025 añadida.
