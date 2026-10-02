@@ -98,3 +98,7 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [IN REVIEW] `trauma-major-hemorrhage` — reconciled 02/10/2026 with DGS Norma 011/2013 (current DGS listing updated 18/07/2017) + European trauma guideline 2023. Historical fixed pack/TXA/rFVIIa wording corrected; status changed green -> yellow pending human transfusion/trauma review and current Horta/Azores operational verification.
 
 - [IN REVIEW] `traumatic-intracranial-mass-effect` — Hospital da Horta local TCE card supplied 02/10/2026 integrated and compared with NICE NG232/BTF. Local CT/observation routing preserved; status green -> yellow until the SBP and mild-TBI CT/antiplatelet differences are confirmed as intentional and the card version/date is recorded.
+
+- [IN REVIEW] `acute-respiratory-failure` + `noninvasive-ventilation` — ERS HFNO 2022 + ERS/ATS NIV 2017 reconciled 02/10/2026. HFNO remains preferred over NIV for de-novo hypoxemic failure; COPD-acidotic and cardiogenic indications preserved. Both remain yellow pending respiratory/ICU + local device/escalation review.
+- [AUDITED / NO CHANGE] `high-flow-nasal-oxygen` — already green; ERS 2022 and ROX limitations remain concordant.
+- [AUDITED / NO CHANGE] `oxygen-therapy-emergency` — already green; target-based oxygen and device limitations preserved.
