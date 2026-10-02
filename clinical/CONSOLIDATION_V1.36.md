@@ -102,3 +102,6 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [IN REVIEW] `acute-respiratory-failure` + `noninvasive-ventilation` — ERS HFNO 2022 + ERS/ATS NIV 2017 reconciled 02/10/2026. HFNO remains preferred over NIV for de-novo hypoxemic failure; COPD-acidotic and cardiogenic indications preserved. Both remain yellow pending respiratory/ICU + local device/escalation review.
 - [AUDITED / NO CHANGE] `high-flow-nasal-oxygen` — already green; ERS 2022 and ROX limitations remain concordant.
 - [AUDITED / NO CHANGE] `oxygen-therapy-emergency` — already green; target-based oxygen and device limitations preserved.
+
+- [IN REVIEW] `medication-selection-safety` — WHO Medication Without Harm 2024 + ISMP high-alert list 2024 reconciled 02/10/2026; unit/concentration/high-alert/double-check/transition gates strengthened; remains yellow pending Horta pharmacy/smart-pump/local-policy review.
+- [IN REVIEW] `pediatric-status-epilepticus` — HSE CDI/0277/1.0/2025 rechecked 02/10/2026; glucose, rectal diazepam, levetiracetam administration and consultant alternatives completed; remains yellow pending pediatric neurology/pharmacy + Portugal/Azores operational review.
