@@ -9,7 +9,7 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 - Evidencia registrada: **106/106**; 31 green, 75 yellow, 0 red.
 
 ## Estado de trabajo v1.36
-- Rama `v1.36-consolidation`: **127 IDs**, **127/127** registros de evidencia, **29 green / 98 yellow / 0 red**. El último `Clinical QA` pasa con **151 tests**.
+- Rama `v1.36-consolidation`: **127 IDs**, **127/127** registros de evidencia, **29 green / 98 yellow / 0 red**. Último `Clinical QA` verificado: **162/162 tests PASS**, `automated_status: PASS`.
 - El nuevo módulo separa selección clínica de aritmética: `scripts/pediatric_emergency_calculator.py` solo calcula dosis/volúmenes/mL/h con entradas ya validadas.
 - Jerarquía pediátrica v1.36: ERC/RCUK 2025, AHA/AAP PALS 2025, SSC pediátrica 2026, NICE, HSE 2025, PANDEM y fichas técnicas oficiales. No se exige guía local de Horta para pediatría.
 - Perfusiones pediátricas fuente-verificadas ya cargadas para adrenalina, noradrenalina, dopamina con restricción de fuente, dobutamina, milrinona, fentanilo y midazolam.
@@ -17,7 +17,7 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 
 - Antibióticos pediátricos v1.36 depurados por síndrome: sepsis, meningitis, pielonefritis/ITU, celulitis, neutropenia febril y neumonía; se eliminaron duplicados y se preservan bandas de edad/peso cuando la guía no permite una conversión universal mg/kg.
 
-- Fase 5 de imagen: gate ciego v1.1 activo con hashes paciente/estudio, timestamps de congelación/revelado, clases positive/negative/abstain/nondiagnostic, cálculo fail-closed de métricas y generador de manifiestos por modalidad. `qa/IMAGE_DATASET_SOURCES.md` documenta PTB-XL, RSNA ICH, CheXpert/MIMIC-CXR y EchoNet como candidatos. Aún no existe un banco real suficiente para afirmar sensibilidad/especificidad.
+- Fase 5 de imagen: gate ciego v1.1 activo con hashes paciente/estudio, timestamps de congelación/revelado, clases positive/negative/abstain/nondiagnostic, cálculo fail-closed de métricas y generador de manifiestos por modalidad. `qa/IMAGE_DATASET_SOURCES.md` documenta PTB-XL, RSNA ICH, CheXpert/MIMIC-CXR y EchoNet como candidatos. Existe un pilot PTB-XL real validado para ingeniería de pipeline (sin métricas); el fold 10 completo de prevalencia natural está en construcción. No existe todavía una evaluación diagnóstica ciega finalizada que permita afirmar sensibilidad/especificidad.
 
 ## Estado autoritativo actual
 - **v1.35** sigue siendo la línea clínica vigente; **v1.36-consolidation** es una rama de trabajo documental/validación y no una liberación clínica.
@@ -143,3 +143,7 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Full-fold PTB-XL AFIB run #9 continúa en `Build blinded fold-10 ECG benchmark`; sin error reportado y referencia aún sellada.
 
 - Estado de tests actualizado tras sharding/merge: **161 PASS**.
+
+- Clinical QA #297 y #298: SUCCESS; suite actual **162/162 PASS**.
+- Builder PTB-XL optimizado con descarga concurrente y render multiproceso determinista; no cambia selección, referencia ni protocolo.
+- Full-fold acelerado activo: run #11 / 37050506581, target AFIB, mode FULL_FOLD; referencia sellada.
