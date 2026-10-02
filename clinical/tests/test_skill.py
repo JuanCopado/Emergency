@@ -683,6 +683,33 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('icu-sedation-analgesia-infusions', procedural)
         self.assertIn('ketamine 1 mg/kg IV over 30--60 seconds', ' '.join(procedural.split()))
 
+
+    def test_v136_adult_resuscitation_2025_operational_details(self):
+        tachy = ' '.join(load(ROOT, 'adult-arrhythmias').split())
+        arrest = ' '.join(load(ROOT, 'adult-cardiac-arrest').split())
+        for invariant in (
+            '70--120 J initially',
+            '120--150 J initially',
+            'atropine 500 micrograms IV',
+            'maximum of 3 mg',
+            'isoprenaline starting at 5 micrograms/min',
+            'adrenaline 2--10 micrograms/min',
+            'high-degree AV block with a wide QRS',
+            'transvenous pacing'
+        ):
+            self.assertIn(invariant, tachy)
+        for invariant in (
+            'first shock should be at least 150 J',
+            '130--150 J',
+            'non-shockable arrest: 1 mg IV as soon as possible',
+            'shockable VF/pVT: 1 mg after the third shock',
+            'Repeat 1 mg every 3--5 min',
+            '300 mg IV after a total of three shocks',
+            '150 mg IV after a total of five shocks',
+            'within two attempts'
+        ):
+            self.assertIn(invariant, arrest)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
