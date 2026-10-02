@@ -838,8 +838,8 @@ class ModularCoreTests(unittest.TestCase):
         for invariant in (
             '150 mL sodium chloride 3% IV over 20 min',
             '5 mmol/L initial rise',
-            '>10 mmol/L in the first 24 h',
-            '>8 mmol/L in each subsequent 24 h',
+            'greater than 10 mmol/L in the first 24 hours',
+            'greater than 8 mmol/L in each subsequent 24 hours',
             'relowering',
             'electrolyte-free water'
         ):
@@ -851,7 +851,7 @@ class ModularCoreTests(unittest.TestCase):
             'SBP >=160 mm Hg',
             'DBP >=110 mm Hg',
             '15 min',
-            '30--60 min',
+            '30--60 minutes',
             '4--6 g IV loading',
             '1--2 g/h',
             'calcium gluconate 1 g IV',
