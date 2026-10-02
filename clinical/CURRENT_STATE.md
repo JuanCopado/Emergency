@@ -9,7 +9,7 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 - Evidencia registrada: **106/106**; 31 green, 75 yellow, 0 red.
 
 ## Estado de trabajo v1.36
-- Rama `v1.36-consolidation`: **112 IDs**, **112/112** registros de evidencia, **31 green / 81 yellow / 0 red**. La ampliación pediátrica pasa `Clinical QA` con **94 tests**.
+- Rama `v1.36-consolidation`: **113 IDs**, **113/113** registros de evidencia, **31 green / 82 yellow / 0 red**. La ampliación pediátrica pasa `Clinical QA` con **94 tests**.
 - El nuevo módulo separa selección clínica de aritmética: `scripts/pediatric_emergency_calculator.py` solo calcula dosis/volúmenes/mL/h con entradas ya validadas.
 - Jerarquía pediátrica v1.36: ERC/RCUK 2025, AHA/AAP PALS 2025, SSC pediátrica 2026, NICE, HSE 2025, PANDEM y fichas técnicas oficiales. No se exige guía local de Horta para pediatría.
 - Perfusiones pediátricas fuente-verificadas ya cargadas para adrenalina, noradrenalina, dopamina con restricción de fuente, dobutamina, milrinona, fentanilo y midazolam.
@@ -89,3 +89,5 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - `pediatric-electrolyte-emergencies` añade dosis pediátricas específicas para K/Mg/Ca/Na/glucosa y evita heredar pautas adultas.
 
 - `pediatric-blood-transfusion-major-hemorrhage` añade soporte transfusional pediátrico por peso y preserva la variabilidad entre protocolos de hemorragia masiva.
+
+- `pediatric-procedural-sedation` separa sedación procedimental de RSI y perfusiones UCI, con ketamina/nitroso/fentanilo y criterios de recuperación.
