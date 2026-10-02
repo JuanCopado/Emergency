@@ -40,6 +40,7 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | pediatric-acute-asthma | `modules/special-populations.md` |
 | pediatric-emergency-medications | `modules/special-populations.md` |
 | pediatric-iv-fluid-therapy | `modules/special-populations.md` |
+| pediatric-electrolyte-emergencies | `modules/special-populations.md` |
 | febrile-infant-0-90-days | `modules/special-populations.md` |
 | bronchiolitis | `modules/special-populations.md` |
 | croup | `modules/special-populations.md` |
