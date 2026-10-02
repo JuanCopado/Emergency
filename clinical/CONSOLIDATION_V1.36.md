@@ -177,3 +177,7 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Generador fail-closed `scripts/create_blinded_image_dataset.py`: crea manifiestos por modalidad/target con autorización, desidentificación y referencia independiente inicialmente en falso.
 - [x] Métricas ciegas v1.1: TP/FP/TN/FN, cobertura, abstención/no-diagnóstico e IC Wilson; sensibilidad/especificidad solo con cobertura binaria completa.
+
+- [x] Fuentes candidatas de banco ciego documentadas en `qa/IMAGE_DATASET_SOURCES.md`: PTB-XL (ECG), RSNA ICH (TC), CheXpert/MIMIC-CXR (Rx tórax), EchoNet-Dynamic/EchoNet-Pediatric (eco).
+- [ ] Importar/registrar casos reales únicamente tras revisar licencia/DUA y mantener los datos fuera del repo cuando corresponda.
+- [ ] Aún no existe un dataset real suficiente para calcular métricas clínicas.
