@@ -1,3 +1,9 @@
+## Project consolidation — Graph/RAG/Graphify infrastructure (02/10/2026)
+- Added project architecture, Graphify guidance/exclusions, RAG contract and external-model registry.
+- Added deterministic module→bundle→evidence-source graph builder and tests; it performs no clinical inference and fails on manifest/evidence mismatch.
+- Added GitHub Actions clinical CI for manifest, evidence, unit/regression tests and graph generation.
+- No clinical recommendation, dose or module content changed in this infrastructure update.
+
 ## v1.35 working update — ICU/ED Continuous Infusions (draft)
 - Added `vasoactive-inotrope-infusions` (cardiovascular bundle): norepinephrine, vasopressin, epinephrine, dopamine (not first-line in septic shock), dobutamine, milrinone, levosimendan, phenylephrine and availability-caveated angiotensin II, with phenotype position (cross-referenced, not duplicated), label/guideline doses, titration, ceilings, dilution/concentration, 70 kg mL/h arithmetic, peripheral/central caveats, extravasation and weaning.
 - Added `icu-sedation-analgesia-infusions` (procedures-pharmacology bundle): analgesia-first ICU continuous fentanyl, remifentanil, morphine, hydromorphone, propofol, dexmedetomidine, midazolam and ketamine adjunct; RASS/CPOT/BPS targets, light sedation, daily interruption, PRIS/triglycerides, dexmedetomidine bradycardia, benzodiazepine accumulation/delirium. `sedoanalgesia` kept as procedural sedation with a one-line cross-reference.
