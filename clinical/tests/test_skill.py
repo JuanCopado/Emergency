@@ -60,6 +60,7 @@ from validate_real_image_cases import validate as validate_real_image_cases
 from validate_blinded_image_dataset import validate as validate_blinded_image_dataset
 from calculate_blinded_image_metrics import calculate as calculate_blinded_image_metrics
 from create_blinded_image_dataset import build as build_blinded_image_dataset
+from prepare_ptbxl_blinded_cohort import prepare as prepare_ptbxl_blinded_cohort
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2030,12 +2031,39 @@ class ModularCoreTests(unittest.TestCase):
         items = {x['id']: x for x in data['sources']}
         self.assertEqual(items['ptb-xl']['license_or_dua'], 'CC BY 4.0')
         self.assertTrue(items['ptb-xl']['license_or_dua_verified'])
-        self.assertFalse(items['ptb-xl']['intake_ready'])
+        self.assertTrue(items['ptb-xl']['reference_strategy_prespecified'])
+        self.assertTrue(items['ptb-xl']['label_separation_plan'])
+        self.assertTrue(items['ptb-xl']['intake_ready'])
         self.assertTrue(items['rsna-ich-2019']['license_or_dua_verified'])
         self.assertFalse(items['rsna-ich-2019']['intake_ready'])
         self.assertFalse(items['chexpert']['license_or_dua_verified'])
         self.assertFalse(items['mimic-cxr-2.1.0']['intake_ready'])
         self.assertFalse(items['echonet-dynamic']['intake_ready'])
+
+    def test_v136_ptbxl_blinded_cohort_separates_labels_and_hashes_patients(self):
+        csv_text = (
+            "ecg_id,patient_id,strat_fold,scp_codes\n"
+            "1,100,10,\"{'AFIB': 100.0}\"\n"
+            "2,100,10,\"{'NORM': 100.0}\"\n"
+            "3,200,9,\"{'AFIB': 100.0}\"\n"
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            p = Path(directory) / 'ptbxl_database.csv'
+            p.write_text(csv_text, encoding='utf-8')
+            cohort, reference = prepare_ptbxl_blinded_cohort(
+                p, 'AFIB', '0123456789abcdef', fold=10
+            )
+        self.assertEqual(len(cohort['cases']), 2)
+        self.assertEqual(reference['positive_reference_cases'], 1)
+        self.assertEqual(reference['negative_reference_cases'], 1)
+        self.assertTrue(cohort['labels_separated'])
+        self.assertTrue(cohort['reference_file_sealed_until_prediction_freeze'])
+        self.assertEqual(
+            cohort['cases'][0]['patient_uid_hash'],
+            cohort['cases'][1]['patient_uid_hash']
+        )
+        self.assertNotIn('target_positive', cohort['cases'][0])
+        self.assertIn('target_positive', reference['references'][0])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
