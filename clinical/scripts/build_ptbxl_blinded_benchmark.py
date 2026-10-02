@@ -165,8 +165,16 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
 
     selection_mode = "full_fold"
     if natural_limit and natural_limit > 0:
-        rows = sorted(rows, key=lambda r: int(r["ecg_id"]))[:natural_limit]
-        selection_mode = f"natural_label_agnostic_first_{natural_limit}"
+        ordered = sorted(rows, key=lambda r: int(r["ecg_id"]))
+        if natural_limit >= len(ordered):
+            rows = ordered
+        else:
+            step = len(ordered) / natural_limit
+            indices = [min(len(ordered) - 1, int((i + 0.5) * step)) for i in range(natural_limit)]
+            if len(set(indices)) != natural_limit:
+                raise ValueError("systematic sample produced duplicate indices")
+            rows = [ordered[i] for i in indices]
+        selection_mode = f"natural_label_agnostic_systematic_{len(rows)}"
     positives = [r for r in rows if r["_target_positive"]]
     negatives = [r for r in rows if not r["_target_positive"]]
     if not positives or not negatives:
@@ -270,7 +278,7 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
         },
         "selection_rule": f"strat_fold == {int(fold)}",
         "selection_mode": selection_mode,
-        "performance_metrics_allowed": selection_mode == "full_fold" or selection_mode.startswith("natural_label_agnostic_"),
+        "performance_metrics_allowed": selection_mode == "full_fold" or selection_mode.startswith("natural_label_agnostic_systematic_"),
         "patient_grouping_prespecified": True,
         "metrics_requested": False,
         "render_protocol": "qa/PTBXL_BLINDED_PROTOCOL.md",
