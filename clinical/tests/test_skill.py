@@ -53,6 +53,7 @@ from pediatric_emergency_calculator import (
 from pediatric_respiratory_support import hfno_flow_l_min as pediatric_hfno_flow_l_min, ventilation_rate_reference as pediatric_ventilation_rate_reference
 from pediatric_dka_calculator import corrected_sodium as pediatric_dka_corrected_sodium, insulin_ml_h as pediatric_dka_insulin_ml_h, cerebral_injury_rescue as pediatric_dka_cerebral_rescue
 from pediatric_burn_calculator import burn_plan as pediatric_burn_plan
+from pediatric_hypertension_calculator import labetalol_ml_h as pediatric_labetalol_ml_h, hydralazine_ml_h as pediatric_hydralazine_ml_h
 from validate_clinical_cases import validate as validate_clinical_cases
 from audit_evidence_coverage import audit as audit_evidence_coverage
 from validate_real_image_cases import validate as validate_real_image_cases
@@ -212,7 +213,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 123)
+        self.assertEqual(len(manifest), 124)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1648,6 +1649,27 @@ class ModularCoreTests(unittest.TestCase):
             'tertiary survey within **24 h**',
             'non-accidental injury'
         ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_hypertensive_emergency_core(self):
+        module = ' '.join(load(ROOT, 'pediatric-hypertensive-emergency').split())
+        for invariant in (
+            'estimated **95th percentile**',
+            '**<25% in the first 6--8 h**',
+            '0.25--3 mg/kg/h',
+            'maximum initial rate **120 mg/h**',
+            '0.2--1 mg/kg',
+            'maximum **40 mg/dose**',
+            '**1 mg/mL** via peripheral IV',
+            '**5 mg/mL** via central access',
+            '0.1--0.2 mg/kg/dose',
+            '**1--6 micrograms/kg/min, max 300 micrograms/min**',
+            '400 micrograms/mL'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_hypertension_pump_calculations(self):
+        self.assertAlmostEqual(pediatric_labetalol_ml_h(20, 0.5, 1.0), 10.0)
+        self.assertAlmostEqual(pediatric_labetalol_ml_h(20, 0.5, 5.0), 2.0)
+        self.assertAlmostEqual(pediatric_hydralazine_ml_h(20, 4, 400), 12.0)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):

@@ -70,3 +70,5 @@ This file explains why they receive stricter release gates.
 - pediatric-abdominal-surgical-emergencies
 
 - pediatric-major-trauma
+
+- pediatric-hypertensive-emergency

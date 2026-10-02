@@ -145,3 +145,5 @@ each changes immediate decisions; do not load an entire category.
 - pediatric bilious vomiting, intussusception, appendicitis, testicular/adnexal torsion or acute surgical abdomen -> pediatric-abdominal-surgical-emergencies + pediatric-emergencies + pediatric-emergency-medications
 
 - pediatric major trauma, polytrauma, high-energy mechanism or trauma-team activation -> pediatric-major-trauma + pediatric-emergencies; add pediatric-head-injury, pediatric-blood-transfusion-major-hemorrhage, pediatric-burns or pediatric-airway-rsi as indicated
+
+- pediatric severe hypertension, hypertensive emergency/encephalopathy or IV antihypertensive infusion -> pediatric-hypertensive-emergency + pediatric-emergencies + medication-selection-safety

@@ -1028,6 +1028,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Integrating pediatric major-trauma route coordinates <c>ABCDE, cervical-spine precautions, hemorrhage/blood/TXA, secondary and tertiary survey without duplicating injury-specific modules. Human pediatric trauma review pending."
+    },
+    "pediatric-hypertensive-emergency": {
+      "priority": "high",
+      "primary_source": "Perth Children's Hospital Labetalol monograph reviewed Apr 2026 + Hydralazine monograph 2025 + RCH Hypertension current",
+      "primary_source_url": "https://www.pch.health.wa.gov.au/~/media/Files/Hospitals/PCH/General-documents/Health-professionals/MedicationMonographs/Labetalol.pdf",
+      "stored_version": "PCH labetalol Apr 2026; PCH hydralazine 2025; RCH hypertension current online reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric hypertensive emergency route uses age/percentile context, controlled reduction, source-verified labetalol/hydralazine doses and concentrations. Human pediatric nephrology/critical-care review pending."
     }
   }
 }
