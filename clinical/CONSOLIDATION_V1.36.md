@@ -20,6 +20,16 @@ Reducir deuda clínica y documental de v1.35 antes de añadir módulos de bajo v
 - [x] Eliminar duplicación de v1.28 en README.
 - [x] Declarar v1.36 como rama de consolidación, no como liberación clínica.
 
+## QA transversal
+- [x] Política QA formal.
+- [x] Matriz de controles.
+- [x] Release gates fail-closed para defectos automatizables.
+- [x] Runner único `qa/qa_runner.py`.
+- [x] Gate de revisión humana para high-risk.
+- [x] Gate Portugal/Azores para presentaciones/protocolos locales.
+- [x] CI GitHub para ejecutar QA en push/PR de consolidación.
+- [x] Regla: QA automático nunca convierte un high-risk yellow a green.
+
 ## Fase 2 — yellow de máximo riesgo
 Orden de revisión:
 1. [IN REVIEW] `adult-cardiac-arrest`, `adult-arrhythmias`, `arrhythmias-cardiac-arrest` — ERC/RCUK 2025 reconciled 02/10/2026; explicit energies/doses/pacing added; remains yellow pending human + Portugal/Azores operational review
