@@ -131,7 +131,7 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Jerarquía pediátrica actualizada: ERC/RCUK 2025 (ruta europea primaria), AHA/AAP PALS 2025 (contraste), SSC pediátrica 2026 (sepsis/shock), NICE NG29/CG84 (fluidos), HSE 2025 (status), PANDEM 2022 (PICU sedación/delirium), fichas técnicas oficiales (restricciones/formulación).
 
-- [x] Dexmedetomidina/propofol: conflicto guía/ficha técnica conservado; generación automática bloqueada. Ketamina continua: pendiente por falta de pauta pediátrica explícita en la guía revisada.
+- [x] Dexmedetomidina/propofol: conflicto guía/ficha técnica conservado; generación automática bloqueada. Ketamina continua para analgesia: pauta y concentraciones por peso verificadas con RCH; no usar como régimen universal de sedación.
 - [x] Clinical QA tras ampliación de perfusiones pediátricas: **94 tests PASS**.
 
 - [x] Registro `qa/pediatric-bolus-medications.json` + `scripts/pediatric_bolus_calculator.py` para RSI, anafilaxia, asma grave, hipoglucemia y alteraciones K/Mg; volumen solo cuando la fuente define concentración.
