@@ -38,8 +38,8 @@ Orden de revisión:
 4. [IN REVIEW] `icu-sedation-analgesia-infusions` — PADIS 2018/2025 + current dexmedetomidine product information rechecked 02/10/2026; remains yellow pending ICU/pharmacy + Portugal/Azores product/formulary review
 5. [IN REVIEW] `pulmonary-embolism` — ESC formal guideline 2019 + ACVC 2025 operational update reconciled 02/10/2026; 2026 PRAGUE-26 retained as emerging evidence; remains yellow pending human + Portugal/Azores reperfusion/anticoagulation review
 6. [IN REVIEW] `anticoagulation-reversal` — ISTH SSC 2024 + current andexanet/idarucizumab product information reconciled 02/10/2026; remains yellow pending hematology/pharmacy + Portugal/Azores formulary/release workflow review
-7. `empiric-antibiotics`
-8. `status-epilepticus`
+7. [IN REVIEW] `empiric-antibiotics` — SSC 2026 + IDSA cUTI 2025 reconciled 02/10/2026; timing/stewardship/local-antibiogram gates added; remains yellow pending ID/pharmacy + Horta/Azores antibiogram/formulary review
+8. [IN REVIEW] `status-epilepticus` — NICE 2025 + ACEP 2024/AES-ESETT doses reconciled 02/10/2026; explicit benzodiazepine/second-line loads added; remains yellow pending neurology/ICU + Portugal/Azores operational review
 9. `sodium-emergencies`
 10. `obstetric-emergencies`
 11. `toxicology`
