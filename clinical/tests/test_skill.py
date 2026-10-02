@@ -1213,6 +1213,26 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             pediatric_bolus_calculate('anaphylaxis-epinephrine-im', 0)
 
+
+    def test_v136_pediatric_analgesia_and_home_dose_registry(self):
+        para = pediatric_bolus_calculate('pain-paracetamol-po', 20)
+        self.assertAlmostEqual(para['dose'], 300.0)
+        ibu = pediatric_bolus_calculate('pain-ibuprofen-po', 20)
+        self.assertAlmostEqual(ibu['dose'], 200.0)
+        fent = pediatric_bolus_calculate('pain-fentanyl-intranasal', 20)
+        self.assertAlmostEqual(fent['dose'], 30.0)
+        self.assertAlmostEqual(fent['volume_ml'], 0.6)
+        nal = pediatric_bolus_calculate('opioid-toxicity-naloxone-initial', 20)
+        self.assertAlmostEqual(nal['dose'], 200.0)
+        nal2 = pediatric_bolus_calculate('opioid-toxicity-naloxone-escalation', 30)
+        self.assertAlmostEqual(nal2['dose'], 2000.0)
+
+    def test_v136_pediatric_antibiotics_are_syndrome_specific(self):
+        module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
+        self.assertIn('do **not** build a universal weight-based antibiotic table', module)
+        self.assertIn('syndrome-specific pathway and current guideline', module)
+        self.assertIn('local resistance', module)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
