@@ -1537,7 +1537,7 @@ class ModularCoreTests(unittest.TestCase):
             self.assertIn(invariant, module)
 
     def test_v136_pediatric_meningitis_antibiotic_registry(self):
-        c = pediatric_antibiotic_calculate('meningitis-ceftriaxone-ge2m', 20)
+        c = pediatric_antibiotic_calculate('meningitis-ceftriaxone-ge2mo', 20)
         self.assertAlmostEqual(c['dose'], 2000.0)
         v = pediatric_antibiotic_calculate('meningitis-vancomycin-pneumococcal-risk', 60)
         self.assertAlmostEqual(v['dose'], 750.0)
@@ -1724,6 +1724,37 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(c['dose'], 1000.0)
         v = pediatric_antibiotic_calculate('febrile-neutropenia-vancomycin-severe-allergy', 50)
         self.assertAlmostEqual(v['dose'], 500.0)
+
+
+    def test_v136_pediatric_antibiotic_registry_has_no_duplicate_meningitis_entries(self):
+        data = json.loads((ROOT / 'qa' / 'pediatric-antibiotics.json').read_text(encoding='utf-8'))
+        ids = [x['id'] for x in data['entries']]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertNotIn('meningitis-ceftriaxone-ge2m', ids)
+        self.assertNotIn('meningitis-cefotaxime-ge2m', ids)
+
+    def test_v136_cellulitis_clarithromycin_oral_does_not_fake_universal_mgkg(self):
+        data = json.loads((ROOT / 'qa' / 'pediatric-antibiotics.json').read_text(encoding='utf-8'))
+        entry = next(x for x in data['entries'] if x['id'] == 'cellulitis-clarithromycin-po')
+        self.assertEqual(entry['status'], 'agent_verified_dose_external')
+        self.assertNotIn('dose_per_kg', entry)
+        self.assertTrue(entry['weight_band_doses'])
+        with self.assertRaises(ValueError):
+            pediatric_antibiotic_calculate('cellulitis-clarithromycin-po', 20)
+
+    def test_v136_nice_2025_pediatric_pneumonia_antibiotics(self):
+        c1 = pediatric_antibiotic_calculate('cap-severe-coamoxiclav-iv-1to2mo', 5)
+        self.assertAlmostEqual(c1['dose'], 150.0)
+        self.assertEqual(c1['frequency'], 'twice daily')
+        c2 = pediatric_antibiotic_calculate('cap-severe-coamoxiclav-iv-ge3mo', 20)
+        self.assertAlmostEqual(c2['dose'], 600.0)
+        self.assertEqual(c2['frequency'], 'three times daily')
+        mac = pediatric_antibiotic_calculate('cap-severe-clarithromycin-iv-1mto11y', 20)
+        self.assertAlmostEqual(mac['dose'], 150.0)
+        data = json.loads((ROOT / 'qa' / 'pediatric-antibiotics.json').read_text(encoding='utf-8'))
+        oral = next(x for x in data['entries'] if x['id'] == 'cap-nonsevere-amoxicillin-age-bands')
+        self.assertEqual(oral['status'], 'age_band_only')
+        self.assertEqual(len(oral['age_band_doses']), 5)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
