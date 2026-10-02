@@ -182,8 +182,8 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Fuentes candidatas de banco ciego documentadas en `qa/IMAGE_DATASET_SOURCES.md`: PTB-XL (ECG), RSNA ICH (TC), CheXpert/MIMIC-CXR (Rx tórax), EchoNet-Dynamic/EchoNet-Pediatric (eco).
 - [x] Primer pilot real PTB-XL importado/renderizado fuera del repo mediante GitHub Actions (run #6): 10 ECG, artefacto ciego y referencia sellada separados; sin claims de precisión.\n- [x] Cohorte label-agnostic de prevalencia natural construida: muestreo sistemático de 500 casos del fold 10, independiente del diagnóstico. Full-fold permanece como ampliación, no como gate para iniciar evaluación.
-- [x] Workflow manual `ptbxl-blinded-intake.yml` preparado para ejecutar intake real fuera del repo: descarga PTB-XL v1.0.3, renderiza fold 10, usa IDs hash y separa referencia sellada del artefacto ciego. Aún no se ha observado una ejecución real del workflow.
-- [ ] Aún no existe un dataset real suficiente para calcular métricas clínicas.
+- [x] Workflow `ptbxl-blinded-intake.yml` ejecutado repetidamente en GitHub Actions: pilot, NATURAL_500 y full-fold; separación ciego/referencia y artifact upload verificados.
+- [x] Existe banco real suficiente para iniciar evaluación ciega (NATURAL_500/full-fold), pero **métricas siguen bloqueadas** hasta completar predicciones reales congeladas antes del reveal.
 - [x] Gate post-predicción `finalize_blinded_image_dataset.py`: exige predicciones completas/congeladas antes de revelar referencia, une por IDs/hash y genera manifiesto v1.1 sin identificadores fuente.
 
 - [x] Evaluación ciega escalable preparada: `shard_blinded_image_manifest.py`, `create_blinded_prediction_template.py` y `merge_blinded_prediction_shards.py`.
@@ -197,3 +197,8 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] CheXpert: expert-test reference frozen (500 studies, 500 unseen patients, majority vote 5/8 board-certified radiologists); training report-derived labels excluded from expert ground truth.
 - [x] CheXpert preparer `prepare_chexpert_expert_blinded_cohort.py` separates study/patient hashes from expert truth and defaults `authorized=false`.
 - [ ] CheXpert remains blocked for real intake until the dataset-specific current AIMI/Redivis download/license agreement is verified and documented.
+
+- [x] MIMIC-CXR 2.1.0: source-level gates completos; solo test labels manualmente curados 1/0, uncertain/blank excluidos preespecificadamente. Acceso real requiere PhysioNet credentialing/CITI/DUA.
+- [x] EchoNet-Dynamic: source-level gates completos para `lvef_below_40_percent` en split TEST; Research Use Agreement, no-redistribution y research-only documentados.
+- [ ] CheXpert: referencia expert-test completa; pendiente únicamente verificación documental del acuerdo específico presentado por el portal de descarga antes de marcar intake-ready.
+- [x] PTB-XL hardening: suppress pre-reveal aggregate prevalence from workflow logs; clean NATURAL_500 v2 initiated with new salt.
