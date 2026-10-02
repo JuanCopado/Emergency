@@ -58,6 +58,7 @@ from validate_clinical_cases import validate as validate_clinical_cases
 from audit_evidence_coverage import audit as audit_evidence_coverage
 from validate_real_image_cases import validate as validate_real_image_cases
 from validate_blinded_image_dataset import validate as validate_blinded_image_dataset
+from calculate_blinded_image_metrics import calculate as calculate_blinded_image_metrics
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -1820,32 +1821,50 @@ class ModularCoreTests(unittest.TestCase):
             'deidentified': True,
             'protocol_prespecified': True,
             'independent_reference': True,
+            'modality': 'chest_xray',
+            'target_condition': 'target condition',
             'target_question': 'detect target condition',
+            'reference_standard': {'type': 'independent expert reference'},
+            'patient_grouping_prespecified': True,
             'metrics_requested': True,
             'cases': [
                 {
                     'id': 'p1',
+                    'patient_uid_hash': 'patient-p1',
                     'study_uid_hash': 'hash-p1',
                     'evaluation': {'mode': 'blinded', 'annotated': False,
                                    'reference_revealed_after_prediction': True,
-                                   'prediction_frozen': True},
+                                   'prediction_frozen': True,
+                                   'prediction_frozen_at': '2026-10-02T12:00:00Z',
+                                   'reference_revealed_at': '2026-10-02T12:05:00Z'},
                     'reference': {'target_positive': True},
-                    'prediction': {'target_positive': True}
+                    'prediction': {'class': 'positive'}
                 },
                 {
                     'id': 'n1',
+                    'patient_uid_hash': 'patient-n1',
                     'study_uid_hash': 'hash-n1',
                     'evaluation': {'mode': 'blinded', 'annotated': False,
                                    'reference_revealed_after_prediction': True,
-                                   'prediction_frozen': True},
+                                   'prediction_frozen': True,
+                                   'prediction_frozen_at': '2026-10-02T12:01:00Z',
+                                   'reference_revealed_at': '2026-10-02T12:06:00Z'},
                     'reference': {'target_positive': False},
-                    'prediction': {'target_positive': False}
+                    'prediction': {'class': 'negative'}
                 }
             ]
         }
         result = validate_blinded_image_dataset(data)
         self.assertEqual(result['errors'], [])
         self.assertTrue(result['metrics_eligible'])
+        self.assertEqual(result['binary_predictions'], 2)
+
+        metrics = calculate_blinded_image_metrics(data)
+        self.assertEqual(metrics['errors'], [])
+        self.assertTrue(metrics['metrics']['standard_binary_metrics_available'])
+        self.assertAlmostEqual(metrics['metrics']['sensitivity'], 1.0)
+        self.assertAlmostEqual(metrics['metrics']['specificity'], 1.0)
+        self.assertAlmostEqual(metrics['metrics']['coverage'], 1.0)
 
     def test_v136_image_metrics_fail_closed_for_source_known_or_annotated_cases(self):
         teaching = {
@@ -1863,21 +1882,114 @@ class ModularCoreTests(unittest.TestCase):
             'deidentified': True,
             'protocol_prespecified': True,
             'independent_reference': True,
+            'modality': 'ecg',
+            'target_condition': 'target condition',
             'target_question': 'detect target condition',
+            'reference_standard': {'type': 'independent expert reference'},
+            'patient_grouping_prespecified': True,
             'metrics_requested': False,
             'cases': [{
                 'id': 'bad1',
+                'patient_uid_hash': 'patient-bad1',
                 'study_uid_hash': 'hash-bad1',
                 'evaluation': {'mode': 'blinded', 'annotated': True,
                                'reference_revealed_after_prediction': True,
-                               'prediction_frozen': True},
+                               'prediction_frozen': True,
+                               'prediction_frozen_at': '2026-10-02T12:00:00Z',
+                               'reference_revealed_at': '2026-10-02T12:05:00Z'},
                 'reference': {'target_positive': True},
-                'prediction': {'target_positive': True}
+                'prediction': {'class': 'positive'}
             }]
         }
         result2 = validate_blinded_image_dataset(annotated)
         self.assertFalse(result2['metrics_eligible'])
         self.assertIn('bad1: annotated must be false', result2['errors'])
+
+    def test_v136_image_freeze_leakage_and_patient_grouping_gates(self):
+        data = {
+            'dataset_class': 'blinded_accuracy',
+            'authorized': True,
+            'deidentified': True,
+            'protocol_prespecified': True,
+            'independent_reference': True,
+            'modality': 'ct_mri',
+            'target_condition': 'target',
+            'target_question': 'target?',
+            'reference_standard': {'type': 'independent adjudication'},
+            'patient_grouping_prespecified': False,
+            'metrics_requested': False,
+            'cases': [
+                {
+                    'id': 'a',
+                    'patient_uid_hash': 'same-patient',
+                    'study_uid_hash': 'study-a',
+                    'evaluation': {'mode':'blinded','annotated':False,
+                                   'reference_revealed_after_prediction':True,
+                                   'prediction_frozen':True,
+                                   'prediction_frozen_at':'2026-10-02T12:10:00Z',
+                                   'reference_revealed_at':'2026-10-02T12:05:00Z'},
+                    'reference': {'target_positive': True},
+                    'prediction': {'class':'positive'}
+                },
+                {
+                    'id': 'b',
+                    'patient_uid_hash': 'same-patient',
+                    'study_uid_hash': 'study-b',
+                    'evaluation': {'mode':'blinded','annotated':False,
+                                   'reference_revealed_after_prediction':True,
+                                   'prediction_frozen':True,
+                                   'prediction_frozen_at':'2026-10-02T12:00:00Z',
+                                   'reference_revealed_at':'2026-10-02T12:05:00Z'},
+                    'reference': {'target_positive': False},
+                    'prediction': {'class':'negative'}
+                }
+            ]
+        }
+        result = validate_blinded_image_dataset(data)
+        self.assertIn('a: prediction must be frozen before reference reveal', result['errors'])
+        self.assertIn('repeated patient_uid_hash requires patient_grouping_prespecified=true', result['errors'])
+
+    def test_v136_abstain_or_nondiagnostic_suppresses_standard_image_metrics(self):
+        data = {
+            'dataset_class': 'blinded_accuracy',
+            'authorized': True,
+            'deidentified': True,
+            'protocol_prespecified': True,
+            'independent_reference': True,
+            'modality': 'chest_xray',
+            'target_condition': 'target',
+            'target_question': 'target?',
+            'reference_standard': {'type': 'independent report'},
+            'patient_grouping_prespecified': True,
+            'metrics_requested': True,
+            'cases': [
+                {
+                    'id':'p','patient_uid_hash':'p','study_uid_hash':'sp',
+                    'evaluation':{'mode':'blinded','annotated':False,
+                                  'reference_revealed_after_prediction':True,'prediction_frozen':True,
+                                  'prediction_frozen_at':'2026-10-02T12:00:00Z',
+                                  'reference_revealed_at':'2026-10-02T12:05:00Z'},
+                    'reference':{'target_positive':True},
+                    'prediction':{'class':'abstain'}
+                },
+                {
+                    'id':'n','patient_uid_hash':'n','study_uid_hash':'sn',
+                    'evaluation':{'mode':'blinded','annotated':False,
+                                  'reference_revealed_after_prediction':True,'prediction_frozen':True,
+                                  'prediction_frozen_at':'2026-10-02T12:00:00Z',
+                                  'reference_revealed_at':'2026-10-02T12:05:00Z'},
+                    'reference':{'target_positive':False},
+                    'prediction':{'class':'negative'}
+                }
+            ]
+        }
+        result = calculate_blinded_image_metrics(data)
+        self.assertEqual(result['errors'], [])
+        self.assertFalse(result['metrics']['standard_binary_metrics_available'])
+        self.assertAlmostEqual(result['metrics']['coverage'], 0.5)
+        self.assertEqual(result['metrics']['abstain'], 1)
+        self.assertIsNone(result['metrics']['sensitivity'])
+        self.assertIsNone(result['metrics']['specificity'])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
