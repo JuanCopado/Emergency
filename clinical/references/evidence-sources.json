@@ -505,25 +505,6 @@
       ]
     },
     {
-      "source_id": "src-6964dc0b",
-      "title": "2024 ESC Guidelines for elevated blood pressure and hypertension plus syndrome-specific stroke, aortic, ACS and pregnancy guidance",
-      "organization": "ESC",
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "ESC 2024; workflow v1.16",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "hypertensive-emergencies"
-      ]
-    },
-    {
       "source_id": "src-6c537a27",
       "title": "ACEP clinical policies and diagnosis-specific discharge/safety-net standards",
       "organization": "ACEP",
@@ -597,25 +578,6 @@
       "compound_identity": false,
       "modules": [
         "soft-tissue-infections"
-      ]
-    },
-    {
-      "source_id": "src-7b8122c8",
-      "title": "NICE NG254 suspected sepsis under 16 (2025); NICE NG29 pediatric IV fluids; RCH dehydration/gastroenteritis CPG",
-      "organization": "NICE",
-      "source_type": "guideline",
-      "url": "https://www.nice.org.uk/guidance/ng254",
-      "persistent_id": null,
-      "version": "NICE NG254 2025; NG29; RCH current online 2026",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "pediatric-dehydration-shock"
       ]
     },
     {
@@ -866,25 +828,6 @@
       ]
     },
     {
-      "source_id": "src-93590892",
-      "title": "Brain Trauma Foundation severe TBI 4th edition; Neurocritical Care Society cerebral edema guideline 2020; ENLS Pharmacotherapy Protocol 6.0; FDA nicardipine labeling",
-      "organization": null,
-      "source_type": "regulatory_product_info",
-      "url": null,
-      "persistent_id": null,
-      "version": "BTF 2016 current online; NCS 2020; ENLS 6.0; FDA label 2022",
-      "publication_date": null,
-      "last_verified": "2026-09-26",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "traumatic-intracranial-mass-effect"
-      ]
-    },
-    {
       "source_id": "src-938f30b8",
       "title": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine",
       "organization": "ACEP",
@@ -999,25 +942,6 @@
       ]
     },
     {
-      "source_id": "src-aa5759fb",
-      "title": "2024 ESC hypertension guideline plus syndrome-specific ACC/AHA, AHA/ASA and ACOG guidance and current product labels",
-      "organization": "AHA/ASA",
-      "source_type": "regulatory_product_info",
-      "url": "https://academic.oup.com/eurheartj/article/45/38/3912/7741010",
-      "persistent_id": null,
-      "version": "ESC 2024; ACC/AHA aorta 2022; AHA/ASA ICH 2022; ACOG current bundle; DailyMed labels reviewed 2026",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "iv-antihypertensive-selection"
-      ]
-    },
-    {
       "source_id": "src-aa78928b",
       "title": "ESC Guidelines for the management of endocarditis",
       "organization": "ESC",
@@ -1056,6 +980,25 @@
       ]
     },
     {
+      "source_id": "src-acc-aortic-2022",
+      "title": "2022 ACC/AHA Guideline for the Diagnosis and Management of Aortic Disease",
+      "organization": "ACC/AHA",
+      "source_type": "guideline",
+      "url": "https://www.acc.org/Guidelines/Guidelines/2022/11/02/14/08/Aortic-Disease",
+      "persistent_id": null,
+      "version": "2022",
+      "publication_date": "2022-11-02",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "iv-antihypertensive-selection"
+      ]
+    },
+    {
       "source_id": "src-acc-oac-bleeding-2020",
       "title": "2020 ACC Expert Consensus Decision Pathway on Management of Bleeding in Patients on Oral Anticoagulants",
       "organization": "ACC",
@@ -1091,6 +1034,63 @@
       "compound_identity": false,
       "modules": [
         "anticoagulation-reversal"
+      ]
+    },
+    {
+      "source_id": "src-acg-lgib-2023",
+      "title": "Management of Patients With Acute Lower Gastrointestinal Bleeding: An Updated ACG Guideline",
+      "organization": "ACG",
+      "source_type": "guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36735555/",
+      "persistent_id": "doi:10.14309/ajg.0000000000002130",
+      "version": "2023",
+      "publication_date": "2023-02-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "lower-gi-bleeding"
+      ]
+    },
+    {
+      "source_id": "src-acg-small-bowel-2015",
+      "title": "ACG Clinical Guideline: Diagnosis and Management of Small Bowel Bleeding",
+      "organization": "ACG",
+      "source_type": "guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26303132/",
+      "persistent_id": "PMID:26303132",
+      "version": "2015",
+      "publication_date": "2015",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "lower-gi-bleeding"
+      ]
+    },
+    {
+      "source_id": "src-aha-ich-2022",
+      "title": "2022 AHA/ASA Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage",
+      "organization": "AHA/ASA",
+      "source_type": "guideline",
+      "url": "https://professional.heart.org/en/guidelines-statements/2022-guideline-for-the-management-of-patients-with-spontaneous-intracerebralstr0000000000000407",
+      "persistent_id": "doi:10.1161/STR.0000000000000407",
+      "version": "2022",
+      "publication_date": "2022-05-17",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "iv-antihypertensive-selection"
       ]
     },
     {
@@ -1170,22 +1170,22 @@
       ]
     },
     {
-      "source_id": "src-be5e9123",
-      "title": "SCCM PADIS 2018 (Crit Care Med 2018;46:e825-e873) and PADIS 2025 focused update (Crit Care Med 2025;53:e711-e727); EU/UK SmPC (Dexdor, remifentanil, midazolam, fentanyl, Ketalar); US Diprivan label; KSCCM 2021 PADIS opioid table",
-      "organization": "SCCM",
-      "source_type": "regulatory_product_info",
-      "url": "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+      "source_id": "src-btf-severe-tbi-4e-2016",
+      "title": "Brain Trauma Foundation Guidelines for the Management of Severe Traumatic Brain Injury, 4th Edition",
+      "organization": "Brain Trauma Foundation",
+      "source_type": "guideline",
+      "url": "https://braintrauma.org/news/4th-edition-of-guidelines-for-severe-tbi-published",
       "persistent_id": null,
-      "version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
-      "publication_date": null,
-      "last_verified": "2026-09-29",
-      "language": null,
-      "jurisdiction": null,
+      "version": "4th edition",
+      "publication_date": "2016-09-21",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
       "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
+      "provenance": "verified_official_source",
+      "compound_identity": false,
       "modules": [
-        "icu-sedation-analgesia-infusions"
+        "traumatic-intracranial-mass-effect"
       ]
     },
     {
@@ -1702,6 +1702,25 @@
       ]
     },
     {
+      "source_id": "src-enls-icp-6-2024",
+      "title": "ENLS 6.0 Intracranial Hypertension and Herniation Protocol",
+      "organization": "Neurocritical Care Society",
+      "source_type": "guideline",
+      "url": "https://www.neurocriticalcare.org/Portals/0/ENLS%205.0/ENLS%206.0/Protocol%20V6_0_Intracranial%20Hypertension%20and%20Herniation.pdf",
+      "persistent_id": null,
+      "version": "6.0",
+      "publication_date": "2024-09",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect"
+      ]
+    },
+    {
       "source_id": "src-erc-guidelines-2025",
       "title": "European Resuscitation Council Guidelines 2025",
       "organization": "ERC",
@@ -1745,6 +1764,26 @@
       ]
     },
     {
+      "source_id": "src-esc-hypertension-2024",
+      "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/elevated-blood-pressure-and-hypertension/",
+      "persistent_id": "doi:10.1093/eurheartj/ehae178",
+      "version": "2024; corrected 2025",
+      "publication_date": "2024-08-30",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "hypertensive-emergencies",
+        "iv-antihypertensive-selection"
+      ]
+    },
+    {
       "source_id": "src-esge-lgib-2021",
       "title": "ESGE Guideline: Diagnosis and management of acute lower gastrointestinal bleeding",
       "organization": "ESGE",
@@ -1760,7 +1799,8 @@
       "provenance": "verified_official_source",
       "compound_identity": false,
       "modules": [
-        "anticoagulation-reversal"
+        "anticoagulation-reversal",
+        "lower-gi-bleeding"
       ]
     },
     {
@@ -1780,6 +1820,25 @@
       "compound_identity": false,
       "modules": [
         "anticoagulation-reversal"
+      ]
+    },
+    {
+      "source_id": "src-esge-small-bowel-2022",
+      "title": "ESGE Guideline Update 2022: Small-bowel capsule endoscopy and device-assisted enteroscopy for diagnosis and treatment of small-bowel disorders",
+      "organization": "ESGE",
+      "source_type": "guideline",
+      "url": "https://www.esge.com/small-bowel-ce-and-dae-for-diagnosis-and-treatment-of-sb-update-2022",
+      "persistent_id": "doi:10.1055/a-1973-3796",
+      "version": "2022",
+      "publication_date": "2022",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "lower-gi-bleeding"
       ]
     },
     {
@@ -1897,25 +1956,6 @@
       ]
     },
     {
-      "source_id": "src-fc2a7f92",
-      "title": "ESGE small-bowel capsule/DAE guideline 2022; ACG small-bowel bleeding 2015; ACG LGIB 2023; ESGE LGIB 2021",
-      "organization": "ACG",
-      "source_type": "guideline",
-      "url": "https://www.esge.com/small-bowel-ce-and-dae-for-diagnosis-and-treatment-of-sb-update-2022",
-      "persistent_id": null,
-      "version": "ACG small-bowel bleeding 2015; ESGE capsule/DAE update 2022; ACG LGIB 2023; ESGE LGIB 2021",
-      "publication_date": null,
-      "last_verified": "2026-09-28",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "lower-gi-bleeding"
-      ]
-    },
-    {
       "source_id": "src-fd61f2ab",
       "title": "ACP/AAFP acute musculoskeletal injury pain guideline plus diagnosis-specific emergency guidance",
       "organization": null,
@@ -1973,6 +2013,63 @@
       ]
     },
     {
+      "source_id": "src-legacy-hypertensive-syndrome-guidance",
+      "title": "Legacy syndrome-specific hypertensive emergency guidance set: stroke, aortic syndrome, ACS and pregnancy",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy v1.16 source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "hypertensive-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-legacy-icu-sedation-label-set",
+      "title": "Legacy unresolved ICU sedation product-label/opioid-table set: Dexdor, remifentanil, midazolam, fentanyl, ketamine, propofol and KSCCM opioid table",
+      "organization": null,
+      "source_type": "regulatory_product_info",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy v1.35 source set",
+      "publication_date": null,
+      "last_verified": "2026-09-29",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
+      ]
+    },
+    {
+      "source_id": "src-legacy-iv-antihypertensive-obstetric-labels",
+      "title": "Legacy unresolved obstetric guidance and remaining IV antihypertensive product-label set",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy v1.21 source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "iv-antihypertensive-selection"
+      ]
+    },
+    {
       "source_id": "src-legacy-vasoactive-label-set",
       "title": "Legacy unresolved product-label set: vasopressin, epinephrine, dobutamine, milrinone, phenylephrine, angiotensin II and levosimendan",
       "organization": null,
@@ -1989,6 +2086,45 @@
       "compound_identity": true,
       "modules": [
         "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-ncs-cerebral-edema-2020",
+      "title": "Neurocritical Care Society Guidelines for the Acute Treatment of Cerebral Edema in Neurocritical Care Patients",
+      "organization": "Neurocritical Care Society",
+      "source_type": "guideline",
+      "url": "https://www.neurocriticalcare.org/Portals/0/Docs/Resources/Cook2020_Article_GuidelinesForTheAcuteTreatment.pdf",
+      "persistent_id": "doi:10.1007/s12028-020-00959-7",
+      "version": "2020",
+      "publication_date": "2020",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect"
+      ]
+    },
+    {
+      "source_id": "src-nicardipine-dailymed-2026",
+      "title": "Nicardipine Hydrochloride Injection — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f8b49f59-7a54-425d-9eca-dfa4022a08d1",
+      "persistent_id": null,
+      "version": "label updated 2026-04-20",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "iv-antihypertensive-selection",
+        "traumatic-intracranial-mass-effect"
       ]
     },
     {
@@ -2026,7 +2162,27 @@
       "provenance": "verified_official_source",
       "compound_identity": false,
       "modules": [
+        "pediatric-dehydration-shock",
         "pediatric-shock"
+      ]
+    },
+    {
+      "source_id": "src-nice-ng29-2020",
+      "title": "NICE NG29 Intravenous fluid therapy in children and young people in hospital",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng29/chapter/recommendations",
+      "persistent_id": "NICE:NG29",
+      "version": "2015; last updated 2020-06-11",
+      "publication_date": "2015-12-09",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-dehydration-shock"
       ]
     },
     {
@@ -2046,6 +2202,25 @@
       "compound_identity": false,
       "modules": [
         "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-rch-dehydration-2026",
+      "title": "Royal Children's Hospital Melbourne Clinical Practice Guideline: Dehydration",
+      "organization": "Royal Children's Hospital Melbourne",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/dehydration/",
+      "persistent_id": null,
+      "version": "updated April 2026",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Australia",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-dehydration-shock"
       ]
     },
     {
@@ -2089,6 +2264,44 @@
         "pediatric-cardiac-arrest",
         "pediatric-emergencies",
         "pediatric-shock"
+      ]
+    },
+    {
+      "source_id": "src-sccm-padis-2018",
+      "title": "SCCM Clinical Practice Guidelines for the Prevention and Management of Pain, Agitation/Sedation, Delirium, Immobility, and Sleep Disruption in Adult Patients in the ICU",
+      "organization": "SCCM",
+      "source_type": "guideline",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-prevention-and-management-of-pa",
+      "persistent_id": "doi:10.1097/CCM.0000000000003299",
+      "version": "2018",
+      "publication_date": "2018-09-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
+      ]
+    },
+    {
+      "source_id": "src-sccm-padis-2025",
+      "title": "A Focused Update to the SCCM PADIS Guidelines for Adult Patients",
+      "organization": "SCCM",
+      "source_type": "guideline",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+      "persistent_id": null,
+      "version": "2025 focused update",
+      "publication_date": "2025-02-20",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
       ]
     },
     {
@@ -2174,9 +2387,24 @@
     ],
     "lower-gi-bleeding": [
       {
-        "source_id": "src-fc2a7f92",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-esge-small-bowel-2022",
+        "role": "guideline",
+        "claim_scope": "suspected small-bowel bleeding and capsule/DAE pathway"
+      },
+      {
+        "source_id": "src-acg-small-bowel-2015",
+        "role": "guideline",
+        "claim_scope": "small-bowel bleeding diagnosis and acute imaging"
+      },
+      {
+        "source_id": "src-acg-lgib-2023",
+        "role": "guideline",
+        "claim_scope": "acute lower GI bleeding"
+      },
+      {
+        "source_id": "src-esge-lgib-2021",
+        "role": "guideline",
+        "claim_scope": "acute lower GI bleeding"
       }
     ],
     "acute-mesenteric-ischemia": [
@@ -2263,9 +2491,14 @@
     ],
     "hypertensive-emergencies": [
       {
-        "source_id": "src-6964dc0b",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-esc-hypertension-2024",
+        "role": "guideline",
+        "claim_scope": "general hypertension and hypertensive emergency framework"
+      },
+      {
+        "source_id": "src-legacy-hypertensive-syndrome-guidance",
+        "role": "legacy_compound",
+        "claim_scope": "stroke/aortic/ACS/pregnancy syndrome-specific targets pending individual split"
       }
     ],
     "acute-heart-failure": [
@@ -2336,9 +2569,29 @@
     ],
     "iv-antihypertensive-selection": [
       {
-        "source_id": "src-aa5759fb",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-esc-hypertension-2024",
+        "role": "guideline",
+        "claim_scope": "general hypertension framework"
+      },
+      {
+        "source_id": "src-acc-aortic-2022",
+        "role": "guideline",
+        "claim_scope": "aortic syndrome blood-pressure strategy"
+      },
+      {
+        "source_id": "src-aha-ich-2022",
+        "role": "guideline",
+        "claim_scope": "intracerebral hemorrhage blood-pressure strategy"
+      },
+      {
+        "source_id": "src-nicardipine-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "nicardipine formulation and dosing"
+      },
+      {
+        "source_id": "src-legacy-iv-antihypertensive-obstetric-labels",
+        "role": "legacy_compound",
+        "claim_scope": "obstetric guidance and remaining product labels pending individual verification"
       }
     ],
     "obstetric-emergencies": [
@@ -2449,9 +2702,24 @@
     ],
     "traumatic-intracranial-mass-effect": [
       {
-        "source_id": "src-93590892",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-btf-severe-tbi-4e-2016",
+        "role": "guideline",
+        "claim_scope": "severe traumatic brain injury management"
+      },
+      {
+        "source_id": "src-ncs-cerebral-edema-2020",
+        "role": "guideline",
+        "claim_scope": "acute cerebral edema therapy"
+      },
+      {
+        "source_id": "src-enls-icp-6-2024",
+        "role": "guideline",
+        "claim_scope": "intracranial hypertension/herniation emergency protocol"
+      },
+      {
+        "source_id": "src-nicardipine-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "nicardipine infusion reference"
       }
     ],
     "sodium-emergencies": [
@@ -2855,9 +3123,19 @@
     ],
     "pediatric-dehydration-shock": [
       {
-        "source_id": "src-7b8122c8",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-nice-ng254-2025",
+        "role": "guideline",
+        "claim_scope": "suspected paediatric sepsis/shock"
+      },
+      {
+        "source_id": "src-nice-ng29-2020",
+        "role": "guideline",
+        "claim_scope": "paediatric IV fluid resuscitation/maintenance"
+      },
+      {
+        "source_id": "src-rch-dehydration-2026",
+        "role": "guideline",
+        "claim_scope": "dehydration assessment and enteral/IV rehydration"
       }
     ],
     "pediatric-status-epilepticus": [
@@ -2973,9 +3251,19 @@
     ],
     "icu-sedation-analgesia-infusions": [
       {
-        "source_id": "src-be5e9123",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-sccm-padis-2018",
+        "role": "guideline",
+        "claim_scope": "baseline adult ICU pain/sedation/delirium framework"
+      },
+      {
+        "source_id": "src-sccm-padis-2025",
+        "role": "guideline",
+        "claim_scope": "focused 2025 PADIS update"
+      },
+      {
+        "source_id": "src-legacy-icu-sedation-label-set",
+        "role": "legacy_compound",
+        "claim_scope": "drug-specific labels and opioid infusion table pending individual verification"
       }
     ]
   }

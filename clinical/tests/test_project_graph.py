@@ -86,6 +86,40 @@ class ProjectGraphTests(unittest.TestCase):
         ]
         self.assertEqual(len(unresolved), 1)
 
+    def test_priority_source_splits_batch2(self):
+        source_doc = json.loads(
+            (CLINICAL_ROOT / "references/evidence-sources.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        sources = {item["source_id"]: item for item in source_doc["sources"]}
+        module_sources = source_doc["module_sources"]
+
+        for module_id in (
+            "pediatric-dehydration-shock",
+            "lower-gi-bleeding",
+            "traumatic-intracranial-mass-effect",
+        ):
+            refs = module_sources[module_id]
+            self.assertGreaterEqual(len(refs), 3)
+            self.assertTrue(
+                all(not sources[ref["source_id"]]["compound_identity"] for ref in refs)
+            )
+
+        for module_id in (
+            "icu-sedation-analgesia-infusions",
+            "hypertensive-emergencies",
+            "iv-antihypertensive-selection",
+        ):
+            refs = module_sources[module_id]
+            self.assertGreaterEqual(len(refs), 2)
+            unresolved = [
+                sources[ref["source_id"]]
+                for ref in refs
+                if sources[ref["source_id"]]["compound_identity"]
+            ]
+            self.assertLessEqual(len(unresolved), 1)
+
 
 if __name__ == "__main__":
     unittest.main()
