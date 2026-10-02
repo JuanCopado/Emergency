@@ -47,10 +47,10 @@
       "license_or_dua_verified": false,
       "redistribution_rule_documented": false,
       "deidentified_source": true,
-      "reference_strategy_prespecified": false,
-      "label_separation_plan": false,
+      "reference_strategy_prespecified": true,
+      "label_separation_plan": true,
       "intake_ready": false,
-      "notes": "Many training labels are extracted from reports by a rule-based labeler; do not treat them automatically as independent expert ground truth. Prefer a target-specific radiologist-labeled reference subset when appropriate."
+      "notes": "Expert test-set reference protocol frozen in qa/CHEXPERT_EXPERT_TEST_PROTOCOL.md: 500 studies/500 patients, majority vote of 5 of 8 board-certified radiologists. Training report-derived labels are not accepted as independent expert truth. Dataset-specific download/license terms presented by current AIMI/Redivis access flow still require verification before intake; therefore intake_ready remains false."
     },
     {
       "id": "mimic-cxr-2.1.0",
