@@ -1756,6 +1756,27 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(oral['status'], 'age_band_only')
         self.assertEqual(len(oral['age_band_doses']), 5)
 
+
+    def test_v136_pediatric_urticaria_and_gastroenteritis_discharge_entries(self):
+        cet = pediatric_bolus_calculate('urticaria-cetirizine-6to11mo', 8)
+        self.assertAlmostEqual(cet['dose'], 2.0)
+        ond = pediatric_bolus_calculate('gastroenteritis-ondansetron-single-dose', 20)
+        self.assertAlmostEqual(ond['dose'], 3.0)
+        capped = pediatric_bolus_calculate('gastroenteritis-ondansetron-single-dose', 80)
+        self.assertAlmostEqual(capped['dose'], 8.0)
+
+    def test_v136_pediatric_urticaria_age_bands_are_not_fake_mgkg(self):
+        data = json.loads((ROOT / 'qa' / 'pediatric-bolus-medications.json').read_text(encoding='utf-8'))
+        bands = next(x for x in data['entries'] if x['id'] == 'urticaria-cetirizine-age-bands')
+        self.assertEqual(bands['status'], 'age_band_only')
+        self.assertNotIn('dose_per_kg', bands)
+
+    def test_v136_home_medication_safety_boundaries(self):
+        module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
+        self.assertIn('Urticaria with airway/respiratory/cardiovascular/GI involvement is anaphylaxis', module)
+        self.assertIn('Ondansetron is an adjunct to rehydration, not a replacement for it', module)
+        self.assertIn('bilious vomiting', module)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
