@@ -258,25 +258,6 @@
       ]
     },
     {
-      "source_id": "src-3d4a3eb2",
-      "title": "NICE non-complex and complex fracture guidance plus specialty standards",
-      "organization": "NICE",
-      "source_type": "guideline",
-      "url": "https://www.nice.org.uk/guidance/ng38",
-      "persistent_id": null,
-      "version": "NICE NG37/NG38 current online review 2026",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "orthopedic-emergencies"
-      ]
-    },
-    {
       "source_id": "src-3e67ed52",
       "title": "CDC carbon monoxide clinical guidance, EMA Cyanokit product information and ABA referral guidance",
       "organization": "American Burn Association",
@@ -847,25 +828,6 @@
       ]
     },
     {
-      "source_id": "src-aca2d63c",
-      "title": "Standard quantitative acid-base physiology plus syndrome-specific current guidance",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "calculation workflow v1.11",
-      "publication_date": null,
-      "last_verified": "2026-09-26",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "acid-base-emergencies"
-      ]
-    },
-    {
       "source_id": "src-acc-aortic-2022",
       "title": "2022 ACC/AHA Guideline for the Diagnosis and Management of Aortic Disease",
       "organization": "ACC/AHA",
@@ -997,6 +959,25 @@
       "compound_identity": false,
       "modules": [
         "lower-gi-bleeding"
+      ]
+    },
+    {
+      "source_id": "src-acp-aafp-acute-msk-pain-2020",
+      "title": "ACP/AAFP Clinical Guideline: Non-Pharmacological and Pharmacological Management of Acute Pain from Non-Low Back Musculoskeletal Injuries in Adults",
+      "organization": "ACP/AAFP",
+      "source_type": "guideline",
+      "url": "https://www.acponline.org/sites/default/files/acp-policy-library/guidelines/non-pharmacological_and_pharmacological_management_of_acute_pain_from_non-low_back_musculoskeletal_injuries_in_adults_2020.pdf",
+      "persistent_id": "doi:10.7326/M19-3602",
+      "version": "2020",
+      "publication_date": "2020-08-18",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "acute-musculoskeletal-pain"
       ]
     },
     {
@@ -1364,6 +1345,25 @@
       ]
     },
     {
+      "source_id": "src-cleviprex-dailymed-2022",
+      "title": "CLEVIPREX (clevidipine) injectable emulsion — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a6826aa3-fabb-4ff1-a7a3-cd4c34e3a330",
+      "persistent_id": null,
+      "version": "label updated 2022-11-09",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "iv-antihypertensive-selection"
+      ]
+    },
+    {
       "source_id": "src-cps-bronchiolitis-2021",
       "title": "Canadian Paediatric Society: Bronchiolitis recommendations for diagnosis, monitoring and management",
       "organization": "Canadian Paediatric Society",
@@ -1513,6 +1513,25 @@
       "compound_identity": false,
       "modules": [
         "airway-rsi"
+      ]
+    },
+    {
+      "source_id": "src-dexdor-smpc-2022",
+      "title": "Dexdor 100 micrograms/ml concentrate for solution for infusion — SmPC",
+      "organization": "electronic Medicines Compendium",
+      "source_type": "regulatory_product_info",
+      "url": "https://www.medicines.org.uk/emc/product/4783/smpc",
+      "persistent_id": null,
+      "version": "last updated 2022-10-18",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
       ]
     },
     {
@@ -1998,25 +2017,6 @@
       ]
     },
     {
-      "source_id": "src-fd61f2ab",
-      "title": "ACP/AAFP acute musculoskeletal injury pain guideline plus diagnosis-specific emergency guidance",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "2020 guideline; current review 2026",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "acute-musculoskeletal-pain"
-      ]
-    },
-    {
       "source_id": "src-ffd822ee",
       "title": "ACOG Gestational Hypertension and Preeclampsia guidance and maternal emergency bundles",
       "organization": "ACOG",
@@ -2096,6 +2096,25 @@
       ]
     },
     {
+      "source_id": "src-legacy-acute-msk-diagnosis-guidance",
+      "title": "Legacy diagnosis-specific emergency guidance set for acute musculoskeletal pain",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy module source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "acute-musculoskeletal-pain"
+      ]
+    },
+    {
       "source_id": "src-legacy-acute-respiratory-syndrome-set",
       "title": "Legacy syndrome-specific acute respiratory failure guidance beyond core ARDS ventilation",
       "organization": null,
@@ -2153,15 +2172,15 @@
       ]
     },
     {
-      "source_id": "src-legacy-icu-sedation-label-set",
-      "title": "Legacy unresolved ICU sedation product-label/opioid-table set: Dexdor, remifentanil, midazolam, fentanyl, ketamine, propofol and KSCCM opioid table",
+      "source_id": "src-legacy-icu-sedation-remaining-labels",
+      "title": "Legacy unresolved ICU sedation labels: midazolam, fentanyl, ketamine, propofol and KSCCM opioid table",
       "organization": null,
       "source_type": "regulatory_product_info",
       "url": null,
       "persistent_id": null,
-      "version": "legacy v1.35 source set",
+      "version": "legacy v1.35 source set after verified Dexdor/remifentanil split",
       "publication_date": null,
-      "last_verified": "2026-09-29",
+      "last_verified": "2026-10-02",
       "language": null,
       "jurisdiction": null,
       "license_status": "unknown",
@@ -2172,15 +2191,15 @@
       ]
     },
     {
-      "source_id": "src-legacy-iv-antihypertensive-obstetric-labels",
-      "title": "Legacy unresolved obstetric guidance and remaining IV antihypertensive product-label set",
+      "source_id": "src-legacy-iv-antihypertensive-remaining",
+      "title": "Legacy unresolved obstetric guidance and remaining IV antihypertensive product labels after nicardipine/clevidipine split",
       "organization": null,
       "source_type": "guideline",
       "url": null,
       "persistent_id": null,
       "version": "legacy v1.21 source set",
       "publication_date": null,
-      "last_verified": "2026-09-27",
+      "last_verified": "2026-10-02",
       "language": null,
       "jurisdiction": null,
       "license_status": "unknown",
@@ -2248,15 +2267,15 @@
       ]
     },
     {
-      "source_id": "src-legacy-vasoactive-label-set",
-      "title": "Legacy unresolved product-label set: vasopressin, epinephrine, dobutamine, milrinone, phenylephrine, angiotensin II and levosimendan",
+      "source_id": "src-legacy-vasoactive-remaining-labels",
+      "title": "Legacy unresolved vasoactive labels: epinephrine, dobutamine, milrinone, phenylephrine, angiotensin II and levosimendan",
       "organization": null,
       "source_type": "regulatory_product_info",
       "url": null,
       "persistent_id": null,
-      "version": "legacy v1.35 source set",
+      "version": "legacy v1.35 source set after verified vasopressin split",
       "publication_date": null,
-      "last_verified": "2026-09-29",
+      "last_verified": "2026-10-02",
       "language": null,
       "jurisdiction": null,
       "license_status": "unknown",
@@ -2302,6 +2321,44 @@
       "compound_identity": false,
       "modules": [
         "traumatic-intracranial-mass-effect"
+      ]
+    },
+    {
+      "source_id": "src-nejm-acid-base-integration-2014",
+      "title": "Integration of Acid–Base and Electrolyte Disorders",
+      "organization": "New England Journal of Medicine",
+      "source_type": "literature",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMra1215672",
+      "persistent_id": "doi:10.1056/NEJMra1215672",
+      "version": "2014",
+      "publication_date": "2014-11-06",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "restricted",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "acid-base-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-nejm-acid-base-physiology-2014",
+      "title": "Physiological Approach to Assessment of Acid–Base Disturbances",
+      "organization": "New England Journal of Medicine",
+      "source_type": "literature",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMra1003327",
+      "persistent_id": "doi:10.1056/NEJMra1003327",
+      "version": "2014; corrected 2014",
+      "publication_date": "2014-10-09",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "restricted",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "acid-base-emergencies"
       ]
     },
     {
@@ -2399,6 +2456,44 @@
       "compound_identity": false,
       "modules": [
         "pediatric-dehydration-shock"
+      ]
+    },
+    {
+      "source_id": "src-nice-ng37-fractures-2022",
+      "title": "NICE NG37 Fractures (complex): assessment and management",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng37",
+      "persistent_id": "NICE:NG37",
+      "version": "published 2016; updated 2022-11-23",
+      "publication_date": "2016-02-17",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "orthopedic-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-nice-ng38-fractures-2016",
+      "title": "NICE NG38 Fractures (non-complex): assessment and management",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng38",
+      "persistent_id": "NICE:NG38",
+      "version": "2016; current online review 2026",
+      "publication_date": "2016-02-17",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "orthopedic-emergencies"
       ]
     },
     {
@@ -2518,6 +2613,25 @@
         "pediatric-cardiac-arrest",
         "pediatric-emergencies",
         "pediatric-shock"
+      ]
+    },
+    {
+      "source_id": "src-remifentanil-smpc-2026",
+      "title": "Remifentanil 2 mg powder for concentrate for solution for injection/infusion — SmPC",
+      "organization": "electronic Medicines Compendium",
+      "source_type": "regulatory_product_info",
+      "url": "https://www.medicines.org.uk/emc/product/795/smpc",
+      "persistent_id": null,
+      "version": "current SmPC reviewed 2026-10-02",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
       ]
     },
     {
@@ -2652,6 +2766,25 @@
       "compound_identity": false,
       "modules": [
         "thyroid-storm"
+      ]
+    },
+    {
+      "source_id": "src-vasostrict-dailymed-2026",
+      "title": "VASOSTRICT (vasopressin injection) — US prescribing information",
+      "organization": "DailyMed/NLM",
+      "source_type": "regulatory_product_info",
+      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b1147beb-743e-4c62-8927-91192447f8b8",
+      "persistent_id": null,
+      "version": "label updated 2026-04-21",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_regulatory_product_information",
+      "compound_identity": false,
+      "modules": [
+        "vasoactive-inotrope-infusions"
       ]
     },
     {
@@ -2949,7 +3082,12 @@
         "claim_scope": "nicardipine formulation and dosing"
       },
       {
-        "source_id": "src-legacy-iv-antihypertensive-obstetric-labels",
+        "source_id": "src-cleviprex-dailymed-2022",
+        "role": "regulatory_product_info",
+        "claim_scope": "clevidipine formulation and labeled dosing"
+      },
+      {
+        "source_id": "src-legacy-iv-antihypertensive-remaining",
         "role": "legacy_compound",
         "claim_scope": "obstetric guidance and remaining product labels pending individual verification"
       }
@@ -3126,9 +3264,14 @@
     ],
     "acid-base-emergencies": [
       {
-        "source_id": "src-aca2d63c",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-nejm-acid-base-physiology-2014",
+        "role": "review",
+        "claim_scope": "stepwise physiological acid-base assessment"
+      },
+      {
+        "source_id": "src-nejm-acid-base-integration-2014",
+        "role": "review",
+        "claim_scope": "integration of acid-base and electrolyte disorders"
       }
     ],
     "blood-gas-image": [
@@ -3223,9 +3366,14 @@
     ],
     "acute-musculoskeletal-pain": [
       {
-        "source_id": "src-fd61f2ab",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-acp-aafp-acute-msk-pain-2020",
+        "role": "guideline",
+        "claim_scope": "acute non-low-back musculoskeletal pain treatment"
+      },
+      {
+        "source_id": "src-legacy-acute-msk-diagnosis-guidance",
+        "role": "legacy_compound",
+        "claim_scope": "diagnosis-specific emergency guidance pending individual split"
       }
     ],
     "alcohol-withdrawal": [
@@ -3457,9 +3605,14 @@
     ],
     "orthopedic-emergencies": [
       {
-        "source_id": "src-3d4a3eb2",
-        "role": "primary_or_compound",
-        "claim_scope": "module-level"
+        "source_id": "src-nice-ng37-fractures-2022",
+        "role": "guideline",
+        "claim_scope": "complex fractures/open fractures/pelvic and vascular-compartment emergencies"
+      },
+      {
+        "source_id": "src-nice-ng38-fractures-2016",
+        "role": "guideline",
+        "claim_scope": "non-complex fractures, imaging and ED management"
       }
     ],
     "other-clinical-image": [
@@ -3694,9 +3847,14 @@
         "claim_scope": "dopamine prescribing information"
       },
       {
-        "source_id": "src-legacy-vasoactive-label-set",
+        "source_id": "src-vasostrict-dailymed-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "vasopressin formulation, dilution and labeled dosing"
+      },
+      {
+        "source_id": "src-legacy-vasoactive-remaining-labels",
         "role": "legacy_compound",
-        "claim_scope": "remaining product labels pending individual verification"
+        "claim_scope": "remaining vasoactive product labels pending individual verification"
       }
     ],
     "icu-sedation-analgesia-infusions": [
@@ -3711,9 +3869,19 @@
         "claim_scope": "focused 2025 PADIS update"
       },
       {
-        "source_id": "src-legacy-icu-sedation-label-set",
+        "source_id": "src-dexdor-smpc-2022",
+        "role": "regulatory_product_info",
+        "claim_scope": "dexmedetomidine ICU sedation formulation and labeled dosing"
+      },
+      {
+        "source_id": "src-remifentanil-smpc-2026",
+        "role": "regulatory_product_info",
+        "claim_scope": "remifentanil formulation and infusion dosing"
+      },
+      {
+        "source_id": "src-legacy-icu-sedation-remaining-labels",
         "role": "legacy_compound",
-        "claim_scope": "drug-specific labels and opioid infusion table pending individual verification"
+        "claim_scope": "remaining ICU sedative/opioid labels pending individual verification"
       }
     ]
   }
