@@ -322,6 +322,66 @@
       "frequency": "1 dose with/without second dose next day depending age/pathway",
       "source": "GINA 2026",
       "status": "source_verified_range_only"
+    },
+    {
+      "id": "urticaria-cetirizine-6to11mo",
+      "drug": "cetirizine",
+      "indication": "acute urticaria without anaphylaxis, age 6-11 months",
+      "dose_per_kg": 0.25,
+      "dose_unit": "mg/kg",
+      "max_dose": 2.5,
+      "max_dose_unit": "mg",
+      "route": "PO",
+      "frequency": "once daily",
+      "source_concentration_per_ml": null,
+      "source": "RCH Urticaria current online: 6-11 months 0.25 mg/kg, max 2.5 mg daily",
+      "status": "source_verified_dose_only"
+    },
+    {
+      "id": "urticaria-cetirizine-age-bands",
+      "drug": "cetirizine",
+      "indication": "acute urticaria without anaphylaxis, age >=1 year",
+      "route": "PO",
+      "age_band_doses": [
+        {
+          "age": "1-2 years",
+          "dose": "2.5 mg twice daily"
+        },
+        {
+          "age": "2-6 years",
+          "dose": "5 mg daily or 2.5 mg twice daily"
+        },
+        {
+          "age": "6-12 years",
+          "dose": "10 mg daily or 5 mg twice daily"
+        },
+        {
+          "age": "12-18 years",
+          "dose": "10 mg daily"
+        }
+      ],
+      "source": "RCH Urticaria current online",
+      "status": "age_band_only"
+    },
+    {
+      "id": "gastroenteritis-ondansetron-single-dose",
+      "drug": "ondansetron",
+      "indication": "gastroenteritis with persistent vomiting, age >=6 months, selected child after/with oral rehydration strategy",
+      "dose_per_kg": 0.15,
+      "dose_unit": "mg/kg",
+      "max_dose": 8,
+      "max_dose_unit": "mg",
+      "route": "PO",
+      "frequency": "single dose",
+      "source_concentration_per_ml": null,
+      "cautions": [
+        "not routine for diarrhoea-predominant illness",
+        "avoid/seek senior advice with prolonged QT, significant electrolyte disturbance or interacting QT-prolonging drugs",
+        "bilious vomiting or suspected obstruction requires alternative diagnosis/surgical assessment",
+        "does not replace oral/NG rehydration"
+      ],
+      "source": "NHSGGC acute gastroenteritis pediatric ED guideline: 0.15 mg/kg PO, max 8 mg, single dose in selected children >=6 months",
+      "status": "source_verified_dose_only"
     }
   ]
 }
