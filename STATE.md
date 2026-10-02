@@ -2,10 +2,10 @@
 
 ## Clínico (`clinical/`) — línea clínica v1.35 + consolidación v1.36 en rama separada
 - Línea clínica v1.35: 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 63/63 tests.
-- Rama v1.36-consolidation: 107 IDs; 107/107 evidencia (31 green, 76 yellow, 0 red) tras añadir `pediatric-emergency-medications`; QA de la ampliación pediátrica en curso.
+- Rama v1.36-consolidation: 107 IDs; 107/107 evidencia (31 green, 76 yellow, 0 red); **94 tests PASS** tras la ampliación pediátrica.
 - v1.35: `vasoactive-inotrope-infusions` (cardiovascular.md) y `icu-sedation-analgesia-infusions` (procedures-pharmacology.md). Nota: `updates/icu-infusions-review-2026-09-29.md`.
 - Pendiente v1.35: revisión UCI/cardio/farmacia; noradrenalina base vs tartrato en producto PT; diluyentes y concentraciones estándar locales; política vasopresor periférico; disponibilidad angiotensina II/levosimendán en Azores; SSC 2026 y ESC 2023 texto completo no accesibles.
-- Consolidación v1.36 avanzada: QA transversal, revisión de high-risk, localización Portugal/Azores y Fase 4 pediátrica en curso. `pediatric-emergency-medications` añade cálculo seguro por peso/bolos/fluidos/mL-h sin inventar concentraciones locales. No promover cambios clínicos sin revisión humana.
+- Consolidación v1.36 avanzada: QA transversal, revisión de high-risk, localización Portugal/Azores y Fase 4 pediátrica en curso. `pediatric-emergency-medications` añade cálculo seguro por peso/bolos/fluidos/mL-h con concentraciones y escalas verificadas por fuentes pediátricas/SmPC; no depende de protocolo local de Horta. No promover cambios clínicos sin revisión humana.
 
 ## App (`app/`) — Sprint 1
 - PWA React+Vite+TS, i18n en (maestro)/es (defecto)/pt/zh, tema claro/oscuro, offline.
