@@ -1040,6 +1040,20 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(items['fentanyl']['status'], 'portugal_public_reference_insufficient_local_pending')
         self.assertNotEqual(items['propofol']['status'], 'verified')
 
+
+    def test_v136_horta_formulary_verification_gate_exists(self):
+        p = ROOT / 'qa' / 'HORTA_FORMULARY_VERIFICATION.md'
+        text = p.read_text(encoding='utf-8')
+        for invariant in (
+            'No marcar un fármaco como `verified`',
+            'Nº de registro / RCM',
+            'Concentración final estándar',
+            'Farmacéutico revisor',
+            'Médico revisor',
+            'La promoción local **no cambia automáticamente**'
+        ):
+            self.assertIn(invariant, text)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
