@@ -328,11 +328,12 @@
     },
     "traumatic-intracranial-mass-effect": {
       "priority": "high",
-      "primary_source": "Brain Trauma Foundation severe TBI 4th edition; Neurocritical Care Society cerebral edema guideline 2020; ENLS Pharmacotherapy Protocol 6.0; FDA nicardipine labeling",
-      "stored_version": "BTF 2016 current online; NCS 2020; ENLS 6.0; FDA label 2022",
-      "last_checked": "2026-09-26",
-      "status": "green",
-      "note": "BTF supports age-stratified SBP floors and CPP 60-70 mm Hg but not a universal upper BP target. NCS preference for HTS over mannitol in TBI is conditional with low-quality evidence; exact repeat dosing and sodium limits remain protocol-specific."
+      "primary_source": "Hospital da Horta local TCE protocol (supplied 2026-10-02) + NICE NG232 2023 + Brain Trauma Foundation severe TBI 4th edition/2020 update + ENLS 6.0",
+      "stored_version": "Hospital da Horta local TCE card supplied 2026-10-02 (version/date not visible on image); NICE NG232 2023; BTF severe TBI current online; ENLS 6.0; v1.36 reconciliation 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Local Horta CT/observation/neurosurgery routing integrated. Marked yellow because the local card has no visible version/date and contains evidence-boundary differences: local SBP red line <90 versus higher BTF severe-TBI age-stratified floors; local mild-TBI CT/antiplatelet criteria are more conservative than NICE 2023. Human local review should confirm these are intentional.",
+      "primary_source_url": "https://www.nice.org.uk/guidance/ng232"
     },
     "sodium-emergencies": {
       "priority": "high",
