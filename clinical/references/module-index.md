@@ -22,6 +22,7 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | pulmonary-embolism | `modules/cardiovascular.md` |
 | sepsis-shock | `modules/infection-respiratory.md` |
 | airway-rsi | `modules/procedures-pharmacology.md` |
+| pediatric-airway-rsi | `modules/procedures-pharmacology.md` |
 | arrhythmias-cardiac-arrest | `modules/cardiovascular.md` |
 | adult-arrhythmias | `modules/cardiovascular.md` |
 | adult-cardiac-arrest | `modules/cardiovascular.md` |
@@ -36,6 +37,7 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | anaphylaxis | `modules/infection-respiratory.md` |
 | toxicology | `modules/renal-metabolic.md` |
 | pediatric-emergencies | `modules/special-populations.md` |
+| pediatric-acute-asthma | `modules/special-populations.md` |
 | pediatric-emergency-medications | `modules/special-populations.md` |
 | pediatric-iv-fluid-therapy | `modules/special-populations.md` |
 | febrile-infant-0-90-days | `modules/special-populations.md` |
