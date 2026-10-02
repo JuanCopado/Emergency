@@ -138,3 +138,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Analgesia pediátrica: paracetamol, ibuprofeno, fentanilo intranasal y naloxona añadidos al registro fuente-verificado; jarabes sin mL automático si la concentración comercial no está seleccionada.
 - [x] Antibióticos pediátricos: regla explícita de selección por síndrome/guía actual; no tabla universal por peso.
+
+- [x] Registro `qa/pediatric-antibiotics.json` + calculador por síndrome: sepsis, pielonefritis/ITU y celulitis con dosis NICE; meningitis conserva agente/tiempo y delega dosis exacta a BNFC, sin trasplantar dosis de sepsis.
