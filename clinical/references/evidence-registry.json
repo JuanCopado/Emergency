@@ -403,11 +403,12 @@
     },
     "acute-respiratory-failure": {
       "priority": "high",
-      "primary_source": "ATS/ESICM/SCCM ARDS mechanical ventilation guidance plus syndrome-specific current guidance",
-      "stored_version": "ATS implementation guidance current online review 2026; workflow v1.13",
-      "last_checked": "2026-09-27",
+      "primary_source": "ERS 2022 HFNC guideline + ERS/ATS 2017 NIV guideline + syndrome-specific current guidance",
+      "stored_version": "ERS HFNC 2022; ERS/ATS NIV 2017; v1.36 consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "P/F severity must be interpreted with actual FiO2, respiratory support/PEEP, timing, imaging and edema origin; verify current local ventilatory and proning protocols."
+      "note": "v1.36 clarifies oxygenation vs ventilation failure, HFNO preference over NIV for de-novo hypoxemic failure, syndrome-specific NIV roles and explicit noninvasive-support failure gates. Remains yellow pending respiratory/ICU and local device/escalation protocol review.",
+      "primary_source_url": "https://publications.ersnet.org/content/erj/59/4/2101574"
     },
     "acute-severe-asthma": {
       "priority": "high",
@@ -454,11 +455,12 @@
     },
     "noninvasive-ventilation": {
       "priority": "high",
-      "primary_source": "Official ERS/ATS NIV guideline; BTS/ICS acute hypercapnic respiratory failure guideline and NIV quality-improvement algorithm",
-      "stored_version": "ERS/ATS 2017; BTS/ICS 2016 with 2017 correction; workflow v1.15",
-      "last_checked": "2026-09-27",
+      "primary_source": "Official ERS/ATS NIV guideline 2017 + ERS HFNC guideline 2022",
+      "stored_version": "ERS/ATS 2017; ERS HFNC 2022; v1.36 consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Core COPD and cardiogenic pulmonary edema indications remain supported, but exact settings, circuits, interfaces and escalation thresholds require local protocol and expert review."
+      "note": "v1.36 preserves strong COPD/cardiogenic indications and makes the de-novo hypoxemic failure/HFNO preference explicit. Remains yellow pending local ventilator/interface settings and ICU escalation review.",
+      "primary_source_url": "https://publications.ersnet.org/content/erj/50/2/1602426.full"
     },
     "acute-abdomen": {
       "priority": "standard",
