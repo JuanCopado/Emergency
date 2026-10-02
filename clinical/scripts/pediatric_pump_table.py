@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate pediatric pump tables only from locally verified concentrations.
+"""Generate pediatric pump tables only from source-verified doses and concentrations.
 
-Fail-closed by design: unverified drugs or missing concentration/dose ladders
+Fail-closed by design: unverified source data or missing concentration/dose ladders
 raise ValueError rather than returning a pump rate.
 """
 
@@ -22,8 +22,8 @@ def pump_table(drug, weight_kg, path=DEFAULT_REGISTRY):
     item = load_registry(path).get(drug)
     if not item:
         raise ValueError(f"unknown drug: {drug}")
-    if item.get("status") != "verified":
-        raise ValueError(f"{drug}: local concentration is not verified")
+    if item.get("status") != "source_verified":
+        raise ValueError(f"{drug}: dose/concentration source is not verified")
     concentration = item.get("final_concentration_per_ml")
     doses = item.get("dose_ladder") or []
     if not concentration or float(concentration) <= 0:
