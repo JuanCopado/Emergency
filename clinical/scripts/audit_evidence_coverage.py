@@ -12,7 +12,7 @@ from validate_modules import validate as validate_modules
 HIGH_RISK = {
     "acute-ischemic-stroke", "acute-coronary-syndrome", "pulmonary-embolism",
     "sepsis-shock", "arrhythmias-cardiac-arrest", "airway-rsi",
-    "pediatric-emergencies", "pediatric-emergency-medications", "obstetric-emergencies", "anticoagulation-reversal",
+    "pediatric-emergencies", "pediatric-emergency-medications", "pediatric-iv-fluid-therapy", "obstetric-emergencies", "anticoagulation-reversal",
     "toxicology", "empiric-antibiotics", "sedoanalgesia",
     "medication-selection-safety", "clinical-image-interpretation",
     "tension-pneumothorax", "traumatic-intracranial-mass-effect",
