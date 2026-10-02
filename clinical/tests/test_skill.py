@@ -213,7 +213,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 126)
+        self.assertEqual(len(manifest), 127)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1701,6 +1701,29 @@ class ModularCoreTests(unittest.TestCase):
             'observation for **8 h from the drowning event**',
             '**SpO2 >=95%**'
         ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_hematology_oncology_emergency_core(self):
+        module = ' '.join(load(ROOT, 'pediatric-hematology-oncology-emergencies').split())
+        for invariant in (
+            'within 30 min when sepsis/systemic compromise is present',
+            'within 60 min otherwise',
+            '100 mg/kg IV every 6 h, max 4 g/dose',
+            '50 mg/kg IV q8h, max 2 g',
+            '22.5 mg/kg IV q24h',
+            'persistent fever alone in a clinically stable child is not an indication to add vancomycin',
+            '125 mL/m2/h or about double maintenance',
+            'platelets **>50 x10^9/L**',
+            '**5--10 mL/kg**',
+            'acute chest syndrome'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_febrile_neutropenia_antibiotic_registry(self):
+        p = pediatric_antibiotic_calculate('febrile-neutropenia-piptazo', 20)
+        self.assertAlmostEqual(p['dose'], 2000.0)
+        c = pediatric_antibiotic_calculate('febrile-neutropenia-cefepime', 20)
+        self.assertAlmostEqual(c['dose'], 1000.0)
+        v = pediatric_antibiotic_calculate('febrile-neutropenia-vancomycin-severe-allergy', 50)
+        self.assertAlmostEqual(v['dose'], 500.0)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):

@@ -1055,6 +1055,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric drowning/hypothermia pathway includes ventilation-first resuscitation, active rewarming, temperature-dependent defibrillation/drug modifications and observation/discharge criteria. Human pediatric critical-care review pending."
+    },
+    "pediatric-hematology-oncology-emergencies": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Fever and suspected/confirmed neutropenia + Hyperleukocytosis updated Oct 2025 + Sickle cell disease + PCH rasburicase monograph",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Fever_and_suspected_or_confirmed_neutropenia/",
+      "stored_version": "RCH FN current; RCH hyperleukocytosis Oct 2025; sickle-cell current online; PCH rasburicase current; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric hematology/oncology emergency route adds explicit febrile-neutropenia timing/regimens, hyperleukocytosis/TLS safeguards and sickle-cell acute chest/stroke boundaries. Human pediatric hematology/oncology/ID review pending."
     }
   }
 }

@@ -228,6 +228,58 @@
       "frequency": "every 6 h",
       "source": "RCH/PIC Meningitis and encephalitis current",
       "status": "source_verified"
+    },
+    {
+      "id": "febrile-neutropenia-piptazo",
+      "syndrome": "clinically stable pediatric febrile neutropenia",
+      "drug": "piperacillin-tazobactam",
+      "dose_per_kg": 100,
+      "dose_unit": "mg/kg piperacillin component",
+      "max_dose": 4000,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 6 h",
+      "source": "RCH/PIC Fever and suspected or confirmed neutropenia",
+      "status": "source_verified"
+    },
+    {
+      "id": "febrile-neutropenia-cefepime",
+      "syndrome": "pediatric febrile neutropenia with non-life-threatening penicillin hypersensitivity",
+      "drug": "cefepime",
+      "dose_per_kg": 50,
+      "dose_unit": "mg/kg",
+      "max_dose": 2000,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 8 h",
+      "source": "RCH/PIC Fever and suspected or confirmed neutropenia",
+      "status": "source_verified"
+    },
+    {
+      "id": "febrile-neutropenia-ciprofloxacin-severe-allergy",
+      "syndrome": "pediatric febrile neutropenia with immediate/life-threatening beta-lactam allergy",
+      "drug": "ciprofloxacin",
+      "dose_per_kg": 10,
+      "dose_unit": "mg/kg",
+      "max_dose": 400,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 12 h; combine with vancomycin in cited pathway",
+      "source": "RCH/PIC Fever and suspected or confirmed neutropenia",
+      "status": "source_verified"
+    },
+    {
+      "id": "febrile-neutropenia-vancomycin-severe-allergy",
+      "syndrome": "pediatric febrile neutropenia severe beta-lactam allergy or resistant Gram-positive risk",
+      "drug": "vancomycin",
+      "dose_per_kg": 15,
+      "dose_unit": "mg/kg",
+      "max_dose": 500,
+      "max_dose_unit": "mg",
+      "route": "IV",
+      "frequency": "every 6 h with TDM",
+      "source": "RCH/PIC Fever and suspected or confirmed neutropenia",
+      "status": "source_verified"
     }
   ]
 }
