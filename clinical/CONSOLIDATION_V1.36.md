@@ -133,3 +133,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Dexmedetomidina/propofol: conflicto guía/ficha técnica conservado; generación automática bloqueada. Ketamina continua: pendiente por falta de pauta pediátrica explícita en la guía revisada.
 - [x] Clinical QA tras ampliación de perfusiones pediátricas: **94 tests PASS**.
+
+- [x] Registro `qa/pediatric-bolus-medications.json` + `scripts/pediatric_bolus_calculator.py` para RSI, anafilaxia, asma grave, hipoglucemia y alteraciones K/Mg; volumen solo cuando la fuente define concentración.
