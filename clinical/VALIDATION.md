@@ -398,3 +398,6 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Added structural regression ensuring the sealed reference is not copied into the blinded artifact and that render wording does not claim unverified physical calibration.
 - Test file now contains **157 test functions**. Full-suite PASS count remains **151 confirmed** until the new PR-triggered Clinical QA run is observable.
 - Draft validation PR: #12. It is explicitly non-release/non-merge and does not change the v1.35 clinical line.
+
+- Added freeze/reveal finalizer regression coverage: incomplete prediction sets and late freezes are blocked; valid finalized manifests strip source ECG identifiers and preserve abstentions.
+- Current test file: **159 test functions**. Last complete externally observed suite remains **151 PASS** pending an observable CI run for the new branch head.
