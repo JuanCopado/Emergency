@@ -34,3 +34,20 @@ Los casos `workflow_only` y `teaching_source_known` pueden tener resultados cual
 
 ## Regla de liberación
 Un PASS automatizado certifica solo integridad metodológica del registro. No equivale a validación clínica.
+
+
+## Contrato de dataset v1.1
+Para `blinded_accuracy` y `prospective_validation`:
+- un dataset representa una sola modalidad y una sola pregunta/condición objetivo;
+- cada caso requiere `patient_uid_hash` y `study_uid_hash`;
+- si un paciente aporta más de un estudio, `patient_grouping_prespecified=true` debe estar declarado para controlar leakage;
+- la predicción debe quedar congelada con `prediction_frozen_at` antes de `reference_revealed_at`;
+- clases permitidas: `positive`, `negative`, `abstain`, `nondiagnostic`;
+- la referencia debe permanecer independiente y documentar su tipo a nivel de dataset.
+
+## Política de métricas
+`scripts/calculate_blinded_image_metrics.py` calcula TP/FP/TN/FN, cobertura, abstención y no-diagnósticos después de pasar el gate estricto.
+
+La sensibilidad/especificidad/PPV/NPV/accuracy estándar solo se muestran si **todos** los casos tienen predicción binaria. Si existe cualquier `abstain` o `nondiagnostic`, esas métricas quedan suprimidas y deben comunicarse cobertura y recuentos no resueltos. Esto impide mejorar artificialmente el rendimiento eliminando los casos difíciles.
+
+Los intervalos de confianza Wilson del 95% se reportan cuando las métricas binarias son calculables. Un intervalo amplio por n pequeño no debe interpretarse como precisión clínica estable.
