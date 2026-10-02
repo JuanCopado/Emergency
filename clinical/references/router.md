@@ -50,7 +50,8 @@ each changes immediate decisions; do not load an entire category.
 - urinary retention/dysfunction with saddle symptoms, bilateral radicular deficit or suspected cauda equina/conus compression -> cauda-equina-conus-emergency + acute-spinal-cord-compression; add medication-selection-safety only when a drug or infusion decision is requested
 
 ## Respiratory
-- acute asthma, status asthmaticus, silent chest or severe bronchospasm -> acute-severe-asthma + oxygen-therapy-emergency + medication-selection-safety; add acute-respiratory-failure and airway-rsi when fatigue or ventilatory failure is present
+- pediatric acute asthma, wheeze with established asthma, severe pediatric exacerbation or pediatric status asthmaticus -> pediatric-acute-asthma + pediatric-emergencies + pediatric-emergency-medications + oxygen-therapy-emergency; add acute-respiratory-failure + pediatric-airway-rsi when fatigue or ventilatory failure is present
+- adult/adolescent acute asthma, status asthmaticus, silent chest or severe bronchospasm -> acute-severe-asthma + oxygen-therapy-emergency + medication-selection-safety; add acute-respiratory-failure and airway-rsi when fatigue or ventilatory failure is present
 - acute COPD exacerbation, CO2 retention or hypercapnic acidosis -> copd-exacerbation + oxygen-therapy-emergency + medication-selection-safety; add noninvasive-ventilation for acidosis/distress and empiric-antibiotics only when bacterial criteria are present
 - major, massive or life-threatening hemoptysis -> life-threatening-hemoptysis + airway-rsi + anticoagulation-reversal + emergency-procedures; add clinical-image-interpretation + chest-xray only when an image is supplied
 - supplemental oxygen, nasal cannula, oxygen mask, Venturi or reservoir mask -> oxygen-therapy-emergency; add acute-respiratory-failure when hypoxemia, hypercapnia, increased work of breathing or deterioration is present
@@ -58,7 +59,8 @@ each changes immediate decisions; do not load an entire category.
 - CPAP, BiPAP, bilevel or noninvasive ventilation -> noninvasive-ventilation + oxygen-therapy-emergency + acute-respiratory-failure
 - respiratory failure -> acute-respiratory-failure + oxygen-therapy-emergency; add high-flow-nasal-oxygen or noninvasive-ventilation only when the corresponding support is being considered or used
 - sudden dyspnea/chest pain with hypotension and unilateral reduced breath sounds, or suspected tension pneumothorax -> tension-pneumothorax + pocus + emergency-procedures
-- emergency airway, failed oxygenation/ventilation, reduced consciousness requiring airway protection or intubation request -> airway-rsi + medication-selection-safety
+- pediatric emergency intubation or RSI -> pediatric-airway-rsi + pediatric-emergencies + pediatric-emergency-medications + medication-selection-safety
+- adult emergency airway, failed oxygenation/ventilation, reduced consciousness requiring airway protection or intubation request -> airway-rsi + medication-selection-safety
 - drowning/environmental -> environmental-emergencies
 
 ## Infection
