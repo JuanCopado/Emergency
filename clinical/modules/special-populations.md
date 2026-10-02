@@ -12,6 +12,20 @@ disposition to physiology, developmental stage, pregnancy and baseline function.
 
 
 
+
+## pediatric-procedural-sedation
+
+- Scope: procedural sedation/analgesia in children in ED/acute care. This is **not** RSI and not continuous PICU sedation. Define the procedure goal: anxiolysis, analgesia, immobility, amnesia or dissociation; use non-pharmacologic support and local/regional anaesthesia whenever appropriate.
+- **Safety prerequisites:** trained pediatric sedation clinician, airway-skilled staff, resuscitation equipment immediately available, baseline HR/RR/BP/SpO2, continuous observation of airway/chest movement, pulse oximetry and cardiorespiratory monitoring appropriate to depth/agent. Combined opioids + sedatives increase respiratory risk.
+- **Ketamine IV:** RCH procedural sedation guidance: initial **1--1.5 mg/kg IV over 1--2 min** immediately before the procedure; additional **0.25--0.5 mg/kg IV every 10 min** if required. Maximum cumulative **4.5 mg/kg**, but doses >2.5 mg/kg are associated with more adverse events and should trigger reconsideration of the strategy.
+- **Ketamine IM:** initial **4 mg/kg IM**; a repeat **2 mg/kg IM after 10 min** may be given if sedation is inadequate. RCH lists a maximum cumulative reference of **6 mg/kg**. Ketamine procedural sedation is absolutely contraindicated in infants **<3 months** in this guideline and requires senior review in infants <12 months and in higher-risk airway/respiratory/cardiac situations.
+- **Ketamine monitoring/recovery:** expect dissociation, nystagmus and mild HR/BP rise. Be prepared for vomiting, transient laryngospasm and rare apnea/respiratory depression. Do not discharge until the child has returned to premorbid neurologic baseline and can mobilize/verbalize at baseline level as developmentally appropriate.
+- **Nitrous oxide/oxygen:** useful for short painful/distressing procedures; RCH supports continuous-flow mixtures titratable **30--70% nitrous oxide**, and states it is safe to start at **70%** when appropriately monitored. A 50:50 premixed nitrous/oxygen system may be used on demand. Procedures >30 min have more vomiting/side effects.
+- **Intranasal fentanyl:** for children **>=12 months** with moderate/severe pain and no IV access, RCH: first dose **1.5 micrograms/kg IN**; repeat **0.75--1.5 micrograms/kg after 5--10 min** if needed. Product/concentration matters: RCH currently describes **300 micrograms/mL** hospital nasal solution for lower-volume delivery; do not automatically use an older 50 micrograms/mL IV presentation intranasally without verifying the product.
+- **Opioid rescue:** excessive sedation/respiratory depression requires airway support and naloxone according to the pediatric opioid-toxicity pathway. Do not rely on naloxone in place of ventilation.
+- **Agent selection:** ketamine is appropriate for short painful procedures needing immobilisation (for example fracture reduction, laceration repair, abscess drainage, foreign-body removal). Nitrous oxide is suited to short procedures with modest analgesic needs. Midazolam provides anxiolysis/amnesia but limited analgesia; do not substitute it for analgesia in a painful procedure.
+- **Fasting:** urgency and aspiration risk should be considered, but time-critical procedures must not be delayed solely to meet an arbitrary fasting interval. Follow current pediatric sedation/anaesthesia guidance and document risk-benefit.
+- **Failure/escalation:** if target sedation cannot be achieved safely within the source dose envelope, stop stacking doses and reassess the plan; involve anaesthesia for deeper sedation/general anaesthesia when required.
 ## pediatric-acute-asthma
 
 - Scope: acute asthma/wheeze in children where asthma is the working diagnosis. Distinguish bronchiolitis, foreign body, anaphylaxis, pneumonia and upper-airway obstruction. Treat immediately while assessing severity.
