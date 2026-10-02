@@ -1,5 +1,13 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 pediatric procedural sedation
+- Adds `pediatric-procedural-sedation` (112 -> 113 modules).
+- Sources: RCH procedural sedation, ketamine, nitrous oxide and intranasal fentanyl guidance.
+- Separates procedural sedation from RSI and continuous PICU sedation.
+- Expected registry state: 113/113 evidence records; 31 green / 82 yellow / 0 red.
+- Automated tests preserve dose/monitoring/recovery boundaries; this is not clinical validation.
+
+
 ## v1.36 pediatric blood products and major haemorrhage
 - Adds `pediatric-blood-transfusion-major-hemorrhage` (111 -> 112 modules).
 - Sources: ERC/RCUK PLS 2025, RCH Blood Product Prescription and RCH Trauma Primary Survey.
