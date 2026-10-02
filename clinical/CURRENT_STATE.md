@@ -7,6 +7,10 @@ Fuente comprobada en esta sesión: ZIP subido v1.26. No se ha inspeccionado ni m
 - Paquete original recibido: **v1.26 — Endocrine Emergencies**. Copia de trabajo actual: propuesta **v1.35**, no instalada.
 - **106** IDs únicos en el índice del paquete; **106/106** resuelven en los bundles.
 - Evidencia registrada: **106/106**; 31 green, 75 yellow, 0 red.
+
+## Estado autoritativo actual
+- **v1.35** es el estado vigente de este repositorio: **106 IDs**, **106/106** registros de evidencia, **31 green / 75 yellow / 0 red** y **63/63** pruebas unitarias.
+- Cualquier cifra inferior (por ejemplo **93/93**, **98 IDs** o **104/104**) que aparezca más abajo pertenece a un **snapshot histórico de la versión indicada** y no debe interpretarse como estado actual.
 - Línea base v1.26: **58 pruebas unitarias** y **27 regresiones con fuentes**. En la propuesta v1.35 pasan 63 pruebas unitarias; las 106 rutas resuelven y la auditoría de cobertura registra 106/106 (31 green, 75 yellow, 0 red). El test de manifiesto incluye las trece rutas incorporadas desde v1.26; cada ejemplo de mL/h de las perfusiones nuevas se comprueba por prueba unitaria. Estos controles no equivalen a validación clínica prospectiva.
 - Los casos de regresión y las pruebas estructurales no son evaluación ciega de
   respuestas, validación clínica prospectiva ni prueba de precisión de imágenes.
@@ -46,13 +50,13 @@ v1.21–v1.26 añadieron módulos. Si se cambia el código, recalcular total y c
   tormenta se añadió la pauta de hidrocortisona del consenso, separada de ATA 2016,
   seguridad hepática/PTU, control de potasio y escalada. En coma mixedematoso, las
   pautas IV cotejadas concuerdan con el módulo; no se añadió pauta enteral no
-  verificada. Resultado de auditoría: 93/93 resuelven; evidencia 93/93 (34 green,
+  verificada. Snapshot histórico de esa versión: 93/93 resuelven; evidencia 93/93 (34 green,
   59 yellow, 0 red); 58/58 pruebas pasan. Detalle: `updates/endocrine-consensus-review-2026-09-27.md`.
 - Pendientes inmediatos: revisión clínica humana del borrador; comprobación local
   DGS/INFARMED/formulario Azores y disponibilidad; detalle enteral de levotiroxina
   si no hay IV. El portal DGS previamente devolvió 403; ninguna norma individual
   consta aquí como revisada.
-- Propuesta v1.28: revisión ampliada de hemorragia digestiva integrada en las rutas existentes. `upper-gi-bleeding` ahora incluye estabilización/riesgo, vía aérea selectiva, procinéticos selectivos, estigmas Forrest, hemostasia/rescate y vía variceal separada. La ruta existente `lower-gi-bleeding` fue cotejada: CTA/embolización, colonoscopia no urgente tras estabilización, reversión selectiva y TXA no rutinario ya cubiertos. Sin módulo nuevo; índice real sigue en 93. Ver `updates/gi-bleeding-review-2026-09-28.md`.
+- Propuesta v1.28: revisión ampliada de hemorragia digestiva integrada en las rutas existentes. `upper-gi-bleeding` ahora incluye estabilización/riesgo, vía aérea selectiva, procinéticos selectivos, estigmas Forrest, hemostasia/rescate y vía variceal separada. La ruta existente `lower-gi-bleeding` fue cotejada: CTA/embolización, colonoscopia no urgente tras estabilización, reversión selectiva y TXA no rutinario ya cubiertos. Sin módulo nuevo; en ese snapshot histórico el índice seguía en 93. Ver `updates/gi-bleeding-review-2026-09-28.md`.
 - Pendientes GI: revisión clínica humana, protocolo/formulario/stock local de Portugal-Azores, conciliación detallada del reinicio/reversión antitrombótico y diagnóstico de intestino delgado tras endoscopia alta/baja negativa. Mantener distinción entre recomendaciones de guías y protocolo local.
 - Propuesta v1.29: revisión focal de anticoagulación en isquemia mesentérica aguda con ESVS 2025/WSES 2022. Clarifica UFH/LMWH para MVT, duración 3–6 meses y terapia prolongada según riesgo, escalada por peritonitis/deterioro, distinción NOMI/arterial y ausencia de nomograma UFH universal en esas guías. No inventa dosis o mL/h. Se conserva el ID existente. Ver updates/mesenteric-anticoagulation-review-2026-09-28.md. Quedan validación humana y protocolo local de dosis/monitorización/procedimientos.
 - Propuesta v1.30: revisión focal de la alternativa enteral en coma mixedematoso. No se añadió dosis: el consenso conjunto 2026 conserva carga IV y contempla transición oral al recuperar plenamente la conciencia; una serie unicéntrica retrospectiva (14 casos, edades 11–82) no basta para adoptar la carga oral/taper como pauta general adulta. Se mantiene revisión especialista y local. Ver updates/myxedema-enteral-review-2026-09-28.md.
