@@ -109,7 +109,7 @@ def _render_standard(record_path, output_png):
     fig.savefig(output_png, bbox_inches="tight")
     plt.close(fig)
 
-def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0):
+def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pilot_per_class=0):
     if not target_code.strip():
         raise ValueError("target_code is required")
     if len(salt) < 16:
@@ -141,14 +141,24 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0):
     if not positives or not negatives:
         raise ValueError("target must have both positive and negative cases in selected fold")
 
-    # Optional deterministic pilot: preserve every positive first, then negatives by ecg_id.
-    if max_cases and max_cases > 0:
+    selection_mode = "full_fold"
+    if pilot_per_class and pilot_per_class > 0:
+        if len(positives) < pilot_per_class or len(negatives) < pilot_per_class:
+            raise ValueError("pilot_per_class exceeds available positive/negative cases")
+        rows = (
+            sorted(positives, key=lambda r: int(r["ecg_id"]))[:pilot_per_class]
+            + sorted(negatives, key=lambda r: int(r["ecg_id"]))[:pilot_per_class]
+        )
+        rows = sorted(rows, key=lambda r: int(r["ecg_id"]))
+        selection_mode = f"balanced_pipeline_pilot_{pilot_per_class}_per_class"
+    elif max_cases and max_cases > 0:
         if max_cases < len(positives) + 1:
             raise ValueError("max_cases too small: pilot must retain all positives plus >=1 negative")
         keep_neg = max_cases - len(positives)
         rows = sorted(positives, key=lambda r: int(r["ecg_id"])) + sorted(
             negatives, key=lambda r: int(r["ecg_id"])
         )[:keep_neg]
+        selection_mode = "positive_preserving_pilot"
     else:
         rows = sorted(rows, key=lambda r: int(r["ecg_id"]))
 
@@ -207,6 +217,8 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0):
             "description": "Reference remains sealed until predictions are frozen."
         },
         "selection_rule": f"strat_fold == {int(fold)}",
+        "selection_mode": selection_mode,
+        "performance_metrics_allowed": selection_mode == "full_fold",
         "patient_grouping_prespecified": True,
         "metrics_requested": False,
         "render_protocol": "qa/PTBXL_BLINDED_PROTOCOL.md",
@@ -240,10 +252,11 @@ if __name__ == "__main__":
     p.add_argument("--salt", required=True)
     p.add_argument("--fold", type=int, default=10)
     p.add_argument("--max-cases", type=int, default=0)
+    p.add_argument("--pilot-per-class", type=int, default=0)
     args = p.parse_args()
     cohort, sealed = build(
         args.database_csv, args.target_code, args.salt, args.output_dir,
-        fold=args.fold, max_cases=args.max_cases
+        fold=args.fold, max_cases=args.max_cases, pilot_per_class=args.pilot_per_class
     )
     print(json.dumps({
         "case_count": len(cohort["cases"]),
