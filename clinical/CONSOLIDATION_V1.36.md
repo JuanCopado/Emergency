@@ -188,3 +188,7 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Evaluación ciega escalable preparada: `shard_blinded_image_manifest.py`, `create_blinded_prediction_template.py` y `merge_blinded_prediction_shards.py`.
 - [x] Los shards preservan grupos de paciente y el merge falla si falta un shard, falta una predicción o una predicción no está congelada.
+
+- [x] TC cerebral / RSNA ICH: referencia preespecificada para target `any_acute_ich`; solo mayoría 2/3 de tres neurorradiólogos o adjudicación sénior verificable. Single-reader bloqueado.
+- [x] Preparador fail-closed `scripts/prepare_rsna_ich_blinded_cohort.py`; unidad de análisis examen completo, slices agrupados por estudio/paciente, referencia sellada.
+- [ ] RSNA ICH: congelar estrategia DICOM→render antes de predicción visual e importar casos únicamente cuando pueda demostrarse la procedencia multi-reader/adjudicada desde los archivos fuente disponibles.
