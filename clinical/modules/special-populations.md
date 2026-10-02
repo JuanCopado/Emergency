@@ -11,6 +11,21 @@ disposition to physiology, developmental stage, pregnancy and baseline function.
 
 
 
+
+## pediatric-acute-asthma
+
+- Scope: acute asthma/wheeze in children where asthma is the working diagnosis. Distinguish bronchiolitis, foreign body, anaphylaxis, pneumonia and upper-airway obstruction. Treat immediately while assessing severity.
+- **Life-threatening features:** drowsiness/confusion/exhaustion, cyanosis, silent or poorly ventilated chest, poor respiratory effort, bradycardia/hypotension, refractory hypoxaemia or impending arrest -> call PICU/anaesthesia early and prepare for invasive airway management.
+- **Oxygen:** use controlled oxygen when hypoxaemic. GINA 2026 uses a pediatric target of at least about **92%** in children <=5 years in the initial management box; older-child acute-asthma algorithms target approximately **94% or higher**. Avoid delaying bronchodilator therapy while refining the exact target.
+- **Salbutamol/albuterol:** pMDI + spacer is preferred when feasible. For children <=5 years, GINA 2026: **4 or more puffs of 100 micrograms/puff**, one puff at a time, or **2.5 mg nebulized**; in moderate/severe exacerbation repeat about every **20 min for up to 3 doses**, then reassess. For children 6--11 years, GINA acute-exacerbation guidance uses **4--10 puffs** by pMDI + spacer every 20 min for up to 3 doses in the first hour.
+- **Ipratropium:** for moderate/severe exacerbation or poor initial response, GINA 2026 supports **4 puffs of 20 micrograms** by pMDI/spacer or **250 micrograms nebulized** with SABA, up to 3 doses about 20--30 min apart in the first hour.
+- **Systemic corticosteroid <=5 years:** for moderately severe/severe exacerbation, prednisolone **1--2 mg/kg/day**; maximum **20 mg/day if <2 years** and **30 mg/day if age 2--5 years**, usually **3--5 days**. Alternative dexamethasone **0.3--0.6 mg/kg, max 12 mg**, 1 dose with or without a second dose the next day.
+- **Systemic corticosteroid 6--11 years:** prednisone/prednisolone **1--2 mg/kg/day, max 40 mg/day**, usually **3--5 days**; oral dexamethasone **0.3--0.6 mg/kg, max 12 mg**, total 1--2 days.
+- **IV magnesium sulfate:** for children **>=2 years** with severe acute asthma and inadequate response after initial therapy, GINA 2026 supports **40--50 mg/kg IV, max 2 g**, by slow infusion over **20--60 min**. It is second-line, not routine for mild/moderate attacks.
+- Monitor response after each bronchodilator cycle: work of breathing, speech, air entry, SpO2, HR, mental state and fatigue. Check potassium, glucose and lactate when beta-agonist exposure is high or deterioration is unexplained.
+- Avoid sedatives in a spontaneously breathing child with severe asthma. Routine antibiotics, mucolytics and IV aminophylline are not standard first-line therapy. IM adrenaline is for anaphylaxis/angioedema, not routine isolated asthma.
+- Escalate for failure to improve within the first hour, oxygen saturation <92%, increasing fatigue, altered consciousness, silent chest, refractory hypoxaemia/hypercapnia or need for SABA more often than every 1--2 h. NIV must not delay intubation.
+- **Discharge:** sustained clinical improvement, stable oxygenation on room air, bronchodilator spacing appropriate for home, caregiver competence, inhaler/spacer technique, written action plan and follow-up. Ensure an **ICS-containing controller strategy** appropriate to age/severity; GINA 2026 continues to emphasize anti-inflammatory treatment rather than SABA-only long-term management.
 ## pediatric-iv-fluid-therapy
 
 - Scope: pediatric IV-fluid selection, dose and timing beyond the neonatal transition. Use the syndrome-specific module in parallel. **Do not transfer a gastroenteritis, sepsis, DKA, hypernatraemia, haemorrhage or cardiogenic-shock fluid plan to another syndrome.**
