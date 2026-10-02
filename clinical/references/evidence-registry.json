@@ -875,6 +875,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "PADIS 2025 conditional preference for dexmedetomidine over propofol when light sedation and/or delirium reduction are highest priorities reconfirmed; 2018 preference for propofol/dexmedetomidine over benzodiazepines retained. Dexmedetomidine ICU no-loading and max 1.4 micrograms/kg/h product information reconfirmed. Remains yellow pending human ICU/pharmacy review and Portugal/Azores product/formulary reconciliation."
+    },
+    "pediatric-emergency-medications": {
+      "priority": "high",
+      "primary_source": "ERC/RCUK Paediatric Life Support 2025 + NICE NG29 IV fluids + NICE CG84 gastroenteritis + HSE pediatric status guideline for syndrome-specific comparison",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "stored_version": "ERC/RCUK PLS 2025; NICE NG29 updated 2020/current online 2026; NICE CG84 current online 2026; HSE CDI/0277/1.0/2025; v1.36 phase-4 build 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Cross-cutting pediatric dose/volume engine added. It stores selected verified resuscitation/fluid references and deterministic arithmetic, but does not choose diagnosis or local concentration. Remains yellow pending pediatric/pharmacy review and Portugal/Azores concentration/formulary/smart-pump verification."
     }
   }
 }
