@@ -21,6 +21,7 @@ from acid_base_hyperglycemia import calculate as acid_base_hyperglycemia
 from respiratory_support import calculate as respiratory_support
 from pediatric_pump_table import pump_table as pediatric_pump_table
 from pediatric_bolus_calculator import calculate as pediatric_bolus_calculate
+from pediatric_antibiotic_calculator import calculate as pediatric_antibiotic_calculate
 from pediatric_emergency_calculator import (
     weight_based_total as pediatric_weight_based_total,
     volume_for_dose as pediatric_volume_for_dose,
@@ -1232,6 +1233,39 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('do **not** build a universal weight-based antibiotic table', module)
         self.assertIn('syndrome-specific pathway and current guideline', module)
         self.assertIn('local resistance', module)
+
+
+    def test_v136_pediatric_antibiotic_syndrome_specific_calculations(self):
+        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 20)
+        self.assertAlmostEqual(sepsis['dose'], 1600.0)
+        self.assertEqual(sepsis['frequency'], 'once daily')
+        pyelo = pediatric_antibiotic_calculate('pyelonephritis-ceftriaxone', 20)
+        self.assertEqual(pyelo['dose_range'], [1000.0, 1600.0])
+        gent = pediatric_antibiotic_calculate('pyelonephritis-gentamicin-initial', 20)
+        self.assertAlmostEqual(gent['dose'], 140.0)
+        uti = pediatric_antibiotic_calculate('lower-uti-trimethoprim', 20)
+        self.assertAlmostEqual(uti['dose'], 80.0)
+        cellulitis = pediatric_antibiotic_calculate('cellulitis-flucloxacillin-iv', 20)
+        self.assertEqual(cellulitis['dose_range'], [250.0, 500.0])
+
+    def test_v136_pediatric_antibiotic_caps_and_boundaries(self):
+        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 80)
+        self.assertAlmostEqual(sepsis['dose'], 4000.0)
+        uti = pediatric_antibiotic_calculate('lower-uti-trimethoprim', 80)
+        self.assertAlmostEqual(uti['dose'], 200.0)
+        with self.assertRaises(ValueError):
+            pediatric_antibiotic_calculate('meningitis-empiric-agent', 20)
+        with self.assertRaises(ValueError):
+            pediatric_antibiotic_calculate('unknown-antibiotic', 20)
+
+    def test_v136_pediatric_antibiotic_registry_is_not_universal(self):
+        module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
+        self.assertIn('Canonical pediatric antibiotic registry', module)
+        self.assertIn('do **not** build a universal weight-based antibiotic table', module)
+        data = json.loads((ROOT / 'qa' / 'pediatric-antibiotics.json').read_text(encoding='utf-8'))
+        meningitis = next(x for x in data['entries'] if x['id'] == 'meningitis-empiric-agent')
+        self.assertEqual(meningitis['status'], 'agent_verified_dose_external')
+        self.assertIn('BNFC', meningitis['source'])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
