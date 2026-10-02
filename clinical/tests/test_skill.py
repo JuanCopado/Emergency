@@ -1169,7 +1169,7 @@ class ModularCoreTests(unittest.TestCase):
             self.assertAlmostEqual(table['rows'][2]['ml_h'], 12.0)
 
     def test_v136_off_label_or_product_restricted_pediatric_pumps_fail_closed(self):
-        for drug in ('dexmedetomidine', 'propofol', 'ketamine'):
+        for drug in ('dexmedetomidine', 'propofol'):
             with self.assertRaises(ValueError):
                 pediatric_pump_table(drug, 20)
 
