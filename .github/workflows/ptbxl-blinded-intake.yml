@@ -13,7 +13,7 @@ on:
         required: true
         default: 'AFIB'
       max_cases:
-        description: '0 = all fold-10 cases; otherwise deterministic pilot retaining all positives'
+        description: '0 = all fold-10 cases'
         required: true
         default: '0'
 
@@ -39,12 +39,7 @@ jobs:
       - name: Download PTB-XL metadata v1.0.3
         run: |
           mkdir -p .ptbxl-input
-          curl --fail --location --retry 3 --connect-timeout 20 --max-time 60 \
-            "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/ptbxl_database.csv" \
-            --output .ptbxl-input/ptbxl_database.csv \
-          || curl --fail --location --retry 2 --connect-timeout 20 --max-time 90 \
-            "https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv" \
-            --output .ptbxl-input/ptbxl_database.csv
+          curl --fail --location --retry 3 --connect-timeout 20 --max-time 60             "https://physionet-open.s3.amazonaws.com/ptb-xl/1.0.3/ptbxl_database.csv"             --output .ptbxl-input/ptbxl_database.csv           || curl --fail --location --retry 2 --connect-timeout 20 --max-time 90             "https://physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv"             --output .ptbxl-input/ptbxl_database.csv
 
       - name: Verify source intake gate
         working-directory: clinical
@@ -68,31 +63,7 @@ jobs:
         env:
           MANUAL_MAX_CASES: ${{ github.event.inputs.max_cases || '0' }}
         run: |
-          if [ "${{ github.event_name }}" = "push" ] && grep -q '^FULL_FOLD
-      - name: Ensure sealed reference is absent from blinded artifact directory
-        run: |
-          mkdir -p ptbxl-blinded-artifact ptbxl-sealed-artifact
-          cp .ptbxl-output/blinded_manifest.json ptbxl-blinded-artifact/
-          cp -r .ptbxl-output/images ptbxl-blinded-artifact/
-          cp .ptbxl-output/SEALED_REFERENCE_DO_NOT_REVEAL.json ptbxl-sealed-artifact/
-          test ! -e ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json
-
-      - name: Upload blinded image artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ptbxl-blinded-${{ github.event.inputs.target_code || 'AFIB' }}-fold10
-          path: ptbxl-blinded-artifact/
-          retention-days: 14
-          if-no-files-found: error
-
-      - name: Upload sealed reference artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ptbxl-sealed-reference-${{ github.event.inputs.target_code || 'AFIB' }}-fold10
-          path: ptbxl-sealed-artifact/
-          retention-days: 14
-          if-no-files-found: error
- .github/ptbxl-intake-trigger; then
+          if [ "${{ github.event_name }}" = "push" ] && grep -qx "FULL_FOLD" .github/ptbxl-intake-trigger; then
             echo "PTBXL_PILOT_PER_CLASS=0" >> "$GITHUB_ENV"
             echo "PTBXL_MAX_CASES=0" >> "$GITHUB_ENV"
             echo "PTBXL_INTAKE_MODE=full_fold" >> "$GITHUB_ENV"
@@ -111,7 +82,7 @@ jobs:
           TARGET_CODE: ${{ github.event.inputs.target_code || 'AFIB' }}
         run: |
           echo "Intake mode: $PTBXL_INTAKE_MODE"
-          python clinical/scripts/build_ptbxl_blinded_benchmark.py .ptbxl-input/ptbxl_database.csv "$TARGET_CODE" .ptbxl-output --salt "$PTBXL_RUN_SALT" --fold 10 --max-cases "$PTBXL_MAX_CASES" --pilot-per-class "$PTBXL_PILOT_PER_CLASS"
+          python clinical/scripts/build_ptbxl_blinded_benchmark.py             .ptbxl-input/ptbxl_database.csv             "$TARGET_CODE"             .ptbxl-output             --salt "$PTBXL_RUN_SALT"             --fold 10             --max-cases "$PTBXL_MAX_CASES"             --pilot-per-class "$PTBXL_PILOT_PER_CLASS"
 
       - name: Ensure sealed reference is absent from blinded artifact directory
         run: |
