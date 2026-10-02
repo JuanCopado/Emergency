@@ -14,10 +14,16 @@ delay stabilization for diagnostic certainty.
 
 ## anaphylaxis
 
-- Diagnose clinically when compatible airway, breathing, circulation or multi-system features follow likely exposure; skin findings may be absent.
-- Give IM epinephrine promptly in the anterolateral thigh using verified age/weight dosing; repeat according to response. Position appropriately, give oxygen and IV crystalloid for shock.
-- Prepare advanced airway early for progressive edema. Refractory shock needs expert IV epinephrine infusion with continuous monitoring; avoid unmonitored IV bolus epinephrine.
-- Observe according to severity, treatment requirements and biphasic-risk factors; discharge with trigger plan, autoinjector access/training and referral when appropriate.
+- Diagnose clinically when there is sudden compatible **airway, breathing or circulation compromise**, with or without skin/mucosal findings, after a likely trigger. Skin signs may be absent. Remove/stop the trigger if immediately feasible and call for resuscitation help.
+- **Adrenaline (epinephrine) IM is first-line.** Inject into the anterolateral thigh using **1 mg/mL (1:1000)** solution. RCUK/ERC 2025 adult dose: **500 micrograms IM (0.5 mL)**. Repeat after **5 min** if airway/breathing/circulation problems persist.
+- Pediatric RCUK 2025 age-banded IM doses: >12 y **500 micrograms**; 6--12 y **300 micrograms**; 6 months--6 y **150 micrograms**; <6 months **100--150 micrograms**. Use weight/local pediatric charts when available and independently double-check small-volume doses.
+- Position flat with or without leg elevation unless breathing difficulty requires sitting; in pregnancy use left lateral tilt/positioning as appropriate. Give high-flow oxygen and monitoring.
+- **Fluids:** give IV isotonic crystalloid early for shock and reassess. RCUK adult reference bolus **500--1000 mL**; children **10 mL/kg**, repeated according to response and overload risk.
+- Progressive airway edema requires early expert airway planning. Do not delay IM adrenaline while preparing the airway.
+- **Refractory anaphylaxis:** persistent airway/breathing/circulation compromise after **2 appropriate IM adrenaline doses** should trigger the refractory-anaphylaxis pathway and expert **low-dose IV adrenaline infusion** with continuous monitoring. Avoid unmonitored IV adrenaline boluses.
+- Antihistamines and corticosteroids are not substitutes for IM adrenaline in life-threatening anaphylaxis. Treat bronchospasm or other persistent features as adjuncts only after adrenaline/resuscitation priorities are addressed.
+- After stabilization, observation duration should reflect severity, number of adrenaline doses, comorbidity and biphasic-risk factors. Discharge planning should include trigger avoidance, adrenaline auto-injector access/training when indicated and allergy referral.
+- Portugal/Azores release gate: confirm local adrenaline presentations, infusion concentration/pump standard, observation policy, auto-injector access and allergy referral pathway.
 
 ## acute-respiratory-failure
 
