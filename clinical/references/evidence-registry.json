@@ -1037,6 +1037,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric hypertensive emergency route uses age/percentile context, controlled reduction, source-verified labetalol/hydralazine doses and concentrations. Human pediatric nephrology/critical-care review pending."
+    },
+    "pediatric-foreign-body-emergencies": {
+      "priority": "high",
+      "primary_source": "RCH/PIC Foreign body ingestion current + Foreign bodies inhaled + ESPGHAN button battery position paper",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Foreign_body_ingestion/",
+      "stored_version": "RCH ingestion current online (last guideline update 2024; patient information reviewed 2025/2026); RCH inhaled FB current online; ESPGHAN position paper; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric foreign-body route separates airway aspiration from GI ingestion and prioritizes button batteries, magnets and other high-risk objects. Human pediatric ENT/GI/surgery review pending."
     }
   }
 }

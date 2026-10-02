@@ -72,3 +72,5 @@ This file explains why they receive stricter release gates.
 - pediatric-major-trauma
 
 - pediatric-hypertensive-emergency
+
+- pediatric-foreign-body-emergencies

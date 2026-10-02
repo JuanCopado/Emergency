@@ -213,7 +213,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 124)
+        self.assertEqual(len(manifest), 125)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1670,6 +1670,20 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(pediatric_labetalol_ml_h(20, 0.5, 1.0), 10.0)
         self.assertAlmostEqual(pediatric_labetalol_ml_h(20, 0.5, 5.0), 2.0)
         self.assertAlmostEqual(pediatric_hydralazine_ml_h(20, 4, 400), 12.0)
+
+    def test_v136_pediatric_foreign_body_time_critical_rules(self):
+        module = ' '.join(load(ROOT, 'pediatric-foreign-body-emergencies').split())
+        for invariant in (
+            'normal chest X-ray does **not** exclude aspiration',
+            '**CT is not routinely recommended**',
+            'oesophageal button battery requires endoscopic removal within 2 h',
+            '**honey 10 mL every 10 min up to 6 doses**',
+            '**>1 year**',
+            '**within the previous 12 h**',
+            'multiple magnets, or a magnet plus a metallic object',
+            '>6 cm long and/or >2 cm wide',
+            '**not a magnet or battery**'
+        ): self.assertIn(invariant, module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):

@@ -147,3 +147,5 @@ each changes immediate decisions; do not load an entire category.
 - pediatric major trauma, polytrauma, high-energy mechanism or trauma-team activation -> pediatric-major-trauma + pediatric-emergencies; add pediatric-head-injury, pediatric-blood-transfusion-major-hemorrhage, pediatric-burns or pediatric-airway-rsi as indicated
 
 - pediatric severe hypertension, hypertensive emergency/encephalopathy or IV antihypertensive infusion -> pediatric-hypertensive-emergency + pediatric-emergencies + medication-selection-safety
+
+- pediatric swallowed/inhaled foreign body, button battery, magnets, choking history or focal airway obstruction -> pediatric-foreign-body-emergencies + pediatric-emergencies; add pediatric-airway-rsi/resuscitation only if airway deterioration requires it
