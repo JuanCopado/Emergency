@@ -105,3 +105,8 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [IN REVIEW] `medication-selection-safety` — WHO Medication Without Harm 2024 + ISMP high-alert list 2024 reconciled 02/10/2026; unit/concentration/high-alert/double-check/transition gates strengthened; remains yellow pending Horta pharmacy/smart-pump/local-policy review.
 - [IN REVIEW] `pediatric-status-epilepticus` — HSE CDI/0277/1.0/2025 rechecked 02/10/2026; glucose, rectal diazepam, levetiracetam administration and consultant alternatives completed; remains yellow pending pediatric neurology/pharmacy + Portugal/Azores operational review.
+
+## Fase 3 — farmacología Portugal/Azores (iniciada)
+- [REFERENCE FOUND / LOCAL PENDING] noradrenalina, adrenalina, dopamina, dobutamina, amiodarona e isoprenalina: presentaciones de referencia encontradas en el Formulário Hospitalar Nacional de Medicamentos de INFARMED. **No equivalen a stock actual, RCM del producto concreto ni estándar local del Hospital da Horta.**
+- [PENDING] vasopresina/argipresina para shock: la referencia pública revisada no permitió confirmar una presentación portuguesa de perfusión para shock.
+- Próximo paso: propofol, dexmedetomidina, midazolam, fentanilo y remifentanilo; después compatibilidad/estabilidad y concentraciones locales.
