@@ -1,5 +1,12 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 current branch snapshot — 127 modules
+- `scripts/validate_modules.py`: 127 modules resolved.
+- Evidence registry: 127/127; 29 green / 98 yellow / 0 red.
+- `Clinical QA`: 141 automated tests PASS on the latest pediatric-antibiotic boundary run.
+- These are structural/arithmetic/regression checks, not clinical validation.
+
+
 ## v1.36 pediatric procedural sedation
 - Adds `pediatric-procedural-sedation` (112 -> 113 modules).
 - Sources: RCH procedural sedation, ketamine, nitrous oxide and intranasal fentanyl guidance.
