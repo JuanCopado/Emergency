@@ -941,6 +941,28 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, tbi)
 
+
+    def test_v136_respiratory_support_consolidation(self):
+        arf = ' '.join(load(ROOT, 'acute-respiratory-failure').split())
+        niv = ' '.join(load(ROOT, 'noninvasive-ventilation').split())
+        for invariant in (
+            'oxygenation failure, ventilation failure, or both',
+            'conditionally favors HFNO over NIV',
+            'P/F ratio <=200 mmHg',
+            'Do not use noninvasive support as a delaying maneuver'
+        ):
+            self.assertIn(invariant, arf)
+        for invariant in (
+            'pH <=7.35',
+            'conditionally favors HFNO over NIV',
+            'IPAP 10--15 cmH2O and EPAP 4 cmH2O',
+            '5--10 cmH2O',
+            '88--92%',
+            '1 hour',
+            'pH <7.25 despite optimized NIV'
+        ):
+            self.assertIn(invariant, niv)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
