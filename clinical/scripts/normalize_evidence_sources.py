@@ -161,17 +161,22 @@ def normalize(registry_doc: dict, overrides_doc: dict | None = None) -> dict:
         by_id[source_id] = dict(source)
 
     # Ensure every relationship resolves after overrides.
+    referenced_ids = {
+        ref["source_id"]
+        for refs in module_sources.values()
+        for ref in refs
+    }
     known_ids = set(by_id)
-    unresolved = sorted(
-        {
-            ref["source_id"]
-            for refs in module_sources.values()
-            for ref in refs
-            if ref.get("source_id") not in known_ids
-        }
-    )
+    unresolved = sorted(referenced_ids - known_ids)
     if unresolved:
         raise ValueError(f"unresolved source IDs after overrides: {unresolved}")
+
+    # Drop override sources that are no longer referenced by any module.
+    by_id = {
+        source_id: source
+        for source_id, source in by_id.items()
+        if source_id in referenced_ids
+    }
 
     # Recompute reverse module lists from authoritative relationships.
     reverse = {source_id: [] for source_id in by_id}
