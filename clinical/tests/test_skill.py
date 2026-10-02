@@ -62,6 +62,9 @@ from calculate_blinded_image_metrics import calculate as calculate_blinded_image
 from create_blinded_image_dataset import build as build_blinded_image_dataset
 from prepare_ptbxl_blinded_cohort import prepare as prepare_ptbxl_blinded_cohort
 from finalize_blinded_image_dataset import finalize as finalize_blinded_image_dataset
+from merge_blinded_prediction_shards import merge as merge_blinded_prediction_shards
+from create_blinded_prediction_template import build as build_blinded_prediction_template
+from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2164,6 +2167,62 @@ class ModularCoreTests(unittest.TestCase):
         metrics = calculate_blinded_image_metrics(result)
         self.assertFalse(metrics['metrics']['standard_binary_metrics_available'])
         self.assertAlmostEqual(metrics['metrics']['coverage'], 0.5)
+
+    def test_v136_blinded_sharding_preserves_all_cases_and_patient_groups(self):
+        blinded = {
+            'source_id':'ptb-xl','source_version':'1.0.3',
+            'target_condition':'AFIB','target_question':'AFIB?',
+            'cases':[
+                {'id':'a1','patient_uid_hash':'p1','study_uid_hash':'s1','image_file':'images/a1.png'},
+                {'id':'a2','patient_uid_hash':'p1','study_uid_hash':'s2','image_file':'images/a2.png'},
+                {'id':'b1','patient_uid_hash':'p2','study_uid_hash':'s3','image_file':'images/b1.png'},
+                {'id':'c1','patient_uid_hash':'p3','study_uid_hash':'s4','image_file':'images/c1.png'},
+            ]
+        }
+        shards = shard_blinded_image_manifest(blinded, max_cases=2, keep_patient_groups=True)
+        all_ids = [case['id'] for shard in shards for case in shard['cases']]
+        self.assertEqual(sorted(all_ids), ['a1','a2','b1','c1'])
+        self.assertEqual(len(all_ids), len(set(all_ids)))
+        locations = {}
+        for shard in shards:
+            for case in shard['cases']:
+                locations.setdefault(case['patient_uid_hash'], set()).add(shard['shard_index'])
+        self.assertEqual(len(locations['p1']), 1)
+
+    def test_v136_prediction_template_and_merge_fail_closed(self):
+        shard1 = {
+            'target_condition':'AFIB','shard_index':1,'shard_count':2,
+            'cases':[{'id':'a'}]
+        }
+        template = build_blinded_prediction_template(shard1)
+        self.assertIsNone(template['predictions'][0]['class'])
+        self.assertIsNone(template['predictions'][0]['prediction_frozen_at'])
+
+        with tempfile.TemporaryDirectory() as directory:
+            d = Path(directory)
+            p1 = d/'p1.json'
+            p1.write_text(json.dumps({
+                'shard_index':1,'shard_count':2,
+                'predictions':[{'id':'a','class':'positive','prediction_frozen_at':'2026-10-02T18:00:00Z'}]
+            }), encoding='utf-8')
+            with self.assertRaises(ValueError):
+                merge_blinded_prediction_shards([p1])
+
+            p2 = d/'p2.json'
+            p2.write_text(json.dumps({
+                'shard_index':2,'shard_count':2,
+                'predictions':[{'id':'b','class':'abstain','prediction_frozen_at':'2026-10-02T18:01:00Z'}]
+            }), encoding='utf-8')
+            merged = merge_blinded_prediction_shards([p1,p2])
+            self.assertEqual(merged['shard_count'], 2)
+            self.assertEqual(len(merged['predictions']), 2)
+
+            p2.write_text(json.dumps({
+                'shard_index':2,'shard_count':2,
+                'predictions':[{'id':'b','class':None,'prediction_frozen_at':None}]
+            }), encoding='utf-8')
+            with self.assertRaises(ValueError):
+                merge_blinded_prediction_shards([p1,p2])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
