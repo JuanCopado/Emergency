@@ -1,4 +1,4 @@
-# Validation report v1.35 working draft
+# Validation report — estado autoritativo actual v1.35
 
 ## v1.35 ICU/ED continuous infusion modules
 - Added two module IDs (104 -> 106) in existing bundles; no new bundle and no duplicated ID.
@@ -9,17 +9,20 @@
 ## v1.35 execution results (2026-09-29)
 - `scripts/validate_modules.py`: PASS, 106 modules resolved.
 - `scripts/audit_evidence_coverage.py`: PASS, 106/106 evidence records; 31 green / 75 yellow / 0 red; no errors or warnings.
+
+## Nota sobre snapshots históricos
+Los resultados numéricos que aparecen en secciones posteriores (por ejemplo **93/93**, **98 IDs** o **104/104**) corresponden exclusivamente a la versión indicada en cada bloque. **No representan el estado vigente.** El estado autoritativo actual es v1.35: **106 IDs**, **106/106 evidencia**, **31 green / 75 yellow / 0 red** y **63/63 tests**.
 - `python3 -m unittest discover -s tests -q`: PASS, 63/63 tests (manifest cardinality assertion updated to 106; five new infusion tests).
 - `scripts/check_evidence_registry.py`: completed; 75 records review-due (all yellow), including both new modules; no release approval implied.
 
-# Validation report v1.34 working draft
+## Histórico — snapshot v1.34
 
 ## v1.34 shock, rhythm and cardiac arrest pathway audit
 - Added six focused modules after confirming the previous bundle had only one brief combined adult-leaning rhythm/arrest pathway and lacked a general shock entry route.
 - Reused existing etiologic pathways for septic, cardiogenic, hemorrhagic, anaphylactic, obstructive, adrenal and obstetric causes; no duplicate cause module added.
 - Current checks are recorded after running structural, evidence-coverage and unit-test validation below. Clinical review and Portuguese local protocol reconciliation remain pending.
 
-# Validation report v1.34 working draft
+## Histórico — seguimiento v1.34
 
 ## Historical v1.33 pediatric pathways review
 - Added five pediatric module IDs in the existing special-populations bundle; no new bundle.
@@ -45,7 +48,7 @@
 # Validation report v1.30 working draft
 
 ## v1.30 enteral evidence review
-- 93-module manifest and existing modules unchanged; no regression cases added.
+- **Histórico de esa versión:** 93-module manifest and existing modules unchanged; no regression cases added.
 - Evidence note and queue updated. No new medication regimen was promoted.
 - scripts/validate_modules.py: PASS, 93 modules resolved.
 - scripts/audit_evidence_coverage.py: PASS, 93/93 records, 34 green / 59 yellow / 0 red; no errors or warnings.
@@ -53,14 +56,14 @@
 - No local formulary or prospective clinical validation was performed.
 
 ## v1.29 mesenteric anticoagulation update
-- No new module ID or regression case. Existing 93-module manifest retained.
+- **Histórico de esa versión:** no new module ID or regression case; existing 93-module manifest retained.
 - scripts/validate_modules.py: PASS, 93 modules resolved.
 - scripts/audit_evidence_coverage.py: PASS, 93/93 records, 34 green / 59 yellow / 0 red; no errors or warnings.
 - python -m unittest discover -s tests -q: PASS, 58/58 tests.
 - Exact hospital anticoagulation nomogram, local monitoring and clinician review remain pending.
 
 ## v1.28 GI hemorrhage update
-- 93 module IDs remain in the manifest; no new IDs or regression cases were added.
+- **Histórico de esa versión:** 93 module IDs remained in the manifest; no new IDs or regression cases were added.
 - Existing upper/lower GI and anticoagulation module routes were reused.
 - `scripts/validate_modules.py`: PASS, 93 modules resolved.
 - `scripts/audit_evidence_coverage.py`: PASS, 93/93 records, 34 green / 59 yellow / 0 red, no errors or warnings.
@@ -72,7 +75,7 @@
 
 ## v1.27 targeted update
 
-- 93/93 manifest IDs resolve and have evidence records.
+- **Histórico de esa versión:** 93/93 manifest IDs resolved and had evidence records.
 - All 58 existing unit tests pass; module and evidence-coverage audits pass.
 - The targeted endocrine consensus comparison is documented in
   `updates/endocrine-consensus-review-2026-09-27.md`.
