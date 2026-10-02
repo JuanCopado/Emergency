@@ -68,3 +68,10 @@ Estos datasets son **fuentes candidatas**, no resultados de validación. Antes d
 - no excluir post hoc imágenes difíciles/no diagnósticas;
 - no subir datasets con DUA/licencia restrictiva al repositorio;
 - no informar sensibilidad/especificidad hasta pasar `IMAGE_VALIDATION_POLICY.md`.
+
+
+## Estado de intake — 02/10/2026
+- **PTB-XL:** licencia CC BY 4.0 verificada en PhysioNet; protocolo preespecificado en `qa/PTBXL_BLINDED_PROTOCOL.md`; separación de labels/hashes implementada en `scripts/prepare_ptbxl_blinded_cohort.py`. Estado: **intake-ready**, no validado.
+- **RSNA ICH 2019:** términos RSNA de uso/atribución revisados; sigue bloqueado hasta congelar estrategia exacta de referencia y aislamiento de labels.
+- **CheXpert / MIMIC-CXR / EchoNet-Dynamic:** permanecen candidatos; no importar hasta completar revisión actual de licencia/DUA y estrategia de referencia según `qa/image-dataset-source-registry.json`.
+- `intake-ready` significa únicamente que la fuente puede entrar al pipeline de preparación. **No implica sensibilidad/especificidad ni validación clínica.**
