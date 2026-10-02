@@ -97,11 +97,12 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - `pediatric-procedural-sedation` separa sedación procedimental de RSI y perfusiones UCI, con ketamina/nitroso/fentanilo y criterios de recuperación.
 
 
-## Punto de continuidad — 02/10/2026 16:54
+## Punto de continuidad — 02/10/2026 17:06
 - Rama: `v1.36-consolidation`.
 - Estado recalculado: **127 módulos / 127 registros de evidencia / 29 green / 98 yellow / 0 red**.
-- Último estado QA documentado: **151 tests PASS**.
+- Último estado QA verificado al corte: **151 tests PASS**; último workflow `Clinical QA` observado: **success**.
 - Fase 4 pediátrica ampliamente desarrollada: medicación por peso, perfusiones/bolos, fluidoterapia, asma, RSI, electrolitos, hemoderivados, sedación procedimental, antibióticos por síndrome y alta.
 - Pediatría no requiere protocolo local de Horta como gate; se apoya en guías internacionales vigentes, SmPC y fuentes pediátricas reconocidas.
-- Fase 5 imagen iniciada con contrato ciego v1.1, métricas fail-closed y candidatos de dataset. No existen aún métricas clínicas válidas de sensibilidad/especificidad.
-- Línea clínica vigente continúa siendo v1.35 hasta revisión humana/promoción de v1.36.
+- Fase 5 imagen iniciada con contrato ciego v1.1, métricas fail-closed, generador de manifiestos y candidatos PTB-XL, RSNA ICH, CheXpert/MIMIC-CXR y EchoNet. Aún no existe dataset real suficiente para claims de precisión.
+- Handoff para nuevo hilo actualizado en `clinical/HANDOFF_PROMPT.md`.
+- Siguiente paso recomendado: primer dataset real autorizado/desidentificado con referencia independiente, freeze de manifest antes de labels y ejecución ciega; o revisión humana de high-risk yellow si se prioriza consolidación clínica.
