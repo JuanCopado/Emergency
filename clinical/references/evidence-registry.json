@@ -219,11 +219,12 @@
     },
     "obstetric-emergencies": {
       "priority": "high",
-      "primary_source": "ACOG Gestational Hypertension and Preeclampsia guidance and maternal emergency bundles",
-      "stored_version": "ACOG Practice Bulletin 2020; current online review 2026",
-      "last_checked": "2026-09-27",
+      "primary_source": "ACOG Gestational Hypertension and Preeclampsia (reaffirmed 2026) + ACOG emergency resources + WHO maternal health guidance 2025",
+      "stored_version": "ACOG Practice Bulletin 222 reaffirmed 2026; WHO maternal health 2025; v1.36 review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Urgent treatment of persistent severe hypertension and magnesium for eclampsia are safety anchors; exact drug regimens and delivery decisions require current local obstetric protocol."
+      "note": "v1.36 preserves urgent severe-hypertension regimens and adds operational magnesium/eclampsia toxicity rescue. Remains yellow pending obstetric/anesthesia review and Portugal/Azores maternity/emergency protocol reconciliation.",
+      "primary_source_url": "https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2020/06/gestational-hypertension-and-preeclampsia"
     },
     "anticoagulation-reversal": {
       "priority": "high",
@@ -245,11 +246,12 @@
     },
     "toxicology": {
       "priority": "high",
-      "primary_source": "Current poison-centre and agent-specific toxicology guidance",
-      "stored_version": "dynamic verification required",
-      "last_checked": "2026-09-27",
+      "primary_source": "ERC/RCUK 2025 Special Circumstances + ACMT/AACT current position statements + poison-centre/agent-specific guidance",
+      "stored_version": "ERC/RCUK 2025; ACMT/AACT 2025 opioid guidance; v1.36 review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Agent-specific antidote indications and doses require current poison-centre or authoritative verification."
+      "note": "v1.36 strengthens poison-centre escalation, non-routine decontamination, airway-protected charcoal selection, naloxone-to-ventilation endpoint and agent-specific antidote boundaries. Remains yellow because agent-specific regimens and local antidote stock require separate verification.",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines"
     },
     "medication-selection-safety": {
       "priority": "high",
@@ -278,11 +280,12 @@
     },
     "anaphylaxis": {
       "priority": "high",
-      "primary_source": "Resuscitation Council UK emergency treatment of anaphylaxis guidance",
-      "stored_version": "current online guidance reviewed 2026",
-      "last_checked": "2026-09-27",
+      "primary_source": "Resuscitation Council UK / ERC 2025 anaphylaxis guidance",
+      "stored_version": "RCUK/ERC 2025; v1.36 focused review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "IM adrenaline is first-line; age/weight dose, observation and refractory infusion protocols require current local verification."
+      "note": "v1.36 adds explicit adult/pediatric IM adrenaline doses, 5-min repeat, crystalloid references and refractory-after-two-dose IV infusion trigger. Remains yellow pending local product/infusion/observation protocol verification.",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines"
     },
     "urologic-emergencies": {
       "priority": "standard",
@@ -332,11 +335,12 @@
     },
     "sodium-emergencies": {
       "priority": "high",
-      "primary_source": "European Society of Endocrinology hyponatraemia guideline and Society for Endocrinology emergency guidance",
-      "stored_version": "ESE 2014; SfE update 2022",
-      "last_checked": "2026-09-26",
+      "primary_source": "European Clinical Practice Guideline on hyponatraemia + Society for Endocrinology emergency guidance",
+      "stored_version": "ESE/ERA-EDTA 2014; Society for Endocrinology 2022; v1.36 focused review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "The 150 mL 3% bolus strategy remains current European guidance; individualize ceilings and relowering in high-risk patients. Hypernatremia assessment must include serum osmolar indices plus measured urine osmolality/electrolytes and ongoing losses."
+      "note": "Core 150 mL 3% saline strategy and correction ceilings remain consistent with European guidance; v1.36 strengthens high-risk ceilings, relowering and documentation. Remains yellow because definitive European guidance is older and local hypertonic-saline/monitoring protocol requires human review.",
+      "primary_source_url": "https://academic.oup.com/ejendo/article/170/3/G1/6668028"
     },
     "potassium-emergencies": {
       "priority": "high",
