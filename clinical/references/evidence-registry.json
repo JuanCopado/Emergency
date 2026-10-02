@@ -272,11 +272,12 @@
     },
     "trauma-major-hemorrhage": {
       "priority": "high",
-      "primary_source": "European guideline on major bleeding and coagulopathy following trauma",
-      "stored_version": "sixth edition 2023",
-      "last_checked": "2026-09-27",
-      "status": "green",
-      "note": "Early hemorrhage control, balanced resuscitation, warming, calcium surveillance and tranexamic acid within three hours are preserved; exact blood-pack ratios remain protocol-specific."
+      "primary_source": "European guideline on major bleeding and coagulopathy following trauma, sixth edition 2023 + DGS Norma 011/2013 updated 18/07/2017",
+      "stored_version": "European sixth edition 2023; DGS 011/2013 updated 18/07/2017; v1.36 Portugal reconciliation 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "v1.36 reconciles the older DGS massive-transfusion framework with the 2023 European trauma guideline. Historical fixed 4CE+4PFC+1CPP, inconsistent TXA wording and older rFVIIa positioning are no longer treated as universal current standards. Remains yellow pending human trauma/anesthesia/transfusion review and current Horta/Azores massive-haemorrhage pack/ROTEM/fibrinogen/calcium/local blood-bank verification.",
+      "primary_source_url": "https://link.springer.com/article/10.1186/s13054-023-04327-7"
     },
     "anaphylaxis": {
       "priority": "high",
