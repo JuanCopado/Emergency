@@ -832,6 +832,62 @@ class ModularCoreTests(unittest.TestCase):
         ):
             self.assertIn(invariant, se)
 
+
+    def test_v136_sodium_emergency_consolidation(self):
+        sodium = ' '.join(load(ROOT, 'sodium-emergencies').split())
+        for invariant in (
+            '150 mL sodium chloride 3% IV over 20 min',
+            '5 mmol/L initial rise',
+            '>10 mmol/L in the first 24 h',
+            '>8 mmol/L in each subsequent 24 h',
+            'relowering',
+            'electrolyte-free water'
+        ):
+            self.assertIn(invariant, sodium)
+
+    def test_v136_obstetric_emergency_consolidation(self):
+        obs = ' '.join(load(ROOT, 'obstetric-emergencies').split())
+        for invariant in (
+            'SBP >=160 mm Hg',
+            'DBP >=110 mm Hg',
+            '15 min',
+            '30--60 min',
+            '4--6 g IV loading',
+            '1--2 g/h',
+            'calcium gluconate 1 g IV',
+            'Never give nifedipine sublingually'
+        ):
+            self.assertIn(invariant, obs)
+
+    def test_v136_toxicology_framework_consolidation(self):
+        tox = ' '.join(load(ROOT, 'toxicology').split())
+        for invariant in (
+            'GI decontamination is not routine',
+            'within about **1 hour**',
+            'airway is intact/protected',
+            'objective opioid-associated hypoventilation',
+            '4 mg IV',
+            '8 mg intranasal',
+            'prolonged resuscitation',
+            'poison centre'
+        ):
+            self.assertIn(invariant, tox)
+
+    def test_v136_anaphylaxis_2025_operational_details(self):
+        a = ' '.join(load(ROOT, 'anaphylaxis').split())
+        for invariant in (
+            '1 mg/mL (1:1000)',
+            '500 micrograms IM (0.5 mL)',
+            'Repeat after **5 min**',
+            '6--12 y **300 micrograms**',
+            '6 months--6 y **150 micrograms**',
+            '500--1000 mL',
+            '10 mL/kg',
+            '2 appropriate IM adrenaline doses',
+            'low-dose IV adrenaline infusion'
+        ):
+            self.assertIn(invariant, a)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
