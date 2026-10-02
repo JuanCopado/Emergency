@@ -97,10 +97,10 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - `pediatric-procedural-sedation` separa sedación procedimental de RSI y perfusiones UCI, con ketamina/nitroso/fentanilo y criterios de recuperación.
 
 
-## Punto de continuidad — 02/10/2026 17:06
+## Punto de continuidad — 02/10/2026 17:06 — HISTÓRICO (no usar como estado actual)
 - Rama: `v1.36-consolidation`.
 - Estado recalculado: **127 módulos / 127 registros de evidencia / 29 green / 98 yellow / 0 red**.
-- Último estado QA verificado al corte: **151 tests PASS**; último workflow `Clinical QA` observado: **success**.
+- Snapshot histórico de ese corte: **151 tests PASS**. Estado actual: ver `Estado canónico actual` al final.
 - Fase 4 pediátrica ampliamente desarrollada: medicación por peso, perfusiones/bolos, fluidoterapia, asma, RSI, electrolitos, hemoderivados, sedación procedimental, antibióticos por síndrome y alta.
 - Pediatría no requiere protocolo local de Horta como gate; se apoya en guías internacionales vigentes, SmPC y fuentes pediátricas reconocidas.
 - Fase 5 imagen iniciada con contrato ciego v1.1, métricas fail-closed, generador de manifiestos y candidatos PTB-XL, RSNA ICH, CheXpert/MIMIC-CXR y EchoNet. Aún no existe dataset real suficiente para claims de precisión.
@@ -111,15 +111,15 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 ## Avance Fase 5 — 02/10/2026
 - Nuevo gate de admisión de fuentes: `qa/image-dataset-source-registry.json` + `scripts/validate_image_dataset_source.py`.
 - PTB-XL queda **intake-ready** tras congelar protocolo fold 10 y separación de referencia: `qa/PTBXL_BLINDED_PROTOCOL.md` + `scripts/prepare_ptbxl_blinded_cohort.py`.
-- No se han importado todavía casos reales al banco final y no se calculan métricas clínicas.
+- Snapshot histórico: en ese momento aún no se habían importado casos reales. Posteriormente se construyeron NATURAL_500 y full-fold; ver estado canónico.
 - Estado clínico/evidencia sin cambios: **127 módulos / 127/127 evidencia / 29 green / 98 yellow / 0 red**.
-- El archivo de tests contiene **159 funciones de test** tras este bloque. El último run completo previamente confirmado sigue siendo **151 PASS**; los nuevos tests requieren confirmación por GitHub Actions antes de documentarlos como PASS.
+- Snapshot histórico: el archivo llegó a 159 tests; posteriormente la suite fue ampliada y revalidada.
 - Fase 4 pediátrica sigue bloqueada únicamente por revisión humana pediatría/farmacia; se añadió `qa/PEDIATRIC_HUMAN_REVIEW_READINESS.md` sin auto-promoción a green.
 
 - Workflow manual real añadido: `.github/workflows/ptbxl-blinded-intake.yml`. Descarga metadatos PTB-XL v1.0.3, valida el gate de fuente, genera salt efímero si no hay secreto configurado, descarga solo los waveforms seleccionados y separa artefacto ciego de referencia sellada.
 - Render digital congelado con divisiones 0,04 s / 0,1 mV; no se afirma calibración física mm/s o mm/mV.
 - PR draft de validación creado: **#12 — v1.36 consolidation — validation only (do not merge)**. No modifica ni promueve `main`.
-- GitHub todavía no expone un run de Clinical QA para el nuevo head; por tanto el último run completo confirmado sigue siendo **151 PASS**.
+- Snapshot histórico: inicialmente el wrapper no exponía el run; después se verificaron directamente los GitHub Actions REST runs.
 
 - Gate freeze/reveal añadido: `scripts/finalize_blinded_image_dataset.py` + `qa/BLINDED_PREDICTION_FREEZE.md`.
 - El finalizador exige coincidencia exacta de IDs entre artefacto ciego, predicciones y referencia sellada; bloquea duplicados, clases inválidas y cualquier predicción congelada en/tras el timestamp de revelado.
@@ -160,3 +160,16 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Digest referencia sellada (solo metadata GitHub, sin abrir contenido): `sha256:eb45838c51863ce1512a906f56d639fe2a368d608de5b0f552c6232709571c34`.
 - QA visual distribuido sobre 9 ECG del banco: layout 12 derivaciones + tira II íntegro, sin texto diagnóstico/IDs fuente visibles.
 - Este banco **sí queda apto metodológicamente para evaluación ciega exploratoria**, pero no existen métricas hasta ejecutar un intérprete/modelo real y congelar predicciones antes del reveal.
+
+## Estado canónico actual — 02/10/2026
+- Rama de trabajo: `v1.36-consolidation`; `main` no promovida.
+- Estado clínico/evidencia: **127 módulos / 127/127 evidencia / 29 green / 98 yellow / 0 red**.
+- Clinical QA verificado: **169/169 tests PASS**, `automated_status: PASS` (run #320).
+- Fase 4 pediátrica: desarrollo técnico completo; gate pendiente exclusivamente humano pediatría/farmacia. Sin auto-promoción.
+- Fase 5 ECG: PTB-XL pilot real, NATURAL_500 y full-fold construidos; los bancos previos a v2 se clasifican como ingeniería porque logs antiguos mostraban prevalencia agregada.
+- PTB-XL NATURAL_500 v2 limpio fue disparado tras suprimir cualquier count positivo/negativo pre-reveal. Referencia permanece sellada.
+- RSNA ICH: source-level intake-ready; referencia multi-reader/adjudicada exigida; DICOM→render aún debe congelarse antes de evaluación real.
+- MIMIC-CXR 2.1.0: source-level intake-ready; acceso real requiere credentialing, CITI y DUA; solo test manualmente curado, no labels automáticos.
+- EchoNet-Dynamic: source-level intake-ready para `lvef_below_40_percent` en TEST; acceso real requiere aceptación individual del Research Use Agreement.
+- CheXpert: referencia expert-test y label isolation completos; source intake sigue bloqueado únicamente hasta verificar documentalmente el acuerdo específico de descarga actual.
+- No existen todavía métricas diagnósticas válidas porque no se ha ejecutado/fijado un intérprete ciego real sobre un banco limpio antes del reveal.
