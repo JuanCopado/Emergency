@@ -23,7 +23,7 @@ permissions:
 jobs:
   build-blinded-benchmark:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -64,13 +64,54 @@ jobs:
           echo "::add-mask::$SALT"
           echo "PTBXL_RUN_SALT=$SALT" >> "$GITHUB_ENV"
 
+      - name: Select intake mode
+        env:
+          MANUAL_MAX_CASES: ${{ github.event.inputs.max_cases || '0' }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && grep -q '^FULL_FOLD
+      - name: Ensure sealed reference is absent from blinded artifact directory
+        run: |
+          mkdir -p ptbxl-blinded-artifact ptbxl-sealed-artifact
+          cp .ptbxl-output/blinded_manifest.json ptbxl-blinded-artifact/
+          cp -r .ptbxl-output/images ptbxl-blinded-artifact/
+          cp .ptbxl-output/SEALED_REFERENCE_DO_NOT_REVEAL.json ptbxl-sealed-artifact/
+          test ! -e ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json
+
+      - name: Upload blinded image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ptbxl-blinded-${{ github.event.inputs.target_code || 'AFIB' }}-fold10
+          path: ptbxl-blinded-artifact/
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Upload sealed reference artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ptbxl-sealed-reference-${{ github.event.inputs.target_code || 'AFIB' }}-fold10
+          path: ptbxl-sealed-artifact/
+          retention-days: 14
+          if-no-files-found: error
+ .github/ptbxl-intake-trigger; then
+            echo "PTBXL_PILOT_PER_CLASS=0" >> "$GITHUB_ENV"
+            echo "PTBXL_MAX_CASES=0" >> "$GITHUB_ENV"
+            echo "PTBXL_INTAKE_MODE=full_fold" >> "$GITHUB_ENV"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            echo "PTBXL_PILOT_PER_CLASS=5" >> "$GITHUB_ENV"
+            echo "PTBXL_MAX_CASES=0" >> "$GITHUB_ENV"
+            echo "PTBXL_INTAKE_MODE=balanced_pipeline_pilot" >> "$GITHUB_ENV"
+          else
+            echo "PTBXL_PILOT_PER_CLASS=0" >> "$GITHUB_ENV"
+            echo "PTBXL_MAX_CASES=$MANUAL_MAX_CASES" >> "$GITHUB_ENV"
+            echo "PTBXL_INTAKE_MODE=manual" >> "$GITHUB_ENV"
+          fi
+
       - name: Build blinded fold-10 ECG benchmark
         env:
           TARGET_CODE: ${{ github.event.inputs.target_code || 'AFIB' }}
-          MAX_CASES: ${{ github.event.inputs.max_cases || '0' }}
-          PILOT_PER_CLASS: ${{ github.event_name == 'push' && '5' || '0' }}
         run: |
-          python clinical/scripts/build_ptbxl_blinded_benchmark.py .ptbxl-input/ptbxl_database.csv "$TARGET_CODE" .ptbxl-output --salt "$PTBXL_RUN_SALT" --fold 10 --max-cases "$MAX_CASES" --pilot-per-class "$PILOT_PER_CLASS"
+          echo "Intake mode: $PTBXL_INTAKE_MODE"
+          python clinical/scripts/build_ptbxl_blinded_benchmark.py .ptbxl-input/ptbxl_database.csv "$TARGET_CODE" .ptbxl-output --salt "$PTBXL_RUN_SALT" --fold 10 --max-cases "$PTBXL_MAX_CASES" --pilot-per-class "$PTBXL_PILOT_PER_CLASS"
 
       - name: Ensure sealed reference is absent from blinded artifact directory
         run: |
