@@ -1,7 +1,7 @@
 # STATE — 02/10/2026
 
 ## Clínico (`clinical/`) — borrador v1.35, no instalado
-- 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 65 tests verificados en la consolidación.
+- 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 69 tests clínicos verificados en CI.
 - v1.35: `vasoactive-inotrope-infusions` y `icu-sedation-analgesia-infusions`.
 - Pendiente: revisión UCI/cardio/farmacia, RCM/INFARMED Portugal, concentraciones locales y perfusiones pediátricas.
 
