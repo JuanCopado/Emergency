@@ -158,3 +158,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Antibióticos pediátricos depurados: duplicados de meningitis eliminados, claritromicina oral de celulitis corregida a bandas de peso, neumonía pediátrica NICE NG250 2025 añadida.
 
 - [x] Domicilio pediátrico ampliado: cetirizina para urticaria aislada y ondansetrón dosis única en gastroenteritis seleccionada; límites anafilaxia/QT/vómito bilioso/rehidratación preservados.
+
+- [x] Registro `qa/pediatric-antibiotics-by-syndrome.json` + calculador por síndrome para sepsis, CAP grave, ITU, pielonefritis y celulitis. Meningitis: selección ceftriaxona verificada por NICE NG240; dosis automática bloqueada porque NICE remite a BNFC.
