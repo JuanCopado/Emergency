@@ -27,7 +27,7 @@ time-critical diagnosis.
 
 ## status-epilepticus
 
-- Treat generalized convulsive status epilepticus when a seizure lasts **>=5 minutes** or recurrent seizures occur without recovery. Do not wait for 30 minutes. Stabilize airway/breathing/circulation, check glucose immediately, obtain IV/IO access, correct hypoxia/electrolytes and investigate toxins, infection, pregnancy/eclampsia, structural lesions and medication nonadherence in parallel.
+- Treat generalized convulsive status epilepticus for a seizure **lasting 5 minutes or more (>=5 minutes)** or recurrent seizures without recovery. Do not wait for 30 minutes. Stabilize airway/breathing/circulation, check glucose immediately, obtain IV/IO access, correct hypoxia/electrolytes and investigate toxins, infection, pregnancy/eclampsia, structural lesions and medication nonadherence in parallel.
 - **First-line benzodiazepine — give a full effective dose promptly, not repeated small fractions.** If IV access and resuscitation facilities are available: lorazepam **0.1 mg/kg IV (max 4 mg)**, may repeat once if seizure persists. Alternative: diazepam **0.15--0.2 mg/kg IV (max 10 mg)**, may repeat once. If no IV access: IM midazolam **0.2 mg/kg (max 10 mg when >40 kg)** is an evidence-based option. Prepare airway support before/while giving benzodiazepines; respiratory depression risk is real but undertreatment of status is also dangerous.
 - **Established benzodiazepine-refractory status:** promptly give one adequately dosed IV second-line antiseizure medication. Current ED evidence supports clinical equipoise among:
   - levetiracetam **60 mg/kg IV, max 4,500 mg**;
