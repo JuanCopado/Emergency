@@ -36,6 +36,17 @@ def _resolved_concentration(item, weight):
             raise ValueError(f"{item['drug']}: unsupported weight-normalized units")
         total_micrograms = float(amount_per_kg) * 1000.0 * weight
         return total_micrograms / float(final_volume)
+    if mode == "weight_banded_concentration":
+        bands = item.get("concentration_bands") or []
+        for band in bands:
+            low = float(band.get("min_weight_kg", 0))
+            high = band.get("max_weight_kg")
+            if weight >= low and (high is None or weight <= float(high)):
+                value = band.get("concentration_per_ml")
+                if not value or float(value) <= 0:
+                    raise ValueError(f"{item['drug']}: invalid weight-band concentration")
+                return float(value)
+        raise ValueError(f"{item['drug']}: no source-verified concentration band for requested weight")
     raise ValueError(f"{item['drug']}: unsupported preparation mode {mode}")
 
 def pump_table(drug, weight_kg, path=DEFAULT_REGISTRY):
