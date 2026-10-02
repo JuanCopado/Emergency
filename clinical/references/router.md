@@ -102,8 +102,9 @@ each changes immediate decisions; do not load an entire category.
 - infant ≤90 days with fever ≥38.0°C or unexplained hypothermia -> febrile-infant-0-90-days + pediatric-emergencies + empiric-antibiotics; if ill-appearing add sepsis-shock and urgent neonatal/pediatric escalation
 - infant/child <2 years with typical first-episode bronchiolitis -> bronchiolitis + pediatric-emergencies; add acute-respiratory-failure for respiratory failure
 - barky cough/stridor consistent with croup -> croup + pediatric-emergencies; add airway-rsi only for airway intervention
-- pediatric dehydration, gastroenteritis with dehydration, or hypovolemic/undifferentiated shock in a child -> pediatric-dehydration-shock + pediatric-emergencies; add sepsis-shock, diabetic-ketoacidosis-hhs, major-hemorrhage or cardiogenic-shock when supported
-- pediatrics -> pediatric-emergencies
+- pediatric dehydration, gastroenteritis with dehydration, or hypovolemic/undifferentiated shock in a child -> pediatric-dehydration-shock + pediatric-emergencies + pediatric-emergency-medications; add sepsis-shock, diabetic-ketoacidosis-hhs, major-hemorrhage or cardiogenic-shock when supported
+- pediatric medication dose, dilution, bolus, maintenance fluid or infusion calculation -> pediatric-emergency-medications + medication-selection-safety + the relevant pediatric syndrome module
+- pediatrics -> pediatric-emergencies; add pediatric-emergency-medications only when a dose, fluid volume or infusion calculation is requested
 - pregnancy -> obstetric-emergencies
 - frail older adult -> geriatric-emergencies
 - psychiatric/agitation -> psychiatric-emergencies
@@ -115,9 +116,10 @@ each changes immediate decisions; do not load an entire category.
 - Add `medication-selection-safety` for any medication choice, dose, route,
   dilution or infusion question; combine it with the syndrome module rather than
   treating the drug name as the diagnosis.
-- Add `pediatric-emergencies` for any child; add the age/syndrome-specific pediatric route when applicable. Add `geriatric-emergencies` when frailty, atypical presentation or baseline function changes decisions.
+- Add `pediatric-emergencies` for any child; add `pediatric-emergency-medications` when a pediatric dose, bolus, maintenance fluid or infusion calculation is requested; add the age/syndrome-specific pediatric route when applicable. Add `geriatric-emergencies` when frailty, atypical presentation or baseline function changes decisions.
 - Add `obstetric-emergencies` for pregnancy/postpartum emergencies.
 - Add `ecg-pocus-integration` only when both modalities materially inform the syndrome; use `pocus` for a focused ultrasound-only question.
 - Add `anticoagulation-reversal` for major bleeding or urgent procedure in an anticoagulated patient.
 - Add `sedoanalgesia` and `medication-selection-safety` when procedural sedation or high-risk analgesia is requested.
+- Pediatric continuous infusion arithmetic -> pediatric-emergency-medications + medication-selection-safety + the relevant pediatric syndrome; exact pediatric concentration must come from a verified local/product source.
 - Continuous ICU analgesia/sedation of an intubated or ventilated adult (fentanyl, remifentanil, morphine, hydromorphone, propofol, dexmedetomidine, midazolam, ketamine infusion; RASS/CPOT/BPS targets, PRIS, daily interruption) -> icu-sedation-analgesia-infusions + medication-selection-safety; add delirium or airway-rsi when relevant. Pediatric infusions are not covered.
