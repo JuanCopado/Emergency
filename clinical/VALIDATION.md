@@ -1,5 +1,13 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 pediatric blood products and major haemorrhage
+- Adds `pediatric-blood-transfusion-major-hemorrhage` (111 -> 112 modules).
+- Sources: ERC/RCUK PLS 2025, RCH Blood Product Prescription and RCH Trauma Primary Survey.
+- Provides deterministic component-volume calculations while deliberately avoiding a universal massive-transfusion pack ratio.
+- Expected registry state: 112/112 evidence records; 31 green / 81 yellow / 0 red.
+- Automated tests verify arithmetic and source boundaries; this is not clinical validation.
+
+
 ## v1.36 pediatric electrolyte emergencies
 - Adds `pediatric-electrolyte-emergencies` (110 -> 111 modules).
 - Sources: RCH pediatric hyperkalaemia/hypokalaemia/hypomagnesaemia, NICE NG29 sodium emergencies, calcium gluconate SmPC and RCH hypoglycaemia.
