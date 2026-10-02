@@ -724,6 +724,42 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('must never auto-promote', gates)
         self.assertIn('Automated QA PASS is not clinical validation', runner)
 
+
+    def test_v136_pediatric_resuscitation_2025_operational_details(self):
+        shock = ' '.join(load(ROOT, 'pediatric-shock').split())
+        rhythm = ' '.join(load(ROOT, 'pediatric-arrhythmias').split())
+        arrest = ' '.join(load(ROOT, 'pediatric-cardiac-arrest').split())
+        for invariant in (
+            '10 mL/kg', '40--60 mL/kg in the first hour',
+            '5 mL/kg', '3--4 boluses (30--40 mL/kg)',
+            'noradrenaline is first-line vasopressor',
+            'adrenaline first-line inotrope',
+            'max 20 mL/kg'
+        ):
+            self.assertIn(invariant, shock)
+        for invariant in (
+            'HR **<60/min despite adequate respiratory support**',
+            '1--2 micrograms/kg IV',
+            '20 micrograms/kg IV',
+            '0.1--0.2 mg/kg IV',
+            '0.3 mg/kg IV',
+            '1 J/kg',
+            '4 J/kg',
+            'amiodarone 5 mg/kg',
+            '25--50 mg/kg IV'
+        ):
+            self.assertIn(invariant, rhythm)
+        for invariant in (
+            '10 micrograms/kg IV/IO (max 1 mg) as soon as possible',
+            'every 4 min',
+            'single shock **4 J/kg**',
+            '8 J/kg (max 360 J)',
+            'amiodarone **5 mg/kg (max 300 mg)**',
+            'amiodarone **5 mg/kg (max 150 mg)**',
+            'Lidocaine **1 mg/kg IV**'
+        ):
+            self.assertIn(invariant, arrest)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
