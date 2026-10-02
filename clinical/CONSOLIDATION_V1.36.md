@@ -34,8 +34,8 @@ Reducir deuda clínica y documental de v1.35 antes de añadir módulos de bajo v
 Orden de revisión:
 1. [IN REVIEW] `adult-cardiac-arrest`, `adult-arrhythmias`, `arrhythmias-cardiac-arrest` — ERC/RCUK 2025 reconciled 02/10/2026; explicit energies/doses/pacing added; remains yellow pending human + Portugal/Azores operational review
 2. [IN REVIEW] `pediatric-cardiac-arrest`, `pediatric-arrhythmias`, `pediatric-shock` — ERC/RCUK PLS 2025 reconciled 02/10/2026; explicit shock fluids/vasoactive timing, arrhythmia doses/energies and arrest drugs/defibrillation added; remains yellow pending human + Portugal/Azores operational review
-3. `vasoactive-inotrope-infusions`
-4. `icu-sedation-analgesia-infusions`
+3. [IN REVIEW] `vasoactive-inotrope-infusions` — SSC 2026 + current labels rechecked 02/10/2026; base/salt safety rule hardened; remains yellow pending ICU/pharmacy + Portugal/Azores product/formulary review
+4. [IN REVIEW] `icu-sedation-analgesia-infusions` — PADIS 2018/2025 + current dexmedetomidine product information rechecked 02/10/2026; remains yellow pending ICU/pharmacy + Portugal/Azores product/formulary review
 5. `pulmonary-embolism`
 6. `anticoagulation-reversal`
 7. `empiric-antibiotics`
