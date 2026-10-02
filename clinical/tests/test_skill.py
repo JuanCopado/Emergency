@@ -2224,6 +2224,20 @@ class ModularCoreTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 merge_blinded_prediction_shards([p1,p2])
 
+    def test_v136_ptbxl_workflow_packages_blinded_shards_without_reference_leakage(self):
+        workflow = (ROOT.parent / '.github' / 'workflows' / 'ptbxl-blinded-intake.yml').read_text(encoding='utf-8')
+        self.assertIn('shard_blinded_image_manifest.py', workflow)
+        self.assertIn('create_blinded_prediction_template.py', workflow)
+        self.assertIn('prediction-templates', workflow)
+        self.assertIn("! grep -R -E", workflow)
+        self.assertIn('"target_positive"', workflow)
+        self.assertIn('"source_ecg_id"', workflow)
+        self.assertIn('ptbxl-sealed-artifact', workflow)
+        self.assertIn(
+            'test ! -e ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json',
+            workflow
+        )
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
