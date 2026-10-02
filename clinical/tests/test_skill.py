@@ -1777,6 +1777,29 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('Ondansetron is an adjunct to rehydration, not a replacement for it', module)
         self.assertIn('bilious vomiting', module)
 
+
+    def test_v136_pediatric_antibiotics_are_syndrome_specific_and_calculable(self):
+        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 20)
+        self.assertAlmostEqual(sepsis['dose'], 1600.0)
+        cap = pediatric_antibiotic_calculate('cap-severe-coamoxiclav-iv-3m-17y', 20)
+        self.assertAlmostEqual(cap['dose'], 600.0)
+        uti = pediatric_antibiotic_calculate('lower-uti-trimethoprim-3m-11y', 20)
+        self.assertAlmostEqual(uti['dose'], 80.0)
+        pyelo = pediatric_antibiotic_calculate('pyelonephritis-ceftriaxone-3m-11y', 20)
+        self.assertEqual(pyelo['dose_range'], [1000.0, 1600.0])
+        cellulitis = pediatric_antibiotic_calculate('cellulitis-flucloxacillin-iv', 20)
+        self.assertEqual(cellulitis['dose_range'], [250.0, 500.0])
+
+    def test_v136_pediatric_antibiotic_caps_and_external_dose_gate(self):
+        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 80)
+        self.assertAlmostEqual(sepsis['dose'], 4000.0)
+        cap = pediatric_antibiotic_calculate('cap-severe-coamoxiclav-iv-3m-17y', 60)
+        self.assertAlmostEqual(cap['dose'], 1200.0)
+        with self.assertRaises(ValueError):
+            pediatric_antibiotic_calculate('meningitis-empiric-ceftriaxone', 20)
+        with self.assertRaises(ValueError):
+            pediatric_antibiotic_calculate('unknown-entry', 20)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
