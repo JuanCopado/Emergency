@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "scope": "Portugal/Azores local operational reconciliation",
+  "rule": "No stock, presentation, compatibility, stability or local protocol is inferred.",
+  "items": [
+    {"drug":"norepinephrine","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"epinephrine","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"vasopressin","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"dopamine","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"dobutamine","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"amiodarone","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"isoprenaline","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"propofol","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"dexmedetomidine","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"midazolam","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"fentanyl","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null},
+    {"drug":"remifentanil","status":"pending","product_strength":null,"base_or_salt":null,"diluent":null,"standard_concentration":null,"stability":null,"access":null,"source":null,"reviewed_by":null,"reviewed_on":null}
+  ]
+}
