@@ -19,10 +19,10 @@
       "license_or_dua_verified": true,
       "redistribution_rule_documented": true,
       "deidentified_source": true,
-      "reference_strategy_prespecified": false,
-      "label_separation_plan": false,
-      "intake_ready": false,
-      "notes": "Open waveform dataset. A target-specific independent reference strategy and label-isolation workflow must be frozen before blinded image benchmarking."
+      "reference_strategy_prespecified": true,
+      "label_separation_plan": true,
+      "intake_ready": true,
+      "notes": "Open waveform dataset. Intake protocol frozen in qa/PTBXL_BLINDED_PROTOCOL.md; labels are separated by scripts/prepare_ptbxl_blinded_cohort.py. This establishes intake readiness only, not diagnostic validation."
     },
     {
       "id": "rsna-ich-2019",
