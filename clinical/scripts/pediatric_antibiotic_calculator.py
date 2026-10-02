@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
-DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-antibiotics.json"
+DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-antibiotics-by-syndrome.json"
 
 def load_registry(path=DEFAULT_REGISTRY):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -22,7 +22,7 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
     item = load_registry(path).get(entry_id)
     if not item:
         raise ValueError(f"unknown antibiotic entry: {entry_id}")
-    if item.get("status") == "agent_verified_dose_external":
+    if item.get("dose_automation") is False or item.get("status") in {"agent_verified_dose_external", "source_verified_selection_dose_external"}:
         raise ValueError(f"{entry_id}: agent is verified but pediatric dose remains delegated to an external dose source")
     result = {
         "id": entry_id,
