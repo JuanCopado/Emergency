@@ -1113,20 +1113,35 @@ class ModularCoreTests(unittest.TestCase):
                 fn(*args)
 
 
-    def test_v136_pediatric_pump_table_fails_closed_until_source_verification(self):
-        for drug in ('norepinephrine', 'epinephrine', 'midazolam', 'fentanyl'):
-            with self.assertRaises(ValueError):
-                pediatric_pump_table(drug, 20)
-        with self.assertRaises(ValueError):
-            pediatric_pump_table('propofol', 20)
+    def test_v136_pediatric_pump_tables_from_source_verified_registry(self):
+        epi = pediatric_pump_table('epinephrine', 20)
+        nor = pediatric_pump_table('norepinephrine', 20)
+        dob = pediatric_pump_table('dobutamine', 20)
+        mil = pediatric_pump_table('milrinone', 20)
+        fent = pediatric_pump_table('fentanyl', 20)
+        mid = pediatric_pump_table('midazolam', 20)
 
-    def test_v136_pediatric_pump_table_works_only_with_source_verified_synthetic_registry(self):
+        self.assertAlmostEqual(next(x['ml_h'] for x in epi['rows'] if x['dose'] == 0.1), 1.0)
+        self.assertAlmostEqual(next(x['ml_h'] for x in nor['rows'] if x['dose'] == 0.1), 1.0)
+        self.assertAlmostEqual(next(x['ml_h'] for x in dob['rows'] if x['dose'] == 5.0), 12.0)
+        self.assertAlmostEqual(next(x['ml_h'] for x in mil['rows'] if x['dose'] == 0.5), 3.0)
+        self.assertAlmostEqual(next(x['ml_h'] for x in fent['rows'] if x['dose'] == 1.0), 0.4)
+        self.assertAlmostEqual(next(x['ml_h'] for x in mid['rows'] if x['dose'] == 0.1), 2.0)
+
+    def test_v136_dopamine_source_restriction_is_enforced(self):
+        dopamine = pediatric_pump_table('dopamine', 20)
+        self.assertAlmostEqual(next(x['ml_h'] for x in dopamine['rows'] if x['dose'] == 10.0), 1.0)
+        with self.assertRaises(ValueError):
+            pediatric_pump_table('dopamine', 35)
+
+    def test_v136_pediatric_pump_table_works_with_source_verified_synthetic_registry(self):
         payload = {
             'schema_version': 'test',
             'drugs': [{
                 'drug': 'norepinephrine',
                 'dose_unit': 'micrograms/kg/min',
                 'dose_ladder': [0.05, 0.1, 0.2],
+                'preparation_mode': 'fixed_concentration',
                 'final_concentration_per_ml': 20,
                 'concentration_unit': 'micrograms/mL',
                 'status': 'source_verified'
@@ -1140,13 +1155,18 @@ class ModularCoreTests(unittest.TestCase):
             self.assertAlmostEqual(table['rows'][1]['ml_h'], 6.0)
             self.assertAlmostEqual(table['rows'][2]['ml_h'], 12.0)
 
-    def test_v136_propofol_is_not_a_pediatric_icu_sedation_pump_option(self):
+    def test_v136_off_label_or_product_restricted_pediatric_pumps_fail_closed(self):
+        for drug in ('dexmedetomidine', 'propofol', 'ketamine'):
+            with self.assertRaises(ValueError):
+                pediatric_pump_table(drug, 20)
+
+    def test_v136_propofol_guideline_label_conflict_is_preserved(self):
         module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
-        self.assertIn('must not be used for intensive-care sedation in patients **16 years of age or younger**', module)
+        self.assertIn('PANDEM 2022 allows short-term continuous propofol', module)
+        self.assertIn('guideline/product-label conflict', module)
         data = json.loads((ROOT / 'qa' / 'pediatric-infusion-localization.json').read_text(encoding='utf-8'))
         item = next(x for x in data['drugs'] if x['drug'] == 'propofol')
-        self.assertEqual(item['status'], 'not_for_pediatric_icu_sedation')
-
+        self.assertEqual(item['status'], 'guideline_supported_product_restricted')
 
     def test_v136_pediatric_source_hierarchy_is_not_local_dependent(self):
         module = ' '.join(load(ROOT, 'pediatric-emergency-medications').split())
@@ -1158,8 +1178,7 @@ class ModularCoreTests(unittest.TestCase):
         data = json.loads((ROOT / 'qa' / 'pediatric-infusion-localization.json').read_text(encoding='utf-8'))
         self.assertIn('Hospital da Horta local protocol is not required', data['rule'])
         for item in data['drugs']:
-            if item['drug'] != 'propofol':
-                self.assertNotEqual(item['status'], 'local_pending')
+            self.assertNotEqual(item['status'], 'local_pending')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
