@@ -112,11 +112,12 @@
     },
     "pulmonary-embolism": {
       "priority": "high",
-      "primary_source": "ESC acute pulmonary embolism guideline",
-      "stored_version": "2019",
-      "last_checked": "2026-09-14",
+      "primary_source": "ESC/ERS acute pulmonary embolism guideline + ESC ACVC Clinical Decision-Making Toolkit",
+      "stored_version": "ESC/ERS 2019 (formal guideline) + ACVC Toolkit 2025; v1.36 consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "High-priority topic; verify whether a newer definitive ESC guideline is available before protocol-level advice."
+      "note": "Formal ESC guideline remains 2019; ACVC 2025 operational details reconciled. 2026 PRAGUE-26 catheter-directed thrombolysis is recorded as emerging evidence, not yet a replacement guideline. Remains yellow pending human PE/cardiology review and Portugal/Azores local reperfusion/anticoagulation protocol reconciliation.",
+      "primary_source_url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/acute-pulmonary-embolism/"
     },
     "sepsis-shock": {
       "priority": "high",
@@ -225,12 +226,12 @@
     },
     "anticoagulation-reversal": {
       "priority": "high",
-      "primary_source": "ACC Expert Consensus Decision Pathway on bleeding with oral anticoagulants",
-      "stored_version": "ACG-CAG 2022; ESGE 2026 UGIB / ESGE 2021 LGIB, checked 2026-09-28",
-      "last_checked": "2026-09-28",
+      "primary_source": "ISTH SSC 2024 DOAC reversal guidance + agent product information + GI society guidance",
+      "stored_version": "ISTH SSC 2024; EMA andexanet product information; ACG-CAG 2022; ESGE 2026/2021; v1.36 review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused GI reconciliation integrated in v1.31. Guidelines differ on routine DOAC reversal (low/very-low certainty); selective use only in individualized severe ongoing/life-threatening bleeding with plausible residual effect. Restart timing is source- and thrombosis-risk-dependent. Yellow pending clinician and local protocol/formulary review.",
-      "primary_source_url": "https://mediacdn.gi.org/giorgcdn/wp-content/uploads/2022/03/ACG-CAG-Guideline.pdf"
+      "note": "v1.36 adds ISTH 2024 indications/non-indications, DOAC concentration thresholds, idarucizumab 5 g, andexanet low/high regimens and PCC positioning. Remains yellow pending hematology/pharmacy review and Portugal/Azores antidote/PCC formulary and emergency-release workflow verification.",
+      "primary_source_url": "https://www.jthjournal.org/article/S1538-7836(24)00426-4/fulltext"
     },
     "empiric-antibiotics": {
       "priority": "high",
