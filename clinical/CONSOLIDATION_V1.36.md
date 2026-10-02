@@ -110,3 +110,6 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [REFERENCE FOUND / LOCAL PENDING] noradrenalina, adrenalina, dopamina, dobutamina, amiodarona e isoprenalina: presentaciones de referencia encontradas en el Formulário Hospitalar Nacional de Medicamentos de INFARMED. **No equivalen a stock actual, RCM del producto concreto ni estándar local del Hospital da Horta.**
 - [PENDING] vasopresina/argipresina para shock: la referencia pública revisada no permitió confirmar una presentación portuguesa de perfusión para shock.
 - Próximo paso: propofol, dexmedetomidina, midazolam, fentanilo y remifentanilo; después compatibilidad/estabilidad y concentraciones locales.
+
+- [REFERENCE FOUND / LOCAL PENDING] propofol, dexmedetomidina, midazolam y remifentanilo: referencias portuguesas encontradas en INFARMED. No equivalen a stock actual ni a concentración estándar local de Horta.
+- [PENDING] fentanilo IV de perfusión: las referencias públicas revisadas no permiten todavía fijar una presentación IV local operativa.
