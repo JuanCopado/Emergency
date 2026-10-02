@@ -182,4 +182,5 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 
 - [x] Fuentes candidatas de banco ciego documentadas en `qa/IMAGE_DATASET_SOURCES.md`: PTB-XL (ECG), RSNA ICH (TC), CheXpert/MIMIC-CXR (Rx tórax), EchoNet-Dynamic/EchoNet-Pediatric (eco).
 - [ ] Importar/registrar casos reales únicamente tras revisar licencia/DUA y mantener los datos fuera del repo cuando corresponda.
+- [x] Workflow manual `ptbxl-blinded-intake.yml` preparado para ejecutar intake real fuera del repo: descarga PTB-XL v1.0.3, renderiza fold 10, usa IDs hash y separa referencia sellada del artefacto ciego. Aún no se ha observado una ejecución real del workflow.
 - [ ] Aún no existe un dataset real suficiente para calcular métricas clínicas.
