@@ -1,0 +1,2717 @@
+{
+  "schema_version": "1.0",
+  "generated_from": "clinical/references/evidence-registry.json",
+  "generated_by": "clinical/scripts/normalize_evidence_sources.py",
+  "normalization_policy": {
+    "no_source_splitting_without_verified_identity": true,
+    "compound_legacy_sources_flagged": true,
+    "unknown_metadata_is_null": true,
+    "clinical_recommendations_modified": false
+  },
+  "sources": [
+    {
+      "source_id": "src-07b12d3f",
+      "title": "Modality-specific professional guidance plus independent local reference diagnosis",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "workflow v1.4; diagnostic performance not established",
+      "publication_date": null,
+      "last_verified": "2026-09-17",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "clinical-image-interpretation"
+      ]
+    },
+    {
+      "source_id": "src-11286c0b",
+      "title": "Official ERS/ATS NIV guideline; BTS/ICS acute hypercapnic respiratory failure guideline and NIV quality-improvement algorithm",
+      "organization": "ERS",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ERS/ATS 2017; BTS/ICS 2016 with 2017 correction; workflow v1.15",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "noninvasive-ventilation"
+      ]
+    },
+    {
+      "source_id": "src-1e510a81",
+      "title": "ACR Appropriateness Criteria plus image-review safety workflow",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current online criteria; workflow v1.17",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "ct-mri-screenshot"
+      ]
+    },
+    {
+      "source_id": "src-207dbc2a",
+      "title": "Drug labeling, syndrome-specific guidelines and independently checked infusion arithmetic",
+      "organization": null,
+      "source_type": "regulatory_product_info",
+      "url": null,
+      "persistent_id": null,
+      "version": "workflow v1.16",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "medication-selection-safety"
+      ]
+    },
+    {
+      "source_id": "src-22d0417c",
+      "title": "Canadian Paediatric Society acute croup statement; Royal Children’s Hospital acute upper-airway obstruction CPG",
+      "organization": "Canadian Paediatric Society",
+      "source_type": "guideline",
+      "url": "https://cps.ca/en/documents/position/acute-management-of-croup",
+      "persistent_id": null,
+      "version": "CPS 2017; RCH current online reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "croup"
+      ]
+    },
+    {
+      "source_id": "src-25b018ee",
+      "title": "Procedure-specific RCEM, ACEP, WHO and specialty guidance",
+      "organization": "ACEP",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "dynamic procedure umbrella reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "emergency-procedures"
+      ]
+    },
+    {
+      "source_id": "src-260ca1ac",
+      "title": "ERC/RCUK Paediatric Life Support Guidelines 2025; NICE NG254; existing pediatric cause-specific guidance",
+      "organization": "ERC",
+      "source_type": "guideline",
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "persistent_id": null,
+      "version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "pediatric-shock"
+      ]
+    },
+    {
+      "source_id": "src-27d9a887",
+      "title": "AHA/ACC chest-pain guidance plus ESC/ACR syndrome-specific guidance",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2021 chest-pain guideline; current syndrome review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "non-coronary-chest-pain"
+      ]
+    },
+    {
+      "source_id": "src-287b7824",
+      "title": "Clinical image workflow with independent value verification",
+      "organization": null,
+      "source_type": "internal_workflow",
+      "url": null,
+      "persistent_id": null,
+      "version": "workflow v1.13; oxygenation calculations; diagnostic performance not established",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "blood-gas-image"
+      ]
+    },
+    {
+      "source_id": "src-292e38c1",
+      "title": "AAST Critical Care Committee Clinical Consensus Document on Rhabdomyolysis",
+      "organization": null,
+      "source_type": "consensus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8804685/",
+      "persistent_id": null,
+      "version": "2022",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "rhabdomyolysis"
+      ]
+    },
+    {
+      "source_id": "src-2b3eded0",
+      "title": "ADA/EASD/JBDS/AACE/DTS Hyperglycemic Crises in Adults with Diabetes consensus report",
+      "organization": null,
+      "source_type": "consensus",
+      "url": null,
+      "persistent_id": null,
+      "version": "2024",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "diabetic-ketoacidosis-hhs"
+      ]
+    },
+    {
+      "source_id": "src-2ccd9663",
+      "title": "Resuscitation Council UK/ERC Guidelines 2025",
+      "organization": "ERC",
+      "source_type": "guideline",
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+      "persistent_id": null,
+      "version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "adult-arrhythmias",
+        "adult-cardiac-arrest",
+        "pediatric-arrhythmias",
+        "pediatric-cardiac-arrest"
+      ]
+    },
+    {
+      "source_id": "src-2e611b3a",
+      "title": "Surviving Sepsis Campaign 2026 (Crit Care Med 2026, doi:10.1097/CCM.0000000000007075); SSC 2021; US product labels (norepinephrine, Vasostrict, epinephrine, dopamine, dobutamine, milrinone, phenylephrine, Giapreza); EU/UK SmPC (noradrenaline, Simdax)",
+      "organization": "Surviving Sepsis Campaign",
+      "source_type": "regulatory_product_info",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+      "persistent_id": null,
+      "version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
+      "publication_date": null,
+      "last_verified": "2026-09-29",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-2f6adc35",
+      "title": "ASCO/ESMO and specialty syndrome-specific oncologic emergency guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "dynamic umbrella guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "hematology-oncology"
+      ]
+    },
+    {
+      "source_id": "src-3177d1d6",
+      "title": "European Society of Endocrinology hyponatraemia guideline and Society for Endocrinology emergency guidance",
+      "organization": "Society for Endocrinology",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ESE 2014; SfE update 2022",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "sodium-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-322c65c7",
+      "title": "Wilderness Medical Society and ERC syndrome-specific environmental guidance",
+      "organization": "ERC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current syndrome guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "environmental-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-33414f6e",
+      "title": "KDIGO acute kidney injury guideline",
+      "organization": "KDIGO",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "existing/current guidance",
+      "publication_date": null,
+      "last_verified": "2026-09-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "aki-nephrology"
+      ]
+    },
+    {
+      "source_id": "src-347b056f",
+      "title": "Global Initiative for Asthma strategy report",
+      "organization": null,
+      "source_type": "other",
+      "url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "persistent_id": null,
+      "version": "GINA 2026; workflow v1.19",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-severe-asthma"
+      ]
+    },
+    {
+      "source_id": "src-349b7fe4",
+      "title": "Syndrome-specific IDSA, ESCMID, WHO and local antibiogram guidance",
+      "organization": "IDSA",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "dynamic local verification required",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "empiric-antibiotics"
+      ]
+    },
+    {
+      "source_id": "src-396f174b",
+      "title": "Resuscitation Council UK emergency treatment of anaphylaxis guidance",
+      "organization": "Resuscitation Council UK",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current online guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "anaphylaxis"
+      ]
+    },
+    {
+      "source_id": "src-3d4a3eb2",
+      "title": "NICE non-complex and complex fracture guidance plus specialty standards",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng38",
+      "persistent_id": null,
+      "version": "NICE NG37/NG38 current online review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "orthopedic-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-3e67ed52",
+      "title": "CDC carbon monoxide clinical guidance, EMA Cyanokit product information and ABA referral guidance",
+      "organization": "American Burn Association",
+      "source_type": "regulatory_product_info",
+      "url": "https://www.cdc.gov/carbon-monoxide/hcp/clinical-guidance/index.html",
+      "persistent_id": null,
+      "version": "Current online guidance and EMA label checked September 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "smoke-inhalation-toxic-injury"
+      ]
+    },
+    {
+      "source_id": "src-419c888c",
+      "title": "WSES syndrome-specific emergency-surgery guidance and ACR Appropriateness Criteria",
+      "organization": "WSES",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current syndrome-specific guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-abdomen"
+      ]
+    },
+    {
+      "source_id": "src-49d6b47f",
+      "title": "EHRA/HRS device-management and infection guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current society guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "device-complications"
+      ]
+    },
+    {
+      "source_id": "src-4a12faee",
+      "title": "ACC Expert Consensus Decision Pathway on bleeding with oral anticoagulants",
+      "organization": null,
+      "source_type": "consensus",
+      "url": "https://mediacdn.gi.org/giorgcdn/wp-content/uploads/2022/03/ACG-CAG-Guideline.pdf",
+      "persistent_id": null,
+      "version": "ACG-CAG 2022; ESGE 2026 UGIB / ESGE 2021 LGIB, checked 2026-09-28",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "anticoagulation-reversal"
+      ]
+    },
+    {
+      "source_id": "src-57981869",
+      "title": "Society for Endocrinology emergency guidance and diagnosis-specific consensus statements",
+      "organization": "Society for Endocrinology",
+      "source_type": "consensus",
+      "url": null,
+      "persistent_id": null,
+      "version": "current online guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "endocrine-metabolic"
+      ]
+    },
+    {
+      "source_id": "src-5ed106a9",
+      "title": "ESC acute pulmonary embolism guideline",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2019",
+      "publication_date": null,
+      "last_verified": "2026-09-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "pulmonary-embolism"
+      ]
+    },
+    {
+      "source_id": "src-5fec99af",
+      "title": "ASAM Clinical Practice Guideline on Alcohol Withdrawal Management",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://www.asam.org/quality-care/clinical-guidelines/alcohol-withdrawal-management-guideline",
+      "persistent_id": null,
+      "version": "2020",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "alcohol-withdrawal"
+      ]
+    },
+    {
+      "source_id": "src-61871cf1",
+      "title": "Society for Endocrinology endocrine emergency guidance and current resuscitation guidance",
+      "organization": "Society for Endocrinology",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2016 guidance; current online review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "calcium-magnesium-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-66a1ec7b",
+      "title": "WHO, CDC and IDSA syndrome-specific guidance",
+      "organization": "IDSA",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "dynamic umbrella guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "emergency-infectious-diseases"
+      ]
+    },
+    {
+      "source_id": "src-6964dc0b",
+      "title": "2024 ESC Guidelines for elevated blood pressure and hypertension plus syndrome-specific stroke, aortic, ACS and pregnancy guidance",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ESC 2024; workflow v1.16",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "hypertensive-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-6c537a27",
+      "title": "ACEP clinical policies and diagnosis-specific discharge/safety-net standards",
+      "organization": "ACEP",
+      "source_type": "other",
+      "url": null,
+      "persistent_id": null,
+      "version": "dynamic cross-cutting workflow reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "observation-discharge"
+      ]
+    },
+    {
+      "source_id": "src-6f7c92b6",
+      "title": "NICE NG234 spinal metastases/MSCC plus 2024 acute traumatic spinal cord injury hemodynamic guideline",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng234",
+      "persistent_id": null,
+      "version": "NICE 2023; Global Spine Journal guideline 2024",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "acute-spinal-cord-compression"
+      ]
+    },
+    {
+      "source_id": "src-7303294f",
+      "title": "ATS/ESICM/SCCM ARDS mechanical ventilation guidance plus syndrome-specific current guidance",
+      "organization": "SCCM",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ATS implementation guidance current online review 2026; workflow v1.13",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "acute-respiratory-failure"
+      ]
+    },
+    {
+      "source_id": "src-7a9542a8",
+      "title": "IDSA skin and soft tissue infection guidance",
+      "organization": "IDSA",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current guidance to be verified",
+      "publication_date": null,
+      "last_verified": "2026-09-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "soft-tissue-infections"
+      ]
+    },
+    {
+      "source_id": "src-7b8122c8",
+      "title": "NICE NG254 suspected sepsis under 16 (2025); NICE NG29 pediatric IV fluids; RCH dehydration/gastroenteritis CPG",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng254",
+      "persistent_id": null,
+      "version": "NICE NG254 2025; NG29; RCH current online 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "pediatric-dehydration-shock"
+      ]
+    },
+    {
+      "source_id": "src-7c14c075",
+      "title": "ESC acute coronary syndromes guideline",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2023",
+      "publication_date": null,
+      "last_verified": "2026-09-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-coronary-syndrome"
+      ]
+    },
+    {
+      "source_id": "src-7c4bd755",
+      "title": "UK Kidney Association Clinical Practice Guideline Management of Hyperkalaemia in Adults",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2023",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "potassium-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-7c7ee5c4",
+      "title": "NICE Self-harm: assessment, management and preventing recurrence",
+      "organization": "NICE",
+      "source_type": "other",
+      "url": "https://www.nice.org.uk/guidance/ng225",
+      "persistent_id": null,
+      "version": "NICE NG225 2022",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "suicide-risk"
+      ]
+    },
+    {
+      "source_id": "src-7f2fb627",
+      "title": "ESVS venous thrombosis guideline and CHEST antithrombotic guidance",
+      "organization": "ESVS",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ESVS 2021; CHEST 2021",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "dvt"
+      ]
+    },
+    {
+      "source_id": "src-7f4e7970",
+      "title": "Child sodium, potassium and calcium-magnesium module evidence records",
+      "organization": null,
+      "source_type": "other",
+      "url": null,
+      "persistent_id": null,
+      "version": "umbrella record v1.17",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "electrolytes"
+      ]
+    },
+    {
+      "source_id": "src-836949cb",
+      "title": "American Academy of Ophthalmology Preferred Practice Patterns and emergency diagnosis-specific guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://www.aao.org/guidelines-browse",
+      "persistent_id": null,
+      "version": "current PPP collection reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "ophthalmology-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-8638a692",
+      "title": "ACEP Geriatric Emergency Department Guidelines",
+      "organization": "ACEP",
+      "source_type": "guideline",
+      "url": "https://www.acep.org/geda",
+      "persistent_id": null,
+      "version": "current online guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "geriatric-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-87d1a64b",
+      "title": "NICE delirium guideline and geriatric emergency-care guidance",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "NICE CG103 with current surveillance; review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "delirium"
+      ]
+    },
+    {
+      "source_id": "src-8a47cdd6",
+      "title": "ESGE peptic ulcer bleeding guideline 2026 and Baveno portal-hypertension consensus",
+      "organization": "ESGE",
+      "source_type": "consensus",
+      "url": "https://www.esge.com/assets/downloads/pdfs/guidelines/2026_a-2863-8314.pdf",
+      "persistent_id": null,
+      "version": "ESGE peptic-ulcer guideline 2026; Baveno VII 2022; antithrombotic reconciliation 2026-09-28",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "upper-gi-bleeding"
+      ]
+    },
+    {
+      "source_id": "src-8c086093",
+      "title": "WHO guidelines on meningitis diagnosis, treatment and care plus encephalitis guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://www.who.int/publications/i/item/9789240108042",
+      "persistent_id": null,
+      "version": "WHO 2025",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "cns-infection"
+      ]
+    },
+    {
+      "source_id": "src-8f4097bc",
+      "title": "Royal College of Emergency Medicine Procedural Sedation in the Emergency Department",
+      "organization": null,
+      "source_type": "other",
+      "url": null,
+      "persistent_id": null,
+      "version": "2022 current guidance",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "sedoanalgesia"
+      ]
+    },
+    {
+      "source_id": "src-90ed4349",
+      "title": "ACR Appropriateness Criteria for altered mental status/coma/delirium plus syndrome-specific resuscitation guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current online criteria reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "altered-consciousness"
+      ]
+    },
+    {
+      "source_id": "src-930eec3a",
+      "title": "WSES 2022 and ESVS 2025 mesenteric guideline",
+      "organization": "ESVS",
+      "source_type": "guideline",
+      "url": "https://run.unl.pt/server/api/core/bitstreams/ff44be38-db6a-460d-aae9-62d3993b3920/content",
+      "persistent_id": null,
+      "version": "WSES 2022; ESVS 2025, focused anticoagulation reconciliation 2026-09-28",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-mesenteric-ischemia"
+      ]
+    },
+    {
+      "source_id": "src-93590892",
+      "title": "Brain Trauma Foundation severe TBI 4th edition; Neurocritical Care Society cerebral edema guideline 2020; ENLS Pharmacotherapy Protocol 6.0; FDA nicardipine labeling",
+      "organization": null,
+      "source_type": "regulatory_product_info",
+      "url": null,
+      "persistent_id": null,
+      "version": "BTF 2016 current online; NCS 2020; ENLS 6.0; FDA label 2022",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "traumatic-intracranial-mass-effect"
+      ]
+    },
+    {
+      "source_id": "src-938f30b8",
+      "title": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine",
+      "organization": "ACEP",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ACEP 2023",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "pocus"
+      ]
+    },
+    {
+      "source_id": "src-960b9c28",
+      "title": "Current poison-centre and agent-specific toxicology guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "dynamic verification required",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "toxicology"
+      ]
+    },
+    {
+      "source_id": "src-9a15be01",
+      "title": "ACR Appropriateness Criteria and modality-specific radiographic quality standards",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current online criteria reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "chest-xray"
+      ]
+    },
+    {
+      "source_id": "src-9bbb4e43",
+      "title": "ERC 2025 resuscitation guidance and cause-specific authoritative pathways indexed in router",
+      "organization": "ERC",
+      "source_type": "guideline",
+      "url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
+      "persistent_id": null,
+      "version": "Focused shock phenotype and routing audit 2026-09-28",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "undifferentiated-shock"
+      ]
+    },
+    {
+      "source_id": "src-9de8a625",
+      "title": "British Thoracic Society emergency oxygen guidance; Resuscitation Council UK ABCDE and adult emergency handbook; device-specific NHS oxygen policies",
+      "organization": "Resuscitation Council UK",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "BTS current online recommendations; RCUK current online review 2026; workflow v1.14",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "oxygen-therapy-emergency"
+      ]
+    },
+    {
+      "source_id": "src-a52a018e",
+      "title": "ACC Expert Consensus Statement on Evaluation and Management of Cardiogenic Shock",
+      "organization": null,
+      "source_type": "consensus",
+      "url": null,
+      "persistent_id": null,
+      "version": "ACC 2025; workflow v1.18",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "cardiogenic-shock"
+      ]
+    },
+    {
+      "source_id": "src-aa5759fb",
+      "title": "2024 ESC hypertension guideline plus syndrome-specific ACC/AHA, AHA/ASA and ACOG guidance and current product labels",
+      "organization": "AHA/ASA",
+      "source_type": "regulatory_product_info",
+      "url": "https://academic.oup.com/eurheartj/article/45/38/3912/7741010",
+      "persistent_id": null,
+      "version": "ESC 2024; ACC/AHA aorta 2022; AHA/ASA ICH 2022; ACOG current bundle; DailyMed labels reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "iv-antihypertensive-selection"
+      ]
+    },
+    {
+      "source_id": "src-aa78928b",
+      "title": "ESC Guidelines for the management of endocarditis",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": "https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Endocarditis-Guidelines",
+      "persistent_id": null,
+      "version": "ESC 2023",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "infective-endocarditis"
+      ]
+    },
+    {
+      "source_id": "src-aca2d63c",
+      "title": "Standard quantitative acid-base physiology plus syndrome-specific current guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "calculation workflow v1.11",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "acid-base-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-b159130a",
+      "title": "European guideline on major bleeding and coagulopathy following trauma",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "sixth edition 2023",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "trauma-major-hemorrhage"
+      ]
+    },
+    {
+      "source_id": "src-b5fc6585",
+      "title": "HSE National Clinical Guideline CDI/0277/1.0/2025; NICE NG217",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www2.healthservice.hse.ie/files/584/",
+      "persistent_id": null,
+      "version": "HSE effective 2025-10-15, review due 2028-10-15; NICE NG217 2025 update",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "pediatric-status-epilepticus"
+      ]
+    },
+    {
+      "source_id": "src-b5fda787",
+      "title": "2025 ESC Guidelines for myocarditis and pericarditis plus current image-guided pericardiocentesis literature",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ESC 2025; workflow v1.18",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "cardiac-tamponade-pericardial-emergency"
+      ]
+    },
+    {
+      "source_id": "src-b9535419",
+      "title": "Surviving Sepsis Campaign adult guideline",
+      "organization": "Surviving Sepsis Campaign",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2026",
+      "publication_date": null,
+      "last_verified": "2026-09-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "sepsis-shock"
+      ]
+    },
+    {
+      "source_id": "src-ba0836fc",
+      "title": "ACR trauma Appropriateness Criteria and NICE fracture guidance",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current online criteria reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "musculoskeletal-xray"
+      ]
+    },
+    {
+      "source_id": "src-be0414bf",
+      "title": "ERS clinical practice guideline for HFNC in acute respiratory failure; Roca multicenter ROX validation study",
+      "organization": "ERS",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ERS 2022; ROX validation 2019; workflow v1.15",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "high-flow-nasal-oxygen"
+      ]
+    },
+    {
+      "source_id": "src-be5e9123",
+      "title": "SCCM PADIS 2018 (Crit Care Med 2018;46:e825-e873) and PADIS 2025 focused update (Crit Care Med 2025;53:e711-e727); EU/UK SmPC (Dexdor, remifentanil, midazolam, fentanyl, Ketalar); US Diprivan label; KSCCM 2021 PADIS opioid table",
+      "organization": "SCCM",
+      "source_type": "regulatory_product_info",
+      "url": "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+      "persistent_id": null,
+      "version": "Draft v1.35 infusion reference, focused source check 2026-09-29",
+      "publication_date": null,
+      "last_verified": "2026-09-29",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "icu-sedation-analgesia-infusions"
+      ]
+    },
+    {
+      "source_id": "src-c4c23ca5",
+      "title": "EAU guidelines",
+      "organization": "EAU",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2026",
+      "publication_date": null,
+      "last_verified": "2026-09-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "urologic-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-c66dca21",
+      "title": "AASLD acute liver failure position paper and current AASLD clinical education",
+      "organization": "AASLD",
+      "source_type": "literature",
+      "url": "https://www.aasld.org/practice-guidelines/management-acute-liver-failure",
+      "persistent_id": null,
+      "version": "AASLD position paper 2011; current online review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-liver-failure"
+      ]
+    },
+    {
+      "source_id": "src-c72606be",
+      "title": "AHA/ASA aneurysmal subarachnoid hemorrhage guideline and ACEP acute headache policy",
+      "organization": "AHA/ASA",
+      "source_type": "guideline",
+      "url": "https://professional.heart.org/en/science-news/2023-guideline-for-the-management-of-patients-with-aneurysmal-subarachnoid-hemorrhage",
+      "persistent_id": null,
+      "version": "AHA/ASA 2023; ACEP policy current online review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "headache-sah"
+      ]
+    },
+    {
+      "source_id": "src-c770c142",
+      "title": "AHA/ASA acute ischemic stroke guideline",
+      "organization": "AHA/ASA",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2026",
+      "publication_date": null,
+      "last_verified": "2026-09-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-ischemic-stroke"
+      ]
+    },
+    {
+      "source_id": "src-cabf258a",
+      "title": "ESO/EANS guideline on spontaneous intracerebral haemorrhage plus AHA/ASA spontaneous ICH guideline",
+      "organization": "AHA/ASA",
+      "source_type": "guideline",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12098356/",
+      "persistent_id": null,
+      "version": "ESO/EANS 2025; AHA/ASA 2022",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "spontaneous-intracerebral-hemorrhage"
+      ]
+    },
+    {
+      "source_id": "src-cc99b29b",
+      "title": "ESC syncope guideline plus ACEP geriatric emergency guidance",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": "https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Syncope-Guidelines-on-Diagnosis-and-Management-of",
+      "persistent_id": null,
+      "version": "ESC 2018; current online review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "syncope-falls-frailty"
+      ]
+    },
+    {
+      "source_id": "src-d0f5c88d",
+      "title": "Resuscitation Council UK 2025 guidance and BTS Pleural Disease/Procedures guidance 2023",
+      "organization": "Resuscitation Council UK",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "RCUK 2025; BTS 2023",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "tension-pneumothorax"
+      ]
+    },
+    {
+      "source_id": "src-d1c87ab7",
+      "title": "AHA/ACC/ESC ECG standards plus image-review safety workflow",
+      "organization": "ESC",
+      "source_type": "literature",
+      "url": null,
+      "persistent_id": null,
+      "version": "workflow v1.17; diagnostic performance not established",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "ecg-image"
+      ]
+    },
+    {
+      "source_id": "src-d26706d0",
+      "title": "Difficult Airway Society adult intubation guideline and SCCM rapid sequence intubation guideline",
+      "organization": "SCCM",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "DAS 2025; SCCM 2023",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "airway-rsi"
+      ]
+    },
+    {
+      "source_id": "src-d48ca946",
+      "title": "ACEP ultrasound guidance plus image-review safety workflow",
+      "organization": "ACEP",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ACEP 2023; workflow v1.17; diagnostic performance not established",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "pocus-image"
+      ]
+    },
+    {
+      "source_id": "src-d495c54e",
+      "title": "Clinical image-review workflow plus diagnosis-specific wound/dermatology guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "workflow v1.17; diagnostic performance not established",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "skin-wound-image"
+      ]
+    },
+    {
+      "source_id": "src-d635a3bd",
+      "title": "Canadian Paediatric Society ≤90-day febrile infant statement (updated 2026); AAP febrile infant CPG",
+      "organization": "Canadian Paediatric Society",
+      "source_type": "guideline",
+      "url": "https://cps.ca/en/documents/position/management-of-well-appearing-febrile-young-infants-aged-90-days",
+      "persistent_id": null,
+      "version": "CPS 2023; updated 2026-05-27; AAP 2021",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "febrile-infant-0-90-days"
+      ]
+    },
+    {
+      "source_id": "src-d8e7249a",
+      "title": "NICE and ACEP diagnosis-specific behavioral emergency guidance",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "dynamic syndrome guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "psychiatric-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-d9132e40",
+      "title": "NICE NG9 bronchiolitis (oxygen threshold update 2021); Canadian Paediatric Society bronchiolitis position statement",
+      "organization": "NICE",
+      "source_type": "other",
+      "url": "https://www.nice.org.uk/guidance/ng9",
+      "persistent_id": null,
+      "version": "NICE NG9 current online, threshold update 2021; CPS 2021",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "bronchiolitis"
+      ]
+    },
+    {
+      "source_id": "src-d959b7e8",
+      "title": "ENT UK and diagnosis-specific airway/foreign-body guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current syndrome guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "ent-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-e0ca9573",
+      "title": "ESC acute and chronic heart failure guideline and ESC acute cardiovascular care materials",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ESC 2021 with current online review 2026; workflow v1.16",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-heart-failure"
+      ]
+    },
+    {
+      "source_id": "src-e11f4b42",
+      "title": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society joint consensus on thyroid storm; ATA hyperthyroidism guideline for comparison",
+      "organization": "Society for Endocrinology",
+      "source_type": "consensus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13506520/",
+      "persistent_id": null,
+      "version": "Joint consensus 2026 (ETJ-26-0043); compared with ATA 2016",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "thyroid-storm"
+      ]
+    },
+    {
+      "source_id": "src-e1e0dd37",
+      "title": "Diagnosis-specific dermatology guidance for SJS/TEN, DRESS and severe cutaneous infection",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "current syndrome-specific guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "dermatology-severe"
+      ]
+    },
+    {
+      "source_id": "src-e3f1e1d2",
+      "title": "ACEP ultrasound guidance plus syndrome-specific ECG guidance",
+      "organization": "ACEP",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ACEP 2023; current syndrome guidance reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "ecg-pocus-integration"
+      ]
+    },
+    {
+      "source_id": "src-e4a6caf4",
+      "title": "ESC/EACTS valvular heart disease guideline",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ESC/EACTS 2021 with current online review 2026; workflow v1.16",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "critical-valvular-disease"
+      ]
+    },
+    {
+      "source_id": "src-e67765ec",
+      "title": "Resuscitation Council UK/ERC Guidelines 2025",
+      "organization": "ERC",
+      "source_type": "guideline",
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "persistent_id": null,
+      "version": "2025",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "arrhythmias-cardiac-arrest"
+      ]
+    },
+    {
+      "source_id": "src-e77cbd42",
+      "title": "Clinical image-review safety workflow and syndrome-specific guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "workflow v1.17; diagnostic performance not established",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "other-clinical-image"
+      ]
+    },
+    {
+      "source_id": "src-e7ffcb3e",
+      "title": "European Resuscitation Council pediatric life support",
+      "organization": "ERC",
+      "source_type": "other",
+      "url": null,
+      "persistent_id": null,
+      "version": "2025",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-e81b8a0e",
+      "title": "AAO Preferred Practice Patterns plus image-review safety workflow",
+      "organization": null,
+      "source_type": "literature",
+      "url": null,
+      "persistent_id": null,
+      "version": "current PPP collection; workflow v1.17",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "ophthalmology-image"
+      ]
+    },
+    {
+      "source_id": "src-ea3ccc67",
+      "title": "Society for Endocrinology adrenal crisis guidance",
+      "organization": "Society for Endocrinology",
+      "source_type": "guideline",
+      "url": "https://www.endocrinology.org/adrenal-crisis",
+      "persistent_id": null,
+      "version": "Online guidance checked 2026-09-27",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "adrenal-crisis"
+      ]
+    },
+    {
+      "source_id": "src-ef23369c",
+      "title": "American Epilepsy Society convulsive status epilepticus guideline plus ILAE current evidence updates",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "AES 2016; ILAE online review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "status-epilepticus"
+      ]
+    },
+    {
+      "source_id": "src-efdd5970",
+      "title": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society joint consensus on myxoedema coma; ATA hypothyroidism guideline for comparison",
+      "organization": "Society for Endocrinology",
+      "source_type": "consensus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13452032/",
+      "persistent_id": null,
+      "version": "Joint consensus 2026 (ETJ-26-0044), focused regimen reconciliation; ATA 2014",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "myxedema-coma"
+      ]
+    },
+    {
+      "source_id": "src-efe12f29",
+      "title": "ABA Burn Shock Resuscitation guideline and burn referral guidance",
+      "organization": "American Burn Association",
+      "source_type": "guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38051821/",
+      "persistent_id": null,
+      "version": "2024; referral guidance checked September 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "major-burns"
+      ]
+    },
+    {
+      "source_id": "src-f52775ce",
+      "title": "European Society for Vascular Surgery abdominal aorto-iliac aneurysm guideline",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2024; workflow v1.12",
+      "publication_date": null,
+      "last_verified": "2026-09-26",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "abdominal-aortic-aneurysm"
+      ]
+    },
+    {
+      "source_id": "src-f688e634",
+      "title": "Society of Chest Imaging and Interventions consensus guideline and CIRSE bronchial-artery embolisation standards",
+      "organization": null,
+      "source_type": "consensus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10289864/",
+      "persistent_id": null,
+      "version": "SCII 2023; CIRSE 2022; workflow v1.19",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "life-threatening-hemoptysis"
+      ]
+    },
+    {
+      "source_id": "src-f95a8df4",
+      "title": "2022 ACC/AHA Guideline for the Diagnosis and Management of Aortic Disease, checked against the existence of 2024 ESC PAAD guidance",
+      "organization": "ESC",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ACC/AHA 2022; external currency check 2026; workflow v1.18",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "acute-aortic-syndrome"
+      ]
+    },
+    {
+      "source_id": "src-f9aac0ec",
+      "title": "American College of Gastroenterology guideline on acute pancreatitis",
+      "organization": "ACG",
+      "source_type": "guideline",
+      "url": "https://journals.lww.com/ajg/fulltext/2024/03000/american_college_of_gastroenterology_guidelines_.14.aspx",
+      "persistent_id": null,
+      "version": "ACG 2024",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "pancreatitis"
+      ]
+    },
+    {
+      "source_id": "src-fbf1dffa",
+      "title": "UK National Suspected Cauda Equina Syndrome Pathway",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://gettingitrightfirsttime.co.uk/wp-content/uploads/2026/04/National-Suspected-Cauda-Equina-Pathway-March-2026.pdf",
+      "persistent_id": null,
+      "version": "March 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "cauda-equina-conus-emergency"
+      ]
+    },
+    {
+      "source_id": "src-fbf8a82e",
+      "title": "Global Initiative for Chronic Obstructive Lung Disease report and pocket guide",
+      "organization": null,
+      "source_type": "other",
+      "url": "https://goldcopd.org/2026-gold-report-and-pocket-guide/",
+      "persistent_id": null,
+      "version": "GOLD 2026; workflow v1.19",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "copd-exacerbation"
+      ]
+    },
+    {
+      "source_id": "src-fc2a7f92",
+      "title": "ESGE small-bowel capsule/DAE guideline 2022; ACG small-bowel bleeding 2015; ACG LGIB 2023; ESGE LGIB 2021",
+      "organization": "ACG",
+      "source_type": "guideline",
+      "url": "https://www.esge.com/small-bowel-ce-and-dae-for-diagnosis-and-treatment-of-sb-update-2022",
+      "persistent_id": null,
+      "version": "ACG small-bowel bleeding 2015; ESGE capsule/DAE update 2022; ACG LGIB 2023; ESGE LGIB 2021",
+      "publication_date": null,
+      "last_verified": "2026-09-28",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "lower-gi-bleeding"
+      ]
+    },
+    {
+      "source_id": "src-fd61f2ab",
+      "title": "ACP/AAFP acute musculoskeletal injury pain guideline plus diagnosis-specific emergency guidance",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "2020 guideline; current review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "acute-musculoskeletal-pain"
+      ]
+    },
+    {
+      "source_id": "src-ffd822ee",
+      "title": "ACOG Gestational Hypertension and Preeclampsia guidance and maternal emergency bundles",
+      "organization": "ACOG",
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "ACOG Practice Bulletin 2020; current online review 2026",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "obstetric-emergencies"
+      ]
+    }
+  ],
+  "module_sources": {
+    "adrenal-crisis": [
+      {
+        "source_id": "src-ea3ccc67",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "thyroid-storm": [
+      {
+        "source_id": "src-e11f4b42",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "myxedema-coma": [
+      {
+        "source_id": "src-efdd5970",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "lower-gi-bleeding": [
+      {
+        "source_id": "src-fc2a7f92",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-mesenteric-ischemia": [
+      {
+        "source_id": "src-930eec3a",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "major-burns": [
+      {
+        "source_id": "src-efe12f29",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "smoke-inhalation-toxic-injury": [
+      {
+        "source_id": "src-3e67ed52",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-ischemic-stroke": [
+      {
+        "source_id": "src-c770c142",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "spontaneous-intracerebral-hemorrhage": [
+      {
+        "source_id": "src-cabf258a",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-spinal-cord-compression": [
+      {
+        "source_id": "src-6f7c92b6",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "cauda-equina-conus-emergency": [
+      {
+        "source_id": "src-fbf1dffa",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-coronary-syndrome": [
+      {
+        "source_id": "src-7c14c075",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pulmonary-embolism": [
+      {
+        "source_id": "src-5ed106a9",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "sepsis-shock": [
+      {
+        "source_id": "src-b9535419",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "arrhythmias-cardiac-arrest": [
+      {
+        "source_id": "src-e67765ec",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "hypertensive-emergencies": [
+      {
+        "source_id": "src-6964dc0b",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-heart-failure": [
+      {
+        "source_id": "src-e0ca9573",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "cardiogenic-shock": [
+      {
+        "source_id": "src-a52a018e",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-aortic-syndrome": [
+      {
+        "source_id": "src-f95a8df4",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "cardiac-tamponade-pericardial-emergency": [
+      {
+        "source_id": "src-b5fda787",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "critical-valvular-disease": [
+      {
+        "source_id": "src-e4a6caf4",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "airway-rsi": [
+      {
+        "source_id": "src-d26706d0",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "status-epilepticus": [
+      {
+        "source_id": "src-ef23369c",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pediatric-emergencies": [
+      {
+        "source_id": "src-e7ffcb3e",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "iv-antihypertensive-selection": [
+      {
+        "source_id": "src-aa5759fb",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "obstetric-emergencies": [
+      {
+        "source_id": "src-ffd822ee",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "anticoagulation-reversal": [
+      {
+        "source_id": "src-4a12faee",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "empiric-antibiotics": [
+      {
+        "source_id": "src-349b7fe4",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "toxicology": [
+      {
+        "source_id": "src-960b9c28",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "medication-selection-safety": [
+      {
+        "source_id": "src-207dbc2a",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "upper-gi-bleeding": [
+      {
+        "source_id": "src-8a47cdd6",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "trauma-major-hemorrhage": [
+      {
+        "source_id": "src-b159130a",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "anaphylaxis": [
+      {
+        "source_id": "src-396f174b",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "urologic-emergencies": [
+      {
+        "source_id": "src-c4c23ca5",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "aki-nephrology": [
+      {
+        "source_id": "src-33414f6e",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "soft-tissue-infections": [
+      {
+        "source_id": "src-7a9542a8",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "clinical-image-interpretation": [
+      {
+        "source_id": "src-07b12d3f",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "tension-pneumothorax": [
+      {
+        "source_id": "src-d0f5c88d",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "traumatic-intracranial-mass-effect": [
+      {
+        "source_id": "src-93590892",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "sodium-emergencies": [
+      {
+        "source_id": "src-3177d1d6",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "potassium-emergencies": [
+      {
+        "source_id": "src-7c4bd755",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "calcium-magnesium-emergencies": [
+      {
+        "source_id": "src-61871cf1",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "abdominal-aortic-aneurysm": [
+      {
+        "source_id": "src-f52775ce",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "sedoanalgesia": [
+      {
+        "source_id": "src-8f4097bc",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "diabetic-ketoacidosis-hhs": [
+      {
+        "source_id": "src-2b3eded0",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acid-base-emergencies": [
+      {
+        "source_id": "src-aca2d63c",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "blood-gas-image": [
+      {
+        "source_id": "src-287b7824",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-respiratory-failure": [
+      {
+        "source_id": "src-7303294f",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-severe-asthma": [
+      {
+        "source_id": "src-347b056f",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "copd-exacerbation": [
+      {
+        "source_id": "src-fbf8a82e",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "life-threatening-hemoptysis": [
+      {
+        "source_id": "src-f688e634",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "oxygen-therapy-emergency": [
+      {
+        "source_id": "src-9de8a625",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "high-flow-nasal-oxygen": [
+      {
+        "source_id": "src-be0414bf",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "noninvasive-ventilation": [
+      {
+        "source_id": "src-11286c0b",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-abdomen": [
+      {
+        "source_id": "src-419c888c",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-liver-failure": [
+      {
+        "source_id": "src-c66dca21",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "acute-musculoskeletal-pain": [
+      {
+        "source_id": "src-fd61f2ab",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "alcohol-withdrawal": [
+      {
+        "source_id": "src-5fec99af",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "altered-consciousness": [
+      {
+        "source_id": "src-90ed4349",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "chest-xray": [
+      {
+        "source_id": "src-9a15be01",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "cns-infection": [
+      {
+        "source_id": "src-8c086093",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "ct-mri-screenshot": [
+      {
+        "source_id": "src-1e510a81",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "delirium": [
+      {
+        "source_id": "src-87d1a64b",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "dermatology-severe": [
+      {
+        "source_id": "src-e1e0dd37",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "device-complications": [
+      {
+        "source_id": "src-49d6b47f",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "dvt": [
+      {
+        "source_id": "src-7f2fb627",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "ecg-image": [
+      {
+        "source_id": "src-d1c87ab7",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "ecg-pocus-integration": [
+      {
+        "source_id": "src-e3f1e1d2",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "electrolytes": [
+      {
+        "source_id": "src-7f4e7970",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "emergency-infectious-diseases": [
+      {
+        "source_id": "src-66a1ec7b",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "emergency-procedures": [
+      {
+        "source_id": "src-25b018ee",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "endocrine-metabolic": [
+      {
+        "source_id": "src-57981869",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "ent-emergencies": [
+      {
+        "source_id": "src-d959b7e8",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "environmental-emergencies": [
+      {
+        "source_id": "src-322c65c7",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "geriatric-emergencies": [
+      {
+        "source_id": "src-8638a692",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "headache-sah": [
+      {
+        "source_id": "src-c72606be",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "hematology-oncology": [
+      {
+        "source_id": "src-2f6adc35",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "infective-endocarditis": [
+      {
+        "source_id": "src-aa78928b",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "musculoskeletal-xray": [
+      {
+        "source_id": "src-ba0836fc",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "non-coronary-chest-pain": [
+      {
+        "source_id": "src-27d9a887",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "observation-discharge": [
+      {
+        "source_id": "src-6c537a27",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "ophthalmology-emergencies": [
+      {
+        "source_id": "src-836949cb",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "ophthalmology-image": [
+      {
+        "source_id": "src-e81b8a0e",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "orthopedic-emergencies": [
+      {
+        "source_id": "src-3d4a3eb2",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "other-clinical-image": [
+      {
+        "source_id": "src-e77cbd42",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pancreatitis": [
+      {
+        "source_id": "src-f9aac0ec",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pocus": [
+      {
+        "source_id": "src-938f30b8",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pocus-image": [
+      {
+        "source_id": "src-d48ca946",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "psychiatric-emergencies": [
+      {
+        "source_id": "src-d8e7249a",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "rhabdomyolysis": [
+      {
+        "source_id": "src-292e38c1",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "skin-wound-image": [
+      {
+        "source_id": "src-d495c54e",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "suicide-risk": [
+      {
+        "source_id": "src-7c7ee5c4",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "syncope-falls-frailty": [
+      {
+        "source_id": "src-cc99b29b",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "febrile-infant-0-90-days": [
+      {
+        "source_id": "src-d635a3bd",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "bronchiolitis": [
+      {
+        "source_id": "src-d9132e40",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "croup": [
+      {
+        "source_id": "src-22d0417c",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pediatric-dehydration-shock": [
+      {
+        "source_id": "src-7b8122c8",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pediatric-status-epilepticus": [
+      {
+        "source_id": "src-b5fc6585",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "adult-arrhythmias": [
+      {
+        "source_id": "src-2ccd9663",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "adult-cardiac-arrest": [
+      {
+        "source_id": "src-2ccd9663",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pediatric-arrhythmias": [
+      {
+        "source_id": "src-2ccd9663",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pediatric-cardiac-arrest": [
+      {
+        "source_id": "src-2ccd9663",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "undifferentiated-shock": [
+      {
+        "source_id": "src-9bbb4e43",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "pediatric-shock": [
+      {
+        "source_id": "src-260ca1ac",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "vasoactive-inotrope-infusions": [
+      {
+        "source_id": "src-2e611b3a",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ],
+    "icu-sedation-analgesia-infusions": [
+      {
+        "source_id": "src-be5e9123",
+        "role": "primary_or_compound",
+        "claim_scope": "module-level"
+      }
+    ]
+  }
+}
