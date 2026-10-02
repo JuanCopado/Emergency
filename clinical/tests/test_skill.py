@@ -201,7 +201,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 108)
+        self.assertEqual(len(manifest), 110)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1361,6 +1361,46 @@ class ModularCoreTests(unittest.TestCase):
         dex = pediatric_antibiotic_calculate('meningitis-dexamethasone-ge2mo', 20)
         self.assertAlmostEqual(dex['dose'], 3.0)
         self.assertEqual(dex['frequency'], 'every 6 hours for 4 days')
+
+
+    def test_v136_pediatric_acute_asthma_module(self):
+        module = ' '.join(load(ROOT, 'pediatric-acute-asthma').split())
+        for invariant in (
+            '4 or more puffs of 100 micrograms/puff',
+            '2.5 mg nebulized',
+            '4--10 puffs',
+            '4 puffs of 20 micrograms',
+            '250 micrograms nebulized',
+            '1--2 mg/kg/day',
+            '20 mg/day if <2 years',
+            '30 mg/day if age 2--5 years',
+            'max 40 mg/day',
+            '0.3--0.6 mg/kg, max 12 mg',
+            '40--50 mg/kg IV, max 2 g',
+            '20--60 min'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_airway_rsi_module(self):
+        module = ' '.join(load(ROOT, 'pediatric-airway-rsi').split())
+        for invariant in (
+            'ketamine **0.5--2 mg/kg IV**',
+            'rocuronium **1.2--1.6 mg/kg IV**',
+            'continuous waveform capnography',
+            'paralysis can outlast induction',
+            'Oxygenation takes priority'
+        ):
+            self.assertIn(invariant, module)
+
+    def test_v136_pediatric_asthma_steroid_calculations(self):
+        p1 = pediatric_bolus_calculate('asthma-prednisolone-lt2', 8)
+        self.assertEqual(p1['dose_range'], [8.0, 16.0])
+        p2 = pediatric_bolus_calculate('asthma-prednisolone-2to5', 20)
+        self.assertEqual(p2['dose_range'], [20.0, 30.0])
+        p3 = pediatric_bolus_calculate('asthma-prednisolone-6to11', 30)
+        self.assertEqual(p3['dose_range'], [30.0, 40.0])
+        dex = pediatric_bolus_calculate('asthma-dexamethasone', 20)
+        self.assertEqual(dex['dose_range'], [6.0, 12.0])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
