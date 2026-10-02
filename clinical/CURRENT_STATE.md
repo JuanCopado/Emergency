@@ -17,7 +17,7 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 
 - Antibióticos pediátricos v1.36 depurados por síndrome: sepsis, meningitis, pielonefritis/ITU, celulitis, neutropenia febril y neumonía; se eliminaron duplicados y se preservan bandas de edad/peso cuando la guía no permite una conversión universal mg/kg.
 
-- Fase 5 de imagen: gate ciego v1.1 activo con hashes paciente/estudio, timestamps de congelación/revelado, clases positive/negative/abstain/nondiagnostic, cálculo fail-closed de métricas y generador de manifiestos por modalidad. Aún no existe un banco real suficiente para afirmar sensibilidad/especificidad.
+- Fase 5 de imagen: gate ciego v1.1 activo con hashes paciente/estudio, timestamps de congelación/revelado, clases positive/negative/abstain/nondiagnostic, cálculo fail-closed de métricas y generador de manifiestos por modalidad. `qa/IMAGE_DATASET_SOURCES.md` documenta PTB-XL, RSNA ICH, CheXpert/MIMIC-CXR y EchoNet como candidatos. Aún no existe un banco real suficiente para afirmar sensibilidad/especificidad.
 
 ## Estado autoritativo actual
 - **v1.35** sigue siendo la línea clínica vigente; **v1.36-consolidation** es una rama de trabajo documental/validación y no una liberación clínica.
