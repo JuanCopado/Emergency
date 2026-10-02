@@ -213,7 +213,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 125)
+        self.assertEqual(len(manifest), 126)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -1683,6 +1683,23 @@ class ModularCoreTests(unittest.TestCase):
             'multiple magnets, or a magnet plus a metallic object',
             '>6 cm long and/or >2 cm wide',
             '**not a magnet or battery**'
+        ): self.assertIn(invariant, module)
+
+    def test_v136_pediatric_drowning_hypothermia_special_rules(self):
+        module = ' '.join(load(ROOT, 'pediatric-drowning-hypothermia').split())
+        for invariant in (
+            '**5 rescue breaths**',
+            '**100% oxygen**',
+            'not routinely indicated',
+            '**<35 °C**',
+            '**1 °C/h**',
+            '**39--42 °C**',
+            '**<30 °C**',
+            '**3 defibrillation attempts**',
+            'do not give amiodarone until temperature >30 °C',
+            'every 8 min',
+            'observation for **8 h from the drowning event**',
+            '**SpO2 >=95%**'
         ): self.assertIn(invariant, module)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):

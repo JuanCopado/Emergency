@@ -42,6 +42,7 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | pediatric-cns-infection | `modules/special-populations.md` |
 | pediatric-dka | `modules/special-populations.md` |
 | pediatric-sepsis | `modules/special-populations.md` |
+| pediatric-drowning-hypothermia | `modules/special-populations.md` |
 | pediatric-foreign-body-emergencies | `modules/special-populations.md` |
 | pediatric-hypertensive-emergency | `modules/special-populations.md` |
 | pediatric-major-trauma | `modules/special-populations.md` |

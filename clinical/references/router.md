@@ -149,3 +149,5 @@ each changes immediate decisions; do not load an entire category.
 - pediatric severe hypertension, hypertensive emergency/encephalopathy or IV antihypertensive infusion -> pediatric-hypertensive-emergency + pediatric-emergencies + medication-selection-safety
 
 - pediatric swallowed/inhaled foreign body, button battery, magnets, choking history or focal airway obstruction -> pediatric-foreign-body-emergencies + pediatric-emergencies; add pediatric-airway-rsi/resuscitation only if airway deterioration requires it
+
+- pediatric drowning/submersion, cold-water incident, accidental hypothermia or hypothermic arrest -> pediatric-drowning-hypothermia + pediatric-acute-respiratory-support + pediatric-cardiac-arrest as indicated

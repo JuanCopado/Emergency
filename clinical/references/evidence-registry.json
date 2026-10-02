@@ -1046,6 +1046,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric foreign-body route separates airway aspiration from GI ingestion and prioritizes button batteries, magnets and other high-risk objects. Human pediatric ENT/GI/surgery review pending."
+    },
+    "pediatric-drowning-hypothermia": {
+      "priority": "high",
+      "primary_source": "ERC Paediatric Life Support 2025 drowning/hypothermia + RCH/PIC Drowning current",
+      "primary_source_url": "https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf",
+      "stored_version": "ERC PLS 2025; RCH/PIC drowning current online; reviewed 2026-10-02",
+      "last_checked": "2026-10-02",
+      "status": "yellow",
+      "note": "Pediatric drowning/hypothermia pathway includes ventilation-first resuscitation, active rewarming, temperature-dependent defibrillation/drug modifications and observation/discharge criteria. Human pediatric critical-care review pending."
     }
   }
 }

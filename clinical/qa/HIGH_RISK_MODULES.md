@@ -74,3 +74,5 @@ This file explains why they receive stricter release gates.
 - pediatric-hypertensive-emergency
 
 - pediatric-foreign-body-emergencies
+
+- pediatric-drowning-hypothermia
