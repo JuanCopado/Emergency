@@ -1,11 +1,40 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "dataset_class": "blinded_accuracy",
   "authorized": true,
   "deidentified": true,
   "protocol_prespecified": true,
   "independent_reference": true,
-  "target_question": "Define one modality-specific target before evaluation",
+  "modality": "chest_xray",
+  "target_condition": "Define one binary target condition",
+  "target_question": "Define one modality-specific binary question before evaluation",
+  "reference_standard": {
+    "type": "independent_expert_reference",
+    "description": "Specify independent report, adjudication or gold-standard process"
+  },
+  "patient_grouping_prespecified": true,
   "metrics_requested": false,
-  "cases": []
+  "cases": [
+    {
+      "id": "example-case-remove-before-use",
+      "patient_uid_hash": "sha256-patient-placeholder",
+      "study_uid_hash": "sha256-study-placeholder",
+      "evaluation": {
+        "mode": "blinded",
+        "annotated": false,
+        "prediction_frozen": true,
+        "prediction_frozen_at": "2026-10-02T12:00:00Z",
+        "reference_revealed_after_prediction": true,
+        "reference_revealed_at": "2026-10-02T12:05:00Z"
+      },
+      "prediction": {
+        "class": "abstain",
+        "notes": "Allowed classes: positive, negative, abstain, nondiagnostic"
+      },
+      "reference": {
+        "target_positive": false,
+        "source_id": "independent-reference-placeholder"
+      }
+    }
+  ]
 }
