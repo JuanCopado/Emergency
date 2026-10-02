@@ -1,5 +1,12 @@
 # Validation report — estado autoritativo actual v1.35
 
+## v1.36 pediatric asthma and RSI
+- Adds `pediatric-acute-asthma` and `pediatric-airway-rsi` (108 -> 110 modules).
+- Sources: GINA 2026 pediatric acute asthma and RCH current emergency airway management.
+- Expected registry after registration: 110/110 evidence records; 31 green / 79 yellow / 0 red.
+- Automated checks verify key pediatric doses and route separation; they are not clinical validation.
+
+
 ## v1.36 pediatric IV fluid therapy
 - Adds one high-risk module ID: `pediatric-iv-fluid-therapy` (107 -> 108).
 - Current evidence set: NICE NG29/CG84, SSC pediatric sepsis 2026, ISPAD DKA 2022, RCH dehydration/hypernatraemia 2026.
