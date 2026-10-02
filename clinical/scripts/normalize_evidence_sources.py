@@ -190,8 +190,7 @@ def normalize(registry_doc: dict, overrides_doc: dict | None = None) -> dict:
             "no_source_splitting_without_verified_identity": True,
             "compound_legacy_sources_flagged": True,
             "unknown_metadata_is_null": True,
-            "clinical_recommendations_modified": False,
-        },
+            "clinical_recommendations_modified": False,\n            "verified_override_file": "clinical/references/evidence-source-overrides.json",\n        },
         "sources": sources,
         "module_sources": module_sources,
     }
