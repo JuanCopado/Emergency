@@ -40,10 +40,10 @@ Orden de revisión:
 6. [IN REVIEW] `anticoagulation-reversal` — ISTH SSC 2024 + current andexanet/idarucizumab product information reconciled 02/10/2026; remains yellow pending hematology/pharmacy + Portugal/Azores formulary/release workflow review
 7. [IN REVIEW] `empiric-antibiotics` — SSC 2026 + IDSA cUTI 2025 reconciled 02/10/2026; timing/stewardship/local-antibiogram gates added; remains yellow pending ID/pharmacy + Horta/Azores antibiogram/formulary review
 8. [IN REVIEW] `status-epilepticus` — NICE 2025 + ACEP 2024/AES-ESETT doses reconciled 02/10/2026; explicit benzodiazepine/second-line loads added; remains yellow pending neurology/ICU + Portugal/Azores operational review
-9. `sodium-emergencies`
-10. `obstetric-emergencies`
-11. `toxicology`
-12. `anaphylaxis`
+9. [IN REVIEW] `sodium-emergencies` — European hyponatraemia/SfE guidance reconfirmed 02/10/2026; overcorrection/relowering gates strengthened; remains yellow pending renal/endocrine + local hypertonic-saline protocol review
+10. [IN REVIEW] `obstetric-emergencies` — ACOG reaffirmed 2026 + WHO maternal guidance 2025 reconciled 02/10/2026; magnesium/eclampsia toxicity rescue added; remains yellow pending obstetric/anesthesia + Portugal/Azores protocol review
+11. [IN REVIEW] `toxicology` — ERC/RCUK 2025 + ACMT/AACT current guidance reconciled 02/10/2026; decontamination/naloxone/poison-centre gates strengthened; remains yellow pending toxicology + local antidote-stock review
+12. [IN REVIEW] `anaphylaxis` — RCUK/ERC 2025 reconciled 02/10/2026; explicit IM adrenaline/fluid/refractory pathway added; remains yellow pending local product/infusion/observation review
 
 ## Criterios para pasar yellow -> green
 Un módulo solo puede pasar a green cuando:
