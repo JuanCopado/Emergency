@@ -43,6 +43,7 @@ This file explains why they receive stricter release gates.
 - pediatric-iv-fluid-therapy
 - pediatric-acute-asthma
 - pediatric-airway-rsi
+- pediatric-electrolyte-emergencies
 - pediatric-status-epilepticus
 - obstetric-emergencies
 - diabetic-ketoacidosis-hhs
