@@ -1,5 +1,8 @@
 # Emergency Medicine Skill v1.35 — ICU/ED Continuous Infusions (draft)
 
+## v1.36 consolidation
+A separate `v1.36-consolidation` branch is being used to reduce documentary and evidence debt without silently changing high-risk clinical recommendations. The v1.35 clinical baseline remains authoritative until reviewed changes are explicitly promoted.
+
 106 module IDs. This ZIP is a v1.35 working copy based on the uploaded v1.26 package;
 it is not an installed or published skill. Clinical images are reviewed through the host model's available
 vision using a common intake/quality gate plus a modality-specific module for
@@ -27,8 +30,6 @@ these availability and contraindication gates.
 The v1.28 working draft expands the existing upper-GI-bleeding module across resuscitation, selective pre-endoscopy prokinetics, peptic-ulcer endoscopic stigmata/rescue, and a separate variceal pathway. It reuses the existing lower-GI and anticoagulation modules; no module ID was added. Small-bowel workup and detailed antithrombotic restart/reversal remain pending. This is not locally approved. See `updates/gi-bleeding-review-2026-09-28.md`.
 
 The v1.29 draft adds focused acute mesenteric anticoagulation reconciliation to the existing module, including MVT heparin choice, duration and the fact that current guidelines do not give a universal UFH pump nomogram. Local protocol review remains pending. See updates/mesenteric-anticoagulation-review-2026-09-28.md.
-
-The v1.28 draft expands the existing upper GI hemorrhage route across stabilization, risk/airway, selected prokinetics, peptic-ulcer endoscopic management and a separate variceal pathway. It reuses existing lower-GI and anticoagulation routes. Small-bowel diagnostic workup and agent-specific antithrombotic restart/reversal remain pending. See `updates/gi-bleeding-review-2026-09-28.md`.
 
 The v1.27 working draft reconciles thyroid storm and myxoedema coma with 2026 joint
 endocrine consensus statements. It labels the distinct thyroid-storm hydrocortisone
