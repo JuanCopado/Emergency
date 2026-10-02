@@ -16,7 +16,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve()
 CLINICAL_ROOT = HERE.parents[1]
 REGISTRY_PATH = CLINICAL_ROOT / "references" / "evidence-registry.json"
-OUTPUT_PATH = CLINICAL_ROOT / "references" / "evidence-sources.json"\nOVERRIDES_PATH = CLINICAL_ROOT / "references" / "evidence-source-overrides.json"
+OUTPUT_PATH = CLINICAL_ROOT / "references" / "evidence-sources.json"
+OVERRIDES_PATH = CLINICAL_ROOT / "references" / "evidence-source-overrides.json"
 
 ORG_PATTERNS = [
     (re.compile(r"AHA/ASA|American Heart Association", re.I), "AHA/ASA"),
@@ -190,7 +191,9 @@ def normalize(registry_doc: dict, overrides_doc: dict | None = None) -> dict:
             "no_source_splitting_without_verified_identity": True,
             "compound_legacy_sources_flagged": True,
             "unknown_metadata_is_null": True,
-            "clinical_recommendations_modified": False,\n            "verified_override_file": "clinical/references/evidence-source-overrides.json",\n        },
+            "clinical_recommendations_modified": False,
+            "verified_override_file": "clinical/references/evidence-source-overrides.json",
+        },
         "sources": sources,
         "module_sources": module_sources,
     }
@@ -202,7 +205,12 @@ def main() -> int:
     parser.add_argument("--output", default=str(OUTPUT_PATH))
     args = parser.parse_args()
 
-    registry_doc = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))\n    overrides_doc = (\n        json.loads(OVERRIDES_PATH.read_text(encoding="utf-8"))\n        if OVERRIDES_PATH.is_file() else {}\n    )\n    normalized = normalize(registry_doc, overrides_doc)
+    registry_doc = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    overrides_doc = (
+        json.loads(OVERRIDES_PATH.read_text(encoding="utf-8"))
+        if OVERRIDES_PATH.is_file() else {}
+    )
+    normalized = normalize(registry_doc, overrides_doc)
     output_path = Path(args.output)
 
     if args.check:
