@@ -10,8 +10,9 @@ Inputs:
 - `target_code` — default `AFIB`.
 - `max_cases` — `0` for all fold-10 cases; positive-preserving deterministic pilot when >0.
 
-Required repository secret:
+Optional repository secret:
 - `PTBXL_BLINDING_SALT` — random value >=16 characters. Never commit it.
+- If it is absent, the workflow generates a cryptographically random 32-byte salt for that run and masks it in logs. Hashes will then be stable only within that execution, which is sufficient for patient-grouping/leakage control inside the benchmark.
 
 ## Output separation
 The workflow produces two independent artifacts:
