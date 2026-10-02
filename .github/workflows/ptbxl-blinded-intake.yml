@@ -74,17 +74,17 @@ jobs:
 
       - name: Ensure sealed reference is absent from blinded artifact directory
         run: |
-          mkdir -p .ptbxl-blinded-artifact .ptbxl-sealed-artifact
-          cp .ptbxl-output/blinded_manifest.json .ptbxl-blinded-artifact/
-          cp -r .ptbxl-output/images .ptbxl-blinded-artifact/
-          cp .ptbxl-output/SEALED_REFERENCE_DO_NOT_REVEAL.json .ptbxl-sealed-artifact/
-          test ! -e .ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json
+          mkdir -p ptbxl-blinded-artifact ptbxl-sealed-artifact
+          cp .ptbxl-output/blinded_manifest.json ptbxl-blinded-artifact/
+          cp -r .ptbxl-output/images ptbxl-blinded-artifact/
+          cp .ptbxl-output/SEALED_REFERENCE_DO_NOT_REVEAL.json ptbxl-sealed-artifact/
+          test ! -e ptbxl-blinded-artifact/SEALED_REFERENCE_DO_NOT_REVEAL.json
 
       - name: Upload blinded image artifact
         uses: actions/upload-artifact@v4
         with:
           name: ptbxl-blinded-${{ inputs.target_code }}-fold10
-          path: .ptbxl-blinded-artifact/
+          path: ptbxl-blinded-artifact/
           retention-days: 14
           if-no-files-found: error
 
@@ -92,6 +92,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ptbxl-sealed-reference-${{ inputs.target_code }}-fold10
-          path: .ptbxl-sealed-artifact/
+          path: ptbxl-sealed-artifact/
           retention-days: 14
           if-no-files-found: error
