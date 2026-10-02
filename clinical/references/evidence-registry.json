@@ -811,21 +811,21 @@
     },
     "pediatric-arrhythmias": {
       "priority": "high",
-      "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
-      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
-      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
-      "last_checked": "2026-09-28",
+      "primary_source": "European Resuscitation Council 2025 Paediatric Life Support; Resuscitation Council UK 2025 Paediatric Life Support",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "stored_version": "ERC/RCUK Paediatric Life Support 2025; v1.36 focused consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+      "note": "v1.36 focused review added explicit 2025 pediatric shock, arrhythmia and arrest operational details. Remains yellow pending human pediatric/critical-care review plus Portugal/Azores equipment, formulary, concentration and local protocol reconciliation."
     },
     "pediatric-cardiac-arrest": {
       "priority": "high",
-      "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
-      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
-      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
-      "last_checked": "2026-09-28",
+      "primary_source": "European Resuscitation Council 2025 Paediatric Life Support; Resuscitation Council UK 2025 Paediatric Life Support",
+      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "stored_version": "ERC/RCUK Paediatric Life Support 2025; v1.36 focused consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+      "note": "v1.36 focused review added explicit 2025 pediatric shock, arrhythmia and arrest operational details. Remains yellow pending human pediatric/critical-care review plus Portugal/Azores equipment, formulary, concentration and local protocol reconciliation."
     },
     "undifferentiated-shock": {
       "priority": "high",
@@ -838,12 +838,12 @@
     },
     "pediatric-shock": {
       "priority": "high",
-      "primary_source": "ERC/RCUK Paediatric Life Support Guidelines 2025; NICE NG254; existing pediatric cause-specific guidance",
+      "primary_source": "European Resuscitation Council 2025 Paediatric Life Support; Resuscitation Council UK 2025 Paediatric Life Support",
       "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
-      "stored_version": "ERC/RCUK 2025; focused pathway review 2026-09-28",
-      "last_checked": "2026-09-28",
+      "stored_version": "ERC/RCUK Paediatric Life Support 2025; v1.36 focused consolidation review 2026-10-02",
+      "last_checked": "2026-10-02",
       "status": "yellow",
-      "note": "Focused pathway draft checked against 2025 official guidelines. Requires human clinical review and Portugal/Azores local protocol, equipment and formulary reconciliation before operational use."
+      "note": "v1.36 focused review added explicit 2025 pediatric shock, arrhythmia and arrest operational details. Remains yellow pending human pediatric/critical-care review plus Portugal/Azores equipment, formulary, concentration and local protocol reconciliation."
     },
     "vasoactive-inotrope-infusions": {
       "priority": "high",
