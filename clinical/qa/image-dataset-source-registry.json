@@ -57,28 +57,30 @@
       "modality": "chest_xray",
       "official_url": "https://physionet.org/content/mimic-cxr/",
       "access_model": "credentialed PhysioNet access + DUA",
-      "license_or_dua": "PhysioNet credentialed-data terms/DUA",
-      "license_or_dua_verified": false,
-      "redistribution_rule_documented": false,
+      "license_or_dua": "PhysioNet Credentialed Health Data License 1.5.0 + Credentialed Health Data Use Agreement 1.5.0",
+      "license_or_dua_verified": true,
+      "redistribution_rule_documented": true,
       "deidentified_source": true,
-      "reference_strategy_prespecified": false,
-      "label_separation_plan": false,
-      "intake_ready": false,
-      "notes": "Do not place restricted images in the repository. NLP-derived labels are not automatically an independent expert reference."
+      "reference_strategy_prespecified": true,
+      "label_separation_plan": true,
+      "intake_ready": true,
+      "notes": "Source-level intake protocol frozen in qa/MIMIC_CXR_TEST_PROTOCOL.md. Only mimic-cxr-2.1.0-test-set-labeled.csv manually curated test labels are eligible; automated CheXpert/NegBio labels are excluded as reference. Explicit 1/0 only; uncertain/blank excluded prespecifically. Credentialed PhysioNet account, CITI training and signed project DUA are still required before actual files can be accessed; preparer defaults authorized=false.",
+      "actual_access_verified": false
     },
     {
       "id": "echonet-dynamic",
       "modality": "pocus",
       "official_url": "https://aimi.stanford.edu/datasets/echonet-dynamic-cardiac-ultrasound",
       "access_model": "Stanford AIMI download/research terms",
-      "license_or_dua": "Manual current agreement review required before import",
-      "license_or_dua_verified": false,
-      "redistribution_rule_documented": false,
+      "license_or_dua": "Stanford University School of Medicine EchoNet-Dynamic Dataset Research Use Agreement",
+      "license_or_dua_verified": true,
+      "redistribution_rule_documented": true,
       "deidentified_source": true,
-      "reference_strategy_prespecified": false,
-      "label_separation_plan": false,
-      "intake_ready": false,
-      "notes": "Appropriate only for a narrow apical-4-chamber LV-function task unless a different reference is independently justified."
+      "reference_strategy_prespecified": true,
+      "label_separation_plan": true,
+      "intake_ready": true,
+      "notes": "Source-level intake protocol frozen in qa/ECHONET_DYNAMIC_BLINDED_PROTOCOL.md. Target is lvef_below_40_percent on official TEST split only; EF reference comes from clinical measurements obtained by registered sonographer and verified by level-3 echocardiographer. Dataset is personal/non-commercial research only, no redistribution, no clinical use; individual registration/agreement still required before actual download; preparer defaults authorized=false.",
+      "actual_access_verified": false
     }
   ]
 }
