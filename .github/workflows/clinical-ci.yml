@@ -43,7 +43,10 @@ jobs:
       - name: Validate module manifest and router
         working-directory: clinical
         run: python3 scripts/validate_modules.py
-      - name: Audit evidence coverage and review windows
+      - name: Verify normalized evidence source catalog
+        working-directory: clinical
+        run: python3 scripts/normalize_evidence_sources.py --check
+      - name: Audit evidence coverage, provenance and review windows
         working-directory: clinical
         run: python3 scripts/audit_evidence_coverage.py
       - name: Unit and regression tests
