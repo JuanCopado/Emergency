@@ -9,10 +9,11 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 - Evidencia registrada: **106/106**; 31 green, 75 yellow, 0 red.
 
 ## Estado de trabajo v1.36
-- Rama `v1.36-consolidation`: **107 IDs**, **107/107** registros de evidencia, **31 green / 76 yellow / 0 red**. La ampliación pediátrica pasa `Clinical QA` con **94 tests**.
+- Rama `v1.36-consolidation`: **108 IDs**, **108/108** registros de evidencia, **31 green / 77 yellow / 0 red**. La ampliación pediátrica pasa `Clinical QA` con **94 tests**.
 - El nuevo módulo separa selección clínica de aritmética: `scripts/pediatric_emergency_calculator.py` solo calcula dosis/volúmenes/mL/h con entradas ya validadas.
 - Jerarquía pediátrica v1.36: ERC/RCUK 2025, AHA/AAP PALS 2025, SSC pediátrica 2026, NICE, HSE 2025, PANDEM y fichas técnicas oficiales. No se exige guía local de Horta para pediatría.
-- Perfusiones pediátricas fuente-verificadas ya cargadas para adrenalina, noradrenalina, dopamina con restricción de fuente, dobutamina, milrinona, fentanilo y midazolam. Dexmedetomidina y propofol permanecen bloqueadas para generación automática por conflicto guía/ficha técnica; ketamina continua permanece pendiente de una pauta pediátrica explícita.
+- Perfusiones pediátricas fuente-verificadas ya cargadas para adrenalina, noradrenalina, dopamina con restricción de fuente, dobutamina, milrinona, fentanilo y midazolam.
+- `pediatric-iv-fluid-therapy` añade selección de tipo de suero, volumen y tiempo por escenario; separa shock, deshidratación, gastroenteritis, sepsis, DKA y trastornos del sodio. Dexmedetomidina y propofol permanecen bloqueadas para generación automática por conflicto guía/ficha técnica; ketamina continua permanece pendiente de una pauta pediátrica explícita.
 
 ## Estado autoritativo actual
 - **v1.35** sigue siendo la línea clínica vigente; **v1.36-consolidation** es una rama de trabajo documental/validación y no una liberación clínica.
