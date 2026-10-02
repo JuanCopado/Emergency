@@ -125,3 +125,6 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] Regla anti-error: ninguna concentración pediátrica local se infiere si no está verificada por farmacia/Horta.
 - [ ] Verificar concentraciones locales pediátricas, smart-pump y productos reales.
 - [ ] Revisión humana pediatría/farmacia antes de promover a green.
+
+- [x] Registro `qa/pediatric-infusion-localization.json` y generador de tablas de bomba pediátricas `scripts/pediatric_pump_table.py`: fail-closed hasta que concentración y escalera de dosis estén verificadas localmente.
+- [x] Propofol bloqueado como perfusión de sedación UCI pediátrica <=16 años según ficha técnica; no confundir con anestesia/sedación procedimental.
