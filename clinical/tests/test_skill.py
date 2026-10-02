@@ -1022,6 +1022,24 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(items['vasopressin']['status'], 'portugal_public_reference_insufficient_local_pending')
         self.assertNotEqual(items['norepinephrine']['status'], 'verified')
 
+
+    def test_v136_portugal_sedation_formulary_references_do_not_claim_local_stock(self):
+        p = ROOT / 'qa' / 'localization-portugal-azores.json'
+        data = json.loads(p.read_text(encoding='utf-8'))
+        items = {x['drug']: x for x in data['items']}
+        expected = {
+            'propofol': '10 mg/mL',
+            'dexmedetomidine': '100 micrograms/mL',
+            'midazolam': '5 mg/mL',
+            'remifentanil': '1 mg, 2 mg and 5 mg'
+        }
+        for drug, strength in expected.items():
+            self.assertIn(strength, items[drug]['product_strength'])
+            self.assertEqual(items[drug]['status'], 'portugal_reference_found_local_pending')
+            self.assertIn('local Horta stock/RCM not verified', items[drug]['source'])
+        self.assertEqual(items['fentanyl']['status'], 'portugal_public_reference_insufficient_local_pending')
+        self.assertNotEqual(items['propofol']['status'], 'verified')
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
