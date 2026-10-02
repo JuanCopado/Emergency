@@ -64,6 +64,7 @@ from prepare_ptbxl_blinded_cohort import prepare as prepare_ptbxl_blinded_cohort
 from finalize_blinded_image_dataset import finalize as finalize_blinded_image_dataset
 from merge_blinded_prediction_shards import merge as merge_blinded_prediction_shards
 from prepare_rsna_ich_blinded_cohort import prepare as prepare_rsna_ich_blinded_cohort
+from prepare_chexpert_expert_blinded_cohort import prepare as prepare_chexpert_expert_blinded_cohort
 from create_blinded_prediction_template import build as build_blinded_prediction_template
 from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
 
@@ -2290,6 +2291,62 @@ class ModularCoreTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 prepare_rsna_ich_blinded_cohort(
                     images, refs, '0123456789abcdef'
+                )
+
+    def test_v136_chexpert_expert_preparer_uses_only_binary_expert_truth(self):
+        with tempfile.TemporaryDirectory() as directory:
+            d = Path(directory)
+            images = d / 'images.csv'
+            gt = d / 'gt.csv'
+            images.write_text(
+                'study_id,patient_id,image_path,view\n'
+                's1,p1,/img/a.jpg,frontal\n'
+                's1,p1,/img/b.jpg,lateral\n'
+                's2,p2,/img/c.jpg,frontal\n',
+                encoding='utf-8'
+            )
+            gt.write_text(
+                'study_id,Edema\n'
+                's1,1\n'
+                's2,0\n',
+                encoding='utf-8'
+            )
+            blind, ref = prepare_chexpert_expert_blinded_cohort(
+                images, gt, 'Edema', '0123456789abcdef'
+            )
+            self.assertFalse(blind['authorized'])
+            self.assertTrue(blind['independent_reference'])
+            self.assertEqual(blind['target_condition'], 'Edema')
+            self.assertEqual(ref['positive_reference_cases'], 1)
+            self.assertEqual(ref['negative_reference_cases'], 1)
+            serialized = json.dumps(blind)
+            self.assertNotIn('target_positive', serialized)
+            self.assertNotIn('/img/a.jpg', serialized)
+
+    def test_v136_chexpert_expert_preparer_rejects_uncertain_or_unsupported_target(self):
+        with tempfile.TemporaryDirectory() as directory:
+            d = Path(directory)
+            images = d / 'images.csv'
+            gt = d / 'gt.csv'
+            images.write_text(
+                'study_id,patient_id,image_path\n'
+                's1,p1,/img/a.jpg\n'
+                's2,p2,/img/b.jpg\n',
+                encoding='utf-8'
+            )
+            gt.write_text(
+                'study_id,Edema\n'
+                's1,-1\n'
+                's2,0\n',
+                encoding='utf-8'
+            )
+            with self.assertRaises(ValueError):
+                prepare_chexpert_expert_blinded_cohort(
+                    images, gt, 'Edema', '0123456789abcdef'
+                )
+            with self.assertRaises(ValueError):
+                prepare_chexpert_expert_blinded_cohort(
+                    images, gt, 'Pneumothorax', '0123456789abcdef'
                 )
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
