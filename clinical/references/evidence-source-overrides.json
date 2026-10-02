@@ -908,6 +908,236 @@
       "modules": [
         "status-epilepticus"
       ]
+    },
+    {
+      "source_id": "src-aha-ecg-standards-2007-2009",
+      "title": "AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the Electrocardiogram",
+      "organization": "AHA/ACCF/HRS",
+      "source_type": "guideline_series",
+      "url": "https://www.ahajournals.org/doi/10.1161/circulationaha.106.180200",
+      "persistent_id": null,
+      "version": "2007–2009 scientific statement series",
+      "publication_date": "2007",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US/international",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "ecg-image",
+        "ecg-pocus-integration"
+      ]
+    },
+    {
+      "source_id": "src-thyroid-storm-consensus-2026",
+      "title": "Management of endocrine emergencies: joint consensus statement for management of thyroid storm",
+      "organization": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society",
+      "source_type": "consensus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13506520/",
+      "persistent_id": "doi:10.1530/ETJ-26-0043",
+      "version": "2026",
+      "publication_date": "2026",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe/UK",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "thyroid-storm"
+      ]
+    },
+    {
+      "source_id": "src-ata-hyperthyroidism-2016",
+      "title": "2016 American Thyroid Association Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis",
+      "organization": "American Thyroid Association",
+      "source_type": "guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27521067/",
+      "persistent_id": "doi:10.1089/thy.2016.0229",
+      "version": "2016",
+      "publication_date": "2016",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "thyroid-storm"
+      ]
+    },
+    {
+      "source_id": "src-myxoedema-consensus-2026",
+      "title": "Management of endocrine emergencies: joint consensus statement for management of myxoedema coma",
+      "organization": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society",
+      "source_type": "consensus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13452032/",
+      "persistent_id": "doi:10.1530/ETJ-26-0044",
+      "version": "2026",
+      "publication_date": "2026-08-01",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "Europe/UK",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "myxedema-coma"
+      ]
+    },
+    {
+      "source_id": "src-ata-hypothyroidism-2014",
+      "title": "Guidelines for the Treatment of Hypothyroidism: Prepared by the American Thyroid Association Task Force on Thyroid Hormone Replacement",
+      "organization": "American Thyroid Association",
+      "source_type": "guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25266247/",
+      "persistent_id": "doi:10.1089/thy.2014.0028",
+      "version": "2014",
+      "publication_date": "2014",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "myxedema-coma"
+      ]
+    },
+    {
+      "source_id": "src-nice-ng234-2023",
+      "title": "NICE NG234 Spinal metastases and metastatic spinal cord compression",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng234",
+      "persistent_id": "NICE:NG234",
+      "version": "2023; reviewed 2026-03-19",
+      "publication_date": "2023-09-06",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "UK",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "acute-spinal-cord-compression"
+      ]
+    },
+    {
+      "source_id": "src-acute-sci-hemodynamic-2024",
+      "title": "Clinical Practice Guideline for Acute Spinal Cord Injury: Recommendations on Hemodynamic Management",
+      "organization": "AO Spine/Praxis guideline group",
+      "source_type": "guideline",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10964888/",
+      "persistent_id": "doi:10.1177/21925682231202348",
+      "version": "2024",
+      "publication_date": "2024-03-25",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "international",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source",
+      "compound_identity": false,
+      "modules": [
+        "acute-spinal-cord-compression"
+      ]
+    },
+    {
+      "source_id": "src-acr-ams-2024",
+      "title": "ACR Appropriateness Criteria: Altered Mental Status, Coma, Delirium, and Psychosis — 2024 Update",
+      "organization": "American College of Radiology",
+      "source_type": "guideline",
+      "url": "https://acsearch.acr.org/docs/3102409/Narrative/",
+      "persistent_id": "doi:10.1016/j.jacr.2024.08.018",
+      "version": "2024 update",
+      "publication_date": "2024-11",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "altered-consciousness",
+        "ct-mri-screenshot"
+      ]
+    },
+    {
+      "source_id": "src-acr-criteria-collection-2026",
+      "title": "American College of Radiology Appropriateness Criteria collection",
+      "organization": "American College of Radiology",
+      "source_type": "guideline_collection",
+      "url": "https://acsearch.acr.org/list",
+      "persistent_id": null,
+      "version": "online collection reviewed 2026",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "ct-mri-screenshot"
+      ]
+    },
+    {
+      "source_id": "src-aao-ppp-collection-2026",
+      "title": "American Academy of Ophthalmology Preferred Practice Pattern collection",
+      "organization": "American Academy of Ophthalmology",
+      "source_type": "guideline_collection",
+      "url": "https://www.aao.org/education/preferred-practice-pattern",
+      "persistent_id": null,
+      "version": "2025–2026 PPP collection",
+      "publication_date": null,
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "ophthalmology-image"
+      ]
+    },
+    {
+      "source_id": "src-aao-angle-closure-2026",
+      "title": "Primary Angle-Closure Disease Preferred Practice Pattern",
+      "organization": "American Academy of Ophthalmology",
+      "source_type": "guideline",
+      "url": "https://www.aao.org/education/preferred-practice-pattern/primary-angle-closure-disease-ppp",
+      "persistent_id": "doi:10.1016/j.ophtha.2025.12.030",
+      "version": "2025 PPP; published 2026",
+      "publication_date": "2026-02-09",
+      "last_verified": "2026-10-02",
+      "language": "en",
+      "jurisdiction": "US",
+      "license_status": "unknown",
+      "provenance": "verified_official_source",
+      "compound_identity": false,
+      "modules": [
+        "ophthalmology-image"
+      ]
+    },
+    {
+      "source_id": "src-legacy-altered-consciousness-resuscitation-set",
+      "title": "Legacy syndrome-specific resuscitation guidance set for altered consciousness",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "legacy module source set",
+      "publication_date": null,
+      "last_verified": "2026-09-27",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification",
+      "compound_identity": true,
+      "modules": [
+        "altered-consciousness"
+      ]
     }
   ],
   "module_sources": {
@@ -1252,9 +1482,9 @@
         "claim_scope": "POCUS component"
       },
       {
-        "source_id": "src-legacy-ecg-syndrome-guidance",
-        "role": "legacy_compound",
-        "claim_scope": "ECG syndrome-specific guidance pending individual split"
+        "source_id": "src-aha-ecg-standards-2007-2009",
+        "role": "guideline_series",
+        "claim_scope": "ECG standardization and interpretation framework"
       }
     ],
     "spontaneous-intracerebral-hemorrhage": [
@@ -1279,6 +1509,100 @@
         "source_id": "src-ilae-status-definition-2015",
         "role": "consensus",
         "claim_scope": "status epilepticus definition/classification"
+      }
+    ],
+    "ecg-image": [
+      {
+        "source_id": "src-aha-ecg-standards-2007-2009",
+        "role": "guideline_series",
+        "claim_scope": "ECG acquisition/standardization/interpretation terminology"
+      },
+      {
+        "source_id": "src-internal-image-safety-workflow",
+        "role": "internal_workflow",
+        "claim_scope": "image intake, uncertainty and abstention safety"
+      }
+    ],
+    "thyroid-storm": [
+      {
+        "source_id": "src-thyroid-storm-consensus-2026",
+        "role": "consensus",
+        "claim_scope": "current thyroid storm emergency management"
+      },
+      {
+        "source_id": "src-ata-hyperthyroidism-2016",
+        "role": "guideline",
+        "claim_scope": "historical/comparative thyrotoxicosis guidance"
+      }
+    ],
+    "myxedema-coma": [
+      {
+        "source_id": "src-myxoedema-consensus-2026",
+        "role": "consensus",
+        "claim_scope": "current myxoedema coma emergency management"
+      },
+      {
+        "source_id": "src-ata-hypothyroidism-2014",
+        "role": "guideline",
+        "claim_scope": "historical/comparative hypothyroidism guidance"
+      }
+    ],
+    "acute-spinal-cord-compression": [
+      {
+        "source_id": "src-nice-ng234-2023",
+        "role": "guideline",
+        "claim_scope": "malignant spinal cord compression"
+      },
+      {
+        "source_id": "src-acute-sci-hemodynamic-2024",
+        "role": "guideline",
+        "claim_scope": "acute traumatic spinal cord injury hemodynamic management"
+      }
+    ],
+    "altered-consciousness": [
+      {
+        "source_id": "src-acr-ams-2024",
+        "role": "guideline",
+        "claim_scope": "neuroimaging in altered mental status/coma/delirium"
+      },
+      {
+        "source_id": "src-legacy-altered-consciousness-resuscitation-set",
+        "role": "legacy_compound",
+        "claim_scope": "syndrome-specific stabilization/resuscitation guidance pending individual split"
+      }
+    ],
+    "ct-mri-screenshot": [
+      {
+        "source_id": "src-acr-criteria-collection-2026",
+        "role": "guideline_collection",
+        "claim_scope": "clinical imaging appropriateness context"
+      },
+      {
+        "source_id": "src-acr-ams-2024",
+        "role": "guideline",
+        "claim_scope": "neurologic CT/MRI context for altered consciousness"
+      },
+      {
+        "source_id": "src-internal-image-safety-workflow",
+        "role": "internal_workflow",
+        "claim_scope": "screenshot quality, uncertainty and abstention"
+      }
+    ],
+    "ophthalmology-image": [
+      {
+        "source_id": "src-aao-ppp-collection-2026",
+        "role": "guideline_collection",
+        "claim_scope": "ophthalmology professional guidance"
+      },
+      {
+        "source_id": "src-aao-angle-closure-2026",
+        "role": "guideline",
+        "claim_scope": "acute angle-closure disease"
+      },
+      {
+        "source_id": "src-internal-image-safety-workflow",
+        "role": "internal_workflow",
+        "claim_scope": "image intake, uncertainty and abstention safety"
       }
     ]
   }

@@ -1,3 +1,10 @@
+## High-risk evidence source splitting — batch 4 (02/10/2026)
+- Split and verified sources for ECG image interpretation, ECG/POCUS integration, thyroid storm, myxoedema coma, acute spinal cord compression, altered consciousness imaging, CT/MRI screenshot context and ophthalmology image review.
+- Catalog increased from 128 to 132 normalized sources; compound identities reduced from 26 to 19.
+- Added verified AHA/ACCF/HRS ECG standards, 2026 thyroid-storm and myxoedema joint consensus statements, ATA 2016 hyperthyroidism, ATA 2014 hypothyroidism, NICE NG234, 2024 acute SCI hemodynamic guideline, ACR altered-mental-status criteria, ACR criteria collection and AAO PPP sources.
+- Altered-consciousness syndrome-specific stabilization guidance remains explicitly compound pending individual split.
+- Added regression coverage for this batch. No clinical recommendation, dose or module text changed.
+
 ## High-risk evidence source splitting — batch 3 (02/10/2026)
 - Split and verified sources for noninvasive ventilation, high-flow nasal oxygen, emergency oxygen, POCUS image review, ECG/POCUS integration, spontaneous intracerebral hemorrhage and status epilepticus.
 - Catalog increased from 123 to 128 normalized sources; compound identities reduced from 31 to 26.
