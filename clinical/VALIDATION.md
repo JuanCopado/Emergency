@@ -410,3 +410,9 @@ Further versions should prioritize validation and targeted refinement over uncon
 - One rendered ECG was visually inspected for layout integrity; no source label was revealed.
 - The sealed-reference artifact was not downloaded/opened for diagnostic interpretation.
 - This is pipeline validation only. Balanced class selection discloses prevalence and therefore must not be used for blinded diagnostic-performance claims.
+
+## Blinded sharding / prediction merge — 02/10/2026
+- Clinical QA run #295: **SUCCESS**.
+- Unified QA: `automated_status: PASS`.
+- Unit regression suite: **Ran 161 tests ... OK**.
+- Sharding preserves patient groups; prediction merge fails closed on missing shards, incomplete classes or missing freeze timestamps.
