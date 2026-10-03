@@ -207,3 +207,13 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Escalas: 67 component-sum soportadas solo con componentes ya puntuados explícitamente; 67 herramientas rule/criteria/table/etc. permanecen fail-closed hasta codificación fuente-a-fuente.
 - Routing corregido para usar `clinical-scores-calculators` + `calculator_id`; NIHSS/HEART/Wells/etc. ya no se interpretan como module IDs.
 - La rama queda **apta como base técnica para ramificar**, pero v1.35 sigue siendo la línea clínica vigente y v1.36 no es release.
+
+
+## v1.37 — primera tanda de escalas CORE — 03/10/2026
+- Rama activa: `v1.37-scores-formulas-validation`.
+- Estado detallado: `qa/V1.37_SCORES_VALIDATION_STATE.md`.
+- **14/93 CORE** fuente-codificadas o wrapper oficial validado; **79 CORE restantes**.
+- Primera tanda completada: NIHSS, Glasgow Coma Scale, NEWS2, SOFA-1, HEART, GRACE 2.0 wrapper, CHA2DS2-VASc, CHA2DS2-VA, Wells PE, PERC, YEARS, Glasgow-Blatchford, CURB-65 y Phoenix Sepsis Score.
+- Fórmulas: **45/45** implementadas.
+- Último QA confirmado antes del commit documental: **195/195 PASS**, run #369.
+- No se promueve `clinical-scores-calculators` a green; continúa yellow hasta completar CORE, SPECIALIST y revisión humana.
