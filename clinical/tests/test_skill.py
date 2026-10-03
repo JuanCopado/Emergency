@@ -3834,7 +3834,7 @@ class ModularCoreTests(unittest.TestCase):
             'pulse_bpm':130,'respiratory_rate':30,'spo2_percent':94,
             'avpu':'U','urine_output_mL_h':5
         })
-        self.assertEqual(severe['total'],21)
+        self.assertEqual(severe['total'],24)
         self.assertTrue(severe['single_parameter_score_3'])
         self.assertEqual(severe['action_band'],'call_out_cascade')
 
