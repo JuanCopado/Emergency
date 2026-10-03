@@ -470,7 +470,10 @@
       "use": "Alternativa objetiva a Wells",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block8_tev.py",
+      "version": "Revised Geneva",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005"
     },
     {
       "id": "perc",
@@ -511,7 +514,10 @@
       "use": "Pronóstico y disposición",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block8_tev.py",
+      "version": "PESI",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005"
     },
     {
       "id": "spesi",
@@ -522,7 +528,10 @@
       "use": "Apoyo a manejo ambulatorio/ingreso",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block8_tev.py",
+      "version": "sPESI",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005"
     },
     {
       "id": "hestia",
@@ -533,7 +542,10 @@
       "use": "Disposición de TEP seleccionado",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block8_tev.py",
+      "version": "Hestia 11 criteria",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005"
     },
     {
       "id": "bova",
@@ -555,7 +567,10 @@
       "use": "Dímero D/ecografía según probabilidad",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block8_tev.py",
+      "version": "2-level DVT Wells",
+      "source_url": "https://www.nice.org.uk/guidance/ng158/chapter/Recommendations"
     },
     {
       "id": "isth-dic",
