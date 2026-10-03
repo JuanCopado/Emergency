@@ -19,6 +19,7 @@ from core_score_sofa2 import calculate_sofa2
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
+from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -307,6 +308,11 @@ def calculate_scale(scale_id, data, registry=None):
         "fast-ed": calculate_fast_ed,
         "avpu": calculate_avpu,
         "pediatric-gcs": calculate_pediatric_gcs,
+        "timi-ua-nstemi": calculate_timi_ua_nstemi,
+        "has-bled": calculate_has_bled,
+        "canadian-syncope": calculate_canadian_syncope,
+        "killip-kimball": calculate_killip_kimball,
+        "scai-shock": calculate_scai_shock,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
