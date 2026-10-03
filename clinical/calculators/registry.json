@@ -28,7 +28,11 @@
       "use": "Cuantificar ictus agudo y monitorizar evolución",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block1.py",
+      "version": "NINDS NIH Stroke Scale updated Feb 2024",
+      "source_url": "https://www.ninds.nih.gov/sites/default/files/documents/NIH-Stroke-Scale_updatedFeb2024_508.pdf",
+      "execution_note": "Requires all 15 explicit item scores; UN prevents fabricated total."
     },
     {
       "id": "abcd2",
@@ -94,7 +98,11 @@
       "use": "TCE, coma, intoxicación y deterioro neurológico",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block1.py",
+      "version": "Structured Glasgow Coma Scale",
+      "source_url": "https://www.glasgowcomascale.org/",
+      "execution_note": "Records E/V/M separately; no total is fabricated when any component is not testable."
     },
     {
       "id": "pediatric-gcs",
@@ -501,7 +509,11 @@
       "use": "Seguimiento de disfunción orgánica",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block1.py",
+      "version": "SOFA-1 / Sepsis-3 classic 2016",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2492881",
+      "execution_note": "Do not mix with SOFA-2 (published 2025); SOFA-2 requires a separate versioned implementation."
     },
     {
       "id": "qsofa",
@@ -523,7 +535,11 @@
       "use": "Detección y escalada de deterioro clínico",
       "calc_type": "official_table",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block1.py",
+      "version": "NEWS2 2017",
+      "source_url": "https://www.rcp.ac.uk/resources/national-early-warning-score-news-2/",
+      "execution_note": "SpO2 Scale 2 requires explicit clinician authorization for confirmed hypercapnic respiratory failure."
     },
     {
       "id": "mews",
