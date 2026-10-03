@@ -759,7 +759,10 @@
       "use": "Entornos sin laboratorio",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block9_respiratory.py",
+      "version": "CRB-65",
+      "source_url": "https://thorax.bmj.com/content/58/5/377"
     },
     {
       "id": "psi-port",
@@ -770,7 +773,11 @@
       "use": "Estratificación/disposición",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block9_respiratory.py",
+      "version": "PSI/PORT Fine 1997",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7135093/",
+      "execution_note": "Two-step algorithm with explicit Class I screen, then point-based classes II-V."
     },
     {
       "id": "smart-cop",
@@ -792,7 +799,10 @@
       "use": "Pronóstico/disposición",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block9_respiratory.py",
+      "version": "DECAF",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22895999/"
     },
     {
       "id": "mmrc",
@@ -814,7 +824,11 @@
       "use": "Predecir éxito/fracaso de HFNO",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "central_formula_alias",
+      "engine": "scripts/clinical_calculator.py",
+      "version": "ROX Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "execution_note": "Delegates to central formula id rox; no duplicate arithmetic."
     },
     {
       "id": "hacor",
@@ -836,7 +850,11 @@
       "use": "Clasificar ARDS",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block9_respiratory.py",
+      "version": "Berlin ARDS 2012",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22797452/",
+      "execution_note": "Kept explicitly separate from the newer Global ARDS Definition."
     },
     {
       "id": "rts",
