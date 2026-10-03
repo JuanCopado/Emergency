@@ -77,6 +77,7 @@ from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, 
 from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
+from core_score_sofa2 import calculate_sofa2
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2986,6 +2987,93 @@ class ModularCoreTests(unittest.TestCase):
         })
         self.assertEqual(result['total'],0)
         self.assertEqual(result['registry_id'],'curb65')
+
+    def test_v137_sofa2_source_encoded_zero_and_max(self):
+        zero = calculate_sofa2({
+            'gcs':15,
+            'delirium_drug_required':False,
+            'pao2_fio2_mmHg':350,
+            'advanced_ventilatory_support':False,
+            'ecmo':False,
+            'map_mmHg':80,
+            'norepinephrine_mcg_kg_min':0,
+            'epinephrine_mcg_kg_min':0,
+            'other_vasopressor_or_inotrope':False,
+            'mechanical_circulatory_support':False,
+            'bilirubin_mg_dL':1.0,
+            'creatinine_mg_dL':1.0,
+            'urine_lt_0_5_ml_kg_h_6_12h':False,
+            'urine_lt_0_5_ml_kg_h_ge12h':False,
+            'urine_lt_0_3_ml_kg_h_ge24h':False,
+            'anuria_ge12h':False,
+            'receiving_or_meets_rrt_criteria':False,
+            'platelets_10e3_uL':200,
+        })
+        self.assertEqual(zero['total'],0)
+        self.assertEqual(zero['version'],'SOFA-2 2025')
+
+        maximum = calculate_sofa2({
+            'gcs':3,
+            'delirium_drug_required':False,
+            'pao2_fio2_mmHg':70,
+            'advanced_ventilatory_support':True,
+            'ecmo':False,
+            'map_mmHg':50,
+            'norepinephrine_mcg_kg_min':0.5,
+            'epinephrine_mcg_kg_min':0,
+            'other_vasopressor_or_inotrope':False,
+            'mechanical_circulatory_support':False,
+            'bilirubin_mg_dL':13,
+            'creatinine_mg_dL':4.0,
+            'urine_lt_0_5_ml_kg_h_6_12h':False,
+            'urine_lt_0_5_ml_kg_h_ge12h':False,
+            'urine_lt_0_3_ml_kg_h_ge24h':False,
+            'anuria_ge12h':False,
+            'receiving_or_meets_rrt_criteria':True,
+            'platelets_10e3_uL':40,
+        })
+        self.assertEqual(maximum['components'],{
+            'brain':4,'respiratory':4,'cardiovascular':4,
+            'liver':4,'kidney':4,'hemostasis':4
+        })
+        self.assertEqual(maximum['total'],24)
+
+    def test_v137_sofa2_contemporary_support_thresholds(self):
+        result = calculate_sofa2({
+            'gcs':15,
+            'delirium_drug_required':True,
+            'pao2_fio2_mmHg':140,
+            'advanced_ventilatory_support':True,
+            'ecmo':False,
+            'map_mmHg':75,
+            'norepinephrine_mcg_kg_min':0.15,
+            'epinephrine_mcg_kg_min':0,
+            'other_vasopressor_or_inotrope':True,
+            'mechanical_circulatory_support':False,
+            'bilirubin_mg_dL':2.0,
+            'creatinine_mg_dL':2.5,
+            'urine_lt_0_5_ml_kg_h_6_12h':False,
+            'urine_lt_0_5_ml_kg_h_ge12h':True,
+            'urine_lt_0_3_ml_kg_h_ge24h':False,
+            'anuria_ge12h':False,
+            'receiving_or_meets_rrt_criteria':False,
+            'platelets_10e3_uL':90,
+        })
+        self.assertEqual(result['components']['brain'],1)
+        self.assertEqual(result['components']['respiratory'],3)
+        self.assertEqual(result['components']['cardiovascular'],3)
+        self.assertEqual(result['components']['liver'],1)
+        self.assertEqual(result['components']['kidney'],2)
+        self.assertEqual(result['components']['hemostasis'],2)
+        self.assertEqual(result['total'],12)
+
+    def test_v137_sofa1_and_sofa2_remain_separate_ids(self):
+        registry=central_load_registry()
+        sofa1=next(x for x in registry['scales'] if x['id']=='sofa')
+        sofa2=next(x for x in registry['scales'] if x['id']=='sofa-2')
+        self.assertNotEqual(sofa1['version'],sofa2['version'])
+        self.assertEqual(sofa2['implementation_status'],'dedicated_source_encoded_v1')
+        self.assertIn('2025',sofa2['version'])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
