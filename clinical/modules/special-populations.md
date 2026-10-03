@@ -449,3 +449,45 @@ disposition to physiology, developmental stage, pregnancy and baseline function.
 - Search and treat reversible causes: hypoxia, hypovolaemia/haemorrhage, hyper-/hypokalaemia and other metabolic causes, hypothermia, tension pneumothorax, tamponade, toxins and pulmonary/coronary thrombosis. Major haemorrhage requires early blood products rather than repeated crystalloid.
 - After ROSC, transition immediately to pediatric post-resuscitation care: controlled oxygenation/ventilation, haemodynamic support, glucose/temperature/seizure management and PICU/cause-directed evaluation. Newborn resuscitation immediately after birth follows neonatal life support.
 
+
+
+## pediatric-outpatient-medications
+
+### Alcance
+Prescripción pediátrica **ambulatoria / domicilio tras valoración clínica**, separada de reanimación, perfusiones, RSI, sedación y antibioterapia IV.
+
+Fuentes y motor canónicos:
+- `qa/pediatric-outpatient-medications.json`
+- `scripts/pediatric_outpatient_calculator.py`
+
+### Contrato de salida
+Para cada pauta seleccionada por diagnóstico, mostrar cuando aplique:
+1. diagnóstico/indicación exacta;
+2. fármaco y vía;
+3. **base de peso**: real, ideal, ajustado o banda fija;
+4. peso usado en kg;
+5. dosis fuente en mg/kg o dosis fija;
+6. dosis final en mg por toma tras aplicar máximo;
+7. concentración exacta del producto verificado;
+8. **mL por toma** y redondeo explícito;
+9. número de tomas/día;
+10. duración;
+11. número total de dosis y volumen total estimado del curso si puede calcularse;
+12. administración: con comida, en ayunas, con leche, antes de comida, técnica de inhalador/dispositivo, etc.;
+13. contraindicaciones, cautelas, interacciones y criterios que obligan a reevaluación/ingreso;
+14. fuente y versión.
+
+### Reglas de seguridad
+- **No generar mL sin concentración verificada del producto exacto.** Las presentaciones líquidas cambian entre países y fabricantes.
+- Una concentración fuera del registro solo puede utilizarse tras verificación explícita de SmPC/ficha técnica del producto.
+- No reutilizar una dosis de un antibiótico para otra infección: la pauta es **diagnóstico-específica**.
+- No seleccionar automáticamente un punto dentro de un rango mg/kg o duración; el clínico debe elegir dentro del rango fuente.
+- Aplicar máximo por toma y máximo diario/adulto cuando la fuente lo indique.
+- En obesidad no existe una regla universal. Usar el escalar de peso documentado para cada fármaco; si no existe evidencia específica, peso real con techo adulto cuando la fuente así lo permita y revisión farmacológica en obesidad marcada.
+- **Paracetamol oral: peso ideal** según RCH Acute Pain Management.
+- Mantener discrepancias de fuente como pautas versionadas separadas (ej. nitrofurantoína NICE 3 días vs SmPC 7 días), nunca fusionarlas.
+- Función renal/hepática, alergias, tolerancia oral, cultivos/resistencias, edad, embarazo adolescente, interacciones y gravedad pueden invalidar una pauta ambulatoria.
+- El módulo permanece **yellow** hasta revisión humana pediatría/farmacia y verificación de formulaciones disponibles en Portugal/Azores.
+
+### Cobertura inicial v1.38
+Incluye analgesia/antipiresis, antiemesis, antihistamínicos, esteroides de asma/croup, salbutamol de alta con plan escrito, antibióticos orales frecuentes, oseltamivir, auto-inyector de adrenalina y tratamiento tópico seleccionado. El registro se ampliará por bloques sin duplicar los registries pediátricos de urgencias ya existentes.
