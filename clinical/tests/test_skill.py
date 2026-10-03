@@ -86,6 +86,7 @@ from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, cal
 from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
 from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
 from core_scores_block11_digestive_hepatology import calculate_aims65, calculate_bisap, calculate_child_pugh, calculate_kings_college
+from core_scores_block12_mixed import calculate_qsofa, calculate_isth_dic, classify_kdigo_aki, calculate_mcmahon, calculate_alvarado, calculate_air
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3618,6 +3619,71 @@ class ModularCoreTests(unittest.TestCase):
             'bilirubin_mg_dL':1.0,'albumin_g_dL':4.0,'inr':1.2,
             'ascites':'none','encephalopathy_grade':0})
         self.assertEqual(result['class'],'A')
+
+    def test_v137_qsofa_and_isth_dic(self):
+        q=calculate_qsofa({'respiratory_rate':22,'systolic_bp_mmHg':100,'altered_mentation':True})
+        self.assertEqual(q['total'],3)
+        with self.assertRaisesRegex(ValueError,'DIC-associated'):
+            calculate_isth_dic({'dic_associated_disorder':False,'platelets_10e9_L':40,
+                'fibrin_marker_multiple_uln':6,'pt_prolongation_seconds':7,'fibrinogen_mg_dL':80})
+        dic=calculate_isth_dic({'dic_associated_disorder':True,'platelets_10e9_L':40,
+            'fibrin_marker_multiple_uln':6,'pt_prolongation_seconds':7,'fibrinogen_mg_dL':80})
+        self.assertEqual(dic['total'],8)
+        self.assertTrue(dic['overt_dic_score_ge5'])
+
+    def test_v137_kdigo_aki_stages(self):
+        stage0=classify_kdigo_aki({
+            'current_creatinine_mg_dL':1.0,'baseline_creatinine_mg_dL':1.0,
+            'creatinine_increase_mg_dL_48h':0,'urine_ml_kg_h':1.0,'urine_duration_h':6,
+            'rrt_started':False})
+        self.assertEqual(stage0['stage'],0)
+        stage1=classify_kdigo_aki({
+            'current_creatinine_mg_dL':1.3,'baseline_creatinine_mg_dL':1.0,
+            'creatinine_increase_mg_dL_48h':0.3,'urine_ml_kg_h':0.4,'urine_duration_h':8,
+            'rrt_started':False})
+        self.assertEqual(stage1['stage'],1)
+        stage3=classify_kdigo_aki({
+            'current_creatinine_mg_dL':4.2,'baseline_creatinine_mg_dL':1.0,
+            'creatinine_increase_mg_dL_48h':1.0,'urine_ml_kg_h':0.2,'urine_duration_h':24,
+            'rrt_started':False})
+        self.assertEqual(stage3['stage'],3)
+
+    def test_v137_mcmahon_boundaries(self):
+        low=calculate_mcmahon({
+            'age':40,'sex':'male','creatinine_mg_dL':1.0,'calcium_mg_dL':9,
+            'ck_u_L':10000,'etiology_low_risk_group':True,'phosphate_mg_dL':3,
+            'bicarbonate_mEq_L':24})
+        self.assertEqual(low['total'],0)
+        high=calculate_mcmahon({
+            'age':85,'sex':'female','creatinine_mg_dL':3,'calcium_mg_dL':7,
+            'ck_u_L':50000,'etiology_low_risk_group':False,'phosphate_mg_dL':6,
+            'bicarbonate_mEq_L':15})
+        self.assertEqual(high['total'],19)
+        self.assertTrue(high['higher_risk_ge6'])
+
+    def test_v137_alvarado_and_air_boundaries(self):
+        alv=calculate_alvarado({
+            'migration_rlq':True,'anorexia':True,'nausea_or_vomiting':True,
+            'rlq_tenderness':True,'rebound_or_percussion_tenderness':True,
+            'temperature_c':38,'wbc_10e9_L':12,'neutrophil_left_shift':True})
+        self.assertEqual(alv['total'],10)
+        self.assertEqual(alv['risk_band'],'high_9_10')
+
+        air=calculate_air({
+            'vomiting':True,'right_iliac_fossa_pain':True,
+            'guarding_rebound_severity':'strong','temperature_c':39,
+            'wbc_10e9_L':16,'neutrophils_percent':90,'crp_mg_L':60})
+        self.assertEqual(air['total'],12)
+        self.assertEqual(air['risk_band'],'high_9_12')
+
+    def test_v137_central_dispatch_mixed_block(self):
+        registry=central_load_registry()
+        for sid in ('qsofa','isth-dic','kdigo-aki','mcmahon-rhabdo','alvarado','air-appendicitis'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('qsofa',{
+            'respiratory_rate':22,'systolic_bp_mmHg':100,'altered_mentation':True})
+        self.assertEqual(result['total'],3)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
