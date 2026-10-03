@@ -73,6 +73,7 @@ from prepare_mimic_cxr_curated_blinded_cohort import prepare as prepare_mimic_cx
 from create_blinded_prediction_template import build as build_blinded_prediction_template
 from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
 from clinical_calculator import calculate as central_calculate, calculate_scale as central_calculate_scale, load_registry as central_load_registry
+from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2552,6 +2553,173 @@ class ModularCoreTests(unittest.TestCase):
             'provenance': 'validated external NEWS2 table entry'
         })
         self.assertEqual(explicit['value_or_category'], 5)
+
+    def test_v137_nihss_source_encoded_boundaries_and_un(self):
+        zeros = {key: 0 for key in __import__('core_scores_block1').NIHSS_ITEM_MAX}
+        result = calculate_nihss({'items': zeros})
+        self.assertEqual(result['total'], 0)
+        self.assertEqual(result['range'], [0, 42])
+
+        maxima = dict(__import__('core_scores_block1').NIHSS_ITEM_MAX)
+        result = calculate_nihss({'items': maxima})
+        self.assertEqual(result['total'], 42)
+
+        untestable = dict(zeros)
+        untestable['7_limb_ataxia'] = 'UN'
+        result = calculate_nihss({'items': untestable})
+        self.assertIsNone(result['total'])
+        self.assertEqual(result['status'], 'untestable_item_present')
+
+        invalid = dict(zeros)
+        invalid['1a_loc'] = 4
+        with self.assertRaises(ValueError):
+            calculate_nihss({'items': invalid})
+
+    def test_v137_gcs_source_encoded_and_non_testable(self):
+        result = calculate_gcs({
+            'eye': 'spontaneous',
+            'verbal': 'oriented',
+            'motor': 'obeys_commands'
+        })
+        self.assertEqual(result['total'], 15)
+        self.assertEqual(result['display'], 'E4 V5 M6 = 15')
+
+        result = calculate_gcs({'eye': 1, 'verbal': 1, 'motor': 1})
+        self.assertEqual(result['total'], 3)
+        self.assertEqual(result['head_injury_severity_band'], 'severe_below_9')
+
+        result = calculate_gcs({
+            'eye': 'spontaneous',
+            'verbal': 'NT',
+            'motor': 'obeys_commands'
+        })
+        self.assertIsNone(result['total'])
+        self.assertEqual(result['status'], 'not_testable_component_present')
+
+    def test_v137_news2_source_encoded_scale1_and_scale2(self):
+        normal = calculate_news2({
+            'respiratory_rate': 16,
+            'spo2_percent': 98,
+            'supplemental_oxygen': False,
+            'systolic_bp_mmHg': 120,
+            'pulse_bpm': 70,
+            'consciousness': 'alert',
+            'temperature_c': 37.0,
+        })
+        self.assertEqual(normal['total'], 0)
+        self.assertEqual(normal['trigger_band'], 'low_0_4')
+
+        severe = calculate_news2({
+            'respiratory_rate': 30,
+            'spo2_percent': 90,
+            'supplemental_oxygen': True,
+            'systolic_bp_mmHg': 85,
+            'pulse_bpm': 140,
+            'consciousness': 'new_confusion',
+            'temperature_c': 40.0,
+        })
+        self.assertEqual(severe['total'], 19)
+        self.assertEqual(severe['trigger_band'], 'high_7_or_more')
+
+        with self.assertRaisesRegex(ValueError, 'authorization'):
+            calculate_news2({
+                'respiratory_rate': 16,
+                'spo2_percent': 88,
+                'supplemental_oxygen': False,
+                'systolic_bp_mmHg': 120,
+                'pulse_bpm': 70,
+                'consciousness': 'alert',
+                'temperature_c': 37.0,
+                'spo2_scale': 2,
+            })
+
+        scale2 = calculate_news2({
+            'respiratory_rate': 16,
+            'spo2_percent': 97,
+            'supplemental_oxygen': True,
+            'systolic_bp_mmHg': 120,
+            'pulse_bpm': 70,
+            'consciousness': 'alert',
+            'temperature_c': 37.0,
+            'spo2_scale': 2,
+            'scale2_authorized_hypercapnic_failure': True,
+        })
+        self.assertEqual(scale2['components']['spo2'], 3)
+        self.assertEqual(scale2['components']['supplemental_oxygen'], 2)
+        self.assertEqual(scale2['total'], 5)
+
+    def test_v137_sofa1_source_encoded_zero_and_max(self):
+        normal = calculate_sofa1({
+            'pao2_fio2_mmHg': 450,
+            'respiratory_support': False,
+            'platelets_10e3_uL': 200,
+            'bilirubin_mg_dL': 0.8,
+            'map_mmHg': 80,
+            'vasoactive_mcg_kg_min': {
+                'dopamine': 0,
+                'epinephrine': 0,
+                'norepinephrine': 0,
+                'dobutamine_any_dose': False,
+            },
+            'gcs': 15,
+            'creatinine_mg_dL': 0.9,
+            'urine_output_mL_day': 1200,
+            'baseline_sofa': 0,
+        })
+        self.assertEqual(normal['total'], 0)
+        self.assertEqual(normal['delta_sofa'], 0)
+
+        maximum = calculate_sofa1({
+            'pao2_fio2_mmHg': 80,
+            'respiratory_support': True,
+            'platelets_10e3_uL': 10,
+            'bilirubin_mg_dL': 13,
+            'map_mmHg': 55,
+            'vasoactive_mcg_kg_min': {
+                'dopamine': 0,
+                'epinephrine': 0,
+                'norepinephrine': 0.2,
+                'dobutamine_any_dose': False,
+            },
+            'gcs': 5,
+            'creatinine_mg_dL': 6,
+            'urine_output_mL_day': 100,
+            'baseline_sofa': 0,
+        })
+        self.assertEqual(maximum['total'], 24)
+        self.assertEqual(maximum['delta_sofa'], 24)
+        self.assertTrue(maximum['sepsis3_organ_dysfunction_signal'])
+        self.assertIn('SOFA-1', maximum['version'])
+
+        unsupported = calculate_sofa1({
+            'pao2_fio2_mmHg': 80,
+            'respiratory_support': False,
+            'platelets_10e3_uL': 200,
+            'bilirubin_mg_dL': 0.8,
+            'map_mmHg': 80,
+            'vasoactive_mcg_kg_min': {
+                'dopamine': 0,
+                'epinephrine': 0,
+                'norepinephrine': 0,
+                'dobutamine_any_dose': False,
+            },
+            'gcs': 15,
+            'creatinine_mg_dL': 0.9,
+        })
+        self.assertEqual(unsupported['components']['respiration'], 2)
+
+    def test_v137_central_dispatch_uses_dedicated_core_rules(self):
+        gcs = central_calculate_scale('glasgow-coma', {
+            'eye': 'spontaneous', 'verbal': 'oriented', 'motor': 'obeys_commands'
+        })
+        self.assertEqual(gcs['total'], 15)
+        self.assertEqual(gcs['registry_id'], 'glasgow-coma')
+
+        registry = central_load_registry()
+        for sid in ('nihss', 'glasgow-coma', 'news2', 'sofa'):
+            item = next(x for x in registry['scales'] if x['id'] == sid)
+            self.assertEqual(item['implementation_status'], 'dedicated_source_encoded_v1')
+            self.assertIn('source_url', item)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
