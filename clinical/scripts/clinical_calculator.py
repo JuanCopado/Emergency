@@ -16,6 +16,7 @@ from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
+from core_scores_block5 import calculate_oakland, calculate_obstetric_shock_index, calculate_revised_baux
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
