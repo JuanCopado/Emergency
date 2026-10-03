@@ -14,6 +14,7 @@ from pathlib import Path
 from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
 from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
+from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -272,6 +273,9 @@ def calculate_scale(scale_id, data, registry=None):
         "wells-pe": calculate_wells_pe,
         "perc": calculate_perc,
         "years-pe": calculate_years,
+        "glasgow-blatchford": calculate_glasgow_blatchford,
+        "curb65": calculate_curb65,
+        "phoenix-sepsis": calculate_phoenix_sepsis,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
