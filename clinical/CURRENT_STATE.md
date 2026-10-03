@@ -9,7 +9,7 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 - Evidencia registrada: **106/106**; 31 green, 75 yellow, 0 red.
 
 ## Estado de trabajo v1.36
-- Rama `v1.36-consolidation`: **127 IDs**, **127/127** registros de evidencia, **29 green / 98 yellow / 0 red**. Último `Clinical QA` verificado: **162/162 tests PASS**, `automated_status: PASS`.
+- Rama `v1.36-consolidation`: **127 IDs**, **127/127** registros de evidencia, **29 green / 98 yellow / 0 red**. Último `Clinical QA` verificado en VALIDATION: **175/175 tests PASS**, `automated_status: PASS` (Phase 5 image closure).
 - El nuevo módulo separa selección clínica de aritmética: `scripts/pediatric_emergency_calculator.py` solo calcula dosis/volúmenes/mL/h con entradas ya validadas.
 - Jerarquía pediátrica v1.36: ERC/RCUK 2025, AHA/AAP PALS 2025, SSC pediátrica 2026, NICE, HSE 2025, PANDEM y fichas técnicas oficiales. No se exige guía local de Horta para pediatría.
 - Perfusiones pediátricas fuente-verificadas ya cargadas para adrenalina, noradrenalina, dopamina con restricción de fuente, dobutamina, milrinona, fentanilo y midazolam.
@@ -19,7 +19,7 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 
 - Fase 5 de imagen: gate ciego v1.1 activo con hashes paciente/estudio, timestamps de congelación/revelado, clases positive/negative/abstain/nondiagnostic, cálculo fail-closed de métricas y generador de manifiestos por modalidad. `qa/IMAGE_DATASET_SOURCES.md` documenta PTB-XL, RSNA ICH, CheXpert/MIMIC-CXR y EchoNet como candidatos. Existe un pilot PTB-XL real validado para ingeniería de pipeline (sin métricas); el fold 10 completo de prevalencia natural está en construcción. No existe todavía una evaluación diagnóstica ciega finalizada que permita afirmar sensibilidad/especificidad.
 
-## Estado autoritativo actual
+- Toxicología v1.36 ampliada y sometida a banco clínico de regresión: **24/24 casos estructurados PASS** (no equivalen a tests Python ni validación prospectiva). Incluye drogas recreativas/simpaticomiméticas, tóxicos farmacológicos/industriales y reversión ampliada de anticoagulantes; `toxicology` y `anticoagulation-reversal` permanecen yellow hasta revisión humana y localización Portugal/Azores.\n\n## Estado autoritativo actual
 - **v1.35** sigue siendo la línea clínica vigente; **v1.36-consolidation** es una rama de trabajo documental/validación y no una liberación clínica.
 - **v1.35** es el estado clínico vigente de este repositorio: **106 IDs**, **106/106** registros de evidencia, **31 green / 75 yellow / 0 red** y **63/63** pruebas unitarias.
 - Cualquier cifra inferior (por ejemplo **93/93**, **98 IDs** o **104/104**) que aparezca más abajo pertenece a un **snapshot histórico de la versión indicada** y no debe interpretarse como estado actual.
