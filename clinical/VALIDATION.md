@@ -503,3 +503,11 @@ Further versions should prioritize validation and targeted refinement over uncon
 - GRACE 2.0 intentionally remains a validated wrapper to the official calculator; no local approximation of revised non-linear probabilities.
 - Boundary/safety regressions include NIHSS 0/42/UN, GCS NT, NEWS2 Scale 2 authorization, SOFA 0/24, HEART 0/10, PERC low-pretest gate, YEARS FEU thresholds, GBS 0/23, CURB-65 0/5 and Phoenix sepsis/shock.
 - Clinical QA run #369: **195/195 tests PASS**, `automated_status: PASS`.
+
+
+## SOFA-2 — 03/10/2026
+- Added as separate CORE score `sofa-2`; SOFA-1 remains `sofa`.
+- Implements the six 0-4 domains from JAMA 2025: brain, respiratory, cardiovascular, liver, kidney, hemostasis.
+- Contemporary support variables are explicit and never inferred from free text.
+- Boundary regressions cover 0/24 and intermediate organ-support thresholds.
+- Clinical QA run #375: **198/198 tests PASS**, `automated_status: PASS`.
