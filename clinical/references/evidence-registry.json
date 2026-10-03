@@ -228,12 +228,12 @@
     },
     "anticoagulation-reversal": {
       "priority": "high",
-      "primary_source": "ISTH SSC 2024 DOAC reversal guidance + agent product information + GI society guidance",
-      "stored_version": "ISTH SSC 2024; EMA andexanet product information; ACG-CAG 2022; ESGE 2026/2021; v1.36 review 2026-10-02",
-      "last_checked": "2026-10-02",
+      "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+      "stored_version": "EMA Praxbind PI updated 2026; Ondexxya PI 2025; AHA/ASA 2022; focused expansion reviewed 2026-10-03",
+      "last_checked": "2026-10-03",
       "status": "yellow",
-      "note": "v1.36 adds ISTH 2024 indications/non-indications, DOAC concentration thresholds, idarucizumab 5 g, andexanet low/high regimens and PCC positioning. Remains yellow pending hematology/pharmacy review and Portugal/Azores antidote/PCC formulary and emergency-release workflow verification.",
-      "primary_source_url": "https://www.jthjournal.org/article/S1538-7836(24)00426-4/fulltext"
+      "note": "Expanded to VKA/superwarfarins, dabigatran, apixaban/rivaroxaban, edoxaban, UFH, LMWH, fondaparinux, argatroban, bivalirudin, danaparoid, thrombolytics and antiplatelet boundaries. Includes specific/partial/no-antidote distinction and reference doses. Local PCC product tables, stock and human hematology/pharmacy review remain mandatory.",
+      "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind"
     },
     "empiric-antibiotics": {
       "priority": "high",
@@ -246,12 +246,12 @@
     },
     "toxicology": {
       "priority": "high",
-      "primary_source": "ERC/RCUK 2025 Special Circumstances + ACMT/AACT current position statements + poison-centre/agent-specific guidance",
-      "stored_version": "ERC/RCUK 2025; ACMT/AACT 2025 opioid guidance; v1.36 review 2026-10-02",
-      "last_checked": "2026-10-02",
+      "primary_source": "AHA 2023 life-threatening poisoning update; 2023 US/Canada acetaminophen consensus; EXTRIP toxin-specific recommendations; ASRA LAST checklist; official antidote product information",
+      "stored_version": "AHA 2023 + toxin-specific sources reviewed 2026-10-03",
+      "last_checked": "2026-10-03",
       "status": "yellow",
-      "note": "v1.36 strengthens poison-centre escalation, non-routine decontamination, airway-protected charcoal selection, naloxone-to-ventilation endpoint and agent-specific antidote boundaries. Remains yellow because agent-specific regimens and local antidote stock require separate verification.",
-      "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines"
+      "note": "v1.36 toxicology expansion: recreational/sympathomimetic drugs, common pharmaceuticals, toxic alcohols, gases, pesticides, metals, toxins, antidote/rescue reference doses and explicit no-antidote cases. High-risk doses require human toxicology/pharmacy review and Portugal/Azores formulary confirmation before clinical release.",
+      "primary_source_url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001161"
     },
     "medication-selection-safety": {
       "priority": "high",
