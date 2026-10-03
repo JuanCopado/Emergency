@@ -404,7 +404,11 @@
       "use": "Seleccionar estrategia de dímero D/imagen",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block3.py",
+      "version": "Wells PE standard + modified interpretation",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "execution_note": "Implements 2026 multisociety guideline table; subjective 'PE more likely' remains clinician-entered."
     },
     {
       "id": "revised-geneva",
@@ -426,7 +430,11 @@
       "use": "Evitar pruebas adicionales si probabilidad clínica ya es baja y PERC=0",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block3.py",
+      "version": "PERC 8-item",
+      "source_url": "https://www.ahajournals.org/doi/pdf/10.1161/CIR.0000000000001415",
+      "execution_note": "Fails closed unless low pretest probability is explicitly confirmed before applying PERC."
     },
     {
       "id": "years-pe",
@@ -437,7 +445,11 @@
       "use": "Estrategia diagnóstica TEP",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block3.py",
+      "version": "YEARS 2017",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28549662/",
+      "execution_note": "D-dimer thresholds encoded as 1000/500 ng/mL FEU; no silent DDU conversion. Pregnancy-adapted YEARS is separate."
     },
     {
       "id": "pesi",
