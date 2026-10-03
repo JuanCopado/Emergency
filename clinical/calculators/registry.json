@@ -1034,7 +1034,11 @@
       "use": "Identificar candidatos a manejo ambulatorio seleccionado",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5.py",
+      "version": "Oakland Score original 7-variable form",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7341175/",
+      "execution_note": "Original 0-35 score including DRE blood. Low-risk threshold <=8 is retained as the original validated cutoff; disposition remains clinical."
     },
     {
       "id": "bisap",
@@ -1478,7 +1482,11 @@
       "use": "Detectar compromiso hemodinámico obstétrico",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5.py",
+      "version": "Obstetric Shock Index HR/SBP",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31345740/",
+      "execution_note": "Calculates HR/SBP only; no universal intervention threshold is hard-coded."
     },
     {
       "id": "puqe",
@@ -1533,7 +1541,11 @@
       "use": "Pronóstico poblacional",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5.py",
+      "version": "Revised Baux",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20038856/",
+      "execution_note": "Age + TBSA% + 17 if inhalation injury; prognostic only."
     },
     {
       "id": "pews",
