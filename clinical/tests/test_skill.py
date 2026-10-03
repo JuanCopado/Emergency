@@ -3764,7 +3764,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v137_formula_alias_scales_reuse_central_engine(self):
         si = central_calculate_scale('shock-index', {'HR':120,'SBP':100})
         self.assertAlmostEqual(si['value'],1.2)
-        self.assertEqual(si['formula_id'],'shock-index-formula')
+        self.assertEqual(si['formula_alias'],'shock-index-formula')
 
         msi = central_calculate_scale('modified-shock-index', {'HR':120,'MAP':80})
         self.assertAlmostEqual(msi['value'],1.5)
