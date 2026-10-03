@@ -82,6 +82,7 @@ from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calcula
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
 from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
+from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3312,6 +3313,85 @@ class ModularCoreTests(unittest.TestCase):
             'aspirin_last_7d':True,'elevated_cardiac_markers':True
         })
         self.assertEqual(result['total'],7)
+
+    def test_v137_revised_geneva_source_encoded(self):
+        low=calculate_revised_geneva({
+            'age':50,'previous_dvt_pe':False,'surgery_ga_or_lower_limb_fracture_1mo':False,
+            'active_cancer':False,'unilateral_lower_limb_pain':False,'hemoptysis':False,
+            'heart_rate_bpm':70,'deep_vein_palpation_pain_and_unilateral_edema':False
+        })
+        self.assertEqual(low['total'],0)
+        self.assertEqual(low['risk_group'],'low')
+        high=calculate_revised_geneva({
+            'age':70,'previous_dvt_pe':True,'surgery_ga_or_lower_limb_fracture_1mo':True,
+            'active_cancer':True,'unilateral_lower_limb_pain':True,'hemoptysis':True,
+            'heart_rate_bpm':100,'deep_vein_palpation_pain_and_unilateral_edema':True
+        })
+        self.assertEqual(high['total'],22)
+        self.assertEqual(high['risk_group'],'high')
+
+    def test_v137_pesi_and_spesi_source_encoded(self):
+        pesi=calculate_pesi({
+            'age':50,'sex':'female','cancer':False,'heart_failure':False,
+            'chronic_lung_disease':False,'heart_rate_bpm':80,'systolic_bp_mmHg':120,
+            'respiratory_rate':20,'temperature_c':37,'altered_mental_status':False,
+            'spo2_percent':95
+        })
+        self.assertEqual(pesi['total'],50)
+        self.assertEqual(pesi['class'],'I')
+
+        spesi=calculate_spesi({
+            'age':81,'cancer':True,'chronic_cardiopulmonary_disease':True,
+            'heart_rate_bpm':110,'systolic_bp_mmHg':99,'spo2_percent':89
+        })
+        self.assertEqual(spesi['total'],6)
+        self.assertFalse(spesi['low_risk'])
+
+    def test_v137_hestia_source_encoded(self):
+        all_no={k:False for k in (
+            'hemodynamically_unstable','thrombolysis_or_embolectomy_needed',
+            'active_bleeding_or_high_bleeding_risk','oxygen_gt24h_to_keep_spo2_gt90',
+            'pe_diagnosed_during_anticoagulation','iv_pain_medication_gt24h',
+            'medical_or_social_reason_hospital_gt24h','creatinine_clearance_lt30',
+            'severe_liver_impairment','pregnant','history_heparin_induced_thrombocytopenia'
+        )}
+        neg=calculate_hestia(all_no)
+        self.assertTrue(neg['hestia_negative'])
+        pos=calculate_hestia({**all_no,'creatinine_clearance_lt30':True})
+        self.assertFalse(pos['hestia_negative'])
+        self.assertEqual(pos['positive_count'],1)
+
+    def test_v137_wells_dvt_source_encoded(self):
+        low=calculate_wells_dvt({
+            'active_cancer':False,'paralysis_paresis_or_recent_cast':False,
+            'bedridden_ge3d_or_major_surgery_12w':False,'localized_deep_vein_tenderness':False,
+            'entire_leg_swollen':False,'calf_swelling_ge3cm':False,
+            'pitting_edema_symptomatic_leg':False,'collateral_superficial_nonvaricose_veins':False,
+            'previous_dvt':False,'alternative_diagnosis_at_least_as_likely':True
+        })
+        self.assertEqual(low['total'],-2)
+        self.assertEqual(low['two_level_probability'],'dvt_unlikely')
+
+        high=calculate_wells_dvt({
+            'active_cancer':True,'paralysis_paresis_or_recent_cast':True,
+            'bedridden_ge3d_or_major_surgery_12w':True,'localized_deep_vein_tenderness':True,
+            'entire_leg_swollen':True,'calf_swelling_ge3cm':True,
+            'pitting_edema_symptomatic_leg':True,'collateral_superficial_nonvaricose_veins':True,
+            'previous_dvt':True,'alternative_diagnosis_at_least_as_likely':False
+        })
+        self.assertEqual(high['total'],9)
+        self.assertEqual(high['two_level_probability'],'dvt_likely')
+
+    def test_v137_central_dispatch_remaining_tev(self):
+        registry=central_load_registry()
+        for sid in ('revised-geneva','pesi','spesi','hestia','wells-dvt'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('spesi',{
+            'age':50,'cancer':False,'chronic_cardiopulmonary_disease':False,
+            'heart_rate_bpm':80,'systolic_bp_mmHg':120,'spo2_percent':95
+        })
+        self.assertEqual(result['total'],0)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
