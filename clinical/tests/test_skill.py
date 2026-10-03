@@ -79,6 +79,7 @@ from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_yea
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
+from core_scores_block6_transversal import calculate_avpu
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3156,6 +3157,37 @@ class ModularCoreTests(unittest.TestCase):
         })
         self.assertEqual(result['total'],4)
         self.assertEqual(result['registry_id'],'abcd2')
+
+    def test_v137_avpu_source_encoded(self):
+        self.assertEqual(calculate_avpu({'state':'A'})['ordinal'],0)
+        self.assertEqual(calculate_avpu({'state':'voice'})['ordinal'],1)
+        self.assertEqual(calculate_avpu({'state':'pain'})['ordinal'],2)
+        self.assertEqual(calculate_avpu({'state':'unresponsive'})['ordinal'],3)
+        with self.assertRaises(ValueError):
+            calculate_avpu({'state':'confused'})
+
+    def test_v137_shock_index_scale_ids_delegate_to_formula_engine(self):
+        si=central_calculate_scale('shock-index',{'HR':120,'SBP':100})
+        self.assertAlmostEqual(si['value'],1.2)
+        self.assertEqual(si['formula_alias'],'shock-index-formula')
+
+        msi=central_calculate_scale('modified-shock-index',{'HR':120,'MAP':80})
+        self.assertAlmostEqual(msi['value'],1.5)
+        self.assertEqual(msi['formula_alias'],'modified-shock-index-formula')
+
+    def test_v137_transversal_registry_has_no_duplicate_formula_logic(self):
+        registry=central_load_registry()
+        expected={
+            'avpu':'dedicated_source_encoded_v1',
+            'shock-index':'central_formula_alias',
+            'modified-shock-index':'central_formula_alias',
+        }
+        for sid,status in expected.items():
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],status)
+        code=(ROOT/'scripts'/'core_scores_block6_transversal.py').read_text(encoding='utf-8')
+        self.assertNotIn('HR/SBP',code)
+        self.assertNotIn('HR/MAP',code)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
