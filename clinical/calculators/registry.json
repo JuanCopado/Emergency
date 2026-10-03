@@ -124,7 +124,11 @@
       "use": "TCE/coma pediátrico",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_score_pediatric_gcs.py",
+      "version": "Paediatric GCS >=4 years / <4 years",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Altered_conscious_state/",
+      "execution_note": "Age-specific verbal descriptors; E/V/M reported separately; no fabricated total if a component is not testable."
     },
     {
       "id": "four-score",
