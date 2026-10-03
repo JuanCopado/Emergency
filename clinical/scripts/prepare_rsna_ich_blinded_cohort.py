@@ -132,7 +132,10 @@ def prepare(images_csv, references_csv, salt):
         },
         "patient_grouping_prespecified": True,
         "metrics_requested": False,
-        "render_protocol_status": "must_be_frozen_before_visual_prediction",
+        "render_protocol_status": "frozen",
+        "render_protocol": "qa/RSNA_ICH_DICOM_RENDER_PROTOCOL.md",
+        "render_window": {"width_hu": 80, "level_hu": 40},
+        "slice_order": "IOP_IPP_geometry",
         "cases": blinded,
     }, {
         "schema_version": "1.0",
