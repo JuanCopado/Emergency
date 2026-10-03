@@ -78,6 +78,7 @@ from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
+from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3074,6 +3075,87 @@ class ModularCoreTests(unittest.TestCase):
         self.assertNotEqual(sofa1['version'],sofa2['version'])
         self.assertEqual(sofa2['implementation_status'],'dedicated_source_encoded_v1')
         self.assertIn('2025',sofa2['version'])
+
+    def test_v137_abcd2_source_encoded_boundaries(self):
+        low=calculate_abcd2({
+            'age':50,'systolic_bp_mmHg':120,'diastolic_bp_mmHg':70,
+            'clinical_feature':'other','duration_minutes':5,'diabetes':False
+        })
+        self.assertEqual(low['total'],0)
+        high=calculate_abcd2({
+            'age':70,'systolic_bp_mmHg':150,'diastolic_bp_mmHg':95,
+            'clinical_feature':'unilateral_weakness','duration_minutes':90,'diabetes':True
+        })
+        self.assertEqual(high['total'],7)
+
+    def test_v137_aspects_requires_all_ten_explicit_regions(self):
+        regions={k:False for k in ('caudate','lentiform','internal_capsule','insula','m1','m2','m3','m4','m5','m6')}
+        normal=calculate_aspects({'early_ischemic_change':regions})
+        self.assertEqual(normal['total'],10)
+        all_abnormal=calculate_aspects({'early_ischemic_change':{k:True for k in regions}})
+        self.assertEqual(all_abnormal['total'],0)
+        bad=dict(regions); bad.pop('m6')
+        with self.assertRaises(ValueError):
+            calculate_aspects({'early_ischemic_change':bad})
+
+    def test_v137_mrs_structured_only(self):
+        alive=calculate_modified_rankin({'score':3})
+        self.assertEqual(alive['score'],3)
+        dead=calculate_modified_rankin({'score':6})
+        self.assertEqual(dead['description'],'dead')
+        with self.assertRaises(ValueError):
+            calculate_modified_rankin({'score':7})
+
+    def test_v137_ich_score_source_encoded(self):
+        zero=calculate_ich_score({
+            'gcs':15,'age':60,'ich_volume_cm3':10,
+            'intraventricular_hemorrhage':False,'infratentorial_origin':False
+        })
+        self.assertEqual(zero['total'],0)
+        high=calculate_ich_score({
+            'gcs':3,'age':80,'ich_volume_cm3':30,
+            'intraventricular_hemorrhage':True,'infratentorial_origin':True
+        })
+        self.assertEqual(high['total'],6)
+
+    def test_v137_modified_fisher_source_encoded(self):
+        self.assertEqual(calculate_modified_fisher({'sah_thickness':'none','ivh':False})['grade'],0)
+        self.assertEqual(calculate_modified_fisher({'sah_thickness':'thin','ivh':False})['grade'],1)
+        self.assertEqual(calculate_modified_fisher({'sah_thickness':'thin','ivh':True})['grade'],2)
+        self.assertEqual(calculate_modified_fisher({'sah_thickness':'thick','ivh':False})['grade'],3)
+        self.assertEqual(calculate_modified_fisher({'sah_thickness':'thick','ivh':True})['grade'],4)
+
+    def test_v137_cincinnati_race_fast_ed(self):
+        cpss=calculate_cincinnati({'facial_droop':True,'arm_drift':False,'abnormal_speech':False})
+        self.assertTrue(cpss['screen_positive'])
+        self.assertEqual(cpss['abnormal_count'],1)
+
+        race=calculate_race({
+            'facial_palsy':2,'arm_motor':2,'leg_motor':2,
+            'head_gaze_deviation':1,'cortical_item':2
+        })
+        self.assertEqual(race['total'],9)
+        self.assertTrue(race['lvo_screen_positive_ge5'])
+
+        fast=calculate_fast_ed({
+            'nihss_facial_palsy':3,'nihss_arm_motor':4,'nihss_language':3,
+            'nihss_gaze':2,'nihss_neglect':2
+        })
+        self.assertEqual(fast['total'],9)
+        self.assertTrue(fast['lvo_screen_positive_ge4'])
+
+    def test_v137_central_dispatch_adult_neurology(self):
+        registry=central_load_registry()
+        for sid in ('abcd2','aspects','modified-rankin','ich-score','modified-fisher','cincinnati-stroke','race-stroke','fast-ed'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('abcd2',{
+            'age':70,'systolic_bp_mmHg':150,'diastolic_bp_mmHg':80,
+            'clinical_feature':'speech_impairment_without_weakness',
+            'duration_minutes':30,'diabetes':False
+        })
+        self.assertEqual(result['total'],4)
+        self.assertEqual(result['registry_id'],'abcd2')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
