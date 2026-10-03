@@ -486,3 +486,12 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Core routing IDs present: NIHSS, ABCD2, HEART, Wells-PE, PERC, PESI, SOFA, NEWS2, GCS, Phoenix Sepsis and PECARN head injury.
 - Added 7 regression tests in `tests/test_clinical_scores_registry.py` plus manifest-cardinality update to 128.
 - No GitHub Actions run was observed for the final commit at the time of this audit; therefore these new tests are **not yet recorded as PASS**.
+
+
+## Pre-branch calculator consolidation — 03/10/2026
+- Router regression repaired: score routes resolve through `clinical-scores-calculators`.
+- Central formula engine completed: **45/45 registered formulas implemented**.
+- CKD-EPI 2021, alveolar gas/A-a, Devine IBW, final concentration, DO2 and guarded legacy MELD-Na added with regression coverage.
+- Scale execution remains fail-closed: generic component sums require explicit pre-scored components; raw clinical findings are not converted to score points without dedicated source-validated logic.
+- Clinical QA run #356: **178/178 tests PASS**, `automated_status: PASS`.
+- Pre-branch audit: `qa/PREBRANCH_AUDIT_V1.36.md`.
