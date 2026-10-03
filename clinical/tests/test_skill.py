@@ -84,6 +84,7 @@ from core_scores_block7 import calculate_bedside_pews, calculate_pediatric_traum
 from core_scores_block8 import classify_pecarn_febrile_infant, classify_step_by_step, calculate_apgar
 from specialist_scores_block1 import calculate_canadian_tia, calculate_pc_aspects, calculate_four_score, classify_hunt_hess, calculate_wfns_sah, calculate_stess, calculate_bacterial_meningitis_score
 from specialist_scores_block2 import calculate_edacs, calculate_orbit, calculate_tisdale, calculate_bova, calculate_sic, calculate_mews, calculate_sirs
+from specialist_scores_block3 import calculate_apache2, prepare_saps3, calculate_bps, calculate_age_shock_index, calculate_smart_cop, calculate_mmrc, calculate_hacor, calculate_niss, calculate_triss, calculate_nexus_head_ct
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -4203,6 +4204,55 @@ class ModularCoreTests(unittest.TestCase):
         for sid in ('edacs','orbit-bleeding','tisdale-qt','bova','sic','mews','sirs'):
             item=next(x for x in registry['scales'] if x['id']==sid)
             self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+
+    def test_v137_specialist_apache2_and_saps3(self):
+        apache=calculate_apache2({
+            'temperature_c_core':37,'map_mmHg':80,'heart_rate_bpm':80,'respiratory_rate':16,
+            'fio2_fraction':0.21,'pao2_mmHg':90,'arterial_ph':7.4,'sodium_mmol_L':140,
+            'potassium_mmol_L':4,'creatinine_mg_dL':1,'acute_renal_failure':False,
+            'hematocrit_percent':40,'wbc_10e3_uL':8,'gcs':15,'age':40,
+            'severe_chronic_health':False,'admission_type':'nonoperative_or_emergency_postop'
+        })
+        self.assertEqual(apache['total'],0)
+        wrapper=prepare_saps3({'saps3_score':50})
+        self.assertEqual(wrapper['score'],50)
+        self.assertIsNone(wrapper['mortality_probability'])
+
+    def test_v137_specialist_bps_smartcop_hacor(self):
+        bps=calculate_bps({'facial':'grimacing','upper_limbs':'permanently_retracted','ventilation':'unable_to_control_ventilation'})
+        self.assertEqual(bps['total'],12)
+        smart=calculate_smart_cop({
+            'age':40,'systolic_bp_mmHg':80,'multilobar_infiltrates':True,'albumin_g_L':30,
+            'respiratory_rate':30,'heart_rate_bpm':130,'confusion':True,'arterial_ph':7.2,'spo2_percent':90
+        })
+        self.assertEqual(smart['total'],11)
+        hacor=calculate_hacor({'heart_rate_bpm':130,'arterial_ph':7.2,'gcs':8,'pao2_fio2':80,'respiratory_rate':50})
+        self.assertEqual(hacor['total'],25)
+
+    def test_v137_specialist_age_si_niss_triss_nexus(self):
+        asi=calculate_age_shock_index({'age':70,'heart_rate_bpm':100,'systolic_bp_mmHg':100})
+        self.assertEqual(asi['value'],70)
+        niss=calculate_niss({'ais_injury_scores':[5,4,3,2]})
+        self.assertEqual(niss['total'],50)
+        lethal=calculate_niss({'ais_injury_scores':[6,1]})
+        self.assertEqual(lethal['total'],75)
+        triss=calculate_triss({'rts':7.84,'iss':10,'age':30,'trauma_type':'blunt'})
+        self.assertGreater(triss['probability_survival_legacy_mtos'],0)
+        self.assertLess(triss['probability_survival_legacy_mtos'],1)
+        nexus=calculate_nexus_head_ct({
+            'skull_fracture':False,'scalp_hematoma':False,'neurologic_deficit':False,
+            'abnormal_alertness':False,'abnormal_behavior':False,'persistent_vomiting':False,
+            'coagulopathy':False,'age':40
+        })
+        self.assertTrue(nexus['low_risk_all_absent'])
+
+    def test_v137_specialist_mmrc_and_block3_registry(self):
+        self.assertEqual(calculate_mmrc({'grade':4})['grade'],4)
+        registry=central_load_registry()
+        completed={'dedicated_source_encoded_v1','validated_official_external_wrapper'}
+        for sid in ('apache2','saps3','bps','age-shock-index','smart-cop','mmrc','hacor','niss','triss','nexus-head-ct'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertIn(item['implementation_status'],completed)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
