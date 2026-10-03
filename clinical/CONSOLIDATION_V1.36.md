@@ -202,3 +202,7 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] EchoNet-Dynamic: source-level gates completos para `lvef_below_40_percent` en split TEST; Research Use Agreement, no-redistribution y research-only documentados.
 - [ ] CheXpert: referencia expert-test completa; pendiente únicamente verificación documental del acuerdo específico presentado por el portal de descarga antes de marcar intake-ready.
 - [x] PTB-XL hardening: suppress pre-reveal aggregate prevalence from workflow logs; clean NATURAL_500 v2 initiated with new salt.
+
+- [x] PTB-XL NATURAL_500 v2: primera evaluación ciega exploratoria completada con baseline de irregularidad derivado exclusivamente del PNG, freeze pre-reveal verificable y resultado post-reveal documentado.
+- [x] Política de métricas respetada: 95 casos abstain/nondiagnostic -> sensibilidad/especificidad estándar suprimidas; se reportan cobertura y matriz de conteos.
+- [ ] Validación diagnóstica clínica generalizable sigue pendiente: requiere intérprete/modelo clínico preespecificado, cohorte externa independiente/prospectiva y revisión humana; el baseline de ingeniería no satisface ese gate.
