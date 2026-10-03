@@ -80,6 +80,8 @@ from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, c
 from core_score_sofa2 import calculate_sofa2
 from core_scores_block5 import calculate_oakland, calculate_obstetric_shock_index, calculate_revised_baux
 from core_scores_block6 import calculate_bishop, calculate_meows_nnuh_v7, calculate_rule_of_nines, calculate_lund_browder
+from core_scores_block7 import calculate_bedside_pews, calculate_pediatric_trauma_score, calculate_sipa, calculate_flacc, prepare_wong_baker, calculate_pram, calculate_westley_croup, calculate_clinical_dehydration, calculate_pediatric_appendicitis, classify_pecarn_head_injury
+from core_scores_block8 import classify_pecarn_febrile_infant, classify_step_by_step, calculate_apgar
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -3895,6 +3897,188 @@ class ModularCoreTests(unittest.TestCase):
         })
         self.assertEqual(result['total'],0)
         self.assertEqual(result['registry_id'],'bishop')
+
+    def test_v137_bedside_pews_zero_and_max(self):
+        zero = calculate_bedside_pews({
+            'age_months':24,'heart_rate_bpm':100,'systolic_bp_mmHg':100,
+            'capillary_refill_seconds':2,'respiratory_rate':30,
+            'respiratory_effort':'normal','spo2_percent':98,
+            'oxygen_support_level':'room_air'
+        })
+        self.assertEqual(zero['total'],0)
+        self.assertEqual(zero['range'],[0,26])
+
+        maximum = calculate_bedside_pews({
+            'age_months':2,'heart_rate_bpm':190,'systolic_bp_mmHg':40,
+            'capillary_refill_seconds':3,'respiratory_rate':95,
+            'respiratory_effort':'severe','spo2_percent':85,
+            'oxygen_support_level':'high'
+        })
+        self.assertEqual(maximum['total'],26)
+
+    def test_v137_pediatric_trauma_score_boundaries(self):
+        maximum = calculate_pediatric_trauma_score({
+            'weight_kg':25,'airway':'normal','systolic_bp_mmHg':100,
+            'cns':'awake','open_wound':'none','skeletal':'none'
+        })
+        self.assertEqual(maximum['total'],12)
+        self.assertFalse(maximum['high_risk_common_threshold_le_8'])
+
+        minimum = calculate_pediatric_trauma_score({
+            'weight_kg':5,'airway':'unmaintainable','systolic_bp_mmHg':40,
+            'cns':'coma_or_decerebrate','open_wound':'major_or_penetrating',
+            'skeletal':'open_or_multiple_fractures'
+        })
+        self.assertEqual(minimum['total'],-6)
+        self.assertTrue(minimum['high_risk_common_threshold_le_8'])
+
+    def test_v137_sipa_age_adjusted_thresholds(self):
+        a = calculate_sipa({'age_years':5,'heart_rate_bpm':123,'systolic_bp_mmHg':100})
+        self.assertTrue(a['elevated'])
+        self.assertEqual(a['age_adjusted_threshold'],1.22)
+        b = calculate_sipa({'age_years':10,'heart_rate_bpm':100,'systolic_bp_mmHg':100})
+        self.assertFalse(b['elevated'])
+        self.assertEqual(b['age_adjusted_threshold'],1.0)
+        c = calculate_sipa({'age_years':14,'heart_rate_bpm':91,'systolic_bp_mmHg':100})
+        self.assertTrue(c['elevated'])
+        with self.assertRaises(ValueError):
+            calculate_sipa({'age_years':3,'heart_rate_bpm':100,'systolic_bp_mmHg':100})
+
+    def test_v137_flacc_wong_baker_pain_tools(self):
+        flacc = calculate_flacc({
+            'face':'frequent_frown_clenched_jaw','legs':'kicking_or_drawn_up',
+            'activity':'arched_rigid_jerking','cry':'steady_cry_screams_sobs',
+            'consolability':'difficult_to_console'
+        })
+        self.assertEqual(flacc['total'],10)
+        self.assertEqual(flacc['band'],'severe_7_10')
+
+        wrapper = prepare_wong_baker({'authorized_official_scale_used':False})
+        self.assertEqual(wrapper['status'],'official_licensed_scale_required')
+        authorized = prepare_wong_baker({
+            'authorized_official_scale_used':True,'age_years':5,
+            'patient_self_report_capable':True,'patient_selected_score':8
+        })
+        self.assertEqual(authorized['score'],8)
+        with self.assertRaisesRegex(ValueError,'self-assessment'):
+            prepare_wong_baker({
+                'authorized_official_scale_used':True,'age_years':5,
+                'patient_self_report_capable':False,'patient_selected_score':8
+            })
+
+    def test_v137_pram_and_westley_boundaries(self):
+        pram = calculate_pram({
+            'spo2_percent':90,'suprasternal_retraction':True,
+            'scalene_contraction':True,'air_entry':'minimal_or_absent',
+            'wheezing':'audible_or_silent_chest'
+        })
+        self.assertEqual(pram['total'],12)
+        self.assertEqual(pram['severity_band'],'severe_8_12')
+
+        westley = calculate_westley_croup({
+            'stridor':'at_rest','retractions':'severe','air_entry':'markedly_decreased',
+            'cyanosis':'at_rest','consciousness':'disoriented'
+        })
+        self.assertEqual(westley['total'],17)
+        self.assertEqual(westley['severity_band'],'impending_respiratory_failure')
+
+    def test_v137_clinical_dehydration_and_pediatric_appendicitis(self):
+        cds = calculate_clinical_dehydration({
+            'general_appearance':'drowsy_limp_cold_sweaty_comatose',
+            'eyes':'very_sunken','mucous_membranes':'dry','tears':'absent'
+        })
+        self.assertEqual(cds['total'],8)
+        self.assertEqual(cds['classification'],'moderate_severe_5_8')
+
+        pas = calculate_pediatric_appendicitis({
+            'migration_pain':True,'anorexia':True,'nausea_vomiting':True,'fever':True,
+            'rlq_tenderness':True,'cough_percussion_hopping_tenderness':True,
+            'leukocytosis':True,'neutrophilia':True
+        })
+        self.assertEqual(pas['total'],10)
+
+    def test_v137_pecarn_head_injury_age_bands(self):
+        infant_low = classify_pecarn_head_injury({
+            'age_years':1,'altered_mental_status':False,'gcs':15,'severe_mechanism':False,
+            'palpable_skull_fracture':False,'nonfrontal_scalp_hematoma':False,
+            'loc_seconds':0,'acting_normally_parent':True
+        })
+        self.assertEqual(infant_low['classification'],'very_low_risk_ciTBI')
+
+        infant_high = classify_pecarn_head_injury({
+            'age_years':1,'altered_mental_status':False,'gcs':15,'severe_mechanism':False,
+            'palpable_skull_fracture':True,'nonfrontal_scalp_hematoma':False,
+            'loc_seconds':0,'acting_normally_parent':True
+        })
+        self.assertEqual(infant_high['classification'],'higher_risk_ct_recommended_pathway')
+
+        older_low = classify_pecarn_head_injury({
+            'age_years':10,'altered_mental_status':False,'gcs':15,'severe_mechanism':False,
+            'basilar_skull_fracture_signs':False,'loss_of_consciousness':False,
+            'vomiting':False,'severe_headache':False
+        })
+        self.assertEqual(older_low['classification'],'very_low_risk_ciTBI')
+
+    def test_v137_febrile_infant_rules_boundaries(self):
+        pecarn = classify_pecarn_febrile_infant({
+            'age_days':45,'well_appearing':True,'urinalysis_negative':True,
+            'anc_per_uL':4090,'procalcitonin_ng_mL':1.71
+        })
+        self.assertTrue(pecarn['low_risk_sbi'])
+
+        pecarn_not = classify_pecarn_febrile_infant({
+            'age_days':45,'well_appearing':True,'urinalysis_negative':True,
+            'anc_per_uL':4091,'procalcitonin_ng_mL':1.71
+        })
+        self.assertFalse(pecarn_not['low_risk_sbi'])
+
+        step_low = classify_step_by_step({
+            'age_days':30,'well_appearing':True,'leukocyturia':False,
+            'procalcitonin_ng_mL':0.49,'crp_mg_L':20,'anc_per_uL':10000
+        })
+        self.assertEqual(step_low['classification'],'low_risk')
+
+        step_high = classify_step_by_step({
+            'age_days':21,'well_appearing':True,'leukocyturia':False,
+            'procalcitonin_ng_mL':0.1,'crp_mg_L':1,'anc_per_uL':1000
+        })
+        self.assertEqual(step_high['classification'],'high_risk_age_le_21d')
+
+        step_intermediate = classify_step_by_step({
+            'age_days':30,'well_appearing':True,'leukocyturia':False,
+            'procalcitonin_ng_mL':0.1,'crp_mg_L':21,'anc_per_uL':1000
+        })
+        self.assertEqual(step_intermediate['classification'],'intermediate_risk')
+
+    def test_v137_apgar_zero_ten_and_repeat_rule(self):
+        zero = calculate_apgar({
+            'time_minutes':1,'heart_rate_bpm':0,'respiratory_effort':'absent',
+            'muscle_tone':'flaccid','reflex_irritability':'no_response','color':'blue_or_pale'
+        })
+        self.assertEqual(zero['total'],0)
+
+        ten = calculate_apgar({
+            'time_minutes':5,'heart_rate_bpm':120,'respiratory_effort':'good_crying',
+            'muscle_tone':'active_motion','reflex_irritability':'cry_cough_sneeze_withdrawal',
+            'color':'completely_pink'
+        })
+        self.assertEqual(ten['total'],10)
+        self.assertFalse(ten['repeat_every_5_min_to_20_if_5min_below_7'])
+
+        low5 = calculate_apgar({
+            'time_minutes':5,'heart_rate_bpm':80,'respiratory_effort':'slow_irregular_gasping',
+            'muscle_tone':'some_flexion','reflex_irritability':'grimace',
+            'color':'pink_body_blue_extremities'
+        })
+        self.assertEqual(low5['total'],5)
+        self.assertTrue(low5['repeat_every_5_min_to_20_if_5min_below_7'])
+
+    def test_v137_registry_has_no_pending_core_after_pediatric_rollout(self):
+        registry=central_load_registry()
+        completed={'dedicated_source_encoded_v1','validated_official_external_wrapper','central_formula_alias'}
+        pending=[x['id'] for x in registry['scales'] if x['tier']=='CORE' and x['implementation_status'] not in completed]
+        self.assertEqual(pending,[])
+        self.assertEqual(len([x for x in registry['scales'] if x['tier']=='SPECIALIST']),41)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
