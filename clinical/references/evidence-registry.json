@@ -1073,6 +1073,15 @@
       "last_checked": "2026-10-03",
       "status": "yellow",
       "note": "134 active CORE/SPECIALIST scales plus 45 formulas registered centrally. Metadata and deterministic formula engine implemented. High-impact tools require source-by-source validation and human review before green promotion; complex decision rules are not reduced to artificial numeric scores."
+    },
+    "pediatric-outpatient-medications": {
+      "priority": "high",
+      "primary_source": "Royal Children's Hospital current pediatric clinical guidelines + diagnosis-specific antimicrobial guidance + current product SmPCs + CDC influenza antiviral dosing + GINA 2026 asthma",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "stored_version": "v1.38 outpatient registry created 2026-10-03; source/product verification ongoing",
+      "last_checked": "2026-10-03",
+      "status": "yellow",
+      "note": "Diagnosis-specific pediatric outpatient/home medication engine with explicit actual/ideal/adjusted weight basis, adult/per-dose maxima, exact-product concentration gate, mL per dose, doses/day, duration, course volume, food/administration instructions and contraindication gates. Remains yellow pending human pediatric/pharmacy review and Portugal/Azores formulary/concentration verification."
     }
   }
 }
