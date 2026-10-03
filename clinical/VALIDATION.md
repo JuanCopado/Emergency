@@ -447,3 +447,14 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Coverage=0.81; abstention=0.186; nondiagnostic=0.004.
 - Standard binary sensitivity/specificity/PPV/NPV/accuracy intentionally suppressed under v1.1 because unresolved cases exist.
 - This result validates the blind/freeze/reveal mechanics and a simple image-derived engineering comparator only; it does not establish clinical performance.
+
+
+## Phase 5 image infrastructure closure — 03/10/2026
+- Clinical QA run #338: **SUCCESS**.
+- Unified QA: `automated_status: PASS`.
+- Unit regression suite: **Ran 175 tests ... OK**.
+- RSNA ICH DICOM render frozen: WW=80 HU / WL=40 HU, HU slope/intercept, IOP/IPP ordering and fail-closed study/series integrity.
+- CheXpert/MIMIC-CXR visual-input protocol frozen with no diagnosis-dependent enhancement.
+- EchoNet visual protocol frozen with native video or deterministic 32-frame uniform sampling.
+- Source-level versus actual-access status is explicitly separated.
+- Full closure/status: `qa/PHASE5_IMAGE_CLOSURE.md`.
