@@ -1217,7 +1217,10 @@
       "use": "Decidir NAC cuando tiempo y nivel son válidos",
       "calc_type": "nomogram",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block13_toxicology.py",
+      "version": "Rumack-Matthew 150 treatment line",
+      "source_url": "https://www.merckmanuals.com/professional/injuries-poisoning/poisoning/acetaminophen-poisoning"
     },
     {
       "id": "poisoning-severity",
@@ -1239,7 +1242,10 @@
       "use": "Diagnóstico clínico en exposición serotoninérgica",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block13_toxicology.py",
+      "version": "Hunter criteria",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12925718/"
     },
     {
       "id": "ciwa-ar",
@@ -1250,7 +1256,11 @@
       "use": "Guiar tratamiento en pacientes apropiados",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block13_toxicology.py",
+      "version": "CIWA-Ar",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2597811/",
+      "execution_note": "Explicit item scores only; no free-text inference."
     },
     {
       "id": "pawss",
@@ -1272,7 +1282,11 @@
       "use": "Guiar tratamiento y seguimiento",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block13_toxicology.py",
+      "version": "COWS",
+      "source_url": "https://nida.nih.gov/sites/default/files/ClinicalOpiateWithdrawalScale.pdf",
+      "execution_note": "Explicit item scores only; no free-text inference."
     },
     {
       "id": "cssrs",
