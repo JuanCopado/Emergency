@@ -466,3 +466,14 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Evidence anchors: AHA poisoning update 2023; 2023 US/Canada acetaminophen consensus; current EMA Praxbind and Ondexxya product information; toxin-specific EXTRIP where applicable.
 - These are documented clinical regression cases, **not** Python-unit-test executions or prospective clinical validation. Toxicology/reversal remain yellow pending CIAV/INFARMED/local formulary/stock and human toxicology/hematology/pharmacy review.
 - Detailed bank: `qa/TOXICOLOGY_HIGH_RISK_QA_2026-10-03.md`.
+
+
+## Clinical Scores & Calculators registry — 03/10/2026
+- Added one cross-cutting module ID: `clinical-scores-calculators` (127 -> 128); no score/formula duplicated as a module.
+- Canonical registry: **134 active scales** (CORE/SPECIALIST) and **45 formulas**.
+- Each registry entry contains name, domain, tier, what it measures, intended use, calculation type and editable flag.
+- Central formula engine added at `scripts/clinical_calculator.py`; it performs arithmetic only and fails closed when required inputs are missing.
+- Complex decision rules (e.g. PECARN, Duke-ISCVID) are represented as criteria/classification tools rather than artificial numeric scores.
+- NEWS2 is marked as an official-table implementation and must not be modified from the RCP table.
+- Phoenix pediatric sepsis is the contemporary pediatric sepsis definition anchor; SIRS is retained only as contextual/specialist physiology, not the active pediatric sepsis definition.
+- This is structural/calculation infrastructure, not prospective validation. Registry remains yellow pending source-by-source verification, unit-regression coverage and clinician review.
