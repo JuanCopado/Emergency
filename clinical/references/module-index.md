@@ -133,3 +133,4 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | device-complications | `modules/cardiovascular.md` |
 | ecg-pocus-integration | `modules/disposition-crosscutting.md` |
 | pocus | `modules/disposition-crosscutting.md` |
+| clinical-scores-calculators | `modules/clinical-scores-calculators.md` |
