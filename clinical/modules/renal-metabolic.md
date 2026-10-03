@@ -44,14 +44,111 @@ verify whether results are affected by sampling error.
 
 ## toxicology
 
-- Stabilize **airway, breathing, circulation, glucose, temperature and seizures first**. Identify the toxidrome, timing, formulation, dose if known, co-ingestants, route, intent, comorbidity and delayed-release potential. Obtain ECG (QRS/QTc), acid-base status, anion/osmolal gaps and targeted drug levels only when they can change management.
-- Contact a regional/national poison centre or medical toxicologist early for severe, unknown, sustained-release, antidote-relevant, dialysis-relevant or recurrent-toxicity exposure. ERC/RCUK 2025 explicitly recommends poison-centre consultation in severe poisoning and allows prolonged resuscitation when toxin clearance may permit recovery.
-- **GI decontamination is not routine.** Single-dose activated charcoal may be considered for a potentially toxic ingestion of a charcoal-adsorbable substance, greatest benefit generally when given within about **1 hour**, and only if the airway is intact/protected. Do not give it routinely and do not use it when aspiration risk is unacceptable.
-- **Opioid toxicity:** prioritize ventilation/oxygenation. Give naloxone for objective opioid-associated hypoventilation, not merely depressed consciousness with adequate ventilation. Titrate/repeat naloxone to restore effective breathing rather than full arousal; current ACMT/AACT guidance notes that if hypoventilation persists, repeat dosing may be required up to about **4 mg IV** (or **8 mg intranasal**) while airway/ventilation support continues. Observe for recurrent toxicity, especially with long-acting opioids.
-- Do not give sodium bicarbonate, calcium, lipid emulsion, digoxin antibody, hydroxocobalamin, fomepizole, high-dose insulin, flumazenil or other antidotes/decontamination strategies by reflex. Each requires an agent-specific indication, dose, contraindication and monitoring pathway.
-- In toxin-associated cardiac arrest, follow standard ALS while aggressively treating the reversible toxic cause; be prepared for prolonged resuscitation and consider enhanced elimination/ECPR where appropriate and available.
-- Intentional poisoning requires suicide-risk/psychiatric assessment after medical stabilization. Before disposition, document recurrent-toxicity risk, observation interval, repeat testing plan and antidote/dialysis escalation criteria.
-- Portugal/Azores release gate: verify CIAV/poison-centre pathway, locally stocked antidotes, dialysis/ECPR access, antidote concentrations and emergency-release logistics before presenting an agent-specific regimen as locally operational.
+### Entrada y seguridad
+- Estabilizar **ABCDE, glucemia, temperatura, convulsiones y ECG** antes de perseguir el tóxico. Registrar agente/formulación, dosis estimada, hora, vía, coingestas, liberación prolongada, función renal/hepática, embarazo y medicación habitual. En exposición desconocida buscar toxidrome, QRS/QTc, gasometría, anion gap/osmol gap, lactato y niveles dirigidos que cambien conducta.
+- Contactar precozmente CIAV/centro toxicológico o toxicólogo en toxicidad grave, agente desconocido, formulación retardada, indicación de antídoto, posible depuración extracorpórea, recurrencia o intoxicación pediátrica. En parada tóxica aplicar ALS y tratar simultáneamente la causa; puede requerirse reanimación prolongada, ECTR o VA-ECMO.
+- **Carbón activado no rutinario**: considerar dosis única tras ingesta potencialmente tóxica de sustancia adsorbible, sobre todo precozmente, solo con vía aérea segura. No usar por reflejo en cáusticos, hidrocarburos de alta aspiración, metales/alcoholes no adsorbibles o cuando el riesgo de aspiración supera el beneficio.
+- Ninguna tabla sustituye la verificación del producto local, concentración, peso, función renal/hepática ni consulta toxicológica. Antivenenos, antitoxinas y quelantes son especialmente producto/protocolo dependientes.
+
+### Drogas recreativas y toxidromes
+- **Cocaína / crack:** no existe antídoto específico. Para agitación, hipertermia, hipertensión, taquicardia o convulsiones usar benzodiacepinas tituladas y enfriamiento activo. Tratar síndrome coronario según fisiología; si QRS ancho/arritmia por bloqueo de sodio, **bicarbonato sódico 1–2 mEq/kg IV**, repetir guiado por QRS, perfusión y gasometría. Evitar beta-bloqueo aislado no titulado en toxicidad aguda grave; seleccionar control cardiovascular con toxicología/cardiología.
+- **Anfetamina, metanfetamina, MDMA, mefedrona y otras catinonas sintéticas:** sin antídoto específico. Benzodiacepinas, enfriamiento rápido en hipertermia, fluidos/electrolitos según estado, tratar hiponatremia, rabdomiólisis, convulsiones y fallo multiorgánico. No normalizar sodio rápidamente por protocolo genérico.
+- **Opioides (heroína, fentanilo y análogos, metadona, oxicodona, etc.):** soporte ventilatorio primero. **Naloxona** titulada para recuperar ventilación eficaz; en dependencia conocida pueden emplearse incrementos IV pequeños (p. ej. 0.04–0.4 mg), repitiendo/escalando según respuesta; vías IN/IM son alternativas cuando no hay IV. Si recurre tras opioide de larga duración, considerar perfusión de naloxona basada en la dosis efectiva previa bajo protocolo local.
+- **Benzodiacepinas / Z-drugs:** soporte. **Flumazenilo** solo en casos muy seleccionados (iatrogenia o exposición aislada en paciente no dependiente, sin proconvulsivantes/QRS ancho); referencia adulta: 0.2 mg IV lenta, repetir 0.2 mg aproximadamente cada minuto hasta respuesta, habitualmente máximo 1 mg inicial. Evitar en sobredosis mixta, dependencia, epilepsia o riesgo de abstinencia/convulsión.
+- **GHB/GBL:** sin antídoto específico; vía aérea/ventilación y vigilancia. La recuperación puede ser brusca.
+- **Cannabis y cannabinoides sintéticos:** sin antídoto; soporte, benzodiacepina si agitación/convulsión, evaluar isquemia, arritmia, lesión renal y coingestas en sintéticos.
+- **PCP, ketamina, LSD y alucinógenos:** sin antídoto específico; ambiente controlado, benzodiacepinas para agitación/convulsiones, enfriamiento si hipertermia y tratamiento de trauma/rabdomiólisis.
+- **Serotoninérgicos (ISRS/IRSN/IMAO, MDMA, tramadol, linezolid y combinaciones):** retirar agentes, benzodiacepinas, enfriamiento y soporte. En síndrome serotoninérgico moderado-grave considerar **ciproheptadina 12 mg VO/NG**, luego 2 mg cada 2 h hasta respuesta; mantenimiento habitual 8 mg cada 6 h. No existe formulación IV.
+- **Anticolinérgicos (antihistamínicos, tricíclicos, atropínicos, plantas):** soporte, benzodiacepinas. **Fisostigmina** puede considerarse para delirium antimuscarínico puro tras ECG y consulta toxicológica; adulto 0.5–1 mg IV muy lento, repetir según respuesta hasta 2 mg. Evitar con QRS ancho, sospecha de tricíclicos/bloqueo de sodio, bradicardia o trastorno de conducción.
+- **Alcohol etílico:** soporte, glucosa si hipoglucemia; tiamina en riesgo de déficit antes o junto a carbohidratos cuando sea factible. No existe antídoto para la intoxicación etílica aguda.
+
+### Analgésicos y fármacos frecuentes
+- **Paracetamol/acetaminofén:** usar nomograma solo para ingesta aguda única con tiempo fiable y concentración obtenida a partir de 4 h. Iniciar **N-acetilcisteína (NAC)** si nivel en/sobre línea de tratamiento, en lesión hepática compatible o si retrasar el nivel haría iniciar >8 h tras una ingesta claramente tóxica. Usar un régimen IV/VO validado que aporte **al menos 300 mg/kg en las primeras 20–24 h**; si se usa el régimen IV clásico: 150 mg/kg en ≥1 h, 50 mg/kg en 4 h, 100 mg/kg en 16 h. No suspender por reloj: exigir criterios de parada (paracetamol bajo/indetectable, AST/ALT e INR en evolución favorable y paciente clínicamente estable).
+- **Salicilatos:** no existe antídoto molecular. Alcalinizar suero/orina con bicarbonato y potasio según gasometría/electrolitos; evitar intubación si puede mantenerse ventilación espontánea. Hemodiálisis en toxicidad grave, especialmente alteración mental, hipoxemia, fracaso del tratamiento, acidosis grave o niveles altos según EXTRIP.
+- **Tricíclicos y otros bloqueadores de canal de sodio (incluye difenhidramina grave, flecainida, propafenona y cocaína):** **bicarbonato sódico 1–2 mEq/kg IV** ante QRS ancho, hipotensión o arritmia ventricular, repetir guiado por respuesta y pH; evitar sobrealcalinización/hipernatremia. Lidocaína puede ser rescate especializado en arritmia ventricular persistente.
+- **Bupropión:** sin antídoto; benzodiacepinas para convulsiones, soporte hemodinámico, considerar bicarbonato solo si existe bloqueo de sodio documentado (puede responder poco), ILE/ECMO en colapso refractario con toxicología.
+- **Litio:** sin antídoto. Suspender, corregir volumen/electrolitos cuidadosamente y usar hemodiálisis según EXTRIP (síntomas neurológicos graves/arritmia, deterioro renal con nivel elevado o cinética de eliminación desfavorable).
+- **Valproato:** soporte; considerar **L-carnitina 100 mg/kg IV (máx. 6 g) de carga, luego 15 mg/kg IV cada 4 h** en hiperamonemia, hepatotoxicidad, encefalopatía o intoxicación grave; considerar ECTR en toxicidad extrema según toxicología/EXTRIP.
+- **Isoniazida:** convulsiones/acidosis refractarias requieren **piridoxina (vitamina B6) gramo por gramo de isoniazida ingerida**; si cantidad desconocida, referencia adulta **5 g IV**, administrada rápidamente junto con benzodiacepinas y soporte.
+- **Sulfonilureas:** dextrosa para hipoglucemia + **octreótido 50–100 microgramos SC/IV cada 6–12 h** en adulto para prevenir recurrencia; monitorización prolongada. En pediatría usar protocolo por peso/centro toxicológico.
+- **Insulina:** no antídoto específico; dextrosa titulada (bolos + perfusión) y potasio/magnesio/fosfato seriados; evitar sobrecorrección de potasio.
+- **Metformina:** no antídoto; soporte y hemodiálisis precoz en acidosis láctica grave (EXTRIP: umbral fuerte con lactato >20 mmol/L, pH ≤7.0 o fracaso de soporte; umbral menor si shock/IRA/fallo hepático).
+- **Metotrexato a dosis altas con eliminación retardada/IRA:** **glucarpidasa 50 unidades/kg IV una vez** cuando cumpla criterios específicos; leucovorina debe continuar pero separada temporalmente según ficha/protocolo. No usar glucarpidasa de forma empírica para toda sobredosis oral.
+- **Colchicina:** no antídoto universalmente disponible; descontaminación precoz seleccionada, soporte intensivo y toxicología. Anticuerpos Fab específicos no son tratamiento rutinariamente disponible.
+- **Digoxina y glucósidos cardiacos:** **fragmentos Fab antidigoxina** para arritmia amenazante, hiperpotasemia significativa o toxicidad grave. Dosificar por cantidad ingerida o concentración estable cuando sea posible; si no puede calcularse y existe inestabilidad vital, usar el esquema empírico del producto/centro toxicológico. No interpretar digoxinemia tras Fab con inmunoensayos convencionales como concentración libre.
+
+### Cardiovasculares
+- **Beta-bloqueadores:** soporte + vasopresores según fenotipo. **Insulina euglucémica a dosis altas**: referencia inicial 1 U/kg IV y luego 1 U/kg/h, con dextrosa para euglucemia y monitorización intensiva de glucosa/potasio; titular bajo protocolo toxicológico. **Glucagón 5–10 mg IV** puede probarse, seguido si responde de perfusión 1–5 mg/h; náuseas/vómitos frecuentes.
+- **Calcioantagonistas:** calcio IV + **insulina euglucémica a dosis altas** precoz (1 U/kg IV, luego 1 U/kg/h y titulación), dextrosa, vasopresores; considerar ILE/ECMO en shock refractario. Calcio: usar concentración/producto local y monitorizar calcio ionizado; no intercambiar cloruro y gluconato mg por mg.
+- **Clonidina/agonistas alfa-2:** soporte; naloxona puede ensayarse en casos seleccionados, especialmente pediatría, pero respuesta inconsistente.
+- **Nitratos/nitritos:** si metahemoglobinemia significativa, tratar como metahemoglobinemia.
+- **Antiarrítmicos clase I:** tratar bloqueo de sodio con bicarbonato; considerar lidocaína/ILE/ECMO según agente y toxicología.
+
+### Tóxicos celulares, gases y metahemoglobina
+- **Cianuro:** tratar inmediatamente si sospecha clínica grave. **Hidroxocobalamina 5 g IV** en adulto, habitualmente durante ~15 min; puede repetirse una segunda dosis de 5 g según gravedad/respuesta. Alternativa/adyuvante según disponibilidad: nitrito sódico + tiosulfato sódico bajo protocolo específico. No esperar confirmación analítica.
+- **Monóxido de carbono:** **100% O2**; no existe antídoto farmacológico específico. Consultar medicina hiperbárica para pérdida de conciencia, síntomas neurológicos/cardiacos, acidosis grave, embarazo con exposición significativa u otros criterios locales.
+- **Metahemoglobinemia:** **azul de metileno 1–2 mg/kg IV** de solución 1% durante ~5 min; puede repetirse una dosis menor si persiste tras 30–60 min. Evitar dosis acumuladas altas; precaución/alternativas en deficiencia G6PD y con fármacos serotoninérgicos.
+- **Sulfuro de hidrógeno:** rescate seguro, O2/ventilación y soporte; no existe antídoto universal de eficacia establecida. Nitritos se han usado, pero no deben retrasar soporte y requieren toxicología.
+- **Humos de incendio:** evaluar simultáneamente CO y cianuro; no asumir que una COHb baja excluye cianuro.
+
+### Alcoholes tóxicos y solventes
+- **Metanol / etilenglicol:** **fomepizol 15 mg/kg IV de carga, luego 10 mg/kg cada 12 h por 4 dosis y después 15 mg/kg cada 12 h** hasta criterios de suspensión; aumentar frecuencia durante hemodiálisis según ficha/protocolo. Añadir folato/ácido folínico en metanol y tiamina/piridoxina en etilenglicol según protocolo. Hemodiálisis según EXTRIP por acidosis/daño de órgano/nivel/cinética.
+- **Isopropanol:** no usar fomepizol de rutina; soporte. Hemodiálisis solo en casos excepcionales graves.
+- **Dietilenglicol/propilenglicol:** soporte, toxicología; bloqueo de alcohol-deshidrogenasa y ECTR pueden ser considerados según agente y gravedad, sin extrapolar automáticamente el protocolo de metanol.
+
+### Pesticidas, plantas y toxinas
+- **Organofosforados/carbamatos:** descontaminación del personal/paciente, vía aérea y **atropina IV titulada rápidamente hasta secar secreciones bronquiales y mejorar ventilación/perfusión**; en adulto puede iniciarse 1–2 mg IV y duplicar cada 3–5 min si persiste síndrome muscarínico grave. **Pralidoxima** en organofosforados: referencia adulta 1–2 g IV en 15–30 min, seguida de perfusión/dosis repetidas según protocolo. Las necesidades de atropina pueden ser muy altas.
+- **Rodenticidas anticoagulantes (warfarina/superwarfarinas):** vitamina K1 según INR y sangrado; las superwarfarinas pueden requerir cursos prolongados de vitamina K guiados por INR y toxicología. Hemorragia vital: seguir ruta VKA con 4F-PCC + vitamina K IV.
+- **Paraquat/diquat:** no antídoto específico. Evitar hiperoxia innecesaria salvo hipoxemia; descontaminación precoz seleccionada, soporte y toxicología.
+- **Estricnina:** sin antídoto; control agresivo de estímulos, benzodiacepinas y ventilación/parálisis si precisa.
+- **Amanita phalloides:** soporte, NAC y silibinina IV cuando esté disponible según toxicología/hepatología; derivación precoz a centro de trasplante si insuficiencia hepática. No existe un único régimen universal.
+- **Toxinas marinas (tetrodotoxina, saxitoxina, ciguatera):** predominantemente soporte; no existe antídoto específico validado para tetrodotoxina/saxitoxina. Ciguatera: tratamiento sintomático; manitol no es antídoto demostrado.
+- **Mordeduras de serpiente / arañas / escorpiones:** usar **antiveneno específico del producto y especie/síndrome**, nunca una dosis genérica. Manejar coagulopatía, neurotoxicidad y shock según protocolo regional.
+- **Botulismo:** antitoxina botulínica heptavalente para casos no infantiles tan pronto como sea posible tras consulta de salud pública/toxicología; la dosis es la presentación completa del producto vigente, no convertir a mg/kg. Lactantes: inmunoglobulina botulínica específica donde esté disponible.
+
+### Metales, cáusticos y otros
+- **Hierro:** **deferoxamina 15 mg/kg/h IV** en toxicidad sistémica grave, shock, acidosis o niveles indicativos; titular/duración con toxicología y vigilar hipotensión/ARDS. Evitar cursos prolongados innecesarios.
+- **Plomo:** quelación según nivel/síntomas. En encefalopatía grave se emplean esquemas con dimercaprol + CaNa2EDTA; en cuadros no encefalopáticos puede usarse succímero. Dosis dependen de gravedad/edad/producto: confirmar con toxicología antes de prescribir.
+- **Arsénico/mercurio:** dimercaprol o succímero según especie química, gravedad y función renal; no existe una pauta única segura para todas las formas.
+- **Talio:** **azul de Prusia** es el antídoto/quelante de elección; toxicología temprana y considerar ECTR en casos graves según EXTRIP.
+- **Ácido fluorhídrico/fluoruros:** irrigación inmediata; **gel de gluconato cálcico 2.5%** para exposición cutánea y calcio IV/local según toxicidad, ECG y electrolitos. Las técnicas de infiltración/intraarterial requieren protocolo experto.
+- **Cáusticos:** no neutralizar, no inducir vómito y no dar carbón por rutina. Evaluar vía aérea y endoscopia/imagen según lesión; manejo quirúrgico/GI temprano.
+- **Hidrocarburos:** soporte respiratorio; evitar emesis/carbón rutinario por aspiración. Tratar arritmias y neumonitis según fisiología.
+
+### Antídotos/rescates de alta prioridad — referencia rápida
+| Tóxico/síndrome | Antídoto/rescate | Dosis adulta de referencia / nota |
+|---|---|---|
+| Opioides | Naloxona | Titular IV desde 0.04–0.4 mg en dependencia; escalar/repetir hasta ventilación eficaz; IN/IM si no IV |
+| Benzodiacepina aislada seleccionada | Flumazenilo | 0.2 mg IV lenta; repetir 0.2 mg cada ~1 min; habitual máx. inicial 1 mg |
+| Paracetamol | NAC | Régimen validado ≥300 mg/kg en 20–24 h; clásico IV 150 + 50 + 100 mg/kg |
+| Metanol/etilenglicol | Fomepizol | 15 mg/kg carga; 10 mg/kg q12 h x4; después 15 mg/kg q12 h; ajustar en HD |
+| Cianuro | Hidroxocobalamina | 5 g IV; puede repetirse 5 g |
+| Metahemoglobinemia | Azul de metileno | 1–2 mg/kg IV ~5 min; reevaluar 30–60 min |
+| Digoxina | Fab antidigoxina | Calcular por carga/nivel; esquema empírico solo si amenaza vital y según producto/toxicología |
+| Organofosforado | Atropina | 1–2 mg IV inicial adulto, duplicar q3–5 min hasta objetivos clínicos |
+| Organofosforado | Pralidoxima | 1–2 g IV en 15–30 min; después infusión/repetición según protocolo |
+| Sulfonilurea | Octreótido | 50–100 mcg SC/IV q6–12 h + dextrosa |
+| Isoniazida | Piridoxina | Gramo por gramo ingerido; si desconocido, 5 g IV adulto |
+| Hierro | Deferoxamina | 15 mg/kg/h IV en toxicidad sistémica grave |
+| Síndrome serotoninérgico | Ciproheptadina | 12 mg VO/NG; 2 mg q2 h hasta respuesta; luego 8 mg q6 h |
+| Anticolinérgico puro seleccionado | Fisostigmina | 0.5–1 mg IV muy lenta; repetir hasta 2 mg con ECG/contraindicaciones |
+| LAST | Emulsión lipídica 20% | <70 kg: 1.5 mL/kg bolo + 0.25 mL/kg/min; máximo total 12 mL/kg |
+| Beta-bloqueador/CCB | Insulina dosis alta | 1 U/kg IV + 1 U/kg/h, dextrosa y monitorización; titular por protocolo |
+| Beta-bloqueador | Glucagón | 5–10 mg IV; si responde, 1–5 mg/h |
+| Bloqueo de canal de sodio | Bicarbonato sódico | 1–2 mEq/kg IV, repetir guiado por QRS/pH |
+| Metotrexato alta dosis + IRA | Glucarpidasa | 50 U/kg IV una vez cuando cumpla criterios |
+| Talio | Azul de Prusia | Dosis según producto/toxicología; no extrapolar entre formulaciones |
+| HF/fluoruro | Gluconato cálcico | Gel 2.5% cutáneo; terapia IV/local según ECG, Ca/Mg/K y experto |
+
+### Sustancias sin antídoto específico que deben estar explícitamente reconocidas
+- Cocaína, anfetaminas/metanfetamina/MDMA/catinonas, GHB, cannabis/sintéticos, PCP/LSD/ketamina.
+- Salicilatos (bicarbonato/diálisis son tratamientos fisiológicos, no antídoto molecular), litio, metformina, colchicina, bupropión.
+- Monóxido de carbono (O2/HBO), sulfuro de hidrógeno, isopropanol, paraquat/diquat, estricnina, tetrodotoxina/saxitoxina.
+- La ausencia de antídoto **no** significa ausencia de tratamiento: definir soporte, descontaminación selectiva, ECTR/ECMO y criterios de escalada.
+
+### Reversión de anticoagulantes e hipocoagulantes
+- Ruta detallada en `anticoagulation-reversal`. Toxicología debe reconocer: VKA/warfarina y superwarfarinas; heparina no fraccionada; HBPM; fondaparinux; dabigatrán; apixabán/rivaroxabán/edoxabán; argatrobán/bivalirudina; y anticoagulantes de uso infrecuente. Diferenciar antídoto específico, reversión parcial e inespecífica.
+- Portugal/Azores: antes de uso clínico confirmar stock/formulario de CIAV/INFARMED, presentación exacta, concentraciones, criterios locales de liberación, disponibilidad de 4F-PCC/idarucizumab/andexanet/Fab/hidroxocobalamina/fomepizol/azul de metileno/ILE y capacidad de hemodiálisis/ECMO.
 
 ## urologic-emergencies
 
