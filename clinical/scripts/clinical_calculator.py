@@ -17,6 +17,7 @@ from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_yea
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
 from core_scores_block5 import calculate_oakland, calculate_obstetric_shock_index, calculate_revised_baux
+from core_scores_block6 import calculate_bishop, calculate_meows_nnuh_v7, calculate_rule_of_nines, calculate_lund_browder
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -364,6 +365,10 @@ def calculate_scale(scale_id, data, registry=None):
         "oakland": calculate_oakland,
         "obstetric-shock-index": calculate_obstetric_shock_index,
         "revised-baux": calculate_revised_baux,
+        "bishop": calculate_bishop,
+        "meows": calculate_meows_nnuh_v7,
+        "rule-of-nines": calculate_rule_of_nines,
+        "lund-browder": calculate_lund_browder,
         "clinical-frailty": lambda data: official_wrapper("clinical-frailty", data),
         "cssrs": lambda data: official_wrapper("cssrs", data),
     }
