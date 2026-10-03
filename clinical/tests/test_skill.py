@@ -76,6 +76,7 @@ from clinical_calculator import calculate as central_calculate, calculate_scale 
 from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
 from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
+from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2901,6 +2902,90 @@ class ModularCoreTests(unittest.TestCase):
         })
         self.assertTrue(result['pe_excluded_by_years'])
         self.assertEqual(result['registry_id'],'years-pe')
+
+    def test_v137_glasgow_blatchford_source_encoded(self):
+        low = calculate_glasgow_blatchford({
+            'urea_mmol_L':5.0,'hemoglobin_g_dL':14,'sex':'male',
+            'systolic_bp_mmHg':120,'pulse_bpm':80,'melena':False,
+            'syncope':False,'hepatic_disease':False,'heart_failure':False
+        })
+        self.assertEqual(low['total'],0)
+        self.assertTrue(low['very_low_risk_score_0_or_1'])
+
+        high = calculate_glasgow_blatchford({
+            'urea_mmol_L':26,'hemoglobin_g_dL':9,'sex':'male',
+            'systolic_bp_mmHg':85,'pulse_bpm':110,'melena':True,
+            'syncope':True,'hepatic_disease':True,'heart_failure':True
+        })
+        self.assertEqual(high['total'],23)
+
+        bun = calculate_glasgow_blatchford({
+            'bun_mg_dL':18.2,'hemoglobin_g_dL':13.5,'sex':'female',
+            'systolic_bp_mmHg':120,'pulse_bpm':80,'melena':False,
+            'syncope':False,'hepatic_disease':False,'heart_failure':False
+        })
+        self.assertEqual(bun['components']['urea'],2)
+
+    def test_v137_curb65_source_encoded(self):
+        low = calculate_curb65({
+            'confusion':False,'urea_mmol_L':7,'respiratory_rate':20,
+            'systolic_bp_mmHg':120,'diastolic_bp_mmHg':70,'age':64
+        })
+        self.assertEqual(low['total'],0)
+
+        high = calculate_curb65({
+            'confusion':True,'urea_mmol_L':8,'respiratory_rate':30,
+            'systolic_bp_mmHg':89,'diastolic_bp_mmHg':60,'age':65
+        })
+        self.assertEqual(high['total'],5)
+        self.assertEqual(high['severity_band'],'high_3_5')
+
+    def test_v137_phoenix_sepsis_source_encoded(self):
+        normal = calculate_phoenix_sepsis({
+            'suspected_or_confirmed_infection':True,'age_months':24,
+            'pao2_fio2':450,'any_respiratory_support':False,
+            'invasive_mechanical_ventilation':False,
+            'vasoactive_medication_count':0,'lactate_mmol_L':2,'map_mmHg':60,
+            'platelets_10e3_uL':150,'inr':1.0,'d_dimer_mg_L_feu':1,
+            'fibrinogen_mg_dL':200,'gcs':15,'fixed_pupils_bilateral':False
+        })
+        self.assertEqual(normal['total'],0)
+        self.assertFalse(normal['phoenix_sepsis'])
+
+        septic_shock = calculate_phoenix_sepsis({
+            'suspected_or_confirmed_infection':True,'age_months':6,
+            'pao2_fio2':80,'any_respiratory_support':True,
+            'invasive_mechanical_ventilation':True,
+            'vasoactive_medication_count':2,'lactate_mmol_L':12,'map_mmHg':20,
+            'platelets_10e3_uL':80,'inr':1.5,'d_dimer_mg_L_feu':3,
+            'fibrinogen_mg_dL':80,'gcs':8,'fixed_pupils_bilateral':False
+        })
+        self.assertEqual(septic_shock['components']['respiratory'],3)
+        self.assertEqual(septic_shock['components']['cardiovascular'],6)
+        self.assertEqual(septic_shock['components']['coagulation'],2)
+        self.assertEqual(septic_shock['components']['neurologic'],1)
+        self.assertEqual(septic_shock['total'],12)
+        self.assertTrue(septic_shock['phoenix_sepsis'])
+        self.assertTrue(septic_shock['phoenix_septic_shock'])
+
+        partial = calculate_phoenix_sepsis({
+            'suspected_or_confirmed_infection':True,'age_months':120,
+            'map_mmHg':40
+        })
+        self.assertEqual(partial['observed_domains'],['cardiovascular'])
+        self.assertIn('unmeasured variables',partial['warning'])
+
+    def test_v137_central_dispatch_gi_pneumonia_pediatric_sepsis(self):
+        registry=central_load_registry()
+        for sid in ('glasgow-blatchford','curb65','phoenix-sepsis'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('curb65',{
+            'confusion':False,'urea_mmol_L':7,'respiratory_rate':20,
+            'systolic_bp_mmHg':120,'diastolic_bp_mmHg':70,'age':64
+        })
+        self.assertEqual(result['total'],0)
+        self.assertEqual(result['registry_id'],'curb65')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
