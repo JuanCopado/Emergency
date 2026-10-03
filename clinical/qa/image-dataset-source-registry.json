@@ -36,7 +36,8 @@
       "reference_strategy_prespecified": true,
       "label_separation_plan": true,
       "intake_ready": true,
-      "notes": "Terms and redistribution requirements reviewed from official RSNA sources. Intake protocol frozen in qa/RSNA_ICH_BLINDED_PROTOCOL.md. Only studies with explicitly verified multi-reader majority or senior-neuroradiologist adjudicated reference are eligible for blinded_accuracy; single-reader cases fail closed. Intake-ready does not imply diagnostic validation or a frozen DICOM rendering strategy."
+      "notes": "Terms/reference/label isolation and DICOM render are frozen. Standard brain render is WW=80/WL=40 with IOP/IPP geometric ordering. Actual dataset access/import has not yet been verified in this workspace; intake-ready is source-level only.",
+      "actual_access_verified": false
     },
     {
       "id": "chexpert",
@@ -50,7 +51,8 @@
       "reference_strategy_prespecified": true,
       "label_separation_plan": true,
       "intake_ready": false,
-      "notes": "Expert test-set reference protocol frozen in qa/CHEXPERT_EXPERT_TEST_PROTOCOL.md: 500 studies/500 patients, majority vote of 5 of 8 board-certified radiologists. Training report-derived labels are not accepted as independent expert truth. Dataset-specific download/license terms presented by current AIMI/Redivis access flow still require verification before intake; therefore intake_ready remains false."
+      "notes": "Expert test-set reference and CXR visual input protocol are frozen. Stanford AIMI publicly states non-commercial research access subject to applicable data-use terms, but the current dataset-specific Redivis access/acceptance step has not been completed in this workspace; actual_access_verified=false and intake_ready remains false.",
+      "actual_access_verified": false
     },
     {
       "id": "mimic-cxr-2.1.0",
