@@ -82,6 +82,7 @@ from core_scores_block5 import calculate_oakland, calculate_obstetric_shock_inde
 from core_scores_block6 import calculate_bishop, calculate_meows_nnuh_v7, calculate_rule_of_nines, calculate_lund_browder
 from core_scores_block7 import calculate_bedside_pews, calculate_pediatric_trauma_score, calculate_sipa, calculate_flacc, prepare_wong_baker, calculate_pram, calculate_westley_croup, calculate_clinical_dehydration, calculate_pediatric_appendicitis, classify_pecarn_head_injury
 from core_scores_block8 import classify_pecarn_febrile_infant, classify_step_by_step, calculate_apgar
+from specialist_scores_block1 import calculate_canadian_tia, calculate_pc_aspects, calculate_four_score, classify_hunt_hess, calculate_wfns_sah, calculate_stess, calculate_bacterial_meningitis_score
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -4079,6 +4080,78 @@ class ModularCoreTests(unittest.TestCase):
         pending=[x['id'] for x in registry['scales'] if x['tier']=='CORE' and x['implementation_status'] not in completed]
         self.assertEqual(pending,[])
         self.assertEqual(len([x for x in registry['scales'] if x['tier']=='SPECIALIST']),41)
+
+    def test_v137_specialist_canadian_tia_score_boundaries(self):
+        low = calculate_canadian_tia({
+            'first_tia':False,'symptoms_ge_10_min':False,'history_carotid_stenosis':False,
+            'on_antiplatelet':False,'gait_disturbance':False,'unilateral_weakness':False,
+            'vertigo':True,'diastolic_bp_mmHg':80,'dysarthria_or_aphasia':False,
+            'af_on_ecg':False,'infarct_on_ct':False,'platelets_10e9_L':200,'glucose_mmol_L':5
+        })
+        self.assertEqual(low['total'],-3)
+        self.assertEqual(low['risk_tier'],'low')
+        high = calculate_canadian_tia({
+            'first_tia':True,'symptoms_ge_10_min':True,'history_carotid_stenosis':True,
+            'on_antiplatelet':True,'gait_disturbance':True,'unilateral_weakness':True,
+            'vertigo':False,'diastolic_bp_mmHg':120,'dysarthria_or_aphasia':True,
+            'af_on_ecg':True,'infarct_on_ct':True,'platelets_10e9_L':500,'glucose_mmol_L':20
+        })
+        self.assertEqual(high['total'],23)
+        self.assertEqual(high['risk_tier'],'high')
+
+    def test_v137_specialist_pc_aspects_zero_ten(self):
+        regions={k:False for k in (
+            'left_thalamus','right_thalamus','left_cerebellum','right_cerebellum',
+            'left_pca_territory','right_pca_territory','midbrain','pons'
+        )}
+        normal=calculate_pc_aspects(regions)
+        self.assertEqual(normal['score'],10)
+        all_bad=calculate_pc_aspects({k:True for k in regions})
+        self.assertEqual(all_bad['score'],0)
+
+    def test_v137_specialist_four_score_zero_sixteen(self):
+        maximum=calculate_four_score({
+            'eye':'tracking_or_blinking_command','motor':'thumbs_fist_peace',
+            'brainstem':'pupil_and_corneal_present','respiration':'regular_not_intubated'
+        })
+        self.assertEqual(maximum['total'],16)
+        minimum=calculate_four_score({
+            'eye':'closed_with_pain','motor':'no_response_or_myoclonus',
+            'brainstem':'pupil_corneal_cough_absent','respiration':'ventilator_rate_or_apnea'
+        })
+        self.assertEqual(minimum['total'],0)
+
+    def test_v137_specialist_hunt_hess_wfns(self):
+        hh=classify_hunt_hess({'clinical_category':'drowsy_confused_or_mild_focal_deficit'})
+        self.assertEqual(hh['grade'],3)
+        self.assertEqual(calculate_wfns_sah({'gcs':15,'focal_motor_deficit':False})['grade'],1)
+        self.assertEqual(calculate_wfns_sah({'gcs':14,'focal_motor_deficit':False})['grade'],2)
+        self.assertEqual(calculate_wfns_sah({'gcs':14,'focal_motor_deficit':True})['grade'],3)
+        self.assertEqual(calculate_wfns_sah({'gcs':8,'focal_motor_deficit':True})['grade'],4)
+        self.assertEqual(calculate_wfns_sah({'gcs':5,'focal_motor_deficit':False})['grade'],5)
+
+    def test_v137_specialist_stess_and_bms_boundaries(self):
+        stess=calculate_stess({
+            'age':70,'previous_seizures':False,'consciousness':'comatose','worst_seizure_type':'ncse_in_coma'
+        })
+        self.assertEqual(stess['total'],6)
+        bms=calculate_bacterial_meningitis_score({
+            'positive_csf_gram_stain':True,'csf_anc_per_uL':1000,'csf_protein_mg_dL':80,
+            'peripheral_anc_per_uL':10000,'seizure_with_illness':True
+        })
+        self.assertEqual(bms['total'],6)
+        self.assertFalse(bms['very_low_risk_if_zero'])
+        zero=calculate_bacterial_meningitis_score({
+            'positive_csf_gram_stain':False,'csf_anc_per_uL':0,'csf_protein_mg_dL':20,
+            'peripheral_anc_per_uL':1000,'seizure_with_illness':False
+        })
+        self.assertTrue(zero['very_low_risk_if_zero'])
+
+    def test_v137_specialist_neuro_registry_status(self):
+        registry=central_load_registry()
+        for sid in ('canadian-tia-score','pc-aspects','four-score','hunt-hess','wfns-sah','stess','bacterial-meningitis-score'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
