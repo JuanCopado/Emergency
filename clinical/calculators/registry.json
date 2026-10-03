@@ -245,7 +245,11 @@
       "use": "Estratificación de dolor torácico sospechoso de SCA",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block2.py",
+      "version": "HEART 0-10 normalized to local troponin ULN",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6005932/",
+      "execution_note": "History and ECG categories remain clinician-assigned; troponin is normalized to the local assay upper reference limit."
     },
     {
       "id": "grace-2",
@@ -256,7 +260,11 @@
       "use": "Estratificación pronóstica SCA",
       "calc_type": "formula_external",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "validated_official_external_wrapper",
+      "engine": "scripts/core_scores_block2.py",
+      "version": "GRACE 2.0",
+      "source_url": "https://www.gracescore.org/website.html",
+      "execution_note": "Validates inputs and routes to official GRACE 2.0 calculator; does not approximate revised non-linear risk probabilities locally."
     },
     {
       "id": "timi-ua-nstemi",
@@ -289,7 +297,11 @@
       "use": "Apoyo a decisión antitrombótica según guía aplicable",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block2.py",
+      "version": "CHA2DS2-VASc",
+      "source_url": "https://www.escardio.org/static-file/Escardio/Guidelines/ehw128_Addenda.pdf",
+      "execution_note": "Compatibility score for guidance/studies using sex category; do not mix thresholds with CHA2DS2-VA."
     },
     {
       "id": "cha2ds2-va",
@@ -300,7 +312,11 @@
       "use": "Apoyo a anticoagulación cuando la guía usa esta variante",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block2.py",
+      "version": "CHA2DS2-VA / ESC 2024",
+      "source_url": "https://www.escardio.org/static-file/Escardio/Guidelines/Products/Essential%20Messages/2024%20EM/Essential%20Messages_2024_AFib.pdf",
+      "execution_note": "ESC 2024 context: score 1 OAC should be considered; score >=2 OAC recommended if eligible."
     },
     {
       "id": "has-bled",
