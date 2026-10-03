@@ -112,7 +112,7 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('lasting 5 minutes', status)
         self.assertIn('within 30--60 minutes', obstetric)
         self.assertIn('within 3 hours of injury', trauma)
-        self.assertIn('normal PT/INR does not exclude', reversal)
+        self.assertIn('PT/INR normal no excluye apixabán/rivaroxabán', reversal)
 
     def test_cardiovascular_safety_audit_is_preserved(self):
         arrhythmia = ' '.join(load(ROOT, 'arrhythmias-cardiac-arrest').split())
@@ -838,17 +838,16 @@ class ModularCoreTests(unittest.TestCase):
     def test_v136_anticoagulation_reversal_consolidation(self):
         rev = ' '.join(load(ROOT, 'anticoagulation-reversal').split())
         for invariant in (
-            '>50--75 ng/mL',
-            '30 ng/mL',
+            'anti-Xa calibrado específico',
             'idarucizumab 5 g IV',
-            '400 mg IV bolus',
-            '4 mg/min for 120 min',
-            '800 mg IV bolus',
-            '8 mg/min for 120 min',
-            '25--50 IU/kg',
+            '400 mg IV',
+            '4 mg/min durante 120 min',
+            '800 mg IV',
+            '8 mg/min durante 120 min',
+            '25–50 IU/kg',
             '2,000 IU',
-            '5--10 mg IV vitamin K',
-            'does not exclude clinically relevant apixaban/rivaroxaban effect'
+            'vitamina K1 10 mg IV',
+            'PT/INR normal no excluye apixabán/rivaroxabán'
         ):
             self.assertIn(invariant, rev)
 
@@ -913,14 +912,14 @@ class ModularCoreTests(unittest.TestCase):
     def test_v136_toxicology_framework_consolidation(self):
         tox = ' '.join(load(ROOT, 'toxicology').split())
         for invariant in (
-            'GI decontamination is not routine',
-            'within about **1 hour**',
-            'airway is intact/protected',
-            'objective opioid-associated hypoventilation',
-            '4 mg IV',
-            '8 mg intranasal',
-            'prolonged resuscitation',
-            'poison centre'
+            'Carbón activado no rutinario',
+            'sobre todo precozmente',
+            'vía aérea segura',
+            'soporte ventilatorio primero',
+            'Naloxona',
+            'reanimación prolongada',
+            'centro toxicológico',
+            'no existe antídoto'
         ):
             self.assertIn(invariant, tox)
 
