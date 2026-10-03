@@ -74,6 +74,7 @@ from create_blinded_prediction_template import build as build_blinded_prediction
 from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
 from clinical_calculator import calculate as central_calculate, calculate_scale as central_calculate_scale, load_registry as central_load_registry
 from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
+from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2752,6 +2753,88 @@ class ModularCoreTests(unittest.TestCase):
             item = next(x for x in registry['scales'] if x['id'] == sid)
             self.assertEqual(item['implementation_status'], 'dedicated_source_encoded_v1')
             self.assertIn('source_url', item)
+
+    def test_v137_heart_source_encoded_boundaries(self):
+        low = calculate_heart({
+            'history':'slightly_suspicious','ecg':'normal','age':40,
+            'risk_factor_count':0,'known_atherosclerotic_disease':False,
+            'troponin_multiple_uln':1.0
+        })
+        self.assertEqual(low['total'],0)
+        self.assertEqual(low['risk_band'],'low_0_3')
+
+        high = calculate_heart({
+            'history':'highly_suspicious','ecg':'significant_st_depression','age':70,
+            'risk_factor_count':3,'known_atherosclerotic_disease':False,
+            'troponin_multiple_uln':3.0
+        })
+        self.assertEqual(high['total'],10)
+        self.assertEqual(high['risk_band'],'high_7_10')
+
+    def test_v137_grace2_routes_to_official_calculator_without_fake_probability(self):
+        result = prepare_grace2({
+            'age':68,'heart_rate_bpm':95,'systolic_bp_mmHg':110,
+            'creatinine_mg_dL':1.3,'killip_class':2,
+            'cardiac_arrest_at_admission':False,
+            'st_segment_deviation':True,
+            'elevated_cardiac_biomarkers':True
+        })
+        self.assertEqual(result['status'],'official_external_calculator_required')
+        self.assertEqual(result['input_mode'],'complete_grace2')
+        self.assertIn('gracescore.org',result['official_calculator'])
+        self.assertNotIn('probability',result)
+
+        mini = prepare_grace2({
+            'age':68,'heart_rate_bpm':95,'systolic_bp_mmHg':110,
+            'cardiac_arrest_at_admission':False,
+            'st_segment_deviation':True,
+            'elevated_cardiac_biomarkers':True
+        })
+        self.assertEqual(mini['input_mode'],'mini_grace_possible')
+
+    def test_v137_cha2ds2_variants_are_versioned_and_not_mixed(self):
+        base = {
+            'age':76,
+            'heart_failure_or_lvd':True,
+            'hypertension':True,
+            'diabetes':True,
+            'prior_stroke_tia_thromboembolism':True,
+            'vascular_disease':True,
+        }
+        vasc = calculate_cha2ds2_vasc({**base,'sex':'female'})
+        self.assertEqual(vasc['total'],9)
+
+        va = calculate_cha2ds2_va(base)
+        self.assertEqual(va['total'],8)
+        self.assertEqual(va['esc2024_context'],'esc2024_oac_recommended_if_eligible')
+
+        one = calculate_cha2ds2_va({
+            'age':66,'heart_failure_or_lvd':False,'hypertension':False,
+            'diabetes':False,'prior_stroke_tia_thromboembolism':False,
+            'vascular_disease':False,
+        })
+        self.assertEqual(one['total'],1)
+        self.assertEqual(one['esc2024_context'],'esc2024_oac_should_be_considered')
+
+    def test_v137_central_dispatch_cardiology_scores(self):
+        registry = central_load_registry()
+        expected = {
+            'heart':'dedicated_source_encoded_v1',
+            'grace-2':'validated_official_external_wrapper',
+            'cha2ds2-vasc':'dedicated_source_encoded_v1',
+            'cha2ds2-va':'dedicated_source_encoded_v1',
+        }
+        for sid,status in expected.items():
+            item = next(x for x in registry['scales'] if x['id'] == sid)
+            self.assertEqual(item['implementation_status'],status)
+
+        result = central_calculate_scale('cha2ds2-va',{
+            'age':50,'heart_failure_or_lvd':False,'hypertension':True,
+            'diabetes':False,'prior_stroke_tia_thromboembolism':False,
+            'vascular_disease':False,
+        })
+        self.assertEqual(result['total'],1)
+        self.assertEqual(result['registry_id'],'cha2ds2-va')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
