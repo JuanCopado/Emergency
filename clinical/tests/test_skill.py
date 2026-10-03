@@ -85,6 +85,7 @@ from core_scores_block8 import classify_pecarn_febrile_infant, classify_step_by_
 from specialist_scores_block1 import calculate_canadian_tia, calculate_pc_aspects, calculate_four_score, classify_hunt_hess, calculate_wfns_sah, calculate_stess, calculate_bacterial_meningitis_score
 from specialist_scores_block2 import calculate_edacs, calculate_orbit, calculate_tisdale, calculate_bova, calculate_sic, calculate_mews, calculate_sirs
 from specialist_scores_block3 import calculate_apache2, prepare_saps3, calculate_bps, calculate_age_shock_index, calculate_smart_cop, calculate_mmrc, calculate_hacor, calculate_niss, calculate_triss, calculate_nexus_head_ct
+from specialist_scores_block4 import calculate_rockall, calculate_ranson, calculate_meld3, calculate_lille, classify_poisoning_severity, calculate_pawss
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -4253,6 +4254,48 @@ class ModularCoreTests(unittest.TestCase):
         for sid in ('apache2','saps3','bps','age-shock-index','smart-cop','mmrc','hacor','niss','triss','nexus-head-ct'):
             item=next(x for x in registry['scales'] if x['id']==sid)
             self.assertIn(item['implementation_status'],completed)
+
+    def test_v137_specialist_rockall_ranson(self):
+        rock=calculate_rockall({
+            'age':85,'heart_rate_bpm':120,'systolic_bp_mmHg':80,'comorbidity':'liver_failure',
+            'endoscopic_diagnosis':'upper_gi_malignancy','stigmata':'blood_clot_visible_or_spurting_vessel'
+        })
+        self.assertEqual(rock['total'],11)
+        ranson=calculate_ranson({
+            'etiology':'non_gallstone','age':60,'wbc_per_uL':17000,'glucose_mg_dL':210,
+            'ast_IU_L':300,'ldh_IU_L':400,'calcium_mg_dL_48h':7,
+            'hematocrit_fall_percent_48h':11,'bun_rise_mg_dL_48h':6,
+            'base_deficit_mEq_L_48h':5,'fluid_sequestration_L_48h':7,'pao2_mmHg_48h':50
+        })
+        self.assertEqual(ranson['total'],11)
+
+    def test_v137_specialist_meld3_lille(self):
+        meld=calculate_meld3({'female':True,'bilirubin_mg_dL':3,'inr':2,'creatinine_mg_dL':1.5,
+                              'sodium_mmol_L':130,'albumin_g_dL':2.5})
+        self.assertGreaterEqual(meld['score'],6)
+        self.assertLessEqual(meld['score'],40)
+        lille=calculate_lille({'age':50,'albumin_day0_g_L':30,'bilirubin_day0_umol_L':200,
+                              'bilirubin_day7_umol_L':150,'pt_seconds':20,'renal_insufficiency':False})
+        self.assertGreaterEqual(lille['score'],0)
+        self.assertLessEqual(lille['score'],1)
+
+    def test_v137_specialist_poisoning_pawss(self):
+        pss=classify_poisoning_severity({'grade':3})
+        self.assertEqual(pss['label'],'severe')
+        pawss=calculate_pawss({
+            'threshold_recent_alcohol_or_positive_bal':True,
+            'previous_withdrawal':True,'withdrawal_seizures':True,'delirium_tremens':False,
+            'rehab_treatment':False,'blackouts':False,'downers_last_90d':False,
+            'other_substances_last_90d':False,'bal_over_200':False,'autonomic_hyperactivity':True
+        })
+        self.assertEqual(pawss['total'],4)
+        self.assertTrue(pawss['high_risk_ge4'])
+
+    def test_v137_specialist_block4_registry_status(self):
+        registry=central_load_registry()
+        for sid in ('rockall','ranson','meld-3','lille','poisoning-severity','pawss'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertIn(item['implementation_status'],{'dedicated_source_encoded_v1','validated_official_external_wrapper'})
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
