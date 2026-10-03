@@ -86,6 +86,7 @@ from specialist_scores_block1 import calculate_canadian_tia, calculate_pc_aspect
 from specialist_scores_block2 import calculate_edacs, calculate_orbit, calculate_tisdale, calculate_bova, calculate_sic, calculate_mews, calculate_sirs
 from specialist_scores_block3 import calculate_apache2, prepare_saps3, calculate_bps, calculate_age_shock_index, calculate_smart_cop, calculate_mmrc, calculate_hacor, calculate_niss, calculate_triss, calculate_nexus_head_ct
 from specialist_scores_block4 import calculate_rockall, calculate_ranson, calculate_meld3, calculate_lille, classify_poisoning_severity, calculate_pawss
+from specialist_scores_block5 import calculate_phq9, calculate_gad7, calculate_cisne, calculate_lrinec, calculate_puqe24, calculate_fullpiers
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -4296,6 +4297,55 @@ class ModularCoreTests(unittest.TestCase):
         for sid in ('rockall','ranson','meld-3','lille','poisoning-severity','pawss'):
             item=next(x for x in registry['scales'] if x['id']==sid)
             self.assertIn(item['implementation_status'],{'dedicated_source_encoded_v1','validated_official_external_wrapper'})
+
+    def test_v137_specialist_phq9_gad7_boundaries(self):
+        phq=calculate_phq9({'item_scores':[3]*9})
+        self.assertEqual(phq['total'],27)
+        self.assertEqual(phq['severity'],'severe_20_27')
+        self.assertTrue(phq['self_harm_item_positive'])
+        gad=calculate_gad7({'item_scores':[3]*7})
+        self.assertEqual(gad['total'],21)
+        self.assertEqual(gad['severity'],'severe_15_21')
+
+    def test_v137_specialist_cisne_lrinec(self):
+        cisne=calculate_cisne({
+            'ecog_ge2':True,'stress_hyperglycemia':True,'copd':True,
+            'cardiovascular_disease':True,'mucositis_grade_ge2':True,
+            'monocytes_per_uL':100,'clinically_stable':True,'solid_tumor':True
+        })
+        self.assertEqual(cisne['total'],8)
+        self.assertEqual(cisne['class'],'III_high_ge3')
+        with self.assertRaises(ValueError):
+            calculate_cisne({
+                'ecog_ge2':False,'stress_hyperglycemia':False,'copd':False,
+                'cardiovascular_disease':False,'mucositis_grade_ge2':False,
+                'monocytes_per_uL':300,'clinically_stable':False,'solid_tumor':True
+            })
+        lr=calculate_lrinec({
+            'crp_mg_L':200,'wbc_10e3_uL':30,'hemoglobin_g_dL':10,
+            'sodium_mmol_L':130,'creatinine_mg_dL':2,'glucose_mg_dL':200
+        })
+        self.assertEqual(lr['total'],13)
+        self.assertEqual(lr['risk_band'],'high_ge8')
+        self.assertIn('never delay',lr['warning'])
+
+    def test_v137_specialist_puqe_fullpiers(self):
+        puqe=calculate_puqe24({'nausea_hours':7,'vomiting_count':7,'retching_count':7})
+        self.assertEqual(puqe['total'],15)
+        self.assertEqual(puqe['severity'],'severe_13_15')
+        fp=calculate_fullpiers({
+            'gestational_age_weeks':32,'chest_pain_or_dyspnea':True,
+            'creatinine_umol_L':100,'platelets_10e9_L':100,'ast_IU_L':100,'spo2_percent':94
+        })
+        self.assertGreaterEqual(fp['probability_adverse_maternal_outcome_48h'],0)
+        self.assertLessEqual(fp['probability_adverse_maternal_outcome_48h'],1)
+        self.assertEqual(fp['input_units']['creatinine'],'umol/L')
+
+    def test_v137_specialist_block5_registry_status(self):
+        registry=central_load_registry()
+        for sid in ('phq9','gad7','cisne','lrinec','puqe','fullpiers'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
