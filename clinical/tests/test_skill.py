@@ -64,6 +64,7 @@ from prepare_ptbxl_blinded_cohort import prepare as prepare_ptbxl_blinded_cohort
 from finalize_blinded_image_dataset import finalize as finalize_blinded_image_dataset
 from merge_blinded_prediction_shards import merge as merge_blinded_prediction_shards
 from predict_ptbxl_afib_image_baseline import classify_features as classify_ptbxl_afib_baseline
+from render_rsna_ich_dicom import window_hu_scalar as rsna_window_hu_scalar, slice_position as rsna_slice_position
 from prepare_rsna_ich_blinded_cohort import prepare as prepare_rsna_ich_blinded_cohort
 from prepare_chexpert_expert_blinded_cohort import prepare as prepare_chexpert_expert_blinded_cohort
 from prepare_echonet_dynamic_blinded_cohort import prepare as prepare_echonet_dynamic_blinded_cohort
@@ -2433,6 +2434,25 @@ class ModularCoreTests(unittest.TestCase):
             data['full_predictions_file_sha256'],
             'ae7f25704b9a8a43994346406d2fabb43f786c8a49b7c4987bd40f2df1cd6663'
         )
+
+    def test_v136_rsna_ich_render_window_and_geometry_are_frozen(self):
+        self.assertEqual(rsna_window_hu_scalar(0), 0)
+        self.assertIn(rsna_window_hu_scalar(40), (127, 128))
+        self.assertEqual(rsna_window_hu_scalar(80), 255)
+        self.assertAlmostEqual(
+            rsna_slice_position([1,0,0,0,1,0], [0,0,12.5]),
+            12.5
+        )
+        with self.assertRaises(ValueError):
+            rsna_slice_position([1,0,0], [0,0,1])
+
+    def test_v136_rsna_ich_preparer_declares_frozen_render(self):
+        script = (ROOT / 'scripts' / 'prepare_rsna_ich_blinded_cohort.py').read_text(encoding='utf-8')
+        self.assertIn('"render_protocol_status": "frozen"', script)
+        self.assertIn('RSNA_ICH_DICOM_RENDER_PROTOCOL.md', script)
+        self.assertIn('"width_hu": 80', script)
+        self.assertIn('"level_hu": 40', script)
+        self.assertNotIn('must_be_frozen_before_visual_prediction', script)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
