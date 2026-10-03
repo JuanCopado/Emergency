@@ -117,6 +117,23 @@ each changes immediate decisions; do not load an entire category.
 - suicide risk -> suicide-risk
 - observation or discharge decision -> observation-discharge
 
+## Clinical scores and calculators
+- Any request to calculate, interpret, edit or auto-fill a clinical score/formula -> clinical-scores-calculators.
+- When a syndrome has a canonical scale, add clinical-scores-calculators **without duplicating the score inside the syndrome module**.
+- acute ischemic stroke -> add NIHSS; consider ASPECTS/mRS when relevant.
+- suspected TIA -> add ABCD2 and/or Canadian TIA Score according to local pathway.
+- chest pain/ACS -> HEART, GRACE 2.0 or TIMI as appropriate.
+- atrial fibrillation -> CHA2DS2-VASc/CHA2DS2-VA and a bleeding-risk tool when clinically relevant.
+- suspected PE -> Wells or Revised Geneva; PERC/YEARS only in their validated diagnostic context; confirmed PE -> PESI/sPESI/Hestia/Bova as appropriate.
+- adult sepsis/acute deterioration -> SOFA/NEWS2; qSOFA may support risk assessment but must not be used as the sole sepsis screen.
+- pediatric suspected sepsis -> Phoenix Sepsis Score; pSOFA/PELOD-2 only when the specialist context warrants them.
+- head injury -> GCS; pediatric head injury -> Pediatric GCS + PECARN when eligibility criteria are met.
+- upper GI bleeding -> Glasgow-Blatchford; add AIMS65/Rockall when relevant.
+- pneumonia -> CURB-65/CRB-65 or PSI/PORT according to context.
+- pancreatitis -> BISAP (Ranson only when explicitly needed).
+- toxicology -> Rumack-Matthew, Hunter, CIWA-Ar, PAWSS or COWS only when their indication is met.
+- Formula requests (anion gap, corrected sodium, osmolality, CrCl/eGFR, P/F, ROX, QTc, BSA, fluids, infusion mL/h, hemodynamics) -> clinical-scores-calculators.
+
 ## Cross-cutting additions
 
 - Add `medication-selection-safety` for any medication choice, dose, route,
