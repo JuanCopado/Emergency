@@ -18,6 +18,7 @@ from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, c
 from core_score_sofa2 import calculate_sofa2
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
+from core_score_pediatric_gcs import calculate_pediatric_gcs
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -305,6 +306,7 @@ def calculate_scale(scale_id, data, registry=None):
         "race-stroke": calculate_race,
         "fast-ed": calculate_fast_ed,
         "avpu": calculate_avpu,
+        "pediatric-gcs": calculate_pediatric_gcs,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
