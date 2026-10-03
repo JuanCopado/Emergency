@@ -477,3 +477,12 @@ Further versions should prioritize validation and targeted refinement over uncon
 - NEWS2 is marked as an official-table implementation and must not be modified from the RCP table.
 - Phoenix pediatric sepsis is the contemporary pediatric sepsis definition anchor; SIRS is retained only as contextual/specialist physiology, not the active pediatric sepsis definition.
 - This is structural/calculation infrastructure, not prospective validation. Registry remains yellow pending source-by-source verification, unit-regression coverage and clinician review.
+
+
+## Clinical Scores & Calculators structural audit — 03/10/2026
+- Direct repository audit: 134/134 unique scale IDs; 45/45 unique formula IDs.
+- Manifest: 128 module IDs; `clinical-scores-calculators` resolves to its bundle.
+- Evidence registry: 128 records; new module has evidence entry.
+- Core routing IDs present: NIHSS, ABCD2, HEART, Wells-PE, PERC, PESI, SOFA, NEWS2, GCS, Phoenix Sepsis and PECARN head injury.
+- Added 7 regression tests in `tests/test_clinical_scores_registry.py` plus manifest-cardinality update to 128.
+- No GitHub Actions run was observed for the final commit at the time of this audit; therefore these new tests are **not yet recorded as PASS**.
