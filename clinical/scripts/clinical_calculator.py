@@ -12,6 +12,7 @@ import math
 from pathlib import Path
 
 from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
+from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -263,6 +264,10 @@ def calculate_scale(scale_id, data, registry=None):
         "glasgow-coma": calculate_gcs,
         "news2": calculate_news2,
         "sofa": calculate_sofa1,
+        "heart": calculate_heart,
+        "grace-2": prepare_grace2,
+        "cha2ds2-vasc": calculate_cha2ds2_vasc,
+        "cha2ds2-va": calculate_cha2ds2_va,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
