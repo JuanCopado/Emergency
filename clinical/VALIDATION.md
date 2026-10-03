@@ -511,3 +511,20 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Contemporary support variables are explicit and never inferred from free text.
 - Boundary regressions cover 0/24 and intermediate organ-support thresholds.
 - Clinical QA run #375: **198/198 tests PASS**, `automated_status: PASS`.
+
+
+## v1.37 CORE scores complete — 03/10/2026
+- Calculator registry: **135 scales / 45 formulas**.
+- CORE: **94/94 implemented**, 0 pending.
+- SPECIALIST: 41 pending.
+- Clinical QA run #422: **262/262 tests PASS**, `automated_status: PASS`.
+- Final CORE blocks added and boundary-tested:
+  - Bishop; NNUH-MEOWS v7; adult Rule of Nines; age-adjusted Lund-Browder.
+  - Bedside PEWS; Pediatric Trauma Score; SIPA.
+  - FLACC; authorized Wong-Baker FACES wrapper.
+  - PRAM; Westley Croup.
+  - Clinical Dehydration Scale; Pediatric Appendicitis Score.
+  - PECARN Head Injury; PECARN Febrile Infant 2019; Step-by-Step.
+  - APGAR.
+- Safety/version gates remain explicit: institutional MEOWS/PEWS variants are not silently mixed; copyrighted Wong-Baker artwork is not reproduced; PECARN/Step-by-Step age/applicability boundaries are enforced.
+- Canonical detail: `qa/V1.37_SCORES_VALIDATION_STATE.md`.
