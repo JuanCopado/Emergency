@@ -85,3 +85,7 @@ No son fallos del corte v1.36:
 ## Gate de ramificación
 **PASS.**
 La rama está apta para servir como base de una nueva rama de trabajo, siempre que la nueva rama no se interprete como release clínico.
+
+
+## Final branch-cut gate
+Este commit se usa únicamente para disparar Clinical QA sobre el **head documental y técnico completo** después de actualizar CURRENT_STATE, VALIDATION y HANDOFF. No crear la nueva rama si este commit no obtiene `automated_status: PASS`.
