@@ -16,6 +16,7 @@ from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
+from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -278,6 +279,14 @@ def calculate_scale(scale_id, data, registry=None):
         "glasgow-blatchford": calculate_glasgow_blatchford,
         "curb65": calculate_curb65,
         "phoenix-sepsis": calculate_phoenix_sepsis,
+        "abcd2": calculate_abcd2,
+        "aspects": calculate_aspects,
+        "modified-rankin": calculate_modified_rankin,
+        "ich-score": calculate_ich_score,
+        "modified-fisher": calculate_modified_fisher,
+        "cincinnati-stroke": calculate_cincinnati,
+        "race-stroke": calculate_race,
+        "fast-ed": calculate_fast_ed,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
