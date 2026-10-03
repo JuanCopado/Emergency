@@ -9,7 +9,7 @@ Fuente de trabajo: repositorio `JuanCopado/Emergency`, rama de consolidación v1
 - Evidencia registrada: **106/106**; 31 green, 75 yellow, 0 red.
 
 ## Estado de trabajo v1.36
-- Rama `v1.36-consolidation`: **128 IDs**, **128/128** registros de evidencia, **29 green / 99 yellow / 0 red**. Último `Clinical QA` verificado en VALIDATION: **175/175 tests PASS**, `automated_status: PASS` (Phase 5 image closure).
+- Rama `v1.36-consolidation`: **128 IDs**, **128/128** registros de evidencia, **29 green / 99 yellow / 0 red**. Último `Clinical QA` verificado: **178/178 tests PASS**, `automated_status: PASS` (run #356).
 - El nuevo módulo separa selección clínica de aritmética: `scripts/pediatric_emergency_calculator.py` solo calcula dosis/volúmenes/mL/h con entradas ya validadas.
 - Jerarquía pediátrica v1.36: ERC/RCUK 2025, AHA/AAP PALS 2025, SSC pediátrica 2026, NICE, HSE 2025, PANDEM y fichas técnicas oficiales. No se exige guía local de Horta para pediatría.
 - Perfusiones pediátricas fuente-verificadas ya cargadas para adrenalina, noradrenalina, dopamina con restricción de fuente, dobutamina, milrinona, fentanilo y midazolam.
@@ -197,3 +197,13 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - **175/175 tests PASS** es la cifra QA vigente; cifras menores anteriores son snapshots históricos.
 - Fase 4 pediátrica continúa bloqueada únicamente por revisión humana pediatría/farmacia.
 - v1.35 permanece línea clínica vigente; v1.36-consolidation no se promociona automáticamente.
+
+
+## Corte pre-rama — 03/10/2026
+- Auditoría canónica: `qa/PREBRANCH_AUDIT_V1.36.md`.
+- Clinical QA: **178/178 PASS**, `automated_status: PASS`, run #356.
+- Módulo central `clinical-scores-calculators`: **134 escalas + 45 fórmulas**.
+- Fórmulas: **45/45 implementadas** en `scripts/clinical_calculator.py`.
+- Escalas: 67 component-sum soportadas solo con componentes ya puntuados explícitamente; 67 herramientas rule/criteria/table/etc. permanecen fail-closed hasta codificación fuente-a-fuente.
+- Routing corregido para usar `clinical-scores-calculators` + `calculator_id`; NIHSS/HEART/Wells/etc. ya no se interpretan como module IDs.
+- La rama queda **apta como base técnica para ramificar**, pero v1.35 sigue siendo la línea clínica vigente y v1.36 no es release.
