@@ -127,7 +127,7 @@ each changes immediate decisions; do not load an entire category.
 - suspected PE or confirmed PE -> clinical-scores-calculators (calculator_id: wells-pe or revised-geneva; perc/years-pe only in validated diagnostic context; pesi/spesi/hestia/bova when confirmed and appropriate).
 - adult sepsis/acute deterioration -> clinical-scores-calculators (calculator_id: sofa and/or news2; qsofa only as contextual risk signal, never the sole sepsis screen).
 - pediatric suspected sepsis -> clinical-scores-calculators (calculator_id: phoenix-sepsis; psofa/pelod2 only when specialist context warrants them).
-- head injury or pediatric head injury -> clinical-scores-calculators (calculator_id: gcs or pediatric-gcs; add pecarn-head-injury only when eligibility criteria are met).
+- head injury or pediatric head injury -> clinical-scores-calculators (calculator_id: glasgow-coma or pediatric-gcs; add pecarn-head-injury only when eligibility criteria are met).
 - upper GI bleeding -> clinical-scores-calculators (calculator_id: glasgow-blatchford; add aims65/rockall when relevant).
 - pneumonia -> clinical-scores-calculators (calculator_id: curb65/crb65 or psi-port according to context).
 - pancreatitis -> clinical-scores-calculators (calculator_id: bisap; ranson only when explicitly needed).
