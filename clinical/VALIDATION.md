@@ -458,3 +458,11 @@ Further versions should prioritize validation and targeted refinement over uncon
 - EchoNet visual protocol frozen with native video or deterministic 32-frame uniform sampling.
 - Source-level versus actual-access status is explicitly separated.
 - Full closure/status: `qa/PHASE5_IMAGE_CLOSURE.md`.
+
+
+## Toxicology high-risk structured clinical QA — 03/10/2026
+- Existing IDs audited: `toxicology` and `anticoagulation-reversal`; no duplicate module added.
+- **24/24 structured high-risk regression cases PASS**: cocaine/sympathomimetic toxicity, sodium-channel blockade/TCA, digoxin, organophosphate, acute and repeated acetaminophen, methanol/ethylene glycol, beta-blocker/CCB shock, cyanide, dabigatran, apixaban, rivaroxaban, UFH, enoxaparin, fondaparinux, edoxaban, argatroban/bivalirudin, superwarfarin, warfarin, benzodiazepine/flumazenil safety and sulfonylurea/octreotide.
+- Evidence anchors: AHA poisoning update 2023; 2023 US/Canada acetaminophen consensus; current EMA Praxbind and Ondexxya product information; toxin-specific EXTRIP where applicable.
+- These are documented clinical regression cases, **not** Python-unit-test executions or prospective clinical validation. Toxicology/reversal remain yellow pending CIAV/INFARMED/local formulary/stock and human toxicology/hematology/pharmacy review.
+- Detailed bank: `qa/TOXICOLOGY_HIGH_RISK_QA_2026-10-03.md`.
