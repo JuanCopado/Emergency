@@ -361,6 +361,9 @@ def calculate_scale(scale_id, data, registry=None):
         "rass": calculate_rass,
         "cpot": calculate_cpot,
         "mascc": calculate_mascc,
+        "oakland": calculate_oakland,
+        "obstetric-shock-index": calculate_obstetric_shock_index,
+        "revised-baux": calculate_revised_baux,
         "clinical-frailty": lambda data: official_wrapper("clinical-frailty", data),
         "cssrs": lambda data: official_wrapper("cssrs", data),
     }
