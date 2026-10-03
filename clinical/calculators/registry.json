@@ -15,7 +15,8 @@
     "tiers": [
       "CORE",
       "SPECIALIST"
-    ]
+    ],
+    "execution_policy": "Formulas are deterministic; generic scale engine only sums explicit pre-scored components. Raw clinical findings are not converted to score points until a dedicated source-validated rule is encoded."
   },
   "scales": [
     {
@@ -26,7 +27,8 @@
       "measures": "Gravedad del déficit neurológico focal",
       "use": "Cuantificar ictus agudo y monitorizar evolución",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "abcd2",
@@ -36,7 +38,8 @@
       "measures": "Riesgo temprano tras AIT",
       "use": "Estratificación inicial tras sospecha de AIT",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "canadian-tia-score",
@@ -46,7 +49,8 @@
       "measures": "Riesgo de ictus/evento vascular tras AIT",
       "use": "Estratificación de AIT en urgencias",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "aspects",
@@ -56,7 +60,8 @@
       "measures": "Cambios isquémicos precoces en territorio ACM en TC",
       "use": "Apoyo a selección/pronóstico en ictus anterior",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "pc-aspects",
@@ -66,7 +71,8 @@
       "measures": "Carga isquémica posterior en imagen",
       "use": "Ictus de circulación posterior",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "modified-rankin",
@@ -76,7 +82,8 @@
       "measures": "Discapacidad funcional global",
       "use": "Estado funcional basal y evolución tras ictus",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "glasgow-coma",
@@ -86,7 +93,8 @@
       "measures": "Nivel de consciencia E/V/M",
       "use": "TCE, coma, intoxicación y deterioro neurológico",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "pediatric-gcs",
@@ -96,7 +104,8 @@
       "measures": "Nivel de consciencia adaptado a edad",
       "use": "TCE/coma pediátrico",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "four-score",
@@ -106,7 +115,8 @@
       "measures": "Consciencia, tronco, respiración y motricidad",
       "use": "Coma/UCI, especialmente intubados",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "avpu",
@@ -116,7 +126,8 @@
       "measures": "Respuesta global a estímulos",
       "use": "Valoración rápida de consciencia",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "ich-score",
@@ -126,7 +137,8 @@
       "measures": "Gravedad/pronóstico de hemorragia intracerebral",
       "use": "Estratificación inicial de HIC espontánea",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "modified-fisher",
@@ -136,7 +148,8 @@
       "measures": "Carga de sangre subaracnoidea/intraventricular en TC",
       "use": "Riesgo de vasoespasmo tras HSA",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "hunt-hess",
@@ -146,7 +159,8 @@
       "measures": "Gravedad clínica de HSA",
       "use": "Clasificación clínica de HSA aneurismática",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "wfns-sah",
@@ -156,7 +170,8 @@
       "measures": "Gravedad clínica de HSA con GCS/déficit",
       "use": "Pronóstico/estratificación HSA",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "stess",
@@ -166,7 +181,8 @@
       "measures": "Severidad/pronóstico de estatus epiléptico",
       "use": "Estratificación en estatus epiléptico",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "bacterial-meningitis-score",
@@ -176,7 +192,8 @@
       "measures": "Riesgo de meningitis bacteriana en niños con pleocitosis LCR",
       "use": "Apoyo a estratificación pediátrica seleccionada",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "cincinnati-stroke",
@@ -186,7 +203,8 @@
       "measures": "Signos prehospitalarios de ictus",
       "use": "Cribado rápido prehospitalario",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "race-stroke",
@@ -196,7 +214,8 @@
       "measures": "Probabilidad de oclusión de gran vaso/severidad",
       "use": "Triaje prehospitalario de ictus",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "fast-ed",
@@ -206,7 +225,8 @@
       "measures": "Probabilidad de oclusión de gran vaso",
       "use": "Triaje de ictus para trombectomía",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "heart",
@@ -216,7 +236,8 @@
       "measures": "Riesgo de MACE en dolor torácico",
       "use": "Estratificación de dolor torácico sospechoso de SCA",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "grace-2",
@@ -226,7 +247,8 @@
       "measures": "Riesgo de muerte/eventos en SCA",
       "use": "Estratificación pronóstica SCA",
       "calc_type": "formula_external",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "timi-ua-nstemi",
@@ -236,7 +258,8 @@
       "measures": "Riesgo isquémico en UA/NSTEMI",
       "use": "Estratificación SCA sin elevación ST",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "edacs",
@@ -246,7 +269,8 @@
       "measures": "Riesgo de SCA/MACE en dolor torácico",
       "use": "Rule-out acelerado junto a ECG/troponina",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "cha2ds2-vasc",
@@ -256,7 +280,8 @@
       "measures": "Riesgo tromboembólico en FA",
       "use": "Apoyo a decisión antitrombótica según guía aplicable",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "cha2ds2-va",
@@ -266,7 +291,8 @@
       "measures": "Riesgo tromboembólico en FA sin sexo como factor",
       "use": "Apoyo a anticoagulación cuando la guía usa esta variante",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "has-bled",
@@ -276,7 +302,8 @@
       "measures": "Factores modificables de sangrado en FA anticoagulada",
       "use": "Identificar riesgo/áreas corregibles; no negar anticoagulación por sí solo",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "orbit-bleeding",
@@ -286,7 +313,8 @@
       "measures": "Riesgo de sangrado en FA",
       "use": "Estimación complementaria de riesgo hemorrágico",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "canadian-syncope",
@@ -296,7 +324,8 @@
       "measures": "Riesgo de evento adverso tras síncope",
       "use": "Disposición/estratificación en urgencias",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "scai-shock",
@@ -306,7 +335,8 @@
       "measures": "Severidad dinámica del shock cardiogénico",
       "use": "Clasificar y escalar soporte",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "killip-kimball",
@@ -316,7 +346,8 @@
       "measures": "Gravedad de insuficiencia cardiaca en IAM",
       "use": "Pronóstico y estratificación en IAM",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "duke-iscvid",
@@ -326,7 +357,8 @@
       "measures": "Probabilidad diagnóstica de endocarditis infecciosa",
       "use": "Clasificar endocarditis definitiva/posible/rechazada",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "tisdale-qt",
@@ -336,7 +368,8 @@
       "measures": "Riesgo de prolongación QT en hospitalizados",
       "use": "Prevención/monitorización de QT prolongado",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "wells-pe",
@@ -346,7 +379,8 @@
       "measures": "Probabilidad clínica pretest de TEP",
       "use": "Seleccionar estrategia de dímero D/imagen",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "revised-geneva",
@@ -356,7 +390,8 @@
       "measures": "Probabilidad clínica pretest de TEP",
       "use": "Alternativa objetiva a Wells",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "perc",
@@ -366,7 +401,8 @@
       "measures": "Criterios de exclusión en TEP de muy bajo riesgo",
       "use": "Evitar pruebas adicionales si probabilidad clínica ya es baja y PERC=0",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "years-pe",
@@ -376,7 +412,8 @@
       "measures": "Probabilidad de TEP con umbral adaptado de dímero D",
       "use": "Estrategia diagnóstica TEP",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "pesi",
@@ -386,7 +423,8 @@
       "measures": "Mortalidad/riesgo temprano en TEP confirmado",
       "use": "Pronóstico y disposición",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "spesi",
@@ -396,7 +434,8 @@
       "measures": "Riesgo temprano simplificado en TEP",
       "use": "Apoyo a manejo ambulatorio/ingreso",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "hestia",
@@ -406,7 +445,8 @@
       "measures": "Elegibilidad clínica para tratamiento ambulatorio de TEP",
       "use": "Disposición de TEP seleccionado",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "bova",
@@ -416,7 +456,8 @@
       "measures": "Riesgo de deterioro en TEP normotenso",
       "use": "Estratificación intermedia de TEP",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "wells-dvt",
@@ -426,7 +467,8 @@
       "measures": "Probabilidad clínica pretest de TVP",
       "use": "Dímero D/ecografía según probabilidad",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "isth-dic",
@@ -436,7 +478,8 @@
       "measures": "Coagulación intravascular diseminada manifiesta",
       "use": "Diagnóstico/seguimiento de CID",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "sic",
@@ -446,7 +489,8 @@
       "measures": "Coagulopatía asociada a sepsis",
       "use": "Identificación precoz de SIC",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "sofa",
@@ -456,7 +500,8 @@
       "measures": "Disfunción de seis sistemas orgánicos",
       "use": "Seguimiento de disfunción orgánica",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "qsofa",
@@ -466,7 +511,8 @@
       "measures": "Señales clínicas asociadas a peor evolución en infección",
       "use": "Pronóstico rápido; no usar como único cribado de sepsis",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "news2",
@@ -476,7 +522,8 @@
       "measures": "Severidad fisiológica/deterioro agudo",
       "use": "Detección y escalada de deterioro clínico",
       "calc_type": "official_table",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "mews",
@@ -486,7 +533,8 @@
       "measures": "Deterioro fisiológico",
       "use": "Detección temprana de deterioro",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "sirs",
@@ -496,7 +544,8 @@
       "measures": "Respuesta inflamatoria sistémica",
       "use": "Contexto fisiológico/investigación; no definición moderna aislada de sepsis",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "apache2",
@@ -506,7 +555,8 @@
       "measures": "Gravedad de enfermedad crítica",
       "use": "Pronóstico poblacional/UCI",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "saps3",
@@ -516,7 +566,8 @@
       "measures": "Gravedad y riesgo de mortalidad UCI",
       "use": "Benchmark/pronóstico poblacional",
       "calc_type": "formula_external",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "shock-index",
@@ -526,7 +577,8 @@
       "measures": "Relación FC/TAS",
       "use": "Detección rápida de compromiso hemodinámico",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "modified-shock-index",
@@ -536,7 +588,8 @@
       "measures": "Relación FC/PAM",
       "use": "Valoración hemodinámica complementaria",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "age-shock-index",
@@ -546,7 +599,8 @@
       "measures": "Shock index ajustado por edad",
       "use": "Riesgo en trauma/ancianos",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "curb65",
@@ -556,7 +610,8 @@
       "measures": "Severidad de neumonía adquirida en comunidad",
       "use": "Apoyo a disposición y riesgo",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "crb65",
@@ -566,7 +621,8 @@
       "measures": "Severidad de neumonía sin urea",
       "use": "Entornos sin laboratorio",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "psi-port",
@@ -576,7 +632,8 @@
       "measures": "Riesgo de mortalidad en neumonía",
       "use": "Estratificación/disposición",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "smart-cop",
@@ -586,7 +643,8 @@
       "measures": "Riesgo de soporte respiratorio/vasopresor en NAC",
       "use": "Identificar NAC grave",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "decaf",
@@ -596,7 +654,8 @@
       "measures": "Riesgo en exacerbación de EPOC hospitalizada",
       "use": "Pronóstico/disposición",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "mmrc",
@@ -606,7 +665,8 @@
       "measures": "Limitación funcional por disnea",
       "use": "Gravedad basal respiratoria",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "rox-index",
@@ -616,7 +676,8 @@
       "measures": "Oxigenación/trabajo respiratorio durante HFNO",
       "use": "Predecir éxito/fracaso de HFNO",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "hacor",
@@ -626,7 +687,8 @@
       "measures": "Riesgo de fracaso de NIV",
       "use": "Reevaluación temprana de NIV",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "berlin-ards",
@@ -636,7 +698,8 @@
       "measures": "Severidad de ARDS por oxigenación/PEEP y contexto",
       "use": "Clasificar ARDS",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "rts",
@@ -646,7 +709,8 @@
       "measures": "Gravedad fisiológica del trauma",
       "use": "Triaje/pronóstico",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "iss",
@@ -656,7 +720,8 @@
       "measures": "Gravedad anatómica del trauma",
       "use": "Pronóstico/registro",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "niss",
@@ -666,7 +731,8 @@
       "measures": "Gravedad anatómica usando 3 lesiones más severas",
       "use": "Pronóstico trauma",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "triss",
@@ -676,7 +742,8 @@
       "measures": "Supervivencia estimada tras trauma",
       "use": "Benchmark/pronóstico",
       "calc_type": "formula_external",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "abc-massive-transfusion",
@@ -686,7 +753,8 @@
       "measures": "Riesgo de transfusión masiva",
       "use": "Activación precoz de protocolo hemorrágico",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "canadian-ct-head",
@@ -696,7 +764,8 @@
       "measures": "Necesidad de TC en TCE menor adulto seleccionado",
       "use": "Decisión de imagen",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "nexus-head-ct",
@@ -706,7 +775,8 @@
       "measures": "Riesgo de lesión intracraneal que requiere TC",
       "use": "Decisión de imagen",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "canadian-cspine",
@@ -716,7 +786,8 @@
       "measures": "Necesidad de imagen cervical",
       "use": "Despistaje de lesión cervical en trauma alerta/estable",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "nexus-cspine",
@@ -726,7 +797,8 @@
       "measures": "Bajo riesgo de lesión cervical",
       "use": "Evitar imagen cervical en pacientes seleccionados",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "glasgow-blatchford",
@@ -736,7 +808,8 @@
       "measures": "Necesidad de intervención/riesgo en HDA",
       "use": "Triaje y posible alta de muy bajo riesgo",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "rockall",
@@ -746,7 +819,8 @@
       "measures": "Riesgo de resangrado/mortalidad HDA",
       "use": "Pronóstico pre/post endoscopia",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "aims65",
@@ -756,7 +830,8 @@
       "measures": "Mortalidad/riesgo en HDA",
       "use": "Estratificación temprana",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "oakland",
@@ -766,7 +841,8 @@
       "measures": "Bajo riesgo en hemorragia digestiva baja",
       "use": "Identificar candidatos a manejo ambulatorio seleccionado",
       "calc_type": "rule",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "bisap",
@@ -776,7 +852,8 @@
       "measures": "Severidad/mortalidad temprana en pancreatitis",
       "use": "Estratificación primeras 24 h",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "ranson",
@@ -786,7 +863,8 @@
       "measures": "Severidad de pancreatitis",
       "use": "Pronóstico histórico/seleccionado",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "alvarado",
@@ -796,7 +874,8 @@
       "measures": "Probabilidad de apendicitis",
       "use": "Apoyo diagnóstico",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "air-appendicitis",
@@ -806,7 +885,8 @@
       "measures": "Probabilidad/severidad de apendicitis",
       "use": "Estratificación diagnóstica",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "tokyo-biliary",
@@ -816,7 +896,8 @@
       "measures": "Gravedad de colecistitis/colangitis",
       "use": "Decisiones de soporte y drenaje",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "child-pugh",
@@ -826,7 +907,8 @@
       "measures": "Severidad de cirrosis",
       "use": "Pronóstico y decisiones terapéuticas",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "meld-na",
@@ -836,7 +918,8 @@
       "measures": "Riesgo de mortalidad en hepatopatía avanzada",
       "use": "Priorización/pronóstico",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "meld-3",
@@ -846,7 +929,8 @@
       "measures": "Riesgo de mortalidad en enfermedad hepática avanzada",
       "use": "Asignación/pronóstico contemporáneo",
       "calc_type": "formula_external",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "maddrey",
@@ -856,7 +940,8 @@
       "measures": "Severidad de hepatitis alcohólica",
       "use": "Apoyo a tratamiento/pronóstico",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "lille",
@@ -866,7 +951,8 @@
       "measures": "Respuesta a corticoides en hepatitis alcohólica",
       "use": "Reevaluación terapéutica",
       "calc_type": "formula_external",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "kings-college",
@@ -876,7 +962,8 @@
       "measures": "Mal pronóstico en fallo hepático agudo",
       "use": "Derivación/trasplante urgente",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "kdigo-aki",
@@ -886,7 +973,8 @@
       "measures": "Estadio de lesión renal aguda",
       "use": "Diagnóstico/seguimiento de AKI",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "mcmahon-rhabdo",
@@ -896,7 +984,8 @@
       "measures": "Riesgo de IRA grave/RRT/muerte en rabdomiólisis",
       "use": "Estratificación temprana",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "rumack-matthew",
@@ -906,7 +995,8 @@
       "measures": "Riesgo de hepatotoxicidad tras ingesta aguda única de paracetamol",
       "use": "Decidir NAC cuando tiempo y nivel son válidos",
       "calc_type": "nomogram",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "poisoning-severity",
@@ -916,7 +1006,8 @@
       "measures": "Gravedad clínica global de intoxicación",
       "use": "Clasificación/registro",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "hunter-serotonin",
@@ -926,7 +1017,8 @@
       "measures": "Síndrome serotoninérgico",
       "use": "Diagnóstico clínico en exposición serotoninérgica",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "ciwa-ar",
@@ -936,7 +1028,8 @@
       "measures": "Severidad de abstinencia alcohólica",
       "use": "Guiar tratamiento en pacientes apropiados",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "pawss",
@@ -946,7 +1039,8 @@
       "measures": "Riesgo de abstinencia alcohólica complicada",
       "use": "Prevención/estratificación",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "cows",
@@ -956,7 +1050,8 @@
       "measures": "Severidad de abstinencia opioide",
       "use": "Guiar tratamiento y seguimiento",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "cssrs",
@@ -966,7 +1061,8 @@
       "measures": "Ideación y conducta suicida",
       "use": "Evaluación estructurada de riesgo suicida",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "phq9",
@@ -976,7 +1072,8 @@
       "measures": "Síntomas depresivos",
       "use": "Cribado/severidad, no diagnóstico aislado",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "gad7",
@@ -986,7 +1083,8 @@
       "measures": "Síntomas de ansiedad",
       "use": "Cribado/severidad",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "four-at",
@@ -996,7 +1094,8 @@
       "measures": "Delirium/deterioro cognitivo agudo",
       "use": "Cribado rápido de delirium",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "cam",
@@ -1006,7 +1105,8 @@
       "measures": "Características diagnósticas de delirium",
       "use": "Identificación de delirium",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "cam-icu",
@@ -1016,7 +1116,8 @@
       "measures": "Delirium en paciente crítico",
       "use": "Evaluación de delirium UCI",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "rass",
@@ -1026,7 +1127,8 @@
       "measures": "Nivel de sedación/agitación",
       "use": "Objetivo y monitorización de sedación",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "cpot",
@@ -1036,7 +1138,8 @@
       "measures": "Dolor en pacientes críticos no comunicativos",
       "use": "Monitorizar analgesia",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "bps",
@@ -1046,7 +1149,8 @@
       "measures": "Dolor conductual en ventilados",
       "use": "Monitorizar analgesia",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "mascc",
@@ -1056,7 +1160,8 @@
       "measures": "Riesgo de complicaciones en neutropenia febril",
       "use": "Seleccionar bajo riesgo en adultos",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "cisne",
@@ -1066,7 +1171,8 @@
       "measures": "Riesgo de complicaciones en neutropenia febril aparentemente estable",
       "use": "Apoyo a disposición",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "lrinec",
@@ -1076,7 +1182,8 @@
       "measures": "Patrón analítico asociado a infección necrotizante",
       "use": "Apoyo contextual; no descarta fascitis necrotizante",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "bishop",
@@ -1086,7 +1193,8 @@
       "measures": "Madurez cervical",
       "use": "Predecir probabilidad de inducción/parto vaginal",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "meows",
@@ -1096,7 +1204,8 @@
       "measures": "Deterioro fisiológico obstétrico",
       "use": "Detección precoz de deterioro materno",
       "calc_type": "official_table",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "obstetric-shock-index",
@@ -1106,7 +1215,8 @@
       "measures": "FC/TAS durante embarazo/postparto",
       "use": "Detectar compromiso hemodinámico obstétrico",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "puqe",
@@ -1116,7 +1226,8 @@
       "measures": "Severidad de náuseas/vómitos del embarazo",
       "use": "Cuantificar hiperémesis",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "fullpiers",
@@ -1126,7 +1237,8 @@
       "measures": "Riesgo materno adverso en preeclampsia",
       "use": "Estratificación especializada",
       "calc_type": "formula_external",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "rule-of-nines",
@@ -1136,7 +1248,8 @@
       "measures": "Porcentaje de superficie corporal quemada adulto",
       "use": "Estimación rápida TBSA",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "lund-browder",
@@ -1146,7 +1259,8 @@
       "measures": "Porcentaje de superficie corporal quemada ajustada a edad",
       "use": "Estimación TBSA más precisa",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "revised-baux",
@@ -1156,7 +1270,8 @@
       "measures": "Riesgo/mortalidad en grandes quemados",
       "use": "Pronóstico poblacional",
       "calc_type": "formula",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "pews",
@@ -1166,7 +1281,8 @@
       "measures": "Deterioro fisiológico pediátrico",
       "use": "Detección precoz y escalada",
       "calc_type": "official_table",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "phoenix-sepsis",
@@ -1176,7 +1292,8 @@
       "measures": "Disfunción respiratoria, cardiovascular, coagulación y neurológica",
       "use": "Definición contemporánea de sepsis pediátrica con sospecha de infección",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "psofa",
@@ -1186,7 +1303,8 @@
       "measures": "Disfunción orgánica pediátrica",
       "use": "Seguimiento UCI",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "pelod2",
@@ -1196,7 +1314,8 @@
       "measures": "Disfunción orgánica/mortalidad pediátrica",
       "use": "Pronóstico UCI",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "pediatric-trauma-score",
@@ -1206,7 +1325,8 @@
       "measures": "Gravedad de trauma pediátrico",
       "use": "Triaje/pronóstico",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "sipa",
@@ -1216,7 +1336,8 @@
       "measures": "Shock index ajustado a edad",
       "use": "Detectar shock oculto en trauma pediátrico",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "flacc",
@@ -1226,7 +1347,8 @@
       "measures": "Dolor conductual",
       "use": "Evaluar dolor en niños/no comunicativos",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "wong-baker",
@@ -1236,7 +1358,8 @@
       "measures": "Intensidad de dolor autorreportada",
       "use": "Cuantificar dolor cuando es apropiado por desarrollo",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "pram",
@@ -1246,7 +1369,8 @@
       "measures": "Severidad de exacerbación asmática pediátrica",
       "use": "Guiar tratamiento/reevaluación",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "westley-croup",
@@ -1256,7 +1380,8 @@
       "measures": "Severidad de crup",
       "use": "Estratificación y tratamiento",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "clinical-dehydration",
@@ -1266,7 +1391,8 @@
       "measures": "Signos clínicos de deshidratación",
       "use": "Estimar severidad de deshidratación",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "pediatric-appendicitis",
@@ -1276,7 +1402,8 @@
       "measures": "Probabilidad de apendicitis",
       "use": "Apoyo diagnóstico",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "parc",
@@ -1286,7 +1413,8 @@
       "measures": "Riesgo individual de apendicitis",
       "use": "Estratificación diagnóstica",
       "calc_type": "formula_external",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "pecarn-head-injury",
@@ -1296,7 +1424,8 @@
       "measures": "Riesgo de TBI clínicamente importante",
       "use": "Decidir observación frente a TC según edad",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "pecarn-febrile-infant",
@@ -1306,7 +1435,8 @@
       "measures": "Riesgo de infección bacteriana invasiva en lactante febril seleccionado",
       "use": "Apoyo a estratificación",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "step-by-step-infant",
@@ -1316,7 +1446,8 @@
       "measures": "Riesgo de infección bacteriana grave en lactante febril",
       "use": "Estratificación clínica",
       "calc_type": "criteria",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "apgar",
@@ -1326,7 +1457,8 @@
       "measures": "Adaptación neonatal inmediata",
       "use": "Evaluación neonatal seriada; no predice por sí solo desenlace individual",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "clinical-frailty",
@@ -1336,7 +1468,8 @@
       "measures": "Fragilidad basal",
       "use": "Contextualizar reserva, pronóstico y decisiones",
       "calc_type": "ordinal",
-      "editable": true
+      "editable": true,
+      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
     },
     {
       "id": "charlson",
@@ -1346,7 +1479,8 @@
       "measures": "Carga de comorbilidad",
       "use": "Ajuste pronóstico/investigación",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     },
     {
       "id": "barthel",
@@ -1356,7 +1490,8 @@
       "measures": "Dependencia en actividades básicas",
       "use": "Función basal/seguimiento",
       "calc_type": "component_sum",
-      "editable": true
+      "editable": true,
+      "implementation_status": "generic_explicit_components_only"
     }
   ],
   "formulas": [
@@ -1369,7 +1504,8 @@
       "formula": "(SBP + 2*DBP)/3",
       "unit": "mmHg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "shock-index-formula",
@@ -1380,7 +1516,8 @@
       "formula": "HR/SBP",
       "unit": "ratio",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "modified-shock-index-formula",
@@ -1391,7 +1528,8 @@
       "formula": "HR/MAP",
       "unit": "ratio",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "anion-gap",
@@ -1402,7 +1540,8 @@
       "formula": "Na-(Cl+HCO3)",
       "unit": "mmol/L",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "albumin-corrected-anion-gap",
@@ -1413,7 +1552,8 @@
       "formula": "AG+2.5*(4-albumin_g_dL)",
       "unit": "mmol/L",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "delta-ratio",
@@ -1424,7 +1564,8 @@
       "formula": "(AGcorr-12)/(24-HCO3)",
       "unit": "ratio",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "winter-pco2",
@@ -1435,7 +1576,8 @@
       "formula": "1.5*HCO3+8",
       "unit": "mmHg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "corrected-sodium-glucose",
@@ -1446,7 +1588,8 @@
       "formula": "Na + factor*((glucose_mg_dL-100)/100)",
       "unit": "mmol/L",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "calculated-osmolality",
@@ -1457,7 +1600,8 @@
       "formula": "2*Na + glucose_mg_dL/18 + BUN_mg_dL/2.8",
       "unit": "mOsm/kg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "effective-osmolality",
@@ -1468,7 +1612,8 @@
       "formula": "2*Na + glucose_mg_dL/18",
       "unit": "mOsm/kg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "free-water-deficit",
@@ -1479,7 +1624,8 @@
       "formula": "TBW_L*((Na/140)-1)",
       "unit": "L",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "corrected-calcium",
@@ -1490,7 +1636,8 @@
       "formula": "Ca_mg_dL + 0.8*(4-albumin_g_dL)",
       "unit": "mg/dL",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "cockcroft-gault",
@@ -1501,7 +1648,8 @@
       "formula": "((140-age)*weight_kg)/(72*Scr_mg_dL) * sex_factor",
       "unit": "mL/min",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "ckd-epi-2021",
@@ -1512,7 +1660,9 @@
       "formula": "equation_2021",
       "unit": "mL/min/1.73m2",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine",
+      "source_note": "NIDDK 2021 race-free CKD-EPI creatinine equation; adults >=18."
     },
     {
       "id": "bedside-schwartz",
@@ -1523,7 +1673,8 @@
       "formula": "0.413*height_cm/Scr_mg_dL",
       "unit": "mL/min/1.73m2",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "fena",
@@ -1534,7 +1685,8 @@
       "formula": "100*(UNa*PCr)/(PNa*UCr)",
       "unit": "%",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "feurea",
@@ -1545,7 +1697,8 @@
       "formula": "100*(UUrea*PCr)/(PUrea*UCr)",
       "unit": "%",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "pao2-fio2",
@@ -1556,7 +1709,8 @@
       "formula": "PaO2_mmHg/FiO2_fraction",
       "unit": "mmHg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "spo2-fio2",
@@ -1567,7 +1721,8 @@
       "formula": "SpO2_percent/FiO2_fraction",
       "unit": "ratio",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "rox",
@@ -1578,7 +1733,8 @@
       "formula": "(SpO2_percent/FiO2_fraction)/RR",
       "unit": "ratio",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "aa-gradient",
@@ -1589,7 +1745,9 @@
       "formula": "PAO2-PaO2",
       "unit": "mmHg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine",
+      "source_note": "Alveolar gas equation with FiO2 fraction, barometric pressure, water vapor pressure and respiratory quotient; A-a = PAO2 - PaO2."
     },
     {
       "id": "alveolar-o2",
@@ -1600,7 +1758,9 @@
       "formula": "FiO2*(Patm-PH2O)-PaCO2/RQ",
       "unit": "mmHg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine",
+      "source_note": "Alveolar gas equation with FiO2 fraction, barometric pressure, water vapor pressure and respiratory quotient; A-a = PAO2 - PaO2."
     },
     {
       "id": "static-compliance",
@@ -1611,7 +1771,8 @@
       "formula": "VT_mL/(Pplat-PEEP)",
       "unit": "mL/cmH2O",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "driving-pressure",
@@ -1622,7 +1783,8 @@
       "formula": "Pplat-PEEP",
       "unit": "cmH2O",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "minute-ventilation",
@@ -1633,7 +1795,8 @@
       "formula": "VT_L*RR",
       "unit": "L/min",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "ibw-devine",
@@ -1644,7 +1807,9 @@
       "formula": "sex_specific",
       "unit": "kg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine",
+      "source_note": "Devine 1974 historical reference-weight equation; not a personalized healthy-weight target."
     },
     {
       "id": "bsa-mosteller",
@@ -1655,7 +1820,8 @@
       "formula": "sqrt(height_cm*weight_kg/3600)",
       "unit": "m2",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "bmi",
@@ -1666,7 +1832,8 @@
       "formula": "weight_kg/(height_m^2)",
       "unit": "kg/m2",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "holliday-segar",
@@ -1677,7 +1844,8 @@
       "formula": "weight_bands",
       "unit": "mL/day",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "four-two-one",
@@ -1688,7 +1856,8 @@
       "formula": "weight_bands",
       "unit": "mL/h",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "dehydration-deficit",
@@ -1699,7 +1868,8 @@
       "formula": "weight_kg*dehydration_fraction*1000",
       "unit": "mL",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "parkland",
@@ -1710,7 +1880,8 @@
       "formula": "4*weight_kg*TBSA_percent",
       "unit": "mL/24h",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "mgkg-dose",
@@ -1721,7 +1892,8 @@
       "formula": "mg_per_kg*weight_kg",
       "unit": "mg",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "mcgkgmin-to-mlh",
@@ -1732,7 +1904,8 @@
       "formula": "dose_mcg_kg_min*weight_kg*60/concentration_mcg_mL",
       "unit": "mL/h",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "mgkgh-to-mlh",
@@ -1743,7 +1916,8 @@
       "formula": "dose_mg_kg_h*weight_kg/concentration_mg_mL",
       "unit": "mL/h",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "unitskgh-to-mlh",
@@ -1754,7 +1928,8 @@
       "formula": "dose_units_kg_h*weight_kg/concentration_units_mL",
       "unit": "mL/h",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "final-concentration",
@@ -1765,7 +1940,8 @@
       "formula": "drug_amount/final_volume",
       "unit": "amount_per_mL",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "qtc-bazett",
@@ -1776,7 +1952,8 @@
       "formula": "QT_s/sqrt(RR_s)",
       "unit": "s",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "qtc-fridericia",
@@ -1787,7 +1964,8 @@
       "formula": "QT_s/(RR_s^(1/3))",
       "unit": "s",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "cao2",
@@ -1798,7 +1976,8 @@
       "formula": "1.34*Hb*SaO2_fraction + 0.0031*PaO2",
       "unit": "mL O2/dL",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "do2",
@@ -1809,7 +1988,8 @@
       "formula": "CO_L_min*CaO2*10",
       "unit": "mL O2/min",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "cardiac-index",
@@ -1820,7 +2000,8 @@
       "formula": "CO_L_min/BSA_m2",
       "unit": "L/min/m2",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "svr",
@@ -1831,18 +2012,21 @@
       "formula": "80*(MAP-CVP)/CO_L_min",
       "unit": "dyn*s/cm5",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     },
     {
       "id": "meld-na-formula",
-      "name": "MELD-Na",
+      "name": "MELD-Na (legacy equation)",
       "group": "Hepatología",
       "measures": "Riesgo hepático ajustado por sodio",
-      "use": "Pronóstico/trasplante",
+      "use": "Historical/legacy MELD-Na calculation when explicitly requested; current OPTN adult allocation uses MELD 3.0.",
       "formula": "validated_equation",
       "unit": "points",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine",
+      "source_note": "Fail-closed unless legacy_meld_na_acknowledged=true; do not present as current OPTN MELD 3.0."
     },
     {
       "id": "maddrey-formula",
@@ -1853,7 +2037,8 @@
       "formula": "4.6*(PT_patient-PT_control)+bilirubin_mg_dL",
       "unit": "points",
       "editable": true,
-      "autofill": true
+      "autofill": true,
+      "implementation_status": "deterministic_engine"
     }
   ]
 }
