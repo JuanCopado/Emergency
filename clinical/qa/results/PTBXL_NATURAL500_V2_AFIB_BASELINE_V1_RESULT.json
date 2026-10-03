@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "status": "POST_REVEAL_EXPLORATORY_RESULT",
+  "source_run_id": 37054176049,
+  "target_condition": "AFIB",
+  "cohort": "PTB-XL fold 10 NATURAL_500 v2",
+  "blinded_artifact": {
+    "id": 11248490989,
+    "digest": "sha256:9c73da73d5636c448f5b21322e2df3d9c521883e409d8a5759e1ba375ecedd80"
+  },
+  "sealed_reference_artifact": {
+    "id": 11248695763,
+    "digest": "sha256:607711f46cc0f2bf3f2ca5e8dc2a1b2b3921ceb1dd6443416cb194d6df64eb8b",
+    "revealed_at": "2026-10-03T00:08:41.803705165Z"
+  },
+  "pre_reveal_freeze": {
+    "commit": "aa6649785c6dad3d9daa3838c902d3136774d624",
+    "prediction_frozen_at": "2026-10-03T00:07:32.888774Z",
+    "full_predictions_sha256": "ae7f25704b9a8a43994346406d2fabb43f786c8a49b7c4987bd40f2df1cd6663"
+  },
+  "reference_composition": {
+    "n": 500,
+    "positive": 3,
+    "negative": 497
+  },
+  "prediction_counts": {
+    "positive": 46,
+    "negative": 359,
+    "abstain": 93,
+    "nondiagnostic": 2
+  },
+  "classified_confusion_counts": {
+    "tp": 3,
+    "fp": 43,
+    "tn": 359,
+    "fn": 0
+  },
+  "unresolved_reference_counts": {
+    "positive": 0,
+    "negative": 95
+  },
+  "coverage": 0.81,
+  "abstention_rate": 0.186,
+  "nondiagnostic_rate": 0.004,
+  "standard_binary_metrics_available": false,
+  "sensitivity": null,
+  "specificity": null,
+  "ppv": null,
+  "npv": null,
+  "accuracy": null,
+  "metric_limit": "Standard sensitivity/specificity/PPV/NPV/accuracy are suppressed because 95/500 cases were abstain or nondiagnostic under the pre-reveal rule.",
+  "interpretation": [
+    "Engineering image baseline only; not ChatGPT clinical accuracy and not clinical validation.",
+    "All 3 reference-positive AFIB cases received a positive baseline prediction, but 43 reference-negative cases also received positive predictions.",
+    "The very low event count (3 positives) and 19% unresolved rate preclude stable clinical performance claims.",
+    "Do not tune thresholds on this revealed cohort and do not promote any clinical module to green from this result."
+  ]
+}
