@@ -75,6 +75,7 @@ from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
 from clinical_calculator import calculate as central_calculate, calculate_scale as central_calculate_scale, load_registry as central_load_registry
 from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
 from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
+from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2835,6 +2836,71 @@ class ModularCoreTests(unittest.TestCase):
         })
         self.assertEqual(result['total'],1)
         self.assertEqual(result['registry_id'],'cha2ds2-va')
+
+    def test_v137_wells_pe_source_encoded(self):
+        low = calculate_wells_pe({
+            'clinical_signs_dvt':False,'pe_more_likely_than_alternative':False,
+            'heart_rate_bpm':80,'immobilization_ge3d_or_surgery_4w':False,
+            'previous_dvt_pe':False,'hemoptysis':False,'active_cancer':False
+        })
+        self.assertEqual(low['total'],0)
+        self.assertEqual(low['standard_three_level'],'low')
+        self.assertEqual(low['modified_two_level'],'pe_unlikely')
+
+        high = calculate_wells_pe({
+            'clinical_signs_dvt':True,'pe_more_likely_than_alternative':True,
+            'heart_rate_bpm':120,'immobilization_ge3d_or_surgery_4w':True,
+            'previous_dvt_pe':True,'hemoptysis':True,'active_cancer':True
+        })
+        self.assertEqual(high['total'],12.5)
+        self.assertEqual(high['standard_three_level'],'high')
+        self.assertEqual(high['modified_two_level'],'pe_likely')
+
+    def test_v137_perc_requires_low_pretest_probability_and_all_8_negative(self):
+        base = {
+            'low_pretest_probability':True,'age':40,'heart_rate_bpm':90,
+            'spo2_percent':98,'hemoptysis':False,'estrogen_use':False,
+            'previous_dvt_pe':False,'unilateral_leg_swelling':False,
+            'recent_surgery_or_trauma_requiring_hospitalization_4w':False
+        }
+        result = calculate_perc(base)
+        self.assertTrue(result['perc_negative'])
+        self.assertEqual(result['positive_count'],0)
+
+        positive = calculate_perc({**base,'age':50})
+        self.assertFalse(positive['perc_negative'])
+        self.assertEqual(positive['positive_count'],1)
+
+        with self.assertRaisesRegex(ValueError,'low pretest probability'):
+            calculate_perc({**base,'low_pretest_probability':False})
+
+    def test_v137_years_thresholds_are_unit_explicit(self):
+        zero_items = calculate_years({
+            'clinical_signs_dvt':False,'hemoptysis':False,'pe_most_likely':False,
+            'd_dimer_ng_mL_feu':999
+        })
+        self.assertEqual(zero_items['active_threshold_ng_mL_feu'],1000)
+        self.assertTrue(zero_items['pe_excluded_by_years'])
+
+        one_item = calculate_years({
+            'clinical_signs_dvt':True,'hemoptysis':False,'pe_most_likely':False,
+            'd_dimer_ng_mL_feu':500
+        })
+        self.assertEqual(one_item['active_threshold_ng_mL_feu'],500)
+        self.assertFalse(one_item['pe_excluded_by_years'])
+        self.assertIn('FEU',one_item['warning'])
+
+    def test_v137_central_dispatch_pe_rules(self):
+        registry = central_load_registry()
+        for sid in ('wells-pe','perc','years-pe'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('years-pe',{
+            'clinical_signs_dvt':False,'hemoptysis':False,'pe_most_likely':False,
+            'd_dimer_ng_mL_feu':400
+        })
+        self.assertTrue(result['pe_excluded_by_years'])
+        self.assertEqual(result['registry_id'],'years-pe')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
