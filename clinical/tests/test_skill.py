@@ -83,6 +83,7 @@ from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
 from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
 from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
+from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3392,6 +3393,84 @@ class ModularCoreTests(unittest.TestCase):
             'heart_rate_bpm':80,'systolic_bp_mmHg':120,'spo2_percent':95
         })
         self.assertEqual(result['total'],0)
+
+    def test_v137_crb65_source_encoded(self):
+        low=calculate_crb65({
+            'confusion':False,'respiratory_rate':20,
+            'systolic_bp_mmHg':120,'diastolic_bp_mmHg':70,'age':64
+        })
+        self.assertEqual(low['total'],0)
+        high=calculate_crb65({
+            'confusion':True,'respiratory_rate':30,
+            'systolic_bp_mmHg':89,'diastolic_bp_mmHg':60,'age':65
+        })
+        self.assertEqual(high['total'],4)
+
+    def test_v137_psi_port_two_step(self):
+        class_i=calculate_psi_port({
+            'age':45,'sex':'male','nursing_home':False,
+            'neoplastic_disease':False,'liver_disease':False,'heart_failure':False,
+            'cerebrovascular_disease':False,'renal_disease':False,
+            'altered_mental_status':False,'respiratory_rate':20,
+            'systolic_bp_mmHg':120,'temperature_c':37,'heart_rate_bpm':80
+        })
+        self.assertEqual(class_i['risk_class'],'I')
+        self.assertTrue(class_i['step1_class_i'])
+
+        class_v=calculate_psi_port({
+            'age':90,'sex':'male','nursing_home':True,
+            'neoplastic_disease':True,'liver_disease':True,'heart_failure':True,
+            'cerebrovascular_disease':True,'renal_disease':True,
+            'altered_mental_status':True,'respiratory_rate':35,
+            'systolic_bp_mmHg':80,'temperature_c':34,'heart_rate_bpm':130,
+            'arterial_ph':7.2,'bun_mg_dL':35,'sodium_mmol_L':125,
+            'glucose_mg_dL':300,'hematocrit_percent':25,'pao2_mmHg':50,
+            'pleural_effusion':True
+        })
+        self.assertEqual(class_v['risk_class'],'V')
+        self.assertGreater(class_v['score'],130)
+
+    def test_v137_decaf_source_encoded(self):
+        low=calculate_decaf({
+            'emrcd_category':'below_5a','eosinophils_10e9_L':0.1,
+            'consolidation':False,'arterial_ph':7.4,'atrial_fibrillation':False
+        })
+        self.assertEqual(low['total'],0)
+        high=calculate_decaf({
+            'emrcd_category':'5b','eosinophils_10e9_L':0.01,
+            'consolidation':True,'arterial_ph':7.2,'atrial_fibrillation':True
+        })
+        self.assertEqual(high['total'],6)
+        self.assertEqual(high['risk_band'],'high_3_6')
+
+    def test_v137_berlin_ards_is_explicitly_2012(self):
+        mild=classify_berlin_ards({
+            'within_1_week':True,
+            'bilateral_opacities_not_explained_by_effusions_collapse_nodules':True,
+            'respiratory_failure_not_fully_explained_by_cardiac_failure_or_fluid_overload':True,
+            'pao2_fio2_mmHg':250,'peep_or_cpap_cmH2O':5
+        })
+        self.assertTrue(mild['meets_berlin_ards'])
+        self.assertEqual(mild['severity'],'mild')
+        self.assertEqual(mild['version'],'Berlin 2012')
+
+        no_ards=classify_berlin_ards({
+            'within_1_week':True,
+            'bilateral_opacities_not_explained_by_effusions_collapse_nodules':True,
+            'respiratory_failure_not_fully_explained_by_cardiac_failure_or_fluid_overload':True,
+            'pao2_fio2_mmHg':250,'peep_or_cpap_cmH2O':4
+        })
+        self.assertFalse(no_ards['meets_berlin_ards'])
+
+    def test_v137_rox_scale_aliases_central_formula(self):
+        result=central_calculate_scale('rox-index',{
+            'SpO2_percent':96,'FiO2_fraction':0.4,'RR':24
+        })
+        self.assertAlmostEqual(result['value'],10.0)
+        self.assertEqual(result['formula_alias'],'rox')
+        registry=central_load_registry()
+        item=next(x for x in registry['scales'] if x['id']=='rox-index')
+        self.assertEqual(item['implementation_status'],'central_formula_alias')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
