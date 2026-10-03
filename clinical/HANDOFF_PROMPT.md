@@ -1,26 +1,35 @@
 # HANDOFF_PROMPT — v1.36 consolidation
 
-Fecha de corte: 02/10/2026 — estado canónico actualizado.
+Fecha de corte: 03/10/2026 — estado canónico.
 
 Pega este bloque en un chat nuevo:
 
-> Continúa **Emergency / Competencia Médica** desde GitHub `JuanCopado/Emergency`, rama **`v1.36-consolidation`**. No modificar ni fusionar `main`. Antes de tocar código lee `clinical/AGENTS.md`, `clinical/SKILL.md`, `clinical/CURRENT_STATE.md`, `clinical/CONSOLIDATION_V1.36.md`, `clinical/VALIDATION.md`, `clinical/MODULES.md`, `clinical/references/module-index.md`, `clinical/references/router.md` y `clinical/references/evidence-registry.json`. Comprueba el repo y GitHub Actions; no uses cifras históricas como estado actual.
+> Continúa **Emergency / Competencia Médica** desde GitHub `JuanCopado/Emergency`, rama **`v1.36-consolidation`**. No modificar ni fusionar `main`. Antes de tocar código lee `clinical/AGENTS.md`, `clinical/SKILL.md`, `clinical/CURRENT_STATE.md`, `clinical/CONSOLIDATION_V1.36.md`, `clinical/VALIDATION.md`, `clinical/MODULES.md`, `clinical/qa/PHASE5_IMAGE_CLOSURE.md` y `clinical/references/evidence-registry.json`. Comprueba el repo y GitHub Actions; no uses cifras históricas como estado actual.
 >
 > **Estado clínico:** 127 módulos / 127 registros de evidencia / 29 green / 98 yellow / 0 red. v1.35 sigue siendo la línea clínica autoritativa; v1.36 es consolidación. Fase 4 pediátrica está técnicamente desarrollada pero high-risk permanece yellow hasta revisión humana pediatría/farmacia.
 >
-> **QA:** último recuento completo verificado antes del último intake: **169/169 tests PASS**, `automated_status: PASS` (Clinical QA #320). Revalidar el head actual antes de asumir esta cifra si hubo commits posteriores.
+> **QA canónico:** **175/175 tests PASS**, `automated_status: PASS` (Clinical QA #338).
 >
-> **Fase 5 imagen:** política ciega v1.1, freeze/reveal, métricas fail-closed, sharding por paciente y merge de predicciones completos. PTB-XL: pilot real, NATURAL_500 y full-fold construidos; se detectó que runs anteriores imprimían prevalencia agregada en logs y por eso se clasificaron como ingeniería, no benchmark final. El builder ya suprime counts pre-reveal y se disparó un **NATURAL_500 v2 limpio con nuevo salt**. No abrir ninguna referencia sellada antes de tener predicciones reales congeladas.
+> **Fase 5 imagen:** infraestructura automatizable cerrada. Política ciega v1.1, source intake, leakage gates, freeze/reveal, sharding, merge y protocolos visuales están implementados. Ver `qa/PHASE5_IMAGE_CLOSURE.md`.
 >
-> **Sources:** RSNA ICH source-level ready con referencia obligatoria multi-reader/adjudicada; DICOM→render debe congelarse antes de evaluación. CheXpert expert-test: referencia majority 5/8 radiólogos preparada, pero intake real sigue bloqueado hasta documentar el acuerdo específico actual de descarga. MIMIC-CXR 2.1.0 source-level ready usando solo test manualmente curado 0/1; actual access requiere PhysioNet credentialing/CITI/DUA. EchoNet-Dynamic source-level ready solo para función LV A4C / `lvef_below_40_percent`; actual access requiere Research Use Agreement individual, no redistribución y no uso clínico.
+> **ECG / PTB-XL:** NATURAL_500 v2 limpio evaluado con baseline de ingeniería AFIB derivado solo del PNG. Freeze pre-reveal commit `aa6649785c6dad3d9daa3838c902d3136774d624`. Reference 3 AFIB / 497 no-AFIB. Predicciones 46 positive / 359 negative / 93 abstain / 2 nondiagnostic. Conteos clasificados TP=3 / FP=43 / TN=359 / FN=0. Coverage 81.0%. Por política, sensibilidad/especificidad/PPV/NPV/accuracy estándar están suprimidas porque existen abstain/nondiagnostic. No presentar esto como accuracy clínica de ChatGPT.
 >
-> **Reglas:** tests != validación clínica; no auto-green; usar fuentes actuales/primarias; preservar discrepancias; no inventar dosis/concentraciones/stock; perfusiones en mL/h solo con concentración verificada; pediatría no exige protocolo local Horta como gate.
+> **RSNA ICH:** source/reference pipeline y DICOM render congelados: brain WW80/WL40, HU slope/intercept, IOP/IPP geometry, mixed-series/orientation fail-closed. Falta acceso/import real e interpretación ciega.
 >
-> **Siguiente paso:** comprobar el NATURAL_500 v2 limpio y su leakage audit; mantener sealed reference cerrada. Sin un intérprete/modelo real ejecutado sobre el banco ciego no calcular sensibilidad/especificidad. Después avanzar RSNA/CheXpert/MIMIC/EchoNet solo cuando los gates de acceso y referencia estén realmente cumplidos.
+> **CheXpert:** expert-test majority-vote y visual protocol listos. `actual_access_verified=false`; intake real sigue bloqueado hasta completar/aceptar el acceso específico AIMI/Redivis.
+>
+> **MIMIC-CXR:** curated test + CXR visual protocol listos. Actual access requiere PhysioNet credentialing, CITI y DUA.
+>
+> **EchoNet-Dynamic:** TEST split + target `lvef_below_40_percent` + visual protocol listos; vídeo nativo o 32 frames uniformes. Actual access requiere aceptación individual del Research Use Agreement.
+>
+> **Reglas:** tests != validación clínica; no auto-green; no inventar dosis/concentraciones/stock; preservar discrepancias; perfusiones en mL/h solo con concentración verificada; pediatría no exige protocolo local Horta como gate.
+>
+> **Pendientes reales restantes:** revisión humana pediatría/farmacia y de otros high-risk yellow; acceso/DUA/credenciales de datasets restringidos; validación clínica externa/prospectiva de imagen; Portugal/Azores formulary/protocol review. No son deuda técnica automatizable.
 
 ## Archivos de continuidad
 - `clinical/CURRENT_STATE.md`
 - `clinical/CONSOLIDATION_V1.36.md`
 - `clinical/VALIDATION.md`
 - `clinical/HANDOFF_PROMPT.md`
+- `clinical/qa/PHASE5_IMAGE_CLOSURE.md`
 - `clinical/qa/image-dataset-source-registry.json`
