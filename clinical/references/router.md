@@ -125,7 +125,7 @@ each changes immediate decisions; do not load an entire category.
 - chest pain/ACS -> clinical-scores-calculators (calculator_id: heart, grace-2 or timi-ua-nstemi as appropriate).
 - atrial fibrillation -> clinical-scores-calculators (calculator_id: cha2ds2-vasc or cha2ds2-va; add a bleeding-risk tool when clinically relevant).
 - suspected PE or confirmed PE -> clinical-scores-calculators (calculator_id: wells-pe or revised-geneva; perc/years-pe only in validated diagnostic context; pesi/spesi/hestia/bova when confirmed and appropriate).
-- adult sepsis/acute deterioration -> clinical-scores-calculators (calculator_id: sofa and/or news2; qsofa only as contextual risk signal, never the sole sepsis screen).
+- adult sepsis/acute deterioration -> clinical-scores-calculators (calculator_id: sofa, sofa-2 and/or news2; qsofa only as contextual risk signal, never the sole sepsis screen).
 - pediatric suspected sepsis -> clinical-scores-calculators (calculator_id: phoenix-sepsis; psofa/pelod2 only when specialist context warrants them).
 - head injury or pediatric head injury -> clinical-scores-calculators (calculator_id: glasgow-coma or pediatric-gcs; add pecarn-head-injury only when eligibility criteria are met).
 - upper GI bleeding -> clinical-scores-calculators (calculator_id: glasgow-blatchford; add aims65/rockall when relevant).
