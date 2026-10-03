@@ -2479,7 +2479,7 @@ class ModularCoreTests(unittest.TestCase):
 
     def test_v136_central_formula_registry_is_fully_implemented(self):
         registry = central_load_registry()
-        self.assertEqual(len(registry['scales']), 134)
+        self.assertEqual(len(registry['scales']), 135)
         self.assertEqual(len(registry['formulas']), 45)
         for formula in registry['formulas']:
             self.assertEqual(formula['implementation_status'], 'deterministic_engine')
