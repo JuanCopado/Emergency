@@ -146,7 +146,10 @@
       "use": "Valoración rápida de consciencia",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block6_transversal.py",
+      "version": "AVPU/ABCDE",
+      "source_url": "https://www.resus.org.uk/library/abcde-approach"
     },
     {
       "id": "ich-score",
@@ -663,7 +666,11 @@
       "use": "Detección rápida de compromiso hemodinámico",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "central_formula_alias",
+      "engine": "scripts/clinical_calculator.py",
+      "version": "Shock Index HR/SBP",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "execution_note": "Delegates to formula id shock-index-formula; no duplicate arithmetic."
     },
     {
       "id": "modified-shock-index",
@@ -674,7 +681,11 @@
       "use": "Valoración hemodinámica complementaria",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "central_formula_alias",
+      "engine": "scripts/clinical_calculator.py",
+      "version": "Modified Shock Index HR/MAP",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "execution_note": "Delegates to formula id modified-shock-index-formula; no duplicate arithmetic."
     },
     {
       "id": "age-shock-index",
