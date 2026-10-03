@@ -433,7 +433,10 @@
       "use": "Clasificar endocarditis definitiva/posible/rechazada",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "2023 Duke-ISCVID",
+      "source_url": "https://academic.oup.com/cid/article/77/4/518/7151107"
     },
     {
       "id": "tisdale-qt",
@@ -1095,7 +1098,10 @@
       "use": "Decisiones de soporte y drenaje",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "Tokyo biliary severity",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3429782/"
     },
     {
       "id": "child-pugh",
@@ -1297,7 +1303,10 @@
       "use": "Evaluación estructurada de riesgo suicida",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "validated_official_external_wrapper",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "C-SSRS official instrument",
+      "source_url": "https://cssrs.columbia.edu/documents/screening/"
     },
     {
       "id": "phq9",
@@ -1330,7 +1339,10 @@
       "use": "Cribado rápido de delirium",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "4AT",
+      "source_url": "https://www.the4at.com/userguide"
     },
     {
       "id": "cam",
@@ -1341,7 +1353,10 @@
       "use": "Identificación de delirium",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "CAM",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category"
     },
     {
       "id": "cam-icu",
@@ -1352,7 +1367,10 @@
       "use": "Evaluación de delirium UCI",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "CAM-ICU",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category"
     },
     {
       "id": "rass",
@@ -1363,7 +1381,10 @@
       "use": "Objetivo y monitorización de sedación",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "RASS",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category"
     },
     {
       "id": "cpot",
@@ -1374,7 +1395,10 @@
       "use": "Monitorizar analgesia",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "CPOT",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9222682/"
     },
     {
       "id": "bps",
@@ -1396,7 +1420,10 @@
       "use": "Seleccionar bajo riesgo en adultos",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "MASCC Risk Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4500479/"
     },
     {
       "id": "cisne",
@@ -1708,7 +1735,10 @@
       "use": "Contextualizar reserva, pronóstico y decisiones",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "validated_official_external_wrapper",
+      "engine": "scripts/core_scores_block14_adult_remaining.py",
+      "version": "CFS v2.0",
+      "source_url": "https://www.dal.ca/sites/gmr/our-tools/clinical-frailty-scale.html"
     },
     {
       "id": "charlson",
