@@ -87,6 +87,7 @@ from specialist_scores_block2 import calculate_edacs, calculate_orbit, calculate
 from specialist_scores_block3 import calculate_apache2, prepare_saps3, calculate_bps, calculate_age_shock_index, calculate_smart_cop, calculate_mmrc, calculate_hacor, calculate_niss, calculate_triss, calculate_nexus_head_ct
 from specialist_scores_block4 import calculate_rockall, calculate_ranson, calculate_meld3, calculate_lille, classify_poisoning_severity, calculate_pawss
 from specialist_scores_block5 import calculate_phq9, calculate_gad7, calculate_cisne, calculate_lrinec, calculate_puqe24, calculate_fullpiers
+from specialist_scores_block6 import calculate_psofa, calculate_pelod2, calculate_parc, calculate_charlson, calculate_barthel
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -4346,6 +4347,81 @@ class ModularCoreTests(unittest.TestCase):
         for sid in ('phq9','gad7','cisne','lrinec','puqe','fullpiers'):
             item=next(x for x in registry['scales'] if x['id']==sid)
             self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+
+    def test_v137_specialist_psofa_zero_and_max(self):
+        zero=calculate_psofa({
+            'age_months':24,'respiratory_support':False,'pao2_fio2':450,
+            'platelets_10e3_uL':200,'bilirubin_mg_dL':0.8,'map_mmHg':80,
+            'dopamine_mcg_kg_min':0,'epinephrine_mcg_kg_min':0,'norepinephrine_mcg_kg_min':0,
+            'dobutamine_any_dose':False,'gcs':15,'creatinine_mg_dL':0.5
+        })
+        self.assertEqual(zero['total'],0)
+        maximum=calculate_psofa({
+            'age_months':24,'respiratory_support':True,'pao2_fio2':80,
+            'platelets_10e3_uL':10,'bilirubin_mg_dL':13,'map_mmHg':30,
+            'dopamine_mcg_kg_min':20,'epinephrine_mcg_kg_min':0,'norepinephrine_mcg_kg_min':0,
+            'dobutamine_any_dose':False,'gcs':3,'creatinine_mg_dL':3
+        })
+        self.assertEqual(maximum['total'],24)
+
+    def test_v137_specialist_pelod2_zero_and_max(self):
+        zero=calculate_pelod2({
+            'age_months':24,'gcs':15,'both_pupils_fixed':False,'lactate_mmol_L':2,
+            'map_mmHg':70,'creatinine_umol_L':40,'pao2_fio2':100,'paco2_mmHg':40,
+            'invasive_ventilation':False,'wbc_10e9_L':5,'platelets_10e9_L':200
+        })
+        self.assertEqual(zero['total'],0)
+        maximum=calculate_pelod2({
+            'age_months':24,'gcs':3,'both_pupils_fixed':True,'lactate_mmol_L':12,
+            'map_mmHg':20,'creatinine_umol_L':100,'pao2_fio2':50,'paco2_mmHg':100,
+            'invasive_ventilation':True,'wbc_10e9_L':1,'platelets_10e9_L':50
+        })
+        self.assertEqual(maximum['total'],33)
+
+    def test_v137_specialist_parc_probability(self):
+        low=calculate_parc({
+            'age_years':15,'sex':'female','pain_duration_hours':10,
+            'pain_with_walking_hopping_coughing':False,'migration_to_rlq':False,
+            'maximal_rlq_tenderness':False,'guarding':False,'anc_10e3_uL':1
+        })
+        high=calculate_parc({
+            'age_years':10,'sex':'male','pain_duration_hours':30,
+            'pain_with_walking_hopping_coughing':True,'migration_to_rlq':True,
+            'maximal_rlq_tenderness':True,'guarding':True,'anc_10e3_uL':14
+        })
+        self.assertGreater(high['appendicitis_probability'],low['appendicitis_probability'])
+        self.assertGreaterEqual(low['appendicitis_probability'],0)
+        self.assertLessEqual(high['appendicitis_probability'],1)
+
+    def test_v137_specialist_charlson_hierarchy(self):
+        result=calculate_charlson({'conditions':{
+            'cerebrovascular_disease':True,'hemiplegia_or_paraplegia':True,
+            'diabetes_uncomplicated':True,'diabetes_with_end_organ_damage':True,
+            'mild_liver_disease':True,'moderate_severe_liver_disease':True,
+            'malignancy_nonmetastatic':True,'metastatic_solid_tumor':True
+        }})
+        self.assertEqual(result['components']['cerebrovascular_disease'],0)
+        self.assertEqual(result['components']['diabetes_uncomplicated'],0)
+        self.assertEqual(result['components']['mild_liver_disease'],0)
+        self.assertEqual(result['components']['malignancy_nonmetastatic'],0)
+        self.assertEqual(result['total'],13)
+
+    def test_v137_specialist_barthel_zero_hundred_and_allowed_values(self):
+        max_points={'feeding':10,'bathing':5,'grooming':5,'dressing':10,'bowels':10,'bladder':10,
+                    'toilet':10,'transfers':15,'mobility':15,'stairs':10}
+        self.assertEqual(calculate_barthel({'item_points':max_points})['total'],100)
+        zero={k:0 for k in max_points}
+        self.assertEqual(calculate_barthel({'item_points':zero})['total'],0)
+        bad=dict(max_points); bad['bathing']=10
+        with self.assertRaises(ValueError):
+            calculate_barthel({'item_points':bad})
+
+    def test_v137_all_specialist_registry_complete(self):
+        registry=central_load_registry()
+        completed={'dedicated_source_encoded_v1','validated_official_external_wrapper','central_formula_alias'}
+        pending=[x['id'] for x in registry['scales'] if x['tier']=='SPECIALIST' and x['implementation_status'] not in completed]
+        self.assertEqual(pending,[])
+        self.assertEqual(len([x for x in registry['scales'] if x['tier']=='SPECIALIST']),41)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
