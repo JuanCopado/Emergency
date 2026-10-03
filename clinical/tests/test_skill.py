@@ -84,6 +84,7 @@ from core_score_pediatric_gcs import calculate_pediatric_gcs
 from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
 from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
 from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
+from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3471,6 +3472,73 @@ class ModularCoreTests(unittest.TestCase):
         registry=central_load_registry()
         item=next(x for x in registry['scales'] if x['id']=='rox-index')
         self.assertEqual(item['implementation_status'],'central_formula_alias')
+
+    def test_v137_rts_and_iss_boundaries(self):
+        best=calculate_rts({'gcs':15,'systolic_bp_mmHg':120,'respiratory_rate':18})
+        self.assertAlmostEqual(best['value'],7.8408,places=4)
+        worst=calculate_rts({'gcs':3,'systolic_bp_mmHg':0,'respiratory_rate':0})
+        self.assertEqual(worst['value'],0)
+
+        iss0=calculate_iss({'highest_ais_by_region':{
+            'head_neck':0,'face':0,'chest':0,'abdomen_pelvic_contents':0,
+            'extremities_pelvic_girdle':0,'external':0}})
+        self.assertEqual(iss0['total'],0)
+        iss75=calculate_iss({'highest_ais_by_region':{
+            'head_neck':6,'face':0,'chest':0,'abdomen_pelvic_contents':0,
+            'extremities_pelvic_girdle':0,'external':0}})
+        self.assertEqual(iss75['total'],75)
+
+    def test_v137_abc_massive_transfusion_boundaries(self):
+        low=calculate_abc_massive_transfusion({
+            'penetrating_mechanism':False,'positive_fast':False,
+            'systolic_bp_mmHg':110,'heart_rate_bpm':90})
+        self.assertEqual(low['total'],0)
+        high=calculate_abc_massive_transfusion({
+            'penetrating_mechanism':True,'positive_fast':True,
+            'systolic_bp_mmHg':80,'heart_rate_bpm':130})
+        self.assertEqual(high['total'],4)
+        self.assertTrue(high['abc_positive_ge2'])
+
+    def test_v137_canadian_ct_head_requires_eligible_population(self):
+        with self.assertRaisesRegex(ValueError,'eligible'):
+            calculate_canadian_ct_head({
+                'eligible_minor_head_injury':False,'age':40,'gcs_at_2h':15,
+                'suspected_open_or_depressed_skull_fracture':False,
+                'basal_skull_fracture_sign':False,'vomiting_episodes':0,
+                'retrograde_amnesia_minutes':0,'dangerous_mechanism':False})
+        result=calculate_canadian_ct_head({
+            'eligible_minor_head_injury':True,'age':70,'gcs_at_2h':15,
+            'suspected_open_or_depressed_skull_fracture':False,
+            'basal_skull_fracture_sign':False,'vomiting_episodes':0,
+            'retrograde_amnesia_minutes':0,'dangerous_mechanism':False})
+        self.assertTrue(result['ct_indicated_by_rule'])
+        self.assertTrue(result['high_risk']['age_ge65'])
+
+    def test_v137_canadian_cspine_and_nexus_eligibility(self):
+        csp=calculate_canadian_cspine({
+            'eligible_alert_stable_gcs15':True,'age':30,'dangerous_mechanism':False,
+            'paresthesias_extremities':False,'simple_rear_end_mvc':True,
+            'sitting_position_ed':True,'ambulatory_any_time':True,
+            'delayed_neck_pain':True,'midline_cspine_tenderness':False,
+            'can_rotate_45_left_and_right':True})
+        self.assertEqual(csp['decision'],'no_imaging_by_rule')
+
+        nexus=calculate_nexus_cspine({
+            'eligible_blunt_cspine_assessment':True,
+            'midline_cervical_tenderness':False,'focal_neurologic_deficit':False,
+            'normal_alertness':True,'intoxication':False,'painful_distracting_injury':False})
+        self.assertTrue(nexus['nexus_low_risk'])
+        self.assertFalse(nexus['imaging_indicated_by_rule'])
+
+    def test_v137_central_dispatch_trauma_core(self):
+        registry=central_load_registry()
+        for sid in ('rts','iss','abc-massive-transfusion','canadian-ct-head','canadian-cspine','nexus-cspine'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('abc-massive-transfusion',{
+            'penetrating_mechanism':True,'positive_fast':True,
+            'systolic_bp_mmHg':80,'heart_rate_bpm':130})
+        self.assertEqual(result['total'],4)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
