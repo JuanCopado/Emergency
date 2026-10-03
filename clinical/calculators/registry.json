@@ -732,7 +732,10 @@
       "use": "Pronóstico poblacional/UCI",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "APACHE II",
+      "source_url": "https://www.msdmanuals.com/professional/multimedia/table/acute-physiologic-assessment-and-chronic-health-evaluation-apache-ii-scoring-system"
     },
     {
       "id": "saps3",
@@ -743,7 +746,10 @@
       "use": "Benchmark/pronóstico poblacional",
       "calc_type": "formula_external",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "validated_official_external_wrapper",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "SAPS 3 score wrapper",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16450055/"
     },
     {
       "id": "shock-index",
@@ -784,7 +790,10 @@
       "use": "Riesgo en trauma/ancianos",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "Age Shock Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/"
     },
     {
       "id": "curb65",
@@ -839,7 +848,10 @@
       "use": "Identificar NAC grave",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "SMART-COP 0-11",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7147127/"
     },
     {
       "id": "decaf",
@@ -864,7 +876,10 @@
       "use": "Gravedad basal respiratoria",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "validated_official_external_wrapper",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "mMRC 0-4",
+      "source_url": "https://goldcopd.org/"
     },
     {
       "id": "rox-index",
@@ -890,7 +905,10 @@
       "use": "Reevaluación temprana de NIV",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "HACOR 0-25",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9225644/"
     },
     {
       "id": "berlin-ards",
@@ -944,7 +962,10 @@
       "use": "Pronóstico trauma",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "NISS 0-75",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8858478/"
     },
     {
       "id": "triss",
@@ -955,7 +976,10 @@
       "use": "Benchmark/pronóstico",
       "calc_type": "formula_external",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "TRISS legacy MTOS",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3106646/"
     },
     {
       "id": "abc-massive-transfusion",
@@ -995,7 +1019,10 @@
       "use": "Decisión de imagen",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "NEXUS Head CT",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5507397/"
     },
     {
       "id": "canadian-cspine",
@@ -1455,7 +1482,10 @@
       "use": "Monitorizar analgesia",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block3.py",
+      "version": "Behavioral Pain Scale 3-12",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2391268/"
     },
     {
       "id": "mascc",
