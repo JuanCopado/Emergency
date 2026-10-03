@@ -78,6 +78,7 @@ from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
+from core_scores_block5 import calculate_oakland, calculate_obstetric_shock_index, calculate_revised_baux
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -3726,6 +3727,78 @@ class ModularCoreTests(unittest.TestCase):
             'diaphoresis':False,'tremor':False,'hyperreflexia':False,
             'hypertonia':False,'temperature_c':37})
         self.assertTrue(result['criteria_met'])
+
+    def test_v137_oakland_source_encoded_boundaries(self):
+        low = calculate_oakland({
+            'age':30,'sex':'female','previous_lgib_admission':False,'dre_blood':False,
+            'heart_rate_bpm':60,'systolic_bp_mmHg':170,'hemoglobin_g_dL':16
+        })
+        self.assertEqual(low['total'],0)
+        self.assertTrue(low['low_risk_original_threshold_le_8'])
+
+        high = calculate_oakland({
+            'age':75,'sex':'male','previous_lgib_admission':True,'dre_blood':True,
+            'heart_rate_bpm':120,'systolic_bp_mmHg':80,'hemoglobin_g_dL':5
+        })
+        self.assertEqual(high['total'],35)
+        self.assertFalse(high['low_risk_original_threshold_le_8'])
+
+        with self.assertRaises(ValueError):
+            calculate_oakland({
+                'age':75,'sex':'male','previous_lgib_admission':True,'dre_blood':True,
+                'heart_rate_bpm':120,'systolic_bp_mmHg':40,'hemoglobin_g_dL':5
+            })
+
+    def test_v137_revised_baux_and_obstetric_shock_index(self):
+        baux = calculate_revised_baux({
+            'age':50,'tbsa_percent':30,'inhalation_injury':True
+        })
+        self.assertEqual(baux['value'],97)
+
+        osi = calculate_obstetric_shock_index({
+            'heart_rate_bpm':120,'systolic_bp_mmHg':100
+        })
+        self.assertAlmostEqual(osi['value'],1.2)
+        self.assertIn('not use a single cutoff',osi['warning'])
+
+    def test_v137_formula_alias_scales_reuse_central_engine(self):
+        si = central_calculate_scale('shock-index', {'HR':120,'SBP':100})
+        self.assertAlmostEqual(si['value'],1.2)
+        self.assertEqual(si['formula_id'],'shock-index-formula')
+
+        msi = central_calculate_scale('modified-shock-index', {'HR':120,'MAP':80})
+        self.assertAlmostEqual(msi['value'],1.5)
+
+        rox = central_calculate_scale('rox-index', {
+            'SpO2_percent':95,'FiO2_fraction':0.5,'RR':20
+        })
+        self.assertAlmostEqual(rox['value'],9.5)
+
+        maddrey = central_calculate_scale('maddrey', {
+            'PT_patient':20,'PT_control':12,'bilirubin_mg_dL':10
+        })
+        self.assertAlmostEqual(maddrey['value'],46.8)
+
+        with self.assertRaisesRegex(ValueError,'legacy MELD-Na'):
+            central_calculate_scale('meld-na', {
+                'bilirubin_mg_dL':2,'INR':1.5,'creatinine_mg_dL':1.2,'sodium_mmol_L':130
+            })
+
+    def test_v137_registry_marks_adult_core_block5_implemented(self):
+        registry=central_load_registry()
+        expected={
+            'oakland':'dedicated_source_encoded_v1',
+            'obstetric-shock-index':'dedicated_source_encoded_v1',
+            'revised-baux':'dedicated_source_encoded_v1',
+            'shock-index':'central_formula_alias',
+            'modified-shock-index':'central_formula_alias',
+            'rox-index':'central_formula_alias',
+            'maddrey':'central_formula_alias',
+            'meld-na':'central_formula_alias',
+        }
+        for sid,status in expected.items():
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],status)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
