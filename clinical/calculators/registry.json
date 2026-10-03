@@ -1710,7 +1710,10 @@
       "use": "Seguimiento UCI",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block6.py",
+      "version": "pSOFA 0-24",
+      "source_url": "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2646857"
     },
     {
       "id": "pelod2",
@@ -1721,7 +1724,10 @@
       "use": "Pronóstico UCI",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block6.py",
+      "version": "PELOD-2 0-33",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11554295/"
     },
     {
       "id": "pediatric-trauma-score",
@@ -1852,7 +1858,10 @@
       "use": "Estratificación diagnóstica",
       "calc_type": "formula_external",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block6.py",
+      "version": "pARC 2018 continuous probability",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5869337/"
     },
     {
       "id": "pecarn-head-injury",
@@ -1937,7 +1946,10 @@
       "use": "Ajuste pronóstico/investigación",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block6.py",
+      "version": "Original Charlson Comorbidity Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3677715/"
     },
     {
       "id": "barthel",
@@ -1948,7 +1960,11 @@
       "use": "Función basal/seguimiento",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "validated_official_external_wrapper",
+      "engine": "scripts/specialist_scores_block6.py",
+      "version": "Barthel Index 0-100",
+      "source_url": "https://www.sralab.org/rehabilitation-measures/barthel-index",
+      "execution_note": "Use authorized instrument item definitions; engine validates/sums allowed point values only."
     }
   ],
   "formulas": [
