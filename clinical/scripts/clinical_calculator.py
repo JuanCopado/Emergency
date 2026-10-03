@@ -15,6 +15,7 @@ from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, 
 from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
 from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_years
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
+from core_score_sofa2 import calculate_sofa2
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -266,6 +267,7 @@ def calculate_scale(scale_id, data, registry=None):
         "glasgow-coma": calculate_gcs,
         "news2": calculate_news2,
         "sofa": calculate_sofa1,
+        "sofa-2": calculate_sofa2,
         "heart": calculate_heart,
         "grace-2": prepare_grace2,
         "cha2ds2-vasc": calculate_cha2ds2_vasc,
