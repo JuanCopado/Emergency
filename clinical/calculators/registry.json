@@ -544,6 +544,21 @@
       "execution_note": "Do not mix with SOFA-2 (published 2025); SOFA-2 requires a separate versioned implementation."
     },
     {
+      "id": "sofa-2",
+      "name": "SOFA-2",
+      "group": "UCI/Sepsis",
+      "tier": "CORE",
+      "measures": "Disfunción contemporánea de seis sistemas orgánicos",
+      "use": "Descripción secuencial de disfunción orgánica en adultos críticos con umbrales y soportes contemporáneos",
+      "calc_type": "official_table",
+      "editable": true,
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_score_sofa2.py",
+      "version": "SOFA-2 2025",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2840822",
+      "execution_note": "Mantener separado de SOFA-1/Sepsis-3. Incorpora delirium treatment, contemporary ventilatory/circulatory support, revised P/F, bilirubin, creatinine/urine/RRT and platelet thresholds."
+    },
+    {
       "id": "qsofa",
       "name": "qSOFA",
       "group": "UCI/Sepsis",
