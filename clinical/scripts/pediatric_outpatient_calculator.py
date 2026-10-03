@@ -79,10 +79,37 @@ def _volume(dose_mg, concentration_mg_per_ml, entry, verified_external=False):
     exact=dose_mg/conc
     return {"exact_ml":exact,"rounded_0_1_ml":round(exact+1e-12,1),"concentration_mg_per_ml":conc}
 
+def _check_patient_gates(entry, patient):
+    for gate in entry.get("required_patient_flags", []):
+        field=gate["field"]
+        expected=gate.get("equals", True)
+        if patient.get(field) != expected:
+            raise ValueError(gate.get("message", f"{field} must equal {expected!r}"))
+    for gate in entry.get("excluded_patient_flags", []):
+        field=gate["field"]
+        excluded=gate.get("equals", True)
+        if patient.get(field) == excluded:
+            raise ValueError(gate.get("message", f"{field} is an exclusion for this regimen"))
+    for gate in entry.get("minimum_patient_values", []):
+        field=gate["field"]
+        if patient.get(field) is None:
+            raise ValueError(gate.get("missing_message", f"{field} required"))
+        value=_num(patient[field],field)
+        if value < gate["minimum"]:
+            raise ValueError(gate.get("message", f"{field} below minimum"))
+    for gate in entry.get("maximum_patient_values", []):
+        field=gate["field"]
+        if patient.get(field) is None:
+            raise ValueError(gate.get("missing_message", f"{field} required"))
+        value=_num(patient[field],field)
+        if value > gate["maximum"]:
+            raise ValueError(gate.get("message", f"{field} above maximum"))
+
 def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, registry=None):
     registry=registry or load_registry()
     e=_entry(registry,regimen_id)
     _check_age(e,patient)
+    _check_patient_gates(e,patient)
     result={
       "regimen_id":regimen_id,"drug":e["drug"],"diagnosis":e["diagnosis"],"route":e.get("route","PO"),
       "weight_basis":e.get("weight_basis"),"frequency":e.get("frequency"),
@@ -123,11 +150,33 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
     elif model=="schedule_by_day":
         w=_weight(e,patient)
         schedule=[]
+        course_doses=0
+        course_ml=0.0
         for phase in e["schedule"]:
             perkg=phase["dose_mg_per_kg"]
             phase_dose=_apply_max(perkg*w,{**e,"max_mg_per_dose":phase.get("max_mg_per_dose")})
-            schedule.append({**phase,"dose_mg":phase_dose})
-        result.update({"dosing_weight_kg":w,"schedule":schedule})
+            phase_out={**phase,"dose_mg":phase_dose}
+            phase_days=int(phase.get("days",1))
+            phase_doses_per_day=int(phase.get("doses_per_day",1))
+            phase_out["total_phase_doses"]=phase_days*phase_doses_per_day
+            course_doses += phase_out["total_phase_doses"]
+            if product is not None and product.get("concentration_mg_per_ml") is not None:
+                vol=_volume(
+                    phase_dose,product["concentration_mg_per_ml"],e,
+                    verified_external=product.get("external_concentration_verified") is True
+                )
+                phase_out["volume_per_dose"]=vol
+                phase_out["estimated_phase_ml"]=vol["exact_ml"]*phase_out["total_phase_doses"]
+                course_ml += phase_out["estimated_phase_ml"]
+            schedule.append(phase_out)
+        result.update({"dosing_weight_kg":w,"schedule":schedule,"total_doses":course_doses})
+        if product is not None and product.get("concentration_mg_per_ml") is not None:
+            result["estimated_total_course_ml"]=course_ml
+        elif e.get("liquid_capable",False):
+            result["volume_status"]="concentration_required_for_ml"
+    elif model=="fixed_dose":
+        dose=_apply_max(_num(e["fixed_dose_mg"],"fixed_dose_mg"),e)
+        result["dose_mg"]=dose
     elif model=="device":
         band=_fixed_band(e,patient)
         result["device"]=band
