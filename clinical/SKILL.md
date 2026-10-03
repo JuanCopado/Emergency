@@ -107,6 +107,10 @@ is unavailable and continue using general emergency principles plus verified
 authoritative guidance. Never imply that a missing module was loaded.
 
 
+## Clinical scores and calculators
+
+For any clinical scale, score, decision rule or medical formula request, load `clinical-scores-calculators`. The canonical definitions live in `calculators/registry.json`; disease modules may reference a calculator ID but must not duplicate its scoring logic. Autofill only values explicitly known from the case/context; keep every input editable and fail closed on missing required data. Return the score/value or category, a brief statement of what it measures and what it is used for, plus a concise interpretation and input provenance. Use `scripts/clinical_calculator.py` for deterministic formulas when available. Do not convert criteria-based rules into invented numeric scores.
+
 ## Living Evidence system
 
 For care in Portugal or requested Portuguese alignment, read
