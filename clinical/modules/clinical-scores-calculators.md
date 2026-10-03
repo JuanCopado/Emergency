@@ -59,3 +59,12 @@ Procedencia: edad/TA/DM autocompletados; clínica/duración introducidos manualm
 - Escalas con componentes subjetivos (NIHSS, RASS, CPOT, C-SSRS, mRS, etc.) requieren entrada clínica explícita; no inferir componentes a partir de texto ambiguo.
 - Fórmulas renales deben indicar ecuación y unidades. Cockcroft-Gault y eGFR CKD-EPI no son intercambiables para todos los fármacos.
 - Fórmulas de infusión solo calculan aritmética con una dosis ya seleccionada/validada; no eligen por sí mismas el tratamiento.
+
+
+### Estado de ejecución v1.36
+- **45/45 fórmulas** del registro están implementadas en `scripts/clinical_calculator.py`.
+- Las escalas `component_sum` pueden sumar **componentes ya puntuados explícitamente** y conservan el desglose; el motor genérico **no convierte hallazgos clínicos crudos en puntos** hasta que la tabla/regla específica haya sido codificada y validada contra su fuente.
+- Herramientas `criteria`, `rule`, `official_table`, `formula_external`, `ordinal` y `nomogram` permanecen fail-closed como metadatos/reglas externas salvo que exista una implementación específica validada o se aporte un resultado explícito con procedencia.
+- CKD-EPI 2021 se implementa como ecuación de creatinina sin coeficiente racial para adultos.
+- `meld-na-formula` se conserva únicamente como **MELD-Na legado** y exige confirmación explícita; no debe presentarse como el score OPTN vigente, que actualmente usa MELD 3.0.
+- La siguiente rama debe validar/codificar las escalas CORE fuente-a-fuente; no promover este módulo a green por el mero número de herramientas registradas.
