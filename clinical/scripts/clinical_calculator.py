@@ -23,6 +23,7 @@ from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_ha
 from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
 from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
 from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
+from core_scores_block11_digestive_hepatology import calculate_aims65, calculate_bisap, calculate_child_pugh, calculate_kings_college
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -273,6 +274,8 @@ def calculate_scale(scale_id, data, registry=None):
         "shock-index": "shock-index-formula",
         "modified-shock-index": "modified-shock-index-formula",
         "rox-index": "rox",
+        "meld-na": "meld-na-formula",
+        "maddrey": "maddrey-formula",
     }
     if scale_id in score_formula_aliases:
         value, unit = calculate(score_formula_aliases[scale_id], data)
@@ -332,6 +335,10 @@ def calculate_scale(scale_id, data, registry=None):
         "canadian-ct-head": calculate_canadian_ct_head,
         "canadian-cspine": calculate_canadian_cspine,
         "nexus-cspine": calculate_nexus_cspine,
+        "aims65": calculate_aims65,
+        "bisap": calculate_bisap,
+        "child-pugh": calculate_child_pugh,
+        "kings-college": calculate_kings_college,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
