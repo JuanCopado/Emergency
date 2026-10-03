@@ -80,6 +80,7 @@ from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, c
 from core_score_sofa2 import calculate_sofa2
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
+from core_score_pediatric_gcs import calculate_pediatric_gcs
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3188,6 +3189,37 @@ class ModularCoreTests(unittest.TestCase):
         code=(ROOT/'scripts'/'core_scores_block6_transversal.py').read_text(encoding='utf-8')
         self.assertNotIn('HR/SBP',code)
         self.assertNotIn('HR/MAP',code)
+
+    def test_v137_pediatric_gcs_age_specific(self):
+        infant=calculate_pediatric_gcs({
+            'age_years':1,'eye':'spontaneous',
+            'verbal':'alert_babbles_coos_words_usual',
+            'motor':'obeys_or_normal_spontaneous'
+        })
+        self.assertEqual(infant['total'],15)
+        self.assertEqual(infant['age_band'],'under_4')
+
+        child=calculate_pediatric_gcs({
+            'age_years':8,'eye':'to_voice','verbal':'confused','motor':'localizes_pain'
+        })
+        self.assertEqual(child['total'],12)
+        self.assertEqual(child['age_band'],'4_or_more')
+
+        nt=calculate_pediatric_gcs({
+            'age_years':2,'eye':'spontaneous','verbal':'NT','motor':'obeys_or_normal_spontaneous'
+        })
+        self.assertIsNone(nt['total'])
+        self.assertEqual(nt['status'],'not_testable_component_present')
+
+    def test_v137_pediatric_gcs_registry_and_dispatch(self):
+        registry=central_load_registry()
+        item=next(x for x in registry['scales'] if x['id']=='pediatric-gcs')
+        self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('pediatric-gcs',{
+            'age_years':5,'eye':'spontaneous','verbal':'oriented','motor':'obeys_or_normal_spontaneous'
+        })
+        self.assertEqual(result['total'],15)
+        self.assertEqual(result['registry_id'],'pediatric-gcs')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
