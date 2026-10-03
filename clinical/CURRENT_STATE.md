@@ -225,3 +225,14 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - CORE fuente-codificadas o wrapper oficial: **15/94**; pendientes CORE: **79**.
 - Fuente primaria: JAMA 2025, doi:10.1001/jama.2025.20516.
 - Clinical QA run #375: **198/198 PASS**, `automated_status: PASS`.
+
+
+## v1.37 — CORE scores complete — 03/10/2026
+- Registro actual: **135 escalas / 45 fórmulas**.
+- CORE: **94/94 implementadas**, pendientes CORE: **0**.
+- SPECIALIST: **41 pendientes**.
+- Estados ejecutables CORE: dedicated source-encoded, validated official wrapper o central formula alias.
+- QA global de cierre CORE: **262/262 tests PASS**, `automated_status: PASS` (run #422).
+- Nuevos cierres incluyen NNUH-MEOWS v7, Bishop, Rule of Nines, Lund-Browder, Bedside PEWS, Pediatric Trauma Score, SIPA, FLACC, Wong-Baker official wrapper, PRAM, Westley Croup, Clinical Dehydration Scale, Pediatric Appendicitis Score, PECARN Head Injury, PECARN Febrile Infant, Step-by-Step y APGAR.
+- Estado detallado: `qa/V1.37_SCORES_VALIDATION_STATE.md`.
+- `clinical-scores-calculators` permanece **yellow**: todavía faltan 41 SPECIALIST y revisión humana final.
