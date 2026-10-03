@@ -81,6 +81,7 @@ from core_score_sofa2 import calculate_sofa2
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
+from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3220,6 +3221,97 @@ class ModularCoreTests(unittest.TestCase):
         })
         self.assertEqual(result['total'],15)
         self.assertEqual(result['registry_id'],'pediatric-gcs')
+
+    def test_v137_timi_ua_nstemi_source_encoded(self):
+        low=calculate_timi_ua_nstemi({
+            'age':50,'cad_risk_factor_count':0,'known_coronary_stenosis_ge50':False,
+            'st_deviation':False,'severe_angina_ge2_episodes_24h':False,
+            'aspirin_last_7d':False,'elevated_cardiac_markers':False
+        })
+        self.assertEqual(low['total'],0)
+        high=calculate_timi_ua_nstemi({
+            'age':70,'cad_risk_factor_count':3,'known_coronary_stenosis_ge50':True,
+            'st_deviation':True,'severe_angina_ge2_episodes_24h':True,
+            'aspirin_last_7d':True,'elevated_cardiac_markers':True
+        })
+        self.assertEqual(high['total'],7)
+
+    def test_v137_has_bled_explicit_components(self):
+        zero=calculate_has_bled({
+            'hypertension':False,'abnormal_renal_function':False,'abnormal_liver_function':False,
+            'stroke_history':False,'bleeding_history_or_predisposition':False,'labile_inr':False,
+            'age_over_65':False,'drugs_predisposing_bleeding':False,'alcohol_use':False
+        })
+        self.assertEqual(zero['total'],0)
+        high=calculate_has_bled({
+            'hypertension':True,'abnormal_renal_function':True,'abnormal_liver_function':True,
+            'stroke_history':True,'bleeding_history_or_predisposition':True,'labile_inr':True,
+            'age_over_65':True,'drugs_predisposing_bleeding':True,'alcohol_use':True
+        })
+        self.assertEqual(high['total'],9)
+
+    def test_v137_canadian_syncope_source_encoded(self):
+        low=calculate_canadian_syncope({
+            'predisposition_vasovagal':True,'history_heart_disease':False,
+            'any_sbp_below90_or_above180':False,'troponin_above_99pct':False,
+            'qrs_axis_deg':0,'qrs_duration_ms':100,'qtc_ms':430,'ed_diagnosis':'vasovagal'
+        })
+        self.assertEqual(low['total'],-3)
+        self.assertEqual(low['risk_band'],'very_low')
+        high=calculate_canadian_syncope({
+            'predisposition_vasovagal':False,'history_heart_disease':True,
+            'any_sbp_below90_or_above180':True,'troponin_above_99pct':True,
+            'qrs_axis_deg':120,'qrs_duration_ms':140,'qtc_ms':500,'ed_diagnosis':'cardiac'
+        })
+        self.assertEqual(high['total'],11)
+        self.assertEqual(high['risk_band'],'very_high')
+
+    def test_v137_killip_and_scai_shock_are_structured(self):
+        self.assertEqual(calculate_killip_kimball({'state':'no_heart_failure'})['class'],1)
+        self.assertEqual(calculate_killip_kimball({'state':'cardiogenic_shock'})['class'],4)
+
+        a=calculate_scai_shock({
+            'at_risk_condition':True,'hemodynamic_instability':False,'hypoperfusion':False,
+            'initial_support_started':False,'initial_support_failed':False,
+            'circulatory_collapse_or_extremis':False
+        })
+        self.assertEqual(a['stage'],'A')
+        b=calculate_scai_shock({
+            'at_risk_condition':True,'hemodynamic_instability':True,'hypoperfusion':False,
+            'initial_support_started':False,'initial_support_failed':False,
+            'circulatory_collapse_or_extremis':False
+        })
+        self.assertEqual(b['stage'],'B')
+        cstage=calculate_scai_shock({
+            'at_risk_condition':True,'hemodynamic_instability':True,'hypoperfusion':True,
+            'initial_support_started':True,'initial_support_failed':False,
+            'circulatory_collapse_or_extremis':False
+        })
+        self.assertEqual(cstage['stage'],'C')
+        dstage=calculate_scai_shock({
+            'at_risk_condition':True,'hemodynamic_instability':True,'hypoperfusion':True,
+            'initial_support_started':True,'initial_support_failed':True,
+            'circulatory_collapse_or_extremis':False
+        })
+        self.assertEqual(dstage['stage'],'D')
+        e=calculate_scai_shock({
+            'at_risk_condition':True,'hemodynamic_instability':True,'hypoperfusion':True,
+            'initial_support_started':True,'initial_support_failed':True,
+            'circulatory_collapse_or_extremis':True
+        })
+        self.assertEqual(e['stage'],'E')
+
+    def test_v137_central_dispatch_remaining_cardiology(self):
+        registry=central_load_registry()
+        for sid in ('timi-ua-nstemi','has-bled','canadian-syncope','killip-kimball','scai-shock'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('timi-ua-nstemi',{
+            'age':70,'cad_risk_factor_count':3,'known_coronary_stenosis_ge50':True,
+            'st_deviation':True,'severe_angina_ge2_episodes_24h':True,
+            'aspirin_last_7d':True,'elevated_cardiac_markers':True
+        })
+        self.assertEqual(result['total'],7)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
