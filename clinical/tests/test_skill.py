@@ -72,6 +72,7 @@ from prepare_echonet_dynamic_blinded_cohort import prepare as prepare_echonet_dy
 from prepare_mimic_cxr_curated_blinded_cohort import prepare as prepare_mimic_cxr_curated_blinded_cohort
 from create_blinded_prediction_template import build as build_blinded_prediction_template
 from shard_blinded_image_manifest import shard as shard_blinded_image_manifest
+from clinical_calculator import calculate as central_calculate, calculate_scale as central_calculate_scale, load_registry as central_load_registry
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -2470,6 +2471,87 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('CXR_VISUAL_INPUT_PROTOCOL.md', chex)
         self.assertIn('CXR_VISUAL_INPUT_PROTOCOL.md', mimic)
         self.assertIn('ECHONET_VISUAL_INPUT_PROTOCOL.md', echo)
+
+    def test_v136_central_formula_registry_is_fully_implemented(self):
+        registry = central_load_registry()
+        self.assertEqual(len(registry['scales']), 134)
+        self.assertEqual(len(registry['formulas']), 45)
+        for formula in registry['formulas']:
+            self.assertEqual(formula['implementation_status'], 'deterministic_engine')
+            self.assertNotEqual(formula['id'], '')
+        self.assertEqual(
+            len({item['id'] for item in registry['scales']}),
+            len(registry['scales'])
+        )
+        self.assertEqual(
+            len({item['id'] for item in registry['formulas']}),
+            len(registry['formulas'])
+        )
+
+    def test_v136_central_formula_engine_new_coverage(self):
+        value, unit = central_calculate('ckd-epi-2021', {
+            'age': 50, 'Scr_mg_dL': 1.0, 'sex': 'male'
+        })
+        self.assertAlmostEqual(value, 91.6914786, places=5)
+        self.assertEqual(unit, 'mL/min/1.73m2')
+
+        pao2, _ = central_calculate('alveolar-o2', {
+            'FiO2_fraction': 0.21, 'PaCO2_mmHg': 40
+        })
+        self.assertAlmostEqual(pao2, 99.73, places=2)
+        gradient, _ = central_calculate('aa-gradient', {
+            'FiO2_fraction': 0.21, 'PaCO2_mmHg': 40, 'PaO2_mmHg': 80
+        })
+        self.assertAlmostEqual(gradient, 19.73, places=2)
+
+        ibw, _ = central_calculate('ibw-devine', {
+            'height_cm': 180, 'sex': 'male'
+        })
+        self.assertAlmostEqual(ibw, 74.992126, places=5)
+
+        concentration, unit = central_calculate('final-concentration', {
+            'drug_amount': 8, 'final_volume_mL': 100, 'amount_unit': 'mg'
+        })
+        self.assertAlmostEqual(concentration, 0.08)
+        self.assertEqual(unit, 'mg/mL')
+
+        delivery, _ = central_calculate('do2', {
+            'CO_L_min': 5, 'CaO2_mL_dL': 20
+        })
+        self.assertEqual(delivery, 1000)
+
+        with self.assertRaisesRegex(ValueError, 'legacy MELD-Na'):
+            central_calculate('meld-na-formula', {
+                'bilirubin_mg_dL': 2, 'INR': 1.5,
+                'creatinine_mg_dL': 1.2, 'sodium_mmol_L': 130
+            })
+        meld, unit = central_calculate('meld-na-formula', {
+            'bilirubin_mg_dL': 2, 'INR': 1.5,
+            'creatinine_mg_dL': 1.2, 'sodium_mmol_L': 130,
+            'legacy_meld_na_acknowledged': True
+        })
+        self.assertEqual(meld, 21)
+        self.assertIn('legacy MELD-Na', unit)
+
+    def test_v136_scale_engine_never_invents_component_points(self):
+        result = central_calculate_scale('heart', {
+            'components': {'history': 1, 'ecg': 1, 'age': 1, 'risk_factors': 1, 'troponin': 1}
+        })
+        self.assertEqual(result['value'], 5)
+        self.assertEqual(result['status'], 'complete_from_explicit_scored_components')
+        self.assertIn('does not infer', result['warning'])
+
+        pending = central_calculate_scale('news2', {})
+        self.assertEqual(pending['status'], 'source_rule_not_yet_encoded')
+
+        with self.assertRaisesRegex(ValueError, 'provenance'):
+            central_calculate_scale('news2', {'explicit_result': 5})
+
+        explicit = central_calculate_scale('news2', {
+            'explicit_result': 5,
+            'provenance': 'validated external NEWS2 table entry'
+        })
+        self.assertEqual(explicit['value_or_category'], 5)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
