@@ -343,7 +343,10 @@
       "use": "Rule-out acelerado junto a ECG/troponina",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block2.py",
+      "version": "EDACS",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10691881/"
     },
     {
       "id": "cha2ds2-vasc",
@@ -399,7 +402,10 @@
       "use": "Estimación complementaria de riesgo hemorrágico",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block2.py",
+      "version": "ORBIT 0-7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4670965/"
     },
     {
       "id": "canadian-syncope",
@@ -468,7 +474,10 @@
       "use": "Prevención/monitorización de QT prolongado",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block2.py",
+      "version": "Tisdale QT Risk Score 0-21",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11765673/"
     },
     {
       "id": "wells-pe",
@@ -580,7 +589,10 @@
       "use": "Estratificación intermedia de TEP",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block2.py",
+      "version": "Bova 0-7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6421363/"
     },
     {
       "id": "wells-dvt",
@@ -619,7 +631,10 @@
       "use": "Identificación precoz de SIC",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block2.py",
+      "version": "ISTH SIC",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11415329/"
     },
     {
       "id": "sofa",
@@ -689,7 +704,10 @@
       "use": "Detección temprana de deterioro",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block2.py",
+      "version": "Classic MEWS",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK543670/table/ch10.Tab1/"
     },
     {
       "id": "sirs",
@@ -700,7 +718,10 @@
       "use": "Contexto fisiológico/investigación; no definición moderna aislada de sepsis",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block2.py",
+      "version": "SIRS 4 criteria",
+      "source_url": "https://www.clevelandclinicmeded.com/medicalpubs/pharmacy/janfeb2002/table1.htm"
     },
     {
       "id": "apache2",
