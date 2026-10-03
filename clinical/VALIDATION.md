@@ -434,3 +434,16 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Reference artifact remains sealed; only its GitHub artifact digest was recorded.
 - Nine evenly distributed rendered ECGs were visually inspected for layout integrity; no diagnostic/source annotation leakage observed.
 - No sensitivity/specificity/accuracy claim is made because predictions have not been generated/frozen by an actual blinded interpreter.
+
+
+## PTB-XL NATURAL_500 v2 — AFIB image baseline v1 — post-reveal
+- Pre-reveal protocol frozen in `qa/PTBXL_AFIB_IMAGE_BASELINE_V1.md`.
+- Freeze record committed before reference access: `qa/results/PTBXL_NATURAL500_V2_AFIB_BASELINE_V1_FREEZE.json`, commit `aa6649785c6dad3d9daa3838c902d3136774d624`.
+- Prediction freeze timestamp: `2026-10-03T00:07:32.888774Z`.
+- Sealed reference revealed only afterwards: `2026-10-03T00:08:41.803705165Z`.
+- Reference: 3 positive / 497 negative.
+- Predictions: 46 positive / 359 negative / 93 abstain / 2 nondiagnostic.
+- Classified counts: TP=3, FP=43, TN=359, FN=0.
+- Coverage=0.81; abstention=0.186; nondiagnostic=0.004.
+- Standard binary sensitivity/specificity/PPV/NPV/accuracy intentionally suppressed under v1.1 because unresolved cases exist.
+- This result validates the blind/freeze/reveal mechanics and a simple image-derived engineering comparator only; it does not establish clinical performance.
