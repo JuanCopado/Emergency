@@ -528,3 +528,12 @@ Further versions should prioritize validation and targeted refinement over uncon
   - APGAR.
 - Safety/version gates remain explicit: institutional MEOWS/PEWS variants are not silently mixed; copyrighted Wong-Baker artwork is not reproduced; PECARN/Step-by-Step age/applicability boundaries are enforced.
 - Canonical detail: `qa/V1.37_SCORES_VALIDATION_STATE.md`.
+
+
+## v1.37 SPECIALIST scores complete — 03/10/2026
+- All **41/41 SPECIALIST** scales are now source-encoded, official-wrapper validated, or delegated to a canonical central formula.
+- Registry total: **135 scales (94 CORE + 41 SPECIALIST) + 45 formulas**.
+- Pending scale implementations: **0**.
+- Last code QA: Clinical QA #442 — **289/289 tests PASS**, `automated_status: PASS`.
+- High-risk or licensed/external tools preserve explicit boundaries rather than approximating unavailable algorithms.
+- Human review remains required before any yellow module is promoted clinically.
