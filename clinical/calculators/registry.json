@@ -1,0 +1,1859 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-10-03",
+  "design": {
+    "canonical_single_source": true,
+    "editable_inputs": true,
+    "autofill_only_from_known_data": true,
+    "missing_data_policy": "fail_closed",
+    "outputs": [
+      "value_or_category",
+      "brief_interpretation",
+      "components",
+      "data_provenance"
+    ],
+    "tiers": [
+      "CORE",
+      "SPECIALIST"
+    ]
+  },
+  "scales": [
+    {
+      "id": "nihss",
+      "name": "NIHSS",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Gravedad del déficit neurológico focal",
+      "use": "Cuantificar ictus agudo y monitorizar evolución",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "abcd2",
+      "name": "ABCD2",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Riesgo temprano tras AIT",
+      "use": "Estratificación inicial tras sospecha de AIT",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "canadian-tia-score",
+      "name": "Canadian TIA Score",
+      "group": "Neurología",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de ictus/evento vascular tras AIT",
+      "use": "Estratificación de AIT en urgencias",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "aspects",
+      "name": "ASPECTS",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Cambios isquémicos precoces en territorio ACM en TC",
+      "use": "Apoyo a selección/pronóstico en ictus anterior",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "pc-aspects",
+      "name": "pc-ASPECTS",
+      "group": "Neurología",
+      "tier": "SPECIALIST",
+      "measures": "Carga isquémica posterior en imagen",
+      "use": "Ictus de circulación posterior",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "modified-rankin",
+      "name": "Modified Rankin Scale (mRS)",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Discapacidad funcional global",
+      "use": "Estado funcional basal y evolución tras ictus",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "glasgow-coma",
+      "name": "Glasgow Coma Scale",
+      "group": "Neurología/Trauma",
+      "tier": "CORE",
+      "measures": "Nivel de consciencia E/V/M",
+      "use": "TCE, coma, intoxicación y deterioro neurológico",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "pediatric-gcs",
+      "name": "Pediatric Glasgow Coma Scale",
+      "group": "Pediatría/Neurología",
+      "tier": "CORE",
+      "measures": "Nivel de consciencia adaptado a edad",
+      "use": "TCE/coma pediátrico",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "four-score",
+      "name": "FOUR Score",
+      "group": "Neurología/UCI",
+      "tier": "SPECIALIST",
+      "measures": "Consciencia, tronco, respiración y motricidad",
+      "use": "Coma/UCI, especialmente intubados",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "avpu",
+      "name": "AVPU",
+      "group": "Transversal",
+      "tier": "CORE",
+      "measures": "Respuesta global a estímulos",
+      "use": "Valoración rápida de consciencia",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "ich-score",
+      "name": "ICH Score",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Gravedad/pronóstico de hemorragia intracerebral",
+      "use": "Estratificación inicial de HIC espontánea",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "modified-fisher",
+      "name": "Modified Fisher Scale",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Carga de sangre subaracnoidea/intraventricular en TC",
+      "use": "Riesgo de vasoespasmo tras HSA",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "hunt-hess",
+      "name": "Hunt-Hess",
+      "group": "Neurología",
+      "tier": "SPECIALIST",
+      "measures": "Gravedad clínica de HSA",
+      "use": "Clasificación clínica de HSA aneurismática",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "wfns-sah",
+      "name": "WFNS SAH Grade",
+      "group": "Neurología",
+      "tier": "SPECIALIST",
+      "measures": "Gravedad clínica de HSA con GCS/déficit",
+      "use": "Pronóstico/estratificación HSA",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "stess",
+      "name": "STESS",
+      "group": "Neurología",
+      "tier": "SPECIALIST",
+      "measures": "Severidad/pronóstico de estatus epiléptico",
+      "use": "Estratificación en estatus epiléptico",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "bacterial-meningitis-score",
+      "name": "Bacterial Meningitis Score",
+      "group": "Neurología/Pediatría",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de meningitis bacteriana en niños con pleocitosis LCR",
+      "use": "Apoyo a estratificación pediátrica seleccionada",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "cincinnati-stroke",
+      "name": "Cincinnati Prehospital Stroke Scale",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Signos prehospitalarios de ictus",
+      "use": "Cribado rápido prehospitalario",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "race-stroke",
+      "name": "RACE",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Probabilidad de oclusión de gran vaso/severidad",
+      "use": "Triaje prehospitalario de ictus",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "fast-ed",
+      "name": "FAST-ED",
+      "group": "Neurología",
+      "tier": "CORE",
+      "measures": "Probabilidad de oclusión de gran vaso",
+      "use": "Triaje de ictus para trombectomía",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "heart",
+      "name": "HEART Score",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Riesgo de MACE en dolor torácico",
+      "use": "Estratificación de dolor torácico sospechoso de SCA",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "grace-2",
+      "name": "GRACE 2.0",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Riesgo de muerte/eventos en SCA",
+      "use": "Estratificación pronóstica SCA",
+      "calc_type": "formula_external",
+      "editable": true
+    },
+    {
+      "id": "timi-ua-nstemi",
+      "name": "TIMI UA/NSTEMI",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Riesgo isquémico en UA/NSTEMI",
+      "use": "Estratificación SCA sin elevación ST",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "edacs",
+      "name": "EDACS",
+      "group": "Cardiología",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de SCA/MACE en dolor torácico",
+      "use": "Rule-out acelerado junto a ECG/troponina",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "cha2ds2-vasc",
+      "name": "CHA2DS2-VASc",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Riesgo tromboembólico en FA",
+      "use": "Apoyo a decisión antitrombótica según guía aplicable",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "cha2ds2-va",
+      "name": "CHA2DS2-VA",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Riesgo tromboembólico en FA sin sexo como factor",
+      "use": "Apoyo a anticoagulación cuando la guía usa esta variante",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "has-bled",
+      "name": "HAS-BLED",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Factores modificables de sangrado en FA anticoagulada",
+      "use": "Identificar riesgo/áreas corregibles; no negar anticoagulación por sí solo",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "orbit-bleeding",
+      "name": "ORBIT Bleeding",
+      "group": "Cardiología",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de sangrado en FA",
+      "use": "Estimación complementaria de riesgo hemorrágico",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "canadian-syncope",
+      "name": "Canadian Syncope Risk Score",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Riesgo de evento adverso tras síncope",
+      "use": "Disposición/estratificación en urgencias",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "scai-shock",
+      "name": "SCAI Shock Stage",
+      "group": "Cardiología/UCI",
+      "tier": "CORE",
+      "measures": "Severidad dinámica del shock cardiogénico",
+      "use": "Clasificar y escalar soporte",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "killip-kimball",
+      "name": "Killip-Kimball",
+      "group": "Cardiología",
+      "tier": "CORE",
+      "measures": "Gravedad de insuficiencia cardiaca en IAM",
+      "use": "Pronóstico y estratificación en IAM",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "duke-iscvid",
+      "name": "Duke-ISCVID Criteria",
+      "group": "Cardiología/Infecciosas",
+      "tier": "CORE",
+      "measures": "Probabilidad diagnóstica de endocarditis infecciosa",
+      "use": "Clasificar endocarditis definitiva/posible/rechazada",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "tisdale-qt",
+      "name": "Tisdale QT Risk Score",
+      "group": "Cardiología",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de prolongación QT en hospitalizados",
+      "use": "Prevención/monitorización de QT prolongado",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "wells-pe",
+      "name": "Wells PE",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Probabilidad clínica pretest de TEP",
+      "use": "Seleccionar estrategia de dímero D/imagen",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "revised-geneva",
+      "name": "Revised Geneva",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Probabilidad clínica pretest de TEP",
+      "use": "Alternativa objetiva a Wells",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "perc",
+      "name": "PERC",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Criterios de exclusión en TEP de muy bajo riesgo",
+      "use": "Evitar pruebas adicionales si probabilidad clínica ya es baja y PERC=0",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "years-pe",
+      "name": "YEARS",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Probabilidad de TEP con umbral adaptado de dímero D",
+      "use": "Estrategia diagnóstica TEP",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "pesi",
+      "name": "PESI",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Mortalidad/riesgo temprano en TEP confirmado",
+      "use": "Pronóstico y disposición",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "spesi",
+      "name": "sPESI",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Riesgo temprano simplificado en TEP",
+      "use": "Apoyo a manejo ambulatorio/ingreso",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "hestia",
+      "name": "Hestia Criteria",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Elegibilidad clínica para tratamiento ambulatorio de TEP",
+      "use": "Disposición de TEP seleccionado",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "bova",
+      "name": "Bova Score",
+      "group": "TEV",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de deterioro en TEP normotenso",
+      "use": "Estratificación intermedia de TEP",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "wells-dvt",
+      "name": "Wells DVT",
+      "group": "TEV",
+      "tier": "CORE",
+      "measures": "Probabilidad clínica pretest de TVP",
+      "use": "Dímero D/ecografía según probabilidad",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "isth-dic",
+      "name": "ISTH DIC Score",
+      "group": "Hematología",
+      "tier": "CORE",
+      "measures": "Coagulación intravascular diseminada manifiesta",
+      "use": "Diagnóstico/seguimiento de CID",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "sic",
+      "name": "Sepsis-Induced Coagulopathy",
+      "group": "Hematología/Sepsis",
+      "tier": "SPECIALIST",
+      "measures": "Coagulopatía asociada a sepsis",
+      "use": "Identificación precoz de SIC",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "sofa",
+      "name": "SOFA",
+      "group": "UCI/Sepsis",
+      "tier": "CORE",
+      "measures": "Disfunción de seis sistemas orgánicos",
+      "use": "Seguimiento de disfunción orgánica",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "qsofa",
+      "name": "qSOFA",
+      "group": "UCI/Sepsis",
+      "tier": "CORE",
+      "measures": "Señales clínicas asociadas a peor evolución en infección",
+      "use": "Pronóstico rápido; no usar como único cribado de sepsis",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "news2",
+      "name": "NEWS2",
+      "group": "Transversal",
+      "tier": "CORE",
+      "measures": "Severidad fisiológica/deterioro agudo",
+      "use": "Detección y escalada de deterioro clínico",
+      "calc_type": "official_table",
+      "editable": true
+    },
+    {
+      "id": "mews",
+      "name": "MEWS",
+      "group": "Transversal",
+      "tier": "SPECIALIST",
+      "measures": "Deterioro fisiológico",
+      "use": "Detección temprana de deterioro",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "sirs",
+      "name": "SIRS",
+      "group": "Transversal",
+      "tier": "SPECIALIST",
+      "measures": "Respuesta inflamatoria sistémica",
+      "use": "Contexto fisiológico/investigación; no definición moderna aislada de sepsis",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "apache2",
+      "name": "APACHE II",
+      "group": "UCI",
+      "tier": "SPECIALIST",
+      "measures": "Gravedad de enfermedad crítica",
+      "use": "Pronóstico poblacional/UCI",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "saps3",
+      "name": "SAPS 3",
+      "group": "UCI",
+      "tier": "SPECIALIST",
+      "measures": "Gravedad y riesgo de mortalidad UCI",
+      "use": "Benchmark/pronóstico poblacional",
+      "calc_type": "formula_external",
+      "editable": true
+    },
+    {
+      "id": "shock-index",
+      "name": "Shock Index",
+      "group": "Transversal",
+      "tier": "CORE",
+      "measures": "Relación FC/TAS",
+      "use": "Detección rápida de compromiso hemodinámico",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "modified-shock-index",
+      "name": "Modified Shock Index",
+      "group": "Transversal",
+      "tier": "CORE",
+      "measures": "Relación FC/PAM",
+      "use": "Valoración hemodinámica complementaria",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "age-shock-index",
+      "name": "Age Shock Index",
+      "group": "Geriatría/Trauma",
+      "tier": "SPECIALIST",
+      "measures": "Shock index ajustado por edad",
+      "use": "Riesgo en trauma/ancianos",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "curb65",
+      "name": "CURB-65",
+      "group": "Respiratorio",
+      "tier": "CORE",
+      "measures": "Severidad de neumonía adquirida en comunidad",
+      "use": "Apoyo a disposición y riesgo",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "crb65",
+      "name": "CRB-65",
+      "group": "Respiratorio",
+      "tier": "CORE",
+      "measures": "Severidad de neumonía sin urea",
+      "use": "Entornos sin laboratorio",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "psi-port",
+      "name": "PSI/PORT",
+      "group": "Respiratorio",
+      "tier": "CORE",
+      "measures": "Riesgo de mortalidad en neumonía",
+      "use": "Estratificación/disposición",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "smart-cop",
+      "name": "SMART-COP",
+      "group": "Respiratorio",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de soporte respiratorio/vasopresor en NAC",
+      "use": "Identificar NAC grave",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "decaf",
+      "name": "DECAF",
+      "group": "Respiratorio",
+      "tier": "CORE",
+      "measures": "Riesgo en exacerbación de EPOC hospitalizada",
+      "use": "Pronóstico/disposición",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "mmrc",
+      "name": "mMRC Dyspnea",
+      "group": "Respiratorio",
+      "tier": "SPECIALIST",
+      "measures": "Limitación funcional por disnea",
+      "use": "Gravedad basal respiratoria",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "rox-index",
+      "name": "ROX Index",
+      "group": "Respiratorio",
+      "tier": "CORE",
+      "measures": "Oxigenación/trabajo respiratorio durante HFNO",
+      "use": "Predecir éxito/fracaso de HFNO",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "hacor",
+      "name": "HACOR",
+      "group": "Respiratorio",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de fracaso de NIV",
+      "use": "Reevaluación temprana de NIV",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "berlin-ards",
+      "name": "Berlin ARDS Classification",
+      "group": "Respiratorio/UCI",
+      "tier": "CORE",
+      "measures": "Severidad de ARDS por oxigenación/PEEP y contexto",
+      "use": "Clasificar ARDS",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "rts",
+      "name": "Revised Trauma Score",
+      "group": "Trauma",
+      "tier": "CORE",
+      "measures": "Gravedad fisiológica del trauma",
+      "use": "Triaje/pronóstico",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "iss",
+      "name": "Injury Severity Score",
+      "group": "Trauma",
+      "tier": "CORE",
+      "measures": "Gravedad anatómica del trauma",
+      "use": "Pronóstico/registro",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "niss",
+      "name": "New Injury Severity Score",
+      "group": "Trauma",
+      "tier": "SPECIALIST",
+      "measures": "Gravedad anatómica usando 3 lesiones más severas",
+      "use": "Pronóstico trauma",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "triss",
+      "name": "TRISS",
+      "group": "Trauma",
+      "tier": "SPECIALIST",
+      "measures": "Supervivencia estimada tras trauma",
+      "use": "Benchmark/pronóstico",
+      "calc_type": "formula_external",
+      "editable": true
+    },
+    {
+      "id": "abc-massive-transfusion",
+      "name": "ABC Massive Transfusion Score",
+      "group": "Trauma",
+      "tier": "CORE",
+      "measures": "Riesgo de transfusión masiva",
+      "use": "Activación precoz de protocolo hemorrágico",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "canadian-ct-head",
+      "name": "Canadian CT Head Rule",
+      "group": "Trauma",
+      "tier": "CORE",
+      "measures": "Necesidad de TC en TCE menor adulto seleccionado",
+      "use": "Decisión de imagen",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "nexus-head-ct",
+      "name": "NEXUS Head CT",
+      "group": "Trauma",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de lesión intracraneal que requiere TC",
+      "use": "Decisión de imagen",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "canadian-cspine",
+      "name": "Canadian C-Spine Rule",
+      "group": "Trauma",
+      "tier": "CORE",
+      "measures": "Necesidad de imagen cervical",
+      "use": "Despistaje de lesión cervical en trauma alerta/estable",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "nexus-cspine",
+      "name": "NEXUS C-Spine",
+      "group": "Trauma",
+      "tier": "CORE",
+      "measures": "Bajo riesgo de lesión cervical",
+      "use": "Evitar imagen cervical en pacientes seleccionados",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "glasgow-blatchford",
+      "name": "Glasgow-Blatchford Score",
+      "group": "Digestivo",
+      "tier": "CORE",
+      "measures": "Necesidad de intervención/riesgo en HDA",
+      "use": "Triaje y posible alta de muy bajo riesgo",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "rockall",
+      "name": "Rockall Score",
+      "group": "Digestivo",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de resangrado/mortalidad HDA",
+      "use": "Pronóstico pre/post endoscopia",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "aims65",
+      "name": "AIMS65",
+      "group": "Digestivo",
+      "tier": "CORE",
+      "measures": "Mortalidad/riesgo en HDA",
+      "use": "Estratificación temprana",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "oakland",
+      "name": "Oakland Score",
+      "group": "Digestivo",
+      "tier": "CORE",
+      "measures": "Bajo riesgo en hemorragia digestiva baja",
+      "use": "Identificar candidatos a manejo ambulatorio seleccionado",
+      "calc_type": "rule",
+      "editable": true
+    },
+    {
+      "id": "bisap",
+      "name": "BISAP",
+      "group": "Digestivo",
+      "tier": "CORE",
+      "measures": "Severidad/mortalidad temprana en pancreatitis",
+      "use": "Estratificación primeras 24 h",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "ranson",
+      "name": "Ranson",
+      "group": "Digestivo",
+      "tier": "SPECIALIST",
+      "measures": "Severidad de pancreatitis",
+      "use": "Pronóstico histórico/seleccionado",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "alvarado",
+      "name": "Alvarado",
+      "group": "Cirugía",
+      "tier": "CORE",
+      "measures": "Probabilidad de apendicitis",
+      "use": "Apoyo diagnóstico",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "air-appendicitis",
+      "name": "AIR Score",
+      "group": "Cirugía",
+      "tier": "CORE",
+      "measures": "Probabilidad/severidad de apendicitis",
+      "use": "Estratificación diagnóstica",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "tokyo-biliary",
+      "name": "Tokyo Guidelines Severity",
+      "group": "Cirugía",
+      "tier": "CORE",
+      "measures": "Gravedad de colecistitis/colangitis",
+      "use": "Decisiones de soporte y drenaje",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "child-pugh",
+      "name": "Child-Pugh",
+      "group": "Hepatología",
+      "tier": "CORE",
+      "measures": "Severidad de cirrosis",
+      "use": "Pronóstico y decisiones terapéuticas",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "meld-na",
+      "name": "MELD-Na",
+      "group": "Hepatología",
+      "tier": "CORE",
+      "measures": "Riesgo de mortalidad en hepatopatía avanzada",
+      "use": "Priorización/pronóstico",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "meld-3",
+      "name": "MELD 3.0",
+      "group": "Hepatología",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de mortalidad en enfermedad hepática avanzada",
+      "use": "Asignación/pronóstico contemporáneo",
+      "calc_type": "formula_external",
+      "editable": true
+    },
+    {
+      "id": "maddrey",
+      "name": "Maddrey Discriminant Function",
+      "group": "Hepatología",
+      "tier": "CORE",
+      "measures": "Severidad de hepatitis alcohólica",
+      "use": "Apoyo a tratamiento/pronóstico",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "lille",
+      "name": "Lille Score",
+      "group": "Hepatología",
+      "tier": "SPECIALIST",
+      "measures": "Respuesta a corticoides en hepatitis alcohólica",
+      "use": "Reevaluación terapéutica",
+      "calc_type": "formula_external",
+      "editable": true
+    },
+    {
+      "id": "kings-college",
+      "name": "King's College Criteria",
+      "group": "Hepatología",
+      "tier": "CORE",
+      "measures": "Mal pronóstico en fallo hepático agudo",
+      "use": "Derivación/trasplante urgente",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "kdigo-aki",
+      "name": "KDIGO AKI Classification",
+      "group": "Renal",
+      "tier": "CORE",
+      "measures": "Estadio de lesión renal aguda",
+      "use": "Diagnóstico/seguimiento de AKI",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "mcmahon-rhabdo",
+      "name": "McMahon Score",
+      "group": "Renal",
+      "tier": "CORE",
+      "measures": "Riesgo de IRA grave/RRT/muerte en rabdomiólisis",
+      "use": "Estratificación temprana",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "rumack-matthew",
+      "name": "Rumack-Matthew Nomogram",
+      "group": "Toxicología",
+      "tier": "CORE",
+      "measures": "Riesgo de hepatotoxicidad tras ingesta aguda única de paracetamol",
+      "use": "Decidir NAC cuando tiempo y nivel son válidos",
+      "calc_type": "nomogram",
+      "editable": true
+    },
+    {
+      "id": "poisoning-severity",
+      "name": "Poisoning Severity Score",
+      "group": "Toxicología",
+      "tier": "SPECIALIST",
+      "measures": "Gravedad clínica global de intoxicación",
+      "use": "Clasificación/registro",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "hunter-serotonin",
+      "name": "Hunter Serotonin Toxicity Criteria",
+      "group": "Toxicología",
+      "tier": "CORE",
+      "measures": "Síndrome serotoninérgico",
+      "use": "Diagnóstico clínico en exposición serotoninérgica",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "ciwa-ar",
+      "name": "CIWA-Ar",
+      "group": "Toxicología",
+      "tier": "CORE",
+      "measures": "Severidad de abstinencia alcohólica",
+      "use": "Guiar tratamiento en pacientes apropiados",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "pawss",
+      "name": "PAWSS",
+      "group": "Toxicología",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de abstinencia alcohólica complicada",
+      "use": "Prevención/estratificación",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "cows",
+      "name": "COWS",
+      "group": "Toxicología",
+      "tier": "CORE",
+      "measures": "Severidad de abstinencia opioide",
+      "use": "Guiar tratamiento y seguimiento",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "cssrs",
+      "name": "C-SSRS",
+      "group": "Psiquiatría",
+      "tier": "CORE",
+      "measures": "Ideación y conducta suicida",
+      "use": "Evaluación estructurada de riesgo suicida",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "phq9",
+      "name": "PHQ-9",
+      "group": "Psiquiatría",
+      "tier": "SPECIALIST",
+      "measures": "Síntomas depresivos",
+      "use": "Cribado/severidad, no diagnóstico aislado",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "gad7",
+      "name": "GAD-7",
+      "group": "Psiquiatría",
+      "tier": "SPECIALIST",
+      "measures": "Síntomas de ansiedad",
+      "use": "Cribado/severidad",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "four-at",
+      "name": "4AT",
+      "group": "Geriatría",
+      "tier": "CORE",
+      "measures": "Delirium/deterioro cognitivo agudo",
+      "use": "Cribado rápido de delirium",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "cam",
+      "name": "CAM",
+      "group": "Geriatría",
+      "tier": "CORE",
+      "measures": "Características diagnósticas de delirium",
+      "use": "Identificación de delirium",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "cam-icu",
+      "name": "CAM-ICU",
+      "group": "UCI",
+      "tier": "CORE",
+      "measures": "Delirium en paciente crítico",
+      "use": "Evaluación de delirium UCI",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "rass",
+      "name": "RASS",
+      "group": "UCI",
+      "tier": "CORE",
+      "measures": "Nivel de sedación/agitación",
+      "use": "Objetivo y monitorización de sedación",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "cpot",
+      "name": "CPOT",
+      "group": "UCI",
+      "tier": "CORE",
+      "measures": "Dolor en pacientes críticos no comunicativos",
+      "use": "Monitorizar analgesia",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "bps",
+      "name": "Behavioral Pain Scale",
+      "group": "UCI",
+      "tier": "SPECIALIST",
+      "measures": "Dolor conductual en ventilados",
+      "use": "Monitorizar analgesia",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "mascc",
+      "name": "MASCC Risk Index",
+      "group": "Oncohematología",
+      "tier": "CORE",
+      "measures": "Riesgo de complicaciones en neutropenia febril",
+      "use": "Seleccionar bajo riesgo en adultos",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "cisne",
+      "name": "CISNE",
+      "group": "Oncohematología",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo de complicaciones en neutropenia febril aparentemente estable",
+      "use": "Apoyo a disposición",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "lrinec",
+      "name": "LRINEC",
+      "group": "Infecciosas",
+      "tier": "SPECIALIST",
+      "measures": "Patrón analítico asociado a infección necrotizante",
+      "use": "Apoyo contextual; no descarta fascitis necrotizante",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "bishop",
+      "name": "Bishop Score",
+      "group": "Obstetricia",
+      "tier": "CORE",
+      "measures": "Madurez cervical",
+      "use": "Predecir probabilidad de inducción/parto vaginal",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "meows",
+      "name": "MEOWS",
+      "group": "Obstetricia",
+      "tier": "CORE",
+      "measures": "Deterioro fisiológico obstétrico",
+      "use": "Detección precoz de deterioro materno",
+      "calc_type": "official_table",
+      "editable": true
+    },
+    {
+      "id": "obstetric-shock-index",
+      "name": "Obstetric Shock Index",
+      "group": "Obstetricia",
+      "tier": "CORE",
+      "measures": "FC/TAS durante embarazo/postparto",
+      "use": "Detectar compromiso hemodinámico obstétrico",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "puqe",
+      "name": "PUQE",
+      "group": "Obstetricia",
+      "tier": "SPECIALIST",
+      "measures": "Severidad de náuseas/vómitos del embarazo",
+      "use": "Cuantificar hiperémesis",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "fullpiers",
+      "name": "fullPIERS",
+      "group": "Obstetricia",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo materno adverso en preeclampsia",
+      "use": "Estratificación especializada",
+      "calc_type": "formula_external",
+      "editable": true
+    },
+    {
+      "id": "rule-of-nines",
+      "name": "Rule of Nines",
+      "group": "Quemados",
+      "tier": "CORE",
+      "measures": "Porcentaje de superficie corporal quemada adulto",
+      "use": "Estimación rápida TBSA",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "lund-browder",
+      "name": "Lund-Browder",
+      "group": "Quemados/Pediatría",
+      "tier": "CORE",
+      "measures": "Porcentaje de superficie corporal quemada ajustada a edad",
+      "use": "Estimación TBSA más precisa",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "revised-baux",
+      "name": "Revised Baux",
+      "group": "Quemados",
+      "tier": "CORE",
+      "measures": "Riesgo/mortalidad en grandes quemados",
+      "use": "Pronóstico poblacional",
+      "calc_type": "formula",
+      "editable": true
+    },
+    {
+      "id": "pews",
+      "name": "PEWS",
+      "group": "Pediatría",
+      "tier": "CORE",
+      "measures": "Deterioro fisiológico pediátrico",
+      "use": "Detección precoz y escalada",
+      "calc_type": "official_table",
+      "editable": true
+    },
+    {
+      "id": "phoenix-sepsis",
+      "name": "Phoenix Sepsis Score",
+      "group": "Pediatría/Sepsis",
+      "tier": "CORE",
+      "measures": "Disfunción respiratoria, cardiovascular, coagulación y neurológica",
+      "use": "Definición contemporánea de sepsis pediátrica con sospecha de infección",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "psofa",
+      "name": "pSOFA",
+      "group": "Pediatría/UCI",
+      "tier": "SPECIALIST",
+      "measures": "Disfunción orgánica pediátrica",
+      "use": "Seguimiento UCI",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "pelod2",
+      "name": "PELOD-2",
+      "group": "Pediatría/UCI",
+      "tier": "SPECIALIST",
+      "measures": "Disfunción orgánica/mortalidad pediátrica",
+      "use": "Pronóstico UCI",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "pediatric-trauma-score",
+      "name": "Pediatric Trauma Score",
+      "group": "Pediatría/Trauma",
+      "tier": "CORE",
+      "measures": "Gravedad de trauma pediátrico",
+      "use": "Triaje/pronóstico",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "sipa",
+      "name": "SIPA",
+      "group": "Pediatría/Trauma",
+      "tier": "CORE",
+      "measures": "Shock index ajustado a edad",
+      "use": "Detectar shock oculto en trauma pediátrico",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "flacc",
+      "name": "FLACC",
+      "group": "Pediatría/Dolor",
+      "tier": "CORE",
+      "measures": "Dolor conductual",
+      "use": "Evaluar dolor en niños/no comunicativos",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "wong-baker",
+      "name": "Wong-Baker FACES",
+      "group": "Pediatría/Dolor",
+      "tier": "CORE",
+      "measures": "Intensidad de dolor autorreportada",
+      "use": "Cuantificar dolor cuando es apropiado por desarrollo",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "pram",
+      "name": "PRAM",
+      "group": "Pediatría/Respiratorio",
+      "tier": "CORE",
+      "measures": "Severidad de exacerbación asmática pediátrica",
+      "use": "Guiar tratamiento/reevaluación",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "westley-croup",
+      "name": "Westley Croup Score",
+      "group": "Pediatría/Respiratorio",
+      "tier": "CORE",
+      "measures": "Severidad de crup",
+      "use": "Estratificación y tratamiento",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "clinical-dehydration",
+      "name": "Clinical Dehydration Scale",
+      "group": "Pediatría",
+      "tier": "CORE",
+      "measures": "Signos clínicos de deshidratación",
+      "use": "Estimar severidad de deshidratación",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "pediatric-appendicitis",
+      "name": "Pediatric Appendicitis Score",
+      "group": "Pediatría/Cirugía",
+      "tier": "CORE",
+      "measures": "Probabilidad de apendicitis",
+      "use": "Apoyo diagnóstico",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "parc",
+      "name": "pARC",
+      "group": "Pediatría/Cirugía",
+      "tier": "SPECIALIST",
+      "measures": "Riesgo individual de apendicitis",
+      "use": "Estratificación diagnóstica",
+      "calc_type": "formula_external",
+      "editable": true
+    },
+    {
+      "id": "pecarn-head-injury",
+      "name": "PECARN Head Injury",
+      "group": "Pediatría/Trauma",
+      "tier": "CORE",
+      "measures": "Riesgo de TBI clínicamente importante",
+      "use": "Decidir observación frente a TC según edad",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "pecarn-febrile-infant",
+      "name": "PECARN Febrile Infant Rule",
+      "group": "Pediatría/Infecciosas",
+      "tier": "CORE",
+      "measures": "Riesgo de infección bacteriana invasiva en lactante febril seleccionado",
+      "use": "Apoyo a estratificación",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "step-by-step-infant",
+      "name": "Step-by-Step Febrile Infant",
+      "group": "Pediatría/Infecciosas",
+      "tier": "CORE",
+      "measures": "Riesgo de infección bacteriana grave en lactante febril",
+      "use": "Estratificación clínica",
+      "calc_type": "criteria",
+      "editable": true
+    },
+    {
+      "id": "apgar",
+      "name": "APGAR",
+      "group": "Neonatología",
+      "tier": "CORE",
+      "measures": "Adaptación neonatal inmediata",
+      "use": "Evaluación neonatal seriada; no predice por sí solo desenlace individual",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "clinical-frailty",
+      "name": "Clinical Frailty Scale",
+      "group": "Geriatría",
+      "tier": "CORE",
+      "measures": "Fragilidad basal",
+      "use": "Contextualizar reserva, pronóstico y decisiones",
+      "calc_type": "ordinal",
+      "editable": true
+    },
+    {
+      "id": "charlson",
+      "name": "Charlson Comorbidity Index",
+      "group": "Geriatría",
+      "tier": "SPECIALIST",
+      "measures": "Carga de comorbilidad",
+      "use": "Ajuste pronóstico/investigación",
+      "calc_type": "component_sum",
+      "editable": true
+    },
+    {
+      "id": "barthel",
+      "name": "Barthel Index",
+      "group": "Geriatría/Rehabilitación",
+      "tier": "SPECIALIST",
+      "measures": "Dependencia en actividades básicas",
+      "use": "Función basal/seguimiento",
+      "calc_type": "component_sum",
+      "editable": true
+    }
+  ],
+  "formulas": [
+    {
+      "id": "map",
+      "name": "Mean Arterial Pressure",
+      "group": "Hemodinámica",
+      "measures": "PAM aproximada",
+      "use": "Valorar perfusión",
+      "formula": "(SBP + 2*DBP)/3",
+      "unit": "mmHg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "shock-index-formula",
+      "name": "Shock Index",
+      "group": "Hemodinámica",
+      "measures": "Relación FC/TAS",
+      "use": "Compromiso hemodinámico",
+      "formula": "HR/SBP",
+      "unit": "ratio",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "modified-shock-index-formula",
+      "name": "Modified Shock Index",
+      "group": "Hemodinámica",
+      "measures": "Relación FC/PAM",
+      "use": "Compromiso hemodinámico",
+      "formula": "HR/MAP",
+      "unit": "ratio",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "anion-gap",
+      "name": "Anion Gap",
+      "group": "Ácido-base",
+      "measures": "Aniones no medidos",
+      "use": "Clasificar acidosis metabólica",
+      "formula": "Na-(Cl+HCO3)",
+      "unit": "mmol/L",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "albumin-corrected-anion-gap",
+      "name": "Albumin-corrected Anion Gap",
+      "group": "Ácido-base",
+      "measures": "AG ajustado a albúmina",
+      "use": "Detectar AG elevado con hipoalbuminemia",
+      "formula": "AG+2.5*(4-albumin_g_dL)",
+      "unit": "mmol/L",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "delta-ratio",
+      "name": "Delta Ratio",
+      "group": "Ácido-base",
+      "measures": "Relación cambio AG/bicarbonato",
+      "use": "Detectar trastornos metabólicos mixtos",
+      "formula": "(AGcorr-12)/(24-HCO3)",
+      "unit": "ratio",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "winter-pco2",
+      "name": "Winter Expected PCO2",
+      "group": "Ácido-base",
+      "measures": "Compensación respiratoria esperada",
+      "use": "Detectar trastorno respiratorio añadido",
+      "formula": "1.5*HCO3+8",
+      "unit": "mmHg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "corrected-sodium-glucose",
+      "name": "Corrected Sodium for Hyperglycemia",
+      "group": "Electrolitos",
+      "measures": "Sodio corregido por hiperglucemia",
+      "use": "Interpretar disnatremia con hiperglucemia",
+      "formula": "Na + factor*((glucose_mg_dL-100)/100)",
+      "unit": "mmol/L",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "calculated-osmolality",
+      "name": "Calculated Serum Osmolality",
+      "group": "Electrolitos",
+      "measures": "Osmolalidad sérica calculada",
+      "use": "HHS/toxicología/disnatremias",
+      "formula": "2*Na + glucose_mg_dL/18 + BUN_mg_dL/2.8",
+      "unit": "mOsm/kg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "effective-osmolality",
+      "name": "Effective Osmolality",
+      "group": "Electrolitos",
+      "measures": "Tonicidad efectiva",
+      "use": "HHS/disnatremias",
+      "formula": "2*Na + glucose_mg_dL/18",
+      "unit": "mOsm/kg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "free-water-deficit",
+      "name": "Free Water Deficit",
+      "group": "Electrolitos",
+      "measures": "Déficit estimado de agua libre",
+      "use": "Hipernatremia",
+      "formula": "TBW_L*((Na/140)-1)",
+      "unit": "L",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "corrected-calcium",
+      "name": "Albumin-corrected Calcium",
+      "group": "Electrolitos",
+      "measures": "Calcio total ajustado por albúmina",
+      "use": "Interpretar calcio total cuando no hay ionizado",
+      "formula": "Ca_mg_dL + 0.8*(4-albumin_g_dL)",
+      "unit": "mg/dL",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "cockcroft-gault",
+      "name": "Cockcroft-Gault CrCl",
+      "group": "Renal",
+      "measures": "Aclaramiento de creatinina estimado",
+      "use": "Ajuste farmacológico cuando ficha/protocolo usa CrCl",
+      "formula": "((140-age)*weight_kg)/(72*Scr_mg_dL) * sex_factor",
+      "unit": "mL/min",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "ckd-epi-2021",
+      "name": "CKD-EPI 2021 eGFR",
+      "group": "Renal",
+      "measures": "Filtrado glomerular estimado",
+      "use": "Clasificación renal; no sustituye CrCl cuando fármaco exige CG",
+      "formula": "equation_2021",
+      "unit": "mL/min/1.73m2",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "bedside-schwartz",
+      "name": "Bedside Schwartz",
+      "group": "Renal/Pediatría",
+      "measures": "eGFR pediátrico",
+      "use": "Estimación renal pediátrica",
+      "formula": "0.413*height_cm/Scr_mg_dL",
+      "unit": "mL/min/1.73m2",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "fena",
+      "name": "Fractional Excretion of Sodium",
+      "group": "Renal",
+      "measures": "Fracción de sodio excretada",
+      "use": "Contexto de AKI; interpretar con diuréticos/CKD",
+      "formula": "100*(UNa*PCr)/(PNa*UCr)",
+      "unit": "%",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "feurea",
+      "name": "Fractional Excretion of Urea",
+      "group": "Renal",
+      "measures": "Fracción de urea excretada",
+      "use": "Contexto de AKI, especialmente si diuréticos",
+      "formula": "100*(UUrea*PCr)/(PUrea*UCr)",
+      "unit": "%",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "pao2-fio2",
+      "name": "PaO2/FiO2 ratio",
+      "group": "Respiratorio",
+      "measures": "Eficiencia de oxigenación",
+      "use": "ARDS/insuficiencia respiratoria",
+      "formula": "PaO2_mmHg/FiO2_fraction",
+      "unit": "mmHg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "spo2-fio2",
+      "name": "SpO2/FiO2 ratio",
+      "group": "Respiratorio",
+      "measures": "Oxigenación no invasiva aproximada",
+      "use": "Seguimiento cuando no hay PaO2",
+      "formula": "SpO2_percent/FiO2_fraction",
+      "unit": "ratio",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "rox",
+      "name": "ROX Index",
+      "group": "Respiratorio",
+      "measures": "Oxigenación ajustada a FR",
+      "use": "Reevaluar HFNO",
+      "formula": "(SpO2_percent/FiO2_fraction)/RR",
+      "unit": "ratio",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "aa-gradient",
+      "name": "A-a Oxygen Gradient",
+      "group": "Respiratorio",
+      "measures": "Gradiente alveolo-arterial de O2",
+      "use": "Caracterizar hipoxemia",
+      "formula": "PAO2-PaO2",
+      "unit": "mmHg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "alveolar-o2",
+      "name": "Alveolar Gas Equation PAO2",
+      "group": "Respiratorio",
+      "measures": "Presión alveolar de O2",
+      "use": "Calcular gradiente A-a",
+      "formula": "FiO2*(Patm-PH2O)-PaCO2/RQ",
+      "unit": "mmHg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "static-compliance",
+      "name": "Static Respiratory Compliance",
+      "group": "Ventilación",
+      "measures": "Distensibilidad estática",
+      "use": "Ventilación mecánica",
+      "formula": "VT_mL/(Pplat-PEEP)",
+      "unit": "mL/cmH2O",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "driving-pressure",
+      "name": "Driving Pressure",
+      "group": "Ventilación",
+      "measures": "Presión de distensión",
+      "use": "Ventilación protectora",
+      "formula": "Pplat-PEEP",
+      "unit": "cmH2O",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "minute-ventilation",
+      "name": "Minute Ventilation",
+      "group": "Ventilación",
+      "measures": "Ventilación minuto",
+      "use": "Ajuste ventilatorio",
+      "formula": "VT_L*RR",
+      "unit": "L/min",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "ibw-devine",
+      "name": "Ideal Body Weight (Devine)",
+      "group": "Antropometría",
+      "measures": "Peso ideal",
+      "use": "Dosis/ventilación cuando corresponde",
+      "formula": "sex_specific",
+      "unit": "kg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "bsa-mosteller",
+      "name": "Body Surface Area Mosteller",
+      "group": "Antropometría",
+      "measures": "Superficie corporal",
+      "use": "Dosis/oncología/hemodinámica",
+      "formula": "sqrt(height_cm*weight_kg/3600)",
+      "unit": "m2",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "bmi",
+      "name": "Body Mass Index",
+      "group": "Antropometría",
+      "measures": "Relación peso/talla",
+      "use": "Clasificación antropométrica",
+      "formula": "weight_kg/(height_m^2)",
+      "unit": "kg/m2",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "holliday-segar",
+      "name": "Holliday-Segar Maintenance",
+      "group": "Pediatría/Fluidos",
+      "measures": "Mantenimiento hídrico pediátrico",
+      "use": "Calcular volumen diario",
+      "formula": "weight_bands",
+      "unit": "mL/day",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "four-two-one",
+      "name": "4-2-1 Maintenance Rate",
+      "group": "Pediatría/Fluidos",
+      "measures": "Velocidad de mantenimiento",
+      "use": "Calcular mL/h pediátricos",
+      "formula": "weight_bands",
+      "unit": "mL/h",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "dehydration-deficit",
+      "name": "Dehydration Fluid Deficit",
+      "group": "Pediatría/Fluidos",
+      "measures": "Déficit por porcentaje de deshidratación",
+      "use": "Planificar reposición",
+      "formula": "weight_kg*dehydration_fraction*1000",
+      "unit": "mL",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "parkland",
+      "name": "Parkland Burn Formula",
+      "group": "Quemados",
+      "measures": "Volumen inicial de reanimación",
+      "use": "Grandes quemados seleccionados; titular a respuesta",
+      "formula": "4*weight_kg*TBSA_percent",
+      "unit": "mL/24h",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "mgkg-dose",
+      "name": "Weight-based Dose",
+      "group": "Farmacología",
+      "measures": "Dosis desde mg/kg",
+      "use": "Aritmética de dosis validada",
+      "formula": "mg_per_kg*weight_kg",
+      "unit": "mg",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "mcgkgmin-to-mlh",
+      "name": "mcg/kg/min to mL/h",
+      "group": "Farmacología",
+      "measures": "Velocidad de bomba",
+      "use": "Convertir dosis prescrita a mL/h",
+      "formula": "dose_mcg_kg_min*weight_kg*60/concentration_mcg_mL",
+      "unit": "mL/h",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "mgkgh-to-mlh",
+      "name": "mg/kg/h to mL/h",
+      "group": "Farmacología",
+      "measures": "Velocidad de bomba",
+      "use": "Convertir dosis prescrita a mL/h",
+      "formula": "dose_mg_kg_h*weight_kg/concentration_mg_mL",
+      "unit": "mL/h",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "unitskgh-to-mlh",
+      "name": "units/kg/h to mL/h",
+      "group": "Farmacología",
+      "measures": "Velocidad de bomba",
+      "use": "Convertir unidades prescritas a mL/h",
+      "formula": "dose_units_kg_h*weight_kg/concentration_units_mL",
+      "unit": "mL/h",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "final-concentration",
+      "name": "Final Drug Concentration",
+      "group": "Farmacología",
+      "measures": "Concentración final",
+      "use": "Preparar perfusión de forma reproducible",
+      "formula": "drug_amount/final_volume",
+      "unit": "amount_per_mL",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "qtc-bazett",
+      "name": "QTc Bazett",
+      "group": "Cardiología",
+      "measures": "QT corregido por frecuencia",
+      "use": "Evaluar QT; sobrecorrige a frecuencias altas",
+      "formula": "QT_s/sqrt(RR_s)",
+      "unit": "s",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "qtc-fridericia",
+      "name": "QTc Fridericia",
+      "group": "Cardiología",
+      "measures": "QT corregido por frecuencia",
+      "use": "Evaluar QT con menor sesgo de frecuencia que Bazett",
+      "formula": "QT_s/(RR_s^(1/3))",
+      "unit": "s",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "cao2",
+      "name": "Arterial Oxygen Content",
+      "group": "Hemodinámica",
+      "measures": "Contenido arterial de O2",
+      "use": "Entrega de oxígeno",
+      "formula": "1.34*Hb*SaO2_fraction + 0.0031*PaO2",
+      "unit": "mL O2/dL",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "do2",
+      "name": "Oxygen Delivery",
+      "group": "Hemodinámica",
+      "measures": "Entrega sistémica de O2",
+      "use": "Fisiología de shock",
+      "formula": "CO_L_min*CaO2*10",
+      "unit": "mL O2/min",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "cardiac-index",
+      "name": "Cardiac Index",
+      "group": "Hemodinámica",
+      "measures": "Gasto cardiaco indexado",
+      "use": "Valorar función circulatoria",
+      "formula": "CO_L_min/BSA_m2",
+      "unit": "L/min/m2",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "svr",
+      "name": "Systemic Vascular Resistance",
+      "group": "Hemodinámica",
+      "measures": "Resistencia vascular sistémica",
+      "use": "Caracterizar shock",
+      "formula": "80*(MAP-CVP)/CO_L_min",
+      "unit": "dyn*s/cm5",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "meld-na-formula",
+      "name": "MELD-Na",
+      "group": "Hepatología",
+      "measures": "Riesgo hepático ajustado por sodio",
+      "use": "Pronóstico/trasplante",
+      "formula": "validated_equation",
+      "unit": "points",
+      "editable": true,
+      "autofill": true
+    },
+    {
+      "id": "maddrey-formula",
+      "name": "Maddrey DF",
+      "group": "Hepatología",
+      "measures": "Severidad de hepatitis alcohólica",
+      "use": "Pronóstico/decisión terapéutica",
+      "formula": "4.6*(PT_patient-PT_control)+bilirubin_mg_dL",
+      "unit": "points",
+      "editable": true,
+      "autofill": true
+    }
+  ]
+}
