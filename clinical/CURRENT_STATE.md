@@ -164,7 +164,7 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 ## Estado canónico actual — 02/10/2026
 - Rama de trabajo: `v1.36-consolidation`; `main` no promovida.
 - Estado clínico/evidencia: **127 módulos / 127/127 evidencia / 29 green / 98 yellow / 0 red**.
-- Clinical QA verificado: **169/169 tests PASS**, `automated_status: PASS` (run #320).
+- Clinical QA verificado: **175/175 tests PASS**, `automated_status: PASS` (run #338).
 - Fase 4 pediátrica: desarrollo técnico completo; gate pendiente exclusivamente humano pediatría/farmacia. Sin auto-promoción.
 - Fase 5 ECG: PTB-XL pilot real, NATURAL_500 y full-fold construidos; los bancos previos a v2 se clasifican como ingeniería porque logs antiguos mostraban prevalencia agregada.
 - PTB-XL NATURAL_500 v2 limpio fue disparado tras suprimir cualquier count positivo/negativo pre-reveal. Referencia permanece sellada.
@@ -184,3 +184,16 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Por política v1.1, sensibilidad/especificidad/PPV/NPV/accuracy estándar permanecen **suprimidas** porque 95/500 casos no tuvieron predicción binaria.
 - Resultado almacenado en `qa/results/PTBXL_NATURAL500_V2_AFIB_BASELINE_V1_RESULT.json`.
 - Interpretación: baseline de ingeniería sobre render ECG; **no** es precisión clínica de ChatGPT, no es validación externa/prospectiva y no promueve módulos a green.
+
+
+## Cierre canónico Fase 5 — 03/10/2026
+- Infraestructura automatizable de imagen cerrada: ver `qa/PHASE5_IMAGE_CLOSURE.md`.
+- ECG/PTB-XL: benchmark exploratorio real completado con freeze pre-reveal y resultado post-reveal; métricas binarias estándar suprimidas por abstain/nondiagnostic.
+- RSNA ICH: referencia + DICOM render WW80/WL40 + orden IOP/IPP congelados; falta acceso/import real e interpretación ciega.
+- CheXpert: expert-test + visual protocol congelados; acceso específico AIMI/Redivis aún no verificado en este workspace.
+- MIMIC-CXR: curated-test + visual protocol congelados; acceso real requiere credentialing/CITI/DUA.
+- EchoNet-Dynamic: TEST split + visual protocol congelados; acceso real requiere aceptación individual del Research Use Agreement.
+- Estado clínico/evidencia sigue **127 módulos / 127/127 evidencia / 29 green / 98 yellow / 0 red**.
+- **175/175 tests PASS** es la cifra QA vigente; cifras menores anteriores son snapshots históricos.
+- Fase 4 pediátrica continúa bloqueada únicamente por revisión humana pediatría/farmacia.
+- v1.35 permanece línea clínica vigente; v1.36-consolidation no se promociona automáticamente.
