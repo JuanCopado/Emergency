@@ -63,6 +63,7 @@ from create_blinded_image_dataset import build as build_blinded_image_dataset
 from prepare_ptbxl_blinded_cohort import prepare as prepare_ptbxl_blinded_cohort
 from finalize_blinded_image_dataset import finalize as finalize_blinded_image_dataset
 from merge_blinded_prediction_shards import merge as merge_blinded_prediction_shards
+from predict_ptbxl_afib_image_baseline import classify_features as classify_ptbxl_afib_baseline
 from prepare_rsna_ich_blinded_cohort import prepare as prepare_rsna_ich_blinded_cohort
 from prepare_chexpert_expert_blinded_cohort import prepare as prepare_chexpert_expert_blinded_cohort
 from prepare_echonet_dynamic_blinded_cohort import prepare as prepare_echonet_dynamic_blinded_cohort
@@ -2414,6 +2415,24 @@ class ModularCoreTests(unittest.TestCase):
         self.assertNotIn('positive_reference_cases', print_block)
         self.assertNotIn('negative_reference_cases', print_block)
         self.assertIn('sealed_reference_created', print_block)
+
+    def test_v136_ptbxl_afib_image_baseline_frozen_rules(self):
+        self.assertEqual(classify_ptbxl_afib_baseline(10, 0.20, 0.30, 0.10), 'positive')
+        self.assertEqual(classify_ptbxl_afib_baseline(10, 0.03, 0.04, 0.02), 'negative')
+        self.assertEqual(classify_ptbxl_afib_baseline(10, 0.12, 0.16, 0.06), 'abstain')
+        self.assertEqual(classify_ptbxl_afib_baseline(4, 0.30, 0.40, 0.20), 'nondiagnostic')
+
+    def test_v136_ptbxl_afib_freeze_record_integrity(self):
+        data = json.loads((ROOT / 'qa' / 'results' / 'PTBXL_NATURAL500_V2_AFIB_BASELINE_V1_FREEZE.json').read_text(encoding='utf-8'))
+        self.assertEqual(data['status'], 'PRE_REVEAL_FROZEN')
+        self.assertEqual(data['case_count'], 500)
+        self.assertEqual(len(data['manifest_order_prediction_sequence']), 500)
+        counts = {k: data['manifest_order_prediction_sequence'].count(k) for k in 'PNAD'}
+        self.assertEqual(counts, {'P': 46, 'N': 359, 'A': 93, 'D': 2})
+        self.assertEqual(
+            data['full_predictions_file_sha256'],
+            'ae7f25704b9a8a43994346406d2fabb43f786c8a49b7c4987bd40f2df1cd6663'
+        )
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
