@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "status": "PRE_REVEAL_FROZEN",
+  "source_run_id": 37054176049,
+  "blinded_artifact_id": 11248490989,
+  "blinded_artifact_digest": "sha256:9c73da73d5636c448f5b21322e2df3d9c521883e409d8a5759e1ba375ecedd80",
+  "blinded_manifest_sha256": "42ec9bb10e525e9f2a489460694275306bf004391b34d2d3802464d81d664750",
+  "interpreter": "ptbxl-afib-render-irregularity-baseline-v1",
+  "protocol": "qa/PTBXL_AFIB_IMAGE_BASELINE_V1.md",
+  "prediction_frozen_at": "2026-10-03T00:07:32.888774Z",
+  "case_count": 500,
+  "counts": {
+    "positive": 46,
+    "negative": 359,
+    "abstain": 93,
+    "nondiagnostic": 2
+  },
+  "class_encoding": {
+    "P": "positive",
+    "N": "negative",
+    "A": "abstain",
+    "D": "nondiagnostic"
+  },
+  "manifest_order_prediction_sequence": "ANNAANDANNNANNNAANANPNNNNNNNANNNNNNANNNNNPANNNNNNANNAPANNANNNPNNNNNNNNNNNNANNNNNNNNPNNNNNNNNNANNNNANAPNNANPNNNNNANANPNAPANNANNANPNNNNANNANNNANNNPANANNANNPNNAPNANNNNNNNNNPNNNNNNANNNNANNANNNNANNPNNNNNNNPANNNNNNPANNPNAPPANNNNNNNNANAANNNNNNNNNNNNAPNPNPNNNNNANNANNPNNNNANNNNNNNPAANAPNANNNNNNNNANAAPNNNNNNNNNNNANNNANNNNNNPNANNNANNNANNNNNANNNNNNNNAAAANNNPNANNNNAANANNNNNNNNNNANNDPANNPNNAANNNANNNNANNNNANPNNNNNNNAANPANNPNNNNPNANNAANNNNNNNNNNNANPNNNPNAPNNAPPNANNNPPPNNNANANNNPNANNNNNNNNNANNNNNANNNNNNANPNPNNNN",
+  "full_predictions_file_sha256": "ae7f25704b9a8a43994346406d2fabb43f786c8a49b7c4987bd40f2df1cd6663",
+  "rule": {
+    "positive": "cv>=0.18 AND normalized_rmssd>=0.22 AND rr_mad_ratio>=0.08",
+    "negative": "cv<=0.08 AND normalized_rmssd<=0.12 AND rr_mad_ratio<=0.05",
+    "nondiagnostic": "trace/QRS extraction failure or <5 QRS",
+    "abstain": "otherwise"
+  },
+  "disclosure": "This freezes an engineering image baseline, not clinical validation or ChatGPT clinical accuracy."
+}
