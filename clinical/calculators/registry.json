@@ -43,7 +43,10 @@
       "use": "Estratificación inicial tras sospecha de AIT",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "ABCD2 2007",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17258668/"
     },
     {
       "id": "canadian-tia-score",
@@ -65,7 +68,11 @@
       "use": "Apoyo a selección/pronóstico en ictus anterior",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "ASPECTS 2000",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10905241/",
+      "execution_note": "Calculator subtracts explicit region abnormalities; it does not interpret CT images."
     },
     {
       "id": "pc-aspects",
@@ -87,7 +94,11 @@
       "use": "Estado funcional basal y evolución tras ictus",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "mRS 0-6",
+      "source_url": "https://manual.jointcommission.org/releases/TJC2026B/DataElem0569.html",
+      "execution_note": "Requires explicit structured score; no free-text inference."
     },
     {
       "id": "glasgow-coma",
@@ -146,7 +157,10 @@
       "use": "Estratificación inicial de HIC espontánea",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "ICH Score 2001",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11283388/"
     },
     {
       "id": "modified-fisher",
@@ -157,7 +171,10 @@
       "use": "Riesgo de vasoespasmo tras HSA",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "Modified Fisher 0-4",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16823296/"
     },
     {
       "id": "hunt-hess",
@@ -212,7 +229,10 @@
       "use": "Cribado rápido prehospitalario",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "CPSS",
+      "source_url": "https://www.stroke.org/en/professionals/stroke-resource-library/pre-hospitalems"
     },
     {
       "id": "race-stroke",
@@ -223,7 +243,10 @@
       "use": "Triaje prehospitalario de ictus",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "RACE",
+      "source_url": "https://racescale.org/how-to-use/table/"
     },
     {
       "id": "fast-ed",
@@ -234,7 +257,10 @@
       "use": "Triaje de ictus para trombectomía",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block5_neuro.py",
+      "version": "FAST-ED",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961538/"
     },
     {
       "id": "heart",
