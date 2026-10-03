@@ -83,6 +83,7 @@ from core_scores_block6 import calculate_bishop, calculate_meows_nnuh_v7, calcul
 from core_scores_block7 import calculate_bedside_pews, calculate_pediatric_trauma_score, calculate_sipa, calculate_flacc, prepare_wong_baker, calculate_pram, calculate_westley_croup, calculate_clinical_dehydration, calculate_pediatric_appendicitis, classify_pecarn_head_injury
 from core_scores_block8 import classify_pecarn_febrile_infant, classify_step_by_step, calculate_apgar
 from specialist_scores_block1 import calculate_canadian_tia, calculate_pc_aspects, calculate_four_score, classify_hunt_hess, calculate_wfns_sah, calculate_stess, calculate_bacterial_meningitis_score
+from specialist_scores_block2 import calculate_edacs, calculate_orbit, calculate_tisdale, calculate_bova, calculate_sic, calculate_mews, calculate_sirs
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -4150,6 +4151,56 @@ class ModularCoreTests(unittest.TestCase):
     def test_v137_specialist_neuro_registry_status(self):
         registry=central_load_registry()
         for sid in ('canadian-tia-score','pc-aspects','four-score','hunt-hess','wfns-sah','stess','bacterial-meningitis-score'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+
+    def test_v137_specialist_edacs_orbit_tisdale(self):
+        edacs=calculate_edacs({
+            'age':86,'sex':'male','known_cad_or_age18_50_ge3_risk_factors':True,
+            'diaphoresis':True,'radiation':True,'pleuritic':False,'palpation_reproduces':False
+        })
+        self.assertEqual(edacs['total'],38)
+        orbit=calculate_orbit({
+            'age':80,'sex':'male','hemoglobin_g_dL':10,'bleeding_history':True,
+            'egfr_mL_min_1_73m2':40,'antiplatelet':True
+        })
+        self.assertEqual(orbit['total'],7)
+        tisdale=calculate_tisdale({
+            'age':70,'female':True,'loop_diuretic':True,'potassium_mmol_L':3.2,
+            'baseline_qtc_ms':470,'acute_mi':True,'qt_prolonging_drug_count':2,
+            'heart_failure':True,'sepsis':True
+        })
+        self.assertEqual(tisdale['total'],21)
+        self.assertEqual(tisdale['risk_band'],'high_ge11')
+
+    def test_v137_specialist_bova_sic_mews_sirs(self):
+        bova=calculate_bova({
+            'systolic_bp_mmHg':95,'troponin_elevated':True,'rv_dysfunction':True,'heart_rate_bpm':120
+        })
+        self.assertEqual(bova['total'],7)
+        self.assertEqual(bova['stage'],'III')
+        with self.assertRaises(ValueError):
+            calculate_bova({'systolic_bp_mmHg':80,'troponin_elevated':True,'rv_dysfunction':True,'heart_rate_bpm':120})
+
+        sic=calculate_sic({'platelets_10e9_L':80,'pt_inr':1.5,'sofa_four_system_score':2})
+        self.assertEqual(sic['total'],6)
+        self.assertTrue(sic['sic_positive'])
+
+        mews=calculate_mews({
+            'systolic_bp_mmHg':65,'heart_rate_bpm':135,'respiratory_rate':35,'temperature_c':34,'avpu':'U'
+        })
+        self.assertEqual(mews['total'],14)
+
+        sirs=calculate_sirs({
+            'temperature_c':39,'heart_rate_bpm':100,'respiratory_rate':25,'paco2_mmHg':40,
+            'wbc_per_uL':13000,'bands_percent':0
+        })
+        self.assertEqual(sirs['positive_count'],4)
+        self.assertTrue(sirs['sirs_ge2'])
+
+    def test_v137_specialist_block2_registry_status(self):
+        registry=central_load_registry()
+        for sid in ('edacs','orbit-bleeding','tisdale-qt','bova','sic','mews','sirs'):
             item=next(x for x in registry['scales'] if x['id']==sid)
             self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
 
