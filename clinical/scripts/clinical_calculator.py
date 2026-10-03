@@ -21,6 +21,7 @@ from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
 from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
 from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
+from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -270,6 +271,7 @@ def calculate_scale(scale_id, data, registry=None):
     score_formula_aliases = {
         "shock-index": "shock-index-formula",
         "modified-shock-index": "modified-shock-index-formula",
+        "rox-index": "rox",
     }
     if scale_id in score_formula_aliases:
         value, unit = calculate(score_formula_aliases[scale_id], data)
@@ -319,6 +321,10 @@ def calculate_scale(scale_id, data, registry=None):
         "spesi": calculate_spesi,
         "hestia": calculate_hestia,
         "wells-dvt": calculate_wells_dvt,
+        "crb65": calculate_crb65,
+        "psi-port": calculate_psi_port,
+        "decaf": calculate_decaf,
+        "berlin-ards": classify_berlin_ards,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
