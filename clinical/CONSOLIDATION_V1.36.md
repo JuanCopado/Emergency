@@ -206,3 +206,9 @@ No fusionar a `main` cambios clínicos de alto riesgo únicamente porque pasen t
 - [x] PTB-XL NATURAL_500 v2: primera evaluación ciega exploratoria completada con baseline de irregularidad derivado exclusivamente del PNG, freeze pre-reveal verificable y resultado post-reveal documentado.
 - [x] Política de métricas respetada: 95 casos abstain/nondiagnostic -> sensibilidad/especificidad estándar suprimidas; se reportan cobertura y matriz de conteos.
 - [ ] Validación diagnóstica clínica generalizable sigue pendiente: requiere intérprete/modelo clínico preespecificado, cohorte externa independiente/prospectiva y revisión humana; el baseline de ingeniería no satisface ese gate.
+
+- [x] RSNA ICH DICOM->render congelado: brain WW80/WL40, slope/intercept, orden IOP/IPP y fail-closed de series/orientación.
+- [x] CheXpert/MIMIC CXR visual-input protocol congelado sin enhancement diagnóstico-dependiente.
+- [x] EchoNet visual-input protocol congelado: vídeo nativo o 32 frames uniformes del vídeo completo.
+- [x] Cierre técnico de Fase 5 documentado en `qa/PHASE5_IMAGE_CLOSURE.md`.
+- [ ] Dependencias externas restantes no son deuda técnica: acceso/DUA/credenciales de datasets, intérprete clínico externo/prospectivo y revisión humana.
