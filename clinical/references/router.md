@@ -120,18 +120,18 @@ each changes immediate decisions; do not load an entire category.
 ## Clinical scores and calculators
 - Any request to calculate, interpret, edit or auto-fill a clinical score/formula -> clinical-scores-calculators.
 - When a syndrome has a canonical scale, add clinical-scores-calculators **without duplicating the score inside the syndrome module**.
-- acute ischemic stroke -> add NIHSS; consider ASPECTS/mRS when relevant.
-- suspected TIA -> add ABCD2 and/or Canadian TIA Score according to local pathway.
-- chest pain/ACS -> HEART, GRACE 2.0 or TIMI as appropriate.
-- atrial fibrillation -> CHA2DS2-VASc/CHA2DS2-VA and a bleeding-risk tool when clinically relevant.
-- suspected PE -> Wells or Revised Geneva; PERC/YEARS only in their validated diagnostic context; confirmed PE -> PESI/sPESI/Hestia/Bova as appropriate.
-- adult sepsis/acute deterioration -> SOFA/NEWS2; qSOFA may support risk assessment but must not be used as the sole sepsis screen.
-- pediatric suspected sepsis -> Phoenix Sepsis Score; pSOFA/PELOD-2 only when the specialist context warrants them.
-- head injury -> GCS; pediatric head injury -> Pediatric GCS + PECARN when eligibility criteria are met.
-- upper GI bleeding -> Glasgow-Blatchford; add AIMS65/Rockall when relevant.
-- pneumonia -> CURB-65/CRB-65 or PSI/PORT according to context.
-- pancreatitis -> BISAP (Ranson only when explicitly needed).
-- toxicology -> Rumack-Matthew, Hunter, CIWA-Ar, PAWSS or COWS only when their indication is met.
+- acute ischemic stroke -> clinical-scores-calculators (calculator_id: nihss; consider aspects / modified-rankin when relevant).
+- suspected TIA -> clinical-scores-calculators (calculator_id: abcd2 and/or canadian-tia-score according to local pathway).
+- chest pain/ACS -> clinical-scores-calculators (calculator_id: heart, grace-2 or timi-ua-nstemi as appropriate).
+- atrial fibrillation -> clinical-scores-calculators (calculator_id: cha2ds2-vasc or cha2ds2-va; add a bleeding-risk tool when clinically relevant).
+- suspected PE or confirmed PE -> clinical-scores-calculators (calculator_id: wells-pe or revised-geneva; perc/years-pe only in validated diagnostic context; pesi/spesi/hestia/bova when confirmed and appropriate).
+- adult sepsis/acute deterioration -> clinical-scores-calculators (calculator_id: sofa and/or news2; qsofa only as contextual risk signal, never the sole sepsis screen).
+- pediatric suspected sepsis -> clinical-scores-calculators (calculator_id: phoenix-sepsis; psofa/pelod2 only when specialist context warrants them).
+- head injury or pediatric head injury -> clinical-scores-calculators (calculator_id: gcs or pediatric-gcs; add pecarn-head-injury only when eligibility criteria are met).
+- upper GI bleeding -> clinical-scores-calculators (calculator_id: glasgow-blatchford; add aims65/rockall when relevant).
+- pneumonia -> clinical-scores-calculators (calculator_id: curb65/crb65 or psi-port according to context).
+- pancreatitis -> clinical-scores-calculators (calculator_id: bisap; ranson only when explicitly needed).
+- toxicology -> clinical-scores-calculators (calculator_id: rumack-matthew, hunter-serotonin, ciwa-ar, pawss or cows only when indicated).
 - Formula requests (anion gap, corrected sodium, osmolality, CrCl/eGFR, P/F, ROX, QTc, BSA, fluids, infusion mL/h, hemodynamics) -> clinical-scores-calculators.
 
 ## Cross-cutting additions
