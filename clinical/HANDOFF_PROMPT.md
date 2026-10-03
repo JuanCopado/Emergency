@@ -8,7 +8,7 @@ Pega este bloque en un chat nuevo:
 >
 > **Estado clínico:** 127 módulos / 127 registros de evidencia / 29 green / 98 yellow / 0 red. v1.35 sigue siendo la línea clínica autoritativa; v1.36 es consolidación. Fase 4 pediátrica está técnicamente desarrollada pero high-risk permanece yellow hasta revisión humana pediatría/farmacia.
 >
-> **QA canónico:** **175/175 tests PASS**, `automated_status: PASS` (Clinical QA #338).
+> **QA canónico:** **178/178 tests PASS**, `automated_status: PASS` (Clinical QA #356).
 >
 > **Fase 5 imagen:** infraestructura automatizable cerrada. Política ciega v1.1, source intake, leakage gates, freeze/reveal, sharding, merge y protocolos visuales están implementados. Ver `qa/PHASE5_IMAGE_CLOSURE.md`.
 >
@@ -24,7 +24,7 @@ Pega este bloque en un chat nuevo:
 >
 > **Reglas:** tests != validación clínica; no auto-green; no inventar dosis/concentraciones/stock; preservar discrepancias; perfusiones en mL/h solo con concentración verificada; pediatría no exige protocolo local Horta como gate.
 >
-> **Pendientes reales restantes:** revisión humana pediatría/farmacia y de otros high-risk yellow; acceso/DUA/credenciales de datasets restringidos; validación clínica externa/prospectiva de imagen; Portugal/Azores formulary/protocol review. No son deuda técnica automatizable.
+> **Clinical Scores & Calculators:** 134 escalas + 45 fórmulas; 45/45 fórmulas implementadas. Las escalas permanecen fail-closed para datos crudos hasta codificación fuente-a-fuente; component_sum solo suma componentes ya puntuados explícitamente. Ver `qa/PREBRANCH_AUDIT_V1.36.md`.\n>\n> **Pendientes reales restantes:** validación/codificación fuente-a-fuente de 93 escalas CORE y luego 41 SPECIALIST; revisión humana pediatría/farmacia y otros high-risk yellow; acceso/DUA/credenciales de datasets restringidos; validación clínica externa/prospectiva de imagen; Portugal/Azores formulary/protocol review.
 
 ## Archivos de continuidad
 - `clinical/CURRENT_STATE.md`
