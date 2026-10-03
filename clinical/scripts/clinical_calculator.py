@@ -25,6 +25,7 @@ from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, 
 from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
 from core_scores_block11_digestive_hepatology import calculate_aims65, calculate_bisap, calculate_child_pugh, calculate_kings_college
 from core_scores_block12_mixed import calculate_qsofa, calculate_isth_dic, classify_kdigo_aki, calculate_mcmahon, calculate_alvarado, calculate_air
+from core_scores_block13_toxicology import evaluate_rumack_matthew, evaluate_hunter_serotonin, calculate_ciwa_ar, calculate_cows
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -346,6 +347,10 @@ def calculate_scale(scale_id, data, registry=None):
         "mcmahon-rhabdo": calculate_mcmahon,
         "alvarado": calculate_alvarado,
         "air-appendicitis": calculate_air,
+        "rumack-matthew": evaluate_rumack_matthew,
+        "hunter-serotonin": evaluate_hunter_serotonin,
+        "ciwa-ar": calculate_ciwa_ar,
+        "cows": calculate_cows,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
