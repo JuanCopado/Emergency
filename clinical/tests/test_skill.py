@@ -65,6 +65,7 @@ from finalize_blinded_image_dataset import finalize as finalize_blinded_image_da
 from merge_blinded_prediction_shards import merge as merge_blinded_prediction_shards
 from predict_ptbxl_afib_image_baseline import classify_features as classify_ptbxl_afib_baseline
 from render_rsna_ich_dicom import window_hu_scalar as rsna_window_hu_scalar, slice_position as rsna_slice_position
+from prepare_echonet_visual_input import frame_indices as echonet_frame_indices
 from prepare_rsna_ich_blinded_cohort import prepare as prepare_rsna_ich_blinded_cohort
 from prepare_chexpert_expert_blinded_cohort import prepare as prepare_chexpert_expert_blinded_cohort
 from prepare_echonet_dynamic_blinded_cohort import prepare as prepare_echonet_dynamic_blinded_cohort
@@ -2453,6 +2454,23 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('"width_hu": 80', script)
         self.assertIn('"level_hu": 40', script)
         self.assertNotIn('must_be_frozen_before_visual_prediction', script)
+
+    def test_v136_echo_visual_sampling_is_deterministic(self):
+        idx = echonet_frame_indices(101, 32)
+        self.assertEqual(len(idx), 32)
+        self.assertEqual(idx[0], 0)
+        self.assertEqual(idx[-1], 100)
+        self.assertEqual(idx, sorted(idx))
+        with self.assertRaises(ValueError):
+            echonet_frame_indices(20, 32)
+
+    def test_v136_visual_protocols_are_bound_to_source_preparers(self):
+        chex = (ROOT / 'scripts' / 'prepare_chexpert_expert_blinded_cohort.py').read_text(encoding='utf-8')
+        mimic = (ROOT / 'scripts' / 'prepare_mimic_cxr_curated_blinded_cohort.py').read_text(encoding='utf-8')
+        echo = (ROOT / 'scripts' / 'prepare_echonet_dynamic_blinded_cohort.py').read_text(encoding='utf-8')
+        self.assertIn('CXR_VISUAL_INPUT_PROTOCOL.md', chex)
+        self.assertIn('CXR_VISUAL_INPUT_PROTOCOL.md', mimic)
+        self.assertIn('ECHONET_VISUAL_INPUT_PROTOCOL.md', echo)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
