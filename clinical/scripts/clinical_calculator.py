@@ -22,6 +22,7 @@ from core_score_pediatric_gcs import calculate_pediatric_gcs
 from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
 from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
 from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
+from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -325,6 +326,12 @@ def calculate_scale(scale_id, data, registry=None):
         "psi-port": calculate_psi_port,
         "decaf": calculate_decaf,
         "berlin-ards": classify_berlin_ards,
+        "rts": calculate_rts,
+        "iss": calculate_iss,
+        "abc-massive-transfusion": calculate_abc_massive_transfusion,
+        "canadian-ct-head": calculate_canadian_ct_head,
+        "canadian-cspine": calculate_canadian_cspine,
+        "nexus-cspine": calculate_nexus_cspine,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
