@@ -1,0 +1,1200 @@
+{
+  "schema_version": "1.0",
+  "scope": "Pediatric outpatient/home medication regimens after ED/urgent-care evaluation",
+  "status": "yellow_human_pediatric_pharmacy_review_required",
+  "safety_rules": [
+    "Select regimen by diagnosis; never copy a dose across indications.",
+    "Liquid mL may be generated only from an explicitly verified exact product concentration.",
+    "Apply source adult/per-dose and daily caps.",
+    "Weight basis is explicit. Do not substitute actual/ideal/adjusted weight silently.",
+    "Marked obesity requires drug-specific review when evidence is limited; adult maximums still apply when the source specifies them.",
+    "Renal/hepatic impairment, allergy, drug interactions, inability to tolerate oral treatment, red flags and age restrictions may override outpatient treatment."
+  ],
+  "obesity_policy": {
+    "source": "Pediatric Pharmacy Association position statement 2024",
+    "rule": "For patients <18 years and <40 kg, weight-based dosing is generally used. At >=40 kg, continue weight-based dosing unless it exceeds the recommended adult dose for the indication. Drug-specific PK/weight-scalar evidence supersedes this general rule.",
+    "explicit_exception": "RCH oral paracetamol is dosed on ideal body weight.",
+    "note": "Do not assign ideal or adjusted body weight to other outpatient drugs without drug-specific evidence."
+  },
+  "entries": [
+    {
+      "id": "paracetamol-pain-fever-home",
+      "category": "analgesic_antipyretic",
+      "drug": "paracetamol",
+      "diagnosis": "mild/moderate pain or fever in a child >1 month suitable for home treatment",
+      "route": "PO",
+      "weight_basis": "ideal",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 15,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 4,
+      "frequency": "every 6 h as needed; minimum interval 4 h",
+      "duration_days": [
+        1,
+        3
+      ],
+      "daily_max_mg_per_kg": 60,
+      "adult_max_daily_mg": 4000,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 24,
+          "label": "120 mg/5 mL"
+        }
+      ],
+      "administration": "May be taken with or without food. Shake suspension. Avoid all other paracetamol/acetaminophen-containing products.",
+      "contraindications": [
+        "hypersensitivity to paracetamol"
+      ],
+      "cautions": [
+        "severe hepatic impairment",
+        "severe renal impairment",
+        "malnutrition or glutathione depletion",
+        "duplicate paracetamol products"
+      ],
+      "source": "RCH Acute Pain Management 2024; current paracetamol SmPC 120 mg/5 mL",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/"
+    },
+    {
+      "id": "ibuprofen-pain-fever-home",
+      "category": "analgesic_antipyretic",
+      "drug": "ibuprofen",
+      "diagnosis": "mild/moderate pain or fever when NSAID is appropriate",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 10,
+      "max_mg_per_dose": 400,
+      "doses_per_day": 3,
+      "frequency": "every 6-8 h as needed; home schedule capped at 3 doses/day",
+      "duration_days": [
+        1,
+        3
+      ],
+      "daily_max_mg_per_kg": 30,
+      "adult_max_daily_mg": 2400,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 20,
+          "label": "100 mg/5 mL"
+        }
+      ],
+      "administration": "Give with food; use the lowest effective dose for the shortest duration.",
+      "excluded_patient_flags": [
+        {
+          "field": "dehydrated",
+          "equals": true,
+          "message": "avoid ibuprofen in dehydration because of renal risk"
+        },
+        {
+          "field": "significant_renal_impairment",
+          "equals": true,
+          "message": "avoid/seek specialist dosing advice in significant renal impairment"
+        },
+        {
+          "field": "nsaid_hypersensitivity",
+          "equals": true,
+          "message": "contraindicated with prior ibuprofen/aspirin/NSAID hypersensitivity"
+        },
+        {
+          "field": "active_or_recurrent_peptic_ulcer_bleeding",
+          "equals": true,
+          "message": "contraindicated with active/recurrent peptic ulcer or GI bleeding"
+        }
+      ],
+      "cautions": [
+        "anticoagulant use",
+        "bleeding risk"
+      ],
+      "source": "RCH Acute Pain Management 2024; ibuprofen 100 mg/5 mL SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/"
+    },
+    {
+      "id": "ondansetron-gastroenteritis-initial",
+      "category": "antiemetic",
+      "drug": "ondansetron",
+      "diagnosis": "persistent nausea/vomiting with gastroenteritis to support oral rehydration; child >6 months",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 6,
+      "dose_model": "fixed_weight_band",
+      "doses_per_day": 1,
+      "duration_days": 1,
+      "liquid_capable": true,
+      "bands": [
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 15,
+          "dose_mg": 2,
+          "doses_per_day": 1,
+          "duration_days": 1
+        },
+        {
+          "min_weight_kg": 15,
+          "max_weight_kg": 30,
+          "dose_mg": 4,
+          "doses_per_day": 1,
+          "duration_days": 1
+        },
+        {
+          "min_weight_kg": 30,
+          "dose_mg": 8,
+          "doses_per_day": 1,
+          "duration_days": 1
+        }
+      ],
+      "administration": "Adjunct to oral rehydration only. Improvement in vomiting does not exclude serious disease.",
+      "cautions": [
+        "QT prolongation risk",
+        "electrolyte disturbance",
+        "bilious vomiting or surgical red flags"
+      ],
+      "source": "RCH Gastroenteritis, current guideline",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Gastroenteritis/"
+    },
+    {
+      "id": "cetirizine-urticaria-6to11mo",
+      "category": "antihistamine",
+      "drug": "cetirizine",
+      "diagnosis": "isolated acute urticaria without anaphylaxis, age 6-11 months",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 6,
+      "max_age_months": 11,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.25,
+      "max_mg_per_dose": 2.5,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 1,
+          "label": "1 mg/mL oral solution"
+        }
+      ],
+      "administration": "Use a non-sedating antihistamine. Avoid NSAIDs as they can worsen urticaria.",
+      "cautions": [
+        "renal impairment requires individualized interval",
+        "age <6 months requires pediatric review",
+        "any airway/respiratory/circulatory or significant GI involvement = evaluate for anaphylaxis"
+      ],
+      "source": "RCH Urticaria; current cetirizine product concentration",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/"
+    },
+    {
+      "id": "cetirizine-urticaria-ge1y",
+      "category": "antihistamine",
+      "drug": "cetirizine",
+      "diagnosis": "isolated acute urticaria/allergic symptoms, age >=1 year",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 1,
+          "label": "1 mg/mL oral solution"
+        }
+      ],
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 23,
+          "dose_mg": 2.5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 24,
+          "max_age_months": 71,
+          "dose_mg": 2.5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 144,
+          "dose_mg": 10,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "age-band schedule",
+      "administration": "May be given as oral solution. Avoid NSAIDs in acute urticaria if they worsen symptoms.",
+      "cautions": [
+        "renal impairment requires dose-interval review",
+        "anaphylaxis features require adrenaline pathway, not antihistamine alone"
+      ],
+      "source": "RCH Urticaria; cetirizine 1 mg/mL SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/"
+    },
+    {
+      "id": "loratadine-allergic-rhinitis-urticaria",
+      "category": "antihistamine",
+      "drug": "loratadine",
+      "diagnosis": "allergic rhinitis or urticaria, age >=2 years",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 24,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 1,
+          "label": "1 mg/mL syrup"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 30,
+          "dose_mg": 5,
+          "doses_per_day": 1
+        },
+        {
+          "min_weight_kg": 30,
+          "dose_mg": 10,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Oral syrup. In severe hepatic impairment use the product-label reduced initial frequency rather than this standard regimen.",
+      "contraindications": [
+        "hypersensitivity to loratadine/product excipients"
+      ],
+      "cautions": [
+        "severe hepatic impairment"
+      ],
+      "source": "Clarityn Allergy 1 mg/mL SmPC 2025",
+      "source_url": "https://www.medicines.org.uk/emc/product/13696/smpc"
+    },
+    {
+      "id": "desloratadine-allergic-rhinitis-urticaria",
+      "category": "antihistamine",
+      "drug": "desloratadine",
+      "diagnosis": "allergic rhinitis or urticaria, age >=1 year",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.5,
+          "label": "0.5 mg/mL oral solution"
+        }
+      ],
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_mg": 1.25,
+          "doses_per_day": 1
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 2.5,
+          "doses_per_day": 1
+        },
+        {
+          "min_age_months": 144,
+          "dose_mg": 5,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "source": "NeoClarityn 0.5 mg/mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/6510/smpc"
+    },
+    {
+      "id": "fexofenadine-allergic-rhinitis",
+      "category": "antihistamine",
+      "drug": "fexofenadine",
+      "diagnosis": "seasonal allergic rhinitis when fexofenadine selected",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 72,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 30,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 144,
+          "dose_mg": 120,
+          "doses_per_day": 1
+        }
+      ],
+      "administration": "For the 120 mg adolescent tablet regimen, take before a meal. Product/age licensing varies; verify exact product.",
+      "source": "Current fexofenadine SmPC / product labeling",
+      "source_url": "https://www.medicines.org.uk/"
+    },
+    {
+      "id": "prednisolone-asthma-lt2y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "prednisolone",
+      "diagnosis": "moderately severe/severe asthma exacerbation suitable for discharge, age <2 years",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "max_age_months": 23,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        1,
+        2
+      ],
+      "max_mg_per_dose": 20,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "administration": "Give according to written asthma discharge plan; food may reduce GI upset if product permits.",
+      "source": "GINA 2026 pediatric acute asthma",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+    },
+    {
+      "id": "prednisolone-asthma-2to5y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "prednisolone",
+      "diagnosis": "moderately severe/severe asthma exacerbation suitable for discharge, age 2-5 years",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 24,
+      "max_age_months": 71,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        1,
+        2
+      ],
+      "max_mg_per_dose": 30,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "source": "GINA 2026 pediatric acute asthma",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+    },
+    {
+      "id": "prednisolone-asthma-6to11y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "prednisolone",
+      "diagnosis": "acute asthma exacerbation suitable for discharge, age 6-11 years",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        1,
+        2
+      ],
+      "max_mg_per_dose": 40,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "source": "GINA 2026 pediatric acute asthma",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+    },
+    {
+      "id": "dexamethasone-asthma-1to11y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "dexamethasone",
+      "diagnosis": "acute asthma exacerbation when dexamethasone strategy selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 12,
+      "max_age_months": 143,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        0.3,
+        0.6
+      ],
+      "max_mg_per_dose": 12,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        1,
+        2
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.4,
+          "label": "2 mg/5 mL"
+        }
+      ],
+      "source": "GINA 2026; dexamethasone 2 mg/5 mL SmPC",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+    },
+    {
+      "id": "dexamethasone-croup-mild-moderate",
+      "category": "croup_steroid",
+      "drug": "dexamethasone",
+      "diagnosis": "croup with stridor/risk features suitable for outpatient management after assessment",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 6,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.15,
+      "max_mg_per_dose": 12,
+      "doses_per_day": 1,
+      "frequency": "single dose",
+      "duration_days": 1,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.4,
+          "label": "2 mg/5 mL"
+        }
+      ],
+      "source": "RCH Croup; dexamethasone product concentration",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup/"
+    },
+    {
+      "id": "salbutamol-asthma-discharge-rch",
+      "category": "antiasthmatic_relief",
+      "drug": "salbutamol",
+      "diagnosis": "asthma/wheeze discharge reliever via pMDI + spacer under written asthma action plan",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "max_age_months": 71,
+          "device": "100 microgram/puff pMDI + spacer",
+          "puffs": 6
+        },
+        {
+          "min_age_months": 72,
+          "device": "100 microgram/puff pMDI + spacer",
+          "puffs": 12
+        }
+      ],
+      "frequency": "per written asthma action plan; urgent review if reliever is required again within 4 h after discharge",
+      "administration": "One puff at a time through spacer with correct technique. Ensure written action plan and controller review.",
+      "source": "RCH asthma discharge education; GINA 2026 acute asthma",
+      "source_url": "https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/Asthma_Inpatient_Discharge_Education/"
+    },
+    {
+      "id": "amoxicillin-aom",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "acute otitis media when antibiotic treatment is indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 30,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "May be taken with or without food; follow exact product label. Complete the prescribed course.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "amoxicillin-cap-outpatient",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "mild community-acquired pneumonia treated as outpatient",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 30,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "amoxicillin-dental-abscess",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "dental abscess requiring antibiotic plus dental/surgical management",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 25,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "Antibiotic does not replace definitive dental/surgical treatment.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "amox-clav-bite",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin/clavulanate",
+      "diagnosis": "infected/high-risk bite suitable for oral outpatient therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 22.5,
+      "max_mg_per_dose": 875,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 80,
+          "label": "400/57 mg per 5 mL; amoxicillin component 80 mg/mL"
+        }
+      ],
+      "administration": "Give at the start of a meal; shake suspension before each dose.",
+      "contraindications": [
+        "penicillin hypersensitivity",
+        "previous severe immediate beta-lactam hypersensitivity",
+        "previous co-amoxiclav-associated jaundice/hepatic impairment"
+      ],
+      "source": "RCH antimicrobial bite regimen + co-amoxiclav 400/57 mg/5 mL SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "amox-clav-preseptal-stepdown",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin/clavulanate",
+      "diagnosis": "periorbital/orbital cellulitis oral step-down after appropriate initial assessment/treatment",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 22.5,
+      "max_mg_per_dose": 875,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": [
+        10,
+        14
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 80,
+          "label": "400/57 mg per 5 mL; amoxicillin component"
+        }
+      ],
+      "administration": "Give at the start of a meal. Not a substitute for orbital-cellulitis imaging/specialist/inpatient pathway when indicated.",
+      "contraindications": [
+        "penicillin hypersensitivity",
+        "previous severe immediate beta-lactam hypersensitivity",
+        "previous co-amoxiclav-associated jaundice/hepatic impairment"
+      ],
+      "source": "RCH Antimicrobial guidelines + SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "cefalexin-cellulitis",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "mild/moderate cellulitis suitable for oral outpatient therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        5,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "May be given without regard to meals. Reassess if rapidly progressive or systemic illness.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "immediate severe beta-lactam allergy",
+        "marked renal impairment requires dose review"
+      ],
+      "source": "RCH Antimicrobial guidelines; cefalexin SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "cefalexin-preseptal",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "mild preseptal cellulitis in a well child",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        7,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "cefalexin-cystitis",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "uncomplicated lower UTI/cystitis in a child >3 months who is not systemically unwell",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "cautions": [
+        "culture/resistance history",
+        "renal impairment"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-lt12mo",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "pyelonephritis in selected child <12 months suitable for oral regimen per local pathway",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "max_age_months": 11,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 25,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": [
+        7,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "cautions": [
+        "young infant threshold for admission/IV treatment",
+        "culture/resistance",
+        "renal impairment"
+      ],
+      "source": "RCH UTI",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-ge12mo",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "pyelonephritis age >=12 months suitable for oral outpatient therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 12,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 45,
+      "max_mg_per_dose": 1500,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        7,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "cautions": [
+        "culture/resistance",
+        "renal impairment",
+        "systemic illness may require IV/inpatient care"
+      ],
+      "source": "RCH UTI",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/"
+    },
+    {
+      "id": "tmp-smx-mrsa-skin",
+      "category": "oral_antibiotic",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "diagnosis": "mild MRSA-suspected/confirmed skin infection when TMP-SMX selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1.5,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 4,
+      "max_mg_per_dose": 160,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 8,
+          "label": "40 mg TMP/200 mg SMX per 5 mL; TMP 8 mg/mL"
+        }
+      ],
+      "administration": "Dose expressed as trimethoprim component. Taking with food or drink may reduce GI upset.",
+      "contraindications": [
+        "sulfonamide/trimethoprim hypersensitivity"
+      ],
+      "cautions": [
+        "significant renal impairment",
+        "folate deficiency",
+        "drug interactions including methotrexate/warfarin",
+        "hyperkalemia risk"
+      ],
+      "source": "RCH Antimicrobial guidelines; Co-Trimoxazole pediatric suspension SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "clindamycin-mrsa-skin",
+      "category": "oral_antibiotic",
+      "drug": "clindamycin",
+      "diagnosis": "mild MRSA skin infection when clindamycin selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 10,
+      "max_mg_per_dose": 450,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "administration": "Give with a full glass of water when age-appropriate; monitor for antibiotic-associated diarrhea/colitis.",
+      "cautions": [
+        "local clindamycin resistance/inducible resistance",
+        "history of C. difficile"
+      ],
+      "source": "RCH antimicrobial MRSA pathway",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "azithromycin-pertussis-lt6mo",
+      "category": "oral_antibiotic",
+      "drug": "azithromycin",
+      "diagnosis": "pertussis treatment/prophylaxis regimen in infant <6 months",
+      "route": "PO",
+      "weight_basis": "actual",
+      "max_age_months": 5,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 10,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL"
+        }
+      ],
+      "administration": "Once daily, with or without food; immediately before a meal may improve GI tolerability. Shake suspension.",
+      "cautions": [
+        "QT prolongation/arrhythmia risk",
+        "severe hepatic impairment"
+      ],
+      "source": "RCH Antimicrobial guidelines; azithromycin 200 mg/5 mL SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "azithromycin-pertussis-ge6mo",
+      "category": "oral_antibiotic",
+      "drug": "azithromycin",
+      "diagnosis": "pertussis treatment/prophylaxis regimen age >=6 months",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 6,
+      "dose_model": "schedule_by_day",
+      "liquid_capable": true,
+      "schedule": [
+        {
+          "name": "day_1",
+          "days": 1,
+          "doses_per_day": 1,
+          "dose_mg_per_kg": 10,
+          "max_mg_per_dose": 500
+        },
+        {
+          "name": "days_2_to_5",
+          "days": 4,
+          "doses_per_day": 1,
+          "dose_mg_per_kg": 5,
+          "max_mg_per_dose": 250
+        }
+      ],
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL"
+        }
+      ],
+      "administration": "Once daily, with or without food; immediately before a meal may improve GI tolerability. Shake suspension.",
+      "cautions": [
+        "QT prolongation/arrhythmia risk",
+        "severe hepatic impairment"
+      ],
+      "source": "RCH Antimicrobial guidelines; azithromycin 200 mg/5 mL SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "clarithromycin-pertussis-ge1mo",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "pertussis when clarithromycin selected, age >=1 month",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 7.5,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL"
+        }
+      ],
+      "administration": "May be given without regard to meals; food/drink after the suspension can reduce bitter aftertaste.",
+      "contraindications": [
+        "important QT-prolonging/interacting medicines per SmPC"
+      ],
+      "cautions": [
+        "renal impairment may require dose reduction",
+        "hepatic impairment",
+        "QT prolongation"
+      ],
+      "source": "RCH antimicrobial pertussis regimen; clarithromycin 125 mg/5 mL SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "tmp-smx-pertussis-ge6wk",
+      "category": "oral_antibiotic",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "diagnosis": "pertussis when macrolide cannot be used, age >6 weeks",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1.5,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 4,
+      "max_mg_per_dose": 160,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 8,
+          "label": "TMP 8 mg/mL in 40/200 mg per 5 mL suspension"
+        }
+      ],
+      "administration": "Dose expressed as trimethoprim component. May be preferable with food/drink to reduce GI upset.",
+      "contraindications": [
+        "sulfonamide/trimethoprim hypersensitivity"
+      ],
+      "source": "RCH antimicrobial pertussis regimen; Co-Trimoxazole SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-nice-3d",
+      "category": "oral_antibiotic",
+      "drug": "nitrofurantoin",
+      "diagnosis": "lower UTI/cystitis, NICE short-course variant",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.75,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 3,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 5,
+          "label": "25 mg/5 mL"
+        }
+      ],
+      "administration": "Take with food or milk; shake suspension.",
+      "minimum_patient_values": [
+        {
+          "field": "egfr_mL_min",
+          "minimum": 45,
+          "message": "nitrofurantoin outpatient regimen requires eGFR >=45 mL/min in this module"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "g6pd_deficiency",
+          "equals": true,
+          "message": "nitrofurantoin is contraindicated in G6PD deficiency in the cited SmPC"
+        },
+        {
+          "field": "acute_porphyria",
+          "equals": true,
+          "message": "nitrofurantoin is contraindicated in acute porphyria"
+        },
+        {
+          "field": "suspected_pyelonephritis",
+          "equals": true,
+          "message": "nitrofurantoin must not be used for pyelonephritis/renal parenchymal infection"
+        }
+      ],
+      "source": "NICE NG109 short-course lower UTI regimen; nitrofurantoin 25 mg/5 mL SmPC for product/food/contraindications",
+      "source_url": "https://www.nice.org.uk/guidance/ng109"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-smpc-7d",
+      "category": "oral_antibiotic",
+      "drug": "nitrofurantoin",
+      "diagnosis": "acute lower UTI using current 25 mg/5 mL SmPC course",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.75,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 5,
+          "label": "25 mg/5 mL"
+        }
+      ],
+      "administration": "Take with food or milk; shake suspension.",
+      "minimum_patient_values": [
+        {
+          "field": "egfr_mL_min",
+          "minimum": 45,
+          "message": "nitrofurantoin is contraindicated below eGFR 45 mL/min in this SmPC regimen"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "g6pd_deficiency",
+          "equals": true,
+          "message": "contraindicated in G6PD deficiency"
+        },
+        {
+          "field": "acute_porphyria",
+          "equals": true,
+          "message": "contraindicated in acute porphyria"
+        },
+        {
+          "field": "suspected_pyelonephritis",
+          "equals": true,
+          "message": "not for renal parenchymal/upper UTI"
+        }
+      ],
+      "source": "Nitrofurantoin 25 mg/5 mL SmPC, updated 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/9953/smpc"
+    },
+    {
+      "id": "oseltamivir-influenza-lt1y",
+      "category": "antiviral",
+      "drug": "oseltamivir",
+      "diagnosis": "influenza treatment in infant <1 year when antiviral treatment indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "max_age_months": 11,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 3,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 6,
+          "label": "6 mg/mL oral suspension"
+        }
+      ],
+      "source": "CDC influenza antiviral dosing table",
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html"
+    },
+    {
+      "id": "oseltamivir-influenza-ge1y",
+      "category": "antiviral",
+      "drug": "oseltamivir",
+      "diagnosis": "influenza treatment age >=1 year when antiviral treatment indicated",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 12,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 6,
+          "label": "6 mg/mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 15,
+          "dose_mg": 30,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 15,
+          "max_weight_kg": 23,
+          "dose_mg": 45,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 23,
+          "max_weight_kg": 40,
+          "dose_mg": 60,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 40,
+          "dose_mg": 75,
+          "doses_per_day": 2,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "twice daily for 5 days",
+      "source": "CDC influenza antiviral dosing table",
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html"
+    },
+    {
+      "id": "epinephrine-autoinjector-discharge-rch",
+      "category": "anaphylaxis_discharge",
+      "drug": "epinephrine/adrenaline auto-injector",
+      "diagnosis": "anaphylaxis discharge plan when auto-injector is indicated",
+      "route": "IM auto-injector",
+      "weight_basis": "device",
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_weight_kg_inclusive": 7.5,
+          "max_weight_kg": 20,
+          "device": "EpiPen Jr 150 micrograms"
+        },
+        {
+          "min_weight_kg": 20,
+          "max_weight_kg": 50,
+          "device": "EpiPen 300 micrograms"
+        },
+        {
+          "min_weight_kg": 50,
+          "device": "500 microgram device may be considered in adolescents >12 years where locally available; 300 microgram device remains product/pathway dependent"
+        }
+      ],
+      "administration": "Provide two devices when indicated, device training, written anaphylaxis action plan and allergy referral. IM adrenaline remains first-line for recurrent anaphylaxis.",
+      "source": "RCH Anaphylaxis",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Anaphylaxis/"
+    },
+    {
+      "id": "mupirocin-localized-impetigo",
+      "category": "topical_antibiotic",
+      "drug": "mupirocin 2%",
+      "diagnosis": "localized impetigo suitable for topical therapy",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply mupirocin 2% to affected area three times daily for 5 days.",
+      "doses_per_day": 3,
+      "duration_days": 5,
+      "liquid_capable": false,
+      "source": "RCH antimicrobial/skin infection guidance",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    }
+  ]
+}
