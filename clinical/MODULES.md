@@ -1,6 +1,6 @@
 # MODULES — índice verificado
 
-Propuesta de consolidación v1.36 (rama de trabajo): 127 IDs únicos; todos tienen sección y registro.
+Propuesta de consolidación v1.36 (rama de trabajo): 128 IDs únicos; todos tienen sección y registro.
 El estado green/yellow corresponde al registro de evidencia, no a una declaración de validación clínica.
 
 | ID | Archivo de módulos | Evidencia |
@@ -132,3 +132,4 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `device-complications` | `modules/cardiovascular.md` | yellow |
 | `ecg-pocus-integration` | `modules/disposition-crosscutting.md` | yellow |
 | `pocus` | `modules/disposition-crosscutting.md` | yellow |
+| `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | yellow |
