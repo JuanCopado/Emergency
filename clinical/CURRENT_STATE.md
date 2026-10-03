@@ -173,3 +173,14 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - EchoNet-Dynamic: source-level intake-ready para `lvef_below_40_percent` en TEST; acceso real requiere aceptación individual del Research Use Agreement.
 - CheXpert: referencia expert-test y label isolation completos; source intake sigue bloqueado únicamente hasta verificar documentalmente el acuerdo específico de descarga actual.
 - No existen todavía métricas diagnósticas válidas porque no se ha ejecutado/fijado un intérprete ciego real sobre un banco limpio antes del reveal.
+
+
+## Cierre exploratorio ECG — PTB-XL NATURAL_500 v2 / AFIB baseline v1
+- Banco ciego limpio: GitHub Actions run #14 / `37054176049`, 500 ECG, target AFIB.
+- Baseline pre-reveal congelado en commit `aa6649785c6dad3d9daa3838c902d3136774d624` a `2026-10-03T00:07:32.888774Z`.
+- Freeze: 46 positive / 359 negative / 93 abstain / 2 nondiagnostic; SHA-256 predicciones completas `ae7f25704b9a8a43994346406d2fabb43f786c8a49b7c4987bd40f2df1cd6663`.
+- Referencia sellada revelada después del freeze a `2026-10-03T00:08:41.803705165Z`: 3 AFIB / 497 no-AFIB.
+- Conteos clasificados: TP 3 / FP 43 / TN 359 / FN 0; cobertura **81.0%**; abstención **18.6%**; no-diagnóstico **0.4%**.
+- Por política v1.1, sensibilidad/especificidad/PPV/NPV/accuracy estándar permanecen **suprimidas** porque 95/500 casos no tuvieron predicción binaria.
+- Resultado almacenado en `qa/results/PTBXL_NATURAL500_V2_AFIB_BASELINE_V1_RESULT.json`.
+- Interpretación: baseline de ingeniería sobre render ECG; **no** es precisión clínica de ChatGPT, no es validación externa/prospectiva y no promueve módulos a green.
