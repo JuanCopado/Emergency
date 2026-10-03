@@ -17,6 +17,7 @@ from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_yea
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
+from core_scores_block6_transversal import calculate_avpu
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -263,6 +264,22 @@ def calculate_scale(scale_id, data, registry=None):
     """
     meta=get_scale(scale_id,registry)
 
+    score_formula_aliases = {
+        "shock-index": "shock-index-formula",
+        "modified-shock-index": "modified-shock-index-formula",
+    }
+    if scale_id in score_formula_aliases:
+        value, unit = calculate(score_formula_aliases[scale_id], data)
+        return {
+            "id": scale_id,
+            "registry_id": scale_id,
+            "status": "complete",
+            "value": value,
+            "unit": unit,
+            "formula_alias": score_formula_aliases[scale_id],
+            "warning": "Derived from the central formula engine; use as a clinical adjunct, not a stand-alone diagnosis or treatment rule.",
+        }
+
     dedicated = {
         "nihss": calculate_nihss,
         "glasgow-coma": calculate_gcs,
@@ -287,6 +304,7 @@ def calculate_scale(scale_id, data, registry=None):
         "cincinnati-stroke": calculate_cincinnati,
         "race-stroke": calculate_race,
         "fast-ed": calculate_fast_ed,
+        "avpu": calculate_avpu,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
