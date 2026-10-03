@@ -1064,6 +1064,15 @@
       "last_checked": "2026-10-02",
       "status": "yellow",
       "note": "Pediatric hematology/oncology emergency route adds explicit febrile-neutropenia timing/regimens, hyperleukocytosis/TLS safeguards and sickle-cell acute chest/stroke boundaries. Human pediatric hematology/oncology/ID review pending."
+    },
+    "clinical-scores-calculators": {
+      "priority": "high",
+      "primary_source": "Canonical multi-source registry: current specialty guidelines and original/validated score definitions; key anchors include AHA/ASA stroke, RCP NEWS2, SCCM Phoenix pediatric sepsis, NICE GCS/head injury, ESC PE/ACS and validated original score publications",
+      "primary_source_url": "https://www.rcp.ac.uk/resources/national-early-warning-score-news-2/",
+      "stored_version": "Central registry v1.0 created 2026-10-03",
+      "last_checked": "2026-10-03",
+      "status": "yellow",
+      "note": "134 active CORE/SPECIALIST scales plus 45 formulas registered centrally. Metadata and deterministic formula engine implemented. High-impact tools require source-by-source validation and human review before green promotion; complex decision rules are not reduced to artificial numeric scores."
     }
   }
 }
