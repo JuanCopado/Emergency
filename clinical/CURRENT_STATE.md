@@ -236,3 +236,13 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Nuevos cierres incluyen NNUH-MEOWS v7, Bishop, Rule of Nines, Lund-Browder, Bedside PEWS, Pediatric Trauma Score, SIPA, FLACC, Wong-Baker official wrapper, PRAM, Westley Croup, Clinical Dehydration Scale, Pediatric Appendicitis Score, PECARN Head Injury, PECARN Febrile Infant, Step-by-Step y APGAR.
 - Estado detallado: `qa/V1.37_SCORES_VALIDATION_STATE.md`.
 - `clinical-scores-calculators` permanece **yellow**: todavía faltan 41 SPECIALIST y revisión humana final.
+
+
+## v1.37 — all scores/formulas technically complete — 03/10/2026
+- Registry: **135 scales + 45 formulas**.
+- CORE: **94/94 implemented**.
+- SPECIALIST: **41/41 implemented**.
+- Pending registered scales: **0**.
+- Last code QA before documentation synchronization: **289/289 tests PASS**, `automated_status: PASS` (run #442).
+- `clinical-scores-calculators` remains yellow pending human review; implementation completeness is not clinical release.
+- Next queued work is a separate pediatric outpatient/home medication module and should proceed on a separate branch.
