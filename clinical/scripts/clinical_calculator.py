@@ -22,6 +22,7 @@ from core_scores_block7 import calculate_bedside_pews, calculate_pediatric_traum
 from core_scores_block8 import classify_pecarn_febrile_infant, classify_step_by_step, calculate_apgar
 from specialist_scores_block1 import calculate_canadian_tia, calculate_pc_aspects, calculate_four_score, classify_hunt_hess, calculate_wfns_sah, calculate_stess, calculate_bacterial_meningitis_score
 from specialist_scores_block2 import calculate_edacs, calculate_orbit, calculate_tisdale, calculate_bova, calculate_sic, calculate_mews, calculate_sirs
+from specialist_scores_block3 import calculate_apache2, prepare_saps3, calculate_bps, calculate_age_shock_index, calculate_smart_cop, calculate_mmrc, calculate_hacor, calculate_niss, calculate_triss, calculate_nexus_head_ct
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -400,6 +401,16 @@ def calculate_scale(scale_id, data, registry=None):
         "sic": calculate_sic,
         "mews": calculate_mews,
         "sirs": calculate_sirs,
+        "apache2": calculate_apache2,
+        "saps3": prepare_saps3,
+        "bps": calculate_bps,
+        "age-shock-index": calculate_age_shock_index,
+        "smart-cop": calculate_smart_cop,
+        "mmrc": calculate_mmrc,
+        "hacor": calculate_hacor,
+        "niss": calculate_niss,
+        "triss": calculate_triss,
+        "nexus-head-ct": calculate_nexus_head_ct,
         "clinical-frailty": lambda data: official_wrapper("clinical-frailty", data),
         "cssrs": lambda data: official_wrapper("cssrs", data),
     }
