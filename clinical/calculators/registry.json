@@ -308,7 +308,10 @@
       "use": "Estratificación SCA sin elevación ST",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block7_cardiology.py",
+      "version": "TIMI UA/NSTEMI",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10938172/"
     },
     {
       "id": "edacs",
@@ -360,7 +363,11 @@
       "use": "Identificar riesgo/áreas corregibles; no negar anticoagulación por sí solo",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block7_cardiology.py",
+      "version": "HAS-BLED",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21111555/",
+      "execution_note": "Uses explicit pre-adjudicated component booleans; does not infer renal/liver dysfunction or labile INR from free text."
     },
     {
       "id": "orbit-bleeding",
@@ -382,7 +389,10 @@
       "use": "Disposición/estratificación en urgencias",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block7_cardiology.py",
+      "version": "Canadian Syncope Risk Score",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27378464/"
     },
     {
       "id": "scai-shock",
@@ -393,7 +403,11 @@
       "use": "Clasificar y escalar soporte",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block7_cardiology.py",
+      "version": "SCAI SHOCK 2022",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2022.01.018",
+      "execution_note": "Dynamic A-E classification; D requires failure of initial support and E actual/impending collapse."
     },
     {
       "id": "killip-kimball",
@@ -404,7 +418,11 @@
       "use": "Pronóstico y estratificación en IAM",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block7_cardiology.py",
+      "version": "Killip-Kimball I-IV",
+      "source_url": "https://academic.oup.com/eurheartj/article/26/4/384/2888056",
+      "execution_note": "Structured clinical state; no free-text inference."
     },
     {
       "id": "duke-iscvid",
