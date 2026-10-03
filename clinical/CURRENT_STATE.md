@@ -217,3 +217,11 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Fórmulas: **45/45** implementadas.
 - Último QA confirmado antes del commit documental: **195/195 PASS**, run #369.
 - No se promueve `clinical-scores-calculators` a green; continúa yellow hasta completar CORE, SPECIALIST y revisión humana.
+
+
+## SOFA-2 incorporado — 03/10/2026
+- Nuevo calculator_id: `sofa-2`, separado de `sofa` (SOFA-1/Sepsis-3).
+- Registro: **135 escalas totales / 94 CORE / 41 SPECIALIST**.
+- CORE fuente-codificadas o wrapper oficial: **15/94**; pendientes CORE: **79**.
+- Fuente primaria: JAMA 2025, doi:10.1001/jama.2025.20516.
+- Clinical QA run #375: **198/198 PASS**, `automated_status: PASS`.
