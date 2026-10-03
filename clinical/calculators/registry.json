@@ -581,7 +581,10 @@
       "use": "Diagnóstico/seguimiento de CID",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block12_mixed.py",
+      "version": "ISTH overt DIC",
+      "source_url": "https://www.isth.org/resource/resmgr/Workshops/Chinthammitr_DIC.pdf"
     },
     {
       "id": "sic",
@@ -633,7 +636,10 @@
       "use": "Pronóstico rápido; no usar como único cribado de sepsis",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block12_mixed.py",
+      "version": "qSOFA / Sepsis-3",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2492881"
     },
     {
       "id": "news2",
@@ -1061,7 +1067,10 @@
       "use": "Apoyo diagnóstico",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block12_mixed.py",
+      "version": "Alvarado",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3963537/"
     },
     {
       "id": "air-appendicitis",
@@ -1072,7 +1081,10 @@
       "use": "Estratificación diagnóstica",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block12_mixed.py",
+      "version": "AIR",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8154764/"
     },
     {
       "id": "tokyo-biliary",
@@ -1176,7 +1188,11 @@
       "use": "Diagnóstico/seguimiento de AKI",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block12_mixed.py",
+      "version": "KDIGO AKI 2012",
+      "source_url": "https://kdigo.org/wp-content/uploads/2016/10/KDIGO-2012-AKI-Guideline-English.pdf",
+      "execution_note": "2026 KDIGO update still draft at implementation time; do not silently replace published 2012 staging."
     },
     {
       "id": "mcmahon-rhabdo",
@@ -1187,7 +1203,10 @@
       "use": "Estratificación temprana",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block12_mixed.py",
+      "version": "McMahon rhabdomyolysis",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8804685/"
     },
     {
       "id": "rumack-matthew",
