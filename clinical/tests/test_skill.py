@@ -87,6 +87,7 @@ from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, 
 from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
 from core_scores_block11_digestive_hepatology import calculate_aims65, calculate_bisap, calculate_child_pugh, calculate_kings_college
 from core_scores_block12_mixed import calculate_qsofa, calculate_isth_dic, classify_kdigo_aki, calculate_mcmahon, calculate_alvarado, calculate_air
+from core_scores_block13_toxicology import evaluate_rumack_matthew, evaluate_hunter_serotonin, calculate_ciwa_ar, calculate_cows
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3684,6 +3685,47 @@ class ModularCoreTests(unittest.TestCase):
         result=central_calculate_scale('qsofa',{
             'respiratory_rate':22,'systolic_bp_mmHg':100,'altered_mentation':True})
         self.assertEqual(result['total'],3)
+
+    def test_v137_toxicology_core_rules(self):
+        rumack=evaluate_rumack_matthew({
+            'single_acute_ingestion_known_time':True,'hours_since_ingestion':4,
+            'acetaminophen_mcg_mL':150,'extended_release_or_delayed_absorption':False})
+        self.assertTrue(rumack['at_or_above_treatment_line'])
+        with self.assertRaises(ValueError):
+            evaluate_rumack_matthew({
+                'single_acute_ingestion_known_time':False,'hours_since_ingestion':4,
+                'acetaminophen_mcg_mL':150,'extended_release_or_delayed_absorption':False})
+
+        hunter=evaluate_hunter_serotonin({
+            'serotonergic_exposure':True,'spontaneous_clonus':False,
+            'inducible_clonus':False,'ocular_clonus':False,'agitation':False,
+            'diaphoresis':False,'tremor':True,'hyperreflexia':True,
+            'hypertonia':False,'temperature_c':37})
+        self.assertTrue(hunter['criteria_met'])
+
+    def test_v137_ciwa_ar_and_cows_explicit_items(self):
+        ciwa_items={k:0 for k in __import__('core_scores_block13_toxicology').CIWA_MAX}
+        ciwa=calculate_ciwa_ar({'items':ciwa_items})
+        self.assertEqual(ciwa['total'],0)
+        ciwa_max=dict(__import__('core_scores_block13_toxicology').CIWA_MAX)
+        self.assertEqual(calculate_ciwa_ar({'items':ciwa_max})['total'],67)
+
+        cows_items={k:min(v) for k,v in __import__('core_scores_block13_toxicology').COWS_ALLOWED.items()}
+        self.assertEqual(calculate_cows({'items':cows_items})['total'],0)
+        cows_max={k:max(v) for k,v in __import__('core_scores_block13_toxicology').COWS_ALLOWED.items()}
+        self.assertEqual(calculate_cows({'items':cows_max})['total'],48)
+
+    def test_v137_central_dispatch_toxicology_core(self):
+        registry=central_load_registry()
+        for sid in ('rumack-matthew','hunter-serotonin','ciwa-ar','cows'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+        result=central_calculate_scale('hunter-serotonin',{
+            'serotonergic_exposure':True,'spontaneous_clonus':True,
+            'inducible_clonus':False,'ocular_clonus':False,'agitation':False,
+            'diaphoresis':False,'tremor':False,'hyperreflexia':False,
+            'hypertonia':False,'temperature_c':37})
+        self.assertTrue(result['criteria_met'])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
