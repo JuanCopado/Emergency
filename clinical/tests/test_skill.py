@@ -3,6 +3,7 @@
 import json
 import sys
 import unittest
+from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry
 import tempfile
 from pathlib import Path
 
@@ -4422,6 +4423,168 @@ class ModularCoreTests(unittest.TestCase):
         pending=[x['id'] for x in registry['scales'] if x['tier']=='SPECIALIST' and x['implementation_status'] not in completed]
         self.assertEqual(pending,[])
         self.assertEqual(len([x for x in registry['scales'] if x['tier']=='SPECIALIST']),41)
+
+    def test_v138_pediatric_outpatient_paracetamol_uses_ideal_weight(self):
+        result = calculate_pediatric_outpatient(
+            'paracetamol-pain-fever-home',
+            {'age_months':120, 'actual_weight_kg':55, 'ideal_weight_kg':35},
+            selected_duration_days=2,
+        )
+        self.assertEqual(result['weight_basis'], 'ideal')
+        self.assertEqual(result['dosing_weight_kg'], 35)
+        self.assertEqual(result['dose_mg'], 525)
+        self.assertEqual(result['total_doses'], 8)
+        self.assertEqual(result['volume_status'], 'concentration_required_for_ml')
+
+        liquid = calculate_pediatric_outpatient(
+            'paracetamol-pain-fever-home',
+            {'age_months':120, 'actual_weight_kg':55, 'ideal_weight_kg':35},
+            {'concentration_mg_per_ml': 24},
+            selected_duration_days=2,
+        )
+        self.assertAlmostEqual(liquid['volume_per_dose']['exact_ml'], 21.875)
+        self.assertEqual(liquid['volume_per_dose']['rounded_0_1_ml'], 21.9)
+
+        with self.assertRaisesRegex(ValueError, 'ideal_weight_kg'):
+            calculate_pediatric_outpatient(
+                'paracetamol-pain-fever-home',
+                {'age_months':120, 'actual_weight_kg':55},
+                selected_duration_days=1,
+            )
+
+    def test_v138_pediatric_outpatient_amox_clav_exact_ml_course(self):
+        result = calculate_pediatric_outpatient(
+            'amox-clav-bite',
+            {'age_months':84, 'actual_weight_kg':20},
+            {'concentration_mg_per_ml':80},
+        )
+        self.assertEqual(result['dose_mg'],450)
+        self.assertAlmostEqual(result['volume_per_dose']['exact_ml'],5.625)
+        self.assertEqual(result['volume_per_dose']['rounded_0_1_ml'],5.6)
+        self.assertEqual(result['doses_per_day'],2)
+        self.assertEqual(result['duration_days'],5)
+        self.assertEqual(result['total_doses'],10)
+        self.assertAlmostEqual(result['estimated_total_course_ml'],56.25)
+        self.assertIn('start of a meal',result['administration'])
+
+    def test_v138_pediatric_outpatient_rejects_unverified_liquid_concentration(self):
+        with self.assertRaisesRegex(ValueError, 'concentration is not in registry'):
+            calculate_pediatric_outpatient(
+                'amox-clav-bite',
+                {'age_months':84, 'actual_weight_kg':20},
+                {'concentration_mg_per_ml':50},
+            )
+        accepted = calculate_pediatric_outpatient(
+            'amox-clav-bite',
+            {'age_months':84, 'actual_weight_kg':20},
+            {'concentration_mg_per_ml':50,'external_concentration_verified':True},
+        )
+        self.assertAlmostEqual(accepted['volume_per_dose']['exact_ml'],9.0)
+
+    def test_v138_pediatric_outpatient_ibuprofen_daily_cap_and_hard_gates(self):
+        result = calculate_pediatric_outpatient(
+            'ibuprofen-pain-fever-home',
+            {
+                'age_months':72,'actual_weight_kg':20,
+                'dehydrated':False,'significant_renal_impairment':False,
+                'nsaid_hypersensitivity':False,'active_or_recurrent_peptic_ulcer_bleeding':False
+            },
+            {'concentration_mg_per_ml':20},
+            selected_duration_days=2,
+        )
+        self.assertEqual(result['dose_mg'],200)
+        self.assertEqual(result['doses_per_day'],3)
+        self.assertEqual(result['volume_per_dose']['exact_ml'],10)
+        self.assertIn('with food',result['administration'])
+
+        with self.assertRaisesRegex(ValueError,'dehydration'):
+            calculate_pediatric_outpatient(
+                'ibuprofen-pain-fever-home',
+                {
+                    'age_months':72,'actual_weight_kg':20,
+                    'dehydrated':True,'significant_renal_impairment':False,
+                    'nsaid_hypersensitivity':False,'active_or_recurrent_peptic_ulcer_bleeding':False
+                },
+                selected_duration_days=1,
+            )
+
+    def test_v138_pediatric_outpatient_nitrofurantoin_preserves_source_variants_and_gates(self):
+        patient={
+            'age_months':120,'actual_weight_kg':20,'egfr_mL_min':90,
+            'g6pd_deficiency':False,'acute_porphyria':False,'suspected_pyelonephritis':False
+        }
+        nice = calculate_pediatric_outpatient(
+            'nitrofurantoin-cystitis-nice-3d',patient,{'concentration_mg_per_ml':5}
+        )
+        smpc = calculate_pediatric_outpatient(
+            'nitrofurantoin-cystitis-smpc-7d',patient,{'concentration_mg_per_ml':5}
+        )
+        self.assertEqual(nice['duration_days'],3)
+        self.assertEqual(smpc['duration_days'],7)
+        self.assertEqual(nice['dose_mg'],15)
+        self.assertEqual(nice['volume_per_dose']['exact_ml'],3)
+        self.assertIn('food or milk',nice['administration'])
+
+        bad=dict(patient); bad['egfr_mL_min']=40
+        with self.assertRaisesRegex(ValueError,'eGFR'):
+            calculate_pediatric_outpatient('nitrofurantoin-cystitis-smpc-7d',bad)
+
+        bad=dict(patient); bad['suspected_pyelonephritis']=True
+        with self.assertRaisesRegex(ValueError,'pyelonephritis'):
+            calculate_pediatric_outpatient('nitrofurantoin-cystitis-nice-3d',bad)
+
+    def test_v138_pediatric_outpatient_azithromycin_schedule_generates_phase_ml(self):
+        result = calculate_pediatric_outpatient(
+            'azithromycin-pertussis-ge6mo',
+            {'age_months':60,'actual_weight_kg':20},
+            {'concentration_mg_per_ml':40},
+        )
+        self.assertEqual(result['total_doses'],5)
+        self.assertEqual(result['schedule'][0]['dose_mg'],200)
+        self.assertEqual(result['schedule'][0]['volume_per_dose']['exact_ml'],5)
+        self.assertEqual(result['schedule'][1]['dose_mg'],100)
+        self.assertEqual(result['schedule'][1]['volume_per_dose']['exact_ml'],2.5)
+        self.assertAlmostEqual(result['estimated_total_course_ml'],15)
+
+    def test_v138_pediatric_outpatient_fixed_bands_ondansetron_cetirizine_oseltamivir(self):
+        ond = calculate_pediatric_outpatient(
+            'ondansetron-gastroenteritis-initial',
+            {'age_months':48,'actual_weight_kg':20}
+        )
+        self.assertEqual(ond['dose_mg'],4)
+        self.assertEqual(ond['total_doses'],1)
+
+        cet = calculate_pediatric_outpatient(
+            'cetirizine-urticaria-ge1y',
+            {'age_months':84,'actual_weight_kg':25},
+            {'concentration_mg_per_ml':1},
+        )
+        self.assertEqual(cet['dose_mg'],5)
+        self.assertEqual(cet['doses_per_day'],2)
+        self.assertEqual(cet['volume_per_dose']['exact_ml'],5)
+
+        ose = calculate_pediatric_outpatient(
+            'oseltamivir-influenza-ge1y',
+            {'age_months':96,'actual_weight_kg':20},
+            {'concentration_mg_per_ml':6},
+        )
+        self.assertEqual(ose['dose_mg'],45)
+        self.assertEqual(ose['volume_per_dose']['exact_ml'],7.5)
+        self.assertEqual(ose['total_doses'],10)
+
+    def test_v138_pediatric_outpatient_registry_has_required_safety_fields(self):
+        registry=load_pediatric_outpatient_registry()
+        self.assertGreaterEqual(len(registry['entries']),36)
+        ids=[x['id'] for x in registry['entries']]
+        self.assertEqual(len(ids),len(set(ids)))
+        for item in registry['entries']:
+            for field in ('id','category','drug','diagnosis','dose_model','weight_basis','source','source_url'):
+                self.assertIn(field,item)
+            self.assertNotEqual(item['source'],'')
+            self.assertNotEqual(item['source_url'],'')
+        categories={x['category'] for x in registry['entries']}
+        for required in ('oral_antibiotic','analgesic_antipyretic','antiemetic','antihistamine','antiasthmatic_systemic_steroid','antiviral'):
+            self.assertIn(required,categories)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
