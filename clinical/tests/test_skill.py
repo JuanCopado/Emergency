@@ -3,13 +3,14 @@
 import json
 import sys
 import unittest
-from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry
 import tempfile
 from pathlib import Path
 
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+
+from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry
 
 from infusion_calculator import infusion_ml_h, fixed_dose_ml_h, weight_per_hour_ml_h
 from load_module import load
