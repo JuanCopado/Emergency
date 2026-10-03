@@ -85,6 +85,7 @@ from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_ha
 from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
 from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
 from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
+from core_scores_block11_digestive_hepatology import calculate_aims65, calculate_bisap, calculate_child_pugh, calculate_kings_college
 
 
 class ModularCoreTests(unittest.TestCase):
@@ -3539,6 +3540,84 @@ class ModularCoreTests(unittest.TestCase):
             'penetrating_mechanism':True,'positive_fast':True,
             'systolic_bp_mmHg':80,'heart_rate_bpm':130})
         self.assertEqual(result['total'],4)
+
+    def test_v137_aims65_and_bisap_boundaries(self):
+        aims0=calculate_aims65({
+            'albumin_g_dL':3.5,'inr':1.0,'altered_mental_status':False,
+            'systolic_bp_mmHg':120,'age':60})
+        self.assertEqual(aims0['total'],0)
+        aims5=calculate_aims65({
+            'albumin_g_dL':2.5,'inr':2.0,'altered_mental_status':True,
+            'systolic_bp_mmHg':90,'age':70})
+        self.assertEqual(aims5['total'],5)
+
+        bisap0=calculate_bisap({
+            'bun_mg_dL':20,'impaired_mental_status':False,'sirs':False,
+            'age':50,'pleural_effusion':False})
+        self.assertEqual(bisap0['total'],0)
+        bisap5=calculate_bisap({
+            'bun_mg_dL':30,'impaired_mental_status':True,'sirs':True,
+            'age':70,'pleural_effusion':True})
+        self.assertEqual(bisap5['total'],5)
+
+    def test_v137_child_pugh_source_encoded(self):
+        a=calculate_child_pugh({
+            'bilirubin_mg_dL':1.0,'albumin_g_dL':4.0,'inr':1.2,
+            'ascites':'none','encephalopathy_grade':0})
+        self.assertEqual(a['total'],5)
+        self.assertEqual(a['class'],'A')
+        cscore=calculate_child_pugh({
+            'bilirubin_mg_dL':4.0,'albumin_g_dL':2.5,'inr':2.5,
+            'ascites':'moderate_severe_or_refractory','encephalopathy_grade':4})
+        self.assertEqual(cscore['total'],15)
+        self.assertEqual(cscore['class'],'C')
+
+    def test_v137_kings_college_paracetamol_and_non_paracetamol(self):
+        para=calculate_kings_college({
+            'paracetamol_related':True,
+            'arterial_ph_after_resuscitation':7.25,'hours_since_ingestion':30,
+            'lactate_mmol_L_after_resuscitation':2.0,'encephalopathy_grade':2,
+            'creatinine_umol_L':150,'inr':2.0})
+        self.assertTrue(para['meets_criteria'])
+        self.assertTrue(para['criteria']['ph_lt7_3_after_resuscitation_and_gt24h'])
+
+        nonpara=calculate_kings_college({
+            'paracetamol_related':False,'inr':4.0,'age':45,
+            'unfavorable_etiology':True,'jaundice_to_encephalopathy_days':10,
+            'bilirubin_umol_L':350})
+        self.assertTrue(nonpara['meets_criteria'])
+        self.assertGreaterEqual(nonpara['five_factor_count'],3)
+
+        low=calculate_kings_college({
+            'paracetamol_related':False,'inr':2.0,'age':30,
+            'unfavorable_etiology':False,'jaundice_to_encephalopathy_days':3,
+            'bilirubin_umol_L':100})
+        self.assertFalse(low['meets_criteria'])
+
+    def test_v137_hepatology_formula_aliases_no_duplicate_math(self):
+        maddrey=central_calculate_scale('maddrey',{
+            'PT_patient':20,'PT_control':12,'bilirubin_mg_dL':10})
+        self.assertAlmostEqual(maddrey['value'],46.8)
+        self.assertEqual(maddrey['formula_alias'],'maddrey-formula')
+
+        with self.assertRaisesRegex(ValueError,'legacy MELD-Na'):
+            central_calculate_scale('meld-na',{
+                'bilirubin_mg_dL':2,'INR':1.5,'creatinine_mg_dL':1.2,
+                'sodium_mmol_L':130})
+
+    def test_v137_central_dispatch_digestive_hepatology(self):
+        registry=central_load_registry()
+        expected={
+            'aims65':'dedicated_source_encoded_v1','bisap':'dedicated_source_encoded_v1',
+            'child-pugh':'dedicated_source_encoded_v1','kings-college':'dedicated_source_encoded_v1',
+            'meld-na':'central_formula_alias','maddrey':'central_formula_alias'}
+        for sid,status in expected.items():
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],status)
+        result=central_calculate_scale('child-pugh',{
+            'bilirubin_mg_dL':1.0,'albumin_g_dL':4.0,'inr':1.2,
+            'ascites':'none','encephalopathy_grade':0})
+        self.assertEqual(result['class'],'A')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
