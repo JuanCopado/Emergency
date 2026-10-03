@@ -89,7 +89,8 @@ def prepare(images_csv, labels_csv, target, salt):
         "modality":"chest_xray","target_condition":target,
         "target_question":f"Is {target} explicitly present on this MIMIC-CXR test study?",
         "reference_standard":{"type":"MIMIC-CXR-JPG 2.1.0 manually curated test-set label; uncertain/blank excluded"},
-        "patient_grouping_prespecified":True,"metrics_requested":False,"cases":cases
+        "patient_grouping_prespecified":True,"metrics_requested":False,
+        "visual_input_protocol":"qa/CXR_VISUAL_INPUT_PROTOCOL.md","cases":cases
     },{
         "schema_version":"1.0","source_id":"mimic-cxr-2.1.0","target_condition":target,
         "references":refs,"case_count":len(refs),
