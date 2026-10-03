@@ -24,6 +24,7 @@ from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, cal
 from core_scores_block9_respiratory import calculate_crb65, calculate_psi_port, calculate_decaf, classify_berlin_ards
 from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_abc_massive_transfusion, calculate_canadian_ct_head, calculate_canadian_cspine, calculate_nexus_cspine
 from core_scores_block11_digestive_hepatology import calculate_aims65, calculate_bisap, calculate_child_pugh, calculate_kings_college
+from core_scores_block12_mixed import calculate_qsofa, calculate_isth_dic, classify_kdigo_aki, calculate_mcmahon, calculate_alvarado, calculate_air
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -339,6 +340,12 @@ def calculate_scale(scale_id, data, registry=None):
         "bisap": calculate_bisap,
         "child-pugh": calculate_child_pugh,
         "kings-college": calculate_kings_college,
+        "qsofa": calculate_qsofa,
+        "isth-dic": calculate_isth_dic,
+        "kdigo-aki": classify_kdigo_aki,
+        "mcmahon-rhabdo": calculate_mcmahon,
+        "alvarado": calculate_alvarado,
+        "air-appendicitis": calculate_air,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
