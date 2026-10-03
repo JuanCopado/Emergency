@@ -79,6 +79,7 @@ from core_scores_block3 import calculate_wells_pe, calculate_perc, calculate_yea
 from core_scores_block4 import calculate_glasgow_blatchford, calculate_curb65, calculate_phoenix_sepsis
 from core_score_sofa2 import calculate_sofa2
 from core_scores_block5 import calculate_oakland, calculate_obstetric_shock_index, calculate_revised_baux
+from core_scores_block6 import calculate_bishop, calculate_meows_nnuh_v7, calculate_rule_of_nines, calculate_lund_browder
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -3799,6 +3800,101 @@ class ModularCoreTests(unittest.TestCase):
         for sid,status in expected.items():
             item=next(x for x in registry['scales'] if x['id']==sid)
             self.assertEqual(item['implementation_status'],status)
+
+    def test_v137_bishop_score_boundaries(self):
+        low = calculate_bishop({
+            'dilation_cm':0,'effacement_band':'0_30','station':-3,
+            'consistency':'firm','position':'posterior'
+        })
+        self.assertEqual(low['total'],0)
+
+        high = calculate_bishop({
+            'dilation_cm':6,'effacement_band':'80_plus','station':2,
+            'consistency':'soft','position':'anterior'
+        })
+        self.assertEqual(high['total'],13)
+
+        with self.assertRaises(ValueError):
+            calculate_bishop({
+                'dilation_cm':2,'effacement_band':'35','station':-2,
+                'consistency':'medium','position':'mid'
+            })
+
+    def test_v137_meows_nnuh_v7_boundaries(self):
+        normal = calculate_meows_nnuh_v7({
+            'temperature_c':36.8,'systolic_bp_mmHg':120,'diastolic_bp_mmHg':70,
+            'pulse_bpm':80,'respiratory_rate':16,'spo2_percent':98,
+            'avpu':'A','urine_output_mL_h':50
+        })
+        self.assertEqual(normal['total'],0)
+        self.assertEqual(normal['action_band'],'routine_observation')
+
+        severe = calculate_meows_nnuh_v7({
+            'temperature_c':39.0,'systolic_bp_mmHg':160,'diastolic_bp_mmHg':110,
+            'pulse_bpm':130,'respiratory_rate':30,'spo2_percent':94,
+            'avpu':'U','urine_output_mL_h':5
+        })
+        self.assertEqual(severe['total'],21)
+        self.assertTrue(severe['single_parameter_score_3'])
+        self.assertEqual(severe['action_band'],'call_out_cascade')
+
+        community = calculate_meows_nnuh_v7({
+            'temperature_c':36.8,'systolic_bp_mmHg':120,'diastolic_bp_mmHg':70,
+            'pulse_bpm':80,'respiratory_rate':16,'avpu':'A',
+            'community_without_spo2':True
+        })
+        self.assertIsNone(community['components']['spo2'])
+        self.assertFalse(community['spo2_measured'])
+
+    def test_v137_rule_of_nines_adult_full_body_equals_100(self):
+        fractions = {
+            'head_neck':1,'left_upper_limb':1,'right_upper_limb':1,
+            'anterior_trunk':1,'posterior_trunk':1,
+            'left_lower_limb':1,'right_lower_limb':1,'perineum':1
+        }
+        result = calculate_rule_of_nines({'fractions':fractions})
+        self.assertAlmostEqual(result['tbsa_percent'],100.0)
+
+        partial = calculate_rule_of_nines({'fractions':{'left_upper_limb':0.5}})
+        self.assertAlmostEqual(partial['tbsa_percent'],4.5)
+
+    def test_v137_lund_browder_age_adjustment_and_full_body_check(self):
+        infant = calculate_lund_browder({
+            'age_years':0.5,
+            'fractions':{}
+        })
+        self.assertAlmostEqual(infant['full_body_check_percent'],100.0)
+
+        adult = calculate_lund_browder({
+            'age_years':30,
+            'fractions':{}
+        })
+        self.assertAlmostEqual(adult['full_body_check_percent'],100.0)
+
+        head_only = calculate_lund_browder({
+            'age_years':0.5,
+            'fractions':{'head_anterior':1,'head_posterior':1}
+        })
+        self.assertAlmostEqual(head_only['tbsa_percent'],19.0)
+
+        adult_head = calculate_lund_browder({
+            'age_years':30,
+            'fractions':{'head_anterior':1,'head_posterior':1}
+        })
+        self.assertAlmostEqual(adult_head['tbsa_percent'],9.0)
+
+    def test_v137_central_dispatch_obstetric_burn_tools(self):
+        registry=central_load_registry()
+        for sid in ('bishop','meows','rule-of-nines','lund-browder'):
+            item=next(x for x in registry['scales'] if x['id']==sid)
+            self.assertEqual(item['implementation_status'],'dedicated_source_encoded_v1')
+
+        result=central_calculate_scale('bishop',{
+            'dilation_cm':0,'effacement_band':'0_30','station':-3,
+            'consistency':'firm','position':'posterior'
+        })
+        self.assertEqual(result['total'],0)
+        self.assertEqual(result['registry_id'],'bishop')
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
