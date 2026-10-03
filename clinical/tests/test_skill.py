@@ -2535,23 +2535,55 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('legacy MELD-Na', unit)
 
     def test_v136_scale_engine_never_invents_component_points(self):
-        result = central_calculate_scale('heart', {
-            'components': {'history': 1, 'ecg': 1, 'age': 1, 'risk_factors': 1, 'troponin': 1}
-        })
-        self.assertEqual(result['value'], 5)
+        synthetic_registry = {
+            'scales': [
+                {
+                    'id': 'generic-component',
+                    'name': 'Generic Component Sum',
+                    'calc_type': 'component_sum',
+                    'tier': 'TEST',
+                    'measures': 'test',
+                    'use': 'test',
+                },
+                {
+                    'id': 'external-rule',
+                    'name': 'External Rule',
+                    'calc_type': 'official_table',
+                    'tier': 'TEST',
+                    'measures': 'test',
+                    'use': 'test',
+                },
+            ]
+        }
+        result = central_calculate_scale(
+            'generic-component',
+            {'components': {'a': 1, 'b': 2}},
+            registry=synthetic_registry,
+        )
+        self.assertEqual(result['value'], 3)
         self.assertEqual(result['status'], 'complete_from_explicit_scored_components')
         self.assertIn('does not infer', result['warning'])
 
-        pending = central_calculate_scale('news2', {})
+        pending = central_calculate_scale(
+            'external-rule', {}, registry=synthetic_registry
+        )
         self.assertEqual(pending['status'], 'source_rule_not_yet_encoded')
 
         with self.assertRaisesRegex(ValueError, 'provenance'):
-            central_calculate_scale('news2', {'explicit_result': 5})
+            central_calculate_scale(
+                'external-rule',
+                {'explicit_result': 5},
+                registry=synthetic_registry,
+            )
 
-        explicit = central_calculate_scale('news2', {
-            'explicit_result': 5,
-            'provenance': 'validated external NEWS2 table entry'
-        })
+        explicit = central_calculate_scale(
+            'external-rule',
+            {
+                'explicit_result': 5,
+                'provenance': 'validated external table entry',
+            },
+            registry=synthetic_registry,
+        )
         self.assertEqual(explicit['value_or_category'], 5)
 
     def test_v137_nihss_source_encoded_boundaries_and_un(self):
