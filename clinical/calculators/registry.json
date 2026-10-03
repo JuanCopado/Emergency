@@ -57,7 +57,10 @@
       "use": "Estratificación de AIT en urgencias",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block1.py",
+      "version": "Canadian TIA Score -3 to 23",
+      "source_url": "https://www.bmj.com/content/372/bmj.n49"
     },
     {
       "id": "aspects",
@@ -83,7 +86,10 @@
       "use": "Ictus de circulación posterior",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block1.py",
+      "version": "pc-ASPECTS 0-10",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7051302/"
     },
     {
       "id": "modified-rankin",
@@ -139,7 +145,10 @@
       "use": "Coma/UCI, especialmente intubados",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block1.py",
+      "version": "FOUR Score 0-16",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16178024/"
     },
     {
       "id": "avpu",
@@ -192,7 +201,10 @@
       "use": "Clasificación clínica de HSA aneurismática",
       "calc_type": "ordinal",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block1.py",
+      "version": "Hunt-Hess I-V",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6404699/"
     },
     {
       "id": "wfns-sah",
@@ -203,7 +215,10 @@
       "use": "Pronóstico/estratificación HSA",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block1.py",
+      "version": "WFNS SAH I-V",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4794735/"
     },
     {
       "id": "stess",
@@ -214,7 +229,10 @@
       "use": "Estratificación en estatus epiléptico",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block1.py",
+      "version": "STESS 0-6",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10839336/"
     },
     {
       "id": "bacterial-meningitis-score",
@@ -225,7 +243,10 @@
       "use": "Apoyo a estratificación pediátrica seleccionada",
       "calc_type": "rule",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/specialist_scores_block1.py",
+      "version": "Bacterial Meningitis Score 0-6",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4543184/"
     },
     {
       "id": "cincinnati-stroke",
