@@ -67,22 +67,81 @@ rescue plan and post-intervention reassessment.
 
 ## anticoagulation-reversal
 
-- Identify the exact anticoagulant, indication, last dose/time, renal/hepatic function, bleeding site/severity, source-control options and rapidly available drug level. Stop the anticoagulant and treat the bleeding source. A normal PT/INR does not exclude clinically relevant apixaban/rivaroxaban effect; INR is not a DOAC-clearance test.
-- **When to reverse DOACs (ISTH SSC 2024):** reserve specific/nonspecific reversal for life-threatening bleeding, critical-organ/closed-space bleeding, expanding/uncontrollable bleeding, or urgent high-bleeding-risk surgery/procedure that cannot wait for drug clearance. Do not reverse solely for a high drug level without bleeding, elective procedures, or GI bleeding controlled with local/supportive measures.
-- When a calibrated quantitative DOAC level is rapidly available, ISTH 2024 notes that reversal consideration is most compelling when residual concentration is roughly **>50--75 ng/mL** for urgent high-risk procedures; in life-threatening bleeding, a lower threshold around **30 ng/mL** may be considered. Do not delay lifesaving treatment while waiting for a level that is not rapidly available.
-- **Dabigatran:** preferred specific antidote is **idarucizumab 5 g IV** (two 2.5 g doses given consecutively) for life-threatening/critical bleeding or urgent surgery when clinically indicated. If unavailable, use the local expert-guided nonspecific pathway; dialysis may be relevant in selected dabigatran cases because of its renal clearance.
-- **Apixaban/rivaroxaban:** andexanet alfa is the specific reversal agent for major bleeding where authorised/available. European product information uses:
-  - low dose: **400 mg IV bolus**, then **4 mg/min for 120 min** (480 mg);
-  - high dose: **800 mg IV bolus**, then **8 mg/min for 120 min** (960 mg).
-  Dose selection depends on the factor-Xa inhibitor, last dose and time since last dose. If these are unknown, the product information does not provide a simple universal dose rule; involve pharmacy/hematology and local protocol.
-- **4-factor PCC:** ISTH 2024 supports it as a nonspecific alternative when a specific antidote is unavailable/unsuitable. Common guidance uses **25--50 IU/kg** or a fixed **2,000 IU** strategy, but PCC does not remove the DOAC and is off-label for specific DOAC reversal; use the local major-bleeding protocol and account for thrombosis risk.
-- **Warfarin/VKA:** for life-threatening bleeding give **4-factor PCC plus IV vitamin K**; current major-bleed guidance typically uses **5--10 mg IV vitamin K** with PCC dosing according to INR/weight/local product. Prefer PCC over FFP when available because reversal is faster and volume load is lower.
-- **Andexanet safety boundary:** it reduces anti-Xa activity and can improve haemostatic efficacy, but thromboembolic events are a recognized risk; the 2024 ANNEXA-I trial showed less haematoma expansion but more thrombotic events. Do not use andexanet reflexively in minor/stable bleeding.
-- **Urgent surgery caveat:** ISTH 2024 notes idarucizumab is licensed for urgent surgery in dabigatran-treated patients; andexanet is not a generic perioperative reversal solution and can interfere with heparinization in cardiac/vascular surgery. Coordinate with surgery/anesthesia/hematology/pharmacy.
-- **GI-bleeding boundary:** withhold anticoagulant in major bleeding and prioritize resuscitation/source control. ESGE and ACG-CAG differ on routine DOAC reversal; reserve reversal for individualized severe ongoing/life-threatening bleeding with plausible residual anticoagulant effect rather than stable/minor GI bleeding. Do not routinely transfuse platelets simply to reverse antiplatelet therapy.
-- **Antiplatelets:** distinguish primary from secondary prevention. Continue aspirin for secondary prevention when feasible; if interrupted, resume promptly after haemostasis. With DAPT/recent stent, avoid stopping both agents reflexively and involve cardiology.
-- Restart long-term anticoagulation after durable haemostasis when the indication persists; there is no universal day. Balance recurrent bleeding against indication-specific thrombosis risk, renal function and drug onset, and document who owns the restart decision.
-- Portugal/Azores product availability, antidote stock, PCC brand/dosing table, andexanet access criteria and local emergency-release process remain mandatory localization QA gates.
+### Principios
+- Identificar **fármaco exacto, indicación, última dosis/hora, función renal/hepática, peso, sitio y gravedad del sangrado, posibilidad de control de foco y nivel farmacológico/anti-Xa si está disponible con rapidez**. Suspender el anticoagulante. No retrasar reversión de una hemorragia vital esperando una prueba que no vaya a llegar a tiempo.
+- Revertir de forma farmacológica principalmente en hemorragia **vital, crítica/espacio cerrado, expansiva o no controlada**, o cirugía/procedimiento urgente de alto riesgo que no puede esperar aclaramiento. Evitar reversión en la mayoría de sangrados menores/estables.
+- **PT/INR normal no excluye apixabán/rivaroxabán.** Para dabigatrán son más informativos TT/dTT/ECT cuando estén disponibles; para inhibidores Xa, anti-Xa calibrado específico.
+
+### VKA: warfarina/acenocumarol y superwarfarinas
+- Hemorragia vital/mayor: **vitamina K1 10 mg IV lenta + 4-factor PCC**. Para ICH, AHA/ASA 2022: si INR 1.3–1.9 considerar **4F-PCC 10–20 IU/kg**; si INR ≥2, **25–50 IU/kg** según INR/producto. Usar tabla exacta del PCC local. FFP si PCC no disponible.
+- Hemorragia no vital o INR supraterapéutico sin sangrado: no aplicar automáticamente 10 mg IV + PCC; seguir protocolo específico por INR, riesgo y necesidad de procedimiento.
+- **Superwarfarinas (brodifacoum y similares):** vitamina K1 puede requerirse durante semanas/meses con seguimiento de INR; PCC solo para sangrado grave/urgencia, no como sustituto de vitamina K sostenida.
+
+### Dabigatrán
+- Antídoto específico: **idarucizumab 5 g IV**, administrado como **2 × 2.5 g consecutivos** para hemorragia vital/no controlada o cirugía urgente indicada.
+- Si no disponible y hay toxicidad significativa: considerar PCC/aPCC bajo protocolo y **hemodiálisis** en situaciones seleccionadas, especialmente insuficiencia renal/alta carga.
+- Rebote de dabigatrán puede ocurrir en carga alta o IRA; repetir pruebas/clinica. Una segunda dosis de idarucizumab no es rutinaria y requiere criterios específicos del producto/hematología.
+
+### Apixabán y rivaroxabán
+- Antídoto específico autorizado en la UE para hemorragia vital/no controlada: **andexanet alfa (Ondexxya)**.
+  - **Baja dosis:** bolo **400 mg IV** (objetivo ~30 mg/min), luego **4 mg/min durante 120 min** = 480 mg.
+  - **Alta dosis:** bolo **800 mg IV**, luego **8 mg/min durante 120 min** = 960 mg.
+- Selección EMA:
+  - apixabán ≤5 mg y última dosis <8 h: baja; >5 mg y <8 h: alta; ≥8 h: baja;
+  - rivaroxabán ≤10 mg y <8 h: baja; >10 mg y <8 h: alta; ≥8 h: baja.
+  - Si dosis o intervalo son desconocidos, la ficha EMA no ofrece una regla universal: usar anti-Xa si llega a tiempo y consultar hematología/farmacia.
+- Si andexanet no está disponible/indicado: **4F-PCC 25–50 IU/kg** o estrategia fija local (frecuentemente 2,000 IU) como reversión inespecífica/off-label. Riesgo trombótico con ambas estrategias.
+
+### Edoxabán y otros inhibidores Xa
+- **Edoxabán:** andexanet no está autorizado por EMA específicamente para edoxabán. En hemorragia vital considerar **4F-PCC 25–50 IU/kg** según protocolo/hematología. No presentar andexanet como antídoto aprobado local sin verificación regulatoria.
+- **Betrixabán** (donde exista): no extrapolar indicación de andexanet sin comprobar regulación local; PCC es opción inespecífica experta.
+- **Fondaparinux:** **no existe antídoto específico aprobado**. Protamina no neutraliza fondaparinux. En hemorragia vital puede considerarse aPCC/4F-PCC bajo hematología/toxicología, con evidencia limitada y riesgo trombótico.
+
+### Heparinas
+- **Heparina no fraccionada (UFH): protamina**. Referencia: **1 mg de protamina por cada 100 U de UFH administradas en las 2–3 h previas**, ajustando a tiempo transcurrido; máximo habitual **50 mg**, IV lenta (p. ej. ≤5 mg/min) por riesgo de hipotensión/anafilaxia. Recontrolar aPTT/ACT según contexto.
+- **Enoxaparina/HBPM: reversión parcial con protamina.**
+  - si enoxaparina <8 h: **1 mg protamina por 1 mg enoxaparina**;
+  - 8–12 h: **0.5 mg protamina por 1 mg enoxaparina**;
+  - puede darse una segunda dosis **0.5 mg por 1 mg enoxaparina** si persiste sangrado/actividad.
+  - >12 h puede no ser necesaria en muchos casos, salvo insuficiencia renal/actividad persistente. Anti-Xa y hematología si grave.
+- Otras HBPM (dalteparina/tinzaparina/nadroparina): protamina solo revierte parcialmente; usar ficha/protocolo del producto, no convertir unidades entre HBPM.
+
+### Inhibidores directos de trombina parenterales
+- **Argatrobán:** no existe antídoto específico; suspender, soporte y control de foco. Vida media corta pero se prolonga en hepatopatía.
+- **Bivalirudina:** no antídoto específico; suspender, soporte. Vida media corta, prolongada en disfunción renal; hemofiltración/hemodiálisis puede aumentar eliminación en casos seleccionados.
+- **Desirudina/lepirudina** donde existan: sin antídoto específico; manejo experto y eliminación dependiente del producto/riñón.
+
+### Anticoagulantes poco frecuentes
+- **Danaparoide:** no existe reversor específico fiable; protamina es ineficaz o muy incompleta. Hematología y control de foco.
+- **Heparinoides/compuestos investigacionales:** no asumir reversibilidad por protamina o PCC; verificar mecanismo y ficha.
+- **Trombolíticos/fibrinolíticos (alteplasa, tenecteplasa, uroquinasa):** no son anticoagulantes clásicos y no tienen un único antídoto. Hemorragia grave: suspender, medir fibrinógeno/coagulación y considerar **crioprecipitado/fibrinógeno**; antifibrinolítico (ácido tranexámico o aminocaproico) solo según protocolo y balance trombótico.
+
+### Antiagregantes
+- Aspirina, clopidogrel, prasugrel y ticagrelor: **no existe un antídoto de uso rutinario universal**. Suspender cuando corresponda, control de foco; transfusión plaquetaria no debe usarse de forma automática y puede ser perjudicial en ciertos ICH no quirúrgicos.
+- Desmopresina puede considerarse en determinados sangrados/ICH bajo protocolo (p. ej. 0.3 microgramos/kg IV), pero no es un antídoto específico y la evidencia clínica es limitada.
+- Con DAPT/recent stent, evitar suspender ambos agentes sin coordinación cardiología salvo necesidad vital.
+
+### Tabla rápida
+| Agente | Reversor | Dosis/observación |
+|---|---|---|
+| Warfarina/acenocumarol | Vitamina K1 + 4F-PCC | Vit K 10 mg IV en sangrado vital; PCC por INR/peso/producto |
+| Superwarfarinas | Vitamina K1 | Curso prolongado guiado por INR; PCC si sangrado vital |
+| Dabigatrán | Idarucizumab | **5 g IV = 2 × 2.5 g** |
+| Apixabán/rivaroxabán | Andexanet alfa | 400 mg + 4 mg/min×120 min o 800 mg + 8 mg/min×120 min según dosis/tiempo |
+| Edoxabán | Sin antídoto EMA específico | 4F-PCC 25–50 IU/kg según protocolo si hemorragia vital |
+| UFH | Protamina | ~1 mg/100 U UFH recientes, ajustar por tiempo; máx habitual 50 mg |
+| Enoxaparina | Protamina parcial | <8 h: 1 mg/mg; 8–12 h: 0.5 mg/mg; posible segunda 0.5 mg/mg |
+| Fondaparinux | Ninguno específico | PCC/aPCC solo rescate experto; protamina no útil |
+| Argatrobán | Ninguno específico | Suspender + soporte/control de foco |
+| Bivalirudina | Ninguno específico | Suspender; soporte; depuración extracorpórea seleccionada |
+| Danaparoide | Ninguno específico fiable | Hematología; protamina no revierte adecuadamente |
+| Trombolítico | Ninguno único | Fibrinógeno/crioprecipitado ± antifibrinolítico según protocolo |
+
+### Seguridad y reinicio
+- PCC, aPCC, andexanet e incluso corrección rápida de anticoagulación aumentan riesgo trombótico. Documentar indicación, hora, dosis, respuesta y plan de tromboprofilaxis/reinicio.
+- Reiniciar anticoagulación cuando exista hemostasia duradera y la indicación persista; no hay un día universal. Individualizar por sitio del sangrado, causa corregida, riesgo embólico, función renal, vida media del fármaco y procedimiento.
+- **Andexanet puede interferir con la heparinización** en cirugía cardiaca/vascular; no usar como solución perioperatoria genérica.
+- Portugal/Azores: verificar **INFARMED/formulario hospitalario, marca de PCC, disponibilidad real de idarucizumab/andexanet/protamina, concentraciones y proceso de liberación urgente** antes de convertir esta referencia en protocolo local.
 
 ## medication-selection-safety
 
