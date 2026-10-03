@@ -132,6 +132,7 @@ def prepare(images_csv, groundtruth_csv, target, salt):
         },
         "patient_grouping_prespecified": True,
         "metrics_requested": False,
+        "visual_input_protocol": "qa/CXR_VISUAL_INPUT_PROTOCOL.md",
         "cases": blind_cases,
     }, {
         "schema_version": "1.0",
