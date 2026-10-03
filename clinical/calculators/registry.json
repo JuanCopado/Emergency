@@ -655,7 +655,11 @@
       "use": "Apoyo a disposición y riesgo",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block4.py",
+      "version": "CURB-65",
+      "source_url": "https://thorax.bmj.com/content/58/5/377",
+      "execution_note": "Encodes confusion, urea >7 mmol/L, RR >=30, SBP <90 or DBP <=60, age >=65."
     },
     {
       "id": "crb65",
@@ -853,7 +857,11 @@
       "use": "Triaje y posible alta de muy bajo riesgo",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block4.py",
+      "version": "Glasgow-Blatchford Score",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11073021/",
+      "execution_note": "Supports urea mmol/L or BUN mg/dL (exclusive inputs) and sex-specific hemoglobin thresholds."
     },
     {
       "id": "rockall",
@@ -1337,7 +1345,11 @@
       "use": "Definición contemporánea de sepsis pediátrica con sospecha de infección",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block4.py",
+      "version": "Phoenix Sepsis Score 2024",
+      "source_url": "https://doi.org/10.1001/jama.2024.0196",
+      "execution_note": "Applies to patients <18 years; permits partial-variable scoring while explicitly reporting observed domains. Sepsis requires suspected/confirmed infection + score >=2; shock additionally requires cardiovascular >=1."
     },
     {
       "id": "psofa",
