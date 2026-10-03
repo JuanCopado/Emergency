@@ -21,6 +21,7 @@ from core_scores_block6 import calculate_bishop, calculate_meows_nnuh_v7, calcul
 from core_scores_block7 import calculate_bedside_pews, calculate_pediatric_trauma_score, calculate_sipa, calculate_flacc, prepare_wong_baker, calculate_pram, calculate_westley_croup, calculate_clinical_dehydration, calculate_pediatric_appendicitis, classify_pecarn_head_injury
 from core_scores_block8 import classify_pecarn_febrile_infant, classify_step_by_step, calculate_apgar
 from specialist_scores_block1 import calculate_canadian_tia, calculate_pc_aspects, calculate_four_score, classify_hunt_hess, calculate_wfns_sah, calculate_stess, calculate_bacterial_meningitis_score
+from specialist_scores_block2 import calculate_edacs, calculate_orbit, calculate_tisdale, calculate_bova, calculate_sic, calculate_mews, calculate_sirs
 from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calculate_modified_rankin, calculate_ich_score, calculate_modified_fisher, calculate_cincinnati, calculate_race, calculate_fast_ed
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
@@ -392,6 +393,13 @@ def calculate_scale(scale_id, data, registry=None):
         "wfns-sah": calculate_wfns_sah,
         "stess": calculate_stess,
         "bacterial-meningitis-score": calculate_bacterial_meningitis_score,
+        "edacs": calculate_edacs,
+        "orbit-bleeding": calculate_orbit,
+        "tisdale-qt": calculate_tisdale,
+        "bova": calculate_bova,
+        "sic": calculate_sic,
+        "mews": calculate_mews,
+        "sirs": calculate_sirs,
         "clinical-frailty": lambda data: official_wrapper("clinical-frailty", data),
         "cssrs": lambda data: official_wrapper("cssrs", data),
     }
