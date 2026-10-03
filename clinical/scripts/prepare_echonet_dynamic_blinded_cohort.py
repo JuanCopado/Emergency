@@ -44,7 +44,8 @@ def prepare(filelist_csv, salt):
         "target_condition":"lvef_below_40_percent",
         "target_question":"Is reference LVEF below 40.0% on this apical-4-chamber echocardiography video?",
         "reference_standard":{"type":"clinical EF measured by sonographer and verified by level-3 echocardiographer"},
-        "patient_grouping_prespecified":True,"metrics_requested":False,"cases":cases
+        "patient_grouping_prespecified":True,"metrics_requested":False,
+        "visual_input_protocol":"qa/ECHONET_VISUAL_INPUT_PROTOCOL.md","cases":cases
     },{
         "schema_version":"1.0","source_id":"echonet-dynamic","references":refs,
         "case_count":len(refs),"positive_reference_cases":pos,"negative_reference_cases":neg
