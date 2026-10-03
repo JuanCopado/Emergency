@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Source-encoded CORE transversal tools."""
 
-from clinical_calculator import calculate as calculate_formula
-
 AVPU_ORDER={"alert":0,"voice":1,"pain":2,"unresponsive":3}
 
 def calculate_avpu(data):
@@ -22,22 +20,4 @@ def calculate_avpu(data):
         "url":"https://www.resus.org.uk/library/abcde-approach",
         "version":"ABCDE/AVPU",
       },
-    }
-
-def calculate_shock_index(data):
-    value,unit=calculate_formula("shock-index-formula",data)
-    return {
-      "id":"shock-index","status":"complete","value":value,"unit":unit,
-      "formula_alias":"shock-index-formula",
-      "warning":"Shock Index is HR/SBP and is context-dependent; it is not a stand-alone diagnosis of shock and adult cutoffs should not be applied to children.",
-      "source":{"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/","version":"Shock Index review"},
-    }
-
-def calculate_modified_shock_index(data):
-    value,unit=calculate_formula("modified-shock-index-formula",data)
-    return {
-      "id":"modified-shock-index","status":"complete","value":value,"unit":unit,
-      "formula_alias":"modified-shock-index-formula",
-      "warning":"Modified Shock Index is HR/MAP and is an adjunct, not a stand-alone diagnosis or treatment rule.",
-      "source":{"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/","version":"Modified Shock Index"},
     }
