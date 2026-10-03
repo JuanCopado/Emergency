@@ -11,6 +11,8 @@ import json
 import math
 from pathlib import Path
 
+from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
+
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
 
@@ -255,6 +257,18 @@ def calculate_scale(scale_id, data, registry=None):
     are supplied by a dedicated validated workflow.
     """
     meta=get_scale(scale_id,registry)
+
+    dedicated = {
+        "nihss": calculate_nihss,
+        "glasgow-coma": calculate_gcs,
+        "news2": calculate_news2,
+        "sofa": calculate_sofa1,
+    }
+    if scale_id in dedicated:
+        result = dedicated[scale_id](data)
+        result["registry_id"] = scale_id
+        return result
+
     calc_type=meta.get("calc_type")
     base={
         "id":scale_id,
