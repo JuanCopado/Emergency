@@ -865,7 +865,10 @@
       "use": "Triaje/pronóstico",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block10_trauma.py",
+      "version": "Revised Trauma Score",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5496419/"
     },
     {
       "id": "iss",
@@ -876,7 +879,10 @@
       "use": "Pronóstico/registro",
       "calc_type": "formula",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block10_trauma.py",
+      "version": "Injury Severity Score",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2568949/"
     },
     {
       "id": "niss",
@@ -909,7 +915,10 @@
       "use": "Activación precoz de protocolo hemorrágico",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block10_trauma.py",
+      "version": "Assessment of Blood Consumption",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19204506/"
     },
     {
       "id": "canadian-ct-head",
@@ -920,7 +929,11 @@
       "use": "Decisión de imagen",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block10_trauma.py",
+      "version": "Canadian CT Head Rule",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11356436/",
+      "execution_note": "Requires explicit eligible minor-head-injury population."
     },
     {
       "id": "nexus-head-ct",
@@ -942,7 +955,11 @@
       "use": "Despistaje de lesión cervical en trauma alerta/estable",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block10_trauma.py",
+      "version": "Canadian C-Spine Rule",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/194296",
+      "execution_note": "Requires alert, stable, GCS 15 eligible population."
     },
     {
       "id": "nexus-cspine",
@@ -953,7 +970,11 @@
       "use": "Evitar imagen cervical en pacientes seleccionados",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block10_trauma.py",
+      "version": "NEXUS C-Spine",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5994619/",
+      "execution_note": "Requires explicit eligible blunt-trauma cervical-spine assessment."
     },
     {
       "id": "glasgow-blatchford",
