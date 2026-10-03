@@ -20,6 +20,7 @@ from core_scores_block5_neuro import calculate_abcd2, calculate_aspects, calcula
 from core_scores_block6_transversal import calculate_avpu
 from core_score_pediatric_gcs import calculate_pediatric_gcs
 from core_scores_block7_cardiology import calculate_timi_ua_nstemi, calculate_has_bled, calculate_canadian_syncope, calculate_killip_kimball, calculate_scai_shock
+from core_scores_block8_tev import calculate_revised_geneva, calculate_pesi, calculate_spesi, calculate_hestia, calculate_wells_dvt
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -313,6 +314,11 @@ def calculate_scale(scale_id, data, registry=None):
         "canadian-syncope": calculate_canadian_syncope,
         "killip-kimball": calculate_killip_kimball,
         "scai-shock": calculate_scai_shock,
+        "revised-geneva": calculate_revised_geneva,
+        "pesi": calculate_pesi,
+        "spesi": calculate_spesi,
+        "hestia": calculate_hestia,
+        "wells-dvt": calculate_wells_dvt,
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
