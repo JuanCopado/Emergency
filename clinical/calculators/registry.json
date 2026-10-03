@@ -1460,7 +1460,11 @@
       "use": "Predecir probabilidad de inducción/parto vaginal",
       "calc_type": "component_sum",
       "editable": true,
-      "implementation_status": "generic_explicit_components_only"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block6.py",
+      "version": "Traditional Bishop Score",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK615337/table/ch10.tab8/",
+      "execution_note": "Requires explicit effacement band to avoid inventing points in unlisted percentage gaps."
     },
     {
       "id": "meows",
@@ -1471,7 +1475,11 @@
       "use": "Detección precoz de deterioro materno",
       "calc_type": "official_table",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block6.py",
+      "version": "NNUH MEOWS v7",
+      "source_url": "https://www.nnuh.nhs.uk/publication/download/modified-early-obstetric-warning-score-meows-mid33-ao13-v7/",
+      "execution_note": "Version-specific NNUH chart; local maternity MEOWS thresholds supersede when different."
     },
     {
       "id": "obstetric-shock-index",
@@ -1519,7 +1527,11 @@
       "use": "Estimación rápida TBSA",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block6.py",
+      "version": "Wallace Rule of Nines — adults",
+      "source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK609553/",
+      "execution_note": "Adult rapid TBSA estimate; fractional region inputs 0-1."
     },
     {
       "id": "lund-browder",
@@ -1530,7 +1542,11 @@
       "use": "Estimación TBSA más precisa",
       "calc_type": "criteria",
       "editable": true,
-      "implementation_status": "metadata_or_external_rule_pending_source_encoding"
+      "implementation_status": "dedicated_source_encoded_v1",
+      "engine": "scripts/core_scores_block6.py",
+      "version": "Lund-Browder age-adjusted",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8690712/",
+      "execution_note": "Age-adjusted surface weights; fractional region inputs 0-1."
     },
     {
       "id": "revised-baux",
