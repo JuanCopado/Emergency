@@ -495,3 +495,11 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Scale execution remains fail-closed: generic component sums require explicit pre-scored components; raw clinical findings are not converted to score points without dedicated source-validated logic.
 - Clinical QA run #356: **178/178 tests PASS**, `automated_status: PASS`.
 - Pre-branch audit: `qa/PREBRANCH_AUDIT_V1.36.md`.
+
+
+## v1.37 CORE scores — milestone 1 — 03/10/2026
+- 14/93 CORE source-encoded or validated official wrapper.
+- Dedicated deterministic rules added for NIHSS, GCS, NEWS2, SOFA-1, HEART, CHA2DS2 variants, Wells PE, PERC, YEARS, GBS, CURB-65 and Phoenix.
+- GRACE 2.0 intentionally remains a validated wrapper to the official calculator; no local approximation of revised non-linear probabilities.
+- Boundary/safety regressions include NIHSS 0/42/UN, GCS NT, NEWS2 Scale 2 authorization, SOFA 0/24, HEART 0/10, PERC low-pretest gate, YEARS FEU thresholds, GBS 0/23, CURB-65 0/5 and Phoenix sepsis/shock.
+- Clinical QA run #369: **195/195 tests PASS**, `automated_status: PASS`.
