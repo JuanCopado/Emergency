@@ -26,6 +26,7 @@ from core_scores_block10_trauma import calculate_rts, calculate_iss, calculate_a
 from core_scores_block11_digestive_hepatology import calculate_aims65, calculate_bisap, calculate_child_pugh, calculate_kings_college
 from core_scores_block12_mixed import calculate_qsofa, calculate_isth_dic, classify_kdigo_aki, calculate_mcmahon, calculate_alvarado, calculate_air
 from core_scores_block13_toxicology import evaluate_rumack_matthew, evaluate_hunter_serotonin, calculate_ciwa_ar, calculate_cows
+from core_scores_block14_adult_remaining import classify_duke_iscvid, classify_tokyo_biliary, calculate_four_at, classify_cam, calculate_rass, calculate_cpot, calculate_mascc, official_wrapper
 
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
@@ -351,6 +352,16 @@ def calculate_scale(scale_id, data, registry=None):
         "hunter-serotonin": evaluate_hunter_serotonin,
         "ciwa-ar": calculate_ciwa_ar,
         "cows": calculate_cows,
+        "duke-iscvid": classify_duke_iscvid,
+        "tokyo-biliary": classify_tokyo_biliary,
+        "four-at": calculate_four_at,
+        "cam": lambda data: classify_cam(data, False),
+        "cam-icu": lambda data: classify_cam(data, True),
+        "rass": calculate_rass,
+        "cpot": calculate_cpot,
+        "mascc": calculate_mascc,
+        "clinical-frailty": lambda data: official_wrapper("clinical-frailty", data),
+        "cssrs": lambda data: official_wrapper("cssrs", data),
     }
     if scale_id in dedicated:
         result = dedicated[scale_id](data)
