@@ -26,6 +26,7 @@ from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic
 from run_clinical_note_diagnostic_cases import run as run_clinical_note_diagnostic_cases
 from run_clinical_note_pediatric_routing_cases import run as run_clinical_note_pediatric_routing_cases
 from run_clinical_note_diagnostic_closure_cases import run as run_clinical_note_diagnostic_closure_cases
+from audit_clinical_note_diagnostic_coverage import audit as audit_clinical_note_diagnostic_coverage
 
 from infusion_calculator import infusion_ml_h, fixed_dose_ml_h, weight_per_hour_ml_h
 from load_module import load
@@ -5608,6 +5609,16 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(result['cases'],8)
         self.assertEqual(result['passed'],8,result['errors'])
         self.assertEqual(result['errors'],[])
+
+    def test_v139_diagnostic_coverage_audit(self):
+        result=audit_clinical_note_diagnostic_coverage()
+        self.assertEqual(result['status'],'PASS',result)
+        self.assertEqual(result['module_count'],131)
+        self.assertEqual(result['diagnostic_rule_count'],92)
+        self.assertEqual(result['covered_or_routed_count'],115)
+        self.assertEqual(result['allowed_non_diagnostic_count'],16)
+        self.assertEqual(result['unexpected_uncovered'],[])
+        self.assertEqual(result['stale_allowed'],[])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
