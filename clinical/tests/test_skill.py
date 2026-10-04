@@ -4575,7 +4575,7 @@ class ModularCoreTests(unittest.TestCase):
 
     def test_v138_pediatric_outpatient_registry_has_required_safety_fields(self):
         registry=load_pediatric_outpatient_registry()
-        self.assertGreaterEqual(len(registry['entries']),36)
+        self.assertGreaterEqual(len(registry['entries']),89)
         ids=[x['id'] for x in registry['entries']]
         self.assertEqual(len(ids),len(set(ids)))
         for item in registry['entries']:
@@ -4999,6 +4999,41 @@ class ModularCoreTests(unittest.TestCase):
                     'suspected_pyelonephritis':True
                 }
             )
+
+    def test_v138_outpatient_registry_expanded_integrity(self):
+        registry=load_pediatric_outpatient_registry()
+        allowed_weights={'actual','ideal','adjusted','fixed_age_band','fixed_weight_band','device','topical','not_weight_based'}
+        allowed_models={'mg_per_kg_per_dose','fixed_age_band','fixed_weight_band','schedule_by_day','fixed_schedule','fixed_dose','fixed_volume_band','volume_ml_per_kg_course','sachet_schedule','device','topical'}
+        ids=[]
+        for item in registry['entries']:
+            ids.append(item['id'])
+            self.assertIn(item['weight_basis'],allowed_weights,item['id'])
+            self.assertIn(item['dose_model'],allowed_models,item['id'])
+            self.assertTrue(item.get('diagnosis'),item['id'])
+            self.assertTrue(item.get('source'),item['id'])
+            self.assertTrue(item.get('source_url'),item['id'])
+            for concentration in item.get('verified_concentrations',[]):
+                self.assertGreater(float(concentration['mg_per_ml']),0,item['id'])
+            if item.get('max_mg_per_dose') is not None:
+                self.assertGreater(float(item['max_mg_per_dose']),0,item['id'])
+            if item.get('adult_max_daily_mg') is not None:
+                self.assertGreater(float(item['adult_max_daily_mg']),0,item['id'])
+        self.assertEqual(len(ids),len(set(ids)))
+        self.assertGreaterEqual(len(ids),89)
+
+    def test_v138_outpatient_registry_family_coverage(self):
+        registry=load_pediatric_outpatient_registry()
+        categories={x['category'] for x in registry['entries']}
+        expected={
+            'oral_antibiotic','analgesic_antipyretic','antiemetic','antihistamine',
+            'antiasthmatic_systemic_steroid','antiasthmatic_relief','asthma_controller_ics',
+            'asthma_controller_ics_laba','asthma_controller_ics_formoterol_air_mart',
+            'dermatology_topical','dermatology_antifungal_topical','dermatology_antiparasitic_topical',
+            'gastrointestinal_rehydration','gastrointestinal_laxative','antiparasitic','antiviral',
+            'ent_otologic','ophthalmology_topical','ophthalmology_antiallergic','migraine_abortive',
+            'allergic_rhinitis_intranasal'
+        }
+        self.assertTrue(expected.issubset(categories))
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
