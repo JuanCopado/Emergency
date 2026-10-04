@@ -1,0 +1,350 @@
+{
+  "schema_version": "1.0",
+  "severities": {
+    "STOP": "Contraindication/high-risk conflict. Standard prescription must be blocked until resolved.",
+    "ALERT": "Clinically significant risk requiring active prescriber review/alternative/monitoring.",
+    "CAUTION": "Use with caution; review dose, monitoring, timing or patient factors.",
+    "INFO": "Non-blocking administration or follow-up reminder."
+  },
+  "drug_classes": {
+    "penicillins": [
+      "amoxicillin",
+      "amoxicillin/clavulanate",
+      "phenoxymethylpenicillin"
+    ],
+    "cephalosporins": [
+      "cefalexin"
+    ],
+    "macrolides": [
+      "azithromycin",
+      "clarithromycin"
+    ],
+    "sulfonamide_antibiotics": [
+      "trimethoprim/sulfamethoxazole"
+    ],
+    "nsaids": [
+      "ibuprofen"
+    ],
+    "systemic_corticosteroids": [
+      "prednisolone",
+      "dexamethasone"
+    ],
+    "antihistamines": [
+      "cetirizine",
+      "loratadine",
+      "desloratadine",
+      "fexofenadine"
+    ],
+    "benzimidazoles": [
+      "albendazole",
+      "mebendazole"
+    ],
+    "fluoroquinolones": [
+      "ciprofloxacin 3 mg/mL + dexamethasone 1 mg/mL ear drops",
+      "ciprofloxacin 2 mg/mL ear drops"
+    ]
+  },
+  "class_aliases": {
+    "penicillin": "penicillins",
+    "penicillins": "penicillins",
+    "beta_lactam": "beta_lactam",
+    "beta_lactams": "beta_lactam",
+    "cephalosporin": "cephalosporins",
+    "cephalosporins": "cephalosporins",
+    "macrolide": "macrolides",
+    "macrolides": "macrolides",
+    "sulfonamide": "sulfonamide_antibiotics",
+    "sulfonamides": "sulfonamide_antibiotics",
+    "nsaid": "nsaids",
+    "nsaids": "nsaids",
+    "corticosteroid": "systemic_corticosteroids",
+    "systemic_corticosteroid": "systemic_corticosteroids",
+    "antihistamine": "antihistamines",
+    "benzimidazole": "benzimidazoles",
+    "fluoroquinolone": "fluoroquinolones"
+  },
+  "interactions": [
+    {
+      "id": "clarithromycin-contraindicated-cyp3a-qt",
+      "drug": "clarithromycin",
+      "severity": "STOP",
+      "medications": [
+        "simvastatin",
+        "lovastatin",
+        "colchicine",
+        "midazolam oral",
+        "oral midazolam",
+        "domperidone",
+        "cisapride",
+        "pimozide",
+        "terfenadine",
+        "ivabradine",
+        "ranolazine",
+        "ticagrelor",
+        "ergotamine",
+        "dihydroergotamine"
+      ],
+      "message": "Concomitant medicine is contraindicated with clarithromycin in the cited SmPC.",
+      "action": "Choose an alternative antibiotic or resolve the interacting medicine before prescribing.",
+      "source_url": "https://www.medicines.org.uk/emc/product/4357/smpc"
+    },
+    {
+      "id": "clarithromycin-anticoagulant",
+      "drug": "clarithromycin",
+      "severity": "ALERT",
+      "medications": [
+        "warfarin",
+        "apixaban",
+        "rivaroxaban",
+        "dabigatran",
+        "edoxaban"
+      ],
+      "message": "Clarithromycin may increase anticoagulant exposure/bleeding risk.",
+      "action": "Review alternative antibiotic and, if coadministration is necessary, use product-specific monitoring/management.",
+      "source_url": "https://www.medicines.org.uk/emc/product/4357/smpc"
+    },
+    {
+      "id": "ondansetron-apomorphine",
+      "drug": "ondansetron",
+      "severity": "STOP",
+      "medications": [
+        "apomorphine"
+      ],
+      "message": "Ondansetron with apomorphine is contraindicated due to profound hypotension/loss of consciousness.",
+      "action": "Do not coadminister.",
+      "source_url": "https://www.medicines.org.uk/emc/product/5216/smpc"
+    },
+    {
+      "id": "ondansetron-qt",
+      "drug": "ondansetron",
+      "severity": "ALERT",
+      "medications": [
+        "amiodarone",
+        "sotalol",
+        "erythromycin",
+        "clarithromycin",
+        "azithromycin",
+        "ketoconazole",
+        "fluconazole"
+      ],
+      "message": "Concomitant QT-prolonging treatment may add to ondansetron QT risk.",
+      "action": "Review QT risk, electrolytes and alternative therapy; ECG monitoring may be appropriate.",
+      "source_url": "https://www.medicines.org.uk/emc/product/5216/smpc"
+    },
+    {
+      "id": "ondansetron-serotonergic",
+      "drug": "ondansetron",
+      "severity": "CAUTION",
+      "medication_classes": [
+        "ssri",
+        "snri",
+        "serotonergic"
+      ],
+      "message": "Serotonin syndrome has been reported with ondansetron plus serotonergic medicines.",
+      "action": "Review serotonergic burden and counsel/monitor for serotonin toxicity.",
+      "source_url": "https://www.medicines.org.uk/emc/product/5216/smpc"
+    },
+    {
+      "id": "cotrimoxazole-methotrexate",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "severity": "ALERT",
+      "medications": [
+        "methotrexate"
+      ],
+      "message": "Co-trimoxazole may increase free methotrexate exposure and antifolate toxicity.",
+      "action": "Avoid unless specifically justified; review blood-count/folate/toxicity monitoring.",
+      "source_url": "https://www.medicines.org.uk/emc/product/6996/smpc"
+    },
+    {
+      "id": "cotrimoxazole-hyperkalaemia",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "severity": "ALERT",
+      "medication_classes": [
+        "ace_inhibitor",
+        "arb",
+        "potassium_sparing_diuretic"
+      ],
+      "medications": [
+        "spironolactone"
+      ],
+      "message": "Trimethoprim-sulfamethoxazole can cause clinically relevant hyperkalaemia with potassium-raising medicines.",
+      "action": "Review necessity and potassium/renal monitoring or choose an alternative.",
+      "source_url": "https://www.medicines.org.uk/emc/product/6996/smpc"
+    },
+    {
+      "id": "ibuprofen-anticoagulant",
+      "drug": "ibuprofen",
+      "severity": "ALERT",
+      "medication_classes": [
+        "anticoagulant",
+        "antiplatelet"
+      ],
+      "medications": [
+        "warfarin",
+        "apixaban",
+        "rivaroxaban",
+        "dabigatran",
+        "edoxaban",
+        "clopidogrel",
+        "aspirin"
+      ],
+      "message": "NSAID coadministration increases bleeding risk.",
+      "action": "Prefer non-NSAID analgesia where possible or review bleeding-risk mitigation.",
+      "source_url": "https://www.medicines.org.uk/emc/product/10524/smpc"
+    },
+    {
+      "id": "ibuprofen-triple-whammy",
+      "drug": "ibuprofen",
+      "severity": "ALERT",
+      "medication_classes": [
+        "ace_inhibitor",
+        "arb",
+        "diuretic"
+      ],
+      "message": "NSAID with ACEi/ARB and/or diuretic can worsen renal function, especially with dehydration.",
+      "action": "Review hydration, renal risk and alternative analgesia; consider renal monitoring.",
+      "source_url": "https://www.medicines.org.uk/emc/product/10524/smpc"
+    },
+    {
+      "id": "ibuprofen-corticosteroid-ssri",
+      "drug": "ibuprofen",
+      "severity": "CAUTION",
+      "medication_classes": [
+        "systemic_corticosteroid",
+        "ssri"
+      ],
+      "message": "Concomitant corticosteroids or SSRIs increase gastrointestinal bleeding risk with NSAIDs.",
+      "action": "Review GI bleeding risk and alternative analgesia.",
+      "source_url": "https://www.medicines.org.uk/emc/product/10524/smpc"
+    },
+    {
+      "id": "rizatriptan-contraindicated-combos",
+      "drug": "rizatriptan",
+      "severity": "STOP",
+      "medication_classes": [
+        "maoi",
+        "triptan",
+        "ergot"
+      ],
+      "medications": [
+        "ergotamine",
+        "dihydroergotamine",
+        "sumatriptan",
+        "zolmitriptan",
+        "naratriptan",
+        "linezolid"
+      ],
+      "message": "Rizatriptan is contraindicated with MAO inhibitors, ergot derivatives and other 5-HT1B/1D agonists.",
+      "action": "Do not coadminister; observe product-specific washout intervals.",
+      "source_url": "https://www.medicines.org.uk/emc/product/14472/smpc"
+    },
+    {
+      "id": "rizatriptan-propranolol",
+      "drug": "rizatriptan",
+      "severity": "ALERT",
+      "medications": [
+        "propranolol"
+      ],
+      "message": "Propranolol substantially increases rizatriptan exposure.",
+      "action": "Use the product-specific reduced 5 mg regimen and review pediatric appropriateness; do not use the standard 10 mg band.",
+      "source_url": "https://www.medicines.org.uk/emc/product/14472/smpc"
+    },
+    {
+      "id": "fexofenadine-antacid",
+      "drug": "fexofenadine",
+      "severity": "CAUTION",
+      "medication_classes": [
+        "aluminium_magnesium_antacid"
+      ],
+      "message": "Aluminium/magnesium antacids can reduce fexofenadine absorption.",
+      "action": "Separate administration according to the exact product SmPC.",
+      "source_url": "https://www.medicines.org.uk/"
+    }
+  ],
+  "condition_rules": [
+    {
+      "id": "clarithromycin-qt-history",
+      "drug": "clarithromycin",
+      "field": "known_qt_prolongation_or_ventricular_arrhythmia",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Clarithromycin is contraindicated with known QT prolongation or ventricular arrhythmia.",
+      "action": "Use a non-QT-risk alternative.",
+      "source_url": "https://www.medicines.org.uk/emc/product/4357/smpc"
+    },
+    {
+      "id": "clarithromycin-electrolytes",
+      "drug": "clarithromycin",
+      "field": "hypokalaemia_or_hypomagnesaemia",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Clarithromycin is contraindicated with hypokalaemia/hypomagnesaemia due to QT risk.",
+      "action": "Correct electrolytes and choose/reassess therapy.",
+      "source_url": "https://www.medicines.org.uk/emc/product/11561/smpc"
+    },
+    {
+      "id": "ondansetron-qt-history",
+      "drug": "ondansetron",
+      "field": "known_qt_prolongation_or_ventricular_arrhythmia",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Ondansetron adds QT/arrhythmia risk in patients with QT prolongation or ventricular arrhythmia.",
+      "action": "Review necessity, ECG/electrolytes and alternatives.",
+      "source_url": "https://www.medicines.org.uk/emc/product/5216/smpc"
+    },
+    {
+      "id": "ondansetron-electrolytes",
+      "drug": "ondansetron",
+      "field": "hypokalaemia_or_hypomagnesaemia",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Electrolyte abnormalities increase ondansetron-associated arrhythmia risk.",
+      "action": "Correct electrolytes and reassess QT risk.",
+      "source_url": "https://www.medicines.org.uk/emc/product/5216/smpc"
+    },
+    {
+      "id": "ibuprofen-dehydration-alert",
+      "drug": "ibuprofen",
+      "field": "dehydrated",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Ibuprofen should be avoided in dehydration because of renal risk.",
+      "action": "Use alternative analgesia/antipyresis and treat dehydration.",
+      "source_url": "https://www.medicines.org.uk/emc/product/10524/smpc"
+    },
+    {
+      "id": "pregnancy-antiparasitic-review",
+      "categories": [
+        "antiparasitic"
+      ],
+      "field": "pregnant",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Pregnancy changes the benefit-risk profile of several antiparasitic regimens.",
+      "action": "Review pregnancy-specific guidance/product labeling before prescribing.",
+      "source_url": "https://www.cdc.gov/"
+    }
+  ],
+  "duplicate_rules": [
+    {
+      "class_name": "nsaids",
+      "severity": "ALERT",
+      "message": "Duplicate NSAID therapy increases renal/GI toxicity."
+    },
+    {
+      "class_name": "systemic_corticosteroids",
+      "severity": "ALERT",
+      "message": "Duplicate systemic corticosteroid therapy can cause unintended cumulative exposure."
+    },
+    {
+      "class_name": "antihistamines",
+      "severity": "CAUTION",
+      "message": "Duplicate antihistamine therapy may add adverse effects without benefit."
+    },
+    {
+      "class_name": "macrolides",
+      "severity": "ALERT",
+      "message": "Duplicate macrolide therapy is usually unintended and may increase QT/adverse-effect burden."
+    }
+  ]
+}
