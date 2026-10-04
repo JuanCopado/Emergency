@@ -143,8 +143,21 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
     elif model in {"fixed_age_band","fixed_weight_band"}:
         band=_fixed_band(e,patient)
         dose=band.get("dose_mg")
+        if dose is None and band.get("dose_mg_per_kg") is not None:
+            w=_num(patient.get("actual_weight_kg"),"actual_weight_kg")
+            dose=_apply_max(_num(band["dose_mg_per_kg"],"dose_mg_per_kg")*w,{**e,"max_mg_per_dose":band.get("max_mg_per_dose",e.get("max_mg_per_dose"))})
+            result["dosing_weight_kg"]=w
+            result["dose_mg_per_kg"]=band["dose_mg_per_kg"]
         doses_per_day=band.get("doses_per_day",doses_per_day)
-        duration=band.get("duration_days",duration)
+        band_duration=band.get("duration_days",duration)
+        if isinstance(band_duration,list):
+            if selected_duration_days is None:
+                raise ValueError(f"duration selection required within {band_duration}")
+            if selected_duration_days < band_duration[0] or selected_duration_days > band_duration[1]:
+                raise ValueError("selected_duration_days outside source range")
+            duration=selected_duration_days
+        else:
+            duration=band_duration
         result["matched_band"]=band
         if dose is not None: result["dose_mg"]=dose
     elif model=="schedule_by_day":
