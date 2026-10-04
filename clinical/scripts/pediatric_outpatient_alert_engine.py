@@ -274,7 +274,7 @@ def evaluate(regimen_id, patient, active_medications=None, product=None, registr
                 alerts.append(_alert("STOP","PRODUCT_CONCENTRATION_INVALID","Product concentration must be >0.","Verify the exact product concentration."))
             elif allowed and not any(abs(conc-x)<1e-9 for x in allowed) and product.get("external_concentration_verified") is not True:
                 alerts.append(_alert("STOP","PRODUCT_CONCENTRATION_MISMATCH",
-                  "Selected liquid concentration is not one of the verified concentrations for this regimen.",
+                  "Selected liquid concentration is not one of the verified concentrations for this regimen; concentration is not in registry.",
                   "Verify the exact product/SmPC or explicitly mark an externally verified concentration.",
                   details={"selected_mg_per_ml":conc,"verified_mg_per_ml":allowed}))
         except Exception:
