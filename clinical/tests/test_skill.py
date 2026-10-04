@@ -5035,6 +5035,80 @@ class ModularCoreTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(categories))
 
+    def test_v138_blockF_amoxicillin_and_coamox_renal_gates(self):
+        with self.assertRaisesRegex(ValueError,'below 30'):
+            calculate_pediatric_outpatient(
+                'amoxicillin-aom',
+                {'age_months':60,'actual_weight_kg':20,'known_renal_impairment':True,'egfr_mL_min':20},
+                {'concentration_mg_per_ml':50}
+            )
+        ok=calculate_pediatric_outpatient(
+            'amoxicillin-aom',
+            {'age_months':60,'actual_weight_kg':20,'known_renal_impairment':True,'egfr_mL_min':60},
+            {'concentration_mg_per_ml':50}
+        )
+        self.assertEqual(ok['dose_mg'],600)
+
+        with self.assertRaisesRegex(ValueError,'7:1'):
+            calculate_pediatric_outpatient(
+                'amox-clav-bite',
+                {'age_months':84,'actual_weight_kg':20,'known_renal_impairment':True,'egfr_mL_min':20},
+                {'concentration_mg_per_ml':80}
+            )
+
+    def test_v138_blockF_clarithromycin_cetirizine_oseltamivir_renal_gates(self):
+        with self.assertRaisesRegex(ValueError,'below creatinine clearance 30'):
+            calculate_pediatric_outpatient(
+                'clarithromycin-aom-penicillin-allergy',
+                {'age_months':48,'actual_weight_kg':15,'known_renal_impairment':True,'egfr_mL_min':20},
+                {'concentration_mg_per_ml':25},
+                selected_duration_days=5
+            )
+
+        with self.assertRaisesRegex(ValueError,'individualized'):
+            calculate_pediatric_outpatient(
+                'cetirizine-urticaria-ge1y',
+                {'age_months':84,'actual_weight_kg':25,'known_renal_impairment':True},
+                {'concentration_mg_per_ml':1}
+            )
+
+        with self.assertRaisesRegex(ValueError,'oseltamivir'):
+            calculate_pediatric_outpatient(
+                'oseltamivir-influenza-ge1y',
+                {'age_months':96,'actual_weight_kg':20,'known_renal_impairment':True},
+                {'concentration_mg_per_ml':6}
+            )
+
+    def test_v138_blockF_azithromycin_renal_threshold(self):
+        ok=calculate_pediatric_outpatient(
+            'azithromycin-pertussis-ge6mo',
+            {'age_months':60,'actual_weight_kg':20,'known_renal_impairment':True,'egfr_mL_min':30},
+            {'concentration_mg_per_ml':40}
+        )
+        self.assertEqual(ok['total_doses'],5)
+        with self.assertRaisesRegex(ValueError,'GFR 10'):
+            calculate_pediatric_outpatient(
+                'azithromycin-pertussis-ge6mo',
+                {'age_months':60,'actual_weight_kg':20,'known_renal_impairment':True,'egfr_mL_min':5},
+                {'concentration_mg_per_ml':40}
+            )
+
+    def test_v138_blockF_ondansetron_and_dexamethasone_organ_metadata(self):
+        ond=calculate_pediatric_outpatient(
+            'ondansetron-migraine-vomiting-ed',
+            {'age_months':120,'actual_weight_kg':30,'known_hepatic_impairment':True,'hepatic_severity':'moderate'},
+            {'concentration_mg_per_ml':0.8}
+        )
+        self.assertIn('8 mg',ond['hepatic_adjustment']['detail'])
+
+        dex=calculate_pediatric_outpatient(
+            'dexamethasone-croup-mild-moderate',
+            {'age_months':48,'actual_weight_kg':18,'known_renal_impairment':True,'egfr_mL_min':20,'known_hepatic_impairment':True,'hepatic_severity':'moderate'},
+            {'concentration_mg_per_ml':0.4}
+        )
+        self.assertEqual(dex['renal_adjustment']['mode'],'none_required')
+        self.assertEqual(dex['hepatic_adjustment']['mode'],'none_required')
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
