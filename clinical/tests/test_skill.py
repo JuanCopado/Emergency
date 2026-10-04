@@ -4587,6 +4587,78 @@ class ModularCoreTests(unittest.TestCase):
         for required in ('oral_antibiotic','analgesic_antipyretic','antiemetic','antihistamine','antiasthmatic_systemic_steroid','antiviral'):
             self.assertIn(required,categories)
 
+    def test_v138_blockA_clarithromycin_mixed_weight_bands(self):
+        low = calculate_pediatric_outpatient(
+            'clarithromycin-aom-penicillin-allergy',
+            {'age_months':12,'actual_weight_kg':7},
+            {'concentration_mg_per_ml':25},
+            selected_duration_days=5,
+        )
+        self.assertAlmostEqual(low['dose_mg'],52.5)
+        self.assertAlmostEqual(low['volume_per_dose']['exact_ml'],2.1)
+        self.assertEqual(low['total_doses'],10)
+
+        band = calculate_pediatric_outpatient(
+            'clarithromycin-aom-penicillin-allergy',
+            {'age_months':48,'actual_weight_kg':15},
+            {'concentration_mg_per_ml':25},
+            selected_duration_days=7,
+        )
+        self.assertEqual(band['dose_mg'],125)
+        self.assertEqual(band['volume_per_dose']['exact_ml'],5)
+        self.assertEqual(band['total_doses'],14)
+
+    def test_v138_blockA_antibiotic_indication_separation(self):
+        registry=load_pediatric_outpatient_registry()
+        ids={x['id'] for x in registry['entries']}
+        for sid in (
+            'clarithromycin-aom-penicillin-allergy',
+            'clarithromycin-sinusitis-penicillin-allergy',
+            'clarithromycin-cap-penicillin-allergy',
+            'cefalexin-impetigo-extensive',
+            'cefalexin-cervical-lymphadenitis-mild',
+        ):
+            self.assertIn(sid,ids)
+        aom=next(x for x in registry['entries'] if x['id']=='clarithromycin-aom-penicillin-allergy')
+        cap=next(x for x in registry['entries'] if x['id']=='clarithromycin-cap-penicillin-allergy')
+        self.assertNotEqual(aom['diagnosis'],cap['diagnosis'])
+
+    def test_v138_blockA_asthma_controller_age_and_device_gates(self):
+        preschool = calculate_pediatric_outpatient(
+            'fluticasone-controller-preschool',
+            {'age_months':48,'actual_weight_kg':18}
+        )
+        self.assertIn('50 microgram',preschool['device']['device'])
+        self.assertEqual(preschool['device']['puffs_per_dose'],1)
+
+        school = calculate_pediatric_outpatient(
+            'budesonide-formoterol-air-mart-6to11-gina2026',
+            {'age_months':120,'actual_weight_kg':30}
+        )
+        self.assertEqual(school['device']['maximum_total_inhalations_24h'],8)
+        self.assertIn('80/4.5',school['device']['device'])
+
+        teen = calculate_pediatric_outpatient(
+            'budesonide-formoterol-air-mart-12to17-gina2026',
+            {'age_months':180,'actual_weight_kg':60}
+        )
+        self.assertEqual(teen['device']['maximum_total_inhalations_24h'],12)
+
+        with self.assertRaisesRegex(ValueError,'minimum age'):
+            calculate_pediatric_outpatient(
+                'budesonide-formoterol-air-mart-6to11-gina2026',
+                {'age_months':60,'actual_weight_kg':20}
+            )
+
+    def test_v138_blockA_montelukast_is_controller_not_reliever(self):
+        result=calculate_pediatric_outpatient(
+            'montelukast-controller-preschool',
+            {'age_months':48,'actual_weight_kg':18}
+        )
+        self.assertEqual(result['dose_mg'],4)
+        self.assertEqual(result['doses_per_day'],1)
+        self.assertTrue(any('neuropsychiatric' in x.lower() for x in result['cautions']))
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
