@@ -5109,6 +5109,53 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(dex['renal_adjustment']['mode'],'none_required')
         self.assertEqual(dex['hepatic_adjustment']['mode'],'none_required')
 
+    def test_v138_pharmacy_review_ondansetron_15kg_boundary(self):
+        result=calculate_pediatric_outpatient(
+            'ondansetron-gastroenteritis-initial',
+            {'age_months':48,'actual_weight_kg':15}
+        )
+        self.assertEqual(result['dose_mg'],4)
+        self.assertEqual(result['total_doses'],1)
+
+    def test_v138_pharmacy_review_prednisolone_under2_requires_explicit_discharge_plan(self):
+        with self.assertRaisesRegex(ValueError,'explicit pediatric/ED discharge plan'):
+            calculate_pediatric_outpatient(
+                'prednisolone-asthma-lt2y',
+                {'age_months':18,'actual_weight_kg':11},
+                selected_dose_per_kg=1,
+                selected_duration_days=3
+            )
+        ok=calculate_pediatric_outpatient(
+            'prednisolone-asthma-lt2y',
+            {'age_months':18,'actual_weight_kg':11,'specialist_or_ed_discharge_plan':True},
+            selected_dose_per_kg=1,
+            selected_duration_days=3
+        )
+        self.assertEqual(ok['dose_mg'],11)
+        self.assertEqual(ok['total_doses'],3)
+
+    def test_v138_pharmacy_review_clindamycin_verified_liquid(self):
+        result=calculate_pediatric_outpatient(
+            'clindamycin-mrsa-skin',
+            {'age_months':120,'actual_weight_kg':20},
+            {'concentration_mg_per_ml':15}
+        )
+        self.assertEqual(result['dose_mg'],200)
+        self.assertAlmostEqual(result['volume_per_dose']['exact_ml'],13.333333333333334)
+        self.assertEqual(result['total_doses'],20)
+
+    def test_v138_pharmacy_review_fexofenadine_pediatric_organ_gate(self):
+        with self.assertRaisesRegex(ValueError,'renal impairment'):
+            calculate_pediatric_outpatient(
+                'fexofenadine-allergic-rhinitis',
+                {'age_months':120,'actual_weight_kg':30,'known_renal_impairment':True}
+            )
+        with self.assertRaisesRegex(ValueError,'hepatic impairment'):
+            calculate_pediatric_outpatient(
+                'fexofenadine-allergic-rhinitis',
+                {'age_months':120,'actual_weight_kg':30,'known_hepatic_impairment':True,'hepatic_severity':'moderate'}
+            )
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
