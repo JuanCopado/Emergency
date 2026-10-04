@@ -10,7 +10,6 @@
     "no_original_attachment_embedding_by_default"
   ],
   "forbidden_direct_identifier_fields": [
-    "name",
     "full_name",
     "patient_name",
     "date_of_birth",
