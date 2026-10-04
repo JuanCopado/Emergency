@@ -556,3 +556,11 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Calculator continues to fail closed on unverified liquid concentrations, unresolved dose ranges, contraindication gates and selected age/weight boundaries.
 - Portugal/Azores reconciliation explicitly distinguishes national presentation documentation from local stock.
 - Status remains **yellow** until pediatric/pharmacy human review.
+
+
+## v1.38 medication safety alerts — 04/10/2026
+- Added central preflight safety engine and rules registry.
+- Tested exact/class beta-lactam allergy, severe cross-allergy, duplicate ingredient/class, clarithromycin interactions/QT, ondansetron apomorphine/QT/serotonergic burden, co-trimoxazole methotrexate/hyperkalaemia risk, ibuprofen bleeding/renal risk, rizatriptan MAOI/triptan/propranolol, age/weight, renal thresholds, product concentration mismatch and global outpatient red flags.
+- Alert integration is fail-closed for STOP-level conflicts.
+- Clinical QA #510: **SUCCESS**.
+- This is automated CDS validation, not human clinical/pharmacy sign-off.
