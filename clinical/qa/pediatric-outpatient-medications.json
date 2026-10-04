@@ -1195,6 +1195,547 @@
       "liquid_capable": false,
       "source": "RCH antimicrobial/skin infection guidance",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "clarithromycin-aom-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "acute otitis media when antibiotic treatment is indicated and penicillin allergy/intolerance requires a macrolide alternative",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 7.999,
+          "dose_mg": null,
+          "dose_mg_per_kg": 7.5,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg": 11,
+          "max_weight_kg": 19,
+          "dose_mg": 125,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg": 19,
+          "max_weight_kg": 29,
+          "dose_mg": 187.5,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg": 29,
+          "max_weight_kg": 40,
+          "dose_mg": 250,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "May be taken with or without food. Verify exact suspension strength; important CYP3A/QT interactions apply.",
+      "contraindications": [
+        "macrolide hypersensitivity",
+        "concomitant contraindicated QT/CYP3A interacting medicines per SmPC"
+      ],
+      "cautions": [
+        "hepatic impairment",
+        "renal impairment",
+        "QT prolongation",
+        "electrolyte disturbance"
+      ],
+      "source": "NICE NG91 acute otitis media, amended 2022; clarithromycin SmPC for product use",
+      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations"
+    },
+    {
+      "id": "phenoxymethylpenicillin-sinusitis-child",
+      "category": "oral_antibiotic",
+      "drug": "phenoxymethylpenicillin",
+      "diagnosis": "acute sinusitis in a child when immediate/back-up antibiotic is indicated and first-choice penicillin is appropriate",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "bands": [
+        {
+          "min_age_months": 1,
+          "max_age_months": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 4,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_mg": 125,
+          "doses_per_day": 4,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 250,
+          "doses_per_day": 4,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "dose_mg": 500,
+          "doses_per_day": 4,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "four times daily",
+      "administration": "Use exact product instructions. Oral penicillin V absorption is reduced by food for many products; follow the exact SmPC and preferably dose away from meals when specified.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "cautions": [
+        "renal impairment may require interval review",
+        "severe systemic/orbital/intracranial features require hospital pathway"
+      ],
+      "source": "NICE NG79 acute sinusitis",
+      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations"
+    },
+    {
+      "id": "clarithromycin-sinusitis-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "acute sinusitis requiring antibiotic in child with penicillin allergy/intolerance",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 7.999,
+          "dose_mg": null,
+          "dose_mg_per_kg": 7.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 11,
+          "max_weight_kg": 19,
+          "dose_mg": 125,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 19,
+          "max_weight_kg": 29,
+          "dose_mg": 187.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 29,
+          "max_weight_kg": 40,
+          "dose_mg": 250,
+          "doses_per_day": 2,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "May be taken with or without food; verify exact formulation.",
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ],
+      "cautions": [
+        "QT prolongation",
+        "hepatic impairment",
+        "renal impairment",
+        "CYP3A interactions"
+      ],
+      "source": "NICE NG79 acute sinusitis",
+      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations"
+    },
+    {
+      "id": "clarithromycin-cap-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "community-acquired pneumonia in child when oral macrolide is selected for penicillin allergy/intolerance or atypical pathogen coverage",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 7.999,
+          "dose_mg": null,
+          "dose_mg_per_kg": 7.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 11,
+          "max_weight_kg": 19,
+          "dose_mg": 125,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 19,
+          "max_weight_kg": 29,
+          "dose_mg": 187.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 29,
+          "max_weight_kg": 40,
+          "dose_mg": 250,
+          "doses_per_day": 2,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "May be taken with or without food; verify exact product and interaction profile.",
+      "cautions": [
+        "QT prolongation",
+        "drug interactions",
+        "renal/hepatic impairment"
+      ],
+      "source": "NICE NG250 pneumonia; RCH CAP allergy pathway",
+      "source_url": "https://www.nice.org.uk/guidance/NG250/chapter/recommendations"
+    },
+    {
+      "id": "cefalexin-impetigo-extensive",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "impetigo that is extensive or unsuitable for localized topical therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "Can be taken without regard to meals; verify exact SmPC.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "immediate severe beta-lactam allergy",
+        "renal impairment"
+      ],
+      "source": "RCH Antimicrobial guidelines, updated Feb 2025",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "cefalexin-cervical-lymphadenitis-mild",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "mild bacterial cervical lymphadenitis suitable for oral outpatient therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "deep neck infection red flags",
+        "abscess requiring drainage",
+        "renal impairment"
+      ],
+      "source": "RCH Antimicrobial guidelines, updated Feb 2025",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "fluticasone-controller-preschool",
+      "category": "asthma_controller_ics",
+      "drug": "fluticasone propionate",
+      "diagnosis": "preschool asthma age 1-5 years requiring first-line preventer treatment",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 12,
+      "max_age_months": 71,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "device": "fluticasone propionate 50 microgram/actuation pMDI + spacer",
+          "puffs_per_dose": 1,
+          "doses_per_day": 2
+        }
+      ],
+      "frequency": "1 puff twice daily",
+      "administration": "Use pMDI with spacer; facemask until coordinated with mouthpiece. Rinse mouth/brush teeth after ICS where feasible. Review control and technique.",
+      "cautions": [
+        "monitor growth",
+        "oral candidiasis/dysphonia",
+        "step down to lowest effective dose"
+      ],
+      "source": "RCH Preschool asthma 1-5 years",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Preschool_asthma_%281-5_years%29/"
+    },
+    {
+      "id": "montelukast-controller-preschool",
+      "category": "asthma_controller_ltra",
+      "drug": "montelukast",
+      "diagnosis": "preschool asthma age 1-5 years when LTRA is chosen as alternative/adjunct preventer",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "max_age_months": 71,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_mg": 4,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Chewable/granule product depends on age and local product. Stop and review if agitation, sleep disturbance, mood or behavioral changes occur.",
+      "cautions": [
+        "neuropsychiatric adverse effects",
+        "not for acute bronchospasm"
+      ],
+      "source": "RCH Preschool asthma; INFARMED confirms 4 mg pediatric chewable presentations in Portugal",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Preschool_asthma_%281-5_years%29/"
+    },
+    {
+      "id": "ciclesonide-controller-6to11-step2",
+      "category": "asthma_controller_ics",
+      "drug": "ciclesonide",
+      "diagnosis": "asthma age 6-11 years, Step 2 low-dose ICS preventer",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "ciclesonide 80 microgram/actuation",
+          "puffs_per_dose": 1,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Use prescribed inhaler correctly; review adherence, technique and control before step-up.",
+      "source": "RCH asthma in primary school-aged children",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/"
+    },
+    {
+      "id": "fluticasone-controller-6to11-step2",
+      "category": "asthma_controller_ics",
+      "drug": "fluticasone propionate",
+      "diagnosis": "asthma age 6-11 years, Step 2 low-dose ICS preventer",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "fluticasone propionate 50 microgram/actuation",
+          "puffs_per_dose": 1,
+          "doses_per_day": 2
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "Use spacer with pMDI when appropriate; rinse mouth after ICS. Check adherence and technique before step-up.",
+      "source": "RCH asthma in primary school-aged children",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/"
+    },
+    {
+      "id": "montelukast-controller-6to11",
+      "category": "asthma_controller_ltra",
+      "drug": "montelukast",
+      "diagnosis": "asthma age 6-11 years when montelukast is selected as alternative/adjunct controller",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 5,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Review for agitation, sleep disturbance or altered mood and stop/reassess if these occur.",
+      "cautions": [
+        "neuropsychiatric adverse effects",
+        "not an acute reliever"
+      ],
+      "source": "RCH asthma 6-11 years; INFARMED pediatric 5 mg chewable presentations",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/"
+    },
+    {
+      "id": "budesonide-formoterol-controller-6to11-step3-rch",
+      "category": "asthma_controller_ics_laba",
+      "drug": "budesonide/formoterol",
+      "diagnosis": "asthma age 6-11 years, Step 3 ICS/LABA maintenance option",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "budesonide/formoterol pMDI 100/3 micrograms",
+          "puffs_per_dose": 2,
+          "doses_per_day": 2,
+          "alternative": "DPI 200/6 micrograms: 1 inhalation twice daily"
+        }
+      ],
+      "frequency": "twice daily maintenance; reliever strategy must match written plan",
+      "administration": "Controller regimen only. Confirm whether separate SABA or MART strategy is being used; do not mix plans silently.",
+      "source": "RCH asthma in primary school-aged children",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-6to11-gina2026",
+      "category": "asthma_controller_ics_formoterol_air_mart",
+      "drug": "budesonide/formoterol",
+      "diagnosis": "asthma age 6-11 years using GINA 2026 AIR/MART strategy with the specified low-dose budesonide-formoterol formulation",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "budesonide/formoterol delivered 80/4.5 micrograms (metered 100/6) per inhalation",
+          "step1_2": "1 inhalation as needed",
+          "step3": "1 inhalation once daily plus 1 as needed",
+          "step4": "1 inhalation twice daily plus 1 as needed",
+          "maximum_total_inhalations_24h": 8
+        }
+      ],
+      "frequency": "by GINA treatment step",
+      "administration": "Use only the specified ICS-formoterol strength/device suitable for AIR/MART. Seek medical care if >8 total inhalations are needed in 24 h.",
+      "source": "GINA 2026 Strategy Report, Box 4-8B",
+      "source_url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-12to17-gina2026",
+      "category": "asthma_controller_ics_formoterol_air_mart",
+      "drug": "budesonide/formoterol",
+      "diagnosis": "asthma age 12-17 years using GINA 2026 AIR/MART strategy",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 144,
+      "max_age_months": 215,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "budesonide/formoterol delivered 160/4.5 micrograms (metered 200/6) per inhalation",
+          "step1_2": "1 inhalation as needed",
+          "step3": "1 inhalation twice (or once) daily plus 1 as needed",
+          "step4_5": "2 inhalations twice daily plus 1 as needed",
+          "maximum_total_inhalations_24h": 12
+        }
+      ],
+      "frequency": "by GINA treatment step",
+      "administration": "AIR/MART only with an appropriate ICS-formoterol product. Seek medical care if >12 total inhalations are needed in 24 h.",
+      "source": "GINA 2026 Strategy Report, Box 4-8B",
+      "source_url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
     }
+  ],
+  "last_expanded": "2026-10-04",
+  "expansion_notes": [
+    "Block A: diagnosis-specific antibiotic alternatives and asthma controller strategies; GINA 2026/RCH/NICE; Portugal concentrations only where independently verified."
   ]
 }
