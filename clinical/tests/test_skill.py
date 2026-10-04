@@ -4800,7 +4800,8 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockC_ent_eye_regimens(self):
         eye=calculate_pediatric_outpatient(
             'chloramphenicol05-bacterial-conjunctivitis',
-            {'age_months':72,'actual_weight_kg':20}
+            {'age_months':72,'actual_weight_kg':20},
+            selected_duration_days=5
         )
         self.assertEqual(eye['drops_per_dose'],1)
         self.assertEqual(eye['doses_per_day_range'],[4,6])
