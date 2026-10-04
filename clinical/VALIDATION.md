@@ -537,3 +537,12 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Last code QA: Clinical QA #442 — **289/289 tests PASS**, `automated_status: PASS`.
 - High-risk or licensed/external tools preserve explicit boundaries rather than approximating unavailable algorithms.
 - Human review remains required before any yellow module is promoted clinically.
+
+
+## v1.38 pediatric outpatient/home medications — 04/10/2026
+- New module registered: `pediatric-outpatient-home-medications`.
+- Initial outpatient registry: **36 diagnosis-specific regimens**.
+- Deterministic fail-closed calculator added.
+- Tests cover ideal-vs-actual weight, source maximums, verified concentration -> mL, total doses/course volume, variable-day schedules, age/weight bands and contraindication gates.
+- Clinical QA passed after import-order repair; final synchronized branch QA still required after module/evidence/state registration.
+- Evidence status: **yellow**, pending expanded formulary, local product reconciliation and human pediatric/pharmacy review.
