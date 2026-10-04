@@ -64,7 +64,7 @@ def _alert(severity,code,message,action,source_url=None,details=None):
       "source_url":source_url,"details":details or {}
     }
 
-def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=None):
+def evaluate(regimen_id, patient, active_medications=None, product=None, registry=None, rules=None):
     registry=registry or _load(REGISTRY)
     rules=rules or _load(RULES)
     e=_entry(registry,regimen_id)
@@ -72,6 +72,78 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
     drug_norm=_norm(drug)
     classes=_drug_classes(drug,rules)
     alerts=[]
+
+    # Safety-context completeness.
+    if "allergies" not in patient:
+        alerts.append(_alert("ALERT","ALLERGY_STATUS_NOT_DOCUMENTED",
+          "Drug-allergy status has not been explicitly reviewed for this prescription.",
+          "Confirm and document drug allergies before prescribing."))
+    if active_medications is None and "active_medications" not in patient:
+        alerts.append(_alert("ALERT","MEDICATION_RECONCILIATION_NOT_DOCUMENTED",
+          "Active medication reconciliation is missing, so interaction screening may be incomplete.",
+          "Confirm current medicines, including OTC/herbal products, before prescribing."))
+
+    # Age/weight and registry-gate preflight.
+    age=patient.get("age_months")
+    if (e.get("min_age_months") is not None or e.get("max_age_months") is not None) and age is None:
+        alerts.append(_alert("STOP","AGE_REQUIRED","Age is required for this regimen.","Enter age before prescribing."))
+    elif age is not None:
+        try:
+            av=float(age)
+            if e.get("min_age_months") is not None and av < e["min_age_months"]:
+                alerts.append(_alert("STOP","AGE_BELOW_RANGE","Patient is below the regimen minimum age.","Choose an age-appropriate regimen."))
+            if e.get("max_age_months") is not None and av > e["max_age_months"]:
+                alerts.append(_alert("STOP","AGE_ABOVE_RANGE","Patient is above the regimen maximum age.","Choose an age-appropriate regimen."))
+        except Exception:
+            alerts.append(_alert("STOP","AGE_INVALID","Age value is invalid.","Correct age before prescribing."))
+
+    basis=e.get("weight_basis")
+    required_weight_field={"actual":"actual_weight_kg","ideal":"ideal_weight_kg","adjusted":"adjusted_weight_kg"}.get(basis)
+    if required_weight_field and patient.get(required_weight_field) is None:
+        alerts.append(_alert("STOP","DOSING_WEIGHT_REQUIRED",
+          f"{required_weight_field} is required for this regimen.",
+          "Enter the required dosing weight before calculating the dose."))
+    if basis in {"fixed_weight_band","device"} and any(("min_weight_kg" in b or "min_weight_kg_inclusive" in b or "max_weight_kg" in b) for b in e.get("bands",[])) and patient.get("actual_weight_kg") is None:
+        alerts.append(_alert("STOP","ACTUAL_WEIGHT_REQUIRED","Actual weight is required to select the correct dose/device band.","Enter current measured weight."))
+
+    for gate in e.get("required_patient_flags",[]):
+        if patient.get(gate["field"]) != gate.get("equals",True):
+            alerts.append(_alert("STOP","REQUIRED_CLINICAL_CRITERION_NOT_MET",
+              gate.get("message",f"{gate['field']} must be confirmed before prescribing."),
+              "Resolve the clinical criterion or choose another regimen.",details={"field":gate["field"]}))
+    for gate in e.get("excluded_patient_flags",[]):
+        if patient.get(gate["field"]) == gate.get("equals",True):
+            alerts.append(_alert("STOP","CLINICAL_EXCLUSION_PRESENT",
+              gate.get("message",f"{gate['field']} excludes this regimen."),
+              "Do not use this standard regimen while the exclusion is present.",details={"field":gate["field"]}))
+    for gate in e.get("minimum_patient_values",[]):
+        value=patient.get(gate["field"])
+        if value is None:
+            alerts.append(_alert("STOP","REQUIRED_CLINICAL_VALUE_MISSING",
+              gate.get("missing_message",f"{gate['field']} is required."),
+              "Enter/verify the required clinical value.",details={"field":gate["field"]}))
+        else:
+            try:
+                if float(value) < float(gate["minimum"]):
+                    alerts.append(_alert("STOP","CLINICAL_VALUE_BELOW_MINIMUM",
+                      gate.get("message",f"{gate['field']} is below the safe range for this regimen."),
+                      "Use the alternative/adjusted pathway.",details={"field":gate["field"],"value":value}))
+            except Exception:
+                alerts.append(_alert("STOP","CLINICAL_VALUE_INVALID",f"{gate['field']} is invalid.","Correct the clinical value."))
+    for gate in e.get("maximum_patient_values",[]):
+        value=patient.get(gate["field"])
+        if value is None:
+            alerts.append(_alert("STOP","REQUIRED_CLINICAL_VALUE_MISSING",
+              gate.get("missing_message",f"{gate['field']} is required."),
+              "Enter/verify the required clinical value.",details={"field":gate["field"]}))
+        else:
+            try:
+                if float(value) > float(gate["maximum"]):
+                    alerts.append(_alert("STOP","CLINICAL_VALUE_ABOVE_MAXIMUM",
+                      gate.get("message",f"{gate['field']} is above the safe range for this regimen."),
+                      "Use the alternative/adjusted pathway.",details={"field":gate["field"],"value":value}))
+            except Exception:
+                alerts.append(_alert("STOP","CLINICAL_VALUE_INVALID",f"{gate['field']} is invalid.","Correct the clinical value."))
 
     allergies=patient.get("allergies") or []
     for raw in allergies:
@@ -154,6 +226,37 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
             alerts.append(_alert(rule["severity"],"CONDITION:"+rule["id"],
               rule["message"],rule["action"],rule.get("source_url"),{"field":rule["field"]}))
 
+    renal=e.get("renal_adjustment")
+    if patient.get("known_renal_impairment") is True and renal:
+        mode=renal.get("mode")
+        if mode=="block_standard_regimen":
+            alerts.append(_alert("STOP","RENAL_STANDARD_REGIMEN_BLOCKED",
+              renal.get("message","Standard regimen is not valid in renal impairment."),
+              "Use a renal-adjusted/product-specific regimen."))
+        elif mode=="standard_if_egfr_at_least":
+            egfr=patient.get("egfr_mL_min")
+            if egfr is None:
+                alerts.append(_alert("STOP","EGFR_REQUIRED","eGFR is required to assess this standard regimen.","Enter current eGFR/renal function."))
+            else:
+                try:
+                    if float(egfr) < float(renal["minimum_egfr"]):
+                        alerts.append(_alert("STOP","RENAL_THRESHOLD_FAILED",
+                          renal.get("message","Renal function is below the standard-regimen threshold."),
+                          "Use the renal-adjusted/product-specific regimen.",details={"egfr_mL_min":egfr}))
+                except Exception:
+                    alerts.append(_alert("STOP","EGFR_INVALID","eGFR value is invalid.","Correct renal function data."))
+    hepatic=e.get("hepatic_adjustment")
+    if patient.get("known_hepatic_impairment") is True and hepatic:
+        severity=_norm(patient.get("hepatic_severity",""))
+        if hepatic.get("mode")=="block_standard_regimen":
+            alerts.append(_alert("STOP","HEPATIC_STANDARD_REGIMEN_BLOCKED",
+              hepatic.get("message","Standard regimen is not valid in hepatic impairment."),
+              "Use a product-specific/adjusted regimen."))
+        elif hepatic.get("block_if_severe") and severity=="severe":
+            alerts.append(_alert("STOP","HEPATIC_SEVERE_BLOCK",
+              hepatic.get("message","Severe hepatic impairment blocks this regimen."),
+              "Use an alternative/product-specific regimen."))
+
     if patient.get("known_renal_impairment") is True and not e.get("renal_adjustment"):
         alerts.append(_alert("ALERT","RENAL_REVIEW_REQUIRED",
           "Known renal impairment but this regimen has no encoded renal dosing rule.",
@@ -162,6 +265,24 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
         alerts.append(_alert("ALERT","HEPATIC_REVIEW_REQUIRED",
           "Known hepatic impairment but this regimen has no encoded hepatic dosing rule.",
           "Check the exact product SmPC/hepatic dosing reference before prescribing."))
+
+    if product is not None and product.get("concentration_mg_per_ml") is not None:
+        try:
+            conc=float(product["concentration_mg_per_ml"])
+            allowed=[float(x["mg_per_ml"]) for x in e.get("verified_concentrations",[]) if x.get("mg_per_ml") is not None]
+            if conc<=0:
+                alerts.append(_alert("STOP","PRODUCT_CONCENTRATION_INVALID","Product concentration must be >0.","Verify the exact product concentration."))
+            elif allowed and not any(abs(conc-x)<1e-9 for x in allowed) and product.get("external_concentration_verified") is not True:
+                alerts.append(_alert("STOP","PRODUCT_CONCENTRATION_MISMATCH",
+                  "Selected liquid concentration is not one of the verified concentrations for this regimen.",
+                  "Verify the exact product/SmPC or explicitly mark an externally verified concentration.",
+                  details={"selected_mg_per_ml":conc,"verified_mg_per_ml":allowed}))
+        except Exception:
+            alerts.append(_alert("STOP","PRODUCT_CONCENTRATION_INVALID","Product concentration is invalid.","Verify the exact product concentration."))
+    elif e.get("liquid_capable") is True:
+        alerts.append(_alert("CAUTION","PRODUCT_CONCENTRATION_REQUIRED",
+          "A liquid-capable regimen has no selected product concentration, so mL cannot be safely calculated.",
+          "Select and verify the exact product concentration before finalizing the prescription."))
 
     if e.get("liquid_capable") is True and not e.get("verified_concentrations"):
         alerts.append(_alert("CAUTION","CONCENTRATION_NOT_PREVERIFIED",
@@ -185,8 +306,9 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
 if __name__=="__main__":
     import argparse
     p=argparse.ArgumentParser()
-    p.add_argument("regimen_id"); p.add_argument("patient_json"); p.add_argument("--active-medications-json")
+    p.add_argument("regimen_id"); p.add_argument("patient_json"); p.add_argument("--active-medications-json"); p.add_argument("--product-json")
     a=p.parse_args()
     patient=json.loads(Path(a.patient_json).read_text())
     active=json.loads(Path(a.active_medications_json).read_text()) if a.active_medications_json else None
-    print(json.dumps(evaluate(a.regimen_id,patient,active),indent=2,ensure_ascii=False))
+    product=json.loads(Path(a.product_json).read_text()) if a.product_json else None
+    print(json.dumps(evaluate(a.regimen_id,patient,active,product=product),indent=2,ensure_ascii=False))
