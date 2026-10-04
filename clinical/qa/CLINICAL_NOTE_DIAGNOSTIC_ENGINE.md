@@ -61,18 +61,12 @@ Every rule is inspectable. Each triggered diagnosis contains:
 - The note cannot be exported again until clinician review.
 
 ## Synthetic regression set
-Six explicit cases currently cover:
-- ST-elevation ACS;
-- tension pneumothorax;
-- acute ischemic stroke;
-- septic shock;
-- DKA;
-- acute aortic syndrome.
+The synthetic regression bank now contains **24 cases**, including ACS, tension pneumothorax, stroke, sepsis, DKA, acute aortic syndrome, severe asthma, COPD exacerbation, anaphylaxis, CNS infection, status epilepticus, upper GI bleeding, pancreatitis, hyperkalaemia, adrenal crisis, hypertensive emergency, arrhythmia, toxicology, mesenteric ischaemia, AKI, rhabdomyolysis, thyroid storm, acute liver failure and cauda equina.
 
 These validate deterministic behavior only and are not diagnostic-accuracy validation.
 
 ## Current validation
-Clinical QA #544:
+Clinical QA #553:
 - SUCCESS
 - 360/360 tests PASS
 - 131/131 modules registered
