@@ -546,3 +546,13 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Tests cover ideal-vs-actual weight, source maximums, verified concentration -> mL, total doses/course volume, variable-day schedules, age/weight bands and contraindication gates.
 - Clinical QA passed after import-order repair; final synchronized branch QA still required after module/evidence/state registration.
 - Evidence status: **yellow**, pending expanded formulary, local product reconciliation and human pediatric/pharmacy review.
+
+
+## v1.38 outpatient expansion — 89 regimens — 04/10/2026
+- Initial 36-regimen registry expanded to **89 diagnosis-specific outpatient/home regimens**.
+- Boundary tests were added after each clinical block; failures were corrected before continuing.
+- Confirmed block gates: #466, #471, #476, #478, #480 SUCCESS.
+- Expanded registry integrity QA #482 SUCCESS.
+- Calculator continues to fail closed on unverified liquid concentrations, unresolved dose ranges, contraindication gates and selected age/weight boundaries.
+- Portugal/Azores reconciliation explicitly distinguishes national presentation documentation from local stock.
+- Status remains **yellow** until pediatric/pharmacy human review.
