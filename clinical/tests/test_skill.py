@@ -5427,6 +5427,72 @@ class ModularCoreTests(unittest.TestCase):
                 {'concentration_mg_per_ml':40}
             )
 
+    def test_v138_pediatric_clinical_uti_requires_urine_sample(self):
+        base={
+            'age_months':84,'actual_weight_kg':20,'allergies':[],'active_medications':[],
+            'low_resistance_risk_or_susceptible':True,'suspected_pyelonephritis':False
+        }
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'trimethoprim-cystitis-low-resistance',base,{'concentration_mg_per_ml':10}
+            )
+        base['urine_sample_obtained_before_antibiotic']=True
+        ok=calculate_pediatric_outpatient(
+            'trimethoprim-cystitis-low-resistance',base,{'concentration_mg_per_ml':10}
+        )
+        self.assertEqual(ok['dose_mg'],80)
+
+    def test_v138_pediatric_clinical_oseltamivir_requires_indication(self):
+        patient={'age_months':96,'actual_weight_kg':20,'allergies':[],'active_medications':[]}
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'oseltamivir-influenza-ge1y',patient,{'concentration_mg_per_ml':6}
+            )
+        patient['influenza_antiviral_indication_confirmed']=True
+        ok=calculate_pediatric_outpatient(
+            'oseltamivir-influenza-ge1y',patient,{'concentration_mg_per_ml':6}
+        )
+        self.assertEqual(ok['dose_mg'],45)
+
+    def test_v138_pediatric_clinical_gastroenteritis_red_flags_gate(self):
+        patient={'age_months':48,'actual_weight_kg':15,'allergies':[],'active_medications':[]}
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient('ondansetron-gastroenteritis-initial',patient)
+        patient['gastroenteritis_red_flags_excluded']=True
+        ok=calculate_pediatric_outpatient('ondansetron-gastroenteritis-initial',patient)
+        self.assertEqual(ok['dose_mg'],4)
+
+    def test_v138_pediatric_clinical_infected_eczema_blocks_herpeticum(self):
+        patient={
+            'age_months':84,'actual_weight_kg':20,'allergies':[],'active_medications':[],
+            'systemically_well':True,'suspected_eczema_herpeticum':True
+        }
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'cefalexin-infected-eczema-bacterial',patient,
+                {'concentration_mg_per_ml':50},selected_duration_days=7
+            )
+        patient['suspected_eczema_herpeticum']=False
+        ok=calculate_pediatric_outpatient(
+            'cefalexin-infected-eczema-bacterial',patient,
+            {'concentration_mg_per_ml':50},selected_duration_days=7
+        )
+        self.assertEqual(ok['dose_mg'],400)
+
+    def test_v138_pediatric_clinical_home_paracetamol_requires_suitability(self):
+        patient={'age_months':120,'actual_weight_kg':55,'ideal_weight_kg':35,'allergies':[],'active_medications':[]}
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'paracetamol-pain-fever-home',patient,
+                {'concentration_mg_per_ml':24},selected_duration_days=1
+            )
+        patient['home_analgesia_antipyresis_appropriate']=True
+        ok=calculate_pediatric_outpatient(
+            'paracetamol-pain-fever-home',patient,
+            {'concentration_mg_per_ml':24},selected_duration_days=1
+        )
+        self.assertEqual(ok['dose_mg'],525)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
