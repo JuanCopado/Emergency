@@ -187,6 +187,41 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
             result["estimated_total_course_ml"]=course_ml
         elif e.get("liquid_capable",False):
             result["volume_status"]="concentration_required_for_ml"
+    elif model=="fixed_schedule":
+        schedule=[]
+        course_doses=0
+        course_ml=0.0
+        w=None
+        for phase in e["schedule"]:
+            if phase.get("dose_mg") is not None:
+                phase_dose=_apply_max(_num(phase["dose_mg"],"dose_mg"),{**e,"max_mg_per_dose":phase.get("max_mg_per_dose",e.get("max_mg_per_dose"))})
+            elif phase.get("dose_mg_per_kg") is not None:
+                if w is None:
+                    w=_weight(e,patient)
+                phase_dose=_apply_max(_num(phase["dose_mg_per_kg"],"dose_mg_per_kg")*w,{**e,"max_mg_per_dose":phase.get("max_mg_per_dose",e.get("max_mg_per_dose"))})
+            else:
+                raise ValueError("fixed_schedule phase requires dose_mg or dose_mg_per_kg")
+            phase_out={**phase,"dose_mg":phase_dose}
+            phase_doses=int(phase.get("total_phase_doses",phase.get("doses",1)))
+            phase_out["total_phase_doses"]=phase_doses
+            course_doses += phase_doses
+            if product is not None and product.get("concentration_mg_per_ml") is not None:
+                vol=_volume(
+                    phase_dose,product["concentration_mg_per_ml"],e,
+                    verified_external=product.get("external_concentration_verified") is True
+                )
+                phase_out["volume_per_dose"]=vol
+                phase_out["estimated_phase_ml"]=vol["exact_ml"]*phase_doses
+                course_ml += phase_out["estimated_phase_ml"]
+            schedule.append(phase_out)
+        result["schedule"]=schedule
+        result["total_doses"]=course_doses
+        if w is not None:
+            result["dosing_weight_kg"]=w
+        if product is not None and product.get("concentration_mg_per_ml") is not None:
+            result["estimated_total_course_ml"]=course_ml
+        elif e.get("liquid_capable",False):
+            result["volume_status"]="concentration_required_for_ml"
     elif model=="fixed_dose":
         dose=_apply_max(_num(e["fixed_dose_mg"],"fixed_dose_mg"),e)
         result["dose_mg"]=dose
