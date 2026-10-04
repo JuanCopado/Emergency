@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "febrile-infant",
+      "age_years": 0.08,
+      "sex": "female",
+      "chief_complaint": "Febre.",
+      "hpi": "Lactente de 29 dias com temperatura 38.3°C e irritabilidade.",
+      "expected_likely": "Lactente febril 0–90 dias / risco de infeção bacteriana invasiva",
+      "expected_modules": [
+        "febrile-infant-0-90-days"
+      ],
+      "expected_test_contains": "idade em dias"
+    },
+    {
+      "id": "life-threatening-hemoptysis",
+      "age_years": 63,
+      "sex": "male",
+      "chief_complaint": "Hemoptise maciça.",
+      "hpi": "Hemoptise ameaçadora da vida com hipoxemia e instabilidade.",
+      "vitals": {
+        "bp": "88/50",
+        "hr": 122,
+        "rr": 30,
+        "spo2": 84,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.6,
+        "gcs": "14"
+      },
+      "expected_likely": "Hemoptise ameaçadora da vida",
+      "expected_modules": [
+        "life-threatening-hemoptysis"
+      ],
+      "expected_immediate_treatment_module": "life-threatening-hemoptysis"
+    },
+    {
+      "id": "alcohol-withdrawal",
+      "age_years": 48,
+      "sex": "male",
+      "chief_complaint": "Tremor e agitação.",
+      "hpi": "Abstinência alcoólica com alucinações após cessar consumo há 24 horas.",
+      "expected_likely": "Síndrome de abstinência alcoólica / delirium tremens",
+      "expected_modules": [
+        "alcohol-withdrawal"
+      ],
+      "expected_test_contains": "CIWA"
+    },
+    {
+      "id": "endocarditis",
+      "age_years": 57,
+      "sex": "female",
+      "chief_complaint": "Febre persistente.",
+      "hpi": "Prótese valvular com febre persistente e novo sopro; suspeita de endocardite infecciosa.",
+      "expected_likely": "Endocardite infecciosa",
+      "expected_modules": [
+        "infective-endocarditis"
+      ],
+      "expected_test_contains": "hemoculturas"
+    },
+    {
+      "id": "critical-valve",
+      "age_years": 79,
+      "sex": "male",
+      "chief_complaint": "Síncope e dispneia.",
+      "hpi": "Estenose aórtica grave com síncope de esforço e edema pulmonar.",
+      "expected_likely": "Doença valvular crítica descompensada",
+      "expected_modules": [
+        "critical-valvular-disease"
+      ],
+      "expected_test_contains": "ecocardiografia"
+    },
+    {
+      "id": "dvt",
+      "age_years": 54,
+      "sex": "female",
+      "chief_complaint": "Perna esquerda inchada e dolorosa.",
+      "hpi": "Edema unilateral e dor na panturrilha após imobilização.",
+      "expected_likely": "Trombose venosa profunda",
+      "expected_modules": [
+        "dvt"
+      ],
+      "expected_test_contains": "Wells"
+    },
+    {
+      "id": "peds-drowning",
+      "age_years": 6,
+      "sex": "male",
+      "chief_complaint": "Afogamento.",
+      "hpi": "Criança retirada de piscina após submersão; hipotermia.",
+      "vitals": {
+        "bp": "88/50",
+        "hr": 98,
+        "rr": 20,
+        "spo2": 89,
+        "oxygen": "ar ambiente",
+        "temperature_c": 33.2,
+        "gcs": "12"
+      },
+      "expected_likely": "Afogamento/hipotermia pediátrica",
+      "expected_modules": [
+        "pediatric-drowning-hypothermia"
+      ],
+      "expected_immediate_treatment_module": "pediatric-drowning-hypothermia"
+    },
+    {
+      "id": "peds-acute-abdomen",
+      "age_years": 8,
+      "sex": "female",
+      "chief_complaint": "Dor abdominal intensa.",
+      "hpi": "Dor abdominal criança com defesa abdominal, vómitos biliosos e distensão.",
+      "expected_likely": "Abdómen agudo cirúrgico pediátrico",
+      "expected_modules": [
+        "pediatric-abdominal-surgical-emergencies"
+      ],
+      "expected_test_contains": "ecografia"
+    }
+  ]
+}
