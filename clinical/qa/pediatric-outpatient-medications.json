@@ -2074,11 +2074,503 @@
       "source": "NICE CG99 plus Duphalac 3.335 g/5 mL SmPC",
       "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
       "product_strength": "3.335 g/5 mL (667 mg/mL)"
+    },
+    {
+      "id": "albendazole-pinworm-ge2y",
+      "category": "antiparasitic",
+      "drug": "albendazole",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years after household hygiene plan",
+      "route": "PO",
+      "weight_basis": "not_weight_based",
+      "min_age_months": 24,
+      "dose_model": "fixed_schedule",
+      "liquid_capable": true,
+      "schedule": [
+        {
+          "name": "dose_1_day_1",
+          "dose_mg": 400,
+          "total_phase_doses": 1
+        },
+        {
+          "name": "dose_2_day_15",
+          "dose_mg": 400,
+          "total_phase_doses": 1
+        }
+      ],
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 20,
+          "label": "400 mg/20 mL oral suspension (Zentel strength documented in Portugal product information; current local stock still requires Infomed/Azores confirmation)"
+        }
+      ],
+      "frequency": "single dose, repeat once after 2 weeks",
+      "duration_days": 15,
+      "administration": "Take on an empty stomach for pinworm per CDC. Treat household/caregiver contacts simultaneously when clinically appropriate and reinforce hand hygiene, bathing, laundering and nail hygiene.",
+      "contraindications": [
+        "benzimidazole hypersensitivity"
+      ],
+      "cautions": [
+        "children <2 years require individualized risk-benefit assessment rather than this regimen",
+        "pregnancy considerations in adolescents"
+      ],
+      "source": "CDC Pinworm Clinical Overview 2024; INFARMED product-strength documentation",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html"
+    },
+    {
+      "id": "mebendazole-pinworm-ge2y",
+      "category": "antiparasitic",
+      "drug": "mebendazole",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years",
+      "route": "PO",
+      "weight_basis": "not_weight_based",
+      "min_age_months": 24,
+      "dose_model": "fixed_schedule",
+      "liquid_capable": false,
+      "schedule": [
+        {
+          "name": "dose_1_day_1",
+          "dose_mg": 100,
+          "total_phase_doses": 1
+        },
+        {
+          "name": "dose_2_day_15",
+          "dose_mg": 100,
+          "total_phase_doses": 1
+        }
+      ],
+      "frequency": "single dose, repeat once after 2 weeks",
+      "duration_days": 15,
+      "administration": "Second dose is required because treatment kills worms but not eggs. Combine with household hygiene measures.",
+      "contraindications": [
+        "mebendazole hypersensitivity"
+      ],
+      "cautions": [
+        "children <2 years require individualized risk-benefit assessment",
+        "avoid unsupervised prolonged/high-dose use"
+      ],
+      "source": "CDC Pinworm Clinical Overview 2024",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html"
+    },
+    {
+      "id": "pyrantel-pinworm-ge2y",
+      "category": "antiparasitic",
+      "drug": "pyrantel pamoate",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years when pyrantel is selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 24,
+      "dose_model": "fixed_schedule",
+      "liquid_capable": true,
+      "max_mg_per_dose": 1000,
+      "schedule": [
+        {
+          "name": "dose_1_day_1",
+          "dose_mg_per_kg": 11,
+          "max_mg_per_dose": 1000,
+          "total_phase_doses": 1
+        },
+        {
+          "name": "dose_2_day_15",
+          "dose_mg_per_kg": 11,
+          "max_mg_per_dose": 1000,
+          "total_phase_doses": 1
+        }
+      ],
+      "frequency": "single dose, repeat once after 2 weeks",
+      "duration_days": 15,
+      "administration": "Verify exact salt/base convention and suspension concentration before calculating mL; concentrations vary by product.",
+      "cautions": [
+        "children <2 years require individualized risk-benefit assessment",
+        "hepatic disease requires product-specific review"
+      ],
+      "source": "CDC Pinworm Clinical Overview 2024",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html"
+    },
+    {
+      "id": "ivermectin-strongyloides-ge15kg",
+      "category": "antiparasitic",
+      "drug": "ivermectin",
+      "diagnosis": "uncomplicated acute/chronic strongyloidiasis with confirmed clinical indication in child weighing >=15 kg",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.2,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        1,
+        2
+      ],
+      "liquid_capable": false,
+      "minimum_patient_values": [
+        {
+          "field": "actual_weight_kg",
+          "minimum": 15,
+          "message": "CDC lists weight <15 kg as a relative contraindication for ivermectin strongyloidiasis treatment"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_or_confirmed_loa_loa",
+          "equals": true,
+          "message": "ivermectin is relatively contraindicated with suspected/confirmed concomitant Loa loa infection"
+        }
+      ],
+      "administration": "Oral ivermectin; verify exact tablet strength and local product instructions. Follow-up stool examination is recommended if symptoms persist with initially positive stool testing.",
+      "cautions": [
+        "pregnancy/lactation in adolescents",
+        "hyperinfection/disseminated disease requires specialist/inpatient management"
+      ],
+      "source": "CDC Strongyloides Clinical Care 2024",
+      "source_url": "https://www.cdc.gov/strongyloides/hcp/clinical-care/index.html"
+    },
+    {
+      "id": "albendazole-ascariasis-ge2y",
+      "category": "antiparasitic",
+      "drug": "albendazole",
+      "diagnosis": "ascariasis in child age >=2 years when albendazole is selected",
+      "route": "PO",
+      "weight_basis": "not_weight_based",
+      "min_age_months": 24,
+      "dose_model": "fixed_dose",
+      "fixed_dose_mg": 400,
+      "doses_per_day": 1,
+      "frequency": "single dose",
+      "duration_days": 1,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 20,
+          "label": "400 mg/20 mL oral suspension strength documented in Portugal; verify current exact product"
+        }
+      ],
+      "administration": "Take on an empty stomach for ascariasis per CDC.",
+      "contraindications": [
+        "benzimidazole hypersensitivity"
+      ],
+      "source": "CDC Soil-transmitted Helminths Clinical Care 2024",
+      "source_url": "https://www.cdc.gov/sth/hcp/clinical-care/index.html"
+    },
+    {
+      "id": "praziquantel-schisto-mansoni-haematobium-ge4y",
+      "category": "antiparasitic",
+      "drug": "praziquantel",
+      "diagnosis": "Schistosoma mansoni/S. haematobium/S. intercalatum infection in child age >=4 years under a confirmed treatment plan",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "doses_per_day": 2,
+      "frequency": "two divided doses over one day",
+      "duration_days": 1,
+      "liquid_capable": false,
+      "administration": "Take with liquid during a meal. CDC notes limited trial safety data below age 4, although WHO mass-drug-administration recommendations include younger children in some settings.",
+      "cautions": [
+        "species must be identified because S. japonicum/S. mekongi require a different 60 mg/kg/day regimen",
+        "consider repeat treatment 2-4 weeks later in selected light infections"
+      ],
+      "source": "CDC Schistosomiasis Clinical Care 2024",
+      "source_url": "https://www.cdc.gov/schistosomiasis/hcp/treatment/index.html"
+    },
+    {
+      "id": "acyclovir-varicella-standard-renal",
+      "category": "antiviral",
+      "drug": "aciclovir",
+      "diagnosis": "varicella in a child when oral aciclovir treatment is clinically indicated and standard renal dosing is appropriate",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 800,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL oral suspension"
+        },
+        {
+          "mg_per_ml": 80,
+          "label": "400 mg/5 mL oral suspension"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "renal_adjustment_required",
+          "equals": false,
+          "message": "this standard varicella regimen must not be used when renal dose adjustment is required"
+        }
+      ],
+      "administration": "Start as early as clinically appropriate; in immunocompetent chickenpox product information advises beginning within 24 hours of rash onset. Maintain adequate hydration. Shake suspension.",
+      "contraindications": [
+        "aciclovir/valaciclovir hypersensitivity"
+      ],
+      "cautions": [
+        "renal impairment",
+        "concurrent nephrotoxic medicines",
+        "immunocompromised/severe disease may require specialist/IV treatment"
+      ],
+      "source": "Current aciclovir 200 mg/5 mL and 400 mg/5 mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc"
+    },
+    {
+      "id": "acyclovir-hsv-mucocutaneous-standard-renal",
+      "category": "antiviral",
+      "drug": "aciclovir",
+      "diagnosis": "mucocutaneous herpes simplex treatment in child when oral aciclovir is appropriate and standard renal dosing is suitable",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL oral suspension"
+        },
+        {
+          "mg_per_ml": 80,
+          "label": "400 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_age_months": 23,
+          "dose_mg": 100,
+          "doses_per_day": 5,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 24,
+          "max_age_months": 215,
+          "dose_mg": 200,
+          "doses_per_day": 5,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "five times daily at approximately 4-hour intervals while awake",
+      "duration_days": 5,
+      "required_patient_flags": [
+        {
+          "field": "renal_adjustment_required",
+          "equals": false,
+          "message": "this standard HSV regimen must not be used when renal dose adjustment is required"
+        }
+      ],
+      "administration": "Oral suspension; maintain hydration. Neonatal herpes and severe/immunocompromised disease are outside this outpatient regimen.",
+      "contraindications": [
+        "aciclovir/valaciclovir hypersensitivity"
+      ],
+      "cautions": [
+        "renal impairment requires adjustment",
+        "neonatal HSV requires IV/specialist pathway"
+      ],
+      "source": "Current aciclovir 200 mg/5 mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc"
+    },
+    {
+      "id": "chloramphenicol05-bacterial-conjunctivitis",
+      "category": "ophthalmology_topical",
+      "drug": "chloramphenicol 0.5% eye drops",
+      "diagnosis": "uncomplicated bacterial conjunctivitis with purulent discharge, clear cornea and no infiltrate after red-eye assessment",
+      "route": "ophthalmic",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Instil chloramphenicol 0.5% eye drops 4-6 times per day for 5-7 days, with eye toilet and hand-hygiene/infection-control measures.",
+      "drops_per_dose": 1,
+      "doses_per_day_range": [
+        4,
+        6
+      ],
+      "duration_days": [
+        5,
+        7
+      ],
+      "liquid_capable": false,
+      "contraindications": [
+        "chloramphenicol hypersensitivity"
+      ],
+      "cautions": [
+        "unilateral red eye needs diagnostic caution",
+        "pain/photophobia/corneal infiltrate/vision change/trauma/contact-lens ulcer require ophthalmic pathway",
+        "stop if hypersensitivity and seek review"
+      ],
+      "source": "RCH Acute red eye",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_red_eye/"
+    },
+    {
+      "id": "ciprofloxacin-dexamethasone-aoe-ge1y",
+      "category": "ent_otologic",
+      "drug": "ciprofloxacin 3 mg/mL + dexamethasone 1 mg/mL ear drops",
+      "diagnosis": "acute otitis externa in child age >=1 year when this combination is selected",
+      "route": "otic",
+      "weight_basis": "topical",
+      "min_age_months": 12,
+      "dose_model": "topical",
+      "topical_instructions": "Instil 4 drops into the affected ear twice daily for 7 days. Warm suspension in the hand before use and follow product positioning instructions.",
+      "drops_per_dose": 4,
+      "doses_per_day": 2,
+      "duration_days": 7,
+      "liquid_capable": false,
+      "contraindications": [
+        "quinolone/dexamethasone or excipient hypersensitivity",
+        "viral or fungal otic infection per SmPC"
+      ],
+      "cautions": [
+        "verify tympanic membrane/diagnosis and exact product",
+        "persistent/worsening symptoms require review"
+      ],
+      "source": "Ciprofloxacin/dexamethasone 3 mg/mL + 1 mg/mL ear drops SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/101381/smpc"
+    },
+    {
+      "id": "ciprofloxacin-aoe-ge1y-intact-tm",
+      "category": "ent_otologic",
+      "drug": "ciprofloxacin 2 mg/mL ear drops",
+      "diagnosis": "acute otitis externa in child >1 year with intact tympanic membrane and susceptible organisms",
+      "route": "otic",
+      "weight_basis": "topical",
+      "min_age_months": 12,
+      "dose_model": "topical",
+      "topical_instructions": "Instil one 0.25 mL single-dose ampoule into the affected ear twice daily for 7 days. Warm ampoule in the hand; keep affected ear upward about 5 minutes after instillation.",
+      "volume_per_administration_ml": 0.25,
+      "doses_per_day": 2,
+      "duration_days": 7,
+      "liquid_capable": false,
+      "contraindications": [
+        "ciprofloxacin/quinolone hypersensitivity"
+      ],
+      "cautions": [
+        "this product indication specifies intact tympanic membrane",
+        "verify exact product and diagnosis"
+      ],
+      "source": "Cetraxal 2 mg/mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/8847/smpc"
+    },
+    {
+      "id": "phenazone-lidocaine-aom-pain",
+      "category": "ent_analgesic_topical",
+      "drug": "phenazone 40 mg/g + lidocaine 10 mg/g ear drops",
+      "diagnosis": "acute otitis media pain when immediate oral antibiotic is not given and there is no tympanic membrane perforation or otorrhoea",
+      "route": "otic",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply 4 drops to the affected ear 2-3 times daily for up to 7 days.",
+      "drops_per_dose": 4,
+      "doses_per_day_range": [
+        2,
+        3
+      ],
+      "duration_days": [
+        1,
+        7
+      ],
+      "liquid_capable": false,
+      "excluded_patient_flags": [
+        {
+          "field": "immediate_oral_antibiotic_given",
+          "equals": true,
+          "message": "NICE analgesic ear-drop option is for cases where an immediate oral antibiotic is not given"
+        },
+        {
+          "field": "tm_perforation_or_otorrhoea",
+          "equals": true,
+          "message": "do not use this phenazone/lidocaine regimen with tympanic membrane perforation or otorrhoea"
+        }
+      ],
+      "source": "NICE NG91 acute otitis media, amended 2022",
+      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations"
+    },
+    {
+      "id": "rizatriptan-migraine-rch",
+      "category": "migraine_abortive",
+      "drug": "rizatriptan",
+      "diagnosis": "migraine in child >6 years when oral simple analgesics are ineffective and rizatriptan is selected",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 73,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "max_weight_kg": 39.999,
+          "dose_mg": 5,
+          "doses_per_day": 1,
+          "note": "may repeat once after at least 2 hours if headache recurs; max 2 doses/24h"
+        },
+        {
+          "min_weight_kg": 40,
+          "dose_mg": 10,
+          "doses_per_day": 1,
+          "note": "source states >40 kg; exact 40 kg intentionally left unmatched/fail-closed"
+        }
+      ],
+      "frequency": "single dose early in migraine; may repeat once after >=2 h if recurrence; max 2 doses/24 h",
+      "administration": "Use after simple oral analgesics are ineffective. Maintain hydration/rest in dark quiet environment. Avoid opioids.",
+      "cautions": [
+        "propranolol increases rizatriptan concentration—avoid or use lower dose with specialist advice",
+        "cardiovascular contraindications/triptan interactions require product-specific screening",
+        "exactly 40 kg is unresolved by cited RCH wording and should be clinician-reviewed"
+      ],
+      "source": "RCH Headache",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/"
+    },
+    {
+      "id": "ondansetron-migraine-vomiting-ed",
+      "category": "antiemetic",
+      "drug": "ondansetron",
+      "diagnosis": "migraine with vomiting during/after ED assessment when oral ondansetron is selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.15,
+      "max_mg_per_dose": 8,
+      "doses_per_day": 1,
+      "frequency": "single oral dose in the acute episode",
+      "duration_days": 1,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.8,
+          "label": "4 mg/5 mL syrup"
+        }
+      ],
+      "administration": "This use is guideline-based for migraine-associated vomiting; the cited syrup SmPC concentration is used only for volume arithmetic, not to imply the migraine indication is product-licensed.",
+      "cautions": [
+        "QT prolongation",
+        "electrolyte disturbance",
+        "serotonergic interactions",
+        "severe hepatic impairment affects total daily dose"
+      ],
+      "source": "RCH Headache + current ondansetron 4 mg/5 mL SmPC for concentration",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/"
+    },
+    {
+      "id": "dimeticone4-head-lice",
+      "category": "dermatology_ectoparasite",
+      "drug": "dimeticone 4% lotion",
+      "diagnosis": "head lice when dimeticone 4% topical therapy is selected",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply dimeticone 4% according to the exact product directions and repeat treatment after 7 days as recommended by the cited RCH antimicrobial guidance.",
+      "frequency": "one application, repeat after 7 days",
+      "duration_days": 7,
+      "liquid_capable": false,
+      "cautions": [
+        "treat only live infestation according to local policy",
+        "follow product-specific flammability/application precautions"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
     }
   ],
   "last_expanded": "2026-10-04",
   "expansion_notes": [
     "Block A: diagnosis-specific antibiotic alternatives and asthma controller strategies; GINA 2026/RCH/NICE; Portugal concentrations only where independently verified.",
-    "Block B: dermatology topical therapy plus ORS/constipation regimens; source-specific product strengths and non-mg dose models."
+    "Block B: dermatology topical therapy plus ORS/constipation regimens; source-specific product strengths and non-mg dose models.",
+    "Block C: selected antiparasitics, oral antivirals, ENT/ophthalmology therapies and migraine discharge treatments; renal and age/weight gates retained."
   ]
 }
