@@ -22,6 +22,7 @@ from clinical_note_support import (
 )
 from clinical_note_exporter import export_docx as export_clinical_note_docx, export_pdf as export_clinical_note_pdf
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
+from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
 
 from infusion_calculator import infusion_ml_h, fixed_dose_ml_h, weight_per_hour_ml_h
 from load_module import load
@@ -5580,6 +5581,12 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(queue['yellow_count'],len(yellow))
         self.assertIn('clinical-note-diagnostic-support',queued)
         self.assertIn('final-human-review-gate',queued)
+
+    def test_v139_synthetic_clinical_note_regression_bank(self):
+        result=run_clinical_note_synthetic_cases()
+        self.assertEqual(result['cases'],12)
+        self.assertEqual(result['passed'],12)
+        self.assertEqual(result['errors'],[])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
