@@ -346,5 +346,87 @@
       "severity": "ALERT",
       "message": "Duplicate macrolide therapy is usually unintended and may increase QT/adverse-effect burden."
     }
-  ]
+  ],
+  "medication_class_members": {
+    "ssri": [
+      "sertraline",
+      "fluoxetine",
+      "escitalopram",
+      "citalopram",
+      "paroxetine",
+      "fluvoxamine"
+    ],
+    "snri": [
+      "venlafaxine",
+      "duloxetine",
+      "desvenlafaxine"
+    ],
+    "serotonergic": [
+      "tramadol",
+      "lithium"
+    ],
+    "ace_inhibitor": [
+      "enalapril",
+      "lisinopril",
+      "captopril",
+      "ramipril",
+      "perindopril"
+    ],
+    "arb": [
+      "losartan",
+      "valsartan",
+      "candesartan",
+      "irbesartan"
+    ],
+    "diuretic": [
+      "furosemide",
+      "hydrochlorothiazide",
+      "indapamide",
+      "spironolactone"
+    ],
+    "potassium_sparing_diuretic": [
+      "spironolactone",
+      "eplerenone",
+      "amiloride"
+    ],
+    "anticoagulant": [
+      "warfarin",
+      "apixaban",
+      "rivaroxaban",
+      "dabigatran",
+      "edoxaban"
+    ],
+    "antiplatelet": [
+      "aspirin",
+      "clopidogrel",
+      "ticagrelor"
+    ],
+    "systemic_corticosteroid": [
+      "prednisolone",
+      "prednisone",
+      "dexamethasone",
+      "methylprednisolone"
+    ],
+    "maoi": [
+      "phenelzine",
+      "tranylcypromine",
+      "moclobemide",
+      "linezolid"
+    ],
+    "triptan": [
+      "sumatriptan",
+      "zolmitriptan",
+      "naratriptan",
+      "rizatriptan"
+    ],
+    "ergot": [
+      "ergotamine",
+      "dihydroergotamine"
+    ],
+    "aluminium_magnesium_antacid": [
+      "aluminium hydroxide",
+      "magnesium hydroxide",
+      "magaldrate"
+    ]
+  }
 }
