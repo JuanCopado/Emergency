@@ -127,13 +127,13 @@
       "bands": [
         {
           "min_weight_kg_inclusive": 8,
-          "max_weight_kg": 15,
+          "max_weight_kg": 14.999,
           "dose_mg": 2,
           "doses_per_day": 1,
           "duration_days": 1
         },
         {
-          "min_weight_kg": 15,
+          "min_weight_kg_inclusive": 15,
           "max_weight_kg": 30,
           "dose_mg": 4,
           "doses_per_day": 1,
@@ -166,7 +166,8 @@
       "contraindications": [
         "ondansetron hypersensitivity",
         "concomitant apomorphine"
-      ]
+      ],
+      "pharmacy_review_note": "RCH table prints 8-15 and 15-30 kg. Engine resolves the shared 15-kg boundary as 4 mg (15 to 30 kg) and keeps >30 kg as 8 mg."
     },
     {
       "id": "cetirizine-urticaria-6to11mo",
@@ -350,7 +351,22 @@
       ],
       "frequency": "once daily",
       "source": "NeoClarityn 0.5 mg/mL SmPC",
-      "source_url": "https://www.medicines.org.uk/emc/product/6510/smpc"
+      "source_url": "https://www.medicines.org.uk/emc/product/6510/smpc",
+      "administration": "Oral solution once daily using the supplied measuring device; may be taken with or without food unless the exact product states otherwise.",
+      "contraindications": [
+        "desloratadine/loratadine/product hypersensitivity"
+      ],
+      "cautions": [
+        "significant renal impairment requires caution/product-specific review"
+      ],
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "known significant renal impairment requires product-specific pediatric review before standard desloratadine dosing"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No pediatric hepatic dose algorithm encoded; significant hepatic disease requires product-specific review."
+      }
     },
     {
       "id": "fexofenadine-allergic-rhinitis",
@@ -377,13 +393,28 @@
       ],
       "administration": "For the 120 mg adolescent tablet regimen, take before a meal. Product/age licensing varies; verify exact product.",
       "source": "Current fexofenadine SmPC / product labeling",
-      "source_url": "https://www.medicines.org.uk/"
+      "source_url": "https://www.medicines.org.uk/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "renal impairment in children requires product-specific review because pediatric safety/efficacy data are not established"
+      },
+      "hepatic_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "hepatic impairment in children requires product-specific review because pediatric safety/efficacy data are not established"
+      },
+      "contraindications": [
+        "fexofenadine/product hypersensitivity"
+      ],
+      "cautions": [
+        "renal/hepatic impairment requires pediatric product-specific review",
+        "separate aluminium/magnesium antacids per product instructions"
+      ]
     },
     {
       "id": "prednisolone-asthma-lt2y",
       "category": "antiasthmatic_systemic_steroid",
       "drug": "prednisolone",
-      "diagnosis": "moderately severe/severe asthma exacerbation suitable for discharge, age <2 years",
+      "diagnosis": "moderate/severe wheeze/asthma-like episode age <2 years only when a pediatric/ED clinician has explicitly prescribed an oral prednisolone discharge course after hospital assessment",
       "route": "PO",
       "weight_basis": "actual",
       "min_age_months": 1,
@@ -403,7 +434,18 @@
       "liquid_capable": true,
       "administration": "Give according to written asthma discharge plan; food may reduce GI upset if product permits.",
       "source": "GINA 2026 pediatric acute asthma",
-      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "required_patient_flags": [
+        {
+          "field": "specialist_or_ed_discharge_plan",
+          "equals": true,
+          "message": "prednisolone in children under 2 years is not a generic outpatient regimen; explicit pediatric/ED discharge plan is required"
+        }
+      ],
+      "cautions": [
+        "current oral prednisolone SmPC describes use under 2 years in the hospital setting; do not initiate from arithmetic alone"
+      ],
+      "pharmacy_review_status": "PASS_WITH_RESTRICTION"
     },
     {
       "id": "prednisolone-asthma-2to5y",
@@ -1058,13 +1100,32 @@
       "frequency": "four times daily",
       "duration_days": 5,
       "liquid_capable": true,
-      "administration": "Give with a full glass of water when age-appropriate; monitor for antibiotic-associated diarrhea/colitis.",
+      "administration": "Oral solution; take at least 30 minutes before lying down to reduce oesophageal irritation.",
       "cautions": [
         "local clindamycin resistance/inducible resistance",
-        "history of C. difficile"
+        "history of C. difficile",
+        "C. difficile/antibiotic-associated colitis risk",
+        "renal/hepatic monitoring for prolonged therapy"
       ],
       "source": "RCH antimicrobial MRSA pathway",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 15,
+          "label": "75 mg/5 mL oral solution"
+        }
+      ],
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No routine dose modification for renal insufficiency in cited oral SmPC; monitor in severe disease/prolonged therapy."
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No routine dose modification for hepatic insufficiency; monitor severe hepatic disease/prolonged therapy."
+      },
+      "contraindications": [
+        "clindamycin/lincomycin hypersensitivity"
+      ]
     },
     {
       "id": "azithromycin-pertussis-lt6mo",
@@ -1272,7 +1333,7 @@
           "label": "25 mg/5 mL"
         }
       ],
-      "administration": "Take with food or milk; shake suspension.",
+      "administration": "Take with food or milk; shake the suspension well before use.",
       "minimum_patient_values": [
         {
           "field": "egfr_mL_min",
@@ -1298,7 +1359,27 @@
         }
       ],
       "source": "NICE NG109 short-course lower UTI regimen; nitrofurantoin 25 mg/5 mL SmPC for product/food/contraindications",
-      "source_url": "https://www.nice.org.uk/guidance/ng109"
+      "source_url": "https://www.nice.org.uk/guidance/ng109",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 45,
+        "message": "nitrofurantoin is contraindicated below eGFR 45 mL/min in the cited pediatric suspension SmPC"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No routine pediatric hepatic dose algorithm encoded; stop/review if hepatic toxicity is suspected."
+      },
+      "contraindications": [
+        "nitrofurantoin/nitrofuran hypersensitivity",
+        "eGFR <45 mL/min",
+        "G6PD deficiency",
+        "acute porphyria",
+        "age under 3 months"
+      ],
+      "cautions": [
+        "not for renal parenchymal/upper UTI",
+        "pulmonary/hepatic/neurologic toxicity precautions"
+      ]
     },
     {
       "id": "nitrofurantoin-cystitis-smpc-7d",
@@ -1320,7 +1401,7 @@
           "label": "25 mg/5 mL"
         }
       ],
-      "administration": "Take with food or milk; shake suspension.",
+      "administration": "Take with food or milk; shake the suspension well before use.",
       "minimum_patient_values": [
         {
           "field": "egfr_mL_min",
@@ -1346,7 +1427,27 @@
         }
       ],
       "source": "Nitrofurantoin 25 mg/5 mL SmPC, updated 2026",
-      "source_url": "https://www.medicines.org.uk/emc/product/9953/smpc"
+      "source_url": "https://www.medicines.org.uk/emc/product/9953/smpc",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 45,
+        "message": "nitrofurantoin is contraindicated below eGFR 45 mL/min in the cited pediatric suspension SmPC"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No routine pediatric hepatic dose algorithm encoded; stop/review if hepatic toxicity is suspected."
+      },
+      "contraindications": [
+        "nitrofurantoin/nitrofuran hypersensitivity",
+        "eGFR <45 mL/min",
+        "G6PD deficiency",
+        "acute porphyria",
+        "age under 3 months"
+      ],
+      "cautions": [
+        "not for renal parenchymal/upper UTI",
+        "pulmonary/hepatic/neurologic toxicity precautions"
+      ]
     },
     {
       "id": "oseltamivir-influenza-lt1y",
@@ -3462,5 +3563,12 @@
     "Block D: infected eczema, allergic rhinitis intranasal therapy, allergic conjunctivitis and selected alternative constipation therapy.",
     "Block E: GAS sore-throat indication-specific beta-lactam/macrolide pathways and trimethoprim lower-UTI option with resistance/pyelonephritis gates.",
     "Pharmacy metadata pass F: structured renal/hepatic safety gates added to high-use systemic drug families."
-  ]
+  ],
+  "pharmacy_review": {
+    "date": "2026-10-04",
+    "type": "AI-assisted pharmaceutical audit",
+    "status": "completed_with_human_signoff_still_required",
+    "critical_corrections_applied": 2,
+    "reviewed_entries": 89
+  }
 }
