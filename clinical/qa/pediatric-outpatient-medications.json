@@ -740,7 +740,7 @@
       "id": "amox-clav-bite",
       "category": "oral_antibiotic",
       "drug": "amoxicillin/clavulanate",
-      "diagnosis": "infected/high-risk bite suitable for oral outpatient therapy",
+      "diagnosis": "high-risk but clinically uninfected animal/human bite requiring oral antibiotic prophylaxis after adequate wound assessment/irrigation",
       "route": "PO",
       "weight_basis": "actual",
       "dose_model": "mg_per_kg_per_dose",
@@ -762,8 +762,8 @@
         "previous severe immediate beta-lactam hypersensitivity",
         "previous co-amoxiclav-associated jaundice/hepatic impairment"
       ],
-      "source": "RCH antimicrobial bite regimen + co-amoxiclav 400/57 mg/5 mL SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "source": "RCH Animal and human bites + RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Animal_and_human_bites/",
       "renal_adjustment": {
         "mode": "standard_if_egfr_at_least",
         "minimum_egfr": 30,
@@ -775,14 +775,23 @@
       },
       "cautions": [
         "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
-        "hepatic impairment requires caution and monitoring"
+        "hepatic impairment requires caution and monitoring",
+        "specific RCH bite guidance recommends IV therapy and at least 14 days total treatment for established infected wounds; do not reuse this 5-day prophylaxis regimen for established infection",
+        "check tetanus status and assess rabies/lyssavirus or blood-borne-virus exposure when relevant"
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "established_bite_infection",
+          "equals": true,
+          "message": "this 5-day regimen is for prophylaxis of a high-risk uninfected bite; established/grossly infected bite requires the infected-wound pathway and often IV/surgical management"
+        }
       ]
     },
     {
       "id": "amox-clav-preseptal-stepdown",
       "category": "oral_antibiotic",
       "drug": "amoxicillin/clavulanate",
-      "diagnosis": "periorbital/orbital cellulitis oral step-down after appropriate initial assessment/treatment",
+      "diagnosis": "orbital cellulitis oral step-down after initial inpatient IV therapy, specialist assessment and clear clinical improvement",
       "route": "PO",
       "weight_basis": "actual",
       "dose_model": "mg_per_kg_per_dose",
@@ -807,8 +816,8 @@
         "previous severe immediate beta-lactam hypersensitivity",
         "previous co-amoxiclav-associated jaundice/hepatic impairment"
       ],
-      "source": "RCH Antimicrobial guidelines + SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "source": "RCH Periorbital and orbital cellulitis",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Periorbital_and_orbital_cellulitis/",
       "renal_adjustment": {
         "mode": "standard_if_egfr_at_least",
         "minimum_egfr": 30,
@@ -820,7 +829,16 @@
       },
       "cautions": [
         "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
-        "hepatic impairment requires caution and monitoring"
+        "hepatic impairment requires caution and monitoring",
+        "mild periorbital/preseptal cellulitis uses the separate cefalexin/cefuroxime pathway",
+        "orbital cellulitis requires admission, ENT/ophthalmology input and usually urgent imaging"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "orbital_cellulitis_stepdown_after_iv_confirmed",
+          "equals": true,
+          "message": "amoxicillin/clavulanate 22.5 mg/kg twice daily is an orbital-cellulitis oral step-down regimen after initial IV/specialist management, not a routine mild preseptal regimen"
+        }
       ]
     },
     {
@@ -954,7 +972,7 @@
       "id": "cefalexin-pyelonephritis-lt12mo",
       "category": "oral_antibiotic",
       "drug": "cefalexin",
-      "diagnosis": "pyelonephritis in selected child <12 months suitable for oral regimen per local pathway",
+      "diagnosis": "acute pyelonephritis age 3-11 months using the RCH high-dose oral step-down regimen after initial pediatric assessment/therapy",
       "route": "PO",
       "weight_basis": "actual",
       "min_age_months": 3,
@@ -979,7 +997,9 @@
         "young infant threshold for admission/IV treatment",
         "culture/resistance",
         "renal impairment",
-        "marked renal impairment requires dose reduction"
+        "marked renal impairment requires dose reduction",
+        "NICE also permits first-line oral cefalexin in selected children >=3 months with pyelonephritis using different age-banded doses; preserve that as a separate source-specific strategy rather than merging doses",
+        "under 3 months, toxic/systemically unwell, vomiting or sepsis-risk children require specialist/hospital pathway"
       ],
       "source": "RCH UTI",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
@@ -994,13 +1014,20 @@
       "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
       "contraindications": [
         "cephalosporin hypersensitivity"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "rch_pyelo_high_dose_stepdown_confirmed",
+          "equals": true,
+          "message": "this high-dose cefalexin regimen is the RCH early oral step-down pathway for acute pyelonephritis; do not use it as an unreviewed generic cystitis/outpatient regimen"
+        }
       ]
     },
     {
       "id": "cefalexin-pyelonephritis-ge12mo",
       "category": "oral_antibiotic",
       "drug": "cefalexin",
-      "diagnosis": "pyelonephritis age >=12 months suitable for oral outpatient therapy",
+      "diagnosis": "acute pyelonephritis age >=12 months using the RCH high-dose oral step-down regimen after initial pediatric assessment/therapy",
       "route": "PO",
       "weight_basis": "actual",
       "min_age_months": 12,
@@ -1024,7 +1051,9 @@
         "culture/resistance",
         "renal impairment",
         "systemic illness may require IV/inpatient care",
-        "marked renal impairment requires dose reduction"
+        "marked renal impairment requires dose reduction",
+        "NICE also permits first-line oral cefalexin in selected children >=3 months with pyelonephritis using different age-banded doses; preserve that as a separate source-specific strategy rather than merging doses",
+        "under 3 months, toxic/systemically unwell, vomiting or sepsis-risk children require specialist/hospital pathway"
       ],
       "source": "RCH UTI",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
@@ -1039,6 +1068,13 @@
       "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
       "contraindications": [
         "cephalosporin hypersensitivity"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "rch_pyelo_high_dose_stepdown_confirmed",
+          "equals": true,
+          "message": "this high-dose cefalexin regimen is the RCH early oral step-down pathway for acute pyelonephritis; do not use it as an unreviewed generic cystitis/outpatient regimen"
+        }
       ]
     },
     {
@@ -2369,7 +2405,11 @@
         }
       ],
       "source": "NICE CG84 gastroenteritis",
-      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations"
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations",
+      "max_age_months": 59,
+      "cautions": [
+        "this exact 50 mL/kg over 4 h / 5 mL/kg post-stool entry is source-scoped to NICE CG84 children under 5 years; older children require an age-appropriate hydration pathway"
+      ]
     },
     {
       "id": "ors-post-stool-highrisk-5mlkg",
@@ -2386,7 +2426,11 @@
       "liquid_capable": false,
       "administration": "Give 5 mL/kg after each large watery stool when risk of recurrent dehydration is increased. Continue usual feeding after rehydration.",
       "source": "NICE CG84 gastroenteritis",
-      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations"
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations",
+      "max_age_months": 59,
+      "cautions": [
+        "this exact 50 mL/kg over 4 h / 5 mL/kg post-stool entry is source-scoped to NICE CG84 children under 5 years; older children require an age-appropriate hydration pathway"
+      ]
     },
     {
       "id": "macrogol3350-electrolytes-constipation-maintenance-1to11",
@@ -2739,7 +2783,7 @@
       "id": "acyclovir-varicella-standard-renal",
       "category": "antiviral",
       "drug": "aciclovir",
-      "diagnosis": "varicella in a child when oral aciclovir treatment is clinically indicated and standard renal dosing is appropriate",
+      "diagnosis": "varicella requiring oral aciclovir because a clinician has confirmed increased risk of moderate/severe disease or another guideline-supported indication",
       "route": "PO",
       "weight_basis": "actual",
       "dose_model": "mg_per_kg_per_dose",
@@ -2764,6 +2808,11 @@
           "field": "renal_adjustment_required",
           "equals": false,
           "message": "this standard varicella regimen must not be used when renal dose adjustment is required"
+        },
+        {
+          "field": "varicella_oral_antiviral_indication_confirmed",
+          "equals": true,
+          "message": "oral aciclovir is not routinely recommended for otherwise healthy children with uncomplicated typical varicella; confirm a guideline-supported indication"
         }
       ],
       "administration": "Start as early as clinically appropriate; in immunocompetent chickenpox product information advises beginning within 24 hours of rash onset. Maintain adequate hydration. Shake suspension.",
@@ -2775,10 +2824,12 @@
         "concurrent nephrotoxic medicines",
         "immunocompromised/severe disease may require specialist/IV treatment",
         "renal impairment requires dose/interval adjustment",
-        "maintain hydration and review nephrotoxic co-medications"
+        "maintain hydration and review nephrotoxic co-medications",
+        "for maximum benefit in outpatient varicella, start within 24 hours of rash onset",
+        "AAP/CDC do not recommend routine oral aciclovir for otherwise healthy children with typical uncomplicated varicella"
       ],
-      "source": "Current aciclovir 200 mg/5 mL and 400 mg/5 mL SmPC",
-      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc",
+      "source": "CDC varicella clinical guidance + current aciclovir SmPC",
+      "source_url": "https://www.cdc.gov/chickenpox/hcp/clinical-guidance/index.html",
       "renal_adjustment": {
         "mode": "block_standard_regimen",
         "message": "standard aciclovir outpatient regimen is blocked when renal dose adjustment is required"
@@ -2786,13 +2837,20 @@
       "hepatic_adjustment": {
         "mode": "no_specific_adjustment_encoded",
         "detail": "No specific pediatric hepatic adjustment encoded; prioritize renal function and hydration."
-      }
+      },
+      "excluded_patient_flags": [
+        {
+          "field": "severe_or_disseminated_varicella",
+          "equals": true,
+          "message": "severe/disseminated or immunocompromised varicella requires urgent specialist/inpatient assessment and usually IV aciclovir"
+        }
+      ]
     },
     {
       "id": "acyclovir-hsv-mucocutaneous-standard-renal",
       "category": "antiviral",
       "drug": "aciclovir",
-      "diagnosis": "mucocutaneous herpes simplex treatment in child when oral aciclovir is appropriate and standard renal dosing is suitable",
+      "diagnosis": "non-neonatal uncomplicated mucocutaneous herpes simplex in a child when oral aciclovir is clinically appropriate and standard renal dosing is suitable",
       "route": "PO",
       "weight_basis": "fixed_age_band",
       "dose_model": "fixed_age_band",
@@ -2839,7 +2897,8 @@
         "renal impairment requires adjustment",
         "neonatal HSV requires IV/specialist pathway",
         "renal impairment requires dose/interval adjustment",
-        "maintain hydration and review nephrotoxic co-medications"
+        "maintain hydration and review nephrotoxic co-medications",
+        "neonatal HSV is excluded from this oral outpatient regimen and requires IV/specialist management"
       ],
       "source": "Current aciclovir 200 mg/5 mL SmPC",
       "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc",
@@ -2850,7 +2909,15 @@
       "hepatic_adjustment": {
         "mode": "no_specific_adjustment_encoded",
         "detail": "No specific pediatric hepatic adjustment encoded; prioritize renal function and hydration."
-      }
+      },
+      "min_age_months": 1,
+      "excluded_patient_flags": [
+        {
+          "field": "severe_or_immunocompromised_hsv",
+          "equals": true,
+          "message": "severe HSV or significant immunocompromise may require IV/specialist management rather than this outpatient oral regimen"
+        }
+      ]
     },
     {
       "id": "chloramphenicol05-bacterial-conjunctivitis",
@@ -3570,5 +3637,17 @@
     "status": "completed_with_human_signoff_still_required",
     "critical_corrections_applied": 2,
     "reviewed_entries": 89
+  },
+  "pediatric_clinical_review": {
+    "date": "2026-10-04",
+    "phase": "high-risk indication/disposition corrections",
+    "critical_corrections_applied": [
+      "5-day amoxicillin/clavulanate bite regimen restricted to prophylaxis of high-risk uninfected bites; established infection blocked",
+      "amoxicillin/clavulanate orbital cellulitis regimen restricted to oral step-down after initial IV/specialist management",
+      "RCH high-dose cefalexin pyelonephritis regimens restricted to source-specific step-down/high-dose pathway",
+      "NICE CG84 ORS regimens constrained to children under 5 years",
+      "oral aciclovir varicella requires a guideline-supported antiviral indication and excludes severe/disseminated disease",
+      "oral aciclovir mucocutaneous HSV excludes neonatal disease and severe/immunocompromised HSV"
+    ]
   }
 }
