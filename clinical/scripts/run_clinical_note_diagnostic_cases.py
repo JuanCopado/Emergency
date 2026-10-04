@@ -38,7 +38,7 @@ def run():
     for case in all_cases:
         try:
             result=analyze(build(case),apply_to_note=True)
-            if result["blocked"]: raise AssertionError("analysis blocked")
+            if result["blocked"]: raise AssertionError("analysis blocked: "+json.dumps(result.get("issues",[]),ensure_ascii=False))
             assessment=result["assessment"]
             likely=[x["diagnosis"] for x in assessment["likely_diagnoses"]]
             if case["expected_likely"] not in likely:
