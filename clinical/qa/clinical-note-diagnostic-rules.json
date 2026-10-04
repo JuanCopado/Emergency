@@ -1,0 +1,935 @@
+{
+  "schema_version": "1.0",
+  "qualitative_confidence": {
+    "high": {
+      "minimum_score": 6
+    },
+    "moderate": {
+      "minimum_score": 3
+    },
+    "low": {
+      "minimum_score": 1
+    }
+  },
+  "syndromes": [
+    {
+      "id": "acute-coronary-syndrome",
+      "diagnosis": "Síndrome coronario agudo",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dor torácica",
+            "dolor torácico",
+            "chest pain",
+            "opressão torácica",
+            "pressão torácica"
+          ],
+          "weight": 2,
+          "label": "dolor/opresión torácica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "supradesnivelamento de st",
+            "elevación del st",
+            "st elevation",
+            "stemi",
+            "iamcest"
+          ],
+          "weight": 5,
+          "label": "elevación del ST"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "troponina elevada",
+            "troponin elevated",
+            "troponina positiva"
+          ],
+          "weight": 3,
+          "label": "troponina elevada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "diaforese",
+            "sudorese",
+            "sudoración",
+            "nausea",
+            "náusea"
+          ],
+          "weight": 1,
+          "label": "síntomas autonómicos"
+        }
+      ],
+      "missing_if_absent": [
+        "ECG",
+        "troponina seriada"
+      ],
+      "differential": [
+        "acute-aortic-syndrome",
+        "pulmonary-embolism",
+        "non-coronary-chest-pain"
+      ],
+      "must_not_miss": [
+        "acute-aortic-syndrome",
+        "pulmonary-embolism"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ECG de 12 derivações e repetição se a suspeita persistir",
+          "priority": "immediate",
+          "rationale": "detectar isquemia dinâmica",
+          "source_modules": [
+            "acute-coronary-syndrome",
+            "ecg-image"
+          ]
+        },
+        {
+          "action": "Troponina seriada conforme protocolo local",
+          "priority": "urgent",
+          "rationale": "detetar lesão miocárdica e evolução",
+          "source_modules": [
+            "acute-coronary-syndrome"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de síndrome coronária aguda e estabilização ABC conforme estado clínico",
+          "priority": "immediate",
+          "rationale": "tratamento depende do fenótipo ECG/hemodinâmico e contraindicações",
+          "source_modules": [
+            "acute-coronary-syndrome"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pulmonary-embolism",
+      "diagnosis": "Embolia pulmonar",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dispneia súbita",
+            "disnea súbita",
+            "sudden dyspnea"
+          ],
+          "weight": 2,
+          "label": "disnea súbita"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor pleurítica",
+            "dolor pleurítico",
+            "pleuritic pain"
+          ],
+          "weight": 2,
+          "label": "dolor pleurítico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hemoptise",
+            "hemoptisis",
+            "hemoptysis"
+          ],
+          "weight": 1,
+          "label": "hemoptisis"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "trombose venosa",
+            "tvp",
+            "dvt",
+            "edema unilateral da perna",
+            "hinchazón unilateral de pierna"
+          ],
+          "weight": 3,
+          "label": "signos/riesgo de TVP"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipoxemia",
+            "dessaturação",
+            "desaturación"
+          ],
+          "weight": 1,
+          "label": "hipoxemia"
+        }
+      ],
+      "missing_if_absent": [
+        "probabilidade clínica/score validado",
+        "D-dímero ou angio-TC conforme probabilidade"
+      ],
+      "differential": [
+        "acute-coronary-syndrome",
+        "tension-pneumothorax",
+        "acute-aortic-syndrome"
+      ],
+      "must_not_miss": [
+        "tension-pneumothorax",
+        "acute-aortic-syndrome"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Calcular probabilidade clínica com o score aplicável antes de pedir D-dímero/angio-TC",
+          "priority": "urgent",
+          "rationale": "evitar investigação indiscriminada e orientar o algoritmo",
+          "source_modules": [
+            "pulmonary-embolism",
+            "clinical-scores-calculators"
+          ]
+        },
+        {
+          "action": "D-dímero ou angio-TC pulmonar segundo probabilidade clínica e contraindicações",
+          "priority": "conditional",
+          "rationale": "confirmar/excluir EP",
+          "source_modules": [
+            "pulmonary-embolism"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de embolia pulmonar; se instabilidade, tratar como EP de alto risco e priorizar estabilização",
+          "priority": "immediate",
+          "rationale": "estratificação e anticoagulação/reperfusão dependem de risco e contraindicações",
+          "source_modules": [
+            "pulmonary-embolism",
+            "undifferentiated-shock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tension-pneumothorax",
+      "diagnosis": "Pneumotórax hipertensivo",
+      "category": "respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "murmúrio vesicular diminuído",
+            "mv diminuído",
+            "ausência de murmúrio vesicular",
+            "absent breath sounds",
+            "unilateral breath sounds"
+          ],
+          "weight": 3,
+          "label": "murmullo vesicular unilateral reducido/ausente"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotensão",
+            "hipotension",
+            "hypotension"
+          ],
+          "weight": 2,
+          "label": "hipotensión"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dispneia súbita",
+            "disnea súbita",
+            "sudden dyspnea"
+          ],
+          "weight": 2,
+          "label": "disnea súbita"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "desvio traqueal",
+            "desviación traqueal",
+            "tracheal deviation"
+          ],
+          "weight": 2,
+          "label": "desviación traqueal"
+        }
+      ],
+      "missing_if_absent": [
+        "avaliação clínica imediata do tórax"
+      ],
+      "differential": [
+        "pulmonary-embolism",
+        "acute-severe-asthma"
+      ],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Não atrasar tratamento para imagem se o quadro clínico for compatível e houver instabilidade",
+          "priority": "immediate",
+          "rationale": "é um diagnóstico clínico tempo-dependente",
+          "source_modules": [
+            "tension-pneumothorax"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar imediatamente o módulo de pneumotórax hipertensivo/descompressão",
+          "priority": "immediate",
+          "rationale": "a descompressão não deve aguardar confirmação imagiológica em doente instável",
+          "source_modules": [
+            "tension-pneumothorax",
+            "emergency-procedures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-ischemic-stroke",
+      "diagnosis": "AVC isquémico agudo",
+      "category": "neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hemiparesia",
+            "hemiplegia",
+            "afasia",
+            "disartria",
+            "défice neurológico focal",
+            "déficit neurológico focal",
+            "facial droop"
+          ],
+          "weight": 4,
+          "label": "déficit neurológico focal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "início súbito",
+            "inicio súbito",
+            "sudden onset"
+          ],
+          "weight": 2,
+          "label": "inicio súbito"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "nihss"
+          ],
+          "weight": 1,
+          "label": "NIHSS documentado"
+        }
+      ],
+      "missing_if_absent": [
+        "hora de início/last-known-well",
+        "glicemia",
+        "TC cranioencefálica sem contraste"
+      ],
+      "differential": [
+        "spontaneous-intracerebral-hemorrhage",
+        "toxicology",
+        "electrolytes"
+      ],
+      "must_not_miss": [
+        "spontaneous-intracerebral-hemorrhage"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Confirmar last-known-well, glicemia e NIHSS",
+          "priority": "immediate",
+          "rationale": "define elegibilidade e exclui mimics",
+          "source_modules": [
+            "acute-ischemic-stroke",
+            "clinical-scores-calculators"
+          ]
+        },
+        {
+          "action": "TC cranioencefálica sem contraste ± angio-TC conforme protocolo",
+          "priority": "immediate",
+          "rationale": "excluir hemorragia e avaliar oclusão de grande vaso",
+          "source_modules": [
+            "acute-ischemic-stroke",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de AVC isquémico e via de reperfusão sem atrasos evitáveis",
+          "priority": "immediate",
+          "rationale": "tratamento é tempo-dependente",
+          "source_modules": [
+            "acute-ischemic-stroke"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spontaneous-intracerebral-hemorrhage",
+      "diagnosis": "Hemorragia intracerebral espontânea",
+      "category": "neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hemorragia intracerebral",
+            "hemorragia intraparenquimatosa",
+            "intracerebral hemorrhage",
+            "ich"
+          ],
+          "weight": 6,
+          "label": "hemorragia intracerebral em imagem"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "cefaleia súbita",
+            "cefalea súbita",
+            "sudden headache"
+          ],
+          "weight": 1,
+          "label": "cefalea súbita"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "défice neurológico focal",
+            "déficit neurológico focal",
+            "hemiparesia"
+          ],
+          "weight": 2,
+          "label": "déficit focal"
+        }
+      ],
+      "missing_if_absent": [
+        "TC cranioencefálica",
+        "medicação anticoagulante/antiagregante"
+      ],
+      "differential": [
+        "acute-ischemic-stroke",
+        "headache-sah"
+      ],
+      "must_not_miss": [
+        "traumatic-intracranial-mass-effect"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Rever TC, expansão/efeito de massa e tratamento antitrombótico concomitante",
+          "priority": "immediate",
+          "rationale": "orienta reversão, neurocirurgia e controlo de PA",
+          "source_modules": [
+            "spontaneous-intracerebral-hemorrhage",
+            "anticoagulation-reversal"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de hemorragia intracerebral e reversão de anticoagulação quando aplicável",
+          "priority": "immediate",
+          "rationale": "reduzir expansão e tratar complicações",
+          "source_modules": [
+            "spontaneous-intracerebral-hemorrhage",
+            "anticoagulation-reversal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "headache-sah",
+      "diagnosis": "Hemorragia subaracnoideia / cefaleia secundária grave",
+      "category": "neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "cefaleia em trovoada",
+            "cefalea en trueno",
+            "thunderclap headache",
+            "pior cefaleia da vida",
+            "peor cefalea de la vida"
+          ],
+          "weight": 5,
+          "label": "cefalea en trueno"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "rigidez da nuca",
+            "rigidez de nuca",
+            "neck stiffness"
+          ],
+          "weight": 2,
+          "label": "rigidez nucal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "síncope",
+            "sincope",
+            "syncope"
+          ],
+          "weight": 1,
+          "label": "síncope associada"
+        }
+      ],
+      "missing_if_absent": [
+        "TC cranioencefálica",
+        "tempo desde o início da cefaleia"
+      ],
+      "differential": [
+        "cns-infection",
+        "acute-ischemic-stroke"
+      ],
+      "must_not_miss": [
+        "spontaneous-intracerebral-hemorrhage"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Ativar algoritmo de cefaleia/SHA conforme tempo de início e TC",
+          "priority": "immediate",
+          "rationale": "excluir hemorragia tempo-dependente",
+          "source_modules": [
+            "headache-sah",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Estabilização e ativação do módulo de cefaleia/SHA; evitar alta até excluir causas secundárias graves",
+          "priority": "immediate",
+          "rationale": "risco neurológico tempo-dependente",
+          "source_modules": [
+            "headache-sah"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sepsis-shock",
+      "diagnosis": "Sépsis / choque séptico",
+      "category": "infectious",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "febre",
+            "fiebre",
+            "fever",
+            "hipotermia",
+            "hypothermia"
+          ],
+          "weight": 1,
+          "label": "alteración térmica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotensão",
+            "hipotension",
+            "hypotension"
+          ],
+          "weight": 2,
+          "label": "hipotensión"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "lactato elevado",
+            "lactate elevated",
+            "hiperlactatemia"
+          ],
+          "weight": 2,
+          "label": "lactato elevado"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "alteração do estado mental",
+            "alteración del estado mental",
+            "confusão",
+            "confusion"
+          ],
+          "weight": 1,
+          "label": "alteración mental"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "infeção",
+            "infección",
+            "infection",
+            "pneumonia",
+            "pielonefrite",
+            "pyelonephritis"
+          ],
+          "weight": 2,
+          "label": "foco infeccioso"
+        }
+      ],
+      "missing_if_absent": [
+        "lactato",
+        "culturas quando não atrasem antibiótico",
+        "foco infeccioso"
+      ],
+      "differential": [
+        "undifferentiated-shock",
+        "cardiogenic-shock"
+      ],
+      "must_not_miss": [
+        "undifferentiated-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Lactato, culturas adequadas e estudo do foco sem atrasar tratamento",
+          "priority": "immediate",
+          "rationale": "estratificar gravidade e orientar controlo do foco",
+          "source_modules": [
+            "sepsis-shock",
+            "emergency-infectious-diseases"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de sépsis/choque: estabilização, antibiótico e controlo do foco conforme contexto",
+          "priority": "immediate",
+          "rationale": "tratamento tempo-dependente",
+          "source_modules": [
+            "sepsis-shock",
+            "empiric-antibiotics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-aortic-syndrome",
+      "diagnosis": "Síndrome aórtica aguda",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dor lancinante",
+            "dor rasgante",
+            "dolor desgarrador",
+            "tearing pain"
+          ],
+          "weight": 3,
+          "label": "dolor desgarrador"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "irradiação para dorso",
+            "irradia para dorso",
+            "irradiación a espalda",
+            "radiates to back"
+          ],
+          "weight": 2,
+          "label": "irradiación dorsal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "assimetria de pulsos",
+            "asimetría de pulsos",
+            "pulse deficit"
+          ],
+          "weight": 2,
+          "label": "asimetría de pulsos"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "diferença de pressão arterial entre braços",
+            "diferencia de presión entre brazos"
+          ],
+          "weight": 2,
+          "label": "diferencia de presión entre brazos"
+        }
+      ],
+      "missing_if_absent": [
+        "avaliação de risco para síndrome aórtica",
+        "angio-TC se indicada"
+      ],
+      "differential": [
+        "acute-coronary-syndrome",
+        "pulmonary-embolism"
+      ],
+      "must_not_miss": [
+        "cardiac-tamponade-pericardial-emergency"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar risco de síndrome aórtica e obter angio-TC urgente quando indicada",
+          "priority": "immediate",
+          "rationale": "diagnóstico tempo-dependente",
+          "source_modules": [
+            "acute-aortic-syndrome",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de síndrome aórtica aguda e controlo hemodinâmico apropriado",
+          "priority": "immediate",
+          "rationale": "reduzir stress aórtico e acelerar abordagem definitiva",
+          "source_modules": [
+            "acute-aortic-syndrome"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abdominal-aortic-aneurysm",
+      "diagnosis": "Aneurisma da aorta abdominal complicado/roto",
+      "category": "surgical",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "massa pulsátil",
+            "masa pulsátil",
+            "pulsatile mass"
+          ],
+          "weight": 4,
+          "label": "masa abdominal pulsátil"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor abdominal súbita",
+            "dolor abdominal súbito",
+            "sudden abdominal pain"
+          ],
+          "weight": 2,
+          "label": "dolor abdominal súbito"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor lombar súbita",
+            "dolor lumbar súbito"
+          ],
+          "weight": 2,
+          "label": "dolor lumbar súbito"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotensão",
+            "hipotension",
+            "hypotension"
+          ],
+          "weight": 2,
+          "label": "hipotensión"
+        }
+      ],
+      "missing_if_absent": [
+        "POCUS/TC conforme estabilidade",
+        "avaliação vascular"
+      ],
+      "differential": [
+        "acute-mesenteric-ischemia",
+        "acute-abdomen"
+      ],
+      "must_not_miss": [
+        "acute-mesenteric-ischemia"
+      ],
+      "suggested_tests": [
+        {
+          "action": "POCUS imediato se instável; TC com contraste se estável e diagnóstico não estabelecido",
+          "priority": "immediate",
+          "rationale": "confirmar AAA e planear abordagem",
+          "source_modules": [
+            "abdominal-aortic-aneurysm",
+            "pocus",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar abordagem de AAA e cirurgia vascular urgente se suspeita significativa",
+          "priority": "immediate",
+          "rationale": "risco de rotura/hemorragia",
+          "source_modules": [
+            "abdominal-aortic-aneurysm",
+            "trauma-major-hemorrhage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diabetic-ketoacidosis-hhs",
+      "diagnosis": "Cetoacidose diabética / crise hiperglicémica",
+      "category": "metabolic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hiperglicemia",
+            "hyperglycemia",
+            "glicemia elevada"
+          ],
+          "weight": 2,
+          "label": "hiperglucemia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "cetonemia",
+            "cetonúria",
+            "ketones",
+            "cetose"
+          ],
+          "weight": 2,
+          "label": "cetosis"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "acidose metabólica",
+            "acidosis metabólica",
+            "metabolic acidosis"
+          ],
+          "weight": 3,
+          "label": "acidosis metabólica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "kussmaul"
+          ],
+          "weight": 2,
+          "label": "respiración de Kussmaul"
+        }
+      ],
+      "missing_if_absent": [
+        "glicemia",
+        "cetonemia",
+        "pH/bicarbonato",
+        "potássio"
+      ],
+      "differential": [
+        "toxicology",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "potassium-emergencies"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Glicemia, cetonas, gasometria, eletrólitos, função renal e cálculo ácido-base",
+          "priority": "immediate",
+          "rationale": "confirmar CAD e orientar fluidos/insulina/potássio",
+          "source_modules": [
+            "diabetic-ketoacidosis-hhs",
+            "acid-base-emergencies",
+            "potassium-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo CAD/HHS; tratar fluidos, insulina e potássio pelo protocolo apropriado",
+          "priority": "immediate",
+          "rationale": "corrigir défice volémico e distúrbios metabólicos com segurança",
+          "source_modules": [
+            "diabetic-ketoacidosis-hhs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-heart-failure",
+      "diagnosis": "Insuficiência cardíaca aguda / edema pulmonar cardiogénico",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "ortopneia",
+            "orthopnea"
+          ],
+          "weight": 2,
+          "label": "ortopnea"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "estertores",
+            "crepitantes",
+            "crackles"
+          ],
+          "weight": 2,
+          "label": "crepitantes"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "edema periférico",
+            "edema periférico bilateral",
+            "peripheral edema"
+          ],
+          "weight": 1,
+          "label": "edema periférico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "edema pulmonar",
+            "pulmonary edema"
+          ],
+          "weight": 4,
+          "label": "edema pulmonar em imagem"
+        }
+      ],
+      "missing_if_absent": [
+        "ECG",
+        "Rx/POCUS",
+        "função renal/eletrólitos"
+      ],
+      "differential": [
+        "acute-coronary-syndrome",
+        "pulmonary-embolism",
+        "acute-respiratory-failure"
+      ],
+      "must_not_miss": [
+        "acute-coronary-syndrome"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ECG, imagem pulmonar/POCUS e função renal/eletrólitos",
+          "priority": "urgent",
+          "rationale": "confirmar congestão e procurar precipitante",
+          "source_modules": [
+            "acute-heart-failure",
+            "pocus",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de insuficiência cardíaca aguda e suporte respiratório conforme necessidade",
+          "priority": "immediate",
+          "rationale": "tratar congestão/hipoxemia e causa precipitante",
+          "source_modules": [
+            "acute-heart-failure",
+            "oxygen-therapy-emergency",
+            "noninvasive-ventilation"
+          ]
+        }
+      ]
+    }
+  ]
+}
