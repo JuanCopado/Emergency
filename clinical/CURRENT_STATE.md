@@ -252,10 +252,20 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Rama activa: `v1.38-pediatric-outpatient-medications`.
 - Nuevo módulo: `pediatric-outpatient-medications`.
 - Total clínico: **129 módulos**; el nuevo módulo está **yellow**.
-- Registry ambulatorio inicial: **36 regímenes**.
+- Registry ambulatorio expandido: **89 regímenes**.
 - Motor fail-closed: `scripts/pediatric_outpatient_calculator.py`.
 - Calcula peso de dosificación explícito, mg/toma, máximo, concentración verificada -> mL/toma, dosis/día, duración, total de dosis y volumen total estimado.
 - No devuelve mL con concentración no verificada.
 - Conserva diferencias entre guías/regímenes en entradas separadas.
 - Estado/handoff: `qa/V1.38_PEDIATRIC_OUTPATIENT_STATE.md`.
 - Pendiente: ampliar formulario ambulatorio, reconciliar presentaciones Portugal/Azores y revisión humana pediatría/farmacia.
+
+
+## v1.38 outpatient expansion complete — 04/10/2026
+- `pediatric-outpatient-medications`: **89 diagnosis-specific regimens**.
+- Families: oral antibiotics/allergy alternatives, analgesia/antipyresis, selected antiemesis, antihistamines, asthma rescue/controllers, dermatology, ORS/constipation, antiparasitics, antivirals, ENT/ophthalmology, allergic rhinitis/conjunctivitis, migraine and anaphylaxis discharge.
+- Calculator supports mg/kg, fixed age/weight bands, variable-day schedules, repeated fixed schedules, fixed liquid-volume bands, ORS volume/kg, sachet schedules, devices and topical/drop metadata.
+- Exact concentration remains mandatory for automatic mL calculation; unverified substitutions fail closed.
+- Portugal presentation reconciliation exists; **real-time Azores stock is not claimed**.
+- Integrity QA for 89-regimen registry: #482 SUCCESS.
+- Module remains yellow pending pediatric/pharmacy human review.
