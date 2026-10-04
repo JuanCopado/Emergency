@@ -1732,10 +1732,349 @@
       "administration": "AIR/MART only with an appropriate ICS-formoterol product. Seek medical care if >12 total inhalations are needed in 24 h.",
       "source": "GINA 2026 Strategy Report, Box 4-8B",
       "source_url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+    },
+    {
+      "id": "hydrocortisone1-eczema-sensitive-mild",
+      "category": "dermatology_topical",
+      "drug": "hydrocortisone 1% (10 mg/g)",
+      "diagnosis": "mild-to-moderate eczema flare on sensitive areas such as face/groin when a mild topical corticosteroid is appropriate",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply a thin appropriate amount to affected eczema twice daily until the flare is resolved. Use ointment where practical for emollient effect; avoid prolonged unsupervised treatment.",
+      "frequency": "twice daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "contraindications": [
+        "hypersensitivity to product",
+        "untreated primary bacterial/fungal/viral skin infection at treatment site unless separately treated"
+      ],
+      "cautions": [
+        "avoid eyes",
+        "use lowest effective potency",
+        "review persistent/recurrent facial eczema",
+        "infants require clinician-directed use"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "portugal_reconciliation": "INFARMED lists hydrocortisone 10 mg/g topical strength in Portugal; pediatric indication/product-specific RCM and Azores stock still require exact product verification."
+    },
+    {
+      "id": "methylprednisolone-aceponate-eczema-body-moderate",
+      "category": "dermatology_topical",
+      "drug": "methylprednisolone aceponate 0.1%",
+      "diagnosis": "mild-to-moderate eczema flare on body requiring moderate-potency topical corticosteroid",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply once daily to affected body areas until resolved; use short courses on sensitive sites only under clinician direction.",
+      "frequency": "once daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "cautions": [
+        "avoid prolonged facial/flexural use",
+        "avoid untreated infection",
+        "monitor recurrent need"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/"
+    },
+    {
+      "id": "mometasone-eczema-body-severe",
+      "category": "dermatology_topical",
+      "drug": "mometasone furoate 0.1%",
+      "diagnosis": "severe eczema flare on body when a potent topical corticosteroid is appropriate",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply once daily to affected body areas until resolved, using the shortest effective course. Do not use very potent steroids without dermatology advice.",
+      "frequency": "once daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "cautions": [
+        "not routine for face/groin",
+        "skin atrophy risk with prolonged use",
+        "avoid untreated infection"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/"
+    },
+    {
+      "id": "pimecrolimus-eczema-sensitive-secondline",
+      "category": "dermatology_topical",
+      "drug": "pimecrolimus 1% cream",
+      "diagnosis": "mild-to-moderate eczema on sensitive areas when second-line non-steroid topical therapy is selected",
+      "route": "topical",
+      "weight_basis": "topical",
+      "min_age_months": 3,
+      "dose_model": "topical",
+      "topical_instructions": "Apply twice daily until symptoms resolve. Limit treatment to 6 weeks; for age 3-23 months limit course to 3 weeks per cited RCH guidance.",
+      "frequency": "twice daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "cautions": [
+        "second-line therapy",
+        "avoid application to active untreated infection",
+        "avoid eyes/mucosa"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/"
+    },
+    {
+      "id": "permethrin5-scabies",
+      "category": "dermatology_antiparasitic_topical",
+      "drug": "permethrin 5% cream",
+      "diagnosis": "scabies in a child suitable for topical treatment",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply as directed to the entire appropriate skin surface; RCH describes neck-down application left on for at least 8 hours, usually overnight. Repeat after 7 days if required. Treat household/close contacts simultaneously and decontaminate clothing/bedding per local advice.",
+      "frequency": "single application; repeat after 7 days when indicated",
+      "duration_days": 7,
+      "liquid_capable": false,
+      "cautions": [
+        "infants/young children may require head/neck/scalp application per product/local guideline",
+        "avoid eyes and mucosa",
+        "post-scabetic itch may persist"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "clotrimazole1-tinea-corporis",
+      "category": "dermatology_antifungal_topical",
+      "drug": "clotrimazole 1% cream",
+      "diagnosis": "localized tinea corporis/cruris or other susceptible superficial dermatophyte infection excluding scalp/nail disease",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply a thin layer to affected and surrounding skin 2-3 times daily. Continue for at least 1 month for dermatophyte infection according to the cited SmPC. Keep skin clean and dry.",
+      "frequency": "2-3 times daily",
+      "duration_days": 28,
+      "liquid_capable": false,
+      "contraindications": [
+        "hypersensitivity to clotrimazole/product excipients"
+      ],
+      "cautions": [
+        "do not use for scalp or nail infection",
+        "avoid eyes/mouth",
+        "reassess if not improving"
+      ],
+      "source": "Clotrimazole 1% cream SmPC, updated Aug 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/102509/smpc"
+    },
+    {
+      "id": "clotrimazole1-cutaneous-candida",
+      "category": "dermatology_antifungal_topical",
+      "drug": "clotrimazole 1% cream",
+      "diagnosis": "localized cutaneous candidal infection including candidal intertrigo/nappy rash when antifungal therapy is indicated",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply thinly and evenly 2-3 times daily; continue for at least 2 weeks for candidal infection per SmPC.",
+      "frequency": "2-3 times daily",
+      "duration_days": 14,
+      "liquid_capable": false,
+      "contraindications": [
+        "hypersensitivity to clotrimazole/product excipients"
+      ],
+      "cautions": [
+        "avoid eyes/mouth",
+        "persistent diaper rash needs diagnostic reassessment"
+      ],
+      "source": "Clotrimazole 1% cream SmPC, updated Aug 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/102509/smpc"
+    },
+    {
+      "id": "ors-clinical-dehydration-50mlkg4h",
+      "category": "gastrointestinal_rehydration",
+      "drug": "low-osmolarity oral rehydration solution",
+      "diagnosis": "gastroenteritis with clinical dehydration suitable for oral rehydration",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "volume_ml_per_kg_course",
+      "volume_ml_per_kg": 50,
+      "administration_hours": 4,
+      "frequency": "frequent small amounts over 4 hours plus maintenance/ongoing losses",
+      "duration_days": 1,
+      "liquid_capable": false,
+      "administration": "Use low-osmolarity ORS 240-250 mOsm/L. Give frequently in small amounts; continue breastfeeding. Avoid fruit juice/carbonated drinks during rehydration. Add maintenance fluid and replace ongoing losses.",
+      "excluded_patient_flags": [
+        {
+          "field": "shock_or_iv_fluid_indication",
+          "equals": true,
+          "message": "oral-only rehydration regimen is not appropriate when IV resuscitation/rehydration is indicated"
+        }
+      ],
+      "source": "NICE CG84 gastroenteritis",
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations"
+    },
+    {
+      "id": "ors-post-stool-highrisk-5mlkg",
+      "category": "gastrointestinal_rehydration",
+      "drug": "low-osmolarity oral rehydration solution",
+      "diagnosis": "replacement after a large watery stool in a child at increased risk of recurrent dehydration after rehydration",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "volume_ml_per_kg_course",
+      "volume_ml_per_kg": 5,
+      "administration_hours": 1,
+      "frequency": "after each large watery stool",
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "Give 5 mL/kg after each large watery stool when risk of recurrent dehydration is increased. Continue usual feeding after rehydration.",
+      "source": "NICE CG84 gastroenteritis",
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations"
+    },
+    {
+      "id": "macrogol3350-electrolytes-constipation-maintenance-1to11",
+      "category": "gastrointestinal_laxative",
+      "drug": "macrogol 3350 + electrolytes paediatric sachet",
+      "diagnosis": "chronic idiopathic constipation maintenance in child 1-11 years after assessment for impaction/red flags",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "max_age_months": 143,
+      "dose_model": "sachet_schedule",
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "sachets_per_day": 1,
+          "max_sachets_per_day": 4
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "sachets_per_day": 2,
+          "max_sachets_per_day": 4
+        }
+      ],
+      "frequency": "daily; titrate to regular soft stools",
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "For the referenced paediatric formulation each sachet contains macrogol 3350 6.563 g with electrolytes and is reconstituted in 62.5 mL water. Adjust dose to response; do not stop abruptly after prolonged treatment.",
+      "contraindications": [
+        "intestinal perforation/obstruction",
+        "ileus",
+        "severe inflammatory bowel disease/toxic megacolon per product SmPC"
+      ],
+      "source": "NICE CG99 + Movicol Paediatric Plain 6.9 g SmPC",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "product_strength": "macrogol 3350 6.563 g per paediatric sachet"
+    },
+    {
+      "id": "macrogol3350-electrolytes-disimpaction-5to11",
+      "category": "gastrointestinal_laxative",
+      "drug": "macrogol 3350 + electrolytes paediatric sachet",
+      "diagnosis": "faecal impaction in child 5-11 years when oral macrogol disimpaction is appropriate",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 60,
+      "max_age_months": 143,
+      "dose_model": "sachet_schedule",
+      "bands": [
+        {
+          "min_age_months": 60,
+          "max_age_months": 143,
+          "schedule": [
+            {
+              "day": 1,
+              "sachets": 4
+            },
+            {
+              "day": 2,
+              "sachets": 6
+            },
+            {
+              "day": 3,
+              "sachets": 8
+            },
+            {
+              "day": 4,
+              "sachets": 10
+            },
+            {
+              "day": 5,
+              "sachets": 12
+            },
+            {
+              "day": 6,
+              "sachets": 12
+            },
+            {
+              "day": 7,
+              "sachets": 12
+            }
+          ],
+          "duration_days": 7
+        }
+      ],
+      "frequency": "daily total divided and consumed within 12 hours",
+      "duration_days": 7,
+      "liquid_capable": false,
+      "administration": "Each referenced paediatric sachet is reconstituted in 62.5 mL water. Stop escalation/course once disimpaction has occurred and transition to maintenance plan.",
+      "contraindications": [
+        "intestinal perforation/obstruction",
+        "ileus",
+        "severe inflammatory bowel disease/toxic megacolon"
+      ],
+      "cautions": [
+        "not recommended by cited SmPC for faecal impaction with impaired cardiovascular function or renal insufficiency",
+        "review within 1 week"
+      ],
+      "source": "NICE CG99; paediatric macrogol SmPC",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "product_strength": "macrogol 3350 6.563 g per paediatric sachet"
+    },
+    {
+      "id": "lactulose-constipation-1mo18y",
+      "category": "gastrointestinal_laxative",
+      "drug": "lactulose 3.335 g/5 mL",
+      "diagnosis": "constipation when lactulose is selected because macrogol is unsuitable/not tolerated or as an adjunct according to the constipation plan",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 1,
+      "max_age_months": 215,
+      "dose_model": "fixed_volume_band",
+      "bands": [
+        {
+          "min_age_months": 1,
+          "max_age_months": 11,
+          "dose_ml": 2.5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_ml": 5,
+          "doses_per_day": 2,
+          "note": "source allows 5-10 mL twice daily; start at lower end and titrate"
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 167,
+          "dose_ml": 10,
+          "doses_per_day": 1,
+          "note": "SmPC daily start 15 mL age 7-14; NICE provides wider age-band ranges—titrate clinically"
+        }
+      ],
+      "frequency": "once or twice daily depending age/product and response",
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "May be taken diluted or undiluted; may be taken with water/juice. Maintain adequate fluid intake. Effect can take 2-3 days.",
+      "cautions": [
+        "dose is titrated to response",
+        "contains manufacturing residues of lactose/galactose/fructose; check relevant intolerances"
+      ],
+      "source": "NICE CG99 plus Duphalac 3.335 g/5 mL SmPC",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "product_strength": "3.335 g/5 mL (667 mg/mL)"
     }
   ],
   "last_expanded": "2026-10-04",
   "expansion_notes": [
-    "Block A: diagnosis-specific antibiotic alternatives and asthma controller strategies; GINA 2026/RCH/NICE; Portugal concentrations only where independently verified."
+    "Block A: diagnosis-specific antibiotic alternatives and asthma controller strategies; GINA 2026/RCH/NICE; Portugal concentrations only where independently verified.",
+    "Block B: dermatology topical therapy plus ORS/constipation regimens; source-specific product strengths and non-mg dose models."
   ]
 }
