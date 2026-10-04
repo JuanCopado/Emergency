@@ -1087,10 +1087,10 @@
       "priority": "high",
       "primary_source": "GDPR privacy-by-design/data-minimization principles + EDPB Guidelines 01/2025 on Pseudonymisation + existing Emergency syndrome/image/score modules; clinical-layout design informed by six clinician-supplied de-identified history examples",
       "primary_source_url": "https://www.edpb.europa.eu/public-consultations/guidelines-012025-on-pseudonymisation_en",
-      "stored_version": "v1.39 executable diagnostic-support engine 2026-10-04",
+      "stored_version": "v1.39 full diagnostic coverage engine 2026-10-04",
       "last_checked": "2026-10-04",
       "status": "yellow",
-      "note": "Structured hybrid clinical-note workspace with provenance-aware MCDT/image reports, privacy preflight, diagnosis/differential/test/treatment output contract and DOCX/PDF/JSON export. Pseudonymization is explicitly not treated as anonymization. Yellow pending human clinical, privacy/information-governance and legal/deployment review. Executable transparent diagnostic-support engine now covers 11 initial emergency syndromes and produces qualitative diagnosis, differential, must-not-miss, test and treatment-routing output. Synthetic cases and Clinical QA pass; no prospective diagnostic accuracy claim."
+      "note": "Structured privacy-gated clinical-note workspace with executable transparent diagnostic-support engine covering 92 acute-care syndromes. 60 synthetic diagnostic scenarios PASS. Coverage audit classifies all 131 registered modules: 115 covered/routed and 16 explicitly non-diagnostic support/infrastructure, with 0 unexpected clinical gaps. Generated assessments reset clinician sign-off. Yellow pending final human clinical/privacy/information-governance review; no prospective diagnostic-accuracy claim."
     },
     "final-human-review-gate": {
       "priority": "high",
