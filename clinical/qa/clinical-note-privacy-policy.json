@@ -31,24 +31,24 @@
   "free_text_flag_patterns": [
     {
       "id": "email",
-      "pattern": "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,}",
+      "pattern": "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}",
       "flags": "i"
     },
     {
       "id": "labelled_phone",
-      "pattern": "(?i)(telefone|telemovel|telemóvel|phone|tel\\\\.?)[^\\\\n]{0,20}\\\\+?[0-9][0-9 .()-]{7,}"
+      "pattern": "(?i)\\b(telefone|telemovel|telemóvel|phone|tel\\.?)\\b[^\\n]{0,20}\\+?[0-9][0-9 .()-]{7,}"
     },
     {
       "id": "labelled_identifier",
-      "pattern": "(?i)\\\\b(sns|nif|nhs|mrn|processo|process no|n\\\\.?\\\\s*processo|cc|cartao de cidadao|cartão de cidadão|passport)\\\\b[^\\\\n]{0,20}[A-Z0-9.-]{5,}"
+      "pattern": "(?i)\\b(sns|nif|nhs|mrn|processo|process no|n\\.?\\s*processo|cc|cartao de cidadao|cartão de cidadão|passport)\\b[^\\n]{0,20}[A-Z0-9.-]{5,}"
     },
     {
       "id": "labelled_address",
-      "pattern": "(?i)(morada|endereco|endereço|address)[^\\\\n]{0,80}"
+      "pattern": "(?i)\\b(morada|endereco|endereço|address)\\b\\s*[:\\-]?\\s*[^\\n]{4,80}"
     },
     {
       "id": "labelled_name",
-      "pattern": "(?i)\\\\b(nome|name)\\\\b[^\\\\n]{0,80}"
+      "pattern": "(?i)\\b(nome|name)\\b\\s*[:\\-]\\s*[^\\n]{2,80}"
     }
   ],
   "attachment_rules": {
