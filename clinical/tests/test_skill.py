@@ -5335,6 +5335,95 @@ class ModularCoreTests(unittest.TestCase):
         self.assertTrue(result['blocked'])
         self.assertTrue(any(x['code']=='RENAL_THRESHOLD_FAILED' for x in result['alerts']))
 
+    def test_v138_pediatric_clinical_bite_prophylaxis_vs_infection(self):
+        ok=calculate_pediatric_outpatient(
+            'amox-clav-bite',
+            {'age_months':84,'actual_weight_kg':20,'allergies':[],'active_medications':[],'established_bite_infection':False},
+            {'concentration_mg_per_ml':80}
+        )
+        self.assertEqual(ok['duration_days'],5)
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'amox-clav-bite',
+                {'age_months':84,'actual_weight_kg':20,'allergies':[],'active_medications':[],'established_bite_infection':True},
+                {'concentration_mg_per_ml':80}
+            )
+
+    def test_v138_pediatric_clinical_orbital_stepdown_gate(self):
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'amox-clav-preseptal-stepdown',
+                {'age_months':120,'actual_weight_kg':30,'allergies':[],'active_medications':[]},
+                {'concentration_mg_per_ml':80},
+                selected_duration_days=10
+            )
+        ok=calculate_pediatric_outpatient(
+            'amox-clav-preseptal-stepdown',
+            {'age_months':120,'actual_weight_kg':30,'allergies':[],'active_medications':[],'orbital_cellulitis_stepdown_after_iv_confirmed':True},
+            {'concentration_mg_per_ml':80},
+            selected_duration_days=10
+        )
+        self.assertEqual(ok['dose_mg'],675)
+
+    def test_v138_pediatric_clinical_pyelo_high_dose_stepdown_gate(self):
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'cefalexin-pyelonephritis-ge12mo',
+                {'age_months':120,'actual_weight_kg':25,'allergies':[],'active_medications':[]},
+                {'concentration_mg_per_ml':50},
+                selected_duration_days=7
+            )
+        ok=calculate_pediatric_outpatient(
+            'cefalexin-pyelonephritis-ge12mo',
+            {'age_months':120,'actual_weight_kg':25,'allergies':[],'active_medications':[],'rch_pyelo_high_dose_stepdown_confirmed':True},
+            {'concentration_mg_per_ml':50},
+            selected_duration_days=7
+        )
+        self.assertEqual(ok['dose_mg'],1125)
+
+    def test_v138_pediatric_clinical_ors_nice_under5_scope(self):
+        ok=calculate_pediatric_outpatient(
+            'ors-clinical-dehydration-50mlkg4h',
+            {'age_months':48,'actual_weight_kg':18,'allergies':[],'active_medications':[],'shock_or_iv_fluid_indication':False}
+        )
+        self.assertEqual(ok['total_rehydration_ml'],900)
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'ors-clinical-dehydration-50mlkg4h',
+                {'age_months':72,'actual_weight_kg':22,'allergies':[],'active_medications':[],'shock_or_iv_fluid_indication':False}
+            )
+
+    def test_v138_pediatric_clinical_varicella_requires_indication(self):
+        patient={'age_months':156,'actual_weight_kg':45,'allergies':[],'active_medications':[],'renal_adjustment_required':False,'severe_or_disseminated_varicella':False}
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'acyclovir-varicella-standard-renal',patient,{'concentration_mg_per_ml':40}
+            )
+        patient['varicella_oral_antiviral_indication_confirmed']=True
+        ok=calculate_pediatric_outpatient(
+            'acyclovir-varicella-standard-renal',patient,{'concentration_mg_per_ml':40}
+        )
+        self.assertEqual(ok['dose_mg'],800)
+        patient['severe_or_disseminated_varicella']=True
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'acyclovir-varicella-standard-renal',patient,{'concentration_mg_per_ml':40}
+            )
+
+    def test_v138_pediatric_clinical_hsv_excludes_neonate_and_severe(self):
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'acyclovir-hsv-mucocutaneous-standard-renal',
+                {'age_months':0.5,'actual_weight_kg':4,'allergies':[],'active_medications':[],'renal_adjustment_required':False,'severe_or_immunocompromised_hsv':False},
+                {'concentration_mg_per_ml':40}
+            )
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'acyclovir-hsv-mucocutaneous-standard-renal',
+                {'age_months':24,'actual_weight_kg':12,'allergies':[],'active_medications':[],'renal_adjustment_required':False,'severe_or_immunocompromised_hsv':True},
+                {'concentration_mg_per_ml':40}
+            )
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
