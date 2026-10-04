@@ -299,6 +299,126 @@
         "hypertensive-emergencies"
       ],
       "expected_test_contains": "órgão-alvo"
+    },
+    {
+      "id": "arrhythmia-af",
+      "age_years": 71,
+      "sex": "male",
+      "chief_complaint": "Palpitações e tontura.",
+      "hpi": "Fibrilhação auricular com resposta ventricular rápida.",
+      "ecg": "Fibrilhação auricular rápida.",
+      "expected_likely": "Arritmia cardíaca sintomática",
+      "expected_modules": [
+        "adult-arrhythmias"
+      ],
+      "expected_test_contains": "ECG"
+    },
+    {
+      "id": "toxic-overdose",
+      "age_years": 32,
+      "sex": "female",
+      "chief_complaint": "Alteração do estado mental.",
+      "hpi": "Sobredosagem medicamentosa intencional; possível coingestão.",
+      "vitals": {
+        "bp": "96/58",
+        "hr": 110,
+        "rr": 12,
+        "spo2": 94,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.1,
+        "gcs": "11"
+      },
+      "expected_likely": "Intoxicação aguda / toxíndrome",
+      "expected_modules": [
+        "toxicology"
+      ],
+      "expected_test_contains": "substância"
+    },
+    {
+      "id": "mesenteric-ischemia",
+      "age_years": 79,
+      "sex": "female",
+      "chief_complaint": "Dor abdominal intensa.",
+      "hpi": "Dor desproporcionada ao exame, fibrilhação auricular conhecida.",
+      "labs": "Lactato elevado.",
+      "expected_likely": "Isquemia mesentérica aguda",
+      "expected_modules": [
+        "acute-mesenteric-ischemia"
+      ],
+      "expected_test_contains": "Angio-TC"
+    },
+    {
+      "id": "aki",
+      "age_years": 68,
+      "sex": "male",
+      "chief_complaint": "Oligúria.",
+      "hpi": "Lesão renal aguda com creatinina aumentada e oligúria.",
+      "labs": "Creatinina elevada e potássio 5.8 mmol/L.",
+      "expected_likely": "Lesão renal aguda",
+      "expected_modules": [
+        "aki-nephrology"
+      ],
+      "expected_test_contains": "creatinina basal"
+    },
+    {
+      "id": "rhabdo",
+      "age_years": 44,
+      "sex": "male",
+      "chief_complaint": "Mialgias e urina escura.",
+      "hpi": "Rabdomiólise após esforço intenso.",
+      "labs": "CK elevada e creatinina em subida.",
+      "expected_likely": "Rabdomiólise",
+      "expected_modules": [
+        "rhabdomyolysis"
+      ],
+      "expected_test_contains": "CK seriada"
+    },
+    {
+      "id": "thyroid-storm",
+      "age_years": 39,
+      "sex": "female",
+      "chief_complaint": "Febre, agitação e palpitações.",
+      "hpi": "Hipertiroidismo conhecido com suspeita de tempestade tiroideia.",
+      "vitals": {
+        "bp": "148/70",
+        "hr": 156,
+        "rr": 28,
+        "spo2": 97,
+        "oxygen": "ar ambiente",
+        "temperature_c": 40,
+        "gcs": "14"
+      },
+      "expected_likely": "Tempestade tiroideia",
+      "expected_modules": [
+        "thyroid-storm"
+      ],
+      "expected_test_contains": "TSH/T4"
+    },
+    {
+      "id": "acute-liver-failure",
+      "age_years": 27,
+      "sex": "female",
+      "chief_complaint": "Icterícia e confusão.",
+      "hpi": "Insuficiência hepática aguda com encefalopatia hepática.",
+      "labs": "INR elevado, transaminases marcadamente elevadas.",
+      "expected_likely": "Insuficiência hepática aguda",
+      "expected_modules": [
+        "acute-liver-failure"
+      ],
+      "expected_test_contains": "INR"
+    },
+    {
+      "id": "cauda-equina",
+      "age_years": 52,
+      "sex": "male",
+      "chief_complaint": "Lombalgia com fraqueza nas pernas.",
+      "hpi": "Retenção urinária nova e anestesia em sela.",
+      "exam_neurologic": "Fraqueza bilateral das pernas.",
+      "expected_likely": "Síndrome da cauda equina / cone medular",
+      "expected_modules": [
+        "cauda-equina-conus-emergency"
+      ],
+      "expected_test_contains": "RM lombossagrada"
     }
   ]
 }
