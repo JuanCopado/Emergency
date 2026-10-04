@@ -10,7 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry
+from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry, preflight as pediatric_outpatient_preflight, MedicationSafetyStop
+from pediatric_outpatient_alert_engine import evaluate as evaluate_pediatric_alerts
 
 from infusion_calculator import infusion_ml_h, fixed_dose_ml_h, weight_per_hour_ml_h
 from load_module import load
@@ -5155,6 +5156,133 @@ class ModularCoreTests(unittest.TestCase):
                 'fexofenadine-allergic-rhinitis',
                 {'age_months':120,'actual_weight_kg':30,'known_hepatic_impairment':True,'hepatic_severity':'moderate'}
             )
+
+    def test_v138_alert_exact_drug_allergy_blocks(self):
+        alert=evaluate_pediatric_alerts(
+            'amoxicillin-aom',
+            {'age_months':60,'actual_weight_kg':20,'allergies':['amoxicillin']}
+        )
+        self.assertTrue(alert['blocked'])
+        self.assertEqual(alert['highest_severity'],'STOP')
+        self.assertTrue(any(x['code']=='ALLERGY_EXACT' for x in alert['alerts']))
+        with self.assertRaises(MedicationSafetyStop):
+            calculate_pediatric_outpatient(
+                'amoxicillin-aom',
+                {'age_months':60,'actual_weight_kg':20,'allergies':['amoxicillin']},
+                {'concentration_mg_per_ml':50}
+            )
+
+    def test_v138_alert_beta_lactam_severe_vs_nonsevere(self):
+        severe=evaluate_pediatric_alerts(
+            'cefalexin-cellulitis',
+            {'age_months':84,'actual_weight_kg':20,'allergies':[{'class':'penicillin','phenotype':'anaphylaxis','severity':'severe'}]}
+        )
+        self.assertTrue(severe['blocked'])
+        self.assertTrue(any(x['severity']=='STOP' for x in severe['alerts']))
+
+        nonsevere=evaluate_pediatric_alerts(
+            'cefalexin-cellulitis',
+            {'age_months':84,'actual_weight_kg':20,'allergies':[{'class':'penicillin','phenotype':'delayed_exanthem','severity':'mild'}]}
+        )
+        self.assertFalse(nonsevere['blocked'])
+        self.assertEqual(nonsevere['highest_severity'],'ALERT')
+
+    def test_v138_alert_clarithromycin_interactions_and_qt(self):
+        simva=evaluate_pediatric_alerts(
+            'clarithromycin-pertussis-ge1mo',
+            {'age_months':120,'actual_weight_kg':30},
+            active_medications=['simvastatin']
+        )
+        self.assertTrue(simva['blocked'])
+        self.assertTrue(any('clarithromycin-contraindicated' in x['code'] for x in simva['alerts']))
+
+        qt=evaluate_pediatric_alerts(
+            'clarithromycin-pertussis-ge1mo',
+            {'age_months':120,'actual_weight_kg':30,'known_qt_prolongation_or_ventricular_arrhythmia':True}
+        )
+        self.assertTrue(qt['blocked'])
+
+    def test_v138_alert_ondansetron_apomorphine_qt_serotonergic(self):
+        apo=evaluate_pediatric_alerts(
+            'ondansetron-migraine-vomiting-ed',
+            {'age_months':120,'actual_weight_kg':30},
+            active_medications=['apomorphine']
+        )
+        self.assertTrue(apo['blocked'])
+
+        ser=evaluate_pediatric_alerts(
+            'ondansetron-migraine-vomiting-ed',
+            {'age_months':120,'actual_weight_kg':30,'hypokalaemia_or_hypomagnesaemia':True},
+            active_medications=['sertraline','azithromycin']
+        )
+        self.assertFalse(ser['blocked'])
+        self.assertGreaterEqual(ser['counts']['ALERT'],1)
+        self.assertGreaterEqual(ser['counts']['CAUTION'],1)
+
+    def test_v138_alert_ibuprofen_anticoagulant_and_dehydration(self):
+        risk=evaluate_pediatric_alerts(
+            'ibuprofen-pain-fever-home',
+            {'age_months':120,'actual_weight_kg':30,'dehydrated':False},
+            active_medications=['warfarin','enalapril','furosemide']
+        )
+        self.assertFalse(risk['blocked'])
+        self.assertGreaterEqual(risk['counts']['ALERT'],2)
+
+        dry=evaluate_pediatric_alerts(
+            'ibuprofen-pain-fever-home',
+            {'age_months':120,'actual_weight_kg':30,'dehydrated':True}
+        )
+        self.assertTrue(dry['blocked'])
+
+    def test_v138_alert_cotrimoxazole_hyperkalaemia_and_methotrexate(self):
+        result=evaluate_pediatric_alerts(
+            'tmp-smx-mrsa-skin',
+            {'age_months':120,'actual_weight_kg':30},
+            active_medications=['methotrexate','spironolactone','losartan']
+        )
+        self.assertFalse(result['blocked'])
+        self.assertGreaterEqual(result['counts']['ALERT'],2)
+
+    def test_v138_alert_rizatriptan_and_propranolol(self):
+        result=evaluate_pediatric_alerts(
+            'rizatriptan-migraine-rch',
+            {'age_months':180,'actual_weight_kg':50},
+            active_medications=['propranolol']
+        )
+        self.assertFalse(result['blocked'])
+        self.assertEqual(result['highest_severity'],'ALERT')
+        self.assertTrue(any('5 mg' in x['action'] for x in result['alerts']))
+
+        blocked=evaluate_pediatric_alerts(
+            'rizatriptan-migraine-rch',
+            {'age_months':180,'actual_weight_kg':50},
+            active_medications=['sumatriptan']
+        )
+        self.assertTrue(blocked['blocked'])
+
+    def test_v138_alert_duplicate_ingredient_and_class(self):
+        duplicate=evaluate_pediatric_alerts(
+            'ibuprofen-pain-fever-home',
+            {'age_months':120,'actual_weight_kg':30},
+            active_medications=[{'name':'ibuprofen','classes':['nsaid']}]
+        )
+        self.assertFalse(duplicate['blocked'])
+        self.assertTrue(any(x['code']=='DUPLICATE_INGREDIENT' for x in duplicate['alerts']))
+        self.assertTrue(any(x['code']=='DUPLICATE_CLASS' for x in duplicate['alerts']))
+
+    def test_v138_alert_unverified_concentration_preflight_caution(self):
+        result=evaluate_pediatric_alerts(
+            'clindamycin-mrsa-skin',
+            {'age_months':120,'actual_weight_kg':30}
+        )
+        self.assertIn(result['prescription_status'],{'OK','OK_WITH_CAUTIONS','REVIEW_REQUIRED'})
+        calc=calculate_pediatric_outpatient(
+            'clindamycin-mrsa-skin',
+            {'age_months':120,'actual_weight_kg':30},
+            {'concentration_mg_per_ml':15}
+        )
+        self.assertIn('medication_safety',calc)
+        self.assertEqual(calc['prescription_status'],calc['medication_safety']['prescription_status'])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
