@@ -579,5 +579,12 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Added structured clinical-note schema, privacy policy, modality routing, provenance model and diagnosis-support output contract.
 - Export smoke tests verify DOCX/PDF creation only after privacy and clinician-review gates pass.
 - Direct-identifier detection, clinician-review requirement, attachment routing and final-yellow-review queue are covered by automated tests.
-- Clinical QA #535: **358/358 tests PASS**; 131/131 modules; 29 green / 102 yellow / 0 red.
+- Clinical QA #544: **360/360 tests PASS**; 131/131 modules; 29 green / 102 yellow / 0 red.
 - Automated tests do not establish diagnostic accuracy, legal compliance or human specialist sign-off.
+
+## v1.39 executable diagnostic engine — 04/10/2026
+- Added transparent rule registry and executable reasoning engine for 11 emergency syndromes.
+- Six synthetic cases cover ACS/ST elevation, tension pneumothorax, acute stroke, septic shock, DKA and acute aortic syndrome.
+- Generated assessments reset clinician sign-off before export.
+- Clinical QA #544: **360/360 tests PASS**.
+- This validates deterministic behavior, not diagnostic sensitivity/specificity or prospective clinical performance.
