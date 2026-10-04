@@ -45,12 +45,12 @@ No se mezclan SABA-only y AIR/MART. Cada dispositivo/strength/step queda separad
 ### Migraña
 No se añaden opioides. Preventivos crónicos de migraña quedan fuera de este módulo de alta de urgencias salvo que exista una ruta pediátrica especializada y seguimiento.
 
-### Productos Portugal/Azores
-Una presentación documentada por INFARMED no prueba stock actual en Azores. El cálculo de mL exige la concentración exacta del producto realmente seleccionado/dispensado.
+### Productos Portugal
+La verificación requerida es regulatoria/producto (INFOMED/RCM) para concentración, forma y edad autorizada. El stock físico actual en Azores queda fuera del gate. El cálculo de mL sigue exigiendo la concentración exacta del producto seleccionado/dispensado.
 
 ## Pendientes razonables
 1. Revisión humana pediatría/farmacia de las 89 entradas.
-2. Reconciliación de productos actuales en INFOMED y, por separado, disponibilidad local Azores.
+2. Reconciliación de productos actuales en INFOMED/RCM Portugal; el stock local Azores no es requisito.
 3. Añadir únicamente fármacos adicionales de alta prevalencia/valor clínico que superen el filtro beneficio-riesgo y tengan fuente pediátrica/SmPC clara.
 4. Casos clínicos de regresión por diagnóstico, alergia, obesidad, insuficiencia renal y concentraciones alternativas.
 5. Mantener `yellow` hasta completar esos gates.
