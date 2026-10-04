@@ -177,7 +177,13 @@ def analyze(note, rules=None, apply_to_note=False):
     text=_collect_text(note)
     signals=_structured_signals(note)
     scored=[]
+    age_years=_age_years(note)
     for rule in rules["syndromes"]:
+        if age_years is not None:
+            if rule.get("min_age_years") is not None and age_years < float(rule["min_age_years"]):
+                continue
+            if rule.get("max_age_years") is not None and age_years > float(rule["max_age_years"]):
+                continue
         score,evidence=_rule_score(rule,text,signals)
         if score>0:
             scored.append((score,rule,evidence))
