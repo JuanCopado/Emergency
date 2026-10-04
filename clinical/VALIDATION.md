@@ -579,5 +579,5 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Added structured clinical-note schema, privacy policy, modality routing, provenance model and diagnosis-support output contract.
 - Export smoke tests verify DOCX/PDF creation only after privacy and clinician-review gates pass.
 - Direct-identifier detection, clinician-review requirement, attachment routing and final-yellow-review queue are covered by automated tests.
-- Clinical QA #533: **358/358 tests PASS**; 131/131 modules; 29 green / 102 yellow / 0 red.
+- Clinical QA #535: **358/358 tests PASS**; 131/131 modules; 29 green / 102 yellow / 0 red.
 - Automated tests do not establish diagnostic accuracy, legal compliance or human specialist sign-off.
