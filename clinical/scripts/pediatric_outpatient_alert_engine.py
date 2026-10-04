@@ -82,6 +82,9 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
               "Do not prescribe until the allergy record is clarified or an alternative is chosen.",
               details={"allergy":raw}))
         cls=rules.get("class_aliases",{}).get(a["class"],a["class"])
+        if not cls and a["substance"]:
+            alias_key=a["substance"].replace(" ","_")
+            cls=rules.get("class_aliases",{}).get(alias_key,"")
         if cls=="beta_lactam" and ({"penicillins","cephalosporins"} & classes):
             severe=a["severity"] in {"severe","anaphylaxis","life_threatening"} or a["phenotype"] in {"immediate_severe","anaphylaxis","scar","sjs","ten","dress","agep"}
             sev="STOP" if severe else "ALERT"
@@ -108,7 +111,12 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
     active=active_medications if active_medications is not None else patient.get("active_medications") or []
     active_names=[_med_name(x) for x in active if _med_name(x)]
     active_classes=set()
-    for x in active: active_classes |= _med_classes(x)
+    for x in active:
+        active_classes |= _med_classes(x)
+    for cls,members in rules.get("medication_class_members",{}).items():
+        for act in active_names:
+            if any(_match_med(member,act) for member in members):
+                active_classes.add(cls)
 
     for name in active_names:
         if name==drug_norm or (name and drug_norm and (name in drug_norm or drug_norm in name)):
