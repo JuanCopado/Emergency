@@ -281,3 +281,12 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Missing allergy review or medication reconciliation produces REVIEW_REQUIRED rather than being silently treated as negative.
 - Documentation: `qa/PEDIATRIC_OUTPATIENT_ALERT_SYSTEM.md`.
 - Last alert-engine QA before documentation synchronization: **#510 SUCCESS**.
+
+
+## v1.38 pediatric clinical review complete — 04/10/2026
+- `pediatric-outpatient-medications`: **89/89 regimens reviewed** in an AI-assisted pediatric clinical audit.
+- Outcomes: **41 PASS / 40 PASS_AFTER_CORRECTION / 8 PASS_WITH_NONCRITICAL_NOTE / 0 unresolved CHANGE_REQUIRED**.
+- Review focused on indication, age/source scope, outpatient/discharge suitability, red flags, follow-up and separation of hospital/step-down pathways.
+- Major gates added for bites, orbital cellulitis, pyelonephritis/UTI, CAP/cellulitis/preseptal, asthma/croup, anaphylaxis discharge, ORS age scope, gastroenteritis red flags, constipation red flags, red eye/headache, varicella/HSV/oseltamivir and home paracetamol.
+- Review files: `qa/PEDIATRIC_OUTPATIENT_PEDIATRIC_CLINICAL_REVIEW.json` and `qa/PEDIATRIC_OUTPATIENT_PEDIATRIC_CLINICAL_REVIEW.md`.
+- This is not human pediatrician sign-off; module remains **yellow**.
