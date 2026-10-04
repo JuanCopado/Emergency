@@ -4538,7 +4538,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_pediatric_outpatient_azithromycin_schedule_generates_phase_ml(self):
         result = calculate_pediatric_outpatient(
             'azithromycin-pertussis-ge6mo',
-            {'age_months':60,'actual_weight_kg':20},
+            {'age_months':60,'actual_weight_kg':20,'sight_threatening_red_eye_excluded':True},
             {'concentration_mg_per_ml':40},
         )
         self.assertEqual(result['total_doses'],5)
@@ -4627,14 +4627,14 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockA_asthma_controller_age_and_device_gates(self):
         preschool = calculate_pediatric_outpatient(
             'fluticasone-controller-preschool',
-            {'age_months':48,'actual_weight_kg':18}
+            {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True}
         )
         self.assertIn('50 microgram',preschool['device']['device'])
         self.assertEqual(preschool['device']['puffs_per_dose'],1)
 
         school = calculate_pediatric_outpatient(
             'budesonide-formoterol-air-mart-6to11-gina2026',
-            {'age_months':120,'actual_weight_kg':30}
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True}
         )
         self.assertEqual(school['device']['maximum_total_inhalations_24h'],8)
         self.assertIn('80/4.5',school['device']['device'])
@@ -4648,13 +4648,13 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'minimum age'):
             calculate_pediatric_outpatient(
                 'budesonide-formoterol-air-mart-6to11-gina2026',
-                {'age_months':60,'actual_weight_kg':20}
+                {'age_months':60,'actual_weight_kg':20,'sight_threatening_red_eye_excluded':True}
             )
 
     def test_v138_blockA_montelukast_is_controller_not_reliever(self):
         result=calculate_pediatric_outpatient(
             'montelukast-controller-preschool',
-            {'age_months':48,'actual_weight_kg':18}
+            {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True}
         )
         self.assertEqual(result['dose_mg'],4)
         self.assertEqual(result['doses_per_day'],1)
@@ -4663,7 +4663,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockB_dermatology_topical_regimens(self):
         hydro=calculate_pediatric_outpatient(
             'hydrocortisone1-eczema-sensitive-mild',
-            {'age_months':48,'actual_weight_kg':18}
+            {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True}
         )
         self.assertIn('twice daily',hydro['instructions'])
         self.assertEqual(hydro['weight_basis'],'topical')
@@ -4677,7 +4677,7 @@ class ModularCoreTests(unittest.TestCase):
 
         tinea=calculate_pediatric_outpatient(
             'clotrimazole1-tinea-corporis',
-            {'age_months':120,'actual_weight_kg':30}
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True}
         )
         self.assertIn('2-3 times daily',tinea['instructions'])
         self.assertEqual(tinea['duration_days'],28)
@@ -4700,7 +4700,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockB_macrogol_maintenance_and_disimpaction(self):
         maintenance=calculate_pediatric_outpatient(
             'macrogol3350-electrolytes-constipation-maintenance-1to11',
-            {'age_months':48,'actual_weight_kg':18}
+            {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True}
         )
         self.assertEqual(maintenance['sachets_per_day'],1)
         self.assertEqual(maintenance['dose_unit'],'sachet')
@@ -4717,11 +4717,11 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'volume selection required'):
             calculate_pediatric_outpatient(
                 'lactulose-constipation-1mo18y',
-                {'age_months':48,'actual_weight_kg':18}
+                {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True}
             )
         result=calculate_pediatric_outpatient(
             'lactulose-constipation-1mo18y',
-            {'age_months':48,'actual_weight_kg':18},
+            {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True},
             selected_volume_ml=7.5
         )
         self.assertEqual(result['volume_per_dose']['exact_ml'],7.5)
@@ -4729,14 +4729,14 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'outside source range'):
             calculate_pediatric_outpatient(
                 'lactulose-constipation-1mo18y',
-                {'age_months':48,'actual_weight_kg':18},
+                {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True},
                 selected_volume_ml=12
             )
 
     def test_v138_blockC_pinworm_repeat_schedules(self):
         alb=calculate_pediatric_outpatient(
             'albendazole-pinworm-ge2y',
-            {'age_months':60,'actual_weight_kg':20},
+            {'age_months':60,'actual_weight_kg':20,'sight_threatening_red_eye_excluded':True},
             {'concentration_mg_per_ml':20}
         )
         self.assertEqual(alb['total_doses'],2)
@@ -4801,7 +4801,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockC_ent_eye_regimens(self):
         eye=calculate_pediatric_outpatient(
             'chloramphenicol05-bacterial-conjunctivitis',
-            {'age_months':72,'actual_weight_kg':20},
+            {'age_months':72,'actual_weight_kg':20,'sight_threatening_red_eye_excluded':True},
             selected_duration_days=5
         )
         self.assertEqual(eye['drops_per_dose'],1)
@@ -4824,26 +4824,26 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockC_rizatriptan_weight_boundary_is_fail_closed(self):
         low=calculate_pediatric_outpatient(
             'rizatriptan-migraine-rch',
-            {'age_months':120,'actual_weight_kg':35}
+            {'age_months':120,'actual_weight_kg':35,'secondary_headache_red_flags_excluded':True}
         )
         self.assertEqual(low['dose_mg'],5)
 
         high=calculate_pediatric_outpatient(
             'rizatriptan-migraine-rch',
-            {'age_months':180,'actual_weight_kg':41}
+            {'age_months':180,'actual_weight_kg':41,'secondary_headache_red_flags_excluded':True}
         )
         self.assertEqual(high['dose_mg'],10)
 
         with self.assertRaisesRegex(ValueError,'no matching'):
             calculate_pediatric_outpatient(
                 'rizatriptan-migraine-rch',
-                {'age_months':120,'actual_weight_kg':40}
+                {'age_months':120,'actual_weight_kg':40,'secondary_headache_red_flags_excluded':True}
             )
 
     def test_v138_blockC_ondansetron_migraine_volume(self):
         ond=calculate_pediatric_outpatient(
             'ondansetron-migraine-vomiting-ed',
-            {'age_months':120,'actual_weight_kg':30},
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True},
             {'concentration_mg_per_ml':0.8}
         )
         self.assertEqual(ond['dose_mg'],4.5)
@@ -4886,20 +4886,20 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'minimum age'):
             calculate_pediatric_outpatient(
                 'azelastine-fluticasone-nasal-ge12',
-                {'age_months':120,'actual_weight_kg':30}
+                {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True}
             )
 
     def test_v138_blockD_allergic_eye_drops(self):
         olop=calculate_pediatric_outpatient(
             'olopatadine-allergic-conjunctivitis-ge3',
-            {'age_months':48,'actual_weight_kg':18}
+            {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True}
         )
         self.assertEqual(olop['drops_per_dose'],1)
         self.assertEqual(olop['doses_per_day'],2)
 
         keto=calculate_pediatric_outpatient(
             'ketotifen-eye-allergic-conjunctivitis-ge3',
-            {'age_months':60,'actual_weight_kg':20}
+            {'age_months':60,'actual_weight_kg':20,'sight_threatening_red_eye_excluded':True}
         )
         self.assertEqual(keto['drops_per_dose'],1)
         self.assertEqual(keto['doses_per_day'],2)
@@ -4915,11 +4915,11 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'volume selection required'):
             calculate_pediatric_outpatient(
                 'docusate-paediatric-constipation-ge6mo',
-                {'age_months':48,'actual_weight_kg':18}
+                {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True}
             )
         child=calculate_pediatric_outpatient(
             'docusate-paediatric-constipation-ge6mo',
-            {'age_months':48,'actual_weight_kg':18},
+            {'age_months':48,'actual_weight_kg':18,'sight_threatening_red_eye_excluded':True},
             selected_volume_ml=7.5
         )
         self.assertEqual(child['volume_per_dose']['exact_ml'],7.5)
@@ -4937,7 +4937,7 @@ class ModularCoreTests(unittest.TestCase):
 
         amox=calculate_pediatric_outpatient(
             'amoxicillin-gas-sore-throat-adherence',
-            {'age_months':120,'actual_weight_kg':30},
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True},
             {'concentration_mg_per_ml':50}
         )
         self.assertEqual(amox['dose_mg'],1000)
@@ -5097,7 +5097,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockF_ondansetron_and_dexamethasone_organ_metadata(self):
         ond=calculate_pediatric_outpatient(
             'ondansetron-migraine-vomiting-ed',
-            {'age_months':120,'actual_weight_kg':30,'known_hepatic_impairment':True,'hepatic_severity':'moderate'},
+            {'age_months':120,'actual_weight_kg':30,'known_hepatic_impairment':True,'hepatic_severity':'moderate','secondary_headache_red_flags_excluded':True},
             {'concentration_mg_per_ml':0.8}
         )
         self.assertIn('8 mg',ond['hepatic_adjustment']['detail'])
@@ -5175,14 +5175,14 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_beta_lactam_severe_vs_nonsevere(self):
         severe=evaluate_pediatric_alerts(
             'cefalexin-cellulitis',
-            {'age_months':84,'actual_weight_kg':20,'allergies':[{'class':'penicillin','phenotype':'anaphylaxis','severity':'severe'}]}
+            {'age_months':84,'actual_weight_kg':20,'cellulitis_outpatient_criteria_met':True,'allergies':[{'class':'penicillin','phenotype':'anaphylaxis','severity':'severe'}]}
         )
         self.assertTrue(severe['blocked'])
         self.assertTrue(any(x['severity']=='STOP' for x in severe['alerts']))
 
         nonsevere=evaluate_pediatric_alerts(
             'cefalexin-cellulitis',
-            {'age_months':84,'actual_weight_kg':20,'allergies':[{'class':'penicillin','phenotype':'delayed_exanthem','severity':'mild'}]}
+            {'age_months':84,'actual_weight_kg':20,'cellulitis_outpatient_criteria_met':True,'allergies':[{'class':'penicillin','phenotype':'delayed_exanthem','severity':'mild'}]}
         )
         self.assertFalse(nonsevere['blocked'])
         self.assertEqual(nonsevere['highest_severity'],'ALERT')
@@ -5190,7 +5190,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_clarithromycin_interactions_and_qt(self):
         simva=evaluate_pediatric_alerts(
             'clarithromycin-pertussis-ge1mo',
-            {'age_months':120,'actual_weight_kg':30},
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True},
             active_medications=['simvastatin']
         )
         self.assertTrue(simva['blocked'])
@@ -5205,14 +5205,14 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_ondansetron_apomorphine_qt_serotonergic(self):
         apo=evaluate_pediatric_alerts(
             'ondansetron-migraine-vomiting-ed',
-            {'age_months':120,'actual_weight_kg':30},
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True},
             active_medications=['apomorphine']
         )
         self.assertTrue(apo['blocked'])
 
         ser=evaluate_pediatric_alerts(
             'ondansetron-migraine-vomiting-ed',
-            {'age_months':120,'actual_weight_kg':30,'hypokalaemia_or_hypomagnesaemia':True},
+            {'age_months':120,'actual_weight_kg':30,'hypokalaemia_or_hypomagnesaemia':True,'secondary_headache_red_flags_excluded':True},
             active_medications=['sertraline','azithromycin']
         )
         self.assertFalse(ser['blocked'])
@@ -5237,7 +5237,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_cotrimoxazole_hyperkalaemia_and_methotrexate(self):
         result=evaluate_pediatric_alerts(
             'tmp-smx-mrsa-skin',
-            {'age_months':120,'actual_weight_kg':30},
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True},
             active_medications=['methotrexate','spironolactone','losartan']
         )
         self.assertFalse(result['blocked'])
@@ -5246,7 +5246,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_rizatriptan_and_propranolol(self):
         result=evaluate_pediatric_alerts(
             'rizatriptan-migraine-rch',
-            {'age_months':180,'actual_weight_kg':50},
+            {'age_months':180,'actual_weight_kg':50,'secondary_headache_red_flags_excluded':True},
             active_medications=['propranolol']
         )
         self.assertFalse(result['blocked'])
@@ -5255,7 +5255,7 @@ class ModularCoreTests(unittest.TestCase):
 
         blocked=evaluate_pediatric_alerts(
             'rizatriptan-migraine-rch',
-            {'age_months':180,'actual_weight_kg':50},
+            {'age_months':180,'actual_weight_kg':50,'secondary_headache_red_flags_excluded':True},
             active_medications=['sumatriptan']
         )
         self.assertTrue(blocked['blocked'])
@@ -5263,7 +5263,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_duplicate_ingredient_and_class(self):
         duplicate=evaluate_pediatric_alerts(
             'ibuprofen-pain-fever-home',
-            {'age_months':120,'actual_weight_kg':30},
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True},
             active_medications=[{'name':'ibuprofen','classes':['nsaid']}]
         )
         self.assertFalse(duplicate['blocked'])
@@ -5273,12 +5273,12 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_unverified_concentration_preflight_caution(self):
         result=evaluate_pediatric_alerts(
             'clindamycin-mrsa-skin',
-            {'age_months':120,'actual_weight_kg':30}
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True}
         )
         self.assertIn(result['prescription_status'],{'OK','OK_WITH_CAUTIONS','REVIEW_REQUIRED'})
         calc=calculate_pediatric_outpatient(
             'clindamycin-mrsa-skin',
-            {'age_months':120,'actual_weight_kg':30},
+            {'age_months':120,'actual_weight_kg':30,'secondary_headache_red_flags_excluded':True},
             {'concentration_mg_per_ml':15}
         )
         self.assertIn('medication_safety',calc)
@@ -5287,7 +5287,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_alert_missing_safety_context_is_visible(self):
         result=evaluate_pediatric_alerts(
             'amoxicillin-aom',
-            {'age_months':60,'actual_weight_kg':20}
+            {'age_months':60,'actual_weight_kg':20,'sight_threatening_red_eye_excluded':True}
         )
         codes={x['code'] for x in result['alerts']}
         self.assertIn('ALLERGY_STATUS_NOT_DOCUMENTED',codes)
