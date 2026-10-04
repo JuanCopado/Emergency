@@ -1,0 +1,372 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-04",
+  "branch": "v1.38-pediatric-outpatient-medications",
+  "review_type": "AI-assisted pediatric clinical audit; not a human pediatrician sign-off",
+  "reviewed_entries": 89,
+  "counts": {
+    "PASS_AFTER_CORRECTION": 40,
+    "PASS": 41,
+    "PASS_WITH_NONCRITICAL_NOTE": 8
+  },
+  "unresolved_change_required": 0,
+  "module_status_after_review": "yellow",
+  "results": [
+    {
+      "id": "paracetamol-pain-fever-home",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "ibuprofen-pain-fever-home",
+      "status": "PASS"
+    },
+    {
+      "id": "ondansetron-gastroenteritis-initial",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "cetirizine-urticaria-6to11mo",
+      "status": "PASS"
+    },
+    {
+      "id": "cetirizine-urticaria-ge1y",
+      "status": "PASS"
+    },
+    {
+      "id": "loratadine-allergic-rhinitis-urticaria",
+      "status": "PASS"
+    },
+    {
+      "id": "desloratadine-allergic-rhinitis-urticaria",
+      "status": "PASS"
+    },
+    {
+      "id": "fexofenadine-allergic-rhinitis",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "prednisolone-asthma-lt2y",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "prednisolone-asthma-2to5y",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "prednisolone-asthma-6to11y",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "dexamethasone-asthma-1to11y",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "dexamethasone-croup-mild-moderate",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "salbutamol-asthma-discharge-rch",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "amoxicillin-aom",
+      "status": "PASS"
+    },
+    {
+      "id": "amoxicillin-cap-outpatient",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "amoxicillin-dental-abscess",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "amox-clav-bite",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "amox-clav-preseptal-stepdown",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "cefalexin-cellulitis",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "cefalexin-preseptal",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "cefalexin-cystitis",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-lt12mo",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-ge12mo",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "tmp-smx-mrsa-skin",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "clindamycin-mrsa-skin",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "azithromycin-pertussis-lt6mo",
+      "status": "PASS"
+    },
+    {
+      "id": "azithromycin-pertussis-ge6mo",
+      "status": "PASS"
+    },
+    {
+      "id": "clarithromycin-pertussis-ge1mo",
+      "status": "PASS"
+    },
+    {
+      "id": "tmp-smx-pertussis-ge6wk",
+      "status": "PASS"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-nice-3d",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-smpc-7d",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "oseltamivir-influenza-lt1y",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "oseltamivir-influenza-ge1y",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "epinephrine-autoinjector-discharge-rch",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "mupirocin-localized-impetigo",
+      "status": "PASS"
+    },
+    {
+      "id": "clarithromycin-aom-penicillin-allergy",
+      "status": "PASS"
+    },
+    {
+      "id": "phenoxymethylpenicillin-sinusitis-child",
+      "status": "PASS"
+    },
+    {
+      "id": "clarithromycin-sinusitis-penicillin-allergy",
+      "status": "PASS"
+    },
+    {
+      "id": "clarithromycin-cap-penicillin-allergy",
+      "status": "PASS"
+    },
+    {
+      "id": "cefalexin-impetigo-extensive",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "cefalexin-cervical-lymphadenitis-mild",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "fluticasone-controller-preschool",
+      "status": "PASS"
+    },
+    {
+      "id": "montelukast-controller-preschool",
+      "status": "PASS"
+    },
+    {
+      "id": "ciclesonide-controller-6to11-step2",
+      "status": "PASS"
+    },
+    {
+      "id": "fluticasone-controller-6to11-step2",
+      "status": "PASS"
+    },
+    {
+      "id": "montelukast-controller-6to11",
+      "status": "PASS"
+    },
+    {
+      "id": "budesonide-formoterol-controller-6to11-step3-rch",
+      "status": "PASS"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-6to11-gina2026",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-12to17-gina2026",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "hydrocortisone1-eczema-sensitive-mild",
+      "status": "PASS"
+    },
+    {
+      "id": "methylprednisolone-aceponate-eczema-body-moderate",
+      "status": "PASS"
+    },
+    {
+      "id": "mometasone-eczema-body-severe",
+      "status": "PASS"
+    },
+    {
+      "id": "pimecrolimus-eczema-sensitive-secondline",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "permethrin5-scabies",
+      "status": "PASS"
+    },
+    {
+      "id": "clotrimazole1-tinea-corporis",
+      "status": "PASS"
+    },
+    {
+      "id": "clotrimazole1-cutaneous-candida",
+      "status": "PASS"
+    },
+    {
+      "id": "ors-clinical-dehydration-50mlkg4h",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "ors-post-stool-highrisk-5mlkg",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "macrogol3350-electrolytes-constipation-maintenance-1to11",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "macrogol3350-electrolytes-disimpaction-5to11",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "lactulose-constipation-1mo18y",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "albendazole-pinworm-ge2y",
+      "status": "PASS"
+    },
+    {
+      "id": "mebendazole-pinworm-ge2y",
+      "status": "PASS"
+    },
+    {
+      "id": "pyrantel-pinworm-ge2y",
+      "status": "PASS"
+    },
+    {
+      "id": "ivermectin-strongyloides-ge15kg",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "albendazole-ascariasis-ge2y",
+      "status": "PASS"
+    },
+    {
+      "id": "praziquantel-schisto-mansoni-haematobium-ge4y",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "acyclovir-varicella-standard-renal",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "acyclovir-hsv-mucocutaneous-standard-renal",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "chloramphenicol05-bacterial-conjunctivitis",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "ciprofloxacin-dexamethasone-aoe-ge1y",
+      "status": "PASS"
+    },
+    {
+      "id": "ciprofloxacin-aoe-ge1y-intact-tm",
+      "status": "PASS"
+    },
+    {
+      "id": "phenazone-lidocaine-aom-pain",
+      "status": "PASS_WITH_NONCRITICAL_NOTE"
+    },
+    {
+      "id": "rizatriptan-migraine-rch",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "ondansetron-migraine-vomiting-ed",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "dimeticone4-head-lice",
+      "status": "PASS"
+    },
+    {
+      "id": "cefalexin-infected-eczema-bacterial",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "mometasone-nasal-allergic-rhinitis",
+      "status": "PASS"
+    },
+    {
+      "id": "fluticasone-propionate-nasal-allergic-rhinitis",
+      "status": "PASS"
+    },
+    {
+      "id": "azelastine-fluticasone-nasal-ge12",
+      "status": "PASS"
+    },
+    {
+      "id": "olopatadine-allergic-conjunctivitis-ge3",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "ketotifen-eye-allergic-conjunctivitis-ge3",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "docusate-paediatric-constipation-ge6mo",
+      "status": "PASS_AFTER_CORRECTION"
+    },
+    {
+      "id": "phenoxymethylpenicillin-gas-sore-throat",
+      "status": "PASS"
+    },
+    {
+      "id": "amoxicillin-gas-sore-throat-adherence",
+      "status": "PASS"
+    },
+    {
+      "id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "status": "PASS"
+    },
+    {
+      "id": "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
+      "status": "PASS"
+    },
+    {
+      "id": "trimethoprim-cystitis-low-resistance",
+      "status": "PASS_AFTER_CORRECTION"
+    }
+  ]
+}
