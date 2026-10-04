@@ -12,6 +12,16 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry, preflight as pediatric_outpatient_preflight, MedicationSafetyStop
 from pediatric_outpatient_alert_engine import evaluate as evaluate_pediatric_alerts
+from clinical_note_support import (
+    new_note as new_clinical_note,
+    route_attachment as route_clinical_attachment,
+    add_report as add_clinical_report,
+    scan_privacy as scan_clinical_note_privacy,
+    validate_for_export as validate_clinical_note_export,
+    diagnostic_support_contract as clinical_note_diagnostic_contract,
+)
+from clinical_note_exporter import export_docx as export_clinical_note_docx, export_pdf as export_clinical_note_pdf
+from final_human_review_gate import build_review_queue as build_final_human_review_queue
 
 from infusion_calculator import infusion_ml_h, fixed_dose_ml_h, weight_per_hour_ml_h
 from load_module import load
@@ -257,7 +267,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 129)
+        self.assertEqual(len(manifest), 131)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
@@ -5492,6 +5502,84 @@ class ModularCoreTests(unittest.TestCase):
             {'concentration_mg_per_ml':24},selected_duration_days=1
         )
         self.assertEqual(ok['dose_mg'],525)
+
+    def _clean_note_for_export(self):
+        note=new_clinical_note(age_years=72,sex='male',language='pt-PT')
+        note['history']['chief_complaint']='Dispneia e tosse com 48 horas de evolução.'
+        note['history']['present_illness']='Agravamento progressivo sem identificadores diretos.'
+        note['history']['past_medical_history']=['DPOC','HTA']
+        note['history']['chronic_medications']=[{'name':'salbutamol','dose':None,'schedule':'SOS','source':'clinician_entry'}]
+        note['history']['allergies']=[]
+        note['exam']['vitals']=[{'time_label':'admissão','bp':'118/76','hr':88,'rr':22,'spo2':91,'oxygen':'1 L/min','temperature_c':36.3,'gcs':'15','source':'device_measurement'}]
+        add_clinical_report(note,'chest_xray','official_report',official_report='Sem derrame pleural. Opacidades bibasais inespecíficas.',privacy_checked=True,burned_in_identifiers_checked=True)
+        add_clinical_report(note,'ecg','ai_image_interpretation',ai_interpretation='Ritmo sinusal sem sinais agudos de isquemia.',privacy_checked=True,burned_in_identifiers_checked=True)
+        note['assessment']['problem_representation']='Homem de 72 anos com doença respiratória crónica e agravamento agudo de dispneia/tosse.'
+        note['assessment']['active_problems']=['Hipoxemia ligeira','Dispneia aguda']
+        note['assessment']['likely_diagnoses']=[{'diagnosis':'Exacerbação de doença obstrutiva','confidence':'moderate','evidence_for':['dispneia','tosse'],'evidence_against':[],'missing_discriminating_data':['gasometria completa'],'source_modules':['copd-exacerbation']}]
+        note['assessment']['differential_diagnoses']=[{'diagnosis':'Pneumonia','confidence':'low','evidence_for':['tosse'],'evidence_against':['sem febre'],'missing_discriminating_data':['imagem comparativa'],'source_modules':['emergency-infectious-diseases']}]
+        note['assessment']['must_not_miss']=[{'diagnosis':'Embolia pulmonar','confidence':'low','evidence_for':[],'evidence_against':[],'missing_discriminating_data':['probabilidade clínica'],'source_modules':['pulmonary-embolism']}]
+        note['assessment']['suggested_tests']=[{'action':'Gasometria arterial','priority':'urgent','rationale':'quantificar insuficiência respiratória','source_modules':['blood-gas-image']}]
+        note['assessment']['treatment_suggestions']=[{'action':'Oxigénio titulado ao alvo clínico','priority':'immediate','rationale':'corrigir hipoxemia','source_modules':['oxygen-therapy-emergency']}]
+        note['assessment']['disposition']=[{'action':'Reavaliar após tratamento inicial','priority':'urgent','rationale':'definir alta versus observação','source_modules':['observation-discharge']}]
+        note['clinician_validation']={'reviewed':True,'reviewer_role':'physician','reviewed_at':'relative: after assessment','changes_made':None}
+        note['privacy'].update({'direct_identifiers_removed':True,'free_text_screened':True,'source_metadata_checked':True,'burned_in_identifiers_checked':True,'export_allowed':True})
+        return note
+
+    def test_v139_clinical_note_attachment_routing(self):
+        self.assertEqual(route_clinical_attachment('ecg')['modules'],['ecg-image'])
+        self.assertEqual(route_clinical_attachment('chest_xray')['target_section'],'imaging')
+        self.assertIn('clinical-scores-calculators',route_clinical_attachment('laboratory_report')['modules'])
+
+    def test_v139_clinical_note_privacy_blocks_direct_identifiers(self):
+        note=self._clean_note_for_export()
+        note['history']['present_illness']='Nome: João da Silva; dispneia.'
+        findings=scan_clinical_note_privacy(note)
+        self.assertTrue(any(x['code']=='POSSIBLE_IDENTIFIER_IN_TEXT' for x in findings))
+        gate=validate_clinical_note_export(note)
+        self.assertTrue(gate['blocked'])
+
+    def test_v139_clinical_note_export_requires_clinician_review(self):
+        note=self._clean_note_for_export()
+        note['clinician_validation']['reviewed']=False
+        gate=validate_clinical_note_export(note)
+        self.assertTrue(gate['blocked'])
+        self.assertTrue(any(x['code']=='CLINICIAN_REVIEW_REQUIRED' for x in gate['findings']))
+
+    def test_v139_clinical_note_diagnostic_contract_and_provenance(self):
+        note=self._clean_note_for_export()
+        contract=clinical_note_diagnostic_contract(note)
+        self.assertFalse(contract['blocked'])
+        self.assertIn('likely_diagnoses',contract['required_output'])
+        report=note['complementary_tests']['ecg'][0]
+        self.assertEqual(report['provenance'],'ai_image_interpretation')
+        self.assertEqual(report['routed_modules'],['ecg-image'])
+
+    def test_v139_clinical_note_docx_pdf_export_smoke(self):
+        note=self._clean_note_for_export()
+        with tempfile.TemporaryDirectory() as directory:
+            docx=Path(directory)/'note.docx'
+            pdf=Path(directory)/'note.pdf'
+            export_clinical_note_docx(note,docx)
+            export_clinical_note_pdf(note,pdf)
+            self.assertTrue(docx.exists())
+            self.assertTrue(pdf.exists())
+            self.assertTrue(docx.read_bytes().startswith(b'PK'))
+            self.assertTrue(pdf.read_bytes().startswith(b'%PDF-1.4'))
+            import zipfile
+            with zipfile.ZipFile(docx) as z:
+                xml=z.read('word/document.xml').decode('utf-8')
+            self.assertIn('Diagnósticos prováveis',xml)
+            self.assertNotIn('João da Silva',xml)
+
+    def test_v139_final_human_review_queue_covers_all_yellow(self):
+        queue=build_final_human_review_queue(ROOT)
+        evidence=json.loads((ROOT/'references/evidence-registry.json').read_text(encoding='utf-8'))
+        yellow={mid for mid,e in evidence['modules'].items() if e.get('status')=='yellow'}
+        queued={x['module_id'] for x in queue['queue']}
+        self.assertEqual(queued,yellow)
+        self.assertEqual(queue['yellow_count'],len(yellow))
+        self.assertIn('clinical-note-diagnostic-support',queued)
+        self.assertIn('final-human-review-gate',queued)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
