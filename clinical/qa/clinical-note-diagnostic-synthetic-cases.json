@@ -99,6 +99,206 @@
         "acute-aortic-syndrome"
       ],
       "expected_test_contains": "angio-TC"
+    },
+    {
+      "id": "acute-severe-asthma",
+      "age_years": 34,
+      "sex": "female",
+      "chief_complaint": "Dispneia com sibilos.",
+      "hpi": "Asma conhecida, fala em frases curtas e agravamento rápido.",
+      "exam_respiratory": "Sibilos difusos com uso de musculatura acessória.",
+      "vitals": {
+        "bp": "128/74",
+        "hr": 124,
+        "rr": 34,
+        "spo2": 88,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.6,
+        "gcs": "15"
+      },
+      "expected_likely": "Exacerbação aguda de asma",
+      "expected_modules": [
+        "acute-severe-asthma"
+      ],
+      "expected_test_contains": "SpO2"
+    },
+    {
+      "id": "copd-exacerbation",
+      "age_years": 72,
+      "sex": "male",
+      "chief_complaint": "Agravamento da dispneia.",
+      "hpi": "DPOC conhecida com aumento da tosse e expetoração purulenta.",
+      "vitals": {
+        "bp": "136/82",
+        "hr": 96,
+        "rr": 24,
+        "spo2": 89,
+        "oxygen": "ar ambiente",
+        "temperature_c": 37.5,
+        "gcs": "15"
+      },
+      "expected_likely": "Exacerbação aguda de DPOC",
+      "expected_modules": [
+        "copd-exacerbation"
+      ],
+      "expected_test_contains": "Rx tórax"
+    },
+    {
+      "id": "anaphylaxis",
+      "age_years": 29,
+      "sex": "female",
+      "chief_complaint": "Urticária, estridor e sensação de desmaio.",
+      "hpi": "Início minutos após ingestão de alergénio conhecido.",
+      "vitals": {
+        "bp": "78/42",
+        "hr": 132,
+        "rr": 30,
+        "spo2": 91,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.8,
+        "gcs": "14"
+      },
+      "expected_likely": "Anafilaxia",
+      "expected_modules": [
+        "anaphylaxis"
+      ],
+      "expected_immediate_treatment_module": "anaphylaxis"
+    },
+    {
+      "id": "cns-infection",
+      "age_years": 41,
+      "sex": "male",
+      "chief_complaint": "Febre, cefaleia e confusão.",
+      "hpi": "Febre alta com cefaleia intensa e rigidez da nuca.",
+      "exam_neurologic": "Confusão e rigidez da nuca.",
+      "vitals": {
+        "bp": "112/68",
+        "hr": 108,
+        "rr": 22,
+        "spo2": 96,
+        "oxygen": "ar ambiente",
+        "temperature_c": 39.2,
+        "gcs": "13"
+      },
+      "expected_likely": "Meningite/encefalite infecciosa",
+      "expected_modules": [
+        "cns-infection"
+      ],
+      "expected_test_contains": "punção lombar"
+    },
+    {
+      "id": "status-epilepticus",
+      "age_years": 55,
+      "sex": "female",
+      "chief_complaint": "Convulsão prolongada.",
+      "hpi": "Convulsão há 5 minutos sem recuperação da consciência.",
+      "exam_neurologic": "Atividade convulsiva persistente.",
+      "vitals": {
+        "bp": "150/90",
+        "hr": 118,
+        "rr": 26,
+        "spo2": 92,
+        "oxygen": "ar ambiente",
+        "temperature_c": 37,
+        "gcs": "8"
+      },
+      "expected_likely": "Estado de mal epiléptico convulsivo",
+      "expected_modules": [
+        "status-epilepticus"
+      ],
+      "expected_immediate_treatment_module": "status-epilepticus"
+    },
+    {
+      "id": "upper-gi-bleeding",
+      "age_years": 66,
+      "sex": "male",
+      "chief_complaint": "Hematemese e melenas.",
+      "hpi": "Dois episódios de vómito com sangue e fezes negras.",
+      "vitals": {
+        "bp": "86/52",
+        "hr": 118,
+        "rr": 22,
+        "spo2": 96,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.5,
+        "gcs": "15"
+      },
+      "expected_likely": "Hemorragia digestiva alta",
+      "expected_modules": [
+        "upper-gi-bleeding"
+      ],
+      "expected_test_contains": "Glasgow-Blatchford"
+    },
+    {
+      "id": "pancreatitis",
+      "age_years": 49,
+      "sex": "female",
+      "chief_complaint": "Dor epigástrica intensa.",
+      "hpi": "Dor epigástrica com irradiação para dorso e vómitos.",
+      "labs": "Lipase elevada.",
+      "expected_likely": "Pancreatite aguda",
+      "expected_modules": [
+        "pancreatitis"
+      ],
+      "expected_test_contains": "Lipase"
+    },
+    {
+      "id": "hyperkalaemia",
+      "age_years": 76,
+      "sex": "male",
+      "chief_complaint": "Fraqueza e palpitações.",
+      "hpi": "Doença renal crónica. Hiperpotasemia documentada.",
+      "ecg": "Ondas T apiculadas e QRS alargado.",
+      "labs": "Potássio 6.8 mmol/L.",
+      "expected_likely": "Hiperpotasemia com risco arrítmico",
+      "expected_modules": [
+        "potassium-emergencies"
+      ],
+      "expected_test_contains": "ECG"
+    },
+    {
+      "id": "adrenal-crisis",
+      "age_years": 38,
+      "sex": "female",
+      "chief_complaint": "Vómitos, fraqueza e colapso.",
+      "hpi": "Insuficiência suprarrenal conhecida, vómitos e choque.",
+      "labs": "Hiponatremia e hipoglicemia.",
+      "vitals": {
+        "bp": "74/40",
+        "hr": 126,
+        "rr": 24,
+        "spo2": 97,
+        "oxygen": "ar ambiente",
+        "temperature_c": 37.8,
+        "gcs": "14"
+      },
+      "expected_likely": "Crise suprarrenal",
+      "expected_modules": [
+        "adrenal-crisis"
+      ],
+      "expected_immediate_treatment_module": "adrenal-crisis"
+    },
+    {
+      "id": "hypertensive-emergency",
+      "age_years": 59,
+      "sex": "male",
+      "chief_complaint": "Cefaleia e visão turva.",
+      "hpi": "PA 220/120 com papiledema e lesão de órgão-alvo.",
+      "exam_neurologic": "Sem défice focal.",
+      "vitals": {
+        "bp": "220/120",
+        "hr": 88,
+        "rr": 18,
+        "spo2": 97,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.7,
+        "gcs": "15"
+      },
+      "expected_likely": "Emergência hipertensiva / hipertensão grave com lesão de órgão-alvo",
+      "expected_modules": [
+        "hypertensive-emergencies"
+      ],
+      "expected_test_contains": "órgão-alvo"
     }
   ]
 }
