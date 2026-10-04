@@ -300,4 +300,4 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - All yellow modules are dynamically deferred to a final human-review queue; no automatic yellow->green promotion.
 - Privacy design uses pseudonymous encounter ID and blocks direct identifiers in exports; pseudonymization is not treated as anonymization.
 - v1.39 state: `qa/V1.39_CLINICAL_NOTE_STATE.md`.
-- Clinical QA #533: **358/358 PASS**, 131/131 registered, 29 green / 102 yellow / 0 red.
+- Clinical QA #535: **358/358 PASS**, 131/131 registered, 29 green / 102 yellow / 0 red.
