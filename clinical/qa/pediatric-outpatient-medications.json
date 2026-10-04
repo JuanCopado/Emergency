@@ -2565,12 +2565,252 @@
       ],
       "source": "RCH Antimicrobial guidelines",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+    },
+    {
+      "id": "cefalexin-infected-eczema-bacterial",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "secondary bacterial infection of eczema with localized crusting/weeping/pustules, child systemically well and suitable for oral therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        5,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "Continue appropriate eczema skin care/topical anti-inflammatory treatment after crust removal unless contraindicated. Reassess if not improving.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "systemic illness/severe infection may require admission/IV therapy",
+        "consider MRSA if high-risk or not responding",
+        "eczema herpeticum requires prompt antiviral pathway, not antibiotic alone"
+      ],
+      "source": "RCH Eczema / Eczema management + RCH antimicrobial skin dosing",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/"
+    },
+    {
+      "id": "mometasone-nasal-allergic-rhinitis",
+      "category": "allergic_rhinitis_intranasal",
+      "drug": "mometasone furoate 50 micrograms/actuation nasal spray",
+      "diagnosis": "seasonal or perennial allergic rhinitis requiring intranasal corticosteroid",
+      "route": "intranasal",
+      "weight_basis": "device",
+      "min_age_months": 36,
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 36,
+          "max_age_months": 143,
+          "device": "mometasone furoate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 1,
+          "doses_per_day": 1,
+          "total_daily_micrograms": 100
+        },
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "mometasone furoate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 2,
+          "doses_per_day": 1,
+          "total_daily_micrograms": 200,
+          "maintenance_note": "after control, 1 spray per nostril daily may be effective"
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Prime/use exact spray per SmPC. Aim away from nasal septum. Use regularly; full benefit may take up to 48 hours. Use lowest effective dose after control.",
+      "cautions": [
+        "epistaxis/local irritation",
+        "recent nasal surgery/trauma until healed",
+        "monitor growth with prolonged corticosteroid use"
+      ],
+      "source": "Mometasone furoate 50 mcg/actuation SmPC; RCH allergic rhinitis",
+      "source_url": "https://www.medicines.org.uk/emc/product/10299/smpc",
+      "portugal_reconciliation": "INFARMED documentation confirms mometasone nasal 50 micrograms/dose presentations in Portugal; current exact brand/Azores stock must be checked in Infomed."
+    },
+    {
+      "id": "fluticasone-propionate-nasal-allergic-rhinitis",
+      "category": "allergic_rhinitis_intranasal",
+      "drug": "fluticasone propionate 50 micrograms/actuation nasal spray",
+      "diagnosis": "seasonal or perennial allergic rhinitis when fluticasone propionate nasal spray is selected",
+      "route": "intranasal",
+      "weight_basis": "device",
+      "min_age_months": 48,
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 48,
+          "max_age_months": 143,
+          "device": "fluticasone propionate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 1,
+          "doses_per_day": 1,
+          "max_sprays_per_nostril_per_day": 2
+        },
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "fluticasone propionate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 2,
+          "doses_per_day": 1,
+          "max_sprays_per_nostril_per_day": 4,
+          "maintenance_note": "reduce to 1 spray per nostril daily when controlled"
+        }
+      ],
+      "frequency": "once daily initially; selected patients may require product-label step-up",
+      "administration": "Prefer morning dosing. Use lowest effective dose and correct intranasal technique; avoid eye contact.",
+      "cautions": [
+        "epistaxis/nasal irritation",
+        "growth monitoring for prolonged pediatric use",
+        "CYP3A4 interactions can increase systemic corticosteroid exposure"
+      ],
+      "source": "Flixonase Aqueous Nasal Spray SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/845/smpc",
+      "portugal_reconciliation": "Portuguese market documents list fluticasone propionate 50 micrograms/dose nasal products; exact pediatric-labelled product and Azores availability require Infomed verification."
+    },
+    {
+      "id": "azelastine-fluticasone-nasal-ge12",
+      "category": "allergic_rhinitis_intranasal_combo",
+      "drug": "azelastine 137 micrograms + fluticasone propionate 50 micrograms/actuation",
+      "diagnosis": "moderate-to-severe seasonal/perennial allergic rhinitis age >=12 years when monotherapy with intranasal antihistamine or corticosteroid is insufficient",
+      "route": "intranasal",
+      "weight_basis": "device",
+      "min_age_months": 144,
+      "max_age_months": 215,
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "azelastine hydrochloride 137 mcg + fluticasone propionate 50 mcg/actuation",
+          "sprays_per_nostril_per_dose": 1,
+          "doses_per_day": 2
+        }
+      ],
+      "frequency": "one spray in each nostril twice daily",
+      "administration": "Regular use is required for full benefit. Avoid contact with eyes. Shake/prime according to exact product.",
+      "cautions": [
+        "not recommended below 12 years in cited SmPC",
+        "no specific renal/hepatic data",
+        "local nasal adverse effects"
+      ],
+      "source": "Azelastine/fluticasone 137/50 mcg SmPC, current 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/101780/smpc"
+    },
+    {
+      "id": "olopatadine-allergic-conjunctivitis-ge3",
+      "category": "ophthalmology_antiallergic",
+      "drug": "olopatadine 1 mg/mL eye drops",
+      "diagnosis": "seasonal allergic conjunctivitis age >=3 years",
+      "route": "ophthalmic",
+      "weight_basis": "topical",
+      "min_age_months": 36,
+      "dose_model": "topical",
+      "topical_instructions": "Instil 1 drop into affected eye(s) twice daily, approximately 8-hourly. Avoid touching the dropper tip. Remove contact lenses according to product instructions.",
+      "drops_per_dose": 1,
+      "doses_per_day": 2,
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "Ophthalmic use only. May be maintained for up to 4 months if clinically required under product guidance.",
+      "contraindications": [
+        "olopatadine/product hypersensitivity"
+      ],
+      "cautions": [
+        "eye pain, photophobia, reduced vision or corneal signs require diagnostic reassessment",
+        "separate from other eye drops by product-recommended interval"
+      ],
+      "source": "Olopatadine 1 mg/mL eye drops SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/10890/smpc"
+    },
+    {
+      "id": "ketotifen-eye-allergic-conjunctivitis-ge3",
+      "category": "ophthalmology_antiallergic",
+      "drug": "ketotifen 0.25 mg/mL eye drops",
+      "diagnosis": "symptomatic seasonal allergic conjunctivitis age >=3 years",
+      "route": "ophthalmic",
+      "weight_basis": "topical",
+      "min_age_months": 36,
+      "dose_model": "topical",
+      "topical_instructions": "Instil 1 drop into affected eye(s) twice daily. Avoid touching the dropper tip and follow contact-lens instructions.",
+      "drops_per_dose": 1,
+      "doses_per_day": 2,
+      "duration_days": null,
+      "liquid_capable": false,
+      "contraindications": [
+        "ketotifen/product hypersensitivity"
+      ],
+      "cautions": [
+        "if symptoms do not improve or worsen, reassess diagnosis",
+        "benzalkonium-containing products may affect contact lenses"
+      ],
+      "source": "Zaditen ketotifen 0.25 mg/mL SmPC 2025; INFARMED ketotifen ophthalmic protocol",
+      "source_url": "https://www.medicines.org.uk/emc/product/4327/smpc",
+      "portugal_reconciliation": "INFARMED confirms ketotifen 0.25 mg/mL ophthalmic products/protocol; a 2025 recall affected one specific Zaditen lot, not the whole active substance. Verify current product/lot/Azores stock."
+    },
+    {
+      "id": "docusate-paediatric-constipation-ge6mo",
+      "category": "gastrointestinal_laxative",
+      "drug": "docusate sodium 12.5 mg/5 mL oral solution",
+      "diagnosis": "constipation in child >6 months when docusate is specifically selected as an alternative stool-softener",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 6,
+      "max_age_months": 143,
+      "dose_model": "fixed_volume_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 6,
+          "max_age_months": 11,
+          "dose_ml": 5,
+          "doses_per_day": 3
+        },
+        {
+          "min_age_months": 12,
+          "max_age_months": 143,
+          "dose_ml_range": [
+            5,
+            10
+          ],
+          "doses_per_day": 3
+        }
+      ],
+      "frequency": "three times daily",
+      "duration_days": null,
+      "administration": "Dilute each dose in a glass of flavoured drink such as fruit juice or milk and drink within 30 minutes of preparation. Ensure adequate fluid intake.",
+      "contraindications": [
+        "abdominal pain with possible obstruction",
+        "intestinal obstruction",
+        "nausea/vomiting",
+        "docusate hypersensitivity"
+      ],
+      "cautions": [
+        "not first-line over macrogol in the project constipation pathway",
+        "sorbitol/fructose and phenylalanine excipient considerations depend on product"
+      ],
+      "source": "Docusol Paediatric 12.5 mg/5 mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/12341/smpc"
     }
   ],
   "last_expanded": "2026-10-04",
   "expansion_notes": [
     "Block A: diagnosis-specific antibiotic alternatives and asthma controller strategies; GINA 2026/RCH/NICE; Portugal concentrations only where independently verified.",
     "Block B: dermatology topical therapy plus ORS/constipation regimens; source-specific product strengths and non-mg dose models.",
-    "Block C: selected antiparasitics, oral antivirals, ENT/ophthalmology therapies and migraine discharge treatments; renal and age/weight gates retained."
+    "Block C: selected antiparasitics, oral antivirals, ENT/ophthalmology therapies and migraine discharge treatments; renal and age/weight gates retained.",
+    "Block D: infected eczema, allergic rhinitis intranasal therapy, allergic conjunctivitis and selected alternative constipation therapy."
   ]
 }
