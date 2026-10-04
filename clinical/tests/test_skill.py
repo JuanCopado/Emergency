@@ -4659,6 +4659,79 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(result['doses_per_day'],1)
         self.assertTrue(any('neuropsychiatric' in x.lower() for x in result['cautions']))
 
+    def test_v138_blockB_dermatology_topical_regimens(self):
+        hydro=calculate_pediatric_outpatient(
+            'hydrocortisone1-eczema-sensitive-mild',
+            {'age_months':48,'actual_weight_kg':18}
+        )
+        self.assertIn('twice daily',hydro['instructions'])
+        self.assertEqual(hydro['weight_basis'],'topical')
+
+        scabies=calculate_pediatric_outpatient(
+            'permethrin5-scabies',
+            {'age_months':84,'actual_weight_kg':25}
+        )
+        self.assertIn('8 hours',scabies['instructions'])
+        self.assertIn('7 days',scabies['frequency'])
+
+        tinea=calculate_pediatric_outpatient(
+            'clotrimazole1-tinea-corporis',
+            {'age_months':120,'actual_weight_kg':30}
+        )
+        self.assertIn('2-3 times daily',tinea['instructions'])
+        self.assertEqual(tinea['duration_days'],28)
+
+    def test_v138_blockB_ors_weight_volume_and_gate(self):
+        ors=calculate_pediatric_outpatient(
+            'ors-clinical-dehydration-50mlkg4h',
+            {'age_months':24,'actual_weight_kg':12,'shock_or_iv_fluid_indication':False}
+        )
+        self.assertEqual(ors['total_rehydration_ml'],600)
+        self.assertEqual(ors['administration_hours'],4)
+        self.assertEqual(ors['target_ml_per_hour'],150)
+
+        with self.assertRaisesRegex(ValueError,'oral-only'):
+            calculate_pediatric_outpatient(
+                'ors-clinical-dehydration-50mlkg4h',
+                {'age_months':24,'actual_weight_kg':12,'shock_or_iv_fluid_indication':True}
+            )
+
+    def test_v138_blockB_macrogol_maintenance_and_disimpaction(self):
+        maintenance=calculate_pediatric_outpatient(
+            'macrogol3350-electrolytes-constipation-maintenance-1to11',
+            {'age_months':48,'actual_weight_kg':18}
+        )
+        self.assertEqual(maintenance['sachets_per_day'],1)
+        self.assertEqual(maintenance['dose_unit'],'sachet')
+
+        disimpaction=calculate_pediatric_outpatient(
+            'macrogol3350-electrolytes-disimpaction-5to11',
+            {'age_months':96,'actual_weight_kg':30}
+        )
+        self.assertEqual(disimpaction['sachet_schedule'][0]['sachets'],4)
+        self.assertEqual(disimpaction['sachet_schedule'][-1]['sachets'],12)
+        self.assertEqual(disimpaction['duration_days'],7)
+
+    def test_v138_blockB_lactulose_range_requires_explicit_choice(self):
+        with self.assertRaisesRegex(ValueError,'volume selection required'):
+            calculate_pediatric_outpatient(
+                'lactulose-constipation-1mo18y',
+                {'age_months':48,'actual_weight_kg':18}
+            )
+        result=calculate_pediatric_outpatient(
+            'lactulose-constipation-1mo18y',
+            {'age_months':48,'actual_weight_kg':18},
+            selected_volume_ml=7.5
+        )
+        self.assertEqual(result['volume_per_dose']['exact_ml'],7.5)
+        self.assertEqual(result['doses_per_day'],2)
+        with self.assertRaisesRegex(ValueError,'outside source range'):
+            calculate_pediatric_outpatient(
+                'lactulose-constipation-1mo18y',
+                {'age_months':48,'actual_weight_kg':18},
+                selected_volume_ml=12
+            )
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
