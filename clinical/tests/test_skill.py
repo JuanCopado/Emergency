@@ -5131,7 +5131,7 @@ class ModularCoreTests(unittest.TestCase):
             )
         ok=calculate_pediatric_outpatient(
             'prednisolone-asthma-lt2y',
-            {'age_months':18,'actual_weight_kg':11,'specialist_or_ed_discharge_plan':True},
+            {'age_months':18,'actual_weight_kg':11,'specialist_or_ed_discharge_plan':True,'asthma_discharge_criteria_met':True},
             selected_dose_per_kg=1,
             selected_duration_days=3
         )
