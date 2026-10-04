@@ -256,7 +256,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_every_manifest_module_resolves(self):
         manifest, errors = validate(ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(len(manifest), 128)
+        self.assertEqual(len(manifest), 129)
         for module_id in manifest:
             self.assertIn(f"\n## {module_id}\n", load(ROOT, module_id))
 
