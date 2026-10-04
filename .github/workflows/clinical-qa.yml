@@ -7,6 +7,7 @@ on:
       - v1.36-consolidation
       - v1.37-scores-formulas-validation
       - v1.38-pediatric-outpatient-medications
+      - v1.39-clinical-note-diagnostic-support
     paths:
       - 'clinical/modules/**'
       - 'clinical/references/module-index.md'
