@@ -5591,8 +5591,8 @@ class ModularCoreTests(unittest.TestCase):
 
     def test_v139_synthetic_diagnostic_reasoning_bank(self):
         result=run_clinical_note_diagnostic_cases()
-        self.assertEqual(result['cases'],36)
-        self.assertEqual(result['passed'],36)
+        self.assertEqual(result['cases'],47)
+        self.assertEqual(result['passed'],47)
         self.assertEqual(result['errors'],[])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
