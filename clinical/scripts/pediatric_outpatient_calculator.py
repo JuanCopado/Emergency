@@ -23,9 +23,9 @@ class MedicationSafetyStop(ValueError):
         messages=" | ".join(a["message"] for a in alert_result.get("alerts",[]) if a.get("severity")=="STOP")
         super().__init__("medication safety STOP: "+messages)
 
-def preflight(regimen_id, patient, active_medications=None, registry=None):
+def preflight(regimen_id, patient, active_medications=None, product=None, registry=None):
     registry=registry or load_registry()
-    return evaluate_alerts(regimen_id,patient,active_medications=active_medications,registry=registry)
+    return evaluate_alerts(regimen_id,patient,active_medications=active_medications,product=product,registry=registry)
 
 def load_registry(path=REGISTRY):
     return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -142,7 +142,7 @@ def _check_organ_function_gates(entry, patient):
 
 def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, selected_volume_ml=None, registry=None, active_medications=None):
     registry=registry or load_registry()
-    safety=preflight(regimen_id,patient,active_medications=active_medications,registry=registry)
+    safety=preflight(regimen_id,patient,active_medications=active_medications,product=product,registry=registry)
     if safety["blocked"]:
         raise MedicationSafetyStop(safety)
     e=_entry(registry,regimen_id)
