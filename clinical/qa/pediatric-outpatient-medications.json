@@ -2047,22 +2047,26 @@
         {
           "min_age_months": 12,
           "max_age_months": 71,
-          "dose_ml": 5,
-          "doses_per_day": 2,
-          "note": "source allows 5-10 mL twice daily; start at lower end and titrate"
+          "dose_ml_range": [
+            2.5,
+            10
+          ],
+          "doses_per_day": 2
         },
         {
           "min_age_months": 72,
-          "max_age_months": 167,
-          "dose_ml": 10,
-          "doses_per_day": 1,
-          "note": "SmPC daily start 15 mL age 7-14; NICE provides wider age-band ranges—titrate clinically"
+          "max_age_months": 215,
+          "dose_ml_range": [
+            5,
+            20
+          ],
+          "doses_per_day": 2
         }
       ],
-      "frequency": "once or twice daily depending age/product and response",
+      "frequency": "twice daily in the NICE pediatric ranges; titrate according to response",
       "duration_days": null,
       "liquid_capable": false,
-      "administration": "May be taken diluted or undiluted; may be taken with water/juice. Maintain adequate fluid intake. Effect can take 2-3 days.",
+      "administration": "May be taken diluted or undiluted; may be taken with water or fruit juice. Maintain adequate fluid intake. Effect may take 2-3 days. Select the actual volume within the age-band range according to response; the engine does not choose it automatically.",
       "cautions": [
         "dose is titrated to response",
         "contains manufacturing residues of lactose/galactose/fructose; check relevant intolerances"
