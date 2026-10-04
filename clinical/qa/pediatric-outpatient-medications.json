@@ -580,6 +580,13 @@
       ],
       "cautions": [
         "short courses are used in these pathways; prolonged therapy has corticosteroid withdrawal/adrenal-suppression considerations"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "croup_discharge_criteria_met",
+          "equals": true,
+          "message": "outpatient croup treatment requires discharge criteria to be met (including no stridor at rest; observe appropriately after nebulised adrenaline if used)"
+        }
       ]
     },
     {
@@ -606,7 +613,14 @@
       "frequency": "per written asthma action plan; urgent review if reliever is required again within 4 h after discharge",
       "administration": "One puff at a time through spacer with correct technique. Ensure written action plan and controller review.",
       "source": "RCH asthma discharge education; GINA 2026 acute asthma",
-      "source_url": "https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/Asthma_Inpatient_Discharge_Education/"
+      "source_url": "https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/Asthma_Inpatient_Discharge_Education/",
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "discharge salbutamol regimen requires clinical resolution sufficient for discharge, adequate oxygenation/oral intake and a written asthma action plan"
+        }
+      ]
     },
     {
       "id": "amoxicillin-aom",
@@ -693,7 +707,14 @@
         "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
         "monitor for antibiotic-associated diarrhea/hypersensitivity"
       ],
-      "administration": "May be taken with or without food; shake suspension and use the exact product concentration."
+      "administration": "May be taken with or without food; shake suspension and use the exact product concentration.",
+      "required_patient_flags": [
+        {
+          "field": "cap_outpatient_criteria_met",
+          "equals": true,
+          "message": "outpatient CAP regimen requires a clinically stable child without admission-level respiratory distress/hypoxaemia, able to tolerate oral treatment, with appropriate follow-up"
+        }
+      ]
     },
     {
       "id": "amoxicillin-dental-abscess",
@@ -883,7 +904,14 @@
       "hepatic_adjustment": {
         "mode": "no_specific_adjustment_encoded",
         "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
-      }
+      },
+      "required_patient_flags": [
+        {
+          "field": "cellulitis_outpatient_criteria_met",
+          "equals": true,
+          "message": "oral cellulitis treatment requires mild/moderate disease suitable for outpatient therapy with review if worsening or no improvement by ~48 hours"
+        }
+      ]
     },
     {
       "id": "cefalexin-preseptal",
@@ -925,7 +953,19 @@
       "cautions": [
         "marked renal impairment requires dose reduction"
       ],
-      "administration": "May be given without regard to meals; shake suspension and use exact product strength."
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "required_patient_flags": [
+        {
+          "field": "mild_preseptal_cellulitis_confirmed",
+          "equals": true,
+          "message": "cefalexin outpatient regimen is for mild preseptal/periorbital cellulitis in a well child after orbital red flags are excluded"
+        },
+        {
+          "field": "follow_up_assured",
+          "equals": true,
+          "message": "mild preseptal cellulitis outpatient treatment requires assured follow-up"
+        }
+      ]
     },
     {
       "id": "cefalexin-cystitis",
@@ -1615,7 +1655,14 @@
       ],
       "administration": "Provide two devices when indicated, device training, written anaphylaxis action plan and allergy referral. IM adrenaline remains first-line for recurrent anaphylaxis.",
       "source": "RCH Anaphylaxis",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Anaphylaxis/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Anaphylaxis/",
+      "required_patient_flags": [
+        {
+          "field": "anaphylaxis_discharge_criteria_met",
+          "equals": true,
+          "message": "adrenaline auto-injector discharge plan requires clinical stability, appropriate post-adrenaline observation and discharge education/follow-up"
+        }
+      ]
     },
     {
       "id": "mupirocin-localized-impetigo",
@@ -2019,7 +2066,19 @@
         "mode": "no_specific_adjustment_encoded",
         "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
       },
-      "administration": "May be given without regard to meals; shake suspension and use exact product strength."
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "required_patient_flags": [
+        {
+          "field": "systemically_well",
+          "equals": true,
+          "message": "oral cefalexin lymphadenitis regimen is for a well child with mild bacterial lymphadenitis"
+        },
+        {
+          "field": "review_within_48h_planned",
+          "equals": true,
+          "message": "mild bacterial cervical lymphadenitis treated orally should have planned review within 48 hours"
+        }
+      ]
     },
     {
       "id": "fluticasone-controller-preschool",
@@ -2436,7 +2495,7 @@
       "id": "macrogol3350-electrolytes-constipation-maintenance-1to11",
       "category": "gastrointestinal_laxative",
       "drug": "macrogol 3350 + electrolytes paediatric sachet",
-      "diagnosis": "chronic idiopathic constipation maintenance in child 1-11 years after assessment for impaction/red flags",
+      "diagnosis": "chronic functional/idiopathic constipation maintenance in child 1-11 years after assessment for impaction/red flags",
       "route": "PO",
       "weight_basis": "fixed_age_band",
       "min_age_months": 12,
@@ -2467,13 +2526,20 @@
       ],
       "source": "NICE CG99 + Movicol Paediatric Plain 6.9 g SmPC",
       "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
-      "product_strength": "macrogol 3350 6.563 g per paediatric sachet"
+      "product_strength": "macrogol 3350 6.563 g per paediatric sachet",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ]
     },
     {
       "id": "macrogol3350-electrolytes-disimpaction-5to11",
       "category": "gastrointestinal_laxative",
       "drug": "macrogol 3350 + electrolytes paediatric sachet",
-      "diagnosis": "faecal impaction in child 5-11 years when oral macrogol disimpaction is appropriate",
+      "diagnosis": "faecal impaction due to functional/idiopathic constipation in child 5-11 years when oral macrogol disimpaction is appropriate",
       "route": "PO",
       "weight_basis": "fixed_age_band",
       "min_age_months": 60,
@@ -2531,13 +2597,20 @@
       ],
       "source": "NICE CG99; paediatric macrogol SmPC",
       "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
-      "product_strength": "macrogol 3350 6.563 g per paediatric sachet"
+      "product_strength": "macrogol 3350 6.563 g per paediatric sachet",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ]
     },
     {
       "id": "lactulose-constipation-1mo18y",
       "category": "gastrointestinal_laxative",
       "drug": "lactulose 3.335 g/5 mL",
-      "diagnosis": "constipation when lactulose is selected because macrogol is unsuitable/not tolerated or as an adjunct according to the constipation plan",
+      "diagnosis": "functional/idiopathic constipation when lactulose is selected because macrogol is unsuitable/not tolerated or as an adjunct according to the constipation plan",
       "route": "PO",
       "weight_basis": "fixed_age_band",
       "min_age_months": 1,
@@ -2579,7 +2652,14 @@
       ],
       "source": "NICE CG99 plus Duphalac 3.335 g/5 mL SmPC",
       "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
-      "product_strength": "3.335 g/5 mL (667 mg/mL)"
+      "product_strength": "3.335 g/5 mL (667 mg/mL)",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ]
     },
     {
       "id": "albendazole-pinworm-ge2y",
@@ -2947,7 +3027,22 @@
         "stop if hypersensitivity and seek review"
       ],
       "source": "RCH Acute red eye",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_red_eye/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_red_eye/",
+      "required_patient_flags": [
+        {
+          "field": "sight_threatening_red_eye_excluded",
+          "equals": true,
+          "message": "outpatient conjunctivitis treatment requires exclusion of severe pain, photophobia, reduced visual acuity, corneal involvement/trauma or other sight-threatening red-eye features"
+        }
+      ],
+      "min_age_months": 1,
+      "excluded_patient_flags": [
+        {
+          "field": "neonatal_conjunctivitis",
+          "equals": true,
+          "message": "neonatal conjunctivitis requires neonatal/systemic infection assessment and specialist advice rather than the generic outpatient conjunctivitis pathway"
+        }
+      ]
     },
     {
       "id": "ciprofloxacin-dexamethasone-aoe-ge1y",
@@ -3064,7 +3159,14 @@
         "exactly 40 kg is unresolved by cited RCH wording and should be clinician-reviewed"
       ],
       "source": "RCH Headache",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/",
+      "required_patient_flags": [
+        {
+          "field": "secondary_headache_red_flags_excluded",
+          "equals": true,
+          "message": "migraine-directed outpatient treatment requires secondary headache red flags to be excluded or appropriately investigated"
+        }
+      ]
     },
     {
       "id": "ondansetron-migraine-vomiting-ed",
@@ -3107,6 +3209,13 @@
       "contraindications": [
         "ondansetron hypersensitivity",
         "concomitant apomorphine"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "secondary_headache_red_flags_excluded",
+          "equals": true,
+          "message": "migraine-directed outpatient treatment requires secondary headache red flags to be excluded or appropriately investigated"
+        }
       ]
     },
     {
@@ -3306,7 +3415,14 @@
         "separate from other eye drops by product-recommended interval"
       ],
       "source": "Olopatadine 1 mg/mL eye drops SmPC",
-      "source_url": "https://www.medicines.org.uk/emc/product/10890/smpc"
+      "source_url": "https://www.medicines.org.uk/emc/product/10890/smpc",
+      "required_patient_flags": [
+        {
+          "field": "sight_threatening_red_eye_excluded",
+          "equals": true,
+          "message": "outpatient conjunctivitis treatment requires exclusion of severe pain, photophobia, reduced visual acuity, corneal involvement/trauma or other sight-threatening red-eye features"
+        }
+      ]
     },
     {
       "id": "ketotifen-eye-allergic-conjunctivitis-ge3",
@@ -3331,13 +3447,20 @@
       ],
       "source": "Zaditen ketotifen 0.25 mg/mL SmPC 2025; INFARMED ketotifen ophthalmic protocol",
       "source_url": "https://www.medicines.org.uk/emc/product/4327/smpc",
-      "portugal_reconciliation": "INFARMED confirms ketotifen 0.25 mg/mL ophthalmic products/protocol; a 2025 recall affected one specific Zaditen lot, not the whole active substance. Verify current product/lot/Azores stock."
+      "portugal_reconciliation": "INFARMED confirms ketotifen 0.25 mg/mL ophthalmic products/protocol; a 2025 recall affected one specific Zaditen lot, not the whole active substance. Verify current product/lot/Azores stock.",
+      "required_patient_flags": [
+        {
+          "field": "sight_threatening_red_eye_excluded",
+          "equals": true,
+          "message": "outpatient conjunctivitis treatment requires exclusion of severe pain, photophobia, reduced visual acuity, corneal involvement/trauma or other sight-threatening red-eye features"
+        }
+      ]
     },
     {
       "id": "docusate-paediatric-constipation-ge6mo",
       "category": "gastrointestinal_laxative",
       "drug": "docusate sodium 12.5 mg/5 mL oral solution",
-      "diagnosis": "constipation in child >6 months when docusate is specifically selected as an alternative stool-softener",
+      "diagnosis": "functional/idiopathic constipation in child >6 months when docusate is specifically selected as an alternative stool-softener",
       "route": "PO",
       "weight_basis": "fixed_age_band",
       "min_age_months": 6,
@@ -3375,7 +3498,14 @@
         "sorbitol/fructose and phenylalanine excipient considerations depend on product"
       ],
       "source": "Docusol Paediatric 12.5 mg/5 mL SmPC",
-      "source_url": "https://www.medicines.org.uk/emc/product/12341/smpc"
+      "source_url": "https://www.medicines.org.uk/emc/product/12341/smpc",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ]
     },
     {
       "id": "phenoxymethylpenicillin-gas-sore-throat",
@@ -3648,6 +3778,23 @@
       "NICE CG84 ORS regimens constrained to children under 5 years",
       "oral aciclovir varicella requires a guideline-supported antiviral indication and excludes severe/disseminated disease",
       "oral aciclovir mucocutaneous HSV excludes neonatal disease and severe/immunocompromised HSV"
-    ]
+    ],
+    "second_pass": {
+      "date": "2026-10-04",
+      "focus": "outpatient disposition and diagnostic red-flag gates",
+      "gates_added": [
+        "CAP outpatient suitability",
+        "cellulitis outpatient suitability",
+        "mild preseptal confirmation and follow-up",
+        "cervical lymphadenitis well-child/48h review",
+        "croup discharge criteria",
+        "asthma discharge criteria",
+        "anaphylaxis discharge criteria",
+        "sight-threatening red-eye exclusion",
+        "neonatal conjunctivitis exclusion",
+        "secondary headache red-flag exclusion",
+        "functional constipation/obstruction red-flag exclusion"
+      ]
+    }
   }
 }
