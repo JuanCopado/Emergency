@@ -250,7 +250,7 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 
 ## v1.38 — pediatric outpatient/home medications — 04/10/2026
 - Rama activa: `v1.38-pediatric-outpatient-medications`.
-- Nuevo módulo: `pediatric-outpatient-home-medications`.
+- Nuevo módulo: `pediatric-outpatient-medications`.
 - Total clínico: **129 módulos**; el nuevo módulo está **yellow**.
 - Registry ambulatorio inicial: **36 regímenes**.
 - Motor fail-closed: `scripts/pediatric_outpatient_calculator.py`.
