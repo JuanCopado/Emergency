@@ -1081,7 +1081,7 @@
       "stored_version": "v1.38 expanded outpatient registry 2026-10-04",
       "last_checked": "2026-10-04",
       "status": "yellow",
-      "note": "Expanded diagnosis-specific pediatric outpatient/home medication engine with explicit weight scalar, source maxima, duration, administration/food instructions, contraindication gates, concentration-verified mL/course-volume arithmetic and device/topical/non-mg dose models. Registry now contains 89 regimens across antibiotics, analgesia, antiemetics, antihistamines, asthma controllers/relievers, dermatology, GI/ORS/constipation, antiparasitics, antivirals, ENT/ophthalmology, allergy and migraine. Portugal reconciliation is documented separately; Azores real-time stock is not asserted. Yellow pending human pediatric/pharmacy review and local product/formulary reconciliation."
+      "note": "Expanded diagnosis-specific pediatric outpatient/home medication engine with explicit weight scalar, source maxima, duration, administration/food instructions, contraindication gates, concentration-verified mL/course-volume arithmetic and device/topical/non-mg dose models. Registry now contains 89 regimens across antibiotics, analgesia, antiemetics, antihistamines, asthma controllers/relievers, dermatology, GI/ORS/constipation, antiparasitics, antivirals, ENT/ophthalmology, allergy and migraine. Portugal reconciliation is documented separately; Azores real-time stock is not asserted. Yellow pending human pediatric/pharmacy review and Portuguese INFOMED/RCM product reconciliation. Azores stock is not a release gate."
     }
   }
 }
