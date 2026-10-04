@@ -1082,6 +1082,15 @@
       "last_checked": "2026-10-03",
       "status": "yellow",
       "note": "Diagnosis-specific pediatric outpatient/home medication engine with explicit actual/ideal/adjusted weight basis, adult/per-dose maxima, exact-product concentration gate, mL per dose, doses/day, duration, course volume, food/administration instructions and contraindication gates. Remains yellow pending human pediatric/pharmacy review and Portugal/Azores formulary/concentration verification."
+    },
+    "pediatric-outpatient-home-medications": {
+      "priority": "high",
+      "primary_source": "Royal Children's Hospital pediatric acute pain/urticaria/gastroenteritis/asthma/antimicrobial guidance + GINA 2026 + NICE lower-UTI guidance + current SmPC/product labeling + Pediatric Pharmacy Association obesity dosing principles",
+      "primary_source_url": "https://www.rch.org.au/clinicalguide/",
+      "stored_version": "v1.38 initial outpatient registry 2026-10-04",
+      "last_checked": "2026-10-04",
+      "status": "yellow",
+      "note": "New diagnosis-specific outpatient/home medication engine with explicit weight scalar, dose caps, duration, administration instructions, contraindication gates and concentration-verified mL/course-volume arithmetic. Initial registry contains 36 regimens. Yellow pending expansion to broader ambulatory formulary plus pediatric/pharmacy human review and Portugal/Azores product/formulary reconciliation."
     }
   }
 }
