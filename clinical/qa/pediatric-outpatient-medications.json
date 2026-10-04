@@ -455,6 +455,11 @@
           "field": "specialist_or_ed_discharge_plan",
           "equals": true,
           "message": "prednisolone in children under 2 years is not a generic outpatient regimen; explicit pediatric/ED discharge plan is required"
+        },
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
         }
       ],
       "cautions": [
@@ -485,7 +490,14 @@
       ],
       "liquid_capable": true,
       "source": "GINA 2026 pediatric acute asthma",
-      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
+        }
+      ]
     },
     {
       "id": "prednisolone-asthma-6to11y",
@@ -510,7 +522,14 @@
       ],
       "liquid_capable": true,
       "source": "GINA 2026 pediatric acute asthma",
-      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
+        }
+      ]
     },
     {
       "id": "dexamethasone-asthma-1to11y",
@@ -556,6 +575,13 @@
       ],
       "cautions": [
         "short courses are used in these pathways; prolonged therapy has corticosteroid withdrawal/adrenal-suppression considerations"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
+        }
       ]
     },
     {
@@ -3906,6 +3932,11 @@
         "infected eczema requires systemically well status and excludes suspected eczema herpeticum",
         "home paracetamol requires explicit home-treatment suitability; young-infant fever warning added"
       ]
+    },
+    "fourth_pass": {
+      "date": "2026-10-04",
+      "focus": "systemic asthma steroid discharge suitability",
+      "change": "All outpatient prednisolone/dexamethasone asthma regimens now require asthma_discharge_criteria_met; under-2 prednisolone additionally retains explicit pediatric/ED discharge-plan gate."
     }
   }
 }
