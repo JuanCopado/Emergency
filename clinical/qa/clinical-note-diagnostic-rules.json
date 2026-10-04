@@ -2665,6 +2665,1395 @@
           ]
         }
       ]
+    },
+    {
+      "id": "major-trauma",
+      "diagnosis": "Trauma major / politrauma",
+      "category": "trauma",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "politrauma",
+            "trauma major",
+            "major trauma",
+            "acidente de alta energia",
+            "high energy trauma"
+          ],
+          "weight": 4,
+          "label": "mecanismo/trauma major"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hemorragia ativa",
+            "active bleeding",
+            "instabilidade hemodinâmica pós-trauma"
+          ],
+          "weight": 3,
+          "label": "hemorragia/instabilidade"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "ejeção do veículo",
+            "queda de altura",
+            "atropelamento"
+          ],
+          "weight": 1,
+          "label": "mecanismo de alta energia"
+        }
+      ],
+      "missing_if_absent": [
+        "ABCDE traumático",
+        "mecanismo",
+        "GCS",
+        "hemorragia oculta/externa"
+      ],
+      "differential": [
+        "traumatic-intracranial-mass-effect",
+        "acute-spinal-cord-compression",
+        "tension-pneumothorax"
+      ],
+      "must_not_miss": [
+        "tension-pneumothorax",
+        "traumatic-intracranial-mass-effect"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Ativar avaliação traumática estruturada e imagem mínima necessária à intervenção/CT conforme estabilidade",
+          "priority": "immediate",
+          "rationale": "priorizar lesões tempo-dependentes",
+          "source_modules": [
+            "trauma-major-hemorrhage"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar equipa/protocolo de trauma e hemorragia maciça quando indicado; ABCDE e controlo de hemorragia primeiro",
+          "priority": "immediate",
+          "rationale": "lesões evitáveis são tempo-dependentes",
+          "source_modules": [
+            "trauma-major-hemorrhage",
+            "emergency-procedures"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng39"
+    },
+    {
+      "id": "traumatic-head-injury",
+      "diagnosis": "Traumatismo cranioencefálico com risco intracraniano",
+      "category": "trauma_neuro",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "traumatismo craniano",
+            "traumatismo craneal",
+            "head injury",
+            "tce"
+          ],
+          "weight": 3,
+          "label": "traumatismo craniano"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "perda de consciência",
+            "loss of consciousness",
+            "amnésia",
+            "amnesia"
+          ],
+          "weight": 1,
+          "label": "LOC/amnesia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "vómitos repetidos",
+            "post-traumatic seizure",
+            "convulsão pós-trauma"
+          ],
+          "weight": 2,
+          "label": "sinais de risco"
+        }
+      ],
+      "missing_if_absent": [
+        "GCS e componentes",
+        "critérios para TC",
+        "anticoagulação/coagulopatia"
+      ],
+      "differential": [
+        "traumatic-intracranial-mass-effect",
+        "acute-spinal-cord-compression"
+      ],
+      "must_not_miss": [
+        "traumatic-intracranial-mass-effect"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Aplicar critérios de TC craniana e documentar GCS por componentes; avaliar coluna cervical conforme mecanismo",
+          "priority": "urgent",
+          "rationale": "detetar hemorragia/lesão intracraniana significativa",
+          "source_modules": [
+            "traumatic-intracranial-mass-effect",
+            "clinical-scores-calculators"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de TCE/efeito de massa se deterioração neurológica; proteger via aérea e evitar hipóxia/hipotensão",
+          "priority": "immediate",
+          "rationale": "prevenir lesão cerebral secundária",
+          "source_modules": [
+            "traumatic-intracranial-mass-effect",
+            "airway-rsi"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng232"
+    },
+    {
+      "id": "major-burns",
+      "diagnosis": "Queimadura grave",
+      "category": "trauma",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "queimadura extensa",
+            "major burn",
+            "grande queimado",
+            "queimadura circunferencial"
+          ],
+          "weight": 4,
+          "label": "queimadura extensa/complexa"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "face e pescoço",
+            "face/neck burn",
+            "queimadura elétrica",
+            "chemical burn"
+          ],
+          "weight": 2,
+          "label": "local/etiologia de alto risco"
+        }
+      ],
+      "missing_if_absent": [
+        "TBSA/profundidade",
+        "peso",
+        "via aérea/inalação",
+        "lesão associada"
+      ],
+      "differential": [
+        "smoke-inhalation-toxic-injury"
+      ],
+      "must_not_miss": [
+        "smoke-inhalation-toxic-injury"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Estimar TBSA excluindo eritema superficial, profundidade e risco de inalação; documentar peso",
+          "priority": "immediate",
+          "rationale": "orientar fluidos, transferência e procedimentos",
+          "source_modules": [
+            "major-burns",
+            "clinical-scores-calculators"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de queimaduras graves: arrefecimento adequado, analgesia, cobertura, fluidos quando indicados e contacto precoce com centro de queimados",
+          "priority": "immediate",
+          "rationale": "tratamento depende de extensão/profundidade/localização",
+          "source_modules": [
+            "major-burns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smoke-inhalation-toxic-injury",
+      "diagnosis": "Lesão por inalação de fumo / intoxicação associada a incêndio",
+      "category": "toxicology_trauma",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "incêndio em espaço fechado",
+            "closed space fire",
+            "inalação de fumo",
+            "smoke inhalation"
+          ],
+          "weight": 4,
+          "label": "exposição a fumo em espaço fechado"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "fuligem",
+            "soot",
+            "rouquidão",
+            "hoarseness",
+            "queimadura facial"
+          ],
+          "weight": 2,
+          "label": "sinais de lesão de via aérea"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "monóxido de carbono",
+            "carboxihemoglobina",
+            "cianeto",
+            "cyanide"
+          ],
+          "weight": 2,
+          "label": "toxicidade por combustão"
+        }
+      ],
+      "missing_if_absent": [
+        "COHb/gasometria co-oximetria quando indicada",
+        "avaliação de via aérea",
+        "lactato em suspeita de cianeto"
+      ],
+      "differential": [
+        "major-burns",
+        "toxicology"
+      ],
+      "must_not_miss": [
+        "major-burns"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar via aérea precocemente, co-oximetria/COHb e lactato conforme contexto de incêndio",
+          "priority": "immediate",
+          "rationale": "SpO2 pode ser enganadora no CO e edema de via aérea pode progredir",
+          "source_modules": [
+            "smoke-inhalation-toxic-injury",
+            "blood-gas-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de inalação/tóxicos de incêndio; oxigénio de alta concentração e antídoto de cianeto quando critérios clínicos",
+          "priority": "immediate",
+          "rationale": "CO/cianeto e edema de via aérea são tempo-dependentes",
+          "source_modules": [
+            "smoke-inhalation-toxic-injury",
+            "toxicology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ectopic-pregnancy",
+      "diagnosis": "Gravidez ectópica / gravidez de localização desconhecida de alto risco",
+      "category": "obstetric",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "gravidez",
+            "pregnancy",
+            "teste de gravidez positivo",
+            "beta-hcg positivo"
+          ],
+          "weight": 1,
+          "label": "gravidez possível/confirmada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor pélvica",
+            "dor abdominal unilateral",
+            "pelvic pain"
+          ],
+          "weight": 2,
+          "label": "dor pélvica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hemorragia vaginal",
+            "sangramento vaginal",
+            "vaginal bleeding"
+          ],
+          "weight": 2,
+          "label": "sangramento vaginal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "gravidez ectópica",
+            "ectopic pregnancy"
+          ],
+          "weight": 5,
+          "label": "ectópica documentada"
+        }
+      ],
+      "missing_if_absent": [
+        "estabilidade hemodinâmica",
+        "beta-hCG quantitativo",
+        "ecografia transvaginal"
+      ],
+      "differential": [
+        "acute-abdomen"
+      ],
+      "must_not_miss": [
+        "undifferentiated-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "β-hCG quantitativo e ecografia transvaginal; avaliação ginecológica urgente se dor/sangramento significativo ou instabilidade",
+          "priority": "urgent",
+          "rationale": "localizar a gravidez e excluir rotura",
+          "source_modules": [
+            "obstetric-emergencies",
+            "pocus"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo obstétrico; se instável ou suspeita de rotura, reanimação e cirurgia/ginecologia urgente",
+          "priority": "immediate",
+          "rationale": "ectópica rota pode causar hemorragia fatal",
+          "source_modules": [
+            "obstetric-emergencies",
+            "trauma-major-hemorrhage"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng126"
+    },
+    {
+      "id": "preeclampsia-eclampsia",
+      "diagnosis": "Pré-eclâmpsia grave / eclâmpsia",
+      "category": "obstetric",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "pré-eclâmpsia",
+            "preeclampsia",
+            "pre-eclampsia",
+            "eclâmpsia",
+            "eclampsia"
+          ],
+          "weight": 5,
+          "label": "diagnóstico obstétrico hipertensivo"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "gravidez",
+            "pregnancy",
+            "puerpério",
+            "postpartum"
+          ],
+          "weight": 1,
+          "label": "contexto obstétrico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "160/110",
+            "cefaleia intensa",
+            "escotomas",
+            "dor epigástrica",
+            "convulsão"
+          ],
+          "weight": 2,
+          "label": "sinais de gravidade"
+        }
+      ],
+      "missing_if_absent": [
+        "PA confirmada",
+        "plaquetas",
+        "creatinina",
+        "AST/ALT",
+        "avaliação fetal/gestacional"
+      ],
+      "differential": [
+        "hypertensive-emergencies",
+        "status-epilepticus"
+      ],
+      "must_not_miss": [
+        "spontaneous-intracerebral-hemorrhage"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Confirmar PA e obter hemograma/plaquetas, função renal/hepática e avaliação obstétrica/fetal",
+          "priority": "immediate",
+          "rationale": "estratificar gravidade materna e fetal",
+          "source_modules": [
+            "obstetric-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo obstétrico; tratar hipertensão grave e prevenir/tratar eclâmpsia conforme protocolo obstétrico",
+          "priority": "immediate",
+          "rationale": "risco materno-fetal elevado",
+          "source_modules": [
+            "obstetric-emergencies",
+            "hypertensive-emergencies"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng133"
+    },
+    {
+      "id": "postpartum-hemorrhage",
+      "diagnosis": "Hemorragia pós-parto",
+      "category": "obstetric",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hemorragia pós-parto",
+            "hemorragia posparto",
+            "postpartum hemorrhage",
+            "postpartum haemorrhage"
+          ],
+          "weight": 6,
+          "label": "hemorragia pós-parto"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "atonia uterina",
+            "uterine atony"
+          ],
+          "weight": 3,
+          "label": "atonia uterina"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "puerpério imediato",
+            "pós-parto imediato"
+          ],
+          "weight": 1,
+          "label": "contexto pós-parto"
+        }
+      ],
+      "missing_if_absent": [
+        "quantificação de perdas",
+        "tônus uterino",
+        "trauma/retained tissue/coagulopatia"
+      ],
+      "differential": [
+        "trauma-major-hemorrhage"
+      ],
+      "must_not_miss": [
+        "undifferentiated-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Quantificar perda, hemograma/coagulação/fibrinogénio e avaliar 4Ts em paralelo com reanimação",
+          "priority": "immediate",
+          "rationale": "identificar causa e gravidade",
+          "source_modules": [
+            "obstetric-emergencies",
+            "trauma-major-hemorrhage"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar protocolo de hemorragia pós-parto e hemorragia maciça conforme gravidade",
+          "priority": "immediate",
+          "rationale": "controlo uterino/cirúrgico e reposição devem ser simultâneos",
+          "source_modules": [
+            "obstetric-emergencies",
+            "trauma-major-hemorrhage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bronchiolitis",
+      "diagnosis": "Bronquiolite",
+      "category": "pediatric_respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "bronquiolite",
+            "bronchiolitis"
+          ],
+          "weight": 5,
+          "label": "bronquiolite"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "coriza",
+            "coryza",
+            "tosse persistente",
+            "retrações torácicas",
+            "crepitações",
+            "sibilos"
+          ],
+          "weight": 1,
+          "label": "quadro compatível"
+        }
+      ],
+      "missing_if_absent": [
+        "idade",
+        "SpO2",
+        "alimentação/hidratação",
+        "apneia"
+      ],
+      "differential": [
+        "pediatric-acute-asthma",
+        "pediatric-sepsis"
+      ],
+      "must_not_miss": [
+        "pediatric-sepsis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Medir SpO2 e gravidade clínica; não pedir Rx/analítica de rotina em bronquiolite típica",
+          "priority": "urgent",
+          "rationale": "admissão depende de apneia, hipoxemia, hidratação e esforço respiratório",
+          "source_modules": [
+            "bronchiolitis"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de bronquiolite; suporte de oxigénio/hidratação conforme necessidade e evitar terapias não recomendadas de rotina",
+          "priority": "urgent",
+          "rationale": "tratamento é predominantemente de suporte",
+          "source_modules": [
+            "bronchiolitis",
+            "pediatric-acute-respiratory-support"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng9"
+    },
+    {
+      "id": "croup",
+      "diagnosis": "Laringotraqueíte viral (croup)",
+      "category": "pediatric_respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "tosse de cão",
+            "barking cough",
+            "tosse metálica",
+            "croup"
+          ],
+          "weight": 4,
+          "label": "tosse característica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "estridor inspiratório",
+            "stridor"
+          ],
+          "weight": 2,
+          "label": "estridor"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "rouquidão",
+            "hoarseness"
+          ],
+          "weight": 1,
+          "label": "rouquidão"
+        }
+      ],
+      "missing_if_absent": [
+        "estridor em repouso",
+        "trabalho respiratório",
+        "SpO2"
+      ],
+      "differential": [
+        "pediatric-foreign-body-emergencies",
+        "anaphylaxis"
+      ],
+      "must_not_miss": [
+        "pediatric-foreign-body-emergencies"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar gravidade clinicamente; imagem não é rotina em croup típico",
+          "priority": "urgent",
+          "rationale": "estridor em repouso e esforço respiratório definem gravidade",
+          "source_modules": [
+            "croup"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de croup; corticosteroide e adrenalina nebulizada se moderado/grave conforme protocolo",
+          "priority": "urgent",
+          "rationale": "reduzir edema de via aérea",
+          "source_modules": [
+            "croup",
+            "pediatric-acute-respiratory-support"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-sepsis",
+      "diagnosis": "Sépsis pediátrica / choque séptico pediátrico",
+      "category": "pediatric_infectious",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "sépsis pediátrica",
+            "sepsis pediátrica",
+            "pediatric sepsis",
+            "criança muito doente",
+            "toxic child"
+          ],
+          "weight": 4,
+          "label": "suspeita séptica pediátrica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "enchimento capilar prolongado",
+            "mottled",
+            "extremidades frias",
+            "letargia",
+            "poor perfusion"
+          ],
+          "weight": 2,
+          "label": "má perfusão/estado alterado"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/peso",
+        "perfusão/PA/FC/FR/SpO2",
+        "lactato quando indicado",
+        "foco"
+      ],
+      "differential": [
+        "pediatric-dehydration-shock",
+        "pediatric-shock"
+      ],
+      "must_not_miss": [
+        "pediatric-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ABCDE pediátrico, lactato/culturas e estudo do foco conforme gravidade sem atrasar antibiótico",
+          "priority": "immediate",
+          "rationale": "choque séptico pediátrico é tempo-dependente",
+          "source_modules": [
+            "pediatric-sepsis"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de sépsis pediátrica e choque; antibiótico, fluidos/vasoativos individualizados conforme protocolo",
+          "priority": "immediate",
+          "rationale": "tratamento precoce e reavaliação frequente",
+          "source_modules": [
+            "pediatric-sepsis",
+            "pediatric-shock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-dka",
+      "diagnosis": "Cetoacidose diabética pediátrica",
+      "category": "pediatric_metabolic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "cad pediátrica",
+            "cetoacidose diabética pediátrica",
+            "pediatric dka"
+          ],
+          "weight": 5,
+          "label": "CAD pediátrica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "polidipsia",
+            "poliúria",
+            "vómitos",
+            "respiração de kussmaul"
+          ],
+          "weight": 1,
+          "label": "sintomas compatíveis"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hiperglicemia",
+            "cetonemia",
+            "acidose metabólica"
+          ],
+          "weight": 2,
+          "label": "tríade bioquímica"
+        }
+      ],
+      "missing_if_absent": [
+        "peso",
+        "glicemia",
+        "cetonemia",
+        "pH/bicarbonato",
+        "potássio/sódio corrigido"
+      ],
+      "differential": [
+        "pediatric-sepsis",
+        "pediatric-toxicology"
+      ],
+      "must_not_miss": [
+        "pediatric-electrolyte-emergencies"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Gasometria, glicemia/cetonas, eletrólitos e monitorização neurológica seriada",
+          "priority": "immediate",
+          "rationale": "confirmar gravidade e vigiar edema cerebral/eletrolitos",
+          "source_modules": [
+            "pediatric-dka",
+            "pediatric-electrolyte-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de CAD pediátrica; fluidos, insulina e potássio pelo protocolo pediátrico, sem extrapolar o adulto",
+          "priority": "immediate",
+          "rationale": "velocidade de correção e fluidos são pediatria-específicos",
+          "source_modules": [
+            "pediatric-dka",
+            "pediatric-iv-fluid-therapy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-head-injury",
+      "diagnosis": "Traumatismo craniano pediátrico com risco intracraniano",
+      "category": "pediatric_trauma",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "traumatismo craniano criança",
+            "pediatric head injury",
+            "tce pediátrico"
+          ],
+          "weight": 4,
+          "label": "TCE pediátrico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "convulsão pós-trauma",
+            "vómitos repetidos",
+            "gcs 13",
+            "gcs 12"
+          ],
+          "weight": 2,
+          "label": "critério de risco"
+        }
+      ],
+      "missing_if_absent": [
+        "idade",
+        "GCS pediátrico/componentes",
+        "mecanismo",
+        "critérios de TC"
+      ],
+      "differential": [
+        "pediatric-major-trauma"
+      ],
+      "must_not_miss": [
+        "traumatic-intracranial-mass-effect"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Aplicar critérios pediátricos de TC e observação; considerar suspeita de lesão não acidental quando apropriado",
+          "priority": "urgent",
+          "rationale": "minimizar TC desnecessária sem perder lesão intracraniana",
+          "source_modules": [
+            "pediatric-head-injury",
+            "clinical-scores-calculators"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de TCE pediátrico e trauma pediátrico se lesões associadas/instabilidade",
+          "priority": "immediate",
+          "rationale": "prevenir lesão cerebral secundária",
+          "source_modules": [
+            "pediatric-head-injury",
+            "pediatric-major-trauma"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng232"
+    },
+    {
+      "id": "neutropenic-sepsis",
+      "diagnosis": "Sépsis neutropénica",
+      "category": "hematology_oncology",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "neutropenia",
+            "neutropénia",
+            "neutropenic",
+            "neutropénico"
+          ],
+          "weight": 3,
+          "label": "neutropenia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "quimioterapia",
+            "anticancer treatment",
+            "tratamento oncológico"
+          ],
+          "weight": 1,
+          "label": "tratamento anticancerígeno"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "febre",
+            "fever",
+            "unwell",
+            "mal-estar"
+          ],
+          "weight": 1,
+          "label": "febre/mal-estar"
+        }
+      ],
+      "missing_if_absent": [
+        "neutrófilos",
+        "temperatura",
+        "lactato",
+        "culturas",
+        "função renal/hepática"
+      ],
+      "differential": [
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Hemograma com neutrófilos, função renal/hepática, CRP, lactato e hemoculturas imediatamente",
+          "priority": "immediate",
+          "rationale": "confirmar e estratificar sépsis neutropénica",
+          "source_modules": [
+            "hematology-oncology"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Tratar como emergência médica e iniciar antibioterapia empírica IV imediatamente conforme protocolo/local microbiologia",
+          "priority": "immediate",
+          "rationale": "atraso antibiótico aumenta risco",
+          "source_modules": [
+            "hematology-oncology",
+            "empiric-antibiotics"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/cg151"
+    },
+    {
+      "id": "sickle-cell-acute-emergency",
+      "diagnosis": "Crise falciforme dolorosa / complicação aguda",
+      "category": "hematology",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "drepanocitose",
+            "sickle cell",
+            "falciforme"
+          ],
+          "weight": 2,
+          "label": "doença falciforme"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "crise dolorosa",
+            "vaso-occlusive",
+            "vasooclusiva"
+          ],
+          "weight": 3,
+          "label": "crise dolorosa"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor torácica",
+            "febre",
+            "hipoxemia"
+          ],
+          "weight": 1,
+          "label": "sinais de complicação torácica/infecciosa"
+        }
+      ],
+      "missing_if_absent": [
+        "SpO2",
+        "dor/analgesia prévia",
+        "hemograma/reticulócitos conforme contexto",
+        "sinais de síndrome torácica aguda"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "acute-chest-syndrome"
+      ],
+      "must_not_miss": [
+        "acute-chest-syndrome"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar dor, SpO2, temperatura e complicações; investigar síndrome torácica aguda se dor torácica/febre/hipoxemia",
+          "priority": "immediate",
+          "rationale": "crise dolorosa é emergência e complicações podem ser fatais",
+          "source_modules": [
+            "hematology-oncology"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Analgesia apropriada rapidamente e ativar protocolo falciforme; oxigénio se hipoxemia e escalada especializada se complicação",
+          "priority": "immediate",
+          "rationale": "NICE recomenda tratar episódio doloroso como emergência médica",
+          "source_modules": [
+            "hematology-oncology",
+            "acute-musculoskeletal-pain"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/cg143"
+    },
+    {
+      "id": "testicular-torsion",
+      "diagnosis": "Torção testicular",
+      "category": "urologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dor testicular súbita",
+            "dolor testicular súbito",
+            "sudden testicular pain"
+          ],
+          "weight": 4,
+          "label": "dor testicular súbita"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "testículo elevado",
+            "high-riding testis",
+            "reflexo cremastérico ausente"
+          ],
+          "weight": 2,
+          "label": "sinais de torção"
+        }
+      ],
+      "missing_if_absent": [
+        "tempo de início",
+        "exame escrotal",
+        "avaliação urológica/cirúrgica"
+      ],
+      "differential": [
+        "epididymitis"
+      ],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Avaliação cirúrgica/urológica imediata; não atrasar exploração por ecografia se suspeita clínica alta",
+          "priority": "immediate",
+          "rationale": "viabilidade testicular é tempo-dependente",
+          "source_modules": [
+            "urologic-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de urgências urológicas e cirurgia urgente",
+          "priority": "immediate",
+          "rationale": "destorção/fixação precoce preserva testículo",
+          "source_modules": [
+            "urologic-emergencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-angle-closure-glaucoma",
+      "diagnosis": "Glaucoma agudo de ângulo fechado",
+      "category": "ophthalmology",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "olho vermelho doloroso",
+            "painful red eye",
+            "dor ocular intensa"
+          ],
+          "weight": 2,
+          "label": "olho vermelho doloroso"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "halos",
+            "midríase fixa",
+            "pupila média fixa",
+            "náuseas e vómitos"
+          ],
+          "weight": 2,
+          "label": "sinais compatíveis"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "pressão intraocular elevada",
+            "acute angle closure",
+            "ângulo fechado"
+          ],
+          "weight": 4,
+          "label": "hipertensão ocular/ângulo fechado"
+        }
+      ],
+      "missing_if_absent": [
+        "acuidade visual",
+        "pupilas",
+        "PIO quando disponível",
+        "oftalmologia urgente"
+      ],
+      "differential": [
+        "ophthalmology-emergencies"
+      ],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Avaliar acuidade visual, pupilas e PIO quando disponível; contactar oftalmologia imediatamente",
+          "priority": "immediate",
+          "rationale": "perda visual irreversível pode ocorrer rapidamente",
+          "source_modules": [
+            "ophthalmology-emergencies",
+            "ophthalmology-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de urgências oftalmológicas e redução urgente da PIO conforme protocolo",
+          "priority": "immediate",
+          "rationale": "emergência ocular tempo-dependente",
+          "source_modules": [
+            "ophthalmology-emergencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ent-airway-emergency",
+      "diagnosis": "Urgência ORL com risco de via aérea",
+      "category": "ent",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "epiglotite",
+            "abscesso periamigdalino",
+            "abscesso retrofaríngeo",
+            "deep neck infection"
+          ],
+          "weight": 4,
+          "label": "infeção ORL profunda"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "estridor",
+            "voz abafada",
+            "hot potato voice",
+            "sialorreia",
+            "drooling"
+          ],
+          "weight": 2,
+          "label": "sinais de via aérea"
+        }
+      ],
+      "missing_if_absent": [
+        "via aérea/estridor",
+        "capacidade de deglutir secreções",
+        "exame ORL"
+      ],
+      "differential": [
+        "anaphylaxis",
+        "croup"
+      ],
+      "must_not_miss": [
+        "anaphylaxis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar via aérea antes de exames; ORL/anestesia precoce se estridor, sialorreia ou incapacidade de gerir secreções",
+          "priority": "immediate",
+          "rationale": "manipulação/exames podem precipitar obstrução",
+          "source_modules": [
+            "ent-emergencies",
+            "airway-rsi"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo ORL e via aérea difícil; antibiótico/drenagem conforme diagnóstico sem atrasar controlo de via aérea",
+          "priority": "immediate",
+          "rationale": "prioridade é prevenir obstrução",
+          "source_modules": [
+            "ent-emergencies",
+            "airway-rsi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "septic-arthritis-orthopedic",
+      "diagnosis": "Artrite séptica / infeção osteoarticular grave",
+      "category": "orthopedic_infectious",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "articulação quente",
+            "hot swollen joint",
+            "articulación caliente",
+            "derrame articular"
+          ],
+          "weight": 2,
+          "label": "articulação inflamada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "incapaz de apoiar",
+            "non weight bearing",
+            "dor intensa à mobilização passiva"
+          ],
+          "weight": 2,
+          "label": "impotência funcional"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "artrite séptica",
+            "septic arthritis"
+          ],
+          "weight": 5,
+          "label": "suspeita/documentação séptica"
+        }
+      ],
+      "missing_if_absent": [
+        "temperatura",
+        "CRP/hemograma",
+        "aspiração/cultura articular",
+        "imagem dirigida"
+      ],
+      "differential": [
+        "orthopedic-emergencies",
+        "sickle-cell-acute-emergency"
+      ],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Hemoculturas e aspiração articular urgente quando apropriado, com ortopedia",
+          "priority": "urgent",
+          "rationale": "diagnóstico microbiológico e drenagem precoce preservam articulação",
+          "source_modules": [
+            "orthopedic-emergencies",
+            "emergency-infectious-diseases"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo ortopédico/infeccioso e iniciar antibiótico após culturas quando não houver atraso perigoso",
+          "priority": "urgent",
+          "rationale": "artrite séptica requer drenagem e antimicrobianos",
+          "source_modules": [
+            "orthopedic-emergencies",
+            "empiric-antibiotics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self-harm-suicide-risk",
+      "diagnosis": "Autoagressão / risco suicidário agudo",
+      "category": "psychiatric",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "autoagressão",
+            "self-harm",
+            "tentativa de suicídio",
+            "suicide attempt",
+            "ideação suicida",
+            "suicidal ideation"
+          ],
+          "weight": 5,
+          "label": "autoagressão/ideação suicida"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "plano suicida",
+            "suicide plan",
+            "meios disponíveis",
+            "intent"
+          ],
+          "weight": 2,
+          "label": "plano/intenção"
+        }
+      ],
+      "missing_if_absent": [
+        "lesão/intoxicação física",
+        "segurança imediata",
+        "estado mental",
+        "salvaguarda",
+        "avaliação psicossocial"
+      ],
+      "differential": [
+        "toxicology",
+        "psychiatric-emergencies"
+      ],
+      "must_not_miss": [
+        "toxicology"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Tratar lesões/intoxicação primeiro e solicitar avaliação psicossocial/psiquiatria apropriada; avaliar segurança imediata e safeguarding",
+          "priority": "immediate",
+          "rationale": "risco físico e mental devem ser geridos em paralelo",
+          "source_modules": [
+            "suicide-risk",
+            "psychiatric-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Manter ambiente seguro e observação proporcional ao risco; não usar score isolado para prever suicídio ou decidir alta",
+          "priority": "immediate",
+          "rationale": "decisão exige avaliação clínica e psicossocial individual",
+          "source_modules": [
+            "suicide-risk",
+            "psychiatric-emergencies"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng225"
+    },
+    {
+      "id": "acute-agitation-psychosis",
+      "diagnosis": "Agitação grave / psicose aguda",
+      "category": "psychiatric",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "agitação grave",
+            "agitación severa",
+            "violent agitation",
+            "psicose aguda",
+            "acute psychosis",
+            "delírios",
+            "alucinações"
+          ],
+          "weight": 3,
+          "label": "agitação/psicose"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "ameaça a terceiros",
+            "risco para outros",
+            "agressividade"
+          ],
+          "weight": 1,
+          "label": "risco comportamental"
+        }
+      ],
+      "missing_if_absent": [
+        "glicemia",
+        "toxidrome/intoxicação",
+        "delirium/causa médica",
+        "risco para si/outros"
+      ],
+      "differential": [
+        "toxicology",
+        "altered-consciousness"
+      ],
+      "must_not_miss": [
+        "toxicology"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Excluir causas médicas/tóxicas de agitação, avaliar segurança e capacidade/risco",
+          "priority": "immediate",
+          "rationale": "delirium e intoxicação podem simular psicose",
+          "source_modules": [
+            "psychiatric-emergencies",
+            "toxicology"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo psiquiátrico; desescalada verbal e ambiente seguro primeiro, sedação apenas quando necessária e protocolada",
+          "priority": "immediate",
+          "rationale": "reduzir risco e evitar contenção desnecessária",
+          "source_modules": [
+            "psychiatric-emergencies",
+            "pediatric-procedural-sedation"
+          ]
+        }
+      ]
     }
   ]
 }
