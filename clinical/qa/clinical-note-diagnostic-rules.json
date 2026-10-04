@@ -1910,7 +1910,8 @@
             "arrhythmias-cardiac-arrest"
           ]
         }
-      ]
+      ],
+      "min_age_years": 18
     },
     {
       "id": "syncope-falls-frailty",
@@ -1986,7 +1987,8 @@
             "observation-discharge"
           ]
         }
-      ]
+      ],
+      "min_age_years": 18
     },
     {
       "id": "toxicology",
@@ -4116,7 +4118,8 @@
           ]
         }
       ],
-      "source_url": "https://www.resus.org.uk/library/2025-resuscitation-guidelines"
+      "source_url": "https://www.resus.org.uk/library/2025-resuscitation-guidelines",
+      "min_age_years": 18
     },
     {
       "id": "undifferentiated-shock",
@@ -5186,6 +5189,588 @@
           "source_modules": [
             "geriatric-emergencies",
             "psychiatric-emergencies"
+          ]
+        }
+      ],
+      "min_age_years": 65
+    },
+    {
+      "id": "pediatric-cardiac-arrest",
+      "diagnosis": "Paragem cardiorrespiratória pediátrica",
+      "category": "pediatric_resuscitation",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "paragem cardiorrespiratória",
+            "parada cardiorrespiratoria",
+            "cardiac arrest",
+            "sem pulso",
+            "pulseless"
+          ],
+          "weight": 6,
+          "label": "PCR/ausência de pulso"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "vf",
+            "fibrilhação ventricular",
+            "assistolia",
+            "pea",
+            "atividade elétrica sem pulso"
+          ],
+          "weight": 4,
+          "label": "ritmo de paragem"
+        }
+      ],
+      "missing_if_absent": [
+        "peso/idade",
+        "ritmo inicial",
+        "tempo de colapso/RCP",
+        "causas reversíveis pediátricas"
+      ],
+      "differential": [],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Identificar ritmo e causas reversíveis durante RCP pediátrica sem interromper compressões",
+          "priority": "immediate",
+          "rationale": "tratamento é dependente de ritmo, idade e peso",
+          "source_modules": [
+            "pediatric-cardiac-arrest",
+            "pediatric-arrhythmias"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar algoritmo de PCR pediátrica com doses/energia por peso e RCP de alta qualidade",
+          "priority": "immediate",
+          "rationale": "não extrapolar doses adultas",
+          "source_modules": [
+            "pediatric-cardiac-arrest",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-arrhythmias",
+      "diagnosis": "Arritmia pediátrica sintomática",
+      "category": "pediatric_cardiovascular",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "taquicardia supraventricular",
+            "svt",
+            "taquicardia ventricular",
+            "bradicardia sintomática",
+            "bloqueio av",
+            "arrítmia pediátrica"
+          ],
+          "weight": 4,
+          "label": "arritmia documentada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "palpitações",
+            "síncope",
+            "má perfusão"
+          ],
+          "weight": 1,
+          "label": "sintomas associados"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/peso",
+        "ECG",
+        "perfusão/PA",
+        "eletrólitos"
+      ],
+      "differential": [
+        "pediatric-shock",
+        "pediatric-cardiac-arrest"
+      ],
+      "must_not_miss": [
+        "pediatric-cardiac-arrest"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ECG de 12 derivações, monitorização e eletrólitos; documentar peso",
+          "priority": "immediate",
+          "rationale": "tratamento é ritmo e peso-dependente",
+          "source_modules": [
+            "pediatric-arrhythmias",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de arritmias pediátricas e tratar instabilidade primeiro",
+          "priority": "immediate",
+          "rationale": "cardioversão/fármacos são específicos por peso e mecanismo",
+          "source_modules": [
+            "pediatric-arrhythmias",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-cns-infection",
+      "diagnosis": "Meningite/encefalite pediátrica",
+      "category": "pediatric_neuroinfectious",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "meningite",
+            "encefalite",
+            "rigidez da nuca",
+            "fontanela abaulada",
+            "convulsão febril complexa"
+          ],
+          "weight": 3,
+          "label": "suspeita de infeção SNC"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "febre",
+            "letargia",
+            "irritabilidade",
+            "alteração do estado mental"
+          ],
+          "weight": 1,
+          "label": "sinais sistémicos/neurológicos"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/peso",
+        "glicemia",
+        "hemoculturas",
+        "segurança/indicação para PL"
+      ],
+      "differential": [
+        "pediatric-sepsis",
+        "pediatric-status-epilepticus"
+      ],
+      "must_not_miss": [
+        "pediatric-sepsis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Hemoculturas e avaliação para PL quando segura; neuroimagem apenas se indicada",
+          "priority": "immediate",
+          "rationale": "confirmar etiologia sem atrasar tratamento",
+          "source_modules": [
+            "pediatric-cns-infection"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de infeção SNC pediátrica e antimicrobianos por idade/peso sem atraso quando suspeita significativa",
+          "priority": "immediate",
+          "rationale": "meningite bacteriana/encefalite são tempo-dependentes",
+          "source_modules": [
+            "pediatric-cns-infection",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-major-trauma",
+      "diagnosis": "Trauma major pediátrico",
+      "category": "pediatric_trauma",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "politrauma",
+            "trauma major",
+            "major trauma",
+            "acidente de alta energia",
+            "atropelamento"
+          ],
+          "weight": 4,
+          "label": "trauma major"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hemorragia ativa",
+            "instabilidade hemodinâmica",
+            "gcs baixo"
+          ],
+          "weight": 2,
+          "label": "gravidade fisiológica"
+        }
+      ],
+      "missing_if_absent": [
+        "peso",
+        "ABCDE pediátrico",
+        "GCS pediátrico",
+        "mecanismo"
+      ],
+      "differential": [
+        "pediatric-head-injury",
+        "pediatric-shock",
+        "pediatric-burns"
+      ],
+      "must_not_miss": [
+        "pediatric-shock",
+        "pediatric-head-injury"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliação traumática pediátrica estruturada e imagem dirigida por estabilidade/mecanismo",
+          "priority": "immediate",
+          "rationale": "minimizar atraso e radiação desnecessária",
+          "source_modules": [
+            "pediatric-major-trauma"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar trauma pediátrico/hemorragia major pediátrica e controlo de hemorragia",
+          "priority": "immediate",
+          "rationale": "reanimação e transfusão são peso-dependentes",
+          "source_modules": [
+            "pediatric-major-trauma",
+            "pediatric-blood-transfusion-major-hemorrhage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-burns",
+      "diagnosis": "Queimadura pediátrica significativa",
+      "category": "pediatric_trauma",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "queimadura",
+            "burn",
+            "escaldadura"
+          ],
+          "weight": 2,
+          "label": "queimadura"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "queimadura extensa",
+            "face/pescoço",
+            "circunferencial",
+            "elétrica",
+            "química"
+          ],
+          "weight": 3,
+          "label": "queimadura de alto risco"
+        }
+      ],
+      "missing_if_absent": [
+        "peso",
+        "TBSA/profundidade",
+        "risco de inalação",
+        "mecanismo/safeguarding"
+      ],
+      "differential": [
+        "smoke-inhalation-toxic-injury"
+      ],
+      "must_not_miss": [
+        "smoke-inhalation-toxic-injury"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Estimar TBSA/profundidade com método pediátrico e avaliar lesão inalatória/safeguarding",
+          "priority": "immediate",
+          "rationale": "fluidos, transferência e analgesia dependem de peso/extensão",
+          "source_modules": [
+            "pediatric-burns"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de queimaduras pediátricas e centro especializado conforme critérios",
+          "priority": "immediate",
+          "rationale": "tratamento pediátrico é peso/TBSA-dependente",
+          "source_modules": [
+            "pediatric-burns",
+            "pediatric-iv-fluid-therapy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-toxicology",
+      "diagnosis": "Intoxicação pediátrica aguda",
+      "category": "pediatric_toxicology",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "intoxicação",
+            "ingestão acidental",
+            "overdose",
+            "sobredosagem",
+            "exposição tóxica"
+          ],
+          "weight": 4,
+          "label": "exposição tóxica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "miose",
+            "midríase",
+            "anticolinérgico",
+            "opioide",
+            "serotoninérgico"
+          ],
+          "weight": 1,
+          "label": "toxíndrome"
+        }
+      ],
+      "missing_if_absent": [
+        "peso",
+        "substância/dose/tempo",
+        "coingestões",
+        "glicemia/ECG quando indicados"
+      ],
+      "differential": [
+        "pediatric-cns-infection",
+        "pediatric-electrolyte-emergencies"
+      ],
+      "must_not_miss": [
+        "pediatric-cardiac-arrest"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Identificar substância, dose máxima possível e tempo; ECG/glicemia/testes dirigidos",
+          "priority": "immediate",
+          "rationale": "toxicidade e antídotos são dose/peso-dependentes",
+          "source_modules": [
+            "pediatric-toxicology",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar toxicologia pediátrica e antídotos/doses por peso; ABCDE primeiro",
+          "priority": "immediate",
+          "rationale": "não extrapolar doses adultas",
+          "source_modules": [
+            "pediatric-toxicology",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-adrenal-crisis",
+      "diagnosis": "Crise suprarrenal pediátrica",
+      "category": "pediatric_endocrine",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "insuficiência suprarrenal",
+            "adrenal insufficiency",
+            "addison",
+            "crise suprarrenal"
+          ],
+          "weight": 3,
+          "label": "risco adrenal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipoglicemia",
+            "hiponatremia",
+            "choque",
+            "vómitos"
+          ],
+          "weight": 2,
+          "label": "descompensação"
+        }
+      ],
+      "missing_if_absent": [
+        "peso",
+        "glicemia",
+        "eletrólitos",
+        "história de esteroides"
+      ],
+      "differential": [
+        "pediatric-sepsis",
+        "pediatric-shock"
+      ],
+      "must_not_miss": [
+        "pediatric-sepsis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Glicemia e eletrólitos imediatos; cortisol/ACTH se não atrasar tratamento",
+          "priority": "immediate",
+          "rationale": "confirmar distúrbios associados",
+          "source_modules": [
+            "pediatric-adrenal-crisis"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar crise suprarrenal pediátrica; hidrocortisona e fluidos por protocolo/peso",
+          "priority": "immediate",
+          "rationale": "causa reversível de choque",
+          "source_modules": [
+            "pediatric-adrenal-crisis",
+            "pediatric-shock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-hypertensive-emergency",
+      "diagnosis": "Emergência hipertensiva pediátrica",
+      "category": "pediatric_cardiovascular",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hipertensão grave criança",
+            "pediatric hypertensive emergency",
+            "emergência hipertensiva pediátrica"
+          ],
+          "weight": 5,
+          "label": "hipertensão grave pediátrica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "encefalopatia",
+            "convulsão",
+            "papiledema",
+            "lesão renal aguda"
+          ],
+          "weight": 2,
+          "label": "lesão de órgão-alvo"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/altura percentil quando relevante",
+        "PA repetida corretamente",
+        "lesão de órgão-alvo"
+      ],
+      "differential": [
+        "pediatric-cns-infection",
+        "pediatric-renal-emergency"
+      ],
+      "must_not_miss": [
+        "pediatric-status-epilepticus"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Confirmar PA com manguito adequado e investigar órgão-alvo/etiologia renal-cardiovascular",
+          "priority": "immediate",
+          "rationale": "limiares pediátricos dependem de idade/tamanho e contexto",
+          "source_modules": [
+            "pediatric-hypertensive-emergency"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de emergência hipertensiva pediátrica e redução controlada por protocolo",
+          "priority": "immediate",
+          "rationale": "evitar queda excessiva de perfusão",
+          "source_modules": [
+            "pediatric-hypertensive-emergency",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-hematology-oncology-emergencies",
+      "diagnosis": "Emergência hematológica/oncológica pediátrica",
+      "category": "pediatric_hematology_oncology",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "quimioterapia",
+            "neutropenia",
+            "leucemia",
+            "oncologia pediátrica",
+            "tumor lysis",
+            "síndrome de lise tumoral"
+          ],
+          "weight": 2,
+          "label": "contexto onco-hematológico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "febre",
+            "sangramento",
+            "hiperpotasemia",
+            "hiperuricemia",
+            "dispneia"
+          ],
+          "weight": 1,
+          "label": "complicação aguda"
+        }
+      ],
+      "missing_if_absent": [
+        "peso",
+        "hemograma/neutrófilos",
+        "eletrólitos/urato/renal",
+        "tipo de tratamento oncológico"
+      ],
+      "differential": [
+        "pediatric-sepsis",
+        "pediatric-electrolyte-emergencies"
+      ],
+      "must_not_miss": [
+        "pediatric-sepsis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Hemograma, neutrófilos, renal/eletrólitos/urato e investigação dirigida à complicação",
+          "priority": "immediate",
+          "rationale": "neutropenia febril e lise tumoral são emergências",
+          "source_modules": [
+            "pediatric-hematology-oncology-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo onco-hematológico pediátrico e especialista; antibiótico/gestão de lise/transfusão conforme síndrome",
+          "priority": "immediate",
+          "rationale": "tratamento depende do fenótipo e peso",
+          "source_modules": [
+            "pediatric-hematology-oncology-emergencies"
           ]
         }
       ]
