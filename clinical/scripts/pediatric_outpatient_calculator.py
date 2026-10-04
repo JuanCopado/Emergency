@@ -105,16 +105,38 @@ def _check_patient_gates(entry, patient):
         if value > gate["maximum"]:
             raise ValueError(gate.get("message", f"{field} above maximum"))
 
+def _check_organ_function_gates(entry, patient):
+    renal=entry.get("renal_adjustment")
+    if renal and patient.get("known_renal_impairment") is True:
+        mode=renal.get("mode")
+        if mode=="standard_if_egfr_at_least":
+            if patient.get("egfr_mL_min") is None:
+                raise ValueError("egfr_mL_min required when known renal impairment is present")
+            egfr=_num(patient["egfr_mL_min"],"egfr_mL_min")
+            if egfr < renal["minimum_egfr"]:
+                raise ValueError(renal.get("message","standard regimen is not valid below the renal threshold"))
+        elif mode=="block_standard_regimen":
+            raise ValueError(renal.get("message","standard regimen requires renal dose individualization"))
+        elif mode=="none_required":
+            pass
+    hepatic=entry.get("hepatic_adjustment")
+    if hepatic and patient.get("known_hepatic_impairment") is True:
+        severity=str(patient.get("hepatic_severity","")).strip().lower()
+        if hepatic.get("block_if_severe") and severity=="severe":
+            raise ValueError(hepatic.get("message","standard regimen is not valid in severe hepatic impairment"))
+
 def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, selected_volume_ml=None, registry=None):
     registry=registry or load_registry()
     e=_entry(registry,regimen_id)
     _check_age(e,patient)
     _check_patient_gates(e,patient)
+    _check_organ_function_gates(e,patient)
     result={
       "regimen_id":regimen_id,"drug":e["drug"],"diagnosis":e["diagnosis"],"route":e.get("route","PO"),
       "weight_basis":e.get("weight_basis"),"frequency":e.get("frequency"),
       "administration":e.get("administration"),"contraindications":e.get("contraindications",[]),
-      "cautions":e.get("cautions",[]),"source":e.get("source"),"source_url":e.get("source_url"),
+      "cautions":e.get("cautions",[]),"renal_adjustment":e.get("renal_adjustment"),
+      "hepatic_adjustment":e.get("hepatic_adjustment"),"source":e.get("source"),"source_url":e.get("source_url"),
       "status":"calculated"
     }
     model=e["dose_model"]
