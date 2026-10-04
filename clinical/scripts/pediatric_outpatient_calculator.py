@@ -105,7 +105,7 @@ def _check_patient_gates(entry, patient):
         if value > gate["maximum"]:
             raise ValueError(gate.get("message", f"{field} above maximum"))
 
-def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, registry=None):
+def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, selected_volume_ml=None, registry=None):
     registry=registry or load_registry()
     e=_entry(registry,regimen_id)
     _check_age(e,patient)
@@ -192,7 +192,15 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         result["dose_mg"]=dose
     elif model=="fixed_volume_band":
         band=_fixed_band(e,patient)
-        volume_ml=_num(band["dose_ml"],"dose_ml")
+        if band.get("dose_ml") is not None:
+            volume_ml=_num(band["dose_ml"],"dose_ml")
+        else:
+            lo,hi=band["dose_ml_range"]
+            if selected_volume_ml is None:
+                raise ValueError(f"volume selection required within {lo}-{hi} mL")
+            volume_ml=_num(selected_volume_ml,"selected_volume_ml")
+            if volume_ml<lo or volume_ml>hi:
+                raise ValueError("selected_volume_ml outside source range")
         doses_per_day=band.get("doses_per_day",doses_per_day)
         duration=band.get("duration_days",duration)
         result["matched_band"]=band
@@ -252,8 +260,8 @@ if __name__=="__main__":
     import argparse
     p=argparse.ArgumentParser()
     p.add_argument("regimen_id"); p.add_argument("patient_json"); p.add_argument("--product-json")
-    p.add_argument("--dose-per-kg",type=float); p.add_argument("--duration-days",type=int)
+    p.add_argument("--dose-per-kg",type=float); p.add_argument("--duration-days",type=int); p.add_argument("--volume-ml",type=float)
     a=p.parse_args()
     patient=json.loads(Path(a.patient_json).read_text())
     product=json.loads(Path(a.product_json).read_text()) if a.product_json else None
-    print(json.dumps(calculate(a.regimen_id,patient,product,a.dose_per_kg,a.duration_days),indent=2,ensure_ascii=False))
+    print(json.dumps(calculate(a.regimen_id,patient,product,a.dose_per_kg,a.duration_days,a.volume_ml),indent=2,ensure_ascii=False))
