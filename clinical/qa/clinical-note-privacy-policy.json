@@ -48,7 +48,7 @@
     },
     {
       "id": "labelled_name",
-      "pattern": "(?i)(nome|name)[^\\\\n]{0,80}"
+      "pattern": "(?i)\\\\b(nome|name)\\\\b[^\\\\n]{0,80}"
     }
   ],
   "attachment_rules": {
