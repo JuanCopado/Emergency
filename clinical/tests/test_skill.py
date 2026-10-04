@@ -4849,6 +4849,80 @@ class ModularCoreTests(unittest.TestCase):
         self.assertAlmostEqual(ond['volume_per_dose']['exact_ml'],5.625)
         self.assertEqual(ond['total_doses'],1)
 
+    def test_v138_blockD_infected_eczema_antibiotic(self):
+        result=calculate_pediatric_outpatient(
+            'cefalexin-infected-eczema-bacterial',
+            {'age_months':84,'actual_weight_kg':20},
+            {'concentration_mg_per_ml':50},
+            selected_duration_days=7
+        )
+        self.assertEqual(result['dose_mg'],400)
+        self.assertEqual(result['volume_per_dose']['exact_ml'],8)
+        self.assertEqual(result['total_doses'],21)
+        self.assertTrue(any('herpeticum' in x.lower() for x in result['cautions']))
+
+    def test_v138_blockD_intranasal_age_device_bands(self):
+        mom=calculate_pediatric_outpatient(
+            'mometasone-nasal-allergic-rhinitis',
+            {'age_months':72,'actual_weight_kg':25}
+        )
+        self.assertEqual(mom['device']['sprays_per_nostril_per_dose'],1)
+        self.assertEqual(mom['device']['total_daily_micrograms'],100)
+
+        teen=calculate_pediatric_outpatient(
+            'mometasone-nasal-allergic-rhinitis',
+            {'age_months':180,'actual_weight_kg':55}
+        )
+        self.assertEqual(teen['device']['sprays_per_nostril_per_dose'],2)
+        self.assertEqual(teen['device']['total_daily_micrograms'],200)
+
+        combo=calculate_pediatric_outpatient(
+            'azelastine-fluticasone-nasal-ge12',
+            {'age_months':180,'actual_weight_kg':55}
+        )
+        self.assertEqual(combo['device']['sprays_per_nostril_per_dose'],1)
+        self.assertEqual(combo['device']['doses_per_day'],2)
+        with self.assertRaisesRegex(ValueError,'minimum age'):
+            calculate_pediatric_outpatient(
+                'azelastine-fluticasone-nasal-ge12',
+                {'age_months':120,'actual_weight_kg':30}
+            )
+
+    def test_v138_blockD_allergic_eye_drops(self):
+        olop=calculate_pediatric_outpatient(
+            'olopatadine-allergic-conjunctivitis-ge3',
+            {'age_months':48,'actual_weight_kg':18}
+        )
+        self.assertEqual(olop['drops_per_dose'],1)
+        self.assertEqual(olop['doses_per_day'],2)
+
+        keto=calculate_pediatric_outpatient(
+            'ketotifen-eye-allergic-conjunctivitis-ge3',
+            {'age_months':60,'actual_weight_kg':20}
+        )
+        self.assertEqual(keto['drops_per_dose'],1)
+        self.assertEqual(keto['doses_per_day'],2)
+
+    def test_v138_blockD_docusate_range_is_explicit(self):
+        infant=calculate_pediatric_outpatient(
+            'docusate-paediatric-constipation-ge6mo',
+            {'age_months':9,'actual_weight_kg':9}
+        )
+        self.assertEqual(infant['volume_per_dose']['exact_ml'],5)
+        self.assertEqual(infant['doses_per_day'],3)
+
+        with self.assertRaisesRegex(ValueError,'volume selection required'):
+            calculate_pediatric_outpatient(
+                'docusate-paediatric-constipation-ge6mo',
+                {'age_months':48,'actual_weight_kg':18}
+            )
+        child=calculate_pediatric_outpatient(
+            'docusate-paediatric-constipation-ge6mo',
+            {'age_months':48,'actual_weight_kg':18},
+            selected_volume_ml=7.5
+        )
+        self.assertEqual(child['volume_per_dose']['exact_ml'],7.5)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
