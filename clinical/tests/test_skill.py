@@ -4732,6 +4732,122 @@ class ModularCoreTests(unittest.TestCase):
                 selected_volume_ml=12
             )
 
+    def test_v138_blockC_pinworm_repeat_schedules(self):
+        alb=calculate_pediatric_outpatient(
+            'albendazole-pinworm-ge2y',
+            {'age_months':60,'actual_weight_kg':20},
+            {'concentration_mg_per_ml':20}
+        )
+        self.assertEqual(alb['total_doses'],2)
+        self.assertEqual(alb['schedule'][0]['dose_mg'],400)
+        self.assertEqual(alb['schedule'][0]['volume_per_dose']['exact_ml'],20)
+        self.assertEqual(alb['schedule'][1]['name'],'dose_2_day_15')
+        self.assertEqual(alb['estimated_total_course_ml'],40)
+
+        pyr=calculate_pediatric_outpatient(
+            'pyrantel-pinworm-ge2y',
+            {'age_months':84,'actual_weight_kg':20}
+        )
+        self.assertEqual(pyr['total_doses'],2)
+        self.assertEqual(pyr['schedule'][0]['dose_mg'],220)
+
+    def test_v138_blockC_ivermectin_weight_and_loa_gates(self):
+        ok=calculate_pediatric_outpatient(
+            'ivermectin-strongyloides-ge15kg',
+            {'age_months':120,'actual_weight_kg':20,'suspected_or_confirmed_loa_loa':False},
+            selected_duration_days=2
+        )
+        self.assertEqual(ok['dose_mg'],4)
+        self.assertEqual(ok['total_doses'],2)
+
+        with self.assertRaisesRegex(ValueError,'15 kg'):
+            calculate_pediatric_outpatient(
+                'ivermectin-strongyloides-ge15kg',
+                {'age_months':60,'actual_weight_kg':14,'suspected_or_confirmed_loa_loa':False},
+                selected_duration_days=1
+            )
+        with self.assertRaisesRegex(ValueError,'Loa loa'):
+            calculate_pediatric_outpatient(
+                'ivermectin-strongyloides-ge15kg',
+                {'age_months':120,'actual_weight_kg':20,'suspected_or_confirmed_loa_loa':True},
+                selected_duration_days=1
+            )
+
+    def test_v138_blockC_acyclovir_volume_and_renal_gate(self):
+        v40=calculate_pediatric_outpatient(
+            'acyclovir-varicella-standard-renal',
+            {'age_months':84,'actual_weight_kg':20,'renal_adjustment_required':False},
+            {'concentration_mg_per_ml':40}
+        )
+        self.assertEqual(v40['dose_mg'],400)
+        self.assertEqual(v40['volume_per_dose']['exact_ml'],10)
+        self.assertEqual(v40['total_doses'],20)
+
+        v80=calculate_pediatric_outpatient(
+            'acyclovir-varicella-standard-renal',
+            {'age_months':84,'actual_weight_kg':20,'renal_adjustment_required':False},
+            {'concentration_mg_per_ml':80}
+        )
+        self.assertEqual(v80['volume_per_dose']['exact_ml'],5)
+
+        with self.assertRaisesRegex(ValueError,'renal'):
+            calculate_pediatric_outpatient(
+                'acyclovir-varicella-standard-renal',
+                {'age_months':84,'actual_weight_kg':20,'renal_adjustment_required':True},
+                {'concentration_mg_per_ml':40}
+            )
+
+    def test_v138_blockC_ent_eye_regimens(self):
+        eye=calculate_pediatric_outpatient(
+            'chloramphenicol05-bacterial-conjunctivitis',
+            {'age_months':72,'actual_weight_kg':20}
+        )
+        self.assertEqual(eye['drops_per_dose'],1)
+        self.assertEqual(eye['doses_per_day_range'],[4,6])
+
+        ear=calculate_pediatric_outpatient(
+            'ciprofloxacin-dexamethasone-aoe-ge1y',
+            {'age_months':60,'actual_weight_kg':18}
+        )
+        self.assertEqual(ear['drops_per_dose'],4)
+        self.assertEqual(ear['doses_per_day'],2)
+        self.assertEqual(ear['duration_days'],7)
+
+        with self.assertRaisesRegex(ValueError,'perforation'):
+            calculate_pediatric_outpatient(
+                'phenazone-lidocaine-aom-pain',
+                {'age_months':48,'actual_weight_kg':18,'immediate_oral_antibiotic_given':False,'tm_perforation_or_otorrhoea':True}
+            )
+
+    def test_v138_blockC_rizatriptan_weight_boundary_is_fail_closed(self):
+        low=calculate_pediatric_outpatient(
+            'rizatriptan-migraine-rch',
+            {'age_months':120,'actual_weight_kg':35}
+        )
+        self.assertEqual(low['dose_mg'],5)
+
+        high=calculate_pediatric_outpatient(
+            'rizatriptan-migraine-rch',
+            {'age_months':180,'actual_weight_kg':41}
+        )
+        self.assertEqual(high['dose_mg'],10)
+
+        with self.assertRaisesRegex(ValueError,'no matching'):
+            calculate_pediatric_outpatient(
+                'rizatriptan-migraine-rch',
+                {'age_months':120,'actual_weight_kg':40}
+            )
+
+    def test_v138_blockC_ondansetron_migraine_volume(self):
+        ond=calculate_pediatric_outpatient(
+            'ondansetron-migraine-vomiting-ed',
+            {'age_months':120,'actual_weight_kg':30},
+            {'concentration_mg_per_ml':0.8}
+        )
+        self.assertEqual(ond['dose_mg'],4.5)
+        self.assertAlmostEqual(ond['volume_per_dose']['exact_ml'],5.625)
+        self.assertEqual(ond['total_doses'],1)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
