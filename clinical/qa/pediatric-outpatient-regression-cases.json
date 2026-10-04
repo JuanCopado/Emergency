@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Synthetic/de-identified regression bank for pediatric outpatient medication safety logic. These cases validate deterministic behavior, not patient outcomes.",
+  "cases": [
+    {
+      "id": "obesity-amoxicillin-adult-cap",
+      "regimen_id": "amoxicillin-aom",
+      "patient": {
+        "age_months": 120,
+        "actual_weight_kg": 60
+      },
+      "product": {
+        "concentration_mg_per_ml": 50
+      },
+      "expect": {
+        "dose_mg": 1000,
+        "volume_per_dose.exact_ml": 20,
+        "total_doses": 10
+      }
+    },
+    {
+      "id": "amoxicillin-renal-standard-block",
+      "regimen_id": "amoxicillin-aom",
+      "patient": {
+        "age_months": 84,
+        "actual_weight_kg": 20,
+        "known_renal_impairment": true,
+        "egfr_mL_min": 20
+      },
+      "product": {
+        "concentration_mg_per_ml": 50
+      },
+      "expect_error_contains": "below 30"
+    },
+    {
+      "id": "coamox-7to1-renal-block",
+      "regimen_id": "amox-clav-bite",
+      "patient": {
+        "age_months": 84,
+        "actual_weight_kg": 20,
+        "known_renal_impairment": true,
+        "egfr_mL_min": 20
+      },
+      "product": {
+        "concentration_mg_per_ml": 80
+      },
+      "expect_error_contains": "7:1"
+    },
+    {
+      "id": "gas-nonimmediate-cefalexin-allowed",
+      "regimen_id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "patient": {
+        "age_months": 120,
+        "actual_weight_kg": 30,
+        "immediate_or_severe_beta_lactam_allergy": false
+      },
+      "product": {
+        "concentration_mg_per_ml": 50
+      },
+      "expect": {
+        "dose_mg": 750,
+        "volume_per_dose.exact_ml": 15,
+        "total_doses": 20
+      }
+    },
+    {
+      "id": "gas-immediate-cefalexin-block",
+      "regimen_id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "patient": {
+        "age_months": 120,
+        "actual_weight_kg": 30,
+        "immediate_or_severe_beta_lactam_allergy": true
+      },
+      "product": {
+        "concentration_mg_per_ml": 50
+      },
+      "expect_error_contains": "not appropriate"
+    },
+    {
+      "id": "gas-immediate-azithromycin",
+      "regimen_id": "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
+      "patient": {
+        "age_months": 120,
+        "actual_weight_kg": 30,
+        "immediate_or_severe_beta_lactam_allergy": true
+      },
+      "product": {
+        "concentration_mg_per_ml": 40
+      },
+      "expect": {
+        "dose_mg": 360,
+        "volume_per_dose.exact_ml": 9,
+        "total_doses": 5
+      }
+    },
+    {
+      "id": "nitrofurantoin-pyelonephritis-block",
+      "regimen_id": "nitrofurantoin-cystitis-nice-3d",
+      "patient": {
+        "age_months": 120,
+        "actual_weight_kg": 20,
+        "egfr_mL_min": 90,
+        "g6pd_deficiency": false,
+        "acute_porphyria": false,
+        "suspected_pyelonephritis": true
+      },
+      "product": {
+        "concentration_mg_per_ml": 5
+      },
+      "expect_error_contains": "pyelonephritis"
+    },
+    {
+      "id": "trimethoprim-resistance-gate",
+      "regimen_id": "trimethoprim-cystitis-low-resistance",
+      "patient": {
+        "age_months": 84,
+        "actual_weight_kg": 20,
+        "low_resistance_risk_or_susceptible": false,
+        "suspected_pyelonephritis": false
+      },
+      "product": {
+        "concentration_mg_per_ml": 10
+      },
+      "expect_error_contains": "resistance"
+    },
+    {
+      "id": "ibuprofen-dehydration-block",
+      "regimen_id": "ibuprofen-pain-fever-home",
+      "patient": {
+        "age_months": 72,
+        "actual_weight_kg": 20,
+        "dehydrated": true,
+        "significant_renal_impairment": false,
+        "nsaid_hypersensitivity": false,
+        "active_or_recurrent_peptic_ulcer_bleeding": false
+      },
+      "product": {
+        "concentration_mg_per_ml": 20
+      },
+      "selected_duration_days": 1,
+      "expect_error_contains": "dehydration"
+    },
+    {
+      "id": "paracetamol-ideal-weight",
+      "regimen_id": "paracetamol-pain-fever-home",
+      "patient": {
+        "age_months": 120,
+        "actual_weight_kg": 55,
+        "ideal_weight_kg": 35
+      },
+      "product": {
+        "concentration_mg_per_ml": 24
+      },
+      "selected_duration_days": 2,
+      "expect": {
+        "dosing_weight_kg": 35,
+        "dose_mg": 525,
+        "volume_per_dose.rounded_0_1_ml": 21.9,
+        "total_doses": 8
+      }
+    },
+    {
+      "id": "unverified-concentration-block",
+      "regimen_id": "amox-clav-bite",
+      "patient": {
+        "age_months": 84,
+        "actual_weight_kg": 20
+      },
+      "product": {
+        "concentration_mg_per_ml": 50
+      },
+      "expect_error_contains": "not in registry"
+    },
+    {
+      "id": "pertussis-variable-schedule",
+      "regimen_id": "azithromycin-pertussis-ge6mo",
+      "patient": {
+        "age_months": 60,
+        "actual_weight_kg": 20
+      },
+      "product": {
+        "concentration_mg_per_ml": 40
+      },
+      "expect": {
+        "schedule.0.dose_mg": 200,
+        "schedule.1.dose_mg": 100,
+        "estimated_total_course_ml": 15,
+        "total_doses": 5
+      }
+    },
+    {
+      "id": "oseltamivir-renal-block",
+      "regimen_id": "oseltamivir-influenza-ge1y",
+      "patient": {
+        "age_months": 96,
+        "actual_weight_kg": 20,
+        "known_renal_impairment": true
+      },
+      "product": {
+        "concentration_mg_per_ml": 6
+      },
+      "expect_error_contains": "oseltamivir"
+    },
+    {
+      "id": "cetirizine-renal-block",
+      "regimen_id": "cetirizine-urticaria-ge1y",
+      "patient": {
+        "age_months": 84,
+        "actual_weight_kg": 25,
+        "known_renal_impairment": true
+      },
+      "product": {
+        "concentration_mg_per_ml": 1
+      },
+      "expect_error_contains": "individualized"
+    },
+    {
+      "id": "ors-shock-block",
+      "regimen_id": "ors-clinical-dehydration-50mlkg4h",
+      "patient": {
+        "age_months": 24,
+        "actual_weight_kg": 12,
+        "shock_or_iv_fluid_indication": true
+      },
+      "expect_error_contains": "oral-only"
+    },
+    {
+      "id": "dexamethasone-organ-function-no-adjustment",
+      "regimen_id": "dexamethasone-croup-mild-moderate",
+      "patient": {
+        "age_months": 48,
+        "actual_weight_kg": 18,
+        "known_renal_impairment": true,
+        "egfr_mL_min": 20,
+        "known_hepatic_impairment": true,
+        "hepatic_severity": "moderate"
+      },
+      "product": {
+        "concentration_mg_per_ml": 0.4
+      },
+      "expect": {
+        "dose_mg": 2.6999999999999997,
+        "renal_adjustment.mode": "none_required",
+        "hepatic_adjustment.mode": "none_required"
+      }
+    },
+    {
+      "id": "mart-age-gate",
+      "regimen_id": "budesonide-formoterol-air-mart-6to11-gina2026",
+      "patient": {
+        "age_months": 60,
+        "actual_weight_kg": 20
+      },
+      "expect_error_contains": "minimum age"
+    },
+    {
+      "id": "rizatriptan-40kg-boundary-block",
+      "regimen_id": "rizatriptan-migraine-rch",
+      "patient": {
+        "age_months": 120,
+        "actual_weight_kg": 40
+      },
+      "expect_error_contains": "no matching"
+    }
+  ]
+}
