@@ -5774,6 +5774,755 @@
           ]
         }
       ]
+    },
+    {
+      "id": "febrile-infant-0-90-days",
+      "diagnosis": "Lactente febril 0–90 dias / risco de infeção bacteriana invasiva",
+      "category": "pediatric_infectious",
+      "max_age_years": 0.25,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "febre",
+            "fever",
+            "temperatura 38",
+            "38.0"
+          ],
+          "weight": 3,
+          "label": "febre em lactente pequeno"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "lactente",
+            "recém-nascido",
+            "newborn",
+            "infant"
+          ],
+          "weight": 1,
+          "label": "idade neonatal/lactente"
+        }
+      ],
+      "missing_if_absent": [
+        "idade exata em dias",
+        "aparência/estado geral",
+        "urina",
+        "hemograma/CRP/culturas conforme idade",
+        "PL quando indicada"
+      ],
+      "differential": [
+        "pediatric-sepsis",
+        "pediatric-cns-infection"
+      ],
+      "must_not_miss": [
+        "pediatric-sepsis",
+        "pediatric-cns-infection"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Aplicar protocolo do lactente febril por idade em dias; urina e investigação bacteriana invasiva conforme faixa etária/estado clínico",
+          "priority": "immediate",
+          "rationale": "<3 meses com febre tem risco elevado de doença grave",
+          "source_modules": [
+            "febrile-infant-0-90-days",
+            "pediatric-sepsis"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de lactente febril; antibiótico parenteral/admissão quando os critérios por idade e estado clínico o exigirem",
+          "priority": "immediate",
+          "rationale": "não tratar como febre pediátrica banal",
+          "source_modules": [
+            "febrile-infant-0-90-days",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng143"
+    },
+    {
+      "id": "life-threatening-hemoptysis",
+      "diagnosis": "Hemoptise ameaçadora da vida",
+      "category": "respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hemoptise maciça",
+            "hemoptisis masiva",
+            "massive hemoptysis",
+            "life-threatening hemoptysis"
+          ],
+          "weight": 5,
+          "label": "hemoptise grave"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hemoptise",
+            "hemoptysis"
+          ],
+          "weight": 1,
+          "label": "hemoptise"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipoxemia",
+            "instabilidade",
+            "asfixia"
+          ],
+          "weight": 2,
+          "label": "compromisso respiratório/hemodinâmico"
+        }
+      ],
+      "missing_if_absent": [
+        "volume/ritmo de sangramento",
+        "oxigenação/via aérea",
+        "anticoagulação",
+        "localização"
+      ],
+      "differential": [
+        "pulmonary-embolism",
+        "emergency-infectious-diseases",
+        "lung-malignancy"
+      ],
+      "must_not_miss": [
+        "pulmonary-embolism",
+        "acute-respiratory-failure"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Priorizar via aérea/oxigenação e localizar sangramento com TC angiográfica/broncoscopia conforme estabilidade e recursos",
+          "priority": "immediate",
+          "rationale": "morte ocorre frequentemente por asfixia, não apenas por exsanguinação",
+          "source_modules": [
+            "life-threatening-hemoptysis",
+            "acute-respiratory-failure"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de hemoptise grave, suspender/reverter anticoagulação quando indicado e envolver broncoscopia/intervencionismo precocemente",
+          "priority": "immediate",
+          "rationale": "controlo rápido da via aérea e fonte",
+          "source_modules": [
+            "life-threatening-hemoptysis",
+            "anticoagulation-reversal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dermatology-severe",
+      "diagnosis": "Emergência dermatológica grave (SJS/TEN/DRESS/eritrodermia)",
+      "category": "dermatology",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "stevens-johnson",
+            "sjs",
+            "ten",
+            "necrólise epidérmica tóxica",
+            "toxic epidermal necrolysis",
+            "dress"
+          ],
+          "weight": 5,
+          "label": "síndrome cutânea grave"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "descolamento epidérmico",
+            "mucosite extensa",
+            "pele dolorosa",
+            "eritrodermia"
+          ],
+          "weight": 2,
+          "label": "sinais dermatológicos de gravidade"
+        }
+      ],
+      "missing_if_absent": [
+        "medicação nova",
+        "área corporal/mucosas",
+        "sinais sistémicos",
+        "função renal/hepática/hematologia"
+      ],
+      "differential": [
+        "soft-tissue-infections",
+        "toxicology"
+      ],
+      "must_not_miss": [
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Identificar fármaco precipitante e avaliar extensão, mucosas e envolvimento sistémico; dermatologia/centro especializado precoce",
+          "priority": "immediate",
+          "rationale": "síndromes cutâneas graves podem evoluir rapidamente",
+          "source_modules": [
+            "dermatology-severe",
+            "skin-wound-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Suspender imediatamente fármaco suspeito não essencial e ativar suporte especializado; tratar como queimadura/critical care quando indicado",
+          "priority": "immediate",
+          "rationale": "retirada precoce do agente e suporte reduzem dano",
+          "source_modules": [
+            "dermatology-severe",
+            "major-burns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "delirium",
+      "diagnosis": "Delirium agudo",
+      "category": "neuropsychiatric",
+      "min_age_years": 18,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "delirium",
+            "síndrome confusional agudo",
+            "confusão aguda",
+            "flutuação cognitiva",
+            "inatenção"
+          ],
+          "weight": 3,
+          "label": "delirium/confusão aguda"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "alucinações visuais",
+            "agitação noturna",
+            "hipoativo"
+          ],
+          "weight": 1,
+          "label": "fenótipo de delirium"
+        }
+      ],
+      "missing_if_absent": [
+        "baseline cognitivo",
+        "4AT/CAM-ICU conforme contexto",
+        "medicação/substâncias",
+        "causa médica"
+      ],
+      "differential": [
+        "altered-consciousness",
+        "toxicology",
+        "electrolytes",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "sepsis-shock",
+        "acute-ischemic-stroke"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Comparar com baseline, aplicar 4AT/CAM-ICU conforme contexto e procurar causas reversíveis",
+          "priority": "urgent",
+          "rationale": "delirium é síndrome secundária a doença/iatrogenia até prova em contrário",
+          "source_modules": [
+            "delirium",
+            "clinical-scores-calculators"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Tratar a causa, reorientar e corrigir precipitantes; sedação apenas se risco grave e após revisão",
+          "priority": "urgent",
+          "rationale": "medidas não farmacológicas e causa são prioritárias",
+          "source_modules": [
+            "delirium",
+            "psychiatric-emergencies"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/cg103"
+    },
+    {
+      "id": "alcohol-withdrawal",
+      "diagnosis": "Síndrome de abstinência alcoólica / delirium tremens",
+      "category": "toxicology",
+      "min_age_years": 18,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "abstinência alcoólica",
+            "alcohol withdrawal",
+            "delirium tremens",
+            "dt"
+          ],
+          "weight": 5,
+          "label": "abstinência alcoólica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "tremor",
+            "sudorese",
+            "agitação",
+            "alucinações",
+            "convulsão de abstinência"
+          ],
+          "weight": 1,
+          "label": "sintomas de abstinência"
+        }
+      ],
+      "missing_if_absent": [
+        "último consumo",
+        "história de DT/convulsões",
+        "CIWA-Ar quando apropriado",
+        "glicemia/eletrólitos"
+      ],
+      "differential": [
+        "delirium",
+        "toxicology",
+        "cns-infection"
+      ],
+      "must_not_miss": [
+        "status-epilepticus"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar gravidade e complicações com protocolo local/CIWA-Ar quando apropriado, além de causas alternativas",
+          "priority": "urgent",
+          "rationale": "DT e convulsões de abstinência requerem manejo hospitalar",
+          "source_modules": [
+            "alcohol-withdrawal",
+            "clinical-scores-calculators"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de abstinência alcoólica, benzodiazepina protocolada e tiamina conforme risco/estado nutricional",
+          "priority": "urgent",
+          "rationale": "prevenir convulsões/DT e encefalopatia de Wernicke",
+          "source_modules": [
+            "alcohol-withdrawal",
+            "toxicology"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/cg100"
+    },
+    {
+      "id": "critical-valvular-disease",
+      "diagnosis": "Doença valvular crítica descompensada",
+      "category": "cardiovascular",
+      "min_age_years": 18,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "estenose aórtica grave",
+            "severe aortic stenosis",
+            "regurgitação mitral aguda",
+            "acute mitral regurgitation",
+            "prótese valvular disfuncional"
+          ],
+          "weight": 4,
+          "label": "valvulopatia crítica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "edema pulmonar",
+            "síncope de esforço",
+            "choque cardiogénico"
+          ],
+          "weight": 2,
+          "label": "descompensação hemodinâmica"
+        }
+      ],
+      "missing_if_absent": [
+        "ECG",
+        "ecocardiografia/POCUS",
+        "estado hemodinâmico",
+        "prótese/endocardite"
+      ],
+      "differential": [
+        "acute-heart-failure",
+        "cardiogenic-shock",
+        "infective-endocarditis"
+      ],
+      "must_not_miss": [
+        "cardiogenic-shock",
+        "infective-endocarditis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ECG e ecocardiografia urgente; procurar causa aguda mecânica ou infecciosa",
+          "priority": "immediate",
+          "rationale": "mecanismo valvular determina tratamento definitivo",
+          "source_modules": [
+            "critical-valvular-disease",
+            "pocus"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de valvulopatia crítica/Heart Team e suporte hemodinâmico individualizado",
+          "priority": "immediate",
+          "rationale": "alguns fármacos usuais podem ser mal tolerados em lesões valvulares críticas",
+          "source_modules": [
+            "critical-valvular-disease",
+            "cardiogenic-shock"
+          ]
+        }
+      ],
+      "source_url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/valvular-heart-disease/"
+    },
+    {
+      "id": "infective-endocarditis",
+      "diagnosis": "Endocardite infecciosa",
+      "category": "infectious_cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "endocardite infecciosa",
+            "infective endocarditis",
+            "vegetação valvular",
+            "valvular vegetation"
+          ],
+          "weight": 5,
+          "label": "endocardite/vegetação"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "febre persistente",
+            "sopro novo",
+            "hemoculturas positivas",
+            "embolia séptica"
+          ],
+          "weight": 2,
+          "label": "sinais compatíveis"
+        }
+      ],
+      "missing_if_absent": [
+        "hemoculturas múltiplas antes de antibiótico se possível",
+        "ecocardiografia",
+        "prótese/device",
+        "foco/complicações embólicas"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "critical-valvular-disease"
+      ],
+      "must_not_miss": [
+        "sepsis-shock",
+        "acute-ischemic-stroke"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Obter hemoculturas adequadas e ecocardiografia; procurar complicações embólicas/valvulares",
+          "priority": "urgent",
+          "rationale": "diagnóstico microbiológico e estrutural orienta terapêutica/cirurgia",
+          "source_modules": [
+            "infective-endocarditis",
+            "pocus"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de endocardite/equipa especializada e antibioterapia IV dirigida/empírica conforme estabilidade e culturas",
+          "priority": "urgent",
+          "rationale": "doença pode exigir cirurgia precoce e terapia prolongada",
+          "source_modules": [
+            "infective-endocarditis",
+            "empiric-antibiotics"
+          ]
+        }
+      ],
+      "source_url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/endocarditis/"
+    },
+    {
+      "id": "dvt",
+      "diagnosis": "Trombose venosa profunda",
+      "category": "vascular",
+      "min_age_years": 18,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "perna inchada unilateral",
+            "unilateral leg swelling",
+            "edema unilateral",
+            "dor na panturrilha",
+            "calf pain"
+          ],
+          "weight": 2,
+          "label": "sinais de TVP"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "trombose venosa profunda",
+            "deep vein thrombosis",
+            "dvt",
+            "tvp"
+          ],
+          "weight": 5,
+          "label": "TVP suspeita/documentada"
+        }
+      ],
+      "missing_if_absent": [
+        "Wells DVT",
+        "D-dímero quando aplicável",
+        "eco-Doppler venoso"
+      ],
+      "differential": [
+        "cellulitis",
+        "ruptured-bakers-cyst",
+        "pulmonary-embolism"
+      ],
+      "must_not_miss": [
+        "pulmonary-embolism"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Aplicar Wells DVT e pedir D-dímero/eco-Doppler proximal conforme probabilidade",
+          "priority": "urgent",
+          "rationale": "algoritmo validado evita imagem/anticoagulação desnecessárias",
+          "source_modules": [
+            "dvt",
+            "clinical-scores-calculators"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo VTE/anticoagulação se TVP confirmada ou anticoagulação interina indicada",
+          "priority": "urgent",
+          "rationale": "tratamento depende de confirmação, risco hemorrágico e comorbilidades",
+          "source_modules": [
+            "dvt",
+            "anticoagulation-reversal"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng158"
+    },
+    {
+      "id": "device-complications",
+      "diagnosis": "Complicação aguda de dispositivo invasivo/cardiovascular",
+      "category": "device",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "pacemaker malfuncion",
+            "falha de pacemaker",
+            "device infection",
+            "cateter infetado",
+            "central line infection",
+            "deslocamento de sonda",
+            "lead dislodgement"
+          ],
+          "weight": 4,
+          "label": "complicação de dispositivo"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "marcapasso",
+            "pacemaker",
+            "icd",
+            "cateter venoso central",
+            "port-a-cath"
+          ],
+          "weight": 1,
+          "label": "dispositivo presente"
+        }
+      ],
+      "missing_if_absent": [
+        "tipo/dispositivo/data de implantação",
+        "ECG/interrogação quando cardíaco",
+        "culturas se infeção",
+        "imagem conforme dispositivo"
+      ],
+      "differential": [
+        "adult-arrhythmias",
+        "infective-endocarditis",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "infective-endocarditis",
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Identificar dispositivo, verificar função/posição e investigar infeção ou complicação mecânica conforme tipo",
+          "priority": "urgent",
+          "rationale": "manejo é específico do dispositivo e complicação",
+          "source_modules": [
+            "device-complications",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de complicações de dispositivos e contactar equipa responsável/especialidade",
+          "priority": "urgent",
+          "rationale": "remoção/reprogramação/intervenção depende do dispositivo",
+          "source_modules": [
+            "device-complications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-drowning-hypothermia",
+      "diagnosis": "Afogamento/hipotermia pediátrica",
+      "category": "pediatric_environmental",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "afogamento",
+            "drowning",
+            "submersão",
+            "submersion",
+            "hipotermia"
+          ],
+          "weight": 3,
+          "label": "submersão/hipotermia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "criança",
+            "child",
+            "pediátrico",
+            "pediatric"
+          ],
+          "weight": 1,
+          "label": "contexto pediátrico"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/peso",
+        "tempo de submersão",
+        "RCP",
+        "temperatura",
+        "oxigenação"
+      ],
+      "differential": [
+        "pediatric-acute-respiratory-support",
+        "pediatric-cardiac-arrest"
+      ],
+      "must_not_miss": [
+        "pediatric-cardiac-arrest"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar ventilação/oxigenação, temperatura e lesões associadas; exames guiados pela gravidade",
+          "priority": "immediate",
+          "rationale": "hipóxia é principal mecanismo e hipotermia altera reanimação",
+          "source_modules": [
+            "pediatric-drowning-hypothermia"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo pediátrico de afogamento/hipotermia; ventilação/RCP e reaquecimento conforme estado",
+          "priority": "immediate",
+          "rationale": "priorizar oxigenação e suporte por peso",
+          "source_modules": [
+            "pediatric-drowning-hypothermia",
+            "pediatric-cardiac-arrest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-abdominal-surgical-emergencies",
+      "diagnosis": "Abdómen agudo cirúrgico pediátrico",
+      "category": "pediatric_surgical",
+      "max_age_years": 17.99,
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dor abdominal criança",
+            "pediatric abdominal pain",
+            "peritonismo",
+            "defesa abdominal",
+            "vómitos biliosos",
+            "intussuscepção",
+            "volvulus",
+            "apendicite"
+          ],
+          "weight": 3,
+          "label": "abdómen agudo pediátrico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "não tolera via oral",
+            "distensão abdominal",
+            "sangue nas fezes"
+          ],
+          "weight": 1,
+          "label": "sinais de alarme"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/peso",
+        "exame abdominal seriado",
+        "hidratação/perfusão",
+        "imagem dirigida"
+      ],
+      "differential": [
+        "pediatric-dka",
+        "pediatric-toxicology",
+        "pediatric-sepsis"
+      ],
+      "must_not_miss": [
+        "pediatric-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Analítica e ecografia/TC conforme idade, suspeita e estabilidade; cirurgia pediátrica precoce se peritonismo/obstrução",
+          "priority": "urgent",
+          "rationale": "etiologia e imagem dependem da idade",
+          "source_modules": [
+            "pediatric-abdominal-surgical-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo abdominal cirúrgico pediátrico, jejum, analgesia, fluidos e avaliação cirúrgica quando indicada",
+          "priority": "urgent",
+          "rationale": "evitar atraso em obstrução/perfuração",
+          "source_modules": [
+            "pediatric-abdominal-surgical-emergencies",
+            "pediatric-iv-fluid-therapy"
+          ]
+        }
+      ]
     }
   ]
 }
