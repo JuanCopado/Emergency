@@ -1,0 +1,709 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "clinical-note-diagnostic-support.schema.json",
+  "title": "Clinical Note Diagnostic Support",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "encounter",
+    "history",
+    "exam",
+    "complementary_tests",
+    "assessment",
+    "privacy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "encounter": {
+      "type": "object",
+      "required": [
+        "encounter_id",
+        "age",
+        "sex"
+      ],
+      "properties": {
+        "encounter_id": {
+          "type": "string",
+          "minLength": 8
+        },
+        "age": {
+          "type": "object",
+          "properties": {
+            "years": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 130
+            },
+            "months": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "sex": {
+          "type": "string",
+          "enum": [
+            "female",
+            "male",
+            "intersex",
+            "unknown"
+          ]
+        },
+        "origin": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transfer_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "functional_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cognitive_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "living_context": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "history": {
+      "type": "object",
+      "properties": {
+        "chief_complaint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "present_illness": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "past_medical_history": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "past_surgical_history": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "chronic_medications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/medication"
+          }
+        },
+        "medication_discrepancies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/allergy"
+          }
+        },
+        "social_history": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "baseline_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_reliability": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/timeline_event"
+      }
+    },
+    "exam": {
+      "type": "object",
+      "properties": {
+        "vitals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/vital_set"
+          }
+        },
+        "general": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "neurologic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "respiratory": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cardiovascular": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "abdominal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "skin_wounds": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "extremities": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "other": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "complementary_tests": {
+      "type": "object",
+      "properties": {
+        "laboratory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/report_item"
+          }
+        },
+        "blood_gas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/report_item"
+          }
+        },
+        "ecg": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/report_item"
+          }
+        },
+        "imaging": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/report_item"
+          }
+        },
+        "microbiology": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/report_item"
+          }
+        },
+        "other": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/report_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "assessment": {
+      "type": "object",
+      "properties": {
+        "problem_representation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "active_problems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "likely_diagnoses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/diagnostic_candidate"
+          }
+        },
+        "differential_diagnoses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/diagnostic_candidate"
+          }
+        },
+        "must_not_miss": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/diagnostic_candidate"
+          }
+        },
+        "suggested_tests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/suggestion"
+          }
+        },
+        "treatment_suggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/suggestion"
+          }
+        },
+        "disposition": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/suggestion"
+          }
+        },
+        "reassessment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/suggestion"
+          }
+        },
+        "contradictions_to_clarify": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "clinician_validation": {
+      "type": "object",
+      "properties": {
+        "reviewed": {
+          "type": "boolean"
+        },
+        "reviewer_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "changes_made": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "privacy": {
+      "type": "object",
+      "required": [
+        "mode",
+        "direct_identifiers_removed",
+        "free_text_screened"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "clinical_pseudonymized",
+            "external_anonymized"
+          ]
+        },
+        "direct_identifiers_removed": {
+          "type": "boolean"
+        },
+        "free_text_screened": {
+          "type": "boolean"
+        },
+        "source_metadata_checked": {
+          "type": "boolean"
+        },
+        "burned_in_identifiers_checked": {
+          "type": "boolean"
+        },
+        "export_allowed": {
+          "type": "boolean"
+        },
+        "privacy_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "medication": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "dose": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schedule": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "allergy": {
+      "type": "object",
+      "properties": {
+        "substance": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "class": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reaction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "severity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confirmed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "timeline_event": {
+      "type": "object",
+      "required": [
+        "time_label",
+        "event"
+      ],
+      "properties": {
+        "time_label": {
+          "type": "string"
+        },
+        "event": {
+          "type": "string"
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "vital_set": {
+      "type": "object",
+      "properties": {
+        "time_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bp": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hr": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rr": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "spo2": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "oxygen": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "temperature_c": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "gcs": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "report_item": {
+      "type": "object",
+      "required": [
+        "kind",
+        "provenance"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "time_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance": {
+          "type": "string",
+          "enum": [
+            "clinician_entry",
+            "official_report",
+            "laboratory_system",
+            "device_measurement",
+            "ai_image_interpretation",
+            "ai_document_extraction",
+            "patient_or_family_report",
+            "external_record"
+          ]
+        },
+        "source_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "official_report": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ai_interpretation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "findings": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "impression": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "privacy_checked": {
+          "type": "boolean"
+        },
+        "burned_in_identifiers_checked": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "diagnostic_candidate": {
+      "type": "object",
+      "required": [
+        "diagnosis",
+        "confidence"
+      ],
+      "properties": {
+        "diagnosis": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "high",
+            "moderate",
+            "low"
+          ]
+        },
+        "evidence_for": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_against": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_discriminating_data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_modules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "suggestion": {
+      "type": "object",
+      "required": [
+        "action"
+      ],
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "immediate",
+            "urgent",
+            "routine",
+            "conditional"
+          ]
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_modules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
