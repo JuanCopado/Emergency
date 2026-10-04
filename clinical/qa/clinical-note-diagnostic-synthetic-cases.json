@@ -419,6 +419,224 @@
         "cauda-equina-conus-emergency"
       ],
       "expected_test_contains": "RM lombossagrada"
+    },
+    {
+      "id": "major-trauma",
+      "age_years": 36,
+      "sex": "male",
+      "chief_complaint": "Politrauma após acidente de alta energia.",
+      "hpi": "Ejeção do veículo com hemorragia ativa e dor torácica.",
+      "vitals": {
+        "bp": "82/46",
+        "hr": 132,
+        "rr": 30,
+        "spo2": 90,
+        "oxygen": "ar ambiente",
+        "temperature_c": 35.8,
+        "gcs": "13"
+      },
+      "expected_likely": "Trauma major / politrauma",
+      "expected_modules": [
+        "major-trauma"
+      ],
+      "expected_immediate_treatment_module": "trauma-major-hemorrhage"
+    },
+    {
+      "id": "ectopic-pregnancy",
+      "age_years": 31,
+      "sex": "female",
+      "chief_complaint": "Dor pélvica e hemorragia vaginal.",
+      "hpi": "Teste de gravidez positivo com dor abdominal unilateral.",
+      "vitals": {
+        "bp": "92/58",
+        "hr": 108,
+        "rr": 20,
+        "spo2": 98,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.7,
+        "gcs": "15"
+      },
+      "expected_likely": "Gravidez ectópica / gravidez de localização desconhecida de alto risco",
+      "expected_modules": [
+        "ectopic-pregnancy"
+      ],
+      "expected_test_contains": "hCG"
+    },
+    {
+      "id": "preeclampsia",
+      "age_years": 29,
+      "sex": "female",
+      "chief_complaint": "Gravidez com cefaleia intensa e visão turva.",
+      "hpi": "Pré-eclâmpsia com PA 170/112 e dor epigástrica.",
+      "vitals": {
+        "bp": "170/112",
+        "hr": 92,
+        "rr": 18,
+        "spo2": 98,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.6,
+        "gcs": "15"
+      },
+      "expected_likely": "Pré-eclâmpsia grave / eclâmpsia",
+      "expected_modules": [
+        "preeclampsia-eclampsia"
+      ],
+      "expected_test_contains": "plaquetas"
+    },
+    {
+      "id": "bronchiolitis",
+      "age_years": 0.5,
+      "sex": "male",
+      "chief_complaint": "Tosse e dificuldade respiratória.",
+      "hpi": "Bronquiolite após coriza, retrações torácicas e dificuldade na alimentação.",
+      "vitals": {
+        "bp": "82/50",
+        "hr": 148,
+        "rr": 62,
+        "spo2": 89,
+        "oxygen": "ar ambiente",
+        "temperature_c": 37.7,
+        "gcs": "15"
+      },
+      "expected_likely": "Bronquiolite",
+      "expected_modules": [
+        "bronchiolitis"
+      ],
+      "expected_test_contains": "SpO2"
+    },
+    {
+      "id": "pediatric-dka",
+      "age_years": 11,
+      "sex": "female",
+      "chief_complaint": "Poliúria, vómitos e prostração.",
+      "hpi": "CAD pediátrica com hiperglicemia e respiração de Kussmaul.",
+      "blood_gas": "Acidose metabólica com cetonemia positiva.",
+      "expected_likely": "Cetoacidose diabética pediátrica",
+      "expected_modules": [
+        "pediatric-dka"
+      ],
+      "expected_test_contains": "eletrólitos"
+    },
+    {
+      "id": "neutropenic-sepsis",
+      "age_years": 58,
+      "sex": "female",
+      "chief_complaint": "Febre após quimioterapia.",
+      "hpi": "Doente oncológica neutropénica após tratamento anticancerígeno, muito prostrada.",
+      "labs": "Neutrófilos 0.3 x10^9/L.",
+      "vitals": {
+        "bp": "98/62",
+        "hr": 112,
+        "rr": 22,
+        "spo2": 96,
+        "oxygen": "ar ambiente",
+        "temperature_c": 38.6,
+        "gcs": "15"
+      },
+      "expected_likely": "Sépsis neutropénica",
+      "expected_modules": [
+        "neutropenic-sepsis"
+      ],
+      "expected_test_contains": "Hemograma"
+    },
+    {
+      "id": "sickle-cell",
+      "age_years": 24,
+      "sex": "male",
+      "chief_complaint": "Crise dolorosa intensa.",
+      "hpi": "Drepanocitose com crise vaso-oclusiva, dor torácica e febre.",
+      "vitals": {
+        "bp": "118/70",
+        "hr": 110,
+        "rr": 24,
+        "spo2": 92,
+        "oxygen": "ar ambiente",
+        "temperature_c": 38.2,
+        "gcs": "15"
+      },
+      "expected_likely": "Crise falciforme dolorosa / complicação aguda",
+      "expected_modules": [
+        "sickle-cell-acute-emergency"
+      ],
+      "expected_test_contains": "SpO2"
+    },
+    {
+      "id": "testicular-torsion",
+      "age_years": 17,
+      "sex": "male",
+      "chief_complaint": "Dor testicular súbita.",
+      "hpi": "Dor intensa há 2 horas com testículo elevado.",
+      "expected_likely": "Torção testicular",
+      "expected_modules": [
+        "testicular-torsion"
+      ],
+      "expected_immediate_treatment_module": "urologic-emergencies"
+    },
+    {
+      "id": "acute-angle-closure",
+      "age_years": 67,
+      "sex": "female",
+      "chief_complaint": "Olho vermelho doloroso e visão turva.",
+      "hpi": "Dor ocular intensa com halos, náuseas e pupila média fixa.",
+      "expected_likely": "Glaucoma agudo de ângulo fechado",
+      "expected_modules": [
+        "acute-angle-closure-glaucoma"
+      ],
+      "expected_test_contains": "acuidade visual"
+    },
+    {
+      "id": "septic-arthritis",
+      "age_years": 45,
+      "sex": "male",
+      "chief_complaint": "Joelho quente e muito doloroso.",
+      "hpi": "Articulação quente com derrame e incapaz de apoiar.",
+      "vitals": {
+        "bp": "122/76",
+        "hr": 104,
+        "rr": 18,
+        "spo2": 98,
+        "oxygen": "ar ambiente",
+        "temperature_c": 38.4,
+        "gcs": "15"
+      },
+      "expected_likely": "Artrite séptica / infeção osteoarticular grave",
+      "expected_modules": [
+        "septic-arthritis-orthopedic"
+      ],
+      "expected_test_contains": "aspiração"
+    },
+    {
+      "id": "self-harm",
+      "age_years": 22,
+      "sex": "female",
+      "chief_complaint": "Tentativa de suicídio.",
+      "hpi": "Autoagressão com ideação suicida e plano suicida ativo.",
+      "expected_likely": "Autoagressão / risco suicidário agudo",
+      "expected_modules": [
+        "self-harm-suicide-risk"
+      ],
+      "expected_test_contains": "avaliação psicossocial"
+    },
+    {
+      "id": "smoke-inhalation",
+      "age_years": 40,
+      "sex": "male",
+      "chief_complaint": "Dispneia após incêndio.",
+      "hpi": "Incêndio em espaço fechado com inalação de fumo, rouquidão e fuligem facial.",
+      "vitals": {
+        "bp": "110/66",
+        "hr": 116,
+        "rr": 28,
+        "spo2": 99,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.8,
+        "gcs": "14"
+      },
+      "expected_likely": "Lesão por inalação de fumo / intoxicação associada a incêndio",
+      "expected_modules": [
+        "smoke-inhalation-toxic-injury"
+      ],
+      "expected_test_contains": "COHb"
     }
   ]
 }
