@@ -12,8 +12,20 @@ Safety contract:
 import json
 import math
 from pathlib import Path
+from pediatric_outpatient_alert_engine import evaluate as evaluate_alerts
 
 REGISTRY = Path(__file__).parents[1] / "qa" / "pediatric-outpatient-medications.json"
+
+class MedicationSafetyStop(ValueError):
+    """Raised when the central alert engine detects a STOP-level medication conflict."""
+    def __init__(self, alert_result):
+        self.alert_result=alert_result
+        messages=" | ".join(a["message"] for a in alert_result.get("alerts",[]) if a.get("severity")=="STOP")
+        super().__init__("medication safety STOP: "+messages)
+
+def preflight(regimen_id, patient, active_medications=None, registry=None):
+    registry=registry or load_registry()
+    return evaluate_alerts(regimen_id,patient,active_medications=active_medications,registry=registry)
 
 def load_registry(path=REGISTRY):
     return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -128,8 +140,11 @@ def _check_organ_function_gates(entry, patient):
         if hepatic.get("block_if_severe") and severity=="severe":
             raise ValueError(hepatic.get("message","standard regimen is not valid in severe hepatic impairment"))
 
-def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, selected_volume_ml=None, registry=None):
+def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, selected_volume_ml=None, registry=None, active_medications=None):
     registry=registry or load_registry()
+    safety=preflight(regimen_id,patient,active_medications=active_medications,registry=registry)
+    if safety["blocked"]:
+        raise MedicationSafetyStop(safety)
     e=_entry(registry,regimen_id)
     _check_age(e,patient)
     _check_patient_gates(e,patient)
@@ -140,6 +155,7 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
       "administration":e.get("administration"),"contraindications":e.get("contraindications",[]),
       "cautions":e.get("cautions",[]),"renal_adjustment":e.get("renal_adjustment"),
       "hepatic_adjustment":e.get("hepatic_adjustment"),"source":e.get("source"),"source_url":e.get("source_url"),
+      "medication_safety":safety,"prescription_status":safety["prescription_status"],
       "status":"calculated"
     }
     model=e["dose_model"]
@@ -326,8 +342,9 @@ if __name__=="__main__":
     import argparse
     p=argparse.ArgumentParser()
     p.add_argument("regimen_id"); p.add_argument("patient_json"); p.add_argument("--product-json")
-    p.add_argument("--dose-per-kg",type=float); p.add_argument("--duration-days",type=int); p.add_argument("--volume-ml",type=float)
+    p.add_argument("--dose-per-kg",type=float); p.add_argument("--duration-days",type=int); p.add_argument("--volume-ml",type=float); p.add_argument("--active-medications-json")
     a=p.parse_args()
     patient=json.loads(Path(a.patient_json).read_text())
     product=json.loads(Path(a.product_json).read_text()) if a.product_json else None
-    print(json.dumps(calculate(a.regimen_id,patient,product,a.dose_per_kg,a.duration_days,a.volume_ml),indent=2,ensure_ascii=False))
+    active=json.loads(Path(a.active_medications_json).read_text()) if a.active_medications_json else None
+    print(json.dumps(calculate(a.regimen_id,patient,product,a.dose_per_kg,a.duration_days,a.volume_ml,active_medications=active),indent=2,ensure_ascii=False))
