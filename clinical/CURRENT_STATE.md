@@ -290,3 +290,14 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Major gates added for bites, orbital cellulitis, pyelonephritis/UTI, CAP/cellulitis/preseptal, asthma/croup, anaphylaxis discharge, ORS age scope, gastroenteritis red flags, constipation red flags, red eye/headache, varicella/HSV/oseltamivir and home paracetamol.
 - Review files: `qa/PEDIATRIC_OUTPATIENT_PEDIATRIC_CLINICAL_REVIEW.json` and `qa/PEDIATRIC_OUTPATIENT_PEDIATRIC_CLINICAL_REVIEW.md`.
 - This is not human pediatrician sign-off; module remains **yellow**.
+
+
+## v1.39 clinical note diagnostic support — 04/10/2026
+- Active branch: `v1.39-clinical-note-diagnostic-support`.
+- Project now has **131 modules**.
+- New modules: `clinical-note-diagnostic-support` and `final-human-review-gate`.
+- Structured clinical-note workspace created with timeline, provenance-aware MCDT integration, diagnostic/differential/test/treatment output contract and privacy-gated DOCX/PDF/JSON export.
+- All yellow modules are dynamically deferred to a final human-review queue; no automatic yellow->green promotion.
+- Privacy design uses pseudonymous encounter ID and blocks direct identifiers in exports; pseudonymization is not treated as anonymization.
+- v1.39 state: `qa/V1.39_CLINICAL_NOTE_STATE.md`.
+- Clinical QA #533: **358/358 PASS**, 131/131 registered, 29 green / 102 yellow / 0 red.
