@@ -269,3 +269,5 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Portugal presentation reconciliation exists; **real-time Azores stock is not claimed**.
 - Integrity QA for 89-regimen registry: #482 SUCCESS.
 - Module remains yellow pending pediatric/pharmacy human review.
+
+- v1.38 pediatric outpatient decision: **Azores stock is not a release gate**. Required localization is limited to Portugal INFOMED/RCM product-strength verification; exact dispensed concentration remains mandatory for mL arithmetic.
