@@ -122,6 +122,9 @@ def _check_organ_function_gates(entry, patient):
     hepatic=entry.get("hepatic_adjustment")
     if hepatic and patient.get("known_hepatic_impairment") is True:
         severity=str(patient.get("hepatic_severity","")).strip().lower()
+        mode=hepatic.get("mode")
+        if mode=="block_standard_regimen":
+            raise ValueError(hepatic.get("message","standard regimen requires hepatic dose individualization"))
         if hepatic.get("block_if_severe") and severity=="severe":
             raise ValueError(hepatic.get("message","standard regimen is not valid in severe hepatic impairment"))
 
