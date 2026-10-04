@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "peds-cardiac-arrest-routing",
+      "age_years": 7,
+      "sex": "male",
+      "chief_complaint": "Paragem cardiorrespiratória.",
+      "hpi": "Sem pulso; assistolia no monitor.",
+      "expected_likely": "Paragem cardiorrespiratória pediátrica",
+      "expected_modules": [
+        "pediatric-cardiac-arrest"
+      ],
+      "expected_immediate_treatment_module": "pediatric-cardiac-arrest"
+    },
+    {
+      "id": "peds-arrhythmia-routing",
+      "age_years": 12,
+      "sex": "female",
+      "chief_complaint": "Palpitações e má perfusão.",
+      "hpi": "Taquicardia supraventricular.",
+      "ecg": "Taquicardia supraventricular regular.",
+      "expected_likely": "Arritmia pediátrica sintomática",
+      "expected_modules": [
+        "pediatric-arrhythmias"
+      ],
+      "expected_test_contains": "ECG"
+    },
+    {
+      "id": "peds-cns-routing",
+      "age_years": 5,
+      "sex": "male",
+      "chief_complaint": "Febre e rigidez da nuca.",
+      "hpi": "Meningite suspeita com letargia.",
+      "exam_neurologic": "Rigidez da nuca.",
+      "vitals": {
+        "bp": "96/54",
+        "hr": 132,
+        "rr": 26,
+        "spo2": 97,
+        "oxygen": "ar ambiente",
+        "temperature_c": 39.2,
+        "gcs": "13"
+      },
+      "expected_likely": "Meningite/encefalite pediátrica",
+      "expected_modules": [
+        "pediatric-cns-infection"
+      ],
+      "expected_test_contains": "Hemoculturas"
+    },
+    {
+      "id": "peds-trauma-routing",
+      "age_years": 9,
+      "sex": "female",
+      "chief_complaint": "Politrauma após atropelamento.",
+      "hpi": "Trauma major de alta energia com dor abdominal.",
+      "vitals": {
+        "bp": "88/54",
+        "hr": 128,
+        "rr": 28,
+        "spo2": 95,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36,
+        "gcs": "14"
+      },
+      "expected_likely": "Trauma major pediátrico",
+      "expected_modules": [
+        "pediatric-major-trauma"
+      ],
+      "expected_immediate_treatment_module": "pediatric-major-trauma"
+    },
+    {
+      "id": "peds-toxicology-routing",
+      "age_years": 4,
+      "sex": "female",
+      "chief_complaint": "Ingestão acidental.",
+      "hpi": "Intoxicação por ingestão acidental de medicamento desconhecido.",
+      "vitals": {
+        "bp": "90/52",
+        "hr": 118,
+        "rr": 20,
+        "spo2": 98,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.5,
+        "gcs": "14"
+      },
+      "expected_likely": "Intoxicação pediátrica aguda",
+      "expected_modules": [
+        "pediatric-toxicology"
+      ],
+      "expected_test_contains": "substância"
+    }
+  ]
+}
