@@ -271,3 +271,13 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Module remains yellow pending pediatric/pharmacy human review.
 
 - v1.38 pediatric outpatient decision: **Azores stock is not a release gate**. Required localization is limited to Portugal INFOMED/RCM product-strength verification; exact dispensed concentration remains mandatory for mL arithmetic.
+
+
+## v1.38 medication safety alert system — 04/10/2026
+- Central alert engine added for `pediatric-outpatient-medications`.
+- Severities: **STOP / ALERT / CAUTION / INFO**.
+- STOP blocks routine calculation through structured `MedicationSafetyStop`.
+- Alert families include allergy/class cross-reactivity, duplicates, major interactions, renal/hepatic incompatibility, age/weight, missing safety context, concentration mismatch and clinical red flags invalidating outpatient treatment.
+- Missing allergy review or medication reconciliation produces REVIEW_REQUIRED rather than being silently treated as negative.
+- Documentation: `qa/PEDIATRIC_OUTPATIENT_ALERT_SYSTEM.md`.
+- Last alert-engine QA before documentation synchronization: **#510 SUCCESS**.
