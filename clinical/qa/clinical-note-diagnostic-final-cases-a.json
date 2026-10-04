@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "adult-cardiac-arrest",
+      "age_years": 64,
+      "sex": "male",
+      "chief_complaint": "Paragem cardiorrespiratória.",
+      "hpi": "Encontrado sem pulso; fibrilhação ventricular no monitor.",
+      "expected_likely": "Paragem cardiorrespiratória adulta",
+      "expected_modules": [
+        "adult-cardiac-arrest"
+      ],
+      "expected_immediate_treatment_module": "adult-cardiac-arrest"
+    },
+    {
+      "id": "undifferentiated-shock",
+      "age_years": 70,
+      "sex": "female",
+      "chief_complaint": "Choque e má perfusão.",
+      "hpi": "Hipotensão sem causa definida, extremidades frias e lactato elevado.",
+      "vitals": {
+        "bp": "78/44",
+        "hr": 126,
+        "rr": 28,
+        "spo2": 92,
+        "oxygen": "2 L/min",
+        "temperature_c": 36,
+        "gcs": "14"
+      },
+      "expected_likely": "Choque indiferenciado",
+      "expected_modules": [
+        "undifferentiated-shock"
+      ],
+      "expected_test_contains": "POCUS"
+    },
+    {
+      "id": "cardiogenic-shock",
+      "age_years": 73,
+      "sex": "male",
+      "chief_complaint": "Hipotensão e dispneia.",
+      "hpi": "Choque cardiogénico após IAM com edema pulmonar.",
+      "vitals": {
+        "bp": "76/48",
+        "hr": 112,
+        "rr": 30,
+        "spo2": 86,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.4,
+        "gcs": "14"
+      },
+      "expected_likely": "Choque cardiogénico",
+      "expected_modules": [
+        "cardiogenic-shock"
+      ],
+      "expected_test_contains": "POCUS"
+    },
+    {
+      "id": "tamponade",
+      "age_years": 55,
+      "sex": "female",
+      "chief_complaint": "Dispneia e hipotensão.",
+      "hpi": "Derrame pericárdico com suspeita de taponamento cardíaco e JVP elevada.",
+      "vitals": {
+        "bp": "82/52",
+        "hr": 118,
+        "rr": 26,
+        "spo2": 94,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.5,
+        "gcs": "15"
+      },
+      "expected_likely": "Taponamento cardíaco / emergência pericárdica",
+      "expected_modules": [
+        "cardiac-tamponade-pericardial-emergency"
+      ],
+      "expected_test_contains": "POCUS"
+    },
+    {
+      "id": "resp-failure",
+      "age_years": 69,
+      "sex": "male",
+      "chief_complaint": "Insuficiência respiratória.",
+      "hpi": "Falência respiratória com hipoxemia e hipercapnia.",
+      "blood_gas": "pH 7.25, PaCO2 elevada e hipoxemia.",
+      "vitals": {
+        "bp": "132/74",
+        "hr": 102,
+        "rr": 30,
+        "spo2": 82,
+        "oxygen": "ar ambiente",
+        "temperature_c": 37.1,
+        "gcs": "14"
+      },
+      "expected_likely": "Insuficiência respiratória aguda",
+      "expected_modules": [
+        "acute-respiratory-failure"
+      ],
+      "expected_test_contains": "gasometria"
+    }
+  ]
+}
