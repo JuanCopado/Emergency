@@ -5104,7 +5104,7 @@ class ModularCoreTests(unittest.TestCase):
 
         dex=calculate_pediatric_outpatient(
             'dexamethasone-croup-mild-moderate',
-            {'age_months':48,'actual_weight_kg':18,'known_renal_impairment':True,'egfr_mL_min':20,'known_hepatic_impairment':True,'hepatic_severity':'moderate'},
+            {'age_months':48,'actual_weight_kg':18,'known_renal_impairment':True,'egfr_mL_min':20,'known_hepatic_impairment':True,'hepatic_severity':'moderate','croup_discharge_criteria_met':True},
             {'concentration_mg_per_ml':0.4}
         )
         self.assertEqual(dex['renal_adjustment']['mode'],'none_required')
