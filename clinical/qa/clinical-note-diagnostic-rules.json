@@ -1832,6 +1832,839 @@
           ]
         }
       ]
+    },
+    {
+      "id": "adult-arrhythmias",
+      "diagnosis": "Arritmia cardíaca sintomática",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "taquicardia supraventricular",
+            "fibrilhação auricular",
+            "fibrilación auricular",
+            "flutter auricular",
+            "taquicardia ventricular",
+            "bradicardia sintomática",
+            "bloqueio av"
+          ],
+          "weight": 4,
+          "label": "arritmia documentada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "palpitações",
+            "palpitaciones",
+            "palpitations"
+          ],
+          "weight": 1,
+          "label": "palpitações"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "síncope",
+            "sincope",
+            "syncope",
+            "dor torácica",
+            "chest pain"
+          ],
+          "weight": 1,
+          "label": "sintomas de instabilidade"
+        }
+      ],
+      "missing_if_absent": [
+        "ECG de 12 derivações",
+        "estabilidade hemodinâmica",
+        "eletrólitos"
+      ],
+      "differential": [
+        "acute-coronary-syndrome",
+        "pulmonary-embolism",
+        "potassium-emergencies"
+      ],
+      "must_not_miss": [
+        "arrhythmias-cardiac-arrest"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ECG de 12 derivações, monitorização contínua e eletrólitos",
+          "priority": "immediate",
+          "rationale": "definir mecanismo e causas reversíveis",
+          "source_modules": [
+            "adult-arrhythmias",
+            "ecg-image",
+            "electrolytes"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de arritmias; tratar primeiro instabilidade e causas reversíveis",
+          "priority": "immediate",
+          "rationale": "cardioversão, fármacos ou pacing dependem do ritmo e estabilidade",
+          "source_modules": [
+            "adult-arrhythmias",
+            "arrhythmias-cardiac-arrest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syncope-falls-frailty",
+      "diagnosis": "Síncope / perda transitória de consciência",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "síncope",
+            "sincope",
+            "syncope",
+            "perda transitória de consciência",
+            "loss of consciousness"
+          ],
+          "weight": 3,
+          "label": "síncope/perda transitória de consciência"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "pródromos",
+            "prodromos",
+            "ortostatismo",
+            "orthostatic"
+          ],
+          "weight": 1,
+          "label": "contexto pré-sincopal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "durante esforço",
+            "during exertion",
+            "sem pródromos"
+          ],
+          "weight": 2,
+          "label": "característica de alto risco"
+        }
+      ],
+      "missing_if_absent": [
+        "ECG",
+        "PA ortostática quando apropriado",
+        "história cardíaca/familiar"
+      ],
+      "differential": [
+        "adult-arrhythmias",
+        "pulmonary-embolism",
+        "acute-coronary-syndrome"
+      ],
+      "must_not_miss": [
+        "adult-arrhythmias",
+        "pulmonary-embolism"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ECG e avaliação dirigida de risco cardíaco; ortostatismo quando clinicamente apropriado",
+          "priority": "urgent",
+          "rationale": "identificar causas arrítmicas/estruturais e reversíveis",
+          "source_modules": [
+            "syncope-falls-frailty",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de síncope e definir observação/internamento conforme fatores de alto risco",
+          "priority": "urgent",
+          "rationale": "destino depende de causa provável e risco",
+          "source_modules": [
+            "syncope-falls-frailty",
+            "observation-discharge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toxicology",
+      "diagnosis": "Intoxicação aguda / toxíndrome",
+      "category": "toxicology",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "intoxicação",
+            "intoxicación",
+            "overdose",
+            "sobredosagem",
+            "ingestão medicamentosa",
+            "exposição tóxica"
+          ],
+          "weight": 4,
+          "label": "exposição tóxica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "miose",
+            "midríase",
+            "diaforese",
+            "anticolinérgico",
+            "serotoninérgico",
+            "opioide"
+          ],
+          "weight": 2,
+          "label": "toxíndrome"
+        }
+      ],
+      "missing_if_absent": [
+        "substância/dose/tempo",
+        "glicemia",
+        "ECG",
+        "coingestões"
+      ],
+      "differential": [
+        "altered-consciousness",
+        "electrolytes",
+        "cns-infection"
+      ],
+      "must_not_miss": [
+        "arrhythmias-cardiac-arrest"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Identificar substância, dose e tempo; ECG, glicemia e testes dirigidos por toxíndrome",
+          "priority": "immediate",
+          "rationale": "orientar antídoto, descontaminação e monitorização",
+          "source_modules": [
+            "toxicology",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de toxicologia/antídotos e tratar ABCDE e toxíndrome",
+          "priority": "immediate",
+          "rationale": "tratamento depende da substância e manifestações",
+          "source_modules": [
+            "toxicology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-mesenteric-ischemia",
+      "diagnosis": "Isquemia mesentérica aguda",
+      "category": "surgical",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dor desproporcionada ao exame",
+            "pain out of proportion",
+            "dolor desproporcionado"
+          ],
+          "weight": 5,
+          "label": "dor desproporcionada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "fibrilhação auricular",
+            "fibrilación auricular",
+            "atrial fibrillation"
+          ],
+          "weight": 2,
+          "label": "fator embólico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "lactato elevado",
+            "hiperlactatemia"
+          ],
+          "weight": 1,
+          "label": "lactato elevado"
+        }
+      ],
+      "missing_if_absent": [
+        "angio-TC abdominal",
+        "lactato/gasometria",
+        "fatores embólicos/trombóticos"
+      ],
+      "differential": [
+        "acute-abdomen",
+        "abdominal-aortic-aneurysm",
+        "pancreatitis"
+      ],
+      "must_not_miss": [
+        "abdominal-aortic-aneurysm"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Angio-TC abdominal urgente quando suspeita significativa",
+          "priority": "immediate",
+          "rationale": "diagnóstico tempo-dependente",
+          "source_modules": [
+            "acute-mesenteric-ischemia",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de isquemia mesentérica e cirurgia/vascular urgente",
+          "priority": "immediate",
+          "rationale": "atraso aumenta necrose intestinal e mortalidade",
+          "source_modules": [
+            "acute-mesenteric-ischemia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lower-gi-bleeding",
+      "diagnosis": "Hemorragia digestiva baixa",
+      "category": "gastrointestinal",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hematoquézia",
+            "hematoquezia",
+            "hematochezia",
+            "sangue vivo nas fezes",
+            "rectal bleeding"
+          ],
+          "weight": 4,
+          "label": "hematoquézia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "coágulos nas fezes",
+            "coágulos rectais"
+          ],
+          "weight": 2,
+          "label": "sangramento baixo"
+        }
+      ],
+      "missing_if_absent": [
+        "hemoglobina",
+        "coagulação/anticoagulantes",
+        "estabilidade hemodinâmica"
+      ],
+      "differential": [
+        "upper-gi-bleeding",
+        "acute-abdomen"
+      ],
+      "must_not_miss": [
+        "upper-gi-bleeding"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Hemograma, coagulação, grupo/provas cruzadas e investigação endoscópica/TC conforme gravidade",
+          "priority": "urgent",
+          "rationale": "quantificar sangramento e localizar origem",
+          "source_modules": [
+            "lower-gi-bleeding"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de hemorragia digestiva baixa e reanimação conforme perdas/instabilidade",
+          "priority": "immediate",
+          "rationale": "sangramento significativo exige estabilização e localização",
+          "source_modules": [
+            "lower-gi-bleeding",
+            "trauma-major-hemorrhage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aki-nephrology",
+      "diagnosis": "Lesão renal aguda",
+      "category": "renal",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "lesão renal aguda",
+            "injúria renal aguda",
+            "acute kidney injury",
+            "aki"
+          ],
+          "weight": 4,
+          "label": "LRA documentada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "creatinina aumentada",
+            "creatinina elevada",
+            "oligúria",
+            "oliguria",
+            "anúria",
+            "anuria"
+          ],
+          "weight": 2,
+          "label": "deterioração renal"
+        }
+      ],
+      "missing_if_absent": [
+        "creatinina basal",
+        "diurese",
+        "volume/causa prerrenal-pósrenal",
+        "eletrólitos"
+      ],
+      "differential": [
+        "rhabdomyolysis",
+        "potassium-emergencies",
+        "urologic-emergencies"
+      ],
+      "must_not_miss": [
+        "potassium-emergencies"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Comparar creatinina basal, diurese, eletrólitos, urina e excluir obstrução quando indicado",
+          "priority": "urgent",
+          "rationale": "classificar gravidade e causa",
+          "source_modules": [
+            "aki-nephrology",
+            "electrolytes",
+            "pocus"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de LRA; corrigir causa reversível, rever nefrotóxicos e indicações de terapia renal substitutiva",
+          "priority": "urgent",
+          "rationale": "tratamento depende de etiologia e complicações",
+          "source_modules": [
+            "aki-nephrology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rhabdomyolysis",
+      "diagnosis": "Rabdomiólise",
+      "category": "renal_metabolic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "rabdomiólise",
+            "rhabdomyolysis"
+          ],
+          "weight": 5,
+          "label": "rabdomiólise documentada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "ck elevada",
+            "creatina quinase elevada",
+            "myoglobinuria",
+            "mioglobinúria",
+            "urina escura"
+          ],
+          "weight": 2,
+          "label": "lesão muscular/mioglobinúria"
+        }
+      ],
+      "missing_if_absent": [
+        "CK",
+        "potássio",
+        "creatinina",
+        "causa precipitante"
+      ],
+      "differential": [
+        "aki-nephrology",
+        "potassium-emergencies"
+      ],
+      "must_not_miss": [
+        "potassium-emergencies"
+      ],
+      "suggested_tests": [
+        {
+          "action": "CK seriada, função renal, potássio, cálcio, fósforo e urina",
+          "priority": "urgent",
+          "rationale": "avaliar complicações renais/eletrolíticas",
+          "source_modules": [
+            "rhabdomyolysis",
+            "potassium-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de rabdomiólise e fluidoterapia/monitorização individualizadas",
+          "priority": "urgent",
+          "rationale": "prevenir LRA e tratar distúrbios eletrolíticos",
+          "source_modules": [
+            "rhabdomyolysis",
+            "aki-nephrology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thyroid-storm",
+      "diagnosis": "Tempestade tiroideia",
+      "category": "endocrine",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "tempestade tiroideia",
+            "thyroid storm",
+            "tireotoxicose grave"
+          ],
+          "weight": 5,
+          "label": "tempestade tiroideia/tireotoxicose grave"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipertiroidismo",
+            "hyperthyroidism"
+          ],
+          "weight": 2,
+          "label": "hipertiroidismo"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "febre alta",
+            "taquicardia extrema",
+            "agitação",
+            "delirium"
+          ],
+          "weight": 1,
+          "label": "descompensação sistémica"
+        }
+      ],
+      "missing_if_absent": [
+        "TSH/T4 livre",
+        "precipitante",
+        "estado cardiovascular"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "toxicology"
+      ],
+      "must_not_miss": [
+        "adult-arrhythmias"
+      ],
+      "suggested_tests": [
+        {
+          "action": "TSH/T4 livre, ECG, eletrólitos e pesquisa de precipitante",
+          "priority": "urgent",
+          "rationale": "confirmar tireotoxicose e identificar causa precipitante",
+          "source_modules": [
+            "thyroid-storm",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de tempestade tiroideia e tratamento multimodal protocolado",
+          "priority": "immediate",
+          "rationale": "emergência endócrina com elevada mortalidade",
+          "source_modules": [
+            "thyroid-storm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "myxedema-coma",
+      "diagnosis": "Coma mixedematoso",
+      "category": "endocrine",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "coma mixedematoso",
+            "myxedema coma"
+          ],
+          "weight": 6,
+          "label": "coma mixedematoso"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotiroidismo",
+            "hypothyroidism"
+          ],
+          "weight": 2,
+          "label": "hipotiroidismo"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotermia",
+            "bradicardia",
+            "hiponatremia",
+            "hipoventilação"
+          ],
+          "weight": 1,
+          "label": "descompensação compatível"
+        }
+      ],
+      "missing_if_absent": [
+        "TSH/T4 livre",
+        "glicemia",
+        "eletrólitos",
+        "gasometria",
+        "precipitante"
+      ],
+      "differential": [
+        "altered-consciousness",
+        "adrenal-crisis",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "adrenal-crisis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "TSH/T4 livre, gasometria, glicemia, eletrólitos, ECG e pesquisa de precipitante",
+          "priority": "immediate",
+          "rationale": "confirmar descompensação e tratar causas associadas",
+          "source_modules": [
+            "myxedema-coma",
+            "blood-gas-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de coma mixedematoso, suporte ABCDE e terapêutica hormonal protocolada",
+          "priority": "immediate",
+          "rationale": "emergência endócrina crítica",
+          "source_modules": [
+            "myxedema-coma"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-liver-failure",
+      "diagnosis": "Insuficiência hepática aguda",
+      "category": "hepatology",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "insuficiência hepática aguda",
+            "acute liver failure"
+          ],
+          "weight": 5,
+          "label": "falência hepática aguda"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "encefalopatia hepática",
+            "hepatic encephalopathy"
+          ],
+          "weight": 2,
+          "label": "encefalopatia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "inr elevado",
+            "coagulopatia",
+            "icterícia"
+          ],
+          "weight": 1,
+          "label": "disfunção sintética/hepática"
+        }
+      ],
+      "missing_if_absent": [
+        "INR",
+        "glicemia",
+        "transaminases/bilirrubina",
+        "causa/acetaminofeno",
+        "grau de encefalopatia"
+      ],
+      "differential": [
+        "toxicology",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "toxicology"
+      ],
+      "suggested_tests": [
+        {
+          "action": "INR, glicemia, função hepática, amónia quando indicada e investigação etiológica/acetaminofeno",
+          "priority": "immediate",
+          "rationale": "confirmar gravidade e causa potencialmente tratável",
+          "source_modules": [
+            "acute-liver-failure",
+            "toxicology"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de insuficiência hepática aguda e contacto precoce com centro de transplante quando critérios de gravidade",
+          "priority": "immediate",
+          "rationale": "evolução pode ser rápida e requer manejo especializado",
+          "source_modules": [
+            "acute-liver-failure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-spinal-cord-compression",
+      "diagnosis": "Compressão medular aguda",
+      "category": "neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "compressão medular",
+            "spinal cord compression"
+          ],
+          "weight": 5,
+          "label": "compressão medular"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "fraqueza bilateral das pernas",
+            "paraparesia",
+            "nível sensitivo",
+            "sensory level"
+          ],
+          "weight": 3,
+          "label": "défice medular"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor vertebral",
+            "back pain",
+            "dor cervical"
+          ],
+          "weight": 1,
+          "label": "dor axial"
+        }
+      ],
+      "missing_if_absent": [
+        "exame neurológico completo",
+        "RM urgente"
+      ],
+      "differential": [
+        "cauda-equina-conus-emergency",
+        "acute-ischemic-stroke"
+      ],
+      "must_not_miss": [
+        "cauda-equina-conus-emergency"
+      ],
+      "suggested_tests": [
+        {
+          "action": "RM urgente da coluna na região suspeita e avaliação neurocirúrgica/neurológica",
+          "priority": "immediate",
+          "rationale": "défice pode tornar-se irreversível",
+          "source_modules": [
+            "acute-spinal-cord-compression",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de compressão medular e abordagem etiológica urgente",
+          "priority": "immediate",
+          "rationale": "emergência neurológica tempo-dependente",
+          "source_modules": [
+            "acute-spinal-cord-compression"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cauda-equina-conus-emergency",
+      "diagnosis": "Síndrome da cauda equina / cone medular",
+      "category": "neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "anestesia em sela",
+            "anestesia perineal",
+            "saddle anesthesia"
+          ],
+          "weight": 4,
+          "label": "anestesia em sela"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "retenção urinária",
+            "incontinência urinária nova",
+            "new urinary retention"
+          ],
+          "weight": 3,
+          "label": "disfunção vesical"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "ciatalgia bilateral",
+            "fraqueza bilateral das pernas"
+          ],
+          "weight": 2,
+          "label": "défice radicular bilateral"
+        }
+      ],
+      "missing_if_absent": [
+        "exame perineal/neurológico",
+        "RM lombossagrada urgente"
+      ],
+      "differential": [
+        "acute-spinal-cord-compression",
+        "urologic-emergencies"
+      ],
+      "must_not_miss": [
+        "acute-spinal-cord-compression"
+      ],
+      "suggested_tests": [
+        {
+          "action": "RM lombossagrada urgente e avaliação cirúrgica/neurocirúrgica",
+          "priority": "immediate",
+          "rationale": "descompressão precoce pode preservar função",
+          "source_modules": [
+            "cauda-equina-conus-emergency",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de cauda equina/cone e contacto cirúrgico urgente",
+          "priority": "immediate",
+          "rationale": "emergência compressiva tempo-dependente",
+          "source_modules": [
+            "cauda-equina-conus-emergency"
+          ]
+        }
+      ]
     }
   ]
 }
