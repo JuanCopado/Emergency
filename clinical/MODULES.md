@@ -53,6 +53,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `pediatric-toxicology` | `modules/special-populations.md` | yellow |
 | `pediatric-acute-asthma` | `modules/special-populations.md` | yellow |
 | `pediatric-emergency-medications` | `modules/special-populations.md` | yellow |
+| `pediatric-outpatient-home-medications` | `modules/special-populations.md` | yellow |
 | `pediatric-outpatient-medications` | `modules/special-populations.md` | yellow |
 | `pediatric-iv-fluid-therapy` | `modules/special-populations.md` | yellow |
 | `pediatric-electrolyte-emergencies` | `modules/special-populations.md` | yellow |
