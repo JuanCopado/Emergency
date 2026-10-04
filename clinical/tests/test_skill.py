@@ -5116,7 +5116,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_pharmacy_review_ondansetron_15kg_boundary(self):
         result=calculate_pediatric_outpatient(
             'ondansetron-gastroenteritis-initial',
-            {'age_months':48,'actual_weight_kg':15}
+            {'age_months':48,'actual_weight_kg':15,'gastroenteritis_red_flags_excluded':True}
         )
         self.assertEqual(result['dose_mg'],4)
         self.assertEqual(result['total_doses'],1)
