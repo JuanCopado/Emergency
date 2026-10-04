@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "scope": "ALL_YELLOW_MODULES",
+  "default_review_status": "NOT_REVIEWED",
+  "project_decision": "Defer yellow-to-green human sign-off until the final project review phase.",
+  "required_before_green": [
+    "module-specific human clinical review",
+    "pharmacy review when medication/dose/concentration is material",
+    "privacy/information-governance review when health data or images are processed",
+    "all critical findings corrected",
+    "Clinical QA PASS after corrections"
+  ],
+  "automation_rule": "Automated QA, AI-assisted review and synthetic cases cannot independently promote a yellow module to green."
+}
