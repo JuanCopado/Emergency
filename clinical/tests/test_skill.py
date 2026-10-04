@@ -4429,7 +4429,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_pediatric_outpatient_paracetamol_uses_ideal_weight(self):
         result = calculate_pediatric_outpatient(
             'paracetamol-pain-fever-home',
-            {'age_months':120, 'actual_weight_kg':55, 'ideal_weight_kg':35},
+            {'age_months':120, 'actual_weight_kg':55, 'ideal_weight_kg':35, 'home_analgesia_antipyresis_appropriate':True},
             selected_duration_days=2,
         )
         self.assertEqual(result['weight_basis'], 'ideal')
@@ -4440,7 +4440,7 @@ class ModularCoreTests(unittest.TestCase):
 
         liquid = calculate_pediatric_outpatient(
             'paracetamol-pain-fever-home',
-            {'age_months':120, 'actual_weight_kg':55, 'ideal_weight_kg':35},
+            {'age_months':120, 'actual_weight_kg':55, 'ideal_weight_kg':35, 'home_analgesia_antipyresis_appropriate':True},
             {'concentration_mg_per_ml': 24},
             selected_duration_days=2,
         )
@@ -4450,7 +4450,7 @@ class ModularCoreTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'ideal_weight_kg'):
             calculate_pediatric_outpatient(
                 'paracetamol-pain-fever-home',
-                {'age_months':120, 'actual_weight_kg':55},
+                {'age_months':120, 'actual_weight_kg':55, 'home_analgesia_antipyresis_appropriate':True},
                 selected_duration_days=1,
             )
 
@@ -4513,7 +4513,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_pediatric_outpatient_nitrofurantoin_preserves_source_variants_and_gates(self):
         patient={
             'age_months':120,'actual_weight_kg':20,'egfr_mL_min':90,
-            'g6pd_deficiency':False,'acute_porphyria':False,'suspected_pyelonephritis':False
+            'g6pd_deficiency':False,'acute_porphyria':False,'suspected_pyelonephritis':False,'urine_sample_obtained_before_antibiotic':True
         }
         nice = calculate_pediatric_outpatient(
             'nitrofurantoin-cystitis-nice-3d',patient,{'concentration_mg_per_ml':5}
@@ -4551,7 +4551,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_pediatric_outpatient_fixed_bands_ondansetron_cetirizine_oseltamivir(self):
         ond = calculate_pediatric_outpatient(
             'ondansetron-gastroenteritis-initial',
-            {'age_months':48,'actual_weight_kg':20}
+            {'age_months':48,'actual_weight_kg':20,'gastroenteritis_red_flags_excluded':True}
         )
         self.assertEqual(ond['dose_mg'],4)
         self.assertEqual(ond['total_doses'],1)
@@ -4567,7 +4567,7 @@ class ModularCoreTests(unittest.TestCase):
 
         ose = calculate_pediatric_outpatient(
             'oseltamivir-influenza-ge1y',
-            {'age_months':96,'actual_weight_kg':20},
+            {'age_months':96,'actual_weight_kg':20,'influenza_antiviral_indication_confirmed':True},
             {'concentration_mg_per_ml':6},
         )
         self.assertEqual(ose['dose_mg'],45)
@@ -4601,7 +4601,7 @@ class ModularCoreTests(unittest.TestCase):
 
         band = calculate_pediatric_outpatient(
             'clarithromycin-aom-penicillin-allergy',
-            {'age_months':48,'actual_weight_kg':15},
+            {'age_months':48,'actual_weight_kg':15,'gastroenteritis_red_flags_excluded':True},
             {'concentration_mg_per_ml':25},
             selected_duration_days=7,
         )
@@ -4853,7 +4853,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v138_blockD_infected_eczema_antibiotic(self):
         result=calculate_pediatric_outpatient(
             'cefalexin-infected-eczema-bacterial',
-            {'age_months':84,'actual_weight_kg':20},
+            {'age_months':84,'actual_weight_kg':20,'systemically_well':True,'suspected_eczema_herpeticum':False},
             {'concentration_mg_per_ml':50},
             selected_duration_days=7
         )
@@ -4974,7 +4974,8 @@ class ModularCoreTests(unittest.TestCase):
             {
                 'age_months':84,'actual_weight_kg':20,
                 'low_resistance_risk_or_susceptible':True,
-                'suspected_pyelonephritis':False
+                'suspected_pyelonephritis':False,
+                'urine_sample_obtained_before_antibiotic':True
             },
             {'concentration_mg_per_ml':10}
         )
@@ -4988,7 +4989,8 @@ class ModularCoreTests(unittest.TestCase):
                 {
                     'age_months':84,'actual_weight_kg':20,
                     'low_resistance_risk_or_susceptible':False,
-                    'suspected_pyelonephritis':False
+                    'suspected_pyelonephritis':False,
+                    'urine_sample_obtained_before_antibiotic':True
                 }
             )
         with self.assertRaisesRegex(ValueError,'pyelonephritis'):
@@ -4997,7 +4999,8 @@ class ModularCoreTests(unittest.TestCase):
                 {
                     'age_months':84,'actual_weight_kg':20,
                     'low_resistance_risk_or_susceptible':True,
-                    'suspected_pyelonephritis':True
+                    'suspected_pyelonephritis':True,
+                    'urine_sample_obtained_before_antibiotic':True
                 }
             )
 
@@ -5375,7 +5378,7 @@ class ModularCoreTests(unittest.TestCase):
             )
         ok=calculate_pediatric_outpatient(
             'cefalexin-pyelonephritis-ge12mo',
-            {'age_months':120,'actual_weight_kg':25,'allergies':[],'active_medications':[],'rch_pyelo_high_dose_stepdown_confirmed':True},
+            {'age_months':120,'actual_weight_kg':25,'allergies':[],'active_medications':[],'rch_pyelo_high_dose_stepdown_confirmed':True,'urine_sample_obtained_before_antibiotic':True},
             {'concentration_mg_per_ml':50},
             selected_duration_days=7
         )
