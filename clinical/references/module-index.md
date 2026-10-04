@@ -135,3 +135,6 @@ bundle; `scripts/validate_modules.py` enforces that invariant.
 | ecg-pocus-integration | `modules/disposition-crosscutting.md` |
 | pocus | `modules/disposition-crosscutting.md` |
 | clinical-scores-calculators | `modules/clinical-scores-calculators.md` |
+
+| clinical-note-diagnostic-support | `modules/documentation-governance.md` |
+| final-human-review-gate | `modules/documentation-governance.md` |
