@@ -540,7 +540,7 @@ Further versions should prioritize validation and targeted refinement over uncon
 
 
 ## v1.38 pediatric outpatient/home medications — 04/10/2026
-- New module registered: `pediatric-outpatient-home-medications`.
+- New module registered: `pediatric-outpatient-medications`.
 - Initial outpatient registry: **36 diagnosis-specific regimens**.
 - Deterministic fail-closed calculator added.
 - Tests cover ideal-vs-actual weight, source maximums, verified concentration -> mL, total doses/course volume, variable-day schedules, age/weight bands and contraindication gates.
