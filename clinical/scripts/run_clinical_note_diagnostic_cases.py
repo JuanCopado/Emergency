@@ -8,7 +8,7 @@ sys.path.insert(0,str(ROOT/"scripts"))
 from clinical_note_support import new_note, add_report
 from clinical_note_diagnostic_engine import analyze
 
-CASES=ROOT/"qa"/"clinical-note-diagnostic-synthetic-cases.json"
+CASES=[ROOT/"qa"/"clinical-note-diagnostic-synthetic-cases.json", ROOT/"qa"/"clinical-note-diagnostic-final-cases-a.json", ROOT/"qa"/"clinical-note-diagnostic-final-cases-b.json"]
 
 def build(case):
     n=new_note(age_years=case.get("age_years"),sex=case.get("sex","unknown"),language="pt-PT")
@@ -31,9 +31,11 @@ def build(case):
     return n
 
 def run():
-    spec=json.loads(CASES.read_text(encoding="utf-8"))
+    all_cases=[]
+    for path in CASES:
+        all_cases.extend(json.loads(path.read_text(encoding="utf-8"))["cases"])
     errors=[]; passed=0
-    for case in spec["cases"]:
+    for case in all_cases:
         try:
             result=analyze(build(case),apply_to_note=True)
             if result["blocked"]: raise AssertionError("analysis blocked")
@@ -63,7 +65,7 @@ def run():
             passed+=1
         except Exception as exc:
             errors.append(f"{case['id']}: {exc}")
-    return {"cases":len(spec["cases"]),"passed":passed,"errors":errors}
+    return {"cases":len(all_cases),"passed":passed,"errors":errors}
 
 if __name__=="__main__":
     result=run()
