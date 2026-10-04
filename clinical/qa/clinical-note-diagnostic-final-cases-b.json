@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "hyponatraemia",
+      "age_years": 75,
+      "sex": "female",
+      "chief_complaint": "Confusão e convulsão.",
+      "hpi": "Hiponatremia grave.",
+      "labs": "Sódio 120 mmol/L.",
+      "expected_likely": "Emergência do sódio (hipo/hipernatremia sintomática)",
+      "expected_modules": [
+        "sodium-emergencies"
+      ],
+      "expected_test_contains": "osmolaridade"
+    },
+    {
+      "id": "nec-fasc",
+      "age_years": 61,
+      "sex": "male",
+      "chief_complaint": "Dor intensa na perna.",
+      "hpi": "Dor desproporcionada, bolhas hemorrágicas e crepitação; suspeita de fasceíte necrosante.",
+      "vitals": {
+        "bp": "88/50",
+        "hr": 124,
+        "rr": 24,
+        "spo2": 96,
+        "oxygen": "ar ambiente",
+        "temperature_c": 39,
+        "gcs": "15"
+      },
+      "expected_likely": "Infeção grave de pele/tecidos moles / possível fasceíte necrosante",
+      "expected_modules": [
+        "soft-tissue-infections"
+      ],
+      "expected_immediate_treatment_module": "soft-tissue-infections"
+    },
+    {
+      "id": "heat-stroke",
+      "age_years": 41,
+      "sex": "male",
+      "chief_complaint": "Colapso após exposição ao calor.",
+      "hpi": "Golpe de calor com temperatura central 40.5 e confusão.",
+      "vitals": {
+        "bp": "94/60",
+        "hr": 138,
+        "rr": 28,
+        "spo2": 97,
+        "oxygen": "ar ambiente",
+        "temperature_c": 40.5,
+        "gcs": "12"
+      },
+      "expected_likely": "Golpe de calor / doença relacionada com calor",
+      "expected_modules": [
+        "environmental-heat-illness"
+      ],
+      "expected_test_contains": "CK"
+    },
+    {
+      "id": "pyelo",
+      "age_years": 46,
+      "sex": "female",
+      "chief_complaint": "Febre e dor lombar.",
+      "hpi": "Pielonefrite com disúria e dor no flanco.",
+      "vitals": {
+        "bp": "108/66",
+        "hr": 104,
+        "rr": 20,
+        "spo2": 98,
+        "oxygen": "ar ambiente",
+        "temperature_c": 39,
+        "gcs": "15"
+      },
+      "expected_likely": "Pielonefrite complicada / infeção urinária alta",
+      "expected_modules": [
+        "pyelonephritis-urologic-emergency"
+      ],
+      "expected_test_contains": "cultura"
+    },
+    {
+      "id": "peds-foreign-body",
+      "age_years": 3,
+      "sex": "male",
+      "chief_complaint": "Engasgamento súbito.",
+      "hpi": "Corpo estranho após comer amendoim, tosse súbita e sibilância unilateral.",
+      "vitals": {
+        "bp": "92/58",
+        "hr": 132,
+        "rr": 34,
+        "spo2": 90,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.7,
+        "gcs": "15"
+      },
+      "expected_likely": "Corpo estranho pediátrico de via aérea/esófago",
+      "expected_modules": [
+        "pediatric-foreign-body-emergencies"
+      ],
+      "expected_immediate_treatment_module": "pediatric-foreign-body-emergencies"
+    },
+    {
+      "id": "geriatric-delirium",
+      "age_years": 87,
+      "sex": "female",
+      "chief_complaint": "Confusão aguda.",
+      "hpi": "Síndrome confusional agudo com flutuação e inatenção.",
+      "expected_likely": "Delirium agudo no idoso",
+      "expected_modules": [
+        "geriatric-delirium-emergency"
+      ],
+      "expected_test_contains": "baseline"
+    }
+  ]
+}
