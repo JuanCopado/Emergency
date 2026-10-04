@@ -51,10 +51,18 @@
         "severe hepatic impairment",
         "severe renal impairment",
         "malnutrition or glutathione depletion",
-        "duplicate paracetamol products"
+        "duplicate paracetamol products",
+        "fever in an infant under 3 months requires age-specific febrile-infant assessment and must not be treated as a simple home-fever problem solely because a paracetamol dose can be calculated"
       ],
       "source": "RCH Acute Pain Management 2024; current paracetamol SmPC 120 mg/5 mL",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/",
+      "required_patient_flags": [
+        {
+          "field": "home_analgesia_antipyresis_appropriate",
+          "equals": true,
+          "message": "home paracetamol calculation requires that the child has been clinically assessed as suitable for home analgesia/antipyresis"
+        }
+      ]
     },
     {
       "id": "ibuprofen-pain-fever-home",
@@ -167,7 +175,14 @@
         "ondansetron hypersensitivity",
         "concomitant apomorphine"
       ],
-      "pharmacy_review_note": "RCH table prints 8-15 and 15-30 kg. Engine resolves the shared 15-kg boundary as 4 mg (15 to 30 kg) and keeps >30 kg as 8 mg."
+      "pharmacy_review_note": "RCH table prints 8-15 and 15-30 kg. Engine resolves the shared 15-kg boundary as 4 mg (15 to 30 kg) and keeps >30 kg as 8 mg.",
+      "required_patient_flags": [
+        {
+          "field": "gastroenteritis_red_flags_excluded",
+          "equals": true,
+          "message": "ondansetron for gastroenteritis requires consideration/exclusion of red flags and alternative diagnoses, particularly bilious vomiting, vomiting without diarrhoea, surgical abdomen or raised intracranial pressure"
+        }
+      ]
     },
     {
       "id": "cetirizine-urticaria-6to11mo",
@@ -754,8 +769,10 @@
       },
       "cautions": [
         "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
-        "monitor for antibiotic-associated diarrhea/hypersensitivity"
-      ]
+        "monitor for antibiotic-associated diarrhea/hypersensitivity",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "min_age_months": 1
     },
     {
       "id": "amox-clav-bite",
@@ -798,7 +815,8 @@
         "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
         "hepatic impairment requires caution and monitoring",
         "specific RCH bite guidance recommends IV therapy and at least 14 days total treatment for established infected wounds; do not reuse this 5-day prophylaxis regimen for established infection",
-        "check tetanus status and assess rabies/lyssavirus or blood-borne-virus exposure when relevant"
+        "check tetanus status and assess rabies/lyssavirus or blood-borne-virus exposure when relevant",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "excluded_patient_flags": [
         {
@@ -806,7 +824,8 @@
           "equals": true,
           "message": "this 5-day regimen is for prophylaxis of a high-risk uninfected bite; established/grossly infected bite requires the infected-wound pathway and often IV/surgical management"
         }
-      ]
+      ],
+      "min_age_months": 1
     },
     {
       "id": "amox-clav-preseptal-stepdown",
@@ -852,7 +871,8 @@
         "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
         "hepatic impairment requires caution and monitoring",
         "mild periorbital/preseptal cellulitis uses the separate cefalexin/cefuroxime pathway",
-        "orbital cellulitis requires admission, ENT/ophthalmology input and usually urgent imaging"
+        "orbital cellulitis requires admission, ENT/ophthalmology input and usually urgent imaging",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "required_patient_flags": [
         {
@@ -860,7 +880,8 @@
           "equals": true,
           "message": "amoxicillin/clavulanate 22.5 mg/kg twice daily is an orbital-cellulitis oral step-down regimen after initial IV/specialist management, not a routine mild preseptal regimen"
         }
-      ]
+      ],
+      "min_age_months": 1
     },
     {
       "id": "cefalexin-cellulitis",
@@ -893,7 +914,8 @@
       "cautions": [
         "immediate severe beta-lactam allergy",
         "marked renal impairment requires dose review",
-        "marked renal impairment requires dose reduction"
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "source": "RCH Antimicrobial guidelines; cefalexin SmPC",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
@@ -911,7 +933,8 @@
           "equals": true,
           "message": "oral cellulitis treatment requires mild/moderate disease suitable for outpatient therapy with review if worsening or no improvement by ~48 hours"
         }
-      ]
+      ],
+      "min_age_months": 1
     },
     {
       "id": "cefalexin-preseptal",
@@ -951,7 +974,8 @@
         "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
       },
       "cautions": [
-        "marked renal impairment requires dose reduction"
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
       "required_patient_flags": [
@@ -965,7 +989,8 @@
           "equals": true,
           "message": "mild preseptal cellulitis outpatient treatment requires assured follow-up"
         }
-      ]
+      ],
+      "min_age_months": 1
     },
     {
       "id": "cefalexin-cystitis",
@@ -1006,6 +1031,13 @@
       "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
       "contraindications": [
         "cephalosporin hypersensitivity"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
       ]
     },
     {
@@ -1060,6 +1092,11 @@
           "field": "rch_pyelo_high_dose_stepdown_confirmed",
           "equals": true,
           "message": "this high-dose cefalexin regimen is the RCH early oral step-down pathway for acute pyelonephritis; do not use it as an unreviewed generic cystitis/outpatient regimen"
+        },
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
         }
       ]
     },
@@ -1114,6 +1151,11 @@
           "field": "rch_pyelo_high_dose_stepdown_confirmed",
           "equals": true,
           "message": "this high-dose cefalexin regimen is the RCH early oral step-down pathway for acute pyelonephritis; do not use it as an unreviewed generic cystitis/outpatient regimen"
+        },
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
         }
       ]
     },
@@ -1181,7 +1223,8 @@
         "local clindamycin resistance/inducible resistance",
         "history of C. difficile",
         "C. difficile/antibiotic-associated colitis risk",
-        "renal/hepatic monitoring for prolonged therapy"
+        "renal/hepatic monitoring for prolonged therapy",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "source": "RCH antimicrobial MRSA pathway",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
@@ -1201,7 +1244,8 @@
       },
       "contraindications": [
         "clindamycin/lincomycin hypersensitivity"
-      ]
+      ],
+      "min_age_months": 1
     },
     {
       "id": "azithromycin-pertussis-lt6mo",
@@ -1455,6 +1499,13 @@
       "cautions": [
         "not for renal parenchymal/upper UTI",
         "pulmonary/hepatic/neurologic toxicity precautions"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
       ]
     },
     {
@@ -1523,6 +1574,13 @@
       "cautions": [
         "not for renal parenchymal/upper UTI",
         "pulmonary/hepatic/neurologic toxicity precautions"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
       ]
     },
     {
@@ -1560,9 +1618,17 @@
       ],
       "cautions": [
         "known renal impairment requires age-specific adjustment/review",
-        "monitor for neuropsychiatric events"
+        "monitor for neuropsychiatric events",
+        "clinical benefit is greatest when started as early as possible, ideally within 48 hours for uncomplicated outpatients; high-risk/severe/progressive illness should be treated promptly even when presentation is later"
       ],
-      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified."
+      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified.",
+      "required_patient_flags": [
+        {
+          "field": "influenza_antiviral_indication_confirmed",
+          "equals": true,
+          "message": "oseltamivir should be used when influenza antiviral treatment is clinically indicated (priority high-risk/severe/progressive groups, or selected uncomplicated outpatients when early treatment is appropriate)"
+        }
+      ]
     },
     {
       "id": "oseltamivir-influenza-ge1y",
@@ -1624,9 +1690,17 @@
       ],
       "cautions": [
         "known renal impairment requires age-specific adjustment/review",
-        "monitor for neuropsychiatric events"
+        "monitor for neuropsychiatric events",
+        "clinical benefit is greatest when started as early as possible, ideally within 48 hours for uncomplicated outpatients; high-risk/severe/progressive illness should be treated promptly even when presentation is later"
       ],
-      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified."
+      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified.",
+      "required_patient_flags": [
+        {
+          "field": "influenza_antiviral_indication_confirmed",
+          "equals": true,
+          "message": "oseltamivir should be used when influenza antiviral treatment is clinically indicated (priority high-risk/severe/progressive groups, or selected uncomplicated outpatients when early treatment is appropriate)"
+        }
+      ]
     },
     {
       "id": "epinephrine-autoinjector-discharge-rch",
@@ -2013,7 +2087,8 @@
       "cautions": [
         "immediate severe beta-lactam allergy",
         "renal impairment",
-        "marked renal impairment requires dose reduction"
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "source": "RCH Antimicrobial guidelines, updated Feb 2025",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
@@ -2024,7 +2099,8 @@
       "hepatic_adjustment": {
         "mode": "no_specific_adjustment_encoded",
         "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
-      }
+      },
+      "min_age_months": 1
     },
     {
       "id": "cefalexin-cervical-lymphadenitis-mild",
@@ -2054,7 +2130,8 @@
         "deep neck infection red flags",
         "abscess requiring drainage",
         "renal impairment",
-        "marked renal impairment requires dose reduction"
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "source": "RCH Antimicrobial guidelines, updated Feb 2025",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
@@ -2078,7 +2155,8 @@
           "equals": true,
           "message": "mild bacterial cervical lymphadenitis treated orally should have planned review within 48 hours"
         }
-      ]
+      ],
+      "min_age_months": 1
     },
     {
       "id": "fluticasone-controller-preschool",
@@ -3269,7 +3347,8 @@
         "systemic illness/severe infection may require admission/IV therapy",
         "consider MRSA if high-risk or not responding",
         "eczema herpeticum requires prompt antiviral pathway, not antibiotic alone",
-        "marked renal impairment requires dose reduction"
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
       ],
       "source": "RCH Eczema / Eczema management + RCH antimicrobial skin dosing",
       "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
@@ -3280,7 +3359,22 @@
       "hepatic_adjustment": {
         "mode": "no_specific_adjustment_encoded",
         "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
-      }
+      },
+      "min_age_months": 1,
+      "required_patient_flags": [
+        {
+          "field": "systemically_well",
+          "equals": true,
+          "message": "oral treatment of infected eczema is for a systemically well child; systemic features or severe infection may require admission/IV therapy"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_eczema_herpeticum",
+          "equals": true,
+          "message": "suspected eczema herpeticum requires prompt antiviral/specialist assessment and must not be managed as bacterial infected eczema alone"
+        }
+      ]
     },
     {
       "id": "mometasone-nasal-allergic-rhinitis",
@@ -3716,6 +3810,11 @@
           "field": "low_resistance_risk_or_susceptible",
           "equals": true,
           "message": "NICE trimethoprim lower-UTI regimen requires low resistance risk or susceptibility-based selection"
+        },
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
         }
       ],
       "excluded_patient_flags": [
@@ -3794,6 +3893,18 @@
         "neonatal conjunctivitis exclusion",
         "secondary headache red-flag exclusion",
         "functional constipation/obstruction red-flag exclusion"
+      ]
+    },
+    "third_pass": {
+      "date": "2026-10-04",
+      "focus": "neonatal source scope, infection diagnostic sampling, antiviral indication and serious-diagnosis exclusion",
+      "changes": [
+        "neonates excluded from general RCH antimicrobial outpatient regimens unless explicitly supported",
+        "urine-sample-before-antibiotic gate added to lower UTI/pyelonephritis regimens",
+        "oseltamivir requires confirmed antiviral indication",
+        "ondansetron gastroenteritis requires red-flag/alternative-diagnosis exclusion",
+        "infected eczema requires systemically well status and excludes suspected eczema herpeticum",
+        "home paracetamol requires explicit home-treatment suitability; young-infant fever warning added"
       ]
     }
   }
