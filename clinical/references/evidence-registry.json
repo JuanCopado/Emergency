@@ -1082,6 +1082,23 @@
       "last_checked": "2026-10-04",
       "status": "yellow",
       "note": "Expanded diagnosis-specific pediatric outpatient/home medication engine with explicit weight scalar, source maxima, duration, administration/food instructions, contraindication gates, concentration-verified mL/course-volume arithmetic and device/topical/non-mg dose models. Registry now contains 89 regimens across antibiotics, analgesia, antiemetics, antihistamines, asthma controllers/relievers, dermatology, GI/ORS/constipation, antiparasitics, antivirals, ENT/ophthalmology, allergy and migraine. Portugal reconciliation is documented separately; Azores real-time stock is not asserted. Yellow pending human pediatric/pharmacy review and Portuguese INFOMED/RCM product reconciliation. Azores stock is not a release gate. A central STOP/ALERT/CAUTION/INFO medication safety alert engine is integrated for allergies, class cross-reactivity, duplicate therapy, selected major interactions, organ-function gates, age/weight/product mismatches and global outpatient red flags. 89/89 regimens received an AI-assisted pediatric clinical audit focused on indication, source-age scope, discharge suitability, red flags and escalation; 40 entries required clinical gate/source-scope correction and no CHANGE_REQUIRED remains unresolved. This is not human pediatrician sign-off."
+    },
+    "clinical-note-diagnostic-support": {
+      "priority": "high",
+      "primary_source": "GDPR privacy-by-design/data-minimization principles + EDPB Guidelines 01/2025 on Pseudonymisation + existing Emergency syndrome/image/score modules; clinical-layout design informed by six clinician-supplied de-identified history examples",
+      "primary_source_url": "https://www.edpb.europa.eu/public-consultations/guidelines-012025-on-pseudonymisation_en",
+      "stored_version": "v1.39 initial structured note/workspace 2026-10-04",
+      "last_checked": "2026-10-04",
+      "status": "yellow",
+      "note": "Structured hybrid clinical-note workspace with provenance-aware MCDT/image reports, privacy preflight, diagnosis/differential/test/treatment output contract and DOCX/PDF/JSON export. Pseudonymization is explicitly not treated as anonymization. Yellow pending human clinical, privacy/information-governance and legal/deployment review."
+    },
+    "final-human-review-gate": {
+      "priority": "high",
+      "primary_source": "Project governance rule: all yellow modules require appropriate human specialist review plus post-correction Clinical QA before green promotion",
+      "stored_version": "v1.39 governance gate 2026-10-04",
+      "last_checked": "2026-10-04",
+      "status": "yellow",
+      "note": "Dynamic final-project review queue covers every evidence-registry module with status yellow. Automated QA and AI-assisted reviews cannot promote modules to green. This governance module itself remains yellow until the final review phase."
     }
   }
 }
