@@ -89,7 +89,14 @@ def _structured_signals(note):
     return signals
 
 def _term_present(term,text):
-    return _norm(term) in text
+    t=_norm(term)
+    if not t:
+        return False
+    # Short standalone acronyms/tokens (e.g. TEN, VF, PEA, AKI, DT) must
+    # not match inside ordinary words such as "extremidades" or "paciente".
+    if re.fullmatch(r"[a-z0-9]+",t) and len(t)<=4:
+        return re.search(r"(?<![a-z0-9])"+re.escape(t)+r"(?![a-z0-9])",text) is not None
+    return t in text
 
 def _rule_score(rule,text,signals):
     score=0; evidence=[]
