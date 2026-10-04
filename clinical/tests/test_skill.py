@@ -4923,6 +4923,83 @@ class ModularCoreTests(unittest.TestCase):
         )
         self.assertEqual(child['volume_per_dose']['exact_ml'],7.5)
 
+    def test_v138_blockE_gas_penicillin_and_amoxicillin(self):
+        pen=calculate_pediatric_outpatient(
+            'phenoxymethylpenicillin-gas-sore-throat',
+            {'age_months':120,'actual_weight_kg':20},
+            {'concentration_mg_per_ml':50}
+        )
+        self.assertEqual(pen['dose_mg'],300)
+        self.assertEqual(pen['volume_per_dose']['exact_ml'],6)
+        self.assertEqual(pen['total_doses'],20)
+        self.assertIn('before',pen['administration'].lower())
+
+        amox=calculate_pediatric_outpatient(
+            'amoxicillin-gas-sore-throat-adherence',
+            {'age_months':120,'actual_weight_kg':30},
+            {'concentration_mg_per_ml':50}
+        )
+        self.assertEqual(amox['dose_mg'],1000)
+        self.assertEqual(amox['volume_per_dose']['exact_ml'],20)
+        self.assertEqual(amox['total_doses'],10)
+
+    def test_v138_blockE_beta_lactam_allergy_pathways_are_separate(self):
+        ceph=calculate_pediatric_outpatient(
+            'cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy',
+            {'age_months':120,'actual_weight_kg':30,'immediate_or_severe_beta_lactam_allergy':False},
+            {'concentration_mg_per_ml':50}
+        )
+        self.assertEqual(ceph['dose_mg'],750)
+
+        with self.assertRaisesRegex(ValueError,'not appropriate'):
+            calculate_pediatric_outpatient(
+                'cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy',
+                {'age_months':120,'actual_weight_kg':30,'immediate_or_severe_beta_lactam_allergy':True},
+                {'concentration_mg_per_ml':50}
+            )
+
+        azi=calculate_pediatric_outpatient(
+            'azithromycin-gas-sore-throat-immediate-beta-lactam-allergy',
+            {'age_months':120,'actual_weight_kg':30,'immediate_or_severe_beta_lactam_allergy':True},
+            {'concentration_mg_per_ml':40}
+        )
+        self.assertEqual(azi['dose_mg'],360)
+        self.assertEqual(azi['volume_per_dose']['exact_ml'],9)
+        self.assertEqual(azi['total_doses'],5)
+
+    def test_v138_blockE_trimethoprim_uti_resistance_and_pyelo_gates(self):
+        result=calculate_pediatric_outpatient(
+            'trimethoprim-cystitis-low-resistance',
+            {
+                'age_months':84,'actual_weight_kg':20,
+                'low_resistance_risk_or_susceptible':True,
+                'suspected_pyelonephritis':False
+            },
+            {'concentration_mg_per_ml':10}
+        )
+        self.assertEqual(result['dose_mg'],80)
+        self.assertEqual(result['volume_per_dose']['exact_ml'],8)
+        self.assertEqual(result['total_doses'],6)
+
+        with self.assertRaisesRegex(ValueError,'resistance'):
+            calculate_pediatric_outpatient(
+                'trimethoprim-cystitis-low-resistance',
+                {
+                    'age_months':84,'actual_weight_kg':20,
+                    'low_resistance_risk_or_susceptible':False,
+                    'suspected_pyelonephritis':False
+                }
+            )
+        with self.assertRaisesRegex(ValueError,'pyelonephritis'):
+            calculate_pediatric_outpatient(
+                'trimethoprim-cystitis-low-resistance',
+                {
+                    'age_months':84,'actual_weight_kg':20,
+                    'low_resistance_risk_or_susceptible':True,
+                    'suspected_pyelonephritis':True
+                }
+            )
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
