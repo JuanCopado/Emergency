@@ -300,6 +300,8 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - All yellow modules are dynamically deferred to a final human-review queue; no automatic yellow->green promotion.
 - Privacy design uses pseudonymous encounter ID and blocks direct identifiers in exports; pseudonymization is not treated as anonymization.
 - v1.39 state: `qa/V1.39_CLINICAL_NOTE_STATE.md`.
-- Clinical QA #553: **360/360 PASS**, 131/131 registered, 29 green / 102 yellow / 0 red.
+- Clinical QA #582: **363/363 PASS**, 131/131 registered, 29 green / 102 yellow / 0 red.
 
-- Executable diagnostic-support engine added to v1.39: 35 emergency syndromes, transparent rule hits, qualitative confidence, differential/must-not-miss, test suggestions and treatment-module routing. Synthetic diagnostic cases 24/24 PASS. Clinical QA #553: 360/360 PASS.
+- Executable diagnostic-support engine added to v1.39: 92 emergency/acute-care syndromes, transparent rule hits, qualitative confidence, differential/must-not-miss, test suggestions and treatment-module routing. Synthetic diagnostic scenarios 60/60 PASS. Clinical QA #582: 363/363 PASS.
+
+- Diagnostic coverage closure: 115/131 registered modules are directly covered/routed; the remaining 16 are explicitly classified non-diagnostic support/infrastructure. Unexpected diagnostic gaps: 0. Coverage gate is enforced in Clinical QA.
