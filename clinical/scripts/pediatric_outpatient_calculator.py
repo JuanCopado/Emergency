@@ -190,6 +190,28 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
     elif model=="fixed_dose":
         dose=_apply_max(_num(e["fixed_dose_mg"],"fixed_dose_mg"),e)
         result["dose_mg"]=dose
+    elif model=="fixed_volume_band":
+        band=_fixed_band(e,patient)
+        volume_ml=_num(band["dose_ml"],"dose_ml")
+        doses_per_day=band.get("doses_per_day",doses_per_day)
+        duration=band.get("duration_days",duration)
+        result["matched_band"]=band
+        result["volume_per_dose"]={"exact_ml":volume_ml,"rounded_0_1_ml":round(volume_ml+1e-12,1),"concentration_mg_per_ml":None}
+        result["dose_unit"]="mL"
+    elif model=="volume_ml_per_kg_course":
+        w=_num(patient.get("actual_weight_kg"),"actual_weight_kg")
+        perkg=_num(e["volume_ml_per_kg"],"volume_ml_per_kg")
+        total_volume=w*perkg
+        hours=_num(e["administration_hours"],"administration_hours")
+        result.update({"dosing_weight_kg":w,"total_rehydration_ml":total_volume,"administration_hours":hours,"target_ml_per_hour":total_volume/hours})
+        dose=None
+    elif model=="sachet_schedule":
+        band=_fixed_band(e,patient)
+        result["matched_band"]=band
+        result["sachets_per_day"]=band.get("sachets_per_day")
+        result["sachet_schedule"]=band.get("schedule")
+        duration=band.get("duration_days",duration)
+        result["dose_unit"]="sachet"
     elif model=="device":
         band=_fixed_band(e,patient)
         result["device"]=band
