@@ -260,6 +260,12 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         result["device"]=band
     elif model=="topical":
         result["instructions"]=e["topical_instructions"]
+        for field in (
+            "drops_per_dose","doses_per_day_range","volume_per_administration_ml",
+            "applications_per_day","repeat_after_days","product_strength"
+        ):
+            if e.get(field) is not None:
+                result[field]=e[field]
     else:
         raise ValueError("unsupported dose_model")
 
