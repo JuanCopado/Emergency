@@ -572,3 +572,12 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Dedicated tests cover new diagnosis/disposition gates including bite infection, orbital step-down, pyelonephritis step-down, UTI urine sampling, under-5 ORS scope, antiviral indication, gastroenteritis red flags, eczema herpeticum, home paracetamol suitability and asthma/croup discharge criteria.
 - Review validates deterministic clinical safety logic only; it is not prospective validation or human pediatric sign-off.
 - Module remains yellow pending independent human pediatric/pharmacy review.
+
+
+## v1.39 clinical note / final human review — 04/10/2026
+- Added 2 registered modules: `clinical-note-diagnostic-support`, `final-human-review-gate`.
+- Added structured clinical-note schema, privacy policy, modality routing, provenance model and diagnosis-support output contract.
+- Export smoke tests verify DOCX/PDF creation only after privacy and clinician-review gates pass.
+- Direct-identifier detection, clinician-review requirement, attachment routing and final-yellow-review queue are covered by automated tests.
+- Clinical QA #533: **358/358 tests PASS**; 131/131 modules; 29 green / 102 yellow / 0 red.
+- Automated tests do not establish diagnostic accuracy, legal compliance or human specialist sign-off.
