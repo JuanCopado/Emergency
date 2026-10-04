@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "acs-st-elevation",
+      "age_years": 68,
+      "sex": "male",
+      "chief_complaint": "Dolor torácico opresivo con sudoración.",
+      "hpi": "Dolor torácico de inicio súbito con náusea.",
+      "ecg": "Supradesnivelamento de ST anterior.",
+      "expected_likely": "Síndrome coronario agudo",
+      "expected_modules": [
+        "acute-coronary-syndrome"
+      ],
+      "expected_must_not_miss": [
+        "Síndrome aórtica aguda",
+        "Embolia pulmonar"
+      ]
+    },
+    {
+      "id": "tension-pneumothorax",
+      "age_years": 22,
+      "sex": "male",
+      "chief_complaint": "Dispneia súbita e dor pleurítica.",
+      "hpi": "Início súbito.",
+      "exam_respiratory": "Ausência de murmúrio vesicular à direita.",
+      "vitals": {
+        "bp": "82/45",
+        "hr": 118,
+        "rr": 32,
+        "spo2": 78,
+        "oxygen": "ar ambiente",
+        "temperature_c": 36.4,
+        "gcs": "15"
+      },
+      "expected_likely": "Pneumotórax hipertensivo",
+      "expected_modules": [
+        "tension-pneumothorax"
+      ],
+      "expected_immediate_treatment_module": "tension-pneumothorax"
+    },
+    {
+      "id": "acute-stroke",
+      "age_years": 74,
+      "sex": "female",
+      "chief_complaint": "Défice neurológico focal.",
+      "hpi": "Início súbito de afasia e hemiparesia direita.",
+      "exam_neurologic": "Afasia e hemiparesia direita.",
+      "expected_likely": "AVC isquémico agudo",
+      "expected_modules": [
+        "acute-ischemic-stroke"
+      ],
+      "expected_test_contains": "TC cranioencefálica"
+    },
+    {
+      "id": "sepsis-shock",
+      "age_years": 81,
+      "sex": "female",
+      "chief_complaint": "Febre, confusão e hipotensão.",
+      "hpi": "Infeção urinária suspeita com febre e deterioração do estado mental.",
+      "labs": "Lactato elevado.",
+      "vitals": {
+        "bp": "84/48",
+        "hr": 120,
+        "rr": 26,
+        "spo2": 93,
+        "oxygen": "2 L/min",
+        "temperature_c": 39.1,
+        "gcs": "13"
+      },
+      "expected_likely": "Sépsis / choque séptico",
+      "expected_modules": [
+        "sepsis-shock"
+      ],
+      "expected_test_contains": "Lactato"
+    },
+    {
+      "id": "dka",
+      "age_years": 24,
+      "sex": "female",
+      "chief_complaint": "Poliúria, vómitos e respiração profunda.",
+      "hpi": "Diabetes conhecida; hiperglicemia e cetose.",
+      "blood_gas": "Acidose metabólica com bicarbonato baixo; cetonemia positiva.",
+      "expected_likely": "Cetoacidose diabética / crise hiperglicémica",
+      "expected_modules": [
+        "diabetic-ketoacidosis-hhs"
+      ],
+      "expected_test_contains": "cetonas"
+    },
+    {
+      "id": "acute-aortic-syndrome",
+      "age_years": 63,
+      "sex": "male",
+      "chief_complaint": "Dor torácica súbita.",
+      "hpi": "Dor rasgante com irradiação para dorso.",
+      "exam_cardiovascular": "Assimetria de pulsos.",
+      "expected_likely": "Síndrome aórtica aguda",
+      "expected_modules": [
+        "acute-aortic-syndrome"
+      ],
+      "expected_test_contains": "angio-TC"
+    }
+  ]
+}
