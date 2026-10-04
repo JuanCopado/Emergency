@@ -40,7 +40,7 @@
     },
     {
       "id": "labelled_identifier",
-      "pattern": "(?i)(sns|nif|nhs|mrn|processo|process no|n\\\\.?\\\\s*processo|cc|cartao de cidadao|cartão de cidadão|passport)[^\\\\n]{0,20}[A-Z0-9.-]{5,}"
+      "pattern": "(?i)\\\\b(sns|nif|nhs|mrn|processo|process no|n\\\\.?\\\\s*processo|cc|cartao de cidadao|cartão de cidadão|passport)\\\\b[^\\\\n]{0,20}[A-Z0-9.-]{5,}"
     },
     {
       "id": "labelled_address",
