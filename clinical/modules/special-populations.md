@@ -491,3 +491,21 @@ Para cada pauta seleccionada por diagnóstico, mostrar cuando aplique:
 
 ### Cobertura inicial v1.38
 Incluye analgesia/antipiresis, antiemesis, antihistamínicos, esteroides de asma/croup, salbutamol de alta con plan escrito, antibióticos orales frecuentes, oseltamivir, auto-inyector de adrenalina y tratamiento tópico seleccionado. El registro se ampliará por bloques sin duplicar los registries pediátricos de urgencias ya existentes.
+
+
+## pediatric-outpatient-home-medications
+
+- **Scope:** diagnosis-linked outpatient/home medication support after pediatric ED/urgent-care assessment. This module does not decide whether the child is suitable for discharge and does not replace syndrome-specific red-flag assessment.
+- **Canonical registry:** `qa/pediatric-outpatient-medications.json`.
+- **Calculator:** `scripts/pediatric_outpatient_calculator.py`.
+- **Current first-phase coverage:** analgesic/antipyretic, antiemetic, non-sedating antihistamines, asthma/croup discharge medications, selected oral antibiotics by diagnosis, oseltamivir, anaphylaxis auto-injector discharge support and localized topical antibiotic therapy.
+- **Dose architecture:** diagnosis -> source/version -> dosing-weight rule -> mg/kg or age/weight band -> per-dose maximum -> daily maximum -> treatment duration -> exact product concentration -> mL per dose -> total number of doses -> estimated total course volume.
+- **Weight safety:** actual, ideal or adjusted body weight must be explicit in the regimen. Never silently substitute one scalar for another. The current explicit exception is oral paracetamol using ideal body weight in the cited RCH acute-pain reference. For most other drugs the registry currently uses actual weight with source adult caps unless drug-specific evidence requires another scalar.
+- **Obesity gate:** for children/adolescents with obesity, apply drug-specific evidence where available. The general pediatric-pharmacy principle is to continue weight-based dosing below 40 kg and, at >=40 kg, avoid exceeding the recommended adult dose for the indication unless a validated drug-specific strategy states otherwise.
+- **Liquid-volume rule:** no mL result is generated unless the exact product concentration is supplied and either matches a source-verified registry concentration or has been independently verified from the exact product/SmPC. The engine must fail closed on an unverified concentration.
+- **Antibiotics:** no universal pediatric antibiotic dose table. Each entry is indication-specific (for example AOM, CAP, cystitis, pyelonephritis, cellulitis, bite, preseptal cellulitis, pertussis). Allergy, renal function, culture/resistance history, age and clinical severity can override outpatient selection.
+- **Administration:** meal/fasting instructions, product handling (for example shake suspension), important food interactions and duration are stored per regimen/product when source-supported.
+- **Contraindications/cautions:** the registry can hard-stop on explicit contraindication gates such as dehydration for ibuprofen or pyelonephritis/G6PD/eGFR restrictions for nitrofurantoin. These gates supplement, not replace, full medication reconciliation and product labeling.
+- **Course arithmetic:** output includes dose mg, mL per dose when concentration is verified, doses/day, duration, total dose count and estimated total liquid volume. Multi-day variable schedules (for example azithromycin day 1 vs days 2-5) are calculated phase-by-phase.
+- **Do not discharge on arithmetic alone:** age-specific red flags, inability to maintain hydration, respiratory compromise, toxic appearance, sepsis, surgical abdomen, anaphylaxis, orbital disease, meningitis, severe asthma or other unstable syndromes require their emergency pathway irrespective of a calculable outpatient dose.
+- **Validation status:** yellow. Automated arithmetic/registry tests are required, followed by pediatric/pharmacy human review before green promotion.
