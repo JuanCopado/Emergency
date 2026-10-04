@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Fail Clinical QA if a registered module is neither covered/routed by the diagnostic engine nor explicitly classified as non-diagnostic support/infrastructure.",
+  "allowed_non_diagnostic_modules": {
+    "image_interpretation": [
+      "clinical-image-interpretation",
+      "musculoskeletal-xray",
+      "pocus-image",
+      "other-clinical-image"
+    ],
+    "procedures_and_treatment": [
+      "pediatric-airway-rsi",
+      "sedoanalgesia",
+      "icu-sedation-analgesia-infusions",
+      "high-flow-nasal-oxygen",
+      "vasoactive-inotrope-infusions"
+    ],
+    "broad_routers_and_support": [
+      "pediatric-emergencies",
+      "endocrine-metabolic",
+      "pediatric-outpatient-medications",
+      "medication-selection-safety",
+      "ecg-pocus-integration"
+    ],
+    "governance_and_note_infrastructure": [
+      "clinical-note-diagnostic-support",
+      "final-human-review-gate"
+    ]
+  },
+  "rule": "Any future registered module not covered/routed and not listed here is a coverage error until explicitly classified or added to the diagnostic engine."
+}
