@@ -24,6 +24,7 @@ from clinical_note_exporter import export_docx as export_clinical_note_docx, exp
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
 from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
 from run_clinical_note_diagnostic_cases import run as run_clinical_note_diagnostic_cases
+from run_clinical_note_pediatric_routing_cases import run as run_clinical_note_pediatric_routing_cases
 
 from infusion_calculator import infusion_ml_h, fixed_dose_ml_h, weight_per_hour_ml_h
 from load_module import load
@@ -5593,6 +5594,12 @@ class ModularCoreTests(unittest.TestCase):
         result=run_clinical_note_diagnostic_cases()
         self.assertEqual(result['cases'],47)
         self.assertEqual(result['passed'],47,result['errors'])
+        self.assertEqual(result['errors'],[])
+
+    def test_v139_pediatric_age_routing_regression_bank(self):
+        result=run_clinical_note_pediatric_routing_cases()
+        self.assertEqual(result['cases'],5)
+        self.assertEqual(result['passed'],5,result['errors'])
         self.assertEqual(result['errors'],[])
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
