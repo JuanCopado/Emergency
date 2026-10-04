@@ -4786,7 +4786,7 @@ class ModularCoreTests(unittest.TestCase):
 
         v80=calculate_pediatric_outpatient(
             'acyclovir-varicella-standard-renal',
-            {'age_months':84,'actual_weight_kg':20,'renal_adjustment_required':False},
+            {'age_months':84,'actual_weight_kg':20,'renal_adjustment_required':False,'varicella_oral_antiviral_indication_confirmed':True,'severe_or_disseminated_varicella':False},
             {'concentration_mg_per_ml':80}
         )
         self.assertEqual(v80['volume_per_dose']['exact_ml'],5)
