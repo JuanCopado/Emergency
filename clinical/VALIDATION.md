@@ -564,3 +564,11 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Alert integration is fail-closed for STOP-level conflicts.
 - Clinical QA #510: **SUCCESS**.
 - This is automated CDS validation, not human clinical/pharmacy sign-off.
+
+
+## v1.38 pediatric clinical review — 89 regimens — 04/10/2026
+- AI-assisted pediatric clinical review completed for **89/89** outpatient regimens.
+- Individual outcomes: 41 PASS, 40 PASS_AFTER_CORRECTION, 8 PASS_WITH_NONCRITICAL_NOTE, 0 unresolved CHANGE_REQUIRED.
+- Dedicated tests cover new diagnosis/disposition gates including bite infection, orbital step-down, pyelonephritis step-down, UTI urine sampling, under-5 ORS scope, antiviral indication, gastroenteritis red flags, eczema herpeticum, home paracetamol suitability and asthma/croup discharge criteria.
+- Review validates deterministic clinical safety logic only; it is not prospective validation or human pediatric sign-off.
+- Module remains yellow pending independent human pediatric/pharmacy review.
