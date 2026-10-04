@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "name": "clinical-note-privacy-by-design",
+  "principles": [
+    "data_minimization",
+    "purpose_limitation",
+    "pseudonymization_is_not_anonymization",
+    "provenance_preservation",
+    "least_necessary_export",
+    "no_original_attachment_embedding_by_default"
+  ],
+  "forbidden_direct_identifier_fields": [
+    "name",
+    "full_name",
+    "patient_name",
+    "date_of_birth",
+    "dob",
+    "address",
+    "full_address",
+    "phone",
+    "telephone",
+    "email",
+    "nif",
+    "sns_number",
+    "national_health_number",
+    "passport",
+    "national_id",
+    "civil_id",
+    "medical_record_number",
+    "mrn"
+  ],
+  "free_text_flag_patterns": [
+    {
+      "id": "email",
+      "pattern": "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,}",
+      "flags": "i"
+    },
+    {
+      "id": "labelled_phone",
+      "pattern": "(?i)(telefone|telemovel|telemóvel|phone|tel\\\\.?)[^\\\\n]{0,20}\\\\+?[0-9][0-9 .()-]{7,}"
+    },
+    {
+      "id": "labelled_identifier",
+      "pattern": "(?i)(sns|nif|nhs|mrn|processo|process no|n\\\\.?\\\\s*processo|cc|cartao de cidadao|cartão de cidadão|passport)[^\\\\n]{0,20}[A-Z0-9.-]{5,}"
+    },
+    {
+      "id": "labelled_address",
+      "pattern": "(?i)(morada|endereco|endereço|address)[^\\\\n]{0,80}"
+    },
+    {
+      "id": "labelled_name",
+      "pattern": "(?i)(nome|name)[^\\\\n]{0,80}"
+    }
+  ],
+  "attachment_rules": {
+    "embed_original_by_default": false,
+    "dicom_private_tags_must_be_removed": true,
+    "image_metadata_should_be_removed": true,
+    "burned_in_identifier_check_required": true,
+    "official_report_preserved_separately": true,
+    "ai_interpretation_must_be_labelled": true
+  },
+  "export_rules": {
+    "clinical_pseudonymized": {
+      "direct_identifiers_removed_required": true,
+      "free_text_screened_required": true,
+      "clinician_review_required": true
+    },
+    "external_anonymized": {
+      "direct_identifiers_removed_required": true,
+      "free_text_screened_required": true,
+      "source_metadata_checked_required": true,
+      "burned_in_identifiers_checked_required_for_embedded_images": true,
+      "clinician_review_required": true,
+      "relative_dates_preferred": true
+    }
+  },
+  "legal_note": "Pseudonymized health data remain personal data. Legal compliance depends on the controller, purpose, lawful basis, security, retention, access controls and deployment environment; this policy is a technical privacy-by-design layer, not legal certification."
+}
