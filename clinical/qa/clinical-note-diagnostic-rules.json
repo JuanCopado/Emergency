@@ -930,6 +930,908 @@
           ]
         }
       ]
+    },
+    {
+      "id": "acute-severe-asthma",
+      "diagnosis": "Exacerbação aguda de asma",
+      "category": "respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "sibilos",
+            "wheezing",
+            "asma",
+            "broncoespasmo"
+          ],
+          "weight": 2,
+          "label": "broncoespasmo/sibilância"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "fala entrecortada",
+            "frases curtas",
+            "uso de musculatura acessória",
+            "tiragem"
+          ],
+          "weight": 2,
+          "label": "aumento do trabalho respiratório"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "silêncio auscultatório",
+            "silent chest"
+          ],
+          "weight": 4,
+          "label": "silêncio auscultatório"
+        }
+      ],
+      "missing_if_absent": [
+        "SpO2",
+        "frequência respiratória",
+        "resposta ao broncodilatador"
+      ],
+      "differential": [
+        "tension-pneumothorax",
+        "pulmonary-embolism",
+        "acute-heart-failure"
+      ],
+      "must_not_miss": [
+        "tension-pneumothorax"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar gravidade clínica, SpO2 e resposta seriada ao tratamento; gasometria se deterioração/risco de falência ventilatória",
+          "priority": "immediate",
+          "rationale": "classificar exacerbação e detectar falência respiratória",
+          "source_modules": [
+            "acute-severe-asthma",
+            "acute-respiratory-failure"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de asma aguda grave; broncodilatação/oxigénio/corticoterapia e escalada conforme gravidade",
+          "priority": "immediate",
+          "rationale": "exacerbações graves são emergências tempo-dependentes",
+          "source_modules": [
+            "acute-severe-asthma",
+            "oxygen-therapy-emergency"
+          ]
+        }
+      ],
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+    },
+    {
+      "id": "copd-exacerbation",
+      "diagnosis": "Exacerbação aguda de DPOC",
+      "category": "respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dpoc",
+            "copd",
+            "doença pulmonar obstrutiva crónica"
+          ],
+          "weight": 2,
+          "label": "DPOC conhecida"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "agravamento da dispneia",
+            "worsening breathlessness",
+            "dispneia aumentada"
+          ],
+          "weight": 2,
+          "label": "agravamento da dispneia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "expetoração aumentada",
+            "escarro aumentado",
+            "sputum increased",
+            "purulenta",
+            "purulento"
+          ],
+          "weight": 1,
+          "label": "alteração de expetoração"
+        }
+      ],
+      "missing_if_absent": [
+        "SpO2",
+        "Rx tórax se apresentação hospitalar",
+        "gasometria se moderada/grave"
+      ],
+      "differential": [
+        "acute-heart-failure",
+        "pulmonary-embolism",
+        "emergency-infectious-diseases"
+      ],
+      "must_not_miss": [
+        "acute-heart-failure",
+        "pulmonary-embolism"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Em apresentação hospitalar: Rx tórax, gasometria com FiO2 documentada, ECG, hemograma e função renal/eletrólitos",
+          "priority": "urgent",
+          "rationale": "avaliar gravidade e diagnósticos alternativos/precipitantes",
+          "source_modules": [
+            "copd-exacerbation",
+            "chest-xray",
+            "blood-gas-image",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de exacerbação DPOC e suporte respiratório; antibiótico apenas quando os critérios clínicos o justifiquem",
+          "priority": "immediate",
+          "rationale": "tratamento depende de gravidade, purulência e falência respiratória",
+          "source_modules": [
+            "copd-exacerbation",
+            "oxygen-therapy-emergency",
+            "noninvasive-ventilation",
+            "empiric-antibiotics"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng115"
+    },
+    {
+      "id": "anaphylaxis",
+      "diagnosis": "Anafilaxia",
+      "category": "allergy",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "urticária",
+            "urticaria",
+            "hives",
+            "angioedema"
+          ],
+          "weight": 1,
+          "label": "manifestação cutâneo-mucosa"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "estridor",
+            "wheeze",
+            "sibilos",
+            "broncoespasmo",
+            "edema da língua",
+            "edema de glote"
+          ],
+          "weight": 3,
+          "label": "compromisso airway/breathing"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotensão",
+            "colapso",
+            "syncope",
+            "síncope"
+          ],
+          "weight": 3,
+          "label": "compromisso circulatório"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "alergénio",
+            "alergeno",
+            "picada",
+            "ingestão recente"
+          ],
+          "weight": 1,
+          "label": "exposição compatível"
+        }
+      ],
+      "missing_if_absent": [
+        "exposição/trigger",
+        "envolvimento airway-breathing-circulation"
+      ],
+      "differential": [
+        "acute-severe-asthma",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Não atrasar tratamento por exames; colher triptase apenas quando clinicamente apropriado e sem atrasar estabilização",
+          "priority": "immediate",
+          "rationale": "diagnóstico é clínico e tratamento não deve esperar confirmação laboratorial",
+          "source_modules": [
+            "anaphylaxis"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar imediatamente o módulo de anafilaxia com abordagem ABCDE e adrenalina IM conforme protocolo",
+          "priority": "immediate",
+          "rationale": "compromisso ABC com ou sem sinais cutâneos define emergência",
+          "source_modules": [
+            "anaphylaxis"
+          ]
+        }
+      ],
+      "source_url": "https://www.resus.org.uk/library/additional-guidance/guidance-anaphylaxis/emergency-treatment-anaphylactic-reactions"
+    },
+    {
+      "id": "cns-infection",
+      "diagnosis": "Meningite/encefalite infecciosa",
+      "category": "neurologic_infectious",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "rigidez da nuca",
+            "rigidez de nuca",
+            "neck stiffness"
+          ],
+          "weight": 3,
+          "label": "rigidez nucal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "febre",
+            "fiebre",
+            "fever"
+          ],
+          "weight": 1,
+          "label": "febre"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "cefaleia",
+            "cefalea",
+            "headache"
+          ],
+          "weight": 1,
+          "label": "cefaleia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "confusão",
+            "alteração do estado mental",
+            "altered mental status",
+            "convulsão",
+            "seizure"
+          ],
+          "weight": 2,
+          "label": "alteração neurológica"
+        }
+      ],
+      "missing_if_absent": [
+        "hemoculturas",
+        "indicação/segurança para punção lombar",
+        "antibiótico precoce"
+      ],
+      "differential": [
+        "headache-sah",
+        "status-epilepticus",
+        "toxicology"
+      ],
+      "must_not_miss": [
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar hemoculturas, glicemia e punção lombar quando segura; neuroimagem antes de PL apenas quando indicada",
+          "priority": "immediate",
+          "rationale": "confirmar etiologia sem atrasar antimicrobianos em suspeita significativa",
+          "source_modules": [
+            "cns-infection",
+            "emergency-infectious-diseases"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de infeção do SNC e antibiótico/antiviral empírico apropriado sem atraso quando a suspeita for forte",
+          "priority": "immediate",
+          "rationale": "meningite bacteriana e encefalite são tempo-dependentes",
+          "source_modules": [
+            "cns-infection",
+            "empiric-antibiotics"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng240"
+    },
+    {
+      "id": "status-epilepticus",
+      "diagnosis": "Estado de mal epiléptico convulsivo",
+      "category": "neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "convulsão há 5 minutos",
+            "convulsão prolongada",
+            "seizure lasting 5 minutes",
+            "status epiléptico",
+            "status epilepticus"
+          ],
+          "weight": 6,
+          "label": "convulsão >=5 min/status"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "convulsões repetidas",
+            "repeated seizures",
+            "crises repetidas sem recuperar"
+          ],
+          "weight": 4,
+          "label": "crises repetidas sem recuperação"
+        }
+      ],
+      "missing_if_absent": [
+        "glicemia",
+        "tempo de crise",
+        "medicação antiepilética habitual/adesão"
+      ],
+      "differential": [
+        "cns-infection",
+        "toxicology",
+        "electrolytes"
+      ],
+      "must_not_miss": [
+        "cns-infection"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Glicemia imediata e pesquisa dirigida de causas reversíveis (eletrólitos, tóxicos, infeção, eclâmpsia conforme contexto)",
+          "priority": "immediate",
+          "rationale": "identificar causas tratáveis em paralelo com controlo da crise",
+          "source_modules": [
+            "status-epilepticus",
+            "electrolytes",
+            "toxicology"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar o módulo de status epiléptico; benzodiazepina de primeira linha e escalada protocolada se persistir",
+          "priority": "immediate",
+          "rationale": "crise convulsiva >=5 min requer tratamento de emergência",
+          "source_modules": [
+            "status-epilepticus"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng217/chapter/7-Treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures"
+    },
+    {
+      "id": "upper-gi-bleeding",
+      "diagnosis": "Hemorragia digestiva alta",
+      "category": "gastrointestinal",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hematemese",
+            "hematemesis",
+            "vómito com sangue",
+            "vómitos com sangue"
+          ],
+          "weight": 4,
+          "label": "hematemese"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "melena",
+            "melenas"
+          ],
+          "weight": 3,
+          "label": "melena"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "fezes negras",
+            "heces negras",
+            "black stool"
+          ],
+          "weight": 2,
+          "label": "fezes negras"
+        }
+      ],
+      "missing_if_absent": [
+        "hemoglobina",
+        "INR/coagulação",
+        "Glasgow-Blatchford",
+        "estabilidade hemodinâmica"
+      ],
+      "differential": [
+        "lower-gi-bleeding",
+        "acute-abdomen"
+      ],
+      "must_not_miss": [
+        "undifferentiated-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Hemograma, função renal, coagulação, grupo/provas cruzadas e Glasgow-Blatchford",
+          "priority": "urgent",
+          "rationale": "estratificar risco e necessidade de endoscopia/transfusão",
+          "source_modules": [
+            "upper-gi-bleeding",
+            "clinical-scores-calculators"
+          ]
+        },
+        {
+          "action": "Endoscopia imediata após reanimação se instável; até 24 h nos restantes casos admitidos",
+          "priority": "urgent",
+          "rationale": "diagnóstico e terapêutica endoscópica",
+          "source_modules": [
+            "upper-gi-bleeding"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de hemorragia digestiva alta, reanimação e reversão de anticoagulação quando aplicável",
+          "priority": "immediate",
+          "rationale": "hemorragia grave pode requerer protocolo de hemorragia maciça",
+          "source_modules": [
+            "upper-gi-bleeding",
+            "anticoagulation-reversal",
+            "trauma-major-hemorrhage"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/cg141"
+    },
+    {
+      "id": "pancreatitis",
+      "diagnosis": "Pancreatite aguda",
+      "category": "gastrointestinal",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "dor epigástrica",
+            "dolor epigástrico",
+            "epigastric pain"
+          ],
+          "weight": 2,
+          "label": "dor epigástrica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "irradia para dorso",
+            "irradiación a espalda",
+            "radiates to back"
+          ],
+          "weight": 1,
+          "label": "irradiação dorsal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "lipase elevada",
+            "lipasa elevada",
+            "elevated lipase",
+            "amilase elevada"
+          ],
+          "weight": 3,
+          "label": "enzimas pancreáticas elevadas"
+        }
+      ],
+      "missing_if_absent": [
+        "lipase/amilase",
+        "etiologia biliar/álcool/outras causas",
+        "avaliação de gravidade"
+      ],
+      "differential": [
+        "acute-coronary-syndrome",
+        "acute-abdomen"
+      ],
+      "must_not_miss": [
+        "acute-mesenteric-ischemia"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Lipase/amilase, perfil hepático, cálcio, triglicéridos e ecografia biliar conforme contexto",
+          "priority": "urgent",
+          "rationale": "confirmar diagnóstico e procurar etiologia",
+          "source_modules": [
+            "pancreatitis"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de pancreatite aguda: analgesia, fluidos individualizados, nutrição e vigilância de complicações",
+          "priority": "urgent",
+          "rationale": "tratamento é predominantemente de suporte com estratificação de gravidade",
+          "source_modules": [
+            "pancreatitis",
+            "acute-musculoskeletal-pain"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng104"
+    },
+    {
+      "id": "acute-abdomen",
+      "diagnosis": "Abdómen agudo potencialmente cirúrgico",
+      "category": "surgical",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "defesa abdominal",
+            "rigidez abdominal",
+            "abdomen en tabla",
+            "peritonismo",
+            "rebound tenderness",
+            "blumberg"
+          ],
+          "weight": 4,
+          "label": "sinais peritoneais"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor abdominal súbita",
+            "dolor abdominal súbito",
+            "sudden abdominal pain"
+          ],
+          "weight": 2,
+          "label": "dor abdominal aguda"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "vómitos persistentes",
+            "vómitos biliosos",
+            "fecaloid vomiting"
+          ],
+          "weight": 2,
+          "label": "vómitos de alarme"
+        }
+      ],
+      "missing_if_absent": [
+        "exame abdominal seriado",
+        "analítica",
+        "imagem dirigida"
+      ],
+      "differential": [
+        "acute-mesenteric-ischemia",
+        "abdominal-aortic-aneurysm",
+        "pancreatitis"
+      ],
+      "must_not_miss": [
+        "acute-mesenteric-ischemia",
+        "abdominal-aortic-aneurysm"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Analítica e imagem dirigida pela suspeita; TC abdómen/pelve quando indicada",
+          "priority": "urgent",
+          "rationale": "identificar causa cirúrgica e complicações",
+          "source_modules": [
+            "acute-abdomen",
+            "ct-mri-screenshot"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Jejum, analgesia, acesso IV e avaliação cirúrgica urgente se peritonismo/instabilidade",
+          "priority": "immediate",
+          "rationale": "sinais peritoneais sugerem patologia potencialmente cirúrgica",
+          "source_modules": [
+            "acute-abdomen",
+            "emergency-procedures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "potassium-emergencies",
+      "diagnosis": "Hiperpotasemia com risco arrítmico",
+      "category": "metabolic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "potássio 6.5",
+            "potasio 6.5",
+            "k 6.5",
+            "hiperpotasemia",
+            "hyperkalaemia",
+            "hyperkalemia"
+          ],
+          "weight": 3,
+          "label": "hiperpotasemia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "ondas t apiculadas",
+            "t waves peaked",
+            "qrs alargado",
+            "qrs ancho",
+            "sine wave"
+          ],
+          "weight": 4,
+          "label": "alterações ECG por hiperK"
+        }
+      ],
+      "missing_if_absent": [
+        "potássio confirmado",
+        "ECG",
+        "função renal",
+        "causa"
+      ],
+      "differential": [
+        "toxicology",
+        "aki-nephrology"
+      ],
+      "must_not_miss": [
+        "arrhythmias-cardiac-arrest"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Repetir/confirmar potássio se hemólise possível, ECG imediato, função renal e investigação da causa",
+          "priority": "immediate",
+          "rationale": "estratificar risco arrítmico e orientar tratamento",
+          "source_modules": [
+            "potassium-emergencies",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de hiperpotasemia; proteger membrana cardíaca se alterações ECG e iniciar terapêutica de redistribuição/remoção conforme gravidade",
+          "priority": "immediate",
+          "rationale": "K >=6,5 mmol/L ou alterações ECG podem ser fatais",
+          "source_modules": [
+            "potassium-emergencies",
+            "arrhythmias-cardiac-arrest"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ta623"
+    },
+    {
+      "id": "adrenal-crisis",
+      "diagnosis": "Crise suprarrenal",
+      "category": "endocrine",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "insuficiência suprarrenal",
+            "insuficiencia suprarrenal",
+            "adrenal insufficiency",
+            "addison"
+          ],
+          "weight": 3,
+          "label": "risco/diagnóstico de insuficiência suprarrenal"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hiponatremia",
+            "hyponatraemia",
+            "hyponatremia"
+          ],
+          "weight": 1,
+          "label": "hiponatremia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipoglicemia",
+            "hipoglucemia",
+            "hypoglycaemia",
+            "hypoglycemia"
+          ],
+          "weight": 1,
+          "label": "hipoglicemia"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "choque",
+            "shock",
+            "colapso"
+          ],
+          "weight": 2,
+          "label": "choque/colapso"
+        }
+      ],
+      "missing_if_absent": [
+        "história de corticoterapia/insuficiência suprarrenal",
+        "glicemia",
+        "eletrólitos"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "electrolytes"
+      ],
+      "must_not_miss": [
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Glicemia, eletrólitos e cortisol/ACTH se possível sem atrasar tratamento",
+          "priority": "immediate",
+          "rationale": "apoiar diagnóstico e identificar distúrbios associados",
+          "source_modules": [
+            "adrenal-crisis",
+            "electrolytes"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de crise suprarrenal e administrar hidrocortisona/fluido imediatamente conforme protocolo",
+          "priority": "immediate",
+          "rationale": "é causa reversível de choque e tratamento não deve aguardar confirmação",
+          "source_modules": [
+            "adrenal-crisis"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng243"
+    },
+    {
+      "id": "hypertensive-emergencies",
+      "diagnosis": "Emergência hipertensiva / hipertensão grave com lesão de órgão-alvo",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "180/120",
+            "220/120",
+            "emergência hipertensiva",
+            "emergencia hipertensiva",
+            "hypertensive emergency"
+          ],
+          "weight": 3,
+          "label": "hipertensão grave"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "papiledema",
+            "hemorragia retiniana",
+            "encefalopatia hipertensiva",
+            "lesão de órgão-alvo",
+            "target organ damage"
+          ],
+          "weight": 4,
+          "label": "lesão aguda de órgão-alvo"
+        }
+      ],
+      "missing_if_absent": [
+        "repetição correta da PA",
+        "avaliação de lesão de órgão-alvo"
+      ],
+      "differential": [
+        "acute-aortic-syndrome",
+        "spontaneous-intracerebral-hemorrhage",
+        "acute-heart-failure"
+      ],
+      "must_not_miss": [
+        "spontaneous-intracerebral-hemorrhage",
+        "acute-aortic-syndrome"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Confirmar PA e pesquisar lesão aguda de órgão-alvo: neuro, cardíaca, renal e ocular conforme sintomas",
+          "priority": "immediate",
+          "rationale": "distinguir hipertensão grave assintomática de emergência hipertensiva",
+          "source_modules": [
+            "hypertensive-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de emergência hipertensiva e selecionar fármaco IV conforme órgão-alvo; evitar reduções não controladas",
+          "priority": "immediate",
+          "rationale": "tratamento depende do tipo de lesão aguda",
+          "source_modules": [
+            "hypertensive-emergencies",
+            "iv-antihypertensive-selection"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng136"
+    },
+    {
+      "id": "altered-consciousness",
+      "diagnosis": "Alteração aguda do estado de consciência",
+      "category": "neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "coma",
+            "rebaixamento da consciência",
+            "alteração do estado de consciência",
+            "alteración de conciencia",
+            "unresponsive"
+          ],
+          "weight": 3,
+          "label": "alteração de consciência"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "gcs 8",
+            "glasgow 8",
+            "gcs <8"
+          ],
+          "weight": 3,
+          "label": "GCS baixo"
+        }
+      ],
+      "missing_if_absent": [
+        "glicemia",
+        "oxigenação/ventilação",
+        "causa tóxica/metabólica/neurológica"
+      ],
+      "differential": [
+        "acute-ischemic-stroke",
+        "spontaneous-intracerebral-hemorrhage",
+        "toxicology",
+        "electrolytes",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "spontaneous-intracerebral-hemorrhage",
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ABCDE, glicemia imediata, gasometria/eletrólitos e investigação dirigida neurológica/tóxica/infecciosa",
+          "priority": "immediate",
+          "rationale": "coma é síndrome com múltiplas causas reversíveis",
+          "source_modules": [
+            "altered-consciousness",
+            "toxicology",
+            "electrolytes"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de alteração de consciência; proteger via aérea quando indicado e tratar causas reversíveis em paralelo",
+          "priority": "immediate",
+          "rationale": "prioridade é estabilização e reversão de causas tratáveis",
+          "source_modules": [
+            "altered-consciousness",
+            "airway-rsi"
+          ]
+        }
+      ]
     }
   ]
 }
