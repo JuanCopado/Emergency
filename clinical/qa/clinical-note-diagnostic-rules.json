@@ -6282,6 +6282,20 @@
           ],
           "weight": 5,
           "label": "TVP suspeita/documentada"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "imobilização",
+            "immobilisation",
+            "immobilization",
+            "cirurgia recente",
+            "recent surgery",
+            "cancro ativo",
+            "active cancer"
+          ],
+          "weight": 1,
+          "label": "fator de risco trombótico"
         }
       ],
       "missing_if_absent": [
