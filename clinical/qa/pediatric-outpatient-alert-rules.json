@@ -263,6 +263,62 @@
   ],
   "condition_rules": [
     {
+      "id": "surgical-red-flags",
+      "field": "surgical_red_flags",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Surgical red flags invalidate routine outpatient medication treatment.",
+      "action": "Obtain urgent surgical/ED assessment."
+    },
+    {
+      "id": "active-anaphylaxis",
+      "field": "active_anaphylaxis",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Active anaphylaxis requires immediate adrenaline/emergency treatment, not routine outpatient medication selection.",
+      "action": "Activate the anaphylaxis pathway immediately."
+    },
+    {
+      "id": "hypoxaemia",
+      "field": "significant_hypoxaemia",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Significant hypoxaemia is incompatible with routine outpatient medication-only management.",
+      "action": "Stabilize and use the respiratory/emergency pathway."
+    },
+    {
+      "id": "suspected-sepsis",
+      "field": "suspected_sepsis",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Suspected sepsis overrides routine outpatient medication pathways.",
+      "action": "Activate the sepsis/emergency pathway."
+    },
+    {
+      "id": "cannot-tolerate-oral",
+      "field": "unable_to_tolerate_oral",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Oral outpatient treatment is incompatible with inability to tolerate oral medication/fluids.",
+      "action": "Use the appropriate parenteral/observation/admission pathway."
+    },
+    {
+      "id": "requires-admission",
+      "field": "requires_admission",
+      "equals": true,
+      "severity": "STOP",
+      "message": "The patient has an admission-level clinical indication.",
+      "action": "Do not use a routine discharge prescription pathway."
+    },
+    {
+      "id": "clinical-instability",
+      "field": "clinically_unstable",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Clinical instability invalidates routine outpatient medication selection.",
+      "action": "Use the emergency/resuscitation/admission pathway before outpatient prescribing."
+    },
+    {
       "id": "clarithromycin-qt-history",
       "drug": "clarithromycin",
       "field": "known_qt_prolongation_or_ventricular_arrhythmia",
@@ -323,6 +379,16 @@
       "message": "Pregnancy changes the benefit-risk profile of several antiparasitic regimens.",
       "action": "Review pregnancy-specific guidance/product labeling before prescribing.",
       "source_url": "https://www.cdc.gov/"
+    },
+    {
+      "id": "ibuprofen-pregnancy",
+      "drug": "ibuprofen",
+      "field": "pregnant",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Pregnancy changes NSAID benefit-risk and gestational-age restrictions apply.",
+      "action": "Review gestational age and pregnancy-specific NSAID guidance before prescribing.",
+      "source_url": "https://www.medicines.org.uk/emc/product/10524/smpc"
     }
   ],
   "duplicate_rules": [
