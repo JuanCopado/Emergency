@@ -246,3 +246,16 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Last code QA before documentation synchronization: **289/289 tests PASS**, `automated_status: PASS` (run #442).
 - `clinical-scores-calculators` remains yellow pending human review; implementation completeness is not clinical release.
 - Next queued work is a separate pediatric outpatient/home medication module and should proceed on a separate branch.
+
+
+## v1.38 — pediatric outpatient/home medications — 04/10/2026
+- Rama activa: `v1.38-pediatric-outpatient-medications`.
+- Nuevo módulo: `pediatric-outpatient-home-medications`.
+- Total clínico: **129 módulos**; el nuevo módulo está **yellow**.
+- Registry ambulatorio inicial: **36 regímenes**.
+- Motor fail-closed: `scripts/pediatric_outpatient_calculator.py`.
+- Calcula peso de dosificación explícito, mg/toma, máximo, concentración verificada -> mL/toma, dosis/día, duración, total de dosis y volumen total estimado.
+- No devuelve mL con concentración no verificada.
+- Conserva diferencias entre guías/regímenes en entradas separadas.
+- Estado/handoff: `qa/V1.38_PEDIATRIC_OUTPATIENT_STATE.md`.
+- Pendiente: ampliar formulario ambulatorio, reconciliar presentaciones Portugal/Azores y revisión humana pediatría/farmacia.
