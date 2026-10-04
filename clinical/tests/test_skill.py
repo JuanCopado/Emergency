@@ -5284,6 +5284,57 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('medication_safety',calc)
         self.assertEqual(calc['prescription_status'],calc['medication_safety']['prescription_status'])
 
+    def test_v138_alert_missing_safety_context_is_visible(self):
+        result=evaluate_pediatric_alerts(
+            'amoxicillin-aom',
+            {'age_months':60,'actual_weight_kg':20}
+        )
+        codes={x['code'] for x in result['alerts']}
+        self.assertIn('ALLERGY_STATUS_NOT_DOCUMENTED',codes)
+        self.assertIn('MEDICATION_RECONCILIATION_NOT_DOCUMENTED',codes)
+        self.assertEqual(result['prescription_status'],'REVIEW_REQUIRED')
+
+    def test_v138_alert_age_weight_and_product_mismatch(self):
+        age=evaluate_pediatric_alerts(
+            'dexamethasone-asthma-1to11y',
+            {'age_months':6,'actual_weight_kg':8,'allergies':[],'active_medications':[]},
+            product={'concentration_mg_per_ml':0.4}
+        )
+        self.assertTrue(age['blocked'])
+        self.assertTrue(any(x['code']=='AGE_BELOW_RANGE' for x in age['alerts']))
+
+        weight=evaluate_pediatric_alerts(
+            'paracetamol-pain-fever-home',
+            {'age_months':120,'actual_weight_kg':40,'allergies':[],'active_medications':[]},
+            product={'concentration_mg_per_ml':24}
+        )
+        self.assertTrue(weight['blocked'])
+        self.assertTrue(any(x['code']=='DOSING_WEIGHT_REQUIRED' for x in weight['alerts']))
+
+        conc=evaluate_pediatric_alerts(
+            'amox-clav-bite',
+            {'age_months':84,'actual_weight_kg':20,'allergies':[],'active_medications':[]},
+            product={'concentration_mg_per_ml':50}
+        )
+        self.assertTrue(conc['blocked'])
+        self.assertTrue(any(x['code']=='PRODUCT_CONCENTRATION_MISMATCH' for x in conc['alerts']))
+
+    def test_v138_alert_global_red_flags_block_outpatient_prescription(self):
+        for flag in ('clinically_unstable','requires_admission','unable_to_tolerate_oral','suspected_sepsis','significant_hypoxaemia','active_anaphylaxis','surgical_red_flags'):
+            patient={'age_months':60,'actual_weight_kg':20,'allergies':[],'active_medications':[],flag:True}
+            result=evaluate_pediatric_alerts('amoxicillin-aom',patient,product={'concentration_mg_per_ml':50})
+            self.assertTrue(result['blocked'],flag)
+            self.assertEqual(result['highest_severity'],'STOP')
+
+    def test_v138_alert_renal_gate_is_structured_before_calculation(self):
+        result=evaluate_pediatric_alerts(
+            'amoxicillin-aom',
+            {'age_months':60,'actual_weight_kg':20,'allergies':[],'active_medications':[],'known_renal_impairment':True,'egfr_mL_min':20},
+            product={'concentration_mg_per_ml':50}
+        )
+        self.assertTrue(result['blocked'])
+        self.assertTrue(any(x['code']=='RENAL_THRESHOLD_FAILED' for x in result['alerts']))
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
