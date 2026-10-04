@@ -2804,6 +2804,199 @@
       ],
       "source": "Docusol Paediatric 12.5 mg/5 mL SmPC",
       "source_url": "https://www.medicines.org.uk/emc/product/12341/smpc"
+    },
+    {
+      "id": "phenoxymethylpenicillin-gas-sore-throat",
+      "category": "oral_antibiotic",
+      "drug": "phenoxymethylpenicillin",
+      "diagnosis": "GAS sore throat/tonsillitis in a child for whom antibiotic treatment is indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 15,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 10,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral solution"
+        },
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL oral solution"
+        }
+      ],
+      "administration": "Take phenoxymethylpenicillin at least 30 minutes before or 2 hours after food for the cited oral-solution SmPC. Complete 10 days for GAS to reduce late complications.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "cautions": [
+        "marked renal impairment requires dose review",
+        "antibiotic only when clinical/pathway indication is met"
+      ],
+      "source": "RCH Sore throat, updated Oct 2024; current phenoxymethylpenicillin SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/"
+    },
+    {
+      "id": "amoxicillin-gas-sore-throat-adherence",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "GAS sore throat/tonsillitis when amoxicillin once-daily second-line strategy is selected to improve adherence",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 50,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": 10,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        },
+        {
+          "mg_per_ml": 100,
+          "label": "500 mg/5 mL where exact product verified"
+        }
+      ],
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "cautions": [
+        "do not extrapolate this once-daily GAS regimen to other infections"
+      ],
+      "source": "RCH Sore throat",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/"
+    },
+    {
+      "id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "GAS sore throat in child with non-immediate/non-severe penicillin hypersensitivity where alternate beta-lactam is appropriate",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 25,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 10,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "immediate_or_severe_beta_lactam_allergy",
+          "equals": false,
+          "message": "cefalexin alternate-beta-lactam regimen is not appropriate for immediate/severe beta-lactam allergy"
+        }
+      ],
+      "administration": "Can be given without regard to meals for the cited formulation.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "take detailed beta-lactam allergy history; immediate/severe reactions should avoid both penicillin and cephalosporin classes per RCH guidance"
+      ],
+      "source": "RCH Sore throat + RCH beta-lactam allergy guidance",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/"
+    },
+    {
+      "id": "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
+      "category": "oral_antibiotic",
+      "drug": "azithromycin",
+      "diagnosis": "GAS sore throat in child with immediate beta-lactam hypersensitivity when macrolide treatment is indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 12,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL oral suspension"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "immediate_or_severe_beta_lactam_allergy",
+          "equals": true,
+          "message": "this entry is specifically the immediate beta-lactam allergy pathway"
+        }
+      ],
+      "administration": "Once daily; may be given with or without food according to exact suspension SmPC. Shake reconstituted suspension.",
+      "cautions": [
+        "QT prolongation",
+        "macrolide resistance/local susceptibility",
+        "hepatic impairment"
+      ],
+      "source": "RCH Sore throat; azithromycin 200 mg/5 mL SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/"
+    },
+    {
+      "id": "trimethoprim-cystitis-low-resistance",
+      "category": "oral_antibiotic",
+      "drug": "trimethoprim",
+      "diagnosis": "lower UTI/cystitis age >=3 months when trimethoprim is selected and resistance risk is low/susceptibility supports use",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 4,
+      "max_mg_per_dose": 200,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 3,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 10,
+          "label": "50 mg/5 mL oral suspension"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "low_resistance_risk_or_susceptible",
+          "equals": true,
+          "message": "NICE trimethoprim lower-UTI regimen requires low resistance risk or susceptibility-based selection"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_pyelonephritis",
+          "equals": true,
+          "message": "this 3-day lower-UTI trimethoprim regimen is not for pyelonephritis"
+        }
+      ],
+      "administration": "Oral suspension. Monitor renal function/electrolytes when clinically indicated; renal impairment can require dose reduction.",
+      "contraindications": [
+        "trimethoprim hypersensitivity",
+        "severe hepatic insufficiency per cited SmPC"
+      ],
+      "cautions": [
+        "eGFR 15-30: cited SmPC uses normal dose for 3 days then half dose for longer treatment; eGFR <15 requires specialist/specific adjustment",
+        "folate deficiency",
+        "hyperkalemia/drug interactions"
+      ],
+      "source": "NICE NG109 lower UTI + Trimethoprim 50 mg/5 mL SmPC revised Jun 2026",
+      "source_url": "https://www.nice.org.uk/guidance/ng109/chapter/Recommendations"
     }
   ],
   "last_expanded": "2026-10-04",
@@ -2811,6 +3004,7 @@
     "Block A: diagnosis-specific antibiotic alternatives and asthma controller strategies; GINA 2026/RCH/NICE; Portugal concentrations only where independently verified.",
     "Block B: dermatology topical therapy plus ORS/constipation regimens; source-specific product strengths and non-mg dose models.",
     "Block C: selected antiparasitics, oral antivirals, ENT/ophthalmology therapies and migraine discharge treatments; renal and age/weight gates retained.",
-    "Block D: infected eczema, allergic rhinitis intranasal therapy, allergic conjunctivitis and selected alternative constipation therapy."
+    "Block D: infected eczema, allergic rhinitis intranasal therapy, allergic conjunctivitis and selected alternative constipation therapy.",
+    "Block E: GAS sore-throat indication-specific beta-lactam/macrolide pathways and trimethoprim lower-UTI option with resistance/pyelonephritis gates."
   ]
 }
