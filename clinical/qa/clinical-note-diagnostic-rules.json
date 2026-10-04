@@ -4054,6 +4054,1141 @@
           ]
         }
       ]
+    },
+    {
+      "id": "adult-cardiac-arrest",
+      "diagnosis": "Paragem cardiorrespiratória adulta",
+      "category": "resuscitation",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "paragem cardiorrespiratória",
+            "parada cardiorrespiratoria",
+            "cardiac arrest",
+            "sem pulso",
+            "pulseless"
+          ],
+          "weight": 6,
+          "label": "PCR/ausência de pulso"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "vf",
+            "fibrilhação ventricular",
+            "ventricular fibrillation",
+            "asystole",
+            "assistolia",
+            "pea",
+            "atividade elétrica sem pulso"
+          ],
+          "weight": 4,
+          "label": "ritmo de paragem"
+        }
+      ],
+      "missing_if_absent": [
+        "ritmo inicial",
+        "tempo de colapso/CPR",
+        "causas reversíveis"
+      ],
+      "differential": [],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Identificar ritmo e causas reversíveis durante RCP sem interromper compressões",
+          "priority": "immediate",
+          "rationale": "orientar desfibrilhação e tratamento de Hs/Ts",
+          "source_modules": [
+            "adult-cardiac-arrest",
+            "arrhythmias-cardiac-arrest"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar imediatamente algoritmo de PCR adulta com RCP de alta qualidade, desfibrilhação quando indicada e tratamento de causas reversíveis",
+          "priority": "immediate",
+          "rationale": "emergência vital",
+          "source_modules": [
+            "adult-cardiac-arrest",
+            "arrhythmias-cardiac-arrest"
+          ]
+        }
+      ],
+      "source_url": "https://www.resus.org.uk/library/2025-resuscitation-guidelines"
+    },
+    {
+      "id": "undifferentiated-shock",
+      "diagnosis": "Choque indiferenciado",
+      "category": "shock",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "choque indiferenciado",
+            "undifferentiated shock",
+            "shock"
+          ],
+          "weight": 2,
+          "label": "choque"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotensão",
+            "hipotension",
+            "hypotension"
+          ],
+          "weight": 2,
+          "label": "hipotensão"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "má perfusão",
+            "poor perfusion",
+            "mottled",
+            "lactato elevado"
+          ],
+          "weight": 2,
+          "label": "hipoperfusão"
+        }
+      ],
+      "missing_if_absent": [
+        "lactato/perfusão",
+        "POCUS cardíaco/volume quando disponível",
+        "etiologia distributiva/cardiogénica/obstrutiva/hipovolémica"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "cardiogenic-shock",
+        "cardiac-tamponade-pericardial-emergency",
+        "tension-pneumothorax",
+        "pulmonary-embolism"
+      ],
+      "must_not_miss": [
+        "cardiac-tamponade-pericardial-emergency",
+        "tension-pneumothorax",
+        "pulmonary-embolism"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ABCDE, lactato, ECG e POCUS dirigido para fenótipo de choque quando disponível",
+          "priority": "immediate",
+          "rationale": "diferenciar mecanismos tratáveis",
+          "source_modules": [
+            "undifferentiated-shock",
+            "pocus",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de choque indiferenciado e tratar simultaneamente perfusão e causa provável",
+          "priority": "immediate",
+          "rationale": "a etiologia define fluidos, vasoativos e procedimento",
+          "source_modules": [
+            "undifferentiated-shock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cardiogenic-shock",
+      "diagnosis": "Choque cardiogénico",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "choque cardiogénico",
+            "cardiogenic shock"
+          ],
+          "weight": 5,
+          "label": "choque cardiogénico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "edema pulmonar",
+            "crepitantes",
+            "jvp elevada",
+            "congestão"
+          ],
+          "weight": 1,
+          "label": "congestão"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "iam",
+            "infarto",
+            "myocardial infarction"
+          ],
+          "weight": 2,
+          "label": "causa isquémica"
+        }
+      ],
+      "missing_if_absent": [
+        "ECG",
+        "POCUS/eco",
+        "lactato/perfusão",
+        "causa mecânica/isquémica"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "cardiac-tamponade-pericardial-emergency",
+        "pulmonary-embolism"
+      ],
+      "must_not_miss": [
+        "acute-coronary-syndrome",
+        "cardiac-tamponade-pericardial-emergency"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ECG, POCUS/ecocardiografia e marcadores/perfusão em paralelo com estabilização",
+          "priority": "immediate",
+          "rationale": "identificar causa isquémica/mecânica",
+          "source_modules": [
+            "cardiogenic-shock",
+            "pocus",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de choque cardiogénico; vasoativo/inotrópico e reperfusão/intervenção conforme causa",
+          "priority": "immediate",
+          "rationale": "tratamento depende de hemodinâmica e etiologia",
+          "source_modules": [
+            "cardiogenic-shock",
+            "vasoactive-inotrope-therapy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cardiac-tamponade-pericardial-emergency",
+      "diagnosis": "Taponamento cardíaco / emergência pericárdica",
+      "category": "cardiovascular",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "taponamento cardíaco",
+            "tamponade",
+            "tamponamento"
+          ],
+          "weight": 6,
+          "label": "taponamento"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "derrame pericárdico",
+            "pericardial effusion"
+          ],
+          "weight": 2,
+          "label": "derrame pericárdico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotensão",
+            "jvp elevada",
+            "pulso paradoxal"
+          ],
+          "weight": 1,
+          "label": "fisiologia de taponamento"
+        }
+      ],
+      "missing_if_absent": [
+        "POCUS/ecocardiografia",
+        "estabilidade hemodinâmica"
+      ],
+      "differential": [
+        "tension-pneumothorax",
+        "pulmonary-embolism",
+        "cardiogenic-shock"
+      ],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "POCUS/ecocardiografia imediata se suspeita de taponamento",
+          "priority": "immediate",
+          "rationale": "confirmar derrame com compromisso hemodinâmico",
+          "source_modules": [
+            "cardiac-tamponade-pericardial-emergency",
+            "pocus"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar emergência pericárdica; drenagem urgente se taponamento com instabilidade",
+          "priority": "immediate",
+          "rationale": "choque obstrutivo potencialmente reversível",
+          "source_modules": [
+            "cardiac-tamponade-pericardial-emergency",
+            "emergency-procedures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acute-respiratory-failure",
+      "diagnosis": "Insuficiência respiratória aguda",
+      "category": "respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "insuficiência respiratória",
+            "respiratory failure",
+            "falência respiratória"
+          ],
+          "weight": 4,
+          "label": "falência respiratória"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "hipoxemia",
+            "hipercapnia",
+            "hypercapnia"
+          ],
+          "weight": 2,
+          "label": "alteração gasométrica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "exaustão respiratória",
+            "respiratory exhaustion"
+          ],
+          "weight": 2,
+          "label": "exaustão"
+        }
+      ],
+      "missing_if_absent": [
+        "SpO2/FiO2",
+        "gasometria quando indicada",
+        "causa"
+      ],
+      "differential": [
+        "acute-severe-asthma",
+        "copd-exacerbation",
+        "acute-heart-failure",
+        "pulmonary-embolism"
+      ],
+      "must_not_miss": [
+        "tension-pneumothorax"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Documentar oxigénio/FiO2, gasometria quando clinicamente indicada e investigar causa",
+          "priority": "immediate",
+          "rationale": "distinguir falência hipoxémica/hipercápnica e orientar suporte",
+          "source_modules": [
+            "acute-respiratory-failure",
+            "blood-gas-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar suporte respiratório: oxigénio titulado, NIV ou via aérea invasiva conforme falência e causa",
+          "priority": "immediate",
+          "rationale": "prevenir deterioração",
+          "source_modules": [
+            "acute-respiratory-failure",
+            "oxygen-therapy-emergency",
+            "noninvasive-ventilation",
+            "airway-rsi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sodium-emergencies",
+      "diagnosis": "Emergência do sódio (hipo/hipernatremia sintomática)",
+      "category": "metabolic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hiponatremia grave",
+            "severe hyponatremia",
+            "sódio 120",
+            "na 120",
+            "hipernatremia grave",
+            "severe hypernatremia",
+            "sódio 155",
+            "na 155"
+          ],
+          "weight": 4,
+          "label": "distúrbio grave do sódio"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "convulsão",
+            "coma",
+            "encefalopatia"
+          ],
+          "weight": 2,
+          "label": "sintomas neurológicos"
+        }
+      ],
+      "missing_if_absent": [
+        "sódio repetido",
+        "osmolaridade sérica/urinária conforme caso",
+        "estado volémico",
+        "tempo de instalação"
+      ],
+      "differential": [
+        "altered-consciousness",
+        "adrenal-crisis"
+      ],
+      "must_not_miss": [
+        "status-epilepticus"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Confirmar sódio, glicemia, osmolaridade e avaliar estado volémico/etiologia",
+          "priority": "immediate",
+          "rationale": "tipo e velocidade de correção dependem da fisiopatologia e cronicidade",
+          "source_modules": [
+            "sodium-emergencies",
+            "electrolytes"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de emergência do sódio e correção controlada; sintomas graves podem exigir terapêutica hipertónica específica",
+          "priority": "immediate",
+          "rationale": "sobrecorreção ou correção insuficiente pode causar dano neurológico",
+          "source_modules": [
+            "sodium-emergencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calcium-magnesium-emergencies",
+      "diagnosis": "Emergência do cálcio/magnésio",
+      "category": "metabolic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hipocalcemia grave",
+            "hipercalcemia grave",
+            "hipomagnesemia grave",
+            "hipermagnesemia",
+            "calcium emergency",
+            "magnesium emergency"
+          ],
+          "weight": 4,
+          "label": "distúrbio grave Ca/Mg"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "tetania",
+            "qt prolongado",
+            "arrítmia",
+            "convulsão"
+          ],
+          "weight": 1,
+          "label": "manifestação clínica/ECG"
+        }
+      ],
+      "missing_if_absent": [
+        "cálcio ionizado",
+        "magnésio",
+        "ECG",
+        "função renal"
+      ],
+      "differential": [
+        "adult-arrhythmias",
+        "status-epilepticus"
+      ],
+      "must_not_miss": [
+        "adult-arrhythmias"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Cálcio ionizado, magnésio, fósforo, função renal e ECG",
+          "priority": "urgent",
+          "rationale": "confirmar distúrbio e risco cardíaco/neurológico",
+          "source_modules": [
+            "calcium-magnesium-emergencies",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo Ca/Mg e corrigir conforme alteração e sintomas, com monitorização cardíaca quando indicada",
+          "priority": "urgent",
+          "rationale": "alterações graves podem causar arritmia/convulsão",
+          "source_modules": [
+            "calcium-magnesium-emergencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soft-tissue-infections",
+      "diagnosis": "Infeção grave de pele/tecidos moles / possível fasceíte necrosante",
+      "category": "infectious_surgical",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "fasceíte necrosante",
+            "necrotizing fasciitis",
+            "necrotising fasciitis"
+          ],
+          "weight": 6,
+          "label": "fasceíte necrosante"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor desproporcionada",
+            "crepitação",
+            "bolhas hemorrágicas",
+            "necrose cutânea"
+          ],
+          "weight": 3,
+          "label": "sinais de infeção necrosante"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "celulite grave",
+            "severe cellulitis"
+          ],
+          "weight": 2,
+          "label": "infeção extensa"
+        }
+      ],
+      "missing_if_absent": [
+        "progressão/tempo",
+        "toxicidade sistémica",
+        "avaliação cirúrgica"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "orthopedic-emergencies"
+      ],
+      "must_not_miss": [
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Cirurgia urgente se suspeita de infeção necrosante; imagem apenas se não atrasar exploração",
+          "priority": "immediate",
+          "rationale": "diagnóstico definitivo é cirúrgico e atraso aumenta mortalidade",
+          "source_modules": [
+            "soft-tissue-infections",
+            "emergency-infectious-diseases"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de tecidos moles, antibiótico de largo espectro e controlo cirúrgico do foco",
+          "priority": "immediate",
+          "rationale": "fasceíte necrosante é emergência cirúrgica",
+          "source_modules": [
+            "soft-tissue-infections",
+            "empiric-antibiotics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "environmental-hypothermia",
+      "diagnosis": "Hipotermia acidental",
+      "category": "environmental",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "hipotermia",
+            "hypothermia",
+            "temperatura central 32",
+            "exposição ao frio"
+          ],
+          "weight": 4,
+          "label": "hipotermia/exposição"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "bradicardia",
+            "tremores",
+            "shivering",
+            "onda j"
+          ],
+          "weight": 1,
+          "label": "manifestação de hipotermia"
+        }
+      ],
+      "missing_if_absent": [
+        "temperatura central",
+        "ritmo ECG",
+        "glicemia",
+        "trauma/exposição associada"
+      ],
+      "differential": [
+        "myxedema-coma",
+        "sepsis-shock"
+      ],
+      "must_not_miss": [
+        "adult-arrhythmias"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Temperatura central, ECG, glicemia e investigação de causas associadas",
+          "priority": "immediate",
+          "rationale": "grau de hipotermia orienta reaquecimento e transporte",
+          "source_modules": [
+            "environmental-emergencies",
+            "ecg-image"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo ambiental e reaquecimento apropriado; manusear cuidadosamente hipotermia grave",
+          "priority": "immediate",
+          "rationale": "risco arrítmico e instabilidade",
+          "source_modules": [
+            "environmental-emergencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "environmental-heat-illness",
+      "diagnosis": "Golpe de calor / doença relacionada com calor",
+      "category": "environmental",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "golpe de calor",
+            "heat stroke",
+            "hipertermia",
+            "temperatura central 40"
+          ],
+          "weight": 4,
+          "label": "hipertermia grave"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "alteração do estado mental",
+            "confusão",
+            "coma"
+          ],
+          "weight": 2,
+          "label": "disfunção SNC"
+        }
+      ],
+      "missing_if_absent": [
+        "temperatura central",
+        "estado neurológico",
+        "função renal/hepática/CK/coagulação"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "thyroid-storm",
+        "toxicology"
+      ],
+      "must_not_miss": [
+        "rhabdomyolysis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Temperatura central, eletrólitos, renal/hepática, CK e coagulação em golpe de calor",
+          "priority": "immediate",
+          "rationale": "avaliar lesão multiorgânica",
+          "source_modules": [
+            "environmental-emergencies",
+            "rhabdomyolysis"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Arrefecimento rápido e suporte ABCDE; ativar módulo ambiental",
+          "priority": "immediate",
+          "rationale": "tempo até arrefecimento influencia prognóstico",
+          "source_modules": [
+            "environmental-emergencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drowning-emergency",
+      "diagnosis": "Afogamento / lesão por submersão",
+      "category": "environmental_respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "afogamento",
+            "drowning",
+            "submersão",
+            "submersion"
+          ],
+          "weight": 5,
+          "label": "submersão/afogamento"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "aspiração de água",
+            "water aspiration"
+          ],
+          "weight": 2,
+          "label": "aspiração"
+        }
+      ],
+      "missing_if_absent": [
+        "tempo de submersão",
+        "RCP",
+        "oxigenação/ventilação",
+        "temperatura"
+      ],
+      "differential": [
+        "acute-respiratory-failure",
+        "environmental-hypothermia"
+      ],
+      "must_not_miss": [
+        "adult-cardiac-arrest"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Avaliar oxigenação/ventilação, temperatura e lesões associadas; exames guiados pela gravidade",
+          "priority": "immediate",
+          "rationale": "hipóxia é o mecanismo principal",
+          "source_modules": [
+            "environmental-emergencies",
+            "acute-respiratory-failure"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Priorizar ventilação/oxigenação e RCP quando indicada; tratar hipotermia associada",
+          "priority": "immediate",
+          "rationale": "ressuscitação respiratória precoce é crítica",
+          "source_modules": [
+            "environmental-emergencies",
+            "adult-cardiac-arrest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pyelonephritis-urologic-emergency",
+      "diagnosis": "Pielonefrite complicada / infeção urinária alta",
+      "category": "urologic_infectious",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "pielonefrite",
+            "pyelonephritis"
+          ],
+          "weight": 5,
+          "label": "pielonefrite"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "dor lombar",
+            "flank pain",
+            "ângulo costovertebral"
+          ],
+          "weight": 1,
+          "label": "dor lombar/CVA"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "febre",
+            "fiebre",
+            "fever",
+            "disúria",
+            "dysuria"
+          ],
+          "weight": 1,
+          "label": "infeção urinária"
+        }
+      ],
+      "missing_if_absent": [
+        "urina/cultura antes de antibiótico quando possível",
+        "gravidez/obstrução/imunossupressão",
+        "função renal"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "urologic-emergencies"
+      ],
+      "must_not_miss": [
+        "sepsis-shock"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Urina para cultura antes do antibiótico quando possível e avaliar obstrução/complicações conforme gravidade",
+          "priority": "urgent",
+          "rationale": "susceptibilidade e obstrução mudam tratamento",
+          "source_modules": [
+            "urologic-emergencies",
+            "emergency-infectious-diseases"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo urológico/infeccioso; antibiótico e controlo de foco/obstrução conforme gravidade",
+          "priority": "urgent",
+          "rationale": "pielonefrite obstrutiva/sepse requer drenagem urgente",
+          "source_modules": [
+            "urologic-emergencies",
+            "empiric-antibiotics"
+          ]
+        }
+      ],
+      "source_url": "https://www.nice.org.uk/guidance/ng111"
+    },
+    {
+      "id": "pediatric-foreign-body-emergencies",
+      "diagnosis": "Corpo estranho pediátrico de via aérea/esófago",
+      "category": "pediatric_airway",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "engasgamento",
+            "choking",
+            "corpo estranho",
+            "foreign body"
+          ],
+          "weight": 3,
+          "label": "evento de corpo estranho"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "estridor súbito",
+            "tosse súbita",
+            "unilateral wheeze",
+            "sialorreia"
+          ],
+          "weight": 2,
+          "label": "sinais respiratórios/esofágicos"
+        }
+      ],
+      "missing_if_absent": [
+        "evento testemunhado",
+        "via aérea/SpO2",
+        "localização provável"
+      ],
+      "differential": [
+        "croup",
+        "anaphylaxis"
+      ],
+      "must_not_miss": [],
+      "suggested_tests": [
+        {
+          "action": "Avaliar via aérea e necessidade de broncoscopia/endoscopia; imagem apenas quando apropriada ao objeto e estabilidade",
+          "priority": "immediate",
+          "rationale": "obstrução completa/parcial é tempo-dependente",
+          "source_modules": [
+            "pediatric-foreign-body-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de corpo estranho pediátrico e algoritmo de obstrução de via aérea quando aplicável",
+          "priority": "immediate",
+          "rationale": "prioridade é oxigenação e remoção segura",
+          "source_modules": [
+            "pediatric-foreign-body-emergencies",
+            "pediatric-acute-respiratory-support"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-acute-asthma",
+      "diagnosis": "Exacerbação aguda de asma pediátrica",
+      "category": "pediatric_respiratory",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "asma pediátrica",
+            "pediatric asthma",
+            "criança asmática"
+          ],
+          "weight": 3,
+          "label": "asma pediátrica"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "sibilos",
+            "tiragem",
+            "fala entrecortada",
+            "silent chest"
+          ],
+          "weight": 2,
+          "label": "exacerbação/gravidade"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/peso",
+        "SpO2",
+        "trabalho respiratório",
+        "resposta ao broncodilatador"
+      ],
+      "differential": [
+        "bronchiolitis",
+        "pediatric-foreign-body-emergencies",
+        "anaphylaxis"
+      ],
+      "must_not_miss": [
+        "pediatric-foreign-body-emergencies"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Classificar gravidade por clínica/SpO2 e resposta seriada; gasometria apenas se grave/deterioração",
+          "priority": "immediate",
+          "rationale": "tratamento e destino dependem da gravidade",
+          "source_modules": [
+            "pediatric-acute-asthma",
+            "pediatric-acute-respiratory-support"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de asma pediátrica; broncodilatadores, oxigénio e corticosteroide conforme gravidade",
+          "priority": "immediate",
+          "rationale": "usar protocolo pediátrico por idade/peso",
+          "source_modules": [
+            "pediatric-acute-asthma",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-status-epilepticus",
+      "diagnosis": "Estado de mal epiléptico pediátrico",
+      "category": "pediatric_neurologic",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "status epiléptico pediátrico",
+            "pediatric status epilepticus",
+            "convulsão criança há 5 minutos"
+          ],
+          "weight": 5,
+          "label": "status pediátrico"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "convulsão prolongada criança",
+            "crises repetidas criança"
+          ],
+          "weight": 3,
+          "label": "crise prolongada/repetida"
+        }
+      ],
+      "missing_if_absent": [
+        "peso",
+        "glicemia",
+        "tempo de crise",
+        "causas reversíveis"
+      ],
+      "differential": [
+        "pediatric-cns-infection",
+        "pediatric-toxicology",
+        "pediatric-electrolyte-emergencies"
+      ],
+      "must_not_miss": [
+        "pediatric-cns-infection"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Glicemia imediata e pesquisa dirigida de eletrólitos, infeção e tóxicos",
+          "priority": "immediate",
+          "rationale": "causas reversíveis em paralelo com tratamento",
+          "source_modules": [
+            "pediatric-status-epilepticus",
+            "pediatric-electrolyte-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar status pediátrico; benzodiazepina e escalada por peso/protocolo",
+          "priority": "immediate",
+          "rationale": "não extrapolar doses adultas",
+          "source_modules": [
+            "pediatric-status-epilepticus",
+            "pediatric-emergency-medications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric-shock",
+      "diagnosis": "Choque pediátrico / desidratação grave",
+      "category": "pediatric_shock",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "choque pediátrico",
+            "pediatric shock",
+            "desidratação grave",
+            "severe dehydration"
+          ],
+          "weight": 4,
+          "label": "choque/desidratação grave"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "enchimento capilar prolongado",
+            "extremidades frias",
+            "taquicardia criança",
+            "oligúria"
+          ],
+          "weight": 2,
+          "label": "hipoperfusão"
+        }
+      ],
+      "missing_if_absent": [
+        "idade/peso",
+        "perfusão/PA/FC",
+        "glicemia",
+        "etiologia"
+      ],
+      "differential": [
+        "pediatric-sepsis",
+        "pediatric-dehydration-shock"
+      ],
+      "must_not_miss": [
+        "pediatric-sepsis"
+      ],
+      "suggested_tests": [
+        {
+          "action": "ABCDE pediátrico, peso, glicemia, perfusão e investigação etiológica dirigida",
+          "priority": "immediate",
+          "rationale": "hipotensão é sinal tardio em crianças",
+          "source_modules": [
+            "pediatric-shock",
+            "pediatric-dehydration-shock"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Ativar módulo de choque pediátrico; bolus/vasoativos por etiologia e reavaliação frequente",
+          "priority": "immediate",
+          "rationale": "evitar fluidos não individualizados",
+          "source_modules": [
+            "pediatric-shock",
+            "pediatric-iv-fluid-therapy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geriatric-delirium-emergency",
+      "diagnosis": "Delirium agudo no idoso",
+      "category": "geriatric",
+      "triggers": [
+        {
+          "type": "text_any",
+          "terms": [
+            "delirium",
+            "síndrome confusional agudo",
+            "confusão aguda idoso",
+            "acute confusion elderly"
+          ],
+          "weight": 4,
+          "label": "delirium agudo"
+        },
+        {
+          "type": "text_any",
+          "terms": [
+            "flutuação",
+            "inatenção",
+            "desorientação aguda"
+          ],
+          "weight": 1,
+          "label": "características de delirium"
+        }
+      ],
+      "missing_if_absent": [
+        "baseline cognitivo",
+        "medicação",
+        "dor/retenção/obstipação",
+        "infeção/metabólico",
+        "glicemia"
+      ],
+      "differential": [
+        "sepsis-shock",
+        "toxicology",
+        "electrolytes",
+        "acute-ischemic-stroke"
+      ],
+      "must_not_miss": [
+        "sepsis-shock",
+        "acute-ischemic-stroke"
+      ],
+      "suggested_tests": [
+        {
+          "action": "Comparar com baseline e procurar causas precipitantes reversíveis com revisão de fármacos e exame dirigido",
+          "priority": "urgent",
+          "rationale": "delirium é frequentemente manifestação de doença aguda",
+          "source_modules": [
+            "geriatric-emergencies"
+          ]
+        }
+      ],
+      "treatment": [
+        {
+          "action": "Tratar causa, ambiente reorientador e medidas não farmacológicas; sedação apenas se risco grave e após revisão",
+          "priority": "urgent",
+          "rationale": "evitar iatrogenia",
+          "source_modules": [
+            "geriatric-emergencies",
+            "psychiatric-emergencies"
+          ]
+        }
+      ]
     }
   ]
 }
