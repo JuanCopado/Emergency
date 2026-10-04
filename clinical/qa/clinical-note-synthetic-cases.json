@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "safe-basic-note",
+      "expect": "export_allowed"
+    },
+    {
+      "id": "direct-name-in-free-text",
+      "expect": "privacy_block"
+    },
+    {
+      "id": "direct-patient-name-field",
+      "expect": "privacy_block"
+    },
+    {
+      "id": "external-mode-missing-source-metadata",
+      "expect": "export_block"
+    },
+    {
+      "id": "external-image-without-burned-in-check",
+      "expect": "export_block"
+    },
+    {
+      "id": "ecg-routing",
+      "expect": "route_ecg"
+    },
+    {
+      "id": "ct-routing",
+      "expect": "route_ct"
+    },
+    {
+      "id": "medication-discrepancy",
+      "expect": "quality_alert"
+    },
+    {
+      "id": "clinician-review-missing",
+      "expect": "export_block"
+    },
+    {
+      "id": "official-vs-ai-provenance",
+      "expect": "provenance_preserved"
+    },
+    {
+      "id": "long-note-docx-pdf",
+      "expect": "export_allowed"
+    },
+    {
+      "id": "yellow-review-queue",
+      "expect": "all_yellow_queued"
+    }
+  ]
+}
