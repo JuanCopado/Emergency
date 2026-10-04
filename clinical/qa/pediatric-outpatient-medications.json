@@ -150,10 +150,23 @@
       "cautions": [
         "QT prolongation risk",
         "electrolyte disturbance",
-        "bilious vomiting or surgical red flags"
+        "bilious vomiting or surgical red flags",
+        "moderate/severe hepatic impairment: total daily dose must not exceed 8 mg"
       ],
       "source": "RCH Gastroenteritis, current guideline",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Gastroenteritis/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Gastroenteritis/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required in the cited SmPC."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Moderate/severe hepatic impairment: total daily oral/IV dose should not exceed 8 mg."
+      },
+      "contraindications": [
+        "ondansetron hypersensitivity",
+        "concomitant apomorphine"
+      ]
     },
     {
       "id": "cetirizine-urticaria-6to11mo",
@@ -180,10 +193,23 @@
       "cautions": [
         "renal impairment requires individualized interval",
         "age <6 months requires pediatric review",
-        "any airway/respiratory/circulatory or significant GI involvement = evaluate for anaphylaxis"
+        "any airway/respiratory/circulatory or significant GI involvement = evaluate for anaphylaxis",
+        "renal impairment requires individualized pediatric dosing"
       ],
       "source": "RCH Urticaria; current cetirizine product concentration",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric cetirizine dose must be individualized in renal impairment using renal clearance, age and weight; standard regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No adjustment for isolated hepatic impairment; adjust when hepatic and renal impairment coexist."
+      },
+      "contraindications": [
+        "cetirizine/hydroxyzine/piperazine hypersensitivity",
+        "end-stage renal disease per product labeling"
+      ]
     },
     {
       "id": "cetirizine-urticaria-ge1y",
@@ -230,10 +256,23 @@
       "administration": "May be given as oral solution. Avoid NSAIDs in acute urticaria if they worsen symptoms.",
       "cautions": [
         "renal impairment requires dose-interval review",
-        "anaphylaxis features require adrenaline pathway, not antihistamine alone"
+        "anaphylaxis features require adrenaline pathway, not antihistamine alone",
+        "renal impairment requires individualized pediatric dosing"
       ],
       "source": "RCH Urticaria; cetirizine 1 mg/mL SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric cetirizine dose must be individualized in renal impairment using renal clearance, age and weight; standard regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No adjustment for isolated hepatic impairment; adjust when hepatic and renal impairment coexist."
+      },
+      "contraindications": [
+        "cetirizine/hydroxyzine/piperazine hypersensitivity",
+        "end-stage renal disease per product labeling"
+      ]
     },
     {
       "id": "loratadine-allergic-rhinitis-urticaria",
@@ -445,7 +484,22 @@
         }
       ],
       "source": "GINA 2026; dexamethasone 2 mg/5 mL SmPC",
-      "source_url": "https://ginasthma.org/2026-gina-strategy-report/"
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required for the cited oral formulations."
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No hepatic dose adjustment is required for the cited oral formulations."
+      },
+      "contraindications": [
+        "systemic fungal infection",
+        "systemic infection unless appropriate anti-infective treatment is provided"
+      ],
+      "cautions": [
+        "short courses are used in these pathways; prolonged therapy has corticosteroid withdrawal/adrenal-suppression considerations"
+      ]
     },
     {
       "id": "dexamethasone-croup-mild-moderate",
@@ -469,7 +523,22 @@
         }
       ],
       "source": "RCH Croup; dexamethasone product concentration",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required for the cited oral formulations."
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No hepatic dose adjustment is required for the cited oral formulations."
+      },
+      "contraindications": [
+        "systemic fungal infection",
+        "systemic infection unless appropriate anti-infective treatment is provided"
+      ],
+      "cautions": [
+        "short courses are used in these pathways; prolonged therapy has corticosteroid withdrawal/adrenal-suppression considerations"
+      ]
     },
     {
       "id": "salbutamol-asthma-discharge-rch",
@@ -523,7 +592,21 @@
         "penicillin hypersensitivity"
       ],
       "source": "RCH Antimicrobial guidelines",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "cautions": [
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity"
+      ]
     },
     {
       "id": "amoxicillin-cap-outpatient",
@@ -553,7 +636,22 @@
         "penicillin hypersensitivity"
       ],
       "source": "RCH Antimicrobial guidelines",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "cautions": [
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity"
+      ],
+      "administration": "May be taken with or without food; shake suspension and use the exact product concentration."
     },
     {
       "id": "amoxicillin-dental-abscess",
@@ -580,7 +678,21 @@
         "penicillin hypersensitivity"
       ],
       "source": "RCH Antimicrobial guidelines",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "cautions": [
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity"
+      ]
     },
     {
       "id": "amox-clav-bite",
@@ -609,7 +721,20 @@
         "previous co-amoxiclav-associated jaundice/hepatic impairment"
       ],
       "source": "RCH antimicrobial bite regimen + co-amoxiclav 400/57 mg/5 mL SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "7:1 amoxicillin/clavulanate suspension is not recommended below creatinine clearance 30 mL/min because dose-adjustment recommendations are unavailable for this ratio"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Dose with caution and monitor hepatic function at regular intervals."
+      },
+      "cautions": [
+        "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
+        "hepatic impairment requires caution and monitoring"
+      ]
     },
     {
       "id": "amox-clav-preseptal-stepdown",
@@ -641,7 +766,20 @@
         "previous co-amoxiclav-associated jaundice/hepatic impairment"
       ],
       "source": "RCH Antimicrobial guidelines + SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "7:1 amoxicillin/clavulanate suspension is not recommended below creatinine clearance 30 mL/min because dose-adjustment recommendations are unavailable for this ratio"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Dose with caution and monitor hepatic function at regular intervals."
+      },
+      "cautions": [
+        "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
+        "hepatic impairment requires caution and monitoring"
+      ]
     },
     {
       "id": "cefalexin-cellulitis",
@@ -668,14 +806,24 @@
       ],
       "administration": "May be given without regard to meals. Reassess if rapidly progressive or systemic illness.",
       "contraindications": [
+        "cephalosporin hypersensitivity",
         "cephalosporin hypersensitivity"
       ],
       "cautions": [
         "immediate severe beta-lactam allergy",
-        "marked renal impairment requires dose review"
+        "marked renal impairment requires dose review",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH Antimicrobial guidelines; cefalexin SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      }
     },
     {
       "id": "cefalexin-preseptal",
@@ -701,10 +849,23 @@
         }
       ],
       "contraindications": [
+        "cephalosporin hypersensitivity",
         "cephalosporin hypersensitivity"
       ],
       "source": "RCH Antimicrobial guidelines",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "cautions": [
+        "marked renal impairment requires dose reduction"
+      ],
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength."
     },
     {
       "id": "cefalexin-cystitis",
@@ -729,10 +890,23 @@
       ],
       "cautions": [
         "culture/resistance history",
-        "renal impairment"
+        "renal impairment",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH Antimicrobial guidelines",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ]
     },
     {
       "id": "cefalexin-pyelonephritis-lt12mo",
@@ -762,10 +936,23 @@
       "cautions": [
         "young infant threshold for admission/IV treatment",
         "culture/resistance",
-        "renal impairment"
+        "renal impairment",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH UTI",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ]
     },
     {
       "id": "cefalexin-pyelonephritis-ge12mo",
@@ -794,10 +981,23 @@
       "cautions": [
         "culture/resistance",
         "renal impairment",
-        "systemic illness may require IV/inpatient care"
+        "systemic illness may require IV/inpatient care",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH UTI",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ]
     },
     {
       "id": "tmp-smx-mrsa-skin",
@@ -828,10 +1028,21 @@
         "significant renal impairment",
         "folate deficiency",
         "drug interactions including methotrexate/warfarin",
-        "hyperkalemia risk"
+        "hyperkalemia risk",
+        "renal impairment requires age-specific specialist review",
+        "monitor potassium/renal function when clinically indicated"
       ],
       "source": "RCH Antimicrobial guidelines; Co-Trimoxazole pediatric suspension SmPC 2026",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric co-trimoxazole renal-failure dosing is not defined for children <=12 years in the cited SmPC; standard regimen is blocked in known renal impairment"
+      },
+      "hepatic_adjustment": {
+        "mode": "block_if_severe",
+        "block_if_severe": true,
+        "message": "significant hepatic dysfunction requires specialist/product-specific review"
+      }
     },
     {
       "id": "clindamycin-mrsa-skin",
@@ -879,10 +1090,25 @@
       "administration": "Once daily, with or without food; immediately before a meal may improve GI tolerability. Shake suspension.",
       "cautions": [
         "QT prolongation/arrhythmia risk",
-        "severe hepatic impairment"
+        "severe hepatic impairment",
+        "GFR <10 mL/min requires caution",
+        "severe hepatic impairment requires caution",
+        "QT prolongation/arrhythmia risk"
       ],
       "source": "RCH Antimicrobial guidelines; azithromycin 200 mg/5 mL SmPC 2026",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 10,
+        "message": "azithromycin standard regimen should be used cautiously below GFR 10 mL/min; specialist/product-specific review required"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No adjustment for mild/moderate hepatic impairment; severe hepatic impairment requires caution because data are lacking."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ]
     },
     {
       "id": "azithromycin-pertussis-ge6mo",
@@ -919,10 +1145,25 @@
       "administration": "Once daily, with or without food; immediately before a meal may improve GI tolerability. Shake suspension.",
       "cautions": [
         "QT prolongation/arrhythmia risk",
-        "severe hepatic impairment"
+        "severe hepatic impairment",
+        "GFR <10 mL/min requires caution",
+        "severe hepatic impairment requires caution",
+        "QT prolongation/arrhythmia risk"
       ],
       "source": "RCH Antimicrobial guidelines; azithromycin 200 mg/5 mL SmPC 2026",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 10,
+        "message": "azithromycin standard regimen should be used cautiously below GFR 10 mL/min; specialist/product-specific review required"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No adjustment for mild/moderate hepatic impairment; severe hepatic impairment requires caution because data are lacking."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ]
     },
     {
       "id": "clarithromycin-pertussis-ge1mo",
@@ -947,15 +1188,28 @@
       ],
       "administration": "May be given without regard to meals; food/drink after the suspension can reduce bitter aftertaste.",
       "contraindications": [
-        "important QT-prolonging/interacting medicines per SmPC"
+        "important QT-prolonging/interacting medicines per SmPC",
+        "macrolide hypersensitivity"
       ],
       "cautions": [
         "renal impairment may require dose reduction",
         "hepatic impairment",
-        "QT prolongation"
+        "QT prolongation",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
       ],
       "source": "RCH antimicrobial pertussis regimen; clarithromycin 125 mg/5 mL SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      }
     },
     {
       "id": "tmp-smx-pertussis-ge6wk",
@@ -983,7 +1237,20 @@
         "sulfonamide/trimethoprim hypersensitivity"
       ],
       "source": "RCH antimicrobial pertussis regimen; Co-Trimoxazole SmPC",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric co-trimoxazole renal-failure dosing is not defined for children <=12 years in the cited SmPC; standard regimen is blocked in known renal impairment"
+      },
+      "hepatic_adjustment": {
+        "mode": "block_if_severe",
+        "block_if_severe": true,
+        "message": "significant hepatic dysfunction requires specialist/product-specific review"
+      },
+      "cautions": [
+        "renal impairment requires age-specific specialist review",
+        "monitor potassium/renal function when clinically indicated"
+      ]
     },
     {
       "id": "nitrofurantoin-cystitis-nice-3d",
@@ -1102,7 +1369,23 @@
         }
       ],
       "source": "CDC influenza antiviral dosing table",
-      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html"
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard pediatric oseltamivir regimen is blocked in known renal impairment because the cited SmPC lacks dosing recommendations for children <=12 years and uses separate adolescent adjustments"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No dose adjustment is required for hepatic dysfunction in the cited SmPC, although pediatric hepatic-disorder studies are lacking."
+      },
+      "contraindications": [
+        "oseltamivir hypersensitivity"
+      ],
+      "cautions": [
+        "known renal impairment requires age-specific adjustment/review",
+        "monitor for neuropsychiatric events"
+      ],
+      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified."
     },
     {
       "id": "oseltamivir-influenza-ge1y",
@@ -1150,7 +1433,23 @@
       ],
       "frequency": "twice daily for 5 days",
       "source": "CDC influenza antiviral dosing table",
-      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html"
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard pediatric oseltamivir regimen is blocked in known renal impairment because the cited SmPC lacks dosing recommendations for children <=12 years and uses separate adolescent adjustments"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No dose adjustment is required for hepatic dysfunction in the cited SmPC, although pediatric hepatic-disorder studies are lacking."
+      },
+      "contraindications": [
+        "oseltamivir hypersensitivity"
+      ],
+      "cautions": [
+        "known renal impairment requires age-specific adjustment/review",
+        "monitor for neuropsychiatric events"
+      ],
+      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified."
     },
     {
       "id": "epinephrine-autoinjector-discharge-rch",
@@ -1268,16 +1567,29 @@
       "administration": "May be taken with or without food. Verify exact suspension strength; important CYP3A/QT interactions apply.",
       "contraindications": [
         "macrolide hypersensitivity",
-        "concomitant contraindicated QT/CYP3A interacting medicines per SmPC"
+        "concomitant contraindicated QT/CYP3A interacting medicines per SmPC",
+        "macrolide hypersensitivity"
       ],
       "cautions": [
         "hepatic impairment",
         "renal impairment",
         "QT prolongation",
-        "electrolyte disturbance"
+        "electrolyte disturbance",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
       ],
       "source": "NICE NG91 acute otitis media, amended 2022; clarithromycin SmPC for product use",
-      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations"
+      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      }
     },
     {
       "id": "phenoxymethylpenicillin-sinusitis-child",
@@ -1387,16 +1699,29 @@
       "frequency": "twice daily",
       "administration": "May be taken with or without food; verify exact formulation.",
       "contraindications": [
+        "macrolide hypersensitivity",
         "macrolide hypersensitivity"
       ],
       "cautions": [
         "QT prolongation",
         "hepatic impairment",
         "renal impairment",
-        "CYP3A interactions"
+        "CYP3A interactions",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
       ],
       "source": "NICE NG79 acute sinusitis",
-      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations"
+      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      }
     },
     {
       "id": "clarithromycin-cap-penicillin-allergy",
@@ -1456,10 +1781,25 @@
       "cautions": [
         "QT prolongation",
         "drug interactions",
-        "renal/hepatic impairment"
+        "renal/hepatic impairment",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
       ],
       "source": "NICE NG250 pneumonia; RCH CAP allergy pathway",
-      "source_url": "https://www.nice.org.uk/guidance/NG250/chapter/recommendations"
+      "source_url": "https://www.nice.org.uk/guidance/NG250/chapter/recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ]
     },
     {
       "id": "cefalexin-impetigo-extensive",
@@ -1483,14 +1823,24 @@
       ],
       "administration": "Can be taken without regard to meals; verify exact SmPC.",
       "contraindications": [
+        "cephalosporin hypersensitivity",
         "cephalosporin hypersensitivity"
       ],
       "cautions": [
         "immediate severe beta-lactam allergy",
-        "renal impairment"
+        "renal impairment",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH Antimicrobial guidelines, updated Feb 2025",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      }
     },
     {
       "id": "cefalexin-cervical-lymphadenitis-mild",
@@ -1513,15 +1863,26 @@
         }
       ],
       "contraindications": [
+        "cephalosporin hypersensitivity",
         "cephalosporin hypersensitivity"
       ],
       "cautions": [
         "deep neck infection red flags",
         "abscess requiring drainage",
-        "renal impairment"
+        "renal impairment",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH Antimicrobial guidelines, updated Feb 2025",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength."
     },
     {
       "id": "fluticasone-controller-preschool",
@@ -2311,10 +2672,20 @@
       "cautions": [
         "renal impairment",
         "concurrent nephrotoxic medicines",
-        "immunocompromised/severe disease may require specialist/IV treatment"
+        "immunocompromised/severe disease may require specialist/IV treatment",
+        "renal impairment requires dose/interval adjustment",
+        "maintain hydration and review nephrotoxic co-medications"
       ],
       "source": "Current aciclovir 200 mg/5 mL and 400 mg/5 mL SmPC",
-      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc"
+      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard aciclovir outpatient regimen is blocked when renal dose adjustment is required"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic adjustment encoded; prioritize renal function and hydration."
+      }
     },
     {
       "id": "acyclovir-hsv-mucocutaneous-standard-renal",
@@ -2365,10 +2736,20 @@
       ],
       "cautions": [
         "renal impairment requires adjustment",
-        "neonatal HSV requires IV/specialist pathway"
+        "neonatal HSV requires IV/specialist pathway",
+        "renal impairment requires dose/interval adjustment",
+        "maintain hydration and review nephrotoxic co-medications"
       ],
       "source": "Current aciclovir 200 mg/5 mL SmPC",
-      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc"
+      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard aciclovir outpatient regimen is blocked when renal dose adjustment is required"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic adjustment encoded; prioritize renal function and hydration."
+      }
     },
     {
       "id": "chloramphenicol05-bacterial-conjunctivitis",
@@ -2542,10 +2923,23 @@
         "QT prolongation",
         "electrolyte disturbance",
         "serotonergic interactions",
-        "severe hepatic impairment affects total daily dose"
+        "severe hepatic impairment affects total daily dose",
+        "moderate/severe hepatic impairment: total daily dose must not exceed 8 mg"
       ],
       "source": "RCH Headache + current ondansetron 4 mg/5 mL SmPC for concentration",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required in the cited SmPC."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Moderate/severe hepatic impairment: total daily oral/IV dose should not exceed 8 mg."
+      },
+      "contraindications": [
+        "ondansetron hypersensitivity",
+        "concomitant apomorphine"
+      ]
     },
     {
       "id": "dimeticone4-head-lice",
@@ -2591,15 +2985,25 @@
       ],
       "administration": "Continue appropriate eczema skin care/topical anti-inflammatory treatment after crust removal unless contraindicated. Reassess if not improving.",
       "contraindications": [
+        "cephalosporin hypersensitivity",
         "cephalosporin hypersensitivity"
       ],
       "cautions": [
         "systemic illness/severe infection may require admission/IV therapy",
         "consider MRSA if high-risk or not responding",
-        "eczema herpeticum requires prompt antiviral pathway, not antibiotic alone"
+        "eczema herpeticum requires prompt antiviral pathway, not antibiotic alone",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH Eczema / Eczema management + RCH antimicrobial skin dosing",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      }
     },
     {
       "id": "mometasone-nasal-allergic-rhinitis",
@@ -2870,10 +3274,23 @@
         "penicillin hypersensitivity"
       ],
       "cautions": [
-        "do not extrapolate this once-daily GAS regimen to other infections"
+        "do not extrapolate this once-daily GAS regimen to other infections",
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity"
       ],
       "source": "RCH Sore throat",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "administration": "May be taken with or without food; shake suspension and use the exact product concentration."
     },
     {
       "id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
@@ -2905,13 +3322,23 @@
       ],
       "administration": "Can be given without regard to meals for the cited formulation.",
       "contraindications": [
+        "cephalosporin hypersensitivity",
         "cephalosporin hypersensitivity"
       ],
       "cautions": [
-        "take detailed beta-lactam allergy history; immediate/severe reactions should avoid both penicillin and cephalosporin classes per RCH guidance"
+        "take detailed beta-lactam allergy history; immediate/severe reactions should avoid both penicillin and cephalosporin classes per RCH guidance",
+        "marked renal impairment requires dose reduction"
       ],
       "source": "RCH Sore throat + RCH beta-lactam allergy guidance",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      }
     },
     {
       "id": "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
@@ -2945,10 +3372,25 @@
       "cautions": [
         "QT prolongation",
         "macrolide resistance/local susceptibility",
-        "hepatic impairment"
+        "hepatic impairment",
+        "GFR <10 mL/min requires caution",
+        "severe hepatic impairment requires caution",
+        "QT prolongation/arrhythmia risk"
       ],
       "source": "RCH Sore throat; azithromycin 200 mg/5 mL SmPC 2026",
-      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/"
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 10,
+        "message": "azithromycin standard regimen should be used cautiously below GFR 10 mL/min; specialist/product-specific review required"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No adjustment for mild/moderate hepatic impairment; severe hepatic impairment requires caution because data are lacking."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ]
     },
     {
       "id": "trimethoprim-cystitis-low-resistance",
@@ -2988,7 +3430,9 @@
       "administration": "Oral suspension. Monitor renal function/electrolytes when clinically indicated; renal impairment can require dose reduction.",
       "contraindications": [
         "trimethoprim hypersensitivity",
-        "severe hepatic insufficiency per cited SmPC"
+        "severe hepatic insufficiency per cited SmPC",
+        "severe hepatic insufficiency",
+        "megaloblastic anaemia/major blood dyscrasias"
       ],
       "cautions": [
         "eGFR 15-30: cited SmPC uses normal dose for 3 days then half dose for longer treatment; eGFR <15 requires specialist/specific adjustment",
@@ -2996,7 +3440,18 @@
         "hyperkalemia/drug interactions"
       ],
       "source": "NICE NG109 lower UTI + Trimethoprim 50 mg/5 mL SmPC revised Jun 2026",
-      "source_url": "https://www.nice.org.uk/guidance/ng109/chapter/Recommendations"
+      "source_url": "https://www.nice.org.uk/guidance/ng109/chapter/Recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 15,
+        "message": "standard trimethoprim regimen is not valid below eGFR 15 mL/min; product-specific reduced dosing/specialist review required",
+        "detail": "eGFR 15-30: current SmPC permits normal dose for 3 days then half dose for longer courses."
+      },
+      "hepatic_adjustment": {
+        "mode": "block_if_severe",
+        "block_if_severe": true,
+        "message": "trimethoprim is contraindicated in severe hepatic insufficiency"
+      }
     }
   ],
   "last_expanded": "2026-10-04",
@@ -3005,6 +3460,7 @@
     "Block B: dermatology topical therapy plus ORS/constipation regimens; source-specific product strengths and non-mg dose models.",
     "Block C: selected antiparasitics, oral antivirals, ENT/ophthalmology therapies and migraine discharge treatments; renal and age/weight gates retained.",
     "Block D: infected eczema, allergic rhinitis intranasal therapy, allergic conjunctivitis and selected alternative constipation therapy.",
-    "Block E: GAS sore-throat indication-specific beta-lactam/macrolide pathways and trimethoprim lower-UTI option with resistance/pyelonephritis gates."
+    "Block E: GAS sore-throat indication-specific beta-lactam/macrolide pathways and trimethoprim lower-UTI option with resistance/pyelonephritis gates.",
+    "Pharmacy metadata pass F: structured renal/hepatic safety gates added to high-use systemic drug families."
   ]
 }
