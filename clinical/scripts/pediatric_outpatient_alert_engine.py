@@ -85,14 +85,16 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
         if not cls and a["substance"]:
             alias_key=a["substance"].replace(" ","_")
             cls=rules.get("class_aliases",{}).get(alias_key,"")
-        if cls=="beta_lactam" and ({"penicillins","cephalosporins"} & classes):
-            severe=a["severity"] in {"severe","anaphylaxis","life_threatening"} or a["phenotype"] in {"immediate_severe","anaphylaxis","scar","sjs","ten","dress","agep"}
-            sev="STOP" if severe else "ALERT"
+        severe=a["severity"] in {"severe","anaphylaxis","life_threatening"} or a["phenotype"] in {"immediate_severe","anaphylaxis","scar","sjs","ten","dress","agep"}
+        beta_classes={"penicillins","cephalosporins"}
+        if (cls=="beta_lactam" or cls in beta_classes) and (beta_classes & classes):
+            same_class = cls in classes
+            sev="STOP" if severe or same_class else "ALERT"
             alerts.append(_alert(sev,"ALLERGY_BETA_LACTAM",
               "Recorded beta-lactam allergy may conflict with this beta-lactam regimen.",
               "Review timing, phenotype and severity; immediate/severe reactions require avoidance of relevant beta-lactams.",
               "https://www.rch.org.au/clinicalguide/guideline_index/Antibiotic_prescribing_in_children_with_reported_penicillin_or_cephalosporin_allergy/",
-              {"allergy":raw}))
+              {"allergy":raw,"recorded_class":cls,"prescribed_classes":sorted(classes)}))
         elif cls in classes:
             severe=a["severity"] in {"severe","anaphylaxis","life_threatening"} or a["phenotype"] in {"immediate_severe","anaphylaxis","scar","sjs","ten","dress","agep"}
             alerts.append(_alert("STOP" if severe else "ALERT","ALLERGY_CLASS",
@@ -112,7 +114,8 @@ def evaluate(regimen_id, patient, active_medications=None, registry=None, rules=
     active_names=[_med_name(x) for x in active if _med_name(x)]
     active_classes=set()
     for x in active:
-        active_classes |= _med_classes(x)
+        for cls in _med_classes(x):
+            active_classes.add(rules.get("class_aliases",{}).get(cls,cls))
     for cls,members in rules.get("medication_class_members",{}).items():
         for act in active_names:
             if any(_match_med(member,act) for member in members):
