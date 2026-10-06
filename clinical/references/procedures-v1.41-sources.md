@@ -57,3 +57,26 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - ACOG Postpartum Hemorrhage: https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2017/10/postpartum-hemorrhage
 - RCOG Shoulder Dystocia: https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/shoulder-dystocia-green-top-guideline-no-42/
 - ACEP procedural sedation: https://www.acep.org/by-medical-focus/procedural-sedation
+
+
+## Ampliación de exhaustividad — 06/10/2026
+### Reanimación neonatal / acceso umbilical
+- AHA/AAP 2025 Neonatal Resuscitation Guidelines.
+- Uso: `PROC-PED-011`.
+- Punto clave: el catéter venoso umbilical es el acceso vascular recomendado cuando el recién nacido requiere acceso de emergencia; IO es alternativa si IV/umbilical no es posible.
+
+### Parada cardiaca en embarazo
+- Resuscitation Council UK / ERC 2025 Special Circumstances Guidelines.
+- Uso: `PROC-OBS-008`.
+- Punto clave: la histerotomía resucitativa es una intervención tiempo-dependiente y debe prepararse precozmente y realizarse en el lugar de la parada por un equipo capacitado cuando está indicada.
+
+### Hemorragia posparto / balón uterino
+- WHO Consolidated Guidelines for prevention, diagnosis and treatment of postpartum haemorrhage (2025) + implementation guide 2026.
+- WHO recommendation on uterine balloon tamponade (2021), aún referenciada dentro del marco consolidado.
+- Uso: `PROC-OBS-009`.
+- Punto clave: UBT solo dentro de un sistema con tratamiento estándar de PPH, acceso a sangre/cirugía y exclusión razonable de otras causas.
+
+### Trauma dental
+- International Association of Dental Traumatology (IADT) Guidelines 2020, endorsed/reproduced by AAPD; AAPD Reference Manual 2025-2026 acute avulsed permanent tooth resources.
+- Uso: `PROC-ENT-012`, `PROC-ENT-013`.
+- Punto clave: diente permanente avulsionado puede requerir reimplante precoz; dientes temporales no deben reimplantarse. La estabilización flexible depende del patrón de lesión.
