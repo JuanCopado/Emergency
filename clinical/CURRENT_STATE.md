@@ -319,3 +319,32 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Final human-review policy: every yellow module remains pending end-of-project human specialist review; no AI/automated yellow→green promotion.
 - Last verified pre-handoff QA: **Clinical QA #587 SUCCESS**, **364/364 tests PASS**, `automated_status: PASS`.
 - Canonical handoff: `qa/V1.39_FINAL_HANDOFF.md`.
+
+## v1.39 clinical-note API/E2E integration — 06/10/2026
+
+Canonical continuation after the UI-only milestone:
+
+- trusted local backend: `clinical/scripts/clinical_note_api.py`;
+- typed frontend contract: `app/src/clinical-note/types.ts` + `app/src/clinical-note/api.ts`;
+- upload preflight is fail-closed: direct-identifier STOP, binary/image/PDF/DICOM manual privacy review, burned-in identifier review where applicable;
+- original uploaded files are not retained or embedded in exports by this adapter;
+- only clinician-accepted MCDT results enter `complementary_tests` and the clinical timeline;
+- editing/rejecting a previously accepted UI result removes it from persisted note state and invalidates clinician sign-off;
+- diagnostic support runs only on the accepted structured note and any new analysis resets clinician validation;
+- treatment output remains non-actionable until the central medication-safety pathway is satisfied; the existing pediatric outpatient alert engine can be invoked for structured pediatric outpatient regimens;
+- DOCX/PDF/JSON export is wired to the central privacy/clinician-review gate;
+- DOCX/PDF structure now follows the agreed clinical order and preserves official report and AI interpretation as separate, provenance-labelled fields;
+- generic Rx, gasometry, microbiology and PDF upload routes are registered centrally;
+- schema/runtime drift for `language` and `routed_modules` was corrected.
+
+Validation:
+- Clinical QA #603: **SUCCESS**.
+- Python regression functions: **369**.
+- App UI QA #10: **SUCCESS** (TypeScript typecheck, Vitest, Vite build).
+- Registered modules: **131/131**.
+- Evidence state remains **29 green / 102 yellow / 0 red**.
+- No yellow module was auto-promoted.
+
+Known production boundary:
+- binary ECG/Rx/TC/RM/POCUS/PDF/DICOM content is routed to the correct central module but is not autonomously interpreted by the local stdlib API. A trusted deployment adapter/model must provide that extracted/interpretive result; clinician accept/edit/reject remains mandatory.
+- the agreed clinical section order is implemented. No exact institutional visual template/masthead was available in the repository or recoverable project files, so no hospital-specific layout was invented.
