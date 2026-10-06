@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import base64
 import json
 import sys
 import unittest
@@ -21,6 +22,12 @@ from clinical_note_support import (
     diagnostic_support_contract as clinical_note_diagnostic_contract,
 )
 from clinical_note_exporter import export_docx as export_clinical_note_docx, export_pdf as export_clinical_note_pdf
+from clinical_note_api import (
+    prepare_upload as prepare_clinical_upload,
+    accept_prepared_upload as accept_clinical_upload,
+    run_diagnostic_support as run_clinical_note_api_diagnostic,
+    export_note_bytes as export_clinical_note_bytes,
+)
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
 from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
 from run_clinical_note_diagnostic_cases import run as run_clinical_note_diagnostic_cases
@@ -5549,6 +5556,115 @@ class ModularCoreTests(unittest.TestCase):
         gate=validate_clinical_note_export(note)
         self.assertTrue(gate['blocked'])
         self.assertTrue(any(x['code']=='CLINICIAN_REVIEW_REQUIRED' for x in gate['findings']))
+
+    def test_v139_api_text_upload_requires_acceptance_before_persistence(self):
+        note = new_clinical_note(age_years=68, sex='male')
+        note['history']['chief_complaint'] = 'cefaleia intensa'
+        payload = base64.b64encode(
+            'TC cranio: sem hemorragia intracraniana aguda.'.encode('utf-8')
+        ).decode('ascii')
+        prepared = prepare_clinical_upload(
+            'tc_report.txt', 'text/plain', payload, explicit_kind='ct'
+        )
+        self.assertEqual(prepared['privacy']['status'], 'PASS')
+        self.assertFalse(prepared['original_retained'])
+        self.assertEqual(prepared['route']['target_section'], 'imaging')
+        self.assertEqual(note['complementary_tests']['imaging'], [])
+
+        accepted = accept_clinical_upload(
+            note, prepared,
+            clinician_edit={'official_report': prepared['extracted']['official_report']},
+            privacy_checked=True,
+            burned_in_identifiers_checked=True,
+        )
+        self.assertEqual(len(accepted['note']['complementary_tests']['imaging']), 1)
+        report = accepted['note']['complementary_tests']['imaging'][0]
+        self.assertTrue(report['source_reference'].startswith('sha256:'))
+        self.assertEqual(report['routed_modules'], ['ct-mri-screenshot'])
+        self.assertFalse(accepted['note']['clinician_validation']['reviewed'])
+
+    def test_v139_api_upload_privacy_stop_blocks_acceptance(self):
+        note = new_clinical_note(age_years=55, sex='female')
+        payload = base64.b64encode(
+            'Nome: Joao da Silva\nECG: ritmo sinusal.'.encode('utf-8')
+        ).decode('ascii')
+        prepared = prepare_clinical_upload(
+            'ecg_report.txt', 'text/plain', payload, explicit_kind='ecg'
+        )
+        self.assertEqual(prepared['privacy']['status'], 'STOP')
+        with self.assertRaises(ValueError):
+            accept_clinical_upload(
+                note, prepared,
+                clinician_edit={'official_report': 'ECG: ritmo sinusal.'},
+                privacy_checked=True,
+                burned_in_identifiers_checked=True,
+            )
+
+    def test_v139_api_binary_upload_is_fail_closed_until_manual_privacy_review(self):
+        note = new_clinical_note(age_years=42, sex='male')
+        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        prepared = prepare_clinical_upload(
+            'rx_torax.png', 'image/png', payload, explicit_kind='xray'
+        )
+        self.assertEqual(prepared['privacy']['status'], 'REVIEW_REQUIRED')
+        self.assertTrue(prepared['privacy']['manual_file_privacy_review_required'])
+        self.assertTrue(prepared['privacy']['burned_in_identifier_review_required'])
+        self.assertIsNone(prepared['extracted']['official_report'])
+        with self.assertRaises(ValueError):
+            accept_clinical_upload(
+                note, prepared,
+                clinician_edit={'ai_interpretation': 'Sem achados agudos evidentes.'},
+                privacy_checked=False,
+                burned_in_identifiers_checked=False,
+            )
+        accepted = accept_clinical_upload(
+            note, prepared,
+            clinician_edit={'ai_interpretation': 'Sem achados agudos evidentes.'},
+            privacy_checked=True,
+            burned_in_identifiers_checked=True,
+        )
+        self.assertEqual(len(accepted['note']['complementary_tests']['imaging']), 1)
+        self.assertEqual(
+            accepted['note']['complementary_tests']['imaging'][0]['provenance'],
+            'ai_image_interpretation',
+        )
+
+    def test_v139_api_end_to_end_accept_diagnose_review_export(self):
+        note = new_clinical_note(age_years=67, sex='male')
+        note['history']['chief_complaint'] = 'dor toracica opressiva'
+        note['history']['present_illness'] = 'dor toracica com sudorese e nauseas'
+        payload = base64.b64encode(
+            'ECG: supradesnivel de ST em precordiais anteriores.'.encode('utf-8')
+        ).decode('ascii')
+        prepared = prepare_clinical_upload(
+            'ecg_report.txt', 'text/plain', payload, explicit_kind='ecg'
+        )
+        accepted = accept_clinical_upload(
+            note, prepared,
+            clinician_edit={'official_report': prepared['extracted']['official_report']},
+            privacy_checked=True,
+            burned_in_identifiers_checked=True,
+        )
+        result = run_clinical_note_api_diagnostic(accepted['note'])
+        self.assertFalse(result['blocked'], result.get('issues'))
+        self.assertIsNotNone(result['assessment'])
+        self.assertIsNotNone(result['note'])
+        self.assertFalse(result['note']['clinician_validation']['reviewed'])
+        if result['assessment']['treatment_suggestions']:
+            self.assertEqual(
+                result['medication_safety_gate']['status'], 'REVIEW_REQUIRED'
+            )
+            self.assertFalse(result['medication_safety_gate']['actionable'])
+
+        reviewed = result['note']
+        reviewed['privacy']['direct_identifiers_removed'] = True
+        reviewed['privacy']['free_text_screened'] = True
+        reviewed['clinician_validation']['reviewed'] = True
+        for fmt, magic in (
+            ('docx', b'PK'), ('pdf', b'%PDF-1.4'), ('json', b'{')
+        ):
+            exported = export_clinical_note_bytes(reviewed, fmt)
+            self.assertTrue(exported.startswith(magic), fmt)
 
     def test_v139_clinical_note_diagnostic_contract_and_provenance(self):
         note=self._clean_note_for_export()
