@@ -1,6 +1,6 @@
 import { fireEvent, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import Calculator from '../pages/Calculator';
 import DrugDetail from '../pages/DrugDetail';
 import DrugList from '../pages/DrugList';
@@ -11,6 +11,7 @@ import ClinicalNote from '../pages/ClinicalNote';
 import { renderAt } from './render';
 
 beforeEach(() => {
+  vi.restoreAllMocks();
   try {
     localStorage.clear();
   } catch {
@@ -179,6 +180,88 @@ describe('Clinical note diagnostic workspace', () => {
     if (!checks[0] || !checks[1]) throw new Error('export checklist missing');
     await user.click(checks[0]); await user.click(checks[1]);
     expect(screen.getByRole('button', { name: 'PDF' })).toBeEnabled();
+  });
+
+  it('routes a real upload through the trusted API and persists it only after acceptance', async () => {
+    const user = userEvent.setup();
+    const prepared = {
+      api_version: '1.0',
+      upload_id: 'upload-1',
+      filename: 'tc_report.txt',
+      mime_type: 'text/plain',
+      size_bytes: 32,
+      sha256: 'abc123',
+      kind: 'ct',
+      route: { kind: 'ct', target_section: 'imaging', modules: ['ct-mri-screenshot'] },
+      privacy: {
+        status: 'PASS',
+        findings: [],
+        manual_file_privacy_review_required: false,
+        burned_in_identifier_review_required: true,
+      },
+      extracted: {
+        official_report: 'TC crânio: sem hemorragia aguda.',
+        ai_interpretation: null,
+      },
+      processing: {
+        status: 'text_extracted',
+        message: 'Text extracted for clinician review.',
+        modules: ['ct-mri-screenshot'],
+      },
+      original_retained: false,
+    };
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input, init) => {
+      const url = String(input);
+      if (url.endsWith('/api/clinical-note/upload/prepare')) {
+        return new Response(JSON.stringify(prepared), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      if (url.endsWith('/api/clinical-note/upload/accept')) {
+        const body = JSON.parse(String(init?.body || '{}'));
+        const note = body.note;
+        note.complementary_tests.imaging.push({
+          kind: 'ct',
+          time_label: null,
+          provenance: 'ai_document_extraction',
+          source_reference: 'sha256:abc123',
+          official_report: body.clinician_edit.official_report,
+          ai_interpretation: body.clinician_edit.ai_interpretation,
+          findings: null,
+          impression: null,
+          limitations: [],
+          privacy_checked: true,
+          burned_in_identifiers_checked: true,
+          routed_modules: ['ct-mri-screenshot'],
+        });
+        note.timeline.push({
+          time_label: 'MCDT',
+          event: 'Accepted ct result',
+          source: 'sha256:abc123',
+        });
+        return new Response(JSON.stringify({ note }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      return new Response(JSON.stringify({ error: 'unexpected endpoint' }), { status: 404 });
+    });
+
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'MCDT' }));
+    const upload = screen.getByLabelText('Upload clínico') as HTMLInputElement;
+    await user.upload(upload, new File(['TC crânio: sem hemorragia aguda.'], 'tc_report.txt', { type: 'text/plain' }));
+    const reviewCard = await screen.findByTestId('mcdt-review-card');
+    expect(reviewCard).toHaveTextContent('Privacidade: PASS');
+    expect(reviewCard).toHaveTextContent('ct-mri-screenshot');
+    expect(reviewCard).toHaveTextContent('Original não retido');
+    expect(reviewCard).toHaveTextContent('Pendente');
+    const checks = within(reviewCard).getAllByRole('checkbox');
+    if (checks[0]) await user.click(checks[0]);
+    await user.click(within(reviewCard).getByRole('button', { name: 'Aceitar' }));
+    await waitFor(() => expect(reviewCard).toHaveTextContent('Aceite'));
+    expect(globalThis.fetch).toHaveBeenCalledTimes(2);
   });
 
   it('privacy STOP catches labelled direct identifiers and blocks export', async () => {
