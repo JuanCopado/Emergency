@@ -264,6 +264,87 @@ describe('Clinical note diagnostic workspace', () => {
     expect(globalThis.fetch).toHaveBeenCalledTimes(2);
   });
 
+  it('requires privacy review before binary vision interpretation and keeps the result pending', async () => {
+    const user = userEvent.setup();
+    const prepared = {
+      api_version: '1.0',
+      upload_id: 'upload-image-1',
+      filename: 'rx_torax.png',
+      mime_type: 'image/png',
+      size_bytes: 12,
+      sha256: 'image-sha',
+      kind: 'xray',
+      route: { kind: 'xray', target_section: 'imaging', modules: ['clinical-image-interpretation','chest-xray','musculoskeletal-xray'] },
+      privacy: {
+        status: 'REVIEW_REQUIRED',
+        findings: [],
+        manual_file_privacy_review_required: true,
+        burned_in_identifier_review_required: true,
+      },
+      extracted: { official_report: null, ai_interpretation: null },
+      processing: {
+        status: 'routed_external',
+        message: 'Binary source routed.',
+        modules: ['clinical-image-interpretation','chest-xray','musculoskeletal-xray'],
+      },
+      original_retained: false,
+    };
+    const interpreted = {
+      ...prepared,
+      privacy: {
+        ...prepared.privacy,
+        status: 'PASS',
+        manual_file_privacy_review_required: false,
+        burned_in_identifier_review_required: false,
+      },
+      extracted: { official_report: null, ai_interpretation: 'Sem pneumotórax evidente.' },
+      processing: {
+        ...prepared.processing,
+        status: 'vision_interpreted',
+        message: 'Interpreted; review required.',
+        provider: 'test-provider',
+        model: 'mock-cxr-v1',
+        confidence: 'moderate',
+        impression: 'Sem achado torácico agudo evidente.',
+        limitations: ['Imagem única.'],
+      },
+    };
+
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url.endsWith('/api/clinical-note/upload/prepare')) {
+        return new Response(JSON.stringify(prepared), { status: 200, headers: { 'Content-Type': 'application/json' } });
+      }
+      if (url.endsWith('/api/clinical-note/upload/interpret')) {
+        return new Response(JSON.stringify({ prepared: interpreted, review_required: true, persisted: false }), {
+          status: 200, headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      return new Response(JSON.stringify({ error: 'unexpected endpoint' }), { status: 404 });
+    });
+
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'MCDT' }));
+    const upload = screen.getByLabelText('Upload clínico') as HTMLInputElement;
+    await user.upload(upload, new File(['fake-image'], 'rx_torax.png', { type: 'image/png' }));
+    const reviewCard = await screen.findByTestId('mcdt-review-card');
+    const interpretButton = within(reviewCard).getByRole('button', { name: 'Interpretar com módulo IA' });
+    expect(interpretButton).toBeDisabled();
+
+    const checks = within(reviewCard).getAllByRole('checkbox');
+    expect(checks).toHaveLength(2);
+    await user.click(checks[0]);
+    await user.click(checks[1]);
+    expect(interpretButton).toBeEnabled();
+    await user.click(interpretButton);
+
+    expect(await within(reviewCard).findByText('Interpretação IA proposta — requer revisão médica.')).toBeInTheDocument();
+    expect(reviewCard).toHaveTextContent('test-provider');
+    expect(reviewCard).toHaveTextContent('mock-cxr-v1');
+    expect(reviewCard).toHaveTextContent('Sem pneumotórax evidente.');
+    expect(reviewCard).toHaveTextContent('Pendente');
+  });
+
   it('shows objective diagnostic red flags returned by the trusted engine', async () => {
     const user = userEvent.setup();
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
