@@ -67,20 +67,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleu
 **QA:** YELLOW.
 
 ## PROC-THX-005 — Toracocentesis diagnóstica — ADVANCED/POCUS
-**Objetivo:** obtener líquido pleural para diagnóstico.  
-**Indicaciones:** derrame pleural en el que el análisis cambiará manejo.  
-**Contraindicaciones/precauciones:** ausencia de ventana segura, infección cutánea en trayecto, coagulopatía significativa según riesgo/beneficio.  
-**Material:** US, aguja/catéter, anestesia local, tubos de muestra y apósito.  
-**Anatomía:** pleura, diafragma, pulmón, hígado/bazo y paquete intercostal.  
-**Preparación:** TUS y marcar ventana segura con paciente en posición final.  
-**Técnica paso a paso:** 1) antisepsia/anestesia; 2) entrar por encima de borde costal; 3) aspirar líquido; 4) recoger muestras; 5) retirar y sellar.  
-**STOP:** dolor intenso, tos persistente, disnea, sangre/aire inesperado o resistencia.  
-**Confirmación:** muestra obtenida y estabilidad clínica.  
-**Complicaciones:** neumotórax, sangrado, lesión visceral, infección.  
-**Después:** reevaluar; imagen postprocedimiento solo si indicación clínica/protocolo.  
-**Documentación:** sitio, US, volumen diagnóstico, aspecto y complicaciones.  
-**Fuentes:** BTS Pleural Procedures 2023.  
-**QA:** YELLOW.
+**Objetivo:** obtener líquido pleural para diagnóstico mediante una técnica segura.
+**Indicaciones:** derrame pleural en el que el análisis del líquido puede cambiar el diagnóstico o el manejo.
+**Contraindicaciones/precauciones:** ausencia de ventana ecográfica segura, infección cutánea en el trayecto o riesgo hemorrágico inaceptable tras valorar riesgo-beneficio.
+**Material:** ecógrafo, aguja/catéter de pequeño calibre, anestesia local, tubos de muestra y apósito.
+**Anatomía:** pleura, pulmón, diafragma, hígado/bazo y paquete neurovascular intercostal.
+**Preparación:** BTS exige ecografía torácica para aspiración de derrame; localizar el bolsillo con el paciente en la misma posición del procedimiento y seleccionar un punto por encima del borde superior de la costilla.
+**Técnica paso a paso:** antisepsia/anestesia; punción por trayecto ecográficamente seguro y por encima de la costilla; aspirar el volumen diagnóstico necesario; distribuir muestras; retirar y sellar.
+**STOP:** dolor intenso, tos persistente, disnea, sangre/aire inesperado o pérdida de la ventana segura.
+**Confirmación:** muestra obtenida y estabilidad clínica; ecografía postprocedimiento si hay sospecha de complicación.
+**Complicaciones:** neumotórax, sangrado, lesión visceral e infección.
+**Después:** reevaluación clínica; radiografía no es obligatoria de rutina si el procedimiento fue no complicado y no existe sospecha clínica, según contexto/protocolo.
+**Documentación:** sitio, uso de US, volumen diagnóstico, aspecto y complicaciones.
+**Fuentes:** BTS Clinical Statement on Pleural Procedures, 2023.
+**QA:** YELLOW; revisión humana neumología/urgencias pendiente.
 
 ## PROC-THX-006 — Toracocentesis terapéutica — ADVANCED/POCUS
 **Objetivo:** aliviar síntomas por derrame pleural.  
