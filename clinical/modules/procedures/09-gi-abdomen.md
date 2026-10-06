@@ -25,3 +25,13 @@ Estado: **YELLOW**.
 
 ## PROC-GI-008 — Gastrostomía desplazada: manejo inicial — ADVANCED
 **Objetivo:** preservar trayecto maduro y evitar falsa vía. **Técnica:** determinar tiempo desde colocación/madurez; no reemplazar a ciegas si trayecto reciente; en trayecto maduro colocar dispositivo temporal apropiado si entrenado y confirmar posición antes de uso. **Visual:** trayecto maduro vs reciente.
+
+## PROC-GI-009 — Extracción de cuerpo extraño rectal — ADVANCED
+**Objetivo:** retirar de forma segura un cuerpo extraño rectal sin provocar perforación ni lesión esfinteriana.  
+**Indicaciones:** objeto rectal retenido, sin peritonitis ni inestabilidad que obliguen a cirugía inmediata.  
+**Preparación:** privacidad, analgesia/sedación cuando proceda, exploración cuidadosa e imagen previa si el objeto puede ser cortante, radiopaco o existe sospecha de perforación.  
+**Técnica:** si el objeto es palpable/visible y de bajo riesgo, extracción transanal bajo visión directa y relajación adecuada; usar anoscopio/proctoscopio cuando facilite visualización. Evitar intentos ciegos repetidos.  
+**STOP:** peritonitis, aire libre, objeto cortante no controlable, sangrado importante, objeto no palpable/visible o extracción fallida → cirugía/endoscopia especializada.  
+**Confirmación:** objeto completo retirado y ausencia de lesión evidente; reevaluación abdominal/rectal posterior.  
+**Complicaciones:** perforación, hemorragia, lesión mucosa/esfinteriana y retención de fragmentos.  
+**Fuente troncal:** Merck Manual Professional 2025; WSES-AAST anorectal emergencies guideline.
