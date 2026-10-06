@@ -264,6 +264,50 @@ describe('Clinical note diagnostic workspace', () => {
     expect(globalThis.fetch).toHaveBeenCalledTimes(2);
   });
 
+  it('shows objective diagnostic red flags returned by the trusted engine', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url.endsWith('/api/clinical-note/analyze')) {
+        return new Response(JSON.stringify({
+          blocked: false,
+          issues: [{ severity: 'ALERT', code: 'RECHECK_REQUIRED', message: 'Reavaliar após intervenção.' }],
+          signals: [{ code: 'hypotension', weight: 2, label: 'PAS <90 mmHg' }],
+          rule_hits: [],
+          assessment: {
+            problem_representation: 'Doente hipotenso.',
+            active_problems: ['Hipotensão'],
+            likely_diagnoses: [],
+            differential_diagnoses: [],
+            must_not_miss: [],
+            suggested_tests: [],
+            treatment_suggestions: [],
+            disposition: [],
+            reassessment: [],
+            contradictions_to_clarify: [],
+            limitations: [],
+          },
+          note: null,
+          medication_safety_gate: {
+            status: 'NOT_APPLICABLE',
+            actionable: true,
+            required_module: null,
+            message: 'No treatment suggestion requires medication safety review.',
+          },
+        }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+      }
+      return new Response(JSON.stringify({ error: 'unexpected endpoint' }), { status: 404 });
+    });
+
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'Apoio diagnóstico' }));
+    await user.click(screen.getByRole('button', { name: 'Atualizar apoio diagnóstico' }));
+    expect(await screen.findByText('Alertas / red flags')).toBeInTheDocument();
+    expect(screen.getByText(/RED_FLAG · hypotension/)).toBeInTheDocument();
+    expect(screen.getByText('PAS <90 mmHg')).toBeInTheDocument();
+    expect(screen.getByText('Reavaliar após intervenção.')).toBeInTheDocument();
+  });
+
   it('privacy STOP catches labelled direct identifiers and blocks export', async () => {
     const user = userEvent.setup();
     await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
