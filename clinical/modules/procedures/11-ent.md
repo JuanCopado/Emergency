@@ -67,20 +67,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-005 — Cuerpo extraño nasal — CORE
-**Objetivo:** retirar un cuerpo extraño nasal sin desplazarlo a posterior.
-**Indicaciones:** objeto nasal visible o accesible.
-**Contraindicaciones/precauciones:** batería botón o imanes requieren extracción urgente; objeto posterior/no visible o niño no cooperador → ORL.
-**Material:** buena iluminación, aspiración y gancho/pinza apropiada.
-**Anatomía:** cavidad nasal y coanas.
-**Preparación:** identificar tipo, tamaño y posición antes de manipular.
-**Técnica paso a paso:** considerar presión positiva en niño apropiado; si no, extraer bajo visión con herramienta acorde a la forma del objeto.
-**STOP:** pérdida de visualización o migración posterior.
-**Confirmación:** objeto íntegro retirado.
-**Complicaciones:** epistaxis, trauma mucoso y aspiración.
-**Después:** reexplorar ambas fosas.
-**Documentación:** objeto, técnica y complicaciones.
-**Fuentes:** pediatric/ORL emergency guidance.
-**QA:** YELLOW.
+**Objetivo:** retirar un cuerpo extraño nasal sin empujarlo hacia la nasofaringe ni lesionar la mucosa.
+**Indicaciones:** objeto nasal visible y accesible.
+**Contraindicaciones/precauciones:** batería botón o imanes requieren extracción inmediata/urgente por riesgo de necrosis; objeto posterior/no visible, enclavado, con penetración o niño no cooperador → ORL.
+**Material:** buena iluminación, espéculo si precisa, aspiración, gancho/pinza apropiada y material de protección.
+**Anatomía:** vestíbulo, meato inferior y cavidad nasal anterior; la mayoría se localizan anterior al cornete medio.
+**Preparación:** identificar tipo, tamaño y posición; evitar múltiples intentos que desplacen el objeto a posterior.
+**Técnica paso a paso:** en niño apropiado considerar presión positiva del cuidador (“parent's kiss”) para objetos no oclusivos/profundos; si no, retirar bajo visión con instrumento seleccionado según forma, idealmente pasando por detrás del objeto cuando se usa gancho.
+**STOP:** pérdida de visualización, migración posterior, sangrado importante o batería adherida/necrosis extensa.
+**Confirmación:** objeto íntegro retirado y reexploración de ambas fosas.
+**Complicaciones:** epistaxis, trauma mucoso, aspiración y fragmento retenido.
+**Después:** ORL si extracción incompleta, lesión significativa o batería/imán.
+**Documentación:** objeto, lado, técnica, intentos y complicaciones.
+**Fuentes:** Merck Manual Professional, Nasal Foreign Bodies / How To Remove a Foreign Body From the Nose, updated Jun 2025.
+**QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-006 — Cuerpo extraño de oído — CORE
 **Objetivo:** retirar un objeto del conducto auditivo sin lesionar canal ni tímpano.
