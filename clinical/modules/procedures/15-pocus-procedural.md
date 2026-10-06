@@ -99,7 +99,20 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-007 — Pericardiocentesis ecoguiada — SPECIALIST
-**Técnica:** comparar ventanas, elegir menor distancia sin interposición, visualizar aguja cuando posible, agitated saline/contraste solo según práctica experta, colocar drenaje sobre guía. **Visual:** subxifoidea/apical/parasterna.
+**Objetivo:** seleccionar y mantener un trayecto seguro hacia el espacio pericárdico.
+**Indicaciones:** taponamiento/derrame con indicación de drenaje.
+**Contraindicaciones/precauciones:** causas quirúrgicas pueden requerir cirugía primaria; operador experto.
+**Material:** ecógrafo, aguja/catéter, kit Seldinger y monitor.
+**Anatomía:** pericardio, cavidades cardiacas, hígado y pulmón.
+**Preparación:** comparar ventanas y elegir trayecto más corto sin interposición.
+**Técnica paso a paso:** visualizar aguja cuando sea posible, confirmar espacio, introducir guía/catéter según técnica y drenar con monitorización.
+**STOP:** trayectoria no visible, arritmia nueva o sangre inesperada.
+**Confirmación:** catéter en espacio pericárdico y mejoría fisiológica.
+**Complicaciones:** punción miocárdica/coronaria, arritmia, hemopericardio y neumotórax.
+**Después:** monitorización y etiología.
+**Documentación:** ventana, trayecto y respuesta.
+**Fuentes:** ESC/pericardial and procedural POCUS guidance.
+**QA:** YELLOW.
 
 ## PROC-US-008 — Bloqueos nerviosos — ADVANCED
 **Técnica:** identificar nervio/fascias/vasos/pleura; in-plane preferente cuando mejora visibilidad; aspiración fraccionada; visualizar expansión del anestésico, nunca inyección intraneural. **Visual:** aguja-punta-nervio.
