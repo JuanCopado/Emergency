@@ -35,7 +35,20 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-003 — Distocia de hombros — CORE
-**Objetivo:** liberar hombro impactado. **Técnica:** declarar emergencia, pedir ayuda, evitar presión fúndica; McRoberts + presión suprapúbica; avanzar a maniobras internas/posición a cuatro apoyos según entrenamiento. **STOP:** no tracción excesiva de cabeza. **Visual:** secuencia escalonada.
+**Objetivo:** liberar un hombro fetal impactado minimizando lesión materno-fetal.
+**Indicaciones:** cabeza nacida con fracaso de expulsión de hombros y signos clínicos compatibles.
+**Contraindicaciones/precauciones:** no realizar presión fúndica ni tracción excesiva de la cabeza.
+**Material:** equipo obstétrico/neonatal y material de reanimación.
+**Anatomía:** sínfisis púbica, sacro y hombros fetales.
+**Preparación:** declarar emergencia, pedir ayuda, registrar tiempo y asignar roles.
+**Técnica paso a paso:** iniciar McRoberts y presión suprapúbica; si falla, progresar a maniobras internas o posición a cuatro apoyos según entrenamiento.
+**STOP:** evitar tracción excesiva de cabeza/cuello y presión fúndica.
+**Confirmación:** liberación de hombros y nacimiento.
+**Complicaciones:** lesión del plexo braquial, fracturas y trauma/hemorragia materna.
+**Después:** evaluación neonatal y materna detallada.
+**Documentación:** secuencia de maniobras, tiempos y resultado.
+**Fuentes:** RCOG/ACOG shoulder dystocia guidance.
+**QA:** YELLOW.
 
 ## PROC-OBS-004 — Prolapso de cordón — CORE
 **Objetivo:** aliviar compresión hasta parto urgente. **Técnica:** pedir ayuda/cesárea emergente, elevar manualmente presentación fetal, posición materna que reduzca presión, minimizar manipulación del cordón y mantenerlo húmedo si exteriorizado. **Visual:** mano elevando presentación.
