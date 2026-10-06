@@ -3,7 +3,20 @@
 Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.
 
 ## PROC-OBS-001 — Parto vaginal inminente no complicado — CORE
-**Objetivo:** asistencia segura cuando no hay tiempo para traslado. **Técnica:** privacidad, PPE, posición, controlar salida de cabeza sin tracción, comprobar cordón nucal, restitución/rotación espontánea, hombro anterior con guía suave y posterior, recibir recién nacido, secar/calentar y valorar. **STOP:** no traccionar cabeza. **Visual:** coronación-hombros.
+**Objetivo:** asistir un parto vaginal inminente de forma segura cuando no hay tiempo para traslado.
+**Indicaciones:** coronación/parto inminente sin complicación obstétrica mayor identificada.
+**Contraindicaciones/precauciones:** presentación anómala, hemorragia importante, distocia o compromiso fetal/materno requieren obstetricia urgente.
+**Material:** PPE, paños, pinzas/corte de cordón, material neonatal y control de hemorragia.
+**Anatomía:** canal del parto, cabeza fetal, hombros y periné.
+**Preparación:** activar ayuda obstétrica/neonatal, privacidad, posición materna y preparación de reanimación neonatal.
+**Técnica paso a paso:** controlar la salida de la cabeza sin tracción; comprobar cordón nucal; permitir restitución/rotación espontánea; guiar hombro anterior y posterior con maniobras suaves; recibir, secar y mantener caliente al recién nacido.
+**STOP:** no traccionar de la cabeza; si hombros no progresan, declarar distocia.
+**Confirmación:** nacimiento completo, tono/respiración neonatal y estabilidad materna inicial.
+**Complicaciones:** hemorragia, desgarros, distocia de hombros y depresión neonatal.
+**Después:** vigilancia materno-neonatal, manejo de tercera etapa y PPH según protocolo.
+**Documentación:** hora de nacimiento, presentación, Apgar si disponible y complicaciones.
+**Fuentes:** obstetric emergency guidance; WHO/major-society delivery principles.
+**QA:** YELLOW.
 
 ## PROC-OBS-002 — Cordón: pinzamiento/cuidado inicial — CORE
 **Técnica:** retrasar pinzamiento cuando madre/neonato estables según guía; pinzar/cortar antes si reanimación/logística lo exige; documentar. **Visual:** dos pinzas.
