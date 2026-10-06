@@ -228,3 +228,12 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - Merck/MSD and WSES-AAST anorectal emergency references — `PROC-GI-005/006/007/009`.
 - Enteral access procedural guidance — `PROC-GI-008`.
 - Engelborghs et al. 2017 LP consensus and AHS 2025/2026 migraine guideline remain supporting sources for `PROC-NEURO-002/004`.
+
+
+## Duodécima pasada — oftalmología, pediatría y obstetricia — 06/10/2026
+- AAO EyeWiki, Chemical Injury of the Conjunctiva and Cornea; Removal of Corneal Foreign Bodies; Seidel Test; Ocular Penetrating and Perforating Injuries; Pre-Ophthalmologist Management of Eye Trauma — `PROC-EYE-001..007`.
+- RCUK/ERC Pediatric Life Support 2025 + AHA/AAP Pediatric/Neonatal Resuscitation 2025 — `PROC-PED-001/002/003/004/007/009`.
+- AHA/AAP Neonatal Resuscitation 2025 — `PROC-OBS-001/002`; pinzamiento diferido al menos 60 s en RN que no requieren reanimación inmediata.
+- RCOG Green-top No. 42 Shoulder Dystocia, reviewed 2026 — `PROC-OBS-003`.
+- RCOG Green-top No. 50 Umbilical Cord Prolapse, reviewed/extended 2024 — `PROC-OBS-004`.
+- WHO Consolidated PPH Guidelines 2025 + implementation guide 2026 — `PROC-OBS-005`.
