@@ -51,20 +51,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW.
 
 ## PROC-WND-004 — Bloqueo femoral ecoguiado — ADVANCED/POCUS
-**Objetivo:** analgesia regional de cadera/fémur/anterior muslo seleccionada.  
-**Indicaciones:** fractura femoral/cadera u otros procedimientos apropiados.  
-**Contraindicaciones/precauciones:** infección local, alergia, déficit neurológico preexistente significativo, anticoagulación según profundidad/riesgo.  
-**Material:** US lineal, aguja ecogénica, anestésico y monitorización.  
-**Anatomía:** nervio femoral lateral a arteria bajo fascia iliaca.  
-**Preparación:** monitor, dosis total segura y plan para LAST.  
-**Técnica paso a paso:** 1) identificar arteria/nervio; 2) aguja in-plane; 3) visualizar punta; 4) aspirar; 5) inyectar fraccionado alrededor del nervio sin intraneural.  
-**STOP:** dolor parestésico, alta presión o toxicidad.  
-**Confirmación:** expansión perineural y analgesia.  
-**Complicaciones:** LAST, lesión nerviosa, hematoma, infección.  
-**Después:** monitorizar bloqueo motor/riesgo de caída.  
-**Documentación:** lado, US, anestésico/dosis.  
-**Fuentes:** regional anesthesia/POCUS standards.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar analgesia regional para fractura de cadera/fémur u otros procedimientos apropiados.
+**Indicaciones:** dolor por fractura proximal de fémur/cadera o procedimientos seleccionados donde un bloqueo femoral sea adecuado.
+**Contraindicaciones/precauciones:** infección local, alergia, déficit neurológico relevante no documentado, imposibilidad de monitorización o riesgo hemorrágico significativo. En pacientes con antitrombóticos, aplicar ASRA 2025 según si el bloqueo se considera profundo/no compresible.
+**Material:** ecógrafo lineal, aguja ecogénica, anestésico local desde módulo farmacológico, monitor y equipo para LAST.
+**Anatomía:** nervio femoral lateral a arteria femoral, bajo fascia iliaca.
+**Preparación:** consentimiento, examen neurovascular basal, monitorización, cálculo de dosis total y disponibilidad inmediata de protocolo/lípidos para LAST.
+**Técnica paso a paso:** identificar arteria y nervio; avanzar aguja in-plane con punta visible; aspirar; inyectar fraccionado alrededor del nervio evitando inyección intraneural o intravascular.
+**STOP:** dolor eléctrico intenso, alta presión de inyección, punta no visible, aspiración positiva o signos de LAST.
+**Confirmación:** difusión perineural adecuada y analgesia esperada con preservación hemodinámica.
+**Complicaciones:** LAST, lesión nerviosa, hematoma, infección y bloqueo motor con riesgo de caída.
+**Después:** monitorizar al menos durante el periodo definido por protocolo institucional; RCoA 2025 recomienda vigilancia estrecha tras bloqueos periféricos/fasciales en urgencias y acceso inmediato a tratamiento de toxicidad por anestésicos locales.
+**Documentación:** lado, técnica US, anestésico/dosis, hallazgos basales y respuesta.
+**Fuentes:** ASRA Pain Medicine Antithrombotic Guidelines 5th ed., 2025; RCoA GPAS 2025; RCEM hip-fracture regional block guidance 2025.
+**QA:** YELLOW; revisión humana anestesia/urgencias pendiente.
 
 ## PROC-WND-005 — Bloqueo fascia iliaca — ADVANCED/POCUS
 **Objetivo:** analgesia regional para cadera/fémur proximal.  
