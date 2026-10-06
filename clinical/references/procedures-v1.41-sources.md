@@ -188,3 +188,10 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - Merck Manual Professional 2025–2026: nasal/ear foreign body, auricular hematoma, nursemaid elbow, finger dislocations and related reduction references — `PROC-ENT-005/006/007/009`, `PROC-ORTHO-004/005/006/007`.
 - Merck Manual Professional 2026, tissue adhesive repair — `PROC-WND-013`.
 - Merck Manual Professional 2025, incision and drainage of abscess; IDSA SSTI guideline — `PROC-WND-015`.
+
+
+## Séptima pasada — cierre de heridas y ORL menor — 06/10/2026
+- Merck Manual Professional, Simple Interrupted Sutures, Vertical/Horizontal Mattress Sutures, Subcuticular Running Suture, Stapling and Skin Lacerations, updated Jan 2026 — `PROC-WND-009/010/011/012/014`.
+- Merck Manual Professional, Ring Removal Using the String Method, updated Jul 2025 — `PROC-WND-017`.
+- Merck Manual Professional wound exploration/foreign-body guidance, updated 2025–2026 — `PROC-WND-016`.
+- AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020 — `PROC-ENT-001/002/003/004`.
