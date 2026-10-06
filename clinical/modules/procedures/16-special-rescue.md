@@ -35,7 +35,20 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **QA:** YELLOW.
 
 ## PROC-SP-003 — Amputación: conservación de segmento — CORE
-**Técnica:** controlar hemorragia del paciente; envolver segmento en gasa estéril húmeda, bolsa sellada, colocar bolsa sobre mezcla hielo-agua sin contacto directo; etiquetar/hora y trasladar. **Visual:** bolsa doble.
+**Objetivo:** preservar la viabilidad de un segmento amputado para posible reimplante.
+**Indicaciones:** amputación traumática con segmento recuperable.
+**Contraindicaciones/precauciones:** prioridad absoluta al control hemorrágico y estabilización del paciente.
+**Material:** gasa estéril húmeda, bolsa sellada, recipiente con mezcla fría y etiquetas.
+**Anatomía:** segmento amputado y muñón.
+**Preparación:** controlar hemorragia del paciente.
+**Técnica paso a paso:** envolver el segmento en gasa estéril humedecida, sellar en bolsa y colocar la bolsa sobre mezcla hielo-agua sin contacto directo.
+**STOP:** no congelar ni sumergir directamente en agua/hielo.
+**Confirmación:** segmento identificado, protegido y refrigerado indirectamente.
+**Complicaciones:** lesión térmica del tejido o contaminación.
+**Después:** traslado rápido a centro con capacidad de reimplante.
+**Documentación:** hora de amputación/recuperación y método de conservación.
+**Fuentes:** trauma/hand surgery guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-004 — Empalamiento — CORE
 **Técnica:** no retirar objeto salvo interferencia con RCP/vía aérea o contexto excepcional; estabilizar con apósitos, controlar sangrado alrededor, acortar solo con equipo adecuado si traslado imposible. **Visual:** estabilización.
