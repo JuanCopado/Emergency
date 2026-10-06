@@ -1,0 +1,205 @@
+{
+  "procedure_id": "PROC-AIR-015",
+  "name": "Cricotiroidotomía quirúrgica",
+  "family": "Vía aérea y ventilación",
+  "level": "SPECIALIST",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU",
+    "OR"
+  ],
+  "status": "YELLOW",
+  "objective": "Proporcionar una vía aérea de rescate en un escenario no se puede intubar/no se puede oxigenar (CICO).",
+  "indications": [
+    "CICO tras fracaso de estrategias apropiadas de intubación y oxigenación."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Es una emergencia vital; adaptar técnica a edad, anatomía y protocolo.",
+      "No retrasar el acceso frontal del cuello con intentos repetidos ineficaces."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Bisturí.",
+      "Bougie o dilatador.",
+      "Tubo apropiado.",
+      "Succión.",
+      "Capnografía."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂.",
+      "ECG.",
+      "Presión arterial.",
+      "Capnografía tras ventilación."
+    ],
+    "rescue": [
+      "Material alternativo de FONA según protocolo."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Cartílago tiroides.",
+      "Cartílago cricoides.",
+      "Membrana cricotiroidea."
+    ],
+    "target": [
+      "Luz traqueal a través de membrana cricotiroidea."
+    ],
+    "avoid": [
+      "Trayecto posterior.",
+      "Lesión vascular o cartilaginosa innecesaria."
+    ],
+    "laterality": null,
+    "variants": [
+      "Bisturí-bougie-tubo u otra técnica protocolizada."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Cuello accesible y estabilización laríngea; no demorar por posicionamiento perfecto.",
+    "operator_position": "Frente al cuello con acceso directo a membrana.",
+    "monitoring": [
+      "SpO₂.",
+      "ECG.",
+      "Presión arterial."
+    ],
+    "asepsis": [
+      "Antisepsia rápida si el tiempo lo permite."
+    ],
+    "analgesia_sedation": [
+      "Según estado; en CICO la prioridad es oxigenación inmediata."
+    ],
+    "prechecks": [
+      "Declarar CICO.",
+      "Pedir ayuda.",
+      "Localizar membrana cricotiroidea.",
+      "Continuar oxigenación si es posible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Estabilizar la laringe e identificar la membrana cricotiroidea.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Realizar incisión cutánea si es necesaria para exponer la membrana.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Abrir la membrana cricotiroidea.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Dilatar el acceso de forma controlada.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Introducir bougie/guía y tubo según técnica.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 6,
+      "action": "Inflar cuff si aplica y ventilar.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Capnografía de onda sostenida.",
+    "Expansión torácica.",
+    "Mejoría de oxigenación."
+  ],
+  "stop_points": [
+    "No retrasar FONA por nuevos intentos de intubación cuando CICO ya está declarado.",
+    "Evitar avanzar en trayecto posterior o falsa vía."
+  ],
+  "complications": {
+    "immediate": [
+      "Hemorragia.",
+      "Falsa vía.",
+      "Lesión laríngea o traqueal.",
+      "Enfisema subcutáneo."
+    ],
+    "early": [
+      "Malposición del tubo."
+    ],
+    "late": []
+  },
+  "rescue": [
+    "Si no ventila, reevaluar posición y permeabilidad del dispositivo.",
+    "Cambiar a técnica FONA alternativa según protocolo si el acceso inicial falla.",
+    "Mantener soporte vital durante la corrección."
+  ],
+  "aftercare": [
+    "Fijar el dispositivo.",
+    "Ventilar y monitorizar.",
+    "Derivar para manejo definitivo de vía aérea y valoración quirúrgica."
+  ],
+  "documentation": [
+    "Indicación CICO.",
+    "Técnica utilizada.",
+    "Dispositivo.",
+    "Número de intentos.",
+    "Confirmación por ETCO₂.",
+    "Complicaciones."
+  ],
+  "pearls": [
+    "La demora tras declarar CICO aumenta el riesgo de lesión hipóxica."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "No extrapolar automáticamente técnica adulta; seguir algoritmo pediátrico específico."
+    ],
+    "pregnancy": [],
+    "obesity": [
+      "La identificación anatómica puede ser difícil; considerar palpación y estrategia prevista."
+    ],
+    "trauma": [],
+    "anticoagulation": [
+      "Esperar mayor riesgo hemorrágico, pero no retrasar una intervención salvadora en CICO."
+    ],
+    "difficult_anatomy": [
+      "Tener estrategia alternativa preparada."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [
+    "sedoanalgesia"
+  ],
+  "sources": [
+    {
+      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
+      "organization": "Difficult Airway Society",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
