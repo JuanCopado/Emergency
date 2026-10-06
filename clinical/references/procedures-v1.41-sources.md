@@ -32,3 +32,28 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 3. Dosis farmacológicas se referencian desde los módulos farmacológicos canónicos; no se duplican aquí.
 4. Una ilustración nunca es fuente clínica.
 5. Si dos guías difieren, se conserva la diferencia explícita y se decide con Clinical QA.
+
+
+## Vía aérea difícil e intubación
+- Difficult Airway Society (DAS), **2025 guidelines for management of unanticipated difficult tracheal intubation in adults**.
+- DAS, **Awake Tracheal Intubation in Adults** (2019; sitio oficial vigente).
+- DAS, **Tracheal Intubation in Critically Ill Adults** (2017; sitio oficial vigente).
+- Uso: PROC-AIR-008..017 y arquitectura de rescate CICO.
+- Nota: la revisión 2025 debe prevalecer para el algoritmo de intubación difícil no anticipada; ATI conserva su guía específica mientras no exista sustitución oficial.
+
+## Sedación procedimental
+- American College of Emergency Physicians (ACEP), Clinical Policy: Procedural Sedation and Analgesia in the Emergency Department.
+- ACEP, Unscheduled Procedural Sedation consensus resources.
+- Uso transversal en reducciones, cardioversión, drenajes y procedimientos dolorosos; dosis y fármacos se mantienen en los módulos farmacológicos canónicos.
+
+## URLs oficiales de referencia inicial
+- ERC 2025: https://www.erc.edu/science-research/guidelines/guidelines-2025/
+- AHA 2025 CPR/ECC: https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/
+- BTS Pleural Procedures: https://thorax.bmj.com/content/78/Suppl_3/s43
+- CDC intravascular catheter recommendations: https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html
+- WHO–ICRC Basic Emergency Care: https://www.who.int/publications/i/item/9789241513081
+- DAS guidelines: https://das.uk.com/guidelines/
+- ACOG Shoulder Dystocia: https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2017/05/shoulder-dystocia
+- ACOG Postpartum Hemorrhage: https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2017/10/postpartum-hemorrhage
+- RCOG Shoulder Dystocia: https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/shoulder-dystocia-green-top-guideline-no-42/
+- ACEP procedural sedation: https://www.acep.org/by-medical-focus/procedural-sedation
