@@ -3,36 +3,36 @@
 Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.
 
 ## PROC-PED-001 — Apertura/posicionamiento de vía aérea — CORE/PED
-**Objetivo:** optimizar permeabilidad de la vía aérea pediátrica.
+**Objetivo:** optimizar la permeabilidad de la vía aérea pediátrica.
 **Indicaciones:** obstrucción por lengua, ventilación ineficaz o preparación para BVM/intubación.
-**Contraindicaciones/precauciones:** evitar hiperextensión, especialmente en lactantes por occipucio prominente; mantener alineación si trauma.
+**Contraindicaciones/precauciones:** evitar hiperextensión, especialmente en lactantes; si trauma, minimizar movimiento cervical sin comprometer la vía aérea.
 **Material:** rollo escapular si precisa, aspiración y dispositivos pediátricos.
-**Anatomía:** occipucio, mandíbula, lengua y vía aérea superior pediátrica.
-**Preparación:** posición neutra o ligera extensión según edad/tamaño.
-**Técnica paso a paso:** frente-mentón si no trauma; jaw thrust si trauma; usar rollo escapular cuando mejore alineación; reevaluar paso de aire.
-**STOP:** empeoramiento de ventilación o sospecha de lesión cervical.
+**Anatomía:** occipucio prominente, lengua relativamente grande y vía aérea superior pediátrica.
+**Preparación:** colocar cabeza en posición neutra o ligera extensión según edad/tamaño.
+**Técnica paso a paso:** frente-mentón si no trauma; jaw thrust si trauma; ajustar posición hasta obtener mejor paso de aire y ventilación.
+**STOP:** empeoramiento de ventilación o deterioro neurológico.
 **Confirmación:** mejor paso de aire y expansión torácica.
-**Complicaciones:** obstrucción por mala posición y movimiento cervical no deseado.
+**Complicaciones:** obstrucción por mala posición y movimiento cervical.
 **Después:** escalar a adjunct/BVM si persiste obstrucción.
 **Documentación:** posición y respuesta.
-**Fuentes:** ERC/RCUK Pediatric Life Support 2025.
-**QA:** YELLOW.
+**Fuentes:** RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.
+**QA:** YELLOW; revisión humana pediatría pendiente.
 
 ## PROC-PED-002 — BVM pediátrica — CORE/PED
-**Objetivo:** proporcionar ventilación efectiva con mínimo riesgo de barotrauma/insuflación gástrica.
-**Indicaciones:** apnea, ventilación insuficiente o soporte peri-intubación.
-**Contraindicaciones/precauciones:** evitar mascarilla sobredimensionada e hiperventilación.
-**Material:** bolsa pediátrica, mascarilla adecuada, oxígeno, reservorio, PEEP si indicada y adjuncts.
+**Objetivo:** proporcionar ventilación efectiva minimizando volutrauma e insuflación gástrica.
+**Indicaciones:** apnea, ventilación inadecuada o soporte peri-intubación.
+**Contraindicaciones/precauciones:** evitar volúmenes excesivos y mascarilla mal ajustada.
+**Material:** bolsa pediátrica, mascarilla adecuada, oxígeno, reservorio, PEEP si está indicada y adjuncts.
 **Anatomía:** sello facial, mandíbula y vía aérea superior.
-**Preparación:** posición óptima y selección correcta de mascarilla.
-**Técnica paso a paso:** sellar mascarilla, elevar mandíbula y ventilar con volumen suficiente para elevación visible del tórax; pasar a dos operadores si es difícil.
+**Preparación:** posición óptima y elección correcta de mascarilla.
+**Técnica paso a paso:** crear sello, elevar mandíbula y ventilar solo hasta elevación visible del tórax; usar dos operadores si el sello o la ventilación son ineficaces.
 **STOP:** ausencia de elevación torácica, fuga importante o deterioro de oxigenación.
-**Confirmación:** expansión torácica y ETCO2/SpO2 cuando disponibles.
+**Confirmación:** expansión torácica, mejoría de SpO₂/FC y ETCO₂ si está disponible.
 **Complicaciones:** insuflación gástrica, aspiración, barotrauma e hipoventilación.
-**Después:** escalar a supraglótico/intubación si ventilación ineficaz.
-**Documentación:** técnica, tamaño de mascarilla y respuesta.
-**Fuentes:** ERC/RCUK Pediatric Life Support 2025.
-**QA:** YELLOW.
+**Después:** escalar a supraglótico/intubación si BVM sigue siendo ineficaz.
+**Documentación:** tamaño de mascarilla, técnica y respuesta.
+**Fuentes:** RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.
+**QA:** YELLOW; revisión humana pediatría pendiente.
 
 ## PROC-PED-003 — Intubación pediátrica — ADVANCED/PED
 **Objetivo:** establecer vía aérea traqueal definitiva.
