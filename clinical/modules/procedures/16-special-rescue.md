@@ -18,8 +18,21 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **Fuentes:** orthopedic trauma/compartment syndrome guidance.
 **QA:** YELLOW.
 
-## PROC-SP-002 — Medición/descompresión temporal de compartimento — ADVANCED
-**Técnica:** identificar compartimento, calibrar dispositivo, aguja perpendicular evitando estructuras, registrar presión y presión de perfusión según protocolo; repetir si clínica evoluciona. **STOP:** presión normal aislada no excluye síndrome temprano. **Visual:** pierna.
+## PROC-SP-002 — Medición de presión compartimental — ADVANCED
+**Objetivo:** apoyar el diagnóstico cuando la clínica es incierta.
+**Indicaciones:** sospecha de síndrome compartimental con examen no concluyente.
+**Contraindicaciones/precauciones:** no retrasar fasciotomía si clínica es clara; una presión normal aislada no excluye evolución temprana.
+**Material:** dispositivo calibrado y aguja/sistema correspondiente.
+**Anatomía:** compartimento específico y estructuras de riesgo.
+**Preparación:** identificar compartimento y calibrar equipo.
+**Técnica paso a paso:** introducir el sistema en el compartimento objetivo evitando vasos/nervios, registrar presión y correlacionar con presión arterial/perfusión según protocolo.
+**STOP:** valor discordante con clínica o deterioro progresivo.
+**Confirmación:** lectura reproducible e interpretable en contexto.
+**Complicaciones:** hematoma, infección y falsa seguridad diagnóstica.
+**Después:** repetir si evoluciona y escalar a cirugía.
+**Documentación:** compartimento, presión y contexto hemodinámico.
+**Fuentes:** orthopedic compartment syndrome guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-003 — Amputación: conservación de segmento — CORE
 **Técnica:** controlar hemorragia del paciente; envolver segmento en gasa estéril húmeda, bolsa sellada, colocar bolsa sobre mezcla hielo-agua sin contacto directo; etiquetar/hora y trasladar. **Visual:** bolsa doble.
