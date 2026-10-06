@@ -83,7 +83,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW.
 
 ## PROC-PED-006 — Punción lumbar pediátrica — ADVANCED/PED
-**Técnica:** posición lateral o sentado, estabilización por asistente sin comprometer respiración, identificar interespacio lumbar bajo, técnica estéril, aguja con estilete, tubos secuenciales. **STOP:** inestabilidad, riesgo de herniación o contraindicación hemorrágica. **Visual:** posición segura.
+**Objetivo:** obtener LCR de forma segura.
+**Indicaciones:** diagnóstico de infección/inflamación SNC u otras indicaciones pediátricas seleccionadas.
+**Contraindicaciones/precauciones:** inestabilidad, riesgo de herniación, infección local o contraindicación hemorrágica.
+**Material:** kit LP pediátrico, aguja con estilete, tubos, anestesia y campo estéril.
+**Anatomía:** interespacios lumbares bajos.
+**Preparación:** posición lateral o sentada con asistente, sin comprometer respiración.
+**Técnica paso a paso:** identificar interespacio, anestesiar, introducir aguja con estilete, obtener LCR y recoger tubos secuenciales.
+**STOP:** deterioro respiratorio/neurológico, dolor radicular persistente o sangrado importante.
+**Confirmación:** flujo de LCR y muestras adecuadas.
+**Complicaciones:** cefalea, sangrado, infección y lesión neural.
+**Después:** vigilancia y análisis de muestras.
+**Documentación:** nivel, posición, aspecto y complicaciones.
+**Fuentes:** pediatric LP guidance; protocolos pediátricos.
+**QA:** YELLOW.
 
 ## PROC-PED-007 — Sondaje vesical pediátrico — CORE/PED
 **Técnica:** tamaño adecuado, técnica estéril, lubricación, avance sin fuerza, inflar balón solo en catéter diseñado y con orina confirmada. **Visual:** niño/niña.
