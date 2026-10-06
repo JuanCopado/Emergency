@@ -4,6 +4,11 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api/clinical-note': 'http://127.0.0.1:8765',
+    },
+  },
   plugins: [
     react(),
     {
