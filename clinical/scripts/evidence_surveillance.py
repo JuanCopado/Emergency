@@ -9,6 +9,7 @@ import argparse, hashlib, json, pathlib, sys, urllib.request
 from datetime import datetime, timezone
 from evidence_content_extractor import clinical_fingerprint
 from evidence_change_classifier import classify
+from evidence_source_gate import assess_source
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_SOURCES=ROOT/"references"/"evidence-surveillance-sources.json"
@@ -27,7 +28,12 @@ def run(source_path:pathlib.Path, previous:dict|None=None)->dict:
     prev=(previous or {}).get("sources",{})
     out={"schema_version":2,"generated_at":datetime.now(timezone.utc).isoformat(),"production_changes_applied":False,"sources":{},"review_queue":[]}
     for s in cfg["sources"]:
-        item={"organization":s["organization"],"url":s["url"],"cadence":s["cadence"],"status":"error"}
+        gate=assess_source(s)
+        item={"organization":s["organization"],"url":s["url"],"cadence":s["cadence"],"status":"error","source_gate":gate}
+        if not gate["trusted_for_surveillance"]:
+            item["error"]="source rejected by trust gate"
+            out["sources"][s["id"]]=item
+            continue
         try:
             body=fetch(s["url"])
             if len(body)>5_000_000: raise RuntimeError("response exceeds 5 MB safety cap")
@@ -37,7 +43,10 @@ def run(source_path:pathlib.Path, previous:dict|None=None)->dict:
             item.update(status="ok",clinical_sha256=h,clinical_lines=fp["clinical_lines"],changed=changed,first_observation=(old is None))
             if changed:
                 triage=classify(body.decode("utf-8","replace"),s.get("domains",[]))
-                out["review_queue"].append({"source_id":s["id"],**triage})
+                proposal={"source_id":s["id"],**triage,"eligible_for_clinical_change_proposal":gate["eligible_for_clinical_change_proposal"]}
+                if not gate["eligible_for_clinical_change_proposal"]:
+                    proposal["classification"]="source-review-signal"
+                out["review_queue"].append(proposal)
         except Exception as e:
             item["error"]=f"{type(e).__name__}: {e}"
         out["sources"][s["id"]]=item
