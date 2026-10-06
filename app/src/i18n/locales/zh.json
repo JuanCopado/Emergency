@@ -1,8 +1,27 @@
 {
-  "brand": { "tagline": "急诊与ICU输注" },
-  "nav": { "home": "首页", "drugs": "药物", "calculator": "计算器", "settings": "设置", "about": "关于" },
-  "a11y": { "skip": "跳到主要内容", "mainNav": "主导航", "breadcrumb": "面包屑导航" },
-  "theme": { "system": "跟随系统", "light": "浅色", "dark": "深色", "switchToDark": "切换到深色主题", "switchToLight": "切换到浅色主题" },
+  "brand": {
+    "tagline": "急诊与ICU输注"
+  },
+  "nav": {
+    "home": "首页",
+    "drugs": "药物",
+    "calculator": "计算器",
+    "settings": "设置",
+    "about": "关于",
+    "clinicalNote": "临床记录"
+  },
+  "a11y": {
+    "skip": "跳到主要内容",
+    "mainNav": "主导航",
+    "breadcrumb": "面包屑导航"
+  },
+  "theme": {
+    "system": "跟随系统",
+    "light": "浅色",
+    "dark": "深色",
+    "switchToDark": "切换到深色主题",
+    "switchToLight": "切换到浅色主题"
+  },
   "common": {
     "all": "全部",
     "comingSoon": "即将推出",
@@ -16,7 +35,11 @@
     "body": "内容转录自 v1.35 参考模块，尚待人工临床审核。请与本地方案、药房标准浓度及产品说明书核对。以临床判断为准。",
     "more": "阅读免责声明"
   },
-  "search": { "label": "搜索药物", "placeholder": "搜索药物（如去甲肾上腺素、丙泊酚）…", "submit": "搜索" },
+  "search": {
+    "label": "搜索药物",
+    "placeholder": "搜索药物（如去甲肾上腺素、丙泊酚）…",
+    "submit": "搜索"
+  },
   "home": {
     "eyebrow": "成人持续输注 · 参考版本 v1.35",
     "title": "急诊与重症监护输注参考",
@@ -30,19 +53,46 @@
     "moduleCount_other": "{{count}} 个模块"
   },
   "groups": {
-    "vasoactive": { "title": "血管活性药与正性肌力药", "desc": "休克时的血管升压药与正性肌力药" },
-    "sedation": { "title": "ICU镇痛镇静", "desc": "机械通气成人的持续镇痛与镇静" },
-    "cardiovascular": { "title": "心血管" },
-    "infectionRespiratory": { "title": "感染与呼吸" },
-    "neurologic": { "title": "神经" },
-    "renalMetabolic": { "title": "肾脏、代谢与中毒" },
-    "traumaSurgical": { "title": "创伤与外科" },
-    "specialPopulations": { "title": "儿科、产科与特殊人群" },
-    "proceduresPharmacology": { "title": "气道/RSI、操作与药理" },
-    "dispositionCrosscutting": { "title": "床旁超声、处置与综合" },
-    "clinicalImages": { "title": "临床影像判读" }
+    "vasoactive": {
+      "title": "血管活性药与正性肌力药",
+      "desc": "休克时的血管升压药与正性肌力药"
+    },
+    "sedation": {
+      "title": "ICU镇痛镇静",
+      "desc": "机械通气成人的持续镇痛与镇静"
+    },
+    "cardiovascular": {
+      "title": "心血管"
+    },
+    "infectionRespiratory": {
+      "title": "感染与呼吸"
+    },
+    "neurologic": {
+      "title": "神经"
+    },
+    "renalMetabolic": {
+      "title": "肾脏、代谢与中毒"
+    },
+    "traumaSurgical": {
+      "title": "创伤与外科"
+    },
+    "specialPopulations": {
+      "title": "儿科、产科与特殊人群"
+    },
+    "proceduresPharmacology": {
+      "title": "气道/RSI、操作与药理"
+    },
+    "dispositionCrosscutting": {
+      "title": "床旁超声、处置与综合"
+    },
+    "clinicalImages": {
+      "title": "临床影像判读"
+    }
   },
-  "categories": { "vasoactive-inotrope": "血管活性/正性肌力", "icu-sedation-analgesia": "ICU镇痛镇静" },
+  "categories": {
+    "vasoactive-inotrope": "血管活性/正性肌力",
+    "icu-sedation-analgesia": "ICU镇痛镇静"
+  },
   "list": {
     "title": "药物",
     "subtitle": "来自 v1.35 模块的成人持续输注药物。",
@@ -212,7 +262,10 @@
     "content": "内容 {{version}}",
     "disclaimer": "草稿，待临床验证——以本地方案和临床判断为准。"
   },
-  "notFound": { "title": "页面未找到", "body": "您访问的页面不存在。" },
+  "notFound": {
+    "title": "页面未找到",
+    "body": "您访问的页面不存在。"
+  },
   "drugNames": {
     "norepinephrine": "去甲肾上腺素",
     "vasopressin": "血管加压素",
