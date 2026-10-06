@@ -131,7 +131,20 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-009 — Artrocentesis ecoguiada — ADVANCED
-**Técnica:** identificar derrame, trayecto sin vasos, aguja bajo visión, aspiración. **Visual:** rodilla/cadera seleccionada.
+**Objetivo:** guiar aspiración articular evitando estructuras de riesgo.
+**Indicaciones:** derrame articular diagnóstico/terapéutico.
+**Contraindicaciones/precauciones:** infección cutánea en trayecto o prótesis sin coordinación especialista.
+**Material:** ecógrafo, aguja/jeringa y material estéril.
+**Anatomía:** receso articular y vasos/nervios vecinos.
+**Preparación:** localizar derrame y trayecto seguro.
+**Técnica paso a paso:** introducir aguja bajo visión hasta el derrame y aspirar.
+**STOP:** trayecto inseguro, parestesia o sangre pulsátil.
+**Confirmación:** líquido obtenido y aguja en colección.
+**Complicaciones:** infección, sangrado y lesión neurovascular.
+**Después:** procesar muestra y reevaluar.
+**Documentación:** articulación, volumen y estudios.
+**Fuentes:** procedural ultrasound/joint aspiration guidance.
+**QA:** YELLOW.
 
 ## PROC-US-010 — Ecografía postprocedimiento — ADVANCED
 **Objetivo:** detectar complicaciones seleccionadas: neumotórax tras CVC/pleural, derrame residual, hematoma, malposición superficial. **STOP:** POCUS negativo no reemplaza pruebas exigidas por contexto/protocolo. **Visual:** lung sliding y complicaciones.
