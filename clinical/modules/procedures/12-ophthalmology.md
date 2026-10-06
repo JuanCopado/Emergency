@@ -99,7 +99,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-EYE-007 — Escudo ocular rígido — CORE
-**Técnica:** colocar sin presión en sospecha de globo abierto; no parche compresivo; analgesia/antiemético y oftalmología. **Visual:** escudo.
+**Objetivo:** proteger un globo potencialmente abierto sin ejercer presión.
+**Indicaciones:** trauma penetrante o ruptura ocular sospechada.
+**Contraindicaciones/precauciones:** no usar parche compresivo.
+**Material:** escudo rígido y cinta.
+**Anatomía:** órbita y globo.
+**Preparación:** evitar tonometría/manipulación del ojo lesionado.
+**Técnica paso a paso:** colocar el escudo sobre la órbita y fijarlo en los bordes óseos sin contacto con el globo.
+**STOP:** cualquier maniobra que presione el globo.
+**Confirmación:** escudo estable sin compresión ocular.
+**Complicaciones:** mínimas si está correctamente colocado.
+**Después:** analgesia/antiemético, NPO y oftalmología urgente cuando proceda.
+**Documentación:** sospecha y protección aplicada.
+**Fuentes:** ophthalmology trauma guidance.
+**QA:** YELLOW.
 
 ## PROC-EYE-008 — Cantotomía/cantólisis lateral — SPECIALIST
 **Objetivo:** descompresión inmediata de síndrome compartimental orbitario clínico. **Técnica:** anestesia si no retrasa; clamp/incisión canto lateral; identificar y seccionar tendón cantal inferior inicialmente; reevaluar presión/visión, superior si necesario por experto. **STOP:** no retrasar ante pérdida visual progresiva por esperar imagen. **Visual:** anatomía canto lateral paso a paso.
