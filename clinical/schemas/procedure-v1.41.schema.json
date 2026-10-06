@@ -1,0 +1,536 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/JuanCopado/Emergency/clinical/schemas/procedure-v1.41.schema.json",
+  "title": "Emergency Procedure Canonical Schema v1.41",
+  "type": "object",
+  "required": [
+    "procedure_id",
+    "name",
+    "family",
+    "level",
+    "status",
+    "objective",
+    "indications",
+    "contraindications_precautions",
+    "equipment",
+    "anatomy",
+    "preparation",
+    "steps",
+    "confirmation",
+    "stop_points",
+    "complications",
+    "rescue",
+    "aftercare",
+    "documentation",
+    "sources",
+    "qa"
+  ],
+  "properties": {
+    "procedure_id": {
+      "type": "string",
+      "pattern": "^PROC-[A-Z]+-[0-9]{3}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "family": {
+      "type": "string",
+      "minLength": 2
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "CORE",
+        "ADVANCED",
+        "SPECIALIST"
+      ]
+    },
+    "population": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "adult",
+          "pediatric",
+          "pregnancy",
+          "all"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "setting": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ED",
+          "prehospital",
+          "ICU",
+          "OR",
+          "ward",
+          "other"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "YELLOW",
+        "GREEN",
+        "RED"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 5
+    },
+    "indications": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "minItems": 1
+    },
+    "contraindications_precautions": {
+      "type": "object",
+      "required": [
+        "absolute",
+        "relative",
+        "precautions"
+      ],
+      "properties": {
+        "absolute": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relative": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "precautions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "equipment": {
+      "type": "object",
+      "required": [
+        "essential",
+        "optional",
+        "monitoring",
+        "rescue"
+      ],
+      "properties": {
+        "essential": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optional": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "monitoring": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rescue": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "anatomy": {
+      "type": "object",
+      "required": [
+        "landmarks",
+        "target",
+        "avoid"
+      ],
+      "properties": {
+        "landmarks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "target": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "avoid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "laterality": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "preparation": {
+      "type": "object",
+      "required": [
+        "patient_position",
+        "operator_position",
+        "monitoring",
+        "asepsis",
+        "analgesia_sedation",
+        "prechecks"
+      ],
+      "properties": {
+        "patient_position": {
+          "type": "string"
+        },
+        "operator_position": {
+          "type": "string"
+        },
+        "monitoring": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "asepsis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "analgesia_sedation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "prechecks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "order",
+          "action"
+        ],
+        "properties": {
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "action": {
+            "type": "string",
+            "minLength": 2
+          },
+          "critical": {
+            "type": "boolean",
+            "default": false
+          },
+          "visual_hint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "confirmation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "stop_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "complications": {
+      "type": "object",
+      "required": [
+        "immediate",
+        "early",
+        "late"
+      ],
+      "properties": {
+        "immediate": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "early": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "late": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "rescue": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "aftercare": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "documentation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "pearls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "special_adaptations": {
+      "type": "object",
+      "properties": {
+        "pediatric": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pregnancy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "obesity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trauma": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "anticoagulation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "difficult_anatomy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "pocus": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "probe": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "orientation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "window": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "target": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "needle_trajectory": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confirmation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "pharmacology_links": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "organization",
+          "year"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "year": {
+            "type": [
+              "integer",
+              "string"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "doi": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "accessed": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "qa": {
+      "type": "object",
+      "required": [
+        "clinical_qa",
+        "visual_qa",
+        "human_review_required",
+        "last_updated"
+      ],
+      "properties": {
+        "clinical_qa": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "pass",
+            "fail"
+          ]
+        },
+        "visual_qa": {
+          "type": "string",
+          "enum": [
+            "paused",
+            "pending",
+            "pass",
+            "fail",
+            "not_applicable"
+          ]
+        },
+        "human_review_required": {
+          "type": "boolean"
+        },
+        "last_updated": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
