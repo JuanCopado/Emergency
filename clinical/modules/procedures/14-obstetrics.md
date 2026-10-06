@@ -114,21 +114,21 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **Fuentes:** obstetric emergency guidance.
 **QA:** YELLOW.
 
-## PROC-OBS-008 — Histerotomía resucitativa — SPECIALIST
-**Objetivo:** mejorar la reanimación materna y posibilitar extracción fetal en parada cardiaca durante embarazo avanzado cuando está indicada.
-**Indicaciones:** parada cardiaca materna con útero suficientemente grande para producir compresión aortocava y ausencia de ROSC precoz según algoritmo.
-**Contraindicaciones/precauciones:** intervención de rescate para equipo entrenado; no retrasar RCP ni tratamiento de causas reversibles.
+## PROC-OBS-008 — Histerotomía resucitativa / parto resucitativo — SPECIALIST
+**Objetivo:** mejorar la reanimación materna al aliviar la compresión aortocava y devolver a la circulación materna el volumen secuestrado en el útero; el beneficio fetal es secundario.
+**Indicaciones:** parada cardiaca durante embarazo con útero de tamaño suficiente para producir compresión aortocava (aproximadamente ≥20 semanas o fondo uterino al nivel/por encima del ombligo) cuando no se logra ROSC rápidamente.
+**Contraindicaciones/precauciones:** intervención de rescate tiempo-dependiente; no retrasar RCP, desfibrilación ni tratamiento de causas reversibles. Si el cérvix está completamente dilatado, el parto resucitativo puede lograrse por vía vaginal asistida en casos apropiados.
 **Material:** equipo de reanimación, bisturí/instrumental obstétrico, material neonatal y control de hemorragia.
-**Anatomía:** pared abdominal, útero grávido, placenta y feto.
-**Preparación:** RCP de alta calidad, desplazamiento uterino manual, desfibrilación/ALS estándar y activación simultánea de obstetricia/neonatología/anestesia.
-**Técnica paso a paso:** realizar apertura abdominal y uterina rápida en el lugar de la parada por equipo entrenado, extraer al feto, pinzar/cortar cordón y continuar reanimación materna y neonatal en paralelo.
-**STOP:** no trasladar a quirófano si ello retrasa una intervención indicada; no interrumpir RCP más de lo imprescindible.
-**Confirmación:** reevaluar ROSC, ventilación, hemorragia y respuesta neonatal.
+**Anatomía:** pared abdominal, útero grávido, placenta, feto y vejiga.
+**Preparación:** RCP de alta calidad, desplazamiento uterino manual a la izquierda, ALS estándar y activación inmediata de obstetricia, neonatología y anestesia.
+**Técnica paso a paso:** preparar precozmente y realizar el parto resucitativo lo antes posible en el lugar de la parada por equipo entrenado; si se requiere laparotomía/histerotomía, abrir abdomen y útero rápidamente, extraer al feto, pinzar/cortar el cordón y continuar reanimación materna/neonatal en paralelo.
+**STOP:** no trasladar a quirófano si ello retrasa una intervención indicada; minimizar interrupciones de compresiones.
+**Confirmación:** reevaluar ROSC, hemodinámica, ventilación, hemorragia y respuesta neonatal.
 **Complicaciones:** hemorragia masiva, lesión visceral, coagulopatía y necesidad de cirugía definitiva.
-**Después:** control hemorrágico y cirugía obstétrica definitiva.
-**Documentación:** tiempos de parada, inicio del procedimiento, extracción y respuesta materno-neonatal.
-**Fuentes:** ERC/Resuscitation Council UK 2025, cardiac arrest in pregnancy.
-**QA:** YELLOW.
+**Después:** control hemorrágico, cirugía obstétrica definitiva y cuidados postparada multidisciplinarios.
+**Documentación:** edad gestacional estimada/tamaño uterino, tiempos de parada, inicio de procedimiento, nacimiento y respuesta materno-neonatal.
+**Fuentes:** AHA 2025 Special Circumstances of Resuscitation; Resuscitation Council UK/ERC 2025 — cardiac arrest in pregnancy.
+**QA:** YELLOW; revisión humana obstetricia/anestesia pendiente.
 
 ## PROC-OBS-009 — Taponamiento uterino con balón en hemorragia posparto — ADVANCED
 **Objetivo:** controlar hemorragia posparto persistente por atonía cuando el tratamiento inicial ha fallado.
