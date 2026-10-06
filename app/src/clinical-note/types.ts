@@ -135,7 +135,17 @@ export type PreparedUpload = {
     burned_in_identifier_review_required: boolean;
   };
   extracted: { official_report: string | null; ai_interpretation: string | null };
-  processing: { status: 'text_extracted' | 'routed_external'; message: string; modules: string[] };
+  processing: {
+    status: 'text_extracted' | 'routed_external' | 'vision_interpreted';
+    message: string;
+    modules: string[];
+    provider?: string | null;
+    model?: string | null;
+    confidence?: QualitativeConfidence | null;
+    findings?: string | null;
+    impression?: string | null;
+    limitations?: string[];
+  };
   original_retained: false;
 };
 
