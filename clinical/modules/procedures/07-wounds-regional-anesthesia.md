@@ -1,82 +1,355 @@
 # 7. Heridas, partes blandas y anestesia regional
 
-Estado: **YELLOW**.
+Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.
 
-## PROC-WND-001 — Infiltración anestésica local — CORE
-**Técnica:** calcular dosis máxima desde módulo farmacológico; aspirar antes de inyectar; infiltrar lentamente desde piel sana o bordes; tamponado con bicarbonato solo según protocolo. **STOP:** síntomas de toxicidad sistémica. **Visual:** habón y campo.
+## PROC-WND-001 — Anestesia local por infiltración — CORE
+**Objetivo:** proporcionar analgesia local para procedimientos cutáneos.  
+**Indicaciones:** reparación, drenaje o exploración de heridas seleccionadas.  
+**Contraindicaciones/precauciones:** alergia real, infección extensa o dosis total acumulada cercana a máximo; no inyectar intravascularmente.  
+**Material:** anestésico, jeringa/aguja, antiséptico y monitorización según riesgo.  
+**Anatomía:** piel/subcutáneo y vasos locales.  
+**Preparación:** calcular dosis total desde módulo farmacológico y explicar.  
+**Técnica paso a paso:** 1) antisepsia; 2) insertar desde piel sana o borde; 3) aspirar cuando proceda; 4) infiltrar lentamente; 5) ampliar campo con mínimo volumen efectivo.  
+**STOP:** síntomas de LAST o aspiración intravascular.  
+**Confirmación:** pérdida de sensibilidad antes de procedimiento.  
+**Complicaciones:** dolor, hematoma, infección, LAST.  
+**Después:** observar si dosis elevada/comorbilidad.  
+**Documentación:** agente/dosis desde módulo y respuesta.  
+**Fuentes:** regional anesthesia/emergency procedure references.  
+**QA:** YELLOW.
 
 ## PROC-WND-002 — Bloqueo digital — CORE
-**Técnica:** antisepsia, pequeñas inyecciones a ambos lados de base del dedo o técnica única validada, evitar volúmenes excesivos. Epinefrina solo cuando no haya contraindicación y según práctica local. **Visual:** nervios digitales.
+**Objetivo:** anestesiar dedo sin distorsionar herida.  
+**Indicaciones:** reparación, cuerpo extraño, reducción o drenaje distal.  
+**Contraindicaciones/precauciones:** infección en trayecto, alergia, isquemia digital significativa; epinefrina solo según práctica y riesgo individual.  
+**Material:** anestésico, jeringa fina, antiséptico.  
+**Anatomía:** nervios digitales laterales y vasos.  
+**Preparación:** dosis total y examen neurovascular.  
+**Técnica paso a paso:** 1) antisepsia; 2) inyección pequeña a un lado de base; 3) retirar parcialmente; 4) infiltrar lado opuesto; 5) esperar efecto.  
+**STOP:** dolor eléctrico persistente, alta presión o síntomas de LAST.  
+**Confirmación:** anestesia circunferencial distal.  
+**Complicaciones:** hematoma, lesión neural, infección, LAST.  
+**Después:** reevaluar perfusión.  
+**Documentación:** agente/dosis y resultado.  
+**Fuentes:** hand anesthesia guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-003 — Bloqueo de hematoma — ADVANCED
-**Objetivo:** analgesia para reducción de fractura seleccionada. **Técnica:** asepsia, localizar hematoma, aspirar sangre para confirmar, inyectar anestésico calculado; esperar efecto. **STOP:** fractura abierta/infección o dosis total excesiva. **Visual:** radio distal.
+**Objetivo:** analgesia para reducción de fractura seleccionada, típicamente radio distal.  
+**Indicaciones:** fractura cerrada con hematoma accesible.  
+**Contraindicaciones/precauciones:** infección, fractura abierta o dosis acumulada excesiva.  
+**Material:** anestésico, aguja/jeringa, antiséptico.  
+**Anatomía:** foco de fractura/hematoma.  
+**Preparación:** calcular dosis y localizar foco.  
+**Técnica paso a paso:** 1) antisepsia; 2) punción al hematoma; 3) aspirar sangre para confirmar; 4) inyectar lentamente; 5) esperar efecto.  
+**STOP:** resistencia, parestesia o toxicidad.  
+**Confirmación:** analgesia suficiente.  
+**Complicaciones:** infección, LAST, lesión neurovascular.  
+**Después:** reducción/inmovilización.  
+**Documentación:** dosis/efecto.  
+**Fuentes:** orthopedic analgesia procedural guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-004 — Bloqueo femoral ecoguiado — ADVANCED/POCUS
-**Técnica:** US identifica nervio lateral a arteria, técnica in-plane, aspiración fraccionada, depósito alrededor sin inyección intraneural. **STOP:** alta presión/dolor parestésico o toxicidad. **Visual:** US con fascia/nervio/arteria.
+**Objetivo:** analgesia regional de cadera/fémur/anterior muslo seleccionada.  
+**Indicaciones:** fractura femoral/cadera u otros procedimientos apropiados.  
+**Contraindicaciones/precauciones:** infección local, alergia, déficit neurológico preexistente significativo, anticoagulación según profundidad/riesgo.  
+**Material:** US lineal, aguja ecogénica, anestésico y monitorización.  
+**Anatomía:** nervio femoral lateral a arteria bajo fascia iliaca.  
+**Preparación:** monitor, dosis total segura y plan para LAST.  
+**Técnica paso a paso:** 1) identificar arteria/nervio; 2) aguja in-plane; 3) visualizar punta; 4) aspirar; 5) inyectar fraccionado alrededor del nervio sin intraneural.  
+**STOP:** dolor parestésico, alta presión o toxicidad.  
+**Confirmación:** expansión perineural y analgesia.  
+**Complicaciones:** LAST, lesión nerviosa, hematoma, infección.  
+**Después:** monitorizar bloqueo motor/riesgo de caída.  
+**Documentación:** lado, US, anestésico/dosis.  
+**Fuentes:** regional anesthesia/POCUS standards.  
+**QA:** YELLOW.
 
 ## PROC-WND-005 — Bloqueo fascia iliaca — ADVANCED/POCUS
-**Técnica:** identificar fascia iliaca y compartimento; avanzar aguja in-plane; hidrodisecar y distribuir anestésico bajo fascia. **Visual:** US antes/después.
+**Objetivo:** analgesia regional para cadera/fémur proximal.  
+**Indicaciones:** fractura de cadera/fémur seleccionada.  
+**Contraindicaciones/precauciones:** similares a bloqueo femoral.  
+**Material:** US, aguja, anestésico y monitor.  
+**Anatomía:** fascia iliaca, iliopsoas y nervios femoral/cutáneo lateral.  
+**Preparación:** dosis/monitorización.  
+**Técnica paso a paso:** 1) identificar fascias; 2) avanzar aguja in-plane; 3) penetrar fascia iliaca; 4) hidrodisecar; 5) depositar anestésico bajo fascia.  
+**STOP:** punta no visible o inyección intravascular/intraneural sospechada.  
+**Confirmación:** difusión bajo fascia y analgesia.  
+**Complicaciones:** LAST, hematoma, lesión neural.  
+**Después:** vigilar motor/caídas.  
+**Documentación:** lado/técnica.  
+**Fuentes:** regional anesthesia guidance.  
+**QA:** YELLOW.
 
-## PROC-WND-006 — Bloqueo interescalénico/selectivo — SPECIALIST
-**Uso:** solo operadores entrenados por riesgo frénico/neural/vascular. **Técnica:** US, mínima dosis efectiva, monitorización y plan para LAST. **Visual:** raíces, vasos y pleura.
+## PROC-WND-006 — Bloqueo interescalénico/selectivo de miembro superior — SPECIALIST
+**Objetivo:** anestesia/analgesia del hombro/miembro superior proximal en casos seleccionados.  
+**Indicaciones:** procedimientos o dolor severo cuando beneficio supera riesgos.  
+**Contraindicaciones/precauciones:** alto riesgo de paresia frénica, enfermedad respiratoria relevante, coagulopatía o anatomía no clara.  
+**Material:** US, aguja, anestésico, monitor y equipo para LAST/vía aérea.  
+**Anatomía:** raíces/troncos braquiales entre escalenos, frénico, vasos y pleura.  
+**Preparación:** consentimiento, examen neurológico y monitorización.  
+**Técnica paso a paso:** 1) identificar plexo/vasos/pleura; 2) aguja in-plane; 3) punta visible; 4) aspirar; 5) inyección fraccionada mínima efectiva.  
+**STOP:** dolor neural, alta presión, disnea o síntomas de LAST.  
+**Confirmación:** bloqueo sensitivo esperado.  
+**Complicaciones:** paresia frénica, lesión nerviosa, LAST, neumotórax, Horner.  
+**Después:** monitorizar respiración/motor.  
+**Documentación:** técnica/US/dosis.  
+**Fuentes:** regional anesthesia society guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-007 — Irrigación de heridas — CORE
-**Técnica:** analgesia, retirar contaminantes gruesos, irrigar con solución apropiada y presión suficiente sin dañar tejido, explorar después. **Visual:** jeringa/catéter y protección ocular.
+**Objetivo:** reducir contaminación y carga de cuerpos extraños.  
+**Indicaciones:** heridas traumáticas contaminadas antes de cierre o manejo definitivo.  
+**Contraindicaciones/precauciones:** no dirigir presión hacia estructuras profundas vulnerables.  
+**Material:** solución apropiada, jeringa/sistema de irrigación, PPE.  
+**Anatomía:** piel/subcutáneo y estructuras expuestas.  
+**Preparación:** analgesia y retirar contaminantes grandes.  
+**Técnica paso a paso:** 1) exponer; 2) irrigar de forma copiosa y controlada; 3) movilizar bordes para alcanzar cavidades visibles; 4) retirar detritos; 5) reexplorar.  
+**STOP:** sangrado no controlado o estructura profunda lesionada.  
+**Confirmación:** lecho limpio sin material visible.  
+**Complicaciones:** maceración, dispersión de contaminantes, daño por presión excesiva.  
+**Después:** exploración/cierre según herida.  
+**Documentación:** contaminación y manejo.  
+**Fuentes:** emergency wound care guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-008 — Exploración de heridas — CORE
-**Técnica:** hemostasia, anestesia, buena luz, explorar profundidad en posición funcional y durante movimiento cuando procede; buscar tendón, nervio, vaso, articulación y cuerpo extraño. **STOP:** no explorar a ciegas estructuras profundas de riesgo. **Visual:** capas anatómicas.
+**Objetivo:** identificar lesión de tendón, nervio, vaso, articulación o cuerpo extraño.  
+**Indicaciones:** herida profunda, mecanismo de riesgo o déficit funcional.  
+**Contraindicaciones/precauciones:** no explorar a ciegas cerca de estructuras críticas.  
+**Material:** luz, irrigación, anestesia, instrumental y US/Rx según material.  
+**Anatomía:** depende de región.  
+**Preparación:** hemostasia y anestesia.  
+**Técnica paso a paso:** 1) visualizar profundidad; 2) explorar en posición funcional; 3) mover tendones/articulaciones si seguro; 4) buscar cuerpo extraño; 5) documentar estructura lesionada.  
+**STOP:** sangrado arterial, nervio/tendón expuesto complejo o cavidad profunda.  
+**Confirmación:** exploración suficiente del trayecto visible.  
+**Complicaciones:** lesión iatrogénica/infección.  
+**Después:** reparación/derivación.  
+**Documentación:** estructuras evaluadas.  
+**Fuentes:** wound care guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-009 — Sutura simple interrumpida — CORE
-**Técnica:** evertir bordes, mordidas simétricas, nudo lateral sin estrangular; espaciar según tensión. **Visual:** 4 pasos.
+**Objetivo:** aproximar bordes de herida con control individual de tensión.  
+**Indicaciones:** heridas lineales/irregulares apropiadas para cierre primario.  
+**Contraindicaciones/precauciones:** infección, contaminación significativa o pérdida tisular que contraindique cierre primario.  
+**Material:** portaagujas, pinza, sutura, anestesia.  
+**Anatomía:** dermis/subcutáneo.  
+**Preparación:** irrigar, explorar, anestesiar y hemostasia.  
+**Técnica paso a paso:** 1) entrada perpendicular; 2) mordidas simétricas; 3) evertir; 4) nudo lateral; 5) repetir con tensión uniforme.  
+**STOP:** bordes isquémicos o cierre bajo tensión excesiva.  
+**Confirmación:** aproximación/eversión sin estrangulación.  
+**Complicaciones:** infección, dehiscencia, marcas de sutura.  
+**Después:** apósito e instrucciones.  
+**Documentación:** material/número de puntos.  
+**Fuentes:** wound closure guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-010 — Sutura continua — CORE
-**Uso:** heridas lineales de baja tensión seleccionadas. **Técnica:** primer nudo, pasadas simétricas, tensión uniforme, nudo final. **Visual:** patrón continuo.
+**Objetivo:** cierre rápido y uniforme de heridas lineales seleccionadas.  
+**Indicaciones:** herida de baja tensión con bordes regulares.  
+**Contraindicaciones/precauciones:** contaminación o necesidad de ajuste individual de tensión.  
+**Material:** sutura, portaagujas, pinza.  
+**Anatomía:** dermis.  
+**Preparación:** igual que cierre primario.  
+**Técnica paso a paso:** 1) nudo inicial; 2) pasadas equidistantes; 3) mantener tensión uniforme; 4) nudo final.  
+**STOP:** isquemia/estrangulación de bordes.  
+**Confirmación:** cierre continuo sin gaps.  
+**Complicaciones:** dehiscencia completa si falla el hilo, marcas.  
+**Después:** cuidado estándar.  
+**Documentación:** material/técnica.  
+**Fuentes:** wound closure guidance.  
+**QA:** YELLOW.
 
-## PROC-WND-011 — Colchonero vertical/horizontal — CORE
-**Objetivo:** eversión o distribución de tensión. **STOP:** no apretar hasta isquemia. **Visual:** lejos-lejos/cerca-cerca y horizontal.
+## PROC-WND-011 — Punto colchonero vertical/horizontal — CORE
+**Objetivo:** evertir bordes o distribuir tensión.  
+**Indicaciones:** heridas con tendencia a inversión o tensión moderada.  
+**Contraindicaciones/precauciones:** tejidos con perfusión comprometida o zonas donde presión cause necrosis.  
+**Material:** sutura y instrumental.  
+**Anatomía:** dermis/subcutáneo.  
+**Preparación:** herida limpia y anestesiada.  
+**Técnica paso a paso:** 1) vertical: lejos-lejos/cerca-cerca; o 2) horizontal: pases paralelos; 3) ajustar hasta eversión sin estrangular.  
+**STOP:** blanqueamiento/isquemia.  
+**Confirmación:** eversión adecuada.  
+**Complicaciones:** necrosis de borde, marcas.  
+**Después:** retirada según sitio.  
+**Documentación:** técnica.  
+**Fuentes:** wound closure guidance.  
+**QA:** YELLOW.
 
-## PROC-WND-012 — Grapas — CORE
-**Técnica:** aproximar/evertir, colocar grapadora perpendicular, espaciar uniformemente. **Visual:** cuero cabelludo.
+## PROC-WND-012 — Grapas cutáneas — CORE
+**Objetivo:** cierre rápido de heridas seleccionadas.  
+**Indicaciones:** cuero cabelludo/tronco/extremidad de baja complejidad.  
+**Contraindicaciones/precauciones:** cara, manos/pies o zonas cosméticas/funcionales según lesión; no usar en infección.  
+**Material:** grapadora y extractor.  
+**Anatomía:** piel/subcutáneo.  
+**Preparación:** irrigar/explorar y evertir.  
+**Técnica paso a paso:** 1) aproximar bordes; 2) colocar grapadora perpendicular; 3) disparar sin comprimir excesivamente; 4) espaciar uniformemente.  
+**STOP:** bordes atrapados/isquémicos.  
+**Confirmación:** aproximación adecuada.  
+**Complicaciones:** marcas, infección, dolor.  
+**Después:** apósito/retirada programada.  
+**Documentación:** número de grapas.  
+**Fuentes:** wound closure guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-013 — Adhesivo tisular — CORE
-**Técnica:** hemostasia y bordes secos, aproximar, capas superficiales sobre piel sin introducir en herida. **STOP:** mucosa/alta tensión/contaminada. **Visual:** aplicación superficial.
+**Objetivo:** cerrar heridas superficiales seleccionadas sin sutura.  
+**Indicaciones:** heridas pequeñas, lineales y de baja tensión.  
+**Contraindicaciones/precauciones:** mucosa, alta tensión, contaminación, zonas húmedas o articulaciones sin inmovilización adecuada.  
+**Material:** adhesivo tisular y protección ocular.  
+**Anatomía:** epidermis/dermis superficial.  
+**Preparación:** hemostasia y bordes secos.  
+**Técnica paso a paso:** 1) aproximar bordes; 2) aplicar capas superficiales sobre piel; 3) mantener hasta polimerizar; 4) no introducir dentro de herida.  
+**STOP:** adhesivo en ojo/mucosa o dentro del lecho.  
+**Confirmación:** bordes unidos sin tensión.  
+**Complicaciones:** dehiscencia, lesión térmica, adhesión accidental.  
+**Después:** mantener seco según producto.  
+**Documentación:** adhesivo usado.  
+**Fuentes:** wound closure guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-014 — Tiras de aproximación — CORE
-**Técnica:** piel seca, adhesivo auxiliar si procede, tiras perpendiculares con tensión equilibrada. **Visual:** patrón.
+**Objetivo:** aproximar heridas superficiales de muy baja tensión.  
+**Indicaciones:** pequeñas laceraciones o refuerzo de cierre.  
+**Contraindicaciones/precauciones:** piel húmeda, sangrado activo, alta tensión.  
+**Material:** tiras y adhesivo auxiliar si procede.  
+**Anatomía:** piel.  
+**Preparación:** limpiar/secar.  
+**Técnica paso a paso:** 1) aproximar bordes; 2) colocar tiras perpendiculares; 3) alternar lados para distribuir tensión.  
+**STOP:** blanqueamiento/estrangulación.  
+**Confirmación:** bordes alineados.  
+**Complicaciones:** desprendimiento, dermatitis.  
+**Después:** mantener secas.  
+**Documentación:** técnica.  
+**Fuentes:** wound care guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-015 — Incisión y drenaje de absceso — CORE
-**Técnica:** analgesia/bloqueo, incisión sobre zona fluctuante en líneas seguras, evacuar, romper loculaciones suaves, irrigación selectiva, packing solo cuando indicado. **Visual:** incisión y cavidad.
+**Objetivo:** evacuar colección purulenta.  
+**Indicaciones:** absceso cutáneo fluctuante/drenable.  
+**Contraindicaciones/precauciones:** cara central, mano, cuello profundo, perineo, inmunosupresión o proximidad vascular pueden requerir especialista/imagen.  
+**Material:** anestesia, bisturí, pinza, irrigación, packing selectivo.  
+**Anatomía:** piel/cavidad y estructuras vecinas.  
+**Preparación:** analgesia/bloqueo y antisepsia.  
+**Técnica paso a paso:** 1) incisión sobre máxima fluctuación en línea segura; 2) evacuar; 3) romper loculaciones suavemente; 4) irrigación selectiva; 5) packing solo si indicado.  
+**STOP:** sangrado importante, profundidad inesperada o anatomía peligrosa.  
+**Confirmación:** cavidad drenada.  
+**Complicaciones:** sangrado, lesión nerviosa, recurrencia.  
+**Después:** cura, cultivo/antibiótico según contexto.  
+**Documentación:** sitio, material y packing.  
+**Fuentes:** skin abscess guidance.  
+**QA:** YELLOW.
 
-## PROC-WND-016 — Cuerpo extraño superficial — CORE
-**Técnica:** localizar visualmente/US/Rx según material, anestesia, ampliar mínimo trayecto si preciso, extracción bajo visión, irrigar. **STOP:** proximidad vascular/nerviosa/ocular. **Visual:** pinza y US.
+## PROC-WND-016 — Extracción de cuerpo extraño superficial — CORE
+**Objetivo:** retirar cuerpo extraño accesible sin lesionar estructuras profundas.  
+**Indicaciones:** material superficial sintomático o con riesgo de infección/daño.  
+**Contraindicaciones/precauciones:** proximidad vascular/nerviosa/ocular, penetración profunda o fragmento no localizable.  
+**Material:** anestesia, pinzas, bisturí, US/Rx según material.  
+**Anatomía:** trayecto y estructuras cercanas.  
+**Preparación:** localizar antes de ampliar herida.  
+**Técnica paso a paso:** 1) visualizar/localizar; 2) anestesiar; 3) ampliar mínimamente si precisa; 4) extraer bajo visión; 5) irrigar.  
+**STOP:** pérdida de visualización o resistencia profunda.  
+**Confirmación:** objeto completo.  
+**Complicaciones:** lesión estructural, fragmento retenido, infección.  
+**Después:** tétanos/cuidado herida.  
+**Documentación:** objeto y método.  
+**Fuentes:** MSD/Merck foreign body guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-017 — Extracción de anillo — CORE
-**Técnica:** elevar mano, lubricar/string technique si edema leve; cortador si precisa; protección entre anillo y piel; reevaluar perfusión. **STOP:** material duro requiere herramienta adecuada/especialista. **Visual:** hilo y cortador.
+**Objetivo:** aliviar compresión digital preservando tejido.  
+**Indicaciones:** anillo atrapado con edema/dolor o riesgo vascular.  
+**Contraindicaciones/precauciones:** material muy duro o lesión traumática compleja requiere herramienta/especialista.  
+**Material:** lubricante, hilo/elástico, cortador y protector.  
+**Anatomía:** dedo, articulaciones y perfusión distal.  
+**Preparación:** elevar mano y valorar perfusión.  
+**Técnica paso a paso:** 1) lubricar/compresión; 2) intentar técnica de hilo si apropiada; 3) si falla, cortar con protección; 4) separar anillo; 5) reevaluar.  
+**STOP:** dolor/perfusión empeoran.  
+**Confirmación:** anillo retirado y circulación restaurada.  
+**Complicaciones:** laceración, lesión térmica por corte.  
+**Después:** tratar lesión subyacente.  
+**Documentación:** método y perfusión.  
+**Fuentes:** emergency procedural guidance.  
+**QA:** YELLOW.
 
-## PROC-WND-018 — Trepanación subungueal — CORE
-**Técnica:** confirmar hematoma doloroso con placa ungueal íntegra; antisepsia; perforación controlada térmica o aguja evitando lecho; drenar. **Visual:** punto de trepanación.
+## PROC-WND-018 — Trepanación de hematoma subungueal — CORE
+**Objetivo:** aliviar dolor por hematoma subungueal con placa íntegra.  
+**Indicaciones:** hematoma doloroso tras trauma con uña conservada.  
+**Contraindicaciones/precauciones:** avulsión/laceración ungueal que requiera reparación o lesión compleja.  
+**Material:** cauterio/aguja apropiada, antisepsia y protección.  
+**Anatomía:** placa, lecho y matriz ungueal.  
+**Preparación:** examen distal y Rx si fractura sospechada.  
+**Técnica paso a paso:** 1) antisepsia; 2) perforar placa centralmente sin profundizar; 3) permitir drenaje; 4) limpiar/apósito.  
+**STOP:** dolor por contacto con lecho o lesión no compatible.  
+**Confirmación:** salida de sangre y alivio del dolor.  
+**Complicaciones:** infección, lesión lecho, quemadura.  
+**Después:** cuidado local.  
+**Documentación:** técnica/resultado.  
+**Fuentes:** hand/nail injury guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-019 — Escharotomía — SPECIALIST
-**Objetivo:** liberar restricción circunferencial con compromiso vascular/ventilatorio. **Técnica:** líneas anatómicas seguras, incisión a través de escara hasta tejido subcutáneo, reevaluación perfusión/ventilación; quemados expertos. **Visual:** líneas de miembros y tórax.
+**Objetivo:** liberar escara circunferencial que compromete perfusión o ventilación.  
+**Indicaciones:** quemadura circunferencial con compromiso vascular distal o torácico ventilatorio.  
+**Contraindicaciones/precauciones:** procedimiento de alto riesgo; no confundir con fasciotomía.  
+**Material:** bisturí/electrocauterio, analgesia/sedación, hemostasia y monitor.  
+**Anatomía:** líneas seguras de extremidad/tórax evitando nervios/vasos.  
+**Preparación:** burn team, analgesia y marcar trayecto.  
+**Técnica paso a paso:** 1) incidir longitudinalmente a través de escara hasta subcutáneo; 2) observar separación; 3) extender solo lo necesario; 4) repetir línea opuesta si precisa; 5) reevaluar perfusión/ventilación.  
+**STOP:** sangrado profundo o anatomía incierta.  
+**Confirmación:** mejor pulso/perfusión o expansión torácica.  
+**Complicaciones:** sangrado, lesión nerviosa/vascular, infección.  
+**Después:** centro de quemados y cirugía definitiva.  
+**Documentación:** indicación, líneas y respuesta.  
+**Fuentes:** burn surgery/ABA guidance.  
+**QA:** YELLOW.
 
-## PROC-WND-020 — Ampollas/quemaduras — CORE
-**Técnica:** enfriar apropiadamente sin hipotermia, retirar joyas, cubrir; manejo de ampollas según tamaño/sitio/protocolo, desbridamiento selectivo. **Visual:** cobertura no adherente.
+## PROC-WND-020 — Manejo inicial de ampollas/quemaduras — CORE
+**Objetivo:** limitar lesión térmica y proteger tejido.  
+**Indicaciones:** quemadura aguda.  
+**Contraindicaciones/precauciones:** evitar hielo directo/hipotermia y remedios tópicos no validados.  
+**Material:** agua corriente/irrigación, apósitos no adherentes, analgesia.  
+**Anatomía:** profundidad cutánea y áreas especiales.  
+**Preparación:** detener proceso y retirar joyas/ropa no adherida.  
+**Técnica paso a paso:** 1) enfriar apropiadamente sin hipotermia; 2) cubrir; 3) valorar profundidad/TBSA; 4) manejar ampollas según tamaño/sitio/protocolo; 5) derivar si criterios.  
+**STOP:** inhalación, quemadura eléctrica/química grave o área crítica → protocolo especializado.  
+**Confirmación:** dolor/control térmico y cobertura adecuada.  
+**Complicaciones:** hipotermia, infección, pérdida de función.  
+**Después:** tétanos, analgesia y burn referral.  
+**Documentación:** profundidad/TBSA/localización.  
+**Fuentes:** ABA burn guidance.  
+**QA:** YELLOW.
 
 ## PROC-WND-021 — Extracción de anzuelo superficial — CORE
-**Objetivo:** retirar un anzuelo cutáneo/subcutáneo minimizando daño adicional.  
-**Preparación:** identificar número/dirección de púas, profundidad y estructuras próximas; anestesia local cuando proceda; protección ocular para operador/paciente.  
-**Técnica:** seleccionar método según profundidad y geometría: retroceso simple si la púa no está trabada, técnica con hilo para anzuelos superficiales apropiados, cobertura de púa con aguja o avance-corte en casos seleccionados.  
-**STOP:** globo ocular, articulación, tendón, hueso, vaso/nervio importante o localización profunda → especialista.  
-**Confirmación:** anzuelo completo retirado; explorar herida, irrigar y revisar estado vacunal antitetánico.  
-**Complicaciones:** laceración, lesión neurovascular/tendinosa, fragmento retenido e infección.  
-**Fuente troncal:** MSD Manual Professional 2025; textos de Emergency Medicine Procedures.
+**Objetivo:** retirar anzuelo minimizando trauma adicional.  
+**Indicaciones:** anzuelo cutáneo/subcutáneo superficial.  
+**Contraindicaciones/precauciones:** ojo, articulación, tendón, hueso, vaso/nervio o localización profunda.  
+**Material:** anestesia, cortador, pinzas, protección ocular.  
+**Anatomía:** trayecto/púa y estructuras cercanas.  
+**Preparación:** identificar número/dirección de púas.  
+**Técnica paso a paso:** 1) anestesiar si precisa; 2) elegir retroceso, hilo, cobertura de púa o avance-corte según geometría; 3) proteger operador; 4) retirar; 5) irrigar.  
+**STOP:** estructura crítica o imposibilidad de controlar púa.  
+**Confirmación:** anzuelo completo.  
+**Complicaciones:** laceración, lesión neurovascular/tendinosa, fragmento retenido.  
+**Después:** tétanos/cuidado herida.  
+**Documentación:** método.  
+**Fuentes:** MSD Manual Professional 2025.  
+**QA:** YELLOW.
 
 ## PROC-WND-022 — Reparación de lecho ungueal — ADVANCED
-**Objetivo:** reparar laceraciones significativas del lecho ungueal para reducir deformidad y pérdida funcional.  
-**Indicaciones:** laceración visible/significativa del lecho, uña deformada/avulsionada o lesión compleja que requiera exposición; no toda hemorragia subungueal requiere retirada de la uña.  
-**Preparación:** examen neurovascular, Rx cuando se sospecha fractura, bloqueo digital, torniquete temporal seguro, irrigación y campo adecuado.  
-**Técnica:** retirar o elevar la placa ungueal solo cuando sea necesario para exponer lesión; reparar el lecho con sutura absorbible fina o técnica adhesiva validada; proteger con apósito no adherente y decidir férula/placa sustitutiva según lesión/protocolo.  
-**STOP:** lesión compleja, amputación, fractura desplazada, lesión de matriz germinal o falta de experiencia → cirugía de mano.  
-**Confirmación:** bordes aproximados sin tensión y perfusión distal conservada.  
-**Complicaciones:** deformidad ungueal, infección, adherencias, dolor crónico y lesión de matriz.  
-**Fuente troncal:** revisión Hand Clinics 2021; guías ED de lesiones de punta de dedo/lecho ungueal.
+**Objetivo:** reparar laceración significativa del lecho para reducir deformidad.  
+**Indicaciones:** laceración visible, uña deformada/avulsionada o lesión que requiere exposición.  
+**Contraindicaciones/precauciones:** amputación, fractura desplazada o lesión extensa de matriz → cirugía de mano.  
+**Material:** bloqueo digital, torniquete temporal, instrumental fino, sutura absorbible/adhesivo validado y apósito.  
+**Anatomía:** placa ungueal, lecho y matriz germinal.  
+**Preparación:** examen neurovascular y Rx si fractura.  
+**Técnica paso a paso:** 1) elevar/retirar placa solo si necesario; 2) irrigar; 3) aproximar lecho con técnica fina; 4) proteger con apósito no adherente; 5) decidir férula/placa sustitutiva según lesión.  
+**STOP:** lesión compleja/matriz germinal o falta de experiencia.  
+**Confirmación:** bordes aproximados y perfusión distal.  
+**Complicaciones:** deformidad ungueal, infección, adherencias.  
+**Después:** seguimiento de mano.  
+**Documentación:** lesión/reparación.  
+**Fuentes:** Hand Clinics 2021; fingertip injury guidance.  
+**QA:** YELLOW.
