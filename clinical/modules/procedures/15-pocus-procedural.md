@@ -19,7 +19,20 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-002 — CVC ecoguiado — ADVANCED
-**Técnica:** identificar vena/arteria, trombo y anatomía; punción dinámica con visualización de punta; confirmar guía intravascular en múltiples vistas antes de dilatar. **Visual:** vena compresible y wire.
+**Objetivo:** aumentar seguridad del acceso venoso central.
+**Indicaciones:** CVC cuando la anatomía permite guía ecográfica.
+**Contraindicaciones/precauciones:** trombosis, infección local o ausencia de ventana segura.
+**Material:** ecógrafo, kit CVC, barrera estéril máxima.
+**Anatomía:** vena, arteria y estructuras adyacentes del sitio elegido.
+**Preparación:** mapear anatomía y trombo; antisepsia/barrera máxima.
+**Técnica paso a paso:** visualizar punción en tiempo real, confirmar punta/aguja, introducir guía y confirmar guía intravascular antes de dilatar.
+**STOP:** no dilatar si la guía no está inequívocamente confirmada.
+**Confirmación:** guía y catéter en vaso objetivo.
+**Complicaciones:** punción arterial, hematoma, neumotórax, malposición e infección.
+**Después:** fijar y descartar complicaciones según contexto.
+**Documentación:** sitio, técnica y confirmación.
+**Fuentes:** ultrasound-guided vascular access standards; CDC catheter guidance.
+**QA:** YELLOW.
 
 ## PROC-US-003 — Línea arterial ecoguiada — ADVANCED
 **Técnica:** arteria no compresible/pulsátil, eje corto o largo, entrada de punta y avance del catéter. **Visual:** radial.
