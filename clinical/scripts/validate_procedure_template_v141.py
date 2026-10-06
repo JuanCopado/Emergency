@@ -9,7 +9,11 @@ NORMALIZED={
  "03-thorax-pleura.md":10,
  "04-cardiovascular-resuscitation.md":10,
  "05-trauma-hemorrhage.md":10,
+ "06-orthopedics-reductions.md":23,
+ "07-wounds-regional-anesthesia.md":22,
  "08-neurology.md":5,
+ "09-gi-abdomen.md":9,
+ "10-genitourinary.md":9,
 }
 REQUIRED=[
  "objetivo","indicaciones","contraindicaciones/precauciones","material","anatomía",
