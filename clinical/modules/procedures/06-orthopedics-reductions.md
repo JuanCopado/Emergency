@@ -66,21 +66,21 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Fuentes:** Merck Manual Professional, How To Reduce a Radial Head Subluxation, updated Aug 2025.
 **QA:** YELLOW; revisión humana pediatría/ortopedia pendiente.
 
-## PROC-ORTHO-005 — Reducción de luxación de rótula — CORE
-**Objetivo:** devolver rótula lateral luxada a tróclea.  
-**Indicaciones:** luxación lateral de rótula no reducida espontáneamente.  
-**Contraindicaciones/precauciones:** fractura osteocondral/gran derrame/trauma complejo.  
-**Material:** analgesia, férula y Rx.  
-**Anatomía:** rótula, tróclea y aparato extensor.  
-**Preparación:** neurovascular, palpación y analgesia.  
-**Técnica paso a paso:** 1) flexionar cadera para relajar cuádriceps; 2) extender rodilla progresivamente; 3) guiar rótula suavemente medial; 4) confirmar reducción.  
-**STOP:** resistencia marcada o dolor desproporcionado.  
-**Confirmación:** posición anatómica, extensión activa y neurovascular.  
-**Complicaciones:** fractura osteocondral, hemartros, recurrencia.  
-**Después:** imagen/immovilización/seguimiento según lesión.  
-**Documentación:** mecanismo, técnica y examen post.  
-**Fuentes:** orthopedic emergency guidance.  
-**QA:** YELLOW.
+## PROC-ORTHO-005 — Reducción de luxación lateral de rótula — CORE
+**Objetivo:** devolver la rótula a la tróclea y restaurar función/extensión.
+**Indicaciones:** luxación lateral de rótula no reducida espontáneamente.
+**Contraindicaciones/precauciones:** fractura osteocondral importante, luxación no lateral, trauma complejo o lesión abierta requieren valoración ortopédica.
+**Material:** analgesia, soporte de rodilla e imagen.
+**Anatomía:** rótula, tróclea, retináculos y aparato extensor.
+**Preparación:** valorar neurovascular, derrame, integridad del aparato extensor y mecanismo.
+**Técnica paso a paso:** colocar cadera flexionada para relajar cuádriceps; extender progresivamente la rodilla mientras se guía suavemente la rótula en dirección medial hasta la tróclea.
+**STOP:** resistencia marcada, dolor desproporcionado o sospecha de fractura.
+**Confirmación:** rótula centrada, alivio del dolor, extensión activa y examen neurovascular normal.
+**Complicaciones:** fractura osteocondral, hemartros, lesión retinacular y recurrencia.
+**Después:** imagen postreducción cuando proceda, inmovilización/brace breve según estabilidad y seguimiento ortopédico.
+**Documentación:** mecanismo, técnica, examen postreducción y estabilidad.
+**Fuentes:** contemporary orthopedic emergency guidance; Merck Manual Professional patellar dislocation references.
+**QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-006 — Reducción de luxaciones de dedos — CORE
 **Objetivo:** restaurar alineación articular y función.  
