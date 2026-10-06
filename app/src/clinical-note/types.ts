@@ -142,6 +142,8 @@ export type PreparedUpload = {
 export type DiagnosticApiResponse = {
   blocked: boolean;
   issues: { severity: string; code: string; message: string }[];
+  signals?: { code: string; weight: number; label: string }[];
+  rule_hits?: { module: string; score: number; evidence: string[] }[];
   assessment: ClinicalAssessment | null;
   note: ClinicalNotePayload | null;
   medication_safety_gate: {
