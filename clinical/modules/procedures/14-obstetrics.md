@@ -51,7 +51,20 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-004 — Prolapso de cordón — CORE
-**Objetivo:** aliviar compresión hasta parto urgente. **Técnica:** pedir ayuda/cesárea emergente, elevar manualmente presentación fetal, posición materna que reduzca presión, minimizar manipulación del cordón y mantenerlo húmedo si exteriorizado. **Visual:** mano elevando presentación.
+**Objetivo:** reducir la compresión del cordón hasta parto urgente.
+**Indicaciones:** cordón prolapsado visible o palpable con presentación fetal compresiva.
+**Contraindicaciones/precauciones:** evitar manipulación innecesaria del cordón y retrasos en parto definitivo.
+**Material:** guantes estériles, monitorización fetal si disponible y material obstétrico.
+**Anatomía:** presentación fetal, cérvix, cordón y pelvis.
+**Preparación:** activar cesárea/obstetricia emergente y equipo neonatal.
+**Técnica paso a paso:** elevar manualmente la presentación, colocar posición materna que reduzca presión, minimizar manipulación y mantener húmedo el cordón exteriorizado.
+**STOP:** no intentar reposicionar el cordón como estrategia definitiva.
+**Confirmación:** menor compresión o recuperación fetal temporal cuando sea monitorizable.
+**Complicaciones:** hipoxia fetal y trauma del cordón.
+**Después:** parto urgente.
+**Documentación:** hora de diagnóstico, medidas y tiempo hasta parto.
+**Fuentes:** obstetric emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-OBS-005 — Hemorragia posparto: masaje uterino inicial — CORE
 **Técnica:** masaje bimanual/uterino según atonía, activar protocolo hemorragia, uterotónicos desde módulo farmacológico, acceso IV/hemocomponentes y buscar 4T. **Visual:** masaje fundal/bimanual.
