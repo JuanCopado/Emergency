@@ -160,3 +160,8 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - CDC catheter-related infection recommendations updated 2024 — `PROC-VASC-008`.
 - Society of Hospital Medicine ultrasound-guided vascular access position statement; German haemodynamic monitoring guideline 2024; evidence summaries 2026 — `PROC-VASC-010`, `PROC-VASC-011`.
 - SANJO guideline 2023 — `PROC-ORTHO-020`, `PROC-ORTHO-021`.
+
+
+## Tercera pasada de procedimientos invasivos — 06/10/2026
+- WHO Consolidated PPH Guidelines 2025 and Implementation Guide 2026 — `PROC-OBS-006`, `PROC-OBS-007`.
+- HSE National Clinical Practice Guideline: Prevention and Management of Primary Postpartum Haemorrhage, 2025 — `PROC-OBS-006`, `PROC-OBS-007`.
