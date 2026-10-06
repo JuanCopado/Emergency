@@ -19,7 +19,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW.
 
 ## PROC-PED-002 — BVM pediátrica — CORE/PED
-**Técnica:** mascarilla correcta, sello suave, elevación mandibular, ventilaciones con volumen suficiente para elevación visible del tórax, evitando hiperventilación. Dos operadores si ventilación difícil. **Visual:** tamaño de mascarilla y agarre.
+**Objetivo:** proporcionar ventilación efectiva con mínimo riesgo de barotrauma/insuflación gástrica.
+**Indicaciones:** apnea, ventilación insuficiente o soporte peri-intubación.
+**Contraindicaciones/precauciones:** evitar mascarilla sobredimensionada e hiperventilación.
+**Material:** bolsa pediátrica, mascarilla adecuada, oxígeno, reservorio, PEEP si indicada y adjuncts.
+**Anatomía:** sello facial, mandíbula y vía aérea superior.
+**Preparación:** posición óptima y selección correcta de mascarilla.
+**Técnica paso a paso:** sellar mascarilla, elevar mandíbula y ventilar con volumen suficiente para elevación visible del tórax; pasar a dos operadores si es difícil.
+**STOP:** ausencia de elevación torácica, fuga importante o deterioro de oxigenación.
+**Confirmación:** expansión torácica y ETCO2/SpO2 cuando disponibles.
+**Complicaciones:** insuflación gástrica, aspiración, barotrauma e hipoventilación.
+**Después:** escalar a supraglótico/intubación si ventilación ineficaz.
+**Documentación:** técnica, tamaño de mascarilla y respuesta.
+**Fuentes:** ERC/RCUK Pediatric Life Support 2025.
+**QA:** YELLOW.
 
 ## PROC-PED-003 — Intubación pediátrica — ADVANCED/PED
 **Técnica:** checklist, preoxigenación, selección de tubo/pala según edad/tamaño, RSI desde módulo pediátrico, laringoscopia/videolaringoscopia, confirmación por capnografía, fijación y ventilación protectora. **STOP:** bradicardia/desaturación → reoxigenar. **Visual:** anatomía pediátrica y profundidad.
