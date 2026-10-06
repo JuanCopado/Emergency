@@ -51,7 +51,20 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-004 — Toracocentesis ecoguiada — ADVANCED
-**Técnica:** identificar diafragma, pulmón, vísceras y profundidad del derrame; marcar o guiar en tiempo real según posición invariable; evitar vasos intercostales cuando identificables. **Visual:** pleural effusion.
+**Objetivo:** seleccionar una ventana pleural segura.
+**Indicaciones:** toracocentesis diagnóstica/terapéutica con líquido pleural accesible.
+**Contraindicaciones/precauciones:** ausencia de ventana segura o anatomía no identificable.
+**Material:** ecógrafo, transductor apropiado y material de toracocentesis.
+**Anatomía:** diafragma, pulmón, hígado/bazo y paquete intercostal.
+**Preparación:** explorar con el paciente en la misma posición del procedimiento.
+**Técnica paso a paso:** localizar derrame, medir profundidad, identificar diafragma/vísceras, marcar o guiar en tiempo real y entrar por trayecto seguro.
+**STOP:** pérdida de ventana, pulmón interpuesto o anatomía discordante.
+**Confirmación:** aguja/catéter en colección y drenaje esperado.
+**Complicaciones:** neumotórax, sangrado y lesión visceral.
+**Después:** reevaluación pleuropulmonar.
+**Documentación:** ventana, profundidad y confirmación.
+**Fuentes:** BTS Pleural Procedures 2023; POCUS standards.
+**QA:** YELLOW.
 
 ## PROC-US-005 — Drenaje pleural ecoguiado — ADVANCED
 **Técnica:** localizar colección y ventana; seguir aguja/guía si técnica Seldinger; confirmar guía en colección antes de dilatar. **Visual:** wire en pleura.
