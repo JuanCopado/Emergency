@@ -12,8 +12,7 @@ Provider contract (POST JSON):
   "request_id": "...",
   "kind": "ecg|xray|ct|mri|pocus|other_image|pdf_document|...",
   "mime_type": "...",
-  "filename": "...",
-  "sha256": "...",
+  "filename": "clinical-source.<ext>",
   "routed_modules": ["..."],
   "content_base64": "..."
 }
@@ -41,9 +40,11 @@ import ssl
 import urllib.error
 import urllib.request
 import uuid
+from pathlib import Path
 
 CONTRACT_VERSION = "1.0"
 DEFAULT_TIMEOUT_SECONDS = 45
+MAX_PROVIDER_RESPONSE_BYTES = 2 * 1024 * 1024
 ALLOWED_CONFIDENCE = {None, "high", "moderate", "low"}
 BINARY_KINDS = {
     "ecg", "xray", "chest_xray", "xray_chest", "musculoskeletal_xray",
@@ -95,13 +96,14 @@ def build_request(prepared, content_base64):
         raise VisionAdapterError("privacy STOP must be resolved before interpretation")
     if not isinstance(content_base64, str) or not content_base64:
         raise VisionAdapterError("content_base64 is required")
+    suffix = Path(str(prepared.get("filename") or "")).suffix.lower()
+    safe_suffix = suffix if 0 < len(suffix) <= 10 and suffix.replace(".", "").isalnum() else ""
     return {
         "contract_version": CONTRACT_VERSION,
         "request_id": str(uuid.uuid4()),
         "kind": kind,
         "mime_type": prepared.get("mime_type") or "application/octet-stream",
-        "filename": prepared.get("filename") or "upload",
-        "sha256": prepared.get("sha256"),
+        "filename": "clinical-source" + safe_suffix,
         "routed_modules": list(prepared.get("processing", {}).get("modules") or []),
         "content_base64": content_base64,
     }
@@ -138,6 +140,11 @@ def _normalize_response(payload):
     }
 
 
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise VisionAdapterError("clinical vision provider redirects are not allowed")
+
+
 def invoke(prepared, content_base64, *, privacy_checked=False,
            burned_in_identifiers_checked=False, env=None, transport=None):
     privacy = prepared.get("privacy", {}) if isinstance(prepared, dict) else {}
@@ -159,22 +166,34 @@ def invoke(prepared, content_base64, *, privacy_checked=False,
             headers["Authorization"] = "Bearer " + cfg["token"]
         request = urllib.request.Request(cfg["url"], data=body, headers=headers, method="POST")
         context = ssl.create_default_context()
+        opener = urllib.request.build_opener(
+            urllib.request.HTTPSHandler(context=context),
+            _NoRedirect(),
+        )
         try:
-            with urllib.request.urlopen(request, timeout=cfg["timeout"], context=context) as response:
-                raw = response.read()
+            with opener.open(request, timeout=cfg["timeout"]) as response:
+                raw = response.read(MAX_PROVIDER_RESPONSE_BYTES + 1)
+        except VisionAdapterError:
+            raise
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             raise VisionAdapterError("clinical vision provider request failed") from exc
+        if len(raw) > MAX_PROVIDER_RESPONSE_BYTES:
+            raise VisionAdapterError("clinical vision provider response exceeds limit")
         try:
             response_payload = json.loads(raw.decode("utf-8"))
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
             raise VisionAdapterError("clinical vision provider returned invalid JSON") from exc
 
     normalized = _normalize_response(response_payload)
+    if request_payload["kind"] != "pdf_document" and normalized.get("official_report"):
+        raise VisionAdapterError(
+            "vision provider must not label generated image interpretation as an official report"
+        )
     return {
         "contract_version": CONTRACT_VERSION,
         "request_id": request_payload["request_id"],
         "kind": request_payload["kind"],
-        "sha256": request_payload["sha256"],
+        "sha256": prepared.get("sha256"),
         "routed_modules": request_payload["routed_modules"],
         "review_required": True,
         "persisted": False,
