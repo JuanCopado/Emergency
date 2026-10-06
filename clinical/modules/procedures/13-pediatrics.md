@@ -151,16 +151,16 @@ Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técni
 
 ## PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal — ADVANCED/PED
 **Objetivo:** obtener acceso vascular rápido durante reanimación neonatal avanzada.
-**Indicaciones:** recién nacido que requiere acceso intravascular urgente; UVC es acceso de elección en reanimación neonatal avanzada cuando es factible.
-**Contraindicaciones/precauciones:** no avanzar a profundidad definitiva sin confirmación; evitar falsa vía y extravasación.
+**Indicaciones:** AHA 2025 recomienda un catéter venoso umbilical para recién nacidos que requieren acceso vascular de emergencia; el acceso intraóseo puede ser útil si el acceso IV/umbilical no es exitoso o no es factible.
+**Contraindicaciones/precauciones:** no avanzar a posición definitiva sin confirmación; evitar falsa vía, extravasación y manipulación que interfiera con ventilación/compresiones.
 **Material:** campo estéril, pinza/cinta umbilical, tijera/bisturí estéril, catéter umbilical apropiado, jeringas, flush y fijación.
 **Anatomía:** vena umbilical de luz mayor y pared fina frente a dos arterias de pared más gruesa.
-**Preparación:** mantener ventilación/compresiones sin interrupciones evitables y coordinar roles.
-**Técnica paso a paso:** exponer/seccionar el cordón de forma controlada, identificar la vena, introducir el catéter de baja posición solo lo necesario para retorno y administración segura, aspirar/confirmar permeabilidad y fijar.
+**Preparación:** mantener ventilación y compresiones con mínimas interrupciones; coordinar roles y preparar alternativa IO si el acceso no progresa con rapidez.
+**Técnica paso a paso:** exponer/seccionar el cordón de forma controlada, identificar la vena, introducir un catéter de baja posición solo lo suficiente para obtener retorno y administrar tratamiento de emergencia, comprobar permeabilidad y fijar.
 **STOP:** resistencia, falsa vía, extravasación, sangrado o posición dudosa.
-**Confirmación:** retorno sanguíneo/permeabilidad; para uso continuado o posición alta, confirmar posición según protocolo neonatal.
+**Confirmación:** retorno sanguíneo y permeabilidad. Para uso continuado o posición alta, confirmar ubicación según protocolo neonatal antes de utilizarlo como línea definitiva.
 **Complicaciones:** mala posición, extravasación, hemorragia, trombosis, infección, lesión hepática/portal y arritmia por avance excesivo.
-**Después:** asegurar fijación y sustituir/confirmar acceso definitivo según evolución.
-**Documentación:** profundidad, retorno, fármacos administrados y complicaciones.
-**Fuentes:** AHA/AAP Neonatal Resuscitation Guidelines 2025.
-**QA:** YELLOW.
+**Después:** asegurar fijación y convertir/confirmar acceso definitivo según evolución.
+**Documentación:** profundidad, retorno, uso durante reanimación, fármacos administrados y complicaciones.
+**Fuentes:** AHA/AAP 2025 Neonatal Resuscitation Guidelines — Vascular Access During Resuscitation.
+**QA:** YELLOW; revisión humana neonatología pendiente.
