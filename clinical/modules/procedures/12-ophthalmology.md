@@ -35,7 +35,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-EYE-003 — Eversión palpebral — CORE
-**Técnica:** pedir mirar abajo, sujetar pestañas, aplicar hisopo sobre tarso y evertir; doble eversión solo entrenado. **Visual:** 3 pasos.
+**Objetivo:** visualizar conjuntiva tarsal y cuerpos extraños ocultos.
+**Indicaciones:** sensación de cuerpo extraño, abrasiones verticales o exposición química.
+**Contraindicaciones/precauciones:** sospecha de globo abierto o trauma penetrante.
+**Material:** hisopo, buena iluminación y anestésico tópico si procede.
+**Anatomía:** tarso superior y conjuntiva palpebral.
+**Preparación:** pedir al paciente que mire hacia abajo.
+**Técnica paso a paso:** sujetar pestañas, apoyar un hisopo sobre el tarso, evertir el párpado e inspeccionar; doble eversión solo si está entrenado.
+**STOP:** dolor intenso o sospecha de lesión penetrante.
+**Confirmación:** visualización completa de la conjuntiva tarsal.
+**Complicaciones:** irritación o abrasión.
+**Después:** retirar el cuerpo extraño si es seguro y reevaluar córnea.
+**Documentación:** hallazgos.
+**Fuentes:** ophthalmology procedural guidance.
+**QA:** YELLOW.
 
 ## PROC-EYE-004 — Cuerpo extraño corneal superficial — CORE
 **Técnica:** anestesia tópica diagnóstica/procedimental, lámpara de hendidura, irrigación/hisopo primero; aguja/burr solo operador entrenado y superficial. **STOP:** penetración, Seidel+, objeto central/profundo. **Visual:** lámpara de hendidura.
