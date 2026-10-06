@@ -131,7 +131,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-009 — Hematoma auricular — ADVANCED
-**Técnica:** anestesia, incisión/aspiración según tamaño/tiempo, evacuar y colocar bolster compresivo moldeando pabellón; antibiótico según protocolo. **Visual:** cartílago-pericondrio.
+**Objetivo:** evacuar hematoma y prevenir deformidad del pabellón.
+**Indicaciones:** hematoma auricular agudo.
+**Contraindicaciones/precauciones:** infección, necrosis o presentación tardía/organizada requieren ORL/plástica.
+**Material:** anestesia, aguja o bisturí según caso, irrigación y bolster compresivo.
+**Anatomía:** piel, pericondrio y cartílago auricular.
+**Preparación:** antisepsia y analgesia/bloqueo.
+**Técnica paso a paso:** evacuar la colección mediante técnica apropiada y colocar compresión moldeada.
+**STOP:** necrosis, sangrado persistente o infección.
+**Confirmación:** pabellón recontorneado sin colección residual significativa.
+**Complicaciones:** recurrencia, infección y deformidad.
+**Después:** revisión ORL y cuidados del bolster.
+**Documentación:** técnica y dispositivo compresivo.
+**Fuentes:** ORL emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-ENT-010 — Absceso periamigdalino — ADVANCED
 **Técnica:** valorar vía aérea; anestesia tópica/local; aspiración o incisión en zona de máxima prominencia usando guardia de profundidad; aspirar antes de avanzar. **STOP:** anatomía incierta, trismus extremo, sangrado o vía aérea amenazada → ORL/anestesia. **Visual:** relación con carótida.
