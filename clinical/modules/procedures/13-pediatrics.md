@@ -51,7 +51,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW.
 
 ## PROC-PED-004 — Supraglótico pediátrico — CORE/PED
-**Técnica:** talla según peso/fabricante, lubricar, insertar sin fuerza, inflar si aplica, confirmar ETCO₂ y fijar. **Visual:** tamaño y posición.
+**Objetivo:** rescatar oxigenación/ventilación en niño cuando BVM o intubación es difícil.
+**Indicaciones:** ventilación ineficaz o vía aérea avanzada de rescate.
+**Contraindicaciones/precauciones:** seleccionar talla por peso/fabricante y evitar inserción forzada.
+**Material:** supraglótico pediátrico, lubricante, jeringa si cuff, circuito y capnografía.
+**Anatomía:** orofaringe e hipofaringe.
+**Preparación:** elegir talla y plan de rescate.
+**Técnica paso a paso:** lubricar, insertar sin fuerza, inflar cuff si aplica, ventilar y fijar.
+**STOP:** ventilación imposible, fuga severa o trauma.
+**Confirmación:** ETCO2 de onda y expansión torácica.
+**Complicaciones:** malposición, aspiración, trauma y fuga.
+**Después:** decidir necesidad de vía aérea definitiva.
+**Documentación:** dispositivo/talla e intentos.
+**Fuentes:** ERC/RCUK Pediatric Life Support 2025.
+**QA:** YELLOW.
 
 ## PROC-PED-005 — Acceso intraóseo pediátrico — CORE/PED
 **Técnica:** punto anatómico adecuado a edad/dispositivo, profundidad controlada, flush y fijación; analgesia si consciente. **STOP:** extravasación/compartimental. **Visual:** tibia proximal y alternativas.
