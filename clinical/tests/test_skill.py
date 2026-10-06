@@ -5675,6 +5675,27 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(report['provenance'],'ai_image_interpretation')
         self.assertEqual(report['routed_modules'],['ecg-image'])
 
+    def test_v139_export_preserves_official_and_ai_as_separate_clinical_fields(self):
+        note=self._clean_note_for_export()
+        add_clinical_report(
+            note,'ecg','official_report',
+            official_report='ECG oficial: ritmo sinusal.',
+            ai_interpretation='IA: sem alterações agudas adicionais.',
+            privacy_checked=True,burned_in_identifiers_checked=True
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            docx=Path(directory)/'structured-note.docx'
+            export_clinical_note_docx(note,docx)
+            import zipfile
+            with zipfile.ZipFile(docx) as z:
+                xml=z.read('word/document.xml').decode('utf-8')
+            self.assertIn('Sinais vitais seriados',xml)
+            self.assertIn('Radiografia (Rx)',xml)
+            self.assertIn('ECG',xml)
+            self.assertIn('Informe oficial / dados extraídos: ECG oficial: ritmo sinusal.',xml)
+            self.assertIn('Interpretação IA: IA: sem alterações agudas adicionais.',xml)
+            self.assertIn('Validação médica e privacidade',xml)
+
     def test_v139_clinical_note_docx_pdf_export_smoke(self):
         note=self._clean_note_for_export()
         with tempfile.TemporaryDirectory() as directory:
