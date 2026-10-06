@@ -1,0 +1,42 @@
+name: v1.40 evidence surveillance QA
+on:
+  pull_request:
+    branches:
+      - v1.39-clinical-note-diagnostic-support
+    paths:
+      - "clinical/scripts/evidence_*.py"
+      - "clinical/scripts/urgent_safety_triage.py"
+      - "clinical/tests/test_evidence_*.py"
+      - "clinical/references/evidence-*.json"
+      - ".github/workflows/*surveillance*.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: v1-40-evidence-qa-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile surveillance code
+        run: python -m compileall -q clinical/scripts clinical/tests
+      - name: Run evidence surveillance regression suite
+        run: python -m unittest discover -s clinical/tests -p "test_evidence_*.py" -v
+      - name: Enforce no automatic clinical mutation
+        run: |
+          python - <<'PY'
+          import pathlib
+          files=list(pathlib.Path("clinical/scripts").glob("evidence_*.py"))+[pathlib.Path("clinical/scripts/urgent_safety_triage.py")]
+          text="\n".join(p.read_text(encoding="utf-8") for p in files if p.exists())
+          forbidden=["git push","merge_pull_request","auto_apply=True","production_changes_applied=True"]
+          hits=[x for x in forbidden if x in text]
+          if hits:
+              raise SystemExit("Forbidden automatic mutation primitives: "+", ".join(hits))
+          print("No automatic clinical mutation primitives detected")
+          PY

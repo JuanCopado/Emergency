@@ -1,0 +1,47 @@
+name: Weekly evidence surveillance
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * 1"
+permissions:
+  contents: read
+  actions: read
+jobs:
+  surveillance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Restore previous surveillance state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p .surveillance-previous
+          artifact_id="$(gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=evidence-surveillance-report&per_page=20" --jq '.artifacts | map(select(.expired == false)) | sort_by(.created_at) | reverse | .[0].id // empty')"
+          if [ -n "$artifact_id" ]; then
+            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/$artifact_id/zip" > /tmp/previous.zip
+            python - <<'PY'
+          import zipfile
+          with zipfile.ZipFile("/tmp/previous.zip") as z:
+              names=[n for n in z.namelist() if n.endswith("evidence-surveillance-report.json")]
+              if names:
+                  with z.open(names[0]) as src, open(".surveillance-previous/previous.json","wb") as dst:
+                      dst.write(src.read())
+          PY
+          fi
+      - name: Run fail-closed surveillance
+        run: |
+          args=()
+          if [ -f .surveillance-previous/previous.json ]; then args+=(--previous .surveillance-previous/previous.json); fi
+          python clinical/scripts/evidence_surveillance.py "${args[@]}" --cadence weekly --output evidence-surveillance-report.json
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-surveillance-report
+          path: evidence-surveillance-report.json
+          if-no-files-found: error
+          retention-days: 30

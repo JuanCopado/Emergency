@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "policy": "allowlist",
+  "minimum_source_tier": "authoritative_or_peer_reviewed",
+  "rules": {
+    "authoritative": [
+      "government_health_authority",
+      "medicines_regulator",
+      "international_public_health_body",
+      "recognized_scientific_society",
+      "formal_guideline_body"
+    ],
+    "peer_reviewed": [
+      "systematic_review",
+      "meta_analysis",
+      "randomized_controlled_trial",
+      "high_quality_observational_when_appropriate"
+    ],
+    "excluded": [
+      "blog",
+      "commercial_marketing",
+      "social_media",
+      "ai_generated_summary",
+      "unsourced_aggregator",
+      "forum"
+    ],
+    "requirements": [
+      "canonical_source_or_publisher",
+      "publication_or_update_date_when_available",
+      "traceable_title_or_identifier",
+      "human_review_before_clinical_change"
+    ]
+  }
+}
