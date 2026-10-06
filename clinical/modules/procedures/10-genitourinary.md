@@ -19,20 +19,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **QA:** YELLOW; revisión humana urología/enfermería pendiente.
 
 ## PROC-GU-002 — Sondaje vesical femenino — CORE
-**Objetivo:** drenaje vesical seguro.  
-**Indicaciones:** mismas indicaciones clínicas de sondaje.  
-**Contraindicaciones/precauciones:** trauma uretral/pélvico, cirugía reciente o anatomía compleja.  
-**Material:** sonda, campo estéril, lubricante, balón y bolsa.  
-**Anatomía:** meato uretral, vagina y vejiga.  
-**Preparación:** posición, privacidad y antisepsia.  
-**Técnica paso a paso:** 1) identificar meato; 2) lubricar; 3) avanzar hasta orina; 4) avanzar adicionalmente; 5) inflar balón; 6) fijar.  
-**STOP:** resistencia, dolor importante o sangrado.  
-**Confirmación:** drenaje libre.  
-**Complicaciones:** falsa vía, trauma, infección.  
-**Después:** sistema cerrado.  
-**Documentación:** calibre y resultado.  
-**Fuentes:** urologic catheter guidance.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar drenaje vesical seguro y con mínima contaminación.
+**Indicaciones:** mismas indicaciones clínicas de sondaje permanente/intermitente cuando una alternativa menos invasiva no es adecuada.
+**Contraindicaciones/precauciones:** trauma uretral/pélvico, cirugía reciente, anatomía compleja o resistencia significativa.
+**Material:** sonda apropiada, campo estéril, lubricante, jeringa de balón y sistema cerrado.
+**Anatomía:** meato uretral anterior a la vagina, uretra corta y vejiga.
+**Preparación:** privacidad, higiene de manos, técnica estéril, separación de labios y antisepsia.
+**Técnica paso a paso:** identificar claramente el meato, lubricar, avanzar la sonda suavemente hasta obtener orina, avanzar un poco más para asegurar posición intravesical e inflar balón solo entonces; fijar sin tensión.
+**STOP:** dolor intenso, resistencia, sangrado o duda de localización; si entra en vagina, dejarla temporalmente como referencia y usar una nueva sonda estéril para uretra.
+**Confirmación:** drenaje libre y balón intravesical sin dolor.
+**Complicaciones:** trauma uretral, infección y malposición.
+**Después:** sistema cerrado y retirada precoz cuando cese la indicación.
+**Documentación:** indicación, calibre, dificultad y débito.
+**Fuentes:** CDC CAUTI Summary of Recommendations, reviewed 2024.
+**QA:** YELLOW; revisión humana urología/enfermería pendiente.
 
 ## PROC-GU-003 — Sondaje vesical con sonda coudé — ADVANCED
 **Objetivo:** facilitar sondaje masculino difícil por angulación/prostata seleccionada.  
