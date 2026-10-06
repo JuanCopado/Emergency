@@ -83,20 +83,20 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-006 — Reducción de luxaciones de dedos — CORE
-**Objetivo:** restaurar alineación articular y función.  
-**Indicaciones:** luxación interfalángica/metacarpofalángica seleccionada.  
-**Contraindicaciones/precauciones:** abierta, fractura compleja, lesión tendinosa o irreductible.  
-**Material:** bloqueo digital, férula y Rx.  
-**Anatomía:** articulación, placa volar, tendones y paquetes neurovasculares digitales.  
-**Preparación:** neurovascular y Rx si no urgente.  
-**Técnica paso a paso:** 1) analgesia; 2) tracción suave; 3) exagerar mínimamente deformidad si patrón lo requiere; 4) deslizar articulación a posición; 5) comprobar estabilidad.  
-**STOP:** no hipertraccionar; irreductible → cirugía.  
-**Confirmación:** congruencia, estabilidad y Rx post.  
-**Complicaciones:** lesión placa volar/tendón, fractura, rigidez.  
-**Después:** buddy taping/férula según lesión.  
-**Documentación:** articulación y neurovascular.  
-**Fuentes:** hand emergency guidance.  
-**QA:** YELLOW.
+**Objetivo:** restaurar congruencia articular, estabilidad y función digital.
+**Indicaciones:** luxaciones interfalángicas o metacarpofalángicas cerradas seleccionadas.
+**Contraindicaciones/precauciones:** lesión abierta, fractura-luxación compleja, lesión tendinosa, déficit neurovascular o articulación irreductible requieren cirugía de mano.
+**Material:** bloqueo digital, férula/buddy tape y radiografías.
+**Anatomía:** articulación afectada, placa volar, ligamentos colaterales, tendones y paquetes neurovasculares.
+**Preparación:** examen neurovascular/tendinoso y radiografías AP/lateral/oblicua cuando sea posible.
+**Técnica paso a paso:** tras bloqueo, aplicar tracción suave y maniobra dirigida por el patrón; evitar hipertracción. Tras reducción, comprobar estabilidad lateral/volar-dorsal y función tendinosa.
+**STOP:** articulación irreductible, bloqueo mecánico, dolor/crepitación anormal o inestabilidad marcada.
+**Confirmación:** alineación clínica, estabilidad razonable, función tendinosa y radiografía postreducción.
+**Complicaciones:** fractura, lesión de placa volar/ligamentos/tendones, rigidez e inestabilidad.
+**Después:** buddy taping o férula según lesión y movilización protegida precoz cuando sea apropiada.
+**Documentación:** articulación/patrón, neurovascular/tendones pre-post, técnica y estabilidad.
+**Fuentes:** Merck Manual Professional, Finger Dislocations, updated Oct 2025.
+**QA:** YELLOW; revisión humana cirugía de mano pendiente.
 
 ## PROC-ORTHO-007 — Reducción de luxación de pulgar — CORE
 **Objetivo:** restaurar articulación del pulgar evitando interposición de placa volar.  
