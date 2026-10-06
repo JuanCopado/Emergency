@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "rule": "Every registered module must be either directly/indirectly routed by the diagnostic engine or explicitly classified as a non-diagnostic support module.",
+  "exempt_non_diagnostic_modules": {
+    "clinical-image-interpretation": "cross-cutting image interpretation infrastructure",
+    "musculoskeletal-xray": "image interpretation modality, not a diagnosis",
+    "pocus-image": "image interpretation modality, not a diagnosis",
+    "other-clinical-image": "generic image interpretation fallback",
+    "pediatric-airway-rsi": "procedure/airway management module",
+    "sedoanalgesia": "treatment/procedure support module",
+    "icu-sedation-analgesia-infusions": "ICU medication/infusion support",
+    "pediatric-emergencies": "umbrella pediatric routing module",
+    "pediatric-outpatient-medications": "outpatient medication registry/calculator",
+    "high-flow-nasal-oxygen": "respiratory support treatment modality",
+    "endocrine-metabolic": "umbrella family module; specific endocrine/metabolic syndromes are routed separately",
+    "medication-selection-safety": "cross-cutting medication safety engine",
+    "vasoactive-inotrope-infusions": "therapy/infusion support",
+    "ecg-pocus-integration": "multimodal diagnostic integration infrastructure",
+    "clinical-note-diagnostic-support": "documentation/reasoning infrastructure itself",
+    "final-human-review-gate": "project governance/human-review module"
+  }
+}
