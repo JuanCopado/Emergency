@@ -179,3 +179,12 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - Best Evidence Topic 2026, haematoma block vs procedural sedation for distal radius fracture manipulation — `PROC-WND-003`.
 - NCBI Bookshelf/StatPearls, Vaginal Foreign Body Evaluation and Treatment — `PROC-GU-009`.
 - CDC intravascular catheter recommendations 2024; J Vasc Bras 2025 review and J Crit Care 2026 systematic review on air embolism after CVC removal — `PROC-VASC-014`.
+
+
+## Sexta pasada de procedimientos de riesgo — 06/10/2026
+- CDC CAUTI Summary of Recommendations, reviewed 2024 — `PROC-GU-001`, `PROC-GU-002`.
+- AUA Urotrauma Guideline — `PROC-GU-001`, `PROC-GU-003`.
+- AAO-HNSF Cerumen Impaction Guideline (Update), 2017 — `PROC-ENT-008`.
+- Merck Manual Professional 2025–2026: nasal/ear foreign body, auricular hematoma, nursemaid elbow, finger dislocations and related reduction references — `PROC-ENT-005/006/007/009`, `PROC-ORTHO-004/005/006/007`.
+- Merck Manual Professional 2026, tissue adhesive repair — `PROC-WND-013`.
+- Merck Manual Professional 2025, incision and drainage of abscess; IDSA SSTI guideline — `PROC-WND-015`.
