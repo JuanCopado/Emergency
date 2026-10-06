@@ -5,7 +5,7 @@ This runner detects source changes and emits review proposals. It NEVER edits
 clinical modules or the evidence registry.
 """
 from __future__ import annotations
-import argparse, hashlib, json, pathlib, sys, urllib.request
+import argparse, hashlib, json, pathlib, sys, urllib.request\nfrom evidence_content_extractor import clinical_fingerprint
 from datetime import datetime, timezone
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
@@ -29,8 +29,8 @@ def run(source_path:pathlib.Path, previous:dict|None=None)->dict:
         try:
             body=fetch(s["url"])
             if len(body)>5_000_000: raise RuntimeError("response exceeds 5 MB safety cap")
-            h=digest(body); old=prev.get(s["id"],{}).get("sha256")
-            item.update(status="ok",sha256=h,changed=(old is not None and old!=h),first_observation=(old is None))
+            fp=clinical_fingerprint(body); h=fp["sha256"]; old=prev.get(s["id"],{}).get("clinical_sha256") or prev.get(s["id"],{}).get("sha256")
+            item.update(status="ok",clinical_sha256=h,clinical_lines=fp["clinical_lines"],changed=(old is not None and old!=h),first_observation=(old is None))
             if old is not None and old!=h:
                 out["review_queue"].append({"source_id":s["id"],"classification":"untriaged","requires_human_review":True})
         except Exception as e:
