@@ -27,6 +27,7 @@ from clinical_note_api import (
     accept_prepared_upload as accept_clinical_upload,
     run_diagnostic_support as run_clinical_note_api_diagnostic,
     export_note_bytes as export_clinical_note_bytes,
+    interpret_prepared_upload as interpret_clinical_upload,
 )
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
 from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
@@ -5642,6 +5643,123 @@ class ModularCoreTests(unittest.TestCase):
             accepted['note']['complementary_tests']['imaging'][0]['provenance'],
             'ai_image_interpretation',
         )
+
+    def test_v139_binary_vision_adapter_requires_privacy_review_before_provider(self):
+        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        prepared = prepare_clinical_upload(
+            'ecg.png', 'image/png', payload, explicit_kind='ecg'
+        )
+        called = {'value': False}
+        def transport(cfg, request):
+            called['value'] = True
+            return {
+                'contract_version': '1.0', 'status': 'ok',
+                'provider': 'test', 'model': 'mock',
+                'ai_interpretation': 'Ritmo sinusal.',
+                'limitations': [], 'confidence': 'moderate',
+            }
+        with self.assertRaises(ValueError):
+            interpret_clinical_upload(
+                prepared, payload,
+                privacy_checked=False,
+                burned_in_identifiers_checked=False,
+                vision_transport=transport,
+                vision_env={'CLINICAL_VISION_PROVIDER_URL': 'https://vision.example.test'},
+            )
+        self.assertFalse(called['value'])
+
+    def test_v139_binary_vision_adapter_verifies_prepared_sha256(self):
+        payload = base64.b64encode(b'\x89PNG\r\n\x1a\noriginal').decode('ascii')
+        prepared = prepare_clinical_upload(
+            'rx_torax.png', 'image/png', payload, explicit_kind='xray'
+        )
+        altered = base64.b64encode(b'\x89PNG\r\n\x1a\nchanged').decode('ascii')
+        with self.assertRaises(ValueError):
+            interpret_clinical_upload(
+                prepared, altered,
+                privacy_checked=True,
+                burned_in_identifiers_checked=True,
+                vision_transport=lambda *_: {},
+                vision_env={'CLINICAL_VISION_PROVIDER_URL': 'https://vision.example.test'},
+            )
+
+    def test_v139_binary_vision_adapter_proposal_requires_clinician_acceptance(self):
+        note = new_clinical_note(age_years=64, sex='female')
+        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        prepared = prepare_clinical_upload(
+            'rx_torax.png', 'image/png', payload, explicit_kind='xray'
+        )
+        def transport(cfg, request):
+            self.assertEqual(request['routed_modules'], [
+                'clinical-image-interpretation', 'chest-xray', 'musculoskeletal-xray'
+            ])
+            self.assertNotIn('Authorization', request)
+            return {
+                'contract_version': '1.0',
+                'status': 'ok',
+                'provider': 'test-provider',
+                'model': 'mock-cxr-v1',
+                'official_report': None,
+                'ai_interpretation': 'Sem pneumotórax evidente.',
+                'findings': 'Expansão pulmonar bilateral.',
+                'impression': 'Sem achado torácico agudo evidente.',
+                'limitations': ['Imagem única; correlacionar clinicamente.'],
+                'confidence': 'moderate',
+            }
+        interpreted = interpret_clinical_upload(
+            prepared, payload,
+            privacy_checked=True,
+            burned_in_identifiers_checked=True,
+            vision_transport=transport,
+            vision_env={'CLINICAL_VISION_PROVIDER_URL': 'https://vision.example.test'},
+        )
+        self.assertTrue(interpreted['review_required'])
+        self.assertFalse(interpreted['persisted'])
+        self.assertEqual(note['complementary_tests']['imaging'], [])
+        proposal = interpreted['prepared']
+        self.assertEqual(proposal['processing']['status'], 'vision_interpreted')
+        self.assertEqual(proposal['processing']['provider'], 'test-provider')
+        self.assertEqual(proposal['processing']['model'], 'mock-cxr-v1')
+        self.assertEqual(proposal['extracted']['ai_interpretation'], 'Sem pneumotórax evidente.')
+
+        accepted = accept_clinical_upload(
+            note, proposal,
+            clinician_edit={
+                'ai_interpretation': proposal['extracted']['ai_interpretation'],
+                'findings': proposal['processing']['findings'],
+                'impression': proposal['processing']['impression'],
+                'limitations': proposal['processing']['limitations'],
+            },
+            privacy_checked=True,
+            burned_in_identifiers_checked=True,
+        )
+        self.assertEqual(len(accepted['note']['complementary_tests']['imaging']), 1)
+        self.assertEqual(
+            accepted['note']['complementary_tests']['imaging'][0]['provenance'],
+            'ai_image_interpretation',
+        )
+
+    def test_v139_binary_vision_adapter_blocks_identifier_leak_in_provider_output(self):
+        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        prepared = prepare_clinical_upload(
+            'ecg.png', 'image/png', payload, explicit_kind='ecg'
+        )
+        with self.assertRaises(ValueError):
+            interpret_clinical_upload(
+                prepared, payload,
+                privacy_checked=True,
+                burned_in_identifiers_checked=True,
+                vision_transport=lambda cfg, request: {
+                    'contract_version': '1.0',
+                    'status': 'ok',
+                    'provider': 'test',
+                    'model': 'mock',
+                    'ai_interpretation': 'Nome: Joao da Silva; ritmo sinusal.',
+                    'limitations': [],
+                    'confidence': 'low',
+                },
+                vision_env={'CLINICAL_VISION_PROVIDER_URL': 'https://vision.example.test'},
+            )
 
     def test_v139_api_end_to_end_accept_diagnose_review_export(self):
         note = new_clinical_note(age_years=67, sex='male')
