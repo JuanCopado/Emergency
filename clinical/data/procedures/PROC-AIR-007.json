@@ -1,0 +1,197 @@
+{
+  "procedure_id": "PROC-AIR-007",
+  "name": "Dispositivo supraglótico",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Rescatar oxigenación y ventilación y servir como puente o vía avanzada seleccionada.",
+  "indications": [
+    "BVM ineficaz.",
+    "Intubación fallida.",
+    "Reanimación según algoritmo."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [
+      "Riesgo elevado de aspiración.",
+      "Obstrucción distal.",
+      "Apertura oral insuficiente según dispositivo."
+    ],
+    "precautions": [
+      "Seleccionar talla y dispositivo apropiados.",
+      "Tener plan de rescate si no ventila."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Dispositivo supraglótico de talla apropiada.",
+      "Lubricante.",
+      "BVM o circuito.",
+      "Capnografía."
+    ],
+    "optional": [
+      "Jeringa si el dispositivo usa cuff."
+    ],
+    "monitoring": [
+      "SpO₂.",
+      "Capnografía."
+    ],
+    "rescue": [
+      "BVM.",
+      "Equipo de intubación.",
+      "Equipo de FONA según contexto."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Orofaringe.",
+      "Hipofaringe."
+    ],
+    "target": [
+      "Posición supraglótica alrededor de la entrada laríngea."
+    ],
+    "avoid": [
+      "Trauma por inserción forzada."
+    ],
+    "laterality": null,
+    "variants": [
+      "Dispositivos con o sin cuff; diferentes generaciones."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Posición que facilite inserción y ventilación.",
+    "operator_position": "Cabecera.",
+    "monitoring": [
+      "SpO₂.",
+      "Capnografía."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Seleccionar talla.",
+      "Lubricar cara posterior.",
+      "Preparar plan de rescate."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Lubricar la superficie posterior según el dispositivo.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Insertar siguiendo el paladar hasta alcanzar la posición prevista.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Inflar cuff si el dispositivo lo requiere.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Ventilar y evaluar fuga y expansión torácica.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Fijar el dispositivo una vez confirmada ventilación.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Capnografía de onda sostenida.",
+    "Expansión torácica adecuada.",
+    "Ventilación clínicamente efectiva."
+  ],
+  "stop_points": [
+    "Ventilación imposible.",
+    "Fuga grave persistente.",
+    "Trauma significativo.",
+    "Deterioro de oxigenación."
+  ],
+  "complications": {
+    "immediate": [
+      "Aspiración.",
+      "Trauma.",
+      "Fuga.",
+      "Malposición.",
+      "Compresión lingual o faríngea."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Reposicionar o cambiar tamaño/dispositivo si no ventila.",
+    "Volver a BVM si es más efectiva.",
+    "Escalar a intubación o FONA según algoritmo de vía aérea difícil si fracasa la oxigenación."
+  ],
+  "aftercare": [
+    "Reevaluar necesidad de intubación definitiva.",
+    "Mantener capnografía y vigilancia de posición."
+  ],
+  "documentation": [
+    "Dispositivo y talla.",
+    "Número de intentos.",
+    "Método de confirmación.",
+    "Complicaciones."
+  ],
+  "pearls": [
+    "La confirmación con capnografía es preferible siempre que sea técnicamente posible."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar talla pediátrica y algoritmo específico por edad/peso."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Puede ser dispositivo de rescate clave tras intubación fallida."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
+      "organization": "Difficult Airway Society",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
