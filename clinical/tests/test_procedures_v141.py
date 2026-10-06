@@ -29,5 +29,16 @@ class ProceduresCatalogTest(unittest.TestCase):
         self.assertIn("Visual QA", status)
         self.assertIn("no póster general multitécnica", status)
 
+    def test_visual_brief_builder_covers_catalog(self):
+        import importlib.util
+        script = ROOT / "scripts" / "build_procedure_visual_briefs.py"
+        spec = importlib.util.spec_from_file_location("visual_briefs", script)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        cards = module.parse_cards()
+        self.assertEqual(187, len(cards))
+        self.assertEqual(187, len({item["procedure_id"] for item in cards}))
+        self.assertTrue(all(item["image_status"] == "not_generated" for item in cards))
+
 if __name__ == "__main__":
     unittest.main()
