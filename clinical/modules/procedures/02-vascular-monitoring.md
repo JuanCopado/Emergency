@@ -211,20 +211,20 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW; revisión humana microbiología/infecciosas pendiente.
 
 ## PROC-VASC-014 — Retirada segura de CVC — CORE
-**Objetivo:** retirar CVC minimizando embolia aérea, sangrado e infección.  
-**Indicaciones:** acceso innecesario, infectado, disfuncional o complicación según plan clínico.  
-**Contraindicaciones/precauciones:** catéter de gran calibre arterial o sospecha de adherencia/trombosis requiere plan específico.  
-**Material:** guantes, campo, material de sutura/apósito oclusivo y gasas.  
-**Anatomía:** trayecto venoso central y punto de salida.  
-**Preparación:** posición adecuada al sitio, retirar sutura/fijador y explicar maniobra.  
-**Técnica paso a paso:** 1) antisepsia; 2) Valsalva/apnea si apropiado; 3) retirar de forma continua; 4) presión; 5) comprobar integridad; 6) apósito oclusivo.  
-**STOP:** resistencia, catéter incompleto o sangrado persistente.  
-**Confirmación:** catéter íntegro y hemostasia.  
-**Complicaciones:** embolia aérea, hemorragia, fragmento retenido.  
-**Después:** observar sitio y retirar apósito según protocolo.  
-**Documentación:** integridad y complicaciones.  
-**Fuentes:** CDC catheter care principles; protocolo local.  
-**QA:** YELLOW.
+**Objetivo:** retirar un CVC minimizando embolia aérea, sangrado, infección y retención de fragmentos.
+**Indicaciones:** acceso ya no esencial, infección/disfunción, complicación o cambio de estrategia; CDC recomienda retirar con prontitud cualquier catéter intravascular que deje de ser necesario.
+**Contraindicaciones/precauciones:** catéter arterial o gran calibre colocado inadvertidamente en arteria, catéter tunelizado/implantable, sospecha de adherencia/trombosis o resistencia a la retirada requieren un plan específico y posible apoyo especializado.
+**Material:** guantes, antiséptico, material para retirar sutura/fijador, gasas, apósito oclusivo/impermeable y monitorización cuando el riesgo lo justifique.
+**Anatomía:** trayecto venoso central, punto de salida y posible canal transcutáneo persistente.
+**Preparación:** verificar tipo de catéter, suspender infusiones, colocar al paciente en decúbito supino y, cuando sea tolerado/pertinente, con cabeza baja; explicar maniobra y preparar Valsalva o retirada durante espiración.
+**Técnica paso a paso:** retirar fijadores; pedir Valsalva/espiración en el momento de retirada si el paciente coopera; retirar el catéter de forma continua y controlada; aplicar presión inmediata; comprobar integridad del catéter y cubrir el sitio con apósito oclusivo.
+**STOP:** resistencia, catéter incompleto, sangrado persistente, disnea súbita, dolor torácico o déficit neurológico.
+**Confirmación:** catéter íntegro, hemostasia y ausencia de síntomas inmediatos.
+**Complicaciones:** embolia aérea inmediata o retardada, hemorragia, fragmento retenido, infección y trombosis.
+**Después:** mantener vigilancia clínica y el sitio ocluido según protocolo; la literatura 2025–2026 destaca que la embolia aérea puede presentarse de forma retardada.
+**Documentación:** tipo/sitio de CVC, posición del paciente, maniobra respiratoria si se utilizó, integridad, hemostasia y eventos.
+**Fuentes:** CDC intravascular catheter recommendations, updated 2024; J Vasc Bras integrative review 2025; J Crit Care systematic review 2026 on delayed air embolism after CVC removal.
+**QA:** YELLOW; revisión humana UCI/enfermería vascular pendiente.
 
 ## PROC-VASC-015 — Manejo inicial de complicaciones mecánicas del CVC — ADVANCED
 **Objetivo:** reconocer y estabilizar complicaciones mecánicas inmediatas de un acceso venoso central.
