@@ -2,12 +2,92 @@
   "version": 2,
   "description": "Authoritative source registry for review-only automated evidence surveillance. Specific official guideline/safety endpoints are preferred over generic news roots.",
   "sources": [
-    {"id":"dgs-portugal","organization":"Direção-Geral da Saúde","url":"https://normas.dgs.min-saude.pt/category/normas-clinicas/","domains":["general","emergency"],"cadence":"weekly","priority":"high","mode":"html-discovery","authority_type":"government-health-authority"},
-    {"id":"ema-prac-safety-signals","organization":"European Medicines Agency","url":"https://www.ema.europa.eu/en/human-regulatory-overview/post-authorisation/pharmacovigilance-post-authorisation/signal-management/prac-recommendations-safety-signals","domains":["medication-safety"],"cadence":"urgent","priority":"critical","mode":"html-discovery","authority_type":"medicines-regulator"},
-    {"id":"infarmed","organization":"INFARMED","url":"https://www.infarmed.pt/","domains":["medication-safety","Portugal"],"cadence":"urgent","priority":"critical","mode":"html-discovery","authority_type":"medicines-regulator","validation_status":"specific-safety-endpoint-pending"},
-    {"id":"who-guidelines","organization":"World Health Organization","url":"https://www.who.int/publications/who-guidelines","domains":["general"],"cadence":"weekly","priority":"high","mode":"html-discovery","authority_type":"international-public-health-body"},
-    {"id":"erc","organization":"European Resuscitation Council","url":"https://www.erc.edu/","domains":["resuscitation"],"cadence":"weekly","priority":"high","mode":"html-discovery","authority_type":"recognized-scientific-society","validation_status":"specific-guideline-endpoint-pending"},
-    {"id":"esc-guidelines","organization":"European Society of Cardiology","url":"https://www.escardio.org/Guidelines","domains":["cardiology"],"cadence":"weekly","priority":"high","mode":"html-discovery","authority_type":"recognized-scientific-society"},
-    {"id":"nice-guidance","organization":"NICE","url":"https://www.nice.org.uk/guidance","domains":["general"],"cadence":"weekly","priority":"high","mode":"html-discovery","authority_type":"formal-guideline-body"}
+    {
+      "id": "dgs-portugal",
+      "organization": "Direção-Geral da Saúde",
+      "url": "https://normas.dgs.min-saude.pt/category/normas-clinicas/",
+      "domains": [
+        "general",
+        "emergency"
+      ],
+      "cadence": "weekly",
+      "priority": "high",
+      "mode": "html-discovery",
+      "authority_type": "government-health-authority"
+    },
+    {
+      "id": "ema-prac-safety-signals",
+      "organization": "European Medicines Agency",
+      "url": "https://www.ema.europa.eu/en/human-regulatory-overview/post-authorisation/pharmacovigilance-post-authorisation/signal-management/prac-recommendations-safety-signals",
+      "domains": [
+        "medication-safety"
+      ],
+      "cadence": "urgent",
+      "priority": "critical",
+      "mode": "html-discovery",
+      "authority_type": "medicines-regulator"
+    },
+    {
+      "id": "infarmed",
+      "organization": "INFARMED",
+      "url": "https://www.infarmed.pt/",
+      "domains": [
+        "medication-safety",
+        "Portugal"
+      ],
+      "cadence": "urgent",
+      "priority": "critical",
+      "mode": "html-discovery",
+      "authority_type": "medicines-regulator",
+      "validation_status": "official-authority-confirmed-specific-current-index-pending"
+    },
+    {
+      "id": "who-guidelines",
+      "organization": "World Health Organization",
+      "url": "https://www.who.int/publications/who-guidelines",
+      "domains": [
+        "general"
+      ],
+      "cadence": "weekly",
+      "priority": "high",
+      "mode": "html-discovery",
+      "authority_type": "international-public-health-body"
+    },
+    {
+      "id": "erc",
+      "organization": "European Resuscitation Council",
+      "url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
+      "domains": [
+        "resuscitation"
+      ],
+      "cadence": "weekly",
+      "priority": "high",
+      "mode": "html-discovery",
+      "authority_type": "recognized-scientific-society"
+    },
+    {
+      "id": "esc-guidelines",
+      "organization": "European Society of Cardiology",
+      "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines",
+      "domains": [
+        "cardiology"
+      ],
+      "cadence": "weekly",
+      "priority": "high",
+      "mode": "html-discovery",
+      "authority_type": "recognized-scientific-society"
+    },
+    {
+      "id": "nice-guidance",
+      "organization": "NICE",
+      "url": "https://www.nice.org.uk/guidance/published?ndt=Guidance&ngt=Clinical+guidelines&ps=9999",
+      "domains": [
+        "general"
+      ],
+      "cadence": "weekly",
+      "priority": "high",
+      "mode": "html-discovery",
+      "authority_type": "formal-guideline-body"
+    }
   ]
 }
