@@ -3,20 +3,20 @@
 Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.
 
 ## PROC-ORTHO-001 — Reducción de luxación anterior de hombro — CORE
-**Objetivo:** restaurar congruencia glenohumeral de forma atraumática.  
-**Indicaciones:** luxación anterior confirmada o clínicamente evidente, especialmente con dolor intenso o compromiso neurovascular.  
-**Contraindicaciones/precauciones:** fractura proximal/humeral relevante, luxación irreductible, lesión vascular o patrón complejo → ortopedia.  
-**Material:** monitorización, analgesia/sedación o anestesia regional/intraarticular, cabestrillo y material de imagen.  
-**Anatomía:** cabeza humeral, glenoides, nervio axilar y vasos axilares.  
-**Preparación:** examen neurovascular y Rx previa salvo amenaza vascular/lesión de piel que obligue a reducción inmediata.  
-**Técnica paso a paso:** 1) analgesia/relajación; 2) seleccionar técnica suave (rotación externa, manipulación escapular, Milch u otra validada); 3) aplicar tracción progresiva sin fuerza brusca; 4) reconocer reducción; 5) inmovilizar.  
-**STOP:** resistencia marcada, dolor desproporcionado o deterioro neurovascular.  
-**Confirmación:** contorno normal, movilidad pasiva mejorada, neurovascular intacto y Rx post cuando indicada.  
-**Complicaciones:** fractura iatrogénica, lesión axilar, lesión manguito/labrum.  
-**Después:** cabestrillo y seguimiento ortopédico.  
-**Documentación:** neurovascular pre/post, técnica, sedación y resultado.  
-**Fuentes:** orthopedic/emergency procedural guidance.  
-**QA:** YELLOW.
+**Objetivo:** restaurar congruencia glenohumeral con la mínima fuerza necesaria y preservar función neurovascular.
+**Indicaciones:** luxación anterior cerrada confirmada o clínicamente evidente; reducción urgente si existe déficit neurovascular o tensión cutánea.
+**Contraindicaciones/precauciones:** fractura proximal/humeral significativa, fractura-luxación compleja, luxación abierta, lesión vascular o irreductibilidad → ortopedia. En pacientes mayores o con mecanismo de alta energía, revisar cuidadosamente fracturas asociadas.
+**Material:** analgesia/sedación o anestesia regional/intraarticular según caso, monitorización, cabestrillo y material de imagen.
+**Anatomía:** cabeza humeral, glenoides, nervio axilar, plexo braquial y vasos axilares.
+**Preparación:** examen neurovascular documentado y Rx previa salvo amenaza neurovascular/cutánea que obligue a reducción inmediata.
+**Técnica paso a paso:** elegir una técnica suave y de baja fuerza; Merck 2025 incluye manipulación escapular, rotación externa, Milch, FARES y Davos. Priorizar manipulación escapular/rotación externa cuando sean adecuadas; aplicar tracción progresiva y evitar movimientos bruscos.
+**STOP:** resistencia marcada, dolor desproporcionado, crepitación o deterioro neurovascular.
+**Confirmación:** contorno restaurado, mejoría del dolor/movilidad, neurovascular intacto y Rx postreducción cuando esté indicada.
+**Complicaciones:** fractura iatrogénica, lesión axilar/plexo, lesión de manguito/labrum y recurrencia.
+**Después:** inmovilización corta según edad/lesión y seguimiento ortopédico; en mayores de 40 años evitar inmovilización prolongada por riesgo de rigidez.
+**Documentación:** neurovascular pre/post, técnica, analgesia/sedación, intentos y resultado.
+**Fuentes:** Merck Manual Professional, Overview of Shoulder Dislocation Reduction Techniques, updated 2025; Shoulder Dislocations, updated 2026.
+**QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-002 — Reducción de luxación posterior de hombro — ADVANCED
 **Objetivo:** restaurar articulación evitando fractura iatrogénica.  
