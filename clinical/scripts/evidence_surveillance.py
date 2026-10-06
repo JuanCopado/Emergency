@@ -5,7 +5,7 @@ Detects source changes and emits review proposals. It NEVER edits clinical
 modules or the evidence registry.
 """
 from __future__ import annotations
-import argparse, hashlib, json, pathlib, sys, urllib.request
+import argparse, hashlib, json, pathlib, sys, urllib.request, urllib.parse
 from datetime import datetime, timezone
 from evidence_content_extractor import clinical_fingerprint
 from evidence_change_classifier import classify
@@ -21,13 +21,17 @@ def fetch(url:str, timeout:int=30)->bytes:
     req=urllib.request.Request(url, headers={"User-Agent":"Emergency-Evidence-Surveillance/1.0"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         if getattr(r,"status",200)!=200: raise RuntimeError(f"HTTP {r.status}")
+        requested=urllib.parse.urlparse(url).hostname
+        final=urllib.parse.urlparse(r.geturl()).hostname
+        if requested!=final: raise RuntimeError(f"redirected to different host: {final}")
         return r.read(5_000_001)
 
-def run(source_path:pathlib.Path, previous:dict|None=None)->dict:
+def run(source_path:pathlib.Path, previous:dict|None=None, cadence:str|None=None)->dict:
     cfg=json.loads(source_path.read_text(encoding="utf-8"))
     prev=(previous or {}).get("sources",{})
     out={"schema_version":2,"generated_at":datetime.now(timezone.utc).isoformat(),"production_changes_applied":False,"sources":{},"review_queue":[]}
     for s in cfg["sources"]:
+        if cadence and s.get("cadence")!=cadence: continue
         gate=assess_source(s)
         item={"organization":s["organization"],"url":s["url"],"cadence":s["cadence"],"status":"error","source_gate":gate}
         if not gate["trusted_for_surveillance"]:
@@ -53,10 +57,10 @@ def run(source_path:pathlib.Path, previous:dict|None=None)->dict:
     return out
 
 def main()->int:
-    p=argparse.ArgumentParser();p.add_argument("--sources",default=str(DEFAULT_SOURCES));p.add_argument("--previous");p.add_argument("--output",required=True)
+    p=argparse.ArgumentParser();p.add_argument("--sources",default=str(DEFAULT_SOURCES));p.add_argument("--previous");p.add_argument("--cadence",choices=["weekly","urgent"]);p.add_argument("--output",required=True)
     a=p.parse_args()
     previous=json.loads(pathlib.Path(a.previous).read_text(encoding="utf-8")) if a.previous and pathlib.Path(a.previous).exists() else None
-    report=run(pathlib.Path(a.sources),previous)
+    report=run(pathlib.Path(a.sources),previous,a.cadence)
     pathlib.Path(a.output).write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     failures=[k for k,v in report["sources"].items() if v["status"]!="ok"]
     if failures:
