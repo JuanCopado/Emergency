@@ -470,15 +470,18 @@ Para cada pauta seleccionada por diagnóstico, mostrar cuando aplique:
 6. dosis final en mg por toma tras aplicar máximo;
 7. concentración exacta del producto verificado;
 8. **mL por toma** y redondeo explícito;
-9. número de tomas/día;
-10. duración;
-11. número total de dosis y volumen total estimado del curso si puede calcularse;
-12. administración: con comida, en ayunas, con leche, antes de comida, técnica de inhalador/dispositivo, etc.;
-13. contraindicaciones, cautelas, interacciones y criterios que obligan a reevaluación/ingreso;
-14. fuente y versión.
+9. si la presentación exacta es en gotas y el factor está verificado: **gotas por toma**, mg/gota o gotas/mL, producto exacto y fuente del factor; si usa bomba dosificadora, mostrar **pulsaciones** por separado y nunca tratarlas como gotas;
+10. número de tomas/día;
+11. duración;
+12. número total de dosis y volumen total estimado del curso si puede calcularse;
+13. administración: con comida, en ayunas, con leche, antes de comida, técnica de inhalador/dispositivo, etc.;
+14. contraindicaciones, cautelas, interacciones y criterios que obligan a reevaluación/ingreso;
+15. fuente y versión.
 
 ### Reglas de seguridad
 - **No generar mL sin concentración verificada del producto exacto.** Las presentaciones líquidas cambian entre países y fabricantes.
+- **No generar gotas sin factor de gotero verificado para el producto exacto.** No asumir 20 gotas/mL ni ninguna equivalencia universal.
+- Para productos con cuentagotas y bomba dosificadora, gotas y pulsaciones son unidades distintas y deben mostrarse por separado.
 - Una concentración fuera del registro solo puede utilizarse tras verificación explícita de SmPC/ficha técnica del producto.
 - No reutilizar una dosis de un antibiótico para otra infección: la pauta es **diagnóstico-específica**.
 - No seleccionar automáticamente un punto dentro de un rango mg/kg o duración; el clínico debe elegir dentro del rango fuente.
