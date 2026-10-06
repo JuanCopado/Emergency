@@ -3,20 +3,20 @@
 Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.
 
 ## PROC-GU-001 — Sondaje vesical masculino — CORE
-**Objetivo:** drenar vejiga/monitorizar diuresis u obtener muestra cuando está indicado.  
-**Indicaciones:** retención, monitorización crítica, cirugía/procedimiento u otras indicaciones justificadas.  
-**Contraindicaciones/precauciones:** sangre en meato, trauma pélvico con sospecha uretral, resistencia significativa o cirugía uretral reciente.  
-**Material:** sonda apropiada, campo estéril, gel lubricante/anestésico, jeringa de balón y sistema cerrado.  
-**Anatomía:** uretra peneana, prostática y cuello vesical.  
-**Preparación:** antisepsia y anestesia/lubricación adecuada.  
-**Técnica paso a paso:** 1) elevar pene; 2) introducir suavemente; 3) avanzar hasta salida de orina y bifurcación; 4) avanzar algo más; 5) inflar balón según fabricante; 6) retraer suavemente/fijar.  
-**STOP:** dolor intenso, resistencia o sangrado.  
-**Confirmación:** flujo urinario y balón intravesical sin dolor.  
-**Complicaciones:** falsa vía, hematuria, infección, lesión uretral.  
-**Después:** sistema cerrado y reevaluar necesidad.  
-**Documentación:** calibre, balón, dificultad y débito.  
-**Fuentes:** urologic catheterization guidance.  
-**QA:** YELLOW.
+**Objetivo:** drenar la vejiga, monitorizar diuresis o obtener una muestra cuando existe una indicación clínica válida.
+**Indicaciones:** retención urinaria, monitorización crítica, cirugía/procedimiento u otras indicaciones justificadas; evitar uso rutinario sin indicación.
+**Contraindicaciones/precauciones:** sangre en meato, trauma pélvico/genital con sospecha de lesión uretral, resistencia significativa o cirugía uretral reciente. AUA recomienda uretrografía retrógrada antes de un sondaje ciego cuando existe sangre en meato tras trauma pélvico/genital.
+**Material:** sonda del calibre/tipo apropiado, campo estéril, lubricante hidrosoluble, jeringa para balón y sistema cerrado.
+**Anatomía:** uretra peneana, bulbar y prostática, esfínter y cuello vesical.
+**Preparación:** confirmar indicación, higiene de manos, técnica estéril, antisepsia periuretral y lubricación abundante.
+**Técnica paso a paso:** elevar el pene para rectificar la uretra, avanzar la sonda suavemente sin fuerza, confirmar flujo de orina, avanzar hasta la bifurcación antes de inflar el balón y después fijar evitando tracción.
+**STOP:** dolor intenso, resistencia fija, sangrado uretral o ausencia de retorno con duda de posición; no inflar balón si la posición intravesical no está confirmada.
+**Confirmación:** drenaje urinario libre y balón intravesical sin dolor ni resistencia.
+**Complicaciones:** falsa vía, lesión uretral, hematuria, infección y retención por malposición.
+**Después:** mantener sistema cerrado y retirar tan pronto deje de ser necesario.
+**Documentación:** indicación, tipo/calibre, volumen de balón según fabricante, dificultad, débito inicial y complicaciones.
+**Fuentes:** CDC CAUTI Summary of Recommendations, reviewed 2024; AUA Urotrauma Guideline.
+**QA:** YELLOW; revisión humana urología/enfermería pendiente.
 
 ## PROC-GU-002 — Sondaje vesical femenino — CORE
 **Objetivo:** drenaje vesical seguro.  
