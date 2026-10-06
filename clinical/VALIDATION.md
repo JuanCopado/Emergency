@@ -599,3 +599,14 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Unexpected uncovered clinical modules: 0.
 - Clinical QA #586: **363/363 tests PASS**.
 - This does not establish prospective sensitivity/specificity or substitute final human review.
+
+## v1.39 final diagnostic-support validation — 06/10/2026
+- Transparent executable reasoning registry contains **92 syndrome rules**.
+- Diagnostic regression banks total **60 synthetic scenarios**, all PASS.
+- Age-routing tests prevent adult-only cardiac/arrest rules from becoming primary pediatric routes.
+- Coverage audit checks all **131 registered modules**: 115 are directly covered/routed and 16 are explicitly non-diagnostic support/infrastructure.
+- Unexpected uncovered clinical modules: **0**.
+- Privacy regression covers direct identifiers, labelled-name matching, acronym/substring false positives, source metadata and burned-in identifier gates.
+- Export regression covers clinician-review requirement plus DOCX/PDF generation.
+- Clinical QA #587: **SUCCESS**, **364/364 tests PASS**, 131/131 registered, 29 green / 102 yellow / 0 red.
+- These tests validate deterministic behavior, routing, privacy gates and regression safety; they do **not** establish prospective diagnostic sensitivity/specificity, legal certification or human specialist sign-off.
