@@ -2,21 +2,21 @@
 
 Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.
 
-## PROC-SP-001 — Fasciotomía: reconocimiento y preparación — SPECIALIST
-**Objetivo:** reconocer síndrome compartimental y no retrasar cirugía definitiva.
-**Indicaciones:** alta sospecha clínica o diagnóstico confirmado.
-**Contraindicaciones/precauciones:** la fasciotomía definitiva corresponde a equipo entrenado; no usar una presión aislada para descartar clínica convincente.
-**Material:** monitorización, analgesia y material para medición de presión si aporta valor.
-**Anatomía:** compartimentos musculares y estructuras neurovasculares.
-**Preparación:** retirar constricción, mantener extremidad al nivel del corazón y activar cirugía.
-**Técnica paso a paso:** reevaluar dolor, tensión, función y perfusión; medir presión solo si la incertidumbre lo justifica y no retrasa tratamiento; preparar quirófano.
-**STOP:** deterioro neurológico/vascular o clínica progresiva.
-**Confirmación:** diagnóstico integrado clínico/medición y aceptación por equipo quirúrgico.
-**Complicaciones:** necrosis, lesión nerviosa, rabdomiólisis y pérdida de miembro si se retrasa.
-**Después:** fasciotomía definitiva y cuidados quirúrgicos.
-**Documentación:** hora, hallazgos seriados y decisión.
-**Fuentes:** orthopedic trauma/compartment syndrome guidance.
-**QA:** YELLOW.
+## PROC-SP-001 — Síndrome compartimental: reconocimiento y preparación para fasciotomía — SPECIALIST
+**Objetivo:** reconocer precozmente un síndrome compartimental agudo y evitar retrasos en la descompresión quirúrgica.
+**Indicaciones:** sospecha clínica alta o evidencia objetiva compatible en una extremidad de riesgo.
+**Contraindicaciones/precauciones:** la decisión es fundamentalmente clínica; una medición de presión aislada no debe retrasar fasciotomía cuando el cuadro es convincente. La fasciotomía definitiva requiere equipo entrenado.
+**Material:** monitorización, analgesia, material de retirada de constricción y dispositivo de presión compartimental cuando la medición aporte valor.
+**Anatomía:** compartimentos fasciales de la extremidad y estructuras neurovasculares contenidas.
+**Preparación:** retirar vendajes/yesos constrictivos, colocar la extremidad aproximadamente al nivel del corazón, repetir examen neurovascular y activar cirugía/trauma.
+**Técnica paso a paso:** reevaluar dolor desproporcionado, dolor con estiramiento pasivo, tensión, sensibilidad/motor y perfusión; usar presión compartimental como adjunto en casos inciertos o pacientes no evaluables; proceder a descompresión quirúrgica urgente cuando la indicación esté establecida.
+**STOP:** deterioro progresivo, déficit motor/sensitivo o clínica convincente no deben quedar en observación a la espera de pruebas seriadas.
+**Confirmación:** diagnóstico clínico integrado y decisión quirúrgica; la mejoría tras retirar constricción no excluye vigilancia si persiste riesgo.
+**Complicaciones:** necrosis muscular, lesión nerviosa, rabdomiólisis, insuficiencia renal, infección, contractura y amputación si se retrasa.
+**Después:** fasciotomía de todos los compartimentos implicados y cuidados quirúrgicos/renales posteriores.
+**Documentación:** hora de inicio/evolución, hallazgos seriados, presiones si se midieron, decisión y tiempos hasta cirugía.
+**Fuentes:** AAOS/METRC Appropriate Use Criteria and Clinical Practice Guideline for Acute Compartment Syndrome; review literature 2020–2024.
+**QA:** YELLOW; revisión humana traumatología pendiente.
 
 ## PROC-SP-002 — Medición de presión compartimental — ADVANCED
 **Objetivo:** apoyar el diagnóstico cuando la clínica es incierta.
