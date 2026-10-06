@@ -1,0 +1,194 @@
+{
+  "procedure_id": "PROC-AIR-014",
+  "name": "Fijación y cuidados inmediatos del tubo endotraqueal",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Prevenir desplazamiento, extubación accidental y lesión relacionada con el tubo/cuff.",
+  "indications": [
+    "Tras toda intubación endotraqueal confirmada."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Evitar fijación sobre piel lesionada.",
+      "Vigilar presión del cuff según protocolo.",
+      "Reevaluar después de movilizaciones."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Dispositivo de fijación o cinta.",
+      "Circuito y soporte de tubo."
+    ],
+    "optional": [
+      "Manómetro de cuff."
+    ],
+    "monitoring": [
+      "Capnografía.",
+      "SpO₂."
+    ],
+    "rescue": [
+      "BVM y material para reintubación si existe desplazamiento."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Labios.",
+      "Dentición.",
+      "Tráquea.",
+      "Carina."
+    ],
+    "target": [
+      "Mantener profundidad traqueal estable y cuff seguro."
+    ],
+    "avoid": [
+      "Fijación que lesione piel/labios.",
+      "Presión excesiva del cuff."
+    ],
+    "laterality": null,
+    "variants": [
+      "Fijador comercial o cinta según protocolo."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Mantener posición estable durante fijación.",
+    "operator_position": "Cabecera.",
+    "monitoring": [
+      "Capnografía.",
+      "SpO₂."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [
+      "Sedoanalgesia adecuada si el paciente está intubado."
+    ],
+    "prechecks": [
+      "Documentar profundidad inicial.",
+      "Confirmar posición traqueal antes de fijar."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Fijar el tubo con el método seleccionado.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Registrar profundidad a nivel de referencia externo.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Verificar cuff según protocolo.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Asegurar el circuito para evitar tracción.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Reevaluar tras cualquier movilización.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Profundidad estable.",
+    "Ventilación bilateral.",
+    "Capnografía continua sin cambios sugestivos de desplazamiento."
+  ],
+  "stop_points": [
+    "Cambio de ETCO₂.",
+    "Ventilación unilateral nueva.",
+    "Nueva fuga.",
+    "Cambio inesperado de profundidad externa."
+  ],
+  "complications": {
+    "immediate": [
+      "Extubación accidental.",
+      "Intubación endobronquial.",
+      "Fuga significativa."
+    ],
+    "early": [
+      "Lesión por presión de cuff o fijación."
+    ],
+    "late": []
+  },
+  "rescue": [
+    "Sospechar desplazamiento ante cambios clínicos.",
+    "Ventilar manualmente y reevaluar posición.",
+    "Reposicionar o reintubar según hallazgos."
+  ],
+  "aftercare": [
+    "Cuidados orales.",
+    "Sedoanalgesia.",
+    "Ventilación protectora.",
+    "Reevaluación periódica del cuff y fijación."
+  ],
+  "documentation": [
+    "Profundidad.",
+    "Método de fijación.",
+    "Evaluación del cuff.",
+    "Reevaluaciones y cambios."
+  ],
+  "pearls": [
+    "Documentar la profundidad externa facilita detectar migración del tubo."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar fijación adecuada al tamaño y revisar con mayor frecuencia."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [
+    "sedoanalgesia"
+  ],
+  "sources": [
+    {
+      "title": "Airway safety principles",
+      "organization": "Difficult Airway Society",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
