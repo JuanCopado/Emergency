@@ -195,20 +195,20 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW.
 
 ## PROC-VASC-013 — Toma de hemocultivos — CORE
-**Objetivo:** obtener muestras microbiológicas minimizando contaminación.  
-**Indicaciones:** sospecha de bacteriemia/sepsis/endocarditis cuando los cultivos aportan valor.  
-**Contraindicaciones/precauciones:** no retrasar antibiótico crítico por intentos prolongados.  
-**Material:** frascos, antiséptico de piel y tapones, guantes y material de extracción.  
-**Anatomía:** venopunción periférica preferida según protocolo.  
-**Preparación:** higiene de manos, identificación correcta y antisepsia rigurosa.  
-**Técnica paso a paso:** 1) desinfectar tapones; 2) antisepsia piel y secado; 3) venopunción; 4) volumen adecuado; 5) inocular frascos según sistema; 6) etiquetar.  
-**STOP:** tocar de nuevo sitio antiseptizado sin re-preparación.  
-**Confirmación:** volumen/pares adecuados y etiquetado correcto.  
-**Complicaciones:** contaminación, hematoma, falsa interpretación clínica.  
-**Después:** enviar pronto y documentar hora/sitio.  
-**Documentación:** pares, sitios y relación temporal con antibiótico.  
-**Fuentes:** sepsis/microbiology best practice; protocolo laboratorio local.  
-**QA:** YELLOW.
+**Objetivo:** maximizar rendimiento diagnóstico y minimizar contaminación.
+**Indicaciones:** sospecha de bacteriemia, sepsis, endocarditis u otra infección donde el cultivo sanguíneo pueda modificar el tratamiento.
+**Contraindicaciones/precauciones:** no retrasar antibióticos críticos por intentos prolongados; si es posible, extraer antes de antimicrobianos.
+**Material:** frascos aerobio/anaerobio según sistema, antiséptico alcohólico para piel, alcohol isopropílico al 70% para septos, guantes y material de venopunción.
+**Anatomía:** venopunción periférica, preferentemente de extremidad superior; evitar línea central salvo sospecha específica de infección relacionada con catéter.
+**Preparación:** identificar paciente con al menos dos identificadores, higiene de manos, desinfectar septos y piel, dejar secar el antiséptico.
+**Técnica paso a paso:** CDC 2026 recomienda en adultos obtener al menos dos sets, idealmente 2–4 sets en 24 h según cuadro; cada set suele incluir un frasco aerobio y uno anaerobio. Obtener aproximadamente 20 mL por set cuando el sistema lo permita, típicamente 10 mL por frasco; usar sitios de venopunción distintos para sets separados.
+**STOP:** no volver a palpar el sitio antiseptizado sin repetir preparación; no obtener volumen insuficiente deliberadamente salvo limitación clínica.
+**Confirmación:** número de sets, volumen, etiquetado, fecha/hora y sitio correctamente documentados.
+**Complicaciones:** contaminación, hematoma, anemia iatrogénica y falsos positivos/negativos por técnica o volumen inadecuados.
+**Después:** transportar inmediatamente al laboratorio; interpretar contaminantes en contexto clínico y del número de sets positivos.
+**Documentación:** número de sets, volumen por frasco si se controla, sitio, método, hora, relación con antibióticos y persona que realizó la extracción.
+**Fuentes:** CDC Prevent Adult Blood Culture Contamination / Collect Adult Blood Culture Sets, updated 31 Mar 2026; CLSI M47 ED2.
+**QA:** YELLOW; revisión humana microbiología/infecciosas pendiente.
 
 ## PROC-VASC-014 — Retirada segura de CVC — CORE
 **Objetivo:** retirar CVC minimizando embolia aérea, sangrado e infección.  
