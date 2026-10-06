@@ -23,8 +23,8 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 ## PROC-PED-007 — Sondaje vesical pediátrico — CORE/PED
 **Técnica:** tamaño adecuado, técnica estéril, lubricación, avance sin fuerza, inflar balón solo en catéter diseñado y con orina confirmada. **Visual:** niño/niña.
 
-## PROC-PED-008 — Pronación dolorosa — CORE/PED
-Ver **PROC-ORTHO-004**. Técnica canónica: hiperpronación primero; alternativa supinación-flexión; reevaluar uso espontáneo.
+## PROC-PED-008 — Pronación dolorosa — REFERENCIA
+Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técnica.
 
 ## PROC-PED-009 — Inmovilización pediátrica — CORE/PED
 **Técnica:** férula bien acolchada, permitir edema, no cubrir dedos, neurovascular antes/después, instrucciones a cuidadores. **Visual:** tamaños y vigilancia.
