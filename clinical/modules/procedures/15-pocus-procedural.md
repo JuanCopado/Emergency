@@ -83,7 +83,20 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-006 — Paracentesis ecoguiada — ADVANCED
-**Técnica:** identificar bolsillo, pared abdominal y vasos; Doppler si necesario; seleccionar trayecto; guía dinámica o marcaje con paciente sin cambiar posición. **Visual:** ascitis.
+**Objetivo:** seleccionar trayecto seguro hacia ascitis.
+**Indicaciones:** paracentesis diagnóstica o terapéutica.
+**Contraindicaciones/precauciones:** ausencia de bolsillo seguro o pared/visceras en trayecto.
+**Material:** ecógrafo, transductor y material de paracentesis.
+**Anatomía:** pared abdominal, vasos epigástricos, vejiga, asas y líquido.
+**Preparación:** explorar con paciente en posición final; Doppler si necesario.
+**Técnica paso a paso:** localizar bolsillo, evitar vasos/vísceras, marcar o guiar dinámicamente y puncionar por trayecto seguro.
+**STOP:** ventana cambia, asas interpuestas o sangrado.
+**Confirmación:** líquido ascítico obtenido.
+**Complicaciones:** sangrado, perforación y fuga.
+**Después:** reevaluar y controlar sitio.
+**Documentación:** ventana, US y resultado.
+**Fuentes:** procedural POCUS/paracentesis guidance.
+**QA:** YELLOW.
 
 ## PROC-US-007 — Pericardiocentesis ecoguiada — SPECIALIST
 **Técnica:** comparar ventanas, elegir menor distancia sin interposición, visualizar aguja cuando posible, agitated saline/contraste solo según práctica experta, colocar drenaje sobre guía. **Visual:** subxifoidea/apical/parasterna.
