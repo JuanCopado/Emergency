@@ -10,8 +10,7 @@
     "Marked obesity requires drug-specific review when evidence is limited; adult maximums still apply when the source specifies them.",
     "Renal/hepatic impairment, allergy, drug interactions, inability to tolerate oral treatment, red flags and age restrictions may override outpatient treatment.",
     "Oral-drop output may be generated only when the exact product has a verified mg/drop or drops/mL factor; never assume a universal drops/mL conversion.",
-    "When an oral-drop product is used, return mg, mL and whole drops per dose, plus the verified product identity and source of the drop factor.",
-    "Pump actuations are not interchangeable with drops. If a product uses a metered pump, the engine must store and display actuations separately from drops."
+    "When an oral-drop product is used, return mg, mL and whole drops per dose, plus the verified product identity and source of the drop factor."
   ],
   "obesity_policy": {
     "source": "Pediatric Pharmacy Association position statement 2024",
