@@ -226,21 +226,21 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Fuentes:** wound care guidance.  
 **QA:** YELLOW.
 
-## PROC-WND-015 — Incisión y drenaje de absceso — CORE
-**Objetivo:** evacuar colección purulenta.  
-**Indicaciones:** absceso cutáneo fluctuante/drenable.  
-**Contraindicaciones/precauciones:** cara central, mano, cuello profundo, perineo, inmunosupresión o proximidad vascular pueden requerir especialista/imagen.  
-**Material:** anestesia, bisturí, pinza, irrigación, packing selectivo.  
-**Anatomía:** piel/cavidad y estructuras vecinas.  
-**Preparación:** analgesia/bloqueo y antisepsia.  
-**Técnica paso a paso:** 1) incisión sobre máxima fluctuación en línea segura; 2) evacuar; 3) romper loculaciones suavemente; 4) irrigación selectiva; 5) packing solo si indicado.  
-**STOP:** sangrado importante, profundidad inesperada o anatomía peligrosa.  
-**Confirmación:** cavidad drenada.  
-**Complicaciones:** sangrado, lesión nerviosa, recurrencia.  
-**Después:** cura, cultivo/antibiótico según contexto.  
-**Documentación:** sitio, material y packing.  
-**Fuentes:** skin abscess guidance.  
-**QA:** YELLOW.
+## PROC-WND-015 — Incisión y drenaje de absceso cutáneo — CORE
+**Objetivo:** evacuar pus y romper loculaciones en un absceso cutáneo drenables.
+**Indicaciones:** absceso cutáneo fluctuante o colección confirmada clínicamente/por POCUS; la mayoría requieren drenaje.
+**Contraindicaciones/precauciones:** localización central facial, cuello profundo, mano, perineo, proximidad vascular, gran tamaño/profundidad, inmunosupresión o diagnóstico incierto pueden requerir imagen/especialista.
+**Material:** anestesia local o bloqueo, bisturí, hemostato, succión/irrigación y apósito.
+**Anatomía:** cavidad del absceso y estructuras vecinas; POCUS puede ayudar a definir extensión/loculaciones.
+**Preparación:** analgesia/anestesia, antisepsia y elección de incisión que facilite drenaje y minimice daño cosmético.
+**Técnica paso a paso:** incidir sobre la zona adecuada, evacuar contenido, romper loculaciones suavemente con instrumento romo y realizar irrigación si queda material; packing no es rutinariamente necesario en abscesos simples.
+**STOP:** sangrado importante, profundidad inesperada, dolor desproporcionado o anatomía peligrosa.
+**Confirmación:** cavidad drenada y descomprimida.
+**Complicaciones:** sangrado, lesión nerviosa/vascular, recurrencia e infección persistente.
+**Después:** apósito y reevaluación; antibiótico según gravedad, inmunidad, celulitis/síntomas sistémicos y contexto, no de forma automática en todo absceso simple.
+**Documentación:** sitio, tamaño aproximado, técnica, cultivo si se tomó, packing si se usó y respuesta.
+**Fuentes:** Merck Manual Professional, How To Incise and Drain an Abscess, updated Sept 2025; IDSA SSTI guideline.
+**QA:** YELLOW; revisión humana urgencias/infecciosas pendiente.
 
 ## PROC-WND-016 — Extracción de cuerpo extraño superficial — CORE
 **Objetivo:** retirar cuerpo extraño accesible sin lesionar estructuras profundas.  
