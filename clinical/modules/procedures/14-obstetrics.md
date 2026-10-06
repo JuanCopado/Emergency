@@ -19,7 +19,20 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-002 — Cordón: pinzamiento/cuidado inicial — CORE
-**Técnica:** retrasar pinzamiento cuando madre/neonato estables según guía; pinzar/cortar antes si reanimación/logística lo exige; documentar. **Visual:** dos pinzas.
+**Objetivo:** manejar el cordón umbilical de forma segura tras el nacimiento.
+**Indicaciones:** todo parto asistido.
+**Contraindicaciones/precauciones:** retrasar pinzamiento cuando madre y neonato estén estables; pinzar antes si reanimación o logística lo exige según guía.
+**Material:** dos pinzas o clamps y tijera estéril.
+**Anatomía:** cordón umbilical y muñón neonatal.
+**Preparación:** valorar estabilidad materna y neonatal.
+**Técnica paso a paso:** decidir el momento del pinzamiento, colocar dos clamps, cortar entre ambos y revisar el muñón.
+**STOP:** sangrado persistente del muñón o necesidad de reanimación inmediata.
+**Confirmación:** muñón sin sangrado activo.
+**Complicaciones:** hemorragia del muñón y pinzamiento inadecuado.
+**Después:** cuidado del cordón y vigilancia neonatal.
+**Documentación:** momento del pinzamiento y motivo si fue precoz.
+**Fuentes:** WHO neonatal/obstetric guidance; ERC neonatal principles.
+**QA:** YELLOW.
 
 ## PROC-OBS-003 — Distocia de hombros — CORE
 **Objetivo:** liberar hombro impactado. **Técnica:** declarar emergencia, pedir ayuda, evitar presión fúndica; McRoberts + presión suprapúbica; avanzar a maniobras internas/posición a cuatro apoyos según entrenamiento. **STOP:** no tracción excesiva de cabeza. **Visual:** secuencia escalonada.
