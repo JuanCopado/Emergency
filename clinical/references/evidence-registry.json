@@ -1087,18 +1087,18 @@
       "priority": "high",
       "primary_source": "GDPR privacy-by-design/data-minimization principles + EDPB Guidelines 01/2025 on Pseudonymisation + existing Emergency syndrome/image/score modules; clinical-layout design informed by six clinician-supplied de-identified history examples",
       "primary_source_url": "https://www.edpb.europa.eu/public-consultations/guidelines-012025-on-pseudonymisation_en",
-      "stored_version": "v1.39 full diagnostic coverage engine 2026-10-04",
-      "last_checked": "2026-10-04",
+      "stored_version": "v1.39 final diagnostic-support closure 2026-10-06",
+      "last_checked": "2026-10-06",
       "status": "yellow",
-      "note": "Structured privacy-gated clinical-note workspace with executable transparent diagnostic-support engine covering 92 acute-care syndromes. 60 synthetic diagnostic scenarios PASS. Coverage audit classifies all 131 registered modules: 115 covered/routed and 16 explicitly non-diagnostic support/infrastructure, with 0 unexpected clinical gaps. Generated assessments reset clinician sign-off. Yellow pending final human clinical/privacy/information-governance review; no prospective diagnostic-accuracy claim."
+      "note": "Structured privacy-gated clinical-note workspace with executable transparent diagnostic-support engine covering 92 acute-care syndromes. 60/60 synthetic diagnostic scenarios PASS. Coverage audit classifies all 131 registered modules: 115 covered/routed and 16 explicitly non-diagnostic support/infrastructure, with 0 unexpected clinical gaps. Age-specific routing prevents adult-only rules becoming primary pediatric routes. Generated assessments reset clinician sign-off. Yellow pending final human clinical/privacy/information-governance review; no prospective diagnostic-accuracy claim."
     },
     "final-human-review-gate": {
       "priority": "high",
       "primary_source": "Project governance rule: all yellow modules require appropriate human specialist review plus post-correction Clinical QA before green promotion",
-      "stored_version": "v1.39 governance gate 2026-10-04",
-      "last_checked": "2026-10-04",
+      "stored_version": "v1.39 final governance gate 2026-10-06",
+      "last_checked": "2026-10-06",
       "status": "yellow",
-      "note": "Dynamic final-project review queue covers every evidence-registry module with status yellow. Automated QA and AI-assisted reviews cannot promote modules to green. This governance module itself remains yellow until the final review phase."
+      "note": "Dynamic final-project review queue covers every evidence-registry module with status yellow. Current project state: 102 yellow modules remain intentionally pending human review. Automated QA and AI-assisted reviews cannot promote modules to green. Human clinical/pharmacy/privacy/operational review as applicable plus post-correction Clinical QA are required at project end."
     }
   }
 }
