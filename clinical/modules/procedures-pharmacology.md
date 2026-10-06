@@ -4,6 +4,8 @@ Shared gate: verify identity, indication, consent/capacity, monitoring, allergie
 weight, pregnancy, renal/hepatic function, anticoagulation, equipment, skilled help,
 rescue plan and post-intervention reassessment.
 
+- For oral liquid/drop formulations, always retain the dose in mg and calculate mL only from the exact verified concentration. If the exact marketed product is dispensed as drops, also display whole drops per dose only from a verified mg/drop or drops/mL factor; never assume a universal drop factor. Metered-pump actuations must be displayed separately from drops.
+
 ## airway-rsi
 
 - State the indication and assess anatomic plus physiologic difficulty: hypoxemia, hypotension, metabolic acidosis, right-ventricular failure, raised ICP and upper-GI bleeding. Correct reversible physiology before induction without delaying a crashing airway.
