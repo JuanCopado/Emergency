@@ -99,20 +99,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-007 — Irrigación de oído — CORE
-**Objetivo:** retirar cerumen o cuerpo extraño seleccionado.
-**Indicaciones:** contenido removible con membrana timpánica íntegra.
-**Contraindicaciones/precauciones:** perforación, tubo, cirugía previa, batería o material vegetal expansible.
-**Material:** agua o solución a temperatura corporal y sistema de baja presión.
-**Anatomía:** conducto auditivo y membrana timpánica.
-**Preparación:** confirmar que la irrigación es segura según historia y examen.
-**Técnica paso a paso:** dirigir el chorro a pared posterosuperior del conducto, irrigar a baja presión y permitir salida libre.
-**STOP:** dolor, vértigo, sangrado o empeoramiento auditivo.
-**Confirmación:** canal despejado.
-**Complicaciones:** perforación, vértigo y otitis externa.
-**Después:** secado y reevaluación.
-**Documentación:** resultado y tolerancia.
-**Fuentes:** MSD/Merck Professional.
-**QA:** YELLOW.
+**Objetivo:** retirar cerumen o material seleccionado mediante irrigación de baja presión.
+**Indicaciones:** cerumen o cuerpo extraño pequeño/no absorbente cuando la membrana timpánica está íntegra y la irrigación es apropiada.
+**Contraindicaciones/precauciones:** perforación o tubo de ventilación, cirugía de oído previa relevante, batería, materia vegetal/higroscópica, objeto impactado medial al istmo o infección severa.
+**Material:** agua o solución a temperatura corporal, sistema de baja presión, recipiente y protección.
+**Anatomía:** conducto auditivo externo y membrana timpánica.
+**Preparación:** revisar antecedentes y otoscopia; confirmar que el material no se expande con agua y que el tímpano puede considerarse íntegro.
+**Técnica paso a paso:** traccionar pabellón para alinear canal, dirigir el flujo hacia pared posterosuperior y no directamente al tímpano, irrigar suavemente y permitir salida libre.
+**STOP:** dolor, vértigo, náusea intensa, sangrado, pérdida auditiva o falta de salida del líquido.
+**Confirmación:** canal despejado y membrana timpánica reevaluable.
+**Complicaciones:** perforación, vértigo, otitis externa y lesión canalicular.
+**Después:** secar conducto y reevaluar.
+**Documentación:** indicación, líquido usado, tolerancia y resultado.
+**Fuentes:** Merck Manual Professional external ear obstruction/foreign body guidance, updated 2025–2026.
+**QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-008 — Cerumen impactado — CORE
 **Objetivo:** resolver cerumen impactado sintomático o que impide la evaluación necesaria del conducto/tímpano.
