@@ -146,21 +146,21 @@ Estado: **YELLOW**.
 **Fuentes:** ORL emergency guidance.
 **QA:** YELLOW.
 
-## PROC-ENT-010 — Absceso periamigdalino — ADVANCED
-**Objetivo:** drenar colección protegiendo la vía aérea.
-**Indicaciones:** absceso periamigdalino accesible con paciente estable.
-**Contraindicaciones/precauciones:** vía aérea amenazada, anatomía incierta, trismus extremo o paciente no cooperador.
-**Material:** succión, anestesia tópica/local y aguja con limitador o bisturí apropiado.
-**Anatomía:** región periamigdalina y relación lateral/posterior con la carótida.
-**Preparación:** valorar vía aérea, posición sentada y succión preparada.
-**Técnica paso a paso:** anestesiar; localizar máxima prominencia; aspirar o incidir de forma controlada; drenar; reevaluar vía aérea.
-**STOP:** sangrado, anatomía dudosa o deterioro respiratorio.
-**Confirmación:** pus obtenido y mejoría clínica.
-**Complicaciones:** hemorragia, aspiración y lesión vascular.
-**Después:** antibiótico/analgesia y ORL según gravedad.
-**Documentación:** lado, técnica y resultado.
-**Fuentes:** ORL emergency guidance.
-**QA:** YELLOW.
+## PROC-ENT-010 — Absceso periamigdalino: aspiración o incisión/drenaje — ADVANCED
+**Objetivo:** drenar una colección periamigdalina protegiendo vía aérea y estructuras vasculares.
+**Indicaciones:** absceso clínicamente aparente; Merck 2025 considera drenaje por aspiración o incisión/drenaje. Dolor importante, trismus, disfagia, distrés respiratorio o falta de respuesta a antibióticos refuerzan la necesidad de drenaje.
+**Contraindicaciones/precauciones:** trismus intratable es contraindicación para drenaje bedside; cooperación deficiente, coagulopatía o diagnóstico incierto son precauciones. Diferenciar celulitis periamigdalina y absceso parafaríngeo.
+**Material:** succión, luz frontal, depresor lingual, anestesia tópica/local, aguja con limitador o bisturí protegido, pinza y material de cultivo.
+**Anatomía:** espacio entre cápsula amigdalina y músculo constrictor superior; carótida interna aproximadamente posterolateral, por lo que la trayectoria debe mantenerse anteroposterior y con profundidad limitada.
+**Preparación:** paciente sentado con cabeza apoyada, vía aérea evaluada, succión lista y analgesia adecuada; considerar POCUS o TC si el diagnóstico es incierto.
+**Técnica paso a paso:** aspirar primero el punto de máxima prominencia, habitualmente polo superior, manteniendo la aguja en plano sagital y profundidad limitada; si se realiza incisión, limitar la hoja a ~0,5–1 cm y abrir loculaciones suavemente.
+**STOP:** no dirigir aguja lateralmente, no profundizar si no se obtiene pus a profundidad segura, y detener ante sangrado, deterioro respiratorio o anatomía incierta.
+**Confirmación:** obtención de pus y mejoría clínica; una aspiración negativa no excluye absceso si la sospecha clínica/imaging persiste.
+**Complicaciones:** hemorragia, punción carotídea, aspiración de sangre/pus y drenaje incompleto.
+**Después:** antibiótico, analgesia/hidratación y seguimiento ORL; ingreso si vía aérea, sepsis o tolerancia oral son problemáticos.
+**Documentación:** lado, método, profundidad limitada, pus/cultivo, tolerancia y complicaciones.
+**Fuentes:** Merck Manual Professional, How To Drain a Peritonsillar Abscess, updated 2025; Peritonsillar Abscess and Cellulitis, updated 2026.
+**QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-011 — Luxación mandibular — REFERENCIA
 Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
