@@ -4,83 +4,83 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 
 ## PROC-OBS-001 — Parto vaginal inminente no complicado — CORE
 **Objetivo:** asistir un parto vaginal inminente de forma segura cuando no hay tiempo para traslado.
-**Indicaciones:** coronación o parto inminente sin complicación obstétrica mayor identificada.
-**Contraindicaciones/precauciones:** presentación anómala, hemorragia importante, distocia o compromiso materno-fetal requieren escalada obstétrica urgente.
-**Material:** PPE, paños, material para cordón, material neonatal y control de hemorragia.
-**Anatomía:** canal del parto, cabeza fetal, hombros y periné.
-**Preparación:** activar ayuda obstétrica/neonatal, privacidad, posición materna y equipo de reanimación neonatal.
-**Técnica paso a paso:** controlar la salida de la cabeza sin tracción; comprobar cordón nucal; permitir restitución y rotación; guiar hombros suavemente; recibir y calentar al recién nacido.
-**STOP:** no traccionar de la cabeza; si los hombros no progresan, declarar distocia.
-**Confirmación:** nacimiento completo y estabilidad inicial materno-neonatal.
+**Indicaciones:** coronación o parto inminente cefálico sin complicación obstétrica mayor identificada.
+**Contraindicaciones/precauciones:** presentación anómala, hemorragia importante, distocia, prolapso de cordón o compromiso materno-fetal requieren escalada obstétrica urgente.
+**Material:** PPE, paños, material para cordón, equipo neonatal y control de hemorragia.
+**Anatomía:** canal del parto, periné, cabeza y hombros fetales.
+**Preparación:** activar ayuda obstétrica/neonatal, privacidad, posición materna cómoda y equipo de reanimación neonatal disponible.
+**Técnica paso a paso:** permitir salida controlada de la cabeza sin tracción; comprobar cordón nucal; esperar restitución/rotación espontánea; guiar hombros suavemente solo con tracción axial mínima; recibir al recién nacido, secar y mantener temperatura.
+**STOP:** no realizar tracción excesiva de cabeza/cuello; si los hombros no progresan con maniobras habituales, declarar distocia.
+**Confirmación:** nacimiento completo y estabilidad materno-neonatal.
 **Complicaciones:** hemorragia, desgarros, distocia y depresión neonatal.
-**Después:** vigilancia materno-neonatal y manejo de tercera etapa/PPH según protocolo.
-**Documentación:** hora de nacimiento, presentación y complicaciones.
-**Fuentes:** obstetric emergency guidance; WHO/major-society delivery principles.
-**QA:** YELLOW.
+**Después:** contacto piel con piel y pinzamiento diferido si madre/neonato estables; vigilar tercera etapa y PPH.
+**Documentación:** hora de nacimiento, presentación, Apgar/estado inicial cuando corresponda y complicaciones.
+**Fuentes:** WHO intrapartum/newborn care principles; AHA/AAP Neonatal Resuscitation 2025.
+**QA:** YELLOW; revisión humana obstetricia pendiente.
 
 ## PROC-OBS-002 — Cordón: pinzamiento/cuidado inicial — CORE
-**Objetivo:** manejar el cordón umbilical de forma segura tras el nacimiento.
+**Objetivo:** manejar el cordón umbilical favoreciendo transición neonatal y evitando hemorragia.
 **Indicaciones:** todo parto asistido.
-**Contraindicaciones/precauciones:** retrasar pinzamiento cuando madre y neonato estén estables; pinzar antes si reanimación o logística lo exige según guía.
-**Material:** dos pinzas o clamps y tijera estéril.
+**Contraindicaciones/precauciones:** AHA/AAP 2025 recomienda diferir pinzamiento al menos 60 s en recién nacidos a término y pretérmino que no requieren reanimación inmediata; la conducta debe individualizarse si existe necesidad de reanimación urgente o compromiso materno.
+**Material:** clamps/pinzas y tijera estéril.
 **Anatomía:** cordón umbilical y muñón neonatal.
-**Preparación:** valorar estabilidad materna y neonatal.
-**Técnica paso a paso:** decidir el momento del pinzamiento, colocar dos clamps, cortar entre ambos y revisar el muñón.
-**STOP:** sangrado persistente del muñón o necesidad de reanimación inmediata.
-**Confirmación:** muñón sin sangrado activo.
-**Complicaciones:** hemorragia del muñón y pinzamiento inadecuado.
-**Después:** cuidado del cordón y vigilancia neonatal.
-**Documentación:** momento del pinzamiento y motivo si fue precoz.
-**Fuentes:** WHO neonatal/obstetric guidance; ERC neonatal principles.
-**QA:** YELLOW.
+**Preparación:** valorar estabilidad materna y neonatal y coordinar con equipo neonatal.
+**Técnica paso a paso:** mantener al recién nacido caliente mientras se evalúa transición; cuando corresponde pinzar, colocar dos clamps y cortar entre ambos; comprobar hemostasia del muñón.
+**STOP:** sangrado del muñón o deterioro neonatal/materno que obligue a modificar la estrategia.
+**Confirmación:** muñón sin sangrado y transición neonatal adecuadamente atendida.
+**Complicaciones:** hemorragia del muñón y pinzamiento innecesariamente precoz.
+**Después:** cuidado seco del cordón y vigilancia neonatal.
+**Documentación:** tiempo aproximado hasta pinzamiento y motivo si fue precoz.
+**Fuentes:** AHA/AAP Neonatal Resuscitation Guidelines 2025.
+**QA:** YELLOW; revisión humana obstetricia/neonatología pendiente.
 
 ## PROC-OBS-003 — Distocia de hombros — CORE
-**Objetivo:** liberar un hombro fetal impactado minimizando lesión materno-fetal.
-**Indicaciones:** cabeza nacida con fracaso de expulsión de hombros y signos clínicos compatibles.
-**Contraindicaciones/precauciones:** no realizar presión fúndica ni tracción excesiva de la cabeza.
+**Objetivo:** liberar un hombro fetal impactado minimizando lesión materna y fetal.
+**Indicaciones:** tras nacimiento de la cabeza, fracaso de salida de hombros con tracción axial rutinaria y signos compatibles.
+**Contraindicaciones/precauciones:** no realizar presión fúndica ni tracción excesiva de cabeza/cuello.
 **Material:** equipo obstétrico/neonatal y material de reanimación.
-**Anatomía:** sínfisis púbica, sacro y hombros fetales.
-**Preparación:** declarar emergencia, pedir ayuda, registrar tiempo y asignar roles.
-**Técnica paso a paso:** iniciar McRoberts y presión suprapúbica; si falla, progresar a maniobras internas o posición a cuatro apoyos según entrenamiento.
-**STOP:** evitar tracción excesiva de cabeza/cuello y presión fúndica.
+**Anatomía:** sínfisis púbica, sacro, hombros fetales y plexo braquial.
+**Preparación:** declarar la emergencia, pedir ayuda, registrar tiempo y asignar roles.
+**Técnica paso a paso:** comenzar con McRoberts y presión suprapúbica; si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación.
+**STOP:** evitar maniobras repetidas sin cambio de estrategia, presión fúndica y tracción excesiva.
 **Confirmación:** liberación de hombros y nacimiento.
-**Complicaciones:** lesión del plexo braquial, fracturas y trauma/hemorragia materna.
-**Después:** evaluación neonatal y materna detallada.
-**Documentación:** secuencia de maniobras, tiempos y resultado.
-**Fuentes:** RCOG/ACOG shoulder dystocia guidance.
-**QA:** YELLOW.
+**Complicaciones:** lesión del plexo braquial, fracturas, hipoxia fetal, hemorragia y trauma obstétrico materno.
+**Después:** evaluación neonatal y materna detalladas y vigilancia de PPH.
+**Documentación:** secuencia exacta de maniobras, tiempo cabeza-cuerpo y resultado.
+**Fuentes:** RCOG Green-top Guideline No. 42 Shoulder Dystocia, reviewed 2026; ACOG shoulder dystocia guidance.
+**QA:** YELLOW; revisión humana obstetricia pendiente.
 
 ## PROC-OBS-004 — Prolapso de cordón — CORE
-**Objetivo:** reducir la compresión del cordón hasta parto urgente.
-**Indicaciones:** cordón prolapsado visible o palpable con presentación fetal compresiva.
-**Contraindicaciones/precauciones:** evitar manipulación innecesaria del cordón y retrasos en parto definitivo.
-**Material:** guantes estériles, monitorización fetal si disponible y material obstétrico.
+**Objetivo:** reducir la compresión del cordón y mantener perfusión fetal hasta parto urgente.
+**Indicaciones:** cordón prolapsado visible o palpable junto o por delante de la presentación fetal tras rotura de membranas.
+**Contraindicaciones/precauciones:** evitar manipulación repetida del cordón y no intentar reintroducirlo de forma rutinaria.
+**Material:** guantes estériles, monitorización fetal si disponible y material obstétrico/neonatal.
 **Anatomía:** presentación fetal, cérvix, cordón y pelvis.
-**Preparación:** activar cesárea/obstetricia emergente y equipo neonatal.
-**Técnica paso a paso:** elevar manualmente la presentación, colocar posición materna que reduzca presión, minimizar manipulación y mantener húmedo el cordón exteriorizado.
-**STOP:** no intentar reposicionar el cordón como estrategia definitiva.
-**Confirmación:** menor compresión o recuperación fetal temporal cuando sea monitorizable.
-**Complicaciones:** hipoxia fetal y trauma del cordón.
-**Después:** parto urgente.
-**Documentación:** hora de diagnóstico, medidas y tiempo hasta parto.
-**Fuentes:** obstetric emergency guidance.
-**QA:** YELLOW.
+**Preparación:** activar de inmediato obstetricia/quirófano y equipo neonatal.
+**Técnica paso a paso:** elevar manualmente la presentación fetal para aliviar presión; colocar a la madre en posición que reduzca compresión; minimizar manipulación del cordón y cubrir con gasa estéril húmeda si está exteriorizado. Mantener la descompresión hasta parto definitivo.
+**STOP:** no retrasar parto definitivo por maniobras temporizadoras.
+**Confirmación:** reducción de compresión y, cuando se monitoriza, mejoría temporal de frecuencia fetal.
+**Complicaciones:** hipoxia fetal, vasoespasmo/trauma del cordón y muerte fetal.
+**Después:** parto urgente por la vía más rápida y segura según dilatación, presentación y estado fetal.
+**Documentación:** hora de diagnóstico, FCF, medidas de descompresión y tiempo hasta parto.
+**Fuentes:** RCOG Green-top Guideline No. 50 Umbilical Cord Prolapse, reviewed/extended 2024.
+**QA:** YELLOW; revisión humana obstetricia pendiente.
 
 ## PROC-OBS-005 — Hemorragia posparto: masaje uterino inicial — CORE
-**Objetivo:** tratar atonía uterina inicial mientras se activa el protocolo de PPH.
+**Objetivo:** tratar atonía uterina mientras se activa simultáneamente el bundle completo de hemorragia posparto.
 **Indicaciones:** hemorragia posparto con útero atónico o causa aún no aclarada.
-**Contraindicaciones/precauciones:** no retrasar búsqueda de 4T ni reanimación.
-**Material:** acceso IV, uterotónicos desde módulo farmacológico, sangre/hemoderivados y material obstétrico.
-**Anatomía:** fondo y cavidad uterina.
-**Preparación:** cuantificar sangrado, monitorizar y activar ayuda.
-**Técnica paso a paso:** masaje uterino/fundal o bimanual según caso, vaciar vejiga si procede, administrar tratamiento farmacológico canónico y buscar Tone/Trauma/Tissue/Thrombin.
-**STOP:** sangrado persistente, shock o sospecha de ruptura/retención.
-**Confirmación:** útero más firme y disminución del sangrado.
-**Complicaciones:** retraso de hemostasia definitiva si no se escala.
-**Después:** continuar bundle PPH y escalar a balón/cirugía según causa.
-**Documentación:** pérdida cuantificada, respuesta y tratamientos.
-**Fuentes:** WHO consolidated PPH guidance 2025/2026; ACOG/RCOG.
-**QA:** YELLOW.
+**Contraindicaciones/precauciones:** no retrasar evaluación de Trauma, Tissue y Thrombin ni control definitivo por insistir en masaje aislado.
+**Material:** monitorización, acceso IV, uterotónicos/TXA desde módulos farmacológicos, sangre/hemoderivados y material obstétrico.
+**Anatomía:** fondo, cuerpo y cavidad uterina.
+**Preparación:** cuantificar pérdida, pedir ayuda, obtener accesos, vaciar vejiga si procede y activar protocolo de PPH.
+**Técnica paso a paso:** masaje uterino/fundal y, si es necesario, compresión bimanual; administrar tratamiento farmacológico canónico en paralelo y buscar sistemáticamente las 4T.
+**STOP:** sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa.
+**Confirmación:** útero más firme y disminución objetiva del sangrado.
+**Complicaciones:** retraso de hemostasia definitiva si se usa como única medida.
+**Después:** continuar bundle PPH, reanimación hemostática y reevaluación seriada.
+**Documentación:** pérdida cuantificada, tono, 4T evaluadas, tratamientos y respuesta.
+**Fuentes:** WHO Consolidated Guidelines for Prevention, Diagnosis and Treatment of Postpartum Haemorrhage 2025; implementation guide 2026.
+**QA:** YELLOW; revisión humana obstetricia pendiente.
 
 ## PROC-OBS-006 — Exploración uterina / extracción manual de coágulos seleccionada — ADVANCED
 **Objetivo:** evacuar coágulos o restos accesibles que interfieren con la contracción uterina y la hemostasia dentro de un protocolo de PPH.
