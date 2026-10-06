@@ -291,20 +291,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW.
 
 ## PROC-WND-019 — Escharotomía — SPECIALIST
-**Objetivo:** liberar escara circunferencial que compromete perfusión o ventilación.  
-**Indicaciones:** quemadura circunferencial con compromiso vascular distal o torácico ventilatorio.  
-**Contraindicaciones/precauciones:** procedimiento de alto riesgo; no confundir con fasciotomía.  
-**Material:** bisturí/electrocauterio, analgesia/sedación, hemostasia y monitor.  
-**Anatomía:** líneas seguras de extremidad/tórax evitando nervios/vasos.  
-**Preparación:** burn team, analgesia y marcar trayecto.  
-**Técnica paso a paso:** 1) incidir longitudinalmente a través de escara hasta subcutáneo; 2) observar separación; 3) extender solo lo necesario; 4) repetir línea opuesta si precisa; 5) reevaluar perfusión/ventilación.  
-**STOP:** sangrado profundo o anatomía incierta.  
-**Confirmación:** mejor pulso/perfusión o expansión torácica.  
-**Complicaciones:** sangrado, lesión nerviosa/vascular, infección.  
-**Después:** centro de quemados y cirugía definitiva.  
-**Documentación:** indicación, líneas y respuesta.  
-**Fuentes:** burn surgery/ABA guidance.  
-**QA:** YELLOW.
+**Objetivo:** liberar una escara circunferencial que compromete perfusión distal o ventilación.
+**Indicaciones:** quemadura circunferencial de espesor profundo con signos de compromiso vascular de una extremidad o restricción ventilatoria torácica atribuible a la escara.
+**Contraindicaciones/precauciones:** procedimiento de alto riesgo; distinguir escharotomía (hasta tejido subcutáneo) de fasciotomía; consultar precozmente a unidad de quemados.
+**Material:** bisturí/electrocauterio, analgesia/sedación, hemostasia, monitorización y Doppler cuando sea útil.
+**Anatomía:** líneas de incisión seguras de extremidad o tórax, evitando trayectos neurovasculares vulnerables.
+**Preparación:** activar burn team/centro de quemados, documentar perfusión/ventilación basal, analgesia y marcar trayecto.
+**Técnica paso a paso:** realizar incisiones longitudinales a través de la escara hasta tejido subcutáneo viable, observando separación de bordes; extender solo lo necesario y añadir una segunda línea si la descompresión es insuficiente.
+**STOP:** sangrado profundo, anatomía incierta o ausencia de mejoría que sugiera síndrome compartimental profundo/otra causa.
+**Confirmación:** mejoría de perfusión distal (clínica/Doppler) o de expansión/ventilación torácica.
+**Complicaciones:** hemorragia, lesión nerviosa/vascular, infección, necesidad posterior de fasciotomía y cicatrización compleja.
+**Después:** cuidado en centro de quemados y cirugía/reconstrucción según evolución.
+**Documentación:** indicación, líneas realizadas, perfusión/ventilación pre-post y complicaciones.
+**Fuentes:** American Burn Association, Clinical Practice Guidelines — Escharotomy and Decompressive Therapies in Burns.
+**QA:** YELLOW; revisión humana de quemados pendiente.
 
 ## PROC-WND-020 — Manejo inicial de ampollas/quemaduras — CORE
 **Objetivo:** limitar lesión térmica y proteger tejido.  
