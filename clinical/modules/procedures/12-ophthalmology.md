@@ -51,7 +51,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-EYE-004 — Cuerpo extraño corneal superficial — CORE
-**Técnica:** anestesia tópica diagnóstica/procedimental, lámpara de hendidura, irrigación/hisopo primero; aguja/burr solo operador entrenado y superficial. **STOP:** penetración, Seidel+, objeto central/profundo. **Visual:** lámpara de hendidura.
+**Objetivo:** retirar material superficial sin penetrar el globo.
+**Indicaciones:** cuerpo extraño corneal superficial visible.
+**Contraindicaciones/precauciones:** Seidel positivo, objeto profundo/central, mecanismo de alta velocidad o sospecha de globo abierto.
+**Material:** lámpara de hendidura, irrigación, hisopo y aguja/burr solo por operador entrenado.
+**Anatomía:** córnea, epitelio y cámara anterior.
+**Preparación:** medir agudeza visual, anestesia tópica y fluoresceína.
+**Técnica paso a paso:** intentar irrigación o hisopo; si persiste, retirar bajo magnificación con instrumento apropiado.
+**STOP:** penetración, fuga, dolor profundo o lesión no superficial.
+**Confirmación:** objeto retirado y ausencia de fuga cuando aplique.
+**Complicaciones:** abrasión, infección y cicatriz corneal.
+**Después:** tratamiento tópico/oftalmología según hallazgo.
+**Documentación:** localización, método y agudeza visual.
+**Fuentes:** ophthalmology emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-EYE-005 — Fluoresceína — CORE
 **Técnica:** humedecer tira, tocar conjuntiva, parpadear, luz azul cobalto; documentar patrón y Seidel. **Visual:** abrasión y Seidel.
