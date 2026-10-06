@@ -51,7 +51,20 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **QA:** YELLOW.
 
 ## PROC-SP-004 — Empalamiento — CORE
-**Técnica:** no retirar objeto salvo interferencia con RCP/vía aérea o contexto excepcional; estabilizar con apósitos, controlar sangrado alrededor, acortar solo con equipo adecuado si traslado imposible. **Visual:** estabilización.
+**Objetivo:** estabilizar objeto empalado y prevenir hemorragia/lesión secundaria.
+**Indicaciones:** objeto penetrante retenido.
+**Contraindicaciones/precauciones:** no retirar salvo situación excepcional que impida RCP/vía aérea o extracción del entorno.
+**Material:** apósitos voluminosos, vendas y material de control hemorrágico.
+**Anatomía:** trayecto del objeto y estructuras regionales.
+**Preparación:** ABC, control de hemorragia alrededor y plan de traslado.
+**Técnica paso a paso:** estabilizar el objeto con apósitos, evitar movimiento y acortar solo si el traslado lo exige y existe equipo adecuado.
+**STOP:** extracción no planificada o manipulación que aumente sangrado.
+**Confirmación:** objeto inmóvil y paciente estable para traslado.
+**Complicaciones:** hemorragia, lesión vascular/visceral y contaminación.
+**Después:** extracción controlada en entorno quirúrgico apropiado.
+**Documentación:** mecanismo, localización y estabilización.
+**Fuentes:** trauma guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-005 — Mordeduras/heridas contaminadas — CORE
 **Técnica:** irrigación abundante, exploración, desbridamiento selectivo, evaluar tendón/articulación, profilaxis tétanos/rabia y antibiótico según especie/sitio/riesgo; cierre diferido en heridas seleccionadas. **Visual:** irrigación y zonas de alto riesgo.
