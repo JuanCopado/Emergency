@@ -134,7 +134,20 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW.
 
 ## PROC-SP-010 — Exposición a opioides/polvos — CORE
-**Técnica:** PPE estándar apropiado, evitar aerosolización, retirar polvo visible/ropa contaminada y lavar piel; naloxona se usa para síndrome clínico, no para exposición asintomática. **Visual:** descontaminación segura.
+**Objetivo:** descontaminar de forma segura evitando aerosolización innecesaria.
+**Indicaciones:** exposición cutánea o contaminación por polvo sospechado.
+**Contraindicaciones/precauciones:** naloxona se reserva para síndrome opioide clínico, no para exposición asintomática.
+**Material:** PPE estándar apropiado, bolsas y agua/jabón.
+**Anatomía:** piel/vía respiratoria según exposición.
+**Preparación:** evaluar síntomas y retirar de la fuente.
+**Técnica paso a paso:** evitar aerosolizar, retirar polvo visible/ropa contaminada y lavar piel.
+**STOP:** depresión respiratoria → tratar como intoxicación clínica.
+**Confirmación:** descontaminación completa y ausencia de síntomas.
+**Complicaciones:** exposición secundaria del personal o retraso en tratar toxicidad real.
+**Después:** observación según exposición.
+**Documentación:** exposición y síntomas.
+**Fuentes:** toxicology/occupational exposure guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-011 — Recalentamiento externo activo — CORE
 **Técnica:** manipulación suave, retirar ropa mojada, aislamiento, mantas/aire caliente en tronco, fluidos calentados cuando indicados, monitorización central. **STOP:** evitar fricción vigorosa y calor directo en extremidades con hipotermia grave. **Visual:** zonas de calentamiento.
