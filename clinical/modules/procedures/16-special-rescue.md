@@ -118,7 +118,20 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW.
 
 ## PROC-SP-009 — Descontaminación cutánea química — CORE
-**Técnica:** PPE, retirar ropa/joyas, cepillar sólidos secos cuando corresponda antes de agua, irrigación copiosa para sustancias compatibles, embolsar ropa. **STOP:** sustancias reactivas con agua requieren ficha específica. **Visual:** zona caliente/templada.
+**Objetivo:** detener exposición dérmica y proteger al personal.
+**Indicaciones:** contaminación cutánea química.
+**Contraindicaciones/precauciones:** sustancias reactivas con agua requieren ficha específica.
+**Material:** PPE, bolsas para ropa, agua/solución adecuada y cepillo para sólidos secos si corresponde.
+**Anatomía:** piel y superficies expuestas.
+**Preparación:** zona de descontaminación y PPE apropiado.
+**Técnica paso a paso:** retirar ropa/joyas, cepillar sólidos secos cuando proceda e irrigar ampliamente las sustancias compatibles con agua.
+**STOP:** reacción exotérmica o sustancia cuya ficha contraindique agua.
+**Confirmación:** contaminante retirado y síntomas estabilizados.
+**Complicaciones:** quemadura química persistente e hipotermia.
+**Después:** tratamiento específico y vigilancia.
+**Documentación:** sustancia, PPE y método de descontaminación.
+**Fuentes:** hazardous materials/toxicology guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-010 — Exposición a opioides/polvos — CORE
 **Técnica:** PPE estándar apropiado, evitar aerosolización, retirar polvo visible/ropa contaminada y lavar piel; naloxona se usa para síndrome clínico, no para exposición asintomática. **Visual:** descontaminación segura.
