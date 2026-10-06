@@ -115,20 +115,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana urgencias/cirugía pendiente.
 
 ## PROC-WND-008 — Exploración de heridas — CORE
-**Objetivo:** identificar lesión de tendón, nervio, vaso, articulación o cuerpo extraño.  
-**Indicaciones:** herida profunda, mecanismo de riesgo o déficit funcional.  
-**Contraindicaciones/precauciones:** no explorar a ciegas cerca de estructuras críticas.  
-**Material:** luz, irrigación, anestesia, instrumental y US/Rx según material.  
-**Anatomía:** depende de región.  
-**Preparación:** hemostasia y anestesia.  
-**Técnica paso a paso:** 1) visualizar profundidad; 2) explorar en posición funcional; 3) mover tendones/articulaciones si seguro; 4) buscar cuerpo extraño; 5) documentar estructura lesionada.  
-**STOP:** sangrado arterial, nervio/tendón expuesto complejo o cavidad profunda.  
-**Confirmación:** exploración suficiente del trayecto visible.  
-**Complicaciones:** lesión iatrogénica/infección.  
-**Después:** reparación/derivación.  
-**Documentación:** estructuras evaluadas.  
-**Fuentes:** wound care guidance.  
-**QA:** YELLOW.
+**Objetivo:** identificar lesión de tendón, nervio, vaso, articulación, hueso o cuerpo extraño.
+**Indicaciones:** herida profunda, mecanismo de alto riesgo, déficit motor/sensitivo o sospecha de penetración articular/cuerpo extraño.
+**Contraindicaciones/precauciones:** no explorar a ciegas cerca de estructuras críticas; heridas profundas de mano, cuello, cara o zonas neurovasculares complejas pueden requerir especialista.
+**Material:** iluminación, anestesia, irrigación, instrumental estéril, hemostasia y US/Rx según sospecha.
+**Anatomía:** específica de la región lesionada.
+**Preparación:** documentar neurovascular/tendones antes de anestesia cuando sea posible; obtener hemostasia y limpiar la herida.
+**Técnica paso a paso:** ampliar exposición solo lo necesario, explorar bajo visión directa, mover articulaciones/tendones si es seguro para visualizar trayectos y valorar cuerpo extraño con imagen cuando el material o profundidad lo aconsejen.
+**STOP:** sangrado arterial, estructura crítica seccionada, cavidad profunda no controlable o pérdida de visualización.
+**Confirmación:** trayecto y estructuras relevantes adecuadamente evaluados o derivación apropiada si no puede completarse.
+**Complicaciones:** lesión iatrogénica, sangrado e infección.
+**Después:** reparación, inmovilización, imagen o derivación según hallazgo.
+**Documentación:** mecanismo, profundidad, estructuras evaluadas y déficits pre/post.
+**Fuentes:** Merck Manual Professional wound exploration/foreign-body guidance, updated 2025–2026.
+**QA:** YELLOW; revisión humana urgencias/cirugía pendiente.
 
 ## PROC-WND-009 — Sutura simple interrumpida — CORE
 **Objetivo:** aproximar bordes de herida con control individual de tensión.  
