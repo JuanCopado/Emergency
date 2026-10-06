@@ -3,36 +3,36 @@
 Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.
 
 ## PROC-THX-001 — Descompresión inmediata de neumotórax a tensión — CORE
-**Objetivo:** revertir rápidamente fisiología de tensión con shock/insuficiencia respiratoria.  
-**Indicaciones:** sospecha clínica de neumotórax a tensión con inestabilidad; no esperar imagen si el cuadro es compatible.  
-**Contraindicaciones/precauciones:** no hay contraindicación absoluta en amenaza vital; elegir técnica/sitio según protocolo, anatomía y dispositivo.  
-**Material:** aguja/catéter de longitud adecuada o material para toracostomía; monitorización y drenaje definitivo preparado.  
-**Anatomía:** pared torácica, espacio intercostal, pleura, paquete neurovascular en borde inferior costal.  
-**Preparación:** oxígeno, monitor, identificar hemitórax y sitio seguro.  
-**Técnica paso a paso:** 1) confirmar lateralidad; 2) antisepsia rápida si no retrasa; 3) entrar sobre borde superior de costilla; 4) confirmar liberación de aire/efecto clínico; 5) preparar drenaje definitivo.  
-**STOP:** empeoramiento sin respuesta obliga a reconsiderar diagnóstico/sitio/dispositivo.  
-**Confirmación:** mejoría hemodinámica/ventilatoria; POCUS si no retrasa y es útil.  
-**Complicaciones:** lesión vascular, pulmonar, diafragmática, infección, fallo por catéter corto/oclusión.  
-**Después:** drenaje pleural definitivo y reevaluación.  
-**Documentación:** lado, técnica, dispositivo y respuesta.  
-**Fuentes:** trauma/ERC principles; BTS para drenaje definitivo.  
-**QA:** YELLOW.
+**Objetivo:** revertir de inmediato la fisiología obstructiva de un neumotórax a tensión con inestabilidad grave.
+**Indicaciones:** sospecha clínica o por POCUS de neumotórax a tensión con shock grave o parada; no esperar radiografía/TC.
+**Contraindicaciones/precauciones:** no existe contraindicación absoluta en amenaza vital; la técnica depende del contexto, entrenamiento y dispositivo disponible.
+**Material:** material para toracostomía abierta/digital o catéter de descompresión de longitud adecuada, oxígeno, monitorización y drenaje definitivo preparado.
+**Anatomía:** pared torácica, espacio intercostal, pleura y paquete neurovascular.
+**Preparación:** confirmar lateralidad, oxígeno/ventilación y sitio seguro sin retrasar tratamiento.
+**Técnica paso a paso:** en parada traumática o hipotensión extrema con fuerte sospecha, ERC 2025 favorece descompresión inmediata mediante toracostomía abierta cuando existe competencia; si se usa aguja/catéter, entrar por un sitio protocolizado sobre el borde superior de la costilla y avanzar hasta pleura. Preparar drenaje definitivo tras recuperación inicial.
+**STOP:** ausencia de respuesta obliga a comprobar lado, permeabilidad y diagnóstico alternativo; no repetir punciones ciegas sin reevaluación.
+**Confirmación:** salida de aire y mejoría hemodinámica/ventilatoria; POCUS puede confirmar resolución si no retrasa la intervención.
+**Complicaciones:** lesión vascular/pulmonar/diafragmática, fallo por catéter corto u obstruido, infección y falsa vía.
+**Después:** drenaje pleural definitivo y reevaluación seriada.
+**Documentación:** lado, técnica, sitio, dispositivo y respuesta.
+**Fuentes:** ERC 2025 Special Circumstances — traumatic cardiac arrest/tension pneumothorax; BTS Pleural Procedures 2023 para drenaje definitivo.
+**QA:** YELLOW; revisión humana trauma/urgencias pendiente.
 
 ## PROC-THX-002 — Toracostomía digital — ADVANCED
-**Objetivo:** abrir pleura rápidamente para descomprimir aire/sangre, especialmente en trauma/peri-parada.  
-**Indicaciones:** neumotórax a tensión traumático o contexto de resucitación donde el protocolo favorece toracostomía digital.  
-**Contraindicaciones/precauciones:** requiere entrenamiento y anatomía identificable; riesgo aumentado con adherencias/cirugía previa.  
-**Material:** bisturí, pinza roma, guantes estériles, drenaje torácico si seguirá tubo.  
-**Anatomía:** triángulo de seguridad, costillas, pleura y paquete neurovascular.  
-**Preparación:** lateralidad, antisepsia rápida, analgesia si estado lo permite.  
-**Técnica paso a paso:** 1) incisión cutánea; 2) disección roma sobre borde superior de costilla; 3) penetración pleural controlada; 4) dedo para confirmar espacio pleural; 5) liberar adherencias accesibles solo si seguro; 6) colocar tubo si procede.  
-**STOP:** resistencia anómala, anatomía incierta o sospecha de lesión visceral.  
-**Confirmación:** entrada pleural digital, salida de aire/sangre y respuesta clínica.  
-**Complicaciones:** hemorragia, lesión pulmonar/diafragmática, infección, falsa vía.  
-**Después:** drenaje, conexión y control.  
-**Documentación:** lado, sitio, hallazgos y complicaciones.  
-**Fuentes:** trauma/pleural procedural guidance.  
-**QA:** YELLOW.
+**Objetivo:** abrir el espacio pleural rápidamente para descomprimir aire o sangre, especialmente en trauma peri-parada/parada.
+**Indicaciones:** neumotórax a tensión traumático, parada traumática o fracaso/inadecuación de descompresión por aguja cuando el protocolo y competencia favorecen toracostomía abierta.
+**Contraindicaciones/precauciones:** requiere entrenamiento, anatomía identificable y precaución ante cirugía torácica previa/adherencias.
+**Material:** bisturí, pinza roma, guantes, succión y tubo torácico si se continuará con drenaje.
+**Anatomía:** triángulo de seguridad, costillas, pleura y paquete intercostal.
+**Preparación:** confirmar lado, exponer tórax, antisepsia rápida si no retrasa y analgesia si el estado lo permite.
+**Técnica paso a paso:** realizar incisión cutánea en sitio seguro, disección roma hasta costilla, entrar por encima del borde superior, perforar pleura de forma controlada y confirmar con dedo dentro del espacio pleural; no explorar más allá de lo necesario. Colocar drenaje si el contexto lo requiere.
+**STOP:** anatomía incierta, resistencia no explicada, sangrado importante o sospecha de lesión visceral.
+**Confirmación:** dedo intrapleural, salida de aire/sangre y respuesta clínica.
+**Complicaciones:** hemorragia, lesión pulmonar/diafragmática/intercostal, infección y falsa vía.
+**Después:** drenaje definitivo, conexión y control clínico/imaginológico.
+**Documentación:** lado, sitio, hallazgos y complicaciones.
+**Fuentes:** ERC 2025 Special Circumstances — traumatic cardiac arrest; trauma/pleural procedural guidance.
+**QA:** YELLOW; revisión humana trauma pendiente.
 
 ## PROC-THX-003 — Tubo de toracostomía / drenaje pleural — ADVANCED
 **Objetivo:** drenar aire, sangre, pus u otro contenido pleural mediante un sistema seguro y adecuado a la indicación.
@@ -51,20 +51,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleu
 **QA:** YELLOW; revisión humana neumología/trauma pendiente.
 
 ## PROC-THX-004 — Catéter pleural tipo pigtail — ADVANCED
-**Objetivo:** drenaje pleural con catéter de pequeño calibre en indicaciones seleccionadas.  
-**Indicaciones:** neumotórax/derrame según contexto y protocolo.  
-**Contraindicaciones/precauciones:** colección loculada compleja, sangre espesa o anatomía desfavorable pueden requerir otro drenaje.  
-**Material:** kit pigtail Seldinger, US, anestesia, guía/dilatador y sistema de drenaje.  
-**Anatomía:** espacio pleural, diafragma, pulmón y paquete intercostal.  
-**Preparación:** localizar colección con US cuando proceda y campo estéril.  
-**Técnica paso a paso:** 1) punción; 2) confirmar posición; 3) guía; 4) dilatación; 5) catéter; 6) retirar guía; 7) conectar/fijar.  
-**STOP:** no dilatar si guía no está inequívocamente en pleura.  
-**Confirmación:** drenaje funcional y posición adecuada.  
-**Complicaciones:** falsa vía, hemorragia, lesión visceral, obstrucción.  
-**Después:** monitorizar débito/fuga y permeabilidad.  
-**Documentación:** calibre, sitio y confirmación.  
-**Fuentes:** BTS Pleural Procedures 2023.  
-**QA:** YELLOW.
+**Objetivo:** drenar aire o líquido pleural mediante catéter de pequeño calibre en indicaciones seleccionadas.
+**Indicaciones:** neumotórax y derrames pleurales apropiados para pequeño calibre según etiología y protocolo.
+**Contraindicaciones/precauciones:** hemotórax espeso/masivo, colección compleja, loculaciones extensas o anatomía desfavorable pueden requerir otro drenaje.
+**Material:** kit pigtail Seldinger, ecógrafo, anestesia local, guía/dilatador y sistema de drenaje.
+**Anatomía:** pleura, pulmón, diafragma y paquete intercostal.
+**Preparación:** localizar aire/líquido y seleccionar trayecto seguro; ecografía para líquido y cuando sea útil para neumotórax.
+**Técnica paso a paso:** punción controlada, confirmar entrada pleural, avanzar guía sin resistencia, confirmar posición de guía antes de dilatar, dilatar solo el trayecto necesario, avanzar catéter, retirar guía, conectar y fijar.
+**STOP:** no dilatar si la guía no está inequívocamente en el espacio pleural; detener ante dolor intenso, resistencia o sangrado.
+**Confirmación:** drenaje funcional y posición apropiada por clínica/US/imagen según contexto.
+**Complicaciones:** falsa vía, sangrado, lesión visceral, obstrucción, acodamiento y malposición.
+**Después:** monitorizar débito, fuga aérea, permeabilidad y necesidad de succión.
+**Documentación:** indicación, calibre, sitio, técnica Seldinger y confirmación.
+**Fuentes:** BTS Clinical Statement on Pleural Procedures 2023, correction 2026.
+**QA:** YELLOW; revisión humana neumología/urgencias pendiente.
 
 ## PROC-THX-005 — Toracocentesis diagnóstica — ADVANCED/POCUS
 **Objetivo:** obtener líquido pleural para diagnóstico mediante una técnica segura.
@@ -99,36 +99,36 @@ Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleu
 **QA:** YELLOW; revisión humana neumología/urgencias pendiente.
 
 ## PROC-THX-007 — Conexión y comprobación de sistema de sello de agua — CORE
-**Objetivo:** permitir drenaje pleural evitando reentrada de aire.  
-**Indicaciones:** todo drenaje torácico conectado a sistema de sello.  
-**Contraindicaciones/precauciones:** seguir fabricante; succión solo si indicada.  
-**Material:** unidad de drenaje/sello, tubing y soporte.  
-**Anatomía:** drenaje pleural y relación de presiones.  
-**Preparación:** llenar cámara según fabricante y revisar conexiones.  
-**Técnica paso a paso:** 1) conectar; 2) mantener unidad vertical/debajo del tórax; 3) revisar oscilación/burbujeo; 4) buscar fugas; 5) aplicar succión si prescrita.  
-**STOP:** desconexión, sistema volcado, fuga nueva masiva o ausencia inesperada de drenaje con deterioro.  
-**Confirmación:** funcionamiento coherente con situación clínica.  
-**Complicaciones:** entrada de aire, pérdida de sello, drenaje inefectivo.  
-**Después:** vigilancia seriada.  
-**Documentación:** sistema, succión y observaciones.  
-**Fuentes:** BTS Pleural Procedures appendices.  
-**QA:** YELLOW.
+**Objetivo:** permitir drenaje pleural y evitar reentrada de aire.
+**Indicaciones:** drenaje torácico conectado a sistema de sello de agua.
+**Contraindicaciones/precauciones:** seguir instrucciones del fabricante; no aplicar succión de rutina sin indicación.
+**Material:** unidad de drenaje, tubing y soporte vertical.
+**Anatomía:** drenaje pleural y gradiente de presión entre tórax/sistema.
+**Preparación:** llenar cámara al nivel indicado y comprobar todas las conexiones.
+**Técnica paso a paso:** conectar sin acodamientos, mantener sistema por debajo del tórax y vertical, observar oscilación/burbujeo y comprobar fugas; aplicar succión solo cuando esté indicada y al nivel prescrito.
+**STOP:** desconexión, vuelco, fuga nueva importante o cese inesperado del drenaje con deterioro clínico.
+**Confirmación:** funcionamiento coherente con la indicación y situación respiratoria.
+**Complicaciones:** entrada de aire, pérdida del sello, drenaje ineficaz, infección y tensión si el sistema queda obstruido.
+**Después:** vigilancia seriada de sistema, paciente y sitio de inserción.
+**Documentación:** sistema, succión, débito, fuga y observaciones.
+**Fuentes:** BTS Pleural Procedures 2023.
+**QA:** YELLOW; revisión humana neumología/enfermería pendiente.
 
 ## PROC-THX-008 — Retirada de drenaje torácico — ADVANCED
-**Objetivo:** retirar drenaje cuando ya no es necesario.  
-**Indicaciones:** resolución clínica/radiológica y criterios específicos de patología.  
-**Contraindicaciones/precauciones:** fuga aérea persistente, débito inadecuado o necesidad clínica continuada.  
-**Material:** analgesia, campo, material de cierre/apósito.  
-**Anatomía:** trayecto intercostal y pleura.  
-**Preparación:** confirmar criterio, explicar y preparar cierre.  
-**Técnica paso a paso:** 1) retirar fijaciones; 2) coordinar respiración según protocolo; 3) retirar de forma continua; 4) cerrar/apósito; 5) reevaluar.  
-**STOP:** deterioro respiratorio o sangrado.  
-**Confirmación:** estabilidad y ausencia de fuga por sitio.  
-**Complicaciones:** recurrencia de neumotórax/derrame, sangrado, infección.  
-**Después:** control clínico/imagen según indicación.  
-**Documentación:** motivo, técnica y estado post.  
-**Fuentes:** BTS Pleural Procedures 2023.  
-**QA:** YELLOW.
+**Objetivo:** retirar un drenaje pleural cuando su indicación ha resuelto minimizando recurrencia y entrada de aire.
+**Indicaciones:** resolución clínica y criterios específicos de la patología, sin fuga aérea relevante y con débito compatible con retirada.
+**Contraindicaciones/precauciones:** fuga aérea persistente, drenaje aún necesario, obstrucción no aclarada o incertidumbre sobre resolución.
+**Material:** analgesia, campo, material de sutura/apósito oclusivo.
+**Anatomía:** trayecto intercostal, pleura y piel.
+**Preparación:** confirmar criterio de retirada, explicar maniobra y preparar cierre/oclusividad.
+**Técnica paso a paso:** retirar fijaciones, coordinar respiración según protocolo local, retirar de forma continua y controlada, cerrar sitio/aplicar apósito oclusivo y reevaluar.
+**STOP:** deterioro respiratorio, sangrado relevante o resistencia inesperada.
+**Confirmación:** estabilidad clínica, sitio sellado y ausencia de signos de recurrencia.
+**Complicaciones:** neumotórax/derrame recurrente, sangrado, entrada de aire e infección.
+**Después:** control clínico y radiografía/US cuando esté indicado por patología o síntomas.
+**Documentación:** motivo, técnica, estado post y necesidad de imagen.
+**Fuentes:** BTS Pleural Procedures 2023.
+**QA:** YELLOW; revisión humana neumología/urgencias pendiente.
 
 ## PROC-THX-009 — Toracotomía de resucitación — SPECIALIST
 **Objetivo:** tratar causas traumáticas inmediatamente reversibles en un paciente que llega en extremis o sin pulso dentro de criterios de toracotomía de resucitación.
@@ -147,17 +147,17 @@ Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleu
 **QA:** YELLOW; revisión humana de trauma pendiente.
 
 ## PROC-THX-010 — Control inicial de herida torácica abierta — CORE
-**Objetivo:** limitar entrada de aire y tratar fisiología asociada sin crear tensión.  
-**Indicaciones:** defecto abierto de pared torácica con comunicación pleural.  
-**Contraindicaciones/precauciones:** apósito completamente oclusivo puede favorecer tensión si no existe vía de salida; monitorizar estrechamente.  
-**Material:** apósito vented/oclusivo según sistema, oxígeno, drenaje torácico preparado.  
-**Anatomía:** pared torácica, pleura y pulmón.  
-**Preparación:** ABC, control de hemorragia y oxígeno.  
-**Técnica paso a paso:** 1) cubrir defecto con sistema apropiado; 2) monitorizar ventilación; 3) tratar tensión si aparece; 4) colocar drenaje separado de la herida cuando indicado.  
-**STOP:** deterioro súbito tras sellado → sospechar tensión.  
-**Confirmación:** mejor ventilación y estabilidad.  
-**Complicaciones:** neumotórax a tensión, hemorragia, infección.  
-**Después:** reparación definitiva.  
-**Documentación:** tipo de herida/apósito y drenaje.  
-**Fuentes:** trauma guidance/ERC.  
-**QA:** YELLOW.
+**Objetivo:** controlar hemorragia local y mantener ventilación sin convertir una herida abierta en neumotórax a tensión.
+**Indicaciones:** herida torácica abierta con comunicación pleural.
+**Contraindicaciones/precauciones:** RCUK/ERC 2025 desaconseja cubrir de forma completamente oclusiva una herida abierta si no se garantiza salida de aire.
+**Material:** PPE, material de presión local, apósito vented/no oclusivo especializado si existe y equipo para descompresión/drenaje.
+**Anatomía:** pared torácica, pleura y pulmón.
+**Preparación:** ABC, oxígeno si indicado y control de hemorragia.
+**Técnica paso a paso:** permitir comunicación libre con el exterior; controlar sangrado localizado con presión sin sellar completamente el defecto. Si existe entrenamiento/equipo, aplicar apósito ventilado/no oclusivo asegurando salida de aire. Tratar de inmediato cualquier fisiología de tensión y colocar drenaje pleural separado de la herida cuando esté indicado.
+**STOP:** deterioro tras cualquier sellado → retirar/ventilar el apósito y tratar tensión.
+**Confirmación:** ventilación estable o mejorada y ausencia de progresión a tensión.
+**Complicaciones:** neumotórax a tensión, hemorragia, infección y lesión pulmonar.
+**Después:** cirugía/trauma para reparación definitiva.
+**Documentación:** tipo de herida, método de cobertura, drenaje y respuesta.
+**Fuentes:** RCUK/ERC First Aid 2025 — open chest wounds; trauma guidance.
+**QA:** YELLOW; revisión humana trauma pendiente.
