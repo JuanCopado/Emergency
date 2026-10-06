@@ -36,7 +36,7 @@ jobs:
         run: |
           args=()
           if [ -f .surveillance-previous/previous.json ]; then args+=(--previous .surveillance-previous/previous.json); fi
-          python clinical/scripts/evidence_surveillance.py "${args[@]}" --output evidence-surveillance-report.json
+          python clinical/scripts/evidence_surveillance.py "${args[@]}" --cadence weekly --output evidence-surveillance-report.json
       - name: Upload audit report
         if: always()
         uses: actions/upload-artifact@v4
