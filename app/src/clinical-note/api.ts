@@ -32,6 +32,22 @@ export async function prepareClinicalUpload(file:File,explicitKind?:string){
   });
 }
 
+export async function interpretClinicalUpload(
+  file:File,
+  prepared:PreparedUpload,
+  privacyChecked:boolean,
+  burnedInIdentifiersChecked:boolean,
+){
+  if(file.size>12*1024*1024) throw new Error('Ficheiro superior ao limite de 12 MB.');
+  const content_base64=arrayBufferToBase64(await file.arrayBuffer());
+  return postJson<{prepared:PreparedUpload;review_required:boolean;persisted:false}>(
+    '/api/clinical-note/upload/interpret',{
+      prepared,content_base64,
+      privacy_checked:privacyChecked,
+      burned_in_identifiers_checked:burnedInIdentifiersChecked,
+    });
+}
+
 export async function acceptClinicalUpload(
   note:ClinicalNotePayload,
   prepared:PreparedUpload,
