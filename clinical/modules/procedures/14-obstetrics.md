@@ -131,13 +131,17 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-009 — Taponamiento uterino con balón en hemorragia posparto — ADVANCED
-**Objetivo:** controlar hemorragia posparto persistente por atonía uterina cuando el tratamiento inicial ha fallado y se dispone de capacidad de rescate quirúrgico/transfusional.  
-**Indicaciones:** PPH por atonía tras parto vaginal que no responde a tratamiento de primera línea, siempre que otras causas relevantes (trauma, tejido retenido) se hayan razonablemente excluido y exista monitorización y acceso inmediato a sangre/cirugía.  
-**Material:** dispositivo de balón uterino aprobado o sistema validado localmente, solución estéril, material de inserción, ecografía si disponible, monitorización y protocolo de PPH activo.  
-**Preparación:** reanimación, uterotónicos/TXA/fluidos según módulo canónico, evaluación de 4T y exclusión de ruptura/retención/trauma.  
-**Técnica:** introducir el balón en cavidad uterina con técnica estéril, posicionarlo correctamente, insuflar de forma gradual según dispositivo/protocolo y comprobar reducción del sangrado; asegurar drenaje y fijación.  
-**STOP:** deterioro hemodinámico, sospecha de ruptura uterina, sangrado persistente pese a balón o imposibilidad de excluir otra causa que requiera cirugía.  
-**Confirmación:** disminución objetiva del sangrado y estabilidad; continuar vigilancia estrecha.  
-**Complicaciones:** fracaso, desplazamiento, perforación/trauma, infección y retraso de cirugía si se usa fuera de un sistema preparado.  
-**Después:** monitorización continua, cuantificación de pérdidas, antibiótico/retirada según protocolo local y plan de escalada.  
-**Fuente troncal:** WHO consolidated PPH guidelines 2025/2026 y recomendación específica de UBT.
+**Objetivo:** controlar hemorragia posparto persistente por atonía cuando el tratamiento inicial ha fallado.
+**Indicaciones:** PPH por atonía tras tratamiento de primera línea, con otras causas relevantes razonablemente excluidas y capacidad de rescate quirúrgico/transfusional.
+**Contraindicaciones/precauciones:** sospecha de ruptura uterina, infección grave no controlada o causa que requiera cirugía inmediata.
+**Material:** balón uterino aprobado o sistema validado, solución estéril, material de inserción, monitorización y protocolo PPH activo.
+**Anatomía:** cavidad uterina, cérvix y canal vaginal.
+**Preparación:** reanimación, uterotónicos/TXA/fluidos desde módulos canónicos, evaluación de 4T y exclusión de trauma/tejido retenido significativo.
+**Técnica paso a paso:** introducir el balón con técnica estéril, posicionarlo en cavidad uterina, insuflar gradualmente según dispositivo/protocolo y asegurar drenaje/fijación.
+**STOP:** deterioro hemodinámico, sangrado persistente pese al balón o sospecha de ruptura/otra causa quirúrgica.
+**Confirmación:** reducción objetiva del sangrado y estabilidad hemodinámica.
+**Complicaciones:** fracaso, desplazamiento, perforación/trauma, infección y retraso de cirugía si se usa fuera de un sistema preparado.
+**Después:** monitorización continua, cuantificación de pérdidas, retirada y antibiótico según protocolo local.
+**Documentación:** dispositivo, volumen según fabricante/protocolo, sangrado y respuesta.
+**Fuentes:** WHO consolidated PPH guidelines 2025/2026; WHO uterine balloon tamponade recommendation.
+**QA:** YELLOW.
