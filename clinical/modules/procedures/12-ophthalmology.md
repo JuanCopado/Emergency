@@ -115,4 +115,17 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-EYE-008 — Cantotomía/cantólisis lateral — SPECIALIST
-**Objetivo:** descompresión inmediata de síndrome compartimental orbitario clínico. **Técnica:** anestesia si no retrasa; clamp/incisión canto lateral; identificar y seccionar tendón cantal inferior inicialmente; reevaluar presión/visión, superior si necesario por experto. **STOP:** no retrasar ante pérdida visual progresiva por esperar imagen. **Visual:** anatomía canto lateral paso a paso.
+**Objetivo:** descomprimir un síndrome compartimental orbitario y preservar visión.
+**Indicaciones:** clínica compatible con pérdida visual/neuropatía óptica por hipertensión orbitaria; no retrasar por imagen si el cuadro es claro.
+**Contraindicaciones/precauciones:** procedimiento de rescate; requiere conocimiento anatómico y reevaluación inmediata.
+**Material:** anestesia local, pinza, tijera/bisturí y material de hemostasia.
+**Anatomía:** canto lateral, tendones cantales inferior/superior y reborde orbitario.
+**Preparación:** analgesia/anestesia si no retrasa y protección del globo.
+**Técnica paso a paso:** realizar cantotomía lateral y seccionar inicialmente el tendón cantal inferior; reevaluar visión/tensión y ampliar solo si persiste la indicación y el operador está entrenado.
+**STOP:** anatomía no identificable o lesión ocular abierta compleja que requiera estrategia especializada.
+**Confirmación:** reducción de tensión/proptosis y mejoría funcional cuando sea posible evaluarla.
+**Complicaciones:** sangrado, lesión ocular/lacrimal, cicatriz y necesidad de reparación.
+**Después:** oftalmología urgente y tratamiento etiológico.
+**Documentación:** indicación, lado, pasos y respuesta visual.
+**Fuentes:** ophthalmology emergency/trauma guidance.
+**QA:** YELLOW.
