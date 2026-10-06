@@ -4,13 +4,14 @@
 
 - Rama: `v1.41-procedures-visual`.
 - `main`: **no modificar ni fusionar automáticamente**.
-- Último Clinical QA global verificado: **#805 SUCCESS** sobre `67a6ad9cd0708542f5f31a92e5f7fdfabbdaf5c0`.
+- Último Clinical QA global verificado: **#818 SUCCESS** sobre `558114edeab0b93539d9d75ff5ead52f593fa5fa`.
 - Módulo Técnicas y Procedimientos: **196 técnicas canónicas + 4 alias**, 16 familias, 200 IDs textuales.
 - Añadido `PROC-NEURO-005`: monitorización de PIC/PPC.
 - Auditoría posterior añadió 5 huecos de alta relevancia: UVC neonatal, histerotomía resucitativa, balón uterino PPH, reimplante dental permanente y ferulización dentoalveolar.
 - Fase visual: **PAUSADA**; continuar solo con texto hasta nueva orden.
 - Normalización textual v1.41: **196/196 procedimientos canónicos completos** con plantilla estructurada; 4 alias permanecen como referencias cruzadas.
 - Todas las técnicas permanecen **YELLOW**.
+- Séptima pasada completada: suturas simple/continua/colchonero, grapas, tiras de aproximación, cuerpo extraño superficial y extracción de anillo.
 - Quinta pasada de procedimientos de riesgo completada: luxación posterior de hombro, reducción provisional de fracturas desplazadas, bloqueo digital/hematoma, trepanación y reparación ungueal, bloqueo alveolar inferior, cuerpo extraño vaginal y retirada segura de CVC.
 - Primera pasada de procedimientos invasivos de alto riesgo no SPECIALIST completada para RSI, CVC yugular/femoral, drenaje pleural, toracocentesis diagnóstica/terapéutica, UVC neonatal y balón uterino PPH.
 - Primera revisión bibliográfica profunda de todos los procedimientos SPECIALIST completada; ver `clinical/qa/V1.41_SPECIALIST_PROCEDURE_REVIEW.md`.
