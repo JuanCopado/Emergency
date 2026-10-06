@@ -7,6 +7,7 @@ import DrugList from '../pages/DrugList';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Settings from '../pages/Settings';
+import ClinicalNote from '../pages/ClinicalNote';
 import { renderAt } from './render';
 
 beforeEach(() => {
@@ -142,5 +143,49 @@ describe('i18n & settings', () => {
   it('about page shows the disclaimer', async () => {
     await renderAt('/about', [{ path: '/about', element: <About /> }]);
     expect(await screen.findByTestId('disclaimer')).toHaveTextContent('Local protocols and the treating clinician');
+  });
+});
+
+
+describe('Clinical note diagnostic workspace', () => {
+  it('creates an MCDT review card and blocks export while review is pending', async () => {
+    const user = userEvent.setup();
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    expect(await screen.findByTestId('clinical-note-workspace')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'MCDT' }));
+    await user.type(screen.getByLabelText('Nome do exame'), 'TC crânio');
+    const boxes=screen.getAllByRole('textbox');
+    const official=boxes.find(x=>x.parentElement?.textContent?.includes('Informe oficial / dados extraídos'));
+    const ai=boxes.find(x=>x.parentElement?.textContent?.includes('Interpretação IA proposta'));
+    expect(official).toBeTruthy(); expect(ai).toBeTruthy();
+    await user.type(official!, 'Sem hemorragia intracraniana.');
+    await user.type(ai!, 'Sem achados agudos evidentes.');
+    await user.click(screen.getByRole('button', { name: 'Criar cartão para revisão' }));
+    expect(screen.getByTestId('mcdt-review-card')).toHaveTextContent('Pendente');
+    await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    expect(screen.getByRole('status')).toHaveTextContent('Exportação bloqueada');
+    expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
+  });
+
+  it('requires explicit MCDT acceptance and clinician/privacy sign-off before export', async () => {
+    const user = userEvent.setup();
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'MCDT' }));
+    await user.type(screen.getByLabelText('Nome do exame'), 'ECG');
+    await user.click(screen.getByRole('button', { name: 'Criar cartão para revisão' }));
+    await user.click(screen.getByRole('button', { name: 'Aceitar' }));
+    await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    const checks=screen.getAllByRole('checkbox');
+    await user.click(checks[0]); await user.click(checks[1]);
+    expect(screen.getByRole('button', { name: 'PDF' })).toBeEnabled();
+  });
+
+  it('privacy STOP catches labelled direct identifiers and blocks export', async () => {
+    const user = userEvent.setup();
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.type(screen.getByLabelText('Origem'), 'Nome: João da Silva');
+    expect(screen.getByRole('alert')).toHaveTextContent('STOP');
+    await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    expect(screen.getByRole('button', { name: 'Word (.docx)' })).toBeDisabled();
   });
 });
