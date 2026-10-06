@@ -22,12 +22,31 @@ export default function ClinicalNote(){
  const [clinicianReviewed,setClinicianReviewed]=useState(false);
  const [draftKind,setDraftKind]=useState('Analítica'); const [draftName,setDraftName]=useState('');
  const [draftOfficial,setDraftOfficial]=useState(''); const [draftAi,setDraftAi]=useState('');
+ const [uploadName,setUploadName]=useState('');
  const encounter=useMemo(()=>crypto.randomUUID?.() ?? `enc-${Date.now()}`,[]);
  const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,vitals,problems,plan,...mcdt.flatMap(x=>[x.official,x.ai])].join('\n');
  const privacyStop=directId.test(freeText);
  const pending=mcdt.filter(x=>x.state==='pending').length;
  const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0;
 
+ function inferKind(name:string){
+   const n=name.toLowerCase();
+   if(/ecg|ekg/.test(n)) return 'ECG';
+   if(/gas|gaso|abg|vbg/.test(n)) return 'Gasometria';
+   if(/rx|xray|x-ray|radiogr/.test(n)) return 'Rx';
+   if(/ct|tc|mri|rm|tac/.test(n)) return 'TC/RM';
+   if(/eco|pocus|ultra/.test(n)) return 'Ecografia/POCUS';
+   if(/micro|culture|cultivo/.test(n)) return 'Microbiologia';
+   if(/lab|anal|hemogram|bioq/.test(n)) return 'Analítica';
+   return 'Outro';
+ }
+ function onUpload(file?:File){
+   if(!file) return;
+   setUploadName(file.name);
+   setDraftName(file.name);
+   setDraftKind(inferKind(file.name));
+   setClinicianReviewed(false);
+ }
  function addMcdt(){
    if(!draftName.trim()&&!draftOfficial.trim()&&!draftAi.trim()) return;
    setMcdt(x=>[...x,{id:`${Date.now()}-${x.length}`,kind:draftKind,name:draftName||draftKind,official:draftOfficial,ai:draftAi,state:'pending',provenance:'upload → módulo clínico correspondente'}]);
@@ -65,7 +84,9 @@ export default function ClinicalNote(){
 
    {tab==='mcdt'&&<section className="space-y-4">
     <div className={card}><h2 className="text-lg font-bold">Adicionar MCDT</h2><div className="mt-3 flex flex-wrap gap-2">{mcdtKinds.map(k=><button key={k} className={`btn ${draftKind===k?'btn-primary':'btn-ghost'}`} onClick={()=>setDraftKind(k)}>+ {k}</button>)}</div>
-      <div className="mt-4 grid gap-3"><input aria-label="Nome do exame" className="input" value={draftName} onChange={e=>setDraftName(e.target.value)} placeholder="Ex.: TC crânio 18:20"/><label><span className="label">Informe oficial / dados extraídos</span><textarea className="input min-h-24" value={draftOfficial} onChange={e=>setDraftOfficial(e.target.value)}/></label><label><span className="label">Interpretação IA proposta</span><textarea className="input min-h-24" value={draftAi} onChange={e=>setDraftAi(e.target.value)} placeholder="Mantida separada do informe oficial"/></label><button className="btn-primary justify-self-start" onClick={addMcdt}>Criar cartão para revisão</button></div>
+      <div className="mt-4 grid gap-3">
+      <label className="rounded-xl border border-dashed border-border p-4"><span className="label">Upload clínico</span><input aria-label="Upload clínico" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm" onChange={e=>onUpload(e.target.files?.[0])}/><span className="mt-2 block text-xs text-muted">{uploadName?'Ficheiro selecionado: '+uploadName:'PDF/imagem/texto. O original não é incorporado no relatório por defeito.'}</span></label>
+      <input aria-label="Nome do exame" className="input" value={draftName} onChange={e=>setDraftName(e.target.value)} placeholder="Ex.: TC crânio 18:20"/><label><span className="label">Informe oficial / dados extraídos</span><textarea className="input min-h-24" value={draftOfficial} onChange={e=>setDraftOfficial(e.target.value)}/></label><label><span className="label">Interpretação IA proposta</span><textarea className="input min-h-24" value={draftAi} onChange={e=>setDraftAi(e.target.value)} placeholder="Mantida separada do informe oficial"/></label><button className="btn-primary justify-self-start" onClick={addMcdt}>Criar cartão para revisão</button></div>
     </div>
     {mcdt.map(x=><article key={x.id} className={card} data-testid="mcdt-review-card"><div className="flex flex-wrap items-center gap-2"><strong>{x.kind} · {x.name}</strong><span className="chip ml-auto">{x.state==='pending'?'Pendente':x.state==='accepted'?'Aceite':'Rejeitado'}</span></div><p className="mt-3 text-xs font-semibold uppercase text-muted">Informe oficial / extraído</p><p className="whitespace-pre-wrap text-sm">{x.official||'—'}</p><p className="mt-3 text-xs font-semibold uppercase text-primary">Interpretação IA</p><textarea aria-label={`Interpretação IA ${x.name}`} className="input mt-1 min-h-20" value={x.ai} onChange={e=>{setMcdt(v=>v.map(y=>y.id===x.id?{...y,ai:e.target.value,state:'pending'}:y));setClinicianReviewed(false)}}/><p className="mt-2 text-xs text-muted">Proveniência: {x.provenance}</p><div className="mt-3 flex flex-wrap gap-2"><button className="btn-primary" onClick={()=>review(x.id,'accepted')}>Aceitar</button><button className="btn-ghost" onClick={()=>review(x.id,'pending')}>Editar</button><button className="btn-ghost text-danger" onClick={()=>review(x.id,'rejected')}>Rejeitar</button></div></article>)}
    </section>}
