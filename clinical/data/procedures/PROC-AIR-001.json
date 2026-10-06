@@ -1,0 +1,194 @@
+{
+  "procedure_id": "PROC-AIR-001",
+  "name": "Posicionamiento y apertura de vía aérea",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Restaurar la permeabilidad de la vía aérea superior y optimizar ventilación y preparación para manejo avanzado.",
+  "indications": [
+    "Obstrucción por lengua.",
+    "Ventilación difícil.",
+    "Preparación para ventilación con BVM o intubación."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Evitar hiperextensión cervical si existe sospecha de lesión cervical.",
+      "Adaptar la posición en obesidad, embarazo y trauma."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Camilla o cama ajustable.",
+      "Aspiración disponible."
+    ],
+    "optional": [
+      "Almohadas o rampa.",
+      "Dispositivos básicos de vía aérea."
+    ],
+    "monitoring": [
+      "Monitorización básica según estado clínico."
+    ],
+    "rescue": [
+      "BVM y dispositivos de vía aérea avanzada disponibles."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Occipucio.",
+      "Cuello.",
+      "Mandíbula."
+    ],
+    "target": [
+      "Separar lengua de pared posterior faríngea y alinear vía aérea según contexto."
+    ],
+    "avoid": [
+      "Movimientos cervicales innecesarios en trauma."
+    ],
+    "laterality": null,
+    "variants": [
+      "Frente-mentón.",
+      "Jaw thrust.",
+      "Posición de olfateo.",
+      "Rampa."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Supino con posición adaptada al contexto; rampa cuando proceda.",
+    "operator_position": "Cabecera o lateral según maniobra.",
+    "monitoring": [
+      "SpO₂ y monitorización clínica cuando esté disponible."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Evaluar permeabilidad.",
+      "Retirar obstáculos visibles.",
+      "Aspirar secreciones si interfieren."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Evaluar permeabilidad de la vía aérea.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Realizar frente-mentón si no existe sospecha de trauma cervical.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Usar jaw thrust si existe sospecha de lesión cervical.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Optimizar con posición de olfateo o rampa cuando proceda.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Reevaluar inmediatamente la ventilación.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Mejor paso de aire.",
+    "Expansión torácica más efectiva.",
+    "Ventilación mejorada."
+  ],
+  "stop_points": [
+    "Deterioro neurológico o cervical durante la maniobra.",
+    "Empeoramiento de la ventilación tras la maniobra."
+  ],
+  "complications": {
+    "immediate": [
+      "Movimiento cervical no deseado.",
+      "Trauma dental o de tejidos por manipulación brusca."
+    ],
+    "early": [
+      "Obstrucción persistente."
+    ],
+    "late": []
+  },
+  "rescue": [
+    "Mantener la mejor posición obtenida.",
+    "Añadir cánula orofaríngea/nasofaríngea o BVM si persiste obstrucción.",
+    "Escalar a vía aérea avanzada si la ventilación sigue siendo inadecuada."
+  ],
+  "aftercare": [
+    "Mantener posición óptima.",
+    "Reevaluar de forma continua la permeabilidad y ventilación."
+  ],
+  "documentation": [
+    "Maniobra empleada.",
+    "Respuesta clínica.",
+    "Necesidad de escalada."
+  ],
+  "pearls": [
+    "La posición adecuada puede mejorar significativamente la ventilación y la laringoscopia."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar posicionamiento acorde a proporciones anatómicas pediátricas."
+    ],
+    "pregnancy": [
+      "Considerar elevación de cabeza/torso según tolerancia y contexto."
+    ],
+    "obesity": [
+      "Usar rampa para optimizar alineación y preoxigenación."
+    ],
+    "trauma": [
+      "Priorizar jaw thrust y minimizar movimiento cervical innecesario."
+    ],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Optimizar posición antes de escalar intentos de vía aérea."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "European Resuscitation Council Guidelines 2025: Adult advanced life support",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "Basic Emergency Care: Approach to the acutely ill and injured",
+      "organization": "WHO / ICRC",
+      "year": "current training resource",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
