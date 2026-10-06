@@ -83,20 +83,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleu
 **QA:** YELLOW; revisión humana neumología/urgencias pendiente.
 
 ## PROC-THX-006 — Toracocentesis terapéutica — ADVANCED/POCUS
-**Objetivo:** aliviar síntomas por derrame pleural.  
-**Indicaciones:** derrame sintomático con ventana segura y beneficio esperado.  
-**Contraindicaciones/precauciones:** mismas que diagnóstica; drenaje debe ser controlado.  
-**Material:** US, catéter, sistema de drenaje, anestesia.  
-**Anatomía:** pleura/diafragma/vísceras y paquete intercostal.  
-**Preparación:** TUS, lateralidad, posición y plan de volumen/STOP.  
-**Técnica paso a paso:** 1) anestesiar; 2) introducir catéter; 3) conectar drenaje; 4) drenar lentamente; 5) reevaluar síntomas; 6) retirar/sellar.  
-**STOP:** BTS aconseja detener si aparece dolor/opresión, tos persistente o empeora disnea; en general no superar 1,5 L por intento salvo plan especializado.  
-**Confirmación:** alivio clínico y estabilidad.  
-**Complicaciones:** neumotórax, sangrado, edema de reexpansión, síncope vasovagal.  
-**Después:** reevaluación respiratoria y plan de causa subyacente.  
-**Documentación:** volumen, síntomas, técnica y complicaciones.  
-**Fuentes:** BTS Pleural Procedures 2023.  
-**QA:** YELLOW.
+**Objetivo:** aliviar síntomas por derrame pleural minimizando complicaciones del drenaje.
+**Indicaciones:** derrame pleural sintomático con ventana ecográfica segura y beneficio clínico esperado.
+**Contraindicaciones/precauciones:** ausencia de ventana segura o riesgo hemorrágico/procedimental inaceptable; planificar volumen y criterios de parada antes de iniciar.
+**Material:** ecógrafo, catéter pleural, sistema de drenaje por jeringa o gravedad, anestesia local y monitorización.
+**Anatomía:** pleura, diafragma, pulmón, vísceras subdiafragmáticas y paquete intercostal.
+**Preparación:** TUS obligatoria para seleccionar sitio; paciente en posición final y plan de volumen/STOP.
+**Técnica paso a paso:** anestesiar; introducir un catéter para aspiraciones terapéuticas >60 mL; drenar lentamente mediante aspiración manual o gravedad. BTS desaconseja botella de vacío o succión mural para aspiración pleural terapéutica.
+**STOP:** detener si aparece opresión/dolor torácico, tos persistente o empeora la disnea. En general, BTS recomienda no superar 1,5 L en un intento salvo plan especializado.
+**Confirmación:** alivio clínico y estabilidad respiratoria/hemodinámica.
+**Complicaciones:** neumotórax, sangrado, síncope vasovagal y edema pulmonar de reexpansión.
+**Después:** reevaluación respiratoria y plan etiológico; imagen adicional solo cuando esté indicada.
+**Documentación:** sitio/US, volumen total, método de drenaje, síntomas y complicaciones.
+**Fuentes:** BTS Clinical Statement on Pleural Procedures, 2023.
+**QA:** YELLOW; revisión humana neumología/urgencias pendiente.
 
 ## PROC-THX-007 — Conexión y comprobación de sistema de sello de agua — CORE
 **Objetivo:** permitir drenaje pleural evitando reentrada de aire.  
