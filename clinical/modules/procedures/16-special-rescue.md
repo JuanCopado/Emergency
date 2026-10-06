@@ -166,8 +166,20 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW.
 
 ## PROC-SP-012 — Recalentamiento invasivo — SPECIALIST
-**Opciones:** fluidos IV calentados, lavado de cavidades seleccionado, ECMO/bypass en paro/hipotermia grave según sistema. **Técnica:** elección por gravedad y recursos; activar centro experto. **Visual:** escalera de rewarming.
-
+**Objetivo:** proporcionar recalentamiento interno o extracorpóreo en hipotermia grave seleccionada.
+**Indicaciones:** hipotermia grave con inestabilidad hemodinámica, paro cardiaco o fracaso de medidas externas según protocolo y recursos.
+**Contraindicaciones/precauciones:** la elección del método depende de gravedad, causa, recursos y experiencia; evitar retrasar traslado a centro con ECLS cuando está indicado.
+**Material:** fluidos IV calentados, dispositivos de calentamiento interno seleccionados y, cuando corresponda, ECMO/bypass para ECLS.
+**Anatomía:** acceso vascular central/periférico y, según técnica, cavidades corporales o circuito extracorpóreo.
+**Preparación:** medir temperatura central fiable, manipular con suavidad, monitorización avanzada y activar centro experto.
+**Técnica paso a paso:** elegir estrategia según estado; usar medidas internas activas apropiadas y priorizar recalentamiento extracorpóreo en parada hipotérmica o shock refractario cuando el sistema lo permite.
+**STOP:** no retrasar ECLS por técnicas de menor eficacia en un candidato apropiado; detener cualquier método invasivo con complicación mecánica o hemorrágica.
+**Confirmación:** ascenso sostenido de temperatura central y mejoría hemodinámica/eléctrica.
+**Complicaciones:** sangrado, infección, alteraciones hidroelectrolíticas, lesión vascular y complicaciones del circuito.
+**Después:** cuidados postrecalentamiento, tratamiento de causa y vigilancia de reperfusión/arrítmias.
+**Documentación:** temperatura seriada, método, tiempos y respuesta.
+**Fuentes:** ERC 2025 Special Circumstances — accidental hypothermia; ECLS según programa institucional.
+**QA:** YELLOW.
 
 ## PROC-SP-013 — REBOA (oclusión endovascular resucitativa de la aorta) — SPECIALIST
 **Objetivo:** control temporal de hemorragia no compresible infradiafragmática y mantenimiento transitorio de perfusión coronaria/cerebral mientras se obtiene hemostasia definitiva.  
