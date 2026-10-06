@@ -67,7 +67,20 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **QA:** YELLOW.
 
 ## PROC-SP-005 — Mordeduras/heridas contaminadas — CORE
-**Técnica:** irrigación abundante, exploración, desbridamiento selectivo, evaluar tendón/articulación, profilaxis tétanos/rabia y antibiótico según especie/sitio/riesgo; cierre diferido en heridas seleccionadas. **Visual:** irrigación y zonas de alto riesgo.
+**Objetivo:** reducir contaminación, detectar lesión profunda y prevenir infección.
+**Indicaciones:** mordeduras humanas/animales y heridas altamente contaminadas.
+**Contraindicaciones/precauciones:** mano, cara, articulación, tendón, inmunosupresión o signos de infección profunda requieren evaluación especializada.
+**Material:** irrigación, instrumental de exploración y apósitos.
+**Anatomía:** estructuras profundas de la región afectada.
+**Preparación:** analgesia, historia de especie/exposición y valoración de tétanos/rabia.
+**Técnica paso a paso:** irrigar ampliamente, explorar, desbridar tejido claramente desvitalizado de forma selectiva y decidir cierre según riesgo.
+**STOP:** lesión tendinosa/articular/neurovascular o infección profunda.
+**Confirmación:** herida limpia y estructuras críticas evaluadas.
+**Complicaciones:** infección, tenosinovitis, artritis séptica y daño estructural.
+**Después:** profilaxis/antibiótico según especie, sitio y riesgo.
+**Documentación:** mecanismo, profundidad y profilaxis.
+**Fuentes:** bite wound/infectious disease guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-006 — Lavado ocular continuo — REFERENCIA
 Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin duplicar la irrigación ocular química.
