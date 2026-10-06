@@ -162,21 +162,21 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Fuentes:** Merck Manual Professional, How To Repair a Laceration With a Subcuticular Running Suture, updated Jan 2026.
 **QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
-## PROC-WND-011 — Punto colchonero vertical/horizontal — CORE
-**Objetivo:** evertir bordes o distribuir tensión.  
-**Indicaciones:** heridas con tendencia a inversión o tensión moderada.  
-**Contraindicaciones/precauciones:** tejidos con perfusión comprometida o zonas donde presión cause necrosis.  
-**Material:** sutura y instrumental.  
-**Anatomía:** dermis/subcutáneo.  
-**Preparación:** herida limpia y anestesiada.  
-**Técnica paso a paso:** 1) vertical: lejos-lejos/cerca-cerca; o 2) horizontal: pases paralelos; 3) ajustar hasta eversión sin estrangular.  
-**STOP:** blanqueamiento/isquemia.  
-**Confirmación:** eversión adecuada.  
-**Complicaciones:** necrosis de borde, marcas.  
-**Después:** retirada según sitio.  
-**Documentación:** técnica.  
-**Fuentes:** wound closure guidance.  
-**QA:** YELLOW.
+## PROC-WND-011 — Puntos colchoneros vertical y horizontal — CORE
+**Objetivo:** evertir bordes y redistribuir tensión lejos del borde de la herida.
+**Indicaciones:** heridas con tendencia a inversión o con tensión moderada; el horizontal es útil en piel con poco tejido subcutáneo o bordes frágiles, y el vertical mejora alineación y eversión.
+**Contraindicaciones/precauciones:** perfusión marginal, riesgo de necrosis por compresión, contaminación relevante o heridas donde una técnica profunda especializada sea más apropiada.
+**Material:** portaagujas, pinza, sutura y material estándar de cierre.
+**Anatomía:** epidermis, dermis y subcutáneo superficial.
+**Preparación:** limpieza, irrigación, anestesia, exploración y hemostasia.
+**Técnica paso a paso:** vertical: mordida amplia-profunda seguida de estrecha-superficial; horizontal: dos pases paralelos a través de ambos bordes. Ajustar solo hasta conseguir eversión y aproximación.
+**STOP:** blanqueamiento, compromiso de perfusión, hundimiento excesivo de la sutura o tensión desproporcionada.
+**Confirmación:** bordes evertidos y alineados sin isquemia.
+**Complicaciones:** necrosis de borde, marcas, dehiscencia e infección.
+**Después:** apósito y retirada según localización; inmovilizar si el movimiento genera tensión.
+**Documentación:** tipo de colchonero, material y número de puntos.
+**Fuentes:** Merck Manual Professional, Vertical and Horizontal Mattress Sutures, updated Jan 2026.
+**QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
 ## PROC-WND-012 — Grapas cutáneas — CORE
 **Objetivo:** cierre rápido de heridas seleccionadas.  
