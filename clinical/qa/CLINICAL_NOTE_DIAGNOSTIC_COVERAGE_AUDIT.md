@@ -1,6 +1,6 @@
 # CLINICAL NOTE DIAGNOSTIC ENGINE — FINAL COVERAGE AUDIT
 
-Date: 2026-10-04
+Date: 2026-10-06
 Branch: `v1.39-clinical-note-diagnostic-support`
 
 ## Result
@@ -84,7 +84,7 @@ This prevents silent diagnostic coverage gaps as the repository grows.
 - Confidence remains qualitative (high/moderate/low); no unsupported calibrated probability is produced.
 
 ## Validation
-Clinical QA #582:
+Clinical QA #586:
 - **SUCCESS**
 - **363/363 tests PASS**
 - `automated_status: PASS`
