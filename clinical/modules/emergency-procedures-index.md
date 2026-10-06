@@ -326,7 +326,7 @@
 
 # Resumen del catálogo
 
-- **Total actual: 187 procedimientos/variantes canónicas.**
+- **Total actual: 187 IDs textuales: 186 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
 - El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate y variantes pediátricas/POCUS sin duplicar contenido.
 - La **luxación mandibular** queda incluida como `PROC-ORTHO-022`.
 - Los procedimientos de alto riesgo se mantienen **YELLOW** hasta revisión bibliográfica específica y Clinical QA.
