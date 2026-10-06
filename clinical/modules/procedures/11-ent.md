@@ -35,7 +35,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-003 — Taponamiento anterior — CORE
-**Técnica:** anestesia tópica; insertar dispositivo a lo largo del suelo nasal, nunca hacia arriba; expandir/hidratar según fabricante; fijar y observar. **Visual:** dirección correcta.
+**Objetivo:** controlar epistaxis anterior persistente.
+**Indicaciones:** fracaso de compresión/cauterio o foco no tratable directamente.
+**Contraindicaciones/precauciones:** trauma facial importante o sospecha de lesión de base de cráneo requieren estrategia alternativa.
+**Material:** dispositivo de taponamiento anterior, anestesia tópica, lubricante y monitorización.
+**Anatomía:** suelo nasal y cavidad nasal.
+**Preparación:** aspirar coágulos accesibles y anestesiar.
+**Técnica paso a paso:** introducir el dispositivo paralelo al suelo nasal; expandir o hidratar según fabricante; fijar y observar.
+**STOP:** resistencia marcada, dolor intenso, hipoxia o sangrado posterior persistente.
+**Confirmación:** cese o reducción significativa del sangrado.
+**Complicaciones:** ulceración, necrosis, infección y desplazamiento.
+**Después:** plan de retirada y seguimiento ORL según riesgo.
+**Documentación:** dispositivo, lado y respuesta.
+**Fuentes:** AAO-HNS epistaxis guideline.
+**QA:** YELLOW.
 
 ## PROC-ENT-004 — Taponamiento posterior — ADVANCED
 **Uso:** sangrado posterior persistente. **Técnica:** balón/dispositivo especializado, monitorización, analgesia y ingreso; proteger vía aérea y coordinar ORL. **STOP:** hipoxia/bradicardia/aspiración. **Visual:** posición posterior.
