@@ -19,7 +19,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-002 — Cauterización nasal anterior — CORE
-**Técnica:** identificar punto anterior tras anestesia/vasoconstricción; nitrato de plata en área pequeña y unilateral, alrededor del punto, no septo bilateral enfrentado. **STOP:** sangrado masivo/no visible. **Visual:** plexo de Kiesselbach.
+**Objetivo:** tratar un punto sangrante anterior visible.
+**Indicaciones:** epistaxis anterior focal persistente tras compresión.
+**Contraindicaciones/precauciones:** evitar cauterización septal bilateral enfrentada; no usar si el foco no es visible o el sangrado es profuso.
+**Material:** anestesia/vasoconstrictor tópico, nitrato de plata o cauterio apropiado y aspiración.
+**Anatomía:** septo anterior/plexo de Kiesselbach.
+**Preparación:** limpiar, secar y anestesiar el campo.
+**Técnica paso a paso:** identificar el punto; cauterizar un área pequeña alrededor del foco; reevaluar hemostasia.
+**STOP:** sangrado no controlable o lesión septal extensa.
+**Confirmación:** hemostasia local.
+**Complicaciones:** dolor, necrosis, costra y perforación septal.
+**Después:** cuidados nasales y revisión si recurre.
+**Documentación:** lado, sitio y agente usado.
+**Fuentes:** AAO-HNS epistaxis guideline.
+**QA:** YELLOW.
 
 ## PROC-ENT-003 — Taponamiento anterior — CORE
 **Técnica:** anestesia tópica; insertar dispositivo a lo largo del suelo nasal, nunca hacia arriba; expandir/hidratar según fabricante; fijar y observar. **Visual:** dirección correcta.
