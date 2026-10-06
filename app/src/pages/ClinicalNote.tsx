@@ -4,6 +4,7 @@ import {
   analyzeClinicalNote,
   downloadBlob,
   exportClinicalNote,
+  interpretClinicalUpload,
   preflightClinicalNote,
   prepareClinicalUpload,
 } from '../clinical-note/api';
@@ -18,7 +19,7 @@ import type {
 type Tab='history'|'exam'|'mcdt'|'problems'|'diagnostic'|'plan'|'export';
 type McdtCard={
   id:string;kind:string;name:string;official:string;ai:string;state:ReviewState;
-  provenance:string;prepared?:PreparedUpload;privacyChecked:boolean;burnedChecked:boolean;
+  provenance:string;prepared?:PreparedUpload;sourceFile?:File;privacyChecked:boolean;burnedChecked:boolean;
   sourceReference:string;
 };
 
@@ -169,12 +170,47 @@ export default function ClinicalNote(){
      const id=prepared.upload_id;
      setMcdt(v=>[...v,{
        id,kind:inferred,name:file.name,official:prepared.extracted.official_report||'',ai:'',state:'pending',
-       provenance:`${prepared.processing.modules.join(' · ')} · ${prepared.processing.status}`,prepared,
+       provenance:`${prepared.processing.modules.join(' · ')} · ${prepared.processing.status}`,prepared,sourceFile:file,
        privacyChecked:prepared.privacy.status==='PASS',burnedChecked:!prepared.privacy.burned_in_identifier_review_required,
        sourceReference:`sha256:${prepared.sha256}`,
      }]);
      setDraftOfficial('');setDraftAi('');touch();
    }catch(e){setApiError(e instanceof Error?e.message:'Falha ao preparar upload clínico.');}
+   finally{setApiBusy(false);}
+ }
+ async function interpretCard(id:string){
+   const card=mcdt.find(x=>x.id===id);
+   if(!card?.prepared||!card.sourceFile) return;
+   if(card.prepared.privacy.status==='STOP'){
+     setApiError('STOP de privacidade no ficheiro: remova os identificadores antes de interpretar.');
+     return;
+   }
+   if(card.prepared.privacy.manual_file_privacy_review_required&&!card.privacyChecked){
+     setApiError('Reveja primeiro metadados/identificadores do ficheiro.');
+     return;
+   }
+   if(card.prepared.privacy.burned_in_identifier_review_required&&!card.burnedChecked){
+     setApiError('Reveja primeiro identificadores visíveis/burned-in.');
+     return;
+   }
+   setApiError('');setApiBusy(true);
+   try{
+     const result=await interpretClinicalUpload(
+       card.sourceFile,card.prepared,card.privacyChecked,card.burnedChecked
+     );
+     const prepared=result.prepared;
+     setMcdt(v=>v.map(x=>x.id===id?{
+       ...x,
+       prepared,
+       official:prepared.extracted.official_report||x.official,
+       ai:prepared.extracted.ai_interpretation||x.ai,
+       provenance:`${prepared.processing.modules.join(' · ')} · ${prepared.processing.status} · ${prepared.processing.provider||'provider'} / ${prepared.processing.model||'model'}`,
+       privacyChecked:true,
+       burnedChecked:true,
+       state:'pending',
+     }:x));
+     touch();
+   }catch(e){setApiError(e instanceof Error?e.message:'Falha na interpretação clínica configurada.');}
    finally{setApiBusy(false);}
  }
  function addManualMcdt(){
@@ -279,7 +315,8 @@ export default function ClinicalNote(){
       {x.prepared?.privacy.manual_file_privacy_review_required&&<label className="mt-3 flex items-center gap-2 text-sm"><input type="checkbox" checked={x.privacyChecked} onChange={e=>editCard(x.id,{privacyChecked:e.target.checked})}/> Metadados/identificadores do ficheiro revistos.</label>}
       {x.prepared?.privacy.burned_in_identifier_review_required&&<label className="mt-2 flex items-center gap-2 text-sm"><input type="checkbox" checked={x.burnedChecked} onChange={e=>editCard(x.id,{burnedChecked:e.target.checked})}/> Identificadores visíveis/burned-in revistos.</label>}
       {x.prepared?.privacy.status==='STOP'&&<p className="mt-2 text-sm font-semibold text-danger">STOP: o backend detetou possível identificador direto no conteúdo.</p>}
-      <div className="mt-3 flex flex-wrap gap-2"><button className="btn-primary" disabled={apiBusy||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>Aceitar</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>Editar</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>Rejeitar</button></div></article>)}
+      {x.prepared?.processing.status==='vision_interpreted'&&<div className="mt-2 rounded-xl border border-warn p-3 text-sm"><strong>Interpretação IA proposta — requer revisão médica.</strong><p className="mt-1 text-xs text-muted">Provider: {x.prepared.processing.provider||'—'} · Modelo: {x.prepared.processing.model||'—'} · Confiança: {x.prepared.processing.confidence||'—'}</p>{x.prepared.processing.impression&&<p className="mt-2">Impressão: {x.prepared.processing.impression}</p>}{x.prepared.processing.limitations?.length?<p className="mt-1 text-xs text-muted">Limitações: {x.prepared.processing.limitations.join(' · ')}</p>:null}</div>}
+      <div className="mt-3 flex flex-wrap gap-2">{x.prepared?.processing.status==='routed_external'&&<button className="btn-ghost" disabled={apiBusy||x.prepared.privacy.status==='STOP'||(x.prepared.privacy.manual_file_privacy_review_required&&!x.privacyChecked)||(x.prepared.privacy.burned_in_identifier_review_required&&!x.burnedChecked)} onClick={()=>void interpretCard(x.id)}>Interpretar com módulo IA</button>}<button className="btn-primary" disabled={apiBusy||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>Aceitar</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>Editar</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>Rejeitar</button></div></article>)}
    </section>}
 
    {tab==='problems'&&<section className={card}><h2 className="text-lg font-bold">Problemas</h2><p className="mt-1 text-sm text-muted">Lista numerada editável: ativo · a melhorar · resolvido · por esclarecer.</p><textarea className="input mt-4 min-h-56" value={problems} onChange={e=>{setProblems(e.target.value);touch()}} placeholder={"1. [ativo] …\n2. [por esclarecer] …"}/>{assessment?.active_problems.length? <div className="mt-4 rounded-xl border border-border p-3"><p className="text-xs font-bold uppercase text-muted">Problemas sugeridos pelo motor · requer revisão</p><ul className="mt-2 space-y-1 text-sm">{assessment.active_problems.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}</section>}
