@@ -3,7 +3,20 @@
 Estado: **YELLOW**.
 
 ## PROC-ENT-001 — Epistaxis: compresión/vasoconstrictor — CORE
-**Técnica:** paciente sentado inclinado hacia delante; sonarse/coágulos si seguro; vasoconstrictor tópico cuando no contraindicado; comprimir ala nasal contra septo de forma continua. **Visual:** sitio de compresión.
+**Objetivo:** controlar epistaxis anterior de forma conservadora.
+**Indicaciones:** sangrado nasal anterior sin compromiso de vía aérea ni shock.
+**Contraindicaciones/precauciones:** sangrado posterior o masivo, trauma facial importante o inestabilidad requieren escalada.
+**Material:** guantes, aspiración y vasoconstrictor tópico si procede.
+**Anatomía:** septo anterior y alas nasales.
+**Preparación:** paciente sentado e inclinado hacia delante; retirar coágulos accesibles si es seguro.
+**Técnica paso a paso:** aplicar vasoconstrictor si no está contraindicado y comprimir ambas alas nasales contra el septo de forma continua.
+**STOP:** compromiso de vía aérea, inestabilidad o sangrado no controlable.
+**Confirmación:** cese del sangrado activo.
+**Complicaciones:** aspiración de sangre, recurrencia y efectos sistémicos del vasoconstrictor.
+**Después:** evitar manipulación nasal y tratar factores precipitantes.
+**Documentación:** lado, medidas aplicadas y respuesta.
+**Fuentes:** AAO-HNS epistaxis guideline.
+**QA:** YELLOW.
 
 ## PROC-ENT-002 — Cauterización nasal anterior — CORE
 **Técnica:** identificar punto anterior tras anestesia/vasoconstricción; nitrato de plata en área pequeña y unilateral, alrededor del punto, no septo bilateral enfrentado. **STOP:** sangrado masivo/no visible. **Visual:** plexo de Kiesselbach.
