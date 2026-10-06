@@ -27,6 +27,7 @@ from pathlib import Path
 
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import export_docx, export_json, export_pdf
+from clinical_note_vision_adapter import invoke as invoke_clinical_vision, is_configured as clinical_vision_is_configured
 from clinical_note_support import (
     add_report,
     new_note,
@@ -176,6 +177,68 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
     }
 
 
+
+def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
+                              burned_in_identifiers_checked=False,
+                              vision_transport=None, vision_env=None):
+    """Invoke the configured binary interpreter without persisting its proposal."""
+    if not isinstance(prepared, dict):
+        raise ValueError("prepared upload is required")
+    raw = _decode_upload(content_base64)
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != str(prepared.get("sha256") or ""):
+        raise ValueError("upload content no longer matches the prepared sha256")
+    if int(prepared.get("size_bytes") or 0) != len(raw):
+        raise ValueError("upload content size no longer matches the prepared upload")
+
+    result = invoke_clinical_vision(
+        prepared,
+        content_base64,
+        privacy_checked=privacy_checked,
+        burned_in_identifiers_checked=burned_in_identifiers_checked,
+        env=vision_env,
+        transport=vision_transport,
+    )
+    proposal = result.get("result") or {}
+    privacy_text = "\n".join(
+        str(proposal.get(key) or "")
+        for key in ("official_report", "ai_interpretation", "findings", "impression")
+    )
+    privacy_findings = _privacy_for_text(privacy_text)
+    if any(x.get("severity") == "STOP" for x in privacy_findings):
+        raise ValueError("vision interpretation output contains possible direct identifiers")
+
+    updated = deepcopy(prepared)
+    updated["extracted"] = {
+        "official_report": proposal.get("official_report"),
+        "ai_interpretation": proposal.get("ai_interpretation"),
+    }
+    updated["processing"] = {
+        **(updated.get("processing") or {}),
+        "status": "vision_interpreted",
+        "message": "Binary source interpreted by configured provider; clinician review and explicit acceptance remain required.",
+        "provider": proposal.get("provider"),
+        "model": proposal.get("model"),
+        "confidence": proposal.get("confidence"),
+        "findings": proposal.get("findings"),
+        "impression": proposal.get("impression"),
+        "limitations": proposal.get("limitations") or [],
+    }
+    updated["privacy"] = {
+        **(updated.get("privacy") or {}),
+        "status": "PASS",
+        "manual_file_privacy_review_required": False,
+        "burned_in_identifier_review_required": False,
+        "provider_output_findings": privacy_findings,
+    }
+    return {
+        "prepared": updated,
+        "review_required": True,
+        "persisted": False,
+        "routed_modules": result.get("routed_modules") or [],
+    }
+
+
 def _accepted_provenance(prepared, ai_interpretation):
     if ai_interpretation:
         if prepared.get("processing", {}).get("status") == "text_extracted":
@@ -319,6 +382,13 @@ def dispatch(path, payload):
             payload.get("mime_type"),
             payload.get("content_base64"),
             payload.get("explicit_kind"),
+        )
+    if path == "/api/clinical-note/upload/interpret":
+        return HTTPStatus.OK, interpret_prepared_upload(
+            payload.get("prepared") or {},
+            payload.get("content_base64"),
+            privacy_checked=bool(payload.get("privacy_checked")),
+            burned_in_identifiers_checked=bool(payload.get("burned_in_identifiers_checked")),
         )
     if path == "/api/clinical-note/upload/accept":
         return HTTPStatus.OK, accept_prepared_upload(
