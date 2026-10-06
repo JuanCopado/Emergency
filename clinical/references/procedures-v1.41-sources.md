@@ -171,3 +171,11 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - AUA/SMSNA Priapism Guideline 2022 — `PROC-GU-008`.
 - CDC Blood Culture Collection / Contamination resources, updated 31 Mar 2026; CLSI M47 ED2 — `PROC-VASC-013`.
 - Merck Manual Professional 2025–2026: shoulder dislocation reduction, posterior elbow dislocation, ankle dislocation, peritonsillar abscess drainage — `PROC-ORTHO-001`, `PROC-ORTHO-003`, `PROC-ORTHO-009`, `PROC-ENT-010`.
+
+
+## Quinta pasada de procedimientos de riesgo — 06/10/2026
+- Merck Manual Professional 2025: posterior shoulder dislocation reduction, digital nerve block, nail trephination, fingertip fractures, inferior alveolar nerve block — `PROC-ORTHO-002`, `PROC-WND-002`, `PROC-WND-018`, `PROC-WND-022`, `PROC-ENT-014`.
+- Merck Manual Professional: Overview of Fractures / Distal Radius Fractures — `PROC-ORTHO-010`, `PROC-WND-003`.
+- Best Evidence Topic 2026, haematoma block vs procedural sedation for distal radius fracture manipulation — `PROC-WND-003`.
+- NCBI Bookshelf/StatPearls, Vaginal Foreign Body Evaluation and Treatment — `PROC-GU-009`.
+- CDC intravascular catheter recommendations 2024; J Vasc Bras 2025 review and J Crit Care 2026 systematic review on air embolism after CVC removal — `PROC-VASC-014`.
