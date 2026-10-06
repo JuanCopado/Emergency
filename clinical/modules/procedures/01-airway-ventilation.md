@@ -131,20 +131,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW.
 
 ## PROC-AIR-009 — Videolaringoscopia — CORE
-**Objetivo:** mejorar visualización glótica y facilitar primera pasada en escenarios seleccionados.  
-**Indicaciones:** vía aérea potencialmente difícil, RSI o estrategia primaria según experiencia/equipo.  
-**Contraindicaciones/precauciones:** sangre/vómito puede inutilizar cámara; no abandonar control directo de inserción.  
-**Material:** videolaringoscopio, pala, tubo, estilete/bougie, succión, capnografía.  
-**Anatomía:** orofaringe y glotis vistas por cámara.  
-**Preparación:** comprobar pantalla, batería, pala y curvatura del estilete.  
-**Técnica paso a paso:** 1) introducir pala bajo control; 2) adquirir imagen glótica; 3) avanzar tubo siguiendo curvatura; 4) retirar estilete sin desplazar tubo; 5) confirmar.  
-**STOP:** no “perseguir la pantalla” si pierde control de tejidos/dientes; reoxigenar si intento se prolonga.  
-**Confirmación:** ETCO₂ de onda y clínica.  
-**Complicaciones:** trauma palatino, dental o laríngeo; intubación esofágica.  
-**Después:** fijación y cuidados postintubación.  
-**Documentación:** dispositivo/pala, intentos y confirmación.  
-**Fuentes:** DAS 2025.  
-**QA:** YELLOW.
+**Objetivo:** mejorar visualización glótica y favorecer éxito de primera pasada cuando existe experiencia y el dispositivo está disponible.
+**Indicaciones:** estrategia primaria de intubación o vía aérea potencialmente difícil; RCUK 2025 prefiere videolaringoscopia frente a laringoscopia directa cuando está inmediatamente disponible durante reanimación.
+**Contraindicaciones/precauciones:** sangre, vómito o secreciones pueden inutilizar la cámara; una buena imagen no garantiza paso fácil del tubo.
+**Material:** videolaringoscopio, pala apropiada, tubo, estilete/bougie, succión y capnografía.
+**Anatomía:** orofaringe y glotis vistas por cámara, manteniendo conciencia de dientes/paladar durante inserción.
+**Preparación:** comprobar pantalla/batería, pala, succión y curvatura del estilete; plan de rescate y preoxigenación.
+**Técnica paso a paso:** introducir la pala bajo control directo, adquirir imagen glótica, avanzar el tubo siguiendo la geometría del dispositivo, retirar el estilete sin desplazarlo y confirmar inmediatamente.
+**STOP:** no “perseguir la pantalla” si se pierde control de la boca/tejidos; reoxigenar y cambiar estrategia si el intento se prolonga o la saturación cae.
+**Confirmación:** capnografía de onda sostenida y hallazgos clínicos concordantes.
+**Complicaciones:** trauma palatino/dental/laríngeo, intubación esofágica y fracaso de paso pese a buena visión.
+**Después:** fijación, ventilación y sedoanalgesia postintubación.
+**Documentación:** dispositivo/pala, intentos, visión glótica, confirmación y complicaciones.
+**Fuentes:** DAS 2025; Resuscitation Council UK Adult Advanced Life Support 2025.
+**QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-010 — Secuencia rápida de intubación (RSI) — CORE
 **Objetivo:** facilitar intubación traqueal urgente minimizando hipoxemia, aspiración y colapso hemodinámico peri-intubación.
