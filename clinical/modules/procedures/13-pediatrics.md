@@ -83,20 +83,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW.
 
 ## PROC-PED-006 — Punción lumbar pediátrica — ADVANCED/PED
-**Objetivo:** obtener LCR de forma segura.
-**Indicaciones:** diagnóstico de infección/inflamación SNC u otras indicaciones pediátricas seleccionadas.
-**Contraindicaciones/precauciones:** inestabilidad, riesgo de herniación, infección local o contraindicación hemorrágica.
-**Material:** kit LP pediátrico, aguja con estilete, tubos, anestesia y campo estéril.
-**Anatomía:** interespacios lumbares bajos.
-**Preparación:** posición lateral o sentada con asistente, sin comprometer respiración.
-**Técnica paso a paso:** identificar interespacio, anestesiar, introducir aguja con estilete, obtener LCR y recoger tubos secuenciales.
-**STOP:** deterioro respiratorio/neurológico, dolor radicular persistente o sangrado importante.
-**Confirmación:** flujo de LCR y muestras adecuadas.
-**Complicaciones:** cefalea, sangrado, infección y lesión neural.
-**Después:** vigilancia y análisis de muestras.
-**Documentación:** nivel, posición, aspecto y complicaciones.
-**Fuentes:** pediatric LP guidance; protocolos pediátricos.
-**QA:** YELLOW.
+**Objetivo:** obtener LCR de forma segura cuando el resultado puede modificar diagnóstico o tratamiento.
+**Indicaciones:** sospecha de meningitis/infección del SNC u otras indicaciones pediátricas seleccionadas.
+**Contraindicaciones/precauciones:** NICE 2024 recomienda estabilizar primero vía aérea no protegida, compromiso respiratorio, shock, convulsiones no controladas o riesgo hemorrágico; no realizar LP ante púrpura extensa/progresiva, infección en el sitio, riesgo de lesión ocupante de espacio o signos de hipertensión intracraneal como focalidad nueva, pupilas anormales o deterioro sostenido del nivel de conciencia.
+**Material:** kit LP pediátrico, aguja con estilete, tubos, anestesia local y campo estéril.
+**Anatomía:** interespacios lumbares bajos y línea media; adaptar profundidad y posición a edad/tamaño.
+**Preparación:** posición lateral o sentada con asistente, sin comprometer respiración; medir glucemia inmediatamente antes cuando se estudie meningitis para interpretar relación LCR/glucosa.
+**Técnica paso a paso:** identificar interespacio, antisepsia/anestesia, introducir aguja con estilete de forma controlada, obtener LCR, recoger tubos según prioridad y retirar tras reinsertar estilete.
+**STOP:** deterioro respiratorio/neurológico, convulsión no controlada, sangrado importante, dolor radicular persistente o anatomía no segura.
+**Confirmación:** flujo de LCR y muestras adecuadas sin deterioro clínico.
+**Complicaciones:** punción traumática, sangrado, infección, cefalea, lesión neural rara y herniación en paciente mal seleccionado.
+**Después:** no retrasar antibióticos por intentos prolongados; si la LP no puede hacerse antes, tratar y realizarla tan pronto como sea seguro.
+**Documentación:** indicación, estabilidad previa, posición, nivel, intentos, aspecto y muestras.
+**Fuentes:** NICE NG240 Bacterial meningitis and meningococcal disease, updated 2024; NICE NG195 neonatal infection for newborn-specific LP.
+**QA:** YELLOW; revisión humana pediatría/infecciosas pendiente.
 
 ## PROC-PED-007 — Sondaje vesical pediátrico — CORE/PED
 **Objetivo:** obtener drenaje/muestra urinaria cuando está indicado.
@@ -134,20 +134,20 @@ Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técni
 **QA:** YELLOW.
 
 ## PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED
-**Objetivo:** tratar taquiarritmia inestable o ritmo desfibrilable pediátrico.
+**Objetivo:** tratar taquiarritmia inestable con pulso o ritmos desfibrilables en parada pediátrica.
 **Indicaciones:** cardioversión sincronizada en taquiarritmia con pulso e inestabilidad; desfibrilación en FV/TV sin pulso.
-**Contraindicaciones/precauciones:** seleccionar energía por peso según algoritmo vigente y verificar modo SYNC para cardioversión.
-**Material:** desfibrilador, parches/palas pediátricos cuando proceda y monitor.
-**Anatomía:** posición de parches y vector transtorácico.
-**Preparación:** estimar/confirmar peso, colocar parches y monitorizar.
-**Técnica paso a paso:** seleccionar modo y energía por algoritmo, verificar sincronización si corresponde, descargar con seguridad y reanudar RCP cuando aplique.
-**STOP:** no cardioversión sincronizada en FV/TV sin pulso; no retrasar RCP.
-**Confirmación:** conversión/hemodinámica o algoritmo postchoque.
-**Complicaciones:** quemaduras, arritmia y descarga accidental.
-**Después:** tratar causa y cuidados postreanimación.
-**Documentación:** ritmo, energía, choques y respuesta.
-**Fuentes:** ERC/RCUK Pediatric Life Support 2025; AHA/PALS 2025.
-**QA:** YELLOW.
+**Contraindicaciones/precauciones:** verificar peso estimado/real y modo SYNC antes de cardioversión; minimizar pausas de compresiones en parada.
+**Material:** desfibrilador manual cuando esté disponible, parches apropiados, monitorización y sedación si la situación permite cardioversión consciente.
+**Anatomía:** posiciones anterolateral o anteroposterior que aseguren buen contacto y separación adecuada de parches.
+**Preparación:** identificar ritmo, colocar parches y seleccionar energía según algoritmo pediátrico vigente.
+**Técnica paso a paso:** para FV/TV sin pulso, AHA/AAP 2025 considera razonable 2–4 J/kg inicialmente; por simplicidad docente, 2 J/kg es una opción razonable. Segundo choque 4 J/kg; posteriores ≥4 J/kg sin superar 10 J/kg ni la dosis máxima adulta. Para cardioversión sincronizada, seguir energía específica por ritmo/algoritmo vigente y confirmar marcadores sobre QRS antes de descargar.
+**STOP:** no usar modo sincronizado en FV/TV sin pulso; no realizar choques apilados de rutina; reiniciar compresiones inmediatamente tras desfibrilación.
+**Confirmación:** conversión del ritmo y mejoría hemodinámica o continuación correcta del algoritmo de parada.
+**Complicaciones:** quemaduras, arritmia inducida, fallo de sincronización y descarga accidental.
+**Después:** tratar causa reversible y continuar cuidados postreanimación.
+**Documentación:** ritmo, peso usado para cálculo, energía de cada choque, sincronización y respuesta.
+**Fuentes:** AHA/AAP 2025 Pediatric Advanced Life Support Guidelines.
+**QA:** YELLOW; revisión humana pediatría/cardiología pendiente.
 
 ## PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal — ADVANCED/PED
 **Objetivo:** obtener acceso vascular rápido durante reanimación neonatal avanzada.
