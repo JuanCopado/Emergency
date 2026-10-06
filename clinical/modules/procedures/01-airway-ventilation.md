@@ -227,20 +227,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW.
 
 ## PROC-AIR-015 — Cricotiroidotomía quirúrgica — SPECIALIST
-**Objetivo:** proporcionar oxigenación de rescate en CICO.  
-**Indicaciones:** no se puede intubar ni oxigenar pese a estrategias apropiadas.  
-**Contraindicaciones/precauciones:** emergencia vital; adaptar técnica a edad/anatomía y protocolo.  
-**Material:** bisturí, bougie/dilatador, tubo apropiado, succión, capnografía.  
-**Anatomía:** cartílago tiroides, cricoides y membrana cricotiroidea.  
-**Preparación:** declarar CICO, pedir ayuda y localizar membrana; continuar oxigenación si posible.  
-**Técnica paso a paso:** 1) estabilizar laringe; 2) incisión cutánea si precisa; 3) abrir membrana; 4) dilatar; 5) introducir guía/tubo; 6) inflar cuff y ventilar.  
-**STOP:** no retrasar FONA por múltiples intentos de intubación; evitar trayecto posterior.  
-**Confirmación:** ETCO₂ y expansión torácica.  
-**Complicaciones:** hemorragia, falsa vía, lesión laríngea/traqueal, enfisema.  
-**Después:** fijar, ventilar y derivar para manejo definitivo.  
-**Documentación:** indicación CICO, técnica, dispositivo y confirmación.  
-**Fuentes:** DAS 2025 difficult intubation/FONA.  
-**QA:** YELLOW.
+**Objetivo:** establecer una vía aérea frontal de cuello de emergencia (eFONA) en CICO.
+**Indicaciones:** situación “cannot intubate, cannot oxygenate” tras fracaso de estrategias apropiadas de oxigenación/ventilación.
+**Contraindicaciones/precauciones:** no existe contraindicación absoluta en CICO adulto; requiere entrenamiento regular y adaptación anatómica. En pediatría la estrategia depende de edad/tamaño y algoritmo específico.
+**Material:** bisturí, bougie, tubo traqueal cuffed apropiado, succión y capnografía.
+**Anatomía:** cartílago tiroides, membrana cricotiroidea, cartílago cricoides y línea media.
+**Preparación:** declarar CICO, pedir ayuda, aplicar oxígeno a vía aérea superior, maximizar exposición cervical cuando sea seguro e identificar la línea media/membrana.
+**Técnica paso a paso:** en adulto, DAS 2025 estandariza una técnica scalpel–bougie–tube con incisión cutánea vertical para acceso eFONA; identificar y abrir la membrana cricotiroidea, introducir bougie, avanzar el tubo sobre la guía, retirar bougie, inflar cuff y ventilar.
+**STOP:** no retrasar eFONA por intentos repetidos de laringoscopia; no continuar un trayecto si se pierde la anatomía o aparece falsa vía.
+**Confirmación:** capnografía de onda sostenida y expansión torácica.
+**Complicaciones:** hemorragia, falsa vía, lesión laríngea/traqueal, enfisema subcutáneo y malposición.
+**Después:** fijar el tubo, ventilar, estabilizar y coordinar manejo definitivo de vía aérea.
+**Documentación:** indicación CICO, técnica, dispositivo, tiempos, confirmación y complicaciones.
+**Fuentes:** Difficult Airway Society 2025, unanticipated difficult tracheal intubation in adults (BJA 2026;136:283–307).
+**QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-016 — Cricotiroidotomía por aguja/catéter — SPECIALIST
 **Objetivo:** técnica de rescate seleccionada cuando protocolo/edad/equipo la contemplan.  
