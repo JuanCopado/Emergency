@@ -99,7 +99,20 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-007 — Inversión uterina: reposición inicial — ADVANCED
-**Objetivo:** reposición inmediata con shock/hemorragia. **Técnica:** reanimar en paralelo, suspender uterotónicos hasta reposición según protocolo, presión manual sobre fondo invertido hacia eje vaginal/umbilical, mantener hasta contracción tras reposición. **STOP:** fracaso → obstetricia/quirófano. **Visual:** Johnson maneuver.
+**Objetivo:** revertir inversión uterina con shock o hemorragia.
+**Indicaciones:** inversión uterina aguda.
+**Contraindicaciones/precauciones:** requiere reanimación y obstetricia simultáneas; no retrasar reposición.
+**Material:** analgesia/anestesia y material de PPH.
+**Anatomía:** fondo uterino invertido, cérvix y canal vaginal.
+**Preparación:** reanimar en paralelo y manejar uterotónicos según protocolo.
+**Técnica paso a paso:** aplicar presión manual sostenida sobre el fondo invertido en dirección al eje vaginal/umbilical hasta reposición y mantener hasta contracción.
+**STOP:** fracaso o sangrado no controlado → quirófano/obstetricia.
+**Confirmación:** útero reposicionado y contracción adecuada.
+**Complicaciones:** hemorragia grave, shock y recurrencia.
+**Después:** tratamiento PPH tras reposición.
+**Documentación:** tiempos, técnica y respuesta.
+**Fuentes:** obstetric emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-OBS-008 — Histerotomía resucitativa — SPECIALIST
 **Objetivo:** mejorar la reanimación materna y posibilitar extracción fetal en parada cardiaca durante embarazo avanzado cuando está indicada.  
