@@ -198,12 +198,17 @@ Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
 **QA:** YELLOW.
 
 ## PROC-ENT-014 — Bloqueo del nervio alveolar inferior — ADVANCED
-**Objetivo:** proporcionar anestesia regional mandibular para dolor/procedimientos dentales o reparación de tejidos seleccionada sin distorsionar el campo.  
-**Indicaciones:** dolor o procedimiento en hemimandíbula, dientes inferiores y tejidos correspondientes cuando un bloqueo regional es apropiado.  
-**Anatomía:** escotadura coronoidea, rafe pterigomandibular, rama mandibular y foramen mandibular; nervio lingual próximo.  
-**Preparación:** revisar alergias, anticoagulación y dosis total de anestésico desde módulo farmacológico; paciente semisentado con boca ampliamente abierta.  
-**Técnica:** identificar referencias, introducir aguja hacia cara medial de rama mandibular según técnica validada, aspirar antes de inyectar y administrar lentamente; no insertar hasta el hub.  
-**STOP:** dolor eléctrico persistente, aspiración positiva, resistencia inesperada, infección en sitio o anatomía no identificable.  
-**Confirmación:** anestesia ipsilateral esperada de dientes/labio inferior/mentón según distribución.  
-**Complicaciones:** hematoma, inyección intravascular, parestesia, trismus, toxicidad por anestésico local y rotura de aguja.  
-**Fuente troncal:** Merck/MSD Manual Professional, revisión 2025.
+**Objetivo:** proporcionar anestesia regional mandibular.
+**Indicaciones:** dolor o procedimiento dental/mandibular seleccionado.
+**Contraindicaciones/precauciones:** infección local, anatomía no identificable, alergia o anticoagulación de alto riesgo.
+**Material:** anestésico desde módulo farmacológico, jeringa/aguja apropiada y antiséptico.
+**Anatomía:** escotadura coronoidea, rafe pterigomandibular, rama mandibular y nervio lingual.
+**Preparación:** boca ampliamente abierta, posición semisentada y dosis total calculada.
+**Técnica paso a paso:** identificar referencias, avanzar de forma controlada hacia la cara medial de la rama, aspirar e inyectar lentamente.
+**STOP:** aspiración positiva, dolor eléctrico persistente o resistencia inesperada.
+**Confirmación:** anestesia ipsilateral esperada de dientes/labio inferior/mentón.
+**Complicaciones:** hematoma, inyección intravascular, parestesia, trismus y LAST.
+**Después:** advertir sobre mordedura accidental mientras persista anestesia.
+**Documentación:** lado, fármaco/dosis y respuesta.
+**Fuentes:** MSD/Merck Professional 2025.
+**QA:** YELLOW.
