@@ -18,7 +18,7 @@ NORMALIZED={
  "12-ophthalmology.md":8,
  "13-pediatrics.md":10,
  "14-obstetrics.md":9,
- "15-pocus-procedural.md":10,
+ "15-pocus-procedural.md":9,
  "16-special-rescue.md":13,
 }
 REQUIRED=[
