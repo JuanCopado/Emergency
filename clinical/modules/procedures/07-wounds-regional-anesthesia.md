@@ -179,20 +179,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
 ## PROC-WND-012 — Grapas cutáneas — CORE
-**Objetivo:** cierre rápido de heridas seleccionadas.  
-**Indicaciones:** cuero cabelludo/tronco/extremidad de baja complejidad.  
-**Contraindicaciones/precauciones:** cara, manos/pies o zonas cosméticas/funcionales según lesión; no usar en infección.  
-**Material:** grapadora y extractor.  
-**Anatomía:** piel/subcutáneo.  
-**Preparación:** irrigar/explorar y evertir.  
-**Técnica paso a paso:** 1) aproximar bordes; 2) colocar grapadora perpendicular; 3) disparar sin comprimir excesivamente; 4) espaciar uniformemente.  
-**STOP:** bordes atrapados/isquémicos.  
-**Confirmación:** aproximación adecuada.  
-**Complicaciones:** marcas, infección, dolor.  
-**Después:** apósito/retirada programada.  
-**Documentación:** número de grapas.  
-**Fuentes:** wound closure guidance.  
-**QA:** YELLOW.
+**Objetivo:** cerrar rápidamente laceraciones lineales de bordes definidos cuando el resultado cosmético no es prioritario.
+**Indicaciones:** laceraciones relativamente rectas del cuero cabelludo, tronco o extremidades de baja tensión.
+**Contraindicaciones/precauciones:** evitar en cara/cuello por resultado cosmético inferior y usar con cautela en manos/pies; no usar sobre infección o lesión profunda no explorada. Si se prevé TC del área, considerar el posible artefacto de las grapas.
+**Material:** grapadora cutánea, pinza para eversión si precisa y extractor.
+**Anatomía:** epidermis y dermis.
+**Preparación:** irrigar, explorar, desbridar si procede, conseguir hemostasia y alinear bordes.
+**Técnica paso a paso:** evertir/aproximar los bordes, colocar la grapadora perpendicular al eje de la herida y aplicar cada grapa sin comprimir excesivamente; espaciar uniformemente.
+**STOP:** superposición de bordes, atrapamiento de tejido profundo, blanqueamiento/isquemia o cierre bajo tensión.
+**Confirmación:** bordes bien alineados y evertidos con grapas asentadas pero no incrustadas.
+**Complicaciones:** marcas, dolor, infección, mala alineación y cicatriz más visible.
+**Después:** apósito, instrucciones y retirada programada; confirmar capacidad de seguimiento.
+**Documentación:** número de grapas, localización y resultado.
+**Fuentes:** Merck Manual Professional, How To Repair a Laceration With Stapling, updated Jan 2026.
+**QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
 ## PROC-WND-013 — Adhesivo tisular — CORE
 **Objetivo:** cerrar una herida superficial simple sin suturas.
