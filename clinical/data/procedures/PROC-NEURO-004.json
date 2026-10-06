@@ -1,0 +1,218 @@
+{
+  "procedure_id": "PROC-NEURO-004",
+  "name": "Bloqueo del nervio occipital mayor seleccionado",
+  "family": "Neurología",
+  "level": "ADVANCED",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED"
+  ],
+  "status": "YELLOW",
+  "objective": "Proporcionar analgesia regional en migraña, neuralgia occipital y otros cuadros seleccionados tras descartar causas secundarias peligrosas.",
+  "indications": [
+    "Adultos elegibles con ataque de migraña en urgencias que requiera tratamiento parenteral y no tengan contraindicaciones para bloqueo local.",
+    "Neuralgia occipital u otros cuadros seleccionados según diagnóstico y experiencia del operador."
+  ],
+  "contraindications_precautions": {
+    "absolute": [
+      "Alergia conocida al anestésico local seleccionado.",
+      "Infección en el sitio de punción."
+    ],
+    "relative": [
+      "Alteración hemostática clínicamente significativa.",
+      "Anatomía no identificable con seguridad."
+    ],
+    "precautions": [
+      "Excluir cefalea secundaria de alto riesgo antes de un bloqueo analgésico.",
+      "Controlar la dosis total de anestésico local desde el módulo farmacológico para prevenir LAST."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Anestésico local desde módulo farmacológico.",
+      "Jeringa y aguja apropiadas.",
+      "Antiséptico.",
+      "Guantes/campo."
+    ],
+    "optional": [
+      "Ecografía según experiencia."
+    ],
+    "monitoring": [
+      "Monitorización clínica durante y tras la inyección según riesgo."
+    ],
+    "rescue": [
+      "Material y fármacos para tratar toxicidad sistémica por anestésicos locales."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Región occipital.",
+      "Trayecto del nervio occipital mayor.",
+      "Relación con la arteria occipital."
+    ],
+    "target": [
+      "Plano perineural alrededor del nervio occipital mayor."
+    ],
+    "avoid": [
+      "Inyección intravascular.",
+      "Inyección intraneural a presión."
+    ],
+    "laterality": "Unilateral o bilateral según indicación.",
+    "variants": [
+      "Abordaje por referencias anatómicas o ecoguiado."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Posición cómoda que exponga la región occipital.",
+    "operator_position": "Detrás o lateral al paciente con acceso claro a la región occipital.",
+    "monitoring": [
+      "Según riesgo y dosis total de anestésico local."
+    ],
+    "asepsis": [
+      "Antisepsia cutánea.",
+      "Campo limpio/estéril según protocolo."
+    ],
+    "analgesia_sedation": [
+      "No suele requerir sedación; anestesia local es la propia intervención."
+    ],
+    "prechecks": [
+      "Confirmar diagnóstico y ausencia de red flags.",
+      "Consentimiento.",
+      "Revisar alergias y hemostasia.",
+      "Calcular dosis total segura desde módulo farmacológico."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Identificar referencias anatómicas o ecográficas.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Preparar el campo y realizar antisepsia.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Introducir la aguja de forma controlada hacia el plano diana.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Aspirar antes de inyectar.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Infiltrar de forma fraccionada alrededor del nervio sin presión intraneural.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 6,
+      "action": "Retirar la aguja y reevaluar dolor y estado neurológico.",
+      "critical": false,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Disminución del dolor en la distribución esperada.",
+    "Ausencia de déficit neurológico nuevo.",
+    "Ausencia de signos de toxicidad sistémica."
+  ],
+  "stop_points": [
+    "Aspiración positiva.",
+    "Dolor eléctrico o parestesia intensa persistente.",
+    "Resistencia anormal a la inyección.",
+    "Síntomas de LAST.",
+    "Deterioro neurológico."
+  ],
+  "complications": {
+    "immediate": [
+      "Inyección intravascular.",
+      "LAST.",
+      "Lesión neural.",
+      "Dolor local."
+    ],
+    "early": [
+      "Hematoma.",
+      "Bloqueo incompleto."
+    ],
+    "late": [
+      "Infección local rara."
+    ]
+  },
+  "rescue": [
+    "Suspender inmediatamente la inyección ante toxicidad o lesión.",
+    "Activar manejo de LAST y soporte vital según módulo farmacológico.",
+    "Si no hay respuesta, volver al algoritmo diagnóstico/terapéutico de cefalea en lugar de repetir automáticamente el bloqueo."
+  ],
+  "aftercare": [
+    "Observación breve.",
+    "Reevaluación del dolor y de red flags.",
+    "Seguimiento según diagnóstico."
+  ],
+  "documentation": [
+    "Lado.",
+    "Técnica anatómica o ecoguiada.",
+    "Fármaco y dosis total enlazados al módulo farmacológico.",
+    "Resultado de aspiración.",
+    "Respuesta clínica.",
+    "Complicaciones y estado postprocedimiento."
+  ],
+  "pearls": [
+    "El bloqueo no sustituye la evaluación de causas secundarias de cefalea.",
+    "Evitar duplicar dosis en esta ficha; usar el módulo farmacológico central."
+  ],
+  "special_adaptations": {
+    "pediatric": [],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [
+      "Valorar riesgo hemorrágico individual."
+    ],
+    "difficult_anatomy": [
+      "Considerar ecografía si las referencias no son claras."
+    ]
+  },
+  "pocus": {
+    "required": false,
+    "probe": "Lineal de alta frecuencia si se usa ecografía.",
+    "orientation": "Según abordaje y experiencia del operador.",
+    "window": "Región occipital.",
+    "target": "Nervio occipital mayor y planos adyacentes.",
+    "needle_trajectory": "Bajo visualización si se realiza ecoguiado.",
+    "confirmation": "Distribución adecuada del anestésico sin inyección intravascular o intraneural."
+  },
+  "pharmacology_links": [
+    "procedures-pharmacology",
+    "local-anesthetic-systemic-toxicity"
+  ],
+  "sources": [
+    {
+      "title": "2025 guideline update to acute treatment of migraine for adults in the emergency department: The American Headache Society evidence assessment of parenteral pharmacotherapies",
+      "organization": "American Headache Society",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41321235/",
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration completed; human clinical review still required."
+    ]
+  }
+}
