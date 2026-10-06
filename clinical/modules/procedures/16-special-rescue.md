@@ -182,15 +182,20 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW.
 
 ## PROC-SP-013 — REBOA (oclusión endovascular resucitativa de la aorta) — SPECIALIST
-**Objetivo:** control temporal de hemorragia no compresible infradiafragmática y mantenimiento transitorio de perfusión coronaria/cerebral mientras se obtiene hemostasia definitiva.  
-**Indicación:** únicamente en pacientes seleccionados con shock hemorrágico extremo o peri-parada/parada por hemorragia subdiafragmática, dentro de un centro con protocolo, operadores entrenados y capacidad quirúrgica/intervencionista inmediata.  
-**Evidencia:** EAST 2025 concluye que el beneficio sobre mortalidad sigue siendo incierto y que la selección/implementación debe ser muy restrictiva; no sustituye control hemorrágico definitivo.  
-**Preparación:** activar trauma/cirugía vascular/intervencionismo, transfusión masiva y quirófano/angio; monitorización invasiva cuando sea posible; ecografía para acceso femoral común por operador competente.  
-**Técnica general:** obtener acceso arterial femoral común seguro; introducir vaina y catéter REBOA según dispositivo/protocolo institucional; posicionar balón en zona aórtica apropiada al foco presumible, confirmar posición, inflar solo lo necesario para control temporal y monitorizar perfusión proximal/distal.  
-**STOP:** no utilizar sin destino hemostático definitivo inmediato; evitar inflado en zona incorrecta o tiempo de oclusión prolongado; deterioro distal, lesión vascular o posición incierta requieren reevaluación inmediata.  
-**Complicaciones:** lesión femoral/aortoilíaca, disección, trombosis, isquemia de extremidad/visceral/médula, rotura vascular y complicaciones de reperfusión.  
-**Después:** hemostasia definitiva urgente y retirada/seguimiento vascular protocolizado.  
-**Fuente troncal:** EAST practice management guideline 2025; ACS COT/ACEP implementation statement.
+**Objetivo:** oclusión aórtica temporal como puente excepcional a hemostasia definitiva en escenarios muy seleccionados.
+**Indicaciones:** solo dentro de un programa institucional con operadores acreditados, selección protocolizada y capacidad inmediata de cirugía/intervencionismo.
+**Contraindicaciones/precauciones:** no es tratamiento rutinario del shock hemorrágico. La guía EAST 2025 emitió recomendación condicional en contra de REBOA en trauma inestable con sangrado subdiafragmático y en fractura pélvica cerrada inestable por ausencia de beneficio y señal de daño; cualquier uso debe ser excepcional y protocolizado.
+**Material:** acceso arterial de gran calibre/dispositivo REBOA, ecografía, monitorización invasiva y recursos de control hemorrágico definitivo.
+**Anatomía:** arteria femoral común, aorta torácica/abdominal y zonas de oclusión definidas por dispositivo/protocolo.
+**Preparación:** activar trauma/cirugía vascular/intervencionismo, transfusión masiva y destino hemostático definitivo antes de la oclusión.
+**Técnica paso a paso:** obtener acceso arterial femoral común seguro; avanzar el dispositivo según protocolo del centro y fabricante; confirmar posición; inflar únicamente en la zona indicada y por el mínimo tiempo necesario; vigilar perfusión proximal/distal y transición inmediata a hemostasia definitiva.
+**STOP:** no utilizar sin destino definitivo inmediato; posición incierta, acceso vascular inseguro, isquemia distal o deterioro atribuible al dispositivo obligan a reevaluación/retirada según protocolo.
+**Confirmación:** posición verificada y efecto hemodinámico temporal coherente, sin asumir beneficio clínico definitivo.
+**Complicaciones:** lesión femoral/aortoilíaca, disección, trombosis, isquemia de extremidad/visceral/médula, rotura vascular y lesión por reperfusión.
+**Después:** hemostasia definitiva urgente, retirada protocolizada y vigilancia vascular.
+**Documentación:** indicación excepcional, criterios de selección, tiempos de oclusión, zona, respuesta y complicaciones.
+**Fuentes:** EAST Practice Management Guideline 2025; implementación institucional de trauma/vascular.
+**QA:** YELLOW.
 
 ## PROC-SP-014 — ECPR / canulación VA-ECMO durante parada refractaria — SPECIALIST
 **Objetivo:** proporcionar soporte circulatorio extracorpóreo de rescate a pacientes altamente seleccionados con parada cardiaca refractaria cuando existe un programa ECPR capaz de implantarlo rápidamente.  
