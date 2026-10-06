@@ -83,20 +83,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life S
 **QA:** YELLOW; revisión humana cardiología/UCI pendiente.
 
 ## PROC-CV-006 — Pericardiocentesis ecoguiada — SPECIALIST/POCUS
-**Objetivo:** aliviar taponamiento cuando drenaje pericárdico urgente está indicado.  
-**Indicaciones:** compromiso hemodinámico por derrame/taponamiento cuando pericardiocentesis es la estrategia apropiada.  
-**Contraindicaciones/precauciones:** causas quirúrgicas como disección tipo A, rotura miocárdica, trauma/coágulo o postoperatorio pueden requerir cirugía; usar como puente solo si necesario.  
-**Material:** ecógrafo, aguja/catéter, kit Seldinger, monitor ECG, anestesia local y drenaje.  
-**Anatomía:** pericardio, ventrículos, hígado, pulmón y vasos coronarios; ventanas subxifoidea/apical/paraesternal.  
-**Preparación:** identificar ventana más corta/sin interposición y preparar rescate.  
-**Técnica paso a paso:** 1) campo/anestesia; 2) aguja bajo US; 3) aspirar; 4) confirmar espacio; 5) guía/catéter si procede; 6) drenar gradualmente; 7) reevaluar.  
-**STOP:** arritmia nueva, sangre no compatible, trayecto no visible o deterioro.  
-**Confirmación:** reducción de derrame/fisiología de taponamiento y mejoría hemodinámica.  
-**Complicaciones:** punción miocárdica/coronaria, arritmia, hemopericardio, neumotórax, lesión hepática.  
-**Después:** drenaje/monitorización y tratamiento etiológico.  
-**Documentación:** ventana, volumen, técnica y respuesta.  
-**Fuentes:** ESC 2025 pericardial guidance + POCUS procedural standards.  
-**QA:** YELLOW.
+**Objetivo:** drenar un derrame pericárdico cuando existe taponamiento o una indicación invasiva urgente apropiada.
+**Indicaciones:** taponamiento cardíaco con compromiso hemodinámico y derrame accesible; ESC 2025 incluye pericardiocentesis con drenaje en el manejo de pacientes de alto riesgo con taponamiento.
+**Contraindicaciones/precauciones:** disección aórtica tipo A, rotura de pared libre, trauma penetrante/coágulo, derrame postquirúrgico localizado u otras causas pueden requerir drenaje quirúrgico primario; la pericardiocentesis puede ser solo un puente si el paciente se deteriora.
+**Material:** ecógrafo, aguja/catéter, kit Seldinger, monitor ECG, anestesia local, drenaje y material de rescate.
+**Anatomía:** pericardio, cavidades cardíacas, vasos coronarios, pulmón, diafragma e hígado; elegir entre ventanas apical, paraesternal o subxifoidea según trayecto más seguro.
+**Preparación:** confirmar fisiología de taponamiento, comparar ventanas, elegir el trayecto más corto sin estructuras interpuestas y preparar rescate quirúrgico.
+**Técnica paso a paso:** antisepsia/anestesia; avanzar la aguja bajo guía ecográfica dinámica cuando sea posible; confirmar entrada en espacio pericárdico; introducir guía/catéter si procede; drenar de forma controlada y reevaluar fisiología.
+**STOP:** trayectoria no visible, arritmia nueva, aspirado inesperado, guía que no progresa libremente o deterioro.
+**Confirmación:** posición del catéter en espacio pericárdico, reducción del derrame/fisiología de taponamiento y mejoría hemodinámica.
+**Complicaciones:** punción miocárdica/coronaria, arritmia, hemopericardio, neumotórax, lesión hepática y mala posición.
+**Después:** monitorización, drenaje según indicación y tratamiento etiológico; cirugía si persiste taponamiento o la causa lo requiere.
+**Documentación:** ventana, trayecto, volumen/aspecto, técnica de confirmación, respuesta y complicaciones.
+**Fuentes:** ESC 2025 Guidelines for myocarditis and pericarditis — management of cardiac tamponade; procedural POCUS standards.
+**QA:** YELLOW; revisión humana cardiología/cirugía pendiente.
 
 ## PROC-CV-007 — RCP manual de alta calidad — CORE
 **Objetivo:** mantener perfusión coronaria/cerebral durante parada.  
