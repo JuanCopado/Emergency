@@ -211,20 +211,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana urgencias pendiente.
 
 ## PROC-WND-014 — Tiras de aproximación — CORE
-**Objetivo:** aproximar heridas superficiales de muy baja tensión.  
-**Indicaciones:** pequeñas laceraciones o refuerzo de cierre.  
-**Contraindicaciones/precauciones:** piel húmeda, sangrado activo, alta tensión.  
-**Material:** tiras y adhesivo auxiliar si procede.  
-**Anatomía:** piel.  
-**Preparación:** limpiar/secar.  
-**Técnica paso a paso:** 1) aproximar bordes; 2) colocar tiras perpendiculares; 3) alternar lados para distribuir tensión.  
-**STOP:** blanqueamiento/estrangulación.  
-**Confirmación:** bordes alineados.  
-**Complicaciones:** desprendimiento, dermatitis.  
-**Después:** mantener secas.  
-**Documentación:** técnica.  
-**Fuentes:** wound care guidance.  
-**QA:** YELLOW.
+**Objetivo:** aproximar heridas superficiales de muy baja tensión o reforzar otro método de cierre.
+**Indicaciones:** laceraciones pequeñas, lineales y superficiales cuyos bordes se mantienen juntos sin fuerza.
+**Contraindicaciones/precauciones:** piel húmeda o grasa, sangrado activo, alta tensión, infección/contaminación relevante o zonas de movimiento importante sin inmovilización.
+**Material:** tiras adhesivas, solución de limpieza, gasas y adhesivo cutáneo auxiliar si se utiliza.
+**Anatomía:** epidermis y dermis superficial.
+**Preparación:** limpiar, secar completamente y conseguir hemostasia.
+**Técnica paso a paso:** aproximar manualmente los bordes y colocar tiras perpendiculares a la herida desde un lado al otro, alternando lados para distribuir la tensión; reforzar si es necesario.
+**STOP:** blanqueamiento, estrangulación, persistencia de gap o desprendimiento inmediato por humedad/tensión.
+**Confirmación:** bordes alineados y estables sin tensión significativa.
+**Complicaciones:** desprendimiento precoz, dermatitis de contacto, dehiscencia y maceración.
+**Después:** mantener secas inicialmente y permitir que se desprendan espontáneamente o retirar según protocolo.
+**Documentación:** técnica y número aproximado de tiras.
+**Fuentes:** Merck Manual Professional, Skin Lacerations, updated 2026.
+**QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
 ## PROC-WND-015 — Incisión y drenaje de absceso cutáneo — CORE
 **Objetivo:** evacuar pus y romper loculaciones en un absceso cutáneo drenables.
