@@ -134,7 +134,20 @@ Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técni
 **QA:** YELLOW.
 
 ## PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED
-**Técnica:** parches/palas adecuados, energía por peso desde algoritmo ERC/AHA pediátrico vigente; sincronizar cardioversión; desfibrilación no sincronizada en FV/TV sin pulso; RCP inmediata. **Visual:** parches y modo SYNC.
+**Objetivo:** tratar taquiarritmia inestable o ritmo desfibrilable pediátrico.
+**Indicaciones:** cardioversión sincronizada en taquiarritmia con pulso e inestabilidad; desfibrilación en FV/TV sin pulso.
+**Contraindicaciones/precauciones:** seleccionar energía por peso según algoritmo vigente y verificar modo SYNC para cardioversión.
+**Material:** desfibrilador, parches/palas pediátricos cuando proceda y monitor.
+**Anatomía:** posición de parches y vector transtorácico.
+**Preparación:** estimar/confirmar peso, colocar parches y monitorizar.
+**Técnica paso a paso:** seleccionar modo y energía por algoritmo, verificar sincronización si corresponde, descargar con seguridad y reanudar RCP cuando aplique.
+**STOP:** no cardioversión sincronizada en FV/TV sin pulso; no retrasar RCP.
+**Confirmación:** conversión/hemodinámica o algoritmo postchoque.
+**Complicaciones:** quemaduras, arritmia y descarga accidental.
+**Después:** tratar causa y cuidados postreanimación.
+**Documentación:** ritmo, energía, choques y respuesta.
+**Fuentes:** ERC/RCUK Pediatric Life Support 2025; AHA/PALS 2025.
+**QA:** YELLOW.
 
 ## PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal — ADVANCED/PED
 **Objetivo:** obtener acceso vascular rápido en el recién nacido que requiere medicación o expansión de volumen durante reanimación avanzada.  
