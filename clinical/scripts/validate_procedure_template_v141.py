@@ -17,6 +17,9 @@ NORMALIZED={
  "11-ent.md":13,
  "12-ophthalmology.md":8,
  "13-pediatrics.md":10,
+ "14-obstetrics.md":9,
+ "15-pocus-procedural.md":10,
+ "16-special-rescue.md":13,
 }
 REQUIRED=[
  "objetivo","indicaciones","contraindicaciones/precauciones","material","anatomía",
