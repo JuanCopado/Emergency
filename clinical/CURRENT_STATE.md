@@ -5,7 +5,7 @@
 - Rama: `v1.41-procedures-visual`.
 - `main`: **no modificar ni fusionar automáticamente**.
 - Último Clinical QA verificado antes de la ampliación PIC: **#645 SUCCESS** sobre `5e5176324504d2b9e857b14f1df807284e91aa3b`.
-- Módulo Técnicas y Procedimientos: **192 técnicas canónicas + 1 alias**, 16 familias, 193 IDs textuales.
+- Módulo Técnicas y Procedimientos: **197 técnicas canónicas + 1 alias**, 16 familias, 198 IDs textuales.
 - Añadido `PROC-NEURO-005`: monitorización de PIC/PPC.
 - Auditoría posterior añadió 5 huecos de alta relevancia: UVC neonatal, histerotomía resucitativa, balón uterino PPH, reimplante dental permanente y ferulización dentoalveolar.
 - Fase visual: **PAUSADA**; continuar solo con texto hasta nueva orden.
