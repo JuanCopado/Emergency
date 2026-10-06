@@ -67,7 +67,20 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-005 — Hemorragia posparto: masaje uterino inicial — CORE
-**Técnica:** masaje bimanual/uterino según atonía, activar protocolo hemorragia, uterotónicos desde módulo farmacológico, acceso IV/hemocomponentes y buscar 4T. **Visual:** masaje fundal/bimanual.
+**Objetivo:** tratar atonía uterina inicial mientras se activa el protocolo de PPH.
+**Indicaciones:** hemorragia posparto con útero atónico o causa aún no aclarada.
+**Contraindicaciones/precauciones:** no retrasar búsqueda de 4T ni reanimación.
+**Material:** acceso IV, uterotónicos desde módulo farmacológico, sangre/hemoderivados y material obstétrico.
+**Anatomía:** fondo y cavidad uterina.
+**Preparación:** cuantificar sangrado, monitorizar y activar ayuda.
+**Técnica paso a paso:** masaje uterino/fundal o bimanual según caso, vaciar vejiga si procede, administrar tratamiento farmacológico canónico y buscar Tone/Trauma/Tissue/Thrombin.
+**STOP:** sangrado persistente, shock o sospecha de ruptura/retención.
+**Confirmación:** útero más firme y disminución del sangrado.
+**Complicaciones:** retraso de hemostasia definitiva si no se escala.
+**Después:** continuar bundle PPH y escalar a balón/cirugía según causa.
+**Documentación:** pérdida cuantificada, respuesta y tratamientos.
+**Fuentes:** WHO consolidated PPH guidance 2025/2026; ACOG/RCOG.
+**QA:** YELLOW.
 
 ## PROC-OBS-006 — Extracción manual de coágulos seleccionada — ADVANCED
 **Uso:** atonía con coágulos intrauterinos y operador entrenado. **Técnica:** analgesia, asepsia, estabilizar útero externamente, extracción cuidadosa; no confundir con extracción manual de placenta adherida. **Visual:** bimanual.
