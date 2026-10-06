@@ -35,7 +35,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW.
 
 ## PROC-PED-003 — Intubación pediátrica — ADVANCED/PED
-**Técnica:** checklist, preoxigenación, selección de tubo/pala según edad/tamaño, RSI desde módulo pediátrico, laringoscopia/videolaringoscopia, confirmación por capnografía, fijación y ventilación protectora. **STOP:** bradicardia/desaturación → reoxigenar. **Visual:** anatomía pediátrica y profundidad.
+**Objetivo:** establecer vía aérea traqueal definitiva.
+**Indicaciones:** incapacidad de proteger vía aérea, fracaso ventilatorio/oxigenatorio o reanimación avanzada seleccionada.
+**Contraindicaciones/precauciones:** no prolongar intentos durante desaturación/bradicardia; adaptar tubo/pala a edad y tamaño.
+**Material:** laringoscopio/video, tubo apropiado, estilete/bougie si procede, succión, BVM, capnografía y fijación.
+**Anatomía:** glotis pediátrica y vía aérea superior.
+**Preparación:** checklist, preoxigenación, equipo de rescate y fármacos desde módulo pediátrico.
+**Técnica paso a paso:** laringoscopia/videolaringoscopia, paso del tubo bajo visión, cuff si aplica, ventilación y confirmación por capnografía.
+**STOP:** bradicardia, desaturación o intento prolongado → retirar/reoxigenar/cambiar estrategia.
+**Confirmación:** capnografía de onda sostenida y expansión bilateral.
+**Complicaciones:** hipoxemia, bradicardia, trauma, intubación esofágica/endobronquial.
+**Después:** fijación, ventilación protectora y sedoanalgesia.
+**Documentación:** dispositivo, tamaño, profundidad, intentos y confirmación.
+**Fuentes:** ERC/RCUK 2025; AHA/PALS 2025.
+**QA:** YELLOW.
 
 ## PROC-PED-004 — Supraglótico pediátrico — CORE/PED
 **Técnica:** talla según peso/fabricante, lubricar, insertar sin fuerza, inflar si aplica, confirmar ETCO₂ y fijar. **Visual:** tamaño y posición.
