@@ -195,3 +195,10 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - Merck Manual Professional, Ring Removal Using the String Method, updated Jul 2025 — `PROC-WND-017`.
 - Merck Manual Professional wound exploration/foreign-body guidance, updated 2025–2026 — `PROC-WND-016`.
 - AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020 — `PROC-ENT-001/002/003/004`.
+
+
+## Octava pasada — vía aérea CORE — 06/10/2026
+- Resuscitation Council UK/ERC Adult Advanced Life Support Guidelines 2025 — `PROC-AIR-005`, `PROC-AIR-006`, `PROC-AIR-009`, `PROC-AIR-013`.
+- Difficult Airway Society 2025 unanticipated difficult tracheal intubation guideline — videolaryngoscopy/difficult-airway context.
+- National Tracheostomy Safety Project adult emergency algorithms — revisión de `PROC-AIR-017`.
+- British Thoracic Society oxygen guideline/current oxygen resource — `PROC-AIR-018`.
