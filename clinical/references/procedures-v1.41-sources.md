@@ -202,3 +202,11 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - Difficult Airway Society 2025 unanticipated difficult tracheal intubation guideline — videolaryngoscopy/difficult-airway context.
 - National Tracheostomy Safety Project adult emergency algorithms — revisión de `PROC-AIR-017`.
 - British Thoracic Society oxygen guideline/current oxygen resource — `PROC-AIR-018`.
+
+
+## Novena pasada — vía aérea CORE restante — 06/10/2026
+- Resuscitation Council UK / ERC Adult ALS 2025 — `PROC-AIR-001/002/003/004/007/012/014/021`.
+- Difficult Airway Society Awake Tracheal Intubation 2019 + difficult-airway framework 2025 — `PROC-AIR-011/012`.
+- National Tracheostomy Safety Project Adult Emergency Guidelines/Algorithms — `PROC-AIR-017`.
+- BTS oxygen resources — traqueostomía/laryngectomía y contexto de oxigenoterapia; el Clinical Statement específico HFNO figura como recurso 2026 en desarrollo/publicación — `PROC-AIR-017/019`.
+- ERS/ATS NIV acute respiratory failure guideline + SCCM RSI 2023 preoxygenation guidance — `PROC-AIR-020`.
