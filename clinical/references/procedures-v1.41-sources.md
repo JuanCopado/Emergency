@@ -218,3 +218,13 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - RCUK/ERC First Aid 2025 — life-threatening bleeding, open chest wounds and selective spinal motion restriction — `PROC-THX-010`, `PROC-TRA-001..006`.
 - BTS Clinical Statement on Pleural Procedures 2023, correction 2026 — `PROC-THX-004/007/008`.
 - WHO Basic Emergency Care / trauma handling references — `PROC-TRA-005..009`.
+
+
+## Undécima pasada — vascular CORE, neurología y GI/abdomen — 06/10/2026
+- CDC Summary of Recommendations for Intravascular Catheter-Related Infections, reviewed 2024 — `PROC-VASC-001/002`.
+- AHA Adult ALS 2025 and AHA/AAP Pediatric ALS 2025 — `PROC-VASC-003/004/005`.
+- NHS England enduring nasogastric tube safety standards — `PROC-GI-001`.
+- AASLD Ascites/SBP/HRS Practice Guidance (2021, still listed as current practice guidance) + AASLD 2025–2026 educational updates — `PROC-GI-003/004`.
+- Merck/MSD and WSES-AAST anorectal emergency references — `PROC-GI-005/006/007/009`.
+- Enteral access procedural guidance — `PROC-GI-008`.
+- Engelborghs et al. 2017 LP consensus and AHS 2025/2026 migraine guideline remain supporting sources for `PROC-NEURO-002/004`.
