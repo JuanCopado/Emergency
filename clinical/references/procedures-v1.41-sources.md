@@ -131,3 +131,13 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - AACT/EAPCCT Position Paper Update: Gastric Lavage for Gastrointestinal Decontamination, 2013; continúa listado por AACT.
 - Uso: `PROC-SP-007`.
 - Punto clave: no debe emplearse de rutina; uso excepcional y protocolizado.
+
+
+### Fuentes adicionales de la segunda pasada SPECIALIST
+- ESC 2025 Guidelines for myocarditis and pericarditis — manejo del taponamiento y drenaje pericárdico — `PROC-CV-006`.
+- British Association of Urological Surgeons, revised suprapubic catheter practice guidelines (2020) + EAU Urological Trauma Guidelines — `PROC-GU-006`.
+- AAOS/METRC Appropriate Use Criteria / Clinical Practice Guideline for Acute Compartment Syndrome y revisiones 2020–2024 — `PROC-SP-001`.
+- Resuscitation Council UK/ERC 2025 Special Circumstances — accidental hypothermia — `PROC-SP-012`.
+- ILCOR 2025 ALS CoSTR — ECPR rescue therapy in selected OHCA/IHCA — `PROC-SP-014`.
+- ASRA Pain Medicine 2025 + revisiones sistemáticas 2025–2026 sobre técnicas phrenic-sparing y paresia hemidiafragmática — `PROC-WND-006`.
+- Brain Trauma Foundation Severe TBI 4th Edition — `PROC-NEURO-005`; Neurocritical Care Society EVD consensus — `PROC-NEURO-003`.
