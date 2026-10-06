@@ -82,37 +82,37 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **Fuentes:** WHO consolidated PPH guidance 2025/2026; ACOG/RCOG.
 **QA:** YELLOW.
 
-## PROC-OBS-006 — Extracción manual de coágulos seleccionada — ADVANCED
-**Objetivo:** evacuar coágulos intrauterinos que perpetúan atonía o hemorragia.
-**Indicaciones:** atonía con coágulos intrauterinos y operador entrenado.
-**Contraindicaciones/precauciones:** no confundir con extracción manual de placenta adherida; evitar si sospecha de ruptura o anatomía incierta.
-**Material:** analgesia/anestesia, guantes estériles y material PPH.
-**Anatomía:** cavidad uterina, cérvix y fondo.
-**Preparación:** reanimación en paralelo, asepsia y estabilización uterina externa.
-**Técnica paso a paso:** estabilizar el útero externamente e introducir la mano de forma controlada para extraer coágulos accesibles.
-**STOP:** resistencia, dolor extremo, sospecha de adherencia placentaria o perforación.
-**Confirmación:** reducción de contenido y mejor contracción uterina.
-**Complicaciones:** trauma, infección y hemorragia.
-**Después:** continuar tratamiento etiológico de PPH.
-**Documentación:** indicación, hallazgos y respuesta.
-**Fuentes:** obstetric PPH procedural guidance.
-**QA:** YELLOW.
+## PROC-OBS-006 — Exploración uterina / extracción manual de coágulos seleccionada — ADVANCED
+**Objetivo:** evacuar coágulos o restos accesibles que interfieren con la contracción uterina y la hemostasia dentro de un protocolo de PPH.
+**Indicaciones:** PPH con útero alto/atónico y sospecha de coágulos intrauterinos; sospecha de tejido retenido o necesidad de explorar cavidad tras fracaso del manejo inicial, por operador entrenado.
+**Contraindicaciones/precauciones:** no usar como maniobra aislada ni repetir a ciegas; sospecha de ruptura uterina, placenta anormalmente adherente o anatomía incierta requieren obstetricia/quirófano. La exploración intrauterina aumenta riesgo infeccioso.
+**Material:** analgesia/anestesia apropiada, guantes estériles largos, material PPH, ecografía cuando sea útil y antibiótico profiláctico según protocolo si se realiza manipulación intrauterina extensa/manual removal.
+**Anatomía:** cérvix, cavidad, fondo y cuernos uterinos.
+**Preparación:** reanimación en paralelo, cuantificación de sangrado, evaluación de 4T, revisión de placenta y estabilización uterina externa.
+**Técnica paso a paso:** estabilizar el útero externamente; introducir la mano de forma controlada y explorar sistemáticamente cavidad/fondo/cuernos; retirar coágulos o restos libres accesibles; evitar maniobras de curetaje digital agresivo si existe adherencia.
+**STOP:** resistencia anormal, sangrado creciente, sospecha de accreta/ruptura, dolor extremo o deterioro hemodinámico → escalar a quirófano/imagen/intervención definitiva.
+**Confirmación:** reducción del contenido intrauterino, mejor tono uterino y disminución objetiva del sangrado.
+**Complicaciones:** trauma uterino/cervical, infección, hemorragia y retraso de tratamiento definitivo.
+**Después:** continuar bundle PPH, uterotónicos/TXA según módulos canónicos y reevaluar necesidad de evacuación guiada, balón, embolización o cirugía.
+**Documentación:** indicación, hallazgos, material extraído, respuesta, profilaxis antibiótica si se usó y complicaciones.
+**Fuentes:** WHO Consolidated PPH Guidelines 2025; HSE National Clinical Practice Guideline for Primary PPH 2025.
+**QA:** YELLOW; revisión humana obstetricia pendiente.
 
 ## PROC-OBS-007 — Inversión uterina: reposición inicial — ADVANCED
-**Objetivo:** revertir inversión uterina con shock o hemorragia.
-**Indicaciones:** inversión uterina aguda.
-**Contraindicaciones/precauciones:** requiere reanimación y obstetricia simultáneas; no retrasar reposición.
-**Material:** analgesia/anestesia y material de PPH.
-**Anatomía:** fondo uterino invertido, cérvix y canal vaginal.
-**Preparación:** reanimar en paralelo y manejar uterotónicos según protocolo.
-**Técnica paso a paso:** aplicar presión manual sostenida sobre el fondo invertido en dirección al eje vaginal/umbilical hasta reposición y mantener hasta contracción.
-**STOP:** fracaso o sangrado no controlado → quirófano/obstetricia.
-**Confirmación:** útero reposicionado y contracción adecuada.
-**Complicaciones:** hemorragia grave, shock y recurrencia.
-**Después:** tratamiento PPH tras reposición.
-**Documentación:** tiempos, técnica y respuesta.
-**Fuentes:** obstetric emergency guidance.
-**QA:** YELLOW.
+**Objetivo:** revertir rápidamente una inversión uterina aguda para controlar hemorragia y shock.
+**Indicaciones:** inversión uterina puerperal aguda, habitualmente con hemorragia y/o shock desproporcionado.
+**Contraindicaciones/precauciones:** requiere reanimación, anestesia y obstetricia simultáneas. Suspender uterotónicos durante la reposición inicial y no intentar retirar una placenta aún adherida antes de reponer el útero, salvo estrategia obstétrica específica.
+**Material:** accesos IV de gran calibre, sangre/hemoderivados, analgesia/anestesia, material PPH y quirófano disponible.
+**Anatomía:** fondo uterino invertido, anillo cervical, vagina y pelvis.
+**Preparación:** pedir ayuda, reanimar agresivamente, suspender agentes uterotónicos temporalmente y preparar relajación uterina/anestesia si la reposición manual fracasa.
+**Técnica paso a paso:** colocar la palma o puño sobre el fondo invertido y aplicar presión firme, continua y sostenida siguiendo el eje vaginal hacia el ombligo hasta conseguir reposición; mantener la mano dentro hasta comprobar contracción y estabilidad.
+**STOP:** no traccionar el cordón ni retirar placenta adherida antes de la reposición; fracaso de reducción, hemorragia persistente o shock refractario → quirófano y técnicas hidrostáticas/quirúrgicas según equipo.
+**Confirmación:** fondo uterino nuevamente abdominal, cavidad restituida, útero contraído y sangrado reducido.
+**Complicaciones:** hemorragia masiva, shock, recurrencia, lesión uterina y necesidad de cirugía.
+**Después:** reiniciar uterotónicos tras reposición, continuar tratamiento PPH y vigilancia intensiva.
+**Documentación:** hora de diagnóstico, shock/hemorragia, maniobras, fármacos/anestesia, momento de reposición y respuesta.
+**Fuentes:** WHO PPH framework 2025/2026; HSE Primary PPH guideline 2025; contemporary obstetric emergency references.
+**QA:** YELLOW; revisión humana obstetricia/anestesia pendiente.
 
 ## PROC-OBS-008 — Histerotomía resucitativa / parto resucitativo — SPECIALIST
 **Objetivo:** mejorar la reanimación materna al aliviar la compresión aortocava y devolver a la circulación materna el volumen secuestrado en el útero; el beneficio fetal es secundario.
