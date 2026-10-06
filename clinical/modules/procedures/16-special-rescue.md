@@ -150,7 +150,20 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW.
 
 ## PROC-SP-011 — Recalentamiento externo activo — CORE
-**Técnica:** manipulación suave, retirar ropa mojada, aislamiento, mantas/aire caliente en tronco, fluidos calentados cuando indicados, monitorización central. **STOP:** evitar fricción vigorosa y calor directo en extremidades con hipotermia grave. **Visual:** zonas de calentamiento.
+**Objetivo:** aumentar temperatura central en hipotermia seleccionada.
+**Indicaciones:** hipotermia leve-moderada o complemento en cuadros más graves.
+**Contraindicaciones/precauciones:** evitar calor directo intenso en extremidades y manipulación brusca en hipotermia grave.
+**Material:** aislamiento, mantas/aire caliente y fluidos calentados cuando indicados.
+**Anatomía:** tronco y circulación central.
+**Preparación:** retirar ropa mojada y monitorizar temperatura central.
+**Técnica paso a paso:** aislar, aplicar calentamiento activo al tronco y fluidos calentados cuando proceda.
+**STOP:** arritmia/deterioro hemodinámico o quemadura térmica.
+**Confirmación:** ascenso progresivo de temperatura y estabilidad.
+**Complicaciones:** hipotensión por vasodilatación, quemaduras y afterdrop.
+**Después:** continuar hasta objetivo y tratar causa.
+**Documentación:** temperatura seriada y método.
+**Fuentes:** hypothermia/ERC guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-012 — Recalentamiento invasivo — SPECIALIST
 **Opciones:** fluidos IV calentados, lavado de cavidades seleccionado, ECMO/bypass en paro/hipotermia grave según sistema. **Técnica:** elección por gravedad y recursos; activar centro experto. **Visual:** escalera de rewarming.
