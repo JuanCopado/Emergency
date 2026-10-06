@@ -25,3 +25,13 @@ Estado: **YELLOW**.
 
 ## PROC-GU-008 — Priapismo isquémico: descompresión inicial — ADVANCED
 **Objetivo:** urgencia urológica. **Técnica:** analgesia/bloqueo, aspiración corporal lateral con aguja adecuada, irrigación y simpaticomimético intracavernoso según protocolo/fármaco con monitorización. **STOP:** no retrasar urología; distinguir no isquémico. **Visual:** cuerpos cavernosos y sitio lateral.
+
+## PROC-GU-009 — Extracción de cuerpo extraño vaginal — ADVANCED
+**Objetivo:** retirar un cuerpo extraño vaginal visible o accesible evitando lesión mucosa y pasando a ginecología cuando la extracción simple no es segura.  
+**Indicaciones:** cuerpo extraño retenido con visualización/acceso adecuado y paciente estable.  
+**Preparación:** consentimiento, privacidad/chaperón, analgesia apropiada, posición ginecológica, espéculo e iluminación cuando corresponda. En pediatría considerar sedación, vaginoscopia y evaluación de posible abuso según contexto.  
+**Técnica:** visualizar el objeto antes de manipular; retirar suavemente con instrumento apropiado evitando maniobras ciegas; irrigación solo cuando el tipo de objeto y la anatomía lo permitan.  
+**STOP:** objeto cortante, sangrado, dolor intenso, sospecha de perforación/fístula, objeto alto/no visible o paciente no cooperadora → ginecología/quirófano.  
+**Confirmación:** objeto íntegro retirado, inspección de mucosa y resolución de síntomas inmediatos.  
+**Complicaciones:** abrasión, sangrado, infección, fragmentación y lesión de estructuras adyacentes.  
+**Fuente troncal:** revisión clínica NCBI/StatPearls de cuerpos extraños vaginales; protocolo ginecológico local requerido.
