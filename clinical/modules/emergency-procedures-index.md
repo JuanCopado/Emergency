@@ -206,7 +206,9 @@
 110. **PROC-NEURO-001 — Punción lumbar** — CORE  
 111. **PROC-NEURO-002 — Medición de presión de apertura de LCR** — CORE  
 112. **PROC-NEURO-003 — Manejo urgente de derivación ventricular externa** — SPECIALIST  
-113. **PROC-NEURO-004 — Analgesia regional seleccionada en cefalea/occipital** — ADVANCED
+113. **PROC-NEURO-004 — Analgesia regional seleccionada en cefalea/occipital** — ADVANCED  
+114. **PROC-NEURO-005 — Monitorización de presión intracraneal (PIC) y presión de perfusión cerebral (PPC)** — SPECIALIST  
+   Medición invasiva mediante drenaje ventricular externo o sensor intraparenquimatoso; nivelación, puesta a cero, lectura, artefactos, PPC y complicaciones.
 
 ---
 
@@ -326,7 +328,7 @@
 
 # Resumen del catálogo
 
-- **Total actual: 187 IDs textuales: 186 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
+- **Total actual: 188 IDs textuales: 187 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
 - El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate y variantes pediátricas/POCUS sin duplicar contenido.
 - La **luxación mandibular** queda incluida como `PROC-ORTHO-022`.
 - Los procedimientos de alto riesgo se mantienen **YELLOW** hasta revisión bibliográfica específica y Clinical QA.
