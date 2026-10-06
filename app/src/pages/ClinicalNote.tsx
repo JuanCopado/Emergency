@@ -66,7 +66,7 @@ export default function ClinicalNote(){
  const [diagnosticStale,setDiagnosticStale]=useState(true);
  const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
  const [clinicianReviewed,setClinicianReviewed]=useState(false);
- const [draftKind,setDraftKind]=useState('Analítica'); const [draftName,setDraftName]=useState('');
+ const [draftKind,setDraftKind]=useState('Outro'); const [draftName,setDraftName]=useState('');
  const [draftOfficial,setDraftOfficial]=useState(''); const [draftAi,setDraftAi]=useState('');
  const [uploadName,setUploadName]=useState(''); const [apiBusy,setApiBusy]=useState(false);
  const [apiError,setApiError]=useState('');
@@ -84,7 +84,7 @@ export default function ClinicalNote(){
    setDiagnosticStale(true);
  }
  function buildNote():ClinicalNotePayload{
-   const baseAssessment=assessment?{
+   const baseAssessment:ClinicalAssessment=assessment?{
      ...assessment,
      active_problems:lines(problems).length?lines(problems):assessment.active_problems,
      treatment_suggestions:[
@@ -159,9 +159,12 @@ export default function ClinicalNote(){
  async function onUpload(file?:File){
    if(!file) return;
    setUploadName(file.name); setDraftName(file.name);
-   const inferred=inferKind(file.name); setDraftKind(inferred); setApiError(''); setApiBusy(true);
+   const inferred=inferKind(file.name);
+   const selected=inferred==='Outro'?draftKind:inferred;
+   setDraftKind(selected); setApiError(''); setApiBusy(true);
    try{
-     const prepared=await prepareClinicalUpload(file,kindMap[inferred]);
+     const explicitKind=(inferred==='Outro'&&selected==='Outro')?undefined:kindMap[selected];
+     const prepared=await prepareClinicalUpload(file,explicitKind);
      const id=prepared.upload_id;
      setMcdt(v=>[...v,{
        id,kind:inferred,name:file.name,official:prepared.extracted.official_report||'',ai:'',state:'pending',
@@ -325,7 +328,7 @@ export default function ClinicalNote(){
    </div></nav>
 
    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]">
-     <main className="min-w-0">{content}</main>
+     <div className="min-w-0">{content}</div>
      <aside className={`${card} h-fit lg:sticky lg:top-24`} aria-label="Timeline clínica">
        <div className="flex items-center gap-2"><h2 className="font-bold">Timeline</h2><span className="chip ml-auto">{timeline.length}</span></div>
        <div className="mt-4 space-y-3 border-l border-border pl-4">
