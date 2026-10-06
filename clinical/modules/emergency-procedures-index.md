@@ -312,7 +312,7 @@
 169. **PROC-US-004 — Ecografía para toracocentesis** — ADVANCED/POCUS  
 170. **PROC-US-005 — Ecografía para drenaje pleural** — ADVANCED/POCUS  
 171. **PROC-US-006 — Ecografía para paracentesis** — ADVANCED/POCUS  
-172. **PROC-US-007 — Ecografía para pericardiocentesis** — SPECIALIST/POCUS  
+172. **PROC-US-007 — Ecografía para pericardiocentesis** — referencia cruzada a CV-006  
 173. **PROC-US-008 — Ecografía para bloqueos nerviosos** — ADVANCED/POCUS  
 174. **PROC-US-009 — Ecografía para artrocentesis** — ADVANCED/POCUS  
 175. **PROC-US-010 — Confirmación ecográfica de complicaciones postprocedimiento** — ADVANCED/POCUS
@@ -340,7 +340,7 @@
 
 # Resumen del catálogo
 
-- **Total actual: 200 IDs textuales: 197 procedimientos/variantes canónicas + 3 alias de referencia cruzada (ENT → reducción mandibular).**
+- **Total actual: 200 IDs textuales: 196 procedimientos/variantes canónicas + 4 alias de referencia cruzada.**
 - El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate, neonatales, obstétricos, dentales y variantes pediátricas/POCUS sin duplicar contenido.
 - La **luxación mandibular** queda incluida como `PROC-ORTHO-022`.
 - Los procedimientos de alto riesgo se mantienen **YELLOW** hasta revisión bibliográfica específica y Clinical QA.
