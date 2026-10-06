@@ -1,8 +1,27 @@
 {
-  "brand": { "tagline": "Perfusiones de urgencias y UCI" },
-  "nav": { "home": "Inicio", "drugs": "Fármacos", "calculator": "Calculadora", "settings": "Ajustes", "about": "Acerca de" },
-  "a11y": { "skip": "Saltar al contenido principal", "mainNav": "Navegación principal", "breadcrumb": "Ruta de navegación" },
-  "theme": { "system": "Sistema", "light": "Claro", "dark": "Oscuro", "switchToDark": "Cambiar a tema oscuro", "switchToLight": "Cambiar a tema claro" },
+  "brand": {
+    "tagline": "Perfusiones de urgencias y UCI"
+  },
+  "nav": {
+    "home": "Inicio",
+    "drugs": "Fármacos",
+    "calculator": "Calculadora",
+    "settings": "Ajustes",
+    "about": "Acerca de",
+    "clinicalNote": "Nota clínica"
+  },
+  "a11y": {
+    "skip": "Saltar al contenido principal",
+    "mainNav": "Navegación principal",
+    "breadcrumb": "Ruta de navegación"
+  },
+  "theme": {
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "switchToDark": "Cambiar a tema oscuro",
+    "switchToLight": "Cambiar a tema claro"
+  },
   "common": {
     "all": "Todos",
     "comingSoon": "Próximamente",
@@ -16,7 +35,11 @@
     "body": "Transcrito de los módulos de referencia v1.35 y pendiente de revisión clínica humana. Verifique con los protocolos locales, las concentraciones estándar de farmacia y la ficha técnica. Prevalece el juicio clínico.",
     "more": "Leer el aviso legal"
   },
-  "search": { "label": "Buscar fármacos", "placeholder": "Buscar un fármaco (p. ej. noradrenalina, propofol)…", "submit": "Buscar" },
+  "search": {
+    "label": "Buscar fármacos",
+    "placeholder": "Buscar un fármaco (p. ej. noradrenalina, propofol)…",
+    "submit": "Buscar"
+  },
   "home": {
     "eyebrow": "Perfusiones continuas en adultos · referencia v1.35",
     "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
@@ -36,19 +59,46 @@
     "moduleCount_other": "{{count}} módulos"
   },
   "groups": {
-    "vasoactive": { "title": "Vasoactivos e inotrópicos", "desc": "Vasopresores e inotrópicos en el shock" },
-    "sedation": { "title": "Sedoanalgesia en UCI", "desc": "Analgesia y sedación continuas en adultos ventilados" },
-    "cardiovascular": { "title": "Cardiovascular" },
-    "infectionRespiratory": { "title": "Infección y respiratorio" },
-    "neurologic": { "title": "Neurológico" },
-    "renalMetabolic": { "title": "Renal, metabólico y toxicología" },
-    "traumaSurgical": { "title": "Trauma y cirugía" },
-    "specialPopulations": { "title": "Pediatría, obstetricia y poblaciones especiales" },
-    "proceduresPharmacology": { "title": "Vía aérea/ISR, procedimientos y farmacología" },
-    "dispositionCrosscutting": { "title": "POCUS, destino y transversales" },
-    "clinicalImages": { "title": "Interpretación de imágenes clínicas" }
+    "vasoactive": {
+      "title": "Vasoactivos e inotrópicos",
+      "desc": "Vasopresores e inotrópicos en el shock"
+    },
+    "sedation": {
+      "title": "Sedoanalgesia en UCI",
+      "desc": "Analgesia y sedación continuas en adultos ventilados"
+    },
+    "cardiovascular": {
+      "title": "Cardiovascular"
+    },
+    "infectionRespiratory": {
+      "title": "Infección y respiratorio"
+    },
+    "neurologic": {
+      "title": "Neurológico"
+    },
+    "renalMetabolic": {
+      "title": "Renal, metabólico y toxicología"
+    },
+    "traumaSurgical": {
+      "title": "Trauma y cirugía"
+    },
+    "specialPopulations": {
+      "title": "Pediatría, obstetricia y poblaciones especiales"
+    },
+    "proceduresPharmacology": {
+      "title": "Vía aérea/ISR, procedimientos y farmacología"
+    },
+    "dispositionCrosscutting": {
+      "title": "POCUS, destino y transversales"
+    },
+    "clinicalImages": {
+      "title": "Interpretación de imágenes clínicas"
+    }
   },
-  "categories": { "vasoactive-inotrope": "Vasoactivo / inotrópico", "icu-sedation-analgesia": "Sedoanalgesia UCI" },
+  "categories": {
+    "vasoactive-inotrope": "Vasoactivo / inotrópico",
+    "icu-sedation-analgesia": "Sedoanalgesia UCI"
+  },
   "list": {
     "title": "Fármacos",
     "subtitle": "Perfusiones continuas en adultos de los módulos v1.35.",
@@ -220,7 +270,10 @@
     "content": "contenido {{version}}",
     "disclaimer": "Borrador pendiente de validación clínica — prevalecen los protocolos locales y el juicio clínico."
   },
-  "notFound": { "title": "Página no encontrada", "body": "La página que busca no existe." },
+  "notFound": {
+    "title": "Página no encontrada",
+    "body": "La página que busca no existe."
+  },
   "drugNames": {
     "norepinephrine": "Noradrenalina",
     "vasopressin": "Vasopresina",
