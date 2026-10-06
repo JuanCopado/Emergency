@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "approved_source_families": [
+    {
+      "id": "cdc-phil",
+      "organization": "CDC",
+      "base_url": "https://wwwn.cdc.gov/phil/",
+      "default_license_assumption": "none",
+      "rule": "Verify each image. PHIL contains both public-domain and copyright-protected assets.",
+      "preferred_use": [
+        "final_reuse",
+        "anatomical_reference",
+        "procedural_reference"
+      ]
+    },
+    {
+      "id": "openstax-anatomy",
+      "organization": "OpenStax / Rice University",
+      "base_url": "https://openstax.org/subjects/science",
+      "default_license_assumption": "none",
+      "rule": "Verify exact book/edition. Licensing differs; Anatomy & Physiology 2e is CC BY-NC-SA 4.0.",
+      "preferred_use": [
+        "anatomical_reference",
+        "final_reuse_if_license_compatible"
+      ]
+    },
+    {
+      "id": "wikimedia-commons",
+      "organization": "Wikimedia Commons",
+      "base_url": "https://commons.wikimedia.org/",
+      "default_license_assumption": "none",
+      "rule": "Verify the individual file page and license; Commons hosts multiple license types.",
+      "preferred_use": [
+        "anatomical_reference",
+        "final_reuse_if_license_compatible"
+      ]
+    }
+  ],
+  "assets": []
+}
