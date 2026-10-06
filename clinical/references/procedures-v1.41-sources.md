@@ -80,3 +80,11 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - International Association of Dental Traumatology (IADT) Guidelines 2020, endorsed/reproduced by AAPD; AAPD Reference Manual 2025-2026 acute avulsed permanent tooth resources.
 - Uso: `PROC-ENT-012`, `PROC-ENT-013`.
 - Punto clave: diente permanente avulsionado puede requerir reimplante precoz; dientes temporales no deben reimplantarse. La estabilización flexible depende del patrón de lesión.
+
+
+### Procedimientos prácticos adicionales
+- Merck Manual Professional 2025 / WSES-AAST: cuerpos extraños rectales — `PROC-GI-009`.
+- NCBI/StatPearls review: cuerpos extraños vaginales — `PROC-GU-009`; requiere protocolo ginecológico local.
+- MSD Manual Professional 2025 + Emergency Medicine Procedures: extracción de anzuelo — `PROC-WND-021`.
+- Hand Clinics 2021 + guías ED de lesiones ungueales: reparación de lecho ungueal — `PROC-WND-022`.
+- Merck/MSD Manual Professional 2025: bloqueo del nervio alveolar inferior — `PROC-ENT-014`.
