@@ -115,20 +115,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **QA:** YELLOW.
 
 ## PROC-GU-008 — Descompresión inicial de priapismo isquémico — ADVANCED
-**Objetivo:** aliviar isquemia cavernosa y prevenir disfunción permanente.  
-**Indicaciones:** priapismo isquémico diagnosticado.  
-**Contraindicaciones/precauciones:** distinguir no isquémico; coordinación urológica urgente.  
-**Material:** anestesia/bloqueo, aguja/catéter, jeringas, irrigación y fármaco intracavernoso desde módulo farmacológico.  
-**Anatomía:** cuerpos cavernosos y uretra/cuerpo esponjoso.  
-**Preparación:** monitor, analgesia y lateralidad segura.  
-**Técnica paso a paso:** 1) bloqueo; 2) punción lateral de cuerpo cavernoso; 3) aspiración; 4) irrigación según protocolo; 5) simpaticomimético intracavernoso titulado con monitorización.  
-**STOP:** arritmia/HTA, sangrado o anatomía dudosa.  
-**Confirmación:** detumescencia y alivio del dolor.  
-**Complicaciones:** hematoma, infección, lesión uretral, efectos cardiovasculares.  
-**Después:** urología y etiología.  
-**Documentación:** duración, aspirado, tratamiento y respuesta.  
-**Fuentes:** urology priapism guidelines.  
-**QA:** YELLOW.
+**Objetivo:** aliviar la isquemia cavernosa y preservar la función eréctil.
+**Indicaciones:** priapismo isquémico confirmado o fuertemente sospechado; AUA/SMSNA lo considera una urgencia urológica que requiere intervención inmediata.
+**Contraindicaciones/precauciones:** diferenciar priapismo no isquémico y recurrente; monitorizar PA/FC durante simpaticomimético intracavernoso y coordinar urología precozmente.
+**Material:** anestesia/bloqueo peneano, aguja/catéter, jeringas, suero para irrigación y fenilefrina intracavernosa desde módulo farmacológico.
+**Anatomía:** cuerpos cavernosos; punción lateral en posiciones aproximadas de 3 o 9 horas, evitando uretra/cuerpo esponjoso dorsal/ventral.
+**Preparación:** historia y duración, examen, analgesia/bloqueo, monitorización cardiovascular y gasometría cavernosa cuando el diagnóstico no sea inequívoco.
+**Técnica paso a paso:** realizar bloqueo si precisa; puncionar lateralmente el cuerpo cavernoso; aspirar sangre oscura/coágulos; irrigar con suero según protocolo; después administrar fenilefrina intracavernosa titulada desde módulo farmacológico. AUA/SMSNA recomienda que aspiración/irrigación preceda a fenilefrina cuando se combinan.
+**STOP:** hipertensión significativa, arritmia, dolor torácico, sangrado relevante, anatomía dudosa o ausencia de respuesta tras manejo inicial protocolizado → escalada urológica.
+**Confirmación:** detumescencia, alivio del dolor y recuperación progresiva de consistencia cavernosa.
+**Complicaciones:** hematoma, infección, lesión uretral/cavernosa, efectos cardiovasculares de fenilefrina y fibrosis/disfunción eréctil si el tratamiento se retrasa.
+**Después:** urología, búsqueda etiológica y planificación de shunt quirúrgico si fracasa el manejo inicial.
+**Documentación:** duración, hallazgos, aspirado, irrigación, dosis acumulada de fenilefrina desde módulo, respuesta y eventos adversos.
+**Fuentes:** AUA/SMSNA Diagnosis and Management of Priapism Guideline, 2022.
+**QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-009 — Extracción de cuerpo extraño vaginal — ADVANCED
 **Objetivo:** retirar cuerpo extraño visible/accesible evitando lesión mucosa.  
