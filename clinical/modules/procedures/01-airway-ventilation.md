@@ -67,20 +67,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW.
 
 ## PROC-AIR-005 — BVM a un operador — CORE
-**Objetivo:** oxigenar y ventilar temporalmente en apnea o ventilación insuficiente.  
-**Indicaciones:** apnea, hipoventilación, peri-intubación, reanimación.  
-**Contraindicaciones/precauciones:** no hay contraindicación absoluta cuando ventilación es necesaria; riesgo de aspiración/insuflación gástrica si técnica deficiente.  
-**Material:** bolsa autoinflable, mascarilla adecuada, reservorio/oxígeno, filtro, PEEP si indicado, cánulas y aspiración.  
-**Anatomía:** sello nasal-oral, mandíbula y vía aérea superior.  
-**Preparación:** posición óptima, apertura de vía aérea y adjunct si precisa.  
-**Técnica paso a paso:** 1) mascarilla sobre nariz-boca; 2) agarre C-E; 3) elevar mandíbula; 4) comprimir bolsa suavemente hasta elevación visible de tórax; 5) ajustar sello/posición según respuesta.  
-**STOP:** ausencia de elevación torácica, fuga importante, distensión gástrica o empeoramiento de oxigenación.  
-**Confirmación:** expansión torácica, SpO₂ y ETCO₂ si disponible.  
-**Complicaciones:** aspiración, insuflación gástrica, barotrauma, hipoventilación por fuga.  
-**Después:** pasar a dos operadores o vía avanzada si ventilación no es adecuada.  
-**Documentación:** eficacia, adjuncts y necesidad de escalada.  
-**Fuentes:** ERC/RCUK 2025; WHO BEC.  
-**QA:** YELLOW.
+**Objetivo:** oxigenar y ventilar temporalmente en apnea o ventilación insuficiente.
+**Indicaciones:** apnea, hipoventilación, peri-intubación y reanimación.
+**Contraindicaciones/precauciones:** no hay contraindicación absoluta cuando la ventilación es necesaria; técnica deficiente aumenta fuga, insuflación gástrica y aspiración.
+**Material:** bolsa autoinflable, mascarilla adecuada, reservorio/oxígeno, filtro, PEEP si está indicada, cánulas y aspiración.
+**Anatomía:** sello nariz-boca, mandíbula y vía aérea superior.
+**Preparación:** optimizar posición, abrir vía aérea y usar adjunct si es necesario.
+**Técnica paso a paso:** colocar la mascarilla, realizar agarre C-E elevando la mandíbula y comprimir la bolsa durante aproximadamente 1 segundo, solo hasta producir elevación visible del tórax; reajustar sello/posición si la ventilación es insuficiente.
+**STOP:** ausencia de elevación torácica, fuga importante, distensión gástrica o deterioro de oxigenación.
+**Confirmación:** expansión torácica, mejoría clínica/SpO₂ y ETCO₂ si está disponible.
+**Complicaciones:** aspiración, insuflación gástrica, barotrauma e hipoventilación por fuga.
+**Después:** pasar precozmente a técnica a dos operadores o vía avanzada si la ventilación no es adecuada.
+**Documentación:** eficacia, adjuncts utilizados y necesidad de escalada.
+**Fuentes:** Resuscitation Council UK/ERC Adult Advanced Life Support 2025.
+**QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-006 — BVM a dos operadores — CORE
 **Objetivo:** maximizar sello y apertura mandibular cuando BVM a un operador es insuficiente.  
