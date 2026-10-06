@@ -323,20 +323,20 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **QA:** YELLOW; revisión humana ortopedia/infecciosas pendiente.
 
 ## PROC-ORTHO-021 — Artrocentesis de otras articulaciones seleccionadas — ADVANCED
-**Objetivo:** aspirar tobillo, muñeca, codo u hombro cuando clínicamente indicado.  
-**Indicaciones:** sospecha de artritis séptica/cristales o derrame relevante.  
-**Contraindicaciones/precauciones:** infección cutánea y prótesis; anatomía compleja favorece US.  
-**Material:** aguja/jeringa, US si útil, anestesia y tubos.  
-**Anatomía:** depende de articulación y estructuras neurovasculares cercanas.  
-**Preparación:** identificar abordaje seguro.  
-**Técnica paso a paso:** 1) localizar; 2) antisepsia; 3) anestesia; 4) punción bajo landmark/US; 5) aspirar; 6) retirar.  
-**STOP:** trayecto no seguro o parestesia/vaso.  
-**Confirmación:** líquido obtenido.  
-**Complicaciones:** infección, sangrado, lesión nerviosa.  
-**Después:** análisis/seguimiento.  
-**Documentación:** articulación y muestras.  
-**Fuentes:** joint aspiration procedural guidance.  
-**QA:** YELLOW.
+**Objetivo:** aspirar tobillo, muñeca, codo, hombro u otra articulación nativa cuando el líquido sinovial puede modificar el manejo.
+**Indicaciones:** sospecha de artritis séptica/cristales o derrame clínicamente relevante.
+**Contraindicaciones/precauciones:** infección cutánea en el trayecto; prótesis articular requiere coordinación especialista; articulaciones profundas o anatomía compleja favorecen guía ecográfica.
+**Material:** aguja/jeringa, ecógrafo cuando sea útil, anestesia, antiséptico y recipientes de muestra.
+**Anatomía:** específica de cada articulación y estructuras neurovasculares vecinas.
+**Preparación:** identificar el abordaje más seguro y realizar antisepsia estricta.
+**Técnica paso a paso:** localizar el derrame por landmark o US, anestesiar, avanzar aguja de forma controlada, aspirar y retirar. Si se sospecha artritis séptica, priorizar cultivo, recuento/diferencial y cristales según volumen.
+**STOP:** trayecto no seguro, parestesia intensa, sangre pulsátil o imposibilidad de identificar el espacio articular.
+**Confirmación:** líquido sinovial obtenido.
+**Complicaciones:** infección, sangrado, lesión nerviosa/vascular y dolor.
+**Después:** análisis y seguimiento urgente si sospecha infecciosa.
+**Documentación:** articulación, abordaje, uso de US, volumen/aspecto y estudios.
+**Fuentes:** SANJO Guideline 2023; procedural ultrasound guidance.
+**QA:** YELLOW; revisión humana ortopedia/infecciosas pendiente.
 
 ## PROC-ORTHO-022 — Reducción de luxación mandibular — CORE
 **Objetivo:** recolocar cóndilos mandibulares anteriores a eminencia articular.  
