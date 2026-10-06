@@ -99,20 +99,20 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW; revisión humana vascular/UCI pendiente.
 
 ## PROC-VASC-007 — CVC femoral ecoguiado — ADVANCED/POCUS
-**Objetivo:** acceso venoso central rápido en anatomía femoral.  
-**Indicaciones:** necesidad de CVC con ventajas de acceso femoral por situación clínica.  
-**Contraindicaciones/precauciones:** infección/contaminación inguinal, trombosis, trauma pélvico/vascular relevante.  
-**Material:** kit CVC, ecógrafo, barrera estéril máxima y antisepsia.  
-**Anatomía:** vena femoral común medial a arteria, nervio lateral; relación con ligamento inguinal.  
-**Preparación:** mapa US y posicionamiento de pierna.  
-**Técnica paso a paso:** 1) identificar vena compresible; 2) punción dinámica; 3) retorno; 4) guía; 5) confirmar intravascular; 6) dilatar; 7) catéter; 8) aspirar/lavar/fijar.  
-**STOP:** punción demasiado distal/proximal, resistencia o sospecha arterial.  
-**Confirmación:** US de guía/vaso y función de luces.  
-**Complicaciones:** punción arterial, hematoma, retroperitoneal si alto, trombosis, infección.  
-**Después:** higiene/apósito y revisar necesidad.  
-**Documentación:** técnica, lado, intentos y complicaciones.  
-**Fuentes:** CDC 2024; ultrasound vascular access standards.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar acceso venoso central rápido mediante vena femoral común cuando el balance riesgo-beneficio favorece este sitio.
+**Indicaciones:** necesidad de acceso central en contexto donde femoral ofrece ventaja logística o anatómica.
+**Contraindicaciones/precauciones:** infección/contaminación inguinal, trombosis, trauma pélvico/vascular y anatomía no segura. CDC recomienda evitar la vena femoral en adultos cuando es posible por mayor riesgo infeccioso; si se usa por emergencia o necesidad clínica, reevaluar para cambio de sitio cuando sea razonable.
+**Material:** kit CVC, ecógrafo, barrera estéril máxima y antisepsia con clorhexidina alcohólica >0,5% salvo contraindicación.
+**Anatomía:** vena femoral común, arteria femoral, nervio y ligamento inguinal.
+**Preparación:** mapa ecográfico, higiene de manos, barrera estéril máxima y selección del nivel adecuado respecto al ligamento inguinal.
+**Técnica paso a paso:** identificar vena compresible; punción dinámica; retorno venoso; avanzar guía; confirmar guía intravascular antes de dilatar; colocar catéter, aspirar/lavar y fijar.
+**STOP:** punción por encima del ligamento inguinal, duda de posición de guía, resistencia, sospecha arterial o hematoma expansivo.
+**Confirmación:** visualización ecográfica de la guía/vaso y función de todas las luces.
+**Complicaciones:** punción arterial, hematoma, hemorragia retroperitoneal si acceso alto, trombosis e infección.
+**Después:** higiene/apósito, vigilancia y reevaluación precoz de la necesidad y del sitio.
+**Documentación:** indicación, lado, técnica US, intentos y complicaciones.
+**Fuentes:** CDC Summary of Recommendations for Intravascular Catheter-Related Infections, updated 2024.
+**QA:** YELLOW; revisión humana vascular/UCI pendiente.
 
 ## PROC-VASC-008 — CVC subclavio/axilar ecoguiado — ADVANCED
 **Objetivo:** acceso central infraclavicular con menor riesgo infeccioso en algunos contextos.  
