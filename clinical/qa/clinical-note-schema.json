@@ -402,6 +402,15 @@
         }
       },
       "additionalProperties": false
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "pt-PT",
+        "es-ES",
+        "en",
+        "zh"
+      ]
     }
   },
   "$defs": {
@@ -623,6 +632,12 @@
         },
         "burned_in_identifiers_checked": {
           "type": "boolean"
+        },
+        "routed_modules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "additionalProperties": false
