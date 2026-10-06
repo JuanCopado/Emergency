@@ -67,7 +67,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-005 — Cuerpo extraño nasal — CORE
-**Técnica:** visualizar; técnica de presión positiva (“beso del padre”) en niño apropiado o extracción con gancho/pinza según objeto; botón batería/imanes = urgencia inmediata. **STOP:** empujar posterior. **Visual:** técnicas.
+**Objetivo:** retirar un cuerpo extraño nasal sin desplazarlo a posterior.
+**Indicaciones:** objeto nasal visible o accesible.
+**Contraindicaciones/precauciones:** batería botón o imanes requieren extracción urgente; objeto posterior/no visible o niño no cooperador → ORL.
+**Material:** buena iluminación, aspiración y gancho/pinza apropiada.
+**Anatomía:** cavidad nasal y coanas.
+**Preparación:** identificar tipo, tamaño y posición antes de manipular.
+**Técnica paso a paso:** considerar presión positiva en niño apropiado; si no, extraer bajo visión con herramienta acorde a la forma del objeto.
+**STOP:** pérdida de visualización o migración posterior.
+**Confirmación:** objeto íntegro retirado.
+**Complicaciones:** epistaxis, trauma mucoso y aspiración.
+**Después:** reexplorar ambas fosas.
+**Documentación:** objeto, técnica y complicaciones.
+**Fuentes:** pediatric/ORL emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-ENT-006 — Cuerpo extraño de oído — CORE
 **Técnica:** buena iluminación, inmovilización, herramienta según forma; insecto vivo puede inmovilizarse con líquido apropiado si membrana íntegra. **STOP:** batería, objeto profundo, membrana lesionada o niño no cooperador → ORL. **Visual:** canal y herramientas.
