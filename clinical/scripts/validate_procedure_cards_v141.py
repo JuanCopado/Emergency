@@ -39,8 +39,8 @@ def validate():
                 warnings.append(f"{proc_id}: advanced/specialist card lacks explicit STOP/risk language")
             if "**Visual:**" not in body and "Ver **PROC-" not in body:
                 warnings.append(f"{proc_id}: no explicit visual brief line")
-    if len(cards) != 197:
-        errors.append(f"canonical card count {len(cards)} != 197")
+    if len(cards) != 196:
+        errors.append(f"canonical card count {len(cards)} != 196")
     return {"canonical_cards":len(cards),"errors":errors,"warnings":warnings}
 
 def main():
