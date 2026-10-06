@@ -305,3 +305,17 @@ actualizada de este ZIP es un borrador de trabajo, no una instalación publicada
 - Executable diagnostic-support engine added to v1.39: 92 emergency/acute-care syndromes, transparent rule hits, qualitative confidence, differential/must-not-miss, test suggestions and treatment-module routing. Synthetic diagnostic scenarios 60/60 PASS. Clinical QA #586: 363/363 PASS.
 
 - Diagnostic coverage closure: 115/131 registered modules are directly covered/routed; the remaining 16 are explicitly classified non-diagnostic support/infrastructure. Unexpected diagnostic gaps: 0. Coverage gate is enforced in Clinical QA.
+
+## v1.39 final diagnostic-support closure — 06/10/2026
+- Active branch: `v1.39-clinical-note-diagnostic-support`; `main` remains untouched.
+- Registered modules: **131/131**.
+- Evidence state: **29 green / 102 yellow / 0 red**.
+- Clinical-note module provides structured history, serial timeline, vitals/exam, MCDT routing, provenance, problem list, diagnostic synthesis, tests/treatment/disposition suggestions and privacy-gated DOCX/PDF/JSON export.
+- Executable diagnostic engine: **92 acute-care syndromes** with age applicability routing and transparent rule hits.
+- Synthetic diagnostic regression: **60/60 scenarios PASS**, including adult, pediatric, specialty and coverage-closure banks.
+- Diagnostic coverage audit: **115/131 modules directly covered/routed**; remaining **16/131** are explicitly classified as image/procedure/treatment/safety/infrastructure/governance modules; **0 unexpected clinical gaps**.
+- Coverage classification is now enforced by Clinical QA; a future registered module that is neither routed nor explicitly exempted fails QA.
+- Privacy scanner false positives for clinical acronyms and words containing `name` were corrected using explicit word-boundary/label rules.
+- Final human-review policy: every yellow module remains pending end-of-project human specialist review; no AI/automated yellow→green promotion.
+- Last verified pre-handoff QA: **Clinical QA #587 SUCCESS**, **364/364 tests PASS**, `automated_status: PASS`.
+- Canonical handoff: `qa/V1.39_FINAL_HANDOFF.md`.
