@@ -146,21 +146,21 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Fuentes:** Merck Manual Professional, How To Repair a Laceration With Simple Interrupted Sutures, updated Jan 2026.
 **QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
-## PROC-WND-010 — Sutura continua — CORE
-**Objetivo:** cierre rápido y uniforme de heridas lineales seleccionadas.  
-**Indicaciones:** herida de baja tensión con bordes regulares.  
-**Contraindicaciones/precauciones:** contaminación o necesidad de ajuste individual de tensión.  
-**Material:** sutura, portaagujas, pinza.  
-**Anatomía:** dermis.  
-**Preparación:** igual que cierre primario.  
-**Técnica paso a paso:** 1) nudo inicial; 2) pasadas equidistantes; 3) mantener tensión uniforme; 4) nudo final.  
-**STOP:** isquemia/estrangulación de bordes.  
-**Confirmación:** cierre continuo sin gaps.  
-**Complicaciones:** dehiscencia completa si falla el hilo, marcas.  
-**Después:** cuidado estándar.  
-**Documentación:** material/técnica.  
-**Fuentes:** wound closure guidance.  
-**QA:** YELLOW.
+## PROC-WND-010 — Sutura continua / subcuticular continua — CORE
+**Objetivo:** cerrar de forma rápida y uniforme una herida lineal seleccionada; la variante subcuticular busca un cierre cosmético intradérmico.
+**Indicaciones:** heridas limpias, lineales y de baja tensión; la variante subcuticular es especialmente útil en heridas rectas y sin tensión en zonas cosméticas.
+**Contraindicaciones/precauciones:** contaminación, infección, tensión significativa, bordes irregulares o necesidad de ajustar individualmente la tensión favorecen otra técnica.
+**Material:** portaagujas, pinza y sutura apropiada; absorbible para subcuticular cuando corresponda.
+**Anatomía:** dermis y plano intradérmico/subcuticular.
+**Preparación:** irrigar, explorar, desbridar si precisa, anestesiar y conseguir hemostasia.
+**Técnica paso a paso:** para continua cutánea, colocar un nudo inicial y avanzar con mordidas equidistantes manteniendo tensión uniforme; para subcuticular, realizar mordidas alternas intradérmicas paralelas a la herida.
+**STOP:** tensión excesiva, inversión de bordes, isquemia o contaminación/lesión profunda no reconocida.
+**Confirmación:** cierre uniforme, sin gaps ni estrangulación.
+**Complicaciones:** dehiscencia extensa si falla el hilo, infección, cicatriz y reacción al material.
+**Después:** proteger la herida de tensión y seguir criterios de retirada si se usa material no absorbible.
+**Documentación:** tipo de técnica, material y resultado.
+**Fuentes:** Merck Manual Professional, How To Repair a Laceration With a Subcuticular Running Suture, updated Jan 2026.
+**QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
 ## PROC-WND-011 — Punto colchonero vertical/horizontal — CORE
 **Objetivo:** evertir bordes o distribuir tensión.  
