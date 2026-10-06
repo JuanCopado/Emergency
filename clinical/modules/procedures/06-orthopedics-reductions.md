@@ -34,21 +34,21 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Fuentes:** orthopedic emergency guidance.  
 **QA:** YELLOW.
 
-## PROC-ORTHO-003 — Reducción de luxación de codo — CORE
-**Objetivo:** restaurar articulación y perfusión distal.  
-**Indicaciones:** luxación de codo, especialmente con compromiso vascular/neurológico o deformidad severa.  
-**Contraindicaciones/precauciones:** fractura-luxación compleja o abierta requiere ortopedia urgente.  
-**Material:** sedación/analgesia, férula, monitorización e imagen.  
-**Anatomía:** húmero distal, olécranon, arteria braquial, nervios mediano/ulnar/radial.  
-**Preparación:** neurovascular pre y Rx si no retrasa reducción urgente.  
-**Técnica paso a paso:** 1) analgesia; 2) estabilizar húmero; 3) tracción longitudinal; 4) corregir suavemente olécranon según patrón; 5) comprobar estabilidad; 6) férula.  
-**STOP:** isquemia persistente, irreductibilidad o lesión compleja.  
-**Confirmación:** alineación, pulso/perfusión y Rx.  
-**Complicaciones:** lesión vascular/nerviosa, fractura, inestabilidad.  
-**Después:** inmovilización y ortopedia.  
-**Documentación:** neurovascular pre/post.  
-**Fuentes:** orthopedic emergency guidance.  
-**QA:** YELLOW.
+## PROC-ORTHO-003 — Reducción de luxación posterior de codo — CORE
+**Objetivo:** restaurar alineación del codo y proteger arteria braquial y nervios periféricos.
+**Indicaciones:** luxación posterior cerrada; reducción inmediata si existe déficit neurovascular.
+**Contraindicaciones/precauciones:** luxación abierta, fractura-luxación compleja o lesión vascular evidente requieren ortopedia/cirugía urgente. La presencia de pulso distal no excluye lesión de arteria braquial.
+**Material:** analgesia/sedación, férula posterior larga, monitorización e imagen.
+**Anatomía:** húmero distal, olécranon, arteria braquial y nervios mediano, ulnar y radial.
+**Preparación:** examen neurovascular completo y Rx preprocedimiento si no retrasa una reducción urgente.
+**Técnica paso a paso:** con sedación adecuada, utilizar tracción sostenida y contratracción; en posición supina estabilizar húmero, mantener antebrazo supinado, aplicar tracción axial y flexionar suavemente hasta reducción.
+**STOP:** isquemia persistente, hematoma expansivo, resistencia importante o sospecha de fractura compleja.
+**Confirmación:** alineación clínica, examen neurovascular completo, estabilidad razonable y Rx postreducción.
+**Complicaciones:** lesión vascular/nerviosa, fractura, inestabilidad y síndrome compartimental.
+**Después:** férula posterior aproximadamente a 90° según estabilidad, observación si hay edema/hematoma o dudas neurovasculares y seguimiento ortopédico.
+**Documentación:** pulsos, relleno, sensibilidad/motor pre/post, técnica, sedación y Rx.
+**Fuentes:** Merck Manual Professional, How To Reduce a Posterior Elbow Dislocation, updated 2025.
+**QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-004 — Reducción de pronación dolorosa — CORE/PED
 **Objetivo:** reducir subluxación de cabeza radial.  
