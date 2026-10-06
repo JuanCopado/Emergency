@@ -65,53 +65,223 @@ def _suggestion_lines(items):
         out.append(line)
     return out
 
+def _report_lines(reports, language):
+    es = language == "es-ES"
+    labels = {
+        "provenance": "Procedencia" if es else "Proveniência",
+        "official": "Informe oficial / dados extraídos" if not es else "Informe oficial / datos extraídos",
+        "ai": "Interpretação IA" if not es else "Interpretación IA",
+        "findings": "Achados" if not es else "Hallazgos",
+        "impression": "Impressão" if not es else "Impresión",
+        "limitations": "Limitações" if not es else "Limitaciones",
+        "modules": "Módulos fonte" if not es else "Módulos fuente",
+    }
+    out = []
+    for index, report in enumerate(reports or [], 1):
+        kind = report.get("kind") or "MCDT"
+        when = report.get("time_label")
+        heading = f"{index}. {kind}" + (f" · {when}" if when else "")
+        out.append(heading)
+        provenance = report.get("provenance")
+        source_ref = report.get("source_reference")
+        if provenance:
+            suffix = f" · {source_ref}" if source_ref else ""
+            out.append(f"   {labels['provenance']}: {provenance}{suffix}")
+        if report.get("official_report"):
+            out.append(f"   {labels['official']}: {report['official_report']}")
+        if report.get("findings"):
+            out.append(f"   {labels['findings']}: {report['findings']}")
+        if report.get("impression"):
+            out.append(f"   {labels['impression']}: {report['impression']}")
+        if report.get("ai_interpretation"):
+            out.append(f"   {labels['ai']}: {report['ai_interpretation']}")
+        if report.get("limitations"):
+            out.append(f"   {labels['limitations']}: {'; '.join(report['limitations'])}")
+        if report.get("routed_modules"):
+            out.append(f"   {labels['modules']}: {'; '.join(report['routed_modules'])}")
+    return out
+
+
 def note_to_sections(note):
-    L=_labels(note); e=note["encounter"]; h=note["history"]; ex=note["exam"]; a=note["assessment"]
-    age=e.get("age",{}); age_text=""
-    if age.get("years") is not None: age_text=f"{age['years']} anos"
-    elif age.get("months") is not None: age_text=f"{age['months']} meses"
-    context=[f"ID do episódio: {e.get('encounter_id','')}", f"Idade: {age_text}", f"Sexo: {e.get('sex','')}"]
-    for k in ("origin","transfer_status","functional_status","cognitive_status","living_context"):
-        if e.get(k): context.append(f"{k}: {e[k]}")
-    sections=[(L["title"], []),(L["encounter"],context)]
-    sections.append((L["history"], [x for x in [h.get("chief_complaint"), h.get("present_illness"), h.get("baseline_status"), h.get("social_history")] if x]))
-    if h.get("past_medical_history"): sections.append((L["pmh"], [f"- {x}" for x in h["past_medical_history"]]))
-    if h.get("chronic_medications"): sections.append((L["meds"], [f"- {m.get('name','')} {m.get('dose') or ''} {m.get('schedule') or ''}".strip() for m in h["chronic_medications"]]))
-    if h.get("medication_discrepancies"): sections.append(("Discrepâncias de medicação", [f"- {x}" for x in h["medication_discrepancies"]]))
-    sections.append((L["allergies"], [f"- {_txt(x)}" for x in h.get("allergies",[])] or ["Sem alergias registadas / confirmar revisão."]))
-    if note.get("timeline"): sections.append((L["timeline"], [f"- {x.get('time_label','')}: {x.get('event','')}" for x in note["timeline"]]))
-    exam_lines=[]
-    for v in ex.get("vitals",[]):
-        exam_lines.append("Sinais vitais: "+_txt(v))
-    for k in ("general","neurologic","respiratory","cardiovascular","abdominal","skin_wounds","extremities","other"):
-        if ex.get(k): exam_lines.append(f"{k}: {ex[k]}")
-    sections.append((L["exam"], exam_lines))
-    test_lines=[]
-    for sec,reports in note["complementary_tests"].items():
-        for r in reports:
-            text=r.get("official_report") or r.get("findings") or r.get("ai_interpretation") or r.get("impression") or ""
-            prefix=f"[{sec}/{r.get('kind','')}/{r.get('provenance','')}]"
-            if text: test_lines.append(f"{prefix} {text}")
-            if r.get("impression") and r.get("impression") != text: test_lines.append(f"Impressão: {r['impression']}")
-            if r.get("limitations"): test_lines.append("Limitações: "+"; ".join(r["limitations"]))
-    sections.append((L["tests"], test_lines))
-    sections.append((L["problems"], [f"- {x}" for x in a.get("active_problems",[])]))
-    sections.append((L["synthesis"], [a.get("problem_representation") or ""]))
-    sections.append((L["likely"], _candidate_lines(a.get("likely_diagnoses"))))
-    sections.append((L["differential"], _candidate_lines(a.get("differential_diagnoses"))))
-    sections.append((L["must"], _candidate_lines(a.get("must_not_miss"))))
-    sections.append((L["more_tests"], _suggestion_lines(a.get("suggested_tests"))))
-    sections.append((L["treatment"], _suggestion_lines(a.get("treatment_suggestions"))))
-    sections.append((L["disposition"], _suggestion_lines(a.get("disposition"))+_suggestion_lines(a.get("reassessment"))))
-    sections.append((L["clarify"], [f"- {x}" for x in a.get("contradictions_to_clarify",[])]))
-    sections.append((L["limitations"], [f"- {x}" for x in a.get("limitations",[])]))
-    p=note["privacy"]; cv=note.get("clinician_validation",{})
-    sections.append((L["privacy"], [
-        f"Modo: {p.get('mode')}",
-        f"Revisão clínica: {'sim' if cv.get('reviewed') else 'não'}",
-        "Documento gerado sem anexar ficheiros clínicos originais por defeito."
-    ]))
-    return [(h,[p for p in ps if p]) for h,ps in sections if h and (ps or h==L["title"])]
+    L = _labels(note)
+    language = note.get("language")
+    es = language == "es-ES"
+    e = note["encounter"]
+    h = note["history"]
+    ex = note["exam"]
+    a = note["assessment"]
+
+    X = {
+        "chief": "Motivo de consulta" if es else "Motivo de admissão / queixa principal",
+        "baseline": "Situación basal" if es else "Estado basal",
+        "surgery": "Antecedentes quirúrgicos" if es else "Antecedentes cirúrgicos",
+        "reconciliation": "Conciliación / discrepancias de medicación" if es else "Conciliação / discrepâncias de medicação",
+        "social": "Contexto social / fonte" if es else "Contexto social / fonte",
+        "vitals": "Constantes seriadas" if es else "Sinais vitais seriados",
+        "laboratory": "Analítica" if es else "Analítica",
+        "blood_gas": "Gasometría" if es else "Gasometria",
+        "ecg": "ECG",
+        "xray": "Radiografía (Rx)" if es else "Radiografia (Rx)",
+        "ct_mri": "TC / RM",
+        "pocus": "Ecografía / POCUS" if es else "Ecografia / POCUS",
+        "microbiology": "Microbiología" if es else "Microbiologia",
+        "other_mcdt": "Otros MCDT" if es else "Outros MCDT",
+        "image_other": "Otra imagen" if es else "Outra imagem",
+        "validation": "Validación médica y privacidad" if es else "Validação médica e privacidade",
+    }
+
+    age = e.get("age", {})
+    if age.get("years") is not None:
+        age_text = f"{age['years']} años" if es else f"{age['years']} anos"
+    elif age.get("months") is not None:
+        age_text = f"{age['months']} meses"
+    else:
+        age_text = "no documentada" if es else "não documentada"
+
+    context = [
+        f"ID seudónimo del episodio: {e.get('encounter_id','')}" if es else f"ID pseudónimo do episódio: {e.get('encounter_id','')}",
+        f"Edad: {age_text}" if es else f"Idade: {age_text}",
+        f"Sexo: {e.get('sex','')}",
+    ]
+    context_fields = (
+        ("origin", "Origen" if es else "Origem"),
+        ("transfer_status", "Transferencia" if es else "Transferência"),
+        ("functional_status", "Estado funcional" if es else "Estado funcional"),
+        ("cognitive_status", "Estado cognitivo" if es else "Estado cognitivo"),
+        ("living_context", "Contexto domiciliario" if es else "Contexto domiciliário"),
+    )
+    for key, label in context_fields:
+        if e.get(key):
+            context.append(f"{label}: {e[key]}")
+
+    sections = [(L["title"], []), (L["encounter"], context)]
+
+    if h.get("chief_complaint"):
+        sections.append((X["chief"], [h["chief_complaint"]]))
+    if h.get("baseline_status"):
+        sections.append((X["baseline"], [h["baseline_status"]]))
+    if h.get("past_medical_history"):
+        sections.append((L["pmh"], [f"- {x}" for x in h["past_medical_history"]]))
+    if h.get("past_surgical_history"):
+        sections.append((X["surgery"], [f"- {x}" for x in h["past_surgical_history"]]))
+    if h.get("chronic_medications"):
+        sections.append((L["meds"], [
+            f"- {m.get('name','')} {m.get('dose') or ''} {m.get('schedule') or ''}".strip()
+            for m in h["chronic_medications"]
+        ]))
+    if h.get("medication_discrepancies"):
+        sections.append((X["reconciliation"], [f"- {x}" for x in h["medication_discrepancies"]]))
+
+    allergy_lines = [f"- {_txt(x)}" for x in h.get("allergies", [])]
+    if not allergy_lines:
+        allergy_lines = [
+            "Alergias no documentadas; confirmar revisión." if es
+            else "Alergias não documentadas; confirmar revisão."
+        ]
+    sections.append((L["allergies"], allergy_lines))
+
+    if h.get("present_illness"):
+        sections.append((L["hpi"], [h["present_illness"]]))
+    social_lines = [x for x in [h.get("social_history"), h.get("source_reliability")] if x]
+    if social_lines:
+        sections.append((X["social"], social_lines))
+
+    if note.get("timeline"):
+        sections.append((L["timeline"], [
+            f"- {x.get('time_label','')}: {x.get('event','')}"
+            + (f" [{x.get('source')}]" if x.get("source") else "")
+            for x in note["timeline"]
+        ]))
+
+    vital_lines = ["- " + _txt(v) for v in ex.get("vitals", [])]
+    if vital_lines:
+        sections.append((X["vitals"], vital_lines))
+
+    exam_lines = []
+    exam_labels = {
+        "general": "General",
+        "neurologic": "Neurológico",
+        "respiratory": "Respiratorio" if es else "Respiratório",
+        "cardiovascular": "Cardiovascular",
+        "abdominal": "Abdomen" if es else "Abdómen",
+        "skin_wounds": "Piel/heridas" if es else "Pele/feridas",
+        "extremities": "Extremidades",
+        "other": "Otros" if es else "Outros",
+    }
+    for key, label in exam_labels.items():
+        if ex.get(key):
+            exam_lines.append(f"{label}: {ex[key]}")
+    if exam_lines:
+        sections.append((L["exam"], exam_lines))
+
+    tests = note["complementary_tests"]
+    if tests.get("laboratory"):
+        sections.append((X["laboratory"], _report_lines(tests["laboratory"], language)))
+    if tests.get("blood_gas"):
+        sections.append((X["blood_gas"], _report_lines(tests["blood_gas"], language)))
+    if tests.get("ecg"):
+        sections.append((X["ecg"], _report_lines(tests["ecg"], language)))
+
+    imaging_groups = {"xray": [], "ct_mri": [], "pocus": [], "image_other": []}
+    for report in tests.get("imaging", []):
+        kind = str(report.get("kind") or "").lower()
+        if kind in {"xray", "xray_chest", "chest_xray", "musculoskeletal_xray"}:
+            imaging_groups["xray"].append(report)
+        elif kind in {"ct", "ct_head", "ct_body", "mri"}:
+            imaging_groups["ct_mri"].append(report)
+        elif kind in {"pocus", "ultrasound"}:
+            imaging_groups["pocus"].append(report)
+        else:
+            imaging_groups["image_other"].append(report)
+    for key in ("xray", "ct_mri", "pocus", "image_other"):
+        if imaging_groups[key]:
+            sections.append((X[key], _report_lines(imaging_groups[key], language)))
+
+    if tests.get("microbiology"):
+        sections.append((X["microbiology"], _report_lines(tests["microbiology"], language)))
+    if tests.get("other"):
+        sections.append((X["other_mcdt"], _report_lines(tests["other"], language)))
+
+    if a.get("active_problems"):
+        sections.append((L["problems"], [f"- {x}" for x in a["active_problems"]]))
+    if a.get("problem_representation"):
+        sections.append((L["synthesis"], [a["problem_representation"]]))
+    if a.get("likely_diagnoses"):
+        sections.append((L["likely"], _candidate_lines(a["likely_diagnoses"])))
+    if a.get("differential_diagnoses"):
+        sections.append((L["differential"], _candidate_lines(a["differential_diagnoses"])))
+    if a.get("must_not_miss"):
+        sections.append((L["must"], _candidate_lines(a["must_not_miss"])))
+    if a.get("suggested_tests"):
+        sections.append((L["more_tests"], _suggestion_lines(a["suggested_tests"])))
+    if a.get("treatment_suggestions"):
+        sections.append((L["treatment"], _suggestion_lines(a["treatment_suggestions"])))
+
+    disposition = _suggestion_lines(a.get("disposition")) + _suggestion_lines(a.get("reassessment"))
+    if disposition:
+        sections.append((L["disposition"], disposition))
+    if a.get("contradictions_to_clarify"):
+        sections.append((L["clarify"], [f"- {x}" for x in a["contradictions_to_clarify"]]))
+    if a.get("limitations"):
+        sections.append((L["limitations"], [f"- {x}" for x in a["limitations"]]))
+
+    p = note["privacy"]
+    cv = note.get("clinician_validation", {})
+    validation_lines = [
+        ("Modo de privacidad: " if es else "Modo de privacidade: ") + str(p.get("mode")),
+        ("Revisión clínica: " if es else "Revisão clínica: ") + ("sí" if es and cv.get("reviewed") else "sim" if cv.get("reviewed") else "no" if es else "não"),
+        ("Rol del revisor: " if es else "Função do revisor: ") + str(cv.get("reviewer_role") or ("no registrado" if es else "não registado")),
+        ("Validado en: " if es else "Validado em: ") + str(cv.get("reviewed_at") or ("no registrado" if es else "não registado")),
+        (
+            "Los archivos clínicos originales no se incorporan al documento exportado por defecto."
+            if es else
+            "Os ficheiros clínicos originais não são incorporados no documento exportado por defeito."
+        ),
+    ]
+    sections.append((X["validation"], validation_lines))
+
+    return [(heading, [p for p in paragraphs if p]) for heading, paragraphs in sections if heading and (paragraphs or heading == L["title"])]
+
 
 def _xml_escape(s): return html.escape(str(s), quote=False)
 
