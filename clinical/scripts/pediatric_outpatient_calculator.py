@@ -293,6 +293,11 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
                     verified_external=product.get("external_concentration_verified") is True
                 )
                 phase_out["volume_per_dose"]=vol
+                drop_out=_drops(phase_dose,vol["exact_ml"],product,e)
+                if drop_out is not None:
+                    phase_out["drops_per_dose"]=drop_out
+                elif product.get("form") in {"oral_drops","drops","drop_solution"}:
+                    phase_out["drops_status"]="verified_exact_product_drop_factor_required"
                 phase_out["estimated_phase_ml"]=vol["exact_ml"]*phase_out["total_phase_doses"]
                 course_ml += phase_out["estimated_phase_ml"]
             schedule.append(phase_out)
@@ -325,6 +330,11 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
                     verified_external=product.get("external_concentration_verified") is True
                 )
                 phase_out["volume_per_dose"]=vol
+                drop_out=_drops(phase_dose,vol["exact_ml"],product,e)
+                if drop_out is not None:
+                    phase_out["drops_per_dose"]=drop_out
+                elif product.get("form") in {"oral_drops","drops","drop_solution"}:
+                    phase_out["drops_status"]="verified_exact_product_drop_factor_required"
                 phase_out["estimated_phase_ml"]=vol["exact_ml"]*phase_doses
                 course_ml += phase_out["estimated_phase_ml"]
             schedule.append(phase_out)
