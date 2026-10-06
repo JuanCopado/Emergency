@@ -99,20 +99,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-007 — Reducción manual de parafimosis — CORE
-**Objetivo:** restaurar prepucio a posición anatómica y aliviar constricción.  
-**Indicaciones:** parafimosis con edema y sin necrosis establecida.  
-**Contraindicaciones/precauciones:** necrosis/isquemia grave o fracaso → urología urgente.  
-**Material:** lubricante, compresas, anestesia/bloqueo según necesidad.  
-**Anatomía:** glande, corona y anillo prepucial.  
-**Preparación:** analgesia y reducción de edema.  
-**Técnica paso a paso:** 1) compresión del edema; 2) lubricar; 3) comprimir glande con pulgares; 4) traccionar prepucio distalmente sobre corona; 5) confirmar.  
-**STOP:** dolor intolerable, necrosis o imposibilidad de reducción.  
-**Confirmación:** prepucio cubre glande y perfusión mejora.  
-**Complicaciones:** fisuras, sangrado, recurrencia.  
-**Después:** urología si causa/repetición.  
-**Documentación:** perfusión pre/post.  
-**Fuentes:** urology emergency references.  
-**QA:** YELLOW.
+**Objetivo:** reducir el prepucio retraído que constriñe el glande y restaurar perfusión.
+**Indicaciones:** parafimosis aguda sin necrosis establecida.
+**Contraindicaciones/precauciones:** isquemia avanzada, necrosis, infección grave o fracaso de reducción manual requieren urología urgente y posible incisión dorsal.
+**Material:** lubricante, compresas/gasa, anestesia tópica o bloqueo peneano según necesidad y material de reducción de edema.
+**Anatomía:** glande, corona y anillo prepucial edematoso.
+**Preparación:** analgesia, valorar color/temperatura/perfusión y reducir edema con compresión manual sostenida antes de la maniobra.
+**Técnica paso a paso:** comprimir el glande y edema durante varios minutos, lubricar, presionar el glande con ambos pulgares mientras se tracciona simultáneamente el prepucio hacia distal hasta cubrir la corona.
+**STOP:** dolor intolerable, tejido necrótico, sangrado importante o fracaso tras intento razonable.
+**Confirmación:** prepucio cubriendo el glande, reducción del edema/dolor y perfusión mejorada.
+**Complicaciones:** fisuras, sangrado, recurrencia e isquemia si el tratamiento se retrasa.
+**Después:** urología si recurrencia, fimosis significativa o necesidad de tratamiento definitivo.
+**Documentación:** perfusión pre/post, analgesia y resultado.
+**Fuentes:** urology emergency references; Merck Manual Professional paraphimosis management.
+**QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-008 — Descompresión inicial de priapismo isquémico — ADVANCED
 **Objetivo:** aliviar la isquemia cavernosa y preservar la función eréctil.
