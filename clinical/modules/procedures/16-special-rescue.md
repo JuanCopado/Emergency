@@ -3,7 +3,20 @@
 Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.
 
 ## PROC-SP-001 — Fasciotomía: reconocimiento y preparación — SPECIALIST
-**Objetivo:** no retrasar cirugía en síndrome compartimental establecido. **Contenido ED:** retirar constricción, mantener extremidad al nivel del corazón, analgesia, medición de presión si diagnóstico incierto y no retrasa; preparar quirófano. Fasciotomía definitiva por equipo entrenado. **Visual:** compartimentos, no incisiones operativas detalladas para no sustituir entrenamiento quirúrgico.
+**Objetivo:** reconocer síndrome compartimental y no retrasar cirugía definitiva.
+**Indicaciones:** alta sospecha clínica o diagnóstico confirmado.
+**Contraindicaciones/precauciones:** la fasciotomía definitiva corresponde a equipo entrenado; no usar una presión aislada para descartar clínica convincente.
+**Material:** monitorización, analgesia y material para medición de presión si aporta valor.
+**Anatomía:** compartimentos musculares y estructuras neurovasculares.
+**Preparación:** retirar constricción, mantener extremidad al nivel del corazón y activar cirugía.
+**Técnica paso a paso:** reevaluar dolor, tensión, función y perfusión; medir presión solo si la incertidumbre lo justifica y no retrasa tratamiento; preparar quirófano.
+**STOP:** deterioro neurológico/vascular o clínica progresiva.
+**Confirmación:** diagnóstico integrado clínico/medición y aceptación por equipo quirúrgico.
+**Complicaciones:** necrosis, lesión nerviosa, rabdomiólisis y pérdida de miembro si se retrasa.
+**Después:** fasciotomía definitiva y cuidados quirúrgicos.
+**Documentación:** hora, hallazgos seriados y decisión.
+**Fuentes:** orthopedic trauma/compartment syndrome guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-002 — Medición/descompresión temporal de compartimento — ADVANCED
 **Técnica:** identificar compartimento, calibrar dispositivo, aguja perpendicular evitando estructuras, registrar presión y presión de perfusión según protocolo; repetir si clínica evoluciona. **STOP:** presión normal aislada no excluye síndrome temprano. **Visual:** pierna.
