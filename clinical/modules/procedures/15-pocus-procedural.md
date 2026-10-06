@@ -35,7 +35,20 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-003 — Línea arterial ecoguiada — ADVANCED
-**Técnica:** arteria no compresible/pulsátil, eje corto o largo, entrada de punta y avance del catéter. **Visual:** radial.
+**Objetivo:** facilitar canulación arterial segura.
+**Indicaciones:** acceso arterial difícil o anatomía no evidente.
+**Contraindicaciones/precauciones:** infección local, isquemia distal o lesión arterial conocida.
+**Material:** ecógrafo lineal, catéter arterial y sistema de transductor.
+**Anatomía:** arteria objetivo, vena y nervios.
+**Preparación:** mapear vaso y perfusión distal.
+**Técnica paso a paso:** identificar arteria no compresible/pulsátil, puncionar con punta visible y avanzar catéter.
+**STOP:** punción venosa/tejido fuera de objetivo o punta no visible.
+**Confirmación:** waveform arterial y posición intraluminal.
+**Complicaciones:** hematoma, trombosis, isquemia e infección.
+**Después:** fijar y vigilar perfusión.
+**Documentación:** sitio, técnica y waveform.
+**Fuentes:** arterial cannulation/POCUS standards.
+**QA:** YELLOW.
 
 ## PROC-US-004 — Toracocentesis ecoguiada — ADVANCED
 **Técnica:** identificar diafragma, pulmón, vísceras y profundidad del derrame; marcar o guiar en tiempo real según posición invariable; evitar vasos intercostales cuando identificables. **Visual:** pleural effusion.
