@@ -1,0 +1,189 @@
+{
+  "procedure_id": "PROC-AIR-004",
+  "name": "Cánula nasofaríngea",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Mantener permeabilidad de la vía aérea en pacientes que conservan reflejo nauseoso o presentan apertura oral limitada.",
+  "indications": [
+    "Obstrucción parcial de vía aérea.",
+    "Ventilación con BVM difícil.",
+    "Necesidad de adjunct nasal."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [
+      "Sospecha de fractura de base de cráneo o lesión de lámina cribosa.",
+      "Trauma nasal o facial significativo.",
+      "Coagulopatía relevante."
+    ],
+    "precautions": [
+      "No forzar ante resistencia marcada.",
+      "Elegir la narina más permeable y tamaño apropiado."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Cánulas nasofaríngeas de varios tamaños.",
+      "Lubricante hidrosoluble."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂ y monitorización clínica según contexto."
+    ],
+    "rescue": [
+      "Aspiración.",
+      "BVM."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Narina.",
+      "Suelo nasal.",
+      "Cornetes."
+    ],
+    "target": [
+      "Nasofaringe."
+    ],
+    "avoid": [
+      "Trayectoria superior hacia cornetes/techo nasal.",
+      "Forzar resistencia."
+    ],
+    "laterality": "Elegir la narina más permeable.",
+    "variants": []
+  },
+  "preparation": {
+    "patient_position": "Vía aérea en posición que facilite ventilación.",
+    "operator_position": "Cabecera.",
+    "monitoring": [
+      "SpO₂ según contexto."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Valorar trauma facial/base de cráneo.",
+      "Seleccionar narina y tamaño.",
+      "Lubricar el dispositivo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Lubricar la cánula.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Introducirla por el suelo nasal, paralela al paladar.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Avanzar suavemente hacia atrás.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Detenerse si aparece resistencia marcada.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Dejar el reborde apoyado en la narina y reevaluar ventilación.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Mejor flujo de aire.",
+    "BVM más efectiva.",
+    "Tolerancia clínica adecuada."
+  ],
+  "stop_points": [
+    "Dolor intenso.",
+    "Epistaxis importante.",
+    "Resistencia marcada."
+  ],
+  "complications": {
+    "immediate": [
+      "Epistaxis.",
+      "Trauma mucoso.",
+      "Mala posición."
+    ],
+    "early": [],
+    "late": [
+      "Sinusitis con uso prolongado."
+    ]
+  },
+  "rescue": [
+    "Retirar o cambiar de lado/tamaño si provoca sangrado o resistencia.",
+    "Escalar a otro adjunct o vía avanzada si no mejora la ventilación."
+  ],
+  "aftercare": [
+    "Reevaluar necesidad del dispositivo y vigilar sangrado nasal."
+  ],
+  "documentation": [
+    "Lado.",
+    "Tamaño.",
+    "Respuesta.",
+    "Complicaciones."
+  ],
+  "pearls": [
+    "La trayectoria correcta es posterior, siguiendo el suelo nasal, no hacia arriba."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Seleccionar tamaño pediátrico y extremar precaución anatómica."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [
+      "Evitar si existe sospecha relevante de lesión de base de cráneo o trauma nasal importante."
+    ],
+    "anticoagulation": [
+      "Mayor riesgo de epistaxis."
+    ],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "How To Insert a Nasopharyngeal Airway",
+      "organization": "MSD Manual Professional Edition",
+      "year": "current",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
