@@ -210,3 +210,11 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - National Tracheostomy Safety Project Adult Emergency Guidelines/Algorithms — `PROC-AIR-017`.
 - BTS oxygen resources — traqueostomía/laryngectomía y contexto de oxigenoterapia; el Clinical Statement específico HFNO figura como recurso 2026 en desarrollo/publicación — `PROC-AIR-017/019`.
 - ERS/ATS NIV acute respiratory failure guideline + SCCM RSI 2023 preoxygenation guidance — `PROC-AIR-020`.
+
+
+## Décima pasada — cardiovascular, tórax y trauma CORE — 06/10/2026
+- Resuscitation Council UK / ERC Adult ALS 2025 + AHA Adult ALS 2025 — `PROC-CV-001/002/003/004/007/008/009/010`.
+- ERC 2025 Special Circumstances — traumatic cardiac arrest, tension pneumothorax and severe hypovolaemia — `PROC-THX-001/002`, `PROC-TRA-001..004/010`.
+- RCUK/ERC First Aid 2025 — life-threatening bleeding, open chest wounds and selective spinal motion restriction — `PROC-THX-010`, `PROC-TRA-001..006`.
+- BTS Clinical Statement on Pleural Procedures 2023, correction 2026 — `PROC-THX-004/007/008`.
+- WHO Basic Emergency Care / trauma handling references — `PROC-TRA-005..009`.
