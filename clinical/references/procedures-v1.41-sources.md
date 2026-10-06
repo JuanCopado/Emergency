@@ -88,3 +88,9 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - MSD Manual Professional 2025 + Emergency Medicine Procedures: extracción de anzuelo — `PROC-WND-021`.
 - Hand Clinics 2021 + guías ED de lesiones ungueales: reparación de lecho ungueal — `PROC-WND-022`.
 - Merck/MSD Manual Professional 2025: bloqueo del nervio alveolar inferior — `PROC-ENT-014`.
+
+
+### Rescate endovascular/extracorpóreo
+- EAST 2025 practice management guideline on REBOA + ACS COT/ACEP implementation statement — `PROC-SP-013`.
+- ERC 2025 Special Circumstances + ILCOR 2025 ALS CoSTR — `PROC-SP-014`.
+- Ambos procedimientos requieren programa institucional, personal acreditado y capacidad de tratamiento definitivo; la inclusión documental no implica disponibilidad local.
