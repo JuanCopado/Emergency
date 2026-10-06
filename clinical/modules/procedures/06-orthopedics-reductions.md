@@ -99,20 +99,20 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **QA:** YELLOW; revisión humana cirugía de mano pendiente.
 
 ## PROC-ORTHO-007 — Reducción de luxación de pulgar — CORE
-**Objetivo:** restaurar articulación del pulgar evitando interposición de placa volar.  
-**Indicaciones:** luxación MCP/IP seleccionada.  
-**Contraindicaciones/precauciones:** abierta, fractura o MCP irreductible.  
-**Material:** bloqueo digital, férula e imagen.  
-**Anatomía:** MCP/IP, placa volar y tendones.  
-**Preparación:** neurovascular y Rx.  
-**Técnica paso a paso:** 1) bloqueo; 2) corrección suave siguiendo mecanismo; 3) evitar tracción excesiva; 4) confirmar estabilidad.  
-**STOP:** MCP irreductible → sospechar interposición y derivar.  
-**Confirmación:** alineación clínica/Rx.  
-**Complicaciones:** interposición, lesión ligamentaria, fractura.  
-**Después:** inmovilización/seguimiento.  
-**Documentación:** estabilidad/neurovascular.  
-**Fuentes:** hand emergency guidance.  
-**QA:** YELLOW.
+**Objetivo:** restaurar articulación MCP/IP del pulgar sin provocar interposición de placa volar ni lesión tendinosa.
+**Indicaciones:** luxación cerrada MCP o IP seleccionada.
+**Contraindicaciones/precauciones:** lesión abierta, fractura-luxación compleja, luxación MCP irreductible o sospecha de interposición de placa volar requieren cirugía de mano.
+**Material:** bloqueo digital, férula e imagen.
+**Anatomía:** MCP/IP, placa volar, ligamentos colaterales y tendones flexor/extensor.
+**Preparación:** examen neurovascular/tendinoso y radiografías cuando sea posible.
+**Técnica paso a paso:** realizar bloqueo, exagerar mínimamente la deformidad solo si el patrón lo requiere para desenganchar la base, aplicar presión dirigida y evitar tracción longitudinal excesiva que favorezca interposición de placa volar.
+**STOP:** resistencia fija, dolor/crepitación anormal o fracaso de intento cuidadoso → sospechar interposición y derivar.
+**Confirmación:** alineación, estabilidad, función tendinosa y radiografía postreducción.
+**Complicaciones:** interposición de placa volar, lesión ligamentaria, fractura, rigidez e inestabilidad.
+**Después:** inmovilización según estabilidad y seguimiento de mano.
+**Documentación:** articulación, técnica, estabilidad y neurovascular.
+**Fuentes:** hand emergency guidance; Merck Manual Professional finger/thumb dislocation principles.
+**QA:** YELLOW; revisión humana cirugía de mano pendiente.
 
 ## PROC-ORTHO-008 — Reducción de luxación carpiana seleccionada — ADVANCED
 **Objetivo:** aliviar compresión neurovascular y alinear provisionalmente lesiones perilunares/lunares.  
