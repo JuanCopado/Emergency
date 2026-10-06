@@ -259,20 +259,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana de urgencias/cirugía pendiente.
 
 ## PROC-WND-017 — Extracción de anillo — CORE
-**Objetivo:** aliviar compresión digital preservando tejido.  
-**Indicaciones:** anillo atrapado con edema/dolor o riesgo vascular.  
-**Contraindicaciones/precauciones:** material muy duro o lesión traumática compleja requiere herramienta/especialista.  
-**Material:** lubricante, hilo/elástico, cortador y protector.  
-**Anatomía:** dedo, articulaciones y perfusión distal.  
-**Preparación:** elevar mano y valorar perfusión.  
-**Técnica paso a paso:** 1) lubricar/compresión; 2) intentar técnica de hilo si apropiada; 3) si falla, cortar con protección; 4) separar anillo; 5) reevaluar.  
-**STOP:** dolor/perfusión empeoran.  
-**Confirmación:** anillo retirado y circulación restaurada.  
-**Complicaciones:** laceración, lesión térmica por corte.  
-**Después:** tratar lesión subyacente.  
-**Documentación:** método y perfusión.  
-**Fuentes:** emergency procedural guidance.  
-**QA:** YELLOW.
+**Objetivo:** liberar un dedo comprimido por un anillo antes de que progrese el compromiso de tejidos blandos o vascular.
+**Indicaciones:** edema o edema previsible con anillo que no puede retirarse de forma simple.
+**Contraindicaciones/precauciones:** laceración/fractura, deformidad distal, isquemia avanzada o material muy duro pueden hacer preferible cortar el anillo directamente o utilizar herramientas/especialista.
+**Material:** lubricante, elevación/compresión, hilo o cinta elástica, cortador de anillos y protector cutáneo.
+**Anatomía:** dedo, articulaciones, vasos y nervios digitales.
+**Preparación:** retirar otros anillos, documentar perfusión/sensibilidad, elevar la mano y reducir edema si existe tiempo y la perfusión es adecuada.
+**Técnica paso a paso:** intentar primero lubricación y compresión; si es apropiado usar técnica de hilo envolviendo distalmente y desenrollando desde proximal para hacer avanzar el anillo; si fracasa o la perfusión está comprometida, cortar el anillo protegiendo la piel y separar sus bordes.
+**STOP:** empeoramiento de dolor, perfusión o sensibilidad; no insistir con técnica de hilo en dedo con trauma importante o isquemia.
+**Confirmación:** anillo retirado y recuperación/mantenimiento de perfusión y sensibilidad distal.
+**Complicaciones:** laceración, lesión nerviosa, lesión térmica durante el corte y daño del anillo.
+**Después:** tratar la causa del edema/trauma y reevaluar neurovascular.
+**Documentación:** perfusión/sensibilidad pre-post, método y complicaciones.
+**Fuentes:** Merck Manual Professional, How To Remove a Ring Using the String Method, updated Jul 2025.
+**QA:** YELLOW; revisión humana de urgencias pendiente.
 
 ## PROC-WND-018 — Trepanación de hematoma subungueal — CORE
 **Objetivo:** aliviar presión y dolor de un hematoma subungueal simple.
