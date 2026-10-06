@@ -4,13 +4,14 @@
 
 - Rama: `v1.41-procedures-visual`.
 - `main`: **no modificar ni fusionar automáticamente**.
-- Último Clinical QA clínico verificado: **#838 SUCCESS** sobre `15836a8ea8fdf9a626674468d2db200d44e5c27e`.
+- Último Clinical QA clínico verificado: **#842 SUCCESS** sobre `4556251cef833cecc69fcd381247e85952a53764`.
 - Módulo Técnicas y Procedimientos: **196 técnicas canónicas + 4 alias**, 16 familias, 200 IDs textuales.
 - Añadido `PROC-NEURO-005`: monitorización de PIC/PPC.
 - Auditoría posterior añadió 5 huecos de alta relevancia: UVC neonatal, histerotomía resucitativa, balón uterino PPH, reimplante dental permanente y ferulización dentoalveolar.
 - Fase visual: **PAUSADA**; continuar solo con texto hasta nueva orden.
 - Normalización textual v1.41: **196/196 procedimientos canónicos completos** con plantilla estructurada; 4 alias permanecen como referencias cruzadas.
 - Todas las técnicas permanecen **YELLOW**.
+- Undécima pasada completada: acceso vascular CORE restante, revisión focal de neurología pendiente y familia GI/abdomen completa.
 - Décima pasada completada: cardiovascular/reanimación CORE, tórax CORE pendiente y familia trauma/hemorragia completa.
 - Novena pasada completada: vía aérea CORE restante, incluida emergencia de traqueostomía según NTSP, SGA, OPA/NPA, intubación despierto, algoritmo de vía aérea difícil, HFNO, VNI y ventilación mecánica inicial.
 - Octava pasada completada: BVM 1/2 operadores, videolaringoscopia, capnografía de confirmación y oxigenoterapia convencional; AIR-017 contrastado con NTSP y pendiente de reescritura específica.
