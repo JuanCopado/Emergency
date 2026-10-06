@@ -67,7 +67,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW.
 
 ## PROC-PED-005 — Acceso intraóseo pediátrico — CORE/PED
-**Técnica:** punto anatómico adecuado a edad/dispositivo, profundidad controlada, flush y fijación; analgesia si consciente. **STOP:** extravasación/compartimental. **Visual:** tibia proximal y alternativas.
+**Objetivo:** obtener acceso vascular de emergencia cuando IV no es oportuno.
+**Indicaciones:** shock, parada u otra emergencia con necesidad inmediata de acceso.
+**Contraindicaciones/precauciones:** fractura, infección local, IO previa en mismo hueso o limitaciones del dispositivo.
+**Material:** dispositivo IO pediátrico, aguja apropiada, flush y fijación.
+**Anatomía:** tibia proximal/distal u otros sitios autorizados según edad/dispositivo.
+**Preparación:** seleccionar sitio/tamaño y analgesia intraósea si consciente desde módulo farmacológico.
+**Técnica paso a paso:** identificar landmark, antisepsia, insertar controladamente, confirmar estabilidad, hacer flush y fijar.
+**STOP:** extravasación o signos de síndrome compartimental.
+**Confirmación:** flujo adecuado sin infiltración.
+**Complicaciones:** extravasación, compartimental, fractura e infección.
+**Después:** sustituir por acceso definitivo cuando sea posible.
+**Documentación:** sitio, aguja, intentos y respuesta.
+**Fuentes:** ERC/RCUK 2025; AHA/PALS 2025.
+**QA:** YELLOW.
 
 ## PROC-PED-006 — Punción lumbar pediátrica — ADVANCED/PED
 **Técnica:** posición lateral o sentado, estabilización por asistente sin comprometer respiración, identificar interespacio lumbar bajo, técnica estéril, aguja con estilete, tubos secuenciales. **STOP:** inestabilidad, riesgo de herniación o contraindicación hemorrágica. **Visual:** posición segura.
