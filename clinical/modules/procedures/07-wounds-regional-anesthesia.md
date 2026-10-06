@@ -131,20 +131,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana urgencias/cirugía pendiente.
 
 ## PROC-WND-009 — Sutura simple interrumpida — CORE
-**Objetivo:** aproximar bordes de herida con control individual de tensión.  
-**Indicaciones:** heridas lineales/irregulares apropiadas para cierre primario.  
-**Contraindicaciones/precauciones:** infección, contaminación significativa o pérdida tisular que contraindique cierre primario.  
-**Material:** portaagujas, pinza, sutura, anestesia.  
-**Anatomía:** dermis/subcutáneo.  
-**Preparación:** irrigar, explorar, anestesiar y hemostasia.  
-**Técnica paso a paso:** 1) entrada perpendicular; 2) mordidas simétricas; 3) evertir; 4) nudo lateral; 5) repetir con tensión uniforme.  
-**STOP:** bordes isquémicos o cierre bajo tensión excesiva.  
-**Confirmación:** aproximación/eversión sin estrangulación.  
-**Complicaciones:** infección, dehiscencia, marcas de sutura.  
-**Después:** apósito e instrucciones.  
-**Documentación:** material/número de puntos.  
-**Fuentes:** Merck Manual Professional, simple interrupted suture guidance, updated Jan 2026.  
-**QA:** YELLOW; revisión humana pendiente.
+**Objetivo:** aproximar los bordes de una laceración permitiendo ajustar individualmente la tensión de cada punto.
+**Indicaciones:** laceraciones cutáneas que requieren cierre y en las que el control punto a punto de la tensión es deseable.
+**Contraindicaciones/precauciones:** infección, contaminación que no puede eliminarse o heridas de alto riesgo pueden requerir cierre diferido o segunda intención; las lesiones profundas requieren evaluación especializada.
+**Material:** portaagujas, pinza dentada, sutura apropiada, anestesia local, material de irrigación y apósito.
+**Anatomía:** epidermis, dermis y tejido subcutáneo.
+**Preparación:** limpiar, irrigar, explorar, desbridar cuando sea necesario, lograr hemostasia y anestesiar.
+**Técnica paso a paso:** introducir la aguja perpendicular a la piel; realizar mordidas simétricas; evertir suavemente los bordes; anudar lateralmente sin estrangular; colocar puntos adicionales con tensión uniforme.
+**STOP:** blanqueamiento/isquemia, cierre forzado bajo tensión, contaminación residual o lesión profunda no evaluada.
+**Confirmación:** bordes bien afrontados y ligeramente evertidos, sin gaps significativos ni compromiso vascular.
+**Complicaciones:** infección, dehiscencia, necrosis por exceso de tensión, marcas de sutura y cicatriz.
+**Después:** apósito, instrucciones y retirada según localización; inmovilizar si el movimiento genera tensión.
+**Documentación:** localización, material/calibre, número de puntos, anestesia y estado neurovascular cuando aplique.
+**Fuentes:** Merck Manual Professional, How To Repair a Laceration With Simple Interrupted Sutures, updated Jan 2026.
+**QA:** YELLOW; revisión humana de cirugía menor pendiente.
 
 ## PROC-WND-010 — Sutura continua — CORE
 **Objetivo:** cierre rápido y uniforme de heridas lineales seleccionadas.  
