@@ -3,68 +3,68 @@
 Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.
 
 ## PROC-AIR-001 — Posicionamiento y apertura de vía aérea — CORE
-**Objetivo:** restaurar permeabilidad y optimizar ventilación/laringoscopia.  
-**Indicaciones:** obstrucción por lengua, ventilación difícil, preparación para BVM o intubación.  
-**Contraindicaciones/precauciones:** evitar hiperextensión cervical si existe sospecha de lesión cervical; adaptar posición en obesidad, embarazo y trauma.  
-**Material:** cama/camilla ajustable, almohadas o rampa, aspiración y dispositivos de vía aérea disponibles.  
-**Anatomía:** relación occipucio-cuello-mandíbula; lengua y pared posterior faríngea.  
-**Preparación:** monitorización básica, retirar prótesis/obstáculos visibles y aspirar secreciones si interfieren.  
-**Técnica paso a paso:** 1) evaluar permeabilidad; 2) frente-mentón si no trauma; 3) jaw thrust si trauma cervical; 4) posición de olfateo o rampa cuando proceda; 5) reevaluar ventilación.  
-**STOP:** deterioro neurológico/cervical o empeoramiento de la ventilación tras maniobra.  
-**Confirmación:** mejor paso de aire, expansión torácica y ventilación más efectiva.  
-**Complicaciones:** movimiento cervical no deseado, obstrucción persistente, trauma dental/tejidos si manipulación brusca.  
-**Después:** mantener posición y escalar a adjunct/BVM si persiste obstrucción.  
-**Documentación:** maniobra empleada, respuesta y necesidad de escalada.  
-**Fuentes:** ERC/RCUK 2025; WHO Basic Emergency Care.  
-**QA:** YELLOW.
+**Objetivo:** restaurar permeabilidad y optimizar ventilación/oxigenación antes de escalar a dispositivos avanzados.
+**Indicaciones:** obstrucción por lengua, ventilación difícil, preparación para BVM, SGA o intubación.
+**Contraindicaciones/precauciones:** si existe sospecha de lesión cervical evitar hiperextensión; el jaw thrust puede intentarse, pero la prioridad sigue siendo una vía aérea permeable y oxigenación efectiva.
+**Material:** camilla ajustable, almohadas/rampa, aspiración, OPA/NPA y BVM disponibles.
+**Anatomía:** occipucio, cuello, mandíbula, lengua y pared posterior faríngea.
+**Preparación:** retirar prótesis/obstáculos visibles y aspirar secreciones que interfieran.
+**Técnica paso a paso:** usar frente-mentón cuando no hay trauma cervical; usar jaw thrust si se intenta minimizar movimiento cervical; optimizar posición de olfateo o rampa en obesidad/embarazo; reevaluar ventilación tras cada ajuste.
+**STOP:** empeoramiento neurológico/cervical, vómito o ventilación que no mejora.
+**Confirmación:** paso de aire, expansión torácica y ventilación efectiva.
+**Complicaciones:** movimiento cervical, trauma dental/tejidos y obstrucción persistente.
+**Después:** mantener posición y escalar a adjunct/BVM si persiste obstrucción.
+**Documentación:** maniobra, posición y respuesta.
+**Fuentes:** RCUK/ERC 2025 BLS/ALS; WHO Basic Emergency Care.
+**QA:** YELLOW; revisión humana vía aérea pendiente.
 
 ## PROC-AIR-002 — Aspiración de secreciones — CORE
-**Objetivo:** retirar sangre, vómito o secreciones que impiden ventilación o visualización.  
-**Indicaciones:** secreciones audibles/visibles, contaminación de vía aérea, obstrucción de tubo/traqueostomía.  
-**Contraindicaciones/precauciones:** evitar aspiración profunda innecesaria; preoxigenar si el paciente lo permite.  
-**Material:** aspirador operativo, Yankauer, catéter flexible, PPE y fuente de oxígeno.  
-**Anatomía:** cavidad oral/orofaringe; tubo endotraqueal/traqueostomía cuando corresponda.  
-**Preparación:** comprobar vacío, oxigenación y plan de reoxigenación.  
-**Técnica paso a paso:** 1) abrir vía aérea; 2) aspirar orofaringe bajo visión con Yankauer; 3) usar catéter flexible para tubo/traqueostomía; 4) pases breves; 5) reoxigenar entre intentos.  
-**STOP:** bradicardia, hipoxemia, sangrado significativo o resistencia no explicada.  
-**Confirmación:** vía aérea más limpia, ventilación/capnografía mejoradas y desaparición de secreciones obstructivas.  
-**Complicaciones:** trauma mucoso, hipoxemia, bradicardia, broncoespasmo.  
-**Después:** reevaluar necesidad de ventilación avanzada o protección definitiva de vía aérea.  
-**Documentación:** tipo de secreción, técnica, respuesta y complicaciones.  
-**Fuentes:** ERC/RCUK airway principles; NTSP cuando se aplica a traqueostomía.  
-**QA:** YELLOW.
+**Objetivo:** retirar sangre, vómito o secreciones que impiden ventilación o visualización.
+**Indicaciones:** secreciones audibles/visibles, contaminación de vía aérea, obstrucción de tubo o traqueostomía.
+**Contraindicaciones/precauciones:** evitar aspiración profunda innecesaria; limitar duración y reoxigenar si el paciente se desatura.
+**Material:** aspirador funcional, Yankauer, catéter flexible, PPE y oxígeno.
+**Anatomía:** cavidad oral/orofaringe, tubo endotraqueal o traqueostomía.
+**Preparación:** comprobar vacío, oxigenación y plan de reoxigenación.
+**Técnica paso a paso:** aspirar orofaringe bajo visión con Yankauer; para tubo/traqueostomía usar catéter flexible sin forzar; realizar pases breves con reevaluación entre intentos.
+**STOP:** bradicardia, hipoxemia, sangrado significativo o resistencia inesperada.
+**Confirmación:** vía aérea limpia, ventilación/capnografía mejoradas y desaparición de secreciones obstructivas.
+**Complicaciones:** trauma mucoso, hipoxemia, bradicardia y broncoespasmo.
+**Después:** reevaluar necesidad de vía aérea avanzada o broncoscopia si persiste obstrucción distal.
+**Documentación:** tipo de secreción, técnica y respuesta.
+**Fuentes:** ERC/RCUK airway principles; NTSP para traqueostomía.
+**QA:** YELLOW; revisión humana vía aérea pendiente.
 
 ## PROC-AIR-003 — Cánula orofaríngea — CORE
-**Objetivo:** prevenir colapso lingual en paciente sin reflejo nauseoso.  
-**Indicaciones:** paciente inconsciente/profundamente obtundido, apoyo a BVM.  
-**Contraindicaciones/precauciones:** consciencia conservada o reflejo nauseoso presente.  
-**Material:** cánulas de varios tamaños, aspiración y BVM.  
-**Anatomía:** comisura labial, mandíbula, lengua y orofaringe.  
-**Preparación:** seleccionar tamaño apropiado y retirar secreciones/cuerpos extraños visibles.  
-**Técnica paso a paso:** 1) medir comisura labial–ángulo mandibular; 2) introducir sin empujar lengua hacia atrás; 3) técnica directa con depresor o rotación en adulto según entrenamiento; 4) dejar reborde en labios.  
-**STOP:** arcada, vómito, trauma o empeoramiento de obstrucción.  
-**Confirmación:** mejor ventilación con BVM y paso de aire sin trauma.  
-**Complicaciones:** vómito/aspiración, trauma oral/dental, obstrucción por tamaño incorrecto.  
-**Después:** reevaluar periódicamente nivel de conciencia y necesidad del dispositivo.  
-**Documentación:** tamaño, tolerancia y efecto.  
-**Fuentes:** MSD/Merck Professional airway adjunct guidance; ERC/RCUK.  
-**QA:** YELLOW.
+**Objetivo:** evitar obstrucción por lengua en paciente profundamente inconsciente.
+**Indicaciones:** paciente inconsciente sin reflejo nauseoso, especialmente durante BVM.
+**Contraindicaciones/precauciones:** consciencia conservada o reflejo nauseoso presente por riesgo de vómito/laringoespasmo.
+**Material:** OPA de varios tamaños, aspiración y BVM.
+**Anatomía:** labios, lengua, paladar y orofaringe.
+**Preparación:** elegir tamaño adecuado desde comisura labial/incisivos hasta ángulo mandibular.
+**Técnica paso a paso:** insertar sin empujar la lengua hacia posterior; en adulto puede usarse inserción directa con depresor o rotación según entrenamiento; en pediatría preferir inserción directa bajo visión para evitar trauma.
+**STOP:** arcada, vómito, trauma o empeoramiento de obstrucción.
+**Confirmación:** mejor ventilación con BVM y paso de aire.
+**Complicaciones:** vómito/aspiración, trauma oral/dental y obstrucción por tamaño incorrecto.
+**Después:** reevaluar nivel de conciencia y retirar si retorna reflejo nauseoso.
+**Documentación:** tamaño, tolerancia y efecto.
+**Fuentes:** ERC/RCUK 2025; airway adjunct guidance.
+**QA:** YELLOW; revisión humana vía aérea pendiente.
 
 ## PROC-AIR-004 — Cánula nasofaríngea — CORE
-**Objetivo:** mantener permeabilidad en paciente que conserva reflejo nauseoso o presenta apertura oral limitada.  
-**Indicaciones:** obstrucción parcial, BVM difícil, necesidad de adjunct nasal.  
-**Contraindicaciones/precauciones:** sospecha de fractura de base de cráneo/lámina cribosa; trauma nasal/facial significativo; coagulopatía relevante.  
-**Material:** NPA de varios tamaños, lubricante hidrosoluble, aspiración.  
-**Anatomía:** suelo nasal, cornetes y nasofaringe.  
-**Preparación:** elegir narina más permeable y tamaño apropiado.  
-**Técnica paso a paso:** 1) lubricar; 2) introducir por suelo nasal, paralela al paladar; 3) avanzar suavemente hacia atrás; 4) detener si resistencia marcada; 5) dejar reborde en narina.  
-**STOP:** dolor intenso, epistaxis importante o resistencia.  
-**Confirmación:** mejor flujo de aire/BVM y tolerancia clínica.  
-**Complicaciones:** epistaxis, trauma mucoso, mala posición, sinusitis con uso prolongado.  
-**Después:** reevaluar necesidad y sangrado nasal.  
-**Documentación:** lado, tamaño y respuesta.  
-**Fuentes:** MSD/Merck Professional; ERC/RCUK.  
-**QA:** YELLOW.
+**Objetivo:** mantener permeabilidad en paciente que conserva reflejo nauseoso o presenta apertura oral limitada.
+**Indicaciones:** obstrucción parcial, BVM difícil o necesidad de adjunct nasal.
+**Contraindicaciones/precauciones:** trauma facial grave, sospecha de fractura de base de cráneo/lámina cribosa, cirugía nasal reciente o coagulopatía significativa.
+**Material:** NPA de varios tamaños y lubricante hidrosoluble.
+**Anatomía:** suelo nasal, cornetes y nasofaringe.
+**Preparación:** elegir narina más permeable y tamaño apropiado.
+**Técnica paso a paso:** lubricar, introducir paralela al paladar por el suelo nasal y avanzar suavemente hacia posterior sin fuerza.
+**STOP:** resistencia marcada, dolor intenso o epistaxis importante.
+**Confirmación:** mejor flujo de aire/BVM y tolerancia.
+**Complicaciones:** epistaxis, trauma mucoso, mala posición y sinusitis si uso prolongado.
+**Después:** reevaluar necesidad y sangrado.
+**Documentación:** lado, tamaño y respuesta.
+**Fuentes:** ERC/RCUK 2025; airway adjunct guidance.
+**QA:** YELLOW; revisión humana vía aérea pendiente.
 
 ## PROC-AIR-005 — BVM a un operador — CORE
 **Objetivo:** oxigenar y ventilar temporalmente en apnea o ventilación insuficiente.
@@ -99,20 +99,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-007 — Dispositivo supraglótico — CORE
-**Objetivo:** rescatar oxigenación/ventilación y servir de puente o vía avanzada seleccionada.  
-**Indicaciones:** BVM ineficaz, intubación fallida o reanimación según algoritmo.  
-**Contraindicaciones/precauciones:** riesgo de aspiración, obstrucción distal, apertura oral insuficiente según dispositivo.  
-**Material:** SGA de talla apropiada, lubricante, jeringa si cuff, BVM/circuito y capnografía.  
-**Anatomía:** orofaringe, hipofaringe y entrada laríngea.  
-**Preparación:** elegir talla y plan de rescate si no ventila.  
-**Técnica paso a paso:** 1) lubricar cara posterior; 2) insertar siguiendo paladar hasta posición; 3) inflar cuff si aplica; 4) ventilar; 5) fijar.  
-**STOP:** ventilación imposible, fuga grave o trauma.  
-**Confirmación:** capnografía de onda sostenida y expansión torácica.  
-**Complicaciones:** aspiración, trauma, fuga, malposición, compresión lingual/faríngea.  
-**Después:** reevaluar necesidad de intubación definitiva.  
-**Documentación:** dispositivo/talla, intentos y confirmación.  
-**Fuentes:** DAS 2025; ERC/RCUK 2025.  
-**QA:** YELLOW.
+**Objetivo:** rescatar oxigenación/ventilación y proporcionar una vía avanzada temporal cuando la intubación no es necesaria o no es posible de inmediato.
+**Indicaciones:** BVM ineficaz, intubación fallida o reanimación según algoritmo.
+**Contraindicaciones/precauciones:** riesgo de aspiración, obstrucción distal, apertura oral insuficiente o anatomía incompatible según dispositivo.
+**Material:** SGA de talla apropiada, lubricante, jeringa si cuff, circuito/BVM y capnografía.
+**Anatomía:** orofaringe, hipofaringe y entrada laríngea.
+**Preparación:** elegir talla y plan de rescate si no ventila.
+**Técnica paso a paso:** lubricar cara posterior, insertar siguiendo curvatura palatina hasta posición prevista, inflar cuff si aplica, ventilar y fijar.
+**STOP:** ventilación imposible, fuga grave, trauma o empeoramiento de oxigenación.
+**Confirmación:** capnografía de onda sostenida y expansión torácica.
+**Complicaciones:** aspiración, trauma, fuga y malposición.
+**Después:** RCUK 2025 permite mantener SGA si ventila adecuadamente; si hay fuga con ventilación insuficiente durante RCP, volver temporalmente a 30:2.
+**Documentación:** dispositivo/talla, intentos, fuga y confirmación.
+**Fuentes:** RCUK/ERC 2025 Adult ALS; DAS 2025.
+**QA:** YELLOW; revisión humana vía aérea pendiente.
 
 ## PROC-AIR-008 — Intubación orotraqueal directa — CORE
 **Objetivo:** establecer vía aérea traqueal definitiva.  
@@ -163,36 +163,36 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW; revisión humana vía aérea/UCI pendiente.
 
 ## PROC-AIR-011 — Intubación despierto seleccionada — ADVANCED
-**Objetivo:** asegurar vía aérea difícil prevista manteniendo ventilación espontánea.  
-**Indicaciones:** predictores de dificultad anatómica/ventilatoria donde perder espontaneidad puede ser peligroso.  
-**Contraindicaciones/precauciones:** paciente no cooperador, hemorragia/secretions masivas o incapacidad de topicalizar de forma segura; decisión experta.  
-**Material:** endoscopio flexible o videolaringoscopio, oxígeno, succión, anestésico tópico y rescate.  
-**Anatomía:** zonas de topicalización y trayecto hasta glotis.  
-**Preparación:** explicación, antisialagogo si procede, oxígeno, anestesia tópica y sedación mínima titulada.  
-**Técnica paso a paso:** 1) mantener espontaneidad; 2) topicalizar; 3) visualizar glotis; 4) avanzar tubo bajo visión; 5) confirmar antes de profundizar anestesia/sedación.  
-**STOP:** pérdida de ventilación/cooperación o signos de toxicidad de anestésico local.  
-**Confirmación:** capnografía y tolerancia.  
-**Complicaciones:** toxicidad anestésica, sangrado, laringoespasmo, fracaso de técnica.  
-**Después:** sedación/ventilación apropiadas una vez confirmada vía aérea.  
-**Documentación:** indicación, técnica, topicalización, sedación y confirmación.  
-**Fuentes:** DAS Awake Tracheal Intubation guideline 2019; DAS 2025.  
-**QA:** YELLOW.
+**Objetivo:** asegurar una vía aérea difícil prevista manteniendo ventilación espontánea.
+**Indicaciones:** predictores de dificultad anatómica/ventilatoria donde la inducción convencional podría precipitar pérdida de oxigenación.
+**Contraindicaciones/precauciones:** paciente no cooperador, hemorragia/secreciones masivas o incapacidad de topicalizar de forma segura; requiere operador experto.
+**Material:** fibrobroncoscopio o videolaringoscopio, oxígeno, succión, anestésico tópico, monitorización y rescate FONA.
+**Anatomía:** cavidad oral/nasal, orofaringe, laringe y glotis.
+**Preparación:** explicación, oxígeno, antisialagogo si procede, topicalización sistemática y sedación mínima titulada.
+**Técnica paso a paso:** mantener ventilación espontánea, topicalizar, avanzar dispositivo bajo visión, identificar glotis, pasar tubo y confirmar capnografía antes de profundizar sedación/anestesia.
+**STOP:** pérdida de ventilación/cooperación, toxicidad por anestésico local o sangrado que impide visión.
+**Confirmación:** capnografía de onda sostenida y tolerancia.
+**Complicaciones:** toxicidad anestésica, laringoespasmo, sangrado y fracaso.
+**Después:** completar anestesia/sedación solo tras confirmar vía aérea.
+**Documentación:** indicación, técnica, topicalización, sedación y confirmación.
+**Fuentes:** DAS Awake Tracheal Intubation guideline 2019; DAS 2025 difficult airway framework.
+**QA:** YELLOW; revisión humana anestesia/vía aérea pendiente.
 
 ## PROC-AIR-012 — Vía aérea difícil / fracaso de intubación — CORE
-**Objetivo:** mantener oxigenación mientras se progresa de forma estructurada hacia rescate.  
-**Indicaciones:** laringoscopia/intubación fallida o ventilación comprometida.  
-**Contraindicaciones/precauciones:** evitar intentos repetidos sin cambio de estrategia.  
-**Material:** BVM, SGA, videolaringoscopio, bougie, succión y equipo de FONA.  
-**Anatomía:** vía oral, supraglótica y membrana cricotiroidea.  
-**Preparación:** declarar dificultad, pedir ayuda y asignar plan A-B-C-D.  
-**Técnica paso a paso:** 1) optimizar primer intento; 2) cambiar operador/dispositivo; 3) rescatar oxigenación con BVM/SGA; 4) si CICO, declarar y realizar FONA.  
-**STOP:** no persistir con laringoscopia si oxigenación empeora.  
-**Confirmación:** oxigenación/ventilación restablecidas y ETCO₂ en vía definitiva.  
-**Complicaciones:** hipoxemia, aspiración, trauma y retraso de FONA.  
-**Después:** documentar dificultad y comunicar al paciente/equipo.  
-**Documentación:** número de intentos, dispositivos y punto de escalada.  
-**Fuentes:** DAS 2025.  
-**QA:** YELLOW.
+**Objetivo:** mantener oxigenación mientras se limita el trauma de intentos repetidos y se progresa hacia rescate.
+**Indicaciones:** laringoscopia/intubación fallida o ventilación comprometida.
+**Contraindicaciones/precauciones:** no repetir intentos sin optimización o cambio real de estrategia.
+**Material:** BVM, SGA, videolaringoscopio, bougie, succión y equipo eFONA.
+**Anatomía:** vía oral, supraglótica y membrana cricotiroidea.
+**Preparación:** declarar dificultad, pedir ayuda y asignar plan A-B-C-D.
+**Técnica paso a paso:** optimizar posición/succión/dispositivo; limitar intentos; cambiar operador/dispositivo; rescatar oxigenación con BVM/SGA; si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA.
+**STOP:** no persistir con laringoscopia si la oxigenación empeora; no retrasar eFONA una vez declarado CICO.
+**Confirmación:** oxigenación/ventilación restablecidas y ETCO₂ cuando exista vía avanzada.
+**Complicaciones:** hipoxemia, aspiración, trauma y retraso de eFONA.
+**Después:** documentar la dificultad y comunicarla al paciente/equipo.
+**Documentación:** intentos, dispositivos, cambios de estrategia y punto de escalada.
+**Fuentes:** DAS 2025.
+**QA:** YELLOW; revisión humana vía aérea pendiente.
 
 ## PROC-AIR-013 — Confirmación del tubo por capnografía — CORE
 **Objetivo:** confirmar posición traqueal y monitorizar ventilación de forma continua.
@@ -210,21 +210,21 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **Fuentes:** Resuscitation Council UK/ERC Adult Advanced Life Support 2025.
 **QA:** YELLOW; revisión humana de vía aérea pendiente.
 
-## PROC-AIR-014 — Fijación y cuidados del tubo — CORE
-**Objetivo:** prevenir desplazamiento, extubación accidental y lesión por cuff.  
-**Indicaciones:** tras toda intubación confirmada.  
-**Contraindicaciones/precauciones:** evitar fijación sobre piel lesionada; vigilar presión del cuff según protocolo.  
-**Material:** fijador/cinta, manómetro de cuff si disponible, circuito y soporte de tubo.  
-**Anatomía:** labios/dentición, tráquea y carina.  
-**Preparación:** documentar profundidad y posición clínica.  
-**Técnica paso a paso:** 1) fijar tubo; 2) registrar profundidad; 3) verificar cuff; 4) asegurar circuito; 5) reevaluar tras movilización.  
-**STOP:** cambio de ETCO₂, ventilación unilateral o nueva fuga → sospechar desplazamiento.  
-**Confirmación:** profundidad estable, ventilación bilateral y capnografía.  
-**Complicaciones:** extubación accidental, intubación endobronquial, lesión por presión.  
-**Después:** cuidados orales, sedoanalgesia y ventilación protectora.  
-**Documentación:** profundidad, fijación, cuff y reevaluaciones.  
-**Fuentes:** DAS/RCUK airway safety principles.  
-**QA:** YELLOW.
+## PROC-AIR-014 — Fijación y cuidados del tubo traqueal — CORE
+**Objetivo:** prevenir desplazamiento, extubación accidental y lesión por cuff.
+**Indicaciones:** tras toda intubación confirmada.
+**Contraindicaciones/precauciones:** evitar fijación sobre piel lesionada y presión excesiva del cuff.
+**Material:** fijador/cinta, manómetro de cuff, circuito y soporte del tubo.
+**Anatomía:** labios/dentición, tráquea y carina.
+**Preparación:** documentar profundidad y posición inicial.
+**Técnica paso a paso:** fijar tubo, registrar profundidad en dientes/labios, medir/ajustar presión de cuff según protocolo, asegurar circuito y reevaluar tras cualquier movilización.
+**STOP:** cambio brusco de ETCO₂, ventilación unilateral, fuga nueva o presión de cuff anormal.
+**Confirmación:** profundidad estable, ventilación bilateral y capnografía.
+**Complicaciones:** extubación accidental, intubación endobronquial y lesión mucosa por presión.
+**Después:** cuidados orales, sedoanalgesia y reevaluación seriada.
+**Documentación:** profundidad, fijación, cuff y reevaluaciones.
+**Fuentes:** DAS/RCUK airway safety principles; critical care airway-care standards.
+**QA:** YELLOW; revisión humana UCI/vía aérea pendiente.
 
 ## PROC-AIR-015 — Cricotiroidotomía quirúrgica — SPECIALIST
 **Objetivo:** establecer una vía aérea frontal de cuello de emergencia (eFONA) en CICO.
@@ -259,20 +259,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW; revisión humana pediátrica/anestesia pendiente.
 
 ## PROC-AIR-017 — Traqueostomía obstruida/desplazada — ADVANCED
-**Objetivo:** restaurar oxigenación rápidamente en emergencia de traqueostomía.  
-**Indicaciones:** hipoxia, obstrucción, desplazamiento o ventilación inefectiva en paciente traqueostomizado.  
-**Contraindicaciones/precauciones:** distinguir traqueostomía de laringectomía total; considerar madurez del estoma.  
-**Material:** oxígeno, succión, catéter, cánula interna de recambio, BVM, equipo de vía aérea y tubo de recambio.  
-**Anatomía:** estoma, tráquea y continuidad o no de vía aérea superior.  
-**Preparación:** pedir ayuda, oxígeno simultáneo a cara/estoma según anatomía y retirar accesorios obstructivos.  
-**Técnica paso a paso:** 1) retirar válvula/filtro; 2) retirar cánula interna; 3) pasar catéter de aspiración; 4) desinflar cuff; 5) retirar tubo si obstruido/desplazado; 6) ventilar por vía superior o estoma según situación.  
-**STOP:** no forzar recanalización a ciegas en estoma reciente.  
-**Confirmación:** ETCO₂, expansión torácica y mejoría de oxigenación.  
-**Complicaciones:** falsa vía, sangrado, pérdida completa del acceso y barotrauma.  
-**Después:** asegurar nueva vía y revisar causa.  
-**Documentación:** tipo de traqueostomía, maniobras, recambio y respuesta.  
-**Fuentes:** National Tracheostomy Safety Project emergency algorithms.  
-**QA:** YELLOW.
+**Objetivo:** restaurar oxigenación rápidamente durante una emergencia de traqueostomía sin crear una falsa vía.
+**Indicaciones:** hipoxia, obstrucción, desplazamiento, ventilación inefectiva o ausencia de flujo por traqueostomía.
+**Contraindicaciones/precauciones:** distinguir traqueostomía de laringectomía total; en laringectomía no existe continuidad útil entre boca/nariz y pulmón. Considerar madurez del estoma antes de intentar recanulación.
+**Material:** oxígeno, succión, catéter de aspiración, cánula interna de recambio, BVM, máscara pediátrica para estoma si útil, equipo de vía aérea y tubos de recambio.
+**Anatomía:** estoma, trayecto de traqueostomía y continuidad —o ausencia— de vía aérea superior.
+**Preparación:** pedir ayuda especializada, administrar oxígeno simultáneo a cara y estoma mientras se aclara la anatomía, retirar accesorios externos y monitorizar.
+**Técnica paso a paso:** seguir el algoritmo NTSP: retirar válvula/filtro y cánula interna; intentar pasar catéter de aspiración para comprobar permeabilidad; si no pasa o el tubo está desplazado, desinflar cuff y retirar la traqueostomía; oxigenar/ventilar por vía superior y/o estoma según anatomía; solo intentar recanulación si existe competencia, visualización/guía y el estoma es suficientemente maduro.
+**STOP:** no forzar catéter ni tubo; no realizar recanulación ciega en estoma reciente; deterioro obliga a priorizar oxigenación por la ruta anatómicamente disponible.
+**Confirmación:** capnografía de onda, expansión torácica y mejora de SpO₂/ventilación.
+**Complicaciones:** falsa vía, hemorragia, pérdida completa del acceso y barotrauma.
+**Después:** asegurar una vía definitiva y buscar causa de obstrucción/desplazamiento.
+**Documentación:** tipo de estoma, madurez si conocida, maniobras, recambio y respuesta.
+**Fuentes:** National Tracheostomy Safety Project Adult Emergency Guidelines/Algorithms; BTS oxygen guidance for tracheostomy/laryngectomy.
+**QA:** YELLOW; revisión humana ENT/UCI/vía aérea pendiente.
 
 ## PROC-AIR-018 — Oxigenoterapia convencional — CORE
 **Objetivo:** corregir hipoxemia mediante oxígeno titulado a un objetivo clínico.
@@ -291,49 +291,49 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW; revisión humana respiratoria pendiente.
 
 ## PROC-AIR-019 — Cánula nasal de alto flujo — CORE
-**Objetivo:** proporcionar oxígeno calentado/humidificado de alto flujo y reducir trabajo respiratorio.  
-**Indicaciones:** hipoxemia seleccionada, preoxigenación o soporte escalonado según síndrome.  
-**Contraindicaciones/precauciones:** no retrasar intubación ante fracaso; precaución en obstrucción nasal/trauma facial.  
-**Material:** generador HFNO, humidificador, circuito y cánula apropiada.  
-**Anatomía:** vía nasal y respiratoria; tamaño de cánula no debe ocluir completamente narinas.  
-**Preparación:** definir objetivo de oxigenación y criterios de fracaso.  
-**Técnica paso a paso:** 1) elegir cánula; 2) iniciar flujo/FiO₂ tolerables; 3) ajustar temperatura; 4) titular a respuesta; 5) reevaluar trabajo respiratorio/gasometría.  
-**STOP:** empeoramiento de fatiga, conciencia, hipercapnia o hipoxemia.  
-**Confirmación:** menor trabajo respiratorio y objetivos de oxigenación.  
-**Complicaciones:** retraso de intubación, sequedad/lesión nasal, intolerancia.  
-**Después:** destete o escalada.  
-**Documentación:** configuración y respuesta.  
-**Fuentes:** SCCM RSI 2023 para preoxigenación; guías de insuficiencia respiratoria del módulo central.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar oxígeno calentado/humidificado de alto flujo y reducir trabajo respiratorio.
+**Indicaciones:** insuficiencia respiratoria hipoxémica seleccionada, preoxigenación o soporte escalonado.
+**Contraindicaciones/precauciones:** no retrasar intubación ante fracaso; precaución en obstrucción nasal o trauma facial significativo.
+**Material:** sistema HFNO, humidificador, circuito y cánula apropiada.
+**Anatomía:** vía nasal; las cánulas no deben ocluir completamente las narinas.
+**Preparación:** definir objetivo de SpO₂ y criterios explícitos de fracaso.
+**Técnica paso a paso:** iniciar flujo y FiO₂ tolerables, ajustar temperatura y titular según SpO₂, frecuencia respiratoria y trabajo respiratorio; reevaluar precozmente.
+**STOP:** empeoramiento de fatiga, conciencia, hipercapnia o hipoxemia pese a soporte.
+**Confirmación:** menor trabajo respiratorio y objetivos de oxigenación alcanzados.
+**Complicaciones:** retraso de intubación, lesión/sequedad nasal e intolerancia.
+**Después:** destete o escalada a NIV/intubación según fisiología.
+**Documentación:** flujo, FiO₂, temperatura y respuesta.
+**Fuentes:** SCCM RSI 2023 para preoxigenación; BTS oxygen resources. BTS tiene un Clinical Statement específico de HFNO en desarrollo/publicación 2026, por lo que no debe atribuirse aún una pauta definitiva a ese documento.
+**QA:** YELLOW; revisión humana respiratoria/UCI pendiente.
 
 ## PROC-AIR-020 — VNI CPAP/BiPAP — CORE
-**Objetivo:** proporcionar soporte ventilatorio no invasivo y evitar intubación cuando está indicado.  
-**Indicaciones:** edema agudo pulmonar, exacerbación hipercápnica de EPOC y otros escenarios seleccionados.  
-**Contraindicaciones/precauciones:** incapacidad de proteger vía aérea, vómitos activos, shock no controlado, trauma facial incompatible o deterioro rápido.  
-**Material:** ventilador VNI, interfaz, circuito, filtros y monitorización.  
-**Anatomía:** interfaz facial y vía aérea superior.  
-**Preparación:** explicar, elegir mascarilla y definir objetivos/criterios de fracaso.  
-**Técnica paso a paso:** 1) colocar interfaz; 2) iniciar soporte tolerable; 3) minimizar fuga; 4) titular presión/FiO₂ según fisiología; 5) reevaluar precozmente.  
-**STOP:** empeoramiento de conciencia, shock, secreciones, gasometría o fatiga.  
-**Confirmación:** menor trabajo respiratorio y mejoría clínica/gasométrica.  
-**Complicaciones:** aspiración, lesión por presión, distensión gástrica, retraso de intubación.  
-**Después:** destete o intubación si fracaso.  
-**Documentación:** indicación, interfaz, parámetros y respuesta.  
-**Fuentes:** guías centrales de NIV/EPOC/edema pulmonar; SCCM RSI 2023 para preoxigenación NIPPV.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar soporte ventilatorio no invasivo y evitar intubación cuando existe una indicación con respuesta esperable.
+**Indicaciones:** exacerbación hipercápnica de EPOC, edema agudo cardiogénico y otros escenarios seleccionados según síndrome.
+**Contraindicaciones/precauciones:** incapacidad de proteger vía aérea, vómitos activos, shock no controlado, trauma facial incompatible, secreciones no manejables o deterioro rápido.
+**Material:** ventilador VNI, interfaz, circuito, filtros y monitorización.
+**Anatomía:** interfaz facial y vía aérea superior.
+**Preparación:** explicar, elegir interfaz, proteger puntos de presión y definir objetivos/criterios de fracaso.
+**Técnica paso a paso:** iniciar soporte tolerable, minimizar fugas, titular EPAP/PEEP e IPAP/PS según fisiología y gasometría, ajustar FiO₂ al objetivo y reevaluar en forma precoz.
+**STOP:** empeoramiento de conciencia, shock, acidosis/hipercapnia progresiva, hipoxemia o fatiga.
+**Confirmación:** menor trabajo respiratorio, mejoría clínica y gasométrica.
+**Complicaciones:** aspiración, lesión por presión, distensión gástrica y retraso de intubación.
+**Después:** destete si mejora o intubación si fracasa.
+**Documentación:** indicación, interfaz, parámetros y respuesta.
+**Fuentes:** ERS/ATS NIV acute respiratory failure guideline; BTS oxygen guidance; SCCM RSI 2023 para NIPPV en preoxigenación de hipoxemia grave.
+**QA:** YELLOW; revisión humana respiratoria/UCI pendiente.
 
 ## PROC-AIR-021 — Ventilación mecánica invasiva inicial — CORE
-**Objetivo:** iniciar soporte ventilatorio seguro después de intubación.  
-**Indicaciones:** todo paciente intubado que requiere ventilación mecánica.  
-**Contraindicaciones/precauciones:** individualizar por fisiología (ARDS, obstructiva, neurológica, embarazo); evitar parámetros rígidos universales.  
-**Material:** ventilador, circuito, capnografía, humidificación y monitorización.  
-**Anatomía:** tubo traqueal, pulmón y mecánica torácica.  
-**Preparación:** confirmar tubo, estabilidad hemodinámica, sedoanalgesia y diagnóstico fisiológico.  
-**Técnica paso a paso:** 1) elegir modo; 2) usar estrategia protectora; 3) ajustar FiO₂/PEEP; 4) ajustar frecuencia según ventilación; 5) medir presiones/curvas; 6) configurar alarmas.  
-**STOP:** hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → desconectar/ventilar manualmente y buscar causa.  
-**Confirmación:** ventilación/oxigenación adecuadas y curvas coherentes sin presiones peligrosas.  
-**Complicaciones:** barotrauma, volutrauma, auto-PEEP, hipotensión, asincronía.  
-**Después:** reevaluación seriada y ajuste según gasometría/fisiología.  
-**Documentación:** modo, parámetros iniciales, objetivos y respuesta.  
-**Fuentes:** módulos centrales de ventilación/ARDS; ERC/critical care guidance.  
-**QA:** YELLOW.
+**Objetivo:** iniciar soporte ventilatorio seguro después de intubación, evitando volutrauma, barotrauma y auto-PEEP.
+**Indicaciones:** paciente intubado que requiere ventilación mecánica.
+**Contraindicaciones/precauciones:** individualizar por fisiología; ARDS, obstrucción grave, TCE, embarazo y shock requieren ajustes específicos.
+**Material:** ventilador, circuito, capnografía, humidificación y monitorización.
+**Anatomía:** tubo traqueal, pulmón y mecánica torácica.
+**Preparación:** confirmar posición del tubo, estabilidad hemodinámica, sedoanalgesia y diagnóstico fisiológico.
+**Técnica paso a paso:** seleccionar modo apropiado y estrategia protectora; ajustar volumen corriente según peso corporal predicho cuando corresponda, FiO₂/PEEP según oxigenación y frecuencia según ventilación; revisar presiones, curvas y alarmas.
+**STOP:** hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → comprobar tubo/circuito, desconectar si es necesario y ventilar manualmente mientras se busca la causa.
+**Confirmación:** oxigenación/ventilación adecuadas y curvas coherentes sin presiones peligrosas.
+**Complicaciones:** volutrauma, barotrauma, auto-PEEP, hipotensión y asincronía.
+**Después:** gasometría/revaloración seriada y ajustes según fisiología.
+**Documentación:** modo, parámetros iniciales, objetivos y respuesta.
+**Fuentes:** RCUK/ERC 2025 ALS para ventilación durante RCP; módulos centrales de ventilación protectora/ARDS para el paciente postintubación.
+**QA:** YELLOW; revisión humana UCI/respiratoria pendiente.
