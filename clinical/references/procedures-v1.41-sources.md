@@ -149,3 +149,14 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - BTS Clinical Statement on Pleural Procedures 2023, with 2026 correction; BTS Pleural Disease Guideline 2023 — `PROC-THX-003`, `PROC-THX-005`, `PROC-THX-006`.
 - AHA/AAP 2025 Neonatal Resuscitation — vascular access during resuscitation — `PROC-PED-011`.
 - WHO Consolidated PPH Guidelines 2025 + Implementation Guide 2026 + WHO UBT Recommendation 2021 — `PROC-OBS-009`.
+
+
+## Segunda pasada de procedimientos invasivos — 06/10/2026
+- NICE NG240, Bacterial meningitis and meningococcal disease, 2024 — `PROC-NEURO-001`, `PROC-PED-006`.
+- NICE NG195, Neonatal infection, updated recommendations 2024 — neonatal LP context.
+- AHA/AAP 2025 Pediatric Advanced Life Support — `PROC-PED-010`.
+- ASRA Pain Medicine Antithrombotic Guidelines, 5th ed. 2025 — `PROC-WND-004`, `PROC-WND-005`.
+- RCoA GPAS 2025 and RCEM Fascia Iliaca Block guideline 2025 — hip fracture regional analgesia.
+- CDC catheter-related infection recommendations updated 2024 — `PROC-VASC-008`.
+- Society of Hospital Medicine ultrasound-guided vascular access position statement; German haemodynamic monitoring guideline 2024; evidence summaries 2026 — `PROC-VASC-010`, `PROC-VASC-011`.
+- SANJO guideline 2023 — `PROC-ORTHO-020`, `PROC-ORTHO-021`.
