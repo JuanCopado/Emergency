@@ -14,22 +14,28 @@ NORMALIZED={
  "08-neurology.md":5,
  "09-gi-abdomen.md":9,
  "10-genitourinary.md":9,
+ "11-ent.md":13,
+ "12-ophthalmology.md":8,
+ "13-pediatrics.md":10,
 }
 REQUIRED=[
  "objetivo","indicaciones","contraindicaciones/precauciones","material","anatomía",
  "preparación","técnica paso a paso","stop","confirmación","complicaciones",
  "después","documentación","fuentes","qa"
 ]
-HEAD=re.compile(r"^##\s+(PROC-[A-Z]+-\d{3})",re.M)
+HEAD=re.compile(r"^##\s+(PROC-[A-Z]+-\d{3})\s+—\s+(.+)$",re.M)
 
 def validate():
  errors=[];total=0
  for fn,expected in NORMALIZED.items():
   text=(PROC/fn).read_text(encoding="utf-8")
-  matches=list(HEAD.finditer(text))
-  if len(matches)!=expected: errors.append(f"{fn}: {len(matches)} cards != {expected}")
+  all_matches=list(HEAD.finditer(text))
+  matches=[m for m in all_matches if "REFERENCIA" not in m.group(2).upper()]
+  if len(matches)!=expected: errors.append(f"{fn}: {len(matches)} canonical cards != {expected}")
   for i,m in enumerate(matches):
-   body=text[m.start():(matches[i+1].start() if i+1<len(matches) else len(text))].lower()
+   next_positions=[x.start() for x in all_matches if x.start()>m.start()]
+   end=min(next_positions) if next_positions else len(text)
+   body=text[m.start():end].lower()
    miss=[x for x in REQUIRED if x not in body]
    if miss: errors.append(f"{m.group(1)} missing: {', '.join(miss)}")
    total+=1
