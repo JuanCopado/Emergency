@@ -155,3 +155,69 @@ Las imágenes serán esquemáticas, anatómicamente proporcionadas y sin detalle
 - La técnica debe declarar nivel: CORE / ADVANCED / SPECIALIST.
 - Procedimientos invasivos deben incluir time-out, asepsia, monitorización, confirmación y rescue pathway.
 - Ningún contenido yellow se presenta como protocolo clínico definitivamente validado.
+
+
+## Primer bloque clínico — fichas prioritarias
+
+### PROC-005 Intubación orotraqueal / videolaringoscopia — CORE
+**Objetivo:** asegurar vía aérea y ventilación con tubo endotraqueal cuando esté indicado.
+**Modo rápido:** preparar paciente-equipo-plan A/B/C/D; preoxigenar; optimizar posición/hemodinámica; inducción/bloqueo neuromuscular si RSI; laringoscopia; paso del tubo bajo visión; inflar cuff; confirmar inmediatamente con capnografía de onda y evaluación clínica; fijar y ventilación postintubación.
+**STOP:** no repetir intentos traumáticos sin reoxigenar/cambiar estrategia; hipoxemia, deterioro hemodinámico o CICO obligan a avanzar al plan de rescate.
+**Visuales requeridos:** anatomía sagital; posición; BVM a dos operadores; laringoscopia directa; videolaringoscopia; paso del tubo; curva ETCO2 correcta; algoritmo de rescate/CICO.
+**Integración:** llama a `airway-rsi`, `sedoanalgesia`, `pediatric-airway-rsi` según contexto; no duplica dosis.
+
+### PROC-015/16/17 Catéter venoso central ecoguiado — ADVANCED
+**Objetivo:** acceso venoso central para indicaciones justificadas.
+**Flujo:** selección del sitio según riesgo/beneficio → monitorización/time-out → ecografía preprocedimiento → barrera estéril máxima → anestesia → identificación dinámica vena/arteria → punción ecoguiada → guía → dilatación → catéter → aspiración/lavado de luces → fijación/apósito → confirmación apropiada y vigilancia de complicaciones.
+**STOP:** nunca dilatar si la posición intravascular venosa de la guía no es segura; resistencia anormal, sospecha arterial, arritmia sostenida o deterioro obliga a detener y reevaluar.
+**Visuales:** anatomía yugular/femoral/axilar; eje corto/largo; aguja-punta; guía; secuencia Seldinger; errores vena/arteria; fijación.
+
+### PROC-018 Línea arterial radial — ADVANCED
+**Objetivo:** monitorización continua de presión y/o muestreo arterial repetido.
+**Flujo:** perfusión colateral/anatomía → asepsia/anestesia → ecografía si disponible/útil → punción y flash arterial → avance del catéter/guía según dispositivo → conexión a sistema presurizado → nivelar/cero del transductor → comprobar morfología de onda → fijación y vigilancia distal.
+**STOP:** isquemia distal, dolor desproporcionado, hematoma expansivo, resistencia o posición dudosa.
+**Visuales:** arteria radial y estructuras vecinas; técnica transversal/longitudinal; transductor a eje flebostático; onda normal y damping.
+
+### PROC-025/26 Toracocentesis — ADVANCED
+**Objetivo:** aspiración pleural diagnóstica o terapéutica.
+**Seguridad:** para derrame pleural, localización con ecografía; entrada por encima del borde superior de la costilla; drenaje terapéutico lento; detener ante dolor/opresión, tos persistente o disnea creciente. Evitar extracción excesiva en una sola sesión conforme a guía vigente.
+**Flujo:** confirmar indicación/lateralidad → TUS y marcar ventana segura → posición → asepsia/anestesia → punción/catéter → aspiración/muestras o drenaje lento → retirar/sellar → reevaluar y documentar.
+**Visuales:** diafragma-pulmón-bazo/hígado; paquete neurovascular; ventana ecográfica; trayectoria; líquido aspirado; signos de complicación.
+
+### PROC-023 Drenaje torácico — ADVANCED
+**Objetivo:** drenaje pleural de aire/líquido cuando esté indicado.
+**Flujo visual:** lateralidad/imagen → posición → campo/anestesia → localización segura → incisión → disección o técnica sobre guía según dispositivo → entrada pleural controlada → colocación → conexión al sistema → fijación → comprobación funcional y posición → vigilancia.
+**STOP:** anatomía/lateralidad incierta, resistencia no explicada, deterioro o sospecha de lesión visceral/vascular.
+**Visuales:** triángulo de seguridad, paquete neurovascular, disección roma, dedo intrapleural cuando corresponda, dirección del tubo, sello de agua y fijación.
+
+### PROC-032 Pericardiocentesis ecoguiada — SPECIALIST
+**Objetivo:** drenaje pericárdico urgente cuando el derrame causa compromiso hemodinámico y la situación clínica lo requiere.
+**Flujo:** confirmar fisiología/derrame con POCUS si el tiempo lo permite → monitorización y preparación de rescate → elegir ventana con menor distancia y menor interposición → campo/anestesia → avance de aguja bajo visualización → aspiración → guía/catéter cuando proceda → reevaluación hemodinámica/ecográfica.
+**STOP:** no convertir un esquema fijo de abordaje en regla universal; la ventana debe individualizarse por ecografía/anatomía. Sospecha de punción miocárdica/vascular o arritmia exige detener y reevaluar.
+**Visuales:** ventanas subxifoidea/apical/paraesternal comparadas; derrame/taponamiento; aguja ecoguiada; catéter y reevaluación.
+
+### PROC-028 Cardioversión sincronizada — CORE
+**Objetivo:** cardioversión eléctrica de taquiarritmia con pulso cuando esté indicada, especialmente inestabilidad atribuible a la arritmia.
+**Flujo:** monitor/desfibrilador y parches → sedación/anestesia si el estado permite → seleccionar modo SYNC → comprobar marcadores sobre cada R → seleccionar energía según ritmo/dispositivo/guía → seguridad visual/verbal → descarga → reevaluar ritmo/pulso → aumentar energía/estrategia según respuesta.
+**STOP:** nunca asumir que SYNC sigue activado tras una descarga; verificar antes de cada choque. VF/TV sin pulso requieren descarga no sincronizada. Si no se consigue sincronizar una TV inestable y retrasar es peligroso, seguir el algoritmo de resucitación vigente.
+**Visuales:** posición de parches; botón SYNC; marcas R correctas/incorrectas; descarga; reevaluación.
+
+### PROC-034 Reducción de luxación anterior de hombro — CORE
+**Objetivo:** reducción atraumática con analgesia adecuada y evaluación neurovascular.
+**Flujo:** confirmar diagnóstico y excluir fractura/contraindicaciones → neurovascular pre → analgesia/sedación o anestesia regional/intraarticular según caso → técnica suave seleccionada → detener si resistencia/dolor anormal → confirmar reducción → neurovascular post → imagen/inmovilización y seguimiento según contexto.
+**Diseño:** no imponer una única maniobra; selector visual de técnicas aceptadas según paciente/operador, evitando métodos de fuerza como opción por defecto.
+**Visuales:** anatomía glenohumeral; deformidad anterior; posición de cada técnica; señal de reducción; comprobación axilar/distal.
+
+### PROC-036 Reducción de rótula — CORE
+**Flujo:** evaluación neurovascular y lesión asociada → analgesia → flexión de cadera/relajación → extensión progresiva de rodilla con guía medial suave de la rótula lateral luxada → confirmación → examen extensor/neurovascular → inmovilización/imagen/seguimiento según lesión.
+**Visuales:** anatomía patelofemoral; posición; dirección de maniobra; reducción; examen del mecanismo extensor.
+
+### PROC-037 Pronación dolorosa — CORE PEDIÁTRICO
+**Objetivo:** reducir subluxación de cabeza radial típica tras mecanismo compatible, evitando maniobras si hay datos de fractura/trauma no típico.
+**Flujo:** historia/examen → decidir si cuadro típico → reducción mediante hiperpronación como técnica inicial o supinación-flexión como alternativa → reevaluar uso espontáneo del miembro → reconsiderar diagnóstico/imagen si no recupera función.
+**Visuales:** ligamento anular/cabeza radial; hiperpronación en 3 pasos; alternativa supinación-flexión; reevaluación funcional.
+
+## QA del bloque
+- Estado: YELLOW hasta revisión bibliográfica procedimiento por procedimiento.
+- Cada ficha necesita: fuente primaria/guía, fecha, población, contraindicaciones, material, pasos, confirmación, complicaciones y visual QA.
+- Las imágenes generadas son prototipos hasta revisión anatómica humana; no pueden aportar por sí solas dosis, medidas, puntos de punción ni límites de seguridad.
