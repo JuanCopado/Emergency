@@ -1,0 +1,215 @@
+{
+  "procedure_id": "PROC-NEURO-003",
+  "name": "Manejo urgente de derivación ventricular externa",
+  "family": "Neurología",
+  "level": "SPECIALIST",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ICU",
+    "ED"
+  ],
+  "status": "YELLOW",
+  "objective": "Mantener un EVD seguro y reconocer rápidamente obstrucción, desconexión, infección, malposición, sobredrenaje o deterioro neurológico.",
+  "indications": [
+    "Paciente portador de EVD con necesidad de monitorización o drenaje según orden neuroquirúrgica.",
+    "Paciente con EVD y sospecha de problema agudo del sistema."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "No irrigar, aspirar, cambiar altura, abrir el circuito ni manipular proximalmente fuera de protocolo/orden neuroquirúrgica y competencia específica.",
+      "Mantener técnica estéril estricta."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Sistema EVD.",
+      "Transductor/monitor.",
+      "Soporte graduado.",
+      "Material estéril."
+    ],
+    "optional": [],
+    "monitoring": [
+      "Monitorización neurológica y hemodinámica continua."
+    ],
+    "rescue": [
+      "Acceso inmediato a Neurocirugía/UCI."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Trayecto del catéter ventricular.",
+      "Referencia externa institucional aproximada al foramen de Monro."
+    ],
+    "target": [
+      "Ventrículo lateral y sistema de drenaje/monitorización."
+    ],
+    "avoid": [
+      "Manipulación proximal innecesaria.",
+      "Cambios no autorizados de altura o configuración."
+    ],
+    "laterality": null,
+    "variants": [
+      "Sistemas que drenan y monitorizan de forma continua o alternante según dispositivo/protocolo."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Según objetivo neurocrítico y orden clínica; mantener la referencia anatómica institucional reproducible.",
+    "operator_position": "Junto al sistema para revisar conexiones, altura y señal sin romper esterilidad.",
+    "monitoring": [
+      "Exploración neurológica seriada.",
+      "PIC y/o débito según indicación.",
+      "Hemodinámica."
+    ],
+    "asepsis": [
+      "Técnica estéril para cualquier manipulación permitida."
+    ],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Confirmar orden de altura.",
+      "Confirmar modo de drenaje/monitorización.",
+      "Revisar clamps y conexiones.",
+      "Nivelar y poner a cero según sistema/protocolo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Evaluar primero al paciente y el estado neurológico.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Revisar integridad de conexiones y clamps.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Nivelar y poner a cero según sistema y protocolo institucional.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Verificar que el modo de drenaje/monitorización coincide con la orden.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Observar onda de PIC y/o débito.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 6,
+      "action": "Correlacionar los datos del EVD con el examen neurológico.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 7,
+      "action": "Re-nivelar tras cambios de posición de cama o cabeza.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 8,
+      "action": "Escalar a Neurocirugía/UCI ante cualquier anomalía significativa.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Funcionamiento coherente con el modo prescrito.",
+    "Señal o débito compatibles con el contexto.",
+    "Ausencia de deterioro atribuible al drenaje."
+  ],
+  "stop_points": [
+    "Desconexión.",
+    "Fuga de LCR.",
+    "Drenaje súbito o excesivo.",
+    "Pérdida de señal con deterioro clínico.",
+    "Sospecha de infección o hemorragia.",
+    "Manipulación no autorizada."
+  ],
+  "complications": {
+    "immediate": [
+      "Hemorragia.",
+      "Malposición.",
+      "Sobredrenaje agudo.",
+      "Desconexión o fuga."
+    ],
+    "early": [
+      "Obstrucción.",
+      "Infección/ventriculitis."
+    ],
+    "late": [
+      "Complicaciones infecciosas y mecánicas relacionadas con el catéter."
+    ]
+  },
+  "rescue": [
+    "Asegurar el sistema según protocolo.",
+    "Detener manipulaciones no esenciales.",
+    "Reevaluar estado neurológico y hemodinámico.",
+    "Contactar urgentemente Neurocirugía/UCI.",
+    "No realizar irrigación proximal empírica."
+  ],
+  "aftercare": [
+    "Vigilancia estricta.",
+    "Re-nivelación tras cambios de cama o cabeza.",
+    "Seguimiento de PIC/débito.",
+    "Cuidados del punto de inserción según protocolo."
+  ],
+  "documentation": [
+    "Altura y punto de referencia.",
+    "Modo de drenaje/monitorización.",
+    "PIC y/o débito.",
+    "Estado neurológico.",
+    "Cambios de posición.",
+    "Intervenciones e incidencias.",
+    "Comunicación con Neurocirugía."
+  ],
+  "pearls": [
+    "Evaluar siempre al paciente antes del dispositivo.",
+    "Una lectura anómala puede ser clínica o técnica; confirmar el sistema antes de actuar sobre una cifra aislada."
+  ],
+  "special_adaptations": {
+    "pediatric": [],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [
+      "Frecuente en neurotrauma grave; integrar con objetivos de PIC/PPC."
+    ],
+    "anticoagulation": [
+      "Valorar riesgo hemorrágico según contexto neuroquirúrgico."
+    ],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "The Insertion and Management of External Ventricular Drains: An Evidence-Based Consensus Statement",
+      "organization": "Neurocritical Care Society",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26738503/",
+      "doi": "10.1007/s12028-015-0224-8",
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration completed; human clinical review still required."
+    ]
+  }
+}
