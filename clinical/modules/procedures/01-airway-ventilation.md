@@ -147,20 +147,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW.
 
 ## PROC-AIR-010 — Secuencia rápida de intubación (RSI) — CORE
-**Objetivo:** facilitar intubación rápida minimizando aspiración y deterioro fisiológico.  
-**Indicaciones:** necesidad urgente de vía aérea definitiva sin vía difícil prevista que indique estrategia despierta.  
-**Contraindicaciones/precauciones:** vía aérea anatómicamente difícil prevista, fisiología extremadamente inestable o situación donde mantener ventilación espontánea sea prioritario.  
-**Material:** equipo completo de intubación/rescate, monitor, vasopresor si precisa, fármacos desde módulos canónicos.  
-**Anatomía:** vía aérea superior y acceso frontal del cuello como rescate.  
-**Preparación:** plan A-D, preoxigenación, posición semi-Fowler/rampa cuando proceda, optimización hemodinámica y asignación de roles.  
-**Técnica paso a paso:** 1) preoxigenar; 2) preparar inducción + NMBA; 3) administrar según módulo farmacológico; 4) intubar; 5) confirmar; 6) iniciar ventilación y sedoanalgesia postintubación.  
-**STOP:** no paralizar sin plan de ventilación/rescate; no olvidar sedación tras bloqueo neuromuscular.  
-**Confirmación:** capnografía de onda sostenida.  
-**Complicaciones:** hipotensión, hipoxemia, aspiración, vía aérea fallida.  
-**Después:** ventilación protectora, sedoanalgesia y reevaluación hemodinámica.  
-**Documentación:** indicación, preoxigenación, fármacos, intentos y confirmación.  
-**Fuentes:** SCCM RSI 2023; DAS 2025.  
-**QA:** YELLOW.
+**Objetivo:** facilitar intubación traqueal urgente minimizando hipoxemia, aspiración y colapso hemodinámico peri-intubación.
+**Indicaciones:** necesidad urgente de vía aérea definitiva en adulto crítico cuando una estrategia despierta no es preferible.
+**Contraindicaciones/precauciones:** vía aérea anatómicamente difícil prevista, fisiología extremadamente inestable o situaciones en las que mantener ventilación espontánea sea prioritario requieren una estrategia alternativa.
+**Material:** equipo completo de intubación y rescate, monitorización, succión, BVM, capnografía, vasopresor preparado si procede y fármacos desde módulos canónicos.
+**Anatomía:** vía aérea superior, glotis, tráquea y acceso frontal del cuello como rescate.
+**Preparación:** checklist, plan A-D, posición semisentada/rampa cuando proceda, optimización hemodinámica y preoxigenación. SCCM 2023 sugiere HFNO cuando se prevé laringoscopia difícil y NIPPV si existe hipoxemia grave; considerar preoxigenación asistida por medicación en pacientes agitados que no toleran máscara/NIPPV/HFNO.
+**Técnica paso a paso:** preoxigenar; administrar agente de inducción y bloqueante neuromuscular según módulo farmacológico; SCCM recomienda usar NMBA cuando se usa sedante-hipnótico para intubación y sugiere rocuronio o succinilcolina si no hay contraindicación; realizar intubación con el dispositivo elegido; confirmar por capnografía; iniciar ventilación y sedoanalgesia postintubación inmediata.
+**STOP:** no paralizar sin estrategia de rescate; no prolongar intentos durante desaturación/hipotensión; no omitir sedación tras bloqueo neuromuscular.
+**Confirmación:** capnografía de onda sostenida más expansión torácica bilateral.
+**Complicaciones:** hipotensión, hipoxemia, aspiración, intubación esofágica, parada peri-intubación y vía aérea fallida.
+**Después:** ventilación protectora, sedoanalgesia, reevaluación hemodinámica y radiografía/POCUS si la situación lo requiere.
+**Documentación:** indicación, método de preoxigenación, fármacos, intento(s), dispositivo, confirmación y eventos adversos.
+**Fuentes:** SCCM Clinical Practice Guideline for RSI in the Critically Ill Adult Patient, 2023; DAS 2025.
+**QA:** YELLOW; revisión humana vía aérea/UCI pendiente.
 
 ## PROC-AIR-011 — Intubación despierto seleccionada — ADVANCED
 **Objetivo:** asegurar vía aérea difícil prevista manteniendo ventilación espontánea.  
