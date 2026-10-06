@@ -182,14 +182,20 @@ Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
 **QA:** YELLOW.
 
 ## PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar — ADVANCED
-**Objetivo:** estabilizar temporalmente dientes permanentes reimplantados o luxados seleccionados hasta tratamiento odontológico definitivo.  
-**Indicaciones:** según tipo de avulsión/luxación/fractura alveolar y recomendación odontológica.  
-**Material:** material de splint flexible aprobado, composite/adhesivo dental, protección ocular y material de aislamiento.  
-**Técnica:** alinear sin fuerza excesiva, limpiar/secar superficies cuando sea posible y fijar con férula flexible a dientes vecinos estables; evitar una inmovilización rígida innecesaria.  
-**STOP:** oclusión alterada grave, fractura alveolar compleja, sangrado no controlado o imposibilidad de conseguir alineación segura → maxilofacial/odontología.  
-**Confirmación:** estabilidad suficiente sin interferencia oclusal importante y perfusión/tejidos blandos adecuados.  
-**Después:** derivación odontológica urgente y duración de férula según lesión específica/IADT.  
-**Fuente troncal:** IADT 2020 traumatic dental injuries guidelines.
+**Objetivo:** estabilizar dientes permanentes reimplantados o luxados seleccionados.
+**Indicaciones:** avulsión, luxación o fractura alveolar según patrón IADT.
+**Contraindicaciones/precauciones:** fractura compleja, oclusión gravemente alterada o imposibilidad de alineación segura.
+**Material:** férula flexible, composite/adhesivo, aislamiento y protección ocular.
+**Anatomía:** dientes lesionados y dientes vecinos estables.
+**Preparación:** limpiar, secar y alinear sin fuerza.
+**Técnica paso a paso:** adaptar férula flexible, fijarla a dientes vecinos estables y comprobar oclusión y estabilidad.
+**STOP:** interferencia oclusal importante, sangrado no controlado o lesión alveolar compleja.
+**Confirmación:** estabilidad suficiente sin rigidez excesiva.
+**Complicaciones:** maloclusión, daño periodontal y fallo de la férula.
+**Después:** odontología urgente y duración de férula según lesión.
+**Documentación:** dientes incluidos y técnica.
+**Fuentes:** IADT 2020; AAPD.
+**QA:** YELLOW.
 
 ## PROC-ENT-014 — Bloqueo del nervio alveolar inferior — ADVANCED
 **Objetivo:** proporcionar anestesia regional mandibular para dolor/procedimientos dentales o reparación de tejidos seleccionada sin distorsionar el campo.  
