@@ -333,6 +333,7 @@ describe('Clinical note diagnostic workspace', () => {
 
     const checks = within(reviewCard).getAllByRole('checkbox');
     expect(checks).toHaveLength(2);
+    if (!checks[0] || !checks[1]) throw new Error('binary privacy checklist missing');
     await user.click(checks[0]);
     await user.click(checks[1]);
     expect(interpretButton).toBeEnabled();
