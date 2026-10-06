@@ -61,3 +61,22 @@ Estado: **YELLOW**.
 
 ## PROC-WND-020 — Ampollas/quemaduras — CORE
 **Técnica:** enfriar apropiadamente sin hipotermia, retirar joyas, cubrir; manejo de ampollas según tamaño/sitio/protocolo, desbridamiento selectivo. **Visual:** cobertura no adherente.
+
+## PROC-WND-021 — Extracción de anzuelo superficial — CORE
+**Objetivo:** retirar un anzuelo cutáneo/subcutáneo minimizando daño adicional.  
+**Preparación:** identificar número/dirección de púas, profundidad y estructuras próximas; anestesia local cuando proceda; protección ocular para operador/paciente.  
+**Técnica:** seleccionar método según profundidad y geometría: retroceso simple si la púa no está trabada, técnica con hilo para anzuelos superficiales apropiados, cobertura de púa con aguja o avance-corte en casos seleccionados.  
+**STOP:** globo ocular, articulación, tendón, hueso, vaso/nervio importante o localización profunda → especialista.  
+**Confirmación:** anzuelo completo retirado; explorar herida, irrigar y revisar estado vacunal antitetánico.  
+**Complicaciones:** laceración, lesión neurovascular/tendinosa, fragmento retenido e infección.  
+**Fuente troncal:** MSD Manual Professional 2025; textos de Emergency Medicine Procedures.
+
+## PROC-WND-022 — Reparación de lecho ungueal — ADVANCED
+**Objetivo:** reparar laceraciones significativas del lecho ungueal para reducir deformidad y pérdida funcional.  
+**Indicaciones:** laceración visible/significativa del lecho, uña deformada/avulsionada o lesión compleja que requiera exposición; no toda hemorragia subungueal requiere retirada de la uña.  
+**Preparación:** examen neurovascular, Rx cuando se sospecha fractura, bloqueo digital, torniquete temporal seguro, irrigación y campo adecuado.  
+**Técnica:** retirar o elevar la placa ungueal solo cuando sea necesario para exponer lesión; reparar el lecho con sutura absorbible fina o técnica adhesiva validada; proteger con apósito no adherente y decidir férula/placa sustitutiva según lesión/protocolo.  
+**STOP:** lesión compleja, amputación, fractura desplazada, lesión de matriz germinal o falta de experiencia → cirugía de mano.  
+**Confirmación:** bordes aproximados sin tensión y perfusión distal conservada.  
+**Complicaciones:** deformidad ungueal, infección, adherencias, dolor crónico y lesión de matriz.  
+**Fuente troncal:** revisión Hand Clinics 2021; guías ED de lesiones de punta de dedo/lecho ungueal.
