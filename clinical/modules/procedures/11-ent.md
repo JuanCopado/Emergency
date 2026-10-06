@@ -34,3 +34,23 @@ Estado: **YELLOW**.
 
 ## PROC-ENT-011 — Luxación mandibular — REFERENCIA
 Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
+
+## PROC-ENT-012 — Reimplante urgente de diente permanente avulsionado — CORE
+**Objetivo:** preservar un diente permanente avulsionado cuando el contexto y el estado del diente permiten reimplante.  
+**Indicaciones:** avulsión traumática de diente permanente; **no reimplantar dientes temporales**.  
+**Preparación:** valorar primero trauma craneal/cervical y otras amenazas; manipular el diente solo por la corona, no por la raíz. Si está contaminado, enjuagar suavemente con leche, suero o medio fisiológico adecuado sin raspar la raíz.  
+**Técnica:** si es seguro y el paciente coopera, recolocar suavemente el diente permanente en el alveolo con orientación correcta; si no puede reimplantarse de inmediato, conservarlo en medio fisiológico apropiado y derivar urgentemente a odontología.  
+**STOP:** diente temporal, fractura alveolar compleja, riesgo de aspiración, paciente no cooperador o situación médica prioritaria.  
+**Confirmación:** posición anatómica razonable y estabilidad provisional; no forzar si existe resistencia.  
+**Después:** valoración odontológica urgente, estabilización/splint flexible según lesión, profilaxis antitetánica y antibiótica cuando corresponda, instrucciones dietéticas e higiene.  
+**Fuente troncal:** IADT 2020 / AAPD 2025-2026, avulsión de dientes permanentes.
+
+## PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar — ADVANCED
+**Objetivo:** estabilizar temporalmente dientes permanentes reimplantados o luxados seleccionados hasta tratamiento odontológico definitivo.  
+**Indicaciones:** según tipo de avulsión/luxación/fractura alveolar y recomendación odontológica.  
+**Material:** material de splint flexible aprobado, composite/adhesivo dental, protección ocular y material de aislamiento.  
+**Técnica:** alinear sin fuerza excesiva, limpiar/secar superficies cuando sea posible y fijar con férula flexible a dientes vecinos estables; evitar una inmovilización rígida innecesaria.  
+**STOP:** oclusión alterada grave, fractura alveolar compleja, sangrado no controlado o imposibilidad de conseguir alineación segura → maxilofacial/odontología.  
+**Confirmación:** estabilidad suficiente sin interferencia oclusal importante y perfusión/tejidos blandos adecuados.  
+**Después:** derivación odontológica urgente y duración de férula según lesión específica/IADT.  
+**Fuente troncal:** IADT 2020 traumatic dental injuries guidelines.
