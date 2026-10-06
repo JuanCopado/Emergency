@@ -114,21 +114,21 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Fuentes:** hand emergency guidance; Merck Manual Professional finger/thumb dislocation principles.
 **QA:** YELLOW; revisión humana cirugía de mano pendiente.
 
-## PROC-ORTHO-008 — Reducción de luxación carpiana seleccionada — ADVANCED
-**Objetivo:** aliviar compresión neurovascular y alinear provisionalmente lesiones perilunares/lunares.  
-**Indicaciones:** luxación carpiana con compromiso o como puente a cirugía.  
-**Contraindicaciones/precauciones:** lesión compleja de alta energía; requiere consulta urgente de mano.  
-**Material:** sedación, fluoroscopia/Rx, férula.  
-**Anatomía:** carpo, semilunar, mediano y radio distal.  
-**Preparación:** examen mediano/perfusión e imagen.  
-**Técnica paso a paso:** 1) sedación; 2) tracción longitudinal; 3) maniobra dirigida según patrón; 4) confirmar alineación; 5) férula.  
-**STOP:** no retrasar cirugía ni repetir maniobras traumáticas.  
-**Confirmación:** mejor alineación e imagen post.  
-**Complicaciones:** lesión mediano, fractura, inestabilidad persistente.  
-**Después:** cirugía de mano urgente.  
-**Documentación:** neurovascular pre/post.  
-**Fuentes:** orthopedic hand trauma guidance.  
-**QA:** YELLOW.
+## PROC-ORTHO-008 — Reducción de luxación perilunar/lunar seleccionada — ADVANCED
+**Objetivo:** aliviar compresión del nervio mediano y restaurar alineación carpiana provisional como puente a cirugía.
+**Indicaciones:** luxación perilunar/lunar con deformidad, dolor intenso o compromiso del nervio mediano, tras consulta urgente con cirugía de mano.
+**Contraindicaciones/precauciones:** lesiones complejas de alta energía con fracturas asociadas; la reducción cerrada no sustituye el tratamiento quirúrgico definitivo.
+**Material:** sedación, tracción, fluoroscopia o radiografías y férula.
+**Anatomía:** semilunar, huesos del carpo, radio distal, túnel carpiano y nervio mediano.
+**Preparación:** documentar función del nervio mediano/perfusión y revisar imagen; activar cirugía de mano antes de múltiples intentos.
+**Técnica paso a paso:** aplicar tracción longitudinal sostenida, maniobra dirigida según patrón perilunar/lunar y presión controlada sobre el carpo; confirmar alineación y férulizar.
+**STOP:** no repetir maniobras traumáticas, no retrasar cirugía, detener ante empeoramiento neurológico o resistencia marcada.
+**Confirmación:** mejor alineación radiográfica y mejoría/estabilidad del nervio mediano.
+**Complicaciones:** lesión del nervio mediano, fractura, lesión ligamentaria y inestabilidad persistente.
+**Después:** cirugía de mano urgente incluso tras reducción cerrada satisfactoria.
+**Documentación:** neurovascular pre/post, imagen, técnica y respuesta.
+**Fuentes:** orthopedic hand trauma guidance; contemporary perilunate/lunate management references.
+**QA:** YELLOW; revisión humana cirugía de mano pendiente.
 
 ## PROC-ORTHO-009 — Reducción de luxación / fractura-luxación de tobillo — CORE
 **Objetivo:** restaurar alineación, perfusión y reducir amenaza cutánea/neurológica.
