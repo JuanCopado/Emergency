@@ -1,0 +1,26 @@
+name: Weekly evidence surveillance
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * 1"
+permissions:
+  contents: read
+jobs:
+  surveillance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run fail-closed surveillance
+        run: python clinical/scripts/evidence_surveillance.py --output evidence-surveillance-report.json
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-surveillance-report
+          path: evidence-surveillance-report.json
+          if-no-files-found: error
+          retention-days: 30
