@@ -118,7 +118,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técnica.
 
 ## PROC-PED-009 — Inmovilización pediátrica — CORE/PED
-**Técnica:** férula bien acolchada, permitir edema, no cubrir dedos, neurovascular antes/después, instrucciones a cuidadores. **Visual:** tamaños y vigilancia.
+**Objetivo:** estabilizar una lesión musculoesquelética preservando perfusión y crecimiento.
+**Indicaciones:** fractura, esguince grave o postreducción seleccionada.
+**Contraindicaciones/precauciones:** evitar férulas demasiado ajustadas y vigilar placas de crecimiento/edema.
+**Material:** acolchado, férula apropiada y venda.
+**Anatomía:** segmento lesionado y estructuras neurovasculares distales.
+**Preparación:** examen neurovascular preprocedimiento.
+**Técnica paso a paso:** acolchar, colocar férula permitiendo edema, no cubrir dedos cuando sea posible y repetir examen neurovascular.
+**STOP:** dolor creciente, parestesia o cambio de perfusión.
+**Confirmación:** inmovilización estable con perfusión intacta.
+**Complicaciones:** lesión cutánea, compresión neurovascular y síndrome compartimental.
+**Después:** elevación e instrucciones a cuidadores.
+**Documentación:** tipo de férula y neurovascular pre/post.
+**Fuentes:** pediatric orthopedic emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED
 **Técnica:** parches/palas adecuados, energía por peso desde algoritmo ERC/AHA pediátrico vigente; sincronizar cardioversión; desfibrilación no sincronizada en FV/TV sin pulso; RCP inmediata. **Visual:** parches y modo SYNC.
