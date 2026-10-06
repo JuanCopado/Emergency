@@ -147,4 +147,17 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-010 — Ecografía postprocedimiento — ADVANCED
-**Objetivo:** detectar complicaciones seleccionadas: neumotórax tras CVC/pleural, derrame residual, hematoma, malposición superficial. **STOP:** POCUS negativo no reemplaza pruebas exigidas por contexto/protocolo. **Visual:** lung sliding y complicaciones.
+**Objetivo:** detectar complicaciones inmediatas seleccionadas tras procedimientos.
+**Indicaciones:** control tras CVC, toracocentesis/drenaje, paracentesis, bloqueos u otros procedimientos cuando POCUS aporta información útil.
+**Contraindicaciones/precauciones:** un POCUS negativo no sustituye pruebas exigidas por protocolo o alta sospecha clínica.
+**Material:** ecógrafo y transductor según región.
+**Anatomía:** pulmón/pleura, vasos, cavidades o tejidos del procedimiento.
+**Preparación:** definir la complicación que se busca y comparar con el examen previo cuando exista.
+**Técnica paso a paso:** explorar la región objetivo, buscar signos de neumotórax, hematoma, derrame residual, malposición superficial u otra complicación pertinente.
+**STOP:** hallazgo dudoso o deterioro clínico → escalar a imagen/tratamiento definitivo.
+**Confirmación:** hallazgos ecográficos concordantes con la clínica.
+**Complicaciones:** falsa seguridad por estudio incompleto o mal interpretado.
+**Después:** integrar con evolución clínica y pruebas adicionales cuando correspondan.
+**Documentación:** ventanas, calidad y hallazgos.
+**Fuentes:** procedural POCUS standards.
+**QA:** YELLOW.
