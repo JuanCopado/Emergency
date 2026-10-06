@@ -35,20 +35,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **QA:** YELLOW; revisión humana urología/enfermería pendiente.
 
 ## PROC-GU-003 — Sondaje vesical con sonda coudé — ADVANCED
-**Objetivo:** facilitar sondaje masculino difícil por angulación/prostata seleccionada.  
-**Indicaciones:** dificultad con sonda estándar sin datos de trauma uretral.  
-**Contraindicaciones/precauciones:** sospecha de lesión uretral o resistencia fija.  
-**Material:** sonda coudé, gel y campo estéril.  
-**Anatomía:** uretra prostática; punta curva debe orientarse correctamente.  
-**Preparación:** analgesia/lubricación y posición.  
-**Técnica paso a paso:** 1) orientar punta hacia anterior; 2) avanzar sin fuerza; 3) esperar relajación esfinteriana; 4) confirmar orina; 5) avanzar e inflar balón.  
-**STOP:** resistencia importante o sangrado.  
-**Confirmación:** flujo urinario.  
-**Complicaciones:** falsa vía, hematuria, lesión uretral.  
-**Después:** urología si dificultad persiste.  
-**Documentación:** tipo y dificultad.  
-**Fuentes:** urologic procedural references.  
-**QA:** YELLOW.
+**Objetivo:** facilitar el sondaje masculino difícil cuando la obstrucción funcional/anatómica probable es prostática y no existe sospecha de lesión uretral traumática.
+**Indicaciones:** dificultad con sonda recta estándar en varón, especialmente con hiperplasia prostática conocida o probable.
+**Contraindicaciones/precauciones:** sangre en meato, trauma pélvico/genital, resistencia fija, estenosis uretral conocida compleja o cirugía uretral reciente.
+**Material:** sonda coudé de calibre apropiado, gel lubricante y campo estéril.
+**Anatomía:** uretra bulbar/prostática; la punta curva debe orientarse hacia anterior/12 horas.
+**Preparación:** analgesia/lubricación, técnica estéril y limitar intentos traumáticos repetidos.
+**Técnica paso a paso:** orientar la punta hacia las 12 horas, avanzar suavemente manteniendo orientación, detenerse ante resistencia fija, confirmar salida de orina, avanzar completamente antes de inflar balón y fijar.
+**STOP:** resistencia importante, dolor intenso, sangrado o creación sospechada de falsa vía.
+**Confirmación:** flujo urinario libre y balón intravesical sin dolor.
+**Complicaciones:** falsa vía, hematuria, perforación/lesión uretral e infección.
+**Después:** si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica.
+**Documentación:** tipo/calibre, orientación, intentos y resultado.
+**Fuentes:** urologic difficult-catheterization references; AUA Urotrauma principles.
+**QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-004 — Irrigación vesical manual — CORE
 **Objetivo:** retirar coágulos y restaurar drenaje.  
