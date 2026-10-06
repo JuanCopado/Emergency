@@ -166,14 +166,20 @@ Estado: **YELLOW**.
 Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
 
 ## PROC-ENT-012 — Reimplante urgente de diente permanente avulsionado — CORE
-**Objetivo:** preservar un diente permanente avulsionado cuando el contexto y el estado del diente permiten reimplante.  
-**Indicaciones:** avulsión traumática de diente permanente; **no reimplantar dientes temporales**.  
-**Preparación:** valorar primero trauma craneal/cervical y otras amenazas; manipular el diente solo por la corona, no por la raíz. Si está contaminado, enjuagar suavemente con leche, suero o medio fisiológico adecuado sin raspar la raíz.  
-**Técnica:** si es seguro y el paciente coopera, recolocar suavemente el diente permanente en el alveolo con orientación correcta; si no puede reimplantarse de inmediato, conservarlo en medio fisiológico apropiado y derivar urgentemente a odontología.  
-**STOP:** diente temporal, fractura alveolar compleja, riesgo de aspiración, paciente no cooperador o situación médica prioritaria.  
-**Confirmación:** posición anatómica razonable y estabilidad provisional; no forzar si existe resistencia.  
-**Después:** valoración odontológica urgente, estabilización/splint flexible según lesión, profilaxis antitetánica y antibiótica cuando corresponda, instrucciones dietéticas e higiene.  
-**Fuente troncal:** IADT 2020 / AAPD 2025-2026, avulsión de dientes permanentes.
+**Objetivo:** preservar un diente permanente avulsionado viable.
+**Indicaciones:** avulsión de diente permanente; no reimplantar dientes temporales.
+**Contraindicaciones/precauciones:** fractura alveolar compleja, riesgo de aspiración, paciente no cooperador o prioridad médica superior.
+**Material:** guantes, suero/leche/medio de conservación y material de estabilización si procede.
+**Anatomía:** corona, raíz, ligamento periodontal y alveolo.
+**Preparación:** manipular solo por la corona; no raspar la raíz; enjuagar suavemente si está contaminado.
+**Técnica paso a paso:** orientar correctamente, reinsertar suavemente en el alveolo y estabilizar con férula flexible si corresponde y existe competencia.
+**STOP:** resistencia, fractura alveolar compleja o riesgo de aspiración.
+**Confirmación:** posición anatómica razonable y estabilidad provisional.
+**Complicaciones:** reabsorción, anquilosis, infección y pérdida dentaria.
+**Después:** odontología urgente, profilaxis antitetánica y antibiótica cuando corresponda.
+**Documentación:** tiempo extraoral, medio de conservación y momento del reimplante.
+**Fuentes:** IADT 2020; AAPD Reference Manual 2025-2026.
+**QA:** YELLOW.
 
 ## PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar — ADVANCED
 **Objetivo:** estabilizar temporalmente dientes permanentes reimplantados o luxados seleccionados hasta tratamiento odontológico definitivo.  
