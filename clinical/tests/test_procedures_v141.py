@@ -13,7 +13,7 @@ class ProceduresCatalogTest(unittest.TestCase):
         family_ids = set()
         for path in FAMILY_DIR.glob("*.md"):
             family_ids.update(ID_RE.findall(path.read_text(encoding="utf-8")))
-        self.assertEqual(188, len(index_ids))
+        self.assertEqual(193, len(index_ids))
         self.assertEqual(index_ids, family_ids)
 
     def test_no_empty_family_files(self):
@@ -36,8 +36,8 @@ class ProceduresCatalogTest(unittest.TestCase):
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         cards = module.parse_cards()
-        self.assertEqual(187, len(cards))
-        self.assertEqual(187, len({item["procedure_id"] for item in cards}))
+        self.assertEqual(192, len(cards))
+        self.assertEqual(192, len({item["procedure_id"] for item in cards}))
         self.assertTrue(all(item["image_status"] == "not_generated" for item in cards))
 
 if __name__ == "__main__":
