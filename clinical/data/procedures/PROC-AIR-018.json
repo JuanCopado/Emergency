@@ -1,0 +1,187 @@
+{
+  "procedure_id": "PROC-AIR-018",
+  "name": "Oxigenoterapia convencional",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU",
+    "ward"
+  ],
+  "status": "YELLOW",
+  "objective": "Corregir hipoxemia usando el dispositivo menos invasivo apropiado y un objetivo de saturación definido.",
+  "indications": [
+    "Hipoxemia.",
+    "Riesgo de hipoxemia según síndrome clínico."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Titular a objetivo específico.",
+      "Evitar hiperoxia innecesaria.",
+      "Considerar riesgo de hipercapnia en pacientes susceptibles."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Fuente de oxígeno.",
+      "Dispositivo apropiado: cánula nasal, mascarilla simple, Venturi o mascarilla con reservorio."
+    ],
+    "optional": [
+      "Humidificación según indicación."
+    ],
+    "monitoring": [
+      "SpO₂.",
+      "Gasometría cuando esté indicada."
+    ],
+    "rescue": [
+      "HFNO, VNI o ventilación invasiva según fracaso."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Vía aérea superior."
+    ],
+    "target": [
+      "Aumentar fracción inspirada de oxígeno."
+    ],
+    "avoid": [
+      "Lesiones por presión del dispositivo."
+    ],
+    "laterality": null,
+    "variants": [
+      "Cánula nasal.",
+      "Mascarilla simple.",
+      "Venturi.",
+      "Mascarilla con reservorio."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Posición que optimice ventilación y comodidad.",
+    "operator_position": "No específica.",
+    "monitoring": [
+      "SpO₂."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Medir SpO₂.",
+      "Definir objetivo de oxigenación.",
+      "Seleccionar dispositivo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Seleccionar el dispositivo según necesidad de oxígeno y contexto.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Ajustar flujo o FiO₂ conforme al dispositivo.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Colocar el dispositivo correctamente.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Reevaluar saturación y estado clínico.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Escalar soporte si el objetivo no se alcanza.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "SpO₂ dentro del objetivo clínico.",
+    "Mejoría del estado clínico y del trabajo respiratorio cuando corresponde."
+  ],
+  "stop_points": [
+    "Deterioro pese a oxígeno.",
+    "Hipercapnia o alteración de conciencia que sugiera necesidad de soporte ventilatorio."
+  ],
+  "complications": {
+    "immediate": [
+      "Hiperoxia.",
+      "Retención de CO₂ en pacientes susceptibles."
+    ],
+    "early": [
+      "Sequedad.",
+      "Lesión por presión."
+    ],
+    "late": [
+      "Retraso de escalada si se mantiene un dispositivo insuficiente."
+    ]
+  },
+  "rescue": [
+    "Escalar a HFNO, VNI o ventilación invasiva según fisiología y fracaso clínico."
+  ],
+  "aftercare": [
+    "Titular a la menor cantidad de oxígeno necesaria.",
+    "Destetar cuando sea posible.",
+    "Reevaluar gasometría si está indicada."
+  ],
+  "documentation": [
+    "Dispositivo.",
+    "Flujo/FiO₂ cuando proceda.",
+    "Objetivo de SpO₂.",
+    "Respuesta."
+  ],
+  "pearls": [
+    "El oxígeno es un tratamiento que debe titularse a objetivo, no administrarse sin reevaluación."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar interfaces pediátricas y objetivos específicos."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "Guideline for oxygen use in adults in healthcare and emergency settings",
+      "organization": "British Thoracic Society",
+      "year": 2017,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
