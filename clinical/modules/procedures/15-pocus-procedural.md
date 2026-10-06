@@ -114,8 +114,21 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Fuentes:** ESC/pericardial and procedural POCUS guidance.
 **QA:** YELLOW.
 
-## PROC-US-008 — Bloqueos nerviosos — ADVANCED
-**Técnica:** identificar nervio/fascias/vasos/pleura; in-plane preferente cuando mejora visibilidad; aspiración fraccionada; visualizar expansión del anestésico, nunca inyección intraneural. **Visual:** aguja-punta-nervio.
+## PROC-US-008 — Bloqueos nerviosos ecoguiados — ADVANCED
+**Objetivo:** depositar anestésico alrededor del objetivo evitando vasos, pleura y nervio intraneural.
+**Indicaciones:** bloqueo regional seleccionado.
+**Contraindicaciones/precauciones:** infección, alergia, anatomía no identificable o alto riesgo hemorrágico.
+**Material:** ecógrafo, aguja ecogénica, anestésico y monitorización.
+**Anatomía:** nervio/fascia objetivo y estructuras de riesgo.
+**Preparación:** calcular dosis total y disponer de plan para LAST.
+**Técnica paso a paso:** identificar objetivo, avanzar aguja con punta visible, aspirar e inyectar fraccionado observando difusión.
+**STOP:** dolor neural, alta presión, punta no visible o síntomas de LAST.
+**Confirmación:** expansión del anestésico en plano correcto y efecto clínico.
+**Complicaciones:** LAST, lesión neural, hematoma y neumotórax según región.
+**Después:** vigilancia motora/sensitiva.
+**Documentación:** bloqueo, lado, dosis y técnica US.
+**Fuentes:** regional anesthesia/POCUS standards.
+**QA:** YELLOW.
 
 ## PROC-US-009 — Artrocentesis ecoguiada — ADVANCED
 **Técnica:** identificar derrame, trayecto sin vasos, aguja bajo visión, aspiración. **Visual:** rodilla/cadera seleccionada.
