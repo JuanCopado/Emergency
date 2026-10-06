@@ -115,17 +115,17 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-EYE-008 — Cantotomía/cantólisis lateral — SPECIALIST
-**Objetivo:** descomprimir un síndrome compartimental orbitario y preservar visión.
-**Indicaciones:** clínica compatible con pérdida visual/neuropatía óptica por hipertensión orbitaria; no retrasar por imagen si el cuadro es claro.
-**Contraindicaciones/precauciones:** procedimiento de rescate; requiere conocimiento anatómico y reevaluación inmediata.
-**Material:** anestesia local, pinza, tijera/bisturí y material de hemostasia.
-**Anatomía:** canto lateral, tendones cantales inferior/superior y reborde orbitario.
-**Preparación:** analgesia/anestesia si no retrasa y protección del globo.
-**Técnica paso a paso:** realizar cantotomía lateral y seccionar inicialmente el tendón cantal inferior; reevaluar visión/tensión y ampliar solo si persiste la indicación y el operador está entrenado.
-**STOP:** anatomía no identificable o lesión ocular abierta compleja que requiera estrategia especializada.
-**Confirmación:** reducción de tensión/proptosis y mejoría funcional cuando sea posible evaluarla.
-**Complicaciones:** sangrado, lesión ocular/lacrimal, cicatriz y necesidad de reparación.
-**Después:** oftalmología urgente y tratamiento etiológico.
-**Documentación:** indicación, lado, pasos y respuesta visual.
-**Fuentes:** ophthalmology emergency/trauma guidance.
-**QA:** YELLOW.
+**Objetivo:** descomprimir de inmediato un síndrome compartimental orbitario (OCS) para preservar perfusión retiniana y del nervio óptico.
+**Indicaciones:** diagnóstico clínico de OCS con proptosis/tensión orbitaria y deterioro visual, RAPD, oftalmoplejía u otros signos de neuropatía óptica; una PIO >40 mmHg apoya la indicación cuando puede medirse sin retraso.
+**Contraindicaciones/precauciones:** no retrasar descompresión por TC si la clínica es convincente. La sospecha de globo abierto exige máxima precaución y estrategia oftalmológica/trauma específica, pero no elimina la urgencia de tratar un OCS verdadero.
+**Material:** anestesia local si no retrasa, hemostato, tijera roma/bisturí, material de hemostasia y escudo ocular cuando corresponda.
+**Anatomía:** canto lateral, tendón cantal lateral (crus inferior y superior), globo y glándula/arteria lagrimal.
+**Preparación:** documentar rápidamente agudeza visual/pupila/motilidad cuando sea posible; no retrasar el procedimiento por exploraciones prolongadas.
+**Técnica paso a paso:** realizar cantotomía lateral; identificar y seccionar primero el crus inferior del tendón cantal; reevaluar tensión, visión y PIO si es medible. Considerar cantólisis superior solo si la descompresión inferior es insuficiente y con especial cautela por riesgo de lesión lagrimal/hemorragia.
+**STOP:** no esperar imagen ante OCS clínico; detener disección ciega si no se identifica anatomía y buscar apoyo quirúrgico inmediato.
+**Confirmación:** liberación del párpado/proptosis, descenso de tensión/PIO y mejoría o estabilización de función visual cuando sea evaluable.
+**Complicaciones:** hemorragia, lesión del globo o aparato lagrimal, cicatriz y necesidad de reparación/decompresión orbital adicional.
+**Después:** oftalmología/orbital surgery urgente, control de causa y reevaluación visual seriada.
+**Documentación:** indicación clínica, ojo, hallazgos pre/post, pasos y respuesta.
+**Fuentes:** American Academy of Ophthalmology EyeWiki, Orbital Compartment Syndrome / Pre-Ophthalmologist Management of Eye Trauma (consultado 2026).
+**QA:** YELLOW; revisión humana oftalmológica pendiente.
