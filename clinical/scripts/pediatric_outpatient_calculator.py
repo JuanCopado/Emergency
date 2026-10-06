@@ -164,6 +164,32 @@ def _drops(dose_mg, volume_ml, product, entry):
         "warning": "Use only the verified dropper/pump for this exact product; drops are not interchangeable between products."
     }
 
+def _metered_pump(dose_mg, product):
+    """Return metered-pump actuations only for an explicitly verified exact product."""
+    if not product or product.get("mg_per_actuation") is None:
+        return None
+    if product.get("external_actuation_factor_verified") is not True:
+        return None
+    if not product.get("exact_product_name") or not product.get("actuation_factor_source_url"):
+        raise ValueError("verified pump factor requires exact_product_name and actuation_factor_source_url")
+    mg_per_actuation=_num(product["mg_per_actuation"],"mg_per_actuation")
+    if mg_per_actuation<=0:
+        raise ValueError("mg_per_actuation must be >0")
+    exact=float(dose_mg)/mg_per_actuation
+    rounded=int(math.floor(exact+0.5))
+    delivered=rounded*mg_per_actuation
+    error_pct=((delivered-float(dose_mg))/float(dose_mg)*100.0) if dose_mg else None
+    return {
+        "exact_actuations": exact,
+        "rounded_whole_actuations": rounded,
+        "mg_per_actuation": mg_per_actuation,
+        "delivered_mg_at_rounded_actuations": delivered,
+        "rounding_error_percent": error_pct,
+        "exact_product_name": product["exact_product_name"],
+        "actuation_factor_source_url": product["actuation_factor_source_url"],
+        "warning": "Pump actuations are device-specific and must never be interpreted as drops."
+    }
+
 def _check_patient_gates(entry, patient):
     for gate in entry.get("required_patient_flags", []):
         field=gate["field"]
@@ -404,6 +430,11 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
             result["drops_per_dose"]=drop_out
         elif product.get("form") in {"oral_drops","drops","drop_solution"}:
             result["drops_status"]="verified_exact_product_drop_factor_required"
+        pump_out=_metered_pump(dose,product)
+        if pump_out is not None:
+            result["pump_actuations_per_dose"]=pump_out
+        elif product.get("form") in {"metered_oral_pump","oral_pump"}:
+            result["pump_status"]="verified_exact_product_actuation_factor_required"
 
     if dose is not None and product is None and e.get("liquid_capable",False):
         result["volume_status"]="concentration_required_for_ml"
