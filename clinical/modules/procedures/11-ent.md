@@ -54,3 +54,14 @@ Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
 **Confirmación:** estabilidad suficiente sin interferencia oclusal importante y perfusión/tejidos blandos adecuados.  
 **Después:** derivación odontológica urgente y duración de férula según lesión específica/IADT.  
 **Fuente troncal:** IADT 2020 traumatic dental injuries guidelines.
+
+## PROC-ENT-014 — Bloqueo del nervio alveolar inferior — ADVANCED
+**Objetivo:** proporcionar anestesia regional mandibular para dolor/procedimientos dentales o reparación de tejidos seleccionada sin distorsionar el campo.  
+**Indicaciones:** dolor o procedimiento en hemimandíbula, dientes inferiores y tejidos correspondientes cuando un bloqueo regional es apropiado.  
+**Anatomía:** escotadura coronoidea, rafe pterigomandibular, rama mandibular y foramen mandibular; nervio lingual próximo.  
+**Preparación:** revisar alergias, anticoagulación y dosis total de anestésico desde módulo farmacológico; paciente semisentado con boca ampliamente abierta.  
+**Técnica:** identificar referencias, introducir aguja hacia cara medial de rama mandibular según técnica validada, aspirar antes de inyectar y administrar lentamente; no insertar hasta el hub.  
+**STOP:** dolor eléctrico persistente, aspiración positiva, resistencia inesperada, infección en sitio o anatomía no identificable.  
+**Confirmación:** anestesia ipsilateral esperada de dientes/labio inferior/mentón según distribución.  
+**Complicaciones:** hematoma, inyección intravascular, parestesia, trismus, toxicidad por anestésico local y rotura de aguja.  
+**Fuente troncal:** Merck/MSD Manual Professional, revisión 2025.
