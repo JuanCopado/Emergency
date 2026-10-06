@@ -307,20 +307,20 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **QA:** YELLOW.
 
 ## PROC-ORTHO-020 — Artrocentesis de rodilla — ADVANCED
-**Objetivo:** obtener líquido sinovial para diagnóstico o aliviar derrame seleccionado.  
-**Indicaciones:** sospecha de artritis séptica/cristales o derrame sintomático.  
-**Contraindicaciones/precauciones:** infección cutánea sobre trayecto; prótesis requiere coordinación especialista.  
-**Material:** aguja/jeringa, antiséptico, anestesia, tubos y US opcional.  
-**Anatomía:** receso suprapatelar y abordajes seguros.  
-**Preparación:** antisepsia estricta y posición.  
-**Técnica paso a paso:** 1) localizar abordaje; 2) anestesiar; 3) introducir evitando cartílago; 4) aspirar; 5) retirar; 6) distribuir muestras.  
-**STOP:** dolor intenso, sangre pulsátil o trayecto dudoso.  
-**Confirmación:** líquido obtenido.  
-**Complicaciones:** infección, sangrado, dolor.  
-**Después:** enviar recuento/cultivo/cristales según indicación.  
-**Documentación:** volumen/aspecto y estudios.  
-**Fuentes:** rheumatology/emergency procedural guidance.  
-**QA:** YELLOW.
+**Objetivo:** obtener líquido sinovial para diagnóstico y/o aliviar un derrame seleccionado.
+**Indicaciones:** sospecha de artritis séptica, artritis por cristales o derrame sintomático. SANJO recomienda aspirar lo antes posible cuando se sospecha artritis séptica.
+**Contraindicaciones/precauciones:** infección cutánea sobre el trayecto; prótesis articular requiere coordinación con ortopedia. En sepsis o shock séptico no retrasar antibióticos por la aspiración.
+**Material:** aguja/jeringa, antiséptico, anestesia, tubos/recipientes y ecografía si mejora seguridad/éxito.
+**Anatomía:** receso suprapatelar y abordajes medial/lateral seguros.
+**Preparación:** antisepsia estricta y posición cómoda; evitar trayecto a través de celulitis.
+**Técnica paso a paso:** localizar el receso, anestesiar, introducir la aguja evitando cartílago, aspirar y retirar; distribuir la muestra priorizando microbiología/cultivo, recuento celular con diferencial y cristales si el volumen es limitado.
+**STOP:** dolor intenso, sangre pulsátil, trayecto dudoso o sospecha de lesión vascular.
+**Confirmación:** líquido obtenido y muestra correctamente identificada.
+**Complicaciones:** infección iatrogénica, sangrado, dolor y lesión de estructuras adyacentes.
+**Después:** enviar muestras sin demora; integrar resultado con clínica porque ningún valor aislado excluye artritis séptica.
+**Documentación:** articulación, abordaje, uso de US, volumen/aspecto y estudios solicitados.
+**Fuentes:** SANJO Guideline for management of septic arthritis in native joints, 2023.
+**QA:** YELLOW; revisión humana ortopedia/infecciosas pendiente.
 
 ## PROC-ORTHO-021 — Artrocentesis de otras articulaciones seleccionadas — ADVANCED
 **Objetivo:** aspirar tobillo, muñeca, codo u hombro cuando clínicamente indicado.  
