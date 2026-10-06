@@ -51,7 +51,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-004 — Taponamiento posterior — ADVANCED
-**Uso:** sangrado posterior persistente. **Técnica:** balón/dispositivo especializado, monitorización, analgesia y ingreso; proteger vía aérea y coordinar ORL. **STOP:** hipoxia/bradicardia/aspiración. **Visual:** posición posterior.
+**Objetivo:** controlar hemorragia nasal posterior significativa.
+**Indicaciones:** sangrado posterior persistente o fracaso de medidas anteriores.
+**Contraindicaciones/precauciones:** requiere monitorización, analgesia y coordinación ORL; alto riesgo respiratorio y hemodinámico.
+**Material:** balón/dispositivo posterior, monitor, oxígeno, aspiración y analgesia.
+**Anatomía:** coana y nasofaringe.
+**Preparación:** asegurar vía aérea, acceso IV y apoyo ORL.
+**Técnica paso a paso:** introducir el dispositivo por el suelo nasal, posicionarlo en nasofaringe, inflar según fabricante y fijar.
+**STOP:** hipoxia, bradicardia, aspiración, dolor desproporcionado o sangrado persistente.
+**Confirmación:** control del sangrado y estabilidad.
+**Complicaciones:** hipoxia, respuesta vagal, necrosis, aspiración e infección.
+**Después:** ingreso/monitorización y tratamiento definitivo.
+**Documentación:** dispositivo, parámetros según fabricante y respuesta.
+**Fuentes:** AAO-HNS epistaxis guideline; ORL emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-ENT-005 — Cuerpo extraño nasal — CORE
 **Técnica:** visualizar; técnica de presión positiva (“beso del padre”) en niño apropiado o extracción con gancho/pinza según objeto; botón batería/imanes = urgencia inmediata. **STOP:** empujar posterior. **Visual:** técnicas.
