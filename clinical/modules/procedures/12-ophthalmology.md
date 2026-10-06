@@ -66,8 +66,21 @@ Estado: **YELLOW**.
 **Fuentes:** ophthalmology emergency guidance.
 **QA:** YELLOW.
 
-## PROC-EYE-005 — Fluoresceína — CORE
-**Técnica:** humedecer tira, tocar conjuntiva, parpadear, luz azul cobalto; documentar patrón y Seidel. **Visual:** abrasión y Seidel.
+## PROC-EYE-005 — Fluoresceína / prueba de Seidel — CORE
+**Objetivo:** detectar defectos epiteliales y fuga de humor acuoso.
+**Indicaciones:** abrasión, sospecha de lesión corneal o posible globo abierto.
+**Contraindicaciones/precauciones:** no ejercer presión sobre un globo potencialmente abierto.
+**Material:** tira de fluoresceína, suero y luz azul cobalto.
+**Anatomía:** córnea y conjuntiva.
+**Preparación:** humedecer la tira evitando contaminación.
+**Técnica paso a paso:** aplicar en conjuntiva, distribuir con parpadeo e inspeccionar con luz azul; buscar dilución lineal si Seidel.
+**STOP:** Seidel positivo → proteger con escudo y derivar urgentemente.
+**Confirmación:** patrón de tinción compatible con el hallazgo.
+**Complicaciones:** tinción temporal e irritación.
+**Después:** manejo según lesión.
+**Documentación:** patrón, localización y Seidel.
+**Fuentes:** ophthalmology emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-EYE-006 — Tonometría — CORE
 **Técnica:** descartar globo abierto; anestésico tópico; calibrar dispositivo; medir sin comprimir globo. **STOP:** sospecha de ruptura. **Visual:** applanación.
