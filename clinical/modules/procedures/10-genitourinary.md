@@ -66,21 +66,21 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **Fuentes:** urology emergency practice; gross hematuria/clot-retention procedural references.
 **QA:** YELLOW; revisión humana urología pendiente.
 
-## PROC-GU-005 — Sonda de tres vías e irrigación continua — ADVANCED
-**Objetivo:** prevenir obstrucción por coágulos en hematuria significativa.  
-**Indicaciones:** hematuria macroscópica con formación de coágulos tras evacuación.  
-**Contraindicaciones/precauciones:** sospecha de perforación/trauma uretral.  
-**Material:** sonda de tres vías, irrigación, bolsa de drenaje.  
-**Anatomía:** vejiga y lumen de irrigación/drenaje.  
-**Preparación:** evacuar coágulos primero y confirmar posición.  
-**Técnica paso a paso:** 1) conectar irrigación; 2) iniciar flujo; 3) titular para efluente rosado claro; 4) comprobar balance; 5) revisar obstrucción.  
-**STOP:** dolor, distensión, ausencia de salida o sangrado creciente.  
-**Confirmación:** drenaje continuo sin coágulos obstructivos.  
-**Complicaciones:** sobredistensión, obstrucción, infección.  
-**Después:** ajustar flujo y urología.  
-**Documentación:** entradas/salidas reales.  
-**Fuentes:** urology practice.  
-**QA:** YELLOW.
+## PROC-GU-005 — Sonda de tres vías e irrigación vesical continua — ADVANCED
+**Objetivo:** mantener drenaje y prevenir nueva obstrucción por coágulos en hematuria significativa.
+**Indicaciones:** hematuria macroscópica con formación recurrente de coágulos tras evacuación inicial.
+**Contraindicaciones/precauciones:** sospecha de perforación vesical, trauma uretral no resuelto, malposición del catéter o cirugía urológica reciente sin plan específico.
+**Material:** sonda de tres vías de calibre adecuado, solución de irrigación, sistema cerrado de irrigación y bolsa de drenaje graduada.
+**Anatomía:** vejiga, cuello vesical y luces de irrigación/drenaje.
+**Preparación:** evacuar coágulos manualmente primero, confirmar posición y permeabilidad del catéter y registrar débito basal.
+**Técnica paso a paso:** conectar la irrigación al puerto correcto, iniciar flujo continuo y titularlo para mantener efluente rosado claro sin coágulos; contabilizar entrada y salida para obtener diuresis real.
+**STOP:** dolor, distensión, ausencia de salida, nueva obstrucción, sangrado creciente o balance que sugiera retención intravesical.
+**Confirmación:** drenaje continuo, vejiga no distendida y efluente sin coágulos obstructivos.
+**Complicaciones:** sobredistensión, obstrucción, espasmo, infección y errores de balance hídrico.
+**Después:** reducir flujo conforme se aclare el efluente y mantener coordinación urológica.
+**Documentación:** velocidad/volumen de irrigación, entradas, salidas, diuresis neta y aspecto del efluente.
+**Fuentes:** urology emergency practice; gross hematuria/clot-retention management references.
+**QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-006 — Catéter suprapúbico — SPECIALIST
 **Objetivo:** drenar la vejiga cuando el acceso uretral está contraindicado, no es posible o ha fracasado.
