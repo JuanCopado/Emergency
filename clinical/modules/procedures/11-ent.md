@@ -115,7 +115,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-008 — Cerumen impactado — CORE
-**Técnica:** cerumenolítico, irrigación o extracción bajo visión según historia/tímpano. **Visual:** cureta bajo visión.
+**Objetivo:** aliviar obstrucción sintomática y permitir evaluación del conducto/tímpano.
+**Indicaciones:** cerumen impactado sintomático o que impide examen.
+**Contraindicaciones/precauciones:** perforación, cirugía previa, otitis externa severa o anatomía compleja.
+**Material:** cerumenolítico, cureta, succión o irrigación si es segura.
+**Anatomía:** conducto auditivo externo y tímpano.
+**Preparación:** historia otológica y otoscopia.
+**Técnica paso a paso:** ablandar si procede y retirar bajo visión o irrigar cuando esté indicado.
+**STOP:** dolor, sangrado o resistencia inesperada.
+**Confirmación:** conducto despejado y tímpano evaluable.
+**Complicaciones:** abrasión, perforación y otitis externa.
+**Después:** prevención de recurrencia si procede.
+**Documentación:** método y resultado.
+**Fuentes:** cerumen impaction guidance; MSD/Merck Professional.
+**QA:** YELLOW.
 
 ## PROC-ENT-009 — Hematoma auricular — ADVANCED
 **Técnica:** anestesia, incisión/aspiración según tamaño/tiempo, evacuar y colocar bolster compresivo moldeando pabellón; antibiótico según protocolo. **Visual:** cartílago-pericondrio.
