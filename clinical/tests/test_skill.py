@@ -5620,6 +5620,29 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(result['unexpected_uncovered'],[])
         self.assertEqual(result['stale_allowed'],[])
 
+    def test_v139_diagnostic_coverage_audit_has_no_unclassified_modules(self):
+        modules=(ROOT/'MODULES.md').read_text(encoding='utf-8').splitlines()
+        module_ids=[]
+        import re
+        for line in modules:
+            m=re.match(r"\| `([^`]+)`",line)
+            if m:
+                module_ids.append(m.group(1))
+        rules=json.loads((ROOT/'qa'/'clinical-note-diagnostic-rules.json').read_text(encoding='utf-8'))
+        audit=json.loads((ROOT/'qa'/'clinical-note-diagnostic-coverage-audit.json').read_text(encoding='utf-8'))
+        routed=set()
+        for rule in rules['syndromes']:
+            routed.add(rule['id'])
+            for group in ('suggested_tests','treatment'):
+                for item in rule.get(group,[]):
+                    routed.update(item.get('source_modules',[]))
+            routed.update(rule.get('must_not_miss',[]))
+            routed.update(rule.get('differential',[]))
+        exempt=set(audit['exempt_non_diagnostic_modules'])
+        missing=set(module_ids)-routed-exempt
+        self.assertEqual(missing,set(),sorted(missing))
+        self.assertEqual(set(module_ids)-routed,exempt)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
