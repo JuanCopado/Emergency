@@ -157,9 +157,9 @@ describe('Clinical note diagnostic workspace', () => {
     const boxes=screen.getAllByRole('textbox');
     const official=boxes.find(x=>x.parentElement?.textContent?.includes('Informe oficial / dados extraídos'));
     const ai=boxes.find(x=>x.parentElement?.textContent?.includes('Interpretação IA proposta'));
-    expect(official).toBeTruthy(); expect(ai).toBeTruthy();
-    await user.type(official!, 'Sem hemorragia intracraniana.');
-    await user.type(ai!, 'Sem achados agudos evidentes.');
+    if (!official || !ai) throw new Error('MCDT textareas not found');
+    await user.type(official, 'Sem hemorragia intracraniana.');
+    await user.type(ai, 'Sem achados agudos evidentes.');
     await user.click(screen.getByRole('button', { name: 'Criar cartão para revisão' }));
     expect(screen.getByTestId('mcdt-review-card')).toHaveTextContent('Pendente');
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
