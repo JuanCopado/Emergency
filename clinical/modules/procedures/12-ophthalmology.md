@@ -3,7 +3,20 @@
 Estado: **YELLOW**.
 
 ## PROC-EYE-001 — Irrigación ocular química — CORE
-**Objetivo:** iniciar de inmediato, antes de historia extensa. **Técnica:** anestésico tópico si disponible, irrigación copiosa con líquido apropiado desde medial a lateral, retirar lentes/partículas, evertir párpados, continuar hasta pH fisiológico sostenido. **Visual:** dirección de flujo.
+**Objetivo:** retirar el agente químico y normalizar la superficie ocular lo antes posible.
+**Indicaciones:** exposición ocular a ácidos, álcalis u otros irritantes químicos.
+**Contraindicaciones/precauciones:** no retrasar la irrigación por historia o exploración extensa; retirar partículas retenidas cuando sea posible.
+**Material:** irrigación abundante con líquido apropiado, anestésico tópico si disponible, separador palpebral y tiras de pH.
+**Anatomía:** córnea, conjuntiva y fondos de saco.
+**Preparación:** retirar lentes de contacto y partículas visibles; usar PPE.
+**Técnica paso a paso:** iniciar irrigación inmediata, dirigir flujo de medial a lateral, evertir párpados, retirar partículas y continuar hasta pH fisiológico sostenido.
+**STOP:** no retrasar irrigación por buscar el agente exacto.
+**Confirmación:** pH fisiológico estable y ausencia de material residual visible.
+**Complicaciones:** lesión corneal/conjuntival persistente, cicatrización y simbléfaron.
+**Después:** examen completo, fluoresceína y oftalmología según gravedad.
+**Documentación:** sustancia, tiempo, líquido usado y pH seriado.
+**Fuentes:** ophthalmic chemical injury emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-EYE-002 — Medición de pH ocular — CORE
 **Técnica:** papel pH en fondo de saco inferior evitando córnea; repetir tras pausas cortas de irrigación hasta estabilidad. **Visual:** ubicación.
