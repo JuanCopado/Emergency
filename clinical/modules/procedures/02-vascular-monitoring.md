@@ -227,17 +227,17 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW.
 
 ## PROC-VASC-015 — Manejo inicial de complicaciones mecánicas del CVC — ADVANCED
-**Objetivo:** reconocer y estabilizar complicaciones inmediatas del CVC.  
-**Indicaciones:** punción arterial, neumotórax/hemotórax, arritmia, malposición, embolia aérea o sangrado.  
-**Contraindicaciones/precauciones:** no retirar a ciegas un dilatador/catéter grande colocado arterialmente.  
-**Material:** US/POCUS, monitorización, oxígeno y recursos de control vascular/pleural.  
-**Anatomía:** cuello/tórax/ingle según sitio.  
-**Preparación:** detener procedimiento y estabilizar ABC.  
-**Técnica paso a paso:** 1) identificar complicación; 2) controlar sangrado/oxigenación; 3) POCUS/imagen; 4) consulta vascular/torácica cuando proceda; 5) tratamiento específico.  
-**STOP:** deterioro hemodinámico/respiratorio o acceso arterial de gran calibre.  
-**Confirmación:** resolución/estabilización y plan definitivo.  
-**Complicaciones:** shock, hemotórax, ictus/embolia, isquemia, lesión vascular.  
-**Después:** vigilancia y evento de seguridad.  
-**Documentación:** mecanismo, dispositivo, respuesta y consulta.  
-**Fuentes:** vascular access safety guidance; CDC 2024.  
-**QA:** YELLOW.
+**Objetivo:** reconocer y estabilizar complicaciones mecánicas inmediatas de un acceso venoso central.
+**Indicaciones:** sospecha de punción/canulación arterial, neumotórax, hemotórax, arritmia, embolia aérea, sangrado, malposición o lesión vascular.
+**Contraindicaciones/precauciones:** no retirar a ciegas un dilatador o catéter de gran calibre que haya sido colocado dentro de una arteria; dejarlo in situ y obtener ayuda vascular/endovascular urgente.
+**Material:** monitorización, ecografía/POCUS, oxígeno, material de control vascular/pleural y recursos de imagen/intervención.
+**Anatomía:** cuello, tórax o ingle según sitio; trayecto arterial/venoso y pleura.
+**Preparación:** detener el procedimiento, estabilizar ABC, mantener el dispositivo en posición si existe sospecha de canulación arterial de gran calibre y activar soporte especializado.
+**Técnica paso a paso:** identificar la complicación; controlar sangrado externo sin manipulación ciega; usar POCUS/imagen para neumotórax, hemotórax o malposición; consultar cirugía vascular/intervencionismo para canulación arterial de gran calibre; tratar neumotórax/hemotórax según módulos específicos; para embolia aérea, ocluir entrada de aire, administrar O2 y manejar hemodinámica.
+**STOP:** deterioro hemodinámico/respiratorio, hematoma expansivo, déficit neurológico o acceso arterial de gran calibre requieren escalada inmediata.
+**Confirmación:** estabilización clínica y plan definitivo documentado.
+**Complicaciones:** shock, hemotórax, neumotórax, ictus/embolia, isquemia, lesión vascular y necesidad de cirugía.
+**Después:** vigilancia, investigación de evento de seguridad y revisión de la necesidad/posición del acceso.
+**Documentación:** mecanismo, sitio, dispositivo/calibre, hallazgos, consultas, intervención y resultado.
+**Fuentes:** vascular access safety guidance; CDC catheter safety principles; contemporary interventional management of inadvertent arterial catheterization.
+**QA:** YELLOW; revisión humana vascular/UCI pendiente.
