@@ -275,20 +275,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW.
 
 ## PROC-WND-018 — Trepanación de hematoma subungueal — CORE
-**Objetivo:** aliviar dolor por hematoma subungueal con placa íntegra.  
-**Indicaciones:** hematoma doloroso tras trauma con uña conservada.  
-**Contraindicaciones/precauciones:** avulsión/laceración ungueal que requiera reparación o lesión compleja.  
-**Material:** cauterio/aguja apropiada, antisepsia y protección.  
-**Anatomía:** placa, lecho y matriz ungueal.  
-**Preparación:** examen distal y Rx si fractura sospechada.  
-**Técnica paso a paso:** 1) antisepsia; 2) perforar placa centralmente sin profundizar; 3) permitir drenaje; 4) limpiar/apósito.  
-**STOP:** dolor por contacto con lecho o lesión no compatible.  
-**Confirmación:** salida de sangre y alivio del dolor.  
-**Complicaciones:** infección, lesión lecho, quemadura.  
-**Después:** cuidado local.  
-**Documentación:** técnica/resultado.  
-**Fuentes:** hand/nail injury guidance.  
-**QA:** YELLOW.
+**Objetivo:** aliviar presión y dolor de un hematoma subungueal simple.
+**Indicaciones:** hematoma subungueal doloroso con placa y pliegues ungueales íntegros; Merck 2025 lo considera típico cuando ocupa >50% del lecho, aunque el criterio clínico principal es dolor/presión.
+**Contraindicaciones/precauciones:** avulsión de la uña, placa partida o laceración que se extiende a piel requieren evaluación para retirada/reparación; tras >1–2 días la sangre puede estar coagulada y la trepanación ser ineficaz.
+**Material:** electrocauterio o aguja apropiada, antisepsia, protección y bloqueo digital solo si es necesario.
+**Anatomía:** placa ungueal, lecho y matriz.
+**Preparación:** examen neurovascular y radiografía si se sospecha fractura distal relevante.
+**Técnica paso a paso:** crear uno o más orificios en la placa sobre el hematoma con cauterio o aguja; detener presión en cuanto se atraviese la placa y permitir drenaje espontáneo.
+**STOP:** dolor brusco por contacto con lecho, imposibilidad de atravesar placa de forma segura, lesión ungueal compleja o sospecha de matriz lesionada.
+**Confirmación:** salida de sangre y alivio rápido del dolor/presión.
+**Complicaciones:** infección, lesión del lecho, quemadura y drenaje incompleto.
+**Después:** apósito simple y cuidado local; no retirar una uña intacta solo por el tamaño del hematoma.
+**Documentación:** tiempo desde lesión, integridad ungueal, técnica y respuesta.
+**Fuentes:** Merck Manual Professional, How To Do Nail Trephination, updated May 2025; Fingertip Fractures, updated Mar 2025.
+**QA:** YELLOW; revisión humana mano/urgencias pendiente.
 
 ## PROC-WND-019 — Escharotomía — SPECIALIST
 **Objetivo:** liberar una escara circunferencial que compromete perfusión distal o ventilación.
