@@ -31,3 +31,16 @@ Ver **PROC-ORTHO-004**. Técnica canónica: hiperpronación primero; alternativa
 
 ## PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED
 **Técnica:** parches/palas adecuados, energía por peso desde algoritmo ERC/AHA pediátrico vigente; sincronizar cardioversión; desfibrilación no sincronizada en FV/TV sin pulso; RCP inmediata. **Visual:** parches y modo SYNC.
+
+## PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal — ADVANCED/PED
+**Objetivo:** obtener acceso vascular rápido en el recién nacido que requiere medicación o expansión de volumen durante reanimación avanzada.  
+**Indicaciones:** cuando se necesita acceso intravascular urgente durante reanimación neonatal; las guías AHA/AAP 2025 recomiendan la vía venosa umbilical como acceso de elección y consideran IO si no es posible o factible.  
+**Material:** campo estéril, pinza/cinta umbilical, bisturí o tijera estéril, catéter umbilical apropiado, jeringas, solución de lavado, sistema de fijación y monitorización.  
+**Anatomía:** identificar la vena umbilical de pared fina y luz mayor frente a las dos arterias de pared más gruesa.  
+**Preparación:** mantener ventilación y compresiones sin interrupciones evitables; técnica estéril; coordinar roles.  
+**Técnica:** exponer y seccionar el cordón de forma controlada; identificar la vena; introducir un catéter venoso umbilical de baja posición solo lo necesario para obtener retorno y administración segura durante reanimación; aspirar/confirmar permeabilidad, fijar y documentar.  
+**STOP:** resistencia marcada, falsa vía, extravasación, sangrado o posición dudosa; no avanzar a profundidad definitiva sin confirmación apropiada.  
+**Confirmación:** retorno sanguíneo/permeabilidad y respuesta clínica; para uso continuado o posición alta se requiere confirmación de posición según protocolo neonatal.  
+**Complicaciones:** mala posición, extravasación, hemorragia, trombosis, infección, lesión hepática/portal y arritmia si avance excesivo.  
+**Después:** asegurar fijación, reevaluar necesidad y sustituir por acceso definitivo según evolución.  
+**Fuente troncal:** AHA/AAP 2025 Neonatal Resuscitation Guidelines.
