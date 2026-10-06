@@ -332,13 +332,15 @@
 184. **PROC-SP-009 — Descontaminación cutánea química** — CORE  
 185. **PROC-SP-010 — Descontaminación en exposición a opioides/polvos tóxicos** — CORE  
 186. **PROC-SP-011 — Manejo de hipotermia: recalentamiento externo activo** — CORE  
-187. **PROC-SP-012 — Recalentamiento invasivo seleccionado** — SPECIALIST
+187. **PROC-SP-012 — Recalentamiento invasivo seleccionado** — SPECIALIST  
+188. **PROC-SP-013 — REBOA (oclusión endovascular resucitativa de la aorta)** — SPECIALIST  
+189. **PROC-SP-014 — ECPR / canulación VA-ECMO durante parada refractaria** — SPECIALIST
 
 ---
 
 # Resumen del catálogo
 
-- **Total actual: 198 IDs textuales: 197 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
+- **Total actual: 200 IDs textuales: 199 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
 - El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate, neonatales, obstétricos, dentales y variantes pediátricas/POCUS sin duplicar contenido.
 - La **luxación mandibular** queda incluida como `PROC-ORTHO-022`.
 - Los procedimientos de alto riesgo se mantienen **YELLOW** hasta revisión bibliográfica específica y Clinical QA.
