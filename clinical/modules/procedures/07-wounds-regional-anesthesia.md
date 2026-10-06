@@ -35,20 +35,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana anestesia/urgencias pendiente.
 
 ## PROC-WND-003 — Bloqueo de hematoma — ADVANCED
-**Objetivo:** analgesia para reducción de fractura seleccionada, típicamente radio distal.  
-**Indicaciones:** fractura cerrada con hematoma accesible.  
-**Contraindicaciones/precauciones:** infección, fractura abierta o dosis acumulada excesiva.  
-**Material:** anestésico, aguja/jeringa, antiséptico.  
-**Anatomía:** foco de fractura/hematoma.  
-**Preparación:** calcular dosis y localizar foco.  
-**Técnica paso a paso:** 1) antisepsia; 2) punción al hematoma; 3) aspirar sangre para confirmar; 4) inyectar lentamente; 5) esperar efecto.  
-**STOP:** resistencia, parestesia o toxicidad.  
-**Confirmación:** analgesia suficiente.  
-**Complicaciones:** infección, LAST, lesión neurovascular.  
-**Después:** reducción/inmovilización.  
-**Documentación:** dosis/efecto.  
-**Fuentes:** orthopedic analgesia procedural guidance.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar analgesia para reducción cerrada de fractura seleccionada, especialmente radio distal, evitando sedación cuando sea apropiado.
+**Indicaciones:** fractura cerrada con hematoma accesible que requiere manipulación/reducción.
+**Contraindicaciones/precauciones:** infección local, fractura abierta, alergia al anestésico, dosis acumulada excesiva o anatomía que impida identificar el foco.
+**Material:** anestésico local desde módulo farmacológico, aguja/jeringa, antiséptico, monitorización básica y material para LAST.
+**Anatomía:** foco de fractura y hematoma peri-fractura; evitar estructuras neurovasculares vecinas.
+**Preparación:** documentar neurovascular, revisar imagen, localizar el foco y calcular dosis máxima total.
+**Técnica paso a paso:** antisepsia; introducir la aguja en el hematoma de fractura; aspirar sangre para confirmar posición; inyectar lentamente el anestésico y esperar efecto antes de manipular.
+**STOP:** resistencia, parestesia intensa, aspiración no compatible, dolor inesperado o signos de LAST.
+**Confirmación:** analgesia suficiente para reducción sin deterioro neurovascular.
+**Complicaciones:** infección, hematoma adicional, lesión neurovascular, inyección intravascular y LAST.
+**Después:** realizar reducción, inmovilización y examen neurovascular postprocedimiento.
+**Documentación:** fractura, agente/dosis, confirmación del hematoma, efecto y complicaciones.
+**Fuentes:** Merck Manual Professional, Distal Radius Fractures, updated 2025; Best Evidence Topic 2026 comparing haematoma block vs procedural sedation.
+**QA:** YELLOW; revisión humana ortopedia/urgencias pendiente.
 
 ## PROC-WND-004 — Bloqueo femoral ecoguiado — ADVANCED/POCUS
 **Objetivo:** proporcionar analgesia regional para fractura de cadera/fémur u otros procedimientos apropiados.
