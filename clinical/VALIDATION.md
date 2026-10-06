@@ -579,14 +579,14 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Added structured clinical-note schema, privacy policy, modality routing, provenance model and diagnosis-support output contract.
 - Export smoke tests verify DOCX/PDF creation only after privacy and clinician-review gates pass.
 - Direct-identifier detection, clinician-review requirement, attachment routing and final-yellow-review queue are covered by automated tests.
-- Clinical QA #582: **363/363 tests PASS**; 131/131 modules; 29 green / 102 yellow / 0 red.
+- Clinical QA #586: **363/363 tests PASS**; 131/131 modules; 29 green / 102 yellow / 0 red.
 - Automated tests do not establish diagnostic accuracy, legal compliance or human specialist sign-off.
 
 ## v1.39 executable diagnostic engine — 04/10/2026
 - Added transparent rule registry and executable reasoning engine for 92 emergency/acute-care syndromes.
 - Diagnostic regression banks expanded to 60 synthetic scenarios spanning cardiovascular, respiratory, neurologic, infectious, GI/surgical, renal-metabolic, endocrine, hepatology and toxicology presentations.
 - Generated assessments reset clinician sign-off before export.
-- Clinical QA #582: **363/363 tests PASS**.
+- Clinical QA #586: **363/363 tests PASS**.
 - This validates deterministic behavior, not diagnostic sensitivity/specificity or prospective clinical performance.
 
 
@@ -597,5 +597,5 @@ Further versions should prioritize validation and targeted refinement over uncon
 - Short acronym matching uses token boundaries to avoid substring false positives.
 - Coverage audit: 115/131 modules covered/routed + 16 explicitly non-diagnostic support modules = 131/131 classified.
 - Unexpected uncovered clinical modules: 0.
-- Clinical QA #582: **363/363 tests PASS**.
+- Clinical QA #586: **363/363 tests PASS**.
 - This does not establish prospective sensitivity/specificity or substitute final human review.
