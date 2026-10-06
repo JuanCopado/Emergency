@@ -1,0 +1,199 @@
+{
+  "procedure_id": "PROC-AIR-005",
+  "name": "Ventilación bolsa-válvula-mascarilla a un operador",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Oxigenar y ventilar temporalmente en apnea o ventilación insuficiente.",
+  "indications": [
+    "Apnea.",
+    "Hipoventilación.",
+    "Periodo peri-intubación.",
+    "Reanimación."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "No existe contraindicación absoluta cuando la ventilación es necesaria.",
+      "Técnica deficiente aumenta riesgo de aspiración e insuflación gástrica.",
+      "Evitar ventilación excesiva."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Bolsa autoinflable.",
+      "Mascarilla adecuada.",
+      "Reservorio y fuente de oxígeno."
+    ],
+    "optional": [
+      "Filtro.",
+      "PEEP según indicación.",
+      "Cánula orofaríngea o nasofaríngea."
+    ],
+    "monitoring": [
+      "SpO₂.",
+      "Capnografía si disponible."
+    ],
+    "rescue": [
+      "Aspiración.",
+      "Equipo para BVM a dos operadores.",
+      "Dispositivo supraglótico e intubación."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Puente nasal.",
+      "Boca.",
+      "Mandíbula."
+    ],
+    "target": [
+      "Sello facial y apertura de vía aérea superior."
+    ],
+    "avoid": [
+      "Compresión excesiva de tejidos blandos.",
+      "Mala posición mandibular."
+    ],
+    "laterality": null,
+    "variants": [
+      "Agarre C-E."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Posición óptima de vía aérea; rampa cuando proceda.",
+    "operator_position": "Cabecera.",
+    "monitoring": [
+      "SpO₂.",
+      "ETCO₂ si disponible."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Abrir vía aérea.",
+      "Añadir adjunct si precisa.",
+      "Comprobar equipo y oxígeno."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Colocar la mascarilla cubriendo nariz y boca.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Formar un sello con agarre C-E.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Elevar la mandíbula para mantener la vía aérea abierta.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Comprimir la bolsa suavemente hasta observar elevación torácica.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Ajustar sello, posición y adjuncts según respuesta.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Expansión torácica visible.",
+    "Mejoría de SpO₂.",
+    "ETCO₂ adecuado cuando está disponible."
+  ],
+  "stop_points": [
+    "Ausencia de elevación torácica.",
+    "Fuga importante.",
+    "Distensión gástrica.",
+    "Empeoramiento de oxigenación."
+  ],
+  "complications": {
+    "immediate": [
+      "Aspiración.",
+      "Insuflación gástrica.",
+      "Hipoventilación por fuga.",
+      "Barotrauma por ventilación excesiva."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Optimizar posición y adjuncts.",
+    "Cambiar a técnica de dos operadores si el sello es insuficiente.",
+    "Escalar a supraglótico o intubación si la ventilación continúa siendo ineficaz."
+  ],
+  "aftercare": [
+    "Mantener soporte hasta recuperación o establecimiento de vía aérea más segura."
+  ],
+  "documentation": [
+    "Eficacia.",
+    "Adjuncts utilizados.",
+    "Necesidad de escalada."
+  ],
+  "pearls": [
+    "Priorizar apertura de vía aérea y sello antes de aumentar la fuerza de compresión de la bolsa."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar mascarilla y bolsa apropiadas al tamaño y evitar volúmenes excesivos."
+    ],
+    "pregnancy": [],
+    "obesity": [
+      "La técnica a dos operadores y la posición en rampa suelen mejorar el sello."
+    ],
+    "trauma": [
+      "Mantener precauciones cervicales cuando corresponda."
+    ],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Escalar precozmente a dos operadores y adjuncts."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "Basic Emergency Care: Approach to the acutely ill and injured",
+      "organization": "WHO / ICRC",
+      "year": "current training resource",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
