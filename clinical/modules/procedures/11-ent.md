@@ -115,20 +115,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-008 — Cerumen impactado — CORE
-**Objetivo:** aliviar obstrucción sintomática y permitir evaluación del conducto/tímpano.
-**Indicaciones:** cerumen impactado sintomático o que impide examen.
-**Contraindicaciones/precauciones:** perforación, cirugía previa, otitis externa severa o anatomía compleja.
-**Material:** cerumenolítico, cureta, succión o irrigación si es segura.
-**Anatomía:** conducto auditivo externo y tímpano.
-**Preparación:** historia otológica y otoscopia.
-**Técnica paso a paso:** ablandar si procede y retirar bajo visión o irrigar cuando esté indicado.
-**STOP:** dolor, sangrado o resistencia inesperada.
-**Confirmación:** conducto despejado y tímpano evaluable.
-**Complicaciones:** abrasión, perforación y otitis externa.
-**Después:** prevención de recurrencia si procede.
-**Documentación:** método y resultado.
-**Fuentes:** cerumen impaction guidance; MSD/Merck Professional.
-**QA:** YELLOW.
+**Objetivo:** resolver cerumen impactado sintomático o que impide la evaluación necesaria del conducto/tímpano.
+**Indicaciones:** síntomas atribuibles al cerumen o imposibilidad de explorar adecuadamente el oído cuando la exploración es necesaria.
+**Contraindicaciones/precauciones:** factores modificadores incluyen tímpano no íntegro/tubos, cirugía de oído previa, estenosis/exostosis del canal, anticoagulación, diabetes, inmunosupresión o infección activa; elegir técnica acorde al riesgo.
+**Material:** cerumenolítico, irrigación cuando sea segura, cureta o succión bajo visión.
+**Anatomía:** conducto auditivo externo y membrana timpánica.
+**Preparación:** historia otológica y otoscopia; determinar si la irrigación está contraindicada.
+**Técnica paso a paso:** usar cerumenolítico, irrigación o extracción manual según anatomía y riesgo; evitar instrumentación ciega y reevaluar tras cada intento.
+**STOP:** dolor intenso, sangrado, vértigo, pérdida auditiva aguda o resistencia inesperada.
+**Confirmación:** conducto suficientemente despejado, síntomas mejorados y/o tímpano evaluable.
+**Complicaciones:** abrasión, perforación, otitis externa, vértigo e infección.
+**Después:** si persisten síntomas tras retirar cerumen, buscar otra causa; prevención individualizada si recurrencia.
+**Documentación:** técnica, resultado y estado timpánico.
+**Fuentes:** AAO-HNSF Clinical Practice Guideline: Cerumen Impaction (Update), 2017; guideline remains the current AAO-HNS cerumen guideline.
+**QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-009 — Hematoma auricular — ADVANCED
 **Objetivo:** evacuar hematoma y prevenir deformidad del pabellón.
