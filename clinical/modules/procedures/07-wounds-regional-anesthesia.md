@@ -243,20 +243,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana urgencias/infecciosas pendiente.
 
 ## PROC-WND-016 — Extracción de cuerpo extraño superficial — CORE
-**Objetivo:** retirar cuerpo extraño accesible sin lesionar estructuras profundas.  
-**Indicaciones:** material superficial sintomático o con riesgo de infección/daño.  
-**Contraindicaciones/precauciones:** proximidad vascular/nerviosa/ocular, penetración profunda o fragmento no localizable.  
-**Material:** anestesia, pinzas, bisturí, US/Rx según material.  
-**Anatomía:** trayecto y estructuras cercanas.  
-**Preparación:** localizar antes de ampliar herida.  
-**Técnica paso a paso:** 1) visualizar/localizar; 2) anestesiar; 3) ampliar mínimamente si precisa; 4) extraer bajo visión; 5) irrigar.  
-**STOP:** pérdida de visualización o resistencia profunda.  
-**Confirmación:** objeto completo.  
-**Complicaciones:** lesión estructural, fragmento retenido, infección.  
-**Después:** tétanos/cuidado herida.  
-**Documentación:** objeto y método.  
-**Fuentes:** MSD/Merck foreign body guidance.  
-**QA:** YELLOW.
+**Objetivo:** retirar un cuerpo extraño accesible minimizando lesión de estructuras profundas y fragmentos retenidos.
+**Indicaciones:** material superficial sintomático, contaminante o con riesgo razonable de infección, toxicidad o lesión funcional.
+**Contraindicaciones/precauciones:** proximidad a nervio, vaso, tendón, articulación, ojo o cavidad corporal; objeto profundo/no localizable o material fragmentable puede requerir imagen o especialista.
+**Material:** anestesia local, pinzas, bisturí, irrigación y US/Rx cuando la naturaleza del material lo aconseje.
+**Anatomía:** trayecto del objeto y estructuras vecinas.
+**Preparación:** documentar neurovascular, localizar antes de ampliar la herida y elegir imagen cuando el material sea radiopaco o ecovisible.
+**Técnica paso a paso:** exponer bajo visión, anestesiar, ampliar mínimamente siguiendo el trayecto si es necesario, retirar con pinza adecuada y reexplorar/irrigar.
+**STOP:** pérdida de visualización, resistencia profunda, sangrado relevante, parestesia o proximidad a estructura crítica.
+**Confirmación:** objeto íntegro recuperado o inspección/imagen sin fragmentos relevantes cuando la integridad sea dudosa.
+**Complicaciones:** fragmento retenido, infección, lesión neurovascular/tendinosa y cicatriz.
+**Después:** tétanos y cuidado de herida según contexto; informar si se decide dejar un fragmento inerte porque extraerlo supondría más riesgo.
+**Documentación:** tipo/tamaño aproximado, imagen utilizada, método, integridad y complicaciones.
+**Fuentes:** Merck Manual Professional wound exploration/foreign-body guidance, updated 2025–2026.
+**QA:** YELLOW; revisión humana de urgencias/cirugía pendiente.
 
 ## PROC-WND-017 — Extracción de anillo — CORE
 **Objetivo:** aliviar compresión digital preservando tejido.  
