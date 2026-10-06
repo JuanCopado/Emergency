@@ -17,8 +17,8 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 ## PROC-SP-005 — Mordeduras/heridas contaminadas — CORE
 **Técnica:** irrigación abundante, exploración, desbridamiento selectivo, evaluar tendón/articulación, profilaxis tétanos/rabia y antibiótico según especie/sitio/riesgo; cierre diferido en heridas seleccionadas. **Visual:** irrigación y zonas de alto riesgo.
 
-## PROC-SP-006 — Lavado ocular continuo — CORE
-Ver **PROC-EYE-001**. Puede utilizar lente de irrigación cuando apropiada y no haya globo abierto.
+## PROC-SP-006 — Lavado ocular continuo — REFERENCIA
+Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin duplicar la irrigación ocular química.
 
 ## PROC-SP-007 — Lavado gástrico — SPECIALIST
 **Uso:** excepcional, ingestión potencialmente letal muy reciente cuando beneficio supera riesgo y vía aérea protegida si necesaria. **Técnica:** toxicología/centro toxicológico, tubo orogástrico grande, posición y alícuotas controladas. **STOP:** cáusticos, hidrocarburos con alto riesgo aspiración o vía aérea no protegida. **Visual:** algoritmo de selección más que técnica rutinaria.
