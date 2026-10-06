@@ -197,7 +197,9 @@
 106. **PROC-WND-017 — Extracción de anillo** — CORE  
 107. **PROC-WND-018 — Trepanación de hematoma subungueal** — CORE  
 108. **PROC-WND-019 — Escharotomía** — SPECIALIST  
-109. **PROC-WND-020 — Manejo inicial de ampollas/quemaduras** — CORE
+109. **PROC-WND-020 — Manejo inicial de ampollas/quemaduras** — CORE  
+110. **PROC-WND-021 — Extracción de anzuelo superficial** — CORE  
+111. **PROC-WND-022 — Reparación de lecho ungueal** — ADVANCED
 
 ---
 
@@ -221,7 +223,8 @@
 118. **PROC-GI-005 — Anoscopia** — CORE  
 119. **PROC-GI-006 — Desimpactación fecal** — CORE  
 120. **PROC-GI-007 — Reducción manual de prolapso rectal seleccionado** — ADVANCED  
-121. **PROC-GI-008 — Manejo inicial de gastrostomía desplazada** — ADVANCED
+121. **PROC-GI-008 — Manejo inicial de gastrostomía desplazada** — ADVANCED  
+122. **PROC-GI-009 — Extracción de cuerpo extraño rectal** — ADVANCED
 
 ---
 
@@ -234,7 +237,8 @@
 126. **PROC-GU-005 — Sonda de tres vías e irrigación continua** — ADVANCED  
 127. **PROC-GU-006 — Catéter suprapúbico** — SPECIALIST  
 128. **PROC-GU-007 — Reducción manual de parafimosis** — CORE  
-129. **PROC-GU-008 — Descompresión inicial de priapismo isquémico** — ADVANCED
+129. **PROC-GU-008 — Descompresión inicial de priapismo isquémico** — ADVANCED  
+130. **PROC-GU-009 — Extracción de cuerpo extraño vaginal** — ADVANCED
 
 ---
 
@@ -252,7 +256,8 @@
 139. **PROC-ENT-010 — Drenaje de absceso periamigdalino** — ADVANCED  
 140. **PROC-ENT-011 — Reducción de luxación mandibular** — referencia cruzada a ORTHO-022  
 141. **PROC-ENT-012 — Reimplante urgente de diente permanente avulsionado** — CORE  
-142. **PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar** — ADVANCED
+142. **PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar** — ADVANCED  
+143. **PROC-ENT-014 — Bloqueo del nervio alveolar inferior** — ADVANCED
 
 ---
 
@@ -333,7 +338,7 @@
 
 # Resumen del catálogo
 
-- **Total actual: 193 IDs textuales: 192 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
+- **Total actual: 198 IDs textuales: 197 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
 - El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate, neonatales, obstétricos, dentales y variantes pediátricas/POCUS sin duplicar contenido.
 - La **luxación mandibular** queda incluida como `PROC-ORTHO-022`.
 - Los procedimientos de alto riesgo se mantienen **YELLOW** hasta revisión bibliográfica específica y Clinical QA.
