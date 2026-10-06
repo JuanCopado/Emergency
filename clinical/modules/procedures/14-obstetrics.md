@@ -83,7 +83,20 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-006 — Extracción manual de coágulos seleccionada — ADVANCED
-**Uso:** atonía con coágulos intrauterinos y operador entrenado. **Técnica:** analgesia, asepsia, estabilizar útero externamente, extracción cuidadosa; no confundir con extracción manual de placenta adherida. **Visual:** bimanual.
+**Objetivo:** evacuar coágulos intrauterinos que perpetúan atonía o hemorragia.
+**Indicaciones:** atonía con coágulos intrauterinos y operador entrenado.
+**Contraindicaciones/precauciones:** no confundir con extracción manual de placenta adherida; evitar si sospecha de ruptura o anatomía incierta.
+**Material:** analgesia/anestesia, guantes estériles y material PPH.
+**Anatomía:** cavidad uterina, cérvix y fondo.
+**Preparación:** reanimación en paralelo, asepsia y estabilización uterina externa.
+**Técnica paso a paso:** estabilizar el útero externamente e introducir la mano de forma controlada para extraer coágulos accesibles.
+**STOP:** resistencia, dolor extremo, sospecha de adherencia placentaria o perforación.
+**Confirmación:** reducción de contenido y mejor contracción uterina.
+**Complicaciones:** trauma, infección y hemorragia.
+**Después:** continuar tratamiento etiológico de PPH.
+**Documentación:** indicación, hallazgos y respuesta.
+**Fuentes:** obstetric PPH procedural guidance.
+**QA:** YELLOW.
 
 ## PROC-OBS-007 — Inversión uterina: reposición inicial — ADVANCED
 **Objetivo:** reposición inmediata con shock/hemorragia. **Técnica:** reanimar en paralelo, suspender uterotónicos hasta reposición según protocolo, presión manual sobre fondo invertido hacia eje vaginal/umbilical, mantener hasta contracción tras reposición. **STOP:** fracaso → obstetricia/quirófano. **Visual:** Johnson maneuver.
