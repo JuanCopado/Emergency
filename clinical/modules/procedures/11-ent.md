@@ -99,7 +99,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-007 — Irrigación de oído — CORE
-**Uso:** cerumen/cuerpo seleccionado con tímpano íntegro. **Técnica:** agua a temperatura corporal, chorro dirigido a pared posterior-superior, baja presión. **STOP:** tubo/ perforación, cirugía previa, batería/vegetal expansible. **Visual:** dirección.
+**Objetivo:** retirar cerumen o cuerpo extraño seleccionado.
+**Indicaciones:** contenido removible con membrana timpánica íntegra.
+**Contraindicaciones/precauciones:** perforación, tubo, cirugía previa, batería o material vegetal expansible.
+**Material:** agua o solución a temperatura corporal y sistema de baja presión.
+**Anatomía:** conducto auditivo y membrana timpánica.
+**Preparación:** confirmar que la irrigación es segura según historia y examen.
+**Técnica paso a paso:** dirigir el chorro a pared posterosuperior del conducto, irrigar a baja presión y permitir salida libre.
+**STOP:** dolor, vértigo, sangrado o empeoramiento auditivo.
+**Confirmación:** canal despejado.
+**Complicaciones:** perforación, vértigo y otitis externa.
+**Después:** secado y reevaluación.
+**Documentación:** resultado y tolerancia.
+**Fuentes:** MSD/Merck Professional.
+**QA:** YELLOW.
 
 ## PROC-ENT-008 — Cerumen impactado — CORE
 **Técnica:** cerumenolítico, irrigación o extracción bajo visión según historia/tímpano. **Visual:** cureta bajo visión.
