@@ -147,7 +147,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-010 — Absceso periamigdalino — ADVANCED
-**Técnica:** valorar vía aérea; anestesia tópica/local; aspiración o incisión en zona de máxima prominencia usando guardia de profundidad; aspirar antes de avanzar. **STOP:** anatomía incierta, trismus extremo, sangrado o vía aérea amenazada → ORL/anestesia. **Visual:** relación con carótida.
+**Objetivo:** drenar colección protegiendo la vía aérea.
+**Indicaciones:** absceso periamigdalino accesible con paciente estable.
+**Contraindicaciones/precauciones:** vía aérea amenazada, anatomía incierta, trismus extremo o paciente no cooperador.
+**Material:** succión, anestesia tópica/local y aguja con limitador o bisturí apropiado.
+**Anatomía:** región periamigdalina y relación lateral/posterior con la carótida.
+**Preparación:** valorar vía aérea, posición sentada y succión preparada.
+**Técnica paso a paso:** anestesiar; localizar máxima prominencia; aspirar o incidir de forma controlada; drenar; reevaluar vía aérea.
+**STOP:** sangrado, anatomía dudosa o deterioro respiratorio.
+**Confirmación:** pus obtenido y mejoría clínica.
+**Complicaciones:** hemorragia, aspiración y lesión vascular.
+**Después:** antibiótico/analgesia y ORL según gravedad.
+**Documentación:** lado, técnica y resultado.
+**Fuentes:** ORL emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-ENT-011 — Luxación mandibular — REFERENCIA
 Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
