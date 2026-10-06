@@ -131,17 +131,17 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-009 — Extracción de cuerpo extraño vaginal — ADVANCED
-**Objetivo:** retirar cuerpo extraño visible/accesible evitando lesión mucosa.  
-**Indicaciones:** objeto retenido con acceso seguro y paciente estable.  
-**Contraindicaciones/precauciones:** objeto cortante, alto/no visible, sospecha de perforación/fístula o paciente no cooperadora.  
-**Material:** espéculo, luz, pinzas adecuadas, lubricante y analgesia.  
-**Anatomía:** vagina, cérvix, uretra y recto.  
-**Preparación:** consentimiento, privacidad/chaperón y evaluación de abuso en contexto apropiado.  
-**Técnica paso a paso:** 1) visualizar; 2) sujetar con instrumento adecuado; 3) retirar suavemente bajo visión; 4) inspeccionar mucosa; 5) confirmar integridad.  
-**STOP:** dolor, sangrado, resistencia o pérdida de visualización.  
-**Confirmación:** objeto íntegro retirado.  
-**Complicaciones:** abrasión, hemorragia, infección, fragmentación.  
-**Después:** ginecología si lesión/objeto complejo.  
-**Documentación:** objeto, examen y complicaciones.  
-**Fuentes:** NCBI clinical review; protocolo ginecológico local.  
-**QA:** YELLOW.
+**Objetivo:** retirar un cuerpo extraño vaginal visible/accesible evitando lesión mucosa, uretral, cervical o rectal.
+**Indicaciones:** objeto retenido con acceso seguro y paciente estable.
+**Contraindicaciones/precauciones:** objeto cortante, alto/no visible, sospecha de perforación/fístula, sangrado importante, paciente no cooperadora o necesidad de sedación/anestesia fuera del entorno disponible.
+**Material:** espéculo, buena iluminación, pinzas adecuadas, lubricante, irrigación y analgesia/anestesia según caso.
+**Anatomía:** introito, paredes vaginales, fórnices, cérvix, uretra y recto.
+**Preparación:** consentimiento, privacidad, acompañante/chaperón, historia del objeto/tiempo retenido y evaluación de abuso/violencia cuando el contexto lo requiera.
+**Técnica paso a paso:** realizar inspección bajo visión; localizar el objeto; sujetarlo con instrumento apropiado y retirarlo suavemente siguiendo su eje; irrigar si procede; inspeccionar mucosa y cérvix tras la extracción.
+**STOP:** dolor significativo, sangrado, resistencia, pérdida de visualización, objeto cortante o sospecha de perforación.
+**Confirmación:** objeto íntegro retirado y ausencia de lesión relevante visible.
+**Complicaciones:** abrasión, laceración, hemorragia, infección, fragmento retenido, fístula y perforación.
+**Después:** ginecología si hay lesión, objeto complejo o retención prolongada; valorar imagen si no se confirma extracción completa.
+**Documentación:** objeto, tiempo estimado, técnica, integridad, examen postprocedimiento y complicaciones.
+**Fuentes:** NCBI Bookshelf/StatPearls, Vaginal Foreign Body Evaluation and Treatment, updated 2023 / PubMed 2026 edition.
+**QA:** YELLOW; revisión humana ginecología pendiente.
