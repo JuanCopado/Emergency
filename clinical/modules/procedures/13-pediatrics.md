@@ -99,7 +99,20 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW.
 
 ## PROC-PED-007 — Sondaje vesical pediátrico — CORE/PED
-**Técnica:** tamaño adecuado, técnica estéril, lubricación, avance sin fuerza, inflar balón solo en catéter diseñado y con orina confirmada. **Visual:** niño/niña.
+**Objetivo:** obtener drenaje/muestra urinaria cuando está indicado.
+**Indicaciones:** retención, monitorización crítica o muestra estéril seleccionada.
+**Contraindicaciones/precauciones:** sospecha de lesión uretral o anatomía compleja.
+**Material:** catéter de tamaño apropiado, campo estéril, lubricante y bolsa.
+**Anatomía:** uretra/vejiga pediátrica.
+**Preparación:** técnica estéril y tamaño correcto.
+**Técnica paso a paso:** lubricar, avanzar sin fuerza, confirmar orina; inflar balón solo si el catéter está diseñado para ello y la posición es segura.
+**STOP:** resistencia, sangrado o dolor intenso.
+**Confirmación:** drenaje urinario libre.
+**Complicaciones:** trauma uretral, falsa vía e infección.
+**Después:** sistema cerrado y retirada precoz cuando no sea necesario.
+**Documentación:** calibre, balón si aplica y resultado.
+**Fuentes:** pediatric urinary catheterization guidance.
+**QA:** YELLOW.
 
 ## PROC-PED-008 — Pronación dolorosa — REFERENCIA
 Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técnica.
