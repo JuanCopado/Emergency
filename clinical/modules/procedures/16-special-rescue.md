@@ -167,19 +167,19 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 
 ## PROC-SP-012 — Recalentamiento invasivo — SPECIALIST
 **Objetivo:** proporcionar recalentamiento interno o extracorpóreo en hipotermia grave seleccionada.
-**Indicaciones:** hipotermia grave con inestabilidad hemodinámica, paro cardiaco o fracaso de medidas externas según protocolo y recursos.
-**Contraindicaciones/precauciones:** la elección del método depende de gravedad, causa, recursos y experiencia; evitar retrasar traslado a centro con ECLS cuando está indicado.
-**Material:** fluidos IV calentados, dispositivos de calentamiento interno seleccionados y, cuando corresponda, ECMO/bypass para ECLS.
-**Anatomía:** acceso vascular central/periférico y, según técnica, cavidades corporales o circuito extracorpóreo.
-**Preparación:** medir temperatura central fiable, manipular con suavidad, monitorización avanzada y activar centro experto.
-**Técnica paso a paso:** elegir estrategia según estado; usar medidas internas activas apropiadas y priorizar recalentamiento extracorpóreo en parada hipotérmica o shock refractario cuando el sistema lo permite.
-**STOP:** no retrasar ECLS por técnicas de menor eficacia en un candidato apropiado; detener cualquier método invasivo con complicación mecánica o hemorrágica.
-**Confirmación:** ascenso sostenido de temperatura central y mejoría hemodinámica/eléctrica.
-**Complicaciones:** sangrado, infección, alteraciones hidroelectrolíticas, lesión vascular y complicaciones del circuito.
-**Después:** cuidados postrecalentamiento, tratamiento de causa y vigilancia de reperfusión/arrítmias.
-**Documentación:** temperatura seriada, método, tiempos y respuesta.
-**Fuentes:** ERC 2025 Special Circumstances — accidental hypothermia; ECLS según programa institucional.
-**QA:** YELLOW.
+**Indicaciones:** hipotermia grave con inestabilidad hemodinámica, arritmias graves, parada cardiaca o fracaso de medidas externas según contexto.
+**Contraindicaciones/precauciones:** seleccionar el método según gravedad, causa, recursos y tiempo hasta un centro ECLS; evitar procedimientos invasivos que retrasen una estrategia extracorpórea indicada.
+**Material:** fluidos IV calentados, sistemas de recalentamiento interno seleccionados y, cuando corresponda, VA-ECMO/bypass para ECLS.
+**Anatomía:** acceso vascular y, según la técnica, circuito extracorpóreo o cavidades corporales.
+**Preparación:** temperatura central fiable, manipulación suave, monitorización avanzada, corrección de causas asociadas y consulta precoz con centro ECPR/ECLS.
+**Técnica paso a paso:** elegir estrategia según estabilidad; en parada por hipotermia, RCUK/ERC 2025 recomienda recalentamiento con VA-ECMO cuando esté disponible; si un centro ECPR no puede alcanzarse en un tiempo razonable, iniciar recalentamiento no extracorpóreo apropiado mientras continúa la resucitación.
+**STOP:** no retrasar ECLS en un candidato apropiado; detener cualquier técnica invasiva ante complicación mecánica o hemorrágica.
+**Confirmación:** ascenso sostenido de temperatura central, recuperación hemodinámica/eléctrica y corrección progresiva de la fisiología de hipotermia.
+**Complicaciones:** sangrado, infección, lesión vascular, alteraciones hidroelectrolíticas y complicaciones del circuito/reperfusión.
+**Después:** cuidados postrecalentamiento, tratamiento etiológico y vigilancia de arritmias/reperfusión.
+**Documentación:** temperatura seriada, método, tiempos, transporte/activación ECLS y respuesta.
+**Fuentes:** Resuscitation Council UK / ERC 2025 Special Circumstances — accidental hypothermia.
+**QA:** YELLOW; revisión humana UCI/ECLS pendiente.
 
 ## PROC-SP-013 — REBOA (oclusión endovascular resucitativa de la aorta) — SPECIALIST
 **Objetivo:** oclusión aórtica temporal como puente excepcional a hemostasia definitiva en escenarios muy seleccionados.
