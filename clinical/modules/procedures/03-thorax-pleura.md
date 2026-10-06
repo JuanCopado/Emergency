@@ -131,20 +131,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleu
 **QA:** YELLOW.
 
 ## PROC-THX-009 — Toracotomía de resucitación — SPECIALIST
-**Objetivo:** intervención extrema para lesiones traumáticas seleccionadas con posibilidad de supervivencia.  
-**Indicaciones:** según mecanismo, signos de vida y tiempos de parada conforme protocolo de trauma/EAST.  
-**Contraindicaciones/precauciones:** futilidad por contexto/tiempo/mecanismo según guía; requiere equipo entrenado y destino quirúrgico.  
-**Material:** set de toracotomía, PPE, aspiración, instrumental vascular/cardiaco y transfusión masiva.  
-**Anatomía:** hemitórax izquierdo, pericardio, corazón, aorta descendente y hilio pulmonar.  
-**Preparación:** trauma team, RCP, MTP y quirófano simultáneos.  
-**Técnica paso a paso:** 1) incisión anterolateral; 2) abrir tórax; 3) pericardiotomía si taponamiento; 4) control de hemorragia/masaje interno; 5) oclusión aórtica solo cuando indicada; 6) traslado inmediato a cirugía.  
-**STOP:** no realizar fuera de criterios/protocolo y capacidad quirúrgica.  
-**Confirmación:** control de causa, actividad cardíaca/ROSC o perfusión temporal.  
-**Complicaciones:** hemorragia masiva, lesión iatrogénica y exposición ocupacional.  
-**Después:** cirugía definitiva inmediata.  
-**Documentación:** mecanismo, signos de vida, tiempos y maniobras.  
-**Fuentes:** EAST Emergency Department Thoracotomy guideline.  
-**QA:** YELLOW.
+**Objetivo:** tratar causas traumáticas inmediatamente reversibles en un paciente que llega en extremis o sin pulso dentro de criterios de toracotomía de resucitación.
+**Indicaciones:** la guía EAST recomienda fuertemente EDT en pacientes sin pulso pero con signos de vida tras trauma penetrante torácico; ofrece recomendaciones condicionales en otros escenarios seleccionados de trauma penetrante y en trauma cerrado con signos de vida.
+**Contraindicaciones/precauciones:** EAST recomienda condicionalmente no realizarla en trauma cerrado sin pulso y sin signos de vida; la aplicabilidad depende del sistema de trauma, tiempos, mecanismo y capacidad quirúrgica inmediata.
+**Material:** set de toracotomía, PPE, aspiración, instrumental vascular/cardiaco, desfibrilación interna si disponible y transfusión masiva.
+**Anatomía:** hemitórax izquierdo, pericardio, corazón, hilio pulmonar y aorta torácica descendente.
+**Preparación:** activar trauma/cirugía, transfusión masiva y quirófano; asignar roles y minimizar exposición ocupacional.
+**Técnica paso a paso:** toracotomía anterolateral izquierda; abrir tórax; abrir pericardio si existe taponamiento; controlar hemorragia accesible, realizar masaje cardíaco interno cuando proceda y ocluir aorta descendente solo si está indicado como puente al control definitivo.
+**STOP:** no realizar fuera de criterios del sistema o sin capacidad inmediata de cirugía definitiva; detener maniobras que provoquen lesión iatrogénica sin beneficio resucitativo.
+**Confirmación:** control temporal de causa reversible, actividad cardíaca/ROSC o perfusión suficiente para traslado inmediato a cirugía.
+**Complicaciones:** hemorragia masiva, lesión cardiopulmonar/vascular iatrogénica y exposición del personal a sangre.
+**Después:** cirugía definitiva inmediata.
+**Documentación:** mecanismo, presencia/ausencia de signos de vida, tiempos de RCP, maniobras y resultado.
+**Fuentes:** EAST Emergency Department Thoracotomy Practice Management Guideline (2015, guía vigente en EAST).
+**QA:** YELLOW; revisión humana de trauma pendiente.
 
 ## PROC-THX-010 — Control inicial de herida torácica abierta — CORE
 **Objetivo:** limitar entrada de aire y tratar fisiología asociada sin crear tensión.  
