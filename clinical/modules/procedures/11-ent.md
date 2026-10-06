@@ -198,17 +198,17 @@ Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
 **QA:** YELLOW.
 
 ## PROC-ENT-014 — Bloqueo del nervio alveolar inferior — ADVANCED
-**Objetivo:** proporcionar anestesia regional mandibular.
-**Indicaciones:** dolor o procedimiento dental/mandibular seleccionado.
-**Contraindicaciones/precauciones:** infección local, anatomía no identificable, alergia o anticoagulación de alto riesgo.
-**Material:** anestésico desde módulo farmacológico, jeringa/aguja apropiada y antiséptico.
-**Anatomía:** escotadura coronoidea, rafe pterigomandibular, rama mandibular y nervio lingual.
-**Preparación:** boca ampliamente abierta, posición semisentada y dosis total calculada.
-**Técnica paso a paso:** identificar referencias, avanzar de forma controlada hacia la cara medial de la rama, aspirar e inyectar lentamente.
-**STOP:** aspiración positiva, dolor eléctrico persistente o resistencia inesperada.
-**Confirmación:** anestesia ipsilateral esperada de dientes/labio inferior/mentón.
-**Complicaciones:** hematoma, inyección intravascular, parestesia, trismus y LAST.
-**Después:** advertir sobre mordedura accidental mientras persista anestesia.
-**Documentación:** lado, fármaco/dosis y respuesta.
-**Fuentes:** MSD/Merck Professional 2025.
-**QA:** YELLOW.
+**Objetivo:** anestesiar la hemimandíbula ipsilateral y tejidos dependientes del nervio alveolar inferior para procedimientos dentales o control analgésico seleccionado.
+**Indicaciones:** procedimientos dolorosos en dientes mandibulares/hemimandíbula; puede acompañarse de bloqueo bucal largo si se necesita anestesiar mucosa yugal de molares/premolar.
+**Contraindicaciones/precauciones:** alergia al anestésico, infección en el sitio de punción, ausencia de referencias anatómicas, coagulopatía significativa o incapacidad para cooperar.
+**Material:** anestésico local desde módulo farmacológico, jeringa/aguja dental apropiada, antiséptico y succión.
+**Anatomía:** escotadura coronoidea, rafe pterigomandibular, cara medial de la rama, foramen mandibular, nervio alveolar inferior y nervio lingual adyacente.
+**Preparación:** paciente semisentado, boca ampliamente abierta, identificar landmarks y calcular dosis total.
+**Técnica paso a paso:** dirigir la aguja desde el lado contralateral hacia la cara medial de la rama a la altura apropiada; contactar hueso de forma controlada, retirar ligeramente, aspirar y depositar lentamente anestésico. Retirar parcialmente y depositar una pequeña cantidad para el nervio lingual si está indicado.
+**STOP:** si no se contacta hueso en el trayecto esperado, retirar y reorientar; aspiración positiva, dolor eléctrico persistente o resistencia anormal obligan a detener/recolocar.
+**Confirmación:** anestesia del labio inferior/mentón ipsilateral y de los dientes mandibulares esperados antes de iniciar el procedimiento.
+**Complicaciones:** hematoma, inyección intravascular, parestesia, trismus, bloqueo facial transitorio por inyección parotídea y LAST.
+**Después:** advertir sobre mordedura de labio/lengua mientras persista anestesia.
+**Documentación:** lado, agente/dosis, aspiración, técnica y respuesta.
+**Fuentes:** Merck Manual Professional, How To Do an Inferior Alveolar Nerve Block, updated May 2025.
+**QA:** YELLOW; revisión humana odontología/maxilofacial pendiente.
