@@ -130,21 +130,21 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Fuentes:** orthopedic hand trauma guidance.  
 **QA:** YELLOW.
 
-## PROC-ORTHO-009 — Reducción de luxación de tobillo — CORE
-**Objetivo:** restaurar alineación, perfusión y aliviar amenaza cutánea.  
-**Indicaciones:** luxación de tobillo, especialmente con piel amenazada o isquemia.  
-**Contraindicaciones/precauciones:** abierta/vascular compleja requiere cirugía; imagen previa solo si no retrasa reducción urgente.  
-**Material:** sedación/analgesia, férula, monitor, Rx.  
-**Anatomía:** mortaja tibio-peronea, talo, paquete neurovascular.  
-**Preparación:** neurovascular y exposición de piel.  
-**Técnica paso a paso:** 1) tracción axial; 2) contratracción; 3) reversión del mecanismo; 4) confirmar reducción; 5) férula.  
-**STOP:** perfusión no retorna o irreductible → cirugía inmediata.  
-**Confirmación:** pulsos/perfusión y Rx.  
-**Complicaciones:** fractura, lesión vascular, síndrome compartimental.  
-**Después:** ortopedia y control de edema.  
-**Documentación:** neurovascular pre/post.  
-**Fuentes:** orthopedic trauma guidance.  
-**QA:** YELLOW.
+## PROC-ORTHO-009 — Reducción de luxación / fractura-luxación de tobillo — CORE
+**Objetivo:** restaurar alineación, perfusión y reducir amenaza cutánea/neurológica.
+**Indicaciones:** luxación o fractura-luxación de tobillo, especialmente si existe compromiso neurovascular, piel amenazada o deformidad marcada.
+**Contraindicaciones/precauciones:** lesión abierta, vascular compleja o irreductible requiere cirugía urgente; la mayoría de las luxaciones de tobillo son fractura-luxación.
+**Material:** analgesia/sedación, férula, monitorización y Rx.
+**Anatomía:** mortaja tibio-peronea, talo, maléolos y paquete neurovascular distal.
+**Preparación:** documentar piel y examen neurovascular; obtener Rx previa si no retrasa una reducción urgente.
+**Técnica paso a paso:** flexionar rodilla para relajar gastrocnemio cuando sea posible; aplicar tracción longitudinal sostenida con contratracción, desimpactar el talo y revertir suavemente el mecanismo hasta recolocarlo en la mortaja.
+**STOP:** perfusión que no retorna, resistencia marcada, dolor/crepitación anormal o reducción inestable no mantenible.
+**Confirmación:** restauración de alineación, pulsos/perfusión y sensibilidad, seguida de Rx postreducción.
+**Complicaciones:** fractura adicional, lesión vascular/nerviosa, necrosis cutánea, síndrome compartimental y pérdida de reducción.
+**Después:** férula bien acolchada, control de edema y valoración ortopédica definitiva.
+**Documentación:** piel/neurovascular pre-post, técnica, sedación, estabilidad y Rx.
+**Fuentes:** Merck Manual Professional, How To Reduce an Ankle Dislocation, updated 2025.
+**QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-010 — Reducción urgente de fractura desplazada seleccionada — ADVANCED
 **Objetivo:** restaurar perfusión/aliviar amenaza cutánea y alinear provisionalmente.  
