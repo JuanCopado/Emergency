@@ -126,6 +126,7 @@ export type PreparedUpload = {
   mime_type: string;
   size_bytes: number;
   sha256: string;
+  integrity_token: string;
   kind: string;
   route: { kind: string; target_section: keyof ClinicalNotePayload['complementary_tests']; modules: string[] };
   privacy: {
