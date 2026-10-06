@@ -1,0 +1,34 @@
+name: Urgent medication safety surveillance
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 */6 * * *"
+permissions:
+  contents: read
+jobs:
+  urgent-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Discover authoritative source changes
+        run: python clinical/scripts/evidence_surveillance.py --output evidence-surveillance-report.json
+      - name: Build urgent review queue
+        if: always()
+        run: |
+          if [ -f evidence-surveillance-report.json ]; then
+            python clinical/scripts/urgent_safety_triage.py evidence-surveillance-report.json --output urgent-safety-report.json
+          fi
+      - name: Upload audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: urgent-medication-safety-report
+          path: |
+            evidence-surveillance-report.json
+            urgent-safety-report.json
+          if-no-files-found: error
+          retention-days: 30
