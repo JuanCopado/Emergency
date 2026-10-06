@@ -115,20 +115,20 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW; revisión humana vascular/UCI pendiente.
 
 ## PROC-VASC-008 — CVC subclavio/axilar ecoguiado — ADVANCED
-**Objetivo:** acceso central infraclavicular con menor riesgo infeccioso en algunos contextos.  
-**Indicaciones:** CVC cuando anatomía/operador favorecen vía axilar-subclavia.  
-**Contraindicaciones/precauciones:** coagulopatía significativa, deformidad clavicular, infección, lesión pleural ipsilateral según contexto.  
-**Material:** kit CVC, ecografía, barrera estéril máxima.  
-**Anatomía:** vena axilar/subclavia, arteria, primera costilla y pleura.  
-**Preparación:** US para vena/arteria/pleura, posición adecuada de brazo.  
-**Técnica paso a paso:** 1) identificar vaso; 2) punción dinámica evitando pleura; 3) guía; 4) confirmar guía; 5) dilatar; 6) catéter; 7) aspirar/lavar/fijar.  
-**STOP:** trayectoria hacia pleura/arteria o guía no confirmada.  
-**Confirmación:** US/ECG o imagen según protocolo y descartar neumotórax cuando proceda.  
-**Complicaciones:** neumotórax, hemotórax, punción arterial, lesión nerviosa, infección.  
-**Después:** vigilancia.  
-**Documentación:** sitio, técnica, confirmación.  
-**Fuentes:** CDC 2024; procedural ultrasound standards.  
-**QA:** YELLOW.
+**Objetivo:** obtener acceso venoso central infraclavicular reduciendo riesgo mecánico mediante guía ecográfica.
+**Indicaciones:** necesidad de CVC cuando la anatomía y experiencia favorecen vía axilar/subclavia.
+**Contraindicaciones/precauciones:** infección local, deformidad clavicular importante, lesión pleural ipsilateral, trombosis o riesgo hemorrágico significativo. CDC favorece subclavia en adultos no dialíticos para reducir infección cuando el riesgo mecánico es aceptable, pero no debe usarse para hemodiálisis si existe riesgo de estenosis venosa.
+**Material:** kit CVC, ecografía, barrera estéril máxima, clorhexidina alcohólica >0,5% salvo contraindicación.
+**Anatomía:** vena axilar/subclavia, arteria, primera costilla, pleura y plexo braquial.
+**Preparación:** mapear vena/arteria/pleura y elegir trayecto infraclavicular seguro; time-out y barrera estéril máxima.
+**Técnica paso a paso:** punción dinámica con punta visible; confirmar retorno; avanzar guía sin resistencia; confirmar guía intravascular antes de dilatar; colocar catéter, aspirar/lavar y fijar.
+**STOP:** trayectoria hacia pleura/arteria, guía no confirmada, resistencia o hematoma expansivo.
+**Confirmación:** posición venosa por US/ECG u otra técnica validada y exclusión de neumotórax cuando corresponda.
+**Complicaciones:** neumotórax, hemotórax, punción arterial, lesión neural, trombosis e infección.
+**Después:** vigilancia del sitio y necesidad del acceso.
+**Documentación:** sitio/lado, técnica US, intentos, confirmación y complicaciones.
+**Fuentes:** CDC catheter-related infection recommendations updated 2024; vascular access ultrasound standards.
+**QA:** YELLOW; revisión humana vascular/UCI pendiente.
 
 ## PROC-VASC-009 — Técnica de Seldinger — ADVANCED
 **Objetivo:** colocar catéter sobre guía de forma controlada.  
