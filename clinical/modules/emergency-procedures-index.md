@@ -250,7 +250,9 @@
 137. **PROC-ENT-008 — Extracción de cerumen impactado** — CORE  
 138. **PROC-ENT-009 — Drenaje de hematoma auricular** — ADVANCED  
 139. **PROC-ENT-010 — Drenaje de absceso periamigdalino** — ADVANCED  
-140. **PROC-ENT-011 — Reducción de luxación mandibular** — referencia cruzada a ORTHO-022
+140. **PROC-ENT-011 — Reducción de luxación mandibular** — referencia cruzada a ORTHO-022  
+141. **PROC-ENT-012 — Reimplante urgente de diente permanente avulsionado** — CORE  
+142. **PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar** — ADVANCED
 
 ---
 
@@ -278,7 +280,8 @@
 155. **PROC-PED-007 — Sondaje vesical pediátrico** — CORE/PED  
 156. **PROC-PED-008 — Reducción de pronación dolorosa** — CORE/PED  
 157. **PROC-PED-009 — Inmovilización pediátrica de extremidades** — CORE/PED  
-158. **PROC-PED-010 — Cardioversión/desfibrilación pediátrica** — CORE/PED
+158. **PROC-PED-010 — Cardioversión/desfibrilación pediátrica** — CORE/PED  
+159. **PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal** — ADVANCED/PED
 
 ---
 
@@ -290,7 +293,9 @@
 162. **PROC-OBS-004 — Prolapso de cordón: medidas de rescate inmediatas** — CORE  
 163. **PROC-OBS-005 — Hemorragia posparto: masaje uterino y medidas iniciales** — CORE  
 164. **PROC-OBS-006 — Extracción manual de coágulos seleccionada** — ADVANCED  
-165. **PROC-OBS-007 — Inversión uterina: maniobra inicial de reposición** — ADVANCED
+165. **PROC-OBS-007 — Inversión uterina: maniobra inicial de reposición** — ADVANCED  
+166. **PROC-OBS-008 — Histerotomía resucitativa** — SPECIALIST  
+167. **PROC-OBS-009 — Taponamiento uterino con balón en hemorragia posparto** — ADVANCED
 
 ---
 
@@ -328,8 +333,8 @@
 
 # Resumen del catálogo
 
-- **Total actual: 188 IDs textuales: 187 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
-- El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate y variantes pediátricas/POCUS sin duplicar contenido.
+- **Total actual: 193 IDs textuales: 192 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
+- El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate, neonatales, obstétricos, dentales y variantes pediátricas/POCUS sin duplicar contenido.
 - La **luxación mandibular** queda incluida como `PROC-ORTHO-022`.
 - Los procedimientos de alto riesgo se mantienen **YELLOW** hasta revisión bibliográfica específica y Clinical QA.
 - Las técnicas de sedación/analgesia, fármacos y dosis se resolverán mediante módulos farmacológicos ya existentes, evitando duplicidad.
