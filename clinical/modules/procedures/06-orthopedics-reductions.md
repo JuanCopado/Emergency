@@ -1,72 +1,371 @@
 # 6. Ortopedia, reducciones e inmovilización
 
-Estado: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente, y examen neurovascular pre/post.
+Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.
 
-## PROC-ORTHO-001 — Luxación anterior de hombro — CORE
-**Objetivo:** reducción atraumática. **Técnica:** confirmar patrón/excluir fractura relevante; analgesia/sedación o anestesia regional/intraarticular; seleccionar maniobra suave (p. ej., manipulación escapular, rotación externa o técnica de Milch) adaptada; tracción progresiva sin fuerza brusca; confirmar clínicamente y con imagen según contexto. **STOP:** resistencia/dolor anormal. **Visual:** 3 técnicas separadas.
+## PROC-ORTHO-001 — Reducción de luxación anterior de hombro — CORE
+**Objetivo:** restaurar congruencia glenohumeral de forma atraumática.  
+**Indicaciones:** luxación anterior confirmada o clínicamente evidente, especialmente con dolor intenso o compromiso neurovascular.  
+**Contraindicaciones/precauciones:** fractura proximal/humeral relevante, luxación irreductible, lesión vascular o patrón complejo → ortopedia.  
+**Material:** monitorización, analgesia/sedación o anestesia regional/intraarticular, cabestrillo y material de imagen.  
+**Anatomía:** cabeza humeral, glenoides, nervio axilar y vasos axilares.  
+**Preparación:** examen neurovascular y Rx previa salvo amenaza vascular/lesión de piel que obligue a reducción inmediata.  
+**Técnica paso a paso:** 1) analgesia/relajación; 2) seleccionar técnica suave (rotación externa, manipulación escapular, Milch u otra validada); 3) aplicar tracción progresiva sin fuerza brusca; 4) reconocer reducción; 5) inmovilizar.  
+**STOP:** resistencia marcada, dolor desproporcionado o deterioro neurovascular.  
+**Confirmación:** contorno normal, movilidad pasiva mejorada, neurovascular intacto y Rx post cuando indicada.  
+**Complicaciones:** fractura iatrogénica, lesión axilar, lesión manguito/labrum.  
+**Después:** cabestrillo y seguimiento ortopédico.  
+**Documentación:** neurovascular pre/post, técnica, sedación y resultado.  
+**Fuentes:** orthopedic/emergency procedural guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-002 — Luxación posterior de hombro — ADVANCED
-**Objetivo:** reducción de lesión frecuentemente asociada a fractura. **Técnica:** imagen previa salvo amenaza neurovascular; analgesia/sedación; tracción axial y manipulación controlada por operador experto. **STOP:** evitar rotación externa forzada; alta sospecha de fractura. **Visual:** relación cabeza glenoides.
+## PROC-ORTHO-002 — Reducción de luxación posterior de hombro — ADVANCED
+**Objetivo:** restaurar articulación evitando fractura iatrogénica.  
+**Indicaciones:** luxación posterior confirmada.  
+**Contraindicaciones/precauciones:** alta frecuencia de fracturas asociadas; imagen previa salvo compromiso neurovascular crítico; operador experto.  
+**Material:** analgesia/sedación, monitorización, imagen e inmovilización.  
+**Anatomía:** cabeza humeral posterior a glenoides; tuberosidades y nervio axilar.  
+**Preparación:** revisión de Rx/TC si disponible y examen neurovascular.  
+**Técnica paso a paso:** 1) relajación adecuada; 2) tracción axial controlada; 3) corrección suave según patrón; 4) evitar rotación externa forzada; 5) inmovilizar.  
+**STOP:** resistencia, crepitación, dolor abrupto o sospecha de fractura.  
+**Confirmación:** clínica + imagen postreducción.  
+**Complicaciones:** fractura, lesión neurovascular, recurrencia.  
+**Después:** ortopedia.  
+**Documentación:** técnica/neurovascular.  
+**Fuentes:** orthopedic emergency guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-003 — Luxación de codo — CORE
-**Técnica:** analgesia/sedación; estabilizar húmero, tracción longitudinal con corrección suave del olécranon según patrón; confirmar estabilidad y neurovascular. **STOP:** isquemia/lesión compleja → urgencia ortopédica. **Visual:** vista lateral.
+## PROC-ORTHO-003 — Reducción de luxación de codo — CORE
+**Objetivo:** restaurar articulación y perfusión distal.  
+**Indicaciones:** luxación de codo, especialmente con compromiso vascular/neurológico o deformidad severa.  
+**Contraindicaciones/precauciones:** fractura-luxación compleja o abierta requiere ortopedia urgente.  
+**Material:** sedación/analgesia, férula, monitorización e imagen.  
+**Anatomía:** húmero distal, olécranon, arteria braquial, nervios mediano/ulnar/radial.  
+**Preparación:** neurovascular pre y Rx si no retrasa reducción urgente.  
+**Técnica paso a paso:** 1) analgesia; 2) estabilizar húmero; 3) tracción longitudinal; 4) corregir suavemente olécranon según patrón; 5) comprobar estabilidad; 6) férula.  
+**STOP:** isquemia persistente, irreductibilidad o lesión compleja.  
+**Confirmación:** alineación, pulso/perfusión y Rx.  
+**Complicaciones:** lesión vascular/nerviosa, fractura, inestabilidad.  
+**Después:** inmovilización y ortopedia.  
+**Documentación:** neurovascular pre/post.  
+**Fuentes:** orthopedic emergency guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-004 — Pronación dolorosa — CORE/PED
-**Técnica preferente:** hiperpronación: sostener codo, presión suave sobre cabeza radial y pronar firmemente. Alternativa: supinación-flexión. Reevaluar uso espontáneo en minutos. **STOP:** deformidad, edema, dolor focal/trauma no típico → imagen/diagnóstico alternativo. **Visual:** ambas maniobras.
+## PROC-ORTHO-004 — Reducción de pronación dolorosa — CORE/PED
+**Objetivo:** reducir subluxación de cabeza radial.  
+**Indicaciones:** niño pequeño con mecanismo típico y brazo no utilizado, sin deformidad significativa.  
+**Contraindicaciones/precauciones:** edema, deformidad, dolor óseo focal, mecanismo atípico o sospecha de fractura.  
+**Material:** habitualmente ninguno; analgesia si precisa.  
+**Anatomía:** cabeza radial y ligamento anular.  
+**Preparación:** examen del miembro y descartar lesión alternativa.  
+**Técnica paso a paso:** 1) sujetar codo; 2) palpar cabeza radial; 3) hiperpronación firme y controlada como primera opción; 4) alternativa supinación-flexión si falla; 5) reevaluar uso espontáneo.  
+**STOP:** dolor/deformidad atípica o fracaso repetido → imagen.  
+**Confirmación:** recuperación espontánea del uso en minutos.  
+**Complicaciones:** dolor transitorio; fractura si diagnóstico incorrecto.  
+**Después:** no inmovilización rutinaria si recuperación completa.  
+**Documentación:** mecanismo, técnica y respuesta.  
+**Fuentes:** pediatric orthopedic/emergency evidence.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-005 — Luxación de rótula — CORE
-**Técnica:** flexionar cadera para relajar cuádriceps, extender rodilla lentamente mientras se guía rótula lateral hacia medial; confirmar mecanismo extensor y neurovascular. **Visual:** dirección de presión.
+## PROC-ORTHO-005 — Reducción de luxación de rótula — CORE
+**Objetivo:** devolver rótula lateral luxada a tróclea.  
+**Indicaciones:** luxación lateral de rótula no reducida espontáneamente.  
+**Contraindicaciones/precauciones:** fractura osteocondral/gran derrame/trauma complejo.  
+**Material:** analgesia, férula y Rx.  
+**Anatomía:** rótula, tróclea y aparato extensor.  
+**Preparación:** neurovascular, palpación y analgesia.  
+**Técnica paso a paso:** 1) flexionar cadera para relajar cuádriceps; 2) extender rodilla progresivamente; 3) guiar rótula suavemente medial; 4) confirmar reducción.  
+**STOP:** resistencia marcada o dolor desproporcionado.  
+**Confirmación:** posición anatómica, extensión activa y neurovascular.  
+**Complicaciones:** fractura osteocondral, hemartros, recurrencia.  
+**Después:** imagen/immovilización/seguimiento según lesión.  
+**Documentación:** mecanismo, técnica y examen post.  
+**Fuentes:** orthopedic emergency guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-006 — Luxaciones de dedos — CORE
-**Técnica:** anestesia digital si precisa; tracción suave y reversión del mecanismo según articulación/patrón; no hipertraccionar; comprobar tendones/ligamentos y Rx. **STOP:** abierta, irreducible o fractura compleja. **Visual:** PIP dorsal como ejemplo + variantes.
+## PROC-ORTHO-006 — Reducción de luxaciones de dedos — CORE
+**Objetivo:** restaurar alineación articular y función.  
+**Indicaciones:** luxación interfalángica/metacarpofalángica seleccionada.  
+**Contraindicaciones/precauciones:** abierta, fractura compleja, lesión tendinosa o irreductible.  
+**Material:** bloqueo digital, férula y Rx.  
+**Anatomía:** articulación, placa volar, tendones y paquetes neurovasculares digitales.  
+**Preparación:** neurovascular y Rx si no urgente.  
+**Técnica paso a paso:** 1) analgesia; 2) tracción suave; 3) exagerar mínimamente deformidad si patrón lo requiere; 4) deslizar articulación a posición; 5) comprobar estabilidad.  
+**STOP:** no hipertraccionar; irreductible → cirugía.  
+**Confirmación:** congruencia, estabilidad y Rx post.  
+**Complicaciones:** lesión placa volar/tendón, fractura, rigidez.  
+**Después:** buddy taping/férula según lesión.  
+**Documentación:** articulación y neurovascular.  
+**Fuentes:** hand emergency guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-007 — Luxación de pulgar — CORE
-**Técnica:** bloqueo; reducción siguiendo patrón, evitando tracción excesiva que interponga placa volar; estabilidad post. **STOP:** MCP irreducible sugiere interposición → cirugía. **Visual:** MCP.
+## PROC-ORTHO-007 — Reducción de luxación de pulgar — CORE
+**Objetivo:** restaurar articulación del pulgar evitando interposición de placa volar.  
+**Indicaciones:** luxación MCP/IP seleccionada.  
+**Contraindicaciones/precauciones:** abierta, fractura o MCP irreductible.  
+**Material:** bloqueo digital, férula e imagen.  
+**Anatomía:** MCP/IP, placa volar y tendones.  
+**Preparación:** neurovascular y Rx.  
+**Técnica paso a paso:** 1) bloqueo; 2) corrección suave siguiendo mecanismo; 3) evitar tracción excesiva; 4) confirmar estabilidad.  
+**STOP:** MCP irreductible → sospechar interposición y derivar.  
+**Confirmación:** alineación clínica/Rx.  
+**Complicaciones:** interposición, lesión ligamentaria, fractura.  
+**Después:** inmovilización/seguimiento.  
+**Documentación:** estabilidad/neurovascular.  
+**Fuentes:** hand emergency guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-008 — Luxación carpiana seleccionada — ADVANCED
-**Objetivo:** aliviar compresión neurovascular y alinear provisionalmente. **Técnica:** sedación, tracción longitudinal y maniobra específica guiada por imagen/patrón; férula y cirugía urgente. **STOP:** no demorar especialista. **Visual:** perilunar/lunar.
+## PROC-ORTHO-008 — Reducción de luxación carpiana seleccionada — ADVANCED
+**Objetivo:** aliviar compresión neurovascular y alinear provisionalmente lesiones perilunares/lunares.  
+**Indicaciones:** luxación carpiana con compromiso o como puente a cirugía.  
+**Contraindicaciones/precauciones:** lesión compleja de alta energía; requiere consulta urgente de mano.  
+**Material:** sedación, fluoroscopia/Rx, férula.  
+**Anatomía:** carpo, semilunar, mediano y radio distal.  
+**Preparación:** examen mediano/perfusión e imagen.  
+**Técnica paso a paso:** 1) sedación; 2) tracción longitudinal; 3) maniobra dirigida según patrón; 4) confirmar alineación; 5) férula.  
+**STOP:** no retrasar cirugía ni repetir maniobras traumáticas.  
+**Confirmación:** mejor alineación e imagen post.  
+**Complicaciones:** lesión mediano, fractura, inestabilidad persistente.  
+**Después:** cirugía de mano urgente.  
+**Documentación:** neurovascular pre/post.  
+**Fuentes:** orthopedic hand trauma guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-009 — Luxación de tobillo — CORE
-**Técnica:** analgesia/sedación; corregir deformidad con tracción y reversión del mecanismo; urgencia inmediata si piel amenazada/isquemia; férula y Rx. **Visual:** tracción-contra-tracción.
+## PROC-ORTHO-009 — Reducción de luxación de tobillo — CORE
+**Objetivo:** restaurar alineación, perfusión y aliviar amenaza cutánea.  
+**Indicaciones:** luxación de tobillo, especialmente con piel amenazada o isquemia.  
+**Contraindicaciones/precauciones:** abierta/vascular compleja requiere cirugía; imagen previa solo si no retrasa reducción urgente.  
+**Material:** sedación/analgesia, férula, monitor, Rx.  
+**Anatomía:** mortaja tibio-peronea, talo, paquete neurovascular.  
+**Preparación:** neurovascular y exposición de piel.  
+**Técnica paso a paso:** 1) tracción axial; 2) contratracción; 3) reversión del mecanismo; 4) confirmar reducción; 5) férula.  
+**STOP:** perfusión no retorna o irreductible → cirugía inmediata.  
+**Confirmación:** pulsos/perfusión y Rx.  
+**Complicaciones:** fractura, lesión vascular, síndrome compartimental.  
+**Después:** ortopedia y control de edema.  
+**Documentación:** neurovascular pre/post.  
+**Fuentes:** orthopedic trauma guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-010 — Fractura desplazada: reducción urgente — ADVANCED
-**Objetivo:** restaurar perfusión/aliviar amenaza cutánea. **Técnica:** analgesia, tracción longitudinal, corrección de angulación/rotación, inmovilización. **STOP:** abierta/vascular compleja → quirófano/especialista. **Visual:** principio general, no una fractura específica.
+## PROC-ORTHO-010 — Reducción urgente de fractura desplazada seleccionada — ADVANCED
+**Objetivo:** restaurar perfusión/aliviar amenaza cutánea y alinear provisionalmente.  
+**Indicaciones:** fractura con compromiso neurovascular, piel amenazada o deformidad severa.  
+**Contraindicaciones/precauciones:** fractura abierta o vascular compleja requiere protocolo quirúrgico; no buscar reducción anatómica definitiva en ED.  
+**Material:** analgesia/sedación, férula, monitorización.  
+**Anatomía:** depende de segmento y estructuras neurovasculares.  
+**Preparación:** neurovascular pre y control de heridas.  
+**Técnica paso a paso:** 1) tracción longitudinal; 2) corregir angulación/rotación; 3) obtener alineación funcional; 4) inmovilizar; 5) reexaminar neurovascular.  
+**STOP:** dolor/crepitación excesiva, perfusión empeora o resistencia.  
+**Confirmación:** perfusión/posición mejoradas y Rx.  
+**Complicaciones:** lesión neurovascular, síndrome compartimental, desplazamiento.  
+**Después:** ortopedia definitiva.  
+**Documentación:** motivo y examen pre/post.  
+**Fuentes:** trauma/orthopedic emergency guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-011 — Tracción/alineación temporal — CORE
-**Técnica:** estabilizar proximal/distal, tracción axial sostenida, corregir deformidad solo lo necesario, férula. **Visual:** alineación antes/después.
+## PROC-ORTHO-011 — Tracción y alineación temporal de extremidad — CORE
+**Objetivo:** corregir deformidad grosera y aliviar tensión sobre tejidos.  
+**Indicaciones:** fractura/luxación seleccionada antes de férula/traslado.  
+**Contraindicaciones/precauciones:** no usar fuerza brusca ni manipular lesión abierta compleja sin plan.  
+**Material:** analgesia, ayudante y férula.  
+**Anatomía:** eje del miembro y estructuras neurovasculares.  
+**Preparación:** neurovascular.  
+**Técnica paso a paso:** 1) estabilizar proximal; 2) tracción axial sostenida; 3) alinear suavemente; 4) mantener; 5) férula.  
+**STOP:** dolor intenso o pérdida de pulso/sensibilidad.  
+**Confirmación:** mejor alineación/perfusión.  
+**Complicaciones:** lesión neurovascular, desplazamiento.  
+**Después:** imagen y reevaluación.  
+**Documentación:** examen pre/post.  
+**Fuentes:** orthopedic trauma guidance.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-012 — Férula braquiopalmar — CORE
-**Técnica:** acolchado, material desde brazo distal a mano, codo ~90° si apropiado, moldear sin comprimir, dejar dedos visibles. **Visual:** capas.
+**Objetivo:** inmovilizar lesiones de codo/antebrazo seleccionadas.  
+**Indicaciones:** fracturas/luxaciones reducidas y lesiones que requieren inmovilización larga posterior.  
+**Contraindicaciones/precauciones:** edema severo/compromiso vascular exige vigilancia y férula no circunferencial.  
+**Material:** acolchado, material rígido, venda y cabestrillo.  
+**Anatomía:** brazo, codo, antebrazo y prominencias óseas.  
+**Preparación:** neurovascular y posición funcional según lesión.  
+**Técnica paso a paso:** 1) acolchar; 2) medir férula; 3) colocar posterior; 4) moldear; 5) vendar sin comprimir; 6) dejar dedos visibles.  
+**STOP:** dolor creciente, parestesias o cambio de perfusión.  
+**Confirmación:** inmovilización estable y neurovascular intacto.  
+**Complicaciones:** presión, lesión cutánea, síndrome compartimental.  
+**Después:** elevación/instrucciones de alarma.  
+**Documentación:** tipo y neurovascular.  
+**Fuentes:** splinting emergency references.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-013 — Férula antebraquiopalmar — CORE
-**Técnica:** posición funcional, acolchado, férula volar/dorsal según lesión, vendaje no circunferencial rígido. **Visual:** muñeca neutra.
+**Objetivo:** inmovilizar muñeca/antebrazo distal.  
+**Indicaciones:** lesiones estables o postreducción seleccionadas.  
+**Contraindicaciones/precauciones:** vigilar edema y perfusión.  
+**Material:** acolchado, material de férula y venda.  
+**Anatomía:** radio/cúbito distal, muñeca y mano.  
+**Preparación:** neurovascular y posición funcional.  
+**Técnica paso a paso:** 1) acolchar; 2) colocar férula volar/dorsal según lesión; 3) moldear; 4) vendar; 5) dejar dedos libres.  
+**STOP:** dolor/parestesia/perfusión alterada.  
+**Confirmación:** estabilidad y neurovascular.  
+**Complicaciones:** presión/rigidez.  
+**Después:** instrucciones y seguimiento.  
+**Documentación:** tipo y examen.  
+**Fuentes:** splinting guidance.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-014 — Férula cubital / gutter — CORE
-**Técnica:** incluir 4.º-5.º dedos según lesión, MCP flexionadas en posición segura, comprobar perfusión. **Visual:** posición intrínseco-plus.
+**Objetivo:** inmovilizar 4.º–5.º rayos y lesiones cubitales.  
+**Indicaciones:** fracturas/metacarpianas/falángicas seleccionadas.  
+**Contraindicaciones/precauciones:** deformidad no reducida o lesión abierta compleja.  
+**Material:** férula, acolchado y venda.  
+**Anatomía:** metacarpianos, falanges y articulaciones MCP.  
+**Preparación:** neurovascular y posición intrínseco-plus según lesión.  
+**Técnica paso a paso:** 1) acolchar; 2) incluir dedos adecuados; 3) moldear con MCP flexionadas; 4) vendar; 5) comprobar perfusión.  
+**STOP:** compresión/rotación digital anormal.  
+**Confirmación:** posición y neurovascular.  
+**Complicaciones:** rigidez, presión cutánea, malrotación.  
+**Después:** revisión ortopédica.  
+**Documentación:** posición y neurovascular.  
+**Fuentes:** hand splinting guidance.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-015 — Férula posterior de pierna — CORE
-**Técnica:** acolchar prominencias, tobillo posición adecuada, férula posterior desde pantorrilla a metatarsos; vendaje y neurovascular. **Visual:** capas.
+**Objetivo:** inmovilizar tobillo/pierna distal.  
+**Indicaciones:** fracturas/esguinces graves/postreducción.  
+**Contraindicaciones/precauciones:** vigilar edema/compartimental.  
+**Material:** acolchado, férula posterior, venda.  
+**Anatomía:** tibia/peroné, maléolos, talón.  
+**Preparación:** neurovascular y posición adecuada.  
+**Técnica paso a paso:** 1) acolchar prominencias; 2) colocar férula posterior; 3) mantener tobillo según lesión; 4) vendar; 5) revisar neurovascular.  
+**STOP:** dolor creciente, parestesia o perfusión alterada.  
+**Confirmación:** estabilidad y confort.  
+**Complicaciones:** presión/compartimental/úlceras.  
+**Después:** elevación y seguimiento.  
+**Documentación:** tipo y neurovascular.  
+**Fuentes:** splinting guidance.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-016 — Férula en U de tobillo — CORE
-**Técnica:** soporte medial-lateral desde pierna alrededor del talón; combinar con posterior cuando precisa. **Visual:** forma U.
+**Objetivo:** controlar inversión/eversión y edema.  
+**Indicaciones:** lesiones de tobillo que requieren soporte medial-lateral.  
+**Contraindicaciones/precauciones:** no sustituye reducción de deformidad.  
+**Material:** férula en U, acolchado, venda.  
+**Anatomía:** maléolos y calcáneo.  
+**Preparación:** neurovascular.  
+**Técnica paso a paso:** 1) acolchar; 2) aplicar desde pierna medial alrededor talón a lateral; 3) moldear; 4) vendar; 5) revisar perfusión.  
+**STOP:** puntos de presión o compromiso vascular.  
+**Confirmación:** estabilidad.  
+**Complicaciones:** lesión cutánea/compresión.  
+**Después:** seguimiento.  
+**Documentación:** examen post.  
+**Fuentes:** splinting guidance.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-017 — Inmovilizador de rodilla — CORE
-**Técnica:** rodilla en extensión relativa según lesión, almohadillado, correas sin comprometer circulación; muletas/descarga según diagnóstico. **Visual:** ajuste.
+**Objetivo:** limitar movimiento de rodilla lesionada.  
+**Indicaciones:** lesiones seleccionadas postreducción o con necesidad de extensión relativa.  
+**Contraindicaciones/precauciones:** no usar como sustituto de valoración de lesión vascular/ligamentaria grave.  
+**Material:** inmovilizador, correas y muletas si precisa.  
+**Anatomía:** rodilla/aparato extensor.  
+**Preparación:** neurovascular y piel.  
+**Técnica paso a paso:** 1) posicionar rodilla; 2) colocar férulas laterales/posteriores; 3) ajustar correas; 4) comprobar circulación.  
+**STOP:** dolor/parestesia o ajuste excesivo.  
+**Confirmación:** estabilidad y perfusión.  
+**Complicaciones:** presión, rigidez, trombosis por inmovilización prolongada.  
+**Después:** seguimiento e instrucciones.  
+**Documentación:** indicación y examen.  
+**Fuentes:** orthopedic guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-018 — Cabestrillo — CORE
-**Técnica:** sostener antebrazo, codo cómodo, mano ligeramente elevada; añadir banda torácica si indicada; instrucciones de movilización según lesión. **Visual:** ajuste correcto.
+## PROC-ORTHO-018 — Cabestrillo e inmovilización de hombro — CORE
+**Objetivo:** sostener miembro superior y reducir dolor.  
+**Indicaciones:** lesiones de hombro/clavícula/postreducción seleccionadas.  
+**Contraindicaciones/precauciones:** evitar inmovilización excesiva prolongada si no indicada.  
+**Material:** cabestrillo ± banda torácica.  
+**Anatomía:** hombro/codo/mano.  
+**Preparación:** neurovascular.  
+**Técnica paso a paso:** 1) colocar antebrazo; 2) ajustar soporte del codo; 3) mano ligeramente elevada; 4) añadir banda si precisa; 5) revisar cuello/presión.  
+**STOP:** entumecimiento o cambio de color.  
+**Confirmación:** confort y soporte.  
+**Complicaciones:** rigidez, presión cervical.  
+**Después:** instrucciones de movilización según lesión.  
+**Documentación:** tipo.  
+**Fuentes:** orthopedic guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-019 — Examen neurovascular pre/post — CORE
-**Técnica:** documentar pulsos/cap refill, temperatura/color, sensibilidad por territorios y motor; repetir tras reducción/férula. **STOP:** deterioro nuevo = retirar/aflojar y reevaluar urgente. **Visual:** mapa nervios/pulsos.
+## PROC-ORTHO-019 — Valoración neurovascular pre/post reducción — CORE
+**Objetivo:** detectar lesión vascular o nerviosa relacionada con lesión/manipulación.  
+**Indicaciones:** toda luxación/fractura y férula relevante.  
+**Contraindicaciones/precauciones:** ninguna; no debe omitirse salvo amenaza vital inmediata.  
+**Material:** examen clínico ± Doppler.  
+**Anatomía:** pulsos y territorios motores/sensitivos por miembro.  
+**Preparación:** exponer distalmente.  
+**Técnica paso a paso:** 1) pulso/cap refill; 2) color/temperatura; 3) sensibilidad; 4) motor; 5) repetir tras procedimiento/férula.  
+**STOP:** deterioro nuevo → aflojar/retirar férula y reevaluar urgente.  
+**Confirmación:** hallazgos estables o mejorados.  
+**Complicaciones:** omisión diagnóstica si no se documenta.  
+**Después:** vigilancia si alto riesgo.  
+**Documentación:** hallazgos específicos pre/post.  
+**Fuentes:** orthopedic trauma standards.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-020 — Artrocentesis de rodilla — ADVANCED
-**Técnica:** asepsia estricta, identificar abordaje, anestesia, introducir aguja evitando cartílago, aspirar, distribuir muestras. **STOP:** infección cutánea sobre trayecto; sospecha de prótesis infectada requiere coordinación especializada. **Visual:** superolateral/alternativas.
+**Objetivo:** obtener líquido sinovial para diagnóstico o aliviar derrame seleccionado.  
+**Indicaciones:** sospecha de artritis séptica/cristales o derrame sintomático.  
+**Contraindicaciones/precauciones:** infección cutánea sobre trayecto; prótesis requiere coordinación especialista.  
+**Material:** aguja/jeringa, antiséptico, anestesia, tubos y US opcional.  
+**Anatomía:** receso suprapatelar y abordajes seguros.  
+**Preparación:** antisepsia estricta y posición.  
+**Técnica paso a paso:** 1) localizar abordaje; 2) anestesiar; 3) introducir evitando cartílago; 4) aspirar; 5) retirar; 6) distribuir muestras.  
+**STOP:** dolor intenso, sangre pulsátil o trayecto dudoso.  
+**Confirmación:** líquido obtenido.  
+**Complicaciones:** infección, sangrado, dolor.  
+**Después:** enviar recuento/cultivo/cristales según indicación.  
+**Documentación:** volumen/aspecto y estudios.  
+**Fuentes:** rheumatology/emergency procedural guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-021 — Artrocentesis de otras articulaciones — ADVANCED
-**Objetivo:** diagnóstico/terapia seleccionada en tobillo, muñeca, codo, hombro. **Técnica:** usar landmarks o US; adaptar aguja/profundidad; evitar estructuras neurovasculares. **Visual:** una lámina por articulación.
+## PROC-ORTHO-021 — Artrocentesis de otras articulaciones seleccionadas — ADVANCED
+**Objetivo:** aspirar tobillo, muñeca, codo u hombro cuando clínicamente indicado.  
+**Indicaciones:** sospecha de artritis séptica/cristales o derrame relevante.  
+**Contraindicaciones/precauciones:** infección cutánea y prótesis; anatomía compleja favorece US.  
+**Material:** aguja/jeringa, US si útil, anestesia y tubos.  
+**Anatomía:** depende de articulación y estructuras neurovasculares cercanas.  
+**Preparación:** identificar abordaje seguro.  
+**Técnica paso a paso:** 1) localizar; 2) antisepsia; 3) anestesia; 4) punción bajo landmark/US; 5) aspirar; 6) retirar.  
+**STOP:** trayecto no seguro o parestesia/vaso.  
+**Confirmación:** líquido obtenido.  
+**Complicaciones:** infección, sangrado, lesión nerviosa.  
+**Después:** análisis/seguimiento.  
+**Documentación:** articulación y muestras.  
+**Fuentes:** joint aspiration procedural guidance.  
+**QA:** YELLOW.
 
 ## PROC-ORTHO-022 — Reducción de luxación mandibular — CORE
-**Objetivo:** recolocar cóndilos anteriores a eminencia articular. **Técnica:** confirmar luxación sin fractura sospechada; analgesia/sedación si precisa; proteger pulgares con gasas; paciente sentado/apoyado; colocar pulgares sobre molares inferiores o técnica extraoral; presión inferior sostenida y luego posterior/superior hasta reducción; retirar dedos rápidamente al cierre. **STOP:** trauma/fractura, luxación crónica o imposibilidad de reducción. **Después:** dieta blanda, limitar apertura amplia, soporte y seguimiento. **Visual:** ATM lateral + manos paso a paso.
+**Objetivo:** recolocar cóndilos mandibulares anteriores a eminencia articular.  
+**Indicaciones:** luxación anterior aguda sin fractura.  
+**Contraindicaciones/precauciones:** trauma/fractura, luxación crónica o anatomía compleja.  
+**Material:** guantes/gasas, analgesia/sedación si precisa.  
+**Anatomía:** ATM, cóndilo y eminencia articular.  
+**Preparación:** paciente sentado/apoyado y proteger dedos.  
+**Técnica paso a paso:** 1) pulgares protegidos sobre molares inferiores o técnica extraoral; 2) presión inferior sostenida; 3) luego posterior/superior; 4) retirar pulgares rápidamente al cierre.  
+**STOP:** resistencia, dolor atípico o sospecha de fractura.  
+**Confirmación:** cierre bucal y movimiento mandibular restaurados.  
+**Complicaciones:** mordedura del operador, fractura, recurrencia.  
+**Después:** dieta blanda, limitar apertura amplia y seguimiento.  
+**Documentación:** técnica/sedación.  
+**Fuentes:** maxillofacial/emergency guidance.  
+**QA:** YELLOW.
 
-## PROC-ORTHO-023 — Luxación ATM recurrente seleccionada — ADVANCED
-**Técnica:** reducción como anterior; considerar técnica extraoral o con jeringa en paciente cooperador; recurrencia/cronicidad requiere maxilofacial. **Visual:** variantes y criterios de derivación.
+## PROC-ORTHO-023 — Luxación temporomandibular recurrente seleccionada — ADVANCED
+**Objetivo:** reducir episodios recurrentes simples y reconocer cuándo derivar.  
+**Indicaciones:** luxación recurrente sin trauma/fractura.  
+**Contraindicaciones/precauciones:** crónica/irreductible o lesión ósea.  
+**Material:** guantes, analgesia; jeringa/técnica extraoral si operador competente.  
+**Anatomía:** ATM/cóndilo.  
+**Preparación:** confirmar patrón recurrente.  
+**Técnica paso a paso:** 1) intentar reducción manual estándar; 2) considerar técnica extraoral o de jeringa en paciente cooperador; 3) reevaluar.  
+**STOP:** fracaso repetido o dolor/trauma → maxilofacial.  
+**Confirmación:** función restaurada.  
+**Complicaciones:** recurrencia, lesión dental/mandibular.  
+**Después:** prevención y seguimiento maxilofacial.  
+**Documentación:** patrón y técnica.  
+**Fuentes:** maxillofacial emergency guidance.  
+**QA:** YELLOW.
