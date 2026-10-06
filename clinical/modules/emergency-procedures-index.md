@@ -283,7 +283,7 @@
 153. **PROC-PED-005 — Acceso intraóseo pediátrico** — CORE/PED  
 154. **PROC-PED-006 — Punción lumbar pediátrica** — ADVANCED/PED  
 155. **PROC-PED-007 — Sondaje vesical pediátrico** — CORE/PED  
-156. **PROC-PED-008 — Reducción de pronación dolorosa** — CORE/PED  
+156. **PROC-PED-008 — Reducción de pronación dolorosa** — referencia cruzada a ORTHO-004  
 157. **PROC-PED-009 — Inmovilización pediátrica de extremidades** — CORE/PED  
 158. **PROC-PED-010 — Cardioversión/desfibrilación pediátrica** — CORE/PED  
 159. **PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal** — ADVANCED/PED
@@ -326,7 +326,7 @@
 178. **PROC-SP-003 — Reimplantación temporal/protección de amputación** — CORE  
 179. **PROC-SP-004 — Extracción de empalamiento: principios de no retirada y control** — CORE  
 180. **PROC-SP-005 — Manejo inicial de mordeduras y heridas contaminadas complejas** — CORE  
-181. **PROC-SP-006 — Lavado ocular continuo con sistema dedicado** — CORE  
+181. **PROC-SP-006 — Lavado ocular continuo con sistema dedicado** — referencia cruzada a EYE-001  
 182. **PROC-SP-007 — Lavado gástrico en indicaciones excepcionales** — SPECIALIST  
 183. **PROC-SP-008 — Carbón activado: administración segura** — CORE  
 184. **PROC-SP-009 — Descontaminación cutánea química** — CORE  
@@ -340,7 +340,7 @@
 
 # Resumen del catálogo
 
-- **Total actual: 200 IDs textuales: 199 procedimientos/variantes canónicas + 1 alias de referencia cruzada (ENT → reducción mandibular).**
+- **Total actual: 200 IDs textuales: 197 procedimientos/variantes canónicas + 3 alias de referencia cruzada (ENT → reducción mandibular).**
 - El catálogo supera deliberadamente las 82 técnicas iniciales para cubrir procedimientos frecuentes, de rescate, neonatales, obstétricos, dentales y variantes pediátricas/POCUS sin duplicar contenido.
 - La **luxación mandibular** queda incluida como `PROC-ORTHO-022`.
 - Los procedimientos de alto riesgo se mantienen **YELLOW** hasta revisión bibliográfica específica y Clinical QA.
