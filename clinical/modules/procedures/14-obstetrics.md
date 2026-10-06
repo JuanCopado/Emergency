@@ -4,17 +4,17 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 
 ## PROC-OBS-001 — Parto vaginal inminente no complicado — CORE
 **Objetivo:** asistir un parto vaginal inminente de forma segura cuando no hay tiempo para traslado.
-**Indicaciones:** coronación/parto inminente sin complicación obstétrica mayor identificada.
-**Contraindicaciones/precauciones:** presentación anómala, hemorragia importante, distocia o compromiso fetal/materno requieren obstetricia urgente.
-**Material:** PPE, paños, pinzas/corte de cordón, material neonatal y control de hemorragia.
+**Indicaciones:** coronación o parto inminente sin complicación obstétrica mayor identificada.
+**Contraindicaciones/precauciones:** presentación anómala, hemorragia importante, distocia o compromiso materno-fetal requieren escalada obstétrica urgente.
+**Material:** PPE, paños, material para cordón, material neonatal y control de hemorragia.
 **Anatomía:** canal del parto, cabeza fetal, hombros y periné.
-**Preparación:** activar ayuda obstétrica/neonatal, privacidad, posición materna y preparación de reanimación neonatal.
-**Técnica paso a paso:** controlar la salida de la cabeza sin tracción; comprobar cordón nucal; permitir restitución/rotación espontánea; guiar hombro anterior y posterior con maniobras suaves; recibir, secar y mantener caliente al recién nacido.
-**STOP:** no traccionar de la cabeza; si hombros no progresan, declarar distocia.
-**Confirmación:** nacimiento completo, tono/respiración neonatal y estabilidad materna inicial.
-**Complicaciones:** hemorragia, desgarros, distocia de hombros y depresión neonatal.
-**Después:** vigilancia materno-neonatal, manejo de tercera etapa y PPH según protocolo.
-**Documentación:** hora de nacimiento, presentación, Apgar si disponible y complicaciones.
+**Preparación:** activar ayuda obstétrica/neonatal, privacidad, posición materna y equipo de reanimación neonatal.
+**Técnica paso a paso:** controlar la salida de la cabeza sin tracción; comprobar cordón nucal; permitir restitución y rotación; guiar hombros suavemente; recibir y calentar al recién nacido.
+**STOP:** no traccionar de la cabeza; si los hombros no progresan, declarar distocia.
+**Confirmación:** nacimiento completo y estabilidad inicial materno-neonatal.
+**Complicaciones:** hemorragia, desgarros, distocia y depresión neonatal.
+**Después:** vigilancia materno-neonatal y manejo de tercera etapa/PPH según protocolo.
+**Documentación:** hora de nacimiento, presentación y complicaciones.
 **Fuentes:** obstetric emergency guidance; WHO/major-society delivery principles.
 **QA:** YELLOW.
 
