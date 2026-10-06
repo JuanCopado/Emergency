@@ -1,48 +1,243 @@
 # 2. Acceso vascular y monitorización
 
-Estado: **YELLOW**.
+Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.
 
 ## PROC-VASC-001 — Vía venosa periférica — CORE
-**Objetivo:** acceso IV rápido. **Técnica:** seleccionar vena, torniquete, antisepsia, punción bisel arriba, observar retorno, avanzar catéter, soltar torniquete, conectar, comprobar permeabilidad y fijar. **STOP:** dolor/edema al flush. **Visual:** ángulo y avance aguja-catéter.
+**Objetivo:** obtener acceso IV rápido y seguro.  
+**Indicaciones:** administración de fluidos, fármacos, contraste o extracción seleccionada.  
+**Contraindicaciones/precauciones:** evitar extremidad con infección local, fístula AV, linfedema significativo o acceso distal a lesión vascular cuando exista alternativa.  
+**Material:** catéter periférico, torniquete, antiséptico, guantes, conector, flush y fijación.  
+**Anatomía:** venas superficiales de dorso de mano/antebrazo; relación con arterias/nervios.  
+**Preparación:** elegir vena y calibre apropiados, higiene de manos y antisepsia.  
+**Técnica paso a paso:** 1) torniquete; 2) punción bisel arriba; 3) observar retorno; 4) bajar ángulo/avanzar catéter; 5) soltar torniquete; 6) conectar/flush; 7) fijar.  
+**STOP:** dolor, resistencia o edema durante flush.  
+**Confirmación:** retorno/flush sin extravasación y ausencia de dolor.  
+**Complicaciones:** infiltración, flebitis, hematoma, infección, lesión nerviosa.  
+**Después:** vigilar sitio y necesidad del acceso.  
+**Documentación:** sitio, calibre, intentos y complicaciones.  
+**Fuentes:** CDC intravascular catheter guidance 2024.  
+**QA:** YELLOW.
 
-## PROC-VASC-002 — VVP ecoguiada — ADVANCED/POCUS
-**Técnica:** elegir vena compresible y suficientemente superficial; antisepsia y gel/cubierta estéril; eje corto o largo; mantener visualización de punta; avanzar catéter intraluminal. **STOP:** no avanzar si no se identifica la punta. **Visual:** in-plane/out-of-plane.
+## PROC-VASC-002 — Vía venosa periférica ecoguiada — ADVANCED/POCUS
+**Objetivo:** obtener VVP cuando acceso convencional es difícil.  
+**Indicaciones:** venas no palpables/visibles, obesidad, accesos repetidamente fallidos.  
+**Contraindicaciones/precauciones:** trombosis, infección local o trayecto demasiado profundo para longitud del catéter.  
+**Material:** ecógrafo lineal, cubierta/gel, catéter de longitud apropiada, antiséptico y fijación.  
+**Anatomía:** vena compresible, arteria pulsátil/no compresible y nervios adyacentes.  
+**Preparación:** mapa vascular, medir profundidad y elegir eje corto/largo.  
+**Técnica paso a paso:** 1) identificar vena; 2) antisepsia; 3) punción dinámica; 4) mantener visualización de punta; 5) confirmar entrada intraluminal; 6) avanzar catéter; 7) flush/fijar.  
+**STOP:** no avanzar si la punta no está identificada o si se sospecha punción arterial.  
+**Confirmación:** catéter intraluminal, flush fácil y sin extravasación.  
+**Complicaciones:** punción arterial, infiltración, lesión nerviosa, hematoma.  
+**Después:** reevaluar permeabilidad y fijación.  
+**Documentación:** vaso, técnica US, intentos y confirmación.  
+**Fuentes:** ACEP ultrasound vascular access principles; CDC 2024.  
+**QA:** YELLOW.
 
-## PROC-VASC-003 — Intraóseo tibial proximal — CORE
-**Objetivo:** acceso inmediato cuando IV no es rápido. **Técnica:** identificar punto anatómico, antisepsia, insertar perpendicular según dispositivo hasta pérdida de resistencia, retirar estilete, aspirar/flush, fijar. **Confirmación:** estabilidad + flush sin extravasación. **STOP:** fractura/local infección/prótesis en sitio o IO reciente en mismo hueso. **Visual:** landmarks.
+## PROC-VASC-003 — Acceso intraóseo tibial proximal — CORE
+**Objetivo:** acceso rápido cuando IV no es oportuno.  
+**Indicaciones:** emergencia con necesidad inmediata de acceso y VVP no disponible/rápida.  
+**Contraindicaciones/precauciones:** fractura del hueso, infección local, IO reciente en mismo hueso o prótesis/anatomía alterada según dispositivo.  
+**Material:** dispositivo IO, aguja apropiada, antiséptico, flush, extensión y fijación.  
+**Anatomía:** tibia proximal, tuberosidad y cortical medial plana.  
+**Preparación:** identificar landmark y tamaño de aguja apropiado.  
+**Técnica paso a paso:** 1) antisepsia; 2) insertar perpendicular/según dispositivo; 3) pérdida de resistencia; 4) retirar estilete; 5) conectar; 6) flush; 7) fijar.  
+**STOP:** extravasación, dolor desproporcionado, inestabilidad de aguja o sospecha de síndrome compartimental.  
+**Confirmación:** aguja estable, flush sin extravasación y flujo adecuado.  
+**Complicaciones:** extravasación, compartimental, fractura, infección, lesión placa de crecimiento en pediatría.  
+**Después:** sustituir por acceso definitivo cuando sea posible.  
+**Documentación:** sitio, dispositivo, intentos y respuesta.  
+**Fuentes:** AHA 2025 ALS vascular access; fabricante/protocolo local.  
+**QA:** YELLOW.
 
-## PROC-VASC-004 — Intraóseo humeral proximal — CORE
-**Técnica:** posicionar brazo, identificar tubérculo mayor/cuello quirúrgico según dispositivo, insertar con dirección adecuada, fijar muy bien. **Visual:** anatomía con estructuras de riesgo.
+## PROC-VASC-004 — Acceso intraóseo humeral proximal — CORE
+**Objetivo:** acceso IO de alto flujo alternativo.  
+**Indicaciones:** emergencia con VVP no disponible y anatomía adecuada.  
+**Contraindicaciones/precauciones:** fractura proximal, prótesis/hardware, infección local o IO reciente.  
+**Material:** dispositivo IO, aguja apropiada, extensión, flush y fijador.  
+**Anatomía:** cabeza humeral/tubérculo mayor y estructuras neurovasculares regionales.  
+**Preparación:** posicionar brazo según dispositivo y localizar landmark.  
+**Técnica paso a paso:** 1) antisepsia; 2) insertar con dirección recomendada por dispositivo; 3) confirmar pérdida de resistencia; 4) retirar estilete; 5) flush; 6) fijar firmemente.  
+**STOP:** posición dudosa, extravasación o dolor/edema creciente.  
+**Confirmación:** estabilidad y flush sin infiltración.  
+**Complicaciones:** extravasación, compartimental, fractura, lesión neurovascular.  
+**Después:** reevaluación frecuente y transición a acceso definitivo.  
+**Documentación:** sitio y dispositivo.  
+**Fuentes:** AHA/IO device guidance.  
+**QA:** YELLOW.
 
-## PROC-VASC-005 — IO pediátrico — CORE/PED
-**Técnica:** preferir sitios autorizados por dispositivo/edad; controlar profundidad; confirmar ausencia de extravasación; analgesia intraósea en consciente según módulo farmacológico. **Visual:** tibia pediátrica y profundidad.
+## PROC-VASC-005 — Acceso intraóseo pediátrico — CORE/PED
+**Objetivo:** acceso vascular de rescate en niño con acceso IV no oportuno.  
+**Indicaciones:** shock, parada u otra emergencia con necesidad inmediata de fármacos/fluidos.  
+**Contraindicaciones/precauciones:** fractura, infección, IO previa en mismo hueso; respetar edad/tamaño/dispositivo.  
+**Material:** dispositivo IO pediátrico, aguja apropiada, flush y fijación.  
+**Anatomía:** tibia proximal/distal u otros sitios autorizados según dispositivo/edad.  
+**Preparación:** seleccionar sitio/tamaño y analgesia intraósea si consciente desde módulo farmacológico.  
+**Técnica paso a paso:** 1) landmark; 2) antisepsia; 3) inserción controlada; 4) confirmar estabilidad; 5) flush; 6) fijar.  
+**STOP:** extravasación o signos compartimentales.  
+**Confirmación:** flujo adecuado sin infiltración.  
+**Complicaciones:** compartimental, fractura, necrosis, infección.  
+**Después:** sustituir cuando sea posible.  
+**Documentación:** sitio, aguja, intentos.  
+**Fuentes:** AHA/AAP/ ERC pediatric resuscitation guidance.  
+**QA:** YELLOW.
 
-## PROC-VASC-006 — CVC yugular interna ecoguiado — ADVANCED
-**Técnica:** indicación y sitio; barrera estéril máxima; ecografía dinámica; identificar vena compresible/carótida; punción visualizando punta; guía sin resistencia; confirmar guía venosa; dilatar; avanzar catéter; aspirar/lavar todas luces; fijar. **STOP:** nunca dilatar con duda sobre guía. **Visual:** US eje corto/largo + Seldinger.
+## PROC-VASC-006 — CVC yugular interna ecoguiado — ADVANCED/POCUS
+**Objetivo:** acceso venoso central seguro para indicaciones justificadas.  
+**Indicaciones:** vasoactivos, acceso difícil, monitorización/terapias que requieren CVC.  
+**Contraindicaciones/precauciones:** infección local, trombosis, anatomía alterada; valorar coagulopatía y alternativas.  
+**Material:** kit CVC, ecógrafo lineal, barrera estéril máxima, clorhexidina alcohólica si no contraindicada, anestesia local y fijación.  
+**Anatomía:** yugular interna, carótida, pleura y nervio vago.  
+**Preparación:** US preprocedimiento, Trendelenburg si apropiado/tolerado, time-out y barrera estéril máxima.  
+**Técnica paso a paso:** 1) identificar vena/arteria; 2) punción dinámica visualizando punta; 3) retorno venoso; 4) avanzar guía sin resistencia; 5) confirmar guía venosa; 6) dilatar; 7) avanzar catéter; 8) aspirar/lavar luces; 9) fijar.  
+**STOP:** nunca dilatar con duda sobre posición de guía; detener ante punción arterial, arritmia sostenida o resistencia.  
+**Confirmación:** guía/catéter venoso por US y método postprocedimiento apropiado; descartar complicación según contexto.  
+**Complicaciones:** punción arterial, hematoma, neumotórax, hemotórax, arritmia, embolia aérea, infección.  
+**Después:** apósito estéril, vigilancia y retirada precoz cuando no sea necesario.  
+**Documentación:** sitio, US, intentos, longitud, confirmación y complicaciones.  
+**Fuentes:** CDC 2024; ultrasound-guided vascular access standards.  
+**QA:** YELLOW.
 
-## PROC-VASC-007 — CVC femoral ecoguiado — ADVANCED
-**Técnica:** mapa ecográfico arteria/vena; barrera estéril; punción venosa ecoguiada; Seldinger; fijación. **STOP:** evitar zona contaminada/hematoma cuando alternativa segura. **Visual:** NAVEL adaptado a US real.
+## PROC-VASC-007 — CVC femoral ecoguiado — ADVANCED/POCUS
+**Objetivo:** acceso venoso central rápido en anatomía femoral.  
+**Indicaciones:** necesidad de CVC con ventajas de acceso femoral por situación clínica.  
+**Contraindicaciones/precauciones:** infección/contaminación inguinal, trombosis, trauma pélvico/vascular relevante.  
+**Material:** kit CVC, ecógrafo, barrera estéril máxima y antisepsia.  
+**Anatomía:** vena femoral común medial a arteria, nervio lateral; relación con ligamento inguinal.  
+**Preparación:** mapa US y posicionamiento de pierna.  
+**Técnica paso a paso:** 1) identificar vena compresible; 2) punción dinámica; 3) retorno; 4) guía; 5) confirmar intravascular; 6) dilatar; 7) catéter; 8) aspirar/lavar/fijar.  
+**STOP:** punción demasiado distal/proximal, resistencia o sospecha arterial.  
+**Confirmación:** US de guía/vaso y función de luces.  
+**Complicaciones:** punción arterial, hematoma, retroperitoneal si alto, trombosis, infección.  
+**Después:** higiene/apósito y revisar necesidad.  
+**Documentación:** técnica, lado, intentos y complicaciones.  
+**Fuentes:** CDC 2024; ultrasound vascular access standards.  
+**QA:** YELLOW.
 
-## PROC-VASC-008 — CVC subclavio/axilar — ADVANCED
-**Técnica:** selección según riesgo; ecografía infraclavicular/axilar cuando experiencia; punción dirigida evitando pleura/arteria; Seldinger y confirmación. **Visual:** relación vena-arteria-pleura.
+## PROC-VASC-008 — CVC subclavio/axilar ecoguiado — ADVANCED
+**Objetivo:** acceso central infraclavicular con menor riesgo infeccioso en algunos contextos.  
+**Indicaciones:** CVC cuando anatomía/operador favorecen vía axilar-subclavia.  
+**Contraindicaciones/precauciones:** coagulopatía significativa, deformidad clavicular, infección, lesión pleural ipsilateral según contexto.  
+**Material:** kit CVC, ecografía, barrera estéril máxima.  
+**Anatomía:** vena axilar/subclavia, arteria, primera costilla y pleura.  
+**Preparación:** US para vena/arteria/pleura, posición adecuada de brazo.  
+**Técnica paso a paso:** 1) identificar vaso; 2) punción dinámica evitando pleura; 3) guía; 4) confirmar guía; 5) dilatar; 6) catéter; 7) aspirar/lavar/fijar.  
+**STOP:** trayectoria hacia pleura/arteria o guía no confirmada.  
+**Confirmación:** US/ECG o imagen según protocolo y descartar neumotórax cuando proceda.  
+**Complicaciones:** neumotórax, hemotórax, punción arterial, lesión nerviosa, infección.  
+**Después:** vigilancia.  
+**Documentación:** sitio, técnica, confirmación.  
+**Fuentes:** CDC 2024; procedural ultrasound standards.  
+**QA:** YELLOW.
 
 ## PROC-VASC-009 — Técnica de Seldinger — ADVANCED
-**Objetivo:** acceso por guía. **Secuencia:** aguja → retorno → guía sin resistencia → retirar aguja → incisión cutánea → dilatador solo hasta tejido/vaso necesario → retirar → catéter sobre guía → retirar guía. **STOP:** jamás perder extremo proximal de guía. **Visual:** 7 pasos separados.
+**Objetivo:** colocar catéter sobre guía de forma controlada.  
+**Indicaciones:** CVC, pigtail, arterial y otros dispositivos diseñados para Seldinger.  
+**Contraindicaciones/precauciones:** no usar cuando la posición de aguja/guía no está inequívocamente confirmada.  
+**Material:** aguja, guía, bisturí, dilatador y catéter compatibles.  
+**Anatomía:** depende del vaso/cavidad objetivo.  
+**Preparación:** confirmar objetivo y profundidad; mantener control del extremo proximal de la guía.  
+**Técnica paso a paso:** 1) punción/retorno; 2) introducir guía sin resistencia; 3) retirar aguja; 4) pequeña incisión; 5) dilatar solo lo necesario; 6) retirar dilatador; 7) avanzar catéter sobre guía; 8) retirar guía.  
+**STOP:** nunca perder guía dentro del paciente; detener si guía no avanza libremente.  
+**Confirmación:** guía/catéter en objetivo y función adecuada.  
+**Complicaciones:** pérdida de guía, perforación, falsa vía, hematoma, lesión vascular.  
+**Después:** fijar y confirmar posición final.  
+**Documentación:** dispositivo y confirmación.  
+**Fuentes:** estándares de acceso vascular; instrucciones de dispositivo.  
+**QA:** YELLOW.
 
 ## PROC-VASC-010 — Línea arterial radial — ADVANCED
-**Técnica:** antisepsia/anestesia, palpación o US, punción, avance catéter/guía, conectar a tubing presurizado, cero/nivelación, comprobar onda, fijar. **STOP:** isquemia distal/hematoma expansivo. **Visual:** eje vascular + transductor.
+**Objetivo:** monitorización continua de PA y muestreo arterial repetido.  
+**Indicaciones:** shock, vasoactivos, necesidad de gasometrías frecuentes o monitorización beat-to-beat.  
+**Contraindicaciones/precauciones:** infección local, isquemia distal, lesión arterial conocida; valorar perfusión colateral y anatomía.  
+**Material:** catéter arterial, transductor/tubing presurizado, antiséptico, anestesia local y ecógrafo si útil.  
+**Anatomía:** arteria radial, vena/nervio vecinos.  
+**Preparación:** posición de muñeca, antisepsia y sistema de transductor preparado.  
+**Técnica paso a paso:** 1) localizar arteria; 2) punción palpada o ecoguiada; 3) flash; 4) avanzar catéter/guía; 5) conectar; 6) nivelar/cero; 7) fijar.  
+**STOP:** isquemia distal, hematoma expansivo, resistencia o posición dudosa.  
+**Confirmación:** onda arterial apropiada y correlación clínica.  
+**Complicaciones:** trombosis, isquemia, hematoma, infección, pseudoaneurisma.  
+**Después:** vigilar perfusión distal y sitio.  
+**Documentación:** sitio, técnica, waveform y complicaciones.  
+**Fuentes:** MSD/Merck Professional 2025; CDC 2024.  
+**QA:** YELLOW.
 
 ## PROC-VASC-011 — Línea arterial femoral — ADVANCED
-**Técnica:** US, punción de arteria femoral común en zona segura, Seldinger, conexión y fijación. **STOP:** punción demasiado distal/proximal, sangrado no controlable. **Visual:** relación con ligamento inguinal.
+**Objetivo:** monitorización arterial cuando radial no es adecuada o se necesita acceso central arterial.  
+**Indicaciones:** shock profundo, acceso radial imposible o contexto específico.  
+**Contraindicaciones/precauciones:** infección local, enfermedad vascular femoral, trauma pélvico/inguinal.  
+**Material:** kit arterial, US, transductor y barrera estéril.  
+**Anatomía:** arteria femoral común bajo ligamento inguinal; vena medial y nervio lateral.  
+**Preparación:** mapa US y landmark del ligamento inguinal.  
+**Técnica paso a paso:** 1) punción ecoguiada de arteria femoral común; 2) guía; 3) catéter; 4) conectar; 5) nivelar/cero; 6) fijar.  
+**STOP:** acceso demasiado alto/bajo, sangrado no controlable o guía dudosa.  
+**Confirmación:** onda arterial y US cuando corresponde.  
+**Complicaciones:** sangrado retroperitoneal, pseudoaneurisma, trombosis, infección.  
+**Después:** vigilancia vascular distal.  
+**Documentación:** lado, técnica, waveform.  
+**Fuentes:** access vascular/critical care procedural guidance.  
+**QA:** YELLOW.
 
-## PROC-VASC-012 — Gasometría arterial — CORE
-**Técnica:** seleccionar sitio; antisepsia; punción arterial con jeringa apropiada; comprimir de forma suficiente; expulsar aire y enviar rápido. **STOP:** anticoagulación/coagulopatía exige mayor cautela y compresión. **Visual:** radial y ángulo.
+## PROC-VASC-012 — Punción arterial / gasometría — CORE
+**Objetivo:** obtener muestra arterial fiable.  
+**Indicaciones:** evaluación de oxigenación/ventilación/ácido-base cuando la muestra arterial es necesaria.  
+**Contraindicaciones/precauciones:** infección local, compromiso vascular, coagulopatía; mayor compresión si anticoagulado.  
+**Material:** jeringa heparinizada, aguja, antiséptico, gasas y hielo/transporte según laboratorio.  
+**Anatomía:** radial habitualmente; alternativas según contexto.  
+**Preparación:** identificar arteria y confirmar condiciones de oxígeno/ventilación relevantes.  
+**Técnica paso a paso:** 1) antisepsia; 2) punción arterial; 3) permitir llenado; 4) retirar; 5) compresión; 6) expulsar burbujas y mezclar suavemente.  
+**STOP:** dolor intenso, parestesia o sangrado persistente.  
+**Confirmación:** muestra arterial adecuada y hemostasia.  
+**Complicaciones:** hematoma, espasmo, lesión nerviosa, isquemia.  
+**Después:** vigilar sitio y enviar muestra sin demora indebida.  
+**Documentación:** sitio y FiO₂/soporte si relevante.  
+**Fuentes:** estándares de gasometría y critical care.  
+**QA:** YELLOW.
 
-## PROC-VASC-013 — Hemocultivos — CORE
-**Técnica:** antisepsia rigurosa de piel y tapones; volumen adecuado; pares de sitios distintos según protocolo; antes de antibiótico si no retrasa tratamiento crítico. **Visual:** secuencia de antisepsia y frascos.
+## PROC-VASC-013 — Toma de hemocultivos — CORE
+**Objetivo:** obtener muestras microbiológicas minimizando contaminación.  
+**Indicaciones:** sospecha de bacteriemia/sepsis/endocarditis cuando los cultivos aportan valor.  
+**Contraindicaciones/precauciones:** no retrasar antibiótico crítico por intentos prolongados.  
+**Material:** frascos, antiséptico de piel y tapones, guantes y material de extracción.  
+**Anatomía:** venopunción periférica preferida según protocolo.  
+**Preparación:** higiene de manos, identificación correcta y antisepsia rigurosa.  
+**Técnica paso a paso:** 1) desinfectar tapones; 2) antisepsia piel y secado; 3) venopunción; 4) volumen adecuado; 5) inocular frascos según sistema; 6) etiquetar.  
+**STOP:** tocar de nuevo sitio antiseptizado sin re-preparación.  
+**Confirmación:** volumen/pares adecuados y etiquetado correcto.  
+**Complicaciones:** contaminación, hematoma, falsa interpretación clínica.  
+**Después:** enviar pronto y documentar hora/sitio.  
+**Documentación:** pares, sitios y relación temporal con antibiótico.  
+**Fuentes:** sepsis/microbiology best practice; protocolo laboratorio local.  
+**QA:** YELLOW.
 
-## PROC-VASC-014 — Retirada de CVC — CORE
-**Técnica:** posición que reduzca embolia aérea según sitio/estado, retirar apósito, pedir Valsalva/apnea si apropiado, retirada continua, presión, apósito oclusivo, verificar integridad. **Visual:** posición y sello.
+## PROC-VASC-014 — Retirada segura de CVC — CORE
+**Objetivo:** retirar CVC minimizando embolia aérea, sangrado e infección.  
+**Indicaciones:** acceso innecesario, infectado, disfuncional o complicación según plan clínico.  
+**Contraindicaciones/precauciones:** catéter de gran calibre arterial o sospecha de adherencia/trombosis requiere plan específico.  
+**Material:** guantes, campo, material de sutura/apósito oclusivo y gasas.  
+**Anatomía:** trayecto venoso central y punto de salida.  
+**Preparación:** posición adecuada al sitio, retirar sutura/fijador y explicar maniobra.  
+**Técnica paso a paso:** 1) antisepsia; 2) Valsalva/apnea si apropiado; 3) retirar de forma continua; 4) presión; 5) comprobar integridad; 6) apósito oclusivo.  
+**STOP:** resistencia, catéter incompleto o sangrado persistente.  
+**Confirmación:** catéter íntegro y hemostasia.  
+**Complicaciones:** embolia aérea, hemorragia, fragmento retenido.  
+**Después:** observar sitio y retirar apósito según protocolo.  
+**Documentación:** integridad y complicaciones.  
+**Fuentes:** CDC catheter care principles; protocolo local.  
+**QA:** YELLOW.
 
-## PROC-VASC-015 — Complicaciones mecánicas de CVC — ADVANCED
-**Objetivo:** reconocer punción arterial, neumotórax, hemotórax, arritmia, malposición, embolia aérea. **Conducta:** detener procedimiento, estabilizar, POCUS/imagen y manejo específico; no retirar a ciegas un dilatador/catéter grande colocado arterialmente sin plan experto. **Visual:** árbol de complicaciones.
+## PROC-VASC-015 — Manejo inicial de complicaciones mecánicas del CVC — ADVANCED
+**Objetivo:** reconocer y estabilizar complicaciones inmediatas del CVC.  
+**Indicaciones:** punción arterial, neumotórax/hemotórax, arritmia, malposición, embolia aérea o sangrado.  
+**Contraindicaciones/precauciones:** no retirar a ciegas un dilatador/catéter grande colocado arterialmente.  
+**Material:** US/POCUS, monitorización, oxígeno y recursos de control vascular/pleural.  
+**Anatomía:** cuello/tórax/ingle según sitio.  
+**Preparación:** detener procedimiento y estabilizar ABC.  
+**Técnica paso a paso:** 1) identificar complicación; 2) controlar sangrado/oxigenación; 3) POCUS/imagen; 4) consulta vascular/torácica cuando proceda; 5) tratamiento específico.  
+**STOP:** deterioro hemodinámico/respiratorio o acceso arterial de gran calibre.  
+**Confirmación:** resolución/estabilización y plan definitivo.  
+**Complicaciones:** shock, hemotórax, ictus/embolia, isquemia, lesión vascular.  
+**Después:** vigilancia y evento de seguridad.  
+**Documentación:** mecanismo, dispositivo, respuesta y consulta.  
+**Fuentes:** vascular access safety guidance; CDC 2024.  
+**QA:** YELLOW.
