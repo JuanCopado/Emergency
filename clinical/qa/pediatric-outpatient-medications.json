@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "scope": "Pediatric outpatient/home medication regimens after ED/urgent-care evaluation",
   "status": "yellow_human_pediatric_pharmacy_review_required",
   "safety_rules": [
@@ -8,7 +8,10 @@
     "Apply source adult/per-dose and daily caps.",
     "Weight basis is explicit. Do not substitute actual/ideal/adjusted weight silently.",
     "Marked obesity requires drug-specific review when evidence is limited; adult maximums still apply when the source specifies them.",
-    "Renal/hepatic impairment, allergy, drug interactions, inability to tolerate oral treatment, red flags and age restrictions may override outpatient treatment."
+    "Renal/hepatic impairment, allergy, drug interactions, inability to tolerate oral treatment, red flags and age restrictions may override outpatient treatment.",
+    "Oral-drop output may be generated only when the exact product has a verified mg/drop or drops/mL factor; never assume a universal drops/mL conversion.",
+    "When an oral-drop product is used, return mg, mL and whole drops per dose, plus the verified product identity and source of the drop factor.",
+    "Pump actuations are not interchangeable with drops. If a product uses a metered pump, the engine must store and display actuations separately from drops."
   ],
   "obesity_policy": {
     "source": "Pediatric Pharmacy Association position statement 2024",
