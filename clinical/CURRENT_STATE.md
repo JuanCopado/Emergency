@@ -1,3 +1,19 @@
+# Snapshot de continuidad v1.41 — 06/10/2026
+
+> Este bloque prevalece para la rama `v1.41-procedures-visual`; el contenido histórico inferior conserva snapshots anteriores y no debe usarse como estado actual de esta rama.
+
+- Rama: `v1.41-procedures-visual`.
+- `main`: **no modificar ni fusionar automáticamente**.
+- Último Clinical QA verificado antes de la ampliación PIC: **#645 SUCCESS** sobre `5e5176324504d2b9e857b14f1df807284e91aa3b`.
+- Módulo Técnicas y Procedimientos: **187 técnicas canónicas + 1 alias**, 16 familias, 188 IDs textuales.
+- Añadido `PROC-NEURO-005`: monitorización de PIC/PPC.
+- Fase visual: **PAUSADA**; continuar solo con texto hasta nueva orden.
+- Todas las técnicas permanecen **YELLOW**.
+- Regla de gotas: solo cuentagotas y solo con factor exacto verificado.
+- Handoff autoritativo: `clinical/qa/V1.41_FINAL_HANDOFF.md`.
+
+---
+
 # CURRENT_STATE — Competencia Médica
 
 Fecha de comprobación documental: 02/10/2026.
