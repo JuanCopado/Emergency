@@ -6,7 +6,8 @@ Safety contract:
 - Weight basis is explicit: actual, ideal, adjusted, fixed age/weight band, or device.
 - Adult/source maximums are always applied.
 - Liquid volume is returned ONLY after a verified product concentration is supplied.
-- The engine never substitutes one concentration for another.
+- Drop counts are returned ONLY for an exact product with a verified drop factor (mg/drop or drops/mL).
+- The engine never substitutes one concentration or drop factor for another.
 """
 
 import json
@@ -90,6 +91,78 @@ def _volume(dose_mg, concentration_mg_per_ml, entry, verified_external=False):
         raise ValueError("concentration is not in registry; set external_concentration_verified=true only after checking the exact product/SmPC")
     exact=dose_mg/conc
     return {"exact_ml":exact,"rounded_0_1_ml":round(exact+1e-12,1),"concentration_mg_per_ml":conc}
+
+def _matched_verified_concentration(entry, concentration_mg_per_ml):
+    conc=_num(concentration_mg_per_ml,"concentration_mg_per_ml")
+    for item in entry.get("verified_concentrations",[]):
+        value=item.get("mg_per_ml")
+        if value is not None and abs(float(value)-conc)<1e-9:
+            return item
+    return None
+
+def _drops(dose_mg, volume_ml, product, entry):
+    """Return drop-device conversion only when the exact drop factor is verified.
+
+    Never infer a universal drops/mL value. Prefer registry metadata for the
+    exact concentration. External factors require explicit verification plus
+    exact product identity and source URL.
+    """
+    if not product:
+        return None
+    factor_source=None
+    mg_per_drop=None
+    drops_per_ml=None
+    matched=None
+    if product.get("concentration_mg_per_ml") is not None:
+        matched=_matched_verified_concentration(entry,product["concentration_mg_per_ml"])
+    if matched:
+        mg_per_drop=matched.get("mg_per_drop")
+        drops_per_ml=matched.get("drops_per_ml")
+        if mg_per_drop is not None or drops_per_ml is not None:
+            factor_source="registry_verified_exact_product"
+    if mg_per_drop is None and drops_per_ml is None:
+        if product.get("external_drop_factor_verified") is not True:
+            return None
+        if not product.get("exact_product_name") or not product.get("drop_factor_source_url"):
+            raise ValueError("external drop factor requires exact_product_name and drop_factor_source_url")
+        mg_per_drop=product.get("mg_per_drop")
+        drops_per_ml=product.get("drops_per_ml")
+        if mg_per_drop is None and drops_per_ml is None:
+            raise ValueError("external_drop_factor_verified requires mg_per_drop or drops_per_ml")
+        factor_source="externally_verified_exact_product"
+    if mg_per_drop is not None:
+        mg_per_drop=_num(mg_per_drop,"mg_per_drop")
+        if mg_per_drop<=0:
+            raise ValueError("mg_per_drop must be >0")
+        exact=float(dose_mg)/mg_per_drop
+        implied_drops_per_ml=None
+        if product.get("concentration_mg_per_ml") is not None:
+            implied_drops_per_ml=_num(product["concentration_mg_per_ml"],"concentration_mg_per_ml")/mg_per_drop
+    else:
+        drops_per_ml=_num(drops_per_ml,"drops_per_ml")
+        if drops_per_ml<=0:
+            raise ValueError("drops_per_ml must be >0")
+        exact=float(volume_ml)*drops_per_ml
+        implied_drops_per_ml=drops_per_ml
+        if product.get("concentration_mg_per_ml") is not None:
+            mg_per_drop=_num(product["concentration_mg_per_ml"],"concentration_mg_per_ml")/drops_per_ml
+    rounded=int(math.floor(exact+0.5))
+    delivered_mg=rounded*mg_per_drop if mg_per_drop is not None else None
+    error_pct=None
+    if delivered_mg is not None and dose_mg:
+        error_pct=(delivered_mg-float(dose_mg))/float(dose_mg)*100.0
+    return {
+        "exact_drops": exact,
+        "rounded_whole_drops": rounded,
+        "mg_per_drop": mg_per_drop,
+        "drops_per_ml": implied_drops_per_ml,
+        "delivered_mg_at_rounded_drops": delivered_mg,
+        "rounding_error_percent": error_pct,
+        "factor_source": factor_source,
+        "exact_product_name": product.get("exact_product_name") or (matched or {}).get("exact_product_name"),
+        "drop_factor_source_url": product.get("drop_factor_source_url") or (matched or {}).get("drop_factor_source_url"),
+        "warning": "Use only the verified dropper/pump for this exact product; drops are not interchangeable between products."
+    }
 
 def _check_patient_gates(entry, patient):
     for gate in entry.get("required_patient_flags", []):
@@ -316,6 +389,11 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
           verified_external=product.get("external_concentration_verified") is True
         )
         result["volume_per_dose"]=vol
+        drop_out=_drops(dose,vol["exact_ml"],product,e)
+        if drop_out is not None:
+            result["drops_per_dose"]=drop_out
+        elif product.get("form") in {"oral_drops","drops","drop_solution"}:
+            result["drops_status"]="verified_exact_product_drop_factor_required"
 
     if dose is not None and product is None and e.get("liquid_capable",False):
         result["volume_status"]="concentration_required_for_ml"
