@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "scope": "Exact-product drop/pump conversion factors. This registry does not itself authorize a clinical regimen.",
+  "scope": "Exact-product oral drop conversion factors for dropper bottles. This registry does not itself authorize a clinical regimen.",
   "products": [
     {
       "id": "tramal-100mgml-oral-drops-dropper-pt",
@@ -14,22 +14,7 @@
       "status": "verified_regulatory_source",
       "source": "INFARMED pharmacovigilance bulletin / circular on Tramal oral drops administration",
       "source_url": "https://www.infarmed.pt/documents/15786/1091622/8672938.PDF/a70c927a-cb24-444f-91fa-5a2fc9d89183?version=1.0",
-      "safety_note": "One drop from the dropper contains 2.5 mg tramadol hydrochloride. Do not equate a pump actuation with one drop."
-    },
-    {
-      "id": "tramal-100mgml-metered-pump-pt",
-      "country": "Portugal",
-      "drug": "tramadol hydrochloride",
-      "brand": "Tramal",
-      "form": "metered_oral_pump",
-      "concentration_mg_per_ml": 100,
-      "mg_per_actuation": 12.5,
-      "ml_per_actuation": 0.125,
-      "drop_equivalent_per_actuation": 5,
-      "status": "verified_regulatory_source",
-      "source": "INFARMED pharmacovigilance communication on overdose risk with metered pump",
-      "source_url": "https://www.infarmed.pt/documents/15786/2506612/Boletim%2Bde%2BFarmacovigil%EF%BF%BD%EF%BF%BDncia%2C%2BVolume%2B22%2C%2Bn%EF%BF%BD%EF%BF%BD4%2C%2Babril%2Bde%2B2018/3bea368c-08b1-4429-b188-ab9258031101",
-      "safety_note": "One full pump actuation contains 12.5 mg, equivalent in amount to five dropper drops. Display actuations separately from drops."
+      "safety_note": "One drop from the dropper contains 2.5 mg tramadol hydrochloride."
     }
   ],
   "pending_exact_product_verification": [
