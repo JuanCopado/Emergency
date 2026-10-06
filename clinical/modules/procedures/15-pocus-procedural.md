@@ -3,7 +3,20 @@
 Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.
 
 ## PROC-US-001 — VVP ecoguiada — ADVANCED
-**Técnica:** mapa vascular, profundidad/calibre, compresibilidad; elegir eje corto dinámico o largo; cubierta/gel apropiados; mantener punta identificada mediante movimientos incrementales. **Visual:** tip-tracking.
+**Objetivo:** facilitar acceso venoso periférico difícil manteniendo visualización de la punta.
+**Indicaciones:** venas no palpables/visibles o múltiples intentos fallidos.
+**Contraindicaciones/precauciones:** trombosis, infección local o vena demasiado profunda para la longitud del catéter.
+**Material:** ecógrafo lineal, gel/cubierta, catéter apropiado y material IV.
+**Anatomía:** vena compresible, arteria pulsátil y nervios próximos.
+**Preparación:** mapear vaso, profundidad y trayecto.
+**Técnica paso a paso:** identificar vena, elegir eje corto o largo, puncionar bajo guía dinámica y avanzar manteniendo la punta identificada.
+**STOP:** no avanzar si la punta no está claramente localizada.
+**Confirmación:** catéter intraluminal y flush sin extravasación.
+**Complicaciones:** punción arterial, infiltración, hematoma y lesión nerviosa.
+**Después:** fijar y reevaluar permeabilidad.
+**Documentación:** vaso, técnica ecográfica, intentos y confirmación.
+**Fuentes:** procedural ultrasound vascular access standards.
+**QA:** YELLOW.
 
 ## PROC-US-002 — CVC ecoguiado — ADVANCED
 **Técnica:** identificar vena/arteria, trombo y anatomía; punción dinámica con visualización de punta; confirmar guía intravascular en múltiples vistas antes de dilatar. **Visual:** vena compresible y wire.
