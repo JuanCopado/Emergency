@@ -16,8 +16,11 @@ import argparse
 import base64
 import binascii
 import hashlib
+import hmac
 import json
 import mimetypes
+import os
+import secrets
 import tempfile
 import uuid
 from copy import deepcopy
@@ -46,10 +49,40 @@ API_VERSION = "1.0"
 MAX_UPLOAD_BYTES = 12 * 1024 * 1024
 MAX_TEXT_CHARS = 120_000
 TEXT_EXTENSIONS = {".txt", ".csv", ".json", ".xml", ".md", ".log", ".tsv"}
+PREPARED_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_PREPARED_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
 TEXT_MIME_TYPES = {
     "text/plain", "text/csv", "application/json", "application/xml",
     "text/xml", "text/markdown", "text/tab-separated-values",
 }
+
+
+
+def _prepared_signature_payload(prepared):
+    payload = deepcopy(prepared)
+    payload.pop("integrity_token", None)
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+
+
+def _sign_prepared(prepared):
+    signed = deepcopy(prepared)
+    signed["integrity_token"] = hmac.new(
+        PREPARED_HMAC_KEY, _prepared_signature_payload(signed), hashlib.sha256
+    ).hexdigest()
+    return signed
+
+
+def _verify_prepared(prepared):
+    if not isinstance(prepared, dict):
+        raise ValueError("prepared upload is required")
+    token = str(prepared.get("integrity_token") or "")
+    if not token:
+        raise ValueError("prepared upload integrity token is missing")
+    expected = hmac.new(
+        PREPARED_HMAC_KEY, _prepared_signature_payload(prepared), hashlib.sha256
+    ).hexdigest()
+    if not hmac.compare_digest(token, expected):
+        raise ValueError("prepared upload integrity check failed")
+
 
 
 def _clean_filename(filename):
@@ -145,7 +178,7 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
     else:
         privacy_status = "PASS"
     processing_status = "text_extracted" if extracted_text is not None else "routed_external"
-    return {
+    return _sign_prepared({
         "api_version": API_VERSION,
         "upload_id": str(uuid.uuid4()),
         "filename": filename,
@@ -174,7 +207,7 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
             "modules": route["modules"],
         },
         "original_retained": False,
-    }
+    })
 
 
 
@@ -182,8 +215,7 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
                               burned_in_identifiers_checked=False,
                               vision_transport=None, vision_env=None):
     """Invoke the configured binary interpreter without persisting its proposal."""
-    if not isinstance(prepared, dict):
-        raise ValueError("prepared upload is required")
+    _verify_prepared(prepared)
     raw = _decode_upload(content_base64)
     digest = hashlib.sha256(raw).hexdigest()
     if digest != str(prepared.get("sha256") or ""):
@@ -231,6 +263,7 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
         "burned_in_identifier_review_required": False,
         "provider_output_findings": privacy_findings,
     }
+    updated = _sign_prepared(updated)
     return {
         "prepared": updated,
         "review_required": True,
@@ -253,6 +286,7 @@ def accept_prepared_upload(note, prepared, clinician_edit=None,
                            privacy_checked=False, burned_in_identifiers_checked=False):
     if not isinstance(note, dict) or not isinstance(prepared, dict):
         raise ValueError("note and prepared upload are required")
+    _verify_prepared(prepared)
     privacy = prepared.get("privacy", {})
     if privacy.get("status") == "STOP":
         raise ValueError("upload privacy STOP must be resolved before acceptance")
