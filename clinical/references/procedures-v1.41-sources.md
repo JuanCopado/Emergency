@@ -165,3 +165,9 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 ## Tercera pasada de procedimientos invasivos — 06/10/2026
 - WHO Consolidated PPH Guidelines 2025 and Implementation Guide 2026 — `PROC-OBS-006`, `PROC-OBS-007`.
 - HSE National Clinical Practice Guideline: Prevention and Management of Primary Postpartum Haemorrhage, 2025 — `PROC-OBS-006`, `PROC-OBS-007`.
+
+
+## Cuarta pasada de procedimientos de riesgo — 06/10/2026
+- AUA/SMSNA Priapism Guideline 2022 — `PROC-GU-008`.
+- CDC Blood Culture Collection / Contamination resources, updated 31 Mar 2026; CLSI M47 ED2 — `PROC-VASC-013`.
+- Merck Manual Professional 2025–2026: shoulder dislocation reduction, posterior elbow dislocation, ankle dislocation, peritonsillar abscess drainage — `PROC-ORTHO-001`, `PROC-ORTHO-003`, `PROC-ORTHO-009`, `PROC-ENT-010`.
