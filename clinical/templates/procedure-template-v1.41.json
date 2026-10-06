@@ -1,0 +1,71 @@
+{
+  "procedure_id": "PROC-XXX-000",
+  "name": "Nombre del procedimiento",
+  "family": "Familia clínica",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED"
+  ],
+  "status": "YELLOW",
+  "objective": "",
+  "indications": [],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": []
+  },
+  "equipment": {
+    "essential": [],
+    "optional": [],
+    "monitoring": [],
+    "rescue": []
+  },
+  "anatomy": {
+    "landmarks": [],
+    "target": [],
+    "avoid": [],
+    "laterality": null,
+    "variants": []
+  },
+  "preparation": {
+    "patient_position": "",
+    "operator_position": "",
+    "monitoring": [],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": []
+  },
+  "steps": [],
+  "confirmation": [],
+  "stop_points": [],
+  "complications": {
+    "immediate": [],
+    "early": [],
+    "late": []
+  },
+  "rescue": [],
+  "aftercare": [],
+  "documentation": [],
+  "pearls": [],
+  "special_adaptations": {
+    "pediatric": [],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": []
+  }
+}
