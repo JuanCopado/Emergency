@@ -1,0 +1,216 @@
+{
+  "procedure_id": "PROC-AIR-010",
+  "name": "Secuencia rápida de intubación",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Facilitar intubación traqueal urgente minimizando aspiración y deterioro fisiológico.",
+  "indications": [
+    "Necesidad urgente de vía aérea definitiva cuando no existe una razón dominante para mantener ventilación espontánea."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [
+      "Vía aérea anatómicamente difícil prevista.",
+      "Fisiología extremadamente inestable.",
+      "Situaciones donde perder ventilación espontánea puede ser especialmente peligroso."
+    ],
+    "precautions": [
+      "No administrar bloqueo neuromuscular sin plan de ventilación y rescate.",
+      "Preparar sedoanalgesia postintubación antes de paralizar."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Equipo completo de intubación.",
+      "Equipo de rescate de vía aérea.",
+      "Monitorización."
+    ],
+    "optional": [
+      "Vasopresor según fisiología."
+    ],
+    "monitoring": [
+      "SpO₂.",
+      "ECG.",
+      "Presión arterial.",
+      "Capnografía."
+    ],
+    "rescue": [
+      "BVM.",
+      "SGA.",
+      "FONA."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Vía aérea superior.",
+      "Membrana cricotiroidea como acceso de rescate."
+    ],
+    "target": [
+      "Tráquea."
+    ],
+    "avoid": [
+      "Pérdida de oxigenación sin plan de rescate."
+    ],
+    "laterality": null,
+    "variants": [
+      "RSI con dispositivo directo o videolaringoscopio según contexto."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Semi-Fowler o rampa cuando proceda.",
+    "operator_position": "Cabecera con roles asignados al equipo.",
+    "monitoring": [
+      "SpO₂.",
+      "ECG.",
+      "Presión arterial."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [
+      "Inducción y bloqueo neuromuscular desde módulos farmacológicos canónicos."
+    ],
+    "prechecks": [
+      "Plan A-D.",
+      "Preoxigenación.",
+      "Optimización hemodinámica.",
+      "Asignación de roles.",
+      "Preparar fármacos y sedación postintubación."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Preoxigenar de forma adecuada al contexto.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Preparar inducción y bloqueo neuromuscular desde el módulo farmacológico.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Administrar fármacos y mantener plan de rescate activo.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Realizar intubación con la estrategia seleccionada.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Confirmar posición traqueal con capnografía.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 6,
+      "action": "Iniciar ventilación y sedoanalgesia postintubación.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Capnografía de onda sostenida.",
+    "Ventilación efectiva."
+  ],
+  "stop_points": [
+    "No paralizar sin plan de ventilación/rescate.",
+    "No omitir sedación postintubación.",
+    "Deterioro fisiológico que obliga a pausar y optimizar antes de continuar cuando sea posible."
+  ],
+  "complications": {
+    "immediate": [
+      "Hipotensión.",
+      "Hipoxemia.",
+      "Aspiración.",
+      "Vía aérea fallida."
+    ],
+    "early": [
+      "Awareness si se omite sedación postintubación."
+    ],
+    "late": []
+  },
+  "rescue": [
+    "BVM/SGA para rescatar oxigenación.",
+    "Cambiar operador/dispositivo si fracasa el primer intento.",
+    "Escalar a FONA en CICO.",
+    "Tratar hipotensión e hipoxemia de forma simultánea."
+  ],
+  "aftercare": [
+    "Ventilación protectora.",
+    "Sedoanalgesia continua.",
+    "Reevaluación hemodinámica y gasométrica."
+  ],
+  "documentation": [
+    "Indicación.",
+    "Preoxigenación.",
+    "Fármacos y dosis desde módulo farmacológico.",
+    "Número de intentos.",
+    "Método de confirmación.",
+    "Complicaciones."
+  ],
+  "pearls": [
+    "Preparar postintubación antes de inducir evita omisiones críticas tras el éxito técnico."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar módulo pediátrico específico."
+    ],
+    "pregnancy": [],
+    "obesity": [
+      "Optimizar preoxigenación y posición en rampa."
+    ],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Considerar estrategia despierta en lugar de RSI si perder ventilación espontánea es peligroso."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [
+    "airway-rsi",
+    "sedoanalgesia",
+    "vasoactive-inotrope-infusions"
+  ],
+  "sources": [
+    {
+      "title": "Rapid Sequence Intubation in the Critically Ill Adult Patient",
+      "organization": "Society of Critical Care Medicine",
+      "year": 2023,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
+      "organization": "Difficult Airway Society",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
