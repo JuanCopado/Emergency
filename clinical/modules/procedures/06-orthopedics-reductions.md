@@ -51,20 +51,20 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-004 — Reducción de pronación dolorosa — CORE/PED
-**Objetivo:** reducir subluxación de cabeza radial.  
-**Indicaciones:** niño pequeño con mecanismo típico y brazo no utilizado, sin deformidad significativa.  
-**Contraindicaciones/precauciones:** edema, deformidad, dolor óseo focal, mecanismo atípico o sospecha de fractura.  
-**Material:** habitualmente ninguno; analgesia si precisa.  
-**Anatomía:** cabeza radial y ligamento anular.  
-**Preparación:** examen del miembro y descartar lesión alternativa.  
-**Técnica paso a paso:** 1) sujetar codo; 2) palpar cabeza radial; 3) hiperpronación firme y controlada como primera opción; 4) alternativa supinación-flexión si falla; 5) reevaluar uso espontáneo.  
-**STOP:** dolor/deformidad atípica o fracaso repetido → imagen.  
-**Confirmación:** recuperación espontánea del uso en minutos.  
-**Complicaciones:** dolor transitorio; fractura si diagnóstico incorrecto.  
-**Después:** no inmovilización rutinaria si recuperación completa.  
-**Documentación:** mecanismo, técnica y respuesta.  
-**Fuentes:** pediatric orthopedic/emergency evidence.  
-**QA:** YELLOW.
+**Objetivo:** reducir la subluxación de cabeza radial de forma rápida y atraumática.
+**Indicaciones:** niño pequeño con mecanismo típico, brazo no utilizado y ausencia de signos de lesión ósea significativa.
+**Contraindicaciones/precauciones:** deformidad, edema importante, equimosis extensa, dolor/tenderness fuera de la región de cabeza radial, compromiso neurovascular o mecanismo atípico obligan a descartar fractura u otra lesión.
+**Material:** habitualmente ninguno; analgesia si precisa.
+**Anatomía:** cabeza radial y ligamento anular.
+**Preparación:** examen del miembro completo, incluyendo perfusión, sensibilidad y palpación de clavícula/húmero/codo/antebrazo.
+**Técnica paso a paso:** sujetar el codo y palpar la cabeza radial; usar hiperpronación como técnica inicial razonable o supinación-flexión como alternativa; aplicar la maniobra de forma firme pero controlada y reevaluar uso espontáneo.
+**STOP:** dolor o deformidad atípicos, déficit neurovascular o fracaso tras intentos razonables → imagen y reconsiderar diagnóstico.
+**Confirmación:** recuperación espontánea del uso del brazo, habitualmente en minutos.
+**Complicaciones:** dolor transitorio; fractura iatrogénica es rara y suele reflejar diagnóstico incorrecto.
+**Después:** no inmovilizar de rutina si recupera uso completo; explicar riesgo de recurrencia y evitar tracción axial del brazo.
+**Documentación:** mecanismo, exploración previa, técnica y recuperación funcional.
+**Fuentes:** Merck Manual Professional, How To Reduce a Radial Head Subluxation, updated Aug 2025.
+**QA:** YELLOW; revisión humana pediatría/ortopedia pendiente.
 
 ## PROC-ORTHO-005 — Reducción de luxación de rótula — CORE
 **Objetivo:** devolver rótula lateral luxada a tróclea.  
