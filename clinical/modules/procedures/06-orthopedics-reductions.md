@@ -19,20 +19,20 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-002 — Reducción de luxación posterior de hombro — ADVANCED
-**Objetivo:** restaurar articulación evitando fractura iatrogénica.  
-**Indicaciones:** luxación posterior confirmada.  
-**Contraindicaciones/precauciones:** alta frecuencia de fracturas asociadas; imagen previa salvo compromiso neurovascular crítico; operador experto.  
-**Material:** analgesia/sedación, monitorización, imagen e inmovilización.  
-**Anatomía:** cabeza humeral posterior a glenoides; tuberosidades y nervio axilar.  
-**Preparación:** revisión de Rx/TC si disponible y examen neurovascular.  
-**Técnica paso a paso:** 1) relajación adecuada; 2) tracción axial controlada; 3) corrección suave según patrón; 4) evitar rotación externa forzada; 5) inmovilizar.  
-**STOP:** resistencia, crepitación, dolor abrupto o sospecha de fractura.  
-**Confirmación:** clínica + imagen postreducción.  
-**Complicaciones:** fractura, lesión neurovascular, recurrencia.  
-**Después:** ortopedia.  
-**Documentación:** técnica/neurovascular.  
-**Fuentes:** orthopedic emergency guidance.  
-**QA:** YELLOW.
+**Objetivo:** restaurar la articulación glenohumeral posterior evitando fractura iatrogénica o empeoramiento de lesiones asociadas.
+**Indicaciones:** luxación posterior aguda cerrada; si existe déficit neurovascular, la reducción es inmediata.
+**Contraindicaciones/precauciones:** consultar ortopedia antes de la reducción siempre que sea posible. Merck 2025 considera contraindicaciones para reducción cerrada simple: fractura de tuberosidad mayor desplazada >1 cm, reverse Hill-Sachs >20% de la cabeza humeral, fractura de cuello quirúrgico, fractura de Bankart posterior-inferior >20% con inestabilidad y fractura proximal de húmero de ≥2 fragmentos.
+**Material:** analgesia intraarticular y/o sedación procedimental, monitorización, sábana para contratracción, inmovilizador y material de imagen.
+**Anatomía:** cabeza humeral bloqueada detrás del reborde glenoideo; tuberosidades, glenoides, nervio axilar y paquete neurovascular.
+**Preparación:** examen neurovascular preprocedimiento, radiografías AP + axilar/Y escapular; TC si la luxación/fractura no está bien definida o para planificación.
+**Técnica paso a paso:** en decúbito supino, aplicar tracción axial y contratracción; abducir e internamente rotar para desimpactar la cabeza del reborde posterior; un ayudante puede ejercer presión anterior sobre la cabeza humeral; una vez desimpactada, aplicar rotación externa suave para completar la reducción.
+**STOP:** evitar rotación externa forzada, maniobras bruscas o múltiples intentos; resistencia marcada, crepitación o dolor abrupto sugieren fractura/impacción compleja.
+**Confirmación:** restauración del contorno, mejoría del dolor/movilidad, neurovascular intacto y radiografía postreducción.
+**Complicaciones:** fractura de cabeza humeral/glenoides/tuberosidades, desplazamiento de fracturas asociadas, lesión neurovascular, rigidez y redislocación.
+**Después:** inmovilizar en rotación externa aproximada de 20° con ligera abducción según estabilidad y seguimiento ortopédico.
+**Documentación:** neurovascular pre/post, sedación, técnica, intentos, imagen y resultado.
+**Fuentes:** Merck Manual Professional, How To Reduce Posterior Shoulder Dislocations, updated Aug 2025.
+**QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-003 — Reducción de luxación posterior de codo — CORE
 **Objetivo:** restaurar alineación del codo y proteger arteria braquial y nervios periféricos.
