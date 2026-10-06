@@ -59,7 +59,7 @@ def main():
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {len(cards)} visual briefs to {OUT}")
-    return 0 if len(cards) == 192 else 2
+    return 0 if len(cards) == 197 else 2
 
 if __name__ == "__main__":
     raise SystemExit(main())
