@@ -275,20 +275,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW.
 
 ## PROC-AIR-018 — Oxigenoterapia convencional — CORE
-**Objetivo:** corregir hipoxemia con el dispositivo menos invasivo apropiado.  
-**Indicaciones:** hipoxemia o riesgo de hipoxemia según síndrome.  
-**Contraindicaciones/precauciones:** titular a objetivo específico; evitar hiperoxia innecesaria y considerar retención de CO₂ en pacientes susceptibles.  
-**Material:** cánula nasal, mascarilla simple, Venturi o mascarilla con reservorio según necesidad.  
-**Anatomía:** vía aérea superior y sistema respiratorio; no aplica invasión anatómica.  
-**Preparación:** medir SpO₂ y definir objetivo clínico.  
-**Técnica paso a paso:** 1) seleccionar dispositivo; 2) ajustar flujo/FiO₂ según dispositivo; 3) colocar correctamente; 4) reevaluar; 5) escalar si insuficiente.  
-**STOP:** deterioro pese a oxígeno → evaluar soporte ventilatorio.  
-**Confirmación:** SpO₂/estado clínico dentro de objetivo.  
-**Complicaciones:** hiperoxia, sequedad, lesión por presión, retraso de escalada.  
-**Después:** destetar cuando sea posible.  
-**Documentación:** dispositivo, objetivo y respuesta.  
-**Fuentes:** BTS oxygen guidance; ERC/RCUK.  
-**QA:** YELLOW.
+**Objetivo:** corregir hipoxemia mediante oxígeno titulado a un objetivo clínico.
+**Indicaciones:** hipoxemia o alto riesgo de hipoxemia según el síndrome.
+**Contraindicaciones/precauciones:** evitar hiperoxia; en pacientes con riesgo de insuficiencia respiratoria hipercápnica utilizar un objetivo más bajo mientras se obtiene gasometría.
+**Material:** cánula nasal, mascarilla simple, Venturi o mascarilla con reservorio según necesidad.
+**Anatomía:** vía aérea superior y sistema respiratorio.
+**Preparación:** medir SpO₂, evaluar clínica y definir objetivo.
+**Técnica paso a paso:** seleccionar dispositivo y concentración/flujo apropiados, colocarlo correctamente y titular según SpO₂ y respuesta clínica.
+**STOP:** deterioro pese a oxígeno o aumento del trabajo respiratorio → escalar soporte ventilatorio.
+**Confirmación:** SpO₂ dentro del objetivo y mejoría clínica. BTS mantiene 94–98% para la mayoría de adultos agudos y 88–92% en pacientes con riesgo de insuficiencia hipercápnica, pendiente de gasometría.
+**Complicaciones:** hiperoxia, sequedad, lesión por presión y retraso de escalada.
+**Después:** reducir o retirar oxígeno cuando deje de ser necesario.
+**Documentación:** dispositivo, objetivo, concentración/flujo y respuesta.
+**Fuentes:** British Thoracic Society Guideline for oxygen use in adults in healthcare and emergency settings, current BTS resource.
+**QA:** YELLOW; revisión humana respiratoria pendiente.
 
 ## PROC-AIR-019 — Cánula nasal de alto flujo — CORE
 **Objetivo:** proporcionar oxígeno calentado/humidificado de alto flujo y reducir trabajo respiratorio.  
