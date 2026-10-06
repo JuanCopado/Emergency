@@ -198,17 +198,17 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW.
 
 ## PROC-SP-014 — ECPR / canulación VA-ECMO durante parada refractaria — SPECIALIST
-**Objetivo:** proporcionar soporte circulatorio extracorpóreo de rescate a pacientes altamente seleccionados con parada cardiaca refractaria.
-**Indicaciones:** adultos seleccionados con IHCA u OHCA cuando la RCP convencional no logra ROSC y existe un programa ECPR capaz de canular rápidamente; ILCOR mantiene una recomendación débil por evidencia de certeza baja o muy baja.
-**Contraindicaciones/precauciones:** no iniciar fuera de un sistema ECPR establecido; aplicar criterios locales de elegibilidad, causa potencialmente reversible, tiempos y comorbilidad.
+**Objetivo:** proporcionar soporte circulatorio extracorpóreo de rescate a adultos altamente seleccionados con parada cardiaca refractaria.
+**Indicaciones:** ILCOR 2025 mantiene que ECPR puede considerarse como rescate en adultos seleccionados con OHCA o IHCA cuando la RCP convencional no restaura circulación y existe un sistema capaz de implementarla rápidamente.
+**Contraindicaciones/precauciones:** recomendación débil; evidencia de certeza baja para OHCA y muy baja para IHCA. No iniciar fuera de un programa ECPR con criterios explícitos de selección, causa reversible, tiempos, comorbilidad y objetivos de cuidados.
 **Material:** equipo ECMO completo, cánulas venosa/arterial, ecografía, circuito cebado, anticoagulación según protocolo y equipo de perfusión.
-**Anatomía:** vena y arteria femorales, cava/aurícula derecha y aorta; perfusión distal de la extremidad canulada.
-**Preparación:** activar ECPR, continuar RCP de alta calidad, tratar causas reversibles, preparar canulación ecoguiada y asignar roles.
-**Técnica paso a paso:** obtener accesos venoso y arterial por personal acreditado; introducir cánulas bajo guía protocolizada minimizando pausas; conectar circuito VA-ECMO, iniciar flujo y confirmar posición/perfusión; colocar estrategia de perfusión distal cuando esté indicada.
-**STOP:** acceso vascular inseguro, imposibilidad de obtener flujo adecuado, lesión vascular grave o incumplimiento de criterios del programa.
-**Confirmación:** flujo ECMO efectivo, posición de cánulas adecuada, perfusión sistémica y distal coherente.
-**Complicaciones:** hemorragia, lesión vascular, isquemia de extremidad, mala posición, hemólisis, embolia, infección y complicaciones del circuito.
-**Después:** cuidados postparada/ECMO, control de la causa, anticoagulación, perfusión distal y manejo multidisciplinario.
-**Documentación:** criterios de selección, tiempos de parada/low-flow, canulación, inicio de flujo y complicaciones.
-**Fuentes:** ILCOR 2025 ALS CoSTR; ERC 2025 Special Circumstances; protocolo ECPR institucional.
-**QA:** YELLOW.
+**Anatomía:** vena y arteria femorales, cava/aurícula derecha, aorta y perfusión distal de la extremidad canulada.
+**Preparación:** activar ECPR, continuar RCP de alta calidad, tratar causas reversibles, preparar canulación ecoguiada y asignar roles minimizando low-flow.
+**Técnica paso a paso:** obtener acceso venoso y arterial por personal acreditado; avanzar cánulas bajo guía protocolizada minimizando pausas; conectar VA-ECMO, iniciar flujo y confirmar posición/perfusión; asegurar perfusión distal cuando esté indicada.
+**STOP:** incumplimiento de criterios del programa, acceso vascular inseguro, imposibilidad de flujo efectivo o lesión vascular grave.
+**Confirmación:** flujo ECMO efectivo, posición de cánulas adecuada, perfusión sistémica y distal coherente y transición a tratamiento de la causa.
+**Complicaciones:** hemorragia, lesión vascular, isquemia de extremidad, mala posición, hemólisis, embolia, infección y fallo/complicaciones del circuito.
+**Después:** cuidados postparada/ECMO, control etiológico, anticoagulación y manejo multidisciplinario.
+**Documentación:** criterios de selección, no-flow/low-flow cuando estén disponibles, tiempos de canulación/inicio de flujo y complicaciones.
+**Fuentes:** ILCOR 2025 ALS CoSTR, ECPR treatment recommendations; ERC/RCUK 2025 Special Circumstances; protocolo ECPR institucional.
+**QA:** YELLOW; revisión humana ECMO pendiente.
