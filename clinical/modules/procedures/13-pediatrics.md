@@ -35,36 +35,36 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW; revisión humana pediatría pendiente.
 
 ## PROC-PED-003 — Intubación pediátrica — ADVANCED/PED
-**Objetivo:** establecer vía aérea traqueal definitiva.
+**Objetivo:** establecer una vía aérea traqueal definitiva con mínima hipoxemia y bradicardia peri-intubación.
 **Indicaciones:** incapacidad de proteger vía aérea, fracaso ventilatorio/oxigenatorio o reanimación avanzada seleccionada.
-**Contraindicaciones/precauciones:** no prolongar intentos durante desaturación/bradicardia; adaptar tubo/pala a edad y tamaño.
-**Material:** laringoscopio/video, tubo apropiado, estilete/bougie si procede, succión, BVM, capnografía y fijación.
+**Contraindicaciones/precauciones:** evitar intentos prolongados; preparar plan de rescate antes de iniciar.
+**Material:** videolaringoscopio/laringoscopio, tubo apropiado, estilete/bougie si procede, succión, BVM, capnografía y fijación.
 **Anatomía:** glotis pediátrica y vía aérea superior.
-**Preparación:** checklist, preoxigenación, equipo de rescate y fármacos desde módulo pediátrico.
-**Técnica paso a paso:** laringoscopia/videolaringoscopia, paso del tubo bajo visión, cuff si aplica, ventilación y confirmación por capnografía.
-**STOP:** bradicardia, desaturación o intento prolongado → retirar/reoxigenar/cambiar estrategia.
-**Confirmación:** capnografía de onda sostenida y expansión bilateral.
-**Complicaciones:** hipoxemia, bradicardia, trauma, intubación esofágica/endobronquial.
+**Preparación:** checklist, preoxigenación, selección de tubo/profundidad según edad/tamaño y fármacos desde módulo pediátrico.
+**Técnica paso a paso:** laringoscopia o videolaringoscopia, paso del tubo bajo visión, inflar cuff si aplica con presión segura, ventilar y confirmar por capnografía.
+**STOP:** bradicardia, desaturación o intento prolongado → retirar, reoxigenar y cambiar estrategia.
+**Confirmación:** capnografía de onda sostenida, expansión bilateral y profundidad apropiada.
+**Complicaciones:** hipoxemia, bradicardia, trauma, intubación esofágica/endobronquial y edema subglótico.
 **Después:** fijación, ventilación protectora y sedoanalgesia.
-**Documentación:** dispositivo, tamaño, profundidad, intentos y confirmación.
-**Fuentes:** ERC/RCUK 2025; AHA/PALS 2025.
-**QA:** YELLOW.
+**Documentación:** dispositivo, tamaño, cuff, profundidad, intentos y confirmación.
+**Fuentes:** RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.
+**QA:** YELLOW; revisión humana vía aérea pediátrica pendiente.
 
 ## PROC-PED-004 — Supraglótico pediátrico — CORE/PED
-**Objetivo:** rescatar oxigenación/ventilación en niño cuando BVM o intubación es difícil.
-**Indicaciones:** ventilación ineficaz o vía aérea avanzada de rescate.
-**Contraindicaciones/precauciones:** seleccionar talla por peso/fabricante y evitar inserción forzada.
-**Material:** supraglótico pediátrico, lubricante, jeringa si cuff, circuito y capnografía.
+**Objetivo:** rescatar oxigenación/ventilación cuando BVM o intubación son ineficaces o difíciles.
+**Indicaciones:** ventilación inadecuada con mascarilla o necesidad de vía aérea avanzada de rescate.
+**Contraindicaciones/precauciones:** seleccionar talla por peso/fabricante y no forzar inserción.
+**Material:** SGA pediátrico, lubricante, jeringa si cuff, circuito y capnografía.
 **Anatomía:** orofaringe e hipofaringe.
-**Preparación:** elegir talla y plan de rescate.
-**Técnica paso a paso:** lubricar, insertar sin fuerza, inflar cuff si aplica, ventilar y fijar.
-**STOP:** ventilación imposible, fuga severa o trauma.
-**Confirmación:** ETCO2 de onda y expansión torácica.
+**Preparación:** elegir talla y preparar estrategia alternativa.
+**Técnica paso a paso:** lubricar cara posterior, insertar siguiendo paladar sin fuerza, inflar cuff si aplica, ventilar y fijar.
+**STOP:** ventilación imposible, fuga severa, trauma o deterioro de oxigenación.
+**Confirmación:** ETCO₂ de onda y expansión torácica.
 **Complicaciones:** malposición, aspiración, trauma y fuga.
-**Después:** decidir necesidad de vía aérea definitiva.
-**Documentación:** dispositivo/talla e intentos.
-**Fuentes:** ERC/RCUK Pediatric Life Support 2025.
-**QA:** YELLOW.
+**Después:** mantener si ventila adecuadamente o escalar según necesidad.
+**Documentación:** dispositivo/talla, intentos y confirmación.
+**Fuentes:** RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.
+**QA:** YELLOW; revisión humana pediatría pendiente.
 
 ## PROC-PED-005 — Acceso intraóseo pediátrico — CORE/PED
 **Objetivo:** obtener acceso vascular de emergencia cuando IV no es oportuno.
