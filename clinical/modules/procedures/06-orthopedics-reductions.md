@@ -147,20 +147,20 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-010 — Reducción urgente de fractura desplazada seleccionada — ADVANCED
-**Objetivo:** restaurar perfusión/aliviar amenaza cutánea y alinear provisionalmente.  
-**Indicaciones:** fractura con compromiso neurovascular, piel amenazada o deformidad severa.  
-**Contraindicaciones/precauciones:** fractura abierta o vascular compleja requiere protocolo quirúrgico; no buscar reducción anatómica definitiva en ED.  
-**Material:** analgesia/sedación, férula, monitorización.  
-**Anatomía:** depende de segmento y estructuras neurovasculares.  
-**Preparación:** neurovascular pre y control de heridas.  
-**Técnica paso a paso:** 1) tracción longitudinal; 2) corregir angulación/rotación; 3) obtener alineación funcional; 4) inmovilizar; 5) reexaminar neurovascular.  
-**STOP:** dolor/crepitación excesiva, perfusión empeora o resistencia.  
-**Confirmación:** perfusión/posición mejoradas y Rx.  
-**Complicaciones:** lesión neurovascular, síndrome compartimental, desplazamiento.  
-**Después:** ortopedia definitiva.  
-**Documentación:** motivo y examen pre/post.  
-**Fuentes:** trauma/orthopedic emergency guidance.  
-**QA:** YELLOW.
+**Objetivo:** restaurar perfusión, aliviar amenaza cutánea/neurológica y obtener alineación funcional provisional.
+**Indicaciones:** fractura desplazada con déficit neurovascular, piel amenazada, deformidad marcada o dolor/compresión que mejora con realineación.
+**Contraindicaciones/precauciones:** fractura abierta, lesión vascular compleja, fractura intraarticular compleja o patrón que requiere reducción abierta; no perseguir una reducción anatómica definitiva en urgencias cuando el objetivo es rescate neurovascular/provisional.
+**Material:** analgesia/sedación, férulas, monitorización y material de imagen.
+**Anatomía:** eje óseo lesionado y estructuras neurovasculares/tejidos blandos regionales.
+**Preparación:** documentar estado neurovascular y piel, cubrir herida abierta con apósito estéril, antibiótico/tétanos según módulo cuando proceda y obtener imagen si no retrasa una reducción urgente.
+**Técnica paso a paso:** aplicar tracción longitudinal sostenida, corregir primero acortamiento y luego angulación/rotación con maniobras suaves, obtener alineación funcional suficiente para liberar piel/vasos/nervios y mantener con férula adecuada.
+**STOP:** resistencia marcada, crepitación excesiva, empeoramiento de perfusión, dolor desproporcionado o sospecha de interposición/lesión vascular.
+**Confirmación:** mejora clínica de alineación y perfusión, examen neurovascular repetido y radiografía postreducción.
+**Complicaciones:** lesión neurovascular, síndrome compartimental, desplazamiento secundario, lesión de tejidos blandos y fractura iatrogénica.
+**Después:** inmovilización, vigilancia de edema/compartimental y valoración ortopédica definitiva; reducción abierta si la cerrada fracasa.
+**Documentación:** motivo de reducción, neurovascular y piel pre/post, técnica, sedación y control radiográfico.
+**Fuentes:** Merck Manual Professional, Overview of Fractures and Distal Radius Fractures, updated 2025–2026.
+**QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-011 — Tracción y alineación temporal de extremidad — CORE
 **Objetivo:** corregir deformidad grosera y aliviar tensión sobre tejidos.  
