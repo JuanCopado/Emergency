@@ -83,7 +83,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-ENT-006 — Cuerpo extraño de oído — CORE
-**Técnica:** buena iluminación, inmovilización, herramienta según forma; insecto vivo puede inmovilizarse con líquido apropiado si membrana íntegra. **STOP:** batería, objeto profundo, membrana lesionada o niño no cooperador → ORL. **Visual:** canal y herramientas.
+**Objetivo:** retirar un objeto del conducto auditivo sin lesionar canal ni tímpano.
+**Indicaciones:** cuerpo extraño visible y accesible.
+**Contraindicaciones/precauciones:** batería, objeto profundo adyacente al tímpano, perforación o paciente no cooperador.
+**Material:** otoscopio, pinza, gancho o succión según morfología.
+**Anatomía:** conducto auditivo externo y membrana timpánica.
+**Preparación:** iluminación adecuada y estabilización del paciente.
+**Técnica paso a paso:** visualizar; seleccionar herramienta según forma; inmovilizar insecto vivo si procede y tímpano íntegro; extraer bajo visión.
+**STOP:** dolor intenso, sangrado o migración medial.
+**Confirmación:** objeto completo retirado y canal revisado.
+**Complicaciones:** laceración, perforación timpánica y otitis externa.
+**Después:** ORL si lesión o extracción incompleta.
+**Documentación:** objeto y estado del canal/tímpano.
+**Fuentes:** MSD/Merck Professional.
+**QA:** YELLOW.
 
 ## PROC-ENT-007 — Irrigación de oído — CORE
 **Uso:** cerumen/cuerpo seleccionado con tímpano íntegro. **Técnica:** agua a temperatura corporal, chorro dirigido a pared posterior-superior, baja presión. **STOP:** tubo/ perforación, cirugía previa, batería/vegetal expansible. **Visual:** dirección.
