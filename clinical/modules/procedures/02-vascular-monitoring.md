@@ -163,20 +163,20 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW; revisión humana UCI pendiente.
 
 ## PROC-VASC-011 — Línea arterial femoral — ADVANCED
-**Objetivo:** monitorización arterial cuando radial no es adecuada o se necesita acceso central arterial.  
-**Indicaciones:** shock profundo, acceso radial imposible o contexto específico.  
-**Contraindicaciones/precauciones:** infección local, enfermedad vascular femoral, trauma pélvico/inguinal.  
-**Material:** kit arterial, US, transductor y barrera estéril.  
-**Anatomía:** arteria femoral común bajo ligamento inguinal; vena medial y nervio lateral.  
-**Preparación:** mapa US y landmark del ligamento inguinal.  
-**Técnica paso a paso:** 1) punción ecoguiada de arteria femoral común; 2) guía; 3) catéter; 4) conectar; 5) nivelar/cero; 6) fijar.  
-**STOP:** acceso demasiado alto/bajo, sangrado no controlable o guía dudosa.  
-**Confirmación:** onda arterial y US cuando corresponde.  
-**Complicaciones:** sangrado retroperitoneal, pseudoaneurisma, trombosis, infección.  
-**Después:** vigilancia vascular distal.  
-**Documentación:** lado, técnica, waveform.  
-**Fuentes:** access vascular/critical care procedural guidance.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar monitorización arterial invasiva cuando la radial no es adecuada o se necesita acceso arterial central.
+**Indicaciones:** shock profundo, acceso radial fallido/imposible o situaciones donde una señal central sea clínicamente preferible.
+**Contraindicaciones/precauciones:** infección local, enfermedad arterial femoral significativa, trauma pélvico/inguinal o anatomía no segura.
+**Material:** kit arterial, ecógrafo, transductor y barrera estéril.
+**Anatomía:** arteria femoral común por debajo del ligamento inguinal, vena medial y nervio lateral.
+**Preparación:** mapa ecográfico y localización del ligamento inguinal; evitar accesos altos o demasiado distales.
+**Técnica paso a paso:** punción ecoguiada de arteria femoral común, avance de guía/catéter, conexión, nivelación/cero y fijación.
+**STOP:** acceso por encima del ligamento inguinal, sangrado no controlable, guía dudosa o pérdida de perfusión distal.
+**Confirmación:** waveform arterial adecuada y posición ecográfica coherente.
+**Complicaciones:** hemorragia retroperitoneal, pseudoaneurisma, trombosis, infección e isquemia distal.
+**Después:** vigilancia vascular distal y del sitio.
+**Documentación:** lado, nivel de punción, técnica US, waveform y complicaciones.
+**Fuentes:** consensus on intravascular catheters in ICU; arterial catheter evidence summaries; radial remains preferred when feasible because of lower complication burden.
+**QA:** YELLOW; revisión humana UCI/vascular pendiente.
 
 ## PROC-VASC-012 — Punción arterial / gasometría — CORE
 **Objetivo:** obtener muestra arterial fiable.  
