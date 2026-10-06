@@ -62,6 +62,7 @@ export default function ClinicalNote(){
  const [timeline,setTimeline]=useState<ClinicalNotePayload['timeline']>([]);
  const [reports,setReports]=useState<ClinicalNotePayload['complementary_tests']>(emptyReports);
  const [assessment,setAssessment]=useState<ClinicalAssessment|null>(null);
+ const [diagnosticAlerts,setDiagnosticAlerts]=useState<{severity:string;code:string;message:string}[]>([]);
  const [medicationGate,setMedicationGate]=useState<{status:string;actionable:boolean;message:string}|null>(null);
  const [diagnosticStale,setDiagnosticStale]=useState(true);
  const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
@@ -226,7 +227,12 @@ export default function ClinicalNote(){
    try{
      const result=await analyzeClinicalNote(buildNote());
      if(result.blocked){setApiError(result.issues.map(x=>x.message).join(' · ')||'Análise bloqueada.');return;}
-     setAssessment(result.assessment);setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);
+     setAssessment(result.assessment);
+     setDiagnosticAlerts([
+       ...(result.signals||[]).map(x=>({severity:x.weight>=2?'RED_FLAG':'ALERT',code:x.code,message:x.label})),
+       ...result.issues.filter(x=>x.severity==='ALERT'||x.severity==='CAUTION').map(x=>({severity:x.severity,code:x.code,message:x.message})),
+     ]);
+     setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);
    }catch(e){setApiError(e instanceof Error?e.message:'Backend clínico indisponível.');}
    finally{setApiBusy(false);}
  }
@@ -276,10 +282,11 @@ export default function ClinicalNote(){
       <div className="mt-3 flex flex-wrap gap-2"><button className="btn-primary" disabled={apiBusy||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>Aceitar</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>Editar</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>Rejeitar</button></div></article>)}
    </section>}
 
-   {tab==='problems'&&<section className={card}><h2 className="text-lg font-bold">Problemas</h2><p className="mt-1 text-sm text-muted">Lista numerada editável: ativo · a melhorar · resolvido · por esclarecer.</p><textarea className="input mt-4 min-h-56" value={problems} onChange={e=>{setProblems(e.target.value);touch()}} placeholder={"1. [ativo] …\n2. [por esclarecer] …"}/></section>}
+   {tab==='problems'&&<section className={card}><h2 className="text-lg font-bold">Problemas</h2><p className="mt-1 text-sm text-muted">Lista numerada editável: ativo · a melhorar · resolvido · por esclarecer.</p><textarea className="input mt-4 min-h-56" value={problems} onChange={e=>{setProblems(e.target.value);touch()}} placeholder={"1. [ativo] …\n2. [por esclarecer] …"}/>{assessment?.active_problems.length? <div className="mt-4 rounded-xl border border-border p-3"><p className="text-xs font-bold uppercase text-muted">Problemas sugeridos pelo motor · requer revisão</p><ul className="mt-2 space-y-1 text-sm">{assessment.active_problems.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}</section>}
 
    {tab==='diagnostic'&&<section className="space-y-4">
     <div className={card}><div className="flex flex-wrap items-center gap-3"><div><h2 className="text-lg font-bold">Apoio diagnóstico</h2><p className="text-sm text-muted">Executado apenas sobre dados aceites e após preflight de privacidade.</p></div><button className="btn-primary ml-auto" disabled={apiBusy||privacyStop} onClick={()=>void runDiagnostic()}>{apiBusy?'A processar…':'Atualizar apoio diagnóstico'}</button></div>{diagnosticStale&&assessment&&<p className="mt-3 text-sm font-semibold text-warn">Os dados mudaram desde a última análise; resultado marcado como desatualizado.</p>}</div>
+    {diagnosticAlerts.length>0&&<div className={card}><h2 className="font-bold text-danger">Alertas / red flags</h2><div className="mt-3 grid gap-2 md:grid-cols-2">{diagnosticAlerts.map((x,i)=><div key={`${x.code}-${i}`} className="rounded-xl border border-danger p-3 text-sm"><div className="font-bold">{x.severity} · {x.code}</div><p className="mt-1">{x.message}</p></div>)}</div></div>}
     <div className="grid gap-4 lg:grid-cols-2">
       {([
         ['Mais provável',assessment?.likely_diagnoses||[]],
