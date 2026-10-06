@@ -86,7 +86,20 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin duplicar la irrigación ocular química.
 
 ## PROC-SP-007 — Lavado gástrico — SPECIALIST
-**Uso:** excepcional, ingestión potencialmente letal muy reciente cuando beneficio supera riesgo y vía aérea protegida si necesaria. **Técnica:** toxicología/centro toxicológico, tubo orogástrico grande, posición y alícuotas controladas. **STOP:** cáusticos, hidrocarburos con alto riesgo aspiración o vía aérea no protegida. **Visual:** algoritmo de selección más que técnica rutinaria.
+**Objetivo:** descontaminación gastrointestinal excepcional en intoxicación muy seleccionada.
+**Indicaciones:** ingestión potencialmente letal muy reciente cuando toxicología considera que el beneficio supera el riesgo.
+**Contraindicaciones/precauciones:** cáusticos, hidrocarburos con alto riesgo de aspiración, vía aérea no protegida o contraindicación anatómica.
+**Material:** equipo de vía aérea, sonda orogástrica adecuada y sistema de aspiración.
+**Anatomía:** orofaringe, esófago y estómago.
+**Preparación:** consulta toxicología/centro toxicológico y protección de vía aérea si necesaria.
+**Técnica paso a paso:** realizar solo según protocolo especializado con posición y alícuotas controladas.
+**STOP:** aspiración, sangrado, resistencia o deterioro.
+**Confirmación:** procedimiento completado sin complicación, dentro de indicación válida.
+**Complicaciones:** aspiración, perforación, hipoxia y alteraciones hidroelectrolíticas.
+**Después:** tratamiento toxicológico específico.
+**Documentación:** sustancia, tiempo, indicación y complicaciones.
+**Fuentes:** toxicology decontamination guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-008 — Carbón activado — CORE
 **Uso:** tóxico adsorbible y ventana/beneficio apropiados con vía aérea protegida. **Técnica:** dosis desde módulo toxicología, oral/NG según tolerancia, prevenir aspiración. **STOP:** íleo, cáusticos, hidrocarburos o conciencia comprometida sin protección. **Visual:** criterios sí/no.
