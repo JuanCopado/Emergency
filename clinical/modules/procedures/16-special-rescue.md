@@ -86,20 +86,20 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin duplicar la irrigación ocular química.
 
 ## PROC-SP-007 — Lavado gástrico — SPECIALIST
-**Objetivo:** descontaminación gastrointestinal excepcional en intoxicación muy seleccionada.
-**Indicaciones:** ingestión potencialmente letal muy reciente cuando toxicología considera que el beneficio supera el riesgo.
-**Contraindicaciones/precauciones:** cáusticos, hidrocarburos con alto riesgo de aspiración, vía aérea no protegida o contraindicación anatómica.
-**Material:** equipo de vía aérea, sonda orogástrica adecuada y sistema de aspiración.
+**Objetivo:** descontaminación gastrointestinal excepcional en una intoxicación potencialmente letal cuando el beneficio esperado supera claramente el riesgo.
+**Indicaciones:** no debe utilizarse de rutina. Considerarlo solo en ingestas muy seleccionadas, potencialmente letales, con asesoramiento toxicológico y cuando la sustancia/tiempo/contexto hacen plausible un beneficio.
+**Contraindicaciones/precauciones:** vía aérea no protegida con reflejos comprometidos, cáusticos, hidrocarburos con alto riesgo de aspiración, riesgo de perforación/hemorragia gastrointestinal o anatomía que impida un procedimiento seguro.
+**Material:** equipo completo de vía aérea, sonda orogástrica de gran calibre apropiada, sistema de aspiración/irrigación y monitorización.
 **Anatomía:** orofaringe, esófago y estómago.
-**Preparación:** consulta toxicología/centro toxicológico y protección de vía aérea si necesaria.
-**Técnica paso a paso:** realizar solo según protocolo especializado con posición y alícuotas controladas.
-**STOP:** aspiración, sangrado, resistencia o deterioro.
-**Confirmación:** procedimiento completado sin complicación, dentro de indicación válida.
-**Complicaciones:** aspiración, perforación, hipoxia y alteraciones hidroelectrolíticas.
-**Después:** tratamiento toxicológico específico.
-**Documentación:** sustancia, tiempo, indicación y complicaciones.
-**Fuentes:** toxicology decontamination guidance.
-**QA:** YELLOW.
+**Preparación:** consultar toxicología/centro de información toxicológica, identificar agente/tiempo y proteger la vía aérea cuando esté indicado antes del procedimiento.
+**Técnica paso a paso:** realizar únicamente con protocolo especializado, sonda confirmada en estómago y alícuotas controladas, evitando sobrepresión o retraso del antídoto/tratamiento de soporte.
+**STOP:** aspiración, sangrado, resistencia, deterioro respiratorio/hemodinámico o duda de posición de la sonda.
+**Confirmación:** procedimiento completado sin complicación dentro de una indicación excepcional bien documentada; la ausencia de contenido no demuestra descontaminación completa.
+**Complicaciones:** aspiración, neumonía química, perforación, hemorragia, hipoxia y alteraciones hidroelectrolíticas.
+**Después:** tratamiento toxicológico específico y soporte.
+**Documentación:** tóxico, cantidad estimada, tiempo, justificación, protección de vía aérea, técnica y complicaciones.
+**Fuentes:** AACT/EAPCCT Position Paper Update: Gastric Lavage for Gastrointestinal Decontamination (2013), listado vigente en AACT; toxicología local.
+**QA:** YELLOW; revisión humana toxicología pendiente.
 
 ## PROC-SP-008 — Carbón activado — CORE
 **Objetivo:** reducir absorción gastrointestinal de tóxicos adsorbibles en casos seleccionados.
