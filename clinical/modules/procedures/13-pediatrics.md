@@ -150,14 +150,17 @@ Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técni
 **QA:** YELLOW.
 
 ## PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal — ADVANCED/PED
-**Objetivo:** obtener acceso vascular rápido en el recién nacido que requiere medicación o expansión de volumen durante reanimación avanzada.  
-**Indicaciones:** cuando se necesita acceso intravascular urgente durante reanimación neonatal; las guías AHA/AAP 2025 recomiendan la vía venosa umbilical como acceso de elección y consideran IO si no es posible o factible.  
-**Material:** campo estéril, pinza/cinta umbilical, bisturí o tijera estéril, catéter umbilical apropiado, jeringas, solución de lavado, sistema de fijación y monitorización.  
-**Anatomía:** identificar la vena umbilical de pared fina y luz mayor frente a las dos arterias de pared más gruesa.  
-**Preparación:** mantener ventilación y compresiones sin interrupciones evitables; técnica estéril; coordinar roles.  
-**Técnica:** exponer y seccionar el cordón de forma controlada; identificar la vena; introducir un catéter venoso umbilical de baja posición solo lo necesario para obtener retorno y administración segura durante reanimación; aspirar/confirmar permeabilidad, fijar y documentar.  
-**STOP:** resistencia marcada, falsa vía, extravasación, sangrado o posición dudosa; no avanzar a profundidad definitiva sin confirmación apropiada.  
-**Confirmación:** retorno sanguíneo/permeabilidad y respuesta clínica; para uso continuado o posición alta se requiere confirmación de posición según protocolo neonatal.  
-**Complicaciones:** mala posición, extravasación, hemorragia, trombosis, infección, lesión hepática/portal y arritmia si avance excesivo.  
-**Después:** asegurar fijación, reevaluar necesidad y sustituir por acceso definitivo según evolución.  
-**Fuente troncal:** AHA/AAP 2025 Neonatal Resuscitation Guidelines.
+**Objetivo:** obtener acceso vascular rápido durante reanimación neonatal avanzada.
+**Indicaciones:** recién nacido que requiere acceso intravascular urgente; UVC es acceso de elección en reanimación neonatal avanzada cuando es factible.
+**Contraindicaciones/precauciones:** no avanzar a profundidad definitiva sin confirmación; evitar falsa vía y extravasación.
+**Material:** campo estéril, pinza/cinta umbilical, tijera/bisturí estéril, catéter umbilical apropiado, jeringas, flush y fijación.
+**Anatomía:** vena umbilical de luz mayor y pared fina frente a dos arterias de pared más gruesa.
+**Preparación:** mantener ventilación/compresiones sin interrupciones evitables y coordinar roles.
+**Técnica paso a paso:** exponer/seccionar el cordón de forma controlada, identificar la vena, introducir el catéter de baja posición solo lo necesario para retorno y administración segura, aspirar/confirmar permeabilidad y fijar.
+**STOP:** resistencia, falsa vía, extravasación, sangrado o posición dudosa.
+**Confirmación:** retorno sanguíneo/permeabilidad; para uso continuado o posición alta, confirmar posición según protocolo neonatal.
+**Complicaciones:** mala posición, extravasación, hemorragia, trombosis, infección, lesión hepática/portal y arritmia por avance excesivo.
+**Después:** asegurar fijación y sustituir/confirmar acceso definitivo según evolución.
+**Documentación:** profundidad, retorno, fármacos administrados y complicaciones.
+**Fuentes:** AHA/AAP Neonatal Resuscitation Guidelines 2025.
+**QA:** YELLOW.
