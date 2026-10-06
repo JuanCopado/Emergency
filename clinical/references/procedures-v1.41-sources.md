@@ -141,3 +141,11 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - ILCOR 2025 ALS CoSTR — ECPR rescue therapy in selected OHCA/IHCA — `PROC-SP-014`.
 - ASRA Pain Medicine 2025 + revisiones sistemáticas 2025–2026 sobre técnicas phrenic-sparing y paresia hemidiafragmática — `PROC-WND-006`.
 - Brain Trauma Foundation Severe TBI 4th Edition — `PROC-NEURO-005`; Neurocritical Care Society EVD consensus — `PROC-NEURO-003`.
+
+
+## Revisión de procedimientos invasivos de alto riesgo — 06/10/2026
+- SCCM, Clinical Practice Guidelines for Rapid Sequence Intubation in the Critically Ill Adult Patient, 2023 — `PROC-AIR-010`.
+- CDC, Summary of Recommendations for Intravascular Catheter-Related Infections, updated 2024 — `PROC-VASC-006`, `PROC-VASC-007`.
+- BTS Clinical Statement on Pleural Procedures 2023, with 2026 correction; BTS Pleural Disease Guideline 2023 — `PROC-THX-003`, `PROC-THX-005`, `PROC-THX-006`.
+- AHA/AAP 2025 Neonatal Resuscitation — vascular access during resuscitation — `PROC-PED-011`.
+- WHO Consolidated PPH Guidelines 2025 + Implementation Guide 2026 + WHO UBT Recommendation 2021 — `PROC-OBS-009`.
