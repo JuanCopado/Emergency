@@ -102,7 +102,7 @@ def main():
         "migration_ready_count": report["migration_ready_count"],
         "needs_structuring_count": report["needs_structuring_count"],
     }, ensure_ascii=False))
-    return 0 if report["procedure_count"] == 187 else 2
+    return 0 if report["procedure_count"] == 197 else 2
 
 if __name__ == "__main__":
     raise SystemExit(main())
