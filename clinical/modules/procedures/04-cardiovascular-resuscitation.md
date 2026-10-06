@@ -67,20 +67,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life S
 **QA:** YELLOW.
 
 ## PROC-CV-005 — Marcapasos transvenoso temporal — SPECIALIST
-**Objetivo:** estimulación temporal invasiva en bradiarritmia grave con necesidad mantenida de pacing.  
-**Indicaciones:** bloqueo de alto grado/inestabilidad cuando pacing transcutáneo es insuficiente o se prevé necesidad prolongada.  
-**Contraindicaciones/precauciones:** requiere experiencia, acceso venoso central y monitorización; valorar infección/coagulopatía.  
-**Material:** introductor venoso, electrodo de pacing, generador, ecografía/fluoroscopia/ECG según recursos.  
-**Anatomía:** acceso venoso central, aurícula derecha y ventrículo derecho.  
-**Preparación:** monitor, desfibrilador disponible, analgesia/sedación y campo estéril.  
-**Técnica paso a paso:** 1) acceso venoso; 2) introducir electrodo; 3) avanzar con monitorización; 4) obtener captura; 5) medir umbral; 6) fijar; 7) ajustar salida segura.  
-**STOP:** arritmia sostenida, perforación sospechada, pérdida de captura o taponamiento.  
-**Confirmación:** captura eléctrica y mecánica estable.  
-**Complicaciones:** perforación/taponamiento, arritmia, infección, trombosis, pérdida de captura.  
-**Después:** vigilancia y estrategia definitiva.  
-**Documentación:** acceso, posición, umbral y parámetros.  
-**Fuentes:** ERC 2025 ALS; cardiology pacing guidance.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar estimulación invasiva temporal en bradicardia grave persistente.
+**Indicaciones:** AHA 2025 considera razonable el pacing transvenoso temporal en bradicardia persistentemente inestable y refractaria al tratamiento médico; puede utilizarse mientras se corrige la causa o se prepara un marcapasos definitivo.
+**Contraindicaciones/precauciones:** requiere operador entrenado, acceso venoso central y monitorización; tratar causas reversibles en paralelo y valorar infección/coagulopatía.
+**Material:** introductor venoso, electrodo de pacing, generador, ecografía y guía ECG/imagen según recursos.
+**Anatomía:** acceso venoso central, aurícula derecha y ventrículo derecho.
+**Preparación:** monitorización continua, desfibrilador disponible, analgesia/sedación cuando proceda y campo estéril.
+**Técnica paso a paso:** obtener acceso venoso; introducir el electrodo; avanzar bajo monitorización hasta captura; determinar umbral; fijar; programar frecuencia y salida con margen de seguridad.
+**STOP:** arritmia sostenida, perforación/taponamiento sospechado, pérdida repetida de captura o inestabilidad atribuible al procedimiento.
+**Confirmación:** captura eléctrica acompañada de captura mecánica (pulso/PA).
+**Complicaciones:** perforación/taponamiento, arritmia, infección, trombosis, desplazamiento y pérdida de captura.
+**Después:** vigilancia continua y plan definitivo de corrección de causa o pacing permanente cuando corresponda.
+**Documentación:** acceso, posición, umbral, frecuencia, salida, captura y complicaciones.
+**Fuentes:** AHA 2025 Adult Advanced Life Support — Initial Management of Bradycardia.
+**QA:** YELLOW; revisión humana cardiología/UCI pendiente.
 
 ## PROC-CV-006 — Pericardiocentesis ecoguiada — SPECIALIST/POCUS
 **Objetivo:** aliviar taponamiento cuando drenaje pericárdico urgente está indicado.  
