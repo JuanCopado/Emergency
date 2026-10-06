@@ -67,7 +67,20 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **QA:** YELLOW.
 
 ## PROC-US-005 — Drenaje pleural ecoguiado — ADVANCED
-**Técnica:** localizar colección y ventana; seguir aguja/guía si técnica Seldinger; confirmar guía en colección antes de dilatar. **Visual:** wire en pleura.
+**Objetivo:** facilitar colocación segura de drenaje pleural.
+**Indicaciones:** colección pleural accesible para drenaje.
+**Contraindicaciones/precauciones:** ausencia de ventana, colección compleja no adecuada o anatomía insegura.
+**Material:** ecógrafo, kit de drenaje/pigtail y material estéril.
+**Anatomía:** pleura, pulmón, diafragma y vísceras.
+**Preparación:** localizar colección y trayecto.
+**Técnica paso a paso:** guiar aguja al espacio pleural; si Seldinger, confirmar guía en colección antes de dilatar.
+**STOP:** guía no confirmada, pulmón/víscera en trayecto o sangrado.
+**Confirmación:** drenaje funcional y posición coherente.
+**Complicaciones:** lesión pulmonar/visceral, sangrado, malposición.
+**Después:** conectar sistema y monitorizar.
+**Documentación:** sitio, método y confirmación.
+**Fuentes:** BTS Pleural Procedures 2023; POCUS standards.
+**QA:** YELLOW.
 
 ## PROC-US-006 — Paracentesis ecoguiada — ADVANCED
 **Técnica:** identificar bolsillo, pared abdominal y vasos; Doppler si necesario; seleccionar trayecto; guía dinámica o marcaje con paciente sin cambiar posición. **Visual:** ascitis.
