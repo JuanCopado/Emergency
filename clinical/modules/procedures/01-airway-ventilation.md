@@ -243,20 +243,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-016 — Cricotiroidotomía por aguja/catéter — SPECIALIST
-**Objetivo:** técnica de rescate seleccionada cuando protocolo/edad/equipo la contemplan.  
-**Indicaciones:** escenarios CICO específicos, especialmente pediátricos según algoritmo local.  
-**Contraindicaciones/precauciones:** riesgo elevado de barotrauma; requiere vía de salida de gas y equipo apropiado.  
-**Material:** catéter adecuado, jeringa, sistema de oxigenación/ventilación específico.  
-**Anatomía:** membrana cricotiroidea y tráquea.  
-**Preparación:** identificar membrana, monitorizar y disponer de rescate quirúrgico.  
-**Técnica paso a paso:** 1) punción dirigida a tráquea; 2) aspirar aire; 3) avanzar catéter; 4) retirar aguja; 5) conectar sistema; 6) confirmar ventilación.  
-**STOP:** resistencia, enfisema progresivo, incapacidad de espiración o deterioro.  
-**Confirmación:** entrada de aire, ETCO₂ cuando disponible y expansión torácica.  
-**Complicaciones:** barotrauma, falsa vía, sangrado y lesión posterior.  
-**Después:** puente a vía aérea definitiva.  
-**Documentación:** técnica, dispositivo y respuesta.  
-**Fuentes:** DAS/paediatric difficult airway guidance; protocolo local obligatorio.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar oxigenación transitoria en escenarios CICO seleccionados cuando un algoritmo específico contempla acceso por cánula.
+**Indicaciones:** principalmente situaciones pediátricas o contextos institucionales donde la técnica por cánula esté explícitamente protocolizada; no es la técnica eFONA adulta de primera línea de DAS 2025.
+**Contraindicaciones/precauciones:** alto riesgo de barotrauma si la espiración es insuficiente; requiere equipo específico, vía de salida de gas y operador entrenado.
+**Material:** catéter apropiado, jeringa, sistema de oxigenación/ventilación por cánula y capnografía cuando sea utilizable.
+**Anatomía:** membrana cricotiroidea, tráquea y pared posterior traqueal.
+**Preparación:** identificar membrana, continuar oxigenación superior si es posible y preparar conversión inmediata a vía aérea definitiva.
+**Técnica paso a paso:** puncionar de forma controlada hacia la luz traqueal, confirmar aire, avanzar solo el catéter, retirar la aguja y conectar al sistema específico de oxigenación según protocolo.
+**STOP:** resistencia, pérdida de posición, enfisema progresivo, incapacidad de espiración, distensión torácica o deterioro.
+**Confirmación:** entrada de aire, ventilación/oxigenación clínica y capnografía si el sistema lo permite.
+**Complicaciones:** barotrauma, falsa vía, hemorragia, lesión traqueal posterior y desplazamiento del catéter.
+**Después:** usar solo como puente y convertir a una vía aérea definitiva tan pronto como sea posible.
+**Documentación:** algoritmo utilizado, dispositivo, respuesta y complicaciones.
+**Fuentes:** DAS 2025 para eFONA adulta; algoritmo pediátrico/local específico para técnicas por cánula.
+**QA:** YELLOW; revisión humana pediátrica/anestesia pendiente.
 
 ## PROC-AIR-017 — Traqueostomía obstruida/desplazada — ADVANCED
 **Objetivo:** restaurar oxigenación rápidamente en emergencia de traqueostomía.  
