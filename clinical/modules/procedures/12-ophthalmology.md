@@ -19,7 +19,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-EYE-002 — Medición de pH ocular — CORE
-**Técnica:** papel pH en fondo de saco inferior evitando córnea; repetir tras pausas cortas de irrigación hasta estabilidad. **Visual:** ubicación.
+**Objetivo:** monitorizar la descontaminación ocular química.
+**Indicaciones:** exposición química ocular.
+**Contraindicaciones/precauciones:** no usar la medición como motivo para retrasar la irrigación inicial.
+**Material:** papel indicador de pH.
+**Anatomía:** fondo de saco conjuntival inferior.
+**Preparación:** pausar irrigación brevemente cuando ya está en curso.
+**Técnica paso a paso:** tocar la conjuntiva inferior evitando la córnea, leer el valor y repetir tras continuar irrigación si permanece alterado.
+**STOP:** contacto traumático con la córnea.
+**Confirmación:** pH fisiológico sostenido tras pausa breve.
+**Complicaciones:** irritación local mínima.
+**Después:** continuar la evaluación ocular.
+**Documentación:** valores seriados y momento de medición.
+**Fuentes:** ophthalmology emergency guidance.
+**QA:** YELLOW.
 
 ## PROC-EYE-003 — Eversión palpebral — CORE
 **Técnica:** pedir mirar abajo, sujetar pestañas, aplicar hisopo sobre tarso y evertir; doble eversión solo entrenado. **Visual:** 3 pasos.
