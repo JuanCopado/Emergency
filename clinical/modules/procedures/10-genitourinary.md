@@ -50,21 +50,21 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **Fuentes:** urologic difficult-catheterization references; AUA Urotrauma principles.
 **QA:** YELLOW; revisión humana urología pendiente.
 
-## PROC-GU-004 — Irrigación vesical manual — CORE
-**Objetivo:** retirar coágulos y restaurar drenaje.  
-**Indicaciones:** hematuria con obstrucción por coágulos.  
-**Contraindicaciones/precauciones:** sospecha de perforación o cirugía reciente sin indicación urológica.  
-**Material:** jeringa grande, suero estéril, sistema de tres vías si disponible.  
-**Anatomía:** vejiga y luz del catéter.  
-**Preparación:** confirmar posición/permeabilidad del catéter.  
-**Técnica paso a paso:** 1) desconectar puerto apropiado; 2) instilar suavemente; 3) aspirar coágulos; 4) repetir sin presión excesiva; 5) reconectar sistema.  
-**STOP:** dolor, resistencia marcada o imposibilidad de recuperar líquido.  
-**Confirmación:** flujo restablecido y efluente más claro.  
-**Complicaciones:** lesión vesical, espasmo, infección.  
-**Después:** CBI si indicada.  
-**Documentación:** volumen irrigado/recuperado y coágulos.  
-**Fuentes:** urology emergency practice.  
-**QA:** YELLOW.
+## PROC-GU-004 — Irrigación vesical manual para coágulos — CORE
+**Objetivo:** restaurar drenaje vesical cuando existe obstrucción por coágulos.
+**Indicaciones:** hematuria macroscópica con retención/obstrucción por coágulos a través de un catéter adecuadamente posicionado.
+**Contraindicaciones/precauciones:** sospecha de perforación vesical, lesión uretral no resuelta o cirugía urológica reciente sin autorización específica.
+**Material:** jeringa grande tipo Toomey o equivalente, solución estéril apropiada, recipiente de medición y sistema de tres vías si está disponible.
+**Anatomía:** vejiga, cuello vesical y luz del catéter.
+**Preparación:** confirmar que el catéter está dentro de vejiga y que el balón está correctamente posicionado; monitorizar dolor/distensión.
+**Técnica paso a paso:** desconectar de forma estéril el puerto correspondiente, instilar pequeñas cantidades de solución sin presión excesiva y aspirar suavemente coágulos; repetir hasta recuperar flujo y efluente progresivamente más claro.
+**STOP:** dolor intenso, distensión creciente, resistencia marcada, incapacidad de recuperar líquido o sangrado creciente.
+**Confirmación:** flujo urinario restablecido, disminución de coágulos y vejiga no distendida.
+**Complicaciones:** sobredistensión, lesión mucosa/vesical, infección y obstrucción persistente.
+**Después:** valorar sonda de tres vías/irrigación continua y urología si persiste hematuria significativa.
+**Documentación:** volumen instilado, volumen recuperado, coágulos y respuesta.
+**Fuentes:** urology emergency practice; gross hematuria/clot-retention procedural references.
+**QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-005 — Sonda de tres vías e irrigación continua — ADVANCED
 **Objetivo:** prevenir obstrucción por coágulos en hematuria significativa.  
