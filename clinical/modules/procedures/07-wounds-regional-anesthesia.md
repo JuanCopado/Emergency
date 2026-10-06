@@ -339,17 +339,17 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW.
 
 ## PROC-WND-022 — Reparación de lecho ungueal — ADVANCED
-**Objetivo:** reparar laceración significativa del lecho para reducir deformidad.  
-**Indicaciones:** laceración visible, uña deformada/avulsionada o lesión que requiere exposición.  
-**Contraindicaciones/precauciones:** amputación, fractura desplazada o lesión extensa de matriz → cirugía de mano.  
-**Material:** bloqueo digital, torniquete temporal, instrumental fino, sutura absorbible/adhesivo validado y apósito.  
-**Anatomía:** placa ungueal, lecho y matriz germinal.  
-**Preparación:** examen neurovascular y Rx si fractura.  
-**Técnica paso a paso:** 1) elevar/retirar placa solo si necesario; 2) irrigar; 3) aproximar lecho con técnica fina; 4) proteger con apósito no adherente; 5) decidir férula/placa sustitutiva según lesión.  
-**STOP:** lesión compleja/matriz germinal o falta de experiencia.  
-**Confirmación:** bordes aproximados y perfusión distal.  
-**Complicaciones:** deformidad ungueal, infección, adherencias.  
-**Después:** seguimiento de mano.  
-**Documentación:** lesión/reparación.  
-**Fuentes:** Hand Clinics 2021; fingertip injury guidance.  
-**QA:** YELLOW.
+**Objetivo:** restaurar la anatomía del lecho ungueal cuando existe una laceración significativa y reducir riesgo de deformidad permanente.
+**Indicaciones:** placa ungueal severamente deformada/avulsionada, laceración visible del lecho o lesión que requiere exposición para reparación.
+**Contraindicaciones/precauciones:** amputación, fractura desplazada, lesión extensa de matriz germinal o pérdida tisular importante requieren cirugía de mano. Si la placa está íntegra y sin deformidad significativa, no debe retirarse solo por un hematoma.
+**Material:** bloqueo digital, torniquete temporal si necesario, instrumental fino, sutura absorbible fina, apósito no adherente y férula si fractura distal.
+**Anatomía:** placa ungueal, lecho estéril, matriz germinal y falange distal.
+**Preparación:** examen neurovascular, radiografía AP/oblicua/lateral cuando se sospecha fractura y antisepsia.
+**Técnica paso a paso:** retirar la placa solo si es necesario para exponer la lesión; irrigar; aproximar el lecho con sutura absorbible fina sin tensión; proteger con apósito no adherente y decidir sustituto/ferulización de la placa según la lesión y práctica local.
+**STOP:** lesión extensa de matriz, pérdida de sustancia, fractura desplazada o imposibilidad de obtener una reparación anatómica segura.
+**Confirmación:** bordes del lecho bien aproximados y perfusión distal conservada.
+**Complicaciones:** deformidad ungueal permanente, infección, adherencias, dolor y mala cicatrización.
+**Después:** comprobar el apósito precozmente para evitar adherencia dolorosa; seguimiento de mano cuando la lesión es compleja.
+**Documentación:** lesión, estado de la placa/matriz, fractura asociada, técnica y material de reparación.
+**Fuentes:** Merck Manual Professional, Fingertip Fractures, updated Mar 2025; hand/nail injury references.
+**QA:** YELLOW; revisión humana cirugía de mano pendiente.
