@@ -83,20 +83,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW.
 
 ## PROC-WND-006 — Bloqueo interescalénico/selectivo de miembro superior — SPECIALIST
-**Objetivo:** anestesia/analgesia del hombro/miembro superior proximal en casos seleccionados.  
-**Indicaciones:** procedimientos o dolor severo cuando beneficio supera riesgos.  
-**Contraindicaciones/precauciones:** alto riesgo de paresia frénica, enfermedad respiratoria relevante, coagulopatía o anatomía no clara.  
-**Material:** US, aguja, anestésico, monitor y equipo para LAST/vía aérea.  
-**Anatomía:** raíces/troncos braquiales entre escalenos, frénico, vasos y pleura.  
-**Preparación:** consentimiento, examen neurológico y monitorización.  
-**Técnica paso a paso:** 1) identificar plexo/vasos/pleura; 2) aguja in-plane; 3) punta visible; 4) aspirar; 5) inyección fraccionada mínima efectiva.  
-**STOP:** dolor neural, alta presión, disnea o síntomas de LAST.  
-**Confirmación:** bloqueo sensitivo esperado.  
-**Complicaciones:** paresia frénica, lesión nerviosa, LAST, neumotórax, Horner.  
-**Después:** monitorizar respiración/motor.  
-**Documentación:** técnica/US/dosis.  
-**Fuentes:** regional anesthesia society guidance.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar anestesia/analgesia de hombro y miembro superior proximal mediante bloqueo regional ecoguiado en pacientes seleccionados.
+**Indicaciones:** procedimientos de hombro o dolor severo cuando un bloqueo regional aporta beneficio y el riesgo respiratorio es aceptable.
+**Contraindicaciones/precauciones:** reserva respiratoria limitada, parálisis diafragmática contralateral, enfermedad pulmonar significativa, infección local, coagulopatía relevante, alergia o anatomía no identificable. El bloqueo interescalénico se asocia frecuentemente a paresia hemidiafragmática ipsilateral por afectación del nervio frénico.
+**Material:** ecógrafo, aguja ecogénica, anestésico local desde módulo farmacológico, monitorización y equipo preparado para LAST/vía aérea.
+**Anatomía:** raíces/troncos del plexo braquial entre escalenos, nervio frénico sobre escaleno anterior, arteria vertebral/carótida/yugular y pleura.
+**Preparación:** consentimiento, examen neurológico y respiratorio basal, monitorización, cálculo de dosis total y plan de rescate. En pacientes con riesgo respiratorio considerar una estrategia ahorradora del frénico en lugar de ISB convencional.
+**Técnica paso a paso:** identificar plexo, nervio frénico y estructuras vasculares/pleurales; avanzar aguja in-plane manteniendo la punta visible; aspirar e inyectar de forma fraccionada con el mínimo volumen efectivo, evitando inyección intraneural.
+**STOP:** dolor/parestesia intensa, alta presión de inyección, punta no visible, disnea, desaturación o signos de toxicidad sistémica por anestésico local.
+**Confirmación:** difusión perineural adecuada y bloqueo sensitivo esperado, con vigilancia respiratoria.
+**Complicaciones:** paresia hemidiafragmática, lesión nerviosa, LAST, neumotórax, síndrome de Horner, ronquera y bloqueo vascular/inadvertido.
+**Después:** monitorizar respiración, fuerza y recuperación; en pacientes de alto riesgo respiratorio considerar alternativas como superior trunk o bloqueos más distales según experiencia y objetivo.
+**Documentación:** lado, técnica US, anestésico/dosis, reserva respiratoria relevante, efecto y complicaciones.
+**Fuentes:** ASRA Pain Medicine 2025, phrenic-sparing shoulder block review; revisiones sistemáticas/meta-análisis 2025–2026 sobre ISB y paresia hemidiafragmática.
+**QA:** YELLOW; revisión humana anestesia regional pendiente.
 
 ## PROC-WND-007 — Irrigación de heridas — CORE
 **Objetivo:** reducir contaminación y carga de cuerpos extraños.  
