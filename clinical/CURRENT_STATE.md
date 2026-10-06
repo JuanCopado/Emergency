@@ -356,3 +356,19 @@ Known production boundary:
 - engine-suggested active problems are visible as review-required suggestions, not silently merged into the clinician problem list;
 - Clinical QA #606: **SUCCESS**, **370** Python test functions;
 - App UI QA #13: **SUCCESS** (typecheck, Vitest, Vite build).
+
+
+## v1.39 production vision adapter — 06/10/2026
+- Production-facing binary interpretation adapter implemented: `clinical/scripts/clinical_note_vision_adapter.py`.
+- End-to-end circuit is now `privacy review -> configured HTTPS provider -> proposal -> clinician Accept/Edit/Reject -> persistence`.
+- Provider calls fail closed unless required metadata/burned-in identifier review is complete.
+- Prepared upload payloads are HMAC-signed; client tampering with routing/privacy/prepared state is rejected.
+- Original filenames and source SHA-256 are not sent to the external provider; provider receives a generic filename and central routed module IDs.
+- Redirects are rejected, provider response size is capped, provider output is rescanned for direct identifiers, and confidence remains qualitative only.
+- AI-generated image content cannot be labeled as an official report; official-report extraction is reserved for document/PDF workflows.
+- React UI exposes `Interpretar com módulo IA` only after privacy checks and keeps interpreted results pending until explicit medical acceptance.
+- Clinical QA #614: **SUCCESS**, **376/376 tests PASS**.
+- App UI QA #19: **SUCCESS** (TypeScript typecheck, Vitest, Vite build).
+- Evidence state unchanged: **131/131 modules, 29 green / 102 yellow / 0 red**; no auto-promotion.
+- Canonical implementation note: `qa/V1.39_VISION_ADAPTER_STATE.md`.
+- Remaining deployment boundary: bind `CLINICAL_VISION_PROVIDER_URL`/credentials to the chosen trusted medical image/document service and run authorized modality-specific E2E validation. The repository intentionally does not invent or bundle a clinical vision model.
