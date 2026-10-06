@@ -83,20 +83,20 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW.
 
 ## PROC-VASC-006 — CVC yugular interna ecoguiado — ADVANCED/POCUS
-**Objetivo:** acceso venoso central seguro para indicaciones justificadas.  
-**Indicaciones:** vasoactivos, acceso difícil, monitorización/terapias que requieren CVC.  
-**Contraindicaciones/precauciones:** infección local, trombosis, anatomía alterada; valorar coagulopatía y alternativas.  
-**Material:** kit CVC, ecógrafo lineal, barrera estéril máxima, clorhexidina alcohólica si no contraindicada, anestesia local y fijación.  
-**Anatomía:** yugular interna, carótida, pleura y nervio vago.  
-**Preparación:** US preprocedimiento, Trendelenburg si apropiado/tolerado, time-out y barrera estéril máxima.  
-**Técnica paso a paso:** 1) identificar vena/arteria; 2) punción dinámica visualizando punta; 3) retorno venoso; 4) avanzar guía sin resistencia; 5) confirmar guía venosa; 6) dilatar; 7) avanzar catéter; 8) aspirar/lavar luces; 9) fijar.  
-**STOP:** nunca dilatar con duda sobre posición de guía; detener ante punción arterial, arritmia sostenida o resistencia.  
-**Confirmación:** guía/catéter venoso por US y método postprocedimiento apropiado; descartar complicación según contexto.  
-**Complicaciones:** punción arterial, hematoma, neumotórax, hemotórax, arritmia, embolia aérea, infección.  
-**Después:** apósito estéril, vigilancia y retirada precoz cuando no sea necesario.  
-**Documentación:** sitio, US, intentos, longitud, confirmación y complicaciones.  
-**Fuentes:** CDC 2024; ultrasound-guided vascular access standards.  
-**QA:** YELLOW.
+**Objetivo:** obtener acceso venoso central seguro cuando existe una indicación justificada.
+**Indicaciones:** vasoactivos, acceso difícil, terapias que requieren vía central o monitorización seleccionada.
+**Contraindicaciones/precauciones:** infección local, trombosis, anatomía alterada y riesgo hemorrágico significativo; ponderar alternativas y el riesgo mecánico del sitio.
+**Material:** kit CVC, ecógrafo lineal, barrera estéril máxima, clorhexidina alcohólica >0,5% salvo contraindicación, anestesia local y fijación.
+**Anatomía:** yugular interna, carótida, pleura y nervio vago.
+**Preparación:** ecografía previa para anatomía/trombosis, time-out, higiene de manos y barrera estéril máxima; Trendelenburg solo si clínicamente tolerado.
+**Técnica paso a paso:** identificar vena y arteria; puncionar con guía ecográfica dinámica; confirmar retorno venoso; avanzar guía sin resistencia; confirmar la guía dentro del sistema venoso antes de dilatar; dilatar, avanzar catéter, aspirar/lavar luces y fijar.
+**STOP:** no dilatar si existe cualquier duda sobre la posición de la guía; detener ante punción arterial, arritmia sostenida, resistencia o pérdida de visualización segura.
+**Confirmación:** guía/catéter venoso por ecografía y método postprocedimiento apropiado; descartar complicación pleural según contexto.
+**Complicaciones:** punción arterial, hematoma, neumotórax, hemotórax, arritmia, embolia aérea, trombosis e infección.
+**Después:** apósito estéril, vigilancia y retirada precoz cuando deje de ser imprescindible.
+**Documentación:** indicación, sitio, US, intentos, longitud, confirmación y complicaciones.
+**Fuentes:** CDC Summary of Recommendations for Intravascular Catheter-Related Infections, updated 2024; ultrasound-guided vascular access standards.
+**QA:** YELLOW; revisión humana vascular/UCI pendiente.
 
 ## PROC-VASC-007 — CVC femoral ecoguiado — ADVANCED/POCUS
 **Objetivo:** acceso venoso central rápido en anatomía femoral.  
