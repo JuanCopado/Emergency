@@ -176,6 +176,7 @@ describe('Clinical note diagnostic workspace', () => {
     await user.click(screen.getByRole('button', { name: 'Aceitar' }));
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
     const checks=screen.getAllByRole('checkbox');
+    if (!checks[0] || !checks[1]) throw new Error('export checklist missing');
     await user.click(checks[0]); await user.click(checks[1]);
     expect(screen.getByRole('button', { name: 'PDF' })).toBeEnabled();
   });
