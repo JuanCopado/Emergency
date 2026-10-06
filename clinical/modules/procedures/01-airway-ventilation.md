@@ -195,20 +195,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW.
 
 ## PROC-AIR-013 — Confirmación del tubo por capnografía — CORE
-**Objetivo:** confirmar posición traqueal y monitorizar ventilación.  
-**Indicaciones:** toda intubación y vía avanzada cuando sea técnicamente posible.  
-**Contraindicaciones/precauciones:** durante PCR, ETCO₂ puede ser bajo; interpretar con contexto, pero una curva sostenida sigue siendo clave.  
-**Material:** capnografía de onda, circuito y monitor.  
-**Anatomía:** conexión tubo-circuito y ventilación alveolar.  
-**Preparación:** conectar inmediatamente tras inserción.  
-**Técnica paso a paso:** 1) ventilar; 2) observar curva repetitiva; 3) correlacionar con expansión torácica; 4) reevaluar tras traslados/cambios.  
-**STOP:** ausencia persistente de ETCO₂ con ventilaciones efectivas = asumir posición incorrecta hasta demostrar lo contrario.  
-**Confirmación:** curva de ETCO₂ sostenida.  
-**Complicaciones:** falsa seguridad por dispositivo mal conectado o bajo flujo extremo.  
-**Después:** monitorización continua.  
-**Documentación:** presencia de onda y valor/tendencia si relevante.  
-**Fuentes:** ERC/RCUK 2025; ACEP airway verification policy.  
-**QA:** YELLOW.
+**Objetivo:** confirmar posición traqueal y monitorizar ventilación de forma continua.
+**Indicaciones:** toda intubación y vía aérea avanzada cuando sea técnicamente posible.
+**Contraindicaciones/precauciones:** durante PCR el ETCO₂ puede ser bajo; un valor bajo aislado no debe utilizarse para decidir finalizar la reanimación.
+**Material:** capnografía de onda, circuito y monitor.
+**Anatomía:** conexión tubo-circuito y ventilación alveolar.
+**Preparación:** conectar inmediatamente tras inserción y antes de considerar asegurada la vía aérea.
+**Técnica paso a paso:** ventilar, observar una curva repetitiva y sostenida, correlacionar con expansión torácica y reevaluar tras traslados o cualquier cambio clínico.
+**STOP:** ausencia persistente de una curva sostenida con ventilaciones efectivas obliga a asumir posición incorrecta hasta demostrar lo contrario.
+**Confirmación:** traza sostenida de ETCO₂; RCUK 2025 la exige para excluir colocación esofágica.
+**Complicaciones:** falsa seguridad por desconexión, obstrucción o bajo flujo extremo; interpretación errónea de ETCO₂ bajo durante RCP.
+**Después:** monitorización continua hasta retirada de la vía aérea.
+**Documentación:** presencia de onda, tendencia/valor cuando sea relevante y cualquier episodio de pérdida de señal.
+**Fuentes:** Resuscitation Council UK/ERC Adult Advanced Life Support 2025.
+**QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-014 — Fijación y cuidados del tubo — CORE
 **Objetivo:** prevenir desplazamiento, extubación accidental y lesión por cuff.  
