@@ -3,7 +3,20 @@
 Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.
 
 ## PROC-PED-001 — Apertura/posicionamiento de vía aérea — CORE/PED
-**Técnica:** posición neutra o ligera extensión según edad; en lactante evitar hiperextensión por occipucio prominente; usar rollo escapular si ayuda. Frente-mentón si no trauma, jaw thrust si trauma. **Visual:** lactante vs niño.
+**Objetivo:** optimizar permeabilidad de la vía aérea pediátrica.
+**Indicaciones:** obstrucción por lengua, ventilación ineficaz o preparación para BVM/intubación.
+**Contraindicaciones/precauciones:** evitar hiperextensión, especialmente en lactantes por occipucio prominente; mantener alineación si trauma.
+**Material:** rollo escapular si precisa, aspiración y dispositivos pediátricos.
+**Anatomía:** occipucio, mandíbula, lengua y vía aérea superior pediátrica.
+**Preparación:** posición neutra o ligera extensión según edad/tamaño.
+**Técnica paso a paso:** frente-mentón si no trauma; jaw thrust si trauma; usar rollo escapular cuando mejore alineación; reevaluar paso de aire.
+**STOP:** empeoramiento de ventilación o sospecha de lesión cervical.
+**Confirmación:** mejor paso de aire y expansión torácica.
+**Complicaciones:** obstrucción por mala posición y movimiento cervical no deseado.
+**Después:** escalar a adjunct/BVM si persiste obstrucción.
+**Documentación:** posición y respuesta.
+**Fuentes:** ERC/RCUK Pediatric Life Support 2025.
+**QA:** YELLOW.
 
 ## PROC-PED-002 — BVM pediátrica — CORE/PED
 **Técnica:** mascarilla correcta, sello suave, elevación mandibular, ventilaciones con volumen suficiente para elevación visible del tórax, evitando hiperventilación. Dos operadores si ventilación difícil. **Visual:** tamaño de mascarilla y agarre.
