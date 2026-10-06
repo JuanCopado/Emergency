@@ -1,8 +1,27 @@
 {
-  "brand": { "tagline": "Emergency & ICU infusions" },
-  "nav": { "home": "Home", "drugs": "Drugs", "calculator": "Calculator", "settings": "Settings", "about": "About" },
-  "a11y": { "skip": "Skip to main content", "mainNav": "Main navigation", "breadcrumb": "Breadcrumb" },
-  "theme": { "system": "System", "light": "Light", "dark": "Dark", "switchToDark": "Switch to dark theme", "switchToLight": "Switch to light theme" },
+  "brand": {
+    "tagline": "Emergency & ICU infusions"
+  },
+  "nav": {
+    "home": "Home",
+    "drugs": "Drugs",
+    "calculator": "Calculator",
+    "settings": "Settings",
+    "about": "About",
+    "clinicalNote": "Clinical note"
+  },
+  "a11y": {
+    "skip": "Skip to main content",
+    "mainNav": "Main navigation",
+    "breadcrumb": "Breadcrumb"
+  },
+  "theme": {
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark",
+    "switchToDark": "Switch to dark theme",
+    "switchToLight": "Switch to light theme"
+  },
   "common": {
     "all": "All",
     "comingSoon": "Coming soon",
@@ -16,7 +35,11 @@
     "body": "Transcribed from the v1.35 reference modules and pending human clinical review. Verify against local protocols, pharmacy standard concentrations and product labelling. Clinician judgment prevails.",
     "more": "Read the disclaimer"
   },
-  "search": { "label": "Search drugs", "placeholder": "Search a drug (e.g. norepinephrine, propofol)…", "submit": "Search" },
+  "search": {
+    "label": "Search drugs",
+    "placeholder": "Search a drug (e.g. norepinephrine, propofol)…",
+    "submit": "Search"
+  },
   "home": {
     "eyebrow": "Adult continuous infusions · reference v1.35",
     "title": "Infusion reference for emergency & intensive care",
@@ -33,19 +56,46 @@
     "moduleCount_other": "{{count}} modules"
   },
   "groups": {
-    "vasoactive": { "title": "Vasoactive & inotropes", "desc": "Vasopressors and inotropes for shock" },
-    "sedation": { "title": "ICU sedation & analgesia", "desc": "Continuous analgesia and sedation in ventilated adults" },
-    "cardiovascular": { "title": "Cardiovascular" },
-    "infectionRespiratory": { "title": "Infection & respiratory" },
-    "neurologic": { "title": "Neurologic" },
-    "renalMetabolic": { "title": "Renal, metabolic & toxicology" },
-    "traumaSurgical": { "title": "Trauma & surgical" },
-    "specialPopulations": { "title": "Pediatrics, obstetrics & special populations" },
-    "proceduresPharmacology": { "title": "Airway/RSI, procedures & pharmacology" },
-    "dispositionCrosscutting": { "title": "POCUS, disposition & cross-cutting" },
-    "clinicalImages": { "title": "Clinical image interpretation" }
+    "vasoactive": {
+      "title": "Vasoactive & inotropes",
+      "desc": "Vasopressors and inotropes for shock"
+    },
+    "sedation": {
+      "title": "ICU sedation & analgesia",
+      "desc": "Continuous analgesia and sedation in ventilated adults"
+    },
+    "cardiovascular": {
+      "title": "Cardiovascular"
+    },
+    "infectionRespiratory": {
+      "title": "Infection & respiratory"
+    },
+    "neurologic": {
+      "title": "Neurologic"
+    },
+    "renalMetabolic": {
+      "title": "Renal, metabolic & toxicology"
+    },
+    "traumaSurgical": {
+      "title": "Trauma & surgical"
+    },
+    "specialPopulations": {
+      "title": "Pediatrics, obstetrics & special populations"
+    },
+    "proceduresPharmacology": {
+      "title": "Airway/RSI, procedures & pharmacology"
+    },
+    "dispositionCrosscutting": {
+      "title": "POCUS, disposition & cross-cutting"
+    },
+    "clinicalImages": {
+      "title": "Clinical image interpretation"
+    }
   },
-  "categories": { "vasoactive-inotrope": "Vasoactive / inotrope", "icu-sedation-analgesia": "ICU sedation-analgesia" },
+  "categories": {
+    "vasoactive-inotrope": "Vasoactive / inotrope",
+    "icu-sedation-analgesia": "ICU sedation-analgesia"
+  },
   "list": {
     "title": "Drugs",
     "subtitle": "Adult continuous infusions from the v1.35 modules.",
@@ -216,7 +266,10 @@
     "content": "content {{version}}",
     "disclaimer": "Draft, pending clinical validation — local protocols and clinical judgment prevail."
   },
-  "notFound": { "title": "Page not found", "body": "The page you are looking for does not exist." },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist."
+  },
   "drugNames": {
     "norepinephrine": "Norepinephrine",
     "vasopressin": "Vasopressin",
