@@ -6,7 +6,7 @@ import evidence_surveillance as es
 
 class EvidenceSurveillanceTests(unittest.TestCase):
     def config(self,td):
-        p=pathlib.Path(td)/"s.json"; p.write_text(json.dumps({"sources":[{"id":"x","organization":"X","url":"https://example.test","cadence":"weekly"}]})); return p
+        p=pathlib.Path(td)/"s.json"; p.write_text(json.dumps({"sources":[{"id":"x","organization":"X","url":"https://example.test","cadence":"weekly","authority_type":"formal-guideline-body"}]})); return p
     def test_first_observation_does_not_claim_change(self):
         with tempfile.TemporaryDirectory() as td, patch.object(es,"fetch",return_value=b"abc"):
             r=es.run(self.config(td)); self.assertTrue(r["sources"]["x"]["first_observation"]); self.assertFalse(r["sources"]["x"]["changed"]); self.assertEqual([],r["review_queue"]); self.assertFalse(r["production_changes_applied"])
