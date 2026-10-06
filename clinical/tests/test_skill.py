@@ -5712,6 +5712,8 @@ class ModularCoreTests(unittest.TestCase):
             self.assertEqual(request['routed_modules'], [
                 'clinical-image-interpretation', 'chest-xray', 'musculoskeletal-xray'
             ])
+            self.assertEqual(request['filename'], 'clinical-source.png')
+            self.assertNotIn('sha256', request)
             self.assertNotIn('Authorization', request)
             return {
                 'contract_version': '1.0',
@@ -5757,6 +5759,29 @@ class ModularCoreTests(unittest.TestCase):
             accepted['note']['complementary_tests']['imaging'][0]['provenance'],
             'ai_image_interpretation',
         )
+
+    def test_v139_binary_vision_adapter_does_not_accept_ai_text_as_official_image_report(self):
+        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        prepared = prepare_clinical_upload(
+            'ecg.png', 'image/png', payload, explicit_kind='ecg'
+        )
+        with self.assertRaises(ValueError):
+            interpret_clinical_upload(
+                prepared, payload,
+                privacy_checked=True,
+                burned_in_identifiers_checked=True,
+                vision_transport=lambda cfg, request: {
+                    'contract_version': '1.0',
+                    'status': 'ok',
+                    'provider': 'test',
+                    'model': 'mock',
+                    'official_report': 'ECG normal.',
+                    'ai_interpretation': None,
+                    'limitations': [],
+                    'confidence': 'low',
+                },
+                vision_env={'CLINICAL_VISION_PROVIDER_URL': 'https://vision.example.test'},
+            )
 
     def test_v139_binary_vision_adapter_blocks_identifier_leak_in_provider_output(self):
         payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
