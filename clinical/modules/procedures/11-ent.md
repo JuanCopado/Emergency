@@ -83,20 +83,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-006 — Cuerpo extraño de oído — CORE
-**Objetivo:** retirar un objeto del conducto auditivo sin lesionar canal ni tímpano.
+**Objetivo:** retirar un cuerpo extraño del conducto auditivo sin lesionar piel, membrana timpánica ni cadena osicular.
 **Indicaciones:** cuerpo extraño visible y accesible.
-**Contraindicaciones/precauciones:** batería, objeto profundo adyacente al tímpano, perforación o paciente no cooperador.
-**Material:** otoscopio, pinza, gancho o succión según morfología.
-**Anatomía:** conducto auditivo externo y membrana timpánica.
-**Preparación:** iluminación adecuada y estabilización del paciente.
-**Técnica paso a paso:** visualizar; seleccionar herramienta según forma; inmovilizar insecto vivo si procede y tímpano íntegro; extraer bajo visión.
-**STOP:** dolor intenso, sangrado o migración medial.
-**Confirmación:** objeto completo retirado y canal revisado.
-**Complicaciones:** laceración, perforación timpánica y otitis externa.
-**Después:** ORL si lesión o extracción incompleta.
-**Documentación:** objeto y estado del canal/tímpano.
-**Fuentes:** MSD/Merck Professional.
-**QA:** YELLOW.
+**Contraindicaciones/precauciones:** batería botón o imán requieren extracción urgente; objeto medial al istmo, adyacente al tímpano, penetrante, extracción fallida previa, sangrado o paciente incapaz de permanecer inmóvil favorecen derivación ORL/sedación.
+**Material:** otoscopio o microscopio si disponible, pinza, gancho/cureta o succión según forma.
+**Anatomía:** conducto cartilaginoso y óseo, istmo y membrana timpánica.
+**Preparación:** identificar tipo, tamaño y posición; seleccionar técnica según morfología.
+**Técnica paso a paso:** usar pinza para objetos agarrables, gancho detrás de objetos lisos accesibles o succión cuando sea apropiado; inmovilizar insecto vivo antes de extracción si el tímpano está íntegro y el agente utilizado es seguro.
+**STOP:** dolor intenso, sangrado, migración medial, contacto con tímpano o pérdida de cooperación.
+**Confirmación:** objeto completo retirado y canal/tímpano revisados.
+**Complicaciones:** laceración, perforación timpánica, lesión osicular, otitis externa y fragmento retenido.
+**Después:** ORL si lesión, extracción incompleta o objeto medial al istmo.
+**Documentación:** objeto, posición, técnica, intentos y estado del canal/tímpano.
+**Fuentes:** Merck Manual Professional, How To Remove a Foreign Body From the External Ear, updated May 2026.
+**QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-007 — Irrigación de oído — CORE
 **Objetivo:** retirar cerumen o cuerpo extraño seleccionado.
