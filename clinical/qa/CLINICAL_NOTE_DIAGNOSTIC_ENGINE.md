@@ -10,17 +10,23 @@ Branch: `v1.39-clinical-note-diagnostic-support`
 - Regression runner: `scripts/run_clinical_note_diagnostic_cases.py`
 
 ## Current executable syndrome coverage
-1. Acute coronary syndrome.
-2. Pulmonary embolism.
-3. Tension pneumothorax.
-4. Acute ischemic stroke.
-5. Spontaneous intracerebral hemorrhage.
-6. SAH / dangerous secondary headache.
-7. Sepsis / septic shock.
-8. Acute aortic syndrome.
-9. Complicated/ruptured abdominal aortic aneurysm.
-10. DKA / hyperglycemic crisis.
-11. Acute heart failure / cardiogenic pulmonary edema.
+The registry now contains **92 transparent syndrome rules** spanning:
+- cardiovascular/resuscitation/shock;
+- respiratory;
+- neurology/neuroinfection;
+- infectious disease/sepsis;
+- trauma/burns/environmental;
+- gastrointestinal/hepatology/surgical abdomen;
+- renal/electrolyte/metabolic/endocrine;
+- toxicology;
+- obstetrics/gynaecology;
+- haematology/oncology;
+- ophthalmology/ENT/urology/orthopaedics;
+- psychiatry;
+- geriatrics;
+- pediatric emergency families with age-specific routing.
+
+Age applicability gates prevent adult-only rules from becoming the primary route in pediatric cases.
 
 ## Operation
 The engine consumes only the privacy-cleared structured clinical note.
@@ -61,16 +67,22 @@ Every rule is inspectable. Each triggered diagnosis contains:
 - The note cannot be exported again until clinician review.
 
 ## Synthetic regression set
-The synthetic regression bank now contains **24 cases**, including ACS, tension pneumothorax, stroke, sepsis, DKA, acute aortic syndrome, severe asthma, COPD exacerbation, anaphylaxis, CNS infection, status epilepticus, upper GI bleeding, pancreatitis, hyperkalaemia, adrenal crisis, hypertensive emergency, arrhythmia, toxicology, mesenteric ischaemia, AKI, rhabdomyolysis, thyroid storm, acute liver failure and cauda equina.
+The complete regression bank now contains **60 synthetic diagnostic scenarios** across:
+- core emergency syndromes;
+- respiratory/infectious/GI/metabolic expansion;
+- trauma/obstetric/pediatric/specialty expansion;
+- final coverage-closure cases;
+- dedicated pediatric age-routing cases.
 
-These validate deterministic behavior only and are not diagnostic-accuracy validation.
+All **60/60 PASS** in the final validated state.
 
 ## Current validation
-Clinical QA #553:
+Clinical QA #587:
 - SUCCESS
-- 360/360 tests PASS
-- 131/131 modules registered
-- 29 green / 102 yellow / 0 red
+- **364/364 tests PASS**
+- **131/131 modules registered**
+- **29 green / 102 yellow / 0 red**
+- Coverage audit: **115 directly covered/routed + 16 explicitly non-diagnostic support/infrastructure; 0 unexpected clinical gaps**
 
 ## Status
-Yellow. The engine is executable and tested, but syndrome coverage is intentionally incomplete and requires continued expansion plus final human clinical review.
+Yellow. The engine is executable and broadly covers the registered acute-care clinical families. Remaining yellow status is deliberate pending final human clinical/privacy/information-governance review; automated completeness is not clinical release.
