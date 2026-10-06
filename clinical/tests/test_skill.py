@@ -5568,6 +5568,7 @@ class ModularCoreTests(unittest.TestCase):
         )
         self.assertEqual(prepared['privacy']['status'], 'PASS')
         self.assertFalse(prepared['original_retained'])
+        self.assertFalse(prepared['privacy']['burned_in_identifier_review_required'])
         self.assertEqual(prepared['route']['target_section'], 'imaging')
         self.assertEqual(note['complementary_tests']['imaging'], [])
 
@@ -5582,6 +5583,19 @@ class ModularCoreTests(unittest.TestCase):
         self.assertTrue(report['source_reference'].startswith('sha256:'))
         self.assertEqual(report['routed_modules'], ['ct-mri-screenshot'])
         self.assertFalse(accepted['note']['clinician_validation']['reviewed'])
+
+    def test_v139_api_upload_privacy_scans_filename_as_well_as_content(self):
+        payload = base64.b64encode(
+            'ECG: ritmo sinusal.'.encode('utf-8')
+        ).decode('ascii')
+        prepared = prepare_clinical_upload(
+            'NIF-123456789-ecg.txt', 'text/plain', payload, explicit_kind='ecg'
+        )
+        self.assertEqual(prepared['privacy']['status'], 'STOP')
+        self.assertTrue(any(
+            x.get('code') == 'POSSIBLE_IDENTIFIER_IN_TEXT'
+            for x in prepared['privacy']['findings']
+        ))
 
     def test_v139_api_upload_privacy_stop_blocks_acceptance(self):
         note = new_clinical_note(age_years=55, sex='female')
