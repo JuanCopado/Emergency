@@ -35,20 +35,20 @@ Estado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleu
 **QA:** YELLOW.
 
 ## PROC-THX-003 — Tubo de toracostomía / drenaje pleural — ADVANCED
-**Objetivo:** drenar aire, sangre u otro contenido pleural.  
-**Indicaciones:** neumotórax, hemotórax, derrame/empiema u otras indicaciones específicas.  
-**Contraindicaciones/precauciones:** valorar coagulopatía, adherencias y anatomía; en derrames usar imagen/ecografía cuando corresponda.  
-**Material:** kit de drenaje, bisturí, pinza, anestesia local, sutura/fijación, sello de agua.  
-**Anatomía:** triángulo de seguridad, costilla/paquete neurovascular, pleura y diafragma.  
-**Preparación:** consentimiento/time-out si posible, analgesia, asepsia y confirmación de lateralidad.  
-**Técnica paso a paso:** 1) anestesiar; 2) incisión; 3) disección roma o Seldinger según sistema; 4) confirmar pleura; 5) introducir tubo; 6) conectar a sello; 7) fijar; 8) comprobar funcionamiento.  
-**STOP:** no usar fuerza/trocar ciego; detener ante anatomía incierta o sangrado importante.  
-**Confirmación:** drenaje/burbujeo/oscillación apropiados y control clínico/imaginológico según contexto.  
-**Complicaciones:** malposición, lesión pulmonar/intercostal/diafragmática, hemorragia, infección, enfisema subcutáneo.  
-**Después:** vigilar débito, fuga aérea y necesidad de succión.  
-**Documentación:** tamaño, sitio, profundidad, sistema y confirmación.  
-**Fuentes:** BTS Pleural Procedures 2023.  
-**QA:** YELLOW.
+**Objetivo:** drenar aire, sangre, pus u otro contenido pleural mediante un sistema seguro y adecuado a la indicación.
+**Indicaciones:** neumotórax, hemotórax, infección pleural/empiema, derrame sintomático u otras indicaciones específicas.
+**Contraindicaciones/precauciones:** valorar coagulopatía, adherencias, anatomía alterada y sitio; para derrames, usar ecografía para seleccionar el trayecto. El calibre depende de la indicación, experiencia y protocolo.
+**Material:** kit de drenaje, bisturí, pinza si disección roma, anestesia local, sutura/fijación y sistema de sello de agua.
+**Anatomía:** triángulo de seguridad, borde superior de la costilla, paquete neurovascular, pleura, pulmón y diafragma.
+**Preparación:** consentimiento/time-out si la situación lo permite, analgesia, asepsia, confirmación de lado y ecografía cuando proceda.
+**Técnica paso a paso:** para drenajes pequeños, BTS describe técnica Seldinger; para drenajes grandes, disección roma. Evitar introducir un trocar metálico de forma ciega. Confirmar acceso pleural, avanzar el drenaje sin fuerza, conectar a sello de agua y fijar.
+**STOP:** no utilizar un trocar afilado como método de empuje ciego; detener ante anatomía incierta, resistencia anormal o sangrado importante.
+**Confirmación:** drenaje funcional, oscilación/burbujeo cuando corresponda y control clínico/imagen según indicación.
+**Complicaciones:** malposición, lesión pulmonar/intercostal/diafragmática/visceral, hemorragia, infección y enfisema subcutáneo.
+**Después:** vigilar débito, fuga aérea, permeabilidad, necesidad de succión y criterios de retirada.
+**Documentación:** indicación, tamaño, sitio, técnica, profundidad, sistema, confirmación y complicaciones.
+**Fuentes:** BTS Clinical Statement on Pleural Procedures 2023, con corrección publicada en 2026; BTS Pleural Disease Guideline 2023.
+**QA:** YELLOW; revisión humana neumología/trauma pendiente.
 
 ## PROC-THX-004 — Catéter pleural tipo pigtail — ADVANCED
 **Objetivo:** drenaje pleural con catéter de pequeño calibre en indicaciones seleccionadas.  
