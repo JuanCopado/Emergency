@@ -195,20 +195,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW.
 
 ## PROC-WND-013 — Adhesivo tisular — CORE
-**Objetivo:** cerrar heridas superficiales seleccionadas sin sutura.  
-**Indicaciones:** heridas pequeñas, lineales y de baja tensión.  
-**Contraindicaciones/precauciones:** mucosa, alta tensión, contaminación, zonas húmedas o articulaciones sin inmovilización adecuada.  
-**Material:** adhesivo tisular y protección ocular.  
-**Anatomía:** epidermis/dermis superficial.  
-**Preparación:** hemostasia y bordes secos.  
-**Técnica paso a paso:** 1) aproximar bordes; 2) aplicar capas superficiales sobre piel; 3) mantener hasta polimerizar; 4) no introducir dentro de herida.  
-**STOP:** adhesivo en ojo/mucosa o dentro del lecho.  
-**Confirmación:** bordes unidos sin tensión.  
-**Complicaciones:** dehiscencia, lesión térmica, adhesión accidental.  
-**Después:** mantener seco según producto.  
-**Documentación:** adhesivo usado.  
-**Fuentes:** wound closure guidance.  
-**QA:** YELLOW.
+**Objetivo:** cerrar una herida superficial simple sin suturas.
+**Indicaciones:** heridas pequeñas, rectas, superficiales y de baja tensión que no requieren cierre profundo.
+**Contraindicaciones/precauciones:** infección, mucosa/superficie húmeda, alta tensión, articulación sin inmovilización, proximidad ocular sin protección o lesión profunda de nervio/vaso/tendón/hueso.
+**Material:** adhesivo tisular de alta viscosidad si está disponible, protección ocular, gasas y tiras adhesivas opcionales.
+**Anatomía:** epidermis y dermis superficial.
+**Preparación:** limpiar, secar y conseguir hemostasia completa.
+**Técnica paso a paso:** aproximar bordes, aplicar pequeñas capas sobre la superficie de la piel extendiéndolas lateralmente sin introducir adhesivo en la herida y mantener aproximación hasta polimerización.
+**STOP:** adhesivo dentro del lecho, ojo/mucosa, bordes bajo tensión o sangrado que impida polimerización segura.
+**Confirmación:** bordes unidos sin tensión ni adhesivo intralesional.
+**Complicaciones:** dehiscencia, reacción local, adhesión accidental y lesión térmica por polimerización excesiva.
+**Después:** no aplicar pomada sobre el adhesivo, evitar remojo y dejar que se desprenda espontáneamente.
+**Documentación:** producto/técnica y resultado.
+**Fuentes:** Merck Manual Professional, How To Repair a Laceration With Tissue Adhesive, updated Jan 2026.
+**QA:** YELLOW; revisión humana urgencias pendiente.
 
 ## PROC-WND-014 — Tiras de aproximación — CORE
 **Objetivo:** aproximar heridas superficiales de muy baja tensión.  
