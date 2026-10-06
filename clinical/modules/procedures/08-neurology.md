@@ -3,21 +3,20 @@
 Estado de familia: **YELLOW**. La familia está estructurada contra el schema canónico v1.41, pero requiere revisión clínica humana antes de cualquier promoción. La fase visual permanece **PAUSADA**.
 
 ## PROC-NEURO-001 — Punción lumbar — CORE
-**Objetivo:** obtener LCR para diagnóstico y/o medir presión de apertura cuando esté indicado.  
-**Indicaciones:** sospecha de infección/inflamación del SNC; enfermedades neurológicas en las que el análisis de LCR modifica diagnóstico o manejo; hemorragia subaracnoidea seleccionada tras estrategia diagnóstica apropiada; evaluación de trastornos de presión del LCR cuando proceda.  
-**Contraindicaciones/precauciones:** sospecha de lesión ocupante de espacio/herniación o hipertensión intracraneal con riesgo de gradiente; infección cutánea en el sitio; coagulopatía/alteración hemostática clínicamente significativa; inestabilidad cardiorrespiratoria; anatomía compleja o intentos repetidos sin estrategia segura. La necesidad de neuroimagen previa depende del contexto clínico y del riesgo individual.  
-**Material:** kit de LP, aguja con estilete preferentemente atraumática cuando sea apropiada, manómetro si se medirá presión, tubos, antiséptico, campo estéril, anestésico local y material de monitorización/rescate según situación.  
-**Anatomía:** crestas ilíacas, interespacios lumbares bajos, línea media, ligamentos y espacio subaracnoideo; evitar niveles altos y trayectorias repetidamente traumáticas.  
-**Preparación:** confirmar indicación y riesgos; revisar hemostasia/antitrombóticos según contexto; posición lateral o sentada según objetivo; si se requiere presión de apertura interpretable, preferir decúbito lateral relajado; consentimiento cuando sea posible; asepsia y anestesia local.  
-**Técnica paso a paso:** 1) identificar interespacio; 2) preparar campo e infiltrar anestesia local; 3) introducir aguja con estilete en trayectoria controlada; 4) avanzar de forma gradual; 5) comprobar LCR retirando el estilete cuando corresponda; 6) medir presión antes de retirar volumen significativo si está indicada; 7) recoger muestras según prioridad diagnóstica; 8) reinsertar estilete y retirar la aguja; 9) aplicar apósito y reevaluar.  
-**Confirmación:** flujo de LCR, muestras adecuadas y ausencia de deterioro clínico inmediato.  
-**STOP:** dolor radicular intenso/persistente; sangrado relevante; deterioro neurológico; resistencia ósea repetida; anatomía incierta; inestabilidad; imposibilidad de mantener técnica segura.  
-**Complicaciones:** cefalea postpunción, dolor lumbar, punción traumática/sangrado, infección, lesión neural rara y herniación en paciente mal seleccionado.  
-**Rescate:** detener, reevaluar indicación y anatomía, optimizar posición o solicitar operador con mayor experiencia/guía por imagen según contexto; deterioro neurológico o sospecha de herniación requiere manejo neurocrítico urgente.  
-**Después:** vigilar síntomas, revisar resultados críticos y tratar complicaciones según módulo correspondiente; no imponer reposo rutinario como medida preventiva sin indicación.  
-**Documentación:** indicación, consentimiento, posición, interespacio, tipo/calibre de aguja si disponible, número de intentos, presión si medida, aspecto del LCR, tubos, incidencias y estado postprocedimiento.  
-**Fuentes:** Engelborghs et al., *Consensus guidelines for lumbar puncture in patients with neurological diseases*, 2017, doi:10.1016/j.dadm.2017.04.007.  
-**QA:** YELLOW; revisión humana pendiente.
+**Objetivo:** obtener LCR para diagnóstico y/o medir presión de apertura cuando esté indicado.
+**Indicaciones:** sospecha de infección/inflamación del SNC; enfermedades neurológicas donde el análisis de LCR modifica diagnóstico o manejo; hemorragia subaracnoidea seleccionada tras estrategia diagnóstica apropiada; evaluación de trastornos de presión del LCR.
+**Contraindicaciones/precauciones:** estabilizar primero vía aérea no protegida, compromiso respiratorio, shock, convulsiones no controladas o riesgo hemorrágico. No realizar LP ante infección en el sitio, púrpura extensa/progresiva, riesgo de lesión ocupante de espacio o signos clínicos de hipertensión intracraneal con riesgo de herniación. NICE 2024 desaconseja neuroimagen rutinaria antes de LP; reservarla para focalidad neurológica nueva, pupilas anormales, GCS ≤9 o deterioro sostenido/rápido del nivel de conciencia, entre otros factores de riesgo.
+**Material:** kit de LP, aguja con estilete preferentemente atraumática cuando sea apropiada, manómetro si se medirá presión, tubos, antiséptico, campo estéril y anestésico local.
+**Anatomía:** interespacios lumbares bajos, línea media, ligamentos y espacio subaracnoideo.
+**Preparación:** confirmar indicación/riesgos, revisar hemostasia y antitrombóticos, obtener consentimiento cuando sea posible y colocar al paciente lateral o sentado. Para presión de apertura interpretable, preferir decúbito lateral relajado.
+**Técnica paso a paso:** identificar interespacio; antisepsia/anestesia; introducir aguja con estilete de forma controlada; comprobar LCR; medir presión antes de retirar volumen significativo si está indicada; recoger muestras; reinsertar estilete y retirar.
+**STOP:** deterioro neurológico, dolor radicular intenso/persistente, sangrado relevante, resistencia ósea repetida, anatomía incierta o inestabilidad.
+**Confirmación:** flujo de LCR, muestras adecuadas y estabilidad clínica inmediata.
+**Complicaciones:** cefalea postpunción, dolor lumbar, punción traumática, sangrado, infección, lesión neural rara y herniación en paciente mal seleccionado.
+**Después:** vigilar síntomas y resultados críticos. En sospecha de meningitis, no retrasar antibióticos por intentos prolongados de LP; realizarla tan pronto como sea seguro si inicialmente se pospone.
+**Documentación:** indicación, posición, interespacio, tipo/calibre de aguja si disponible, intentos, presión si medida, aspecto del LCR, tubos y estado postprocedimiento.
+**Fuentes:** NICE NG240 Bacterial meningitis and meningococcal disease, 2024; Engelborghs et al. consensus LP guideline, 2017.
+**QA:** YELLOW; revisión humana neurología/infecciosas pendiente.
 
 ## PROC-NEURO-002 — Medición de presión de apertura de LCR — CORE
 **Objetivo:** obtener una presión de apertura interpretable durante una punción lumbar.  
