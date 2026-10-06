@@ -129,9 +129,14 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
     route = route_attachment(kind)
     extracted_text = _extract_text(raw, filename, mime_type)
     digest = hashlib.sha256(raw).hexdigest()
-    privacy_findings = _privacy_for_text(extracted_text) if extracted_text else []
+    privacy_probe_text = filename + ("\n" + extracted_text if extracted_text else "")
+    privacy_findings = _privacy_for_text(privacy_probe_text)
     privacy_stop = any(x.get("severity") == "STOP" for x in privacy_findings)
     binary_requires_review = extracted_text is None
+    burned_in_required = binary_requires_review and kind in {
+        "ecg", "xray", "chest_xray", "musculoskeletal_xray", "ct", "mri",
+        "pocus", "ultrasound", "other_image", "pdf_document",
+    }
     if privacy_stop:
         privacy_status = "STOP"
     elif binary_requires_review:
@@ -152,10 +157,7 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
             "status": privacy_status,
             "findings": privacy_findings,
             "manual_file_privacy_review_required": binary_requires_review,
-            "burned_in_identifier_review_required": kind in {
-                "ecg", "xray", "chest_xray", "musculoskeletal_xray", "ct", "mri",
-                "pocus", "ultrasound", "other_image", "pdf_document",
-            },
+            "burned_in_identifier_review_required": burned_in_required,
         },
         "extracted": {
             "official_report": extracted_text,
