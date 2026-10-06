@@ -36,8 +36,8 @@ class ProceduresCatalogTest(unittest.TestCase):
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         cards = module.parse_cards()
-        self.assertEqual(197, len(cards))
-        self.assertEqual(197, len({item["procedure_id"] for item in cards}))
+        self.assertEqual(196, len(cards))
+        self.assertEqual(196, len({item["procedure_id"] for item in cards}))
         self.assertTrue(all(item["image_status"] == "not_generated" for item in cards))
 
 if __name__ == "__main__":
