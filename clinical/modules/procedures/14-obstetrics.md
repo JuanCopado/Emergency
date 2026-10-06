@@ -115,14 +115,20 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW.
 
 ## PROC-OBS-008 — Histerotomía resucitativa — SPECIALIST
-**Objetivo:** mejorar la reanimación materna y posibilitar extracción fetal en parada cardiaca durante embarazo avanzado cuando está indicada.  
-**Indicación:** parada cardiaca materna con útero suficientemente grande para producir compresión aortocava; activar muy precozmente equipo obstétrico, neonatal, anestesia y cirugía.  
-**Preparación:** RCP de alta calidad continua, desplazamiento uterino manual a la izquierda, desfibrilación/ALS estándar y preparación inmediata del material en el lugar de la parada.  
-**Técnica:** intervención tiempo-dependiente realizada por equipo entrenado; no trasladar a quirófano si ello retrasa una intervención indicada. Apertura abdominal y uterina rápida, extracción fetal, clampaje/corte del cordón y continuación simultánea de reanimación materna y neonatal.  
-**STOP:** no retrasar la RCP ni otras causas reversibles mientras se prepara; el objetivo primario es la supervivencia materna.  
-**Confirmación/resultado:** reevaluar retorno de circulación, ventilación, hemorragia y causas obstétricas; continuar control hemorrágico y cirugía definitiva.  
-**Complicaciones:** hemorragia masiva, lesión visceral, coagulopatía y necesidad de cirugía definitiva inmediata.  
-**Fuente troncal:** Resuscitation Council UK / ERC 2025, circunstancias especiales — parada cardiaca en embarazo.
+**Objetivo:** mejorar la reanimación materna y posibilitar extracción fetal en parada cardiaca durante embarazo avanzado cuando está indicada.
+**Indicaciones:** parada cardiaca materna con útero suficientemente grande para producir compresión aortocava y ausencia de ROSC precoz según algoritmo.
+**Contraindicaciones/precauciones:** intervención de rescate para equipo entrenado; no retrasar RCP ni tratamiento de causas reversibles.
+**Material:** equipo de reanimación, bisturí/instrumental obstétrico, material neonatal y control de hemorragia.
+**Anatomía:** pared abdominal, útero grávido, placenta y feto.
+**Preparación:** RCP de alta calidad, desplazamiento uterino manual, desfibrilación/ALS estándar y activación simultánea de obstetricia/neonatología/anestesia.
+**Técnica paso a paso:** realizar apertura abdominal y uterina rápida en el lugar de la parada por equipo entrenado, extraer al feto, pinzar/cortar cordón y continuar reanimación materna y neonatal en paralelo.
+**STOP:** no trasladar a quirófano si ello retrasa una intervención indicada; no interrumpir RCP más de lo imprescindible.
+**Confirmación:** reevaluar ROSC, ventilación, hemorragia y respuesta neonatal.
+**Complicaciones:** hemorragia masiva, lesión visceral, coagulopatía y necesidad de cirugía definitiva.
+**Después:** control hemorrágico y cirugía obstétrica definitiva.
+**Documentación:** tiempos de parada, inicio del procedimiento, extracción y respuesta materno-neonatal.
+**Fuentes:** ERC/Resuscitation Council UK 2025, cardiac arrest in pregnancy.
+**QA:** YELLOW.
 
 ## PROC-OBS-009 — Taponamiento uterino con balón en hemorragia posparto — ADVANCED
 **Objetivo:** controlar hemorragia posparto persistente por atonía uterina cuando el tratamiento inicial ha fallado y se dispone de capacidad de rescate quirúrgico/transfusional.  
