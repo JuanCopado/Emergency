@@ -94,3 +94,40 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - EAST 2025 practice management guideline on REBOA + ACS COT/ACEP implementation statement — `PROC-SP-013`.
 - ERC 2025 Special Circumstances + ILCOR 2025 ALS CoSTR — `PROC-SP-014`.
 - Ambos procedimientos requieren programa institucional, personal acreditado y capacidad de tratamiento definitivo; la inclusión documental no implica disponibilidad local.
+
+
+## Revisión profunda SPECIALIST — 06/10/2026
+### Vía aérea frontal de cuello
+- Difficult Airway Society, 2025 unanticipated difficult tracheal intubation guideline (BJA 2026;136:283–307).
+- Uso: `PROC-AIR-015`, `PROC-AIR-016`.
+- Punto clave: eFONA adulta estandarizada con scalpel–bougie–tube; la técnica por cánula no es la primera línea adulta DAS 2025.
+
+### Toracotomía de resucitación
+- EAST, Emergency Department Thoracotomy Practice Management Guideline, 2015.
+- Uso: `PROC-THX-009`.
+- Punto clave: recomendación fuerte para trauma penetrante torácico sin pulso pero con signos de vida; recomendaciones condicionales en otros escenarios; condicionalmente en contra en trauma cerrado sin signos de vida.
+
+### Marcapasos transvenoso temporal
+- AHA 2025 Adult Advanced Life Support — Initial Management of Bradycardia.
+- Uso: `PROC-CV-005`.
+- Punto clave: razonable en bradicardia persistentemente inestable y refractaria a tratamiento médico.
+
+### Escharotomía
+- American Burn Association, Clinical Practice Guidelines — Escharotomy and Decompressive Therapies in Burns.
+- Uso: `PROC-WND-019`.
+
+### Síndrome compartimental orbitario
+- American Academy of Ophthalmology / EyeWiki, Orbital Compartment Syndrome; Pre-Ophthalmologist Management of Eye Trauma.
+- Uso: `PROC-EYE-008`.
+- Punto clave: diagnóstico clínico; no retrasar descompresión por imagen; cantólisis inferior inicial.
+
+### Parto resucitativo
+- AHA 2025 Special Circumstances of Resuscitation.
+- Resuscitation Council UK / ERC 2025 Special Circumstances.
+- Uso: `PROC-OBS-008`.
+- Punto clave: objetivo materno primario y preparación precoz; realizar lo antes posible en el lugar de la parada por equipo capacitado.
+
+### Lavado gástrico
+- AACT/EAPCCT Position Paper Update: Gastric Lavage for Gastrointestinal Decontamination, 2013; continúa listado por AACT.
+- Uso: `PROC-SP-007`.
+- Punto clave: no debe emplearse de rutina; uso excepcional y protocolizado.
