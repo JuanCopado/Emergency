@@ -8,6 +8,8 @@ NORMALIZED={
  "02-vascular-monitoring.md":15,
  "03-thorax-pleura.md":10,
  "04-cardiovascular-resuscitation.md":10,
+ "05-trauma-hemorrhage.md":10,
+ "08-neurology.md":5,
 }
 REQUIRED=[
  "objetivo","indicaciones","contraindicaciones/precauciones","material","anatomía",
