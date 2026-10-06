@@ -131,17 +131,17 @@ Estado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté d
 **QA:** YELLOW; revisión humana obstetricia/anestesia pendiente.
 
 ## PROC-OBS-009 — Taponamiento uterino con balón en hemorragia posparto — ADVANCED
-**Objetivo:** controlar hemorragia posparto persistente por atonía cuando el tratamiento inicial ha fallado.
-**Indicaciones:** PPH por atonía tras tratamiento de primera línea, con otras causas relevantes razonablemente excluidas y capacidad de rescate quirúrgico/transfusional.
-**Contraindicaciones/precauciones:** sospecha de ruptura uterina, infección grave no controlada o causa que requiera cirugía inmediata.
-**Material:** balón uterino aprobado o sistema validado, solución estéril, material de inserción, monitorización y protocolo PPH activo.
-**Anatomía:** cavidad uterina, cérvix y canal vaginal.
-**Preparación:** reanimación, uterotónicos/TXA/fluidos desde módulos canónicos, evaluación de 4T y exclusión de trauma/tejido retenido significativo.
-**Técnica paso a paso:** introducir el balón con técnica estéril, posicionarlo en cavidad uterina, insuflar gradualmente según dispositivo/protocolo y asegurar drenaje/fijación.
-**STOP:** deterioro hemodinámico, sangrado persistente pese al balón o sospecha de ruptura/otra causa quirúrgica.
-**Confirmación:** reducción objetiva del sangrado y estabilidad hemodinámica.
-**Complicaciones:** fracaso, desplazamiento, perforación/trauma, infección y retraso de cirugía si se usa fuera de un sistema preparado.
-**Después:** monitorización continua, cuantificación de pérdidas, retirada y antibiótico según protocolo local.
-**Documentación:** dispositivo, volumen según fabricante/protocolo, sangrado y respuesta.
-**Fuentes:** WHO consolidated PPH guidelines 2025/2026; WHO uterine balloon tamponade recommendation.
-**QA:** YELLOW.
+**Objetivo:** controlar temporalmente una hemorragia posparto persistente, generalmente por atonía, mientras se mantienen reanimación y acceso a hemostasia definitiva.
+**Indicaciones:** PPH que no responde adecuadamente al tratamiento estándar de primera línea, especialmente atonía uterina, cuando otras causas relevantes se han evaluado y existe capacidad de rescate quirúrgico/transfusional.
+**Contraindicaciones/precauciones:** sospecha de ruptura uterina, infección grave no controlada o una causa que requiera cirugía inmediata. WHO recomienda UBT solo en contextos donde los protocolos estándar de PPH están implementados y existe acceso a intervenciones adicionales si fracasa.
+**Material:** balón uterino aprobado o sistema validado, líquido estéril para inflado, material de inserción, monitorización y protocolo PPH activo.
+**Anatomía:** cavidad uterina, fondo, cérvix y canal vaginal.
+**Preparación:** reanimación simultánea, uterotónicos/TXA/fluidos desde módulos canónicos, cuantificación de pérdidas y evaluación sistemática de Tone/Trauma/Tissue/Thrombin.
+**Técnica paso a paso:** introducir el balón con técnica estéril, posicionarlo correctamente dentro de la cavidad, inflarlo gradualmente según dispositivo/protocolo hasta obtener efecto hemostático y asegurar drenaje/fijación.
+**STOP:** deterioro hemodinámico, sangrado persistente pese al balón, sospecha de ruptura o evidencia de una causa que exige cirugía. No permitir que el balón retrase embolización o cirugía cuando están indicadas.
+**Confirmación:** reducción objetiva del sangrado y estabilización hemodinámica; persistencia de hemorragia obliga a escalada inmediata.
+**Complicaciones:** fracaso hemostático, desplazamiento, trauma/perforación, infección y retraso de tratamiento definitivo.
+**Después:** monitorización continua, cuantificación de pérdidas, reevaluación etiológica, planificación de retirada y antibiótico según protocolo local.
+**Documentación:** indicación, dispositivo, volumen de inflado según fabricante/protocolo, pérdida sanguínea, respuesta, transfusión y complicaciones.
+**Fuentes:** WHO Consolidated Guidelines for Prevention, Diagnosis and Treatment of Postpartum Haemorrhage 2025; WHO implementation guide 2026; WHO uterine balloon tamponade recommendation 2021.
+**QA:** YELLOW; revisión humana obstetricia pendiente.
