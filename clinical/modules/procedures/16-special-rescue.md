@@ -102,7 +102,20 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW.
 
 ## PROC-SP-008 — Carbón activado — CORE
-**Uso:** tóxico adsorbible y ventana/beneficio apropiados con vía aérea protegida. **Técnica:** dosis desde módulo toxicología, oral/NG según tolerancia, prevenir aspiración. **STOP:** íleo, cáusticos, hidrocarburos o conciencia comprometida sin protección. **Visual:** criterios sí/no.
+**Objetivo:** reducir absorción gastrointestinal de tóxicos adsorbibles en casos seleccionados.
+**Indicaciones:** tóxico adsorbible, ventana apropiada y vía aérea segura.
+**Contraindicaciones/precauciones:** íleo, cáusticos, hidrocarburos con alto riesgo de aspiración o conciencia comprometida sin protección.
+**Material:** carbón activado y vía oral/NG apropiada.
+**Anatomía:** tracto gastrointestinal.
+**Preparación:** confirmar sustancia/beneficio con módulo toxicológico.
+**Técnica paso a paso:** administrar la dosis desde módulo toxicología por vía segura y prevenir aspiración.
+**STOP:** vómito repetido, deterioro de conciencia o riesgo de aspiración.
+**Confirmación:** administración tolerada.
+**Complicaciones:** aspiración, vómitos y obstrucción intestinal rara.
+**Después:** monitorización y tratamiento específico.
+**Documentación:** dosis, vía y tolerancia.
+**Fuentes:** toxicology decontamination guidance.
+**QA:** YELLOW.
 
 ## PROC-SP-009 — Descontaminación cutánea química — CORE
 **Técnica:** PPE, retirar ropa/joyas, cepillar sólidos secos cuando corresponda antes de agua, irrigación copiosa para sustancias compatibles, embolsar ropa. **STOP:** sustancias reactivas con agua requieren ficha específica. **Visual:** zona caliente/templada.
