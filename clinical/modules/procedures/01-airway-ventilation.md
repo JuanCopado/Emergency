@@ -83,20 +83,20 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-006 — BVM a dos operadores — CORE
-**Objetivo:** maximizar sello y apertura mandibular cuando BVM a un operador es insuficiente.  
-**Indicaciones:** fuga, obesidad, anatomía difícil, hipoxemia severa o necesidad de ventilación optimizada.  
-**Contraindicaciones/precauciones:** mismas consideraciones de BVM; evitar hiperventilación.  
-**Material:** mismo material de BVM; dos operadores coordinados.  
-**Anatomía:** mandíbula, sello facial y vía aérea superior.  
-**Preparación:** asignar operador de mascarilla y operador de bolsa.  
-**Técnica paso a paso:** 1) operador 1 sella mascarilla a dos manos y eleva mandíbula; 2) operador 2 comprime bolsa lentamente; 3) añadir adjunct/PEEP según necesidad; 4) optimizar posición; 5) reevaluar.  
-**STOP:** ventilación inefectiva pese a optimización → escalar a supraglótico/intubación.  
-**Confirmación:** expansión torácica bilateral y ETCO₂/SpO₂ apropiados.  
-**Complicaciones:** aspiración, insuflación gástrica, fuga, barotrauma.  
-**Después:** mantener hasta recuperación o vía aérea definitiva.  
-**Documentación:** técnica a dos operadores y respuesta.  
-**Fuentes:** ERC/RCUK 2025.  
-**QA:** YELLOW.
+**Objetivo:** maximizar el sello facial y la apertura mandibular cuando la ventilación con un operador es insuficiente.
+**Indicaciones:** fuga relevante, obesidad, anatomía difícil, hipoxemia grave o ventilación BVM ineficaz con un operador.
+**Contraindicaciones/precauciones:** evitar hiperventilación y presiones excesivas.
+**Material:** BVM completo, oxígeno, reservorio, PEEP si procede y adjuncts.
+**Anatomía:** mandíbula, sello facial y vía aérea superior.
+**Preparación:** asignar claramente operador de mascarilla y operador de bolsa.
+**Técnica paso a paso:** el operador 1 usa ambas manos para sellar la mascarilla y elevar la mandíbula; el operador 2 comprime la bolsa durante ~1 segundo hasta elevación visible del tórax; ajustar posición/adjunct/PEEP según respuesta.
+**STOP:** ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate.
+**Confirmación:** expansión torácica bilateral y mejoría de oxigenación/ETCO₂.
+**Complicaciones:** aspiración, insuflación gástrica, fuga y barotrauma.
+**Después:** mantener hasta recuperación o vía aérea avanzada.
+**Documentación:** técnica a dos operadores y respuesta.
+**Fuentes:** Resuscitation Council UK/ERC Adult Advanced Life Support 2025.
+**QA:** YELLOW; revisión humana de vía aérea pendiente.
 
 ## PROC-AIR-007 — Dispositivo supraglótico — CORE
 **Objetivo:** rescatar oxigenación/ventilación y servir de puente o vía avanzada seleccionada.  
