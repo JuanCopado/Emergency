@@ -1,0 +1,200 @@
+{
+  "procedure_id": "PROC-AIR-020",
+  "name": "Ventilación no invasiva CPAP/BiPAP",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Proporcionar soporte ventilatorio no invasivo y evitar intubación cuando está indicado.",
+  "indications": [
+    "Edema agudo cardiogénico de pulmón.",
+    "Exacerbación hipercápnica de EPOC.",
+    "Otros escenarios seleccionados según fisiología y guías específicas."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [
+      "Incapacidad de proteger vía aérea.",
+      "Vómitos activos.",
+      "Shock no controlado.",
+      "Trauma facial incompatible.",
+      "Deterioro rápido."
+    ],
+    "precautions": [
+      "Definir criterios de fracaso antes de iniciar.",
+      "No retrasar intubación cuando el paciente empeora."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Ventilador de VNI.",
+      "Interfaz adecuada.",
+      "Circuito.",
+      "Filtros."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂.",
+      "Frecuencia respiratoria.",
+      "Presión arterial.",
+      "Gasometría cuando esté indicada."
+    ],
+    "rescue": [
+      "Equipo de intubación y ventilación invasiva."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Interfaz facial.",
+      "Vía aérea superior."
+    ],
+    "target": [
+      "Soporte de presión/CPAP con sello tolerable."
+    ],
+    "avoid": [
+      "Fugas excesivas.",
+      "Lesión por presión facial."
+    ],
+    "laterality": null,
+    "variants": [
+      "CPAP.",
+      "BiPAP/soporte de presión."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Semisentado cuando sea posible.",
+    "operator_position": "Frente/lateral para ajustar interfaz.",
+    "monitoring": [
+      "SpO₂.",
+      "Frecuencia respiratoria.",
+      "Hemodinámica."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Explicar técnica.",
+      "Elegir interfaz.",
+      "Definir objetivos y criterios de fracaso."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Colocar una interfaz apropiada y tolerable.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Iniciar soporte con parámetros tolerables.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Minimizar fugas sin causar presión excesiva.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Titular presión y FiO₂ según fisiología y respuesta.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Reevaluar precozmente clínica y gasometría cuando esté indicada.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Reducción del trabajo respiratorio.",
+    "Mejoría clínica.",
+    "Mejoría gasométrica cuando corresponde.",
+    "Oxigenación adecuada."
+  ],
+  "stop_points": [
+    "Empeoramiento del nivel de conciencia.",
+    "Shock.",
+    "Secreciones no manejables.",
+    "Gasometría que empeora.",
+    "Fatiga progresiva."
+  ],
+  "complications": {
+    "immediate": [
+      "Aspiración.",
+      "Distensión gástrica.",
+      "Intolerancia."
+    ],
+    "early": [
+      "Lesión por presión facial."
+    ],
+    "late": [
+      "Retraso de intubación."
+    ]
+  },
+  "rescue": [
+    "Retirar VNI si no es segura.",
+    "Escalar a intubación y ventilación invasiva ante fracaso.",
+    "Mantener oxigenación durante la transición."
+  ],
+  "aftercare": [
+    "Destetar cuando mejora.",
+    "Escalar de forma inmediata si cumple criterios de fracaso."
+  ],
+  "documentation": [
+    "Indicación.",
+    "Tipo de interfaz.",
+    "Parámetros.",
+    "FiO₂.",
+    "Respuesta clínica/gasométrica.",
+    "Criterios de fracaso."
+  ],
+  "pearls": [
+    "La VNI requiere reevaluación precoz; el fracaso no debe prolongarse."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar protocolos pediátricos específicos."
+    ],
+    "pregnancy": [],
+    "obesity": [
+      "Puede requerir ajustes de interfaz y presiones."
+    ],
+    "trauma": [
+      "Trauma facial puede impedir su uso."
+    ],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "Rapid Sequence Intubation in the Critically Ill Adult Patient",
+      "organization": "Society of Critical Care Medicine",
+      "year": 2023,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; syndrome-specific NIV guidance remains linked centrally."
+    ]
+  }
+}
