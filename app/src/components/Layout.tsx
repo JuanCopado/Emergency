@@ -12,6 +12,7 @@ const NAV: { to: string; key: string; icon: IconName; end?: boolean; desktopOnly
   { to: '/', key: 'nav.home', icon: 'home', end: true },
   { to: '/drugs', key: 'nav.drugs', icon: 'pill' },
   { to: '/calculator', key: 'nav.calculator', icon: 'calc' },
+  { to: '/clinical-note', key: 'nav.clinicalNote', icon: 'info' },
   { to: '/settings', key: 'nav.settings', icon: 'settings' },
   { to: '/about', key: 'nav.about', icon: 'info', desktopOnly: true },
 ];
@@ -88,7 +89,7 @@ export function Layout() {
         aria-label={t('a11y.mainNav')}
         className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden"
       >
-        <ul className="mx-auto grid max-w-lg grid-cols-4">
+        <ul className="mx-auto grid max-w-lg grid-cols-5">
           {NAV.filter((n) => !n.desktopOnly).map((n) => (
             <li key={n.to}>
               <NavLink
