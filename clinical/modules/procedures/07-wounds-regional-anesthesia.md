@@ -99,20 +99,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana anestesia regional pendiente.
 
 ## PROC-WND-007 — Irrigación de heridas — CORE
-**Objetivo:** reducir contaminación y carga de cuerpos extraños.  
-**Indicaciones:** heridas traumáticas contaminadas antes de cierre o manejo definitivo.  
-**Contraindicaciones/precauciones:** no dirigir presión hacia estructuras profundas vulnerables.  
-**Material:** solución apropiada, jeringa/sistema de irrigación, PPE.  
-**Anatomía:** piel/subcutáneo y estructuras expuestas.  
-**Preparación:** analgesia y retirar contaminantes grandes.  
-**Técnica paso a paso:** 1) exponer; 2) irrigar de forma copiosa y controlada; 3) movilizar bordes para alcanzar cavidades visibles; 4) retirar detritos; 5) reexplorar.  
-**STOP:** sangrado no controlado o estructura profunda lesionada.  
-**Confirmación:** lecho limpio sin material visible.  
-**Complicaciones:** maceración, dispersión de contaminantes, daño por presión excesiva.  
-**Después:** exploración/cierre según herida.  
-**Documentación:** contaminación y manejo.  
-**Fuentes:** emergency wound care guidance.  
-**QA:** YELLOW.
+**Objetivo:** reducir suciedad, bacterias y cuerpos extraños antes del cierre o manejo definitivo.
+**Indicaciones:** heridas traumáticas contaminadas o con material visible.
+**Contraindicaciones/precauciones:** no dirigir irrigación a alta presión sobre nervios, tendones, vasos, hueso expuesto o cavidades profundas no evaluadas.
+**Material:** agua potable limpia o solución salina según contexto, jeringa/sistema de irrigación, recipiente y PPE.
+**Anatomía:** piel, subcutáneo y estructuras profundas expuestas.
+**Preparación:** analgesia adecuada, hemostasia y retirada de contaminantes grandes fácilmente accesibles.
+**Técnica paso a paso:** exponer por completo, irrigar de forma copiosa y controlada desde el centro hacia fuera, movilizar suavemente bordes para alcanzar recovecos visibles y retirar detritos sin traumatizar tejidos viables.
+**STOP:** sangrado no controlado, lesión profunda crítica o dolor desproporcionado.
+**Confirmación:** lecho visiblemente limpio y ausencia de material macroscópico retenido.
+**Complicaciones:** maceración, dispersión de contaminantes y lesión tisular por presión excesiva.
+**Después:** explorar, desbridar si es necesario y decidir cierre primario, diferido o segunda intención.
+**Documentación:** grado de contaminación, solución/técnica y hallazgos.
+**Fuentes:** Merck Manual Professional wound cleansing/irrigation references, updated 2025–2026.
+**QA:** YELLOW; revisión humana urgencias/cirugía pendiente.
 
 ## PROC-WND-008 — Exploración de heridas — CORE
 **Objetivo:** identificar lesión de tendón, nervio, vaso, articulación o cuerpo extraño.  
