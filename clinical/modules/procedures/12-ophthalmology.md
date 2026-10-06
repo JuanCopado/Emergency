@@ -83,7 +83,20 @@ Estado: **YELLOW**.
 **QA:** YELLOW.
 
 ## PROC-EYE-006 — Tonometría — CORE
-**Técnica:** descartar globo abierto; anestésico tópico; calibrar dispositivo; medir sin comprimir globo. **STOP:** sospecha de ruptura. **Visual:** applanación.
+**Objetivo:** medir presión intraocular cuando sea clínicamente útil.
+**Indicaciones:** sospecha de glaucoma agudo u otras indicaciones seleccionadas.
+**Contraindicaciones/precauciones:** sospecha de globo abierto o lesión penetrante.
+**Material:** tonómetro y anestésico tópico según dispositivo.
+**Anatomía:** córnea y globo ocular.
+**Preparación:** descartar ruptura y calibrar el dispositivo.
+**Técnica paso a paso:** anestesiar si aplica, posicionar correctamente y obtener una o más lecturas sin comprimir el globo.
+**STOP:** dolor, mala alineación o sospecha de ruptura.
+**Confirmación:** lecturas reproducibles coherentes con la clínica.
+**Complicaciones:** abrasión o infección rara.
+**Después:** tratamiento/consulta según valor y contexto.
+**Documentación:** ojo, método y presión.
+**Fuentes:** ophthalmology procedural guidance.
+**QA:** YELLOW.
 
 ## PROC-EYE-007 — Escudo ocular rígido — CORE
 **Técnica:** colocar sin presión en sospecha de globo abierto; no parche compresivo; analgesia/antiemético y oftalmología. **Visual:** escudo.
