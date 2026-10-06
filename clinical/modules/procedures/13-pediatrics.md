@@ -99,39 +99,39 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **QA:** YELLOW; revisión humana pediatría/infecciosas pendiente.
 
 ## PROC-PED-007 — Sondaje vesical pediátrico — CORE/PED
-**Objetivo:** obtener drenaje/muestra urinaria cuando está indicado.
-**Indicaciones:** retención, monitorización crítica o muestra estéril seleccionada.
-**Contraindicaciones/precauciones:** sospecha de lesión uretral o anatomía compleja.
-**Material:** catéter de tamaño apropiado, campo estéril, lubricante y bolsa.
-**Anatomía:** uretra/vejiga pediátrica.
-**Preparación:** técnica estéril y tamaño correcto.
-**Técnica paso a paso:** lubricar, avanzar sin fuerza, confirmar orina; inflar balón solo si el catéter está diseñado para ello y la posición es segura.
-**STOP:** resistencia, sangrado o dolor intenso.
-**Confirmación:** drenaje urinario libre.
+**Objetivo:** obtener drenaje o muestra urinaria estéril cuando está indicado.
+**Indicaciones:** retención, monitorización crítica o necesidad de muestra para cultivo cuando no basta una muestra no invasiva.
+**Contraindicaciones/precauciones:** sospecha de lesión uretral, anatomía compleja o cirugía urológica reciente.
+**Material:** catéter de tamaño apropiado, campo estéril, lubricante y recipiente/bolsa.
+**Anatomía:** uretra y vejiga pediátrica.
+**Preparación:** técnica estéril, tamaño correcto y contenedor estéril preparado.
+**Técnica paso a paso:** lubricar y avanzar sin fuerza; si se obtiene muestra para cultivo, recolectar directamente del catéter con técnica estéril; inflar balón solo si el catéter lo incorpora y la posición intravesical está confirmada.
+**STOP:** resistencia, sangrado, dolor intenso o duda de posición.
+**Confirmación:** drenaje urinario libre y ausencia de dolor/extravasación.
 **Complicaciones:** trauma uretral, falsa vía e infección.
-**Después:** sistema cerrado y retirada precoz cuando no sea necesario.
-**Documentación:** calibre, balón si aplica y resultado.
-**Fuentes:** pediatric urinary catheterization guidance.
-**QA:** YELLOW.
+**Después:** sistema cerrado y retirada precoz cuando deje de estar indicado.
+**Documentación:** calibre, balón si aplica, muestra obtenida y resultado.
+**Fuentes:** pediatric urinary catheterization guidance; AAP UTI guidance for catheterized specimens.
+**QA:** YELLOW; revisión humana pediatría/urología pendiente.
 
 ## PROC-PED-008 — Pronación dolorosa — REFERENCIA
 Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técnica.
 
 ## PROC-PED-009 — Inmovilización pediátrica — CORE/PED
-**Objetivo:** estabilizar una lesión musculoesquelética preservando perfusión y crecimiento.
-**Indicaciones:** fractura, esguince grave o postreducción seleccionada.
-**Contraindicaciones/precauciones:** evitar férulas demasiado ajustadas y vigilar placas de crecimiento/edema.
+**Objetivo:** estabilizar una lesión musculoesquelética preservando perfusión, función nerviosa y crecimiento.
+**Indicaciones:** fractura, luxación reducida o lesión grave de partes blandas.
+**Contraindicaciones/precauciones:** evitar férulas demasiado ajustadas y posiciones forzadas; considerar proximidad a fisis y edema esperado.
 **Material:** acolchado, férula apropiada y venda.
-**Anatomía:** segmento lesionado y estructuras neurovasculares distales.
-**Preparación:** examen neurovascular preprocedimiento.
-**Técnica paso a paso:** acolchar, colocar férula permitiendo edema, no cubrir dedos cuando sea posible y repetir examen neurovascular.
-**STOP:** dolor creciente, parestesia o cambio de perfusión.
-**Confirmación:** inmovilización estable con perfusión intacta.
+**Anatomía:** segmento lesionado, articulaciones adyacentes, fisis y estructuras neurovasculares.
+**Preparación:** examen neurovascular preprocedimiento y analgesia.
+**Técnica paso a paso:** acolchar, colocar férula en posición funcional sin compresión excesiva, dejar margen para edema y repetir examen neurovascular.
+**STOP:** dolor creciente, parestesia, frialdad, cambio de color o pérdida de pulso.
+**Confirmación:** inmovilización estable con perfusión y función neurológica conservadas.
 **Complicaciones:** lesión cutánea, compresión neurovascular y síndrome compartimental.
-**Después:** elevación e instrucciones a cuidadores.
+**Después:** elevación, instrucciones claras a cuidadores y seguimiento.
 **Documentación:** tipo de férula y neurovascular pre/post.
 **Fuentes:** pediatric orthopedic emergency guidance.
-**QA:** YELLOW.
+**QA:** YELLOW; revisión humana ortopedia pediátrica pendiente.
 
 ## PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED
 **Objetivo:** tratar taquiarritmia inestable con pulso o ritmos desfibrilables en parada pediátrica.
