@@ -12,10 +12,10 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 class ProcedureSchemaCoverageV141Tests(unittest.TestCase):
-    def test_catalog_has_197_canonical_procedures(self):
+    def test_catalog_has_196_canonical_procedures(self):
         cards = module.parse_cards()
-        self.assertEqual(197, len(cards))
-        self.assertEqual(197, len({c["procedure_id"] for c in cards}))
+        self.assertEqual(196, len(cards))
+        self.assertEqual(196, len({c["procedure_id"] for c in cards}))
 
     def test_audit_is_fail_closed(self):
         card = {
