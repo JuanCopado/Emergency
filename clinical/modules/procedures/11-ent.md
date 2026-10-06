@@ -130,21 +130,21 @@ Estado: **YELLOW**.
 **Fuentes:** AAO-HNSF Clinical Practice Guideline: Cerumen Impaction (Update), 2017; guideline remains the current AAO-HNS cerumen guideline.
 **QA:** YELLOW; revisión humana ORL pendiente.
 
-## PROC-ENT-009 — Hematoma auricular — ADVANCED
-**Objetivo:** evacuar hematoma y prevenir deformidad del pabellón.
-**Indicaciones:** hematoma auricular agudo.
-**Contraindicaciones/precauciones:** infección, necrosis o presentación tardía/organizada requieren ORL/plástica.
-**Material:** anestesia, aguja o bisturí según caso, irrigación y bolster compresivo.
-**Anatomía:** piel, pericondrio y cartílago auricular.
-**Preparación:** antisepsia y analgesia/bloqueo.
-**Técnica paso a paso:** evacuar la colección mediante técnica apropiada y colocar compresión moldeada.
-**STOP:** necrosis, sangrado persistente o infección.
-**Confirmación:** pabellón recontorneado sin colección residual significativa.
-**Complicaciones:** recurrencia, infección y deformidad.
-**Después:** revisión ORL y cuidados del bolster.
-**Documentación:** técnica y dispositivo compresivo.
-**Fuentes:** ORL emergency guidance.
-**QA:** YELLOW.
+## PROC-ENT-009 — Hematoma auricular: incisión, drenaje y compresión — ADVANCED
+**Objetivo:** evacuar completamente el hematoma subpericondrial y readherir pericondrio al cartílago para prevenir oreja en coliflor.
+**Indicaciones:** hematoma auricular traumático doloroso/focal, típicamente dentro de los primeros 7 días.
+**Contraindicaciones/precauciones:** celulitis/infección local, laceración no reparada con cartílago expuesto, diátesis hemorrágica o hematoma crónico/recurrente requieren individualización/ORL.
+**Material:** bloqueo auricular o anestesia local, bisturí #15, hemostato, succión, irrigación y bolster/compresión moldeada.
+**Anatomía:** piel, pericondrio y cartílago auricular; preservar relieves anatómicos.
+**Preparación:** antisepsia, analgesia/bloqueo y elección de incisión en pliegue/borde para minimizar cicatriz.
+**Técnica paso a paso:** realizar incisión, separar suavemente pericondrio, evacuar completamente, irrigar y colocar bolster/compresión que mantenga pericondrio adherido al cartílago sin comprometer perfusión.
+**STOP:** necrosis, sangrado no controlado, infección extensa o imposibilidad de conseguir compresión segura.
+**Confirmación:** pabellón recontorneado, cavidad vacía y compresión estable.
+**Complicaciones:** recurrencia, infección, condritis y deformidad permanente.
+**Después:** Merck 2025 desaconseja aspiración con aguja por alta recurrencia; mantener compresión y reevaluación precoz según protocolo/ORL.
+**Documentación:** tiempo desde trauma, técnica, localización de incisión y bolster.
+**Fuentes:** Merck Manual Professional, How To Drain an Auricular Hematoma, updated May 2025.
+**QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-010 — Absceso periamigdalino: aspiración o incisión/drenaje — ADVANCED
 **Objetivo:** drenar una colección periamigdalina protegiendo vía aérea y estructuras vasculares.
