@@ -30,7 +30,7 @@
     {
       "id": "infarmed",
       "organization": "INFARMED",
-      "url": "https://www.infarmed.pt/",
+      "url": "https://www.infarmed.pt/web/infarmed/alertas-de-seguranca",
       "domains": [
         "medication-safety",
         "Portugal"
@@ -39,7 +39,7 @@
       "priority": "critical",
       "mode": "html-discovery",
       "authority_type": "medicines-regulator",
-      "validation_status": "official-authority-confirmed-specific-current-index-pending"
+      "validation_status": "official-safety-index"
     },
     {
       "id": "who-guidelines",
@@ -88,6 +88,21 @@
       "priority": "high",
       "mode": "html-discovery",
       "authority_type": "formal-guideline-body"
+    },
+    {
+      "id": "infarmed-fnm",
+      "organization": "INFARMED — Formulário Nacional de Medicamentos",
+      "url": "https://extranet.infarmed.pt/fnm-fo/",
+      "domains": [
+        "medication-selection",
+        "Portugal"
+      ],
+      "cadence": "weekly",
+      "priority": "high",
+      "mode": "js-application-reference",
+      "authority_type": "medicines-regulator",
+      "validation_status": "manual-or-adapter-required",
+      "purpose": "Medication formulary/reference; not a pharmacovigilance alert source"
     }
   ]
 }
