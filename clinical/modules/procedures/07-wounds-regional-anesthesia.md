@@ -19,20 +19,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW.
 
 ## PROC-WND-002 — Bloqueo digital — CORE
-**Objetivo:** anestesiar dedo sin distorsionar herida.  
-**Indicaciones:** reparación, cuerpo extraño, reducción o drenaje distal.  
-**Contraindicaciones/precauciones:** infección en trayecto, alergia, isquemia digital significativa; epinefrina solo según práctica y riesgo individual.  
-**Material:** anestésico, jeringa fina, antiséptico.  
-**Anatomía:** nervios digitales laterales y vasos.  
-**Preparación:** dosis total y examen neurovascular.  
-**Técnica paso a paso:** 1) antisepsia; 2) inyección pequeña a un lado de base; 3) retirar parcialmente; 4) infiltrar lado opuesto; 5) esperar efecto.  
-**STOP:** dolor eléctrico persistente, alta presión o síntomas de LAST.  
-**Confirmación:** anestesia circunferencial distal.  
-**Complicaciones:** hematoma, lesión neural, infección, LAST.  
-**Después:** reevaluar perfusión.  
-**Documentación:** agente/dosis y resultado.  
-**Fuentes:** hand anesthesia guidance.  
-**QA:** YELLOW.
+**Objetivo:** anestesiar un dedo sin distorsionar los bordes de la herida.
+**Indicaciones:** laceración, extracción de anillo/cuerpo extraño, reducción, reparación ungueal u otros procedimientos digitales.
+**Contraindicaciones/precauciones:** alergia al anestésico, ausencia de landmarks por trauma severo, neuritis o necesidad de atravesar tejido infectado. La epinefrina puede utilizarse en dedos con circulación normal según práctica actual, pero debe individualizarse en isquemia o enfermedad vascular significativa.
+**Material:** anestésico desde módulo farmacológico, jeringa pequeña, aguja fina, antiséptico y material para LAST.
+**Anatomía:** nervios digitales dorsales/volares a ambos lados del dedo y vasos digitales.
+**Preparación:** documentar perfusión/sensibilidad, calcular dosis total y realizar antisepsia.
+**Técnica paso a paso:** realizar bloqueo bilateral en la base del dedo con pequeños depósitos subcutáneos/perineurales, evitando inyección intravascular y sin necesidad de infiltrar el lecho de la herida.
+**STOP:** dolor eléctrico persistente, alta resistencia a la inyección, aspiración sanguínea o signos de LAST.
+**Confirmación:** pérdida de sensibilidad distal circunferencial antes de iniciar el procedimiento.
+**Complicaciones:** hematoma, infección, lesión neural, isquemia rara y LAST.
+**Después:** reevaluar perfusión y advertir protección del dedo insensible.
+**Documentación:** agente/dosis, técnica, neurovascular pre/post y respuesta.
+**Fuentes:** Merck Manual Professional, How To Do a Digital Nerve Block, updated Apr 2025.
+**QA:** YELLOW; revisión humana anestesia/urgencias pendiente.
 
 ## PROC-WND-003 — Bloqueo de hematoma — ADVANCED
 **Objetivo:** analgesia para reducción de fractura seleccionada, típicamente radio distal.  
