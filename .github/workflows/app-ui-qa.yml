@@ -1,0 +1,46 @@
+name: App UI QA
+
+on:
+  push:
+    branches:
+      - main
+      - v1.39-clinical-note-diagnostic-support
+    paths:
+      - 'app/**'
+      - '.github/workflows/app-ui-qa.yml'
+  pull_request:
+    paths:
+      - 'app/**'
+      - '.github/workflows/app-ui-qa.yml'
+
+concurrency:
+  group: app-ui-qa-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Test
+        run: npm test
+      - name: Build
+        run: npm run build
