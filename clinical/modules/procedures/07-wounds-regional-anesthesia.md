@@ -67,20 +67,20 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **QA:** YELLOW; revisión humana anestesia/urgencias pendiente.
 
 ## PROC-WND-005 — Bloqueo fascia iliaca — ADVANCED/POCUS
-**Objetivo:** analgesia regional para cadera/fémur proximal.  
-**Indicaciones:** fractura de cadera/fémur seleccionada.  
-**Contraindicaciones/precauciones:** similares a bloqueo femoral.  
-**Material:** US, aguja, anestésico y monitor.  
-**Anatomía:** fascia iliaca, iliopsoas y nervios femoral/cutáneo lateral.  
-**Preparación:** dosis/monitorización.  
-**Técnica paso a paso:** 1) identificar fascias; 2) avanzar aguja in-plane; 3) penetrar fascia iliaca; 4) hidrodisecar; 5) depositar anestésico bajo fascia.  
-**STOP:** punta no visible o inyección intravascular/intraneural sospechada.  
-**Confirmación:** difusión bajo fascia y analgesia.  
-**Complicaciones:** LAST, hematoma, lesión neural.  
-**Después:** vigilar motor/caídas.  
-**Documentación:** lado/técnica.  
-**Fuentes:** regional anesthesia guidance.  
-**QA:** YELLOW.
+**Objetivo:** proporcionar analgesia regional para fractura de cadera/fémur proximal mediante bloqueo de plano fascial.
+**Indicaciones:** fractura de cadera/fémur proximal y otros escenarios de dolor donde el bloqueo fascia iliaca sea apropiado; RCoA 2025 recomienda vías formales que incluyan bloqueo regional precoz en fractura de cadera.
+**Contraindicaciones/precauciones:** infección local, alergia, anatomía no identificable, déficit neurológico relevante no documentado o riesgo hemorrágico que haga inseguro el trayecto.
+**Material:** ecógrafo, aguja ecogénica, anestésico local, monitor y equipo para LAST.
+**Anatomía:** fascia iliaca, iliopsoas, nervio femoral, nervio cutáneo femoral lateral y vasos femorales.
+**Preparación:** consentimiento, examen neurovascular, cálculo de dosis total, monitorización y plan de rescate para LAST.
+**Técnica paso a paso:** identificar fascia lata/fascia iliaca y vasos; avanzar la aguja in-plane; atravesar fascia iliaca bajo visión; confirmar plano con pequeña hidro-disección; depositar anestésico bajo fascia con difusión amplia.
+**STOP:** punta no visible, aspiración positiva, dolor/parestesia intensa, resistencia elevada o signos de toxicidad.
+**Confirmación:** difusión en el plano correcto y reducción del dolor.
+**Complicaciones:** LAST, hematoma, lesión nerviosa, infección y debilidad transitoria.
+**Después:** vigilancia clínica y prevención de caídas; documentar recuperación.
+**Documentación:** lado, técnica US, volumen/dosis desde módulo farmacológico y respuesta.
+**Fuentes:** RCoA GPAS 2025; RCEM Fascia Iliaca Block in the Emergency Department 2025; ASRA 2025 antithrombotic guidance.
+**QA:** YELLOW; revisión humana anestesia/urgencias pendiente.
 
 ## PROC-WND-006 — Bloqueo interescalénico/selectivo de miembro superior — SPECIALIST
 **Objetivo:** proporcionar anestesia/analgesia de hombro y miembro superior proximal mediante bloqueo regional ecoguiado en pacientes seleccionados.
