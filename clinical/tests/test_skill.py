@@ -5615,6 +5615,25 @@ class ModularCoreTests(unittest.TestCase):
                 burned_in_identifiers_checked=True,
             )
 
+    def test_v139_prepared_upload_integrity_blocks_client_tampering(self):
+        note = new_clinical_note(age_years=50, sex='male')
+        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        prepared = prepare_clinical_upload(
+            'ecg.png', 'image/png', payload, explicit_kind='ecg'
+        )
+        tampered = dict(prepared)
+        tampered['privacy'] = dict(prepared['privacy'])
+        tampered['privacy']['status'] = 'PASS'
+        tampered['privacy']['manual_file_privacy_review_required'] = False
+        tampered['privacy']['burned_in_identifier_review_required'] = False
+        with self.assertRaises(ValueError):
+            accept_clinical_upload(
+                note, tampered,
+                clinician_edit={'ai_interpretation': 'Ritmo sinusal.'},
+                privacy_checked=True,
+                burned_in_identifiers_checked=True,
+            )
+
     def test_v139_api_binary_upload_is_fail_closed_until_manual_privacy_review(self):
         note = new_clinical_note(age_years=42, sex='male')
         payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
