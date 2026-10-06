@@ -143,8 +143,8 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Complicaciones:** infección, dehiscencia, marcas de sutura.  
 **Después:** apósito e instrucciones.  
 **Documentación:** material/número de puntos.  
-**Fuentes:** wound closure guidance.  
-**QA:** YELLOW.
+**Fuentes:** Merck Manual Professional, simple interrupted suture guidance, updated Jan 2026.  
+**QA:** YELLOW; revisión humana pendiente.
 
 ## PROC-WND-010 — Sutura continua — CORE
 **Objetivo:** cierre rápido y uniforme de heridas lineales seleccionadas.  
