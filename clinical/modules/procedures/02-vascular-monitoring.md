@@ -147,20 +147,20 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **QA:** YELLOW.
 
 ## PROC-VASC-010 — Línea arterial radial — ADVANCED
-**Objetivo:** monitorización continua de PA y muestreo arterial repetido.  
-**Indicaciones:** shock, vasoactivos, necesidad de gasometrías frecuentes o monitorización beat-to-beat.  
-**Contraindicaciones/precauciones:** infección local, isquemia distal, lesión arterial conocida; valorar perfusión colateral y anatomía.  
-**Material:** catéter arterial, transductor/tubing presurizado, antiséptico, anestesia local y ecógrafo si útil.  
-**Anatomía:** arteria radial, vena/nervio vecinos.  
-**Preparación:** posición de muñeca, antisepsia y sistema de transductor preparado.  
-**Técnica paso a paso:** 1) localizar arteria; 2) punción palpada o ecoguiada; 3) flash; 4) avanzar catéter/guía; 5) conectar; 6) nivelar/cero; 7) fijar.  
-**STOP:** isquemia distal, hematoma expansivo, resistencia o posición dudosa.  
-**Confirmación:** onda arterial apropiada y correlación clínica.  
-**Complicaciones:** trombosis, isquemia, hematoma, infección, pseudoaneurisma.  
-**Después:** vigilar perfusión distal y sitio.  
-**Documentación:** sitio, técnica, waveform y complicaciones.  
-**Fuentes:** MSD/Merck Professional 2025; CDC 2024.  
-**QA:** YELLOW.
+**Objetivo:** monitorización invasiva continua de presión arterial y acceso para muestreo arterial repetido.
+**Indicaciones:** shock, uso de vasoactivos, necesidad de monitorización beat-to-beat o gasometrías frecuentes.
+**Contraindicaciones/precauciones:** infección local, isquemia distal, lesión arterial conocida o anatomía no segura.
+**Material:** catéter arterial, ecógrafo preferentemente, transductor/tubing presurizado, antiséptico, anestesia local y fijación.
+**Anatomía:** arteria radial, venas vecinas y ramas nerviosas.
+**Preparación:** valorar perfusión distal, preparar transductor y poner a cero; explorar diámetro/trayecto con US cuando esté disponible.
+**Técnica paso a paso:** preferir guía ecográfica en tiempo real cuando sea factible; puncionar arteria, confirmar entrada intraluminal, avanzar catéter o guía, conectar al sistema, nivelar/cero y fijar.
+**STOP:** isquemia distal, hematoma expansivo, resistencia o posición dudosa.
+**Confirmación:** waveform arterial de morfología adecuada, presión coherente con clínica y perfusión distal conservada.
+**Complicaciones:** trombosis, isquemia, hematoma, infección, pseudoaneurisma y oclusión.
+**Después:** vigilancia de perfusión y necesidad; retirar cuando deje de ser necesaria.
+**Documentación:** sitio, técnica, US, intentos, waveform y complicaciones.
+**Fuentes:** Society of Hospital Medicine ultrasound-guided vascular access position statement; German Society of Anaesthesiology haemodynamic monitoring guideline 2024; evidence summaries 2026.
+**QA:** YELLOW; revisión humana UCI pendiente.
 
 ## PROC-VASC-011 — Línea arterial femoral — ADVANCED
 **Objetivo:** monitorización arterial cuando radial no es adecuada o se necesita acceso central arterial.  
