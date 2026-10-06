@@ -18,7 +18,7 @@ class CriticalCycleTests(unittest.TestCase):
   self.assertTrue(result["impact"]["qa_required"])
   self.assertFalse(result["impact"]["clinical_change_authorized"])
   self.assertFalse(result["invariants"]["production_mutation"])
-  queue=urgent_items({"review_queue":[{"source_id":"regulator",**result["triage"]]})
+  queue=urgent_items({"review_queue":[{"source_id":"regulator",**result["triage"]}]})
   self.assertEqual(1,len(queue));self.assertFalse(queue[0]["auto_apply"])
 
 if __name__=="__main__":unittest.main()
