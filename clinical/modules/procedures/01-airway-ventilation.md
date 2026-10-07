@@ -127,7 +127,7 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **Complicaciones:** intubación esofágica, trauma dental, hipoxemia, hipotensión, aspiración.  
 **Después:** fijación, ventilación protectora y sedoanalgesia inmediata.  
 **Documentación:** dispositivo, talla, profundidad, intentos, Cormack/visión si relevante, ETCO₂ y complicaciones.  
-**Fuentes:** DAS 2025; SCCM RSI 2023; ERC/RCUK.  
+**Fuentes:** Difficult Airway Society 2025 unanticipated difficult tracheal intubation guideline; SCCM RSI guideline 2023; RCUK/ERC 2025.
 **QA:** YELLOW.
 
 ## PROC-AIR-009 — Videolaringoscopia — CORE
