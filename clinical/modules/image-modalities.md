@@ -56,6 +56,11 @@ review. Do not force a classification when required views or clinical data are a
 - Check lead consistency and possible reversal/artifact before interpreting abnormalities.
 - Treat ischemic patterns, malignant arrhythmia, high-grade block and hyperkalemic patterns as
   time-sensitive clinical findings. A nondiagnostic ECG does not exclude ACS or arrhythmia.
+- Explicitly screen for high-risk/eponymous ECG patterns when the tracing and clinical context support them:
+  - **de Winter pattern:** typically 1–3 mm upsloping ST-segment depression at the J point in V1–V6 that continues into tall, positive, symmetric T waves; often associated with proximal LAD occlusion/severe stenosis and should trigger an acute coronary occlusion pathway rather than reassurance from absent classic ST elevation.
+  - **Wellens pattern:** in a compatible recent-angina/pain-free context, biphasic T waves in V2–V3 (type A) or deep, symmetric T-wave inversion in V2–V3 (type B), sometimes extending to adjacent precordial leads, with an isoelectric or minimally elevated ST segment; this suggests critical proximal LAD disease and requires urgent cardiology evaluation. Do not perform stress testing when Wellens syndrome is suspected.
+  - **Peñaloza–Tranchesi sign (historical eponym):** prominent/deep S waves in the left precordial leads, especially V5–V6, as a supportive sign of right-ventricular hypertrophy/overload. Do not diagnose RV hypertrophy from this sign alone; integrate right-axis deviation, R/S morphology in V1–V2, strain pattern, echocardiography and clinical context.
+
 
 ## blood-gas-image
 
