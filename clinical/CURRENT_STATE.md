@@ -11,6 +11,9 @@
 - Fase visual: **PAUSADA**; continuar solo con texto hasta nueva orden.
 - Normalización textual v1.41: **196/196 procedimientos canónicos completos** con plantilla estructurada; 4 alias permanecen como referencias cruzadas.
 - Todas las técnicas permanecen **YELLOW**.
+- Fase de revisión bibliográfica/clínica v1.41 cerrada: **196/196 procedimientos canónicos revisados**, 4 alias/referencias cruzadas, 16 familias.
+- Cobertura final: `clinical/qa/V1.41_CLINICAL_REVIEW_COVERAGE.md`.
+- Último Clinical QA global verificado: **#873 SUCCESS** sobre `216fc9ff7cba34b06d6e269ac2de4142b655d13a`.
 - **Fase de revisión bibliográfica/clínica v1.41 cerrada:** 196/196 procedimientos canónicos revisados; 4 alias/referencias cruzadas; ver `clinical/qa/V1.41_CLINICAL_REVIEW_COVERAGE.md`.
 - Barrido final de fuentes: 0 fichas canónicas con campo Fuentes vacío o etiqueta genérica no identificable según el gate documental de cierre.
 - Duodécima pasada completada: oftalmología CORE completa, pediatría CORE restante y obstetricia CORE pendiente.
