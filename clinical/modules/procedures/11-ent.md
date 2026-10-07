@@ -111,7 +111,7 @@ Estado: **YELLOW**.
 **Complicaciones:** perforación, vértigo, otitis externa y lesión canalicular.
 **Después:** secar conducto y reevaluar.
 **Documentación:** indicación, líquido usado, tolerancia y resultado.
-**Fuentes:** Merck Manual Professional external ear obstruction/foreign body guidance, updated 2025–2026.
+**Fuentes:** Merck Manual Professional, external ear irrigation and foreign-body removal procedures, updated 2025–2026.
 **QA:** YELLOW; revisión humana ORL pendiente.
 
 ## PROC-ENT-008 — Cerumen impactado — CORE
