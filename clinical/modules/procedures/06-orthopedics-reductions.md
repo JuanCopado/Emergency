@@ -79,7 +79,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** fractura osteocondral, hemartros, lesión retinacular y recurrencia.
 **Después:** imagen postreducción cuando proceda, inmovilización/brace breve según estabilidad y seguimiento ortopédico.
 **Documentación:** mecanismo, técnica, examen postreducción y estabilidad.
-**Fuentes:** contemporary orthopedic emergency guidance; Merck Manual Professional patellar dislocation references.
+**Fuentes:** Merck Manual Professional, Patellar Dislocations and reduction principles, updated 2025–2026.
 **QA:** YELLOW; revisión humana ortopedia pendiente.
 
 ## PROC-ORTHO-006 — Reducción de luxaciones de dedos — CORE
@@ -111,7 +111,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** interposición de placa volar, lesión ligamentaria, fractura, rigidez e inestabilidad.
 **Después:** inmovilización según estabilidad y seguimiento de mano.
 **Documentación:** articulación, técnica, estabilidad y neurovascular.
-**Fuentes:** hand emergency guidance; Merck Manual Professional finger/thumb dislocation principles.
+**Fuentes:** Merck Manual Professional, Finger/Thumb Dislocations, updated 2025.
 **QA:** YELLOW; revisión humana cirugía de mano pendiente.
 
 ## PROC-ORTHO-008 — Reducción de luxación perilunar/lunar seleccionada — ADVANCED
@@ -127,7 +127,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** lesión del nervio mediano, fractura, lesión ligamentaria y inestabilidad persistente.
 **Después:** cirugía de mano urgente incluso tras reducción cerrada satisfactoria.
 **Documentación:** neurovascular pre/post, imagen, técnica y respuesta.
-**Fuentes:** orthopedic hand trauma guidance; contemporary perilunate/lunate management references.
+**Fuentes:** Orthopedic hand-trauma references on perilunate/lunate dislocations; urgent hand-surgery management standards.
 **QA:** YELLOW; revisión humana cirugía de mano pendiente.
 
 ## PROC-ORTHO-009 — Reducción de luxación / fractura-luxación de tobillo — CORE
@@ -175,7 +175,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** lesión neurovascular, desplazamiento.  
 **Después:** imagen y reevaluación.  
 **Documentación:** examen pre/post.  
-**Fuentes:** orthopedic trauma guidance.  
+**Fuentes:** Merck Manual Professional, Overview of Fractures, updated 2025–2026; orthopedic trauma standards.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-012 — Férula braquiopalmar — CORE
@@ -191,7 +191,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** presión, lesión cutánea, síndrome compartimental.  
 **Después:** elevación/instrucciones de alarma.  
 **Documentación:** tipo y neurovascular.  
-**Fuentes:** splinting emergency references.  
+**Fuentes:** Merck Manual Professional, Splinting procedures, updated 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-013 — Férula antebraquiopalmar — CORE
@@ -207,7 +207,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** presión/rigidez.  
 **Después:** instrucciones y seguimiento.  
 **Documentación:** tipo y examen.  
-**Fuentes:** splinting guidance.  
+**Fuentes:** Merck Manual Professional, Volar/forearm splinting procedures, updated 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-014 — Férula cubital / gutter — CORE
@@ -223,7 +223,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** rigidez, presión cutánea, malrotación.  
 **Después:** revisión ortopédica.  
 **Documentación:** posición y neurovascular.  
-**Fuentes:** hand splinting guidance.  
+**Fuentes:** Merck Manual Professional, Ulnar gutter splinting procedures, updated 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-015 — Férula posterior de pierna — CORE
@@ -239,7 +239,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** presión/compartimental/úlceras.  
 **Después:** elevación y seguimiento.  
 **Documentación:** tipo y neurovascular.  
-**Fuentes:** splinting guidance.  
+**Fuentes:** Merck Manual Professional, Posterior ankle/leg splinting procedures, updated 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-016 — Férula en U de tobillo — CORE
@@ -255,7 +255,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** lesión cutánea/compresión.  
 **Después:** seguimiento.  
 **Documentación:** examen post.  
-**Fuentes:** splinting guidance.  
+**Fuentes:** Merck Manual Professional, Stirrup ankle splinting procedures, updated 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-017 — Inmovilizador de rodilla — CORE
@@ -271,7 +271,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** presión, rigidez, trombosis por inmovilización prolongada.  
 **Después:** seguimiento e instrucciones.  
 **Documentación:** indicación y examen.  
-**Fuentes:** orthopedic guidance.  
+**Fuentes:** Merck Manual Professional, knee immobilization and acute knee injury principles, updated 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-018 — Cabestrillo e inmovilización de hombro — CORE
@@ -287,7 +287,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** rigidez, presión cervical.  
 **Después:** instrucciones de movilización según lesión.  
 **Documentación:** tipo.  
-**Fuentes:** orthopedic guidance.  
+**Fuentes:** Merck Manual Professional, shoulder immobilization/sling principles, updated 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-019 — Valoración neurovascular pre/post reducción — CORE
@@ -351,7 +351,7 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** mordedura del operador, fractura, recurrencia.  
 **Después:** dieta blanda, limitar apertura amplia y seguimiento.  
 **Documentación:** técnica/sedación.  
-**Fuentes:** maxillofacial/emergency guidance.  
+**Fuentes:** Merck Manual Professional, mandibular dislocation reduction principles; maxillofacial emergency guidance.
 **QA:** YELLOW.
 
 ## PROC-ORTHO-023 — Luxación temporomandibular recurrente seleccionada — ADVANCED
@@ -367,5 +367,5 @@ Estado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, image
 **Complicaciones:** recurrencia, lesión dental/mandibular.  
 **Después:** prevención y seguimiento maxilofacial.  
 **Documentación:** patrón y técnica.  
-**Fuentes:** maxillofacial emergency guidance.  
+**Fuentes:** Merck Manual Professional, mandibular dislocation reduction principles; maxillofacial emergency guidance.
 **QA:** YELLOW.
