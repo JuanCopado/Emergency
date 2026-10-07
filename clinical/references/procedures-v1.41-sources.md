@@ -237,3 +237,17 @@ Estado: **registro inicial de fuentes; revisión específica por procedimiento o
 - RCOG Green-top No. 42 Shoulder Dystocia, reviewed 2026 — `PROC-OBS-003`.
 - RCOG Green-top No. 50 Umbilical Cord Prolapse, reviewed/extended 2024 — `PROC-OBS-004`.
 - WHO Consolidated PPH Guidelines 2025 + implementation guide 2026 — `PROC-OBS-005`.
+
+
+## Cierre de cobertura clínica — 07/10/2026
+- ACEP, *Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine*, 2023 — familia POCUS procedural.
+- AAO-HNSF, *Clinical Practice Guideline: Nosebleed (Epistaxis)*, 2020 — `PROC-ENT-001..004`.
+- IADT Guidelines 2020 + AAPD Reference Manual 2025–2026 — `PROC-ENT-012/013`.
+- Clinical Toxicology Recommendations Collaborative, *Recommendations on activated charcoal in acute oral overdose*, 2026 + AACT/EAPCCT activated-charcoal position papers — `PROC-SP-008`.
+- CDC/NIOSH fentanyl/opioid PPE and decontamination guidance, reviewed 2024 — `PROC-SP-010`.
+- Resuscitation Council UK/ERC 2025 Special Circumstances — accidental hypothermia — `PROC-SP-011`.
+- AAOS/METRC acute compartment syndrome resources — `PROC-SP-002`.
+- American Burn Association/WHO burn first-aid principles — `PROC-WND-020`.
+- Merck/MSD Manual Professional 2025–2026 — remaining splinting, minor wound and procedural references where no newer specialty guideline materially changes technique.
+
+Cobertura final documentada en `clinical/qa/V1.41_CLINICAL_REVIEW_COVERAGE.md`.
