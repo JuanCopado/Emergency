@@ -239,5 +239,5 @@ Estado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos 
 **Complicaciones:** shock, hemotórax, neumotórax, ictus/embolia, isquemia, lesión vascular y necesidad de cirugía.
 **Después:** vigilancia, investigación de evento de seguridad y revisión de la necesidad/posición del acceso.
 **Documentación:** mecanismo, sitio, dispositivo/calibre, hallazgos, consultas, intervención y resultado.
-**Fuentes:** vascular access safety guidance; CDC catheter safety principles; contemporary interventional management of inadvertent arterial catheterization.
+**Fuentes:** Society of Hospital Medicine ultrasound-guided vascular access position statement; CDC intravascular catheter recommendations 2024; contemporary interventional literature on inadvertent arterial catheterization.
 **QA:** YELLOW; revisión humana vascular/UCI pendiente.
