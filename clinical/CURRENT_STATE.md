@@ -4,13 +4,15 @@
 
 - Rama: `v1.41-procedures-visual`.
 - `main`: **no modificar ni fusionar automáticamente**.
-- Último Clinical QA clínico verificado: **#852 SUCCESS** sobre `fe0e70423b7c2809ea7bfd19a886d1ca1f776a66`.
+- Último Clinical QA de contenido clínico verificado: **#868 SUCCESS** sobre `f72da51765393da6e3c008a910771125c936e468`.
 - Módulo Técnicas y Procedimientos: **196 técnicas canónicas + 4 alias**, 16 familias, 200 IDs textuales.
 - Añadido `PROC-NEURO-005`: monitorización de PIC/PPC.
 - Auditoría posterior añadió 5 huecos de alta relevancia: UVC neonatal, histerotomía resucitativa, balón uterino PPH, reimplante dental permanente y ferulización dentoalveolar.
 - Fase visual: **PAUSADA**; continuar solo con texto hasta nueva orden.
 - Normalización textual v1.41: **196/196 procedimientos canónicos completos** con plantilla estructurada; 4 alias permanecen como referencias cruzadas.
 - Todas las técnicas permanecen **YELLOW**.
+- **Fase de revisión bibliográfica/clínica v1.41 cerrada:** 196/196 procedimientos canónicos revisados; 4 alias/referencias cruzadas; ver `clinical/qa/V1.41_CLINICAL_REVIEW_COVERAGE.md`.
+- Barrido final de fuentes: 0 fichas canónicas con campo Fuentes vacío o etiqueta genérica no identificable según el gate documental de cierre.
 - Duodécima pasada completada: oftalmología CORE completa, pediatría CORE restante y obstetricia CORE pendiente.
 - Undécima pasada completada: acceso vascular CORE restante, revisión focal de neurología pendiente y familia GI/abdomen completa.
 - Décima pasada completada: cardiovascular/reanimación CORE, tórax CORE pendiente y familia trauma/hemorragia completa.
