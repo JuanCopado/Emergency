@@ -63,7 +63,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **Complicaciones:** sobredistensión, lesión mucosa/vesical, infección y obstrucción persistente.
 **Después:** valorar sonda de tres vías/irrigación continua y urología si persiste hematuria significativa.
 **Documentación:** volumen instilado, volumen recuperado, coágulos y respuesta.
-**Fuentes:** urology emergency practice; gross hematuria/clot-retention procedural references.
+**Fuentes:** Merck Manual Professional bladder catheterization/irrigation principles; AUA hematuria and urologic emergency references.
 **QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-005 — Sonda de tres vías e irrigación vesical continua — ADVANCED
@@ -79,7 +79,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural 
 **Complicaciones:** sobredistensión, obstrucción, espasmo, infección y errores de balance hídrico.
 **Después:** reducir flujo conforme se aclare el efluente y mantener coordinación urológica.
 **Documentación:** velocidad/volumen de irrigación, entradas, salidas, diuresis neta y aspecto del efluente.
-**Fuentes:** urology emergency practice; gross hematuria/clot-retention management references.
+**Fuentes:** Merck Manual Professional bladder catheterization/continuous irrigation principles; AUA hematuria and urologic emergency references.
 **QA:** YELLOW; revisión humana urología pendiente.
 
 ## PROC-GU-006 — Catéter suprapúbico — SPECIALIST
