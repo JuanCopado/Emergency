@@ -95,7 +95,7 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Complicaciones:** sangrado, perforación y fuga.
 **Después:** reevaluar y controlar sitio.
 **Documentación:** ventana, US y resultado.
-**Fuentes:** AASLD Ascites/SBP/HRS guidance; ACEP Ultrasound Guidelines 2023.
+**Fuentes:** AASLD Practice Guidance on Ascites, SBP and HRS, 2021; ACEP Ultrasound Guidelines 2023.
 **QA:** YELLOW.
 
 ## PROC-US-007 — Pericardiocentesis ecoguiada — REFERENCIA
