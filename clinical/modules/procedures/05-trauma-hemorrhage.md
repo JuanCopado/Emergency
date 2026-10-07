@@ -111,7 +111,7 @@ Estado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vi
 **Complicaciones:** desplazamiento de fracturas, pérdida de líneas/tubos y dolor.
 **Después:** reevaluar ABC y neurovascular.
 **Documentación:** motivo y resultado.
-**Fuentes:** trauma handling/spinal-motion-restriction guidance.
+**Fuentes:** RCUK/ERC First Aid 2025 selective spinal motion restriction principles; WHO–ICRC Basic Emergency Care trauma handling.
 **QA:** YELLOW; revisión humana trauma pendiente.
 
 ## PROC-TRA-008 — Extricación básica de emergencia — CORE
@@ -143,7 +143,7 @@ Estado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vi
 **Complicaciones:** movimiento cervical, lesión facial y pérdida de vía aérea.
 **Después:** aplicar estrategia selectiva de restricción si procede.
 **Documentación:** motivo, técnica y neuro pre/post.
-**Fuentes:** trauma/prehospital handling guidance.
+**Fuentes:** WHO–ICRC Basic Emergency Care; prehospital trauma handling and spinal-motion-restriction standards.
 **QA:** YELLOW; revisión humana trauma/prehospitalaria pendiente.
 
 ## PROC-TRA-010 — eFAST — CORE/POCUS
