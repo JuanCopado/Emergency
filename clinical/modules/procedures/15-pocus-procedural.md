@@ -15,7 +15,7 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Complicaciones:** punción arterial, infiltración, hematoma y lesión nerviosa.
 **Después:** fijar y reevaluar permeabilidad.
 **Documentación:** vaso, técnica ecográfica, intentos y confirmación.
-**Fuentes:** procedural ultrasound vascular access standards.
+**Fuentes:** ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine, 2023; Society of Hospital Medicine ultrasound-guided vascular access position statement.
 **QA:** YELLOW.
 
 ## PROC-US-002 — CVC ecoguiado — ADVANCED
@@ -31,7 +31,7 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Complicaciones:** punción arterial, hematoma, neumotórax, malposición e infección.
 **Después:** fijar y descartar complicaciones según contexto.
 **Documentación:** sitio, técnica y confirmación.
-**Fuentes:** ultrasound-guided vascular access standards; CDC catheter guidance.
+**Fuentes:** ACEP Ultrasound Guidelines 2023; CDC intravascular catheter recommendations 2024.
 **QA:** YELLOW.
 
 ## PROC-US-003 — Línea arterial ecoguiada — ADVANCED
@@ -47,7 +47,7 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Complicaciones:** hematoma, trombosis, isquemia e infección.
 **Después:** fijar y vigilar perfusión.
 **Documentación:** sitio, técnica y waveform.
-**Fuentes:** arterial cannulation/POCUS standards.
+**Fuentes:** ACEP Ultrasound Guidelines 2023; Society of Hospital Medicine ultrasound-guided vascular access position statement.
 **QA:** YELLOW.
 
 ## PROC-US-004 — Toracocentesis ecoguiada — ADVANCED
@@ -63,7 +63,7 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Complicaciones:** neumotórax, sangrado y lesión visceral.
 **Después:** reevaluación pleuropulmonar.
 **Documentación:** ventana, profundidad y confirmación.
-**Fuentes:** BTS Pleural Procedures 2023; POCUS standards.
+**Fuentes:** BTS Clinical Statement on Pleural Procedures 2023, correction 2026; ACEP Ultrasound Guidelines 2023.
 **QA:** YELLOW.
 
 ## PROC-US-005 — Drenaje pleural ecoguiado — ADVANCED
@@ -79,7 +79,7 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Complicaciones:** lesión pulmonar/visceral, sangrado, malposición.
 **Después:** conectar sistema y monitorizar.
 **Documentación:** sitio, método y confirmación.
-**Fuentes:** BTS Pleural Procedures 2023; POCUS standards.
+**Fuentes:** BTS Clinical Statement on Pleural Procedures 2023, correction 2026; ACEP Ultrasound Guidelines 2023.
 **QA:** YELLOW.
 
 ## PROC-US-006 — Paracentesis ecoguiada — ADVANCED
@@ -95,7 +95,7 @@ Estado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anat
 **Complicaciones:** sangrado, perforación y fuga.
 **Después:** reevaluar y controlar sitio.
 **Documentación:** ventana, US y resultado.
-**Fuentes:** procedural POCUS/paracentesis guidance.
+**Fuentes:** AASLD Ascites/SBP/HRS guidance; ACEP Ultrasound Guidelines 2023.
 **QA:** YELLOW.
 
 ## PROC-US-007 — Pericardiocentesis ecoguiada — REFERENCIA
@@ -114,7 +114,7 @@ Ver **PROC-CV-006**. La pericardiocentesis ecoguiada tiene un único ID canónic
 **Complicaciones:** LAST, lesión neural, hematoma y neumotórax según región.
 **Después:** vigilancia motora/sensitiva.
 **Documentación:** bloqueo, lado, dosis y técnica US.
-**Fuentes:** regional anesthesia/POCUS standards.
+**Fuentes:** ACEP Ultrasound-Guided Nerve Blocks policy statement; ACEP Ultrasound Guidelines 2023; ASRA 2025 antithrombotic guidance.
 **QA:** YELLOW.
 
 ## PROC-US-009 — Artrocentesis ecoguiada — ADVANCED
@@ -130,7 +130,7 @@ Ver **PROC-CV-006**. La pericardiocentesis ecoguiada tiene un único ID canónic
 **Complicaciones:** infección, sangrado y lesión neurovascular.
 **Después:** procesar muestra y reevaluar.
 **Documentación:** articulación, volumen y estudios.
-**Fuentes:** procedural ultrasound/joint aspiration guidance.
+**Fuentes:** SANJO Guideline 2023; ACEP Ultrasound Guidelines 2023.
 **QA:** YELLOW.
 
 ## PROC-US-010 — Ecografía postprocedimiento — ADVANCED
@@ -146,5 +146,5 @@ Ver **PROC-CV-006**. La pericardiocentesis ecoguiada tiene un único ID canónic
 **Complicaciones:** falsa seguridad por estudio incompleto o mal interpretado.
 **Después:** integrar con evolución clínica y pruebas adicionales cuando correspondan.
 **Documentación:** ventanas, calidad y hallazgos.
-**Fuentes:** procedural POCUS standards.
+**Fuentes:** ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine, 2023.
 **QA:** YELLOW.
