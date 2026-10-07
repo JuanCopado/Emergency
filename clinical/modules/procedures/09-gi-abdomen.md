@@ -31,7 +31,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major
 **Complicaciones:** trauma oral/esofágico, mala posición y aspiración.
 **Después:** conectar a drenaje o utilizar solo tras confirmación apropiada.
 **Documentación:** tipo, profundidad y confirmación.
-**Fuentes:** GI/critical-care procedural guidance.
+**Fuentes:** NHS England enteral tube safety standards; critical-care enteral access procedural references.
 **QA:** YELLOW; revisión humana GI/UCI pendiente.
 
 ## PROC-GI-003 — Paracentesis diagnóstica — ADVANCED/POCUS
@@ -47,7 +47,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major
 **Complicaciones:** sangrado, perforación intestinal/vesical, infección y fuga.
 **Después:** procesar recuento celular/diferencial, albúmina/proteína y microbiología según indicación; tratar sin retraso si hay PBE.
 **Documentación:** sitio, uso de US, aspecto/volumen y estudios enviados.
-**Fuentes:** AASLD Ascites/SBP/HRS Practice Guidance, updated 2021 and summarized by AASLD 2026; procedural POCUS standards.
+**Fuentes:** AASLD Practice Guidance on Ascites, SBP and HRS, 2021; AASLD educational updates 2025–2026; ACEP Ultrasound Guidelines 2023.
 **QA:** YELLOW; revisión humana hepatología/urgencias pendiente.
 
 ## PROC-GI-004 — Paracentesis terapéutica — ADVANCED/POCUS
@@ -63,7 +63,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major
 **Complicaciones:** hipotensión, disfunción circulatoria postparacentesis, fuga, sangrado y perforación.
 **Después:** en cirrosis con paracentesis de gran volumen ≥5 L, AASLD recomienda albúmina; materiales AASLD actuales describen 6–8 g por litro de ascitis retirado para prevenir disfunción circulatoria postparacentesis.
 **Documentación:** volumen total, respuesta, albúmina administrada y complicaciones.
-**Fuentes:** AASLD Ascites/SBP/HRS guidance; AASLD 2025 refractory ascites review.
+**Fuentes:** AASLD Practice Guidance on Ascites, SBP and HRS, 2021; AASLD refractory ascites educational review 2025.
 **QA:** YELLOW; revisión humana hepatología pendiente.
 
 ## PROC-GI-005 — Anoscopia — CORE
@@ -79,7 +79,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major
 **Complicaciones:** dolor, sangrado y lesión mucosa.
 **Después:** tratar o derivar según hallazgo.
 **Documentación:** hallazgos, calidad de examen y tolerancia.
-**Fuentes:** anorectal procedural references.
+**Fuentes:** WSES-AAST anorectal emergencies guidance; Merck Manual Professional anorectal examination principles.
 **QA:** YELLOW; revisión humana cirugía/GI pendiente.
 
 ## PROC-GI-006 — Desimpactación fecal — CORE
@@ -95,7 +95,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major
 **Complicaciones:** lesión mucosa, sangrado, respuesta vagal y perforación rara.
 **Después:** plan de prevención de recurrencia y tratamiento de causa.
 **Documentación:** hallazgos, volumen aproximado y respuesta.
-**Fuentes:** GI emergency/constipation procedural references.
+**Fuentes:** Merck Manual Professional constipation/fecal impaction management; GI emergency references.
 **QA:** YELLOW; revisión humana GI pendiente.
 
 ## PROC-GI-007 — Reducción manual de prolapso rectal seleccionado — ADVANCED
@@ -111,7 +111,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major
 **Complicaciones:** lesión mucosa, recurrencia, estrangulación e isquemia.
 **Después:** valoración colorrectal, especialmente si recurrencia.
 **Documentación:** viabilidad, técnica y resultado.
-**Fuentes:** colorectal emergency guidance; Merck/MSD rectal prolapse management principles.
+**Fuentes:** Merck/MSD Manual Professional rectal prolapse management; colorectal emergency references.
 **QA:** YELLOW; revisión humana coloproctología pendiente.
 
 ## PROC-GI-008 — Manejo inicial de gastrostomía desplazada — ADVANCED
@@ -127,7 +127,7 @@ Estado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major
 **Complicaciones:** falsa vía, peritonitis, sangrado y cierre del trayecto.
 **Después:** revisión por equipo de nutrición/endoscopia/cirugía.
 **Documentación:** tipo, edad del trayecto, tiempo fuera, reemplazo y confirmación.
-**Fuentes:** enteral access procedural guidance.
+**Fuentes:** ASPEN/enteral-access practice principles; GI/endoscopy gastrostomy replacement guidance.
 **QA:** YELLOW; revisión humana GI/cirugía pendiente.
 
 ## PROC-GI-009 — Extracción de cuerpo extraño rectal — ADVANCED
