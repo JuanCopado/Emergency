@@ -31,7 +31,7 @@ Estado: **YELLOW**.
 **Complicaciones:** irritación local mínima.
 **Después:** continuar exploración ocular completa.
 **Documentación:** valores, hora y relación temporal con irrigación.
-**Fuentes:** AAO EyeWiki chemical injury guidance, updated 2026.
+**Fuentes:** AAO EyeWiki, Chemical (Alkali and Acid) Injury of the Conjunctiva and Cornea, updated 2026.
 **QA:** YELLOW; revisión humana oftalmología pendiente.
 
 ## PROC-EYE-003 — Eversión palpebral — CORE
@@ -47,7 +47,7 @@ Estado: **YELLOW**.
 **Complicaciones:** irritación, abrasión y trauma palpebral.
 **Después:** retirar material solo si es superficial/seguro y reevaluar córnea con fluoresceína.
 **Documentación:** hallazgos y material retirado.
-**Fuentes:** AAO EyeWiki chemical injury / corneal foreign-body guidance 2026.
+**Fuentes:** AAO EyeWiki, Chemical Injury of the Conjunctiva and Cornea; Removal of Corneal Foreign Bodies, updated 2026.
 **QA:** YELLOW; revisión humana oftalmología pendiente.
 
 ## PROC-EYE-004 — Cuerpo extraño corneal superficial — CORE
@@ -95,7 +95,7 @@ Estado: **YELLOW**.
 **Complicaciones:** abrasión, infección cruzada y error de medición.
 **Después:** tratamiento y consulta según presión y diagnóstico.
 **Documentación:** ojo, método, valores y hora.
-**Fuentes:** AAO/EyeWiki emergency ophthalmology guidance.
+**Fuentes:** AAO EyeWiki, acute glaucoma/ocular trauma guidance; AAO emergency ophthalmology principles.
 **QA:** YELLOW; revisión humana oftalmología pendiente.
 
 ## PROC-EYE-007 — Escudo ocular rígido — CORE
