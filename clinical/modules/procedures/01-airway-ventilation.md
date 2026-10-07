@@ -191,7 +191,7 @@ Estado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculare
 **Complicaciones:** hipoxemia, aspiración, trauma y retraso de eFONA.
 **Después:** documentar la dificultad y comunicarla al paciente/equipo.
 **Documentación:** intentos, dispositivos, cambios de estrategia y punto de escalada.
-**Fuentes:** DAS 2025.
+**Fuentes:** Difficult Airway Society, 2025 guidelines for management of unanticipated difficult tracheal intubation in adults (BJA 2026;136:283–307).
 **QA:** YELLOW; revisión humana vía aérea pendiente.
 
 ## PROC-AIR-013 — Confirmación del tubo por capnografía — CORE
