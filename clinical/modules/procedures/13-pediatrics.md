@@ -111,7 +111,7 @@ Estado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adu
 **Complicaciones:** trauma uretral, falsa vía e infección.
 **Después:** sistema cerrado y retirada precoz cuando deje de estar indicado.
 **Documentación:** calibre, balón si aplica, muestra obtenida y resultado.
-**Fuentes:** pediatric urinary catheterization guidance; AAP UTI guidance for catheterized specimens.
+**Fuentes:** AAP urinary tract infection guidance for catheterized specimens; pediatric urinary catheterization procedural standards.
 **QA:** YELLOW; revisión humana pediatría/urología pendiente.
 
 ## PROC-PED-008 — Pronación dolorosa — REFERENCIA
@@ -130,7 +130,7 @@ Ver **PROC-ORTHO-004**; Pediatría remite al ID canónico sin duplicar la técni
 **Complicaciones:** lesión cutánea, compresión neurovascular y síndrome compartimental.
 **Después:** elevación, instrucciones claras a cuidadores y seguimiento.
 **Documentación:** tipo de férula y neurovascular pre/post.
-**Fuentes:** pediatric orthopedic emergency guidance.
+**Fuentes:** Merck Manual Professional pediatric fracture/splinting principles; pediatric orthopedic emergency standards.
 **QA:** YELLOW; revisión humana ortopedia pediátrica pendiente.
 
 ## PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED
