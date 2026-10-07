@@ -31,7 +31,7 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **Complicaciones:** hematoma, infección y falsa seguridad diagnóstica.
 **Después:** repetir si evoluciona y escalar a cirugía.
 **Documentación:** compartimento, presión y contexto hemodinámico.
-**Fuentes:** orthopedic compartment syndrome guidance.
+**Fuentes:** AAOS/METRC Clinical Practice Guideline and Appropriate Use Criteria for Acute Compartment Syndrome; contemporary orthopedic trauma evidence.
 **QA:** YELLOW.
 
 ## PROC-SP-003 — Amputación: conservación de segmento — CORE
@@ -47,7 +47,7 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **Complicaciones:** lesión térmica del tejido o contaminación.
 **Después:** traslado rápido a centro con capacidad de reimplante.
 **Documentación:** hora de amputación/recuperación y método de conservación.
-**Fuentes:** trauma/hand surgery guidance.
+**Fuentes:** American Society for Surgery of the Hand / hand-trauma preservation principles; WHO Basic Emergency Care trauma principles.
 **QA:** YELLOW.
 
 ## PROC-SP-004 — Empalamiento — CORE
@@ -63,7 +63,7 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **Complicaciones:** hemorragia, lesión vascular/visceral y contaminación.
 **Después:** extracción controlada en entorno quirúrgico apropiado.
 **Documentación:** mecanismo, localización y estabilización.
-**Fuentes:** trauma guidance.
+**Fuentes:** WHO Basic Emergency Care; contemporary trauma impalement management principles.
 **QA:** YELLOW.
 
 ## PROC-SP-005 — Mordeduras/heridas contaminadas — CORE
@@ -79,7 +79,7 @@ Estado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entren
 **Complicaciones:** infección, tenosinovitis, artritis séptica y daño estructural.
 **Después:** profilaxis/antibiótico según especie, sitio y riesgo.
 **Documentación:** mecanismo, profundidad y profilaxis.
-**Fuentes:** bite wound/infectious disease guidance.
+**Fuentes:** IDSA Skin and Soft Tissue Infection guideline; CDC rabies/tetanus guidance; bite-wound emergency references.
 **QA:** YELLOW.
 
 ## PROC-SP-006 — Lavado ocular continuo — REFERENCIA
@@ -102,20 +102,20 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **QA:** YELLOW; revisión humana toxicología pendiente.
 
 ## PROC-SP-008 — Carbón activado — CORE
-**Objetivo:** reducir absorción gastrointestinal de tóxicos adsorbibles en casos seleccionados.
-**Indicaciones:** tóxico adsorbible, ventana apropiada y vía aérea segura.
-**Contraindicaciones/precauciones:** íleo, cáusticos, hidrocarburos con alto riesgo de aspiración o conciencia comprometida sin protección.
+**Objetivo:** reducir absorción gastrointestinal o aumentar eliminación de tóxicos seleccionados cuando el beneficio esperado supera el riesgo.
+**Indicaciones:** intoxicación por sustancia adsorbible en un contexto donde toxicología considera útil carbón activado; la recomendación depende del tóxico, tiempo, gravedad, formulación y tratamientos alternativos.
+**Contraindicaciones/precauciones:** vía aérea no protegida con deterioro de conciencia, íleo/obstrucción, perforación, cáusticos o sustancias con alto riesgo de aspiración. No usar de rutina en todas las sobredosis.
 **Material:** carbón activado y vía oral/NG apropiada.
 **Anatomía:** tracto gastrointestinal.
-**Preparación:** confirmar sustancia/beneficio con módulo toxicológico.
-**Técnica paso a paso:** administrar la dosis desde módulo toxicología por vía segura y prevenir aspiración.
-**STOP:** vómito repetido, deterioro de conciencia o riesgo de aspiración.
-**Confirmación:** administración tolerada.
-**Complicaciones:** aspiración, vómitos y obstrucción intestinal rara.
-**Después:** monitorización y tratamiento específico.
-**Documentación:** dosis, vía y tolerancia.
-**Fuentes:** toxicology decontamination guidance.
-**QA:** YELLOW.
+**Preparación:** confirmar sustancia, tiempo, gravedad y capacidad de proteger vía aérea con módulo toxicológico/centro de toxicología.
+**Técnica paso a paso:** administrar dosis y estrategia —única, adicional o múltiple— exclusivamente desde el módulo toxicológico específico; evitar administración forzada y vigilar vómito/aspiración.
+**STOP:** deterioro de conciencia, vómitos repetidos, aspiración o signos de obstrucción intestinal.
+**Confirmación:** administración tolerada dentro de una indicación toxicológica documentada.
+**Complicaciones:** aspiración, vómitos, neumonitis y obstrucción intestinal rara.
+**Después:** monitorización y tratamiento específico/antídoto; no asumir que el carbón sustituye el soporte o tratamiento definitivo.
+**Documentación:** tóxico, tiempo, justificación, dosis/vía desde módulo, tolerancia y complicaciones.
+**Fuentes:** Clinical Toxicology Recommendations Collaborative, Recommendations on activated charcoal in acute oral overdose, 2026; AACT/EAPCCT Position Paper on Single-Dose Activated Charcoal.
+**QA:** YELLOW; revisión humana toxicología pendiente.
 
 ## PROC-SP-009 — Descontaminación cutánea química — CORE
 **Objetivo:** detener exposición dérmica y proteger al personal.
@@ -130,40 +130,40 @@ Ver **PROC-EYE-001**; procedimientos especiales remite al ID canónico sin dupli
 **Complicaciones:** quemadura química persistente e hipotermia.
 **Después:** tratamiento específico y vigilancia.
 **Documentación:** sustancia, PPE y método de descontaminación.
-**Fuentes:** hazardous materials/toxicology guidance.
+**Fuentes:** CDC/NIOSH hazardous-substance decontamination principles; substance-specific SDS/toxicology guidance.
 **QA:** YELLOW.
 
 ## PROC-SP-010 — Exposición a opioides/polvos — CORE
-**Objetivo:** descontaminar de forma segura evitando aerosolización innecesaria.
-**Indicaciones:** exposición cutánea o contaminación por polvo sospechado.
-**Contraindicaciones/precauciones:** naloxona se reserva para síndrome opioide clínico, no para exposición asintomática.
-**Material:** PPE estándar apropiado, bolsas y agua/jabón.
-**Anatomía:** piel/vía respiratoria según exposición.
-**Preparación:** evaluar síntomas y retirar de la fuente.
-**Técnica paso a paso:** evitar aerosolizar, retirar polvo visible/ropa contaminada y lavar piel.
-**STOP:** depresión respiratoria → tratar como intoxicación clínica.
-**Confirmación:** descontaminación completa y ausencia de síntomas.
-**Complicaciones:** exposición secundaria del personal o retraso en tratar toxicidad real.
-**Después:** observación según exposición.
-**Documentación:** exposición y síntomas.
-**Fuentes:** toxicology/occupational exposure guidance.
-**QA:** YELLOW.
+**Objetivo:** minimizar exposición secundaria y descontaminar de forma segura sin aerosolizar polvo.
+**Indicaciones:** contaminación cutánea, ropa/equipo contaminados o contacto ocupacional con polvo de opioide ilícito sospechado.
+**Contraindicaciones/precauciones:** la exposición dérmica breve a polvo de fentanilo no equivale por sí sola a intoxicación clínica; naloxona se reserva para un síndrome opioide real, especialmente depresión respiratoria.
+**Material:** PPE apropiado al riesgo, bolsas para ropa contaminada, jabón y agua.
+**Anatomía:** piel, mucosas y vía respiratoria según exposición.
+**Preparación:** retirar al paciente/personal de la fuente, evitar agitar polvo y valorar respiración/estado mental.
+**Técnica paso a paso:** retirar ropa contaminada con mínima dispersión, embolsarla, lavar piel expuesta con abundante jabón y agua y cubrir heridas abiertas. CDC/NIOSH indica no usar gel hidroalcohólico, limpiadores con alcohol ni lejía sobre piel contaminada.
+**STOP:** depresión respiratoria, hipoventilación o alteración de conciencia → tratar como intoxicación opioide clínica según módulo correspondiente.
+**Confirmación:** contaminación visible retirada y ausencia de progresión clínica.
+**Complicaciones:** aerosolización secundaria, contaminación del personal y retraso en tratar una intoxicación verdadera.
+**Después:** observación según exposición y síntomas; descontaminar PPE/equipo según fabricante.
+**Documentación:** sustancia sospechada, vía de exposición, PPE, descontaminación y síntomas.
+**Fuentes:** CDC/NIOSH Fentanyl: PPE and Decontamination / Emergency Responders at Risk, reviewed 2024; ACMT/AACT occupational fentanyl exposure position statement.
+**QA:** YELLOW; revisión humana toxicología/salud laboral pendiente.
 
 ## PROC-SP-011 — Recalentamiento externo activo — CORE
-**Objetivo:** aumentar temperatura central en hipotermia seleccionada.
-**Indicaciones:** hipotermia leve-moderada o complemento en cuadros más graves.
-**Contraindicaciones/precauciones:** evitar calor directo intenso en extremidades y manipulación brusca en hipotermia grave.
-**Material:** aislamiento, mantas/aire caliente y fluidos calentados cuando indicados.
+**Objetivo:** limitar pérdida térmica y aumentar temperatura central en hipotermia leve/moderada o como puente en cuadros más graves.
+**Indicaciones:** hipotermia accidental con circulación espontánea, especialmente estadios leves/moderados; complemento mientras se organiza recalentamiento avanzado cuando está indicado.
+**Contraindicaciones/precauciones:** manipulación suave en hipotermia grave; evitar calor local intenso sobre piel insensible y medidas que retrasen traslado a centro ECLS en pacientes con riesgo de parada o en parada.
+**Material:** aislamiento, retirada de ropa mojada, mantas/aire caliente, monitor de temperatura central y fluidos calentados cuando estén indicados.
 **Anatomía:** tronco y circulación central.
-**Preparación:** retirar ropa mojada y monitorizar temperatura central.
-**Técnica paso a paso:** aislar, aplicar calentamiento activo al tronco y fluidos calentados cuando proceda.
-**STOP:** arritmia/deterioro hemodinámico o quemadura térmica.
-**Confirmación:** ascenso progresivo de temperatura y estabilidad.
-**Complicaciones:** hipotensión por vasodilatación, quemaduras y afterdrop.
-**Después:** continuar hasta objetivo y tratar causa.
-**Documentación:** temperatura seriada y método.
-**Fuentes:** hypothermia/ERC guidance.
-**QA:** YELLOW.
+**Preparación:** medir temperatura central con termómetro de baja lectura cuando sea posible, monitorizar ritmo y retirar ropa mojada.
+**Técnica paso a paso:** aislar del ambiente, aplicar calentamiento activo principalmente al tronco, usar aire caliente/medios externos controlados y fluidos calentados cuando formen parte del plan; reevaluar temperatura y estabilidad.
+**STOP:** arritmia, deterioro hemodinámico, quemadura térmica o candidato a recalentamiento extracorpóreo que está siendo retrasado por medidas externas.
+**Confirmación:** tendencia ascendente de temperatura central y estabilidad clínica.
+**Complicaciones:** quemaduras, hipotensión por vasodilatación y afterdrop.
+**Después:** continuar hasta objetivo y tratar causa; transferir a centro ECPR/ECLS cuando existan criterios de alto riesgo.
+**Documentación:** temperatura seriada, método y respuesta.
+**Fuentes:** Resuscitation Council UK / ERC 2025 Special Circumstances — accidental hypothermia.
+**QA:** YELLOW; revisión humana urgencias/UCI pendiente.
 
 ## PROC-SP-012 — Recalentamiento invasivo — SPECIALIST
 **Objetivo:** proporcionar recalentamiento interno o extracorpóreo en hipotermia grave seleccionada.
