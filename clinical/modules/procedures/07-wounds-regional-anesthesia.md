@@ -127,7 +127,7 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Complicaciones:** lesión iatrogénica, sangrado e infección.
 **Después:** reparación, inmovilización, imagen o derivación según hallazgo.
 **Documentación:** mecanismo, profundidad, estructuras evaluadas y déficits pre/post.
-**Fuentes:** Merck Manual Professional wound exploration/foreign-body guidance, updated 2025–2026.
+**Fuentes:** Merck Manual Professional, wound exploration and soft-tissue foreign-body procedures, updated 2025–2026.
 **QA:** YELLOW; revisión humana urgencias/cirugía pendiente.
 
 ## PROC-WND-009 — Sutura simple interrumpida — CORE
@@ -255,7 +255,7 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Complicaciones:** fragmento retenido, infección, lesión neurovascular/tendinosa y cicatriz.
 **Después:** tétanos y cuidado de herida según contexto; informar si se decide dejar un fragmento inerte porque extraerlo supondría más riesgo.
 **Documentación:** tipo/tamaño aproximado, imagen utilizada, método, integridad y complicaciones.
-**Fuentes:** Merck Manual Professional wound exploration/foreign-body guidance, updated 2025–2026.
+**Fuentes:** Merck Manual Professional, skin/soft-tissue foreign-body removal procedures, updated 2025–2026.
 **QA:** YELLOW; revisión humana de urgencias/cirugía pendiente.
 
 ## PROC-WND-017 — Extracción de anillo — CORE
@@ -319,7 +319,7 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Complicaciones:** hipotermia, infección, pérdida de función.  
 **Después:** tétanos, analgesia y burn referral.  
 **Documentación:** profundidad/TBSA/localización.  
-**Fuentes:** American Burn Association burn first-aid and referral guidance; WHO burn first-aid principles.
+**Fuentes:** American Burn Association burn referral/first-aid resources; WHO burn first-aid principles.
 **QA:** YELLOW.
 
 ## PROC-WND-021 — Extracción de anzuelo superficial — CORE
