@@ -15,7 +15,7 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Complicaciones:** dolor, hematoma, infección, LAST.  
 **Después:** observar si dosis elevada/comorbilidad.  
 **Documentación:** agente/dosis desde módulo y respuesta.  
-**Fuentes:** regional anesthesia/emergency procedure references.  
+**Fuentes:** Merck Manual Professional, local wound anesthesia/infiltration procedures; ACEP emergency wound-care principles.
 **QA:** YELLOW.
 
 ## PROC-WND-002 — Bloqueo digital — CORE
@@ -319,7 +319,7 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Complicaciones:** hipotermia, infección, pérdida de función.  
 **Después:** tétanos, analgesia y burn referral.  
 **Documentación:** profundidad/TBSA/localización.  
-**Fuentes:** ABA burn guidance.  
+**Fuentes:** American Burn Association burn first-aid and referral guidance; WHO burn first-aid principles.
 **QA:** YELLOW.
 
 ## PROC-WND-021 — Extracción de anzuelo superficial — CORE
@@ -335,7 +335,7 @@ Estado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locale
 **Complicaciones:** laceración, lesión neurovascular/tendinosa, fragmento retenido.  
 **Después:** tétanos/cuidado herida.  
 **Documentación:** método.  
-**Fuentes:** MSD Manual Professional 2025.  
+**Fuentes:** MSD/Merck Manual Professional, fishhook removal, updated 2025.
 **QA:** YELLOW.
 
 ## PROC-WND-022 — Reparación de lecho ungueal — ADVANCED
