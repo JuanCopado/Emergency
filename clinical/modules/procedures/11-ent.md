@@ -15,7 +15,7 @@ Estado: **YELLOW**.
 **Complicaciones:** aspiración de sangre, recurrencia y efectos sistémicos del vasoconstrictor.
 **Después:** evitar manipulación nasal y tratar factores precipitantes.
 **Documentación:** lado, medidas aplicadas y respuesta.
-**Fuentes:** AAO-HNS epistaxis guideline.
+**Fuentes:** AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.
 **QA:** YELLOW.
 
 ## PROC-ENT-002 — Cauterización nasal anterior — CORE
@@ -31,7 +31,7 @@ Estado: **YELLOW**.
 **Complicaciones:** dolor, necrosis, costra y perforación septal.
 **Después:** cuidados nasales y revisión si recurre.
 **Documentación:** lado, sitio y agente usado.
-**Fuentes:** AAO-HNS epistaxis guideline.
+**Fuentes:** AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.
 **QA:** YELLOW.
 
 ## PROC-ENT-003 — Taponamiento anterior — CORE
@@ -47,7 +47,7 @@ Estado: **YELLOW**.
 **Complicaciones:** ulceración, necrosis, infección y desplazamiento.
 **Después:** plan de retirada y seguimiento ORL según riesgo.
 **Documentación:** dispositivo, lado y respuesta.
-**Fuentes:** AAO-HNS epistaxis guideline.
+**Fuentes:** AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.
 **QA:** YELLOW.
 
 ## PROC-ENT-004 — Taponamiento posterior — ADVANCED
@@ -63,7 +63,7 @@ Estado: **YELLOW**.
 **Complicaciones:** hipoxia, respuesta vagal, necrosis, aspiración e infección.
 **Después:** ingreso/monitorización y tratamiento definitivo.
 **Documentación:** dispositivo, parámetros según fabricante y respuesta.
-**Fuentes:** AAO-HNS epistaxis guideline; ORL emergency guidance.
+**Fuentes:** AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020; ORL emergency guidance.
 **QA:** YELLOW.
 
 ## PROC-ENT-005 — Cuerpo extraño nasal — CORE
@@ -178,7 +178,7 @@ Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
 **Complicaciones:** reabsorción, anquilosis, infección y pérdida dentaria.
 **Después:** odontología urgente, profilaxis antitetánica y antibiótica cuando corresponda.
 **Documentación:** tiempo extraoral, medio de conservación y momento del reimplante.
-**Fuentes:** IADT 2020; AAPD Reference Manual 2025-2026.
+**Fuentes:** International Association of Dental Traumatology (IADT) Guidelines 2020 — Avulsion of Permanent Teeth; AAPD Reference Manual 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar — ADVANCED
@@ -194,7 +194,7 @@ Ver **PROC-ORTHO-022**; ORL remite al ID canónico sin duplicar contenido.
 **Complicaciones:** maloclusión, daño periodontal y fallo de la férula.
 **Después:** odontología urgente y duración de férula según lesión.
 **Documentación:** dientes incluidos y técnica.
-**Fuentes:** IADT 2020; AAPD.
+**Fuentes:** International Association of Dental Traumatology (IADT) Guidelines 2020 — Fractures and Luxations; AAPD Reference Manual 2025–2026.
 **QA:** YELLOW.
 
 ## PROC-ENT-014 — Bloqueo del nervio alveolar inferior — ADVANCED
