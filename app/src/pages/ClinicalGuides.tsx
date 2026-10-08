@@ -41,17 +41,19 @@ function CanonicalBody({ guide }: { guide: CanonicalGuide }) {
 export default function ClinicalGuides() {
   const { id } = useParams();
   const [query, setQuery] = useState('');
+  const [formatFilter, setFormatFilter] = useState<'all' | 'algorithm' | 'guide' | 'procedure'>('all');
   const quickGuide = useMemo(() => (id ? getClinicalGuide(id) : undefined), [id]);
   const canonicalGuide = useMemo(() => (id ? getCanonicalGuide(id) : undefined), [id]);
   const sheetRef = useRef<HTMLDivElement>(null);
 
   const filteredCanonical = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return canonicalGuides;
-    return canonicalGuides.filter((guide) =>
-      [guide.id, guide.title, guide.bundle, guide.body].some((value) => value.toLowerCase().includes(q)),
-    );
-  }, [query]);
+    return canonicalGuides.filter((guide) => {
+      const matchesFormat = formatFilter === 'all' || guide.format === formatFilter;
+      const matchesQuery = !q || [guide.id, guide.title, guide.bundle, guide.body].some((value) => value.toLowerCase().includes(q));
+      return matchesFormat && matchesQuery;
+    });
+  }, [query, formatFilter]);
 
   const printGuide = () => window.print();
 
@@ -99,16 +101,27 @@ export default function ClinicalGuides() {
               <h2 className="text-xl font-bold">Todos los módulos clínicos</h2>
               <p className="text-sm text-muted">{filteredCanonical.length} de {canonicalGuides.length}</p>
             </div>
-            <label className="w-full max-w-md">
-              <span className="sr-only">Buscar guía clínica</span>
-              <input
-                className="input"
-                type="search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Buscar: sepsis, coma, hiperpotasemia, pediatría…"
-              />
-            </label>
+            <div className="flex w-full max-w-2xl flex-col gap-2 sm:flex-row">
+              <label className="sm:w-52">
+                <span className="sr-only">Filtrar formato</span>
+                <select className="input" value={formatFilter} onChange={(event) => setFormatFilter(event.target.value as typeof formatFilter)}>
+                  <option value="all">Todos los formatos</option>
+                  <option value="algorithm">Algoritmo 1 página</option>
+                  <option value="guide">Guía 2–4 páginas</option>
+                  <option value="procedure">Procedimiento ilustrado</option>
+                </select>
+              </label>
+              <label className="flex-1">
+                <span className="sr-only">Buscar guía clínica</span>
+                <input
+                  className="input"
+                  type="search"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Buscar: sepsis, coma, hiperpotasemia, pediatría…"
+                />
+              </label>
+            </div>
           </div>
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {filteredCanonical.map((guide) => (
@@ -117,6 +130,9 @@ export default function ClinicalGuides() {
                   <span className="min-w-0">
                     <span className="block truncate font-bold">{guide.title}</span>
                     <span className="mt-1 block truncate text-xs text-muted">{guide.id}</span>
+                    <span className="mt-2 inline-flex rounded-full bg-surface-2 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-muted">
+                      {guide.format === 'algorithm' ? 'Algoritmo' : guide.format === 'procedure' ? 'Procedimiento' : 'Guía'}
+                    </span>
                   </span>
                   <StatusPill status={guide.status} />
                 </div>
@@ -144,6 +160,8 @@ export default function ClinicalGuides() {
   const sourceModule = quickGuide?.sourceModule ?? canonicalGuide?.id ?? id;
   const sourcePath = quickGuide?.sourcePath ?? canonicalGuide?.sourcePath ?? '';
   const reviewedAt = quickGuide?.reviewedAt ?? 'según repositorio actual';
+  const format = quickGuide ? 'algorithm' : (canonicalGuide?.format ?? 'guide');
+  const formatLabel = format === 'algorithm' ? 'Algoritmo rápido · objetivo 1 página' : format === 'procedure' ? 'Procedimiento ilustrado' : 'Guía clínica · 2–4 páginas';
 
   return (
     <div className="guide-page space-y-4">
@@ -155,7 +173,7 @@ export default function ClinicalGuides() {
         </div>
       </div>
 
-      <div ref={sheetRef} className="clinical-guide-sheet rounded-2xl border border-border bg-white p-5 text-slate-950 shadow-card sm:p-7">
+      <div ref={sheetRef} className={`clinical-guide-sheet guide-format-${format} rounded-2xl border border-border bg-white p-5 text-slate-950 shadow-card sm:p-7`}>
         <header className="border-b-4 border-sky-700 pb-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
@@ -168,6 +186,7 @@ export default function ClinicalGuides() {
           <div className="mt-3 grid gap-1 text-xs text-slate-600 sm:grid-cols-2">
             <p><strong>Módulo fuente:</strong> {sourceModule}</p>
             <p><strong>Revisión:</strong> {reviewedAt}</p>
+            <p><strong>Formato:</strong> {formatLabel}</p>
           </div>
         </header>
 
@@ -197,7 +216,14 @@ export default function ClinicalGuides() {
             </section>
           </>
         ) : canonicalGuide ? (
-          <CanonicalBody guide={canonicalGuide} />
+          <>
+            {format === 'procedure' ? (
+              <section className="procedure-visual-slot mt-5 break-inside-avoid rounded-xl border-2 border-dashed border-sky-300 bg-sky-50 p-4 text-sm text-sky-950">
+                <strong>Ilustración procedimental:</strong> esta zona utiliza únicamente un activo visual canónico que haya pasado Visual QA. Si todavía no existe uno aprobado, el PDF conserva solo el contenido textual validado.
+              </section>
+            ) : null}
+            <CanonicalBody guide={canonicalGuide} />
+          </>
         ) : null}
 
         <footer className="mt-5 border-t border-slate-300 pt-3 text-[10px] leading-relaxed text-slate-600">
