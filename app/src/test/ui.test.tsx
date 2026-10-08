@@ -262,7 +262,7 @@ describe('Clinical note diagnostic workspace', () => {
     if (checks[0]) await user.click(checks[0]);
     await user.click(within(reviewCard).getByRole('button', { name: 'Aceitar' }));
     await waitFor(() => expect(reviewCard).toHaveTextContent('Aceite'));
-    expect(globalThis.fetch).toHaveBeenCalledTimes(2);
+    expect(globalThis.fetch).toHaveBeenCalledTimes(3);
   });
 
   it('requires privacy review before binary vision interpretation and keeps the result pending', async () => {
