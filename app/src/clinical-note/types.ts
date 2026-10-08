@@ -195,3 +195,26 @@ export type AuditTrailResponse = {
   chain_valid: boolean;
   storage: 'persistent_jsonl' | 'process_memory';
 };
+
+
+export type ReviewerAttestationInput = {
+  reviewer_code: string;
+  reviewer_role: 'treating_clinician' | 'emergency_physician' | 'consultant' | 'resident' | 'other_clinician';
+};
+
+export type ExportSignature = {
+  signature_version: '1.0';
+  algorithm: 'HMAC-SHA256';
+  key_id: string;
+  encounter_id: string;
+  format: 'docx' | 'pdf' | 'json';
+  content_sha256: string;
+  signed_at: string;
+  build_sha: string;
+  diagnostic_rules_sha256: string | null;
+  audit_chain_head_before_export: string;
+  reviewer_fingerprint: string;
+  reviewer_role: ReviewerAttestationInput['reviewer_role'];
+  provenance_sha256: string;
+  signature_hmac_sha256: string;
+};
