@@ -23,6 +23,8 @@ import os
 import secrets
 import tempfile
 import uuid
+from datetime import datetime, timezone
+from threading import RLock
 from copy import deepcopy
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -50,10 +52,154 @@ MAX_UPLOAD_BYTES = 12 * 1024 * 1024
 MAX_TEXT_CHARS = 120_000
 TEXT_EXTENSIONS = {".txt", ".csv", ".json", ".xml", ".md", ".log", ".tsv"}
 PREPARED_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_PREPARED_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
+AUDIT_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_AUDIT_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
+AUDIT_DIR = os.environ.get("CLINICAL_NOTE_AUDIT_DIR")
+BUILD_SHA = os.environ.get("CLINICAL_NOTE_BUILD_SHA") or "unversioned"
+AUDIT_LOCK = RLock()
+AUDIT_MEMORY = {}
+CLINICAL_ROOT = Path(__file__).parents[1]
+DIAGNOSTIC_RULES_PATH = CLINICAL_ROOT / "qa" / "clinical-note-diagnostic-rules.json"
 TEXT_MIME_TYPES = {
     "text/plain", "text/csv", "application/json", "application/xml",
     "text/xml", "text/markdown", "text/tab-separated-values",
 }
+
+
+
+def _utc_now():
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _safe_encounter_id(note_or_id):
+    if isinstance(note_or_id, dict):
+        encounter_id = str((note_or_id.get("encounter") or {}).get("encounter_id") or "")
+    else:
+        encounter_id = str(note_or_id or "")
+    encounter_id = encounter_id.strip()
+    if len(encounter_id) < 8 or len(encounter_id) > 128:
+        raise ValueError("valid pseudonymous encounter_id is required for audit")
+    if any(ch not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.:" for ch in encounter_id):
+        raise ValueError("encounter_id contains unsupported characters")
+    return encounter_id
+
+
+def _rules_digest():
+    try:
+        return hashlib.sha256(DIAGNOSTIC_RULES_PATH.read_bytes()).hexdigest()
+    except OSError:
+        return None
+
+
+def diagnostic_provenance(assessment=None):
+    modules = set()
+    if isinstance(assessment, dict):
+        for key in ("likely_diagnoses", "differential_diagnoses", "must_not_miss"):
+            for item in assessment.get(key) or []:
+                modules.update(str(x) for x in (item.get("source_modules") or []) if str(x).strip())
+        for key in ("suggested_tests", "treatment_suggestions", "disposition", "reassessment"):
+            for item in assessment.get(key) or []:
+                modules.update(str(x) for x in (item.get("source_modules") or []) if str(x).strip())
+    return {
+        "api_version": API_VERSION,
+        "build_sha": BUILD_SHA,
+        "diagnostic_rules_sha256": _rules_digest(),
+        "source_modules": sorted(modules),
+        "generated_at": _utc_now(),
+    }
+
+
+def _audit_path(encounter_id):
+    if not AUDIT_DIR:
+        return None
+    directory = Path(AUDIT_DIR)
+    directory.mkdir(parents=True, exist_ok=True)
+    return directory / (hashlib.sha256(encounter_id.encode("utf-8")).hexdigest() + ".jsonl")
+
+
+def _audit_payload(event):
+    payload = dict(event)
+    payload.pop("event_hmac", None)
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+
+
+def _audit_load(encounter_id):
+    encounter_id = _safe_encounter_id(encounter_id)
+    if encounter_id in AUDIT_MEMORY:
+        return deepcopy(AUDIT_MEMORY[encounter_id])
+    events = []
+    path = _audit_path(encounter_id)
+    if path and path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                events.append(json.loads(line))
+    AUDIT_MEMORY[encounter_id] = events
+    return deepcopy(events)
+
+
+def verify_audit_chain(events):
+    previous = "GENESIS"
+    for index, event in enumerate(events):
+        if event.get("sequence") != index + 1:
+            return False
+        if event.get("previous_hmac") != previous:
+            return False
+        token = str(event.get("event_hmac") or "")
+        expected = hmac.new(AUDIT_HMAC_KEY, _audit_payload(event), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(token, expected):
+            return False
+        previous = token
+    return True
+
+
+def append_audit_event(note_or_id, action, target, detail=None, metadata=None):
+    encounter_id = _safe_encounter_id(note_or_id)
+    action = str(action or "").strip()[:80]
+    target = str(target or "").strip()[:160]
+    if not action or not target:
+        raise ValueError("audit action and target are required")
+    detail = str(detail or "").strip()[:500]
+    metadata = metadata if isinstance(metadata, dict) else {}
+    safe_metadata = {
+        str(k)[:80]: (v if isinstance(v, (str, int, float, bool)) or v is None else str(v)[:240])
+        for k, v in metadata.items()
+    }
+    with AUDIT_LOCK:
+        events = _audit_load(encounter_id)
+        if events and not verify_audit_chain(events):
+            raise ValueError("audit chain integrity check failed")
+        previous = events[-1]["event_hmac"] if events else "GENESIS"
+        event = {
+            "sequence": len(events) + 1,
+            "event_id": str(uuid.uuid4()),
+            "encounter_id": encounter_id,
+            "timestamp": _utc_now(),
+            "action": action,
+            "target": target,
+            "detail": detail,
+            "metadata": safe_metadata,
+            "previous_hmac": previous,
+        }
+        event["event_hmac"] = hmac.new(
+            AUDIT_HMAC_KEY, _audit_payload(event), hashlib.sha256
+        ).hexdigest()
+        events.append(event)
+        AUDIT_MEMORY[encounter_id] = deepcopy(events)
+        path = _audit_path(encounter_id)
+        if path:
+            with path.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(event, ensure_ascii=False, separators=(",", ":")) + "\n")
+        return deepcopy(event)
+
+
+def read_audit_trail(note_or_id):
+    encounter_id = _safe_encounter_id(note_or_id)
+    events = _audit_load(encounter_id)
+    return {
+        "encounter_id": encounter_id,
+        "events": events,
+        "chain_valid": verify_audit_chain(events),
+        "storage": "persistent_jsonl" if AUDIT_DIR else "process_memory",
+    }
 
 
 
@@ -346,6 +492,19 @@ def run_diagnostic_support(note):
         ),
     }
     result["medication_safety_gate"] = medication_gate
+    result["diagnostic_provenance"] = diagnostic_provenance(assessment)
+    try:
+        append_audit_event(
+            note, "DIAGNOSTIC_ANALYSIS", "assessment",
+            detail="Deterministic diagnostic support executed.",
+            metadata={
+                "build_sha": result["diagnostic_provenance"]["build_sha"],
+                "rules_sha256": result["diagnostic_provenance"]["diagnostic_rules_sha256"],
+                "source_module_count": len(result["diagnostic_provenance"]["source_modules"]),
+            },
+        )
+    except ValueError:
+        pass
     return result
 
 
@@ -434,11 +593,29 @@ def dispatch(path, payload):
         )
     if path == "/api/clinical-note/analyze":
         return HTTPStatus.OK, run_diagnostic_support(payload.get("note") or {})
+    if path == "/api/clinical-note/audit/read":
+        return HTTPStatus.OK, read_audit_trail(payload.get("note") or payload.get("encounter_id"))
+    if path == "/api/clinical-note/audit/append":
+        return HTTPStatus.OK, {
+            "event": append_audit_event(
+                payload.get("note") or payload.get("encounter_id"),
+                payload.get("action"),
+                payload.get("target"),
+                detail=payload.get("detail"),
+                metadata=payload.get("metadata"),
+            )
+        }
     if path == "/api/clinical-note/medication/preflight":
         return HTTPStatus.OK, medication_preflight(payload)
     if path == "/api/clinical-note/export":
         fmt = payload.get("format")
-        data = export_note_bytes(payload.get("note") or {}, fmt)
+        note = payload.get("note") or {}
+        data = export_note_bytes(note, fmt)
+        audit_event = append_audit_event(
+            note, "EXPORT", str(fmt or "unknown"),
+            detail="Clinical note export completed.",
+            metadata={"build_sha": BUILD_SHA, "rules_sha256": _rules_digest()},
+        )
         ext = {"docx": "docx", "pdf": "pdf", "json": "json"}[str(fmt).lower()]
         mime = {
             "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -449,6 +626,8 @@ def dispatch(path, payload):
             "filename": f"clinical-note.{ext}",
             "mime_type": mime,
             "content_base64": base64.b64encode(data).decode("ascii"),
+            "audit_event": audit_event,
+            "provenance": diagnostic_provenance((note.get("assessment") or {})),
         }
     return HTTPStatus.NOT_FOUND, {"error": "unknown endpoint"}
 
