@@ -6,6 +6,7 @@ export type CanonicalGuide = {
   bundle: string;
   sourcePath: string;
   status: 'green' | 'yellow' | 'red';
+  format: 'algorithm' | 'guide' | 'procedure';
   body: string;
 };
 
