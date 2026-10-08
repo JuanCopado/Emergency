@@ -53,6 +53,9 @@ MAX_TEXT_CHARS = 120_000
 TEXT_EXTENSIONS = {".txt", ".csv", ".json", ".xml", ".md", ".log", ".tsv"}
 PREPARED_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_PREPARED_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
 AUDIT_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_AUDIT_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
+EXPORT_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_EXPORT_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
+REVIEWER_HASH_KEY = (os.environ.get("CLINICAL_NOTE_REVIEWER_HASH_KEY") or "").encode("utf-8") or AUDIT_HMAC_KEY
+EXPORT_KEY_ID = os.environ.get("CLINICAL_NOTE_EXPORT_KEY_ID") or "local-hmac-v1"
 AUDIT_DIR = os.environ.get("CLINICAL_NOTE_AUDIT_DIR")
 BUILD_SHA = os.environ.get("CLINICAL_NOTE_BUILD_SHA") or os.environ.get("GITHUB_SHA") or "unversioned"
 AUDIT_LOCK = RLock()
@@ -230,6 +233,84 @@ def read_audit_trail(note_or_id):
         "chain_valid": verify_audit_chain(events),
         "storage": "persistent_jsonl" if AUDIT_DIR else "process_memory",
     }
+
+
+
+ALLOWED_REVIEWER_ROLES = {
+    "treating_clinician",
+    "emergency_physician",
+    "consultant",
+    "resident",
+    "other_clinician",
+}
+
+
+def reviewer_attestation(reviewer):
+    reviewer = reviewer if isinstance(reviewer, dict) else {}
+    code = str(reviewer.get("reviewer_code") or "").strip()
+    role = str(reviewer.get("reviewer_role") or "").strip()
+    if len(code) < 3 or len(code) > 64:
+        raise ValueError("reviewer_code must contain 3-64 characters")
+    if any(ch not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.:" for ch in code):
+        raise ValueError("reviewer_code contains unsupported characters")
+    if role not in ALLOWED_REVIEWER_ROLES:
+        raise ValueError("reviewer_role is not allowed")
+    fingerprint = hmac.new(REVIEWER_HASH_KEY, code.encode("utf-8"), hashlib.sha256).hexdigest()
+    return {
+        "reviewer_fingerprint": "rev_" + fingerprint[:24],
+        "reviewer_role": role,
+        "attested_at": _utc_now(),
+    }
+
+
+def _export_signature_payload(manifest):
+    payload = dict(manifest)
+    payload.pop("signature_hmac_sha256", None)
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+
+
+def sign_export_bytes(note, fmt, data, reviewer, provenance=None):
+    encounter_id = _safe_encounter_id(note)
+    attestation = reviewer_attestation(reviewer)
+    audit = read_audit_trail(note)
+    audit_head = audit["events"][-1]["event_hmac"] if audit["events"] else "GENESIS"
+    manifest = {
+        "signature_version": "1.0",
+        "algorithm": "HMAC-SHA256",
+        "key_id": EXPORT_KEY_ID,
+        "encounter_id": encounter_id,
+        "format": str(fmt or "").lower(),
+        "content_sha256": hashlib.sha256(data).hexdigest(),
+        "signed_at": _utc_now(),
+        "build_sha": BUILD_SHA,
+        "diagnostic_rules_sha256": _rules_digest(),
+        "audit_chain_head_before_export": audit_head,
+        "reviewer_fingerprint": attestation["reviewer_fingerprint"],
+        "reviewer_role": attestation["reviewer_role"],
+        "provenance_sha256": hashlib.sha256(
+            json.dumps(provenance or {}, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest(),
+    }
+    manifest["signature_hmac_sha256"] = hmac.new(
+        EXPORT_HMAC_KEY, _export_signature_payload(manifest), hashlib.sha256
+    ).hexdigest()
+    return manifest
+
+
+def verify_export_signature(manifest, data):
+    if not isinstance(manifest, dict):
+        return {"valid": False, "reason": "manifest missing"}
+    supplied = str(manifest.get("signature_hmac_sha256") or "")
+    expected = hmac.new(
+        EXPORT_HMAC_KEY, _export_signature_payload(manifest), hashlib.sha256
+    ).hexdigest()
+    if not supplied or not hmac.compare_digest(supplied, expected):
+        return {"valid": False, "reason": "signature mismatch"}
+    if hashlib.sha256(data).hexdigest() != str(manifest.get("content_sha256") or ""):
+        return {"valid": False, "reason": "content digest mismatch"}
+    if str(manifest.get("key_id") or "") != EXPORT_KEY_ID:
+        return {"valid": False, "reason": "unknown key id"}
+    return {"valid": True, "reason": "ok"}
 
 
 
@@ -649,10 +730,19 @@ def dispatch(path, payload):
         fmt = payload.get("format")
         note = payload.get("note") or {}
         data = export_note_bytes(note, fmt)
+        provenance = diagnostic_provenance((note.get("assessment") or {}))
+        signature = sign_export_bytes(note, fmt, data, payload.get("reviewer") or {}, provenance)
         audit_event = append_audit_event(
             note, "EXPORT", str(fmt or "unknown"),
-            detail="Clinical note export completed.",
-            metadata={"build_sha": BUILD_SHA, "rules_sha256": _rules_digest()},
+            detail="Clinical note export completed and cryptographically authenticated.",
+            metadata={
+                "build_sha": BUILD_SHA,
+                "rules_sha256": _rules_digest(),
+                "content_sha256": signature["content_sha256"],
+                "signature": signature["signature_hmac_sha256"],
+                "reviewer_fingerprint": signature["reviewer_fingerprint"],
+                "reviewer_role": signature["reviewer_role"],
+            },
         )
         ext = {"docx": "docx", "pdf": "pdf", "json": "json"}[str(fmt).lower()]
         mime = {
@@ -665,8 +755,12 @@ def dispatch(path, payload):
             "mime_type": mime,
             "content_base64": base64.b64encode(data).decode("ascii"),
             "audit_event": audit_event,
-            "provenance": diagnostic_provenance((note.get("assessment") or {})),
+            "provenance": provenance,
+            "export_signature": signature,
         }
+    if path == "/api/clinical-note/export/verify":
+        raw = _decode_upload(payload.get("content_base64"))
+        return HTTPStatus.OK, verify_export_signature(payload.get("export_signature") or {}, raw)
     return HTTPStatus.NOT_FOUND, {"error": "unknown endpoint"}
 
 
