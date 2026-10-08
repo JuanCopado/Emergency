@@ -68,6 +68,7 @@ export default function ClinicalNote(){
  const [medicationGate,setMedicationGate]=useState<{status:string;actionable:boolean;message:string}|null>(null);
  const [diagnosticStale,setDiagnosticStale]=useState(true);
  const [staleExportAck,setStaleExportAck]=useState(false);
+ const [criticalReviewAck,setCriticalReviewAck]=useState(false);
  const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
  const [clinicianReviewed,setClinicianReviewed]=useState(false);
  const [draftKind,setDraftKind]=useState('Outro'); const [draftName,setDraftName]=useState('');
@@ -97,7 +98,8 @@ export default function ClinicalNote(){
    `Estado de alergias ${safetyContext.allergyStatus}`,
  ].filter(Boolean).join(' · ');
  const safetyIncomplete=safetyContext.allergyStatus==='unknown'||!safetyContext.weightKg||safetyContext.anticoagulation==='unknown';
- const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0||apiBusy||(Boolean(assessment)&&diagnosticStale&&!staleExportAck);
+ const criticalRiskPresent=Boolean(assessment?.must_not_miss.length)||diagnosticAlerts.some(x=>x.severity==='RED_FLAG');
+ const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0||apiBusy||(Boolean(assessment)&&diagnosticStale&&!staleExportAck)||(criticalRiskPresent&&!criticalReviewAck);
 
  function appendAudit(action:string,target:string,detail:string){
    setAuditTrail(current=>[...current,{id:crypto.randomUUID?.() ?? `audit-${Date.now()}-${current.length}`,at:new Date().toISOString(),action,target,detail}]);
@@ -106,6 +108,7 @@ export default function ClinicalNote(){
    setClinicianReviewed(false);
    setDiagnosticStale(true);
    setStaleExportAck(false);
+   setCriticalReviewAck(false);
  }
  function buildNote():ClinicalNotePayload{
    const baseAssessment:ClinicalAssessment=assessment?{
@@ -293,7 +296,7 @@ export default function ClinicalNote(){
        ...(result.signals||[]).map(x=>({severity:x.weight>=2?'RED_FLAG':'ALERT',code:x.code,message:x.label})),
        ...result.issues.filter(x=>x.severity==='ALERT'||x.severity==='CAUTION').map(x=>({severity:x.severity,code:x.code,message:x.message})),
      ]);
-     setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);
+     setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);setCriticalReviewAck(false);
    }catch(e){setApiError(e instanceof Error?e.message:'Backend clínico indisponível.');}
    finally{setApiBusy(false);}
  }
@@ -380,7 +383,7 @@ export default function ClinicalNote(){
    {tab==='plan'&&<section className="space-y-4">
     <div className={card}><h2 className="text-lg font-bold">Plano médico</h2>{safetyContext.allergyStatus==='unknown'&&<div className="mt-3 rounded-xl border border-warn bg-warn-bg p-3 text-sm text-warn"><strong>Alergias não registadas.</strong> O sistema não deve interpretar campo vazio como “sem alergias conhecidas”.</div>}<textarea className="input mt-4 min-h-40" value={plan} onChange={e=>{setPlan(e.target.value);touch()}} placeholder="Plano introduzido/revisto pelo médico"/></div>
     <div className={card}><h2 className="font-bold">Pruebas sugeridas</h2>{assessment?.suggested_tests.length?<ul className="mt-3 space-y-2 text-sm">{assessment.suggested_tests.map((x,i)=><li key={i} className="rounded-xl border border-border p-3">{x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">Sem sugestões executadas.</p>}</div>
-    <div className={card}><h2 className="font-bold">Tratamento sugerido</h2>{medicationGate&&<div className={`mt-3 rounded-xl border p-3 text-sm ${medicationGate.actionable?'border-ok text-ok':'border-warn bg-warn-bg text-warn'}`}>{medicationGate.message}</div>}{assessment?.treatment_suggestions.length?<ul className="mt-3 space-y-2 text-sm">{assessment.treatment_suggestions.map((x,i)=><li key={i} className="rounded-xl border border-border p-3"><strong>{x.priority||'routine'}</strong> · {x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">Sem tratamento gerado.</p>}</div>
+    <div className={card}><h2 className="font-bold">Tratamento sugerido</h2>{assessment?.treatment_suggestions.length&&safetyIncomplete?<div className="mt-3 rounded-xl border border-warn bg-warn-bg p-3 text-sm text-warn"><strong>Contexto farmacológico incompleto.</strong> Confirmar peso, estado de alergias, anticoagulação e outros dados pertinentes antes de tornar uma sugestão medicamentosa acionável.</div>:null}{medicationGate&&<div className={`mt-3 rounded-xl border p-3 text-sm ${medicationGate.actionable?'border-ok text-ok':'border-warn bg-warn-bg text-warn'}`}>{medicationGate.message}</div>}{assessment?.treatment_suggestions.length?<ul className="mt-3 space-y-2 text-sm">{assessment.treatment_suggestions.map((x,i)=><li key={i} className="rounded-xl border border-border p-3"><strong>{x.priority||'routine'}</strong> · {x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">Sem tratamento gerado.</p>}</div>
     <div className="grid gap-4 md:grid-cols-2"><div className={card}><h2 className="font-bold">Destino</h2>{assessment?.disposition.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div><div className={card}><h2 className="font-bold">Reavaliação</h2>{assessment?.reassessment.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div></div>
    </section>}
 
@@ -392,8 +395,9 @@ export default function ClinicalNote(){
       <p className="text-warn">A análise diagnóstica está desatualizada.</p>
       <label className="flex items-start gap-2 rounded-xl border border-warn bg-warn-bg p-3 text-warn"><input type="checkbox" checked={staleExportAck} onChange={e=>setStaleExportAck(e.target.checked)}/><span><strong>Aceito exportar com apoio diagnóstico desatualizado.</strong> A decisão clínica atual foi revista independentemente pelo médico.</span></label>
     </>}
+    {criticalRiskPresent&&<label className="flex items-start gap-2 rounded-xl border border-danger p-3 text-danger"><input type="checkbox" checked={criticalReviewAck} onChange={e=>setCriticalReviewAck(e.target.checked)}/><span><strong>Revisei explicitamente os must-not-miss / red flags.</strong> O plano e o destino refletem esta revisão.</span></label>}
     <div className="mt-4 rounded-xl border border-border p-3"><div className="flex items-center justify-between gap-3"><strong>Audit trail da sessão</strong><span className="text-xs text-muted">append-only · {auditTrail.length} evento(s)</span></div>{auditTrail.length?<ol className="mt-2 max-h-48 space-y-1 overflow-auto text-xs text-muted">{auditTrail.slice().reverse().map(event=><li key={event.id}>{new Date(event.at).toLocaleTimeString()} · <strong>{event.action}</strong> · {event.target} · {event.detail}</li>)}</ol>:<p className="mt-2 text-xs text-muted">Sem eventos ainda.</p>}</div>
-   </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, revisão médica, resolução dos MCDT pendentes e, quando aplicável, confirmação explícita de análise diagnóstica desatualizada.</p>}</section>}
+   </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, revisão médica, resolução dos MCDT pendentes e, quando aplicável, revisão explícita de análise desatualizada e must-not-miss/red flags.</p>}</section>}
  </>;
 
  return <div className="space-y-4" data-testid="clinical-note-workspace">
