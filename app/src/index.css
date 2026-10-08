@@ -68,3 +68,43 @@
   .section-title { @apply text-xs font-semibold uppercase tracking-wider text-muted; }
   .num { font-variant-numeric: tabular-nums; }
 }
+
+
+/* Clinical guide screen/fullscreen/print export */
+.clinical-guide-sheet:fullscreen {
+  overflow: auto;
+  padding: 2rem;
+  background: white;
+}
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+  html, body {
+    background: white !important;
+    color: #0f172a !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .clinical-guide-sheet,
+  .clinical-guide-sheet * {
+    visibility: visible;
+  }
+  .clinical-guide-sheet {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
