@@ -54,6 +54,9 @@ export default function Home() {
             <Link to="/drugs" className="btn-ghost">
               <Icon name="pill" size={18} /> {t('home.browseDrugs', { count: drugs.length })}
             </Link>
+            <Link to="/guides" className="btn-ghost">
+              <Icon name="book" size={18} /> Guías / PDF
+            </Link>
           </div>
         </div>
       </section>
