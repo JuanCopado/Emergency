@@ -28,6 +28,13 @@ from clinical_note_api import (
     run_diagnostic_support as run_clinical_note_api_diagnostic,
     export_note_bytes as export_clinical_note_bytes,
     interpret_prepared_upload as interpret_clinical_upload,
+    append_audit_event as append_clinical_note_audit,
+    read_audit_trail as read_clinical_note_audit,
+    verify_audit_chain as verify_clinical_note_audit_chain,
+    diagnostic_provenance as clinical_note_diagnostic_provenance,
+    reviewer_attestation as clinical_note_reviewer_attestation,
+    sign_export_bytes as sign_clinical_note_export,
+    verify_export_signature as verify_clinical_note_export_signature,
 )
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
 from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
@@ -5955,6 +5962,73 @@ class ModularCoreTests(unittest.TestCase):
         missing=set(module_ids)-routed-exempt
         self.assertEqual(missing,set(),sorted(missing))
         self.assertEqual(set(module_ids)-routed,exempt)
+
+
+
+    def test_v1391_export_signature_binds_content_reviewer_and_build(self):
+        note = self._clean_note_for_export()
+        payload = b'%PDF-1.4\nexample'
+        provenance = clinical_note_diagnostic_provenance(note.get('assessment') or {})
+        reviewer = {'reviewer_code': 'MED-URG-01', 'reviewer_role': 'emergency_physician'}
+        signature = sign_clinical_note_export(note, 'pdf', payload, reviewer, provenance)
+        self.assertEqual(signature['algorithm'], 'HMAC-SHA256')
+        self.assertEqual(signature['format'], 'pdf')
+        self.assertEqual(len(signature['content_sha256']), 64)
+        self.assertTrue(signature['reviewer_fingerprint'].startswith('rev_'))
+        self.assertNotIn('MED-URG-01', json.dumps(signature))
+        self.assertTrue(verify_clinical_note_export_signature(signature, payload)['valid'])
+        self.assertFalse(verify_clinical_note_export_signature(signature, payload + b'x')['valid'])
+
+    def test_v1391_reviewer_attestation_rejects_raw_personal_identity_shapes(self):
+        attestation = clinical_note_reviewer_attestation({
+            'reviewer_code': 'MED-42',
+            'reviewer_role': 'consultant',
+        })
+        self.assertEqual(attestation['reviewer_role'], 'consultant')
+        self.assertTrue(attestation['reviewer_fingerprint'].startswith('rev_'))
+        with self.assertRaises(ValueError):
+            clinical_note_reviewer_attestation({
+                'reviewer_code': 'Dr João Silva',
+                'reviewer_role': 'consultant',
+            })
+        with self.assertRaises(ValueError):
+            clinical_note_reviewer_attestation({
+                'reviewer_code': 'MED-42',
+                'reviewer_role': 'administrator',
+            })
+
+    def test_v1391_server_audit_chain_is_tamper_evident(self):
+        note = new_clinical_note(age_years=55, sex='male')
+        first = append_clinical_note_audit(note, 'NOTE_CREATED', 'encounter', detail='Created.')
+        second = append_clinical_note_audit(note, 'CLINICIAN_REVIEW', 'assessment', detail='Reviewed.')
+        trail = read_clinical_note_audit(note)
+        self.assertTrue(trail['chain_valid'])
+        self.assertEqual(trail['events'][-1]['previous_hmac'], first['event_hmac'])
+        self.assertEqual(second['sequence'], 2)
+        tampered = json.loads(json.dumps(trail['events']))
+        tampered[0]['detail'] = 'tampered'
+        self.assertFalse(verify_clinical_note_audit_chain(tampered))
+
+    def test_v1391_diagnostic_provenance_hashes_source_bundles(self):
+        assessment = {
+            'likely_diagnoses': [{
+                'diagnosis': 'ACS',
+                'confidence': 'moderate',
+                'source_modules': ['acute-coronary-syndrome'],
+            }],
+            'differential_diagnoses': [],
+            'must_not_miss': [],
+            'suggested_tests': [],
+            'treatment_suggestions': [],
+            'disposition': [],
+            'reassessment': [],
+        }
+        provenance = clinical_note_diagnostic_provenance(assessment)
+        self.assertIn('diagnostic_rules_sha256', provenance)
+        self.assertEqual(len(provenance['diagnostic_rules_sha256']), 64)
+        source = next(x for x in provenance['module_sources'] if x['module_id'] == 'acute-coronary-syndrome')
+        self.assertEqual(source['bundle'], 'modules/cardiovascular.md')
+        self.assertEqual(len(source['sha256']), 64)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):

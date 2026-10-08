@@ -152,6 +152,7 @@ export type PreparedUpload = {
 
 export type DiagnosticApiResponse = {
   blocked: boolean;
+  diagnostic_provenance?: DiagnosticProvenance;
   issues: { severity: string; code: string; message: string }[];
   signals?: { code: string; weight: number; label: string }[];
   rule_hits?: { module: string; score: number; evidence: string[] }[];
@@ -163,4 +164,57 @@ export type DiagnosticApiResponse = {
     required_module: string | null;
     message: string;
   };
+};
+
+
+export type DiagnosticProvenance = {
+  api_version: string;
+  build_sha: string;
+  diagnostic_rules_sha256: string | null;
+  source_modules: string[];
+  module_sources: { module_id: string; bundle: string | null; sha256: string | null }[];
+  generated_at: string;
+};
+
+export type AuditEvent = {
+  sequence: number;
+  event_id: string;
+  encounter_id: string;
+  timestamp: string;
+  action: string;
+  target: string;
+  detail: string;
+  metadata: Record<string, string | number | boolean | null>;
+  previous_hmac: string;
+  event_hmac: string;
+};
+
+export type AuditTrailResponse = {
+  encounter_id: string;
+  events: AuditEvent[];
+  chain_valid: boolean;
+  storage: 'persistent_jsonl' | 'process_memory';
+};
+
+
+export type ReviewerAttestationInput = {
+  reviewer_code: string;
+  reviewer_role: 'treating_clinician' | 'emergency_physician' | 'consultant' | 'resident' | 'other_clinician';
+};
+
+export type ExportSignature = {
+  signature_version: '1.0';
+  algorithm: 'HMAC-SHA256';
+  key_id: string;
+  encounter_id: string;
+  format: 'docx' | 'pdf' | 'json';
+  content_sha256: string;
+  signed_at: string;
+  build_sha: string;
+  diagnostic_rules_sha256: string | null;
+  audit_chain_head_before_export: string;
+  reviewer_fingerprint: string;
+  reviewer_role: ReviewerAttestationInput['reviewer_role'];
+  provenance_sha256: string;
+  signature_hmac_sha256: string;
 };
