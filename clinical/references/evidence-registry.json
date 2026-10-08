@@ -1096,6 +1096,14 @@
         "clinical_evidence_reverified": false,
         "human_review_required": true
       },
+      "diagnostic_context_review": {
+        "date": "2026-10-08",
+        "scope": "v1.42 local negation, basic temporal context and frontend diagnostic revision/request sequencing",
+        "record": "qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md",
+        "frontend_tests_executed": false,
+        "clinical_evidence_reverified": false,
+        "human_review_required": true
+      },
       "status": "yellow",
       "note": "Structured privacy-gated clinical-note workspace with executable transparent diagnostic-support engine covering 92 acute-care syndromes. 60/60 synthetic diagnostic scenarios PASS. Coverage audit classifies all 131 registered modules: 115 covered/routed and 16 explicitly non-diagnostic support/infrastructure, with 0 unexpected clinical gaps. Age-specific routing prevents adult-only rules becoming primary pediatric routes. Generated assessments reset clinician sign-off. Yellow pending final human clinical/privacy/information-governance review; no prospective diagnostic-accuracy claim."
     },

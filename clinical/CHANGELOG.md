@@ -1,3 +1,9 @@
+## v1.42 consolidation — diagnostic context and request sequencing (YELLOW)
+- Filter locally negated and historical/resolved textual mentions, preserving current positive mentions and explicit negative rule criteria. History fields require per-trigger `allow_historical: true`; existing weights, thresholds and rules are unchanged.
+- Bind diagnostic responses/errors to note revision and monotonic request ID; allow a new analysis after editing and discard obsolete responses.
+- Add 10 Python regressions (PASS) and five frontend cases (NOT RUN: local Vitest dependencies missing). Existing 60 diagnostic scenarios and 12 Clinical QA checks PASS; main suite 416 tests.
+- Record limits in `qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md`. No evidence promotion or clinical recommendation change.
+
 ## v1.42 consolidation — clinical-note input/privacy/acceptance (YELLOW)
 - Inspect scalar text in nested lists and privacy notes without duplicate visits.
 - Enforce the existing note schema at runtime, strict booleans, finite numbers, valid ages and structured fields; reject malformed upload acknowledgements, edits and provider responses before use.

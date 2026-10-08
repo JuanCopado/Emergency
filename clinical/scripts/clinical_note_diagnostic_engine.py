@@ -27,12 +27,13 @@ def _norm(value):
               .replace("ñ","n"))
     return re.sub(r"\s+"," ",text).strip()
 
-def _collect_text(note):
+def _collect_text(note, include_history=False):
     parts=[]
     h=note.get("history",{})
     for key in ("chief_complaint","present_illness","social_history","baseline_status"):
         if h.get(key): parts.append(h[key])
-    for key in ("past_medical_history","past_surgical_history","medication_discrepancies"):
+    history_keys = ("past_medical_history", "past_surgical_history") if include_history else ()
+    for key in (*history_keys, "medication_discrepancies"):
         parts.extend(h.get(key) or [])
     for med in h.get("chronic_medications",[]):
         parts.append(" ".join(str(med.get(x) or "") for x in ("name","dose","schedule")))
@@ -45,7 +46,7 @@ def _collect_text(note):
         for r in reports:
             for key in ("official_report","ai_interpretation","findings","impression"):
                 if r.get(key): parts.append(r[key])
-    return _norm(" | ".join(str(x) for x in parts if x))
+    return _norm(" | ".join(str(x).replace("\n", " | ") for x in parts if x))
 
 def _age_years(note):
     age=note.get("encounter",{}).get("age",{})
@@ -88,24 +89,102 @@ def _structured_signals(note):
         elif gv<15: signals.append(("altered_consciousness",1,"GCS <15"))
     return signals
 
-def _term_present(term,text):
+# Bounded, inspectable context rules, not a general clinical NLP parser.
+# Boundaries keep one symptom/field's context from suppressing another clause.
+_CONTEXT_BOUNDARY = re.compile(
+    r"[.;!?|\n]|\b(?:pero|mas|but|however|porem|contudo|sin embargo|no entanto)\b"
+)
+_NEGATION = re.compile(
+    r"\b(?:no|nao|not|niega|nega|denies|denied|sin|sem|without|"
+    r"ausencia de|absence of)\b"
+)
+_CURRENT = re.compile(
+    r"\b(?:actualmente|ahora|agora|currently|now|ongoing|presenta|apresenta|"
+    r"persiste|persistem|persists|persistente|persistent)\b"
+)
+_PSEUDO_NEGATION = re.compile(
+    r"^\s*(?:solo|so|apenas|only|se descarta|se puede descartar|se pode excluir|"
+    r"ecg|monitor|exame|relatorio)\b"
+)
+_POST_NEGATION = re.compile(r"^\s*(?:,\s*)?(?:(?:is|esta|was)\s+)?(?:denied|negad[oa]|ausente|absent)\b")
+_PAST = re.compile(
+    r"\b(?:antecedentes?(?: de)?|historia de|history of|previously|previamente|"
+    r"anteriormente|tuvo|teve|presento previamente|ayer|ontem)\b"
+)
+_TIME_AGO = re.compile(
+    r"\b(?:hace|ha)\s+(?:\d+|un|una|uno|um|uma|dos|dois|two|three)\s+"
+    r"(?:dias?|anos?|semanas?|meses)\b|\b\d+\s+(?:days?|years?|weeks?|months?)\s+ago\b"
+)
+_RESOLVED = re.compile(r"^\s*(?:,\s*)?(?:(?:is|esta|was|ya|ja|already)\s+)*(?:resuelt[oa]|resolvid[oa]|resolved)\b")
+
+
+def _mention_context(before, after):
+    """Classify context around one occurrence; cues inside the term are ignored."""
+    prefix = _CONTEXT_BOUNDARY.split(before)[-1]
+    suffix = _CONTEXT_BOUNDARY.split(after)[0]
+    current = list(_CURRENT.finditer(prefix))
+    last_current = current[-1] if current else None
+    negated = False
+    for cue in _NEGATION.finditer(prefix):
+        following = prefix[cue.end():]
+        if _PSEUDO_NEGATION.match(following):
+            continue
+        if len(re.findall(r"\b\w+\b", following)) > 8:
+            continue
+        # "no presenta fiebre" stays negated; "niega fiebre, presenta dolor"
+        # starts a new assertion. This also handles an explicit "ahora/agora".
+        if last_current and last_current.start() > cue.end():
+            between = prefix[cue.end():last_current.start()]
+            if re.search(r"\w", between):
+                continue
+        negated = True
+    negated = negated or bool(_POST_NEGATION.match(suffix))
+    past = list(_PAST.finditer(prefix))
+    for cue in _TIME_AGO.finditer(prefix):
+        if not re.search(r"\bdesde\s*$", prefix[:cue.start()]):
+            past.append(cue)
+    historical = any(
+        len(re.findall(r"\b\w+\b", prefix[cue.end():])) <= 16
+        and (last_current is None or cue.start() > last_current.start())
+        for cue in past
+    )
+    # A nearby postposed date applies to this mention, not to a later clause.
+    local_suffix = suffix.split(",", 1)[0]
+    for cue in _TIME_AGO.finditer(local_suffix):
+        if (last_current is None and not _CURRENT.search(local_suffix[:cue.start()])
+                and not re.search(r"\bdesde\s*$", local_suffix[:cue.start()])
+                and len(re.findall(r"\b\w+\b", local_suffix[:cue.start()])) <= 6):
+            historical = True
+    historical = historical or bool(_RESOLVED.match(suffix))
+    return negated, historical
+
+
+def _term_present(term, text, allow_historical=False):
     t=_norm(term)
     if not t:
         return False
+    text = _norm(text.replace("\n", " | "))
     # Short standalone acronyms/tokens (e.g. TEN, VF, PEA, AKI, DT) must
     # not match inside ordinary words such as "extremidades" or "paciente".
+    pattern = re.escape(t)
     if re.fullmatch(r"[a-z0-9]+",t) and len(t)<=4:
-        return re.search(r"(?<![a-z0-9])"+re.escape(t)+r"(?![a-z0-9])",text) is not None
-    return t in text
+        pattern = r"(?<![a-z0-9])" + pattern + r"(?![a-z0-9])"
+    for match in re.finditer(pattern, text):
+        negated, historical = _mention_context(text[:match.start()], text[match.end():])
+        if not negated and (allow_historical or not historical):
+            return True
+    return False
 
-def _rule_score(rule,text,signals):
+def _rule_score(rule,text,signals,historical_text=None):
     score=0; evidence=[]
     signal_names={x[0] for x in signals}
     signal_labels={x[0]:x[2] for x in signals}
     for trig in rule.get("triggers",[]):
         t=trig.get("type")
         if t=="text_any":
-            if any(_term_present(term,text) for term in trig.get("terms",[])):
+            allow_historical = trig.get("allow_historical") is True
+            source_text = historical_text if allow_historical and historical_text is not None else text
+            if any(_term_present(term,source_text,allow_historical) for term in trig.get("terms",[])):
                 score += int(trig.get("weight",1))
                 evidence.append(trig.get("label") or "hallazgo textual")
         elif t=="signal":
@@ -182,6 +261,7 @@ def analyze(note, rules=None, apply_to_note=False):
         return {"blocked":True,"issues":contract["issues"],"assessment":None,"note":note if apply_to_note else None}
     rules=rules or load_rules()
     text=_collect_text(note)
+    historical_text=_collect_text(note, include_history=True)
     signals=_structured_signals(note)
     scored=[]
     age_years=_age_years(note)
@@ -191,7 +271,7 @@ def analyze(note, rules=None, apply_to_note=False):
                 continue
             if rule.get("max_age_years") is not None and age_years > float(rule["max_age_years"]):
                 continue
-        score,evidence=_rule_score(rule,text,signals)
+        score,evidence=_rule_score(rule,text,signals,historical_text)
         if score>0:
             scored.append((score,rule,evidence))
     scored.sort(key=lambda x:(-x[0],x[1]["id"]))

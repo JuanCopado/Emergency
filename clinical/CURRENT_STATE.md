@@ -1,3 +1,14 @@
+# Consolidación v1.42 — negación, temporalidad y secuenciación — 08/10/2026
+
+- Rama: `v1.42-codex-consolidation`; base limpia `f49e6547e849b888ccdacf1b871faa86dfd6ded1`.
+- Implementada detección local de negación/contexto temporal; antecedentes requieren opt-in explícito por trigger. Pesos, umbrales y catálogo sin cambios.
+- Respuestas diagnósticas vinculadas a revisión de nota y request ID; resultados/errores obsoletos no sustituyen estado vigente.
+- 10 regresiones Python nuevas PASS; 24 v1.39 PASS, con los 60 escenarios diagnósticos previos. Clinical QA: 12/12 PASS, suite principal 416 pruebas.
+- Cinco casos frontend añadidos, NO EJECUTADOS: Vitest no disponible por dependencias ausentes. Typecheck/build pendientes.
+- Detalle y límites: `qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md`. Este bloque actualiza los pendientes de la instantánea anterior.
+- Sin promoción: módulo afectado y 196 procedimientos YELLOW; registro global preservado, 29 GREEN / 102 YELLOW. `CLINICALLY_PENDING`; QA no equivale a validación prospectiva.
+- Visuales PAUSADAS. Pendientes: validación frontend, Unicode/PDF, preámbulos, CI, catálogo, pediatría y migración. Sin cambios a `main`, merge ni push.
+
 # Consolidación v1.42 — bloque P1 de contratos, privacidad y aceptación — 08/10/2026
 
 - Rama: `v1.42-codex-consolidation`; base auditada `0d2fcec1baba7dd50e352890777f4873d8a4dd0d`.

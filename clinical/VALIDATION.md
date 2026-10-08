@@ -1,3 +1,11 @@
+# v1.42 — negación/temporalidad y secuenciación, 08/10/2026
+
+- Nuevas regresiones Python: 10/10 PASS tras reproducir los fallos iniciales. Suite v1.39: 24/24 PASS, incluidos 60 escenarios diagnósticos.
+- Clinical QA: 12/12 controles PASS; suite principal 416 pruebas. Umbrales y catálogo sin cambios.
+- Cinco casos Vitest añadidos, NO EJECUTADOS: comando termina con `vitest` no reconocido; faltan dependencias frontend. Typecheck/build no ejecutados. Revisión frontend estática, sin declarar PASS de ejecución.
+- `git diff --check` PASS. Ver `qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md` para comandos, límites, alcance y pendientes.
+- `CLINICALLY_PENDING`; sin promociones de evidencia ni validación clínica prospectiva.
+
 # v1.42 — validación local del bloque P1, 08/10/2026
 
 - Privacidad, contrato de entrada y aceptación: 30/30 regresiones nuevas PASS; los defectos se reprodujeron antes de sus respectivas correcciones.

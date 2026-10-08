@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import {
   acceptClinicalUpload,
   analyzeClinicalNote,
@@ -66,6 +66,9 @@ export default function ClinicalNote(){
  const [diagnosticAlerts,setDiagnosticAlerts]=useState<{severity:string;code:string;message:string}[]>([]);
  const [medicationGate,setMedicationGate]=useState<{status:string;actionable:boolean;message:string}|null>(null);
  const [diagnosticStale,setDiagnosticStale]=useState(true);
+ const [diagnosticBusy,setDiagnosticBusy]=useState(false);
+ const noteRevision=useRef(0);
+ const diagnosticRequestId=useRef(0);
  const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
  const [clinicianReviewed,setClinicianReviewed]=useState(false);
  const [draftKind,setDraftKind]=useState('Outro'); const [draftName,setDraftName]=useState('');
@@ -79,9 +82,13 @@ export default function ClinicalNote(){
    ...mcdt.flatMap(x=>[x.official,x.ai])].join('\n');
  const privacyStop=directId.test(freeText);
  const pending=mcdt.filter(x=>x.state==='pending').length;
- const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0||apiBusy;
+ const busy=apiBusy||diagnosticBusy;
+ const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0||busy;
 
  function touch(){
+   noteRevision.current+=1;
+   // The previous request is obsolete; allow analysis of the edited note.
+   setDiagnosticBusy(false);
    setClinicianReviewed(false);
    setDiagnosticStale(true);
  }
@@ -259,9 +266,14 @@ export default function ClinicalNote(){
    setMcdt(v=>v.map(x=>x.id===id?{...x,state:'rejected'}:x));touch();
  }
  async function runDiagnostic(){
-   setApiError('');setApiBusy(true);
+   const revision=noteRevision.current;
+   const requestId=++diagnosticRequestId.current;
+   const isCurrent=()=>requestId===diagnosticRequestId.current&&revision===noteRevision.current;
+   const note=buildNote();
+   setApiError('');setDiagnosticBusy(true);setDiagnosticStale(true);
    try{
-     const result=await analyzeClinicalNote(buildNote());
+     const result=await analyzeClinicalNote(note);
+     if(!isCurrent()) return;
      if(result.blocked){setApiError(result.issues.map(x=>x.message).join(' · ')||'Análise bloqueada.');return;}
      setAssessment(result.assessment);
      setDiagnosticAlerts([
@@ -269,8 +281,11 @@ export default function ClinicalNote(){
        ...result.issues.filter(x=>x.severity==='ALERT'||x.severity==='CAUTION').map(x=>({severity:x.severity,code:x.code,message:x.message})),
      ]);
      setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);
-   }catch(e){setApiError(e instanceof Error?e.message:'Backend clínico indisponível.');}
-   finally{setApiBusy(false);}
+   }catch(e){
+     if(isCurrent()) setApiError(e instanceof Error?e.message:'Backend clínico indisponível.');
+   }finally{
+     if(requestId===diagnosticRequestId.current) setDiagnosticBusy(false);
+   }
  }
  async function doExport(format:'docx'|'pdf'|'json'){
    setApiError('');setApiBusy(true);
@@ -316,13 +331,13 @@ export default function ClinicalNote(){
       {x.prepared?.privacy.burned_in_identifier_review_required&&<label className="mt-2 flex items-center gap-2 text-sm"><input type="checkbox" checked={x.burnedChecked} onChange={e=>editCard(x.id,{burnedChecked:e.target.checked})}/> Identificadores visíveis/burned-in revistos.</label>}
       {x.prepared?.privacy.status==='STOP'&&<p className="mt-2 text-sm font-semibold text-danger">STOP: o backend detetou possível identificador direto no conteúdo.</p>}
       {x.prepared?.processing.status==='vision_interpreted'&&<div className="mt-2 rounded-xl border border-warn p-3 text-sm"><strong>Interpretação IA proposta — requer revisão médica.</strong><p className="mt-1 text-xs text-muted">Provider: {x.prepared.processing.provider||'—'} · Modelo: {x.prepared.processing.model||'—'} · Confiança: {x.prepared.processing.confidence||'—'}</p>{x.prepared.processing.impression&&<p className="mt-2">Impressão: {x.prepared.processing.impression}</p>}{x.prepared.processing.limitations?.length?<p className="mt-1 text-xs text-muted">Limitações: {x.prepared.processing.limitations.join(' · ')}</p>:null}</div>}
-      <div className="mt-3 flex flex-wrap gap-2">{x.prepared?.processing.status==='routed_external'&&<button className="btn-ghost" disabled={apiBusy||x.prepared.privacy.status==='STOP'||(x.prepared.privacy.manual_file_privacy_review_required&&!x.privacyChecked)||(x.prepared.privacy.burned_in_identifier_review_required&&!x.burnedChecked)} onClick={()=>void interpretCard(x.id)}>Interpretar com módulo IA</button>}<button className="btn-primary" disabled={apiBusy||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>Aceitar</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>Editar</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>Rejeitar</button></div></article>)}
+      <div className="mt-3 flex flex-wrap gap-2">{x.prepared?.processing.status==='routed_external'&&<button className="btn-ghost" disabled={busy||x.prepared.privacy.status==='STOP'||(x.prepared.privacy.manual_file_privacy_review_required&&!x.privacyChecked)||(x.prepared.privacy.burned_in_identifier_review_required&&!x.burnedChecked)} onClick={()=>void interpretCard(x.id)}>Interpretar com módulo IA</button>}<button className="btn-primary" disabled={busy||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>Aceitar</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>Editar</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>Rejeitar</button></div></article>)}
    </section>}
 
    {tab==='problems'&&<section className={card}><h2 className="text-lg font-bold">Problemas</h2><p className="mt-1 text-sm text-muted">Lista numerada editável: ativo · a melhorar · resolvido · por esclarecer.</p><textarea className="input mt-4 min-h-56" value={problems} onChange={e=>{setProblems(e.target.value);touch()}} placeholder={"1. [ativo] …\n2. [por esclarecer] …"}/>{assessment?.active_problems.length? <div className="mt-4 rounded-xl border border-border p-3"><p className="text-xs font-bold uppercase text-muted">Problemas sugeridos pelo motor · requer revisão</p><ul className="mt-2 space-y-1 text-sm">{assessment.active_problems.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}</section>}
 
    {tab==='diagnostic'&&<section className="space-y-4">
-    <div className={card}><div className="flex flex-wrap items-center gap-3"><div><h2 className="text-lg font-bold">Apoio diagnóstico</h2><p className="text-sm text-muted">Executado apenas sobre dados aceites e após preflight de privacidade.</p></div><button className="btn-primary ml-auto" disabled={apiBusy||privacyStop} onClick={()=>void runDiagnostic()}>{apiBusy?'A processar…':'Atualizar apoio diagnóstico'}</button></div>{diagnosticStale&&assessment&&<p className="mt-3 text-sm font-semibold text-warn">Os dados mudaram desde a última análise; resultado marcado como desatualizado.</p>}</div>
+    <div className={card}><div className="flex flex-wrap items-center gap-3"><div><h2 className="text-lg font-bold">Apoio diagnóstico</h2><p className="text-sm text-muted">Executado apenas sobre dados aceites e após preflight de privacidade.</p></div><button className="btn-primary ml-auto" disabled={busy||privacyStop} onClick={()=>void runDiagnostic()}>{busy?'A processar…':'Atualizar apoio diagnóstico'}</button></div>{diagnosticStale&&assessment&&<p className="mt-3 text-sm font-semibold text-warn">Os dados mudaram desde a última análise; resultado marcado como desatualizado.</p>}</div>
     {diagnosticAlerts.length>0&&<div className={card}><h2 className="font-bold text-danger">Alertas / red flags</h2><div className="mt-3 grid gap-2 md:grid-cols-2">{diagnosticAlerts.map((x,i)=><div key={`${x.code}-${i}`} className="rounded-xl border border-danger p-3 text-sm"><div className="font-bold">{x.severity} · {x.code}</div><p className="mt-1">{x.message}</p></div>)}</div></div>}
     <div className="grid gap-4 lg:grid-cols-2">
       {([
