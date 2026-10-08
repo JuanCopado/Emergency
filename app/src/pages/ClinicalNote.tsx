@@ -15,7 +15,9 @@ import type {
   ClinicalAssessment,
   ClinicalNotePayload,
   DiagnosticProvenance,
+  ExportSignature,
   PreparedUpload,
+  ReviewerAttestationInput,
   ReportItem,
   ReviewState,
 } from '../clinical-note/types';
@@ -87,6 +89,9 @@ export default function ClinicalNote(){
  const [serverAudit,setServerAudit]=useState<AuditTrailResponse|null>(null);
  const [diagnosticProvenance,setDiagnosticProvenance]=useState<DiagnosticProvenance|null>(null);
  const [exportRevision,setExportRevision]=useState(0);
+ const [reviewerCode,setReviewerCode]=useState('');
+ const [reviewerRole,setReviewerRole]=useState<ReviewerAttestationInput['reviewer_role']>('emergency_physician');
+ const [lastExportSignature,setLastExportSignature]=useState<ExportSignature|null>(null);
  const encounter=useMemo(()=>crypto.randomUUID?.() ?? `enc-${Date.now()}`,[]);
  const allAccepted=Object.values(reports).flat();
  const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,problems,plan,
@@ -105,7 +110,8 @@ export default function ClinicalNote(){
  ].filter(Boolean).join(' · ');
  const safetyIncomplete=safetyContext.allergyStatus==='unknown'||!safetyContext.weightKg||safetyContext.anticoagulation==='unknown';
  const criticalRiskPresent=Boolean(assessment?.must_not_miss.length)||diagnosticAlerts.some(x=>x.severity==='RED_FLAG');
- const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0||apiBusy||(Boolean(assessment)&&diagnosticStale&&!staleExportAck)||(criticalRiskPresent&&!criticalReviewAck);
+ const reviewerReady=reviewerCode.trim().length>=3;
+ const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||!reviewerReady||pending>0||apiBusy||(Boolean(assessment)&&diagnosticStale&&!staleExportAck)||(criticalRiskPresent&&!criticalReviewAck);
 
  function appendAudit(action:string,target:string,detail:string){
    setAuditTrail(current=>[...current,{id:crypto.randomUUID?.() ?? `audit-${Date.now()}-${current.length}`,at:new Date().toISOString(),action,target,detail}]);
@@ -161,7 +167,7 @@ export default function ClinicalNote(){
      complementary_tests:reports,
      assessment:baseAssessment,
      clinician_validation:{
-       reviewed:clinicianReviewed,reviewer_role:clinicianReviewed?'treating_clinician':null,
+       reviewed:clinicianReviewed,reviewer_role:clinicianReviewed?reviewerRole:null,
        reviewed_at:clinicianReviewed?new Date().toISOString():null,
        changes_made:clinicianReviewed?`Clinician reviewed current structured note. Export revision ${exportRevision+1}.`:null,
      },
@@ -326,8 +332,9 @@ export default function ClinicalNote(){
      const note=buildNote();
      const preflight=await preflightClinicalNote(note);
      if(preflight.blocked){setApiError(preflight.findings.map(x=>x.message).join(' · '));return;}
-     const out=await exportClinicalNote(note,format);
+     const out=await exportClinicalNote(note,format,{reviewer_code:reviewerCode.trim(),reviewer_role:reviewerRole});
      if(out.provenance) setDiagnosticProvenance(out.provenance);
+     setLastExportSignature(out.exportSignature);
      const nextRevision=exportRevision+1;
      setExportRevision(nextRevision);
      appendAudit('EXPORT',format,`Revisão ${nextRevision}: ${out.filename}`);
@@ -410,7 +417,17 @@ export default function ClinicalNote(){
     <div className="grid gap-4 md:grid-cols-2"><div className={card}><h2 className="font-bold">Destino</h2>{assessment?.disposition.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div><div className={card}><h2 className="font-bold">Reavaliação</h2>{assessment?.reassessment.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div></div>
    </section>}
 
-   {tab==='export'&&<section className={card}><h2 className="text-lg font-bold">Revisão e exportação</h2><div className="mt-4 grid gap-2 text-sm">
+   {tab==='export'&&<section className={card}><h2 className="text-lg font-bold">Revisão e exportação</h2>
+   <div className="mt-4 rounded-xl border border-border bg-surface-2 p-4">
+    <h3 className="font-bold">Atestação do revisor</h3>
+    <p className="mt-1 text-xs text-muted">Use um código profissional/pseudónimo local. O backend não persiste o código em claro; guarda apenas um fingerprint HMAC.</p>
+    <div className="mt-3 grid gap-3 md:grid-cols-2">
+      <label><span className="label">Código do revisor</span><input aria-label="Código do revisor" className="input" value={reviewerCode} onChange={e=>{setReviewerCode(e.target.value);setClinicianReviewed(false)}} placeholder="ex.: MED-URG-01"/></label>
+      <label><span className="label">Papel</span><select aria-label="Papel do revisor" className="input" value={reviewerRole} onChange={e=>{setReviewerRole(e.target.value as ReviewerAttestationInput['reviewer_role']);setClinicianReviewed(false)}}><option value="emergency_physician">Médico de urgência</option><option value="treating_clinician">Médico assistente</option><option value="consultant">Consultor/especialista</option><option value="resident">Interno/residente</option><option value="other_clinician">Outro médico</option></select></label>
+    </div>
+    {!reviewerReady&&<p className="mt-2 text-xs font-semibold text-warn">É necessário um código pseudónimo com pelo menos 3 caracteres para assinar a exportação.</p>}
+   </div>
+   <div className="mt-4 grid gap-2 text-sm">
     <label className="flex items-center gap-2"><input type="checkbox" checked={privacyAck} onChange={e=>setPrivacyAck(e.target.checked)}/> Identificadores diretos removidos; texto livre, metadados e privacidade revistos.</label>
     <label className="flex items-center gap-2"><input type="checkbox" checked={clinicianReviewed} onChange={e=>setClinicianReviewed(e.target.checked)}/> Médico reviu e valida o conteúdo clínico atual.</label>
     <p>{pending===0?'✓ Sem cartões MCDT pendentes':`STOP: ${pending} MCDT pendente(s) de aceitar/editar/rejeitar.`}</p>
@@ -420,7 +437,8 @@ export default function ClinicalNote(){
     </>}
     {criticalRiskPresent&&<label className="flex items-start gap-2 rounded-xl border border-danger p-3 text-danger"><input type="checkbox" checked={criticalReviewAck} onChange={e=>setCriticalReviewAck(e.target.checked)}/><span><strong>Revisei explicitamente os must-not-miss / red flags.</strong> O plano e o destino refletem esta revisão.</span></label>}
     <div className="mt-4 rounded-xl border border-border p-3"><div className="flex flex-wrap items-center justify-between gap-3"><strong>Audit trail</strong><div className="flex gap-2"><span className="text-xs text-muted">sessão · {auditTrail.length}</span>{serverAudit&&<span className={`chip ${serverAudit.chain_valid?'border-ok text-ok':'border-danger text-danger'}`}>servidor {serverAudit.chain_valid?'HMAC OK':'CHAIN FAIL'} · {serverAudit.storage}</span>}</div></div>{serverAudit?.events.length?<ol className="mt-2 max-h-48 space-y-1 overflow-auto text-xs text-muted">{serverAudit.events.slice().reverse().map(event=><li key={event.event_id}>{new Date(event.timestamp).toLocaleTimeString()} · <strong>{event.action}</strong> · {event.target} · #{event.sequence}</li>)}</ol>:auditTrail.length?<ol className="mt-2 max-h-48 space-y-1 overflow-auto text-xs text-muted">{auditTrail.slice().reverse().map(event=><li key={event.id}>{new Date(event.at).toLocaleTimeString()} · <strong>{event.action}</strong> · {event.target} · {event.detail}</li>)}</ol>:<p className="mt-2 text-xs text-muted">Sem eventos ainda.</p>}<button type="button" className="btn-ghost mt-3" onClick={()=>void refreshServerAudit()}>Verificar cadeia no servidor</button></div>
-   </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, revisão médica, resolução dos MCDT pendentes e, quando aplicável, revisão explícita de análise desatualizada e must-not-miss/red flags.</p>}</section>}
+    {lastExportSignature&&<div className="mt-4 rounded-xl border border-ok p-3 text-xs"><div className="flex flex-wrap items-center justify-between gap-2"><strong className="text-ok">Exportação autenticada</strong><span className="chip">{lastExportSignature.algorithm} · {lastExportSignature.key_id}</span></div><div className="mt-2 space-y-1 text-muted"><p><strong>Revisor:</strong> {lastExportSignature.reviewer_fingerprint} · {lastExportSignature.reviewer_role}</p><p><strong>Conteúdo SHA-256:</strong> <span className="break-all">{lastExportSignature.content_sha256}</span></p><p><strong>Assinatura:</strong> <span className="break-all">{lastExportSignature.signature_hmac_sha256}</span></p><p><strong>Build:</strong> <span className="break-all">{lastExportSignature.build_sha}</span></p></div></div>}
+   </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, atestação do revisor, revisão médica, resolução dos MCDT pendentes e, quando aplicável, revisão explícita de análise desatualizada e must-not-miss/red flags.</p>}</section>}
  </>;
 
  return <div className="space-y-4" data-testid="clinical-note-workspace">
