@@ -176,6 +176,7 @@ describe('Clinical note diagnostic workspace', () => {
     await user.click(screen.getByRole('button', { name: 'Criar cartão para revisão' }));
     await user.click(screen.getByRole('button', { name: 'Aceitar' }));
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    await user.type(screen.getByLabelText('Código do revisor'), 'MED-URG-01');
     const checks=screen.getAllByRole('checkbox');
     if (!checks[0] || !checks[1]) throw new Error('export checklist missing');
     await user.click(checks[0]); await user.click(checks[1]);
@@ -461,14 +462,17 @@ describe('Clinical note diagnostic workspace', () => {
     if (!chief) throw new Error('chief complaint field missing');
     await user.type(chief, 'novo dado');
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    await user.type(screen.getByLabelText('Código do revisor'), 'MED-URG-02');
     const checks = screen.getAllByRole('checkbox');
-    expect(checks.length).toBeGreaterThanOrEqual(3);
+    expect(checks.length).toBeGreaterThanOrEqual(4);
     expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
-    if (!checks[0] || !checks[1] || !checks[2]) throw new Error('export checklist missing');
+    if (!checks[0] || !checks[1] || !checks[2] || !checks[3]) throw new Error('export checklist missing');
     await user.click(checks[0]);
     await user.click(checks[1]);
     expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
     await user.click(checks[2]);
+    expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
+    await user.click(checks[3]);
     expect(screen.getByRole('button', { name: 'PDF' })).toBeEnabled();
   });
 
@@ -490,7 +494,7 @@ describe('Clinical note diagnostic workspace', () => {
     await user.type(screen.getByLabelText('Nome do exame'), 'ECG controlo');
     await user.click(screen.getByRole('button', { name: 'Criar cartão para revisão' }));
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
-    expect(screen.getByText('Audit trail da sessão')).toBeInTheDocument();
+    expect(screen.getByText('Audit trail')).toBeInTheDocument();
     expect(screen.getByText(/MCDT_CREATED/)).toBeInTheDocument();
   });
 
@@ -540,6 +544,7 @@ describe('Clinical note diagnostic workspace', () => {
     await user.click(screen.getByRole('button', { name: 'Apoio diagnóstico' }));
     await user.click(screen.getByRole('button', { name: 'Atualizar apoio diagnóstico' }));
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    await user.type(screen.getByLabelText('Código do revisor'), 'MED-URG-03');
     const checks = screen.getAllByRole('checkbox');
     expect(checks.length).toBeGreaterThanOrEqual(3);
     if (!checks[0] || !checks[1] || !checks[2]) throw new Error('critical export checklist missing');
@@ -548,6 +553,20 @@ describe('Clinical note diagnostic workspace', () => {
     expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
     await user.click(checks[2]);
     expect(screen.getByRole('button', { name: 'PDF' })).toBeEnabled();
+  });
+
+
+  it('requires pseudonymous reviewer attestation before clinical export', async () => {
+    const user = userEvent.setup();
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    expect(screen.getByText('Atestação do revisor')).toBeInTheDocument();
+    const code = screen.getByLabelText('Código do revisor');
+    await user.type(code, 'AB');
+    expect(screen.getByText(/pelo menos 3 caracteres/)).toBeInTheDocument();
+    await user.type(code, 'C');
+    expect(screen.queryByText(/pelo menos 3 caracteres/)).not.toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Papel do revisor' })).toHaveValue('emergency_physician');
   });
 
 });
