@@ -1,4 +1,4 @@
-import type { ClinicalNotePayload, DiagnosticApiResponse, PreparedUpload } from './types';
+import type { AuditTrailResponse, ClinicalNotePayload, DiagnosticApiResponse, DiagnosticProvenance, PreparedUpload } from './types';
 
 const API_BASE=(import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/,'');
 
@@ -78,8 +78,18 @@ function base64ToBlob(content:string,mime:string){
 }
 
 export async function exportClinicalNote(note:ClinicalNotePayload,format:'docx'|'pdf'|'json'){
-  const result=await postJson<{filename:string;mime_type:string;content_base64:string}>('/api/clinical-note/export',{note,format});
-  return {filename:result.filename,blob:base64ToBlob(result.content_base64,result.mime_type)};
+  const result=await postJson<{filename:string;mime_type:string;content_base64:string;audit_event?:unknown;provenance?:DiagnosticProvenance}>('/api/clinical-note/export',{note,format});
+  return {filename:result.filename,blob:base64ToBlob(result.content_base64,result.mime_type),provenance:result.provenance};
+}
+
+export async function appendClinicalAuditEvent(
+  note:ClinicalNotePayload,action:string,target:string,detail?:string,metadata?:Record<string,unknown>,
+){
+  return postJson<{event:unknown}>('/api/clinical-note/audit/append',{note,action,target,detail,metadata});
+}
+
+export async function readClinicalAuditTrail(note:ClinicalNotePayload){
+  return postJson<AuditTrailResponse>('/api/clinical-note/audit/read',{note});
 }
 
 export function downloadBlob(filename:string,blob:Blob){
