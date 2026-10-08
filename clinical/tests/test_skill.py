@@ -18,6 +18,7 @@ from clinical_note_support import (
     route_attachment as route_clinical_attachment,
     add_report as add_clinical_report,
     scan_privacy as scan_clinical_note_privacy,
+    validate_for_analysis as validate_clinical_note_analysis,
     validate_for_export as validate_clinical_note_export,
     diagnostic_support_contract as clinical_note_diagnostic_contract,
 )
@@ -28,6 +29,7 @@ from clinical_note_api import (
     run_diagnostic_support as run_clinical_note_api_diagnostic,
     export_note_bytes as export_clinical_note_bytes,
     interpret_prepared_upload as interpret_clinical_upload,
+    dispatch as dispatch_clinical_note,
 )
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
 from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
@@ -5955,6 +5957,299 @@ class ModularCoreTests(unittest.TestCase):
         missing=set(module_ids)-routed-exempt
         self.assertEqual(missing,set(),sorted(missing))
         self.assertEqual(set(module_ids)-routed,exempt)
+
+    def test_v142_privacy_scans_direct_string_once(self):
+        note = self._clean_note_for_export()
+        note['history']['present_illness'] = 'synthetic@example.invalid'
+        findings = scan_clinical_note_privacy(note)
+        emails = [x for x in findings if x.get('pattern_id') == 'email']
+        self.assertEqual([x['path'] for x in emails], ['$.history.present_illness'])
+
+    def test_v142_privacy_scans_string_lists_and_blocks_export(self):
+        note = self._clean_note_for_export()
+        note['history']['past_medical_history'] = ['DPOC', 'synthetic@example.invalid']
+        gate = validate_clinical_note_export(note)
+        self.assertTrue(gate['blocked'])
+        emails = [x for x in gate['findings'] if x.get('pattern_id') == 'email']
+        self.assertEqual([x['path'] for x in emails], ['$.history.past_medical_history[1]'])
+
+    def test_v142_privacy_scans_dicts_inside_lists(self):
+        note = self._clean_note_for_export()
+        note['timeline'] = [{'time_label': 'admission', 'event': 'synthetic@example.invalid'}]
+        emails = [x for x in scan_clinical_note_privacy(note) if x.get('pattern_id') == 'email']
+        self.assertEqual([x['path'] for x in emails], ['$.timeline[0].event'])
+
+    def test_v142_privacy_scans_arbitrarily_nested_text_leaves(self):
+        payload = {'outer': [{'inner': [['synthetic@example.invalid']]}]}
+        emails = [x for x in scan_clinical_note_privacy(payload) if x.get('pattern_id') == 'email']
+        self.assertEqual([x['path'] for x in emails], ['$.outer[0].inner[0][0]'])
+
+    def test_v142_privacy_notes_do_not_bypass_export_screening(self):
+        note = self._clean_note_for_export()
+        note['privacy']['privacy_notes'] = ['synthetic@example.invalid']
+        self.assertTrue(validate_clinical_note_export(note)['blocked'])
+
+    def test_v142_privacy_nested_negative_control(self):
+        note = self._clean_note_for_export()
+        note['history']['past_medical_history'] = ['DPOC', 'HTA']
+        self.assertEqual(scan_clinical_note_privacy(note), [])
+        self.assertFalse(validate_clinical_note_export(note)['blocked'])
+
+    def test_v142_contract_real_booleans_keep_export_gates(self):
+        for value in (True, False):
+            with self.subTest(value=value):
+                note = self._clean_note_for_export()
+                note['clinician_validation']['reviewed'] = value
+                self.assertEqual(validate_clinical_note_export(note)['blocked'], not value)
+                self.assertEqual(validate_clinical_note_analysis(note), [])
+
+    def test_v142_contract_rejects_boolean_coercions(self):
+        paths = [('privacy', field) for field in (
+            'direct_identifiers_removed', 'free_text_screened', 'source_metadata_checked',
+            'burned_in_identifiers_checked', 'export_allowed',
+        )] + [('clinician_validation', 'reviewed')]
+        for section, field in paths:
+            for value in ('true', 'false', 1, 0, None, [], {}):
+                with self.subTest(field=field, value=value):
+                    note = self._clean_note_for_export()
+                    note[section][field] = value
+                    gate = validate_clinical_note_export(note)
+                    self.assertTrue(gate['blocked'])
+                    self.assertTrue(any(x.get('path') == f'$.{section}.{field}' for x in gate['findings']))
+
+    def test_v142_contract_rejects_nested_boolean_coercions(self):
+        for value in ('true', 'false', 1, 0):
+            with self.subTest(value=value):
+                note = self._clean_note_for_export()
+                note['history']['allergies'] = [{'substance': 'synthetic', 'confirmed': value}]
+                self.assertTrue(validate_clinical_note_export(note)['blocked'])
+                note['history']['allergies'] = []
+                note['complementary_tests']['ecg'][0]['privacy_checked'] = value
+                self.assertTrue(validate_clinical_note_export(note)['blocked'])
+
+    def test_v142_contract_valid_ages_and_nullable_fields(self):
+        for age in (0, 0.5, 35, 130, None):
+            with self.subTest(age=age):
+                note = new_clinical_note(age_years=age)
+                self.assertEqual(validate_clinical_note_analysis(note), [])
+
+    def test_v142_contract_rejects_invalid_ages(self):
+        for field in ('years', 'months'):
+            for age in (-5, True, False, '5', float('nan'), float('inf'), -float('inf')):
+                with self.subTest(field=field, age=age):
+                    note = self._clean_note_for_export()
+                    note['encounter']['age'][field] = age
+                    self.assertTrue(validate_clinical_note_export(note)['blocked'])
+        note = self._clean_note_for_export()
+        note['encounter']['age']['years'] = 131
+        self.assertTrue(validate_clinical_note_export(note)['blocked'])
+
+    def test_v142_contract_rejects_nonfinite_numbers_anywhere(self):
+        for value in (float('nan'), float('inf'), -float('inf')):
+            for location in ('vitals', 'extension'):
+                with self.subTest(value=value, location=location):
+                    note = self._clean_note_for_export()
+                    if location == 'vitals':
+                        note['exam']['vitals'] = [{'hr': value}]
+                    else:
+                        note['extension'] = [{'nested': [value]}]
+                    self.assertTrue(validate_clinical_note_export(note)['blocked'])
+
+    def test_v142_contract_malformed_structures_fail_deterministically(self):
+        for section in ('encounter', 'history', 'exam', 'complementary_tests',
+                        'assessment', 'privacy', 'clinician_validation'):
+            for value in (None, [], 'invalid', 0):
+                with self.subTest(section=section, value=value):
+                    note = self._clean_note_for_export()
+                    note[section] = value
+                    first = validate_clinical_note_export(note)
+                    self.assertTrue(first['blocked'])
+                    self.assertEqual(first, validate_clinical_note_export(note))
+        for note in (None, [], 'invalid', 0):
+            with self.subTest(root=note):
+                self.assertTrue(validate_clinical_note_export(note)['blocked'])
+
+    def test_v142_contract_rejects_malformed_array_items(self):
+        for section, field, value in (
+            ('history', 'past_medical_history', {}),
+            ('history', 'past_medical_history', [17]),
+            ('history', 'chronic_medications', ['drug']),
+            ('history', 'allergies', ['allergy']),
+            ('exam', 'vitals', [None]),
+            ('complementary_tests', 'ecg', 'report'),
+            ('complementary_tests', 'ecg', [None]),
+            ('assessment', 'likely_diagnoses', ['diagnosis']),
+            ('assessment', 'limitations', 'limitation'),
+        ):
+            with self.subTest(section=section, field=field, value=value):
+                note = self._clean_note_for_export()
+                note[section][field] = value
+                self.assertTrue(validate_clinical_note_export(note)['blocked'])
+
+    def test_v142_contract_new_note_rejects_invalid_input(self):
+        for kwargs in ({'age_years': -5}, {'age_months': '6'}, {'age_years': float('nan')},
+                       {'sex': []}, {'privacy_mode': 'invalid'}, {'language': 1}):
+            with self.subTest(kwargs=kwargs), self.assertRaises(ValueError):
+                new_clinical_note(**kwargs)
+
+    def test_v142_contract_dispatch_rejects_nonobject_payload(self):
+        for payload in (None, [], 'invalid', 0):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                dispatch_clinical_note('/api/clinical-note/new', payload)
+
+    def test_v142_contract_upload_flags_are_strict_before_provider_call(self):
+        from unittest.mock import patch
+        payload = base64.b64encode(b'synthetic binary').decode('ascii')
+        prepared = prepare_clinical_upload('ecg.png', 'image/png', payload, explicit_kind='ecg')
+        for field in ('privacy_checked', 'burned_in_identifiers_checked'):
+            for value in ('true', 'false', 1, 0, None):
+                flags = {'privacy_checked': True, 'burned_in_identifiers_checked': True}
+                flags[field] = value
+                with self.subTest(field=field, value=value):
+                    with self.assertRaises(ValueError):
+                        accept_clinical_upload(new_clinical_note(), prepared,
+                            clinician_edit={'ai_interpretation': 'Synthetic result'}, **flags)
+                    with patch('clinical_note_api.invoke_clinical_vision') as provider:
+                        with self.assertRaises(ValueError):
+                            dispatch_clinical_note('/api/clinical-note/upload/interpret',
+                                {'prepared': prepared, 'content_base64': payload, **flags})
+                        provider.assert_not_called()
+                    with self.assertRaises(ValueError):
+                        dispatch_clinical_note('/api/clinical-note/upload/accept', {
+                            'note': new_clinical_note(), 'prepared': prepared,
+                            'clinician_edit': {'ai_interpretation': 'Synthetic result'}, **flags})
+
+    def test_v142_contract_add_report_rejects_boolean_coercion(self):
+        for value in ('true', 'false', 1, 0, None):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                add_clinical_report(new_clinical_note(), 'ecg', 'external_record',
+                                    official_report='Synthetic report', privacy_checked=value)
+
+    def _v142_signed_interpretation(self, **overrides):
+        payload = base64.b64encode(b'synthetic binary').decode('ascii')
+        prepared = prepare_clinical_upload('ecg.png', 'image/png', payload, explicit_kind='ecg')
+        response = {
+            'contract_version': '1.0', 'status': 'ok', 'provider': 'synthetic-provider',
+            'model': 'synthetic-model', 'confidence': 'low', 'official_report': None,
+            'ai_interpretation': 'Synthetic interpretation', 'findings': 'Synthetic finding',
+            'impression': 'Synthetic impression', 'limitations': ['Image incomplete'],
+        }
+        response.update(overrides)
+        return interpret_clinical_upload(prepared, payload, privacy_checked=True,
+            burned_in_identifiers_checked=True, vision_transport=lambda cfg, request: response,
+            vision_env={'CLINICAL_VISION_PROVIDER_URL': 'https://vision.example.test'})['prepared']
+
+    def test_v142_acceptance_preserves_omitted_signed_fields(self):
+        prepared = self._v142_signed_interpretation()
+        for edit in ({}, {'official_report': None, 'ai_interpretation': 'Synthetic interpretation'}):
+            with self.subTest(edit=edit):
+                report = accept_clinical_upload(new_clinical_note(), prepared, clinician_edit=edit)['report']
+                self.assertEqual(report['findings'], 'Synthetic finding')
+                self.assertEqual(report['impression'], 'Synthetic impression')
+                self.assertEqual(report['limitations'], ['Image incomplete'])
+
+    def test_v142_acceptance_tracks_original_final_and_actual_edits(self):
+        prepared = self._v142_signed_interpretation()
+        report = accept_clinical_upload(new_clinical_note(), prepared,
+            clinician_edit={'impression': 'Clinician correction'})['report']
+        trace = report['acceptance_provenance']
+        self.assertEqual(trace['original']['impression'], 'Synthetic impression')
+        self.assertEqual(trace['accepted']['impression'], 'Clinician correction')
+        self.assertEqual(trace['edited_fields'], ['impression'])
+        self.assertEqual(trace['upload_id'], prepared['upload_id'])
+        self.assertEqual(trace['prepared_integrity_token'], prepared['integrity_token'])
+        self.assertEqual(trace['source_sha256'], prepared['sha256'])
+        for field, value in trace['accepted'].items():
+            self.assertEqual(report[field], value)
+        unchanged = accept_clinical_upload(new_clinical_note(), prepared,
+            clinician_edit={'findings': 'Synthetic finding'})['report']
+        self.assertEqual(unchanged['acceptance_provenance']['edited_fields'], [])
+
+    def test_v142_acceptance_explicit_clear_preserves_original_trace(self):
+        prepared = self._v142_signed_interpretation()
+        report = accept_clinical_upload(new_clinical_note(), prepared,
+            clinician_edit={'findings': None, 'limitations': []})['report']
+        self.assertIsNone(report['findings'])
+        self.assertEqual(report['limitations'], [])
+        self.assertEqual(report['acceptance_provenance']['original']['limitations'], ['Image incomplete'])
+        self.assertEqual(report['acceptance_provenance']['edited_fields'], ['findings', 'limitations'])
+
+    def test_v142_acceptance_rejects_unauthorized_metadata_overrides(self):
+        prepared = self._v142_signed_interpretation()
+        for field in ('kind', 'provenance', 'source_reference', 'routed_modules',
+                      'acceptance_provenance', 'provider', 'model', 'integrity_token'):
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                accept_clinical_upload(new_clinical_note(), prepared, clinician_edit={field: 'forged'})
+
+    def test_v142_acceptance_rejects_malformed_edits(self):
+        prepared = self._v142_signed_interpretation()
+        for edit in ([], '', False, {'limitations': None}, {'limitations': 'lost'},
+                     {'limitations': [False]}, {'findings': 1}, {'impression': {}},
+                     {'ai_interpretation': float('nan')}):
+            with self.subTest(edit=edit), self.assertRaises(ValueError):
+                accept_clinical_upload(new_clinical_note(), prepared, clinician_edit=edit)
+
+    def test_v142_acceptance_rejects_tampered_signed_processing(self):
+        from copy import deepcopy
+        prepared = self._v142_signed_interpretation()
+        for field in ('findings', 'impression', 'limitations'):
+            altered = deepcopy(prepared)
+            altered['processing'][field] = ['forged'] if field == 'limitations' else 'forged'
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'integrity'):
+                accept_clinical_upload(new_clinical_note(), altered)
+        prepared.pop('integrity_token')
+        with self.assertRaisesRegex(ValueError, 'integrity'):
+            accept_clinical_upload(new_clinical_note(), prepared)
+
+    def test_v142_acceptance_does_not_mutate_signed_proposal_or_input_note(self):
+        from copy import deepcopy
+        prepared = self._v142_signed_interpretation()
+        note = self._clean_note_for_export()
+        original_note, original_prepared = deepcopy(note), deepcopy(prepared)
+        accepted = accept_clinical_upload(note, prepared)
+        self.assertEqual(note, original_note)
+        self.assertEqual(prepared, original_prepared)
+        self.assertFalse(accepted['note']['clinician_validation']['reviewed'])
+        accepted['report']['limitations'].append('Later change')
+        self.assertEqual(prepared, original_prepared)
+        self.assertEqual(accepted['report']['acceptance_provenance']['original']['limitations'], ['Image incomplete'])
+
+    def test_v142_acceptance_provider_limitations_are_screened(self):
+        with self.assertRaisesRegex(ValueError, 'identifier'):
+            self._v142_signed_interpretation(limitations=['synthetic@example.invalid'])
+
+    def test_v142_acceptance_provider_fields_reject_invalid_types(self):
+        for overrides in ({'findings': float('nan')}, {'impression': float('inf')},
+                          {'ai_interpretation': 1}, {'limitations': False},
+                          {'limitations': ''}, {'confidence': []}, {'provider': {}},
+                          {'model': 0}, {'contract_version': 1}):
+            with self.subTest(overrides=overrides), self.assertRaises(ValueError):
+                self._v142_signed_interpretation(**overrides)
+
+    def test_v142_acceptance_edited_limitations_are_screened(self):
+        prepared = self._v142_signed_interpretation()
+        with self.assertRaisesRegex(ValueError, 'privacy'):
+            accept_clinical_upload(new_clinical_note(), prepared,
+                                  clinician_edit={'limitations': ['synthetic@example.invalid']})
+
+    def test_v142_acceptance_findings_only_proposal_remains_reviewable(self):
+        prepared = self._v142_signed_interpretation(ai_interpretation=None, impression=None)
+        report = accept_clinical_upload(new_clinical_note(), prepared)['report']
+        self.assertEqual(report['findings'], 'Synthetic finding')
+        self.assertEqual(report['provenance'], 'ai_image_interpretation')
+
+    def test_v142_acceptance_export_keeps_final_fields_and_json_trace(self):
+        from clinical_note_exporter import note_to_sections
+        prepared = self._v142_signed_interpretation()
+        note = accept_clinical_upload(new_clinical_note(), prepared)['note']
+        note['privacy'].update(direct_identifiers_removed=True, free_text_screened=True)
+        note['clinician_validation']['reviewed'] = True
+        exported = json.loads(export_clinical_note_bytes(note, 'json'))
+        report = exported['complementary_tests']['ecg'][0]
+        self.assertIn('acceptance_provenance', report)
+        section_text = repr(note_to_sections(note))
+        for expected in ('Synthetic finding', 'Synthetic impression', 'Image incomplete'):
+            self.assertIn(expected, section_text)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
