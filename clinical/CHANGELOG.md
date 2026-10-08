@@ -1,3 +1,9 @@
+## v1.42 consolidation — clinical-note input/privacy/acceptance (YELLOW)
+- Inspect scalar text in nested lists and privacy notes without duplicate visits.
+- Enforce the existing note schema at runtime, strict booleans, finite numbers, valid ages and structured fields; reject malformed upload acknowledgements, edits and provider responses before use.
+- Preserve signed findings, impression and limitations on omission; retain original/accepted values and actual edits in optional server-generated `acceptance_provenance` v1.0. Existing prepared-upload HMAC and source hashes are unchanged.
+- Add 30 targeted regressions; existing v1.39 tests and local Clinical QA pass. See `qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md` for limits and deferred findings. No evidence promotion or clinical recommendation change.
+
 ## v1.35 working update — ICU/ED Continuous Infusions (draft)
 - Added `vasoactive-inotrope-infusions` (cardiovascular bundle): norepinephrine, vasopressin, epinephrine, dopamine (not first-line in septic shock), dobutamine, milrinone, levosimendan, phenylephrine and availability-caveated angiotensin II, with phenotype position (cross-referenced, not duplicated), label/guideline doses, titration, ceilings, dilution/concentration, 70 kg mL/h arithmetic, peripheral/central caveats, extravasation and weaning.
 - Added `icu-sedation-analgesia-infusions` (procedures-pharmacology bundle): analgesia-first ICU continuous fentanyl, remifentanil, morphine, hydromorphone, propofol, dexmedetomidine, midazolam and ketamine adjunct; RASS/CPOT/BPS targets, light sedation, daily interruption, PRIS/triglycerides, dexmedetomidine bradycardia, benzodiazepine accumulation/delirium. `sedoanalgesia` kept as procedural sedation with a one-line cross-reference.

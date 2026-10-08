@@ -414,6 +414,35 @@
     }
   },
   "$defs": {
+    "interpretation_fields": {
+      "type": "object",
+      "required": ["official_report", "ai_interpretation", "findings", "impression", "limitations"],
+      "properties": {
+        "official_report": {"type": ["string", "null"]},
+        "ai_interpretation": {"type": ["string", "null"]},
+        "findings": {"type": ["string", "null"]},
+        "impression": {"type": ["string", "null"]},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "acceptance_provenance": {
+      "type": "object",
+      "required": ["contract_version", "upload_id", "source_sha256", "prepared_integrity_token", "original", "accepted", "edited_fields"],
+      "properties": {
+        "contract_version": {"const": "1.0"},
+        "upload_id": {"type": "string"},
+        "source_sha256": {"type": "string"},
+        "prepared_integrity_token": {"type": "string"},
+        "original": {"$ref": "#/$defs/interpretation_fields"},
+        "accepted": {"$ref": "#/$defs/interpretation_fields"},
+        "edited_fields": {
+          "type": "array",
+          "items": {"type": "string", "enum": ["official_report", "ai_interpretation", "findings", "impression", "limitations"]}
+        }
+      },
+      "additionalProperties": false
+    },
     "medication": {
       "type": "object",
       "required": [
@@ -569,6 +598,7 @@
         "provenance"
       ],
       "properties": {
+        "acceptance_provenance": {"$ref": "#/$defs/acceptance_provenance"},
         "kind": {
           "type": "string"
         },

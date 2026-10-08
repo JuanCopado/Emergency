@@ -1,4 +1,4 @@
-import type { ClinicalNotePayload, DiagnosticApiResponse, PreparedUpload } from './types';
+import type { ClinicalNotePayload, DiagnosticApiResponse, InterpretationFields, PreparedUpload } from './types';
 
 const API_BASE=(import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/,'');
 
@@ -51,7 +51,7 @@ export async function interpretClinicalUpload(
 export async function acceptClinicalUpload(
   note:ClinicalNotePayload,
   prepared:PreparedUpload,
-  clinicianEdit:{official_report?:string|null;ai_interpretation?:string|null;time_label?:string|null},
+  clinicianEdit:Partial<InterpretationFields> & {time_label?:string|null},
   privacyChecked:boolean,
   burnedInIdentifiersChecked:boolean,
 ){

@@ -1,3 +1,14 @@
+# Consolidación v1.42 — bloque P1 de contratos, privacidad y aceptación — 08/10/2026
+
+- Rama: `v1.42-codex-consolidation`; base auditada `0d2fcec1baba7dd50e352890777f4873d8a4dd0d`.
+- Corregidos recorrido de privacidad en listas/anidados, tipos de entrada y preservación de campos de interpretación firmados.
+- Trazabilidad de aceptación aditiva `acceptance_provenance` v1.0; HMAC del preparado y hash del original sin cambios. No equivale a firma del informe final.
+- Ver contrato, pruebas y límites en `qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md`.
+- Validación local: 30 regresiones nuevas, 24 pruebas v1.39 y Clinical QA 12/12 controles PASS (406 pruebas en la suite principal).
+- Sin promoción de evidencia: los módulos afectados y los 196 procedimientos siguen YELLOW; registro global sin cambios, 29 GREEN / 102 YELLOW.
+- QA automatizado no es validación clínica prospectiva. Capa visual PAUSADA; `main` no modificado.
+- Siguiente bloque pendiente de autorización: negación/temporalidad, Unicode/PDF, respuestas obsoletas del frontend y restantes hallazgos de la auditoría. No implementados aquí.
+
 # Snapshot de continuidad v1.41 — 06/10/2026
 
 > Este bloque prevalece para la rama `v1.41-procedures-visual`; el contenido histórico inferior conserva snapshots anteriores y no debe usarse como estado actual de esta rama.

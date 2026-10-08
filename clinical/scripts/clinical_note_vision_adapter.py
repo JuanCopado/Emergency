@@ -114,18 +114,22 @@ def _normalize_response(payload):
         raise VisionAdapterError("vision provider returned a non-object response")
     if payload.get("status") != "ok":
         raise VisionAdapterError("vision provider did not return status=ok")
-    if str(payload.get("contract_version") or "") != CONTRACT_VERSION:
+    if payload.get("contract_version") != CONTRACT_VERSION:
         raise VisionAdapterError("vision provider contract version mismatch")
     confidence = payload.get("confidence")
-    if confidence not in ALLOWED_CONFIDENCE:
+    if (confidence is not None and not isinstance(confidence, str)) or confidence not in ALLOWED_CONFIDENCE:
         raise VisionAdapterError("vision provider confidence must be high/moderate/low or null")
-    ai_text = str(payload.get("ai_interpretation") or "").strip()
-    findings = str(payload.get("findings") or "").strip()
-    impression = str(payload.get("impression") or "").strip()
-    official = str(payload.get("official_report") or "").strip()
+    for field in ("ai_interpretation", "findings", "impression", "official_report", "provider", "model"):
+        value = payload.get(field)
+        if value is not None and not isinstance(value, str):
+            raise VisionAdapterError(f"vision provider {field} must be a string or null")
+    ai_text = (payload.get("ai_interpretation") or "").strip()
+    findings = (payload.get("findings") or "").strip()
+    impression = (payload.get("impression") or "").strip()
+    official = (payload.get("official_report") or "").strip()
     if not any((ai_text, findings, impression, official)):
         raise VisionAdapterError("vision provider returned no reviewable clinical content")
-    limitations = payload.get("limitations") or []
+    limitations = payload.get("limitations", [])
     if not isinstance(limitations, list) or any(not isinstance(x, str) for x in limitations):
         raise VisionAdapterError("vision provider limitations must be a string array")
     return {

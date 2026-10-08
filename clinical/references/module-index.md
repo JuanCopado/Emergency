@@ -1,5 +1,7 @@
 # Module manifest v1.36 consolidation
 
+v1.42 continuity: module IDs and routing are unchanged. Clinical-note runtime input/privacy/acceptance hardening is documented in `qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md`; its evidence status remains YELLOW.
+
 Read only the bundles required by `router.md`. Within a bundle, locate the exact
 heading `## <module-id>`. Every routed ID must resolve here and in its target
 bundle; `scripts/validate_modules.py` enforces that invariant.

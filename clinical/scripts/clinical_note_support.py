@@ -2,6 +2,7 @@
 """Structured clinical-note support, privacy preflight and attachment routing."""
 
 import json
+import math
 import re
 import uuid
 from copy import deepcopy
@@ -9,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 POLICY_PATH = ROOT / "qa" / "clinical-note-privacy-policy.json"
+SCHEMA_PATH = ROOT / "qa" / "clinical-note-schema.json"
 
 ATTACHMENT_ROUTES = {
     "ecg": ["ecg-image"],
@@ -57,8 +59,83 @@ REPORT_SECTIONS = {
 def load_policy():
     return json.loads(POLICY_PATH.read_text(encoding="utf-8"))
 
+def require_boolean(value, name):
+    if type(value) is not bool:
+        raise ValueError(f"{name} must be a boolean")
+    return value
+
+def validate_contract(value, definition=None):
+    """Validate the keywords used by the local note schema without coercion.
+
+    This is deliberately a validator for this project's schema, not a general
+    JSON Schema implementation. It also rejects non-JSON/nonfinite values in
+    extension fields that the root schema permits.
+    """
+    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    errors = []
+
+    def fail(path, message):
+        errors.append({"severity": "STOP", "code": "INVALID_CONTRACT", "path": path,
+                       "message": f"{path}: {message}"})
+
+    def matches(item, kind):
+        return {
+            "object": isinstance(item, dict), "array": isinstance(item, list),
+            "string": isinstance(item, str), "boolean": type(item) is bool,
+            "number": type(item) in (int, float), "null": item is None,
+        }.get(kind, False)
+
+    def visit(item, spec, path):
+        if "$ref" in spec:
+            spec = schema["$defs"][spec["$ref"].removeprefix("#/$defs/")]
+        types = spec.get("type", [])
+        if isinstance(types, str):
+            types = [types]
+        if types and not any(matches(item, kind) for kind in types):
+            fail(path, "expected " + " or ".join(types))
+            return
+        if "const" in spec and item != spec["const"]:
+            fail(path, "unsupported value")
+        if "enum" in spec and item not in spec["enum"]:
+            fail(path, "value is not in the allowed set")
+        if isinstance(item, dict):
+            for key in spec.get("required", []):
+                if key not in item:
+                    fail(f"{path}.{key}", "required field is missing")
+            properties = spec.get("properties", {})
+            for key, child in item.items():
+                if key in properties:
+                    visit(child, properties[key], f"{path}.{key}")
+                elif spec.get("additionalProperties") is False:
+                    fail(f"{path}.{key}", "unknown field")
+        elif isinstance(item, list):
+            for index, child in enumerate(item):
+                visit(child, spec.get("items", {}), f"{path}[{index}]")
+        elif isinstance(item, str) and len(item) < spec.get("minLength", 0):
+            fail(path, f"minimum length is {spec['minLength']}")
+        elif type(item) in (int, float):
+            if "minimum" in spec and item < spec["minimum"]:
+                fail(path, f"must be >= {spec['minimum']}")
+            if "maximum" in spec and item > spec["maximum"]:
+                fail(path, f"must be <= {spec['maximum']}")
+
+    visit(value, definition if definition is not None else schema, "$")
+    for path, key, item in _walk(value):
+        if isinstance(item, float) and not math.isfinite(item):
+            fail(path, "number must be finite")
+        elif not isinstance(item, (dict, list, str, int, float, bool, type(None))):
+            fail(path, "value must be JSON-compatible")
+        if isinstance(item, dict) and any(not isinstance(k, str) for k in item):
+            fail(path, "object keys must be strings")
+    return errors
+
+def require_contract(value, definition=None):
+    errors = validate_contract(value, definition)
+    if errors:
+        raise ValueError("invalid clinical-note contract: " + " | ".join(x["message"] for x in errors))
+
 def new_note(age_years=None, age_months=None, sex="unknown", language="pt-PT", privacy_mode="clinical_pseudonymized"):
-    return {
+    note = {
         "schema_version": "1.0",
         "language": language,
         "encounter": {
@@ -126,6 +203,8 @@ def new_note(age_years=None, age_months=None, sex="unknown", language="pt-PT", p
             "privacy_notes": [],
         },
     }
+    require_contract(note)
+    return note
 
 def route_attachment(kind):
     key = str(kind or "").strip().lower()
@@ -138,6 +217,9 @@ def route_attachment(kind):
 def add_report(note, kind, provenance, official_report=None, ai_interpretation=None,
                findings=None, impression=None, limitations=None, source_reference=None,
                time_label=None, privacy_checked=False, burned_in_identifiers_checked=False):
+    require_contract(note)
+    require_boolean(privacy_checked, "privacy_checked")
+    require_boolean(burned_in_identifiers_checked, "burned_in_identifiers_checked")
     route = route_attachment(kind)
     item = {
         "kind": kind,
@@ -148,19 +230,21 @@ def add_report(note, kind, provenance, official_report=None, ai_interpretation=N
         "ai_interpretation": ai_interpretation,
         "findings": findings,
         "impression": impression,
-        "limitations": limitations or [],
-        "privacy_checked": bool(privacy_checked),
-        "burned_in_identifiers_checked": bool(burned_in_identifiers_checked),
+        "limitations": [] if limitations is None else limitations,
+        "privacy_checked": privacy_checked,
+        "burned_in_identifiers_checked": burned_in_identifiers_checked,
         "routed_modules": route["modules"],
     }
-    note["complementary_tests"][route["target_section"]].append(item)
+    require_contract(item, {"$ref": "#/$defs/report_item"})
+    note["complementary_tests"].setdefault(route["target_section"], []).append(item)
     return item
 
-def _walk(obj, path="$"):
+def _walk(obj, path="$", key=None):
+    """Visit each node once, including scalar list items and root values."""
+    yield path, key, obj
     if isinstance(obj, dict):
         for k, v in obj.items():
-            yield f"{path}.{k}", k, v
-            yield from _walk(v, f"{path}.{k}")
+            yield from _walk(v, f"{path}.{k}", k)
     elif isinstance(obj, list):
         for i, v in enumerate(obj):
             yield from _walk(v, f"{path}[{i}]")
@@ -183,9 +267,6 @@ def scan_privacy(note, policy=None):
         flags = re.I if "i" in rule.get("flags", "").lower() else 0
         compiled.append((rule["id"], re.compile(rule["pattern"], flags)))
     for path, text in _all_text(note):
-        # Do not rescan the privacy policy notes themselves.
-        if path.startswith("$.privacy"):
-            continue
         for rid, pattern in compiled:
             if pattern.search(text):
                 findings.append({"severity": "STOP", "code": "POSSIBLE_IDENTIFIER_IN_TEXT",
@@ -213,7 +294,9 @@ def detect_data_quality_issues(note):
     return issues
 
 def validate_for_analysis(note):
-    errors = []
+    errors = validate_contract(note)
+    if errors:
+        return errors
     for key in ("schema_version", "encounter", "history", "exam", "complementary_tests", "assessment", "privacy"):
         if key not in note:
             errors.append({"severity": "STOP", "code": "MISSING_SECTION", "message": f"Missing note section: {key}"})
@@ -230,14 +313,16 @@ def validate_for_analysis(note):
 
 def validate_for_export(note):
     findings = validate_for_analysis(note)
+    if any(x["code"] == "INVALID_CONTRACT" for x in findings):
+        return {"blocked": True, "findings": findings, "export_allowed": False}
     p = note.get("privacy", {})
-    if not p.get("direct_identifiers_removed"):
+    if p.get("direct_identifiers_removed") is not True:
         findings.append({"severity": "STOP", "code": "DIRECT_IDENTIFIERS_NOT_CLEARED", "message": "Direct identifiers have not been cleared."})
-    if not p.get("free_text_screened"):
+    if p.get("free_text_screened") is not True:
         findings.append({"severity": "STOP", "code": "FREE_TEXT_NOT_SCREENED", "message": "Free text has not been screened for identifiers."})
-    if not note.get("clinician_validation", {}).get("reviewed"):
+    if note.get("clinician_validation", {}).get("reviewed") is not True:
         findings.append({"severity": "STOP", "code": "CLINICIAN_REVIEW_REQUIRED", "message": "Clinician review is required before export."})
-    if p.get("mode") == "external_anonymized" and not p.get("source_metadata_checked"):
+    if p.get("mode") == "external_anonymized" and p.get("source_metadata_checked") is not True:
         findings.append({"severity": "STOP", "code": "SOURCE_METADATA_NOT_CHECKED", "message": "Source metadata must be checked for external anonymized export."})
     has_embedded_image_interpretation = any(
         r.get("ai_interpretation")
@@ -245,7 +330,7 @@ def validate_for_export(note):
         for r in reports
         if isinstance(r, dict)
     )
-    if p.get("mode") == "external_anonymized" and has_embedded_image_interpretation and not p.get("burned_in_identifiers_checked"):
+    if p.get("mode") == "external_anonymized" and has_embedded_image_interpretation and p.get("burned_in_identifiers_checked") is not True:
         findings.append({"severity": "STOP", "code": "BURNED_IN_IDENTIFIERS_NOT_CHECKED",
                          "message": "Burned-in identifiers must be checked for external export of image-derived content."})
     blocked = any(x["severity"] == "STOP" for x in findings)

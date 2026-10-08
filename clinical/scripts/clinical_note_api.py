@@ -34,6 +34,8 @@ from clinical_note_vision_adapter import invoke as invoke_clinical_vision, is_co
 from clinical_note_support import (
     add_report,
     new_note,
+    require_boolean,
+    require_contract,
     route_attachment,
     scan_privacy,
     validate_for_analysis,
@@ -215,6 +217,8 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
                               burned_in_identifiers_checked=False,
                               vision_transport=None, vision_env=None):
     """Invoke the configured binary interpreter without persisting its proposal."""
+    require_boolean(privacy_checked, "privacy_checked")
+    require_boolean(burned_in_identifiers_checked, "burned_in_identifiers_checked")
     _verify_prepared(prepared)
     raw = _decode_upload(content_base64)
     digest = hashlib.sha256(raw).hexdigest()
@@ -232,11 +236,7 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
         transport=vision_transport,
     )
     proposal = result.get("result") or {}
-    privacy_text = "\n".join(
-        str(proposal.get(key) or "")
-        for key in ("official_report", "ai_interpretation", "findings", "impression")
-    )
-    privacy_findings = _privacy_for_text(privacy_text)
+    privacy_findings = scan_privacy(proposal)
     if any(x.get("severity") == "STOP" for x in privacy_findings):
         raise ValueError("vision interpretation output contains possible direct identifiers")
 
@@ -273,6 +273,8 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
 
 
 def _accepted_provenance(prepared, ai_interpretation):
+    if prepared.get("processing", {}).get("status") == "vision_interpreted":
+        return "ai_document_extraction" if prepared.get("kind") == "pdf_document" else "ai_image_interpretation"
     if ai_interpretation:
         if prepared.get("processing", {}).get("status") == "text_extracted":
             return "ai_document_extraction"
@@ -284,6 +286,9 @@ def _accepted_provenance(prepared, ai_interpretation):
 
 def accept_prepared_upload(note, prepared, clinician_edit=None,
                            privacy_checked=False, burned_in_identifiers_checked=False):
+    require_boolean(privacy_checked, "privacy_checked")
+    require_boolean(burned_in_identifiers_checked, "burned_in_identifiers_checked")
+    require_contract(note)
     if not isinstance(note, dict) or not isinstance(prepared, dict):
         raise ValueError("note and prepared upload are required")
     _verify_prepared(prepared)
@@ -295,10 +300,30 @@ def accept_prepared_upload(note, prepared, clinician_edit=None,
     if privacy.get("burned_in_identifier_review_required") and not burned_in_identifiers_checked:
         raise ValueError("burned-in identifier review is required before acceptance")
 
-    edit = clinician_edit or {}
-    official = edit.get("official_report", prepared.get("extracted", {}).get("official_report"))
-    ai_text = edit.get("ai_interpretation", prepared.get("extracted", {}).get("ai_interpretation"))
-    if not (str(official or "").strip() or str(ai_text or "").strip()):
+    edit = {} if clinician_edit is None else clinician_edit
+    editable_text = ("official_report", "ai_interpretation", "findings", "impression", "time_label")
+    require_contract(edit, {
+        "type": "object",
+        "properties": {
+            **{key: {"type": ["string", "null"]} for key in editable_text},
+            "limitations": {"type": "array", "items": {"type": "string"}},
+        },
+        "additionalProperties": False,
+    })
+    extracted = prepared.get("extracted", {})
+    processing = prepared.get("processing", {})
+    original = {
+        "official_report": extracted.get("official_report"),
+        "ai_interpretation": extracted.get("ai_interpretation"),
+        "findings": processing.get("findings"),
+        "impression": processing.get("impression"),
+        "limitations": deepcopy(processing.get("limitations", [])),
+    }
+    require_contract(original, {"$ref": "#/$defs/interpretation_fields"})
+    accepted_fields = {key: deepcopy(edit[key] if key in edit else value)
+                       for key, value in original.items()}
+    if not any(accepted_fields[key] and accepted_fields[key].strip()
+               for key in ("official_report", "ai_interpretation", "findings", "impression")):
         raise ValueError("accepted upload must contain reviewed extracted/official or interpreted text")
 
     candidate = deepcopy(note)
@@ -306,17 +331,24 @@ def accept_prepared_upload(note, prepared, clinician_edit=None,
     report = add_report(
         candidate,
         prepared.get("kind") or "other_image",
-        _accepted_provenance(prepared, ai_text),
-        official_report=official,
-        ai_interpretation=ai_text,
-        findings=edit.get("findings"),
-        impression=edit.get("impression"),
-        limitations=edit.get("limitations") or [],
+        _accepted_provenance(prepared, accepted_fields["ai_interpretation"]),
+        **accepted_fields,
         source_reference=source_reference,
         time_label=edit.get("time_label"),
         privacy_checked=privacy_checked or privacy.get("status") == "PASS",
         burned_in_identifiers_checked=burned_in_identifiers_checked,
     )
+    # Server-derived history of acceptance, not a signature of the final note.
+    # The prepared HMAC format and source SHA-256 remain unchanged.
+    report["acceptance_provenance"] = {
+        "contract_version": "1.0",
+        "upload_id": prepared["upload_id"],
+        "source_sha256": prepared["sha256"],
+        "prepared_integrity_token": prepared["integrity_token"],
+        "original": deepcopy(original),
+        "accepted": deepcopy(accepted_fields),
+        "edited_fields": [key for key in original if original[key] != accepted_fields[key]],
+    }
     candidate.setdefault("timeline", []).append({
         "time_label": edit.get("time_label") or "MCDT",
         "event": f"Accepted {prepared.get('kind') or 'attachment'} result",
@@ -395,6 +427,8 @@ def export_note_bytes(note, fmt):
 
 
 def dispatch(path, payload):
+    if not isinstance(payload, dict):
+        raise ValueError("request payload must be an object")
     if path == "/api/clinical-note/new":
         return HTTPStatus.OK, new_note(
             age_years=payload.get("age_years"),
@@ -421,16 +455,16 @@ def dispatch(path, payload):
         return HTTPStatus.OK, interpret_prepared_upload(
             payload.get("prepared") or {},
             payload.get("content_base64"),
-            privacy_checked=bool(payload.get("privacy_checked")),
-            burned_in_identifiers_checked=bool(payload.get("burned_in_identifiers_checked")),
+            privacy_checked=payload.get("privacy_checked", False),
+            burned_in_identifiers_checked=payload.get("burned_in_identifiers_checked", False),
         )
     if path == "/api/clinical-note/upload/accept":
         return HTTPStatus.OK, accept_prepared_upload(
             payload.get("note") or {},
             payload.get("prepared") or {},
-            clinician_edit=payload.get("clinician_edit") or {},
-            privacy_checked=bool(payload.get("privacy_checked")),
-            burned_in_identifiers_checked=bool(payload.get("burned_in_identifiers_checked")),
+            clinician_edit=payload.get("clinician_edit"),
+            privacy_checked=payload.get("privacy_checked", False),
+            burned_in_identifiers_checked=payload.get("burned_in_identifiers_checked", False),
         )
     if path == "/api/clinical-note/analyze":
         return HTTPStatus.OK, run_diagnostic_support(payload.get("note") or {})

@@ -1,4 +1,13 @@
-# Validation report — estado autoritativo actual v1.35
+# v1.42 — validación local del bloque P1, 08/10/2026
+
+- Privacidad, contrato de entrada y aceptación: 30/30 regresiones nuevas PASS; los defectos se reprodujeron antes de sus respectivas correcciones.
+- Nota clínica v1.39: 24/24 pruebas preexistentes PASS, incluidos exportación DOCX/PDF/JSON, firmas y proveedor simulado.
+- `qa/qa_runner.py`: 12/12 controles PASS; suite principal 406 pruebas, procedimientos 22, gotas pediátricas 3 y metadatos visuales 2. El runner repite además dos grupos de 3 pruebas de esquema; no contarlos como pruebas únicas adicionales.
+- Entorno local Windows / Python 3.14.7. Ejecución con `PYTHONUTF8=1`, `PYTHONIOENCODING=utf-8`, `PYTHONDONTWRITEBYTECODE=1`.
+- Estado de liberación: `CLINICALLY_PENDING`. No se ejecutaron typecheck/Vitest/build por ausencia de `app/node_modules` y compilador TypeScript local; no se instalaron dependencias. Sin validación con proveedor externo real ni nueva revisión bibliográfica.
+- Detalle y contrato aditivo: `qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md`.
+
+# Validation report — estado autoritativo actual v1.35 (histórico)
 
 ## v1.36 blinded image evaluation infrastructure
 - Dataset contract v1.1 requires one modality/target, patient/study hashes, prediction-freeze and reference-reveal timestamps, independent reference and leakage controls.
