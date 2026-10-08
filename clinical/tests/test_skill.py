@@ -28,6 +28,10 @@ from clinical_note_api import (
     run_diagnostic_support as run_clinical_note_api_diagnostic,
     export_note_bytes as export_clinical_note_bytes,
     interpret_prepared_upload as interpret_clinical_upload,
+    append_audit_event as append_clinical_note_audit,
+    read_audit_trail as read_clinical_note_audit,
+    verify_audit_chain as verify_clinical_note_audit_chain,
+    diagnostic_provenance as clinical_note_diagnostic_provenance,
 )
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
 from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
@@ -5955,6 +5959,40 @@ class ModularCoreTests(unittest.TestCase):
         missing=set(module_ids)-routed-exempt
         self.assertEqual(missing,set(),sorted(missing))
         self.assertEqual(set(module_ids)-routed,exempt)
+
+
+    def test_v1391_server_audit_chain_is_tamper_evident(self):
+        note = new_clinical_note(age_years=55, sex='male')
+        first = append_clinical_note_audit(note, 'NOTE_CREATED', 'encounter', detail='Created.')
+        second = append_clinical_note_audit(note, 'CLINICIAN_REVIEW', 'assessment', detail='Reviewed.')
+        trail = read_clinical_note_audit(note)
+        self.assertTrue(trail['chain_valid'])
+        self.assertEqual(trail['events'][-1]['previous_hmac'], first['event_hmac'])
+        self.assertEqual(second['sequence'], 2)
+        tampered = json.loads(json.dumps(trail['events']))
+        tampered[0]['detail'] = 'tampered'
+        self.assertFalse(verify_clinical_note_audit_chain(tampered))
+
+    def test_v1391_diagnostic_provenance_hashes_source_bundles(self):
+        assessment = {
+            'likely_diagnoses': [{
+                'diagnosis': 'ACS',
+                'confidence': 'moderate',
+                'source_modules': ['acute-coronary-syndrome'],
+            }],
+            'differential_diagnoses': [],
+            'must_not_miss': [],
+            'suggested_tests': [],
+            'treatment_suggestions': [],
+            'disposition': [],
+            'reassessment': [],
+        }
+        provenance = clinical_note_diagnostic_provenance(assessment)
+        self.assertIn('diagnostic_rules_sha256', provenance)
+        self.assertEqual(len(provenance['diagnostic_rules_sha256']), 64)
+        source = next(x for x in provenance['module_sources'] if x['module_id'] == 'acute-coronary-syndrome')
+        self.assertEqual(source['bundle'], 'modules/cardiovascular.md')
+        self.assertEqual(len(source['sha256']), 64)
 
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
