@@ -44,3 +44,30 @@ La primera implementación utiliza CSS de impresión y `window.print()`, evitand
 - Coma / alteración del nivel de conciencia → `altered-consciousness`
 
 Estas guías son YELLOW y conservan trazabilidad al módulo canónico.
+
+
+## Cobertura global
+
+La infraestructura exportable cubre ahora los **131 módulos clínicos** presentes en
+`clinical/references/module-index.md`.
+
+El catálogo se genera desde los bundles canónicos con:
+
+`cd app && npm run guides:build`
+
+Salida:
+
+`app/src/data/generatedClinicalGuides.json`
+
+Esto permite abrir cualquier módulo en `/guides/<module-id>`, visualizarlo a pantalla
+completa e imprimirlo/guardarlo como PDF sin reescribir su contenido clínico.
+
+Los algoritmos rápidos (por ejemplo FV/TV sin pulso, asistolia/AESP y coma) pueden tener
+una plantilla resumida específica superpuesta al módulo canónico. Si no existe una
+plantilla rápida, se exporta la sección canónica completa del módulo.
+
+## Regla de actualización
+
+Cuando cambie `clinical/references/module-index.md` o cualquier bundle de
+`clinical/modules/`, el build regenera el catálogo. El exportador no promociona estados
+de evidencia ni sustituye revisión humana.
