@@ -152,6 +152,7 @@ export type PreparedUpload = {
 
 export type DiagnosticApiResponse = {
   blocked: boolean;
+  diagnostic_provenance?: DiagnosticProvenance;
   issues: { severity: string; code: string; message: string }[];
   signals?: { code: string; weight: number; label: string }[];
   rule_hits?: { module: string; score: number; evidence: string[] }[];
@@ -163,4 +164,34 @@ export type DiagnosticApiResponse = {
     required_module: string | null;
     message: string;
   };
+};
+
+
+export type DiagnosticProvenance = {
+  api_version: string;
+  build_sha: string;
+  diagnostic_rules_sha256: string | null;
+  source_modules: string[];
+  module_sources: { module_id: string; bundle: string | null; sha256: string | null }[];
+  generated_at: string;
+};
+
+export type AuditEvent = {
+  sequence: number;
+  event_id: string;
+  encounter_id: string;
+  timestamp: string;
+  action: string;
+  target: string;
+  detail: string;
+  metadata: Record<string, string | number | boolean | null>;
+  previous_hmac: string;
+  event_hmac: string;
+};
+
+export type AuditTrailResponse = {
+  encounter_id: string;
+  events: AuditEvent[];
+  chain_valid: boolean;
+  storage: 'persistent_jsonl' | 'process_memory';
 };
