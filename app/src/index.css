@@ -141,3 +141,30 @@
     min-height: 28mm;
   }
 }
+
+
+.clinical-module-sheet:fullscreen {
+  overflow: auto;
+  padding: 2rem;
+  background: rgb(var(--c-bg));
+}
+@media print {
+  .clinical-module-sheet,
+  .clinical-module-sheet * {
+    visibility: visible;
+  }
+  .clinical-module-sheet {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: white !important;
+    color: #0f172a !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
