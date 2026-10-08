@@ -2,15 +2,19 @@ import { useMemo, useState } from 'react';
 import {
   acceptClinicalUpload,
   analyzeClinicalNote,
+  appendClinicalAuditEvent,
   downloadBlob,
   exportClinicalNote,
   interpretClinicalUpload,
   preflightClinicalNote,
   prepareClinicalUpload,
+  readClinicalAuditTrail,
 } from '../clinical-note/api';
 import type {
+  AuditTrailResponse,
   ClinicalAssessment,
   ClinicalNotePayload,
+  DiagnosticProvenance,
   PreparedUpload,
   ReportItem,
   ReviewState,
@@ -80,6 +84,8 @@ export default function ClinicalNote(){
    anticoagulation:'unknown',anticoagulantAgent:'',allergyStatus:'unknown',
  });
  const [auditTrail,setAuditTrail]=useState<AuditEvent[]>([]);
+ const [serverAudit,setServerAudit]=useState<AuditTrailResponse|null>(null);
+ const [diagnosticProvenance,setDiagnosticProvenance]=useState<DiagnosticProvenance|null>(null);
  const [exportRevision,setExportRevision]=useState(0);
  const encounter=useMemo(()=>crypto.randomUUID?.() ?? `enc-${Date.now()}`,[]);
  const allAccepted=Object.values(reports).flat();
@@ -103,6 +109,19 @@ export default function ClinicalNote(){
 
  function appendAudit(action:string,target:string,detail:string){
    setAuditTrail(current=>[...current,{id:crypto.randomUUID?.() ?? `audit-${Date.now()}-${current.length}`,at:new Date().toISOString(),action,target,detail}]);
+ }
+ async function refreshServerAudit(note?:ClinicalNotePayload){
+   try{
+     setServerAudit(await readClinicalAuditTrail(note ?? buildNote()));
+   }catch{
+     setServerAudit(null);
+   }
+ }
+ function appendServerAudit(action:string,target:string,detail:string,metadata?:Record<string,unknown>){
+   const note=buildNote();
+   void appendClinicalAuditEvent(note,action,target,detail,metadata)
+     .then(()=>refreshServerAudit(note))
+     .catch(()=>setServerAudit(null));
  }
  function touch(){
    setClinicianReviewed(false);
@@ -245,7 +264,7 @@ export default function ClinicalNote(){
    const id=`${Date.now()}-${mcdt.length}`;
    setMcdt(x=>[...x,{id,kind:draftKind,name:draftName||draftKind,official:draftOfficial,ai:draftAi,state:'pending',
      provenance:'entrada manual → revisão médica',privacyChecked:true,burnedChecked:true,sourceReference:`ui:${id}`}]);
-   setDraftName('');setDraftOfficial('');setDraftAi('');appendAudit('MCDT_CREATED',id,`Entrada manual: ${draftName||draftKind}`);touch();
+   setDraftName('');setDraftOfficial('');setDraftAi('');appendAudit('MCDT_CREATED',id,`Entrada manual: ${draftName||draftKind}`);appendServerAudit('MCDT_CREATED',id,`Entrada manual: ${draftName||draftKind}`);touch();
  }
  async function acceptCard(id:string){
    const card=mcdt.find(x=>x.id===id); if(!card) return;
@@ -260,7 +279,7 @@ export default function ClinicalNote(){
        setReports(result.note.complementary_tests);
        setTimeline(result.note.timeline);
        setMcdt(v=>v.map(x=>x.id===id?{...x,state:'accepted'}:x));
-       appendAudit('MCDT_ACCEPTED',id,card.name);touch();
+       appendAudit('MCDT_ACCEPTED',id,card.name);void refreshServerAudit(result.note);touch();
      }catch(e){setApiError(e instanceof Error?e.message:'Não foi possível aceitar o MCDT.');}
      finally{setApiBusy(false);}
      return;
@@ -273,7 +292,7 @@ export default function ClinicalNote(){
      privacy_checked:true,burned_in_identifiers_checked:true,routed_modules:[]};
    setReports(current=>({...current,[section]:[...current[section],report]}));
    setTimeline(v=>[...v,{time_label:'MCDT',event:`Aceite: ${card.kind} · ${card.name}`,source:card.sourceReference}]);
-   setMcdt(v=>v.map(x=>x.id===id?{...x,state:'accepted'}:x));appendAudit('MCDT_ACCEPTED',id,card.name);touch();
+   setMcdt(v=>v.map(x=>x.id===id?{...x,state:'accepted'}:x));appendAudit('MCDT_ACCEPTED',id,card.name);appendServerAudit('MCDT_ACCEPTED',id,card.name);touch();
  }
  function editCard(id:string,patch:Partial<McdtCard>){
    const existing=mcdt.find(x=>x.id===id);
@@ -283,7 +302,7 @@ export default function ClinicalNote(){
  function rejectCard(id:string){
    const existing=mcdt.find(x=>x.id===id);
    if(existing?.state==='accepted') removePersisted(existing);
-   setMcdt(v=>v.map(x=>x.id===id?{...x,state:'rejected'}:x));appendAudit('MCDT_REJECTED',id,existing?.name||id);touch();
+   setMcdt(v=>v.map(x=>x.id===id?{...x,state:'rejected'}:x));appendAudit('MCDT_REJECTED',id,existing?.name||id);appendServerAudit('MCDT_REJECTED',id,existing?.name||id);touch();
  }
  async function runDiagnostic(){
    setApiError('');setApiBusy(true);
@@ -291,12 +310,13 @@ export default function ClinicalNote(){
      const result=await analyzeClinicalNote(buildNote());
      if(result.blocked){setApiError(result.issues.map(x=>x.message).join(' · ')||'Análise bloqueada.');return;}
      setAssessment(result.assessment);
+     setDiagnosticProvenance(result.diagnostic_provenance ?? null);
      appendAudit('DIAGNOSTIC_ANALYSIS','assessment',`Atualizado com ${result.assessment?.likely_diagnoses.length??0} diagnóstico(s) provável(is).`);
      setDiagnosticAlerts([
        ...(result.signals||[]).map(x=>({severity:x.weight>=2?'RED_FLAG':'ALERT',code:x.code,message:x.label})),
        ...result.issues.filter(x=>x.severity==='ALERT'||x.severity==='CAUTION').map(x=>({severity:x.severity,code:x.code,message:x.message})),
      ]);
-     setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);setCriticalReviewAck(false);
+     setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);setCriticalReviewAck(false);void refreshServerAudit(result.note ?? buildNote());
    }catch(e){setApiError(e instanceof Error?e.message:'Backend clínico indisponível.');}
    finally{setApiBusy(false);}
  }
@@ -307,9 +327,11 @@ export default function ClinicalNote(){
      const preflight=await preflightClinicalNote(note);
      if(preflight.blocked){setApiError(preflight.findings.map(x=>x.message).join(' · '));return;}
      const out=await exportClinicalNote(note,format);
+     if(out.provenance) setDiagnosticProvenance(out.provenance);
      const nextRevision=exportRevision+1;
      setExportRevision(nextRevision);
      appendAudit('EXPORT',format,`Revisão ${nextRevision}: ${out.filename}`);
+     void refreshServerAudit(note);
      downloadBlob(out.filename,out.blob);
    }catch(e){setApiError(e instanceof Error?e.message:'Exportação bloqueada pelo backend.');}
    finally{setApiBusy(false);}
@@ -370,6 +392,7 @@ export default function ClinicalNote(){
     {diagnosticAlerts.length>0&&<div className={card}><h2 className="font-bold text-danger">Alertas / red flags</h2><div className="mt-3 grid gap-2 md:grid-cols-2">{diagnosticAlerts.map((x,i)=><div key={`${x.code}-${i}`} className="rounded-xl border border-danger p-3 text-sm"><div className="font-bold">{x.severity} · {x.code}</div><p className="mt-1">{x.message}</p></div>)}</div></div>}
     {assessment?.problem_representation&&<div className={card}><h2 className="font-bold">Representação do problema</h2><p className="mt-2 text-sm">{assessment.problem_representation}</p></div>}
     {assessment?.limitations.length?<div className={card}><h2 className="font-bold text-warn">Limitações do apoio diagnóstico</h2><ul className="mt-2 space-y-1 text-sm">{assessment.limitations.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}
+    {diagnosticProvenance&&<div className={card}><div className="flex flex-wrap items-center gap-2"><h2 className="font-bold">Proveniência diagnóstica</h2><span className="chip">API {diagnosticProvenance.api_version}</span></div><div className="mt-3 grid gap-2 text-xs text-muted"><p><strong>Build:</strong> <span className="break-all">{diagnosticProvenance.build_sha}</span></p><p><strong>Regras:</strong> <span className="break-all">{diagnosticProvenance.diagnostic_rules_sha256||'indisponível'}</span></p><p><strong>Módulos:</strong> {diagnosticProvenance.source_modules.join(' · ')||'—'}</p></div>{diagnosticProvenance.module_sources.length?<div className="mt-3 space-y-1 text-[11px] text-muted">{diagnosticProvenance.module_sources.map(source=><p key={source.module_id}><strong>{source.module_id}</strong> · {source.bundle||'bundle não resolvido'} · <span className="break-all">{source.sha256||'digest indisponível'}</span></p>)}</div>:null}</div>}
     <div className="grid gap-4 lg:grid-cols-2">
       {([
         ['Must not miss',assessment?.must_not_miss||[]],
@@ -396,7 +419,7 @@ export default function ClinicalNote(){
       <label className="flex items-start gap-2 rounded-xl border border-warn bg-warn-bg p-3 text-warn"><input type="checkbox" checked={staleExportAck} onChange={e=>setStaleExportAck(e.target.checked)}/><span><strong>Aceito exportar com apoio diagnóstico desatualizado.</strong> A decisão clínica atual foi revista independentemente pelo médico.</span></label>
     </>}
     {criticalRiskPresent&&<label className="flex items-start gap-2 rounded-xl border border-danger p-3 text-danger"><input type="checkbox" checked={criticalReviewAck} onChange={e=>setCriticalReviewAck(e.target.checked)}/><span><strong>Revisei explicitamente os must-not-miss / red flags.</strong> O plano e o destino refletem esta revisão.</span></label>}
-    <div className="mt-4 rounded-xl border border-border p-3"><div className="flex items-center justify-between gap-3"><strong>Audit trail da sessão</strong><span className="text-xs text-muted">append-only · {auditTrail.length} evento(s)</span></div>{auditTrail.length?<ol className="mt-2 max-h-48 space-y-1 overflow-auto text-xs text-muted">{auditTrail.slice().reverse().map(event=><li key={event.id}>{new Date(event.at).toLocaleTimeString()} · <strong>{event.action}</strong> · {event.target} · {event.detail}</li>)}</ol>:<p className="mt-2 text-xs text-muted">Sem eventos ainda.</p>}</div>
+    <div className="mt-4 rounded-xl border border-border p-3"><div className="flex flex-wrap items-center justify-between gap-3"><strong>Audit trail</strong><div className="flex gap-2"><span className="text-xs text-muted">sessão · {auditTrail.length}</span>{serverAudit&&<span className={`chip ${serverAudit.chain_valid?'border-ok text-ok':'border-danger text-danger'}`}>servidor {serverAudit.chain_valid?'HMAC OK':'CHAIN FAIL'} · {serverAudit.storage}</span>}</div></div>{serverAudit?.events.length?<ol className="mt-2 max-h-48 space-y-1 overflow-auto text-xs text-muted">{serverAudit.events.slice().reverse().map(event=><li key={event.event_id}>{new Date(event.timestamp).toLocaleTimeString()} · <strong>{event.action}</strong> · {event.target} · #{event.sequence}</li>)}</ol>:auditTrail.length?<ol className="mt-2 max-h-48 space-y-1 overflow-auto text-xs text-muted">{auditTrail.slice().reverse().map(event=><li key={event.id}>{new Date(event.at).toLocaleTimeString()} · <strong>{event.action}</strong> · {event.target} · {event.detail}</li>)}</ol>:<p className="mt-2 text-xs text-muted">Sem eventos ainda.</p>}<button type="button" className="btn-ghost mt-3" onClick={()=>void refreshServerAudit()}>Verificar cadeia no servidor</button></div>
    </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, revisão médica, resolução dos MCDT pendentes e, quando aplicável, revisão explícita de análise desatualizada e must-not-miss/red flags.</p>}</section>}
  </>;
 
