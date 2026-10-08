@@ -54,11 +54,12 @@ TEXT_EXTENSIONS = {".txt", ".csv", ".json", ".xml", ".md", ".log", ".tsv"}
 PREPARED_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_PREPARED_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
 AUDIT_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_AUDIT_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
 AUDIT_DIR = os.environ.get("CLINICAL_NOTE_AUDIT_DIR")
-BUILD_SHA = os.environ.get("CLINICAL_NOTE_BUILD_SHA") or "unversioned"
+BUILD_SHA = os.environ.get("CLINICAL_NOTE_BUILD_SHA") or os.environ.get("GITHUB_SHA") or "unversioned"
 AUDIT_LOCK = RLock()
 AUDIT_MEMORY = {}
 CLINICAL_ROOT = Path(__file__).parents[1]
 DIAGNOSTIC_RULES_PATH = CLINICAL_ROOT / "qa" / "clinical-note-diagnostic-rules.json"
+MODULE_INDEX_PATH = CLINICAL_ROOT / "references" / "module-index.md"
 TEXT_MIME_TYPES = {
     "text/plain", "text/csv", "application/json", "application/xml",
     "text/xml", "text/markdown", "text/tab-separated-values",
@@ -90,6 +91,33 @@ def _rules_digest():
         return None
 
 
+def _module_index_map():
+    mapping = {}
+    try:
+        for line in MODULE_INDEX_PATH.read_text(encoding="utf-8").splitlines():
+            parts = [part.strip().strip("`") for part in line.split("|")]
+            if len(parts) >= 4 and parts[1] and parts[2] and parts[1] != "Module ID":
+                mapping[parts[1]] = parts[2]
+    except OSError:
+        return {}
+    return mapping
+
+
+def _module_source_digests(module_ids):
+    index = _module_index_map()
+    output = []
+    for module_id in sorted(set(module_ids)):
+        bundle = index.get(module_id)
+        digest = None
+        if bundle:
+            try:
+                digest = hashlib.sha256((CLINICAL_ROOT / bundle).read_bytes()).hexdigest()
+            except OSError:
+                digest = None
+        output.append({"module_id": module_id, "bundle": bundle, "sha256": digest})
+    return output
+
+
 def diagnostic_provenance(assessment=None):
     modules = set()
     if isinstance(assessment, dict):
@@ -99,11 +127,13 @@ def diagnostic_provenance(assessment=None):
         for key in ("suggested_tests", "treatment_suggestions", "disposition", "reassessment"):
             for item in assessment.get(key) or []:
                 modules.update(str(x) for x in (item.get("source_modules") or []) if str(x).strip())
+    modules = sorted(modules)
     return {
         "api_version": API_VERSION,
         "build_sha": BUILD_SHA,
         "diagnostic_rules_sha256": _rules_digest(),
-        "source_modules": sorted(modules),
+        "source_modules": modules,
+        "module_sources": _module_source_digests(modules),
         "generated_at": _utc_now(),
     }
 
@@ -470,6 +500,14 @@ def accept_prepared_upload(note, prepared, clinician_edit=None,
     })
     candidate.setdefault("clinician_validation", {})["reviewed"] = False
     candidate["clinician_validation"]["changes_made"] = "Accepted MCDT result added; clinician validation required again."
+    append_audit_event(
+        candidate, "MCDT_ACCEPTED", source_reference,
+        detail=f"Accepted {prepared.get('kind') or 'attachment'} result.",
+        metadata={
+            "prepared_sha256": str(prepared.get("sha256") or ""),
+            "processing_status": str((prepared.get("processing") or {}).get("status") or ""),
+        },
+    )
 
     findings = validate_for_analysis(candidate)
     stops = [x for x in findings if x.get("severity") == "STOP"]
