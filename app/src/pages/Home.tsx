@@ -57,6 +57,9 @@ export default function Home() {
             <Link to="/guides" className="btn-ghost">
               <Icon name="book" size={18} /> Guías / PDF
             </Link>
+            <Link to="/clinical" className="btn-ghost">
+              <Icon name="heart" size={18} /> Patologías
+            </Link>
           </div>
         </div>
       </section>
