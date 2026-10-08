@@ -1,0 +1,182 @@
+{
+  "procedure_id": "PROC-AIR-019",
+  "name": "Cánula nasal de alto flujo",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Proporcionar oxígeno calentado y humidificado de alto flujo para mejorar oxigenación y reducir trabajo respiratorio.",
+  "indications": [
+    "Hipoxemia seleccionada.",
+    "Preoxigenación.",
+    "Soporte respiratorio escalonado según síndrome."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [
+      "Obstrucción nasal significativa.",
+      "Trauma facial que impida uso seguro."
+    ],
+    "precautions": [
+      "No retrasar intubación ante fracaso.",
+      "Definir criterios de fracaso antes de iniciar."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Generador HFNO.",
+      "Humidificador.",
+      "Circuito.",
+      "Cánula adecuada."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂.",
+      "Frecuencia respiratoria.",
+      "Trabajo respiratorio.",
+      "Gasometría según contexto."
+    ],
+    "rescue": [
+      "VNI o intubación según deterioro."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Narinas."
+    ],
+    "target": [
+      "Entrega de flujo humidificado sin ocluir completamente las narinas."
+    ],
+    "avoid": [
+      "Cánula demasiado grande que ocluya narinas."
+    ],
+    "laterality": null,
+    "variants": []
+  },
+  "preparation": {
+    "patient_position": "Semisentado cuando sea posible.",
+    "operator_position": "No específica.",
+    "monitoring": [
+      "SpO₂.",
+      "Frecuencia respiratoria.",
+      "Trabajo respiratorio."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Definir objetivo de oxigenación.",
+      "Definir criterios de fracaso.",
+      "Seleccionar tamaño de cánula."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Seleccionar cánula apropiada.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Iniciar flujo y FiO₂ tolerables.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Ajustar temperatura/humidificación.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Titular soporte según respuesta.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Reevaluar precozmente trabajo respiratorio, oxigenación y gasometría cuando esté indicada.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Menor trabajo respiratorio.",
+    "Objetivo de oxigenación alcanzado.",
+    "Estabilidad clínica."
+  ],
+  "stop_points": [
+    "Empeoramiento de fatiga.",
+    "Deterioro del nivel de conciencia.",
+    "Hipercapnia progresiva cuando sea relevante.",
+    "Hipoxemia persistente."
+  ],
+  "complications": {
+    "immediate": [
+      "Fracaso de soporte con deterioro respiratorio."
+    ],
+    "early": [
+      "Sequedad o lesión nasal.",
+      "Intolerancia."
+    ],
+    "late": [
+      "Retraso de intubación."
+    ]
+  },
+  "rescue": [
+    "Escalar a VNI o intubación según fisiología y criterios de fracaso.",
+    "No mantener HFNO como única estrategia ante deterioro progresivo."
+  ],
+  "aftercare": [
+    "Destetar gradualmente si mejora.",
+    "Escalar si fracasa."
+  ],
+  "documentation": [
+    "Flujo.",
+    "FiO₂.",
+    "Temperatura si relevante.",
+    "Objetivos y respuesta.",
+    "Criterios de fracaso observados."
+  ],
+  "pearls": [
+    "La reevaluación precoz es esencial para evitar retrasar intubación."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar protocolo y flujos pediátricos específicos."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "Rapid Sequence Intubation in the Critically Ill Adult Patient",
+      "organization": "Society of Critical Care Medicine",
+      "year": 2023,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; syndrome-specific respiratory guidance remains linked centrally."
+    ]
+  }
+}

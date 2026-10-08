@@ -8,7 +8,8 @@
     "calculator": "Calculadora",
     "settings": "Ajustes",
     "about": "Acerca de",
-    "clinicalNote": "Nota clínica"
+    "clinicalNote": "Nota clínica",
+    "clinical": "Patologías"
   },
   "a11y": {
     "skip": "Saltar al contenido principal",

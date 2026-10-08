@@ -112,7 +112,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `soft-tissue-infections` | `modules/infection-respiratory.md` | yellow |
 | `orthopedic-emergencies` | `modules/trauma-surgical.md` | yellow |
 | `acute-musculoskeletal-pain` | `modules/trauma-surgical.md` | yellow |
-| `emergency-procedures` | `modules/procedures-pharmacology.md` | yellow |
+| `emergency-procedures` | `modules/emergency-procedures-visual.md` + `modules/procedures/` | yellow |
 | `geriatric-emergencies` | `modules/special-populations.md` | yellow |
 | `delirium` | `modules/special-populations.md` | yellow |
 | `syncope-falls-frailty` | `modules/special-populations.md` | yellow |

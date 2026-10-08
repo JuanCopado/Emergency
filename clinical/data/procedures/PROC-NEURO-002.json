@@ -1,0 +1,170 @@
+{
+  "procedure_id": "PROC-NEURO-002",
+  "name": "Medición de presión de apertura de LCR",
+  "family": "Neurología",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "ward",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Obtener una presión de apertura de LCR interpretable durante una punción lumbar.",
+  "indications": [
+    "Situaciones en las que la presión de apertura modifica el diagnóstico o tratamiento, incluyendo sospecha de trastornos de presión del LCR."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [
+      "Todas las contraindicaciones propias de la punción lumbar."
+    ],
+    "precautions": [
+      "La posición sentada, Valsalva, tos, agitación o flexión extrema pueden invalidar la interpretación.",
+      "No interpretar una lectura con fuga, obstrucción o sistema mal nivelado."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Manómetro.",
+      "Conexión estéril compatible con el sistema de LP."
+    ],
+    "optional": [],
+    "monitoring": [
+      "Según estado clínico."
+    ],
+    "rescue": [
+      "Material habitual de punción lumbar y soporte clínico."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Punto de acceso lumbar ya establecido."
+    ],
+    "target": [
+      "Columna de LCR comunicada con el espacio subaracnoideo."
+    ],
+    "avoid": [
+      "Compresión abdominal o posturas que aumenten artificialmente la presión."
+    ],
+    "laterality": null,
+    "variants": [
+      "Medición en decúbito lateral relajado como referencia preferente."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Decúbito lateral relajado, sin flexión extrema, cuando sea posible.",
+    "operator_position": "Junto al manómetro, asegurando lectura estable y sistema correctamente conectado.",
+    "monitoring": [
+      "Según contexto."
+    ],
+    "asepsis": [
+      "Mantener circuito estéril."
+    ],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Evitar Valsalva, tos o agitación durante la lectura.",
+      "Confirmar que el sistema está libre de fugas y obstrucción."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Obtener acceso subaracnoideo mediante punción lumbar.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Conectar el manómetro antes de retirar volumen significativo de LCR.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Permitir que la columna de LCR se estabilice.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Leer el nivel sin comprimir el abdomen ni forzar la postura.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Registrar el valor y las condiciones exactas de medición.",
+      "critical": false,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Columna de LCR estable.",
+    "Lectura reproducible en condiciones apropiadas."
+  ],
+  "stop_points": [
+    "Tos o Valsalva.",
+    "Agitación.",
+    "Posición inadecuada.",
+    "Fuga u obstrucción.",
+    "Sistema no nivelado."
+  ],
+  "complications": {
+    "immediate": [
+      "Interpretación errónea por técnica o posición."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Corregir posición o artefacto y repetir la medición si sigue siendo clínicamente necesaria.",
+    "No basar decisiones mayores en una cifra discordante con clínica y contexto."
+  ],
+  "aftercare": [
+    "Continuar toma de muestras o tratamiento según indicación.",
+    "Reevaluar al paciente tras la LP."
+  ],
+  "documentation": [
+    "Valor y unidad.",
+    "Posición del paciente.",
+    "Condiciones que puedan alterar la lectura.",
+    "Momento de la medición respecto a extracción de LCR."
+  ],
+  "pearls": [
+    "Registrar siempre las condiciones de medición; una cifra sin contexto puede ser engañosa."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar referencias pediátricas específicas cuando corresponda."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "Consensus guidelines for lumbar puncture in patients with neurological diseases",
+      "organization": "JPND BIOMARKAPD / BioMS consortium",
+      "year": 2017,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5454085/",
+      "doi": "10.1016/j.dadm.2017.04.007",
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration completed; human clinical review still required."
+    ]
+  }
+}

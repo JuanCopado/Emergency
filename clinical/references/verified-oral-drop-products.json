@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "scope": "Exact-product oral drop conversion factors for dropper bottles. This registry does not itself authorize a clinical regimen.",
+  "products": [
+    {
+      "id": "tramal-100mgml-oral-drops-dropper-pt",
+      "country": "Portugal",
+      "drug": "tramadol hydrochloride",
+      "brand": "Tramal",
+      "form": "oral_drops",
+      "concentration_mg_per_ml": 100,
+      "mg_per_drop": 2.5,
+      "derived_drops_per_ml": 40,
+      "status": "verified_regulatory_source",
+      "source": "INFARMED pharmacovigilance bulletin / circular on Tramal oral drops administration",
+      "source_url": "https://www.infarmed.pt/documents/15786/1091622/8672938.PDF/a70c927a-cb24-444f-91fa-5a2fc9d89183?version=1.0",
+      "safety_note": "One drop from the dropper contains 2.5 mg tramadol hydrochloride."
+    }
+  ],
+  "pending_exact_product_verification": [
+    {
+      "drug": "betamethasone",
+      "reason": "Do not encode a universal drop factor; exact marketed product, concentration and device must be verified first."
+    },
+    {
+      "drug": "morphine",
+      "reason": "Do not encode a universal drop factor; oral morphine concentrations and dispensing devices vary by product and market."
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "procedure_id": "PROC-AIR-006",
+  "name": "Ventilación bolsa-válvula-mascarilla a dos operadores",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Maximizar el sello de mascarilla y la apertura mandibular cuando BVM a un operador es insuficiente.",
+  "indications": [
+    "Fuga importante.",
+    "Obesidad.",
+    "Anatomía difícil.",
+    "Hipoxemia severa.",
+    "Necesidad de ventilación optimizada."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Evitar hiperventilación y ventilación excesiva.",
+      "Mantener vigilancia de aspiración e insuflación gástrica."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Bolsa autoinflable.",
+      "Mascarilla adecuada.",
+      "Oxígeno/reservorio.",
+      "Dos operadores coordinados."
+    ],
+    "optional": [
+      "Adjuncts de vía aérea.",
+      "PEEP según necesidad."
+    ],
+    "monitoring": [
+      "SpO₂.",
+      "ETCO₂ si disponible."
+    ],
+    "rescue": [
+      "Dispositivo supraglótico.",
+      "Equipo de intubación."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Mandíbula.",
+      "Contorno facial."
+    ],
+    "target": [
+      "Sello facial a dos manos y elevación mandibular."
+    ],
+    "avoid": [
+      "Compresión excesiva de tejidos blandos y fuga por mala posición."
+    ],
+    "laterality": null,
+    "variants": [
+      "Sello a dos manos con elevación mandibular."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Optimizada para apertura de vía aérea; rampa cuando proceda.",
+    "operator_position": "Operador 1 en cabecera para sello y elevación mandibular; operador 2 junto a la bolsa.",
+    "monitoring": [
+      "SpO₂.",
+      "ETCO₂ si disponible."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Asignar roles.",
+      "Comprobar oxígeno y circuito.",
+      "Preparar plan de escalada."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Operador 1 sella la mascarilla con ambas manos y eleva la mandíbula.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Operador 2 comprime la bolsa de forma coordinada y controlada.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Añadir adjunct o PEEP según necesidad clínica.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Optimizar posición si persiste ventilación subóptima.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Reevaluar expansión torácica, SpO₂ y ETCO₂.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Expansión torácica bilateral.",
+    "Mejoría de SpO₂.",
+    "ETCO₂ adecuado cuando está disponible."
+  ],
+  "stop_points": [
+    "Ventilación inefectiva pese a optimización.",
+    "Fuga grave persistente.",
+    "Distensión gástrica significativa.",
+    "Deterioro de oxigenación."
+  ],
+  "complications": {
+    "immediate": [
+      "Aspiración.",
+      "Insuflación gástrica.",
+      "Fuga.",
+      "Barotrauma."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Escalar a dispositivo supraglótico o intubación si la ventilación sigue siendo ineficaz.",
+    "Mantener oxigenación con la mejor técnica disponible durante la escalada."
+  ],
+  "aftercare": [
+    "Mantener hasta recuperación o vía aérea definitiva."
+  ],
+  "documentation": [
+    "Técnica a dos operadores.",
+    "Adjuncts.",
+    "Respuesta.",
+    "Escalada realizada."
+  ],
+  "pearls": [
+    "En ventilación difícil, el sello a dos manos y la elevación mandibular suelen ser superiores al intento repetido a un operador."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar equipo pediátrico y adaptar fuerza/volumen."
+    ],
+    "pregnancy": [],
+    "obesity": [
+      "Especialmente útil junto con posición en rampa."
+    ],
+    "trauma": [
+      "Mantener precauciones cervicales cuando corresponda."
+    ],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Técnica preferente cuando el sello a una mano es insuficiente."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}

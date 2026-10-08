@@ -12,6 +12,7 @@ const NAV: { to: string; key: string; icon: IconName; end?: boolean; desktopOnly
   { to: '/', key: 'nav.home', icon: 'home', end: true },
   { to: '/drugs', key: 'nav.drugs', icon: 'pill' },
   { to: '/calculator', key: 'nav.calculator', icon: 'calc' },
+  { to: '/clinical', key: 'nav.clinical', icon: 'heart', desktopOnly: true },
   { to: '/clinical-note', key: 'nav.clinicalNote', icon: 'info' },
   { to: '/settings', key: 'nav.settings', icon: 'settings' },
   { to: '/about', key: 'nav.about', icon: 'info', desktopOnly: true },

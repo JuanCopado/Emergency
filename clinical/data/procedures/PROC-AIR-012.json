@@ -1,0 +1,191 @@
+{
+  "procedure_id": "PROC-AIR-012",
+  "name": "Vía aérea difícil y fracaso de intubación",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU",
+    "OR"
+  ],
+  "status": "YELLOW",
+  "objective": "Mantener oxigenación mientras se progresa de forma estructurada desde intubación fallida hacia rescate.",
+  "indications": [
+    "Laringoscopia o intubación fallida.",
+    "Ventilación comprometida durante manejo de vía aérea."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Evitar intentos repetidos sin cambio de estrategia.",
+      "Priorizar oxigenación sobre completar intubación."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "BVM.",
+      "SGA.",
+      "Videolaringoscopio.",
+      "Bougie.",
+      "Succión.",
+      "Equipo de FONA."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂.",
+      "Capnografía.",
+      "ECG.",
+      "Presión arterial."
+    ],
+    "rescue": [
+      "Todo el material de vía aérea difícil disponible."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Vía oral.",
+      "Región supraglótica.",
+      "Membrana cricotiroidea."
+    ],
+    "target": [
+      "Restablecer oxigenación y conseguir vía aérea definitiva."
+    ],
+    "avoid": [
+      "Retraso de FONA en CICO."
+    ],
+    "laterality": null,
+    "variants": [
+      "Plan A-B-C-D según algoritmo."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Optimizada para oxigenación y dispositivo siguiente.",
+    "operator_position": "Equipo coordinado con líder de vía aérea.",
+    "monitoring": [
+      "SpO₂.",
+      "Capnografía.",
+      "ECG.",
+      "Presión arterial."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [
+      "Según estado y estrategia; desde módulos farmacológicos."
+    ],
+    "prechecks": [
+      "Declarar dificultad.",
+      "Pedir ayuda.",
+      "Asignar plan A-B-C-D.",
+      "Preparar FONA."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Optimizar el siguiente intento y corregir causas reversibles.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Cambiar operador o dispositivo si procede.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Rescatar oxigenación con BVM o SGA.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Si existe CICO, declararlo y realizar FONA sin demora.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Oxigenación y ventilación restablecidas.",
+    "Capnografía presente en la vía definitiva."
+  ],
+  "stop_points": [
+    "No persistir con laringoscopia si la oxigenación empeora.",
+    "No repetir la misma técnica sin modificación tras fracaso.",
+    "No retrasar FONA una vez declarado CICO."
+  ],
+  "complications": {
+    "immediate": [
+      "Hipoxemia.",
+      "Aspiración.",
+      "Trauma de vía aérea.",
+      "Parada cardiorrespiratoria."
+    ],
+    "early": [
+      "Edema o lesión de tejidos por intentos repetidos."
+    ],
+    "late": []
+  },
+  "rescue": [
+    "BVM y SGA para recuperar oxigenación.",
+    "Cambio de operador/dispositivo.",
+    "FONA en CICO."
+  ],
+  "aftercare": [
+    "Documentar dificultad.",
+    "Informar al paciente/equipo cuando sea posible.",
+    "Planificar futuras estrategias de vía aérea."
+  ],
+  "documentation": [
+    "Número de intentos.",
+    "Dispositivos utilizados.",
+    "Punto de escalada.",
+    "Momento de declaración CICO si ocurrió.",
+    "Método final de oxigenación/intubación."
+  ],
+  "pearls": [
+    "Cada intento debe aportar un cambio real de estrategia; repetir lo mismo empeora trauma y tiempo de hipoxemia."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar algoritmo pediátrico específico."
+    ],
+    "pregnancy": [],
+    "obesity": [
+      "Escalar precozmente ante deterioro rápido de oxigenación."
+    ],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Planificar antes del primer intento si la dificultad es previsible."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [
+    "airway-rsi",
+    "sedoanalgesia"
+  ],
+  "sources": [
+    {
+      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
+      "organization": "Difficult Airway Society",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}

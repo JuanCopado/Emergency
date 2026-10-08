@@ -8,7 +8,8 @@
     "calculator": "计算器",
     "settings": "设置",
     "about": "关于",
-    "clinicalNote": "临床记录"
+    "clinicalNote": "临床记录",
+    "clinical": "临床"
   },
   "a11y": {
     "skip": "跳到主要内容",

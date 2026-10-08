@@ -1,0 +1,193 @@
+{
+  "procedure_id": "PROC-AIR-002",
+  "name": "Aspiración de secreciones de vía aérea",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Retirar sangre, vómito o secreciones que impiden ventilación o visualización de la vía aérea.",
+  "indications": [
+    "Secreciones audibles o visibles.",
+    "Contaminación de la vía aérea.",
+    "Obstrucción de tubo endotraqueal o traqueostomía por secreciones."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Evitar aspiración profunda innecesaria.",
+      "Preoxigenar si el paciente lo permite.",
+      "Limitar manipulación cuando provoca hipoxemia o bradicardia."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Aspirador operativo.",
+      "Yankauer.",
+      "Catéter flexible.",
+      "PPE."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂.",
+      "Monitorización cardíaca cuando proceda."
+    ],
+    "rescue": [
+      "Fuente de oxígeno.",
+      "BVM y plan de vía aérea avanzada."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Cavidad oral.",
+      "Orofaringe."
+    ],
+    "target": [
+      "Secreciones visibles u obstructivas.",
+      "Luz de tubo endotraqueal o traqueostomía cuando corresponda."
+    ],
+    "avoid": [
+      "Trauma mucoso por aspiración profunda o forzada."
+    ],
+    "laterality": null,
+    "variants": [
+      "Aspiración orofaríngea con Yankauer.",
+      "Aspiración mediante catéter flexible en tubo/traqueostomía."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Posición que facilite apertura de vía aérea y manejo de secreciones.",
+    "operator_position": "Cabecera o lateral con visión directa cuando sea posible.",
+    "monitoring": [
+      "SpO₂.",
+      "Frecuencia cardíaca."
+    ],
+    "asepsis": [
+      "Técnica limpia/estéril según dispositivo y protocolo."
+    ],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Comprobar vacío.",
+      "Preparar oxígeno y plan de reoxigenación."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Abrir y posicionar la vía aérea.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Aspirar orofaringe bajo visión con Yankauer cuando corresponda.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Usar catéter flexible para tubo endotraqueal o traqueostomía cuando esté indicado.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Realizar pases breves y controlados.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Reoxigenar y reevaluar entre intentos.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Vía aérea más limpia.",
+    "Ventilación mejorada.",
+    "Capnografía mejorada cuando está disponible.",
+    "Disminución de secreciones obstructivas."
+  ],
+  "stop_points": [
+    "Bradicardia.",
+    "Hipoxemia significativa.",
+    "Sangrado relevante.",
+    "Resistencia no explicada."
+  ],
+  "complications": {
+    "immediate": [
+      "Trauma mucoso.",
+      "Hipoxemia.",
+      "Bradicardia.",
+      "Broncoespasmo."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Detener aspiración y reoxigenar si aparece deterioro.",
+    "Reevaluar posición y permeabilidad.",
+    "Escalar a ventilación avanzada o protección definitiva de la vía aérea si persiste compromiso."
+  ],
+  "aftercare": [
+    "Reevaluar ventilación y necesidad de protección definitiva de la vía aérea."
+  ],
+  "documentation": [
+    "Tipo de secreción.",
+    "Técnica empleada.",
+    "Respuesta.",
+    "Complicaciones."
+  ],
+  "pearls": [
+    "Aspirar lo necesario para despejar la vía aérea, evitando manipulación profunda innecesaria."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar calibre y técnica acordes al tamaño pediátrico."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [
+      "Mayor precaución ante sangrado mucoso."
+    ],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "European Resuscitation Council Guidelines 2025: airway and ventilation principles",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "Emergency tracheostomy management algorithms",
+      "organization": "National Tracheostomy Safety Project",
+      "year": "current",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}

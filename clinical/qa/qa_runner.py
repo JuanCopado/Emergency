@@ -21,6 +21,11 @@ CHECKS = [
     ("image-source-registry", [sys.executable, str(SCRIPTS / "validate_image_dataset_source.py"), str(ROOT / "qa/image-dataset-source-registry.json")]),
     ("blinded-image-template", [sys.executable, str(SCRIPTS / "validate_blinded_image_dataset.py"), str(ROOT / "tests/blinded-image-dataset-template.json")]),
     ("unit-regression-tests", [sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "tests"), "-p", "test_skill.py"]),
+    ("procedures-v1.41-tests", [sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "tests"), "-p", "test_*v141.py"]),
+    ("pediatric-drop-dosing-tests", [sys.executable, "-m", "unittest", str(ROOT / "tests" / "test_pediatric_drop_dosing.py")]),
+    ("visual-asset-metadata-tests", [sys.executable, "-m", "unittest", str(ROOT / "tests" / "test_visual_asset_metadata.py")]),
+    ("procedure-schema-v1.41-tests", [sys.executable, "-m", "unittest", str(ROOT / "tests" / "test_procedure_schema_v141.py")]),
+    ("procedure-schema-coverage-v1.41-tests", [sys.executable, "-m", "unittest", str(ROOT / "tests" / "test_procedure_schema_coverage_v141.py")]),
 ]
 
 def run_check(name, cmd):

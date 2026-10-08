@@ -1,0 +1,184 @@
+{
+  "procedure_id": "PROC-AIR-003",
+  "name": "Cánula orofaríngea",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Prevenir el colapso lingual en pacientes sin reflejo nauseoso y facilitar la ventilación.",
+  "indications": [
+    "Paciente inconsciente o profundamente obtundido sin reflejo nauseoso.",
+    "Apoyo a ventilación con BVM."
+  ],
+  "contraindications_precautions": {
+    "absolute": [
+      "Reflejo nauseoso presente o consciencia suficiente para no tolerar el dispositivo."
+    ],
+    "relative": [],
+    "precautions": [
+      "Seleccionar tamaño adecuado para evitar empeorar la obstrucción o causar trauma."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Cánulas orofaríngeas de varios tamaños."
+    ],
+    "optional": [
+      "Depresor lingual según técnica."
+    ],
+    "monitoring": [
+      "Monitorización clínica y SpO₂ según contexto."
+    ],
+    "rescue": [
+      "Aspiración.",
+      "BVM."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Comisura labial.",
+      "Ángulo mandibular."
+    ],
+    "target": [
+      "Orofaringe con desplazamiento anterior de la lengua."
+    ],
+    "avoid": [
+      "Empujar la lengua posteriormente.",
+      "Trauma dental/oral."
+    ],
+    "laterality": null,
+    "variants": [
+      "Inserción directa con depresor.",
+      "Rotación en adulto según entrenamiento y dispositivo."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Vía aérea posicionada para ventilación.",
+    "operator_position": "Cabecera.",
+    "monitoring": [
+      "SpO₂ según contexto."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Confirmar ausencia de reflejo nauseoso.",
+      "Seleccionar tamaño apropiado.",
+      "Retirar secreciones y cuerpos extraños visibles."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Seleccionar tamaño apropiado según referencias anatómicas.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Abrir la boca y preparar la vía aérea.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Introducir la cánula sin empujar la lengua hacia atrás.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Usar técnica directa o rotación en adulto según entrenamiento.",
+      "critical": false,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Dejar el reborde apoyado en los labios y reevaluar ventilación.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Mejor paso de aire.",
+    "Ventilación con BVM más efectiva.",
+    "Ausencia de trauma significativo."
+  ],
+  "stop_points": [
+    "Arcada.",
+    "Vómito.",
+    "Trauma.",
+    "Empeoramiento de la obstrucción."
+  ],
+  "complications": {
+    "immediate": [
+      "Vómito.",
+      "Aspiración.",
+      "Trauma oral o dental.",
+      "Obstrucción por tamaño incorrecto."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Retirar inmediatamente si provoca arcada, vómito o empeora la obstrucción.",
+    "Reposicionar la vía aérea o seleccionar otro tamaño/dispositivo.",
+    "Escalar a BVM u otra vía aérea si persiste ventilación inadecuada."
+  ],
+  "aftercare": [
+    "Reevaluar periódicamente nivel de conciencia y necesidad del dispositivo."
+  ],
+  "documentation": [
+    "Tamaño.",
+    "Tolerancia.",
+    "Efecto sobre ventilación."
+  ],
+  "pearls": [
+    "Un tamaño incorrecto puede empeorar la obstrucción."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Evitar técnica de rotación si puede causar trauma; usar técnica apropiada a edad y dispositivo."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "How To Insert an Oropharyngeal Airway",
+      "organization": "MSD Manual Professional Edition",
+      "year": "current",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}

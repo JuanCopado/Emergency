@@ -4,6 +4,8 @@ Shared gate: verify identity, indication, consent/capacity, monitoring, allergie
 weight, pregnancy, renal/hepatic function, anticoagulation, equipment, skilled help,
 rescue plan and post-intervention reassessment.
 
+- For oral liquid/drop formulations, always retain the dose in mg and calculate mL only from the exact verified concentration. If the exact marketed product is dispensed as drops, also display whole drops per dose only from a verified mg/drop or drops/mL factor; never assume a universal drop factor.
+
 ## airway-rsi
 
 - State the indication and assess anatomic plus physiologic difficulty: hypoxemia, hypotension, metabolic acidosis, right-ventricular failure, raised ICP and upper-GI bleeding. Correct reversible physiology before induction without delaying a crashing airway.
@@ -165,6 +167,13 @@ rescue plan and post-intervention reassessment.
 
 ## emergency-procedures
 
-- Confirm indication, alternatives, contraindications, anatomy and asepsis; perform a time-out unless immediate action precludes it.
-- Prepare analgesia/sedation, monitoring, backup equipment and explicit failure/rescue pathway.
-- Confirm success with the appropriate clinical/imaging method, document complications and repeat neurovascular/respiratory/hemodynamic assessment after the procedure.
+El contenido canónico ampliado desde v1.41 vive en:
+- `modules/emergency-procedures-index.md` — índice textual maestro (187 IDs únicos).
+- `modules/emergency-procedures-visual.md` — arquitectura de ficha y reglas visuales.
+- `modules/procedures/01-*.md` a `16-*.md` — desarrollo textual por familia.
+
+Reglas transversales:
+- Confirmar indicación, alternativas, contraindicaciones, anatomía y asepsia; realizar time-out salvo que la urgencia inmediata lo impida.
+- Preparar analgesia/sedación desde los módulos farmacológicos canónicos, monitorización, equipo de rescate y plan explícito de fallo.
+- Confirmar éxito por método clínico/capnográfico/ecográfico/radiológico apropiado y repetir evaluación neurovascular, respiratoria o hemodinámica postprocedimiento.
+- Las imágenes son material de apoyo y permanecen no validadas hasta superar Visual QA; nunca sustituyen la ficha textual ni la fuente clínica.

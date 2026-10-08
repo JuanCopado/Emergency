@@ -1,0 +1,212 @@
+{
+  "procedure_id": "PROC-AIR-021",
+  "name": "Ventilación mecánica invasiva inicial",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Iniciar soporte ventilatorio seguro después de intubación, adaptado a la fisiología del paciente.",
+  "indications": [
+    "Todo paciente intubado que requiere ventilación mecánica."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Individualizar por fisiología: ARDS, enfermedad obstructiva, neurocrítica, embarazo u otras situaciones.",
+      "Evitar parámetros rígidos universales sin considerar diagnóstico."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Ventilador.",
+      "Circuito.",
+      "Capnografía.",
+      "Humidificación."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂.",
+      "ETCO₂.",
+      "Presión arterial.",
+      "Curvas y presiones del ventilador.",
+      "Gasometría cuando esté indicada."
+    ],
+    "rescue": [
+      "BVM para ventilación manual si existe deterioro súbito o fallo del ventilador."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Tubo endotraqueal.",
+      "Pulmón.",
+      "Caja torácica."
+    ],
+    "target": [
+      "Ventilación y oxigenación adecuadas con estrategia protectora."
+    ],
+    "avoid": [
+      "Presiones peligrosas.",
+      "Auto-PEEP.",
+      "Volúmenes excesivos."
+    ],
+    "laterality": null,
+    "variants": [
+      "Modos controlados o asistidos según situación."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Según fisiología y estabilidad; cabecera elevada cuando sea apropiado.",
+    "operator_position": "Junto al ventilador y paciente.",
+    "monitoring": [
+      "SpO₂.",
+      "ETCO₂.",
+      "Hemodinámica."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [
+      "Confirmar sedoanalgesia adecuada."
+    ],
+    "prechecks": [
+      "Confirmar posición del tubo.",
+      "Evaluar estabilidad hemodinámica.",
+      "Definir fisiología predominante.",
+      "Configurar alarmas."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Seleccionar un modo ventilatorio apropiado.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Aplicar una estrategia protectora adaptada al paciente.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Ajustar FiO₂ y PEEP según objetivo de oxigenación.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Ajustar frecuencia y ventilación minuto según fisiología.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Revisar presiones, curvas y sincronía.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 6,
+      "action": "Configurar y comprobar alarmas.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Oxigenación adecuada.",
+    "Ventilación adecuada.",
+    "Curvas coherentes.",
+    "Ausencia de presiones peligrosas o auto-PEEP significativa."
+  ],
+  "stop_points": [
+    "Hipotensión nueva.",
+    "Auto-PEEP.",
+    "Presiones elevadas.",
+    "Deterioro súbito de ventilación u oxigenación."
+  ],
+  "complications": {
+    "immediate": [
+      "Hipotensión.",
+      "Barotrauma.",
+      "Auto-PEEP.",
+      "Asincronía."
+    ],
+    "early": [
+      "Volutrauma.",
+      "Lesión pulmonar asociada a ventilación."
+    ],
+    "late": []
+  },
+  "rescue": [
+    "Ante deterioro súbito, desconectar del ventilador y ventilar manualmente si es necesario mientras se busca la causa.",
+    "Corregir auto-PEEP, obstrucción, neumotórax, desplazamiento de tubo o fallo del equipo según hallazgos."
+  ],
+  "aftercare": [
+    "Reevaluar de forma seriada.",
+    "Ajustar según gasometría, mecánica y fisiología.",
+    "Mantener sedoanalgesia y objetivos de protección pulmonar."
+  ],
+  "documentation": [
+    "Modo.",
+    "Parámetros iniciales.",
+    "FiO₂/PEEP.",
+    "Objetivos.",
+    "Presiones relevantes.",
+    "Respuesta y ajustes."
+  ],
+  "pearls": [
+    "No existe un ajuste inicial universal; la fisiología del paciente manda."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar módulo pediátrico específico."
+    ],
+    "pregnancy": [
+      "Individualizar objetivos y mecánica."
+    ],
+    "obesity": [
+      "Requiere consideración específica de PEEP y mecánica."
+    ],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [
+    "icu-sedation-analgesia-infusions",
+    "sedoanalgesia"
+  ],
+  "sources": [
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "Critical care ventilation guidance",
+      "organization": "Linked central ventilation/ARDS modules",
+      "year": "current",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; syndrome-specific ventilation settings remain in central modules."
+    ]
+  }
+}

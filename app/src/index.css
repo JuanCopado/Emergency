@@ -68,3 +68,103 @@
   .section-title { @apply text-xs font-semibold uppercase tracking-wider text-muted; }
   .num { font-variant-numeric: tabular-nums; }
 }
+
+
+/* Clinical guide screen/fullscreen/print export */
+.clinical-guide-sheet:fullscreen {
+  overflow: auto;
+  padding: 2rem;
+  background: white;
+}
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+  html, body {
+    background: white !important;
+    color: #0f172a !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .clinical-guide-sheet,
+  .clinical-guide-sheet * {
+    visibility: visible;
+  }
+  .clinical-guide-sheet {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+
+/* Adaptive clinical export layouts */
+.guide-format-algorithm .canonical-body {
+  display: grid;
+  gap: .5rem;
+}
+.guide-format-procedure .procedure-visual-slot {
+  min-height: 96px;
+}
+@media print {
+  .guide-format-algorithm .canonical-body {
+    display: block;
+    column-count: 2;
+    column-gap: 8mm;
+    font-size: 9pt;
+    line-height: 1.22;
+  }
+  .guide-format-algorithm .canonical-body > * {
+    break-inside: avoid;
+  }
+  .guide-format-guide .canonical-body {
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+  .guide-format-procedure .canonical-body {
+    font-size: 9.5pt;
+    line-height: 1.3;
+  }
+  .guide-format-procedure .procedure-visual-slot {
+    min-height: 28mm;
+  }
+}
+
+
+.clinical-module-sheet:fullscreen {
+  overflow: auto;
+  padding: 2rem;
+  background: rgb(var(--c-bg));
+}
+@media print {
+  .clinical-module-sheet,
+  .clinical-module-sheet * {
+    visibility: visible;
+  }
+  .clinical-module-sheet {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: white !important;
+    color: #0f172a !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "procedure_id": "PROC-AIR-013",
+  "name": "Confirmación del tubo endotraqueal por capnografía",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU",
+    "OR"
+  ],
+  "status": "YELLOW",
+  "objective": "Confirmar posición traqueal del tubo y monitorizar ventilación mediante capnografía de onda.",
+  "indications": [
+    "Toda intubación endotraqueal.",
+    "Toda vía avanzada cuando la capnografía sea técnicamente posible."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Durante PCR el ETCO₂ puede ser bajo; interpretar en contexto.",
+      "Una curva ausente debe hacer sospechar posición incorrecta o problema técnico."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Capnografía de onda.",
+      "Circuito compatible.",
+      "Monitor."
+    ],
+    "optional": [],
+    "monitoring": [
+      "ETCO₂ continuo."
+    ],
+    "rescue": [
+      "BVM y equipo de reevaluación de vía aérea."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Conexión tubo-circuito."
+    ],
+    "target": [
+      "Detección de CO₂ espirado procedente de ventilación alveolar."
+    ],
+    "avoid": [
+      "Falsa interpretación por desconexión o bajo flujo extremo."
+    ],
+    "laterality": null,
+    "variants": []
+  },
+  "preparation": {
+    "patient_position": "No específica.",
+    "operator_position": "Junto al monitor y circuito.",
+    "monitoring": [
+      "Capnografía continua."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [],
+    "prechecks": [
+      "Conectar inmediatamente después de inserción del tubo.",
+      "Verificar conexiones."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Ventilar a través del tubo.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Observar una curva repetitiva de ETCO₂.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Correlacionar con expansión torácica y contexto clínico.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Reevaluar la señal tras traslados o cambios de posición.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Curva de ETCO₂ sostenida y repetitiva."
+  ],
+  "stop_points": [
+    "Ausencia persistente de ETCO₂ con ventilaciones efectivas obliga a asumir posición incorrecta hasta demostrar lo contrario.",
+    "Pérdida súbita de curva tras una señal previa requiere revisar desplazamiento o desconexión."
+  ],
+  "complications": {
+    "immediate": [
+      "Falsa seguridad por conexión incorrecta o interpretación inadecuada."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Verificar conexiones y ventilación.",
+    "Reevaluar posición del tubo de inmediato.",
+    "Retirar/reintubar si la posición traqueal no puede confirmarse y el contexto lo exige."
+  ],
+  "aftercare": [
+    "Mantener capnografía continua mientras la vía aérea avanzada esté en uso."
+  ],
+  "documentation": [
+    "Presencia de curva.",
+    "Valor/tendencia cuando sea relevante.",
+    "Eventos de pérdida de señal."
+  ],
+  "pearls": [
+    "La capnografía de onda sostenida es el método clave para confirmar posición traqueal."
+  ],
+  "special_adaptations": {
+    "pediatric": [],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": []
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "European Resuscitation Council Guidelines 2025",
+      "organization": "European Resuscitation Council",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    },
+    {
+      "title": "Airway verification policy",
+      "organization": "American College of Emergency Physicians",
+      "year": "current",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}

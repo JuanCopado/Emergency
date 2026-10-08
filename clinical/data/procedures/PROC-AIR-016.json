@@ -1,0 +1,194 @@
+{
+  "procedure_id": "PROC-AIR-016",
+  "name": "Cricotiroidotomía por aguja/catéter",
+  "family": "Vía aérea y ventilación",
+  "level": "SPECIALIST",
+  "population": [
+    "all"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU",
+    "OR"
+  ],
+  "status": "YELLOW",
+  "objective": "Proporcionar oxigenación de rescate mediante acceso cricotiroideo percutáneo en escenarios seleccionados.",
+  "indications": [
+    "Escenarios CICO en los que el algoritmo local por edad/equipo contempla técnica por aguja o catéter."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Riesgo elevado de barotrauma.",
+      "Requiere vía de salida de gas y sistema de oxigenación específico.",
+      "No usar fuera de algoritmo/competencia local."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Catéter apropiado.",
+      "Jeringa.",
+      "Sistema específico de oxigenación/ventilación."
+    ],
+    "optional": [],
+    "monitoring": [
+      "SpO₂.",
+      "ECG.",
+      "Capnografía cuando sea posible."
+    ],
+    "rescue": [
+      "Equipo de cricotiroidotomía quirúrgica o alternativa FONA."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Membrana cricotiroidea.",
+      "Tráquea."
+    ],
+    "target": [
+      "Luz traqueal."
+    ],
+    "avoid": [
+      "Pared posterior traqueal.",
+      "Falsa vía."
+    ],
+    "laterality": null,
+    "variants": [
+      "Técnicas específicas según edad y sistema de ventilación."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Cuello accesible sin retrasar intervención.",
+    "operator_position": "Acceso directo a región cricotiroidea.",
+    "monitoring": [
+      "SpO₂.",
+      "ECG."
+    ],
+    "asepsis": [
+      "Antisepsia rápida si el tiempo lo permite."
+    ],
+    "analgesia_sedation": [
+      "Según estado clínico."
+    ],
+    "prechecks": [
+      "Identificar membrana.",
+      "Preparar sistema de ventilación específico.",
+      "Tener rescate quirúrgico disponible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Puncionar la membrana dirigida hacia la luz traqueal.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Confirmar entrada de aire por aspiración.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Avanzar el catéter dentro de la tráquea.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Retirar la aguja manteniendo el catéter.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Conectar el sistema de oxigenación/ventilación apropiado.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 6,
+      "action": "Confirmar ventilación y reevaluar.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Entrada de aire por aspiración.",
+    "Expansión torácica cuando sea posible.",
+    "ETCO₂ si está disponible.",
+    "Mejoría de oxigenación."
+  ],
+  "stop_points": [
+    "Resistencia inesperada.",
+    "Enfisema progresivo.",
+    "Incapacidad de espiración.",
+    "Deterioro clínico."
+  ],
+  "complications": {
+    "immediate": [
+      "Barotrauma.",
+      "Falsa vía.",
+      "Sangrado.",
+      "Lesión de pared posterior."
+    ],
+    "early": [
+      "Enfisema subcutáneo."
+    ],
+    "late": []
+  },
+  "rescue": [
+    "Suspender ventilación a presión si existe sospecha de obstrucción espiratoria o barotrauma.",
+    "Escalar a FONA quirúrgica o vía definitiva según algoritmo."
+  ],
+  "aftercare": [
+    "Usar como puente a una vía aérea definitiva.",
+    "Monitorizar estrechamente ventilación y complicaciones."
+  ],
+  "documentation": [
+    "Indicación.",
+    "Técnica.",
+    "Dispositivo.",
+    "Sistema de ventilación.",
+    "Confirmación y respuesta."
+  ],
+  "pearls": [
+    "La limitación principal es la ventilación/espiración; la técnica depende del sistema y protocolo local."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Puede contemplarse en determinados algoritmos pediátricos; seguir protocolo específico."
+    ],
+    "pregnancy": [],
+    "obesity": [],
+    "trauma": [],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Considerar que la palpación puede ser difícil y que una técnica alternativa puede ser más segura."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [],
+  "sources": [
+    {
+      "title": "Difficult airway and front-of-neck access guidance",
+      "organization": "Difficult Airway Society / paediatric difficult airway guidance",
+      "year": "current",
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; local protocol validation required."
+    ]
+  }
+}

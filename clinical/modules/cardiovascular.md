@@ -10,6 +10,8 @@ POCUS study does not exclude time-critical disease.
 - Threats: STEMI/occlusion MI, shock, malignant arrhythmia and mechanical complication.
 - Obtain ECG promptly and repeat with recurrent symptoms; add posterior/right-sided leads when indicated. Use serial high-sensitivity troponin without delaying reperfusion.
 - Activate the local reperfusion pathway for diagnostic ST elevation or equivalent. Verify current antiplatelet, anticoagulant and fibrinolysis criteria before dosing.
+- **High-risk ECG patterns without classic ST elevation:** actively recognize **de Winter** (upsloping J-point ST depression in V1–V6 continuing into tall symmetric T waves) as an occlusion-MI pattern associated with proximal LAD disease, and **Wellens** (biphasic or deeply inverted symmetric T waves in V2–V3, classically during a pain-free interval with minimal ST elevation) as a marker of critical proximal LAD disease. These patterns require urgent cardiology/coronary evaluation; a negative stress test strategy is inappropriate when Wellens syndrome is suspected.
+
 - Treat hypoxemia, instability and pain; avoid routine oxygen in normoxemia. Reassess rhythm, perfusion and complications; monitored admission or immediate cath-lab transfer as indicated.
 
 ## pulmonary-embolism

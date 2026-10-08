@@ -1,3 +1,36 @@
+# Snapshot de continuidad v1.41 — 06/10/2026
+
+> Este bloque prevalece para la rama `v1.41-procedures-visual`; el contenido histórico inferior conserva snapshots anteriores y no debe usarse como estado actual de esta rama.
+
+- Rama: `v1.41-procedures-visual`.
+- `main`: **no modificar ni fusionar automáticamente**.
+- Último Clinical QA de contenido clínico verificado: **#868 SUCCESS** sobre `f72da51765393da6e3c008a910771125c936e468`.
+- Módulo Técnicas y Procedimientos: **196 técnicas canónicas + 4 alias**, 16 familias, 200 IDs textuales.
+- Añadido `PROC-NEURO-005`: monitorización de PIC/PPC.
+- Auditoría posterior añadió 5 huecos de alta relevancia: UVC neonatal, histerotomía resucitativa, balón uterino PPH, reimplante dental permanente y ferulización dentoalveolar.
+- Fase visual: **PAUSADA**; continuar solo con texto hasta nueva orden.
+- Normalización textual v1.41: **196/196 procedimientos canónicos completos** con plantilla estructurada; 4 alias permanecen como referencias cruzadas.
+- Todas las técnicas permanecen **YELLOW**.
+- Fase de revisión bibliográfica/clínica v1.41 cerrada: **196/196 procedimientos canónicos revisados**, 4 alias/referencias cruzadas, 16 familias.
+- Cobertura final: `clinical/qa/V1.41_CLINICAL_REVIEW_COVERAGE.md`.
+- Último Clinical QA global verificado: **#873 SUCCESS** sobre `216fc9ff7cba34b06d6e269ac2de4142b655d13a`.
+- **Fase de revisión bibliográfica/clínica v1.41 cerrada:** 196/196 procedimientos canónicos revisados; 4 alias/referencias cruzadas; ver `clinical/qa/V1.41_CLINICAL_REVIEW_COVERAGE.md`.
+- Barrido final de fuentes: 0 fichas canónicas con campo Fuentes vacío o etiqueta genérica no identificable según el gate documental de cierre.
+- Duodécima pasada completada: oftalmología CORE completa, pediatría CORE restante y obstetricia CORE pendiente.
+- Undécima pasada completada: acceso vascular CORE restante, revisión focal de neurología pendiente y familia GI/abdomen completa.
+- Décima pasada completada: cardiovascular/reanimación CORE, tórax CORE pendiente y familia trauma/hemorragia completa.
+- Novena pasada completada: vía aérea CORE restante, incluida emergencia de traqueostomía según NTSP, SGA, OPA/NPA, intubación despierto, algoritmo de vía aérea difícil, HFNO, VNI y ventilación mecánica inicial.
+- Octava pasada completada: BVM 1/2 operadores, videolaringoscopia, capnografía de confirmación y oxigenoterapia convencional; AIR-017 contrastado con NTSP y pendiente de reescritura específica.
+- Séptima pasada completada: suturas simple/continua/colchonero, grapas, tiras de aproximación, cuerpo extraño superficial y extracción de anillo.
+- Quinta pasada de procedimientos de riesgo completada: luxación posterior de hombro, reducción provisional de fracturas desplazadas, bloqueo digital/hematoma, trepanación y reparación ungueal, bloqueo alveolar inferior, cuerpo extraño vaginal y retirada segura de CVC.
+- Primera pasada de procedimientos invasivos de alto riesgo no SPECIALIST completada para RSI, CVC yugular/femoral, drenaje pleural, toracocentesis diagnóstica/terapéutica, UVC neonatal y balón uterino PPH.
+- Primera revisión bibliográfica profunda de todos los procedimientos SPECIALIST completada; ver `clinical/qa/V1.41_SPECIALIST_PROCEDURE_REVIEW.md`.
+- Revisión clínica profunda iniciada por procedimientos SPECIALIST; `PROC-US-007` se deduplicó como alias de `PROC-CV-006` (pericardiocentesis ecoguiada).
+- Regla de gotas: solo cuentagotas y solo con factor exacto verificado.
+- Handoff autoritativo: `clinical/qa/V1.41_FINAL_HANDOFF.md`.
+
+---
+
 # CURRENT_STATE — Competencia Médica
 
 Fecha de comprobación documental: 02/10/2026.

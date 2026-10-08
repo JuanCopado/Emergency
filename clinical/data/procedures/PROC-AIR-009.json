@@ -1,0 +1,203 @@
+{
+  "procedure_id": "PROC-AIR-009",
+  "name": "Videolaringoscopia",
+  "family": "Vía aérea y ventilación",
+  "level": "CORE",
+  "population": [
+    "adult"
+  ],
+  "setting": [
+    "ED",
+    "prehospital",
+    "ICU"
+  ],
+  "status": "YELLOW",
+  "objective": "Mejorar la visualización glótica y facilitar intubación traqueal en escenarios seleccionados.",
+  "indications": [
+    "Vía aérea potencialmente difícil.",
+    "RSI.",
+    "Estrategia primaria de intubación según experiencia y equipo."
+  ],
+  "contraindications_precautions": {
+    "absolute": [],
+    "relative": [],
+    "precautions": [
+      "Sangre o vómito pueden impedir visión de cámara.",
+      "Mantener control de tejidos y dientes; no depender solo de la pantalla.",
+      "No prolongar intentos si la oxigenación empeora."
+    ]
+  },
+  "equipment": {
+    "essential": [
+      "Videolaringoscopio.",
+      "Pala compatible.",
+      "Tubo endotraqueal.",
+      "Succión.",
+      "Capnografía."
+    ],
+    "optional": [
+      "Estilete preformado.",
+      "Bougie."
+    ],
+    "monitoring": [
+      "SpO₂.",
+      "ECG.",
+      "Presión arterial.",
+      "Capnografía."
+    ],
+    "rescue": [
+      "BVM.",
+      "SGA.",
+      "Equipo de FONA."
+    ]
+  },
+  "anatomy": {
+    "landmarks": [
+      "Orofaringe.",
+      "Epiglotis.",
+      "Glotis."
+    ],
+    "target": [
+      "Tráquea bajo visión de cámara."
+    ],
+    "avoid": [
+      "Paladar, dientes y tejidos blandos durante inserción."
+    ],
+    "laterality": null,
+    "variants": [
+      "Pala hiperangulada.",
+      "Pala estándar con cámara."
+    ]
+  },
+  "preparation": {
+    "patient_position": "Optimizada para la vía aérea y dispositivo elegido.",
+    "operator_position": "Cabecera.",
+    "monitoring": [
+      "SpO₂.",
+      "ECG.",
+      "Presión arterial."
+    ],
+    "asepsis": [],
+    "analgesia_sedation": [
+      "Según estrategia canónica de intubación."
+    ],
+    "prechecks": [
+      "Comprobar pantalla y batería.",
+      "Seleccionar pala.",
+      "Preparar curvatura de estilete/bougie.",
+      "Succión disponible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Introducir la pala bajo control directo de boca y tejidos.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 2,
+      "action": "Adquirir imagen glótica útil.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 3,
+      "action": "Avanzar el tubo siguiendo la curvatura adecuada.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 4,
+      "action": "Retirar estilete sin desplazar el tubo.",
+      "critical": true,
+      "visual_hint": null
+    },
+    {
+      "order": 5,
+      "action": "Ventilar y confirmar posición traqueal.",
+      "critical": true,
+      "visual_hint": null
+    }
+  ],
+  "confirmation": [
+    "Capnografía de onda sostenida.",
+    "Ventilación clínica efectiva."
+  ],
+  "stop_points": [
+    "Pérdida de control de tejidos/dientes.",
+    "Intento prolongado con deterioro de oxigenación.",
+    "Imposibilidad de avanzar el tubo pese a buena imagen sin cambio de estrategia."
+  ],
+  "complications": {
+    "immediate": [
+      "Trauma palatino.",
+      "Trauma dental.",
+      "Trauma laríngeo.",
+      "Intubación esofágica.",
+      "Hipoxemia."
+    ],
+    "early": [],
+    "late": []
+  },
+  "rescue": [
+    "Reoxigenar si el intento se prolonga.",
+    "Modificar estilete/dispositivo o cambiar operador.",
+    "Usar SGA/BVM para rescatar oxigenación.",
+    "Escalar a FONA si CICO."
+  ],
+  "aftercare": [
+    "Fijar el tubo.",
+    "Monitorizar capnografía.",
+    "Cuidados postintubación."
+  ],
+  "documentation": [
+    "Dispositivo y pala.",
+    "Número de intentos.",
+    "Dificultades encontradas.",
+    "Confirmación."
+  ],
+  "pearls": [
+    "Una excelente vista de cámara no garantiza que el tubo avance; preparar la geometría del estilete y limitar intentos."
+  ],
+  "special_adaptations": {
+    "pediatric": [
+      "Usar equipo y técnica pediátricos."
+    ],
+    "pregnancy": [],
+    "obesity": [
+      "Optimizar posición en rampa."
+    ],
+    "trauma": [
+      "Puede facilitar intubación con menor movimiento cervical, sin eliminar la necesidad de precauciones."
+    ],
+    "anticoagulation": [],
+    "difficult_anatomy": [
+      "Puede ser estrategia primaria según experiencia/equipo."
+    ]
+  },
+  "pocus": null,
+  "pharmacology_links": [
+    "airway-rsi",
+    "sedoanalgesia"
+  ],
+  "sources": [
+    {
+      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
+      "organization": "Difficult Airway Society",
+      "year": 2025,
+      "url": null,
+      "doi": null,
+      "accessed": "2026-10-06"
+    }
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": "2026-10-06",
+    "notes": [
+      "Structured migration from canonical text; human review required."
+    ]
+  }
+}
