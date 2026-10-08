@@ -108,3 +108,36 @@
     display: none !important;
   }
 }
+
+
+/* Adaptive clinical export layouts */
+.guide-format-algorithm .canonical-body {
+  display: grid;
+  gap: .5rem;
+}
+.guide-format-procedure .procedure-visual-slot {
+  min-height: 96px;
+}
+@media print {
+  .guide-format-algorithm .canonical-body {
+    display: block;
+    column-count: 2;
+    column-gap: 8mm;
+    font-size: 9pt;
+    line-height: 1.22;
+  }
+  .guide-format-algorithm .canonical-body > * {
+    break-inside: avoid;
+  }
+  .guide-format-guide .canonical-body {
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+  .guide-format-procedure .canonical-body {
+    font-size: 9.5pt;
+    line-height: 1.3;
+  }
+  .guide-format-procedure .procedure-visual-slot {
+    min-height: 28mm;
+  }
+}
