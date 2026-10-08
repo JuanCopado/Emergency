@@ -1,4 +1,4 @@
-import { fireEvent, screen, waitFor, within } from '@testing-library/react';
+import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import Calculator from '../pages/Calculator';
@@ -149,6 +149,90 @@ describe('i18n & settings', () => {
 
 
 describe('Clinical note diagnostic workspace', () => {
+  function pendingDiagnostic() {
+    let resolve!: (value: Response) => void;
+    let reject!: (reason: Error) => void;
+    const promise = new Promise<Response>((yes, no) => { resolve = yes; reject = no; });
+    return { promise, resolve, reject };
+  }
+
+  function diagnosticResponse(label: string) {
+    return new Response(JSON.stringify({
+      blocked: false, issues: [], rule_hits: [],
+      signals: [{ code: 'test_signal', weight: 2, label }],
+      assessment: {
+        problem_representation: label, active_problems: [], likely_diagnoses: [],
+        differential_diagnoses: [], must_not_miss: [], suggested_tests: [],
+        treatment_suggestions: [], disposition: [], reassessment: [],
+        contradictions_to_clarify: [], limitations: [],
+      },
+      medication_safety_gate: { status: 'NOT_APPLICABLE', actionable: true, message: label },
+    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+  }
+
+  async function openDiagnostic() {
+    const user = userEvent.setup();
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'Apoio diagnóstico' }));
+    await user.click(screen.getByRole('button', { name: 'Atualizar apoio diagnóstico' }));
+    return user;
+  }
+
+  it('accepts a diagnostic response for the unchanged note revision', async () => {
+    const request = pendingDiagnostic();
+    vi.spyOn(globalThis, 'fetch').mockReturnValueOnce(request.promise);
+    await openDiagnostic();
+    await act(async () => { request.resolve(diagnosticResponse('Resultado atual')); });
+    expect(await screen.findByText('Resultado atual')).toBeInTheDocument();
+    expect(screen.getByText('Apoio atualizado')).toBeInTheDocument();
+  });
+
+  it('keeps support stale when the note changes during a diagnostic request', async () => {
+    const request = pendingDiagnostic();
+    vi.spyOn(globalThis, 'fetch').mockReturnValueOnce(request.promise);
+    await openDiagnostic();
+    fireEvent.change(screen.getByLabelText('Idade'), { target: { value: '65' } });
+    await act(async () => { request.resolve(diagnosticResponse('Resultado antigo')); });
+    expect(screen.queryByText('Resultado antigo')).not.toBeInTheDocument();
+    expect(screen.getByText('Apoio pendente')).toBeInTheDocument();
+  });
+
+  it('does not let response A overwrite B when A finishes last', async () => {
+    const a = pendingDiagnostic(); const b = pendingDiagnostic();
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockReturnValueOnce(a.promise).mockReturnValueOnce(b.promise);
+    const user = await openDiagnostic();
+    fireEvent.change(screen.getByLabelText('Idade'), { target: { value: '65' } });
+    await user.click(screen.getByRole('button', { name: 'Atualizar apoio diagnóstico' }));
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    await act(async () => { b.resolve(diagnosticResponse('Resultado B')); });
+    expect(await screen.findByText('Resultado B')).toBeInTheDocument();
+    await act(async () => { a.resolve(diagnosticResponse('Resultado A')); });
+    expect(screen.queryByText('Resultado A')).not.toBeInTheDocument();
+    expect(screen.getByText('Resultado B')).toBeInTheDocument();
+    expect(screen.getByText('Apoio atualizado')).toBeInTheDocument();
+  });
+
+  it.each(['pending', 'completed'])('ignores an old error while the newer request is %s', async (state) => {
+    const a = pendingDiagnostic(); const b = pendingDiagnostic();
+    vi.spyOn(globalThis, 'fetch').mockReturnValueOnce(a.promise).mockReturnValueOnce(b.promise);
+    const user = await openDiagnostic();
+    fireEvent.change(screen.getByLabelText('Idade'), { target: { value: '65' } });
+    await user.click(screen.getByRole('button', { name: 'Atualizar apoio diagnóstico' }));
+    if (state === 'completed') {
+      await act(async () => { b.resolve(diagnosticResponse('Resultado B')); });
+      expect(await screen.findByText('Resultado B')).toBeInTheDocument();
+    }
+    await act(async () => { a.reject(new Error('Erro antigo')); });
+    expect(screen.queryByText('Erro antigo')).not.toBeInTheDocument();
+    if (state === 'pending') {
+      expect(screen.getByRole('button', { name: 'A processar…' })).toBeDisabled();
+      await act(async () => { b.resolve(diagnosticResponse('Resultado B')); });
+    }
+    expect(await screen.findByText('Resultado B')).toBeInTheDocument();
+    expect(screen.getByText('Apoio atualizado')).toBeInTheDocument();
+  });
+
   it('creates an MCDT review card and blocks export while review is pending', async () => {
     const user = userEvent.setup();
     await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');

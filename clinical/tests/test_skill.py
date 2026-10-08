@@ -6251,6 +6251,125 @@ class ModularCoreTests(unittest.TestCase):
         for expected in ('Synthetic finding', 'Synthetic impression', 'Image incomplete'):
             self.assertIn(expected, section_text)
 
+    def test_v142_diagnostic_negated_audit_case_has_no_positive_hits(self):
+        note = new_clinical_note(age_years=50)
+        note['history']['present_illness'] = 'Nega dor toracica, sem sudorese, sem supra de ST.'
+        result = run_clinical_note_api_diagnostic(note)
+        self.assertFalse(result['blocked'])
+        self.assertEqual(result['rule_hits'], [])
+
+    def test_v142_diagnostic_local_negation_in_three_languages(self):
+        from clinical_note_diagnostic_engine import _term_present
+        for text, term in (
+            ('No presenta fiebre', 'fiebre'), ('Niega dolor torácico', 'dolor torácico'),
+            ('Sin disnea ni síncope', 'disnea'), ('Sin disnea ni síncope', 'síncope'),
+            ('Ausencia de fiebre', 'fiebre'), ('Não apresenta febre', 'febre'),
+            ('Nega dor torácica', 'dor torácica'), ('Sem dispneia', 'dispneia'),
+            ('Ausência de febre', 'febre'), ('No chest pain', 'chest pain'),
+            ('Denies chest pain or dyspnea', 'dyspnea'), ('Without fever', 'fever'),
+            ('Absence of fever', 'fever'), ('Chest pain is denied', 'chest pain'),
+        ):
+            with self.subTest(text=text, term=term):
+                self.assertFalse(_term_present(term, text))
+
+    def test_v142_diagnostic_negation_stops_at_local_contrast(self):
+        from clinical_note_diagnostic_engine import _term_present
+        for text, negative, positive in (
+            ('No presenta fiebre, pero sí dolor torácico', 'fiebre', 'dolor torácico'),
+            ('Niega fiebre. Presenta dolor torácico opresivo actual.', 'fiebre', 'dolor torácico'),
+            ('Sem dor torácica, mas apresenta dispneia agora.', 'dor torácica', 'dispneia'),
+            ('Denies fever but has chest pain now.', 'fever', 'chest pain'),
+            ('Niega fiebre, presenta dolor torácico.', 'fiebre', 'dolor torácico'),
+        ):
+            with self.subTest(text=text):
+                self.assertFalse(_term_present(negative, text))
+                self.assertTrue(_term_present(positive, text))
+
+    def test_v142_diagnostic_remote_and_resolved_symptoms_are_not_current(self):
+        from clinical_note_diagnostic_engine import _term_present
+        for text, term in (
+            ('Antecedente de dolor torácico hace 2 años. Actualmente asintomático.', 'dolor torácico'),
+            ('Antecedentes de síncope.', 'síncope'), ('Presentó previamente disnea.', 'disnea'),
+            ('Tuvo disnea ayer, resuelta.', 'disnea'), ('Dolor torácico hace 2 días.', 'dolor torácico'),
+            ('Disnea resuelta.', 'disnea'), ('Ya no presenta disnea.', 'disnea'),
+            ('Previously had chest pain.', 'chest pain'), ('History of chest pain.', 'chest pain'),
+            ('Chest pain resolved.', 'chest pain'), ('Teve dispneia.', 'dispneia'),
+            ('Anteriormente apresentava dispneia.', 'dispneia'), ('Dispneia resolvida.', 'dispneia'),
+        ):
+            with self.subTest(text=text):
+                self.assertFalse(_term_present(term, text))
+
+    def test_v142_diagnostic_current_symptoms_survive_past_context(self):
+        from clinical_note_diagnostic_engine import _term_present
+        text = 'Tuvo disnea ayer, resuelta. Ahora presenta síncope.'
+        self.assertFalse(_term_present('disnea', text))
+        self.assertTrue(_term_present('síncope', text))
+        for text, term in (
+            ('Niega dolor previo, ahora presenta dolor intenso.', 'dolor'),
+            ('Anteriormente teve dispneia, agora apresenta dispneia.', 'dispneia'),
+            ('History of chest pain. Currently has chest pain.', 'chest pain'),
+            ('Tuvo disnea. Actualmente tiene disnea.', 'disnea'),
+            ('Disnea desde hace 2 días, persiste.', 'disnea'),
+            ('Ongoing chest pain for two days.', 'chest pain'),
+        ):
+            with self.subTest(text=text):
+                self.assertTrue(_term_present(term, text))
+
+    def test_v142_diagnostic_positive_control_keeps_existing_score(self):
+        for text in ('Dolor torácico opresivo con sudoración.',
+                     'Niega fiebre. Presenta dolor torácico opresivo con sudoración actual.'):
+            note = new_clinical_note(age_years=50)
+            note['history']['present_illness'] = text
+            result = run_clinical_note_api_diagnostic(note)
+            hit = next(x for x in result['rule_hits'] if x['module'] == 'acute-coronary-syndrome')
+            self.assertEqual(hit['score'], 3)
+            self.assertIn('acute-coronary-syndrome', [m for c in result['assessment']['likely_diagnoses'] for m in c['source_modules']])
+
+    def test_v142_diagnostic_history_field_does_not_supply_acute_symptom(self):
+        note = new_clinical_note(age_years=50)
+        note['history']['past_medical_history'] = ['Dolor torácico con sudoración']
+        self.assertEqual(run_clinical_note_api_diagnostic(note)['rule_hits'], [])
+
+    def test_v142_diagnostic_historical_trigger_requires_explicit_opt_in(self):
+        from clinical_note_diagnostic_engine import _rule_score, analyze, load_rules
+        rule = {'id': 'synthetic', 'triggers': [
+            {'type': 'text_any', 'terms': ['chest pain'], 'weight': 2, 'label': 'history'}]}
+        self.assertEqual(_rule_score(rule, 'history of chest pain', [])[0], 0)
+        rule['triggers'][0]['allow_historical'] = True
+        self.assertEqual(_rule_score(rule, 'history of chest pain', [])[0], 2)
+        self.assertEqual(_rule_score(rule, 'no history of chest pain', [])[0], 0)
+        # Exercise the field collection and trigger policy together through analyze.
+        note = new_clinical_note(age_years=50)
+        note['history']['past_medical_history'] = ['Dolor torácico']
+        rules = load_rules()
+        acs = next(r for r in rules['syndromes'] if r['id'] == 'acute-coronary-syndrome')
+        self.assertEqual(analyze(note, rules=rules)['rule_hits'], [])
+        for trigger in acs['triggers']:
+            if trigger['type'] == 'text_any':
+                trigger['allow_historical'] = True
+        self.assertIn('acute-coronary-syndrome', [r['module'] for r in analyze(note, rules=rules)['rule_hits']])
+
+    def test_v142_diagnostic_negative_findings_can_be_explicit_positive_rules(self):
+        from clinical_note_diagnostic_engine import _term_present
+        for term, text in (
+            ('sem pulso', 'Encontrado sem pulso; assistolia no monitor.'),
+            ('crises repetidas sem recuperar', 'Crises repetidas sem recuperar.'),
+            ('sem pródromos', 'Síncope sem pródromos.'),
+            ('chest pain', 'Not only chest pain but also dyspnea.'),
+            ('supra de st', 'Supra de ST no ECG.'),
+        ):
+            with self.subTest(term=term):
+                self.assertTrue(_term_present(term, text))
+
+    def test_v142_diagnostic_negation_does_not_cross_fields_or_newlines(self):
+        from clinical_note_diagnostic_engine import _term_present
+        self.assertTrue(_term_present('chest pain', 'No fever\nChest pain'))
+        note = new_clinical_note(age_years=50)
+        note['history']['chief_complaint'] = 'Nega febre'
+        note['history']['present_illness'] = 'Dolor torácico con sudoración'
+        hits = run_clinical_note_api_diagnostic(note)['rule_hits']
+        self.assertEqual(next(x['score'] for x in hits if x['module'] == 'acute-coronary-syndrome'), 3)
+
     def test_fixed_dose_calculator_rejects_zero_concentration(self):
         with self.assertRaises(ValueError):
             fixed_dose_ml_h(1, 0)
