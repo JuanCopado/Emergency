@@ -17,83 +17,6 @@ beforeEach(() => {
   } catch {
     /* ignore */
   }
-  it('surfaces evidence against and blocks stale diagnostic export until explicit acknowledgement', async () => {
-    const user = userEvent.setup();
-    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
-      const url = String(input);
-      if (url.endsWith('/api/clinical-note/analyze')) {
-        return new Response(JSON.stringify({
-          blocked: false,
-          issues: [],
-          signals: [],
-          rule_hits: [],
-          assessment: {
-            problem_representation: 'Quadro agudo em avaliação.',
-            active_problems: ['Problema ativo'],
-            likely_diagnoses: [{
-              diagnosis: 'Diagnóstico A',
-              confidence: 'moderate',
-              evidence_for: ['Dado a favor'],
-              evidence_against: ['Dado contra'],
-              missing_discriminating_data: ['Teste discriminante'],
-              source_modules: ['module-a'],
-            }],
-            differential_diagnoses: [],
-            must_not_miss: [{
-              diagnosis: 'Diagnóstico crítico',
-              confidence: 'low',
-              evidence_for: ['Red flag'],
-              evidence_against: [],
-              missing_discriminating_data: ['Imagem urgente'],
-              source_modules: ['module-critical'],
-            }],
-            suggested_tests: [],
-            treatment_suggestions: [],
-            disposition: [],
-            reassessment: [],
-            contradictions_to_clarify: [],
-            limitations: ['Dados incompletos.'],
-          },
-          note: null,
-          medication_safety_gate: {
-            status: 'NOT_APPLICABLE',
-            actionable: true,
-            required_module: null,
-            message: 'No medication gate required.',
-          },
-        }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-      }
-      return new Response(JSON.stringify({ error: 'unexpected endpoint' }), { status: 404 });
-    });
-
-    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
-    await user.click(screen.getByRole('button', { name: 'Apoio diagnóstico' }));
-    await user.click(screen.getByRole('button', { name: 'Atualizar apoio diagnóstico' }));
-    expect(await screen.findByText('Diagnóstico crítico')).toBeInTheDocument();
-    expect(screen.getByText(/Contra:/)).toBeInTheDocument();
-    expect(screen.getByText('Dado contra')).toBeInTheDocument();
-    expect(screen.getByText('Limitações do apoio diagnóstico')).toBeInTheDocument();
-
-    await user.click(screen.getByRole('button', { name: 'História' }));
-    await user.type(screen.getByRole('textbox', { name: /Motivo de consulta/i }), 'novo dado');
-    await user.click(screen.getByRole('button', { name: 'Exportar' }));
-    const checks = screen.getAllByRole('checkbox');
-    expect(checks.length).toBeGreaterThanOrEqual(3);
-    expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
-    await user.click(checks[0]);
-    await user.click(checks[1]);
-    expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
-    await user.click(checks[2]);
-    expect(screen.getByRole('button', { name: 'PDF' })).toBeEnabled();
-  });
-
-  it('does not treat an empty allergy field as no known allergies', async () => {
-    const user = userEvent.setup();
-    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
-    await user.click(screen.getByRole('button', { name: 'Plano' }));
-    expect(screen.getByText(/Alergias não registadas/)).toBeInTheDocument();
-  });
-
 });
 
 describe('Calculator', () => {
@@ -475,4 +398,84 @@ describe('Clinical note diagnostic workspace', () => {
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
     expect(screen.getByRole('button', { name: 'Word (.docx)' })).toBeDisabled();
   });
+
+  it('surfaces evidence against and blocks stale diagnostic export until explicit acknowledgement', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url.endsWith('/api/clinical-note/analyze')) {
+        return new Response(JSON.stringify({
+          blocked: false,
+          issues: [],
+          signals: [],
+          rule_hits: [],
+          assessment: {
+            problem_representation: 'Quadro agudo em avaliação.',
+            active_problems: ['Problema ativo'],
+            likely_diagnoses: [{
+              diagnosis: 'Diagnóstico A',
+              confidence: 'moderate',
+              evidence_for: ['Dado a favor'],
+              evidence_against: ['Dado contra'],
+              missing_discriminating_data: ['Teste discriminante'],
+              source_modules: ['module-a'],
+            }],
+            differential_diagnoses: [],
+            must_not_miss: [{
+              diagnosis: 'Diagnóstico crítico',
+              confidence: 'low',
+              evidence_for: ['Red flag'],
+              evidence_against: [],
+              missing_discriminating_data: ['Imagem urgente'],
+              source_modules: ['module-critical'],
+            }],
+            suggested_tests: [],
+            treatment_suggestions: [],
+            disposition: [],
+            reassessment: [],
+            contradictions_to_clarify: [],
+            limitations: ['Dados incompletos.'],
+          },
+          note: null,
+          medication_safety_gate: {
+            status: 'NOT_APPLICABLE',
+            actionable: true,
+            required_module: null,
+            message: 'No medication gate required.',
+          },
+        }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+      }
+      return new Response(JSON.stringify({ error: 'unexpected endpoint' }), { status: 404 });
+    });
+
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'Apoio diagnóstico' }));
+    await user.click(screen.getByRole('button', { name: 'Atualizar apoio diagnóstico' }));
+    expect(await screen.findByText('Diagnóstico crítico')).toBeInTheDocument();
+    expect(screen.getByText(/Contra:/)).toBeInTheDocument();
+    expect(screen.getByText('Dado contra')).toBeInTheDocument();
+    expect(screen.getByText('Limitações do apoio diagnóstico')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'História' }));
+    const chief = screen.getAllByRole('textbox').find((el) => el.parentElement?.textContent?.includes('Motivo de consulta'));
+    if (!chief) throw new Error('chief complaint field missing');
+    await user.type(chief, 'novo dado');
+    await user.click(screen.getByRole('button', { name: 'Exportar' }));
+    const checks = screen.getAllByRole('checkbox');
+    expect(checks.length).toBeGreaterThanOrEqual(3);
+    expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
+    await user.click(checks[0]);
+    await user.click(checks[1]);
+    expect(screen.getByRole('button', { name: 'PDF' })).toBeDisabled();
+    await user.click(checks[2]);
+    expect(screen.getByRole('button', { name: 'PDF' })).toBeEnabled();
+  });
+
+  it('does not treat an empty allergy field as no known allergies', async () => {
+    const user = userEvent.setup();
+    await renderAt('/clinical-note', [{ path: '/clinical-note', element: <ClinicalNote /> }], 'pt');
+    await user.click(screen.getByRole('button', { name: 'Plano' }));
+    expect(screen.getByText(/Alergias não registadas/)).toBeInTheDocument();
+  });
+
 });
