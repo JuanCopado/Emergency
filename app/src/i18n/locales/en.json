@@ -8,7 +8,8 @@
     "calculator": "Calculator",
     "settings": "Settings",
     "about": "About",
-    "clinicalNote": "Clinical note"
+    "clinicalNote": "Clinical note",
+    "clinical": "Clinical"
   },
   "a11y": {
     "skip": "Skip to main content",
