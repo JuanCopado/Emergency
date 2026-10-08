@@ -19,7 +19,7 @@ function StatusPill({ status }: { status: GuideStatus }) {
 function CanonicalBody({ guide }: { guide: CanonicalGuide }) {
   const lines = guide.body.split('\n');
   return (
-    <section className="mt-5 space-y-2 text-sm leading-relaxed text-slate-800">
+    <section className="canonical-body mt-5 space-y-2 text-sm leading-relaxed text-slate-800">
       {lines.map((raw, index) => {
         const line = raw.trim();
         if (!line) return <div key={index} className="h-1" />;
