@@ -66,6 +66,7 @@ export default function ClinicalNote(){
  const [diagnosticAlerts,setDiagnosticAlerts]=useState<{severity:string;code:string;message:string}[]>([]);
  const [medicationGate,setMedicationGate]=useState<{status:string;actionable:boolean;message:string}|null>(null);
  const [diagnosticStale,setDiagnosticStale]=useState(true);
+ const [staleExportAck,setStaleExportAck]=useState(false);
  const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
  const [clinicianReviewed,setClinicianReviewed]=useState(false);
  const [draftKind,setDraftKind]=useState('Outro'); const [draftName,setDraftName]=useState('');
@@ -79,11 +80,12 @@ export default function ClinicalNote(){
    ...mcdt.flatMap(x=>[x.official,x.ai])].join('\n');
  const privacyStop=directId.test(freeText);
  const pending=mcdt.filter(x=>x.state==='pending').length;
- const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0||apiBusy;
+ const exportBlocked=privacyStop||!privacyAck||!clinicianReviewed||pending>0||apiBusy||(Boolean(assessment)&&diagnosticStale&&!staleExportAck);
 
  function touch(){
    setClinicianReviewed(false);
    setDiagnosticStale(true);
+   setStaleExportAck(false);
  }
  function buildNote():ClinicalNotePayload{
    const baseAssessment:ClinicalAssessment=assessment?{
@@ -324,18 +326,20 @@ export default function ClinicalNote(){
    {tab==='diagnostic'&&<section className="space-y-4">
     <div className={card}><div className="flex flex-wrap items-center gap-3"><div><h2 className="text-lg font-bold">Apoio diagnóstico</h2><p className="text-sm text-muted">Executado apenas sobre dados aceites e após preflight de privacidade.</p></div><button className="btn-primary ml-auto" disabled={apiBusy||privacyStop} onClick={()=>void runDiagnostic()}>{apiBusy?'A processar…':'Atualizar apoio diagnóstico'}</button></div>{diagnosticStale&&assessment&&<p className="mt-3 text-sm font-semibold text-warn">Os dados mudaram desde a última análise; resultado marcado como desatualizado.</p>}</div>
     {diagnosticAlerts.length>0&&<div className={card}><h2 className="font-bold text-danger">Alertas / red flags</h2><div className="mt-3 grid gap-2 md:grid-cols-2">{diagnosticAlerts.map((x,i)=><div key={`${x.code}-${i}`} className="rounded-xl border border-danger p-3 text-sm"><div className="font-bold">{x.severity} · {x.code}</div><p className="mt-1">{x.message}</p></div>)}</div></div>}
+    {assessment?.problem_representation&&<div className={card}><h2 className="font-bold">Representação do problema</h2><p className="mt-2 text-sm">{assessment.problem_representation}</p></div>}
+    {assessment?.limitations.length?<div className={card}><h2 className="font-bold text-warn">Limitações do apoio diagnóstico</h2><ul className="mt-2 space-y-1 text-sm">{assessment.limitations.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}
     <div className="grid gap-4 lg:grid-cols-2">
       {([
+        ['Must not miss',assessment?.must_not_miss||[]],
         ['Mais provável',assessment?.likely_diagnoses||[]],
         ['Diferencial',assessment?.differential_diagnoses||[]],
-        ['Must not miss',assessment?.must_not_miss||[]],
-      ] as const).map(([h,items])=><div className={card} key={h}><h2 className="font-bold">{h}</h2>{items.length?<div className="mt-3 space-y-3">{items.map((d,i)=><div key={i} className="rounded-xl border border-border p-3"><div className="flex items-center gap-2"><strong>{d.diagnosis}</strong><span className="chip ml-auto">{d.confidence}</span></div>{d.evidence_for.length>0&&<p className="mt-2 text-sm">A favor: {d.evidence_for.join(' · ')}</p>}{d.missing_discriminating_data.length>0&&<p className="mt-1 text-xs text-muted">Falta: {d.missing_discriminating_data.join(' · ')}</p>}<p className="mt-1 text-xs text-muted">Módulos: {d.source_modules.join(' · ')}</p></div>)}</div>:<p className="mt-3 text-sm text-muted">Sem resultado executado/aceite.</p>}</div>)}
+      ] as const).map(([h,items])=><div className={card} key={h}><h2 className={`font-bold ${h==='Must not miss'?'text-danger':''}`}>{h}</h2>{items.length?<div className="mt-3 space-y-3">{items.map((d,i)=><div key={i} className={`rounded-xl border p-3 ${h==='Must not miss'?'border-danger':'border-border'}`}><div className="flex items-center gap-2"><strong>{d.diagnosis}</strong><span className="chip ml-auto">{d.confidence}</span></div>{d.evidence_for.length>0&&<p className="mt-2 text-sm"><strong>A favor:</strong> {d.evidence_for.join(' · ')}</p>}{d.evidence_against.length>0&&<p className="mt-1 text-sm"><strong>Contra:</strong> {d.evidence_against.join(' · ')}</p>}{d.missing_discriminating_data.length>0&&<p className="mt-1 text-xs text-muted"><strong>Falta discriminar:</strong> {d.missing_discriminating_data.join(' · ')}</p>}<p className="mt-1 text-xs text-muted">Módulos: {d.source_modules.join(' · ')||'—'}</p></div>)}</div>:<p className="mt-3 text-sm text-muted">Sem resultado executado/aceite.</p>}</div>)}
       <div className={card}><h2 className="font-bold">Dados em falta / contradições</h2><div className="mt-3 space-y-2 text-sm">{(assessment?.contradictions_to_clarify||[]).map((x,i)=><p key={i} className="rounded-xl border border-warn p-3">{x}</p>)}{!(assessment?.contradictions_to_clarify.length)&&<p className="text-muted">Sem contradições estruturadas neste momento.</p>}</div></div>
     </div>
    </section>}
 
    {tab==='plan'&&<section className="space-y-4">
-    <div className={card}><h2 className="text-lg font-bold">Plano médico</h2><textarea className="input mt-4 min-h-40" value={plan} onChange={e=>{setPlan(e.target.value);touch()}} placeholder="Plano introduzido/revisto pelo médico"/></div>
+    <div className={card}><h2 className="text-lg font-bold">Plano médico</h2>{!allergies.trim()&&<div className="mt-3 rounded-xl border border-warn bg-warn-bg p-3 text-sm text-warn"><strong>Alergias não registadas.</strong> O sistema não deve interpretar campo vazio como “sem alergias conhecidas”.</div>}<textarea className="input mt-4 min-h-40" value={plan} onChange={e=>{setPlan(e.target.value);touch()}} placeholder="Plano introduzido/revisto pelo médico"/></div>
     <div className={card}><h2 className="font-bold">Pruebas sugeridas</h2>{assessment?.suggested_tests.length?<ul className="mt-3 space-y-2 text-sm">{assessment.suggested_tests.map((x,i)=><li key={i} className="rounded-xl border border-border p-3">{x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">Sem sugestões executadas.</p>}</div>
     <div className={card}><h2 className="font-bold">Tratamento sugerido</h2>{medicationGate&&<div className={`mt-3 rounded-xl border p-3 text-sm ${medicationGate.actionable?'border-ok text-ok':'border-warn bg-warn-bg text-warn'}`}>{medicationGate.message}</div>}{assessment?.treatment_suggestions.length?<ul className="mt-3 space-y-2 text-sm">{assessment.treatment_suggestions.map((x,i)=><li key={i} className="rounded-xl border border-border p-3"><strong>{x.priority||'routine'}</strong> · {x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">Sem tratamento gerado.</p>}</div>
     <div className="grid gap-4 md:grid-cols-2"><div className={card}><h2 className="font-bold">Destino</h2>{assessment?.disposition.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div><div className={card}><h2 className="font-bold">Reavaliação</h2>{assessment?.reassessment.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div></div>
@@ -345,8 +349,11 @@ export default function ClinicalNote(){
     <label className="flex items-center gap-2"><input type="checkbox" checked={privacyAck} onChange={e=>setPrivacyAck(e.target.checked)}/> Identificadores diretos removidos; texto livre, metadados e privacidade revistos.</label>
     <label className="flex items-center gap-2"><input type="checkbox" checked={clinicianReviewed} onChange={e=>setClinicianReviewed(e.target.checked)}/> Médico reviu e valida o conteúdo clínico atual.</label>
     <p>{pending===0?'✓ Sem cartões MCDT pendentes':`STOP: ${pending} MCDT pendente(s) de aceitar/editar/rejeitar.`}</p>
-    {diagnosticStale&&assessment&&<p className="text-warn">A análise diagnóstica está desatualizada; pode exportar apenas se o médico aceitar explicitamente o estado atual.</p>}
-   </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, revisão médica e resolução dos MCDT pendentes.</p>}</section>}
+    {diagnosticStale&&assessment&&<>
+      <p className="text-warn">A análise diagnóstica está desatualizada.</p>
+      <label className="flex items-start gap-2 rounded-xl border border-warn bg-warn-bg p-3 text-warn"><input type="checkbox" checked={staleExportAck} onChange={e=>setStaleExportAck(e.target.checked)}/><span><strong>Aceito exportar com apoio diagnóstico desatualizado.</strong> A decisão clínica atual foi revista independentemente pelo médico.</span></label>
+    </>}
+   </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, revisão médica, resolução dos MCDT pendentes e, quando aplicável, confirmação explícita de análise diagnóstica desatualizada.</p>}</section>}
  </>;
 
  return <div className="space-y-4" data-testid="clinical-note-workspace">
