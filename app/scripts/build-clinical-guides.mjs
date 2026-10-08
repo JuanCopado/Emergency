@@ -33,6 +33,23 @@ async function getBundle(bundle) {
 }
 
 const titleize = (id) => id.split('-').map((w) => w ? w[0].toUpperCase() + w.slice(1) : w).join(' ');
+
+const PROCEDURE_MODULES = new Set([
+  'airway-rsi',
+  'pediatric-airway-rsi',
+  'sedoanalgesia',
+  'pediatric-procedural-sedation',
+  'emergency-procedures',
+]);
+
+const ALGORITHM_PATTERN = /(arrest|arrhythm|shock|anaphylaxis|stroke|status-epilepticus|dka|electrolyte|hypertensive-emergency|tension-pneumothorax|sepsis|acute-severe-asthma|croup|bronchiolitis|dehydration|hemorrhage|bleeding|tamponade|aortic-syndrome|pulmonary-embolism)/;
+
+function classifyFormat(id) {
+  if (PROCEDURE_MODULES.has(id)) return 'procedure';
+  if (ALGORITHM_PATTERN.test(id)) return 'algorithm';
+  return 'guide';
+}
+
 const guides = [];
 
 for (const entry of entries) {
@@ -48,6 +65,7 @@ for (const entry of entries) {
     bundle: entry.bundle,
     sourcePath: 'clinical/' + entry.bundle,
     status: statusMap.get(entry.id) ?? 'yellow',
+    format: classifyFormat(entry.id),
     body: content.slice(bodyStart, next >= 0 ? next : content.length).trim(),
   });
 }
