@@ -32,6 +32,9 @@ from clinical_note_api import (
     read_audit_trail as read_clinical_note_audit,
     verify_audit_chain as verify_clinical_note_audit_chain,
     diagnostic_provenance as clinical_note_diagnostic_provenance,
+    reviewer_attestation as clinical_note_reviewer_attestation,
+    sign_export_bytes as sign_clinical_note_export,
+    verify_export_signature as verify_clinical_note_export_signature,
 )
 from final_human_review_gate import build_review_queue as build_final_human_review_queue
 from run_clinical_note_synthetic_cases import run as run_clinical_note_synthetic_cases
@@ -5960,6 +5963,39 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(missing,set(),sorted(missing))
         self.assertEqual(set(module_ids)-routed,exempt)
 
+
+
+    def test_v1391_export_signature_binds_content_reviewer_and_build(self):
+        note = self._clean_note_for_export()
+        payload = b'%PDF-1.4\nexample'
+        provenance = clinical_note_diagnostic_provenance(note.get('assessment') or {})
+        reviewer = {'reviewer_code': 'MED-URG-01', 'reviewer_role': 'emergency_physician'}
+        signature = sign_clinical_note_export(note, 'pdf', payload, reviewer, provenance)
+        self.assertEqual(signature['algorithm'], 'HMAC-SHA256')
+        self.assertEqual(signature['format'], 'pdf')
+        self.assertEqual(len(signature['content_sha256']), 64)
+        self.assertTrue(signature['reviewer_fingerprint'].startswith('rev_'))
+        self.assertNotIn('MED-URG-01', json.dumps(signature))
+        self.assertTrue(verify_clinical_note_export_signature(signature, payload)['valid'])
+        self.assertFalse(verify_clinical_note_export_signature(signature, payload + b'x')['valid'])
+
+    def test_v1391_reviewer_attestation_rejects_raw_personal_identity_shapes(self):
+        attestation = clinical_note_reviewer_attestation({
+            'reviewer_code': 'MED-42',
+            'reviewer_role': 'consultant',
+        })
+        self.assertEqual(attestation['reviewer_role'], 'consultant')
+        self.assertTrue(attestation['reviewer_fingerprint'].startswith('rev_'))
+        with self.assertRaises(ValueError):
+            clinical_note_reviewer_attestation({
+                'reviewer_code': 'Dr João Silva',
+                'reviewer_role': 'consultant',
+            })
+        with self.assertRaises(ValueError):
+            clinical_note_reviewer_attestation({
+                'reviewer_code': 'MED-42',
+                'reviewer_role': 'administrator',
+            })
 
     def test_v1391_server_audit_chain_is_tamper_evident(self):
         note = new_clinical_note(age_years=55, sex='male')
