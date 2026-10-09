@@ -1,3 +1,5 @@
 -r requirements.txt
 # Extract actual PDF text in regression tests; not a runtime dependency.
 pypdf==6.20.0
+# Parse GitHub Actions configuration in coverage regressions.
+PyYAML==6.0.3

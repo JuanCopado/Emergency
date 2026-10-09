@@ -2,16 +2,35 @@ name: App UI QA
 
 on:
   push:
-    branches:
-      - main
-      - v1.39-clinical-note-diagnostic-support
+    branches: [main, 'v1.*']
     paths:
       - 'app/**'
+      - 'clinical/modules/**'
+      - 'clinical/references/module-index.md'
+      - 'clinical/MODULES.md'
+      - 'clinical/scripts/**'
+      - 'clinical/calculators/**'
+      - 'clinical/data/**'
+      - 'clinical/schemas/**'
+      - 'clinical/templates/**'
+      - 'clinical/assets/fonts/**'
+      - 'clinical/requirements*.txt'
       - '.github/workflows/app-ui-qa.yml'
   pull_request:
     paths:
       - 'app/**'
+      - 'clinical/modules/**'
+      - 'clinical/references/module-index.md'
+      - 'clinical/MODULES.md'
+      - 'clinical/scripts/**'
+      - 'clinical/calculators/**'
+      - 'clinical/data/**'
+      - 'clinical/schemas/**'
+      - 'clinical/templates/**'
+      - 'clinical/assets/fonts/**'
+      - 'clinical/requirements*.txt'
       - '.github/workflows/app-ui-qa.yml'
+  workflow_dispatch:
 
 concurrency:
   group: app-ui-qa-${{ github.workflow }}-${{ github.ref }}
@@ -36,11 +55,31 @@ jobs:
           node-version: '22'
           cache: npm
           cache-dependency-path: app/package-lock.json
+      - name: Set up Python for browser PDF verification
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            clinical/requirements.txt
+            clinical/requirements-test.txt
+      - name: Install clinical runtime and test requirements
+        run: python -m pip install -r ../clinical/requirements-test.txt
       - name: Install
         run: npm ci
+      - name: Check committed canonical artifacts
+        run: |
+          npm run guides:test
+          npm run procedures:test
       - name: Typecheck
         run: npm run typecheck
       - name: Test
         run: npm test
       - name: Build
         run: npm run build
+      - name: Ensure build did not change committed catalogs
+        run: git diff --exit-code -- src/data/generatedClinicalGuides.json src/data/generatedProcedures.json
+      - name: Verify actual browser PDF fidelity
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: npm run guides:print-check

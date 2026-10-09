@@ -2,33 +2,15 @@ name: Clinical QA
 
 on:
   push:
-    branches:
-      - main
-      - v1.36-consolidation
-      - v1.37-scores-formulas-validation
-      - v1.38-pediatric-outpatient-medications
-      - v1.39-clinical-note-diagnostic-support
+    branches: [main, 'v1.*']
     paths:
-      - 'clinical/modules/**'
-      - 'clinical/references/module-index.md'
-      - 'clinical/references/router.md'
-      - 'clinical/references/evidence-registry.json'
-      - 'clinical/scripts/**'
-      - 'clinical/tests/**'
-      - 'clinical/qa/**'
-      - 'clinical/SKILL.md'
-      - '.github/workflows/clinical-qa.yml'
+      - 'clinical/**'
+      - '.github/workflows/**'
   pull_request:
     paths:
-      - 'clinical/modules/**'
-      - 'clinical/references/module-index.md'
-      - 'clinical/references/router.md'
-      - 'clinical/references/evidence-registry.json'
-      - 'clinical/scripts/**'
-      - 'clinical/tests/**'
-      - 'clinical/qa/**'
-      - 'clinical/SKILL.md'
-      - '.github/workflows/clinical-qa.yml'
+      - 'clinical/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
 
 concurrency:
   group: clinical-qa-${{ github.workflow }}-${{ github.ref }}
@@ -48,6 +30,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            clinical/requirements.txt
+            clinical/requirements-test.txt
+      - name: Install clinical runtime and test requirements
+        run: python -m pip install -r clinical/requirements-test.txt
       - name: Run unified clinical QA
         working-directory: clinical
         run: python3 qa/qa_runner.py
