@@ -5891,6 +5891,59 @@ class ModularCoreTests(unittest.TestCase):
             self.assertIn('Diagnósticos prováveis',xml)
             self.assertNotIn('João da Silva',xml)
 
+    def test_v142_unicode_exports_preserve_clinical_symbols(self):
+        from pypdf import PdfReader
+        from clinical_note_exporter import export_json
+        import zipfile
+        note = self._clean_note_for_export()
+        sample = 'SpO₂ ≤ 92% → reevaluar; temperatura ≥ 38 °C; ± respuesta; β-bloqueo'
+        extra = '← µ ₃ α – — “comillas” ‘clínicas’'
+        note['history']['present_illness'] = sample + '\n' + extra
+        with tempfile.TemporaryDirectory() as directory:
+            pdf = Path(directory) / 'note.pdf'
+            docx = Path(directory) / 'note.docx'
+            output = Path(directory) / 'note.json'
+            export_clinical_note_pdf(note, pdf)
+            text = '\n'.join(page.extract_text() for page in PdfReader(pdf).pages)
+            self.assertIn(sample, text)
+            self.assertIn(extra, text)
+            export_clinical_note_docx(note, docx)
+            with zipfile.ZipFile(docx) as archive:
+                xml = archive.read('word/document.xml').decode('utf-8')
+            self.assertIn(sample, xml)
+            self.assertIn(extra, xml)
+            export_json(note, output)
+            self.assertEqual(json.loads(output.read_text(encoding='utf-8'))['history']['present_illness'], sample + '\n' + extra)
+
+    def test_v142_unicode_pdf_embeds_fonts_and_preserves_multipage_text(self):
+        from pypdf import PdfReader
+        note = self._clean_note_for_export()
+        sample = 'SpO₂ ≤ 92% → reevaluar; temperatura ≥ 38 °C; ± respuesta; β-bloqueo'
+        note['history']['present_illness'] = '\n'.join([sample] * 120 + ['<b>literal & final ≥</b>'])
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'note.pdf'
+            export_clinical_note_pdf(note, path)
+            reader = PdfReader(path)
+            self.assertGreater(len(reader.pages), 2)
+            text = '\n'.join(page.extract_text() for page in reader.pages)
+            self.assertEqual(text.count(sample), 120)
+            self.assertIn('<b>literal & final ≥</b>', text)
+            fonts = [ref.get_object() for page in reader.pages for ref in page['/Resources']['/Font'].values()]
+            embedded = [font for font in fonts if '/ToUnicode' in font]
+            self.assertGreaterEqual(len(embedded), 2)
+            for font in embedded:
+                self.assertIn('/FontFile2', font['/FontDescriptor'])
+
+    def test_v142_unicode_pdf_rejects_missing_glyph_without_overwriting(self):
+        note = self._clean_note_for_export()
+        note['history']['present_illness'] = 'Unsupported symbol: \U0010ffff'
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'note.pdf'
+            path.write_bytes(b'previous output')
+            with self.assertRaisesRegex(ValueError, 'U\\+10FFFF'):
+                export_clinical_note_pdf(note, path)
+            self.assertEqual(path.read_bytes(), b'previous output')
+
     def test_v139_final_human_review_queue_covers_all_yellow(self):
         queue=build_final_human_review_queue(ROOT)
         evidence=json.loads((ROOT/'references/evidence-registry.json').read_text(encoding='utf-8'))
