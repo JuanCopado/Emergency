@@ -4,7 +4,7 @@
   "description": "Emergency — clinical reference PWA for emergency/ICU infusions (Sprint 1, draft)",
   "scripts": {
     "dev": "vite",
-    "build": "npm run guides:build && tsc -b && vite build",
+    "build": "npm run guides:build && npm run procedures:build && tsc -b && vite build",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
@@ -13,7 +13,9 @@
     "screenshots": "node scripts/screenshots.mjs",
     "guides:build": "node scripts/build-clinical-guides.mjs",
     "guides:test": "node --test scripts/build-clinical-guides.node-test.mjs",
-    "guides:print-check": "node scripts/check-clinical-guide-print.mjs"
+    "guides:print-check": "node scripts/check-clinical-guide-print.mjs",
+    "procedures:build": "node scripts/build-procedures.mjs",
+    "procedures:test": "node --test scripts/build-procedures.node-test.mjs"
   },
   "keywords": [],
   "author": "",

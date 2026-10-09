@@ -1,3 +1,11 @@
+# v1.42 — CI y catálogo de procedimientos, 09/10/2026
+
+- Clinical QA 7/7 PASS con 478 pruebas únicas; 43 regresiones v1.42 y 7 scores también ejecutados por separado, sin sumarlos de nuevo. Los seis validadores estructurales previos siguen activos; discovery incorpora scores/evidencia y elimina duplicación de esquemas.
+- Frontend 153/153, generación/fidelidad de 131 guías 3/3, catálogo 8/8 y cuatro PDFs reales PASS. Typecheck/build PASS; catálogo determinista con 196 canónicos, 4 alias y 16 familias.
+- Instalación desde requirements-test (incluye runtime) y `npm ci` PASS, sin cambiar lockfile. Seis regresiones CI incluidas en QA; seis YAML pasan PyYAML y actionlint 1.7.12 (sin ShellCheck/Pyflakes).
+- Entorno local Windows, Python 3.14.7, Node 24.21.0 y Edge; workflows conservan Ubuntu/Python 3.12/Node 22 y Chrome. La ejecución remota de Actions no se ha realizado y sigue pendiente.
+- `git diff --check` PASS. Ver `qa/V1.42_CI_PROCEDURE_CATALOG.md` para auditoría completa, comandos y límites. QA automatizado no es validación clínica; estados de evidencia sin promoción.
+
 # v1.42 — Unicode y preámbulos, 09/10/2026
 
 - 3/3 regresiones Unicode PASS mediante extracción del PDF real, con fuentes embebidas; DOCX/JSON también conservan símbolos. 24/24 pruebas v1.39 PASS.

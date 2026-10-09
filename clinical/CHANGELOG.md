@@ -1,3 +1,10 @@
+## v1.42 consolidation — CI coverage and complete procedure catalog (YELLOW)
+- Cover v1.x pushes, PRs and clinical input paths in Clinical/UI QA; install declared Python runtime/test requirements and run canonical-artifact and browser-PDF checks.
+- Discover all Python suites once, including scores and evidence, preserving structural validators and clinical release gates. Keep surveillance mutation guards; avoid duplicate push/PR regression jobs.
+- Generate 196 canonical procedures and four direct aliases from the textual index and 16 family files. Preserve canonical source paths/headings; general related-procedure suggestions no longer use the filtered 158-item visual catalog.
+- Add six CI regressions, eight Node generator tests and eight frontend catalog/resolution tests. Clinical QA 7/7 with 478 unique tests, frontend 153, typecheck/build and four browser PDFs PASS locally. Six workflows parse and pass actionlint; remote Actions execution pending.
+- See `qa/V1.42_CI_PROCEDURE_CATALOG.md`. No clinical source edits, evidence promotion, visual work, merge or push.
+
 ## v1.42 consolidation — Unicode export and canonical safety preambles (YELLOW)
 - Replace lossy CP1252 PDF output with ReportLab and bundled libre DejaVu fonts; preserve clinical symbols, escape paragraph markup and fail explicitly on missing glyphs before writing output.
 - Derive shared preamble and exact module section from canonical bundles; assemble once for library/print. Include full canonical content for all three quick algorithms. Handle CRLF and exact heading boundaries.

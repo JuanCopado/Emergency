@@ -590,7 +590,15 @@
       "stored_version": "dynamic procedure umbrella reviewed 2026",
       "last_checked": "2026-09-27",
       "status": "yellow",
-      "note": "Every invasive procedure requires a current local protocol, credentialing and rescue plan."
+      "note": "Every invasive procedure requires a current local protocol, credentialing and rescue plan.",
+      "catalog_implementation_review": {
+        "date": "2026-10-09",
+        "report": "qa/V1.42_CI_PROCEDURE_CATALOG.md",
+        "canonical_procedures": 196,
+        "aliases": 4,
+        "families": 16,
+        "scope": "Deterministic frontend catalog and CI coverage only; no clinical content review or evidence promotion."
+      }
     },
     "endocrine-metabolic": {
       "priority": "high",

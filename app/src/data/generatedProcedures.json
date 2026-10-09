@@ -3,948 +3,1772 @@
     "id": "PROC-AIR-001",
     "name": "Posicionamiento y apertura de vía aérea",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-001 — Posicionamiento y apertura de vía aérea — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-AIR-002",
+    "name": "Aspiración de secreciones de vía aérea",
+    "level": "CORE",
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-002 — Aspiración de secreciones — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-003",
     "name": "Cánula orofaríngea",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-003 — Cánula orofaríngea — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-004",
     "name": "Cánula nasofaríngea",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-004 — Cánula nasofaríngea — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-005",
     "name": "Ventilación bolsa-válvula-mascarilla a un operador",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-005 — BVM a un operador — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-006",
     "name": "Ventilación bolsa-válvula-mascarilla a dos operadores",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-006 — BVM a dos operadores — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-007",
     "name": "Dispositivo supraglótico",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-007 — Dispositivo supraglótico — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-008",
     "name": "Intubación orotraqueal con laringoscopia directa",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-008 — Intubación orotraqueal directa — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-009",
     "name": "Videolaringoscopia",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-009 — Videolaringoscopia — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-010",
     "name": "Secuencia rápida de intubación (RSI)",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-010 — Secuencia rápida de intubación (RSI) — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-011",
     "name": "Intubación despierto seleccionada",
     "level": "ADVANCED",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-011 — Intubación despierto seleccionada — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-012",
     "name": "Algoritmo de vía aérea difícil / fracaso de intubación",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-012 — Vía aérea difícil / fracaso de intubación — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-013",
     "name": "Confirmación del tubo endotraqueal por capnografía",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-013 — Confirmación del tubo por capnografía — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-AIR-014",
+    "name": "Fijación y cuidados inmediatos del tubo endotraqueal",
+    "level": "CORE",
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-014 — Fijación y cuidados del tubo traqueal — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-015",
     "name": "Cricotiroidotomía quirúrgica",
     "level": "SPECIALIST",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-015 — Cricotiroidotomía quirúrgica — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-016",
     "name": "Cricotiroidotomía por técnica de aguja/catéter",
     "level": "SPECIALIST",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-016 — Cricotiroidotomía por aguja/catéter — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-017",
     "name": "Manejo urgente de traqueostomía obstruida o desplazada",
     "level": "ADVANCED",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-017 — Traqueostomía obstruida/desplazada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-AIR-018",
+    "name": "Oxigenoterapia convencional",
+    "level": "CORE",
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-018 — Oxigenoterapia convencional — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-019",
     "name": "Cánula nasal de alto flujo",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-019 — Cánula nasal de alto flujo — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-020",
     "name": "Ventilación no invasiva CPAP/BiPAP",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-020 — VNI CPAP/BiPAP — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-AIR-021",
     "name": "Ventilación mecánica invasiva inicial",
     "level": "CORE",
-    "family": "VÍA AÉREA Y VENTILACIÓN"
-  },
-  {
-    "id": "PROC-VASC-002",
-    "name": "Vía venosa periférica ecoguiada",
-    "level": "ADVANCED/POCUS",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-003",
-    "name": "Acceso intraóseo tibial proximal",
-    "level": "CORE",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-004",
-    "name": "Acceso intraóseo humeral proximal",
-    "level": "CORE",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-005",
-    "name": "Acceso intraóseo pediátrico",
-    "level": "CORE/PED",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-006",
-    "name": "Catéter venoso central yugular interna ecoguiado",
-    "level": "ADVANCED/POCUS",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-007",
-    "name": "Catéter venoso central femoral ecoguiado",
-    "level": "ADVANCED/POCUS",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-008",
-    "name": "Catéter venoso central subclavio/axilar",
-    "level": "ADVANCED",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-009",
-    "name": "Técnica de Seldinger",
-    "level": "ADVANCED",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-010",
-    "name": "Línea arterial radial",
-    "level": "ADVANCED",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-011",
-    "name": "Línea arterial femoral",
-    "level": "ADVANCED",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-012",
-    "name": "Punción arterial / gasometría arterial",
-    "level": "CORE",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-VASC-015",
-    "name": "Manejo inicial de complicaciones mecánicas del CVC",
-    "level": "ADVANCED",
-    "family": "ACCESO VASCULAR Y MONITORIZACIÓN"
-  },
-  {
-    "id": "PROC-THX-001",
-    "name": "Descompresión inmediata de neumotórax a tensión",
-    "level": "CORE",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-002",
-    "name": "Toracostomía digital",
-    "level": "ADVANCED",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-003",
-    "name": "Tubo de toracostomía / drenaje pleural",
-    "level": "ADVANCED",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-004",
-    "name": "Catéter pleural tipo pigtail",
-    "level": "ADVANCED",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-005",
-    "name": "Toracocentesis diagnóstica",
-    "level": "ADVANCED/POCUS",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-006",
-    "name": "Toracocentesis terapéutica",
-    "level": "ADVANCED/POCUS",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-008",
-    "name": "Retirada de drenaje torácico",
-    "level": "ADVANCED",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-009",
-    "name": "Toracotomía de resucitación",
-    "level": "SPECIALIST",
-    "family": "TÓRAX Y PLEURA"
-  },
-  {
-    "id": "PROC-THX-010",
-    "name": "Control inicial de herida torácica abierta",
-    "level": "CORE",
-    "family": "TÓRAX Y PLEURA"
+    "family": "VÍA AÉREA Y VENTILACIÓN",
+    "sourcePath": "clinical/modules/procedures/01-airway-ventilation.md",
+    "sourceHeading": "PROC-AIR-021 — Ventilación mecánica invasiva inicial — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-CV-001",
     "name": "Cardioversión eléctrica sincronizada",
     "level": "CORE",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-001 — Cardioversión eléctrica sincronizada — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-CV-002",
     "name": "Desfibrilación manual",
     "level": "CORE",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-002 — Desfibrilación manual — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-CV-003",
     "name": "Desfibrilación con DEA",
     "level": "CORE",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-003 — Desfibrilación con DEA — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-CV-004",
     "name": "Marcapasos transcutáneo",
     "level": "CORE",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-004 — Marcapasos transcutáneo — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-CV-005",
     "name": "Marcapasos transvenoso temporal",
     "level": "SPECIALIST",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-005 — Marcapasos transvenoso temporal — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-CV-006",
     "name": "Pericardiocentesis ecoguiada",
     "level": "SPECIALIST/POCUS",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-006 — Pericardiocentesis ecoguiada — SPECIALIST/POCUS",
+    "aliases": [
+      "PROC-US-007"
+    ]
   },
   {
     "id": "PROC-CV-007",
     "name": "RCP manual de alta calidad",
     "level": "CORE",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-007 — RCP manual de alta calidad — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-CV-008",
+    "name": "Colocación de parches de desfibrilación",
+    "level": "CORE",
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-008 — Colocación de parches de desfibrilación — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-CV-009",
     "name": "Acceso vascular durante PCR",
     "level": "CORE",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-009 — Acceso vascular durante PCR — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-CV-010",
     "name": "Capnografía durante RCP",
     "level": "CORE",
-    "family": "CARDIOVASCULAR Y REANIMACIÓN"
-  },
-  {
-    "id": "PROC-TRA-001",
-    "name": "Control de hemorragia externa por compresión directa",
-    "level": "CORE",
-    "family": "TRAUMA Y CONTROL DE HEMORRAGIA"
-  },
-  {
-    "id": "PROC-TRA-002",
-    "name": "Packing hemostático de heridas",
-    "level": "CORE",
-    "family": "TRAUMA Y CONTROL DE HEMORRAGIA"
-  },
-  {
-    "id": "PROC-TRA-003",
-    "name": "Torniquete de extremidad",
-    "level": "CORE",
-    "family": "TRAUMA Y CONTROL DE HEMORRAGIA"
-  },
-  {
-    "id": "PROC-TRA-004",
-    "name": "Binder pélvico",
-    "level": "CORE",
-    "family": "TRAUMA Y CONTROL DE HEMORRAGIA"
-  },
-  {
-    "id": "PROC-TRA-010",
-    "name": "eFAST",
-    "level": "CORE/POCUS",
-    "family": "TRAUMA Y CONTROL DE HEMORRAGIA"
-  },
-  {
-    "id": "PROC-ORTHO-001",
-    "name": "Reducción de luxación anterior de hombro",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-002",
-    "name": "Reducción de luxación posterior de hombro",
-    "level": "ADVANCED",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-003",
-    "name": "Reducción de luxación de codo",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-004",
-    "name": "Reducción de pronación dolorosa / subluxación de cabeza radial",
-    "level": "CORE/PED",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-005",
-    "name": "Reducción de luxación de rótula",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-006",
-    "name": "Reducción de luxaciones de dedos",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-007",
-    "name": "Reducción de luxación de pulgar",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-008",
-    "name": "Reducción de luxación de muñeca/carpiana seleccionada",
-    "level": "ADVANCED",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-009",
-    "name": "Reducción de luxación de tobillo",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-010",
-    "name": "Reducción urgente de fractura desplazada seleccionada",
-    "level": "ADVANCED",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-011",
-    "name": "Tracción y alineación temporal de extremidad",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-020",
-    "name": "Artrocentesis de rodilla",
-    "level": "ADVANCED",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-021",
-    "name": "Artrocentesis de otras articulaciones seleccionadas",
-    "level": "ADVANCED",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-022",
-    "name": "Reducción de luxación mandibular",
-    "level": "CORE",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-ORTHO-023",
-    "name": "Reducción de luxación temporomandibular recurrente seleccionada",
-    "level": "ADVANCED",
-    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN"
-  },
-  {
-    "id": "PROC-WND-001",
-    "name": "Anestesia local por infiltración",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-002",
-    "name": "Bloqueo digital",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-003",
-    "name": "Bloqueo hematoma de fractura",
-    "level": "ADVANCED",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-004",
-    "name": "Bloqueo femoral ecoguiado",
-    "level": "ADVANCED/POCUS",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-005",
-    "name": "Bloqueo fascia iliaca",
-    "level": "ADVANCED/POCUS",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-006",
-    "name": "Bloqueo interescalénico/selectivo de miembro superior",
-    "level": "SPECIALIST/POCUS",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-008",
-    "name": "Exploración de heridas",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-009",
-    "name": "Sutura simple interrumpida",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-010",
-    "name": "Sutura continua",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-011",
-    "name": "Punto colchonero vertical/horizontal",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-012",
-    "name": "Grapas cutáneas",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-013",
-    "name": "Adhesivo tisular",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-015",
-    "name": "Incisión y drenaje de absceso",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-016",
-    "name": "Extracción de cuerpo extraño superficial",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-017",
-    "name": "Extracción de anillo",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-018",
-    "name": "Trepanación de hematoma subungueal",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-019",
-    "name": "Escharotomía",
-    "level": "SPECIALIST",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-021",
-    "name": "Extracción de anzuelo superficial",
-    "level": "CORE",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-WND-022",
-    "name": "Reparación de lecho ungueal",
-    "level": "ADVANCED",
-    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL"
-  },
-  {
-    "id": "PROC-NEURO-001",
-    "name": "Punción lumbar",
-    "level": "CORE",
-    "family": "NEUROLOGÍA"
-  },
-  {
-    "id": "PROC-NEURO-002",
-    "name": "Medición de presión de apertura de LCR",
-    "level": "CORE",
-    "family": "NEUROLOGÍA"
-  },
-  {
-    "id": "PROC-NEURO-003",
-    "name": "Manejo urgente de derivación ventricular externa",
-    "level": "SPECIALIST",
-    "family": "NEUROLOGÍA"
-  },
-  {
-    "id": "PROC-NEURO-004",
-    "name": "Analgesia regional seleccionada en cefalea/occipital",
-    "level": "ADVANCED",
-    "family": "NEUROLOGÍA"
-  },
-  {
-    "id": "PROC-NEURO-005",
-    "name": "Monitorización de presión intracraneal (PIC) y presión de perfusión cerebral (PPC)",
-    "level": "SPECIALIST",
-    "family": "NEUROLOGÍA"
-  },
-  {
-    "id": "PROC-GI-003",
-    "name": "Paracentesis diagnóstica",
-    "level": "ADVANCED/POCUS",
-    "family": "ABDOMEN Y DIGESTIVO"
-  },
-  {
-    "id": "PROC-GI-004",
-    "name": "Paracentesis terapéutica",
-    "level": "ADVANCED/POCUS",
-    "family": "ABDOMEN Y DIGESTIVO"
-  },
-  {
-    "id": "PROC-GI-005",
-    "name": "Anoscopia",
-    "level": "CORE",
-    "family": "ABDOMEN Y DIGESTIVO"
-  },
-  {
-    "id": "PROC-GI-007",
-    "name": "Reducción manual de prolapso rectal seleccionado",
-    "level": "ADVANCED",
-    "family": "ABDOMEN Y DIGESTIVO"
-  },
-  {
-    "id": "PROC-GI-008",
-    "name": "Manejo inicial de gastrostomía desplazada",
-    "level": "ADVANCED",
-    "family": "ABDOMEN Y DIGESTIVO"
-  },
-  {
-    "id": "PROC-GI-009",
-    "name": "Extracción de cuerpo extraño rectal",
-    "level": "ADVANCED",
-    "family": "ABDOMEN Y DIGESTIVO"
-  },
-  {
-    "id": "PROC-GU-003",
-    "name": "Sondaje vesical con sonda coudé",
-    "level": "ADVANCED",
-    "family": "GENITOURINARIO"
-  },
-  {
-    "id": "PROC-GU-005",
-    "name": "Sonda de tres vías e irrigación continua",
-    "level": "ADVANCED",
-    "family": "GENITOURINARIO"
-  },
-  {
-    "id": "PROC-GU-006",
-    "name": "Catéter suprapúbico",
-    "level": "SPECIALIST",
-    "family": "GENITOURINARIO"
-  },
-  {
-    "id": "PROC-GU-007",
-    "name": "Reducción manual de parafimosis",
-    "level": "CORE",
-    "family": "GENITOURINARIO"
-  },
-  {
-    "id": "PROC-GU-008",
-    "name": "Descompresión inicial de priapismo isquémico",
-    "level": "ADVANCED",
-    "family": "GENITOURINARIO"
-  },
-  {
-    "id": "PROC-GU-009",
-    "name": "Extracción de cuerpo extraño vaginal",
-    "level": "ADVANCED",
-    "family": "GENITOURINARIO"
+    "family": "CARDIOVASCULAR Y REANIMACIÓN",
+    "sourcePath": "clinical/modules/procedures/04-cardiovascular-resuscitation.md",
+    "sourceHeading": "PROC-CV-010 — Capnografía durante RCP — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-001",
     "name": "Epistaxis: compresión y vasoconstrictor tópico",
     "level": "CORE",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-001 — Epistaxis: compresión/vasoconstrictor — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-002",
     "name": "Cauterización nasal anterior",
     "level": "CORE",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-002 — Cauterización nasal anterior — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-003",
     "name": "Taponamiento nasal anterior",
     "level": "CORE",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-003 — Taponamiento anterior — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-004",
     "name": "Taponamiento nasal posterior / balón",
     "level": "ADVANCED",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-004 — Taponamiento posterior — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-005",
     "name": "Extracción de cuerpo extraño nasal",
     "level": "CORE",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-005 — Cuerpo extraño nasal — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-006",
     "name": "Extracción de cuerpo extraño del oído",
     "level": "CORE",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-006 — Cuerpo extraño de oído — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ENT-007",
+    "name": "Irrigación de conducto auditivo",
+    "level": "CORE",
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-007 — Irrigación de oído — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ENT-008",
+    "name": "Extracción de cerumen impactado",
+    "level": "CORE",
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-008 — Cerumen impactado — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-009",
     "name": "Drenaje de hematoma auricular",
     "level": "ADVANCED",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-009 — Hematoma auricular: incisión, drenaje y compresión — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-010",
     "name": "Drenaje de absceso periamigdalino",
     "level": "ADVANCED",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-010 — Absceso periamigdalino: aspiración o incisión/drenaje — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-012",
     "name": "Reimplante urgente de diente permanente avulsionado",
     "level": "CORE",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-012 — Reimplante urgente de diente permanente avulsionado — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-013",
     "name": "Ferulización flexible de traumatismo dentoalveolar",
     "level": "ADVANCED",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-ENT-014",
     "name": "Bloqueo del nervio alveolar inferior",
     "level": "ADVANCED",
-    "family": "ORL"
+    "family": "ORL",
+    "sourcePath": "clinical/modules/procedures/11-ent.md",
+    "sourceHeading": "PROC-ENT-014 — Bloqueo del nervio alveolar inferior — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-EYE-001",
     "name": "Irrigación ocular en exposición química",
     "level": "CORE",
-    "family": "OFTALMOLOGÍA"
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-001 — Irrigación ocular química — CORE",
+    "aliases": [
+      "PROC-SP-006"
+    ]
   },
   {
     "id": "PROC-EYE-002",
     "name": "Medición de pH ocular",
     "level": "CORE",
-    "family": "OFTALMOLOGÍA"
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-002 — Medición de pH ocular — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-EYE-003",
     "name": "Eversión palpebral",
     "level": "CORE",
-    "family": "OFTALMOLOGÍA"
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-003 — Eversión palpebral — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-EYE-004",
     "name": "Extracción de cuerpo extraño corneal superficial",
     "level": "CORE",
-    "family": "OFTALMOLOGÍA"
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-004 — Cuerpo extraño corneal superficial — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-EYE-005",
     "name": "Tinción con fluoresceína",
     "level": "CORE",
-    "family": "OFTALMOLOGÍA"
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-005 — Fluoresceína / prueba de Seidel — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-EYE-006",
     "name": "Tonometría",
     "level": "CORE",
-    "family": "OFTALMOLOGÍA"
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-006 — Tonometría — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-EYE-007",
+    "name": "Parche/protección ocular rígida",
+    "level": "CORE",
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-007 — Escudo ocular rígido — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-EYE-008",
     "name": "Descompresión lateral cantotomía/cantólisis",
     "level": "SPECIALIST",
-    "family": "OFTALMOLOGÍA"
+    "family": "OFTALMOLOGÍA",
+    "sourcePath": "clinical/modules/procedures/12-ophthalmology.md",
+    "sourceHeading": "PROC-EYE-008 — Cantotomía/cantólisis lateral — SPECIALIST",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-001",
-    "name": "Apertura y posicionamiento de vía aérea pediátrica",
-    "level": "CORE/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-001",
+    "name": "Sonda nasogástrica",
+    "level": "CORE",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-001 — Sonda nasogástrica — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-002",
-    "name": "BVM pediátrica",
-    "level": "CORE/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-002",
+    "name": "Sonda orogástrica",
+    "level": "CORE",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-002 — Sonda orogástrica — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-003",
-    "name": "Intubación pediátrica",
-    "level": "ADVANCED/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-003",
+    "name": "Paracentesis diagnóstica",
+    "level": "ADVANCED/POCUS",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-003 — Paracentesis diagnóstica — ADVANCED/POCUS",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-004",
-    "name": "Dispositivo supraglótico pediátrico",
-    "level": "CORE/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-004",
+    "name": "Paracentesis terapéutica",
+    "level": "ADVANCED/POCUS",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-004 — Paracentesis terapéutica — ADVANCED/POCUS",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-005",
-    "name": "Acceso intraóseo pediátrico",
-    "level": "CORE/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-005",
+    "name": "Anoscopia",
+    "level": "CORE",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-005 — Anoscopia — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-006",
-    "name": "Punción lumbar pediátrica",
-    "level": "ADVANCED/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-006",
+    "name": "Desimpactación fecal",
+    "level": "CORE",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-006 — Desimpactación fecal — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-010",
-    "name": "Cardioversión/desfibrilación pediátrica",
-    "level": "CORE/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-007",
+    "name": "Reducción manual de prolapso rectal seleccionado",
+    "level": "ADVANCED",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-007 — Reducción manual de prolapso rectal seleccionado — ADVANCED",
+    "aliases": []
   },
   {
-    "id": "PROC-PED-011",
-    "name": "Catéter venoso umbilical de emergencia en reanimación neonatal",
-    "level": "ADVANCED/PED",
-    "family": "PEDIATRÍA"
+    "id": "PROC-GI-008",
+    "name": "Manejo inicial de gastrostomía desplazada",
+    "level": "ADVANCED",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-008 — Manejo inicial de gastrostomía desplazada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GI-009",
+    "name": "Extracción de cuerpo extraño rectal",
+    "level": "ADVANCED",
+    "family": "ABDOMEN Y DIGESTIVO",
+    "sourcePath": "clinical/modules/procedures/09-gi-abdomen.md",
+    "sourceHeading": "PROC-GI-009 — Extracción de cuerpo extraño rectal — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-001",
+    "name": "Sondaje vesical masculino",
+    "level": "CORE",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-001 — Sondaje vesical masculino — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-002",
+    "name": "Sondaje vesical femenino",
+    "level": "CORE",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-002 — Sondaje vesical femenino — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-003",
+    "name": "Sondaje vesical con sonda coudé",
+    "level": "ADVANCED",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-003 — Sondaje vesical con sonda coudé — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-004",
+    "name": "Irrigación vesical manual",
+    "level": "CORE",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-004 — Irrigación vesical manual para coágulos — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-005",
+    "name": "Sonda de tres vías e irrigación continua",
+    "level": "ADVANCED",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-005 — Sonda de tres vías e irrigación vesical continua — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-006",
+    "name": "Catéter suprapúbico",
+    "level": "SPECIALIST",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-006 — Catéter suprapúbico — SPECIALIST",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-007",
+    "name": "Reducción manual de parafimosis",
+    "level": "CORE",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-007 — Reducción manual de parafimosis — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-008",
+    "name": "Descompresión inicial de priapismo isquémico",
+    "level": "ADVANCED",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-008 — Descompresión inicial de priapismo isquémico — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-GU-009",
+    "name": "Extracción de cuerpo extraño vaginal",
+    "level": "ADVANCED",
+    "family": "GENITOURINARIO",
+    "sourcePath": "clinical/modules/procedures/10-genitourinary.md",
+    "sourceHeading": "PROC-GU-009 — Extracción de cuerpo extraño vaginal — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-NEURO-001",
+    "name": "Punción lumbar",
+    "level": "CORE",
+    "family": "NEUROLOGÍA",
+    "sourcePath": "clinical/modules/procedures/08-neurology.md",
+    "sourceHeading": "PROC-NEURO-001 — Punción lumbar — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-NEURO-002",
+    "name": "Medición de presión de apertura de LCR",
+    "level": "CORE",
+    "family": "NEUROLOGÍA",
+    "sourcePath": "clinical/modules/procedures/08-neurology.md",
+    "sourceHeading": "PROC-NEURO-002 — Medición de presión de apertura de LCR — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-NEURO-003",
+    "name": "Manejo urgente de derivación ventricular externa",
+    "level": "SPECIALIST",
+    "family": "NEUROLOGÍA",
+    "sourcePath": "clinical/modules/procedures/08-neurology.md",
+    "sourceHeading": "PROC-NEURO-003 — Manejo urgente de derivación ventricular externa (EVD) — SPECIALIST",
+    "aliases": []
+  },
+  {
+    "id": "PROC-NEURO-004",
+    "name": "Analgesia regional seleccionada en cefalea/occipital",
+    "level": "ADVANCED",
+    "family": "NEUROLOGÍA",
+    "sourcePath": "clinical/modules/procedures/08-neurology.md",
+    "sourceHeading": "PROC-NEURO-004 — Bloqueo del nervio occipital mayor seleccionado — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-NEURO-005",
+    "name": "Monitorización de presión intracraneal (PIC) y presión de perfusión cerebral (PPC)",
+    "level": "SPECIALIST",
+    "family": "NEUROLOGÍA",
+    "sourcePath": "clinical/modules/procedures/08-neurology.md",
+    "sourceHeading": "PROC-NEURO-005 — Monitorización de presión intracraneal (PIC) y presión de perfusión cerebral (PPC) — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-001",
     "name": "Parto vaginal inminente no complicado",
     "level": "CORE",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-001 — Parto vaginal inminente no complicado — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-002",
     "name": "Pinzamiento/cuidado inicial del cordón",
     "level": "CORE",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-002 — Cordón: pinzamiento/cuidado inicial — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-003",
     "name": "Manejo inicial de distocia de hombros",
     "level": "CORE",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-003 — Distocia de hombros — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-004",
     "name": "Prolapso de cordón: medidas de rescate inmediatas",
     "level": "CORE",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-004 — Prolapso de cordón — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-005",
     "name": "Hemorragia posparto: masaje uterino y medidas iniciales",
     "level": "CORE",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-005 — Hemorragia posparto: masaje uterino inicial — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-006",
     "name": "Extracción manual de coágulos seleccionada",
     "level": "ADVANCED",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-006 — Exploración uterina / extracción manual de coágulos seleccionada — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-007",
     "name": "Inversión uterina: maniobra inicial de reposición",
     "level": "ADVANCED",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-007 — Inversión uterina: reposición inicial — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-008",
     "name": "Histerotomía resucitativa",
     "level": "SPECIALIST",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-008 — Histerotomía resucitativa / parto resucitativo — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-OBS-009",
     "name": "Taponamiento uterino con balón en hemorragia posparto",
     "level": "ADVANCED",
-    "family": "OBSTETRICIA DE EMERGENCIA"
+    "family": "OBSTETRICIA DE EMERGENCIA",
+    "sourcePath": "clinical/modules/procedures/14-obstetrics.md",
+    "sourceHeading": "PROC-OBS-009 — Taponamiento uterino con balón en hemorragia posparto — ADVANCED",
+    "aliases": []
   },
   {
-    "id": "PROC-US-001",
-    "name": "Ecografía para acceso venoso periférico",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-001",
+    "name": "Reducción de luxación anterior de hombro",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-001 — Reducción de luxación anterior de hombro — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-US-002",
-    "name": "Ecografía para CVC",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-002",
+    "name": "Reducción de luxación posterior de hombro",
+    "level": "ADVANCED",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-002 — Reducción de luxación posterior de hombro — ADVANCED",
+    "aliases": []
   },
   {
-    "id": "PROC-US-003",
-    "name": "Ecografía para línea arterial",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-003",
+    "name": "Reducción de luxación de codo",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-003 — Reducción de luxación posterior de codo — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-US-004",
-    "name": "Ecografía para toracocentesis",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-004",
+    "name": "Reducción de pronación dolorosa / subluxación de cabeza radial",
+    "level": "CORE/PED",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-004 — Reducción de pronación dolorosa — CORE/PED",
+    "aliases": [
+      "PROC-PED-008"
+    ]
   },
   {
-    "id": "PROC-US-005",
-    "name": "Ecografía para drenaje pleural",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-005",
+    "name": "Reducción de luxación de rótula",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-005 — Reducción de luxación lateral de rótula — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-US-006",
-    "name": "Ecografía para paracentesis",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-006",
+    "name": "Reducción de luxaciones de dedos",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-006 — Reducción de luxaciones de dedos — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-US-008",
-    "name": "Ecografía para bloqueos nerviosos",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-007",
+    "name": "Reducción de luxación de pulgar",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-007 — Reducción de luxación de pulgar — CORE",
+    "aliases": []
   },
   {
-    "id": "PROC-US-009",
-    "name": "Ecografía para artrocentesis",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-008",
+    "name": "Reducción de luxación de muñeca/carpiana seleccionada",
+    "level": "ADVANCED",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-008 — Reducción de luxación perilunar/lunar seleccionada — ADVANCED",
+    "aliases": []
   },
   {
-    "id": "PROC-US-010",
-    "name": "Confirmación ecográfica de complicaciones postprocedimiento",
-    "level": "ADVANCED/POCUS",
-    "family": "POCUS PROCEDIMENTAL"
+    "id": "PROC-ORTHO-009",
+    "name": "Reducción de luxación de tobillo",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-009 — Reducción de luxación / fractura-luxación de tobillo — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-010",
+    "name": "Reducción urgente de fractura desplazada seleccionada",
+    "level": "ADVANCED",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-010 — Reducción urgente de fractura desplazada seleccionada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-011",
+    "name": "Tracción y alineación temporal de extremidad",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-011 — Tracción y alineación temporal de extremidad — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-012",
+    "name": "Férula braquiopalmar",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-012 — Férula braquiopalmar — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-013",
+    "name": "Férula antebraquiopalmar",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-013 — Férula antebraquiopalmar — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-014",
+    "name": "Férula cubital / gutter",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-014 — Férula cubital / gutter — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-015",
+    "name": "Férula posterior de pierna",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-015 — Férula posterior de pierna — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-016",
+    "name": "Férula en U de tobillo",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-016 — Férula en U de tobillo — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-017",
+    "name": "Inmovilización de rodilla",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-017 — Inmovilizador de rodilla — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-018",
+    "name": "Cabestrillo e inmovilización de hombro",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-018 — Cabestrillo e inmovilización de hombro — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-019",
+    "name": "Valoración neurovascular pre/post reducción",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-019 — Valoración neurovascular pre/post reducción — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-020",
+    "name": "Artrocentesis de rodilla",
+    "level": "ADVANCED",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-020 — Artrocentesis de rodilla — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-021",
+    "name": "Artrocentesis de otras articulaciones seleccionadas",
+    "level": "ADVANCED",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-021 — Artrocentesis de otras articulaciones seleccionadas — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-ORTHO-022",
+    "name": "Reducción de luxación mandibular",
+    "level": "CORE",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-022 — Reducción de luxación mandibular — CORE",
+    "aliases": [
+      "PROC-ENT-011"
+    ]
+  },
+  {
+    "id": "PROC-ORTHO-023",
+    "name": "Reducción de luxación temporomandibular recurrente seleccionada",
+    "level": "ADVANCED",
+    "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/06-orthopedics-reductions.md",
+    "sourceHeading": "PROC-ORTHO-023 — Luxación temporomandibular recurrente seleccionada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-001",
+    "name": "Apertura y posicionamiento de vía aérea pediátrica",
+    "level": "CORE/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-001 — Apertura/posicionamiento de vía aérea — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-002",
+    "name": "BVM pediátrica",
+    "level": "CORE/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-002 — BVM pediátrica — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-003",
+    "name": "Intubación pediátrica",
+    "level": "ADVANCED/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-003 — Intubación pediátrica — ADVANCED/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-004",
+    "name": "Dispositivo supraglótico pediátrico",
+    "level": "CORE/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-004 — Supraglótico pediátrico — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-005",
+    "name": "Acceso intraóseo pediátrico",
+    "level": "CORE/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-005 — Acceso intraóseo pediátrico — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-006",
+    "name": "Punción lumbar pediátrica",
+    "level": "ADVANCED/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-006 — Punción lumbar pediátrica — ADVANCED/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-007",
+    "name": "Sondaje vesical pediátrico",
+    "level": "CORE/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-007 — Sondaje vesical pediátrico — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-009",
+    "name": "Inmovilización pediátrica de extremidades",
+    "level": "CORE/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-009 — Inmovilización pediátrica — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-010",
+    "name": "Cardioversión/desfibrilación pediátrica",
+    "level": "CORE/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-PED-011",
+    "name": "Catéter venoso umbilical de emergencia en reanimación neonatal",
+    "level": "ADVANCED/PED",
+    "family": "PEDIATRÍA",
+    "sourcePath": "clinical/modules/procedures/13-pediatrics.md",
+    "sourceHeading": "PROC-PED-011 — Catéter venoso umbilical de emergencia en reanimación neonatal — ADVANCED/PED",
+    "aliases": []
   },
   {
     "id": "PROC-SP-001",
     "name": "Fasciotomía/escisión de emergencia: reconocimiento y preparación",
     "level": "SPECIALIST",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-001 — Síndrome compartimental: reconocimiento y preparación para fasciotomía — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-SP-002",
     "name": "Descompresión de síndrome compartimental: medidas temporales",
     "level": "ADVANCED",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-002 — Medición de presión compartimental — ADVANCED",
+    "aliases": []
   },
   {
     "id": "PROC-SP-003",
     "name": "Reimplantación temporal/protección de amputación",
     "level": "CORE",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-003 — Amputación: conservación de segmento — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-SP-004",
     "name": "Extracción de empalamiento: principios de no retirada y control",
     "level": "CORE",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-004 — Empalamiento — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-SP-005",
     "name": "Manejo inicial de mordeduras y heridas contaminadas complejas",
     "level": "CORE",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-005 — Mordeduras/heridas contaminadas — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-SP-007",
     "name": "Lavado gástrico en indicaciones excepcionales",
     "level": "SPECIALIST",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-007 — Lavado gástrico — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-SP-008",
     "name": "Carbón activado: administración segura",
     "level": "CORE",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-008 — Carbón activado — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-SP-009",
+    "name": "Descontaminación cutánea química",
+    "level": "CORE",
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-009 — Descontaminación cutánea química — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-SP-010",
+    "name": "Descontaminación en exposición a opioides/polvos tóxicos",
+    "level": "CORE",
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-010 — Exposición a opioides/polvos — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-SP-011",
+    "name": "Manejo de hipotermia: recalentamiento externo activo",
+    "level": "CORE",
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-011 — Recalentamiento externo activo — CORE",
+    "aliases": []
   },
   {
     "id": "PROC-SP-012",
     "name": "Recalentamiento invasivo seleccionado",
     "level": "SPECIALIST",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-012 — Recalentamiento invasivo — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-SP-013",
     "name": "REBOA (oclusión endovascular resucitativa de la aorta)",
     "level": "SPECIALIST",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-013 — REBOA (oclusión endovascular resucitativa de la aorta) — SPECIALIST",
+    "aliases": []
   },
   {
     "id": "PROC-SP-014",
     "name": "ECPR / canulación VA-ECMO durante parada refractaria",
     "level": "SPECIALIST",
-    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE"
+    "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+    "sourcePath": "clinical/modules/procedures/16-special-rescue.md",
+    "sourceHeading": "PROC-SP-014 — ECPR / canulación VA-ECMO durante parada refractaria — SPECIALIST",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-001",
+    "name": "Descompresión inmediata de neumotórax a tensión",
+    "level": "CORE",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-001 — Descompresión inmediata de neumotórax a tensión — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-002",
+    "name": "Toracostomía digital",
+    "level": "ADVANCED",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-002 — Toracostomía digital — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-003",
+    "name": "Tubo de toracostomía / drenaje pleural",
+    "level": "ADVANCED",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-003 — Tubo de toracostomía / drenaje pleural — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-004",
+    "name": "Catéter pleural tipo pigtail",
+    "level": "ADVANCED",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-004 — Catéter pleural tipo pigtail — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-005",
+    "name": "Toracocentesis diagnóstica",
+    "level": "ADVANCED/POCUS",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-005 — Toracocentesis diagnóstica — ADVANCED/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-006",
+    "name": "Toracocentesis terapéutica",
+    "level": "ADVANCED/POCUS",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-006 — Toracocentesis terapéutica — ADVANCED/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-007",
+    "name": "Conexión y comprobación de sistema de sello de agua",
+    "level": "CORE",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-007 — Conexión y comprobación de sistema de sello de agua — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-008",
+    "name": "Retirada de drenaje torácico",
+    "level": "ADVANCED",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-008 — Retirada de drenaje torácico — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-009",
+    "name": "Toracotomía de resucitación",
+    "level": "SPECIALIST",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-009 — Toracotomía de resucitación — SPECIALIST",
+    "aliases": []
+  },
+  {
+    "id": "PROC-THX-010",
+    "name": "Control inicial de herida torácica abierta",
+    "level": "CORE",
+    "family": "TÓRAX Y PLEURA",
+    "sourcePath": "clinical/modules/procedures/03-thorax-pleura.md",
+    "sourceHeading": "PROC-THX-010 — Control inicial de herida torácica abierta — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-001",
+    "name": "Control de hemorragia externa por compresión directa",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-001 — Control de hemorragia externa por compresión directa — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-002",
+    "name": "Packing hemostático de heridas",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-002 — Packing hemostático de heridas — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-003",
+    "name": "Torniquete de extremidad",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-003 — Torniquete de extremidad — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-004",
+    "name": "Binder pélvico",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-004 — Binder pélvico — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-005",
+    "name": "Inmovilización espinal selectiva",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-005 — Restricción selectiva del movimiento espinal — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-006",
+    "name": "Collar cervical: selección y colocación",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-006 — Collar cervical: selección y colocación — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-007",
+    "name": "Log-roll / movilización coordinada del politraumatizado",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-007 — Log-roll / movilización coordinada — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-008",
+    "name": "Extricación básica de emergencia",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-008 — Extricación básica de emergencia — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-009",
+    "name": "Retirada de casco en trauma",
+    "level": "CORE",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-009 — Retirada de casco en trauma — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-TRA-010",
+    "name": "eFAST",
+    "level": "CORE/POCUS",
+    "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+    "sourcePath": "clinical/modules/procedures/05-trauma-hemorrhage.md",
+    "sourceHeading": "PROC-TRA-010 — eFAST — CORE/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-001",
+    "name": "Ecografía para acceso venoso periférico",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-001 — VVP ecoguiada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-002",
+    "name": "Ecografía para CVC",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-002 — CVC ecoguiado — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-003",
+    "name": "Ecografía para línea arterial",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-003 — Línea arterial ecoguiada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-004",
+    "name": "Ecografía para toracocentesis",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-004 — Toracocentesis ecoguiada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-005",
+    "name": "Ecografía para drenaje pleural",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-005 — Drenaje pleural ecoguiado — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-006",
+    "name": "Ecografía para paracentesis",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-006 — Paracentesis ecoguiada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-008",
+    "name": "Ecografía para bloqueos nerviosos",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-008 — Bloqueos nerviosos ecoguiados — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-009",
+    "name": "Ecografía para artrocentesis",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-009 — Artrocentesis ecoguiada — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-US-010",
+    "name": "Confirmación ecográfica de complicaciones postprocedimiento",
+    "level": "ADVANCED/POCUS",
+    "family": "POCUS PROCEDIMENTAL",
+    "sourcePath": "clinical/modules/procedures/15-pocus-procedural.md",
+    "sourceHeading": "PROC-US-010 — Ecografía postprocedimiento — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-001",
+    "name": "Vía venosa periférica",
+    "level": "CORE",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-001 — Vía venosa periférica — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-002",
+    "name": "Vía venosa periférica ecoguiada",
+    "level": "ADVANCED/POCUS",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-002 — Vía venosa periférica ecoguiada — ADVANCED/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-003",
+    "name": "Acceso intraóseo tibial proximal",
+    "level": "CORE",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-003 — Acceso intraóseo tibial proximal — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-004",
+    "name": "Acceso intraóseo humeral proximal",
+    "level": "CORE",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-004 — Acceso intraóseo humeral proximal — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-005",
+    "name": "Acceso intraóseo pediátrico",
+    "level": "CORE/PED",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-005 — Acceso intraóseo pediátrico — CORE/PED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-006",
+    "name": "Catéter venoso central yugular interna ecoguiado",
+    "level": "ADVANCED/POCUS",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-006 — CVC yugular interna ecoguiado — ADVANCED/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-007",
+    "name": "Catéter venoso central femoral ecoguiado",
+    "level": "ADVANCED/POCUS",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-007 — CVC femoral ecoguiado — ADVANCED/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-008",
+    "name": "Catéter venoso central subclavio/axilar",
+    "level": "ADVANCED",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-008 — CVC subclavio/axilar ecoguiado — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-009",
+    "name": "Técnica de Seldinger",
+    "level": "ADVANCED",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-009 — Técnica de Seldinger — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-010",
+    "name": "Línea arterial radial",
+    "level": "ADVANCED",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-010 — Línea arterial radial — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-011",
+    "name": "Línea arterial femoral",
+    "level": "ADVANCED",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-011 — Línea arterial femoral — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-012",
+    "name": "Punción arterial / gasometría arterial",
+    "level": "CORE",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-012 — Punción arterial / gasometría — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-013",
+    "name": "Toma de hemocultivos",
+    "level": "CORE",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-013 — Toma de hemocultivos — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-014",
+    "name": "Retirada segura de CVC",
+    "level": "CORE",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-014 — Retirada segura de CVC — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-VASC-015",
+    "name": "Manejo inicial de complicaciones mecánicas del CVC",
+    "level": "ADVANCED",
+    "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+    "sourcePath": "clinical/modules/procedures/02-vascular-monitoring.md",
+    "sourceHeading": "PROC-VASC-015 — Manejo inicial de complicaciones mecánicas del CVC — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-001",
+    "name": "Anestesia local por infiltración",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-001 — Anestesia local por infiltración — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-002",
+    "name": "Bloqueo digital",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-002 — Bloqueo digital — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-003",
+    "name": "Bloqueo hematoma de fractura",
+    "level": "ADVANCED",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-003 — Bloqueo de hematoma — ADVANCED",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-004",
+    "name": "Bloqueo femoral ecoguiado",
+    "level": "ADVANCED/POCUS",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-004 — Bloqueo femoral ecoguiado — ADVANCED/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-005",
+    "name": "Bloqueo fascia iliaca",
+    "level": "ADVANCED/POCUS",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-005 — Bloqueo fascia iliaca — ADVANCED/POCUS",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-006",
+    "name": "Bloqueo interescalénico/selectivo de miembro superior",
+    "level": "SPECIALIST/POCUS",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-006 — Bloqueo interescalénico/selectivo de miembro superior — SPECIALIST",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-007",
+    "name": "Irrigación de heridas",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-007 — Irrigación de heridas — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-008",
+    "name": "Exploración de heridas",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-008 — Exploración de heridas — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-009",
+    "name": "Sutura simple interrumpida",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-009 — Sutura simple interrumpida — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-010",
+    "name": "Sutura continua",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-010 — Sutura continua / subcuticular continua — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-011",
+    "name": "Punto colchonero vertical/horizontal",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-011 — Puntos colchoneros vertical y horizontal — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-012",
+    "name": "Grapas cutáneas",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-012 — Grapas cutáneas — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-013",
+    "name": "Adhesivo tisular",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-013 — Adhesivo tisular — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-014",
+    "name": "Tiras de aproximación",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-014 — Tiras de aproximación — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-015",
+    "name": "Incisión y drenaje de absceso",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-015 — Incisión y drenaje de absceso cutáneo — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-016",
+    "name": "Extracción de cuerpo extraño superficial",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-016 — Extracción de cuerpo extraño superficial — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-017",
+    "name": "Extracción de anillo",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-017 — Extracción de anillo — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-018",
+    "name": "Trepanación de hematoma subungueal",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-018 — Trepanación de hematoma subungueal — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-019",
+    "name": "Escharotomía",
+    "level": "SPECIALIST",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-019 — Escharotomía — SPECIALIST",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-020",
+    "name": "Manejo inicial de ampollas/quemaduras",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-020 — Manejo inicial de ampollas/quemaduras — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-021",
+    "name": "Extracción de anzuelo superficial",
+    "level": "CORE",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-021 — Extracción de anzuelo superficial — CORE",
+    "aliases": []
+  },
+  {
+    "id": "PROC-WND-022",
+    "name": "Reparación de lecho ungueal",
+    "level": "ADVANCED",
+    "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+    "sourcePath": "clinical/modules/procedures/07-wounds-regional-anesthesia.md",
+    "sourceHeading": "PROC-WND-022 — Reparación de lecho ungueal — ADVANCED",
+    "aliases": []
   }
 ]

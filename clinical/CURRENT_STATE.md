@@ -1,3 +1,13 @@
+# Consolidación v1.42 — CI y catálogo de procedimientos — 09/10/2026
+
+- Base limpia: `813fa576ec781445fd56350e24cbed9f37dbca01`, rama `v1.42-codex-consolidation`.
+- Clinical/UI QA cubren push `main`/`v1.*`, PR y ejecución manual, rutas clínicas y requisitos runtime/test. Evidencia conserva sus controles y evita repetir suites en push/PR.
+- QA unificado descubre todas las suites una vez: 7/7 controles PASS, 478 pruebas únicas (419 principales, 22 procedimientos/esquemas, 7 scores, 19 evidencia, 6 CI, 3 gotas y 2 metadatos visuales). Se conserva la cobertura anterior.
+- Catálogo frontend: 196 canónicos + 4 alias = 200 IDs, 16 familias; generación desde índice textual y fichas canónicas, separada del filtro visual. Resolución de alias sin duplicados.
+- Frontend 153/153 PASS, generadores 3 + 8 PASS, cuatro PDFs reales PASS; typecheck/build y validación de seis workflows PASS. Confirmación de GitHub Actions remoto pendiente; no se ha hecho push.
+- Detalle, comandos y límites: `qa/V1.42_CI_PROCEDURE_CATALOG.md`. La instalación de dependencias CI pendiente del bloque anterior queda implementada.
+- Sin cambios clínicos ni promociones: 29 GREEN / 102 YELLOW; procedimientos YELLOW, `CLINICALLY_PENDING`. Visuales PAUSADAS; pediatría, migración y revisión de rescate pendientes. Main intacto; sin merge.
+
 # Consolidación v1.42 — Unicode y preámbulos — 09/10/2026
 
 - Base limpia: `d7a51a1137cb26e2bd9aa1bd790abbe0ee90aed4`, rama `v1.42-codex-consolidation`.

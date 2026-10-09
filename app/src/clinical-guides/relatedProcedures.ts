@@ -1,14 +1,7 @@
-import procedures from '../data/generatedProcedures.json';
+import { canonicalProcedures, type CanonicalProcedure } from './procedures';
 import type { CanonicalGuide } from './canonical';
 
-export type RelatedProcedure = {
-  id: string;
-  name: string;
-  level: string;
-  family: string;
-};
-
-const ALL = procedures as RelatedProcedure[];
+export type RelatedProcedure = CanonicalProcedure;
 const STOP = new Set(['de','del','la','el','los','las','y','en','con','por','para','un','una','the','and','of','to','with','acute','emergency','emergencies']);
 
 const normalize = (value: string) =>
@@ -44,7 +37,7 @@ export function getRelatedProcedures(guide: CanonicalGuide, limit = 8): RelatedP
     if (pattern.test(haystack)) prefixes.forEach((prefix) => hinted.add(prefix));
   }
 
-  return ALL
+  return canonicalProcedures
     .map((procedure) => {
       const procedureTokens = tokens([procedure.name, procedure.family].join(' '));
       let score = 0;
