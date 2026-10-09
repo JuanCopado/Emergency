@@ -1100,7 +1100,15 @@
         "date": "2026-10-08",
         "scope": "v1.42 local negation, basic temporal context and frontend diagnostic revision/request sequencing",
         "record": "qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md",
-        "frontend_tests_executed": false,
+        "frontend_tests_executed": true,
+        "frontend_validation_date": "2026-10-09",
+        "frontend_validation_record": "qa/V1.42_UNICODE_SAFETY_PREAMBLE.md",
+        "clinical_evidence_reverified": false,
+        "human_review_required": true
+      },
+      "unicode_export_review": {
+        "date": "2026-10-09",
+        "record": "qa/V1.42_UNICODE_SAFETY_PREAMBLE.md",
         "clinical_evidence_reverified": false,
         "human_review_required": true
       },

@@ -7,8 +7,14 @@ export type CanonicalGuide = {
   sourcePath: string;
   status: 'green' | 'yellow' | 'red';
   format: 'algorithm' | 'guide' | 'procedure';
+  sharedPreamble: string;
+  sectionBody: string;
   body: string;
 };
 
-export const canonicalGuides = generated as CanonicalGuide[];
+// Assemble once for every consumer; generated JSON stores each source part once.
+export const canonicalGuides: CanonicalGuide[] = (generated as Omit<CanonicalGuide, 'body'>[]).map((guide) => ({
+  ...guide,
+  body: [guide.sharedPreamble, guide.sectionBody].filter(Boolean).join('\n\n'),
+}));
 export const getCanonicalGuide = (id: string) => canonicalGuides.find((guide) => guide.id === id);

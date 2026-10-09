@@ -43,7 +43,7 @@ export default function ClinicalGuides() {
   const [query, setQuery] = useState('');
   const [formatFilter, setFormatFilter] = useState<'all' | 'algorithm' | 'guide' | 'procedure'>('all');
   const quickGuide = useMemo(() => (id ? getClinicalGuide(id) : undefined), [id]);
-  const canonicalGuide = useMemo(() => (id ? getCanonicalGuide(id) : undefined), [id]);
+  const canonicalGuide = useMemo(() => (id ? getCanonicalGuide(quickGuide?.sourceModule ?? id) : undefined), [id, quickGuide]);
   const sheetRef = useRef<HTMLDivElement>(null);
 
   const filteredCanonical = useMemo(() => {
@@ -161,7 +161,7 @@ export default function ClinicalGuides() {
   const sourcePath = quickGuide?.sourcePath ?? canonicalGuide?.sourcePath ?? '';
   const reviewedAt = quickGuide?.reviewedAt ?? 'según repositorio actual';
   const format = quickGuide ? 'algorithm' : (canonicalGuide?.format ?? 'guide');
-  const formatLabel = format === 'algorithm' ? 'Algoritmo rápido · objetivo 1 página' : format === 'procedure' ? 'Procedimiento ilustrado' : 'Guía clínica · 2–4 páginas';
+  const formatLabel = quickGuide ? 'Algoritmo rápido + módulo completo' : format === 'algorithm' ? 'Algoritmo' : format === 'procedure' ? 'Procedimiento ilustrado' : 'Guía clínica';
 
   return (
     <div className="guide-page space-y-4">
@@ -222,9 +222,10 @@ export default function ClinicalGuides() {
                 <strong>Ilustración procedimental:</strong> esta zona utiliza únicamente un activo visual canónico que haya pasado Visual QA. Si todavía no existe uno aprobado, el PDF conserva solo el contenido textual validado.
               </section>
             ) : null}
-            <CanonicalBody guide={canonicalGuide} />
           </>
         ) : null}
+
+        {canonicalGuide ? <CanonicalBody guide={canonicalGuide} /> : null}
 
         <footer className="mt-5 border-t border-slate-300 pt-3 text-[10px] leading-relaxed text-slate-600">
           {quickGuide ? <p><strong>Referencias:</strong> {quickGuide.references.join(' · ')}</p> : null}

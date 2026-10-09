@@ -1,3 +1,13 @@
+# Consolidación v1.42 — Unicode y preámbulos — 09/10/2026
+
+- Base limpia: `d7a51a1137cb26e2bd9aa1bd790abbe0ee90aed4`, rama `v1.42-codex-consolidation`.
+- PDF con ReportLab y DejaVu libres embebidas; símbolos exactos verificados por extracción; glifos ausentes bloquean con error explícito. Instalar `requirements.txt` para PDF y `requirements-test.txt` para QA.
+- 131 guías derivan preámbulo y sección desde el bundle canónico; ensamblado único para biblioteca/impresión. Los tres algoritmos rápidos incorporan el módulo completo.
+- 3 regresiones Unicode, 3 de build y 8 DOM PASS; frontend completo 145 PASS, typecheck/build PASS, 4 PDFs reales de navegador PASS. Las cinco pruebas asíncronas anteriores ya se ejecutaron con éxito.
+- Clinical QA 12/12 PASS, suite principal 419 pruebas. Ver `qa/V1.42_UNICODE_SAFETY_PREAMBLE.md` para reproducción, requisitos y límites.
+- CI queda fuera de alcance: pendiente instalar requisitos en el workflow antes de QA remoto. Sin cambios a procedimientos generados, pediatría, migración ni visuales.
+- `CLINICALLY_PENDING`; módulo de nota y procedimientos YELLOW, 29 GREEN / 102 YELLOW preservados. Main intacto; sin merge ni push. Visuales PAUSADAS.
+
 # Consolidación v1.42 — negación, temporalidad y secuenciación — 08/10/2026
 
 - Rama: `v1.42-codex-consolidation`; base limpia `f49e6547e849b888ccdacf1b871faa86dfd6ded1`.

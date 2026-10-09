@@ -1,3 +1,12 @@
+# v1.42 — Unicode y preámbulos, 09/10/2026
+
+- 3/3 regresiones Unicode PASS mediante extracción del PDF real, con fuentes embebidas; DOCX/JSON también conservan símbolos. 24/24 pruebas v1.39 PASS.
+- 3/3 tests Node de generación/fidelidad (131 módulos), 8/8 pruebas DOM y 4/4 PDFs reales del navegador PASS. El preámbulo y cuerpo se conservan una sola vez en biblioteca/guías/algoritmos rápidos.
+- Frontend completo 145/145 PASS, incluidas las cinco regresiones asíncronas pendientes. Typecheck y build de producción PASS tras `npm ci`, sin cambiar lockfile.
+- Clinical QA local 12/12 PASS: suite principal 419 pruebas. Ejecutado con Python 3.14.7 y `requirements-test.txt` en venv aislado, UTF-8 y sin bytecode.
+- CI remoto no ejecutado ni modificado; su workflow aún debe instalar los requisitos nuevos. Sin inspección visual manual exhaustiva ni validación universal de lectores/idiomas.
+- `git diff --check` PASS; detalle en `qa/V1.42_UNICODE_SAFETY_PREAMBLE.md`. Estado `CLINICALLY_PENDING`; sin promoción de evidencia.
+
 # v1.42 — negación/temporalidad y secuenciación, 08/10/2026
 
 - Nuevas regresiones Python: 10/10 PASS tras reproducir los fallos iniciales. Suite v1.39: 24/24 PASS, incluidos 60 escenarios diagnósticos.

@@ -1,0 +1,2 @@
+# PDF Unicode runtime; DOCX/JSON continue to use the standard library.
+reportlab==5.0.1

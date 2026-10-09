@@ -4,9 +4,9 @@
 import html
 import io
 import json
-import textwrap
 import zipfile
 from pathlib import Path
+from functools import lru_cache, partial
 from datetime import datetime, timezone
 
 from clinical_note_support import validate_for_export
@@ -314,63 +314,63 @@ def export_docx(note, out_path):
         z.writestr("docProps/core.xml",core); z.writestr("docProps/app.xml",app)
     return str(out)
 
-def _pdf_escape(s):
-    raw=str(s).encode("cp1252","replace").decode("latin1")
-    return raw.replace("\\","\\\\").replace("(","\\(").replace(")","\\)")
+@lru_cache(maxsize=1)
+def _pdf_fonts():
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+    root = Path(__file__).parents[1] / "assets" / "fonts"
+    fonts = {}
+    for name, filename in (("EmergencySans", "DejaVuSans.ttf"),
+                           ("EmergencySansBold", "DejaVuSans-Bold.ttf")):
+        font = TTFont(name, str(root / filename))
+        pdfmetrics.registerFont(font)
+        fonts[name] = font
+    return fonts
+
 
 def export_pdf(note, out_path):
-    gate=validate_for_export(note)
-    if gate["blocked"]: raise ValueError("export blocked: "+" | ".join(x["message"] for x in gate["findings"] if x["severity"]=="STOP"))
-    sections=note_to_sections(note)
-    lines=[]
-    for idx,(heading,paragraphs) in enumerate(sections):
-        lines.append(("title" if idx==0 else "heading",heading))
-        for p in paragraphs:
-            for line in textwrap.wrap(str(p), width=95, replace_whitespace=False) or [""]:
-                lines.append(("normal",line))
-    pages=[]; current=[]; y=790
-    for kind,text in lines:
-        step=22 if kind=="title" else 18 if kind=="heading" else 14
-        if y-step<45:
-            pages.append(current); current=[]; y=790
-        current.append((kind,text,y)); y-=step
-    if current: pages.append(current)
-    objects=[]
-    def add(obj):
-        objects.append(obj); return len(objects)
-    font=add(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>")
-    bold=add(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>")
-    page_ids=[]; content_ids=[]
-    for page in pages:
-        commands=["BT"]
-        for kind,text,ypos in page:
-            if kind=="title": commands += ["/F2 16 Tf", f"50 {ypos} Td", f"({_pdf_escape(text)}) Tj", f"-50 -{ypos} Td"]
-            elif kind=="heading": commands += ["/F2 12 Tf", f"50 {ypos} Td", f"({_pdf_escape(text)}) Tj", f"-50 -{ypos} Td"]
-            else: commands += ["/F1 10 Tf", f"55 {ypos} Td", f"({_pdf_escape(text)}) Tj", f"-55 -{ypos} Td"]
-        commands.append("ET")
-        stream="\n".join(commands).encode("latin1","replace")
-        cid=add(f"<< /Length {len(stream)} >>\nstream\n".encode()+stream+b"\nendstream")
-        content_ids.append(cid); page_ids.append(None)
-    pages_id=len(objects)+1
-    for i,cid in enumerate(content_ids):
-        pid=add(f"<< /Type /Page /Parent {pages_id} 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 {font} 0 R /F2 {bold} 0 R >> >> /Contents {cid} 0 R >>".encode())
-        page_ids[i]=pid
-    kids=" ".join(f"{pid} 0 R" for pid in page_ids)
-    objects.insert(pages_id-1,f"<< /Type /Pages /Kids [{kids}] /Count {len(page_ids)} >>".encode())
-    # inserting shifts page ids at/after pages_id by +1
-    page_ids=[pid+1 if pid>=pages_id else pid for pid in page_ids]
-    kids=" ".join(f"{pid} 0 R" for pid in page_ids)
-    objects[pages_id-1]=f"<< /Type /Pages /Kids [{kids}] /Count {len(page_ids)} >>".encode()
-    catalog=add(f"<< /Type /Catalog /Pages {pages_id} 0 R >>".encode())
-    out=Path(out_path); out.parent.mkdir(parents=True,exist_ok=True)
-    buf=io.BytesIO(); buf.write(b"%PDF-1.4\n")
-    offsets=[0]
-    for i,obj in enumerate(objects,1):
-        offsets.append(buf.tell()); buf.write(f"{i} 0 obj\n".encode()); buf.write(obj); buf.write(b"\nendobj\n")
-    xref=buf.tell(); buf.write(f"xref\n0 {len(objects)+1}\n".encode()); buf.write(b"0000000000 65535 f \n")
-    for off in offsets[1:]: buf.write(f"{off:010d} 00000 n \n".encode())
-    buf.write(f"trailer\n<< /Size {len(objects)+1} /Root {catalog} 0 R >>\nstartxref\n{xref}\n%%EOF\n".encode())
-    out.write_bytes(buf.getvalue()); return str(out)
+    gate = validate_for_export(note)
+    if gate["blocked"]:
+        raise ValueError("export blocked: " + " | ".join(
+            x["message"] for x in gate["findings"] if x["severity"] == "STOP"))
+    # Lazy imports keep DOCX/JSON independent of the PDF runtime dependency.
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.pdfgen.canvas import Canvas
+    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+
+    fonts = _pdf_fonts()
+    sections = note_to_sections(note)
+    styles = {
+        "title": ParagraphStyle("title", fontName="EmergencySansBold", fontSize=16, leading=22, spaceAfter=4, keepWithNext=True),
+        "heading": ParagraphStyle("heading", fontName="EmergencySansBold", fontSize=12, leading=18, spaceAfter=4, keepWithNext=True),
+        "normal": ParagraphStyle("normal", fontName="EmergencySans", fontSize=10, leading=14, spaceAfter=4),
+    }
+    story = []
+    for index, (heading, paragraphs) in enumerate(sections):
+        entries = [("title" if index == 0 else "heading", heading)]
+        entries.extend(("normal", str(p)) for p in paragraphs)
+        for kind, text in entries:
+            style = styles[kind]
+            glyphs = fonts[style.fontName].face.charToGlyph
+            missing = sorted({ord(ch) for ch in text if ch not in "\n\r\t" and not glyphs.get(ord(ch))})
+            if missing:
+                codes = ", ".join(f"U+{cp:04X}" for cp in missing)
+                raise ValueError("PDF font does not support Unicode code points: " + codes)
+            # Escape user text before ReportLab's paragraph markup; never reinterpret it.
+            for line in text.splitlines() or [""]:
+                if line:
+                    story.append(Paragraph(html.escape(line.replace("\t", "    ")), style))
+                else:
+                    story.append(Spacer(1, style.leading))
+    buffer = io.BytesIO()
+    document = SimpleDocTemplate(buffer, pagesize=(595, 842), leftMargin=50,
+                                 rightMargin=50, topMargin=42, bottomMargin=45,
+                                 title="Clinical Note", author="Emergency Clinical Note Module")
+    document.build(story, canvasmaker=partial(Canvas, pdfVersion=(1, 4)))
+    out = Path(out_path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_bytes(buffer.getvalue())
+    return str(out)
 
 def export_json(note,out_path):
     gate=validate_for_export(note)

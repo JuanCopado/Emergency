@@ -7,8 +7,9 @@ const appRoot = resolve(here, '..');
 const repoRoot = resolve(appRoot, '..');
 const clinicalRoot = resolve(repoRoot, 'clinical');
 
-const indexText = await readFile(resolve(clinicalRoot, 'references/module-index.md'), 'utf8');
-const modulesText = await readFile(resolve(clinicalRoot, 'MODULES.md'), 'utf8');
+const readCanonical = async (path) => (await readFile(path, 'utf8')).replace(/\r\n?/g, '\n');
+const indexText = await readCanonical(resolve(clinicalRoot, 'references/module-index.md'));
+const modulesText = await readCanonical(resolve(clinicalRoot, 'MODULES.md'));
 
 const entries = indexText
   .split('\n')
@@ -28,7 +29,7 @@ for (const line of modulesText.split('\n')) {
 
 const cache = new Map();
 async function getBundle(bundle) {
-  if (!cache.has(bundle)) cache.set(bundle, await readFile(resolve(clinicalRoot, bundle), 'utf8'));
+  if (!cache.has(bundle)) cache.set(bundle, await readCanonical(resolve(clinicalRoot, bundle)));
   return cache.get(bundle);
 }
 
@@ -54,11 +55,16 @@ const guides = [];
 
 for (const entry of entries) {
   const content = await getBundle(entry.bundle);
-  const marker = '## ' + entry.id;
-  const start = content.indexOf(marker);
-  if (start < 0) throw new Error('Missing canonical heading: ' + entry.id);
-  const bodyStart = start + marker.length;
-  const next = content.indexOf('\n## ', bodyStart);
+  const headings = [...content.matchAll(/^## (.+)$/gm)];
+  const matches = headings.filter((heading) => heading[1].trim() === entry.id);
+  if (matches.length !== 1) throw new Error('Expected one canonical heading: ' + entry.id);
+  const heading = matches[0];
+  const position = headings.indexOf(heading);
+  // Same canonical boundary as clinical/scripts/load_module.py: everything
+  // before the first level-two heading applies to every module in the bundle.
+  const sharedPreamble = content.slice(0, headings[0].index).trim();
+  const sectionBody = content.slice(heading.index + heading[0].length,
+    headings[position + 1]?.index ?? content.length).trim();
   guides.push({
     id: entry.id,
     title: titleize(entry.id),
@@ -66,7 +72,8 @@ for (const entry of entries) {
     sourcePath: 'clinical/' + entry.bundle,
     status: statusMap.get(entry.id) ?? 'yellow',
     format: classifyFormat(entry.id),
-    body: content.slice(bodyStart, next >= 0 ? next : content.length).trim(),
+    sharedPreamble,
+    sectionBody,
   });
 }
 

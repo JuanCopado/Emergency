@@ -2,7 +2,9 @@
 
 v1.42 continuity: module IDs and routing are unchanged. Clinical-note runtime input/privacy/acceptance hardening is documented in `qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md`; its evidence status remains YELLOW.
 
-v1.42 diagnostic context and response sequencing: see `qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md`. No module/routing or evidence-status changes; frontend execution remains pending.
+v1.42 diagnostic context and response sequencing: see `qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md`. No module/routing or evidence-status changes. Its pending frontend tests passed locally on 2026-10-09.
+
+v1.42 Unicode and shared safety preambles: see `qa/V1.42_UNICODE_SAFETY_PREAMBLE.md`. All 131 generated guides preserve canonical preamble and section; no module or evidence promotion.
 
 Read only the bundles required by `router.md`. Within a bundle, locate the exact
 heading `## <module-id>`. Every routed ID must resolve here and in its target

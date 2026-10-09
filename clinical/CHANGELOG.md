@@ -1,3 +1,9 @@
+## v1.42 consolidation — Unicode export and canonical safety preambles (YELLOW)
+- Replace lossy CP1252 PDF output with ReportLab and bundled libre DejaVu fonts; preserve clinical symbols, escape paragraph markup and fail explicitly on missing glyphs before writing output.
+- Derive shared preamble and exact module section from canonical bundles; assemble once for library/print. Include full canonical content for all three quick algorithms. Handle CRLF and exact heading boundaries.
+- Add Unicode, 131-module fidelity, DOM and real browser PDF regressions. Local Clinical QA 12/12 PASS (419 main tests); frontend 145 PASS, typecheck/build PASS, including previous asynchronous-response tests.
+- See `qa/V1.42_UNICODE_SAFETY_PREAMBLE.md` and Python requirements. CI dependency installation remains pending/out of scope. No clinical recommendation or evidence-status changes.
+
 ## v1.42 consolidation — diagnostic context and request sequencing (YELLOW)
 - Filter locally negated and historical/resolved textual mentions, preserving current positive mentions and explicit negative rule criteria. History fields require per-trigger `allow_historical: true`; existing weights, thresholds and rules are unchanged.
 - Bind diagnostic responses/errors to note revision and monotonic request ID; allow a new analysis after editing and discard obsolete responses.

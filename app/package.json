@@ -11,7 +11,9 @@
     "lint": "eslint .",
     "icons": "node scripts/generate-icons.mjs",
     "screenshots": "node scripts/screenshots.mjs",
-    "guides:build": "node scripts/build-clinical-guides.mjs"
+    "guides:build": "node scripts/build-clinical-guides.mjs",
+    "guides:test": "node --test scripts/build-clinical-guides.node-test.mjs",
+    "guides:print-check": "node scripts/check-clinical-guide-print.mjs"
   },
   "keywords": [],
   "author": "",
