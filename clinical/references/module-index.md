@@ -10,6 +10,8 @@ v1.42 CI and procedure catalog: see `qa/V1.42_CI_PROCEDURE_CATALOG.md`. The fron
 
 v1.42 pediatric consolidation: see `qa/V1.42_PEDIATRIC_CONSOLIDATION.md`. Finite arithmetic, existing safety gates and 89-regimen canonical frontend validated locally; no module IDs, routing or evidence statuses changed.
 
+v1.42 procedure structural migration: see `qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md` for source-preserving JSON coverage and pending clinical classification. No module/routing changes or evidence promotion.
+
 Read only the bundles required by `router.md`. Within a bundle, locate the exact
 heading `## <module-id>`. Every routed ID must resolve here and in its target
 bundle; `scripts/validate_modules.py` enforces that invariant.

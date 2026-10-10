@@ -1,0 +1,152 @@
+{
+  "PROC-AIR-001": {
+    "rescue": [
+      {
+        "section": "Después",
+        "quote": "mantener posición y escalar a adjunct/BVM si persiste obstrucción."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "mantener posición y escalar a adjunct/BVM si persiste obstrucción."
+      }
+    ]
+  },
+  "PROC-AIR-002": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "reevaluar necesidad de vía aérea avanzada o broncoscopia si persiste obstrucción distal."
+      }
+    ]
+  },
+  "PROC-AIR-003": {
+    "rescue": [
+      {
+        "section": "Después",
+        "quote": "reevaluar nivel de conciencia y retirar si retorna reflejo nauseoso."
+      }
+    ]
+  },
+  "PROC-AIR-005": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "reajustar sello/posición si la ventilación es insuficiente."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "pasar precozmente a técnica a dos operadores o vía avanzada si la ventilación no es adecuada."
+      }
+    ]
+  },
+  "PROC-AIR-006": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate."
+      }
+    ]
+  },
+  "PROC-AIR-007": {
+    "rescue": [
+      {
+        "section": "Después",
+        "quote": "RCUK 2025 permite mantener SGA si ventila adecuadamente; si hay fuga con ventilación insuficiente durante RCP, volver temporalmente a 30:2."
+      }
+    ]
+  },
+  "PROC-AIR-008": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "desaturación o intento prolongado → retirar/reoxigenar/cambiar estrategia."
+      }
+    ]
+  },
+  "PROC-AIR-009": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "no “perseguir la pantalla” si se pierde control de la boca/tejidos; reoxigenar y cambiar estrategia si el intento se prolonga o la saturación cae."
+      }
+    ]
+  },
+  "PROC-AIR-012": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "rescatar oxigenación con BVM/SGA; si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA."
+      }
+    ]
+  },
+  "PROC-AIR-016": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "usar solo como puente y convertir a una vía aérea definitiva tan pronto como sea posible."
+      }
+    ]
+  },
+  "PROC-AIR-017": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si no pasa o el tubo está desplazado, desinflar cuff y retirar la traqueostomía; oxigenar/ventilar por vía superior y/o estoma según anatomía; solo intentar recanulación si existe competencia, visualización/guía y el estoma es suficientemente maduro."
+      }
+    ]
+  },
+  "PROC-AIR-018": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "deterioro pese a oxígeno o aumento del trabajo respiratorio → escalar soporte ventilatorio."
+      }
+    ]
+  },
+  "PROC-AIR-019": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "destete o escalada a NIV/intubación según fisiología."
+      }
+    ]
+  },
+  "PROC-AIR-020": {
+    "rescue": [
+      {
+        "section": "Después",
+        "quote": "destete si mejora o intubación si fracasa."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "destete si mejora o intubación si fracasa."
+      }
+    ]
+  },
+  "PROC-AIR-021": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → comprobar tubo/circuito, desconectar si es necesario y ventilar manualmente mientras se busca la causa."
+      }
+    ]
+  }
+}

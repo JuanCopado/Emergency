@@ -24,7 +24,10 @@ class NeurologyProcedureSchemaV141Tests(unittest.TestCase):
             self.assertEqual("YELLOW", data["status"], proc_id)
             self.assertTrue(data["stop_points"], proc_id)
             self.assertTrue(data["confirmation"], proc_id)
-            self.assertTrue(data["rescue"], proc_id)
+            if data.get("schema_version") == "1.42" and data["rescue"] is None:
+                self.assertIn("rescue", data["pending_review"], proc_id)
+            else:
+                self.assertTrue(data["rescue"], proc_id)
             self.assertTrue(data["documentation"], proc_id)
             self.assertTrue(data["sources"], proc_id)
             self.assertEqual("pending", data["qa"]["clinical_qa"], proc_id)

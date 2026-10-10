@@ -1,3 +1,11 @@
+# Consolidación v1.42 — migración estructurada en curso — 10/10/2026
+
+- Base local limpia `a896ad67e14f33048f006574bffd273f04751b0b`, 13 commits por delante del remoto observado `0d2fcec1baba7dd50e352890777f4873d8a4dd0d`; continuar desde local.
+- Inventario: 196 canónicos, 4 alias, 16 familias; 26 JSON válidos contra schema v1.41, 170 ausentes. Las cifras 27/169 del auditor histórico son detección léxica, no clasificación clínica.
+- Contrato v1.42: preservación literal, subcampos no clasificados, rescue/escalation null con pendiente explícito si falta extracción inequívoca; citas revisadas individualmente. Sin edición del texto canónico ni promoción.
+- Progreso por familia y auditoría de los 196: `qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md`; baseline detallado en `qa/procedure-migration-baseline-v1.42.json`.
+- Main intacto; sin merge/push. Los 196 continúan YELLOW y visuales PAUSADAS. El cierre final sustituirá este encabezado de trabajo en curso.
+
 # Consolidación v1.42 — pediatría — 10/10/2026
 
 - Base limpia: `a740da808719f5184738c13d644019fc2d869ebd`, rama `v1.42-codex-consolidation`.

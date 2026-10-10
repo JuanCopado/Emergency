@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/JuanCopado/Emergency/clinical/schemas/procedure-v1.42.schema.json",
+  "title": "Source-preserving procedure migration v1.42",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "procedure_id", "name", "family", "level", "status", "objective", "indications", "contraindications_precautions", "equipment", "anatomy", "preparation", "steps", "stop_points", "rescue", "escalation", "confirmation", "complications", "aftercare", "documentation", "sources", "qa", "aliases", "provenance", "pending_review"],
+  "$defs": {
+    "text": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "texts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "unclassified": {"type": "object", "additionalProperties": false, "required": ["unclassified"], "properties": {"unclassified": {"$ref": "#/$defs/texts"}}},
+    "safety": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/texts"}]},
+    "id": {"type": "string", "pattern": "^PROC-[A-Z]+-[0-9]{3}$"},
+    "excerpts": {"type": "array", "uniqueItems": true, "items": {"type": "object", "additionalProperties": false, "required": ["section", "quote"], "properties": {"section": {"$ref": "#/$defs/text"}, "quote": {"$ref": "#/$defs/text"}}}}
+  },
+  "properties": {
+    "schema_version": {"const": "1.42"},
+    "procedure_id": {"$ref": "#/$defs/id"},
+    "name": {"$ref": "#/$defs/text"},
+    "family": {"$ref": "#/$defs/text"},
+    "level": {"type": "string", "enum": ["CORE", "ADVANCED", "SPECIALIST", "CORE/PED", "ADVANCED/PED", "CORE/POCUS", "ADVANCED/POCUS", "SPECIALIST/POCUS"]},
+    "status": {"const": "YELLOW"},
+    "objective": {"$ref": "#/$defs/text"},
+    "indications": {"$ref": "#/$defs/texts"},
+    "contraindications_precautions": {"$ref": "#/$defs/unclassified"},
+    "equipment": {"$ref": "#/$defs/unclassified"},
+    "anatomy": {"$ref": "#/$defs/unclassified"},
+    "preparation": {"$ref": "#/$defs/unclassified"},
+    "steps": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "object", "additionalProperties": false, "required": ["order", "action"], "properties": {"order": {"type": "integer", "minimum": 1}, "action": {"$ref": "#/$defs/text"}}}},
+    "stop_points": {"$ref": "#/$defs/texts"},
+    "rescue": {"$ref": "#/$defs/safety"},
+    "escalation": {"$ref": "#/$defs/safety"},
+    "confirmation": {"$ref": "#/$defs/texts"},
+    "complications": {"$ref": "#/$defs/unclassified"},
+    "aftercare": {"$ref": "#/$defs/texts"},
+    "documentation": {"$ref": "#/$defs/texts"},
+    "sources": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "object", "additionalProperties": false, "required": ["title", "organization", "year"], "properties": {"title": {"$ref": "#/$defs/text"}, "organization": {"type": "null"}, "year": {"type": "null"}}}},
+    "qa": {"type": "object", "additionalProperties": false, "required": ["clinical_qa", "visual_qa", "human_review_required", "last_updated", "notes"], "properties": {"clinical_qa": {"const": "pending"}, "visual_qa": {"const": "paused"}, "human_review_required": {"const": true}, "last_updated": {"type": "null"}, "notes": {"$ref": "#/$defs/texts"}}},
+    "aliases": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "pending_review": {"type": "array", "uniqueItems": true, "items": {"enum": ["rescue", "escalation"]}},
+    "provenance": {"type": "object", "additionalProperties": false, "required": ["source_path", "source_heading", "family_preamble", "source_sha256", "sections", "safety_excerpts"], "properties": {
+      "source_path": {"type": "string", "pattern": "^modules/procedures/[0-9]{2}-[a-z-]+\\.md$"},
+      "source_heading": {"$ref": "#/$defs/text"},
+      "family_preamble": {"$ref": "#/$defs/text"},
+      "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+      "sections": {"type": "object", "additionalProperties": false, "required": ["Objetivo", "Indicaciones", "Contraindicaciones/precauciones", "Material", "Anatomía", "Preparación", "Técnica paso a paso", "STOP", "Confirmación", "Complicaciones", "Después", "Documentación", "Fuentes", "QA"], "properties": {
+        "Objetivo": {"$ref": "#/$defs/text"}, "Indicaciones": {"$ref": "#/$defs/text"}, "Contraindicaciones/precauciones": {"$ref": "#/$defs/text"}, "Material": {"$ref": "#/$defs/text"}, "Anatomía": {"$ref": "#/$defs/text"}, "Preparación": {"$ref": "#/$defs/text"}, "Técnica paso a paso": {"$ref": "#/$defs/text"}, "STOP": {"$ref": "#/$defs/text"}, "Confirmación": {"$ref": "#/$defs/text"}, "Complicaciones": {"$ref": "#/$defs/text"}, "Después": {"$ref": "#/$defs/text"}, "Documentación": {"$ref": "#/$defs/text"}, "Fuentes": {"$ref": "#/$defs/text"}, "QA": {"$ref": "#/$defs/text"}, "Rescate": {"$ref": "#/$defs/text"}, "Escalada": {"$ref": "#/$defs/text"}
+      }},
+      "safety_excerpts": {"type": "object", "additionalProperties": false, "required": ["rescue", "escalation"], "properties": {"rescue": {"$ref": "#/$defs/excerpts"}, "escalation": {"$ref": "#/$defs/excerpts"}}}
+    }}
+  }
+}

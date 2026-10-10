@@ -1,3 +1,8 @@
+## v1.42 consolidation — source-preserving procedure migration (YELLOW, in progress)
+- Inventory 196 canonical procedures, four aliases and 16 families from local HEAD; 26 legacy JSON files validate v1.41 but diverge from textual source projections.
+- Add versioned source-preserving schema, deterministic extractor, literal safety excerpt register and real JSON Schema/fidelity invariants. Preserve unresolved rescue/escalation as null plus pending review; do not infer clinical subcategories or evidence metadata.
+- See `qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md` for family progress and limits. Canonical text, statuses and visual layer unchanged.
+
 ## v1.42 consolidation — pediatric contracts and canonical frontend (YELLOW)
 - Reconcile three synthetic outpatient fixtures with existing clinical gates; 18/18 expectations pass, including continued blocking at exactly 40 kg for the RCH rizatriptan regimen.
 - Share strict finite-number validation across affected pediatric calculators; reject malformed types, nonfinite input/output, zero divisors and overflow hidden by dose caps.

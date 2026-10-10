@@ -585,6 +585,13 @@
       "status": "yellow"
     },
     "emergency-procedures": {
+      "structured_migration_review": {
+        "date": "2026-10-10",
+        "report": "qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md",
+        "scope": "Source-preserving structure only; rescue/escalation require explicit literal support. Family coverage is recorded in the report.",
+        "clinical_evidence_reverified": false,
+        "human_review_required": true
+      },
       "priority": "high",
       "primary_source": "Procedure-specific RCEM, ACEP, WHO and specialty guidance",
       "stored_version": "dynamic procedure umbrella reviewed 2026",
