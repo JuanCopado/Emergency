@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-CV-005",
+  "name": "Marcapasos transvenoso temporal",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar estimulación invasiva temporal en bradicardia grave persistente.",
+  "indications": [
+    "AHA 2025 considera razonable el pacing transvenoso temporal en bradicardia persistentemente inestable y refractaria al tratamiento médico; puede utilizarse mientras se corrige la causa o se prepara un marcapasos definitivo."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "requiere operador entrenado, acceso venoso central y monitorización; tratar causas reversibles en paralelo y valorar infección/coagulopatía."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "introductor venoso, electrodo de pacing, generador, ecografía y guía ECG/imagen según recursos."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "acceso venoso central, aurícula derecha y ventrículo derecho."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "monitorización continua, desfibrilador disponible, analgesia/sedación cuando proceda y campo estéril."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "obtener acceso venoso; introducir el electrodo; avanzar bajo monitorización hasta captura; determinar umbral; fijar; programar frecuencia y salida con margen de seguridad."
+    }
+  ],
+  "stop_points": [
+    "arritmia sostenida, perforación/taponamiento sospechado, pérdida repetida de captura o inestabilidad atribuible al procedimiento."
+  ],
+  "confirmation": [
+    "captura eléctrica acompañada de captura mecánica (pulso/PA)."
+  ],
+  "complications": {
+    "unclassified": [
+      "perforación/taponamiento, arritmia, infección, trombosis, desplazamiento y pérdida de captura."
+    ]
+  },
+  "aftercare": [
+    "vigilancia continua y plan definitivo de corrección de causa o pacing permanente cuando corresponda."
+  ],
+  "documentation": [
+    "acceso, posición, umbral, frecuencia, salida, captura y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "AHA 2025 Adult Advanced Life Support — Initial Management of Bradycardia.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cardiología/UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-005 — Marcapasos transvenoso temporal — SPECIALIST",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "38d448cb38ee6c45e37c6f74f85bfe1f3aec142ab92d2db0e6fafdb7aeb37192",
+    "sections": {
+      "Objetivo": "proporcionar estimulación invasiva temporal en bradicardia grave persistente.",
+      "Indicaciones": "AHA 2025 considera razonable el pacing transvenoso temporal en bradicardia persistentemente inestable y refractaria al tratamiento médico; puede utilizarse mientras se corrige la causa o se prepara un marcapasos definitivo.",
+      "Contraindicaciones/precauciones": "requiere operador entrenado, acceso venoso central y monitorización; tratar causas reversibles en paralelo y valorar infección/coagulopatía.",
+      "Material": "introductor venoso, electrodo de pacing, generador, ecografía y guía ECG/imagen según recursos.",
+      "Anatomía": "acceso venoso central, aurícula derecha y ventrículo derecho.",
+      "Preparación": "monitorización continua, desfibrilador disponible, analgesia/sedación cuando proceda y campo estéril.",
+      "Técnica paso a paso": "obtener acceso venoso; introducir el electrodo; avanzar bajo monitorización hasta captura; determinar umbral; fijar; programar frecuencia y salida con margen de seguridad.",
+      "STOP": "arritmia sostenida, perforación/taponamiento sospechado, pérdida repetida de captura o inestabilidad atribuible al procedimiento.",
+      "Confirmación": "captura eléctrica acompañada de captura mecánica (pulso/PA).",
+      "Complicaciones": "perforación/taponamiento, arritmia, infección, trombosis, desplazamiento y pérdida de captura.",
+      "Después": "vigilancia continua y plan definitivo de corrección de causa o pacing permanente cuando corresponda.",
+      "Documentación": "acceso, posición, umbral, frecuencia, salida, captura y complicaciones.",
+      "Fuentes": "AHA 2025 Adult Advanced Life Support — Initial Management of Bradycardia.",
+      "QA": "YELLOW; revisión humana cardiología/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

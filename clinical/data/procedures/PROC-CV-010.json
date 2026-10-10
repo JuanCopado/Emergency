@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-CV-010",
+  "name": "Capnografía durante RCP",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "confirmar una vía aérea avanzada y aportar tendencia sobre ventilación, perfusión generada por RCP y posible ROSC.",
+  "indications": [
+    "vía aérea avanzada durante RCP cuando hay capnografía disponible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "interpretar la tendencia y el contexto; ETCO₂ depende de ventilación, flujo pulmonar y causa de parada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "capnografía de onda."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "circuito respiratorio, alvéolos y perfusión pulmonar."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "conectar inmediatamente tras colocar vía avanzada y verificar una onda coherente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "observar forma y tendencia; correlacionar descensos con ventilación/compresiones/desconexión; una elevación brusca y sostenida puede sugerir ROSC y debe motivar evaluación clínica."
+    }
+  ],
+  "stop_points": [
+    "ausencia de onda sostenida obliga a revisar vía aérea/circuito; ETCO₂ bajo aislado no debe utilizarse como único criterio para finalizar RCP."
+  ],
+  "confirmation": [
+    "curva reproducible y correlación con ventilación/estado clínico."
+  ],
+  "complications": {
+    "unclassified": [
+      "falsa interpretación por fuga, bajo flujo, secreciones o desconexión."
+    ]
+  },
+  "aftercare": [
+    "continuar capnografía post-ROSC para ajustar ventilación."
+  ],
+  "documentation": [
+    "tendencia, cambios bruscos y eventos correlacionados."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Adult ALS 2025; AHA Adult ALS 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "ausencia de onda sostenida obliga a revisar vía aérea/circuito"
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-010 — Capnografía durante RCP — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "02df200cbc9c8346fbf84a20a7fd6c17af3b39aeb50f32fdfd29f304ab4c09ca",
+    "sections": {
+      "Objetivo": "confirmar una vía aérea avanzada y aportar tendencia sobre ventilación, perfusión generada por RCP y posible ROSC.",
+      "Indicaciones": "vía aérea avanzada durante RCP cuando hay capnografía disponible.",
+      "Contraindicaciones/precauciones": "interpretar la tendencia y el contexto; ETCO₂ depende de ventilación, flujo pulmonar y causa de parada.",
+      "Material": "capnografía de onda.",
+      "Anatomía": "circuito respiratorio, alvéolos y perfusión pulmonar.",
+      "Preparación": "conectar inmediatamente tras colocar vía avanzada y verificar una onda coherente.",
+      "Técnica paso a paso": "observar forma y tendencia; correlacionar descensos con ventilación/compresiones/desconexión; una elevación brusca y sostenida puede sugerir ROSC y debe motivar evaluación clínica.",
+      "STOP": "ausencia de onda sostenida obliga a revisar vía aérea/circuito; ETCO₂ bajo aislado no debe utilizarse como único criterio para finalizar RCP.",
+      "Confirmación": "curva reproducible y correlación con ventilación/estado clínico.",
+      "Complicaciones": "falsa interpretación por fuga, bajo flujo, secreciones o desconexión.",
+      "Después": "continuar capnografía post-ROSC para ajustar ventilación.",
+      "Documentación": "tendencia, cambios bruscos y eventos correlacionados.",
+      "Fuentes": "RCUK/ERC Adult ALS 2025; AHA Adult ALS 2025.",
+      "QA": "YELLOW; revisión humana reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "ausencia de onda sostenida obliga a revisar vía aérea/circuito"
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

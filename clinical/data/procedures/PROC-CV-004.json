@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-CV-004",
+  "name": "Marcapasos transcutáneo",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar estimulación temporal en bradicardia con compromiso hemodinámico mientras se corrige la causa o se prepara pacing definitivo.",
+  "indications": [
+    "AHA 2025 considera que el pacing transcutáneo puede ser efectivo en bradicardia que no responde a atropina mientras se prepara pacing transvenoso si es necesario; también puede considerarse pacing inmediato en bloqueo AV de alto grado inestable cuando no hay acceso IV/IO."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no es tratamiento rutinario de asistolia; puede ser doloroso y requiere analgesia/sedación si el paciente está consciente y la situación lo permite."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "desfibrilador/pacer, parches, monitor ECG, pulsioximetría y método para comprobar pulso/PA."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vector eléctrico transtorácico y miocardio."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "tratar causas reversibles en paralelo, colocar parches y monitorizar."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "seleccionar modo pacing; elegir frecuencia clínica apropiada; aumentar salida hasta obtener captura eléctrica; confirmar captura mecánica y mantener un margen de salida por encima del umbral de captura."
+    }
+  ],
+  "stop_points": [
+    "no confundir espiga seguida de QRS con perfusión efectiva; si no hay captura mecánica revisar parches, salida y diagnóstico."
+  ],
+  "confirmation": [
+    "QRS tras cada estímulo más pulso/PA o señal arterial correspondiente."
+  ],
+  "complications": {
+    "unclassified": [
+      "dolor, quemaduras y fracaso de captura."
+    ]
+  },
+  "aftercare": [
+    "preparar pacing transvenoso si persiste riesgo o inestabilidad."
+  ],
+  "documentation": [
+    "frecuencia, corriente, umbral/captura y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "AHA Adult ALS 2025; RCUK/ERC 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "no confundir espiga seguida de QRS con perfusión efectiva; si no hay captura mecánica revisar parches, salida y diagnóstico."
+  ],
+  "escalation": [
+    "preparar pacing transvenoso si persiste riesgo o inestabilidad."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cardiología/reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-004 — Marcapasos transcutáneo — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "456ce4b42cb0cff35c6f974dc16a7fc474353170b3b62cb8b0a51776852a2eba",
+    "sections": {
+      "Objetivo": "proporcionar estimulación temporal en bradicardia con compromiso hemodinámico mientras se corrige la causa o se prepara pacing definitivo.",
+      "Indicaciones": "AHA 2025 considera que el pacing transcutáneo puede ser efectivo en bradicardia que no responde a atropina mientras se prepara pacing transvenoso si es necesario; también puede considerarse pacing inmediato en bloqueo AV de alto grado inestable cuando no hay acceso IV/IO.",
+      "Contraindicaciones/precauciones": "no es tratamiento rutinario de asistolia; puede ser doloroso y requiere analgesia/sedación si el paciente está consciente y la situación lo permite.",
+      "Material": "desfibrilador/pacer, parches, monitor ECG, pulsioximetría y método para comprobar pulso/PA.",
+      "Anatomía": "vector eléctrico transtorácico y miocardio.",
+      "Preparación": "tratar causas reversibles en paralelo, colocar parches y monitorizar.",
+      "Técnica paso a paso": "seleccionar modo pacing; elegir frecuencia clínica apropiada; aumentar salida hasta obtener captura eléctrica; confirmar captura mecánica y mantener un margen de salida por encima del umbral de captura.",
+      "STOP": "no confundir espiga seguida de QRS con perfusión efectiva; si no hay captura mecánica revisar parches, salida y diagnóstico.",
+      "Confirmación": "QRS tras cada estímulo más pulso/PA o señal arterial correspondiente.",
+      "Complicaciones": "dolor, quemaduras y fracaso de captura.",
+      "Después": "preparar pacing transvenoso si persiste riesgo o inestabilidad.",
+      "Documentación": "frecuencia, corriente, umbral/captura y respuesta.",
+      "Fuentes": "AHA Adult ALS 2025; RCUK/ERC 2025.",
+      "QA": "YELLOW; revisión humana cardiología/reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "no confundir espiga seguida de QRS con perfusión efectiva; si no hay captura mecánica revisar parches, salida y diagnóstico."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "preparar pacing transvenoso si persiste riesgo o inestabilidad."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

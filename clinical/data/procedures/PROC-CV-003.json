@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-CV-003",
+  "name": "Desfibrilación con DEA",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar análisis de ritmo y desfibrilación automatizada con interrupciones mínimas de RCP.",
+  "indications": [
+    "parada cardiaca en paciente sin signos de circulación normal cuando hay DEA disponible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "nadie debe tocar al paciente durante análisis o descarga; retirar al paciente del agua y secar el tórax cuando sea necesario."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "DEA y parches apropiados."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "posición anterolateral estándar o alternativa válida cuando la anatomía/dispositivo lo requiera."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "encender el DEA, exponer/secar tórax y aplicar parches sin retrasar compresiones más de lo imprescindible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "seguir indicaciones del equipo; detener contacto solo durante análisis/descarga; administrar choque si se indica y reiniciar RCP inmediatamente."
+    }
+  ],
+  "stop_points": [
+    "no retrasar RCP por depilación extensa, recolocación repetida o transición innecesaria de dispositivo."
+  ],
+  "confirmation": [
+    "ciclo de análisis/choque correcto y reevaluación según algoritmo."
+  ],
+  "complications": {
+    "unclassified": [
+      "mal contacto, análisis erróneo por movimiento y descarga accidental."
+    ]
+  },
+  "aftercare": [
+    "continuar RCP/ALS o cuidados post-ROSC."
+  ],
+  "documentation": [
+    "choques, tiempos y datos descargables del DEA cuando estén disponibles."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC 2025 BLS/ALS; AHA 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-003 — Desfibrilación con DEA — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "c49564a3fb31e61b5d9b3114bdf91361702b66239a5d498c15cd71db364996c3",
+    "sections": {
+      "Objetivo": "proporcionar análisis de ritmo y desfibrilación automatizada con interrupciones mínimas de RCP.",
+      "Indicaciones": "parada cardiaca en paciente sin signos de circulación normal cuando hay DEA disponible.",
+      "Contraindicaciones/precauciones": "nadie debe tocar al paciente durante análisis o descarga; retirar al paciente del agua y secar el tórax cuando sea necesario.",
+      "Material": "DEA y parches apropiados.",
+      "Anatomía": "posición anterolateral estándar o alternativa válida cuando la anatomía/dispositivo lo requiera.",
+      "Preparación": "encender el DEA, exponer/secar tórax y aplicar parches sin retrasar compresiones más de lo imprescindible.",
+      "Técnica paso a paso": "seguir indicaciones del equipo; detener contacto solo durante análisis/descarga; administrar choque si se indica y reiniciar RCP inmediatamente.",
+      "STOP": "no retrasar RCP por depilación extensa, recolocación repetida o transición innecesaria de dispositivo.",
+      "Confirmación": "ciclo de análisis/choque correcto y reevaluación según algoritmo.",
+      "Complicaciones": "mal contacto, análisis erróneo por movimiento y descarga accidental.",
+      "Después": "continuar RCP/ALS o cuidados post-ROSC.",
+      "Documentación": "choques, tiempos y datos descargables del DEA cuando estén disponibles.",
+      "Fuentes": "RCUK/ERC 2025 BLS/ALS; AHA 2025.",
+      "QA": "YELLOW; revisión humana reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

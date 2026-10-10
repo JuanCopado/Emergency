@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-CV-002",
+  "name": "Desfibrilación manual",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "interrumpir FV/TV sin pulso con la mínima pausa posible en las compresiones.",
+  "indications": [
+    "ritmo desfibrilable en parada cardiaca."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retrasar RCP; comprobar seguridad antes de descarga."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "desfibrilador, parches/palas, monitor y equipo de RCP."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vector transtorácico; posición anterolateral correcta de parches."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "continuar compresiones mientras se aplican parches y, cuando sea seguro, durante la carga."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "confirmar FV/pVT; usar onda bifásica cuando esté disponible; RCUK 2025 recomienda al menos 150 J para la mayoría de ondas bifásicas (130–150 J en pulsed biphasic) y AHA 2025 recomienda la energía inicial del fabricante si se conoce. Cargar, hacer pausa mínima, comprobar “todos fuera”, descargar y reiniciar compresiones inmediatamente durante 2 min."
+    }
+  ],
+  "stop_points": [
+    "no realizar chequeo de pulso inmediatamente tras cada choque salvo signos clínicos/fisiológicos claros de ROSC."
+  ],
+  "confirmation": [
+    "reevaluación de ritmo según ciclo ALS; si aparecen signos claros de ROSC, comprobar ritmo/pulso."
+  ],
+  "complications": {
+    "unclassified": [
+      "quemaduras, descarga accidental y desfibrilación ineficaz por mal contacto/posición."
+    ]
+  },
+  "aftercare": [
+    "continuar ALS y tratar causas reversibles."
+  ],
+  "documentation": [
+    "energía, número de choques, tiempos y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Adult ALS 2025; AHA Adult ALS 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-002 — Desfibrilación manual — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "677f62c89d4479cb233e321f1555fa31a24edc8f18a7dbe3b2ac1d9faf5f20a9",
+    "sections": {
+      "Objetivo": "interrumpir FV/TV sin pulso con la mínima pausa posible en las compresiones.",
+      "Indicaciones": "ritmo desfibrilable en parada cardiaca.",
+      "Contraindicaciones/precauciones": "no retrasar RCP; comprobar seguridad antes de descarga.",
+      "Material": "desfibrilador, parches/palas, monitor y equipo de RCP.",
+      "Anatomía": "vector transtorácico; posición anterolateral correcta de parches.",
+      "Preparación": "continuar compresiones mientras se aplican parches y, cuando sea seguro, durante la carga.",
+      "Técnica paso a paso": "confirmar FV/pVT; usar onda bifásica cuando esté disponible; RCUK 2025 recomienda al menos 150 J para la mayoría de ondas bifásicas (130–150 J en pulsed biphasic) y AHA 2025 recomienda la energía inicial del fabricante si se conoce. Cargar, hacer pausa mínima, comprobar “todos fuera”, descargar y reiniciar compresiones inmediatamente durante 2 min.",
+      "STOP": "no realizar chequeo de pulso inmediatamente tras cada choque salvo signos clínicos/fisiológicos claros de ROSC.",
+      "Confirmación": "reevaluación de ritmo según ciclo ALS; si aparecen signos claros de ROSC, comprobar ritmo/pulso.",
+      "Complicaciones": "quemaduras, descarga accidental y desfibrilación ineficaz por mal contacto/posición.",
+      "Después": "continuar ALS y tratar causas reversibles.",
+      "Documentación": "energía, número de choques, tiempos y respuesta.",
+      "Fuentes": "RCUK/ERC Adult ALS 2025; AHA Adult ALS 2025.",
+      "QA": "YELLOW; revisión humana reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

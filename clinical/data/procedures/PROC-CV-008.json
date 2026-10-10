@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-CV-008",
+  "name": "Colocación de parches de desfibrilación",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "crear un vector eléctrico eficaz y reducir impedancia/errores de descarga.",
+  "indications": [
+    "desfibrilación, cardioversión, pacing o monitorización mediante parches."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no colocar directamente sobre generador implantado o parche transdérmico medicado; evitar agua/humedad."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "parches adhesivos compatibles con el desfibrilador."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "posición anterolateral estándar; RCUK 2025 enfatiza colocar el parche lateral por debajo de la axila en línea medioaxilar."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "exponer/secar tórax; rasurar solo lo necesario si el vello impide adhesión."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "colocar parche esternal a la derecha del esternón superior y lateral/apical en línea medioaxilar; presionar para buena adhesión y conectar. Alternativas como anteroposterior pueden usarse según ritmo/situación."
+    }
+  ],
+  "stop_points": [
+    "no descargar con parche despegado o sobre medicación transdérmica/dispositivo implantado."
+  ],
+  "confirmation": [
+    "señal/impedancia adecuada y contacto completo."
+  ],
+  "complications": {
+    "unclassified": [
+      "quemaduras, fallo de energía y lesión cutánea."
+    ]
+  },
+  "aftercare": [
+    "mantener hasta fin de indicación y revisar piel si uso prolongado."
+  ],
+  "documentation": [
+    "posición alternativa o incidencias relevantes."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Adult ALS 2025; AHA 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-008 — Colocación de parches de desfibrilación — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "9bf0ca0016af559f86b910e6cac631e67c765af260c461490a0ec3a74eb259fc",
+    "sections": {
+      "Objetivo": "crear un vector eléctrico eficaz y reducir impedancia/errores de descarga.",
+      "Indicaciones": "desfibrilación, cardioversión, pacing o monitorización mediante parches.",
+      "Contraindicaciones/precauciones": "no colocar directamente sobre generador implantado o parche transdérmico medicado; evitar agua/humedad.",
+      "Material": "parches adhesivos compatibles con el desfibrilador.",
+      "Anatomía": "posición anterolateral estándar; RCUK 2025 enfatiza colocar el parche lateral por debajo de la axila en línea medioaxilar.",
+      "Preparación": "exponer/secar tórax; rasurar solo lo necesario si el vello impide adhesión.",
+      "Técnica paso a paso": "colocar parche esternal a la derecha del esternón superior y lateral/apical en línea medioaxilar; presionar para buena adhesión y conectar. Alternativas como anteroposterior pueden usarse según ritmo/situación.",
+      "STOP": "no descargar con parche despegado o sobre medicación transdérmica/dispositivo implantado.",
+      "Confirmación": "señal/impedancia adecuada y contacto completo.",
+      "Complicaciones": "quemaduras, fallo de energía y lesión cutánea.",
+      "Después": "mantener hasta fin de indicación y revisar piel si uso prolongado.",
+      "Documentación": "posición alternativa o incidencias relevantes.",
+      "Fuentes": "RCUK/ERC Adult ALS 2025; AHA 2025.",
+      "QA": "YELLOW; revisión humana reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

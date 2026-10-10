@@ -149,6 +149,50 @@
       }
     ]
   },
+  "PROC-CV-004": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "no confundir espiga seguida de QRS con perfusión efectiva; si no hay captura mecánica revisar parches, salida y diagnóstico."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "preparar pacing transvenoso si persiste riesgo o inestabilidad."
+      }
+    ]
+  },
+  "PROC-CV-006": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "cirugía si persiste taponamiento o la causa lo requiere."
+      }
+    ]
+  },
+  "PROC-CV-009": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si no puede obtenerse con rapidez o no es factible, usar IO."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si no puede obtenerse con rapidez o no es factible, usar IO."
+      }
+    ]
+  },
+  "PROC-CV-010": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "ausencia de onda sostenida obliga a revisar vía aérea/circuito"
+      }
+    ]
+  },
   "PROC-THX-001": {
     "rescue": [
       {

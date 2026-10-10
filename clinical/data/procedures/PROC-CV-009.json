@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-CV-009",
+  "name": "Acceso vascular durante PCR",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "administrar medicación y fluidos durante RCP sin interferir con compresiones o desfibrilación.",
+  "indications": [
+    "parada cardiaca con necesidad de acceso vascular."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "el acceso nunca debe retrasar RCP o desfibrilación."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "IV periférico, IO y material central como rescate seleccionado."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "venas periféricas y sitios IO aprobados."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "asignar operador que no interrumpa maniobras críticas."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "AHA/ERC 2025 favorecen intentar acceso IV periférico inicialmente en adulto; si no puede obtenerse con rapidez o no es factible, usar IO. El acceso central no es prioritario durante RCP y debe reservarse para circunstancias seleccionadas con operador experto."
+    }
+  ],
+  "stop_points": [
+    "abandonar intentos prolongados que interfieran con la reanimación; vigilar extravasación/IO mal posicionado."
+  ],
+  "confirmation": [
+    "acceso permeable, fijado y sin infiltración."
+  ],
+  "complications": {
+    "unclassified": [
+      "extravasación, síndrome compartimental por IO, infección y retraso de RCP."
+    ]
+  },
+  "aftercare": [
+    "reevaluar y convertir a acceso definitivo post-ROSC cuando corresponda."
+  ],
+  "documentation": [
+    "ruta, sitio, número de intentos y tiempo."
+  ],
+  "sources": [
+    {
+      "title": "AHA Adult ALS 2025; RCUK/ERC 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "si no puede obtenerse con rapidez o no es factible, usar IO."
+  ],
+  "escalation": [
+    "si no puede obtenerse con rapidez o no es factible, usar IO."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-009 — Acceso vascular durante PCR — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "4eaf9bbd4b8adb8257093d798f4ef408724d6e55359da46cf01287b87e88776e",
+    "sections": {
+      "Objetivo": "administrar medicación y fluidos durante RCP sin interferir con compresiones o desfibrilación.",
+      "Indicaciones": "parada cardiaca con necesidad de acceso vascular.",
+      "Contraindicaciones/precauciones": "el acceso nunca debe retrasar RCP o desfibrilación.",
+      "Material": "IV periférico, IO y material central como rescate seleccionado.",
+      "Anatomía": "venas periféricas y sitios IO aprobados.",
+      "Preparación": "asignar operador que no interrumpa maniobras críticas.",
+      "Técnica paso a paso": "AHA/ERC 2025 favorecen intentar acceso IV periférico inicialmente en adulto; si no puede obtenerse con rapidez o no es factible, usar IO. El acceso central no es prioritario durante RCP y debe reservarse para circunstancias seleccionadas con operador experto.",
+      "STOP": "abandonar intentos prolongados que interfieran con la reanimación; vigilar extravasación/IO mal posicionado.",
+      "Confirmación": "acceso permeable, fijado y sin infiltración.",
+      "Complicaciones": "extravasación, síndrome compartimental por IO, infección y retraso de RCP.",
+      "Después": "reevaluar y convertir a acceso definitivo post-ROSC cuando corresponda.",
+      "Documentación": "ruta, sitio, número de intentos y tiempo.",
+      "Fuentes": "AHA Adult ALS 2025; RCUK/ERC 2025.",
+      "QA": "YELLOW; revisión humana reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si no puede obtenerse con rapidez o no es factible, usar IO."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si no puede obtenerse con rapidez o no es factible, usar IO."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

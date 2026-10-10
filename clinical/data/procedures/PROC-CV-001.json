@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-CV-001",
+  "name": "Cardioversión eléctrica sincronizada",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "convertir una taquiarritmia con pulso cuando causa inestabilidad o cuando la cardioversión eléctrica está indicada.",
+  "indications": [
+    "taquiarritmia con pulso e hipotensión, shock, isquemia, insuficiencia cardiaca aguda o alteración grave atribuible al ritmo; RCUK/ERC 2025 la considera tratamiento preferente en taquiarritmia inestable."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sedar/anestesiar al paciente consciente si la situación lo permite; en escenarios estables considerar duración de la arritmia y riesgo tromboembólico."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "desfibrilador con modo SYNC, parches, monitorización, sedación y rescate de vía aérea."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vector eléctrico transtorácico y sincronización sobre onda R."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "identificar ritmo, colocar parches correctamente, activar SYNC y seleccionar energía según ritmo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "comprobar marcadores sobre cada R; para FA, RCUK 2025 considera razonable un choque inicial sincronizado a salida máxima del desfibrilador; para flutter/TSV 70–120 J iniciales; para TV con pulso 120–150 J iniciales, con escalada si fracasa. Cargar, comprobar seguridad, descargar y reevaluar; reactivar/verificar SYNC antes de cada nuevo choque."
+    }
+  ],
+  "stop_points": [
+    "FV/TV sin pulso requieren desfibrilación no sincronizada; no descargar si el marcador sincroniza sobre T o es errático."
+  ],
+  "confirmation": [
+    "conversión del ritmo y mejoría hemodinámica."
+  ],
+  "complications": {
+    "unclassified": [
+      "FV por sincronización incorrecta, quemaduras, deterioro hemodinámico por sedación y eventos tromboembólicos en pacientes predispuestos."
+    ]
+  },
+  "aftercare": [
+    "tratar la causa y valorar anticoagulación/riesgo embólico cuando corresponda."
+  ],
+  "documentation": [
+    "ritmo, energía, número de choques, sincronización, sedación y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Adult ALS 2025; AHA Adult ALS 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cardiología/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-001 — Cardioversión eléctrica sincronizada — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "a02fe3119644fdee90a177807d9423d01fae79c6014aade1a20ccfa6385918a1",
+    "sections": {
+      "Objetivo": "convertir una taquiarritmia con pulso cuando causa inestabilidad o cuando la cardioversión eléctrica está indicada.",
+      "Indicaciones": "taquiarritmia con pulso e hipotensión, shock, isquemia, insuficiencia cardiaca aguda o alteración grave atribuible al ritmo; RCUK/ERC 2025 la considera tratamiento preferente en taquiarritmia inestable.",
+      "Contraindicaciones/precauciones": "sedar/anestesiar al paciente consciente si la situación lo permite; en escenarios estables considerar duración de la arritmia y riesgo tromboembólico.",
+      "Material": "desfibrilador con modo SYNC, parches, monitorización, sedación y rescate de vía aérea.",
+      "Anatomía": "vector eléctrico transtorácico y sincronización sobre onda R.",
+      "Preparación": "identificar ritmo, colocar parches correctamente, activar SYNC y seleccionar energía según ritmo.",
+      "Técnica paso a paso": "comprobar marcadores sobre cada R; para FA, RCUK 2025 considera razonable un choque inicial sincronizado a salida máxima del desfibrilador; para flutter/TSV 70–120 J iniciales; para TV con pulso 120–150 J iniciales, con escalada si fracasa. Cargar, comprobar seguridad, descargar y reevaluar; reactivar/verificar SYNC antes de cada nuevo choque.",
+      "STOP": "FV/TV sin pulso requieren desfibrilación no sincronizada; no descargar si el marcador sincroniza sobre T o es errático.",
+      "Confirmación": "conversión del ritmo y mejoría hemodinámica.",
+      "Complicaciones": "FV por sincronización incorrecta, quemaduras, deterioro hemodinámico por sedación y eventos tromboembólicos en pacientes predispuestos.",
+      "Después": "tratar la causa y valorar anticoagulación/riesgo embólico cuando corresponda.",
+      "Documentación": "ritmo, energía, número de choques, sincronización, sedación y respuesta.",
+      "Fuentes": "RCUK/ERC Adult ALS 2025; AHA Adult ALS 2025.",
+      "QA": "YELLOW; revisión humana cardiología/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

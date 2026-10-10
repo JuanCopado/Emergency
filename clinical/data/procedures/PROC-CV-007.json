@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-CV-007",
+  "name": "RCP manual de alta calidad",
+  "family": "CARDIOVASCULAR Y REANIMACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "mantener perfusión coronaria y cerebral durante la parada cardiaca.",
+  "indications": [
+    "paciente inconsciente con respiración ausente o anormal y parada confirmada/altamente probable."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "respetar DNAR/limitaciones válidas; las lesiones por compresión no justifican detener RCP indicada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "superficie firme, feedback de RCP si disponible y desfibrilador."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "centro del tórax/mitad inferior del esternón."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "activar sistema de respuesta, asignar compresor/ventilación/desfibrilación."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "comprimir a 100–120/min con profundidad aproximada de 5–6 cm en adulto, permitiendo retroceso completo y minimizando pausas; rotar compresor aproximadamente cada 2 min si es posible; coordinar ventilación según presencia de vía aérea avanzada."
+    }
+  ],
+  "stop_points": [
+    "interrumpir solo para acciones esenciales y durante el menor tiempo posible; RCUK 2025 busca pausa pre/postchoque <5 s."
+  ],
+  "confirmation": [
+    "calidad mecánica/feedback, ETCO₂ y signos de ROSC; ninguno de estos por sí solo sustituye el juicio clínico."
+  ],
+  "complications": {
+    "unclassified": [
+      "fracturas costales/esternales y lesiones viscerales."
+    ]
+  },
+  "aftercare": [
+    "cuidados post-ROSC y debriefing de equipo cuando sea posible."
+  ],
+  "documentation": [
+    "tiempos, ritmos, choques, fármacos, ROSC y eventos relevantes."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC BLS/ALS 2025; AHA CPR/ECC 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/04-cardiovascular-resuscitation.md",
+    "source_heading": "PROC-CV-007 — RCP manual de alta calidad — CORE",
+    "family_preamble": "# 4. Cardiovascular y reanimación\n\nEstado de familia: **YELLOW**. Fuentes troncales: ERC 2025 Adult Advanced Life Support, AHA 2025 CPR/ECC y módulos cardiovasculares centrales.",
+    "source_sha256": "a986e5154d35382c9002d889c31aacb6445b0590c40fefdb09a10f6e8064bd08",
+    "sections": {
+      "Objetivo": "mantener perfusión coronaria y cerebral durante la parada cardiaca.",
+      "Indicaciones": "paciente inconsciente con respiración ausente o anormal y parada confirmada/altamente probable.",
+      "Contraindicaciones/precauciones": "respetar DNAR/limitaciones válidas; las lesiones por compresión no justifican detener RCP indicada.",
+      "Material": "superficie firme, feedback de RCP si disponible y desfibrilador.",
+      "Anatomía": "centro del tórax/mitad inferior del esternón.",
+      "Preparación": "activar sistema de respuesta, asignar compresor/ventilación/desfibrilación.",
+      "Técnica paso a paso": "comprimir a 100–120/min con profundidad aproximada de 5–6 cm en adulto, permitiendo retroceso completo y minimizando pausas; rotar compresor aproximadamente cada 2 min si es posible; coordinar ventilación según presencia de vía aérea avanzada.",
+      "STOP": "interrumpir solo para acciones esenciales y durante el menor tiempo posible; RCUK 2025 busca pausa pre/postchoque <5 s.",
+      "Confirmación": "calidad mecánica/feedback, ETCO₂ y signos de ROSC; ninguno de estos por sí solo sustituye el juicio clínico.",
+      "Complicaciones": "fracturas costales/esternales y lesiones viscerales.",
+      "Después": "cuidados post-ROSC y debriefing de equipo cuando sea posible.",
+      "Documentación": "tiempos, ritmos, choques, fármacos, ROSC y eventos relevantes.",
+      "Fuentes": "RCUK/ERC BLS/ALS 2025; AHA CPR/ECC 2025.",
+      "QA": "YELLOW; revisión humana reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
