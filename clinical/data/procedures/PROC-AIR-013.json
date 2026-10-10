@@ -1,162 +1,104 @@
 {
   "procedure_id": "PROC-AIR-013",
   "name": "Confirmación del tubo endotraqueal por capnografía",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU",
-    "OR"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Confirmar posición traqueal del tubo y monitorizar ventilación mediante capnografía de onda.",
+  "objective": "confirmar posición traqueal y monitorizar ventilación de forma continua.",
   "indications": [
-    "Toda intubación endotraqueal.",
-    "Toda vía avanzada cuando la capnografía sea técnicamente posible."
+    "toda intubación y vía aérea avanzada cuando sea técnicamente posible."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Durante PCR el ETCO₂ puede ser bajo; interpretar en contexto.",
-      "Una curva ausente debe hacer sospechar posición incorrecta o problema técnico."
+    "unclassified": [
+      "durante PCR el ETCO₂ puede ser bajo; un valor bajo aislado no debe utilizarse para decidir finalizar la reanimación."
     ]
   },
   "equipment": {
-    "essential": [
-      "Capnografía de onda.",
-      "Circuito compatible.",
-      "Monitor."
-    ],
-    "optional": [],
-    "monitoring": [
-      "ETCO₂ continuo."
-    ],
-    "rescue": [
-      "BVM y equipo de reevaluación de vía aérea."
+    "unclassified": [
+      "capnografía de onda, circuito y monitor."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Conexión tubo-circuito."
-    ],
-    "target": [
-      "Detección de CO₂ espirado procedente de ventilación alveolar."
-    ],
-    "avoid": [
-      "Falsa interpretación por desconexión o bajo flujo extremo."
-    ],
-    "laterality": null,
-    "variants": []
+    "unclassified": [
+      "conexión tubo-circuito y ventilación alveolar."
+    ]
   },
   "preparation": {
-    "patient_position": "No específica.",
-    "operator_position": "Junto al monitor y circuito.",
-    "monitoring": [
-      "Capnografía continua."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Conectar inmediatamente después de inserción del tubo.",
-      "Verificar conexiones."
+    "unclassified": [
+      "conectar inmediatamente tras inserción y antes de considerar asegurada la vía aérea."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Ventilar a través del tubo.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Observar una curva repetitiva de ETCO₂.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Correlacionar con expansión torácica y contexto clínico.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Reevaluar la señal tras traslados o cambios de posición.",
-      "critical": true,
-      "visual_hint": null
+      "action": "ventilar, observar una curva repetitiva y sostenida, correlacionar con expansión torácica y reevaluar tras traslados o cualquier cambio clínico."
     }
-  ],
-  "confirmation": [
-    "Curva de ETCO₂ sostenida y repetitiva."
   ],
   "stop_points": [
-    "Ausencia persistente de ETCO₂ con ventilaciones efectivas obliga a asumir posición incorrecta hasta demostrar lo contrario.",
-    "Pérdida súbita de curva tras una señal previa requiere revisar desplazamiento o desconexión."
+    "ausencia persistente de una curva sostenida con ventilaciones efectivas obliga a asumir posición incorrecta hasta demostrar lo contrario."
+  ],
+  "confirmation": [
+    "traza sostenida de ETCO₂; RCUK 2025 la exige para excluir colocación esofágica."
   ],
   "complications": {
-    "immediate": [
-      "Falsa seguridad por conexión incorrecta o interpretación inadecuada."
-    ],
-    "early": [],
-    "late": []
+    "unclassified": [
+      "falsa seguridad por desconexión, obstrucción o bajo flujo extremo; interpretación errónea de ETCO₂ bajo durante RCP."
+    ]
   },
-  "rescue": [
-    "Verificar conexiones y ventilación.",
-    "Reevaluar posición del tubo de inmediato.",
-    "Retirar/reintubar si la posición traqueal no puede confirmarse y el contexto lo exige."
-  ],
   "aftercare": [
-    "Mantener capnografía continua mientras la vía aérea avanzada esté en uso."
+    "monitorización continua hasta retirada de la vía aérea."
   ],
   "documentation": [
-    "Presencia de curva.",
-    "Valor/tendencia cuando sea relevante.",
-    "Eventos de pérdida de señal."
+    "presencia de onda, tendencia/valor cuando sea relevante y cualquier episodio de pérdida de señal."
   ],
-  "pearls": [
-    "La capnografía de onda sostenida es el método clave para confirmar posición traqueal."
-  ],
-  "special_adaptations": {
-    "pediatric": [],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [],
   "sources": [
     {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "Airway verification policy",
-      "organization": "American College of Emergency Physicians",
-      "year": "current",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "Resuscitation Council UK/ERC Adult Advanced Life Support 2025.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": null,
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana de vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-013 — Confirmación del tubo por capnografía — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "f81233839b0a8cc20befae94c169f94e5dec903c4da1e8969509c88195a4c68b",
+    "sections": {
+      "Objetivo": "confirmar posición traqueal y monitorizar ventilación de forma continua.",
+      "Indicaciones": "toda intubación y vía aérea avanzada cuando sea técnicamente posible.",
+      "Contraindicaciones/precauciones": "durante PCR el ETCO₂ puede ser bajo; un valor bajo aislado no debe utilizarse para decidir finalizar la reanimación.",
+      "Material": "capnografía de onda, circuito y monitor.",
+      "Anatomía": "conexión tubo-circuito y ventilación alveolar.",
+      "Preparación": "conectar inmediatamente tras inserción y antes de considerar asegurada la vía aérea.",
+      "Técnica paso a paso": "ventilar, observar una curva repetitiva y sostenida, correlacionar con expansión torácica y reevaluar tras traslados o cualquier cambio clínico.",
+      "STOP": "ausencia persistente de una curva sostenida con ventilaciones efectivas obliga a asumir posición incorrecta hasta demostrar lo contrario.",
+      "Confirmación": "traza sostenida de ETCO₂; RCUK 2025 la exige para excluir colocación esofágica.",
+      "Complicaciones": "falsa seguridad por desconexión, obstrucción o bajo flujo extremo; interpretación errónea de ETCO₂ bajo durante RCP.",
+      "Después": "monitorización continua hasta retirada de la vía aérea.",
+      "Documentación": "presencia de onda, tendencia/valor cuando sea relevante y cualquier episodio de pérdida de señal.",
+      "Fuentes": "Resuscitation Council UK/ERC Adult Advanced Life Support 2025.",
+      "QA": "YELLOW; revisión humana de vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
 }

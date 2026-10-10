@@ -1,216 +1,104 @@
 {
   "procedure_id": "PROC-AIR-010",
-  "name": "Secuencia rápida de intubación",
-  "family": "Vía aérea y ventilación",
+  "name": "Secuencia rápida de intubación (RSI)",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Facilitar intubación traqueal urgente minimizando aspiración y deterioro fisiológico.",
+  "objective": "facilitar intubación traqueal urgente minimizando hipoxemia, aspiración y colapso hemodinámico peri-intubación.",
   "indications": [
-    "Necesidad urgente de vía aérea definitiva cuando no existe una razón dominante para mantener ventilación espontánea."
+    "necesidad urgente de vía aérea definitiva en adulto crítico cuando una estrategia despierta no es preferible."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [
-      "Vía aérea anatómicamente difícil prevista.",
-      "Fisiología extremadamente inestable.",
-      "Situaciones donde perder ventilación espontánea puede ser especialmente peligroso."
-    ],
-    "precautions": [
-      "No administrar bloqueo neuromuscular sin plan de ventilación y rescate.",
-      "Preparar sedoanalgesia postintubación antes de paralizar."
+    "unclassified": [
+      "vía aérea anatómicamente difícil prevista, fisiología extremadamente inestable o situaciones en las que mantener ventilación espontánea sea prioritario requieren una estrategia alternativa."
     ]
   },
   "equipment": {
-    "essential": [
-      "Equipo completo de intubación.",
-      "Equipo de rescate de vía aérea.",
-      "Monitorización."
-    ],
-    "optional": [
-      "Vasopresor según fisiología."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial.",
-      "Capnografía."
-    ],
-    "rescue": [
-      "BVM.",
-      "SGA.",
-      "FONA."
+    "unclassified": [
+      "equipo completo de intubación y rescate, monitorización, succión, BVM, capnografía, vasopresor preparado si procede y fármacos desde módulos canónicos."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Vía aérea superior.",
-      "Membrana cricotiroidea como acceso de rescate."
-    ],
-    "target": [
-      "Tráquea."
-    ],
-    "avoid": [
-      "Pérdida de oxigenación sin plan de rescate."
-    ],
-    "laterality": null,
-    "variants": [
-      "RSI con dispositivo directo o videolaringoscopio según contexto."
+    "unclassified": [
+      "vía aérea superior, glotis, tráquea y acceso frontal del cuello como rescate."
     ]
   },
   "preparation": {
-    "patient_position": "Semi-Fowler o rampa cuando proceda.",
-    "operator_position": "Cabecera con roles asignados al equipo.",
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [
-      "Inducción y bloqueo neuromuscular desde módulos farmacológicos canónicos."
-    ],
-    "prechecks": [
-      "Plan A-D.",
-      "Preoxigenación.",
-      "Optimización hemodinámica.",
-      "Asignación de roles.",
-      "Preparar fármacos y sedación postintubación."
+    "unclassified": [
+      "checklist, plan A-D, posición semisentada/rampa cuando proceda, optimización hemodinámica y preoxigenación. SCCM 2023 sugiere HFNO cuando se prevé laringoscopia difícil y NIPPV si existe hipoxemia grave; considerar preoxigenación asistida por medicación en pacientes agitados que no toleran máscara/NIPPV/HFNO."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Preoxigenar de forma adecuada al contexto.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Preparar inducción y bloqueo neuromuscular desde el módulo farmacológico.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Administrar fármacos y mantener plan de rescate activo.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Realizar intubación con la estrategia seleccionada.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Confirmar posición traqueal con capnografía.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 6,
-      "action": "Iniciar ventilación y sedoanalgesia postintubación.",
-      "critical": true,
-      "visual_hint": null
+      "action": "preoxigenar; administrar agente de inducción y bloqueante neuromuscular según módulo farmacológico; SCCM recomienda usar NMBA cuando se usa sedante-hipnótico para intubación y sugiere rocuronio o succinilcolina si no hay contraindicación; realizar intubación con el dispositivo elegido; confirmar por capnografía; iniciar ventilación y sedoanalgesia postintubación inmediata."
     }
   ],
-  "confirmation": [
-    "Capnografía de onda sostenida.",
-    "Ventilación efectiva."
-  ],
   "stop_points": [
-    "No paralizar sin plan de ventilación/rescate.",
-    "No omitir sedación postintubación.",
-    "Deterioro fisiológico que obliga a pausar y optimizar antes de continuar cuando sea posible."
+    "no paralizar sin estrategia de rescate; no prolongar intentos durante desaturación/hipotensión; no omitir sedación tras bloqueo neuromuscular."
+  ],
+  "confirmation": [
+    "capnografía de onda sostenida más expansión torácica bilateral."
   ],
   "complications": {
-    "immediate": [
-      "Hipotensión.",
-      "Hipoxemia.",
-      "Aspiración.",
-      "Vía aérea fallida."
-    ],
-    "early": [
-      "Awareness si se omite sedación postintubación."
-    ],
-    "late": []
-  },
-  "rescue": [
-    "BVM/SGA para rescatar oxigenación.",
-    "Cambiar operador/dispositivo si fracasa el primer intento.",
-    "Escalar a FONA en CICO.",
-    "Tratar hipotensión e hipoxemia de forma simultánea."
-  ],
-  "aftercare": [
-    "Ventilación protectora.",
-    "Sedoanalgesia continua.",
-    "Reevaluación hemodinámica y gasométrica."
-  ],
-  "documentation": [
-    "Indicación.",
-    "Preoxigenación.",
-    "Fármacos y dosis desde módulo farmacológico.",
-    "Número de intentos.",
-    "Método de confirmación.",
-    "Complicaciones."
-  ],
-  "pearls": [
-    "Preparar postintubación antes de inducir evita omisiones críticas tras el éxito técnico."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar módulo pediátrico específico."
-    ],
-    "pregnancy": [],
-    "obesity": [
-      "Optimizar preoxigenación y posición en rampa."
-    ],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Considerar estrategia despierta en lugar de RSI si perder ventilación espontánea es peligroso."
+    "unclassified": [
+      "hipotensión, hipoxemia, aspiración, intubación esofágica, parada peri-intubación y vía aérea fallida."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [
-    "airway-rsi",
-    "sedoanalgesia",
-    "vasoactive-inotrope-infusions"
+  "aftercare": [
+    "ventilación protectora, sedoanalgesia, reevaluación hemodinámica y radiografía/POCUS si la situación lo requiere."
+  ],
+  "documentation": [
+    "indicación, método de preoxigenación, fármacos, intento(s), dispositivo, confirmación y eventos adversos."
   ],
   "sources": [
     {
-      "title": "Rapid Sequence Intubation in the Critically Ill Adult Patient",
-      "organization": "Society of Critical Care Medicine",
-      "year": 2023,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
-      "organization": "Difficult Airway Society",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "SCCM Clinical Practice Guideline for RSI in the Critically Ill Adult Patient, 2023; DAS 2025.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": null,
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana vía aérea/UCI pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-010 — Secuencia rápida de intubación (RSI) — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "615f5fe2c96f01f9b4bba8d11078bf20194b453c70a995c7424aa44cbdc51f63",
+    "sections": {
+      "Objetivo": "facilitar intubación traqueal urgente minimizando hipoxemia, aspiración y colapso hemodinámico peri-intubación.",
+      "Indicaciones": "necesidad urgente de vía aérea definitiva en adulto crítico cuando una estrategia despierta no es preferible.",
+      "Contraindicaciones/precauciones": "vía aérea anatómicamente difícil prevista, fisiología extremadamente inestable o situaciones en las que mantener ventilación espontánea sea prioritario requieren una estrategia alternativa.",
+      "Material": "equipo completo de intubación y rescate, monitorización, succión, BVM, capnografía, vasopresor preparado si procede y fármacos desde módulos canónicos.",
+      "Anatomía": "vía aérea superior, glotis, tráquea y acceso frontal del cuello como rescate.",
+      "Preparación": "checklist, plan A-D, posición semisentada/rampa cuando proceda, optimización hemodinámica y preoxigenación. SCCM 2023 sugiere HFNO cuando se prevé laringoscopia difícil y NIPPV si existe hipoxemia grave; considerar preoxigenación asistida por medicación en pacientes agitados que no toleran máscara/NIPPV/HFNO.",
+      "Técnica paso a paso": "preoxigenar; administrar agente de inducción y bloqueante neuromuscular según módulo farmacológico; SCCM recomienda usar NMBA cuando se usa sedante-hipnótico para intubación y sugiere rocuronio o succinilcolina si no hay contraindicación; realizar intubación con el dispositivo elegido; confirmar por capnografía; iniciar ventilación y sedoanalgesia postintubación inmediata.",
+      "STOP": "no paralizar sin estrategia de rescate; no prolongar intentos durante desaturación/hipotensión; no omitir sedación tras bloqueo neuromuscular.",
+      "Confirmación": "capnografía de onda sostenida más expansión torácica bilateral.",
+      "Complicaciones": "hipotensión, hipoxemia, aspiración, intubación esofágica, parada peri-intubación y vía aérea fallida.",
+      "Después": "ventilación protectora, sedoanalgesia, reevaluación hemodinámica y radiografía/POCUS si la situación lo requiere.",
+      "Documentación": "indicación, método de preoxigenación, fármacos, intento(s), dispositivo, confirmación y eventos adversos.",
+      "Fuentes": "SCCM Clinical Practice Guideline for RSI in the Critically Ill Adult Patient, 2023; DAS 2025.",
+      "QA": "YELLOW; revisión humana vía aérea/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
 }

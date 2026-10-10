@@ -1,193 +1,110 @@
 {
   "procedure_id": "PROC-AIR-002",
   "name": "Aspiración de secreciones de vía aérea",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Retirar sangre, vómito o secreciones que impiden ventilación o visualización de la vía aérea.",
+  "objective": "retirar sangre, vómito o secreciones que impiden ventilación o visualización.",
   "indications": [
-    "Secreciones audibles o visibles.",
-    "Contaminación de la vía aérea.",
-    "Obstrucción de tubo endotraqueal o traqueostomía por secreciones."
+    "secreciones audibles/visibles, contaminación de vía aérea, obstrucción de tubo o traqueostomía."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Evitar aspiración profunda innecesaria.",
-      "Preoxigenar si el paciente lo permite.",
-      "Limitar manipulación cuando provoca hipoxemia o bradicardia."
+    "unclassified": [
+      "evitar aspiración profunda innecesaria; limitar duración y reoxigenar si el paciente se desatura."
     ]
   },
   "equipment": {
-    "essential": [
-      "Aspirador operativo.",
-      "Yankauer.",
-      "Catéter flexible.",
-      "PPE."
-    ],
-    "optional": [],
-    "monitoring": [
-      "SpO₂.",
-      "Monitorización cardíaca cuando proceda."
-    ],
-    "rescue": [
-      "Fuente de oxígeno.",
-      "BVM y plan de vía aérea avanzada."
+    "unclassified": [
+      "aspirador funcional, Yankauer, catéter flexible, PPE y oxígeno."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Cavidad oral.",
-      "Orofaringe."
-    ],
-    "target": [
-      "Secreciones visibles u obstructivas.",
-      "Luz de tubo endotraqueal o traqueostomía cuando corresponda."
-    ],
-    "avoid": [
-      "Trauma mucoso por aspiración profunda o forzada."
-    ],
-    "laterality": null,
-    "variants": [
-      "Aspiración orofaríngea con Yankauer.",
-      "Aspiración mediante catéter flexible en tubo/traqueostomía."
+    "unclassified": [
+      "cavidad oral/orofaringe, tubo endotraqueal o traqueostomía."
     ]
   },
   "preparation": {
-    "patient_position": "Posición que facilite apertura de vía aérea y manejo de secreciones.",
-    "operator_position": "Cabecera o lateral con visión directa cuando sea posible.",
-    "monitoring": [
-      "SpO₂.",
-      "Frecuencia cardíaca."
-    ],
-    "asepsis": [
-      "Técnica limpia/estéril según dispositivo y protocolo."
-    ],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Comprobar vacío.",
-      "Preparar oxígeno y plan de reoxigenación."
+    "unclassified": [
+      "comprobar vacío, oxigenación y plan de reoxigenación."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Abrir y posicionar la vía aérea.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Aspirar orofaringe bajo visión con Yankauer cuando corresponda.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Usar catéter flexible para tubo endotraqueal o traqueostomía cuando esté indicado.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Realizar pases breves y controlados.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Reoxigenar y reevaluar entre intentos.",
-      "critical": true,
-      "visual_hint": null
+      "action": "aspirar orofaringe bajo visión con Yankauer; para tubo/traqueostomía usar catéter flexible sin forzar; realizar pases breves con reevaluación entre intentos."
     }
-  ],
-  "confirmation": [
-    "Vía aérea más limpia.",
-    "Ventilación mejorada.",
-    "Capnografía mejorada cuando está disponible.",
-    "Disminución de secreciones obstructivas."
   ],
   "stop_points": [
-    "Bradicardia.",
-    "Hipoxemia significativa.",
-    "Sangrado relevante.",
-    "Resistencia no explicada."
+    "bradicardia, hipoxemia, sangrado significativo o resistencia inesperada."
+  ],
+  "confirmation": [
+    "vía aérea limpia, ventilación/capnografía mejoradas y desaparición de secreciones obstructivas."
   ],
   "complications": {
-    "immediate": [
-      "Trauma mucoso.",
-      "Hipoxemia.",
-      "Bradicardia.",
-      "Broncoespasmo."
-    ],
-    "early": [],
-    "late": []
+    "unclassified": [
+      "trauma mucoso, hipoxemia, bradicardia y broncoespasmo."
+    ]
   },
-  "rescue": [
-    "Detener aspiración y reoxigenar si aparece deterioro.",
-    "Reevaluar posición y permeabilidad.",
-    "Escalar a ventilación avanzada o protección definitiva de la vía aérea si persiste compromiso."
-  ],
   "aftercare": [
-    "Reevaluar ventilación y necesidad de protección definitiva de la vía aérea."
+    "reevaluar necesidad de vía aérea avanzada o broncoscopia si persiste obstrucción distal."
   ],
   "documentation": [
-    "Tipo de secreción.",
-    "Técnica empleada.",
-    "Respuesta.",
-    "Complicaciones."
+    "tipo de secreción, técnica y respuesta."
   ],
-  "pearls": [
-    "Aspirar lo necesario para despejar la vía aérea, evitando manipulación profunda innecesaria."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar calibre y técnica acordes al tamaño pediátrico."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [
-      "Mayor precaución ante sangrado mucoso."
-    ],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [],
   "sources": [
     {
-      "title": "European Resuscitation Council Guidelines 2025: airway and ventilation principles",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "Emergency tracheostomy management algorithms",
-      "organization": "National Tracheostomy Safety Project",
-      "year": "current",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "ERC/RCUK airway principles; NTSP para traqueostomía.",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": null,
+  "escalation": [
+    "reevaluar necesidad de vía aérea avanzada o broncoscopia si persiste obstrucción distal."
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-002 — Aspiración de secreciones — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "03999560800afe8ced362dd79ac48398764f6215f68a414c477a718bfacee78f",
+    "sections": {
+      "Objetivo": "retirar sangre, vómito o secreciones que impiden ventilación o visualización.",
+      "Indicaciones": "secreciones audibles/visibles, contaminación de vía aérea, obstrucción de tubo o traqueostomía.",
+      "Contraindicaciones/precauciones": "evitar aspiración profunda innecesaria; limitar duración y reoxigenar si el paciente se desatura.",
+      "Material": "aspirador funcional, Yankauer, catéter flexible, PPE y oxígeno.",
+      "Anatomía": "cavidad oral/orofaringe, tubo endotraqueal o traqueostomía.",
+      "Preparación": "comprobar vacío, oxigenación y plan de reoxigenación.",
+      "Técnica paso a paso": "aspirar orofaringe bajo visión con Yankauer; para tubo/traqueostomía usar catéter flexible sin forzar; realizar pases breves con reevaluación entre intentos.",
+      "STOP": "bradicardia, hipoxemia, sangrado significativo o resistencia inesperada.",
+      "Confirmación": "vía aérea limpia, ventilación/capnografía mejoradas y desaparición de secreciones obstructivas.",
+      "Complicaciones": "trauma mucoso, hipoxemia, bradicardia y broncoespasmo.",
+      "Después": "reevaluar necesidad de vía aérea avanzada o broncoscopia si persiste obstrucción distal.",
+      "Documentación": "tipo de secreción, técnica y respuesta.",
+      "Fuentes": "ERC/RCUK airway principles; NTSP para traqueostomía.",
+      "QA": "YELLOW; revisión humana vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "reevaluar necesidad de vía aérea avanzada o broncoscopia si persiste obstrucción distal."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
 }

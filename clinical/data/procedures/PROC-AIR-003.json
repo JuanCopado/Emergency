@@ -1,184 +1,110 @@
 {
   "procedure_id": "PROC-AIR-003",
   "name": "Cánula orofaríngea",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Prevenir el colapso lingual en pacientes sin reflejo nauseoso y facilitar la ventilación.",
+  "objective": "evitar obstrucción por lengua en paciente profundamente inconsciente.",
   "indications": [
-    "Paciente inconsciente o profundamente obtundido sin reflejo nauseoso.",
-    "Apoyo a ventilación con BVM."
+    "paciente inconsciente sin reflejo nauseoso, especialmente durante BVM."
   ],
   "contraindications_precautions": {
-    "absolute": [
-      "Reflejo nauseoso presente o consciencia suficiente para no tolerar el dispositivo."
-    ],
-    "relative": [],
-    "precautions": [
-      "Seleccionar tamaño adecuado para evitar empeorar la obstrucción o causar trauma."
+    "unclassified": [
+      "consciencia conservada o reflejo nauseoso presente por riesgo de vómito/laringoespasmo."
     ]
   },
   "equipment": {
-    "essential": [
-      "Cánulas orofaríngeas de varios tamaños."
-    ],
-    "optional": [
-      "Depresor lingual según técnica."
-    ],
-    "monitoring": [
-      "Monitorización clínica y SpO₂ según contexto."
-    ],
-    "rescue": [
-      "Aspiración.",
-      "BVM."
+    "unclassified": [
+      "OPA de varios tamaños, aspiración y BVM."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Comisura labial.",
-      "Ángulo mandibular."
-    ],
-    "target": [
-      "Orofaringe con desplazamiento anterior de la lengua."
-    ],
-    "avoid": [
-      "Empujar la lengua posteriormente.",
-      "Trauma dental/oral."
-    ],
-    "laterality": null,
-    "variants": [
-      "Inserción directa con depresor.",
-      "Rotación en adulto según entrenamiento y dispositivo."
+    "unclassified": [
+      "labios, lengua, paladar y orofaringe."
     ]
   },
   "preparation": {
-    "patient_position": "Vía aérea posicionada para ventilación.",
-    "operator_position": "Cabecera.",
-    "monitoring": [
-      "SpO₂ según contexto."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Confirmar ausencia de reflejo nauseoso.",
-      "Seleccionar tamaño apropiado.",
-      "Retirar secreciones y cuerpos extraños visibles."
+    "unclassified": [
+      "elegir tamaño adecuado desde comisura labial/incisivos hasta ángulo mandibular."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Seleccionar tamaño apropiado según referencias anatómicas.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Abrir la boca y preparar la vía aérea.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Introducir la cánula sin empujar la lengua hacia atrás.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Usar técnica directa o rotación en adulto según entrenamiento.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Dejar el reborde apoyado en los labios y reevaluar ventilación.",
-      "critical": true,
-      "visual_hint": null
+      "action": "insertar sin empujar la lengua hacia posterior; en adulto puede usarse inserción directa con depresor o rotación según entrenamiento; en pediatría preferir inserción directa bajo visión para evitar trauma."
     }
-  ],
-  "confirmation": [
-    "Mejor paso de aire.",
-    "Ventilación con BVM más efectiva.",
-    "Ausencia de trauma significativo."
   ],
   "stop_points": [
-    "Arcada.",
-    "Vómito.",
-    "Trauma.",
-    "Empeoramiento de la obstrucción."
+    "arcada, vómito, trauma o empeoramiento de obstrucción."
+  ],
+  "confirmation": [
+    "mejor ventilación con BVM y paso de aire."
   ],
   "complications": {
-    "immediate": [
-      "Vómito.",
-      "Aspiración.",
-      "Trauma oral o dental.",
-      "Obstrucción por tamaño incorrecto."
-    ],
-    "early": [],
-    "late": []
+    "unclassified": [
+      "vómito/aspiración, trauma oral/dental y obstrucción por tamaño incorrecto."
+    ]
   },
-  "rescue": [
-    "Retirar inmediatamente si provoca arcada, vómito o empeora la obstrucción.",
-    "Reposicionar la vía aérea o seleccionar otro tamaño/dispositivo.",
-    "Escalar a BVM u otra vía aérea si persiste ventilación inadecuada."
-  ],
   "aftercare": [
-    "Reevaluar periódicamente nivel de conciencia y necesidad del dispositivo."
+    "reevaluar nivel de conciencia y retirar si retorna reflejo nauseoso."
   ],
   "documentation": [
-    "Tamaño.",
-    "Tolerancia.",
-    "Efecto sobre ventilación."
+    "tamaño, tolerancia y efecto."
   ],
-  "pearls": [
-    "Un tamaño incorrecto puede empeorar la obstrucción."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Evitar técnica de rotación si puede causar trauma; usar técnica apropiada a edad y dispositivo."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [],
   "sources": [
     {
-      "title": "How To Insert an Oropharyngeal Airway",
-      "organization": "MSD Manual Professional Edition",
-      "year": "current",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "ERC/RCUK 2025; airway adjunct guidance.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": [
+    "reevaluar nivel de conciencia y retirar si retorna reflejo nauseoso."
+  ],
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-003 — Cánula orofaríngea — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "d075d8e3c057b58ddb9b66f5265bd3d190c884e93295303fa05c5d08af219257",
+    "sections": {
+      "Objetivo": "evitar obstrucción por lengua en paciente profundamente inconsciente.",
+      "Indicaciones": "paciente inconsciente sin reflejo nauseoso, especialmente durante BVM.",
+      "Contraindicaciones/precauciones": "consciencia conservada o reflejo nauseoso presente por riesgo de vómito/laringoespasmo.",
+      "Material": "OPA de varios tamaños, aspiración y BVM.",
+      "Anatomía": "labios, lengua, paladar y orofaringe.",
+      "Preparación": "elegir tamaño adecuado desde comisura labial/incisivos hasta ángulo mandibular.",
+      "Técnica paso a paso": "insertar sin empujar la lengua hacia posterior; en adulto puede usarse inserción directa con depresor o rotación según entrenamiento; en pediatría preferir inserción directa bajo visión para evitar trauma.",
+      "STOP": "arcada, vómito, trauma o empeoramiento de obstrucción.",
+      "Confirmación": "mejor ventilación con BVM y paso de aire.",
+      "Complicaciones": "vómito/aspiración, trauma oral/dental y obstrucción por tamaño incorrecto.",
+      "Después": "reevaluar nivel de conciencia y retirar si retorna reflejo nauseoso.",
+      "Documentación": "tamaño, tolerancia y efecto.",
+      "Fuentes": "ERC/RCUK 2025; airway adjunct guidance.",
+      "QA": "YELLOW; revisión humana vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Después",
+          "quote": "reevaluar nivel de conciencia y retirar si retorna reflejo nauseoso."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
 }

@@ -1,212 +1,110 @@
 {
   "procedure_id": "PROC-AIR-021",
   "name": "Ventilación mecánica invasiva inicial",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Iniciar soporte ventilatorio seguro después de intubación, adaptado a la fisiología del paciente.",
+  "objective": "iniciar soporte ventilatorio seguro después de intubación, evitando volutrauma, barotrauma y auto-PEEP.",
   "indications": [
-    "Todo paciente intubado que requiere ventilación mecánica."
+    "paciente intubado que requiere ventilación mecánica."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Individualizar por fisiología: ARDS, enfermedad obstructiva, neurocrítica, embarazo u otras situaciones.",
-      "Evitar parámetros rígidos universales sin considerar diagnóstico."
+    "unclassified": [
+      "individualizar por fisiología; ARDS, obstrucción grave, TCE, embarazo y shock requieren ajustes específicos."
     ]
   },
   "equipment": {
-    "essential": [
-      "Ventilador.",
-      "Circuito.",
-      "Capnografía.",
-      "Humidificación."
-    ],
-    "optional": [],
-    "monitoring": [
-      "SpO₂.",
-      "ETCO₂.",
-      "Presión arterial.",
-      "Curvas y presiones del ventilador.",
-      "Gasometría cuando esté indicada."
-    ],
-    "rescue": [
-      "BVM para ventilación manual si existe deterioro súbito o fallo del ventilador."
+    "unclassified": [
+      "ventilador, circuito, capnografía, humidificación y monitorización."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Tubo endotraqueal.",
-      "Pulmón.",
-      "Caja torácica."
-    ],
-    "target": [
-      "Ventilación y oxigenación adecuadas con estrategia protectora."
-    ],
-    "avoid": [
-      "Presiones peligrosas.",
-      "Auto-PEEP.",
-      "Volúmenes excesivos."
-    ],
-    "laterality": null,
-    "variants": [
-      "Modos controlados o asistidos según situación."
+    "unclassified": [
+      "tubo traqueal, pulmón y mecánica torácica."
     ]
   },
   "preparation": {
-    "patient_position": "Según fisiología y estabilidad; cabecera elevada cuando sea apropiado.",
-    "operator_position": "Junto al ventilador y paciente.",
-    "monitoring": [
-      "SpO₂.",
-      "ETCO₂.",
-      "Hemodinámica."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [
-      "Confirmar sedoanalgesia adecuada."
-    ],
-    "prechecks": [
-      "Confirmar posición del tubo.",
-      "Evaluar estabilidad hemodinámica.",
-      "Definir fisiología predominante.",
-      "Configurar alarmas."
+    "unclassified": [
+      "confirmar posición del tubo, estabilidad hemodinámica, sedoanalgesia y diagnóstico fisiológico."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Seleccionar un modo ventilatorio apropiado.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Aplicar una estrategia protectora adaptada al paciente.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Ajustar FiO₂ y PEEP según objetivo de oxigenación.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Ajustar frecuencia y ventilación minuto según fisiología.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Revisar presiones, curvas y sincronía.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 6,
-      "action": "Configurar y comprobar alarmas.",
-      "critical": true,
-      "visual_hint": null
+      "action": "seleccionar modo apropiado y estrategia protectora; ajustar volumen corriente según peso corporal predicho cuando corresponda, FiO₂/PEEP según oxigenación y frecuencia según ventilación; revisar presiones, curvas y alarmas."
     }
   ],
-  "confirmation": [
-    "Oxigenación adecuada.",
-    "Ventilación adecuada.",
-    "Curvas coherentes.",
-    "Ausencia de presiones peligrosas o auto-PEEP significativa."
-  ],
   "stop_points": [
-    "Hipotensión nueva.",
-    "Auto-PEEP.",
-    "Presiones elevadas.",
-    "Deterioro súbito de ventilación u oxigenación."
+    "hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → comprobar tubo/circuito, desconectar si es necesario y ventilar manualmente mientras se busca la causa."
+  ],
+  "confirmation": [
+    "oxigenación/ventilación adecuadas y curvas coherentes sin presiones peligrosas."
   ],
   "complications": {
-    "immediate": [
-      "Hipotensión.",
-      "Barotrauma.",
-      "Auto-PEEP.",
-      "Asincronía."
-    ],
-    "early": [
-      "Volutrauma.",
-      "Lesión pulmonar asociada a ventilación."
-    ],
-    "late": []
+    "unclassified": [
+      "volutrauma, barotrauma, auto-PEEP, hipotensión y asincronía."
+    ]
   },
-  "rescue": [
-    "Ante deterioro súbito, desconectar del ventilador y ventilar manualmente si es necesario mientras se busca la causa.",
-    "Corregir auto-PEEP, obstrucción, neumotórax, desplazamiento de tubo o fallo del equipo según hallazgos."
-  ],
   "aftercare": [
-    "Reevaluar de forma seriada.",
-    "Ajustar según gasometría, mecánica y fisiología.",
-    "Mantener sedoanalgesia y objetivos de protección pulmonar."
+    "gasometría/revaloración seriada y ajustes según fisiología."
   ],
   "documentation": [
-    "Modo.",
-    "Parámetros iniciales.",
-    "FiO₂/PEEP.",
-    "Objetivos.",
-    "Presiones relevantes.",
-    "Respuesta y ajustes."
-  ],
-  "pearls": [
-    "No existe un ajuste inicial universal; la fisiología del paciente manda."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar módulo pediátrico específico."
-    ],
-    "pregnancy": [
-      "Individualizar objetivos y mecánica."
-    ],
-    "obesity": [
-      "Requiere consideración específica de PEEP y mecánica."
-    ],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [
-    "icu-sedation-analgesia-infusions",
-    "sedoanalgesia"
+    "modo, parámetros iniciales, objetivos y respuesta."
   ],
   "sources": [
     {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "Critical care ventilation guidance",
-      "organization": "Linked central ventilation/ARDS modules",
-      "year": "current",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "RCUK/ERC 2025 ALS para ventilación durante RCP; módulos centrales de ventilación protectora/ARDS para el paciente postintubación.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": [
+    "hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → comprobar tubo/circuito, desconectar si es necesario y ventilar manualmente mientras se busca la causa."
+  ],
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; syndrome-specific ventilation settings remain in central modules."
+      "YELLOW; revisión humana UCI/respiratoria pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-021 — Ventilación mecánica invasiva inicial — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "6b16ffb638a2fd3d3d5eb9371480d87438002f07d492b2db60d9927a48d518ed",
+    "sections": {
+      "Objetivo": "iniciar soporte ventilatorio seguro después de intubación, evitando volutrauma, barotrauma y auto-PEEP.",
+      "Indicaciones": "paciente intubado que requiere ventilación mecánica.",
+      "Contraindicaciones/precauciones": "individualizar por fisiología; ARDS, obstrucción grave, TCE, embarazo y shock requieren ajustes específicos.",
+      "Material": "ventilador, circuito, capnografía, humidificación y monitorización.",
+      "Anatomía": "tubo traqueal, pulmón y mecánica torácica.",
+      "Preparación": "confirmar posición del tubo, estabilidad hemodinámica, sedoanalgesia y diagnóstico fisiológico.",
+      "Técnica paso a paso": "seleccionar modo apropiado y estrategia protectora; ajustar volumen corriente según peso corporal predicho cuando corresponda, FiO₂/PEEP según oxigenación y frecuencia según ventilación; revisar presiones, curvas y alarmas.",
+      "STOP": "hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → comprobar tubo/circuito, desconectar si es necesario y ventilar manualmente mientras se busca la causa.",
+      "Confirmación": "oxigenación/ventilación adecuadas y curvas coherentes sin presiones peligrosas.",
+      "Complicaciones": "volutrauma, barotrauma, auto-PEEP, hipotensión y asincronía.",
+      "Después": "gasometría/revaloración seriada y ajustes según fisiología.",
+      "Documentación": "modo, parámetros iniciales, objetivos y respuesta.",
+      "Fuentes": "RCUK/ERC 2025 ALS para ventilación durante RCP; módulos centrales de ventilación protectora/ARDS para el paciente postintubación.",
+      "QA": "YELLOW; revisión humana UCI/respiratoria pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → comprobar tubo/circuito, desconectar si es necesario y ventilar manualmente mientras se busca la causa."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
 }

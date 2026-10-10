@@ -1,182 +1,110 @@
 {
   "procedure_id": "PROC-AIR-019",
   "name": "Cánula nasal de alto flujo",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Proporcionar oxígeno calentado y humidificado de alto flujo para mejorar oxigenación y reducir trabajo respiratorio.",
+  "objective": "proporcionar oxígeno calentado/humidificado de alto flujo y reducir trabajo respiratorio.",
   "indications": [
-    "Hipoxemia seleccionada.",
-    "Preoxigenación.",
-    "Soporte respiratorio escalonado según síndrome."
+    "insuficiencia respiratoria hipoxémica seleccionada, preoxigenación o soporte escalonado."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [
-      "Obstrucción nasal significativa.",
-      "Trauma facial que impida uso seguro."
-    ],
-    "precautions": [
-      "No retrasar intubación ante fracaso.",
-      "Definir criterios de fracaso antes de iniciar."
+    "unclassified": [
+      "no retrasar intubación ante fracaso; precaución en obstrucción nasal o trauma facial significativo."
     ]
   },
   "equipment": {
-    "essential": [
-      "Generador HFNO.",
-      "Humidificador.",
-      "Circuito.",
-      "Cánula adecuada."
-    ],
-    "optional": [],
-    "monitoring": [
-      "SpO₂.",
-      "Frecuencia respiratoria.",
-      "Trabajo respiratorio.",
-      "Gasometría según contexto."
-    ],
-    "rescue": [
-      "VNI o intubación según deterioro."
+    "unclassified": [
+      "sistema HFNO, humidificador, circuito y cánula apropiada."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Narinas."
-    ],
-    "target": [
-      "Entrega de flujo humidificado sin ocluir completamente las narinas."
-    ],
-    "avoid": [
-      "Cánula demasiado grande que ocluya narinas."
-    ],
-    "laterality": null,
-    "variants": []
+    "unclassified": [
+      "vía nasal; las cánulas no deben ocluir completamente las narinas."
+    ]
   },
   "preparation": {
-    "patient_position": "Semisentado cuando sea posible.",
-    "operator_position": "No específica.",
-    "monitoring": [
-      "SpO₂.",
-      "Frecuencia respiratoria.",
-      "Trabajo respiratorio."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Definir objetivo de oxigenación.",
-      "Definir criterios de fracaso.",
-      "Seleccionar tamaño de cánula."
+    "unclassified": [
+      "definir objetivo de SpO₂ y criterios explícitos de fracaso."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Seleccionar cánula apropiada.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Iniciar flujo y FiO₂ tolerables.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Ajustar temperatura/humidificación.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Titular soporte según respuesta.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Reevaluar precozmente trabajo respiratorio, oxigenación y gasometría cuando esté indicada.",
-      "critical": true,
-      "visual_hint": null
+      "action": "iniciar flujo y FiO₂ tolerables, ajustar temperatura y titular según SpO₂, frecuencia respiratoria y trabajo respiratorio; reevaluar precozmente."
     }
-  ],
-  "confirmation": [
-    "Menor trabajo respiratorio.",
-    "Objetivo de oxigenación alcanzado.",
-    "Estabilidad clínica."
   ],
   "stop_points": [
-    "Empeoramiento de fatiga.",
-    "Deterioro del nivel de conciencia.",
-    "Hipercapnia progresiva cuando sea relevante.",
-    "Hipoxemia persistente."
+    "empeoramiento de fatiga, conciencia, hipercapnia o hipoxemia pese a soporte."
+  ],
+  "confirmation": [
+    "menor trabajo respiratorio y objetivos de oxigenación alcanzados."
   ],
   "complications": {
-    "immediate": [
-      "Fracaso de soporte con deterioro respiratorio."
-    ],
-    "early": [
-      "Sequedad o lesión nasal.",
-      "Intolerancia."
-    ],
-    "late": [
-      "Retraso de intubación."
+    "unclassified": [
+      "retraso de intubación, lesión/sequedad nasal e intolerancia."
     ]
   },
-  "rescue": [
-    "Escalar a VNI o intubación según fisiología y criterios de fracaso.",
-    "No mantener HFNO como única estrategia ante deterioro progresivo."
-  ],
   "aftercare": [
-    "Destetar gradualmente si mejora.",
-    "Escalar si fracasa."
+    "destete o escalada a NIV/intubación según fisiología."
   ],
   "documentation": [
-    "Flujo.",
-    "FiO₂.",
-    "Temperatura si relevante.",
-    "Objetivos y respuesta.",
-    "Criterios de fracaso observados."
+    "flujo, FiO₂, temperatura y respuesta."
   ],
-  "pearls": [
-    "La reevaluación precoz es esencial para evitar retrasar intubación."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar protocolo y flujos pediátricos específicos."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [],
   "sources": [
     {
-      "title": "Rapid Sequence Intubation in the Critically Ill Adult Patient",
-      "organization": "Society of Critical Care Medicine",
-      "year": 2023,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "SCCM RSI 2023 para preoxigenación; BTS oxygen resources. BTS tiene un Clinical Statement específico de HFNO en desarrollo/publicación 2026, por lo que no debe atribuirse aún una pauta definitiva a ese documento.",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": null,
+  "escalation": [
+    "destete o escalada a NIV/intubación según fisiología."
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; syndrome-specific respiratory guidance remains linked centrally."
+      "YELLOW; revisión humana respiratoria/UCI pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-019 — Cánula nasal de alto flujo — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "10df7d9fe80b3b7841b6e599d4fe4a641235a949dff11fdbb68349f8d27b051b",
+    "sections": {
+      "Objetivo": "proporcionar oxígeno calentado/humidificado de alto flujo y reducir trabajo respiratorio.",
+      "Indicaciones": "insuficiencia respiratoria hipoxémica seleccionada, preoxigenación o soporte escalonado.",
+      "Contraindicaciones/precauciones": "no retrasar intubación ante fracaso; precaución en obstrucción nasal o trauma facial significativo.",
+      "Material": "sistema HFNO, humidificador, circuito y cánula apropiada.",
+      "Anatomía": "vía nasal; las cánulas no deben ocluir completamente las narinas.",
+      "Preparación": "definir objetivo de SpO₂ y criterios explícitos de fracaso.",
+      "Técnica paso a paso": "iniciar flujo y FiO₂ tolerables, ajustar temperatura y titular según SpO₂, frecuencia respiratoria y trabajo respiratorio; reevaluar precozmente.",
+      "STOP": "empeoramiento de fatiga, conciencia, hipercapnia o hipoxemia pese a soporte.",
+      "Confirmación": "menor trabajo respiratorio y objetivos de oxigenación alcanzados.",
+      "Complicaciones": "retraso de intubación, lesión/sequedad nasal e intolerancia.",
+      "Después": "destete o escalada a NIV/intubación según fisiología.",
+      "Documentación": "flujo, FiO₂, temperatura y respuesta.",
+      "Fuentes": "SCCM RSI 2023 para preoxigenación; BTS oxygen resources. BTS tiene un Clinical Statement específico de HFNO en desarrollo/publicación 2026, por lo que no debe atribuirse aún una pauta definitiva a ese documento.",
+      "QA": "YELLOW; revisión humana respiratoria/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "destete o escalada a NIV/intubación según fisiología."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
 }

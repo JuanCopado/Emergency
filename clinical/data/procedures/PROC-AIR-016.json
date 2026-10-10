@@ -1,194 +1,110 @@
 {
   "procedure_id": "PROC-AIR-016",
-  "name": "Cricotiroidotomía por aguja/catéter",
-  "family": "Vía aérea y ventilación",
+  "name": "Cricotiroidotomía por técnica de aguja/catéter",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "SPECIALIST",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU",
-    "OR"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Proporcionar oxigenación de rescate mediante acceso cricotiroideo percutáneo en escenarios seleccionados.",
+  "objective": "proporcionar oxigenación transitoria en escenarios CICO seleccionados cuando un algoritmo específico contempla acceso por cánula.",
   "indications": [
-    "Escenarios CICO en los que el algoritmo local por edad/equipo contempla técnica por aguja o catéter."
+    "principalmente situaciones pediátricas o contextos institucionales donde la técnica por cánula esté explícitamente protocolizada; no es la técnica eFONA adulta de primera línea de DAS 2025."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Riesgo elevado de barotrauma.",
-      "Requiere vía de salida de gas y sistema de oxigenación específico.",
-      "No usar fuera de algoritmo/competencia local."
+    "unclassified": [
+      "alto riesgo de barotrauma si la espiración es insuficiente; requiere equipo específico, vía de salida de gas y operador entrenado."
     ]
   },
   "equipment": {
-    "essential": [
-      "Catéter apropiado.",
-      "Jeringa.",
-      "Sistema específico de oxigenación/ventilación."
-    ],
-    "optional": [],
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Capnografía cuando sea posible."
-    ],
-    "rescue": [
-      "Equipo de cricotiroidotomía quirúrgica o alternativa FONA."
+    "unclassified": [
+      "catéter apropiado, jeringa, sistema de oxigenación/ventilación por cánula y capnografía cuando sea utilizable."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Membrana cricotiroidea.",
-      "Tráquea."
-    ],
-    "target": [
-      "Luz traqueal."
-    ],
-    "avoid": [
-      "Pared posterior traqueal.",
-      "Falsa vía."
-    ],
-    "laterality": null,
-    "variants": [
-      "Técnicas específicas según edad y sistema de ventilación."
+    "unclassified": [
+      "membrana cricotiroidea, tráquea y pared posterior traqueal."
     ]
   },
   "preparation": {
-    "patient_position": "Cuello accesible sin retrasar intervención.",
-    "operator_position": "Acceso directo a región cricotiroidea.",
-    "monitoring": [
-      "SpO₂.",
-      "ECG."
-    ],
-    "asepsis": [
-      "Antisepsia rápida si el tiempo lo permite."
-    ],
-    "analgesia_sedation": [
-      "Según estado clínico."
-    ],
-    "prechecks": [
-      "Identificar membrana.",
-      "Preparar sistema de ventilación específico.",
-      "Tener rescate quirúrgico disponible."
+    "unclassified": [
+      "identificar membrana, continuar oxigenación superior si es posible y preparar conversión inmediata a vía aérea definitiva."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Puncionar la membrana dirigida hacia la luz traqueal.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Confirmar entrada de aire por aspiración.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Avanzar el catéter dentro de la tráquea.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Retirar la aguja manteniendo el catéter.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Conectar el sistema de oxigenación/ventilación apropiado.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 6,
-      "action": "Confirmar ventilación y reevaluar.",
-      "critical": true,
-      "visual_hint": null
+      "action": "puncionar de forma controlada hacia la luz traqueal, confirmar aire, avanzar solo el catéter, retirar la aguja y conectar al sistema específico de oxigenación según protocolo."
     }
-  ],
-  "confirmation": [
-    "Entrada de aire por aspiración.",
-    "Expansión torácica cuando sea posible.",
-    "ETCO₂ si está disponible.",
-    "Mejoría de oxigenación."
   ],
   "stop_points": [
-    "Resistencia inesperada.",
-    "Enfisema progresivo.",
-    "Incapacidad de espiración.",
-    "Deterioro clínico."
+    "resistencia, pérdida de posición, enfisema progresivo, incapacidad de espiración, distensión torácica o deterioro."
+  ],
+  "confirmation": [
+    "entrada de aire, ventilación/oxigenación clínica y capnografía si el sistema lo permite."
   ],
   "complications": {
-    "immediate": [
-      "Barotrauma.",
-      "Falsa vía.",
-      "Sangrado.",
-      "Lesión de pared posterior."
-    ],
-    "early": [
-      "Enfisema subcutáneo."
-    ],
-    "late": []
-  },
-  "rescue": [
-    "Suspender ventilación a presión si existe sospecha de obstrucción espiratoria o barotrauma.",
-    "Escalar a FONA quirúrgica o vía definitiva según algoritmo."
-  ],
-  "aftercare": [
-    "Usar como puente a una vía aérea definitiva.",
-    "Monitorizar estrechamente ventilación y complicaciones."
-  ],
-  "documentation": [
-    "Indicación.",
-    "Técnica.",
-    "Dispositivo.",
-    "Sistema de ventilación.",
-    "Confirmación y respuesta."
-  ],
-  "pearls": [
-    "La limitación principal es la ventilación/espiración; la técnica depende del sistema y protocolo local."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Puede contemplarse en determinados algoritmos pediátricos; seguir protocolo específico."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Considerar que la palpación puede ser difícil y que una técnica alternativa puede ser más segura."
+    "unclassified": [
+      "barotrauma, falsa vía, hemorragia, lesión traqueal posterior y desplazamiento del catéter."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [],
+  "aftercare": [
+    "usar solo como puente y convertir a una vía aérea definitiva tan pronto como sea posible."
+  ],
+  "documentation": [
+    "algoritmo utilizado, dispositivo, respuesta y complicaciones."
+  ],
   "sources": [
     {
-      "title": "Difficult airway and front-of-neck access guidance",
-      "organization": "Difficult Airway Society / paediatric difficult airway guidance",
-      "year": "current",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "DAS 2025 para eFONA adulta; algoritmo pediátrico/local específico para técnicas por cánula.",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": null,
+  "escalation": [
+    "usar solo como puente y convertir a una vía aérea definitiva tan pronto como sea posible."
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; local protocol validation required."
+      "YELLOW; revisión humana pediátrica/anestesia pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-016 — Cricotiroidotomía por aguja/catéter — SPECIALIST",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "d0cb4958f94c5e4eddd48cab163c9058bdcd9717acb33e5204fd0e4a8b2c2d0e",
+    "sections": {
+      "Objetivo": "proporcionar oxigenación transitoria en escenarios CICO seleccionados cuando un algoritmo específico contempla acceso por cánula.",
+      "Indicaciones": "principalmente situaciones pediátricas o contextos institucionales donde la técnica por cánula esté explícitamente protocolizada; no es la técnica eFONA adulta de primera línea de DAS 2025.",
+      "Contraindicaciones/precauciones": "alto riesgo de barotrauma si la espiración es insuficiente; requiere equipo específico, vía de salida de gas y operador entrenado.",
+      "Material": "catéter apropiado, jeringa, sistema de oxigenación/ventilación por cánula y capnografía cuando sea utilizable.",
+      "Anatomía": "membrana cricotiroidea, tráquea y pared posterior traqueal.",
+      "Preparación": "identificar membrana, continuar oxigenación superior si es posible y preparar conversión inmediata a vía aérea definitiva.",
+      "Técnica paso a paso": "puncionar de forma controlada hacia la luz traqueal, confirmar aire, avanzar solo el catéter, retirar la aguja y conectar al sistema específico de oxigenación según protocolo.",
+      "STOP": "resistencia, pérdida de posición, enfisema progresivo, incapacidad de espiración, distensión torácica o deterioro.",
+      "Confirmación": "entrada de aire, ventilación/oxigenación clínica y capnografía si el sistema lo permite.",
+      "Complicaciones": "barotrauma, falsa vía, hemorragia, lesión traqueal posterior y desplazamiento del catéter.",
+      "Después": "usar solo como puente y convertir a una vía aérea definitiva tan pronto como sea posible.",
+      "Documentación": "algoritmo utilizado, dispositivo, respuesta y complicaciones.",
+      "Fuentes": "DAS 2025 para eFONA adulta; algoritmo pediátrico/local específico para técnicas por cánula.",
+      "QA": "YELLOW; revisión humana pediátrica/anestesia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "usar solo como puente y convertir a una vía aérea definitiva tan pronto como sea posible."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
 }

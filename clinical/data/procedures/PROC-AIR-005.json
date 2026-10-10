@@ -1,199 +1,115 @@
 {
   "procedure_id": "PROC-AIR-005",
   "name": "Ventilación bolsa-válvula-mascarilla a un operador",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Oxigenar y ventilar temporalmente en apnea o ventilación insuficiente.",
+  "objective": "oxigenar y ventilar temporalmente en apnea o ventilación insuficiente.",
   "indications": [
-    "Apnea.",
-    "Hipoventilación.",
-    "Periodo peri-intubación.",
-    "Reanimación."
+    "apnea, hipoventilación, peri-intubación y reanimación."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "No existe contraindicación absoluta cuando la ventilación es necesaria.",
-      "Técnica deficiente aumenta riesgo de aspiración e insuflación gástrica.",
-      "Evitar ventilación excesiva."
+    "unclassified": [
+      "no hay contraindicación absoluta cuando la ventilación es necesaria; técnica deficiente aumenta fuga, insuflación gástrica y aspiración."
     ]
   },
   "equipment": {
-    "essential": [
-      "Bolsa autoinflable.",
-      "Mascarilla adecuada.",
-      "Reservorio y fuente de oxígeno."
-    ],
-    "optional": [
-      "Filtro.",
-      "PEEP según indicación.",
-      "Cánula orofaríngea o nasofaríngea."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "Capnografía si disponible."
-    ],
-    "rescue": [
-      "Aspiración.",
-      "Equipo para BVM a dos operadores.",
-      "Dispositivo supraglótico e intubación."
+    "unclassified": [
+      "bolsa autoinflable, mascarilla adecuada, reservorio/oxígeno, filtro, PEEP si está indicada, cánulas y aspiración."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Puente nasal.",
-      "Boca.",
-      "Mandíbula."
-    ],
-    "target": [
-      "Sello facial y apertura de vía aérea superior."
-    ],
-    "avoid": [
-      "Compresión excesiva de tejidos blandos.",
-      "Mala posición mandibular."
-    ],
-    "laterality": null,
-    "variants": [
-      "Agarre C-E."
+    "unclassified": [
+      "sello nariz-boca, mandíbula y vía aérea superior."
     ]
   },
   "preparation": {
-    "patient_position": "Posición óptima de vía aérea; rampa cuando proceda.",
-    "operator_position": "Cabecera.",
-    "monitoring": [
-      "SpO₂.",
-      "ETCO₂ si disponible."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Abrir vía aérea.",
-      "Añadir adjunct si precisa.",
-      "Comprobar equipo y oxígeno."
+    "unclassified": [
+      "optimizar posición, abrir vía aérea y usar adjunct si es necesario."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Colocar la mascarilla cubriendo nariz y boca.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Formar un sello con agarre C-E.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Elevar la mandíbula para mantener la vía aérea abierta.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Comprimir la bolsa suavemente hasta observar elevación torácica.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Ajustar sello, posición y adjuncts según respuesta.",
-      "critical": true,
-      "visual_hint": null
+      "action": "colocar la mascarilla, realizar agarre C-E elevando la mandíbula y comprimir la bolsa durante aproximadamente 1 segundo, solo hasta producir elevación visible del tórax; reajustar sello/posición si la ventilación es insuficiente."
     }
-  ],
-  "confirmation": [
-    "Expansión torácica visible.",
-    "Mejoría de SpO₂.",
-    "ETCO₂ adecuado cuando está disponible."
   ],
   "stop_points": [
-    "Ausencia de elevación torácica.",
-    "Fuga importante.",
-    "Distensión gástrica.",
-    "Empeoramiento de oxigenación."
+    "ausencia de elevación torácica, fuga importante, distensión gástrica o deterioro de oxigenación."
+  ],
+  "confirmation": [
+    "expansión torácica, mejoría clínica/SpO₂ y ETCO₂ si está disponible."
   ],
   "complications": {
-    "immediate": [
-      "Aspiración.",
-      "Insuflación gástrica.",
-      "Hipoventilación por fuga.",
-      "Barotrauma por ventilación excesiva."
-    ],
-    "early": [],
-    "late": []
-  },
-  "rescue": [
-    "Optimizar posición y adjuncts.",
-    "Cambiar a técnica de dos operadores si el sello es insuficiente.",
-    "Escalar a supraglótico o intubación si la ventilación continúa siendo ineficaz."
-  ],
-  "aftercare": [
-    "Mantener soporte hasta recuperación o establecimiento de vía aérea más segura."
-  ],
-  "documentation": [
-    "Eficacia.",
-    "Adjuncts utilizados.",
-    "Necesidad de escalada."
-  ],
-  "pearls": [
-    "Priorizar apertura de vía aérea y sello antes de aumentar la fuerza de compresión de la bolsa."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar mascarilla y bolsa apropiadas al tamaño y evitar volúmenes excesivos."
-    ],
-    "pregnancy": [],
-    "obesity": [
-      "La técnica a dos operadores y la posición en rampa suelen mejorar el sello."
-    ],
-    "trauma": [
-      "Mantener precauciones cervicales cuando corresponda."
-    ],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Escalar precozmente a dos operadores y adjuncts."
+    "unclassified": [
+      "aspiración, insuflación gástrica, barotrauma e hipoventilación por fuga."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [],
+  "aftercare": [
+    "pasar precozmente a técnica a dos operadores o vía avanzada si la ventilación no es adecuada."
+  ],
+  "documentation": [
+    "eficacia, adjuncts utilizados y necesidad de escalada."
+  ],
   "sources": [
     {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "Basic Emergency Care: Approach to the acutely ill and injured",
-      "organization": "WHO / ICRC",
-      "year": "current training resource",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "Resuscitation Council UK/ERC Adult Advanced Life Support 2025.",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": [
+    "reajustar sello/posición si la ventilación es insuficiente."
+  ],
+  "escalation": [
+    "pasar precozmente a técnica a dos operadores o vía avanzada si la ventilación no es adecuada."
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana de vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-005 — BVM a un operador — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "29fd899604fd13f66908ed6692fc26a38a604d5397655ae0a4feab7f6c192ef1",
+    "sections": {
+      "Objetivo": "oxigenar y ventilar temporalmente en apnea o ventilación insuficiente.",
+      "Indicaciones": "apnea, hipoventilación, peri-intubación y reanimación.",
+      "Contraindicaciones/precauciones": "no hay contraindicación absoluta cuando la ventilación es necesaria; técnica deficiente aumenta fuga, insuflación gástrica y aspiración.",
+      "Material": "bolsa autoinflable, mascarilla adecuada, reservorio/oxígeno, filtro, PEEP si está indicada, cánulas y aspiración.",
+      "Anatomía": "sello nariz-boca, mandíbula y vía aérea superior.",
+      "Preparación": "optimizar posición, abrir vía aérea y usar adjunct si es necesario.",
+      "Técnica paso a paso": "colocar la mascarilla, realizar agarre C-E elevando la mandíbula y comprimir la bolsa durante aproximadamente 1 segundo, solo hasta producir elevación visible del tórax; reajustar sello/posición si la ventilación es insuficiente.",
+      "STOP": "ausencia de elevación torácica, fuga importante, distensión gástrica o deterioro de oxigenación.",
+      "Confirmación": "expansión torácica, mejoría clínica/SpO₂ y ETCO₂ si está disponible.",
+      "Complicaciones": "aspiración, insuflación gástrica, barotrauma e hipoventilación por fuga.",
+      "Después": "pasar precozmente a técnica a dos operadores o vía avanzada si la ventilación no es adecuada.",
+      "Documentación": "eficacia, adjuncts utilizados y necesidad de escalada.",
+      "Fuentes": "Resuscitation Council UK/ERC Adult Advanced Life Support 2025.",
+      "QA": "YELLOW; revisión humana de vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "reajustar sello/posición si la ventilación es insuficiente."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "pasar precozmente a técnica a dos operadores o vía avanzada si la ventilación no es adecuada."
+        }
+      ]
+    }
+  },
+  "pending_review": []
 }

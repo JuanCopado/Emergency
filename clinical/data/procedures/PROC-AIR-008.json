@@ -1,221 +1,130 @@
 {
   "procedure_id": "PROC-AIR-008",
   "name": "Intubación orotraqueal con laringoscopia directa",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Establecer una vía aérea traqueal definitiva cuando está indicada.",
+  "objective": "establecer vía aérea traqueal definitiva.",
   "indications": [
-    "Incapacidad de proteger la vía aérea.",
-    "Fracaso ventilatorio u oxigenatorio.",
-    "Necesidad de control avanzado de vía aérea."
+    "incapacidad de proteger vía aérea, fracaso ventilatorio/oxigenatorio o necesidad de control avanzado."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "No retrasar oxigenación por intentos repetidos.",
-      "Considerar estrategia despierta cuando la vía aérea difícil está prevista."
+    "unclassified": [
+      "no retrasar oxigenación por intentos repetidos; valorar alternativa despierta si vía difícil prevista."
     ]
   },
   "equipment": {
-    "essential": [
-      "Laringoscopio.",
-      "Tubo endotraqueal.",
-      "Jeringa para cuff.",
-      "Succión.",
-      "BVM.",
-      "Capnografía.",
-      "Sistema de fijación."
-    ],
-    "optional": [
-      "Estilete.",
-      "Bougie."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial.",
-      "Capnografía tras intubación."
-    ],
-    "rescue": [
-      "Dispositivo supraglótico.",
-      "Videolaringoscopio si disponible.",
-      "Equipo de FONA."
+    "unclassified": [
+      "laringoscopio, tubo, estilete/bougie, jeringa cuff, succión, BVM, capnografía, fijación y rescate."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Lengua.",
-      "Epiglotis.",
-      "Glotis."
-    ],
-    "target": [
-      "Tráquea."
-    ],
-    "avoid": [
-      "Intubación esofágica.",
-      "Trauma dental o de tejidos."
-    ],
-    "laterality": null,
-    "variants": [
-      "Laringoscopia directa con distintas palas según anatomía/equipo."
+    "unclassified": [
+      "lengua, epiglotis, glotis y tráquea."
     ]
   },
   "preparation": {
-    "patient_position": "Posición optimizada para laringoscopia; rampa cuando proceda.",
-    "operator_position": "Cabecera.",
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [
-      "Según estrategia y módulos farmacológicos canónicos."
-    ],
-    "prechecks": [
-      "Checklist de vía aérea.",
-      "Preoxigenación.",
-      "Plan A-D.",
-      "Optimización hemodinámica.",
-      "Succión preparada."
+    "unclassified": [
+      "checklist, preoxigenación, posicionamiento, plan A-D y optimización hemodinámica."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Abrir la boca y desplazar la lengua con la pala.",
-      "critical": true,
-      "visual_hint": null
+      "action": "abrir boca/desplazar lengua"
     },
     {
       "order": 2,
-      "action": "Identificar epiglotis y glotis.",
-      "critical": true,
-      "visual_hint": null
+      "action": "identificar epiglotis/glotis"
     },
     {
       "order": 3,
-      "action": "Pasar el tubo bajo visión a través de las cuerdas vocales.",
-      "critical": true,
-      "visual_hint": null
+      "action": "pasar tubo bajo visión"
     },
     {
       "order": 4,
-      "action": "Inflar el cuff y retirar la guía si se utilizó.",
-      "critical": false,
-      "visual_hint": null
+      "action": "inflar cuff"
     },
     {
       "order": 5,
-      "action": "Ventilar y confirmar posición traqueal.",
-      "critical": true,
-      "visual_hint": null
+      "action": "retirar guía"
+    },
+    {
+      "order": 6,
+      "action": "ventilar y confirmar."
     }
   ],
-  "confirmation": [
-    "Capnografía de onda sostenida.",
-    "Expansión torácica bilateral.",
-    "Profundidad apropiada y ventilación clínica efectiva."
-  ],
   "stop_points": [
-    "Desaturación significativa.",
-    "Intento prolongado.",
-    "Pérdida de referencias anatómicas con deterioro de oxigenación."
+    "desaturación o intento prolongado → retirar/reoxigenar/cambiar estrategia."
+  ],
+  "confirmation": [
+    "capnografía de onda sostenida, expansión bilateral y profundidad apropiada."
   ],
   "complications": {
-    "immediate": [
-      "Intubación esofágica.",
-      "Hipoxemia.",
-      "Hipotensión.",
-      "Aspiración.",
-      "Trauma dental o laríngeo."
-    ],
-    "early": [
-      "Desplazamiento del tubo."
-    ],
-    "late": []
-  },
-  "rescue": [
-    "Retirar y reoxigenar si el intento fracasa o se prolonga.",
-    "Cambiar operador o dispositivo.",
-    "Usar SGA para rescatar oxigenación.",
-    "Escalar a FONA si existe CICO."
-  ],
-  "aftercare": [
-    "Fijar el tubo.",
-    "Iniciar ventilación protectora.",
-    "Iniciar sedoanalgesia postintubación.",
-    "Reevaluar hemodinámica y posición."
-  ],
-  "documentation": [
-    "Dispositivo y pala.",
-    "Tamaño y profundidad del tubo.",
-    "Número de intentos.",
-    "Visión glótica si relevante.",
-    "Confirmación por ETCO₂.",
-    "Complicaciones."
-  ],
-  "pearls": [
-    "El objetivo prioritario es mantener oxigenación; limitar intentos traumáticos repetidos."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar protocolo pediátrico específico."
-    ],
-    "pregnancy": [
-      "Considerar mayor riesgo de vía aérea difícil y desaturación rápida."
-    ],
-    "obesity": [
-      "Optimizar rampa y preoxigenación."
-    ],
-    "trauma": [
-      "Mantener precauciones cervicales."
-    ],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Considerar videolaringoscopia o intubación despierto según contexto."
+    "unclassified": [
+      "intubación esofágica, trauma dental, hipoxemia, hipotensión, aspiración."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [
-    "airway-rsi",
-    "sedoanalgesia"
+  "aftercare": [
+    "fijación, ventilación protectora y sedoanalgesia inmediata."
+  ],
+  "documentation": [
+    "dispositivo, talla, profundidad, intentos, Cormack/visión si relevante, ETCO₂ y complicaciones."
   ],
   "sources": [
     {
-      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
-      "organization": "Difficult Airway Society",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "Rapid Sequence Intubation in the Critically Ill Adult Patient",
-      "organization": "Society of Critical Care Medicine",
-      "year": 2023,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "Difficult Airway Society 2025 unanticipated difficult tracheal intubation guideline; SCCM RSI guideline 2023; RCUK/ERC 2025.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": [
+    "desaturación o intento prolongado → retirar/reoxigenar/cambiar estrategia."
+  ],
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-008 — Intubación orotraqueal directa — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "6133aac622dd5e07a6df1a1cb144778c60445aa258fd0bc48aeed56049a2fa95",
+    "sections": {
+      "Objetivo": "establecer vía aérea traqueal definitiva.",
+      "Indicaciones": "incapacidad de proteger vía aérea, fracaso ventilatorio/oxigenatorio o necesidad de control avanzado.",
+      "Contraindicaciones/precauciones": "no retrasar oxigenación por intentos repetidos; valorar alternativa despierta si vía difícil prevista.",
+      "Material": "laringoscopio, tubo, estilete/bougie, jeringa cuff, succión, BVM, capnografía, fijación y rescate.",
+      "Anatomía": "lengua, epiglotis, glotis y tráquea.",
+      "Preparación": "checklist, preoxigenación, posicionamiento, plan A-D y optimización hemodinámica.",
+      "Técnica paso a paso": "1) abrir boca/desplazar lengua; 2) identificar epiglotis/glotis; 3) pasar tubo bajo visión; 4) inflar cuff; 5) retirar guía; 6) ventilar y confirmar.",
+      "STOP": "desaturación o intento prolongado → retirar/reoxigenar/cambiar estrategia.",
+      "Confirmación": "capnografía de onda sostenida, expansión bilateral y profundidad apropiada.",
+      "Complicaciones": "intubación esofágica, trauma dental, hipoxemia, hipotensión, aspiración.",
+      "Después": "fijación, ventilación protectora y sedoanalgesia inmediata.",
+      "Documentación": "dispositivo, talla, profundidad, intentos, Cormack/visión si relevante, ETCO₂ y complicaciones.",
+      "Fuentes": "Difficult Airway Society 2025 unanticipated difficult tracheal intubation guideline; SCCM RSI guideline 2023; RCUK/ERC 2025.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "desaturación o intento prolongado → retirar/reoxigenar/cambiar estrategia."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
 }

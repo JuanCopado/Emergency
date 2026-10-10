@@ -1,194 +1,104 @@
 {
   "procedure_id": "PROC-AIR-014",
   "name": "Fijación y cuidados inmediatos del tubo endotraqueal",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Prevenir desplazamiento, extubación accidental y lesión relacionada con el tubo/cuff.",
+  "objective": "prevenir desplazamiento, extubación accidental y lesión por cuff.",
   "indications": [
-    "Tras toda intubación endotraqueal confirmada."
+    "tras toda intubación confirmada."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Evitar fijación sobre piel lesionada.",
-      "Vigilar presión del cuff según protocolo.",
-      "Reevaluar después de movilizaciones."
+    "unclassified": [
+      "evitar fijación sobre piel lesionada y presión excesiva del cuff."
     ]
   },
   "equipment": {
-    "essential": [
-      "Dispositivo de fijación o cinta.",
-      "Circuito y soporte de tubo."
-    ],
-    "optional": [
-      "Manómetro de cuff."
-    ],
-    "monitoring": [
-      "Capnografía.",
-      "SpO₂."
-    ],
-    "rescue": [
-      "BVM y material para reintubación si existe desplazamiento."
+    "unclassified": [
+      "fijador/cinta, manómetro de cuff, circuito y soporte del tubo."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Labios.",
-      "Dentición.",
-      "Tráquea.",
-      "Carina."
-    ],
-    "target": [
-      "Mantener profundidad traqueal estable y cuff seguro."
-    ],
-    "avoid": [
-      "Fijación que lesione piel/labios.",
-      "Presión excesiva del cuff."
-    ],
-    "laterality": null,
-    "variants": [
-      "Fijador comercial o cinta según protocolo."
+    "unclassified": [
+      "labios/dentición, tráquea y carina."
     ]
   },
   "preparation": {
-    "patient_position": "Mantener posición estable durante fijación.",
-    "operator_position": "Cabecera.",
-    "monitoring": [
-      "Capnografía.",
-      "SpO₂."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [
-      "Sedoanalgesia adecuada si el paciente está intubado."
-    ],
-    "prechecks": [
-      "Documentar profundidad inicial.",
-      "Confirmar posición traqueal antes de fijar."
+    "unclassified": [
+      "documentar profundidad y posición inicial."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Fijar el tubo con el método seleccionado.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Registrar profundidad a nivel de referencia externo.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Verificar cuff según protocolo.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Asegurar el circuito para evitar tracción.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Reevaluar tras cualquier movilización.",
-      "critical": true,
-      "visual_hint": null
+      "action": "fijar tubo, registrar profundidad en dientes/labios, medir/ajustar presión de cuff según protocolo, asegurar circuito y reevaluar tras cualquier movilización."
     }
   ],
-  "confirmation": [
-    "Profundidad estable.",
-    "Ventilación bilateral.",
-    "Capnografía continua sin cambios sugestivos de desplazamiento."
-  ],
   "stop_points": [
-    "Cambio de ETCO₂.",
-    "Ventilación unilateral nueva.",
-    "Nueva fuga.",
-    "Cambio inesperado de profundidad externa."
+    "cambio brusco de ETCO₂, ventilación unilateral, fuga nueva o presión de cuff anormal."
+  ],
+  "confirmation": [
+    "profundidad estable, ventilación bilateral y capnografía."
   ],
   "complications": {
-    "immediate": [
-      "Extubación accidental.",
-      "Intubación endobronquial.",
-      "Fuga significativa."
-    ],
-    "early": [
-      "Lesión por presión de cuff o fijación."
-    ],
-    "late": []
+    "unclassified": [
+      "extubación accidental, intubación endobronquial y lesión mucosa por presión."
+    ]
   },
-  "rescue": [
-    "Sospechar desplazamiento ante cambios clínicos.",
-    "Ventilar manualmente y reevaluar posición.",
-    "Reposicionar o reintubar según hallazgos."
-  ],
   "aftercare": [
-    "Cuidados orales.",
-    "Sedoanalgesia.",
-    "Ventilación protectora.",
-    "Reevaluación periódica del cuff y fijación."
+    "cuidados orales, sedoanalgesia y reevaluación seriada."
   ],
   "documentation": [
-    "Profundidad.",
-    "Método de fijación.",
-    "Evaluación del cuff.",
-    "Reevaluaciones y cambios."
-  ],
-  "pearls": [
-    "Documentar la profundidad externa facilita detectar migración del tubo."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar fijación adecuada al tamaño y revisar con mayor frecuencia."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [
-    "sedoanalgesia"
+    "profundidad, fijación, cuff y reevaluaciones."
   ],
   "sources": [
     {
-      "title": "Airway safety principles",
-      "organization": "Difficult Airway Society",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "DAS/RCUK airway safety principles; critical care airway-care standards.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": null,
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana UCI/vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-014 — Fijación y cuidados del tubo traqueal — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "30954a60124d372474951f2f97908ee1df24cbc2630b8c323d2ccb68cdb722a9",
+    "sections": {
+      "Objetivo": "prevenir desplazamiento, extubación accidental y lesión por cuff.",
+      "Indicaciones": "tras toda intubación confirmada.",
+      "Contraindicaciones/precauciones": "evitar fijación sobre piel lesionada y presión excesiva del cuff.",
+      "Material": "fijador/cinta, manómetro de cuff, circuito y soporte del tubo.",
+      "Anatomía": "labios/dentición, tráquea y carina.",
+      "Preparación": "documentar profundidad y posición inicial.",
+      "Técnica paso a paso": "fijar tubo, registrar profundidad en dientes/labios, medir/ajustar presión de cuff según protocolo, asegurar circuito y reevaluar tras cualquier movilización.",
+      "STOP": "cambio brusco de ETCO₂, ventilación unilateral, fuga nueva o presión de cuff anormal.",
+      "Confirmación": "profundidad estable, ventilación bilateral y capnografía.",
+      "Complicaciones": "extubación accidental, intubación endobronquial y lesión mucosa por presión.",
+      "Después": "cuidados orales, sedoanalgesia y reevaluación seriada.",
+      "Documentación": "profundidad, fijación, cuff y reevaluaciones.",
+      "Fuentes": "DAS/RCUK airway safety principles; critical care airway-care standards.",
+      "QA": "YELLOW; revisión humana UCI/vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
 }

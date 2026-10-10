@@ -1,187 +1,110 @@
 {
   "procedure_id": "PROC-AIR-018",
   "name": "Oxigenoterapia convencional",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU",
-    "ward"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Corregir hipoxemia usando el dispositivo menos invasivo apropiado y un objetivo de saturación definido.",
+  "objective": "corregir hipoxemia mediante oxígeno titulado a un objetivo clínico.",
   "indications": [
-    "Hipoxemia.",
-    "Riesgo de hipoxemia según síndrome clínico."
+    "hipoxemia o alto riesgo de hipoxemia según el síndrome."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Titular a objetivo específico.",
-      "Evitar hiperoxia innecesaria.",
-      "Considerar riesgo de hipercapnia en pacientes susceptibles."
+    "unclassified": [
+      "evitar hiperoxia; en pacientes con riesgo de insuficiencia respiratoria hipercápnica utilizar un objetivo más bajo mientras se obtiene gasometría."
     ]
   },
   "equipment": {
-    "essential": [
-      "Fuente de oxígeno.",
-      "Dispositivo apropiado: cánula nasal, mascarilla simple, Venturi o mascarilla con reservorio."
-    ],
-    "optional": [
-      "Humidificación según indicación."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "Gasometría cuando esté indicada."
-    ],
-    "rescue": [
-      "HFNO, VNI o ventilación invasiva según fracaso."
+    "unclassified": [
+      "cánula nasal, mascarilla simple, Venturi o mascarilla con reservorio según necesidad."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Vía aérea superior."
-    ],
-    "target": [
-      "Aumentar fracción inspirada de oxígeno."
-    ],
-    "avoid": [
-      "Lesiones por presión del dispositivo."
-    ],
-    "laterality": null,
-    "variants": [
-      "Cánula nasal.",
-      "Mascarilla simple.",
-      "Venturi.",
-      "Mascarilla con reservorio."
+    "unclassified": [
+      "vía aérea superior y sistema respiratorio."
     ]
   },
   "preparation": {
-    "patient_position": "Posición que optimice ventilación y comodidad.",
-    "operator_position": "No específica.",
-    "monitoring": [
-      "SpO₂."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Medir SpO₂.",
-      "Definir objetivo de oxigenación.",
-      "Seleccionar dispositivo."
+    "unclassified": [
+      "medir SpO₂, evaluar clínica y definir objetivo."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Seleccionar el dispositivo según necesidad de oxígeno y contexto.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Ajustar flujo o FiO₂ conforme al dispositivo.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Colocar el dispositivo correctamente.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Reevaluar saturación y estado clínico.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Escalar soporte si el objetivo no se alcanza.",
-      "critical": true,
-      "visual_hint": null
+      "action": "seleccionar dispositivo y concentración/flujo apropiados, colocarlo correctamente y titular según SpO₂ y respuesta clínica."
     }
-  ],
-  "confirmation": [
-    "SpO₂ dentro del objetivo clínico.",
-    "Mejoría del estado clínico y del trabajo respiratorio cuando corresponde."
   ],
   "stop_points": [
-    "Deterioro pese a oxígeno.",
-    "Hipercapnia o alteración de conciencia que sugiera necesidad de soporte ventilatorio."
+    "deterioro pese a oxígeno o aumento del trabajo respiratorio → escalar soporte ventilatorio."
+  ],
+  "confirmation": [
+    "SpO₂ dentro del objetivo y mejoría clínica. BTS mantiene 94–98% para la mayoría de adultos agudos y 88–92% en pacientes con riesgo de insuficiencia hipercápnica, pendiente de gasometría."
   ],
   "complications": {
-    "immediate": [
-      "Hiperoxia.",
-      "Retención de CO₂ en pacientes susceptibles."
-    ],
-    "early": [
-      "Sequedad.",
-      "Lesión por presión."
-    ],
-    "late": [
-      "Retraso de escalada si se mantiene un dispositivo insuficiente."
+    "unclassified": [
+      "hiperoxia, sequedad, lesión por presión y retraso de escalada."
     ]
   },
-  "rescue": [
-    "Escalar a HFNO, VNI o ventilación invasiva según fisiología y fracaso clínico."
-  ],
   "aftercare": [
-    "Titular a la menor cantidad de oxígeno necesaria.",
-    "Destetar cuando sea posible.",
-    "Reevaluar gasometría si está indicada."
+    "reducir o retirar oxígeno cuando deje de ser necesario."
   ],
   "documentation": [
-    "Dispositivo.",
-    "Flujo/FiO₂ cuando proceda.",
-    "Objetivo de SpO₂.",
-    "Respuesta."
+    "dispositivo, objetivo, concentración/flujo y respuesta."
   ],
-  "pearls": [
-    "El oxígeno es un tratamiento que debe titularse a objetivo, no administrarse sin reevaluación."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar interfaces pediátricas y objetivos específicos."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [],
   "sources": [
     {
-      "title": "Guideline for oxygen use in adults in healthcare and emergency settings",
-      "organization": "British Thoracic Society",
-      "year": 2017,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "British Thoracic Society Guideline for oxygen use in adults in healthcare and emergency settings, current BTS resource.",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": null,
+  "escalation": [
+    "deterioro pese a oxígeno o aumento del trabajo respiratorio → escalar soporte ventilatorio."
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana respiratoria pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-018 — Oxigenoterapia convencional — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "dacf869fd49bb67fa0248d4d8fdf1d9d8204639ac83ec6de37b7622494b07319",
+    "sections": {
+      "Objetivo": "corregir hipoxemia mediante oxígeno titulado a un objetivo clínico.",
+      "Indicaciones": "hipoxemia o alto riesgo de hipoxemia según el síndrome.",
+      "Contraindicaciones/precauciones": "evitar hiperoxia; en pacientes con riesgo de insuficiencia respiratoria hipercápnica utilizar un objetivo más bajo mientras se obtiene gasometría.",
+      "Material": "cánula nasal, mascarilla simple, Venturi o mascarilla con reservorio según necesidad.",
+      "Anatomía": "vía aérea superior y sistema respiratorio.",
+      "Preparación": "medir SpO₂, evaluar clínica y definir objetivo.",
+      "Técnica paso a paso": "seleccionar dispositivo y concentración/flujo apropiados, colocarlo correctamente y titular según SpO₂ y respuesta clínica.",
+      "STOP": "deterioro pese a oxígeno o aumento del trabajo respiratorio → escalar soporte ventilatorio.",
+      "Confirmación": "SpO₂ dentro del objetivo y mejoría clínica. BTS mantiene 94–98% para la mayoría de adultos agudos y 88–92% en pacientes con riesgo de insuficiencia hipercápnica, pendiente de gasometría.",
+      "Complicaciones": "hiperoxia, sequedad, lesión por presión y retraso de escalada.",
+      "Después": "reducir o retirar oxígeno cuando deje de ser necesario.",
+      "Documentación": "dispositivo, objetivo, concentración/flujo y respuesta.",
+      "Fuentes": "British Thoracic Society Guideline for oxygen use in adults in healthcare and emergency settings, current BTS resource.",
+      "QA": "YELLOW; revisión humana respiratoria pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "deterioro pese a oxígeno o aumento del trabajo respiratorio → escalar soporte ventilatorio."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
 }

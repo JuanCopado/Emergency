@@ -1,195 +1,110 @@
 {
   "procedure_id": "PROC-AIR-017",
   "name": "Manejo urgente de traqueostomía obstruida o desplazada",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "ADVANCED",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU",
-    "ward"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Restaurar rápidamente la oxigenación en una emergencia relacionada con traqueostomía.",
+  "objective": "restaurar oxigenación rápidamente durante una emergencia de traqueostomía sin crear una falsa vía.",
   "indications": [
-    "Hipoxia.",
-    "Obstrucción de traqueostomía.",
-    "Desplazamiento.",
-    "Ventilación inefectiva en paciente traqueostomizado."
+    "hipoxia, obstrucción, desplazamiento, ventilación inefectiva o ausencia de flujo por traqueostomía."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Distinguir traqueostomía de laringectomía total.",
-      "Considerar madurez del estoma.",
-      "No forzar recanalización a ciegas en estoma reciente."
+    "unclassified": [
+      "distinguir traqueostomía de laringectomía total; en laringectomía no existe continuidad útil entre boca/nariz y pulmón. Considerar madurez del estoma antes de intentar recanulación."
     ]
   },
   "equipment": {
-    "essential": [
-      "Oxígeno.",
-      "Succión.",
-      "Catéter de aspiración.",
-      "BVM."
-    ],
-    "optional": [
-      "Cánula interna de recambio.",
-      "Tubo de traqueostomía de recambio.",
-      "Equipo de vía aérea superior."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "Capnografía cuando sea posible."
-    ],
-    "rescue": [
-      "Equipo completo de vía aérea difícil."
+    "unclassified": [
+      "oxígeno, succión, catéter de aspiración, cánula interna de recambio, BVM, máscara pediátrica para estoma si útil, equipo de vía aérea y tubos de recambio."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Estoma.",
-      "Tráquea.",
-      "Vía aérea superior si existe continuidad."
-    ],
-    "target": [
-      "Restablecer ventilación por estoma o vía superior según anatomía."
-    ],
-    "avoid": [
-      "Falsa vía al intentar recanalizar."
-    ],
-    "laterality": null,
-    "variants": [
-      "Traqueostomía con vía aérea superior permeable.",
-      "Laringectomía total sin continuidad superior."
+    "unclassified": [
+      "estoma, trayecto de traqueostomía y continuidad —o ausencia— de vía aérea superior."
     ]
   },
   "preparation": {
-    "patient_position": "Acceso al cuello y a la cara.",
-    "operator_position": "Cabecera/lateral al cuello.",
-    "monitoring": [
-      "SpO₂.",
-      "Capnografía."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Pedir ayuda.",
-      "Determinar si es traqueostomía o laringectomía total.",
-      "Aplicar oxígeno a cara y/o estoma según anatomía.",
-      "Retirar accesorios que puedan obstruir."
+    "unclassified": [
+      "pedir ayuda especializada, administrar oxígeno simultáneo a cara y estoma mientras se aclara la anatomía, retirar accesorios externos y monitorizar."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Retirar válvula, filtro u otros accesorios externos.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Retirar la cánula interna si existe.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Intentar pasar suavemente un catéter de aspiración.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Desinflar el cuff si está presente y la situación lo requiere.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Retirar el tubo si está claramente obstruido o desplazado y el algoritmo lo indica.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 6,
-      "action": "Ventilar por vía superior o estoma según anatomía y situación.",
-      "critical": true,
-      "visual_hint": null
+      "action": "seguir el algoritmo NTSP: retirar válvula/filtro y cánula interna; intentar pasar catéter de aspiración para comprobar permeabilidad; si no pasa o el tubo está desplazado, desinflar cuff y retirar la traqueostomía; oxigenar/ventilar por vía superior y/o estoma según anatomía; solo intentar recanulación si existe competencia, visualización/guía y el estoma es suficientemente maduro."
     }
-  ],
-  "confirmation": [
-    "Capnografía.",
-    "Expansión torácica.",
-    "Mejoría de oxigenación."
   ],
   "stop_points": [
-    "No forzar recanalización a ciegas en estoma reciente.",
-    "Detener intentos que creen falsa vía o sangrado significativo."
+    "no forzar catéter ni tubo; no realizar recanulación ciega en estoma reciente; deterioro obliga a priorizar oxigenación por la ruta anatómicamente disponible."
+  ],
+  "confirmation": [
+    "capnografía de onda, expansión torácica y mejora de SpO₂/ventilación."
   ],
   "complications": {
-    "immediate": [
-      "Falsa vía.",
-      "Sangrado.",
-      "Pérdida completa del acceso.",
-      "Barotrauma."
-    ],
-    "early": [],
-    "late": []
-  },
-  "rescue": [
-    "Ventilar por la vía anatómica disponible.",
-    "Escalar a intubación oral o estomal según anatomía y madurez del estoma.",
-    "Solicitar ayuda experta de inmediato."
-  ],
-  "aftercare": [
-    "Asegurar una vía estable.",
-    "Identificar y corregir la causa de obstrucción/desplazamiento.",
-    "Reevaluar dispositivo y necesidad de recambio definitivo."
-  ],
-  "documentation": [
-    "Tipo de traqueostomía/laringectomía.",
-    "Maniobras realizadas.",
-    "Recambio si se efectuó.",
-    "Confirmación y respuesta."
-  ],
-  "pearls": [
-    "La primera pregunta crítica es si existe continuidad con la vía aérea superior."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Seguir algoritmo pediátrico y tamaños específicos."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Mayor precaución en estomas recientes o anatomía alterada."
+    "unclassified": [
+      "falsa vía, hemorragia, pérdida completa del acceso y barotrauma."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [],
+  "aftercare": [
+    "asegurar una vía definitiva y buscar causa de obstrucción/desplazamiento."
+  ],
+  "documentation": [
+    "tipo de estoma, madurez si conocida, maniobras, recambio y respuesta."
+  ],
   "sources": [
     {
-      "title": "Emergency tracheostomy management algorithms",
-      "organization": "National Tracheostomy Safety Project",
-      "year": "current",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "National Tracheostomy Safety Project Adult Emergency Guidelines/Algorithms; BTS oxygen guidance for tracheostomy/laryngectomy.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": [
+    "si no pasa o el tubo está desplazado, desinflar cuff y retirar la traqueostomía; oxigenar/ventilar por vía superior y/o estoma según anatomía; solo intentar recanulación si existe competencia, visualización/guía y el estoma es suficientemente maduro."
+  ],
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana ENT/UCI/vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-017 — Traqueostomía obstruida/desplazada — ADVANCED",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "3c2fae98e4cac12ab2241b0ce7828166bca5c253c47785d287f004b3218b79ce",
+    "sections": {
+      "Objetivo": "restaurar oxigenación rápidamente durante una emergencia de traqueostomía sin crear una falsa vía.",
+      "Indicaciones": "hipoxia, obstrucción, desplazamiento, ventilación inefectiva o ausencia de flujo por traqueostomía.",
+      "Contraindicaciones/precauciones": "distinguir traqueostomía de laringectomía total; en laringectomía no existe continuidad útil entre boca/nariz y pulmón. Considerar madurez del estoma antes de intentar recanulación.",
+      "Material": "oxígeno, succión, catéter de aspiración, cánula interna de recambio, BVM, máscara pediátrica para estoma si útil, equipo de vía aérea y tubos de recambio.",
+      "Anatomía": "estoma, trayecto de traqueostomía y continuidad —o ausencia— de vía aérea superior.",
+      "Preparación": "pedir ayuda especializada, administrar oxígeno simultáneo a cara y estoma mientras se aclara la anatomía, retirar accesorios externos y monitorizar.",
+      "Técnica paso a paso": "seguir el algoritmo NTSP: retirar válvula/filtro y cánula interna; intentar pasar catéter de aspiración para comprobar permeabilidad; si no pasa o el tubo está desplazado, desinflar cuff y retirar la traqueostomía; oxigenar/ventilar por vía superior y/o estoma según anatomía; solo intentar recanulación si existe competencia, visualización/guía y el estoma es suficientemente maduro.",
+      "STOP": "no forzar catéter ni tubo; no realizar recanulación ciega en estoma reciente; deterioro obliga a priorizar oxigenación por la ruta anatómicamente disponible.",
+      "Confirmación": "capnografía de onda, expansión torácica y mejora de SpO₂/ventilación.",
+      "Complicaciones": "falsa vía, hemorragia, pérdida completa del acceso y barotrauma.",
+      "Después": "asegurar una vía definitiva y buscar causa de obstrucción/desplazamiento.",
+      "Documentación": "tipo de estoma, madurez si conocida, maniobras, recambio y respuesta.",
+      "Fuentes": "National Tracheostomy Safety Project Adult Emergency Guidelines/Algorithms; BTS oxygen guidance for tracheostomy/laryngectomy.",
+      "QA": "YELLOW; revisión humana ENT/UCI/vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si no pasa o el tubo está desplazado, desinflar cuff y retirar la traqueostomía; oxigenar/ventilar por vía superior y/o estoma según anatomía; solo intentar recanulación si existe competencia, visualización/guía y el estoma es suficientemente maduro."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
 }

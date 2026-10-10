@@ -1,203 +1,110 @@
 {
   "procedure_id": "PROC-AIR-009",
   "name": "Videolaringoscopia",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Mejorar la visualización glótica y facilitar intubación traqueal en escenarios seleccionados.",
+  "objective": "mejorar visualización glótica y favorecer éxito de primera pasada cuando existe experiencia y el dispositivo está disponible.",
   "indications": [
-    "Vía aérea potencialmente difícil.",
-    "RSI.",
-    "Estrategia primaria de intubación según experiencia y equipo."
+    "estrategia primaria de intubación o vía aérea potencialmente difícil; RCUK 2025 prefiere videolaringoscopia frente a laringoscopia directa cuando está inmediatamente disponible durante reanimación."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Sangre o vómito pueden impedir visión de cámara.",
-      "Mantener control de tejidos y dientes; no depender solo de la pantalla.",
-      "No prolongar intentos si la oxigenación empeora."
+    "unclassified": [
+      "sangre, vómito o secreciones pueden inutilizar la cámara; una buena imagen no garantiza paso fácil del tubo."
     ]
   },
   "equipment": {
-    "essential": [
-      "Videolaringoscopio.",
-      "Pala compatible.",
-      "Tubo endotraqueal.",
-      "Succión.",
-      "Capnografía."
-    ],
-    "optional": [
-      "Estilete preformado.",
-      "Bougie."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial.",
-      "Capnografía."
-    ],
-    "rescue": [
-      "BVM.",
-      "SGA.",
-      "Equipo de FONA."
+    "unclassified": [
+      "videolaringoscopio, pala apropiada, tubo, estilete/bougie, succión y capnografía."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Orofaringe.",
-      "Epiglotis.",
-      "Glotis."
-    ],
-    "target": [
-      "Tráquea bajo visión de cámara."
-    ],
-    "avoid": [
-      "Paladar, dientes y tejidos blandos durante inserción."
-    ],
-    "laterality": null,
-    "variants": [
-      "Pala hiperangulada.",
-      "Pala estándar con cámara."
+    "unclassified": [
+      "orofaringe y glotis vistas por cámara, manteniendo conciencia de dientes/paladar durante inserción."
     ]
   },
   "preparation": {
-    "patient_position": "Optimizada para la vía aérea y dispositivo elegido.",
-    "operator_position": "Cabecera.",
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [
-      "Según estrategia canónica de intubación."
-    ],
-    "prechecks": [
-      "Comprobar pantalla y batería.",
-      "Seleccionar pala.",
-      "Preparar curvatura de estilete/bougie.",
-      "Succión disponible."
+    "unclassified": [
+      "comprobar pantalla/batería, pala, succión y curvatura del estilete; plan de rescate y preoxigenación."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Introducir la pala bajo control directo de boca y tejidos.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Adquirir imagen glótica útil.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Avanzar el tubo siguiendo la curvatura adecuada.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Retirar estilete sin desplazar el tubo.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Ventilar y confirmar posición traqueal.",
-      "critical": true,
-      "visual_hint": null
+      "action": "introducir la pala bajo control directo, adquirir imagen glótica, avanzar el tubo siguiendo la geometría del dispositivo, retirar el estilete sin desplazarlo y confirmar inmediatamente."
     }
   ],
-  "confirmation": [
-    "Capnografía de onda sostenida.",
-    "Ventilación clínica efectiva."
-  ],
   "stop_points": [
-    "Pérdida de control de tejidos/dientes.",
-    "Intento prolongado con deterioro de oxigenación.",
-    "Imposibilidad de avanzar el tubo pese a buena imagen sin cambio de estrategia."
+    "no “perseguir la pantalla” si se pierde control de la boca/tejidos; reoxigenar y cambiar estrategia si el intento se prolonga o la saturación cae."
+  ],
+  "confirmation": [
+    "capnografía de onda sostenida y hallazgos clínicos concordantes."
   ],
   "complications": {
-    "immediate": [
-      "Trauma palatino.",
-      "Trauma dental.",
-      "Trauma laríngeo.",
-      "Intubación esofágica.",
-      "Hipoxemia."
-    ],
-    "early": [],
-    "late": []
-  },
-  "rescue": [
-    "Reoxigenar si el intento se prolonga.",
-    "Modificar estilete/dispositivo o cambiar operador.",
-    "Usar SGA/BVM para rescatar oxigenación.",
-    "Escalar a FONA si CICO."
-  ],
-  "aftercare": [
-    "Fijar el tubo.",
-    "Monitorizar capnografía.",
-    "Cuidados postintubación."
-  ],
-  "documentation": [
-    "Dispositivo y pala.",
-    "Número de intentos.",
-    "Dificultades encontradas.",
-    "Confirmación."
-  ],
-  "pearls": [
-    "Una excelente vista de cámara no garantiza que el tubo avance; preparar la geometría del estilete y limitar intentos."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar equipo y técnica pediátricos."
-    ],
-    "pregnancy": [],
-    "obesity": [
-      "Optimizar posición en rampa."
-    ],
-    "trauma": [
-      "Puede facilitar intubación con menor movimiento cervical, sin eliminar la necesidad de precauciones."
-    ],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Puede ser estrategia primaria según experiencia/equipo."
+    "unclassified": [
+      "trauma palatino/dental/laríngeo, intubación esofágica y fracaso de paso pese a buena visión."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [
-    "airway-rsi",
-    "sedoanalgesia"
+  "aftercare": [
+    "fijación, ventilación y sedoanalgesia postintubación."
+  ],
+  "documentation": [
+    "dispositivo/pala, intentos, visión glótica, confirmación y complicaciones."
   ],
   "sources": [
     {
-      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
-      "organization": "Difficult Airway Society",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "DAS 2025; Resuscitation Council UK Adult Advanced Life Support 2025.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": [
+    "no “perseguir la pantalla” si se pierde control de la boca/tejidos; reoxigenar y cambiar estrategia si el intento se prolonga o la saturación cae."
+  ],
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana de vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-009 — Videolaringoscopia — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "dc7ddf69255a4ee9071fbaf2fbaf7e6e2a2e25841224e156edf90d7c420f30bf",
+    "sections": {
+      "Objetivo": "mejorar visualización glótica y favorecer éxito de primera pasada cuando existe experiencia y el dispositivo está disponible.",
+      "Indicaciones": "estrategia primaria de intubación o vía aérea potencialmente difícil; RCUK 2025 prefiere videolaringoscopia frente a laringoscopia directa cuando está inmediatamente disponible durante reanimación.",
+      "Contraindicaciones/precauciones": "sangre, vómito o secreciones pueden inutilizar la cámara; una buena imagen no garantiza paso fácil del tubo.",
+      "Material": "videolaringoscopio, pala apropiada, tubo, estilete/bougie, succión y capnografía.",
+      "Anatomía": "orofaringe y glotis vistas por cámara, manteniendo conciencia de dientes/paladar durante inserción.",
+      "Preparación": "comprobar pantalla/batería, pala, succión y curvatura del estilete; plan de rescate y preoxigenación.",
+      "Técnica paso a paso": "introducir la pala bajo control directo, adquirir imagen glótica, avanzar el tubo siguiendo la geometría del dispositivo, retirar el estilete sin desplazarlo y confirmar inmediatamente.",
+      "STOP": "no “perseguir la pantalla” si se pierde control de la boca/tejidos; reoxigenar y cambiar estrategia si el intento se prolonga o la saturación cae.",
+      "Confirmación": "capnografía de onda sostenida y hallazgos clínicos concordantes.",
+      "Complicaciones": "trauma palatino/dental/laríngeo, intubación esofágica y fracaso de paso pese a buena visión.",
+      "Después": "fijación, ventilación y sedoanalgesia postintubación.",
+      "Documentación": "dispositivo/pala, intentos, visión glótica, confirmación y complicaciones.",
+      "Fuentes": "DAS 2025; Resuscitation Council UK Adult Advanced Life Support 2025.",
+      "QA": "YELLOW; revisión humana de vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "no “perseguir la pantalla” si se pierde control de la boca/tejidos; reoxigenar y cambiar estrategia si el intento se prolonga o la saturación cae."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
 }

@@ -1,189 +1,104 @@
 {
   "procedure_id": "PROC-AIR-004",
   "name": "Cánula nasofaríngea",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Mantener permeabilidad de la vía aérea en pacientes que conservan reflejo nauseoso o presentan apertura oral limitada.",
+  "objective": "mantener permeabilidad en paciente que conserva reflejo nauseoso o presenta apertura oral limitada.",
   "indications": [
-    "Obstrucción parcial de vía aérea.",
-    "Ventilación con BVM difícil.",
-    "Necesidad de adjunct nasal."
+    "obstrucción parcial, BVM difícil o necesidad de adjunct nasal."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [
-      "Sospecha de fractura de base de cráneo o lesión de lámina cribosa.",
-      "Trauma nasal o facial significativo.",
-      "Coagulopatía relevante."
-    ],
-    "precautions": [
-      "No forzar ante resistencia marcada.",
-      "Elegir la narina más permeable y tamaño apropiado."
+    "unclassified": [
+      "trauma facial grave, sospecha de fractura de base de cráneo/lámina cribosa, cirugía nasal reciente o coagulopatía significativa."
     ]
   },
   "equipment": {
-    "essential": [
-      "Cánulas nasofaríngeas de varios tamaños.",
-      "Lubricante hidrosoluble."
-    ],
-    "optional": [],
-    "monitoring": [
-      "SpO₂ y monitorización clínica según contexto."
-    ],
-    "rescue": [
-      "Aspiración.",
-      "BVM."
+    "unclassified": [
+      "NPA de varios tamaños y lubricante hidrosoluble."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Narina.",
-      "Suelo nasal.",
-      "Cornetes."
-    ],
-    "target": [
-      "Nasofaringe."
-    ],
-    "avoid": [
-      "Trayectoria superior hacia cornetes/techo nasal.",
-      "Forzar resistencia."
-    ],
-    "laterality": "Elegir la narina más permeable.",
-    "variants": []
+    "unclassified": [
+      "suelo nasal, cornetes y nasofaringe."
+    ]
   },
   "preparation": {
-    "patient_position": "Vía aérea en posición que facilite ventilación.",
-    "operator_position": "Cabecera.",
-    "monitoring": [
-      "SpO₂ según contexto."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Valorar trauma facial/base de cráneo.",
-      "Seleccionar narina y tamaño.",
-      "Lubricar el dispositivo."
+    "unclassified": [
+      "elegir narina más permeable y tamaño apropiado."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Lubricar la cánula.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Introducirla por el suelo nasal, paralela al paladar.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Avanzar suavemente hacia atrás.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Detenerse si aparece resistencia marcada.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Dejar el reborde apoyado en la narina y reevaluar ventilación.",
-      "critical": true,
-      "visual_hint": null
+      "action": "lubricar, introducir paralela al paladar por el suelo nasal y avanzar suavemente hacia posterior sin fuerza."
     }
-  ],
-  "confirmation": [
-    "Mejor flujo de aire.",
-    "BVM más efectiva.",
-    "Tolerancia clínica adecuada."
   ],
   "stop_points": [
-    "Dolor intenso.",
-    "Epistaxis importante.",
-    "Resistencia marcada."
+    "resistencia marcada, dolor intenso o epistaxis importante."
+  ],
+  "confirmation": [
+    "mejor flujo de aire/BVM y tolerancia."
   ],
   "complications": {
-    "immediate": [
-      "Epistaxis.",
-      "Trauma mucoso.",
-      "Mala posición."
-    ],
-    "early": [],
-    "late": [
-      "Sinusitis con uso prolongado."
+    "unclassified": [
+      "epistaxis, trauma mucoso, mala posición y sinusitis si uso prolongado."
     ]
   },
-  "rescue": [
-    "Retirar o cambiar de lado/tamaño si provoca sangrado o resistencia.",
-    "Escalar a otro adjunct o vía avanzada si no mejora la ventilación."
-  ],
   "aftercare": [
-    "Reevaluar necesidad del dispositivo y vigilar sangrado nasal."
+    "reevaluar necesidad y sangrado."
   ],
   "documentation": [
-    "Lado.",
-    "Tamaño.",
-    "Respuesta.",
-    "Complicaciones."
+    "lado, tamaño y respuesta."
   ],
-  "pearls": [
-    "La trayectoria correcta es posterior, siguiendo el suelo nasal, no hacia arriba."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Seleccionar tamaño pediátrico y extremar precaución anatómica."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [
-      "Evitar si existe sospecha relevante de lesión de base de cráneo o trauma nasal importante."
-    ],
-    "anticoagulation": [
-      "Mayor riesgo de epistaxis."
-    ],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [],
   "sources": [
     {
-      "title": "How To Insert a Nasopharyngeal Airway",
-      "organization": "MSD Manual Professional Edition",
-      "year": "current",
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "ERC/RCUK 2025; airway adjunct guidance.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": null,
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-004 — Cánula nasofaríngea — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "2270b6f609856d334035abbfa9006bb5a44ca1e563bb89e56779ee090bbaf836",
+    "sections": {
+      "Objetivo": "mantener permeabilidad en paciente que conserva reflejo nauseoso o presenta apertura oral limitada.",
+      "Indicaciones": "obstrucción parcial, BVM difícil o necesidad de adjunct nasal.",
+      "Contraindicaciones/precauciones": "trauma facial grave, sospecha de fractura de base de cráneo/lámina cribosa, cirugía nasal reciente o coagulopatía significativa.",
+      "Material": "NPA de varios tamaños y lubricante hidrosoluble.",
+      "Anatomía": "suelo nasal, cornetes y nasofaringe.",
+      "Preparación": "elegir narina más permeable y tamaño apropiado.",
+      "Técnica paso a paso": "lubricar, introducir paralela al paladar por el suelo nasal y avanzar suavemente hacia posterior sin fuerza.",
+      "STOP": "resistencia marcada, dolor intenso o epistaxis importante.",
+      "Confirmación": "mejor flujo de aire/BVM y tolerancia.",
+      "Complicaciones": "epistaxis, trauma mucoso, mala posición y sinusitis si uso prolongado.",
+      "Después": "reevaluar necesidad y sangrado.",
+      "Documentación": "lado, tamaño y respuesta.",
+      "Fuentes": "ERC/RCUK 2025; airway adjunct guidance.",
+      "QA": "YELLOW; revisión humana vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
 }

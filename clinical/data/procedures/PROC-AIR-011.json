@@ -1,210 +1,104 @@
 {
   "procedure_id": "PROC-AIR-011",
   "name": "Intubación despierto seleccionada",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "ADVANCED",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "ICU",
-    "OR"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Asegurar una vía aérea difícil prevista manteniendo ventilación espontánea durante el procedimiento.",
+  "objective": "asegurar una vía aérea difícil prevista manteniendo ventilación espontánea.",
   "indications": [
-    "Predictores de dificultad anatómica o ventilatoria en los que perder ventilación espontánea puede ser peligroso."
+    "predictores de dificultad anatómica/ventilatoria donde la inducción convencional podría precipitar pérdida de oxigenación."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [
-      "Paciente no cooperador.",
-      "Hemorragia o secreciones masivas.",
-      "Imposibilidad de topicalización segura."
-    ],
-    "precautions": [
-      "Requiere experiencia específica.",
-      "Evitar sedación excesiva.",
-      "Controlar dosis total de anestésico local."
+    "unclassified": [
+      "paciente no cooperador, hemorragia/secreciones masivas o incapacidad de topicalizar de forma segura; requiere operador experto."
     ]
   },
   "equipment": {
-    "essential": [
-      "Endoscopio flexible o videolaringoscopio.",
-      "Oxígeno.",
-      "Succión.",
-      "Anestésico tópico."
-    ],
-    "optional": [
-      "Antisialagogo según caso."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial.",
-      "Capnografía cuando sea aplicable."
-    ],
-    "rescue": [
-      "BVM.",
-      "SGA.",
-      "Equipo de FONA."
+    "unclassified": [
+      "fibrobroncoscopio o videolaringoscopio, oxígeno, succión, anestésico tópico, monitorización y rescate FONA."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Vía nasal/oral según abordaje.",
-      "Orofaringe.",
-      "Glotis."
-    ],
-    "target": [
-      "Tráquea bajo visión manteniendo ventilación espontánea."
-    ],
-    "avoid": [
-      "Toxicidad por anestésico local.",
-      "Sedación excesiva con pérdida de ventilación."
-    ],
-    "laterality": null,
-    "variants": [
-      "Fibrobroncoscopio.",
-      "Videolaringoscopia despierto en casos seleccionados."
+    "unclassified": [
+      "cavidad oral/nasal, orofaringe, laringe y glotis."
     ]
   },
   "preparation": {
-    "patient_position": "Posición que optimice acceso y respiración espontánea.",
-    "operator_position": "Cabecera/lateral según dispositivo.",
-    "monitoring": [
-      "SpO₂.",
-      "ECG.",
-      "Presión arterial."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [
-      "Topicalización adecuada; sedación mínima y titulada si se usa."
-    ],
-    "prechecks": [
-      "Explicar técnica.",
-      "Preparar succión.",
-      "Calcular dosis total de anestésico local.",
-      "Preparar plan de rescate."
+    "unclassified": [
+      "explicación, oxígeno, antisialagogo si procede, topicalización sistemática y sedación mínima titulada."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Mantener ventilación espontánea y oxigenación.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Realizar topicalización adecuada de la vía aérea.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Visualizar la glotis con el dispositivo elegido.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Avanzar el tubo bajo visión.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Confirmar posición traqueal antes de profundizar anestesia o sedación.",
-      "critical": true,
-      "visual_hint": null
+      "action": "mantener ventilación espontánea, topicalizar, avanzar dispositivo bajo visión, identificar glotis, pasar tubo y confirmar capnografía antes de profundizar sedación/anestesia."
     }
   ],
-  "confirmation": [
-    "Capnografía de onda sostenida.",
-    "Tolerancia adecuada del procedimiento.",
-    "Ventilación mantenida."
-  ],
   "stop_points": [
-    "Pérdida de ventilación espontánea.",
-    "Pérdida de cooperación que compromete seguridad.",
-    "Signos de toxicidad por anestésico local.",
-    "Sangrado que impide visualización segura."
+    "pérdida de ventilación/cooperación, toxicidad por anestésico local o sangrado que impide visión."
+  ],
+  "confirmation": [
+    "capnografía de onda sostenida y tolerancia."
   ],
   "complications": {
-    "immediate": [
-      "Toxicidad por anestésico local.",
-      "Sangrado.",
-      "Laringoespasmo.",
-      "Fracaso de técnica."
-    ],
-    "early": [],
-    "late": []
-  },
-  "rescue": [
-    "Suspender o reducir sedación/topicalización si compromete ventilación.",
-    "Reoxigenar.",
-    "Cambiar estrategia según plan de vía aérea difícil.",
-    "Escalar a FONA si se desarrolla CICO."
-  ],
-  "aftercare": [
-    "Una vez confirmada la vía aérea, iniciar sedación y ventilación apropiadas.",
-    "Reevaluar hemodinámica."
-  ],
-  "documentation": [
-    "Indicación.",
-    "Dispositivo.",
-    "Topicalización y dosis desde módulo farmacológico.",
-    "Sedación.",
-    "Número de intentos.",
-    "Confirmación y complicaciones."
-  ],
-  "pearls": [
-    "El objetivo es conservar ventilación espontánea hasta confirmar la vía aérea."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Solo en manos expertas y con protocolo pediátrico específico."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Indicada precisamente cuando se prevé dificultad significativa y pérdida de espontaneidad sería peligrosa."
+    "unclassified": [
+      "toxicidad anestésica, laringoespasmo, sangrado y fracaso."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [
-    "sedoanalgesia",
-    "procedures-pharmacology"
+  "aftercare": [
+    "completar anestesia/sedación solo tras confirmar vía aérea."
+  ],
+  "documentation": [
+    "indicación, técnica, topicalización, sedación y confirmación."
   ],
   "sources": [
     {
-      "title": "Difficult Airway Society guidelines for awake tracheal intubation in adults",
-      "organization": "Difficult Airway Society",
-      "year": 2019,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
-      "organization": "Difficult Airway Society",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "DAS Awake Tracheal Intubation guideline 2019; DAS 2025 difficult airway framework.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": null,
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana anestesia/vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-011 — Intubación despierto seleccionada — ADVANCED",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "f57d0cc499869140ced6291e4071647443a99f9aeda0974fccf0840b7f0ae4a8",
+    "sections": {
+      "Objetivo": "asegurar una vía aérea difícil prevista manteniendo ventilación espontánea.",
+      "Indicaciones": "predictores de dificultad anatómica/ventilatoria donde la inducción convencional podría precipitar pérdida de oxigenación.",
+      "Contraindicaciones/precauciones": "paciente no cooperador, hemorragia/secreciones masivas o incapacidad de topicalizar de forma segura; requiere operador experto.",
+      "Material": "fibrobroncoscopio o videolaringoscopio, oxígeno, succión, anestésico tópico, monitorización y rescate FONA.",
+      "Anatomía": "cavidad oral/nasal, orofaringe, laringe y glotis.",
+      "Preparación": "explicación, oxígeno, antisialagogo si procede, topicalización sistemática y sedación mínima titulada.",
+      "Técnica paso a paso": "mantener ventilación espontánea, topicalizar, avanzar dispositivo bajo visión, identificar glotis, pasar tubo y confirmar capnografía antes de profundizar sedación/anestesia.",
+      "STOP": "pérdida de ventilación/cooperación, toxicidad por anestésico local o sangrado que impide visión.",
+      "Confirmación": "capnografía de onda sostenida y tolerancia.",
+      "Complicaciones": "toxicidad anestésica, laringoespasmo, sangrado y fracaso.",
+      "Después": "completar anestesia/sedación solo tras confirmar vía aérea.",
+      "Documentación": "indicación, técnica, topicalización, sedación y confirmación.",
+      "Fuentes": "DAS Awake Tracheal Intubation guideline 2019; DAS 2025 difficult airway framework.",
+      "QA": "YELLOW; revisión humana anestesia/vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
 }

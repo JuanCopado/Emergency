@@ -1,191 +1,115 @@
 {
   "procedure_id": "PROC-AIR-012",
-  "name": "Vía aérea difícil y fracaso de intubación",
-  "family": "Vía aérea y ventilación",
+  "name": "Algoritmo de vía aérea difícil / fracaso de intubación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU",
-    "OR"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Mantener oxigenación mientras se progresa de forma estructurada desde intubación fallida hacia rescate.",
+  "objective": "mantener oxigenación mientras se limita el trauma de intentos repetidos y se progresa hacia rescate.",
   "indications": [
-    "Laringoscopia o intubación fallida.",
-    "Ventilación comprometida durante manejo de vía aérea."
+    "laringoscopia/intubación fallida o ventilación comprometida."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Evitar intentos repetidos sin cambio de estrategia.",
-      "Priorizar oxigenación sobre completar intubación."
+    "unclassified": [
+      "no repetir intentos sin optimización o cambio real de estrategia."
     ]
   },
   "equipment": {
-    "essential": [
-      "BVM.",
-      "SGA.",
-      "Videolaringoscopio.",
-      "Bougie.",
-      "Succión.",
-      "Equipo de FONA."
-    ],
-    "optional": [],
-    "monitoring": [
-      "SpO₂.",
-      "Capnografía.",
-      "ECG.",
-      "Presión arterial."
-    ],
-    "rescue": [
-      "Todo el material de vía aérea difícil disponible."
+    "unclassified": [
+      "BVM, SGA, videolaringoscopio, bougie, succión y equipo eFONA."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Vía oral.",
-      "Región supraglótica.",
-      "Membrana cricotiroidea."
-    ],
-    "target": [
-      "Restablecer oxigenación y conseguir vía aérea definitiva."
-    ],
-    "avoid": [
-      "Retraso de FONA en CICO."
-    ],
-    "laterality": null,
-    "variants": [
-      "Plan A-B-C-D según algoritmo."
+    "unclassified": [
+      "vía oral, supraglótica y membrana cricotiroidea."
     ]
   },
   "preparation": {
-    "patient_position": "Optimizada para oxigenación y dispositivo siguiente.",
-    "operator_position": "Equipo coordinado con líder de vía aérea.",
-    "monitoring": [
-      "SpO₂.",
-      "Capnografía.",
-      "ECG.",
-      "Presión arterial."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [
-      "Según estado y estrategia; desde módulos farmacológicos."
-    ],
-    "prechecks": [
-      "Declarar dificultad.",
-      "Pedir ayuda.",
-      "Asignar plan A-B-C-D.",
-      "Preparar FONA."
+    "unclassified": [
+      "declarar dificultad, pedir ayuda y asignar plan A-B-C-D."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Optimizar el siguiente intento y corregir causas reversibles.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Cambiar operador o dispositivo si procede.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Rescatar oxigenación con BVM o SGA.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Si existe CICO, declararlo y realizar FONA sin demora.",
-      "critical": true,
-      "visual_hint": null
+      "action": "optimizar posición/succión/dispositivo; limitar intentos; cambiar operador/dispositivo; rescatar oxigenación con BVM/SGA; si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA."
     }
   ],
-  "confirmation": [
-    "Oxigenación y ventilación restablecidas.",
-    "Capnografía presente en la vía definitiva."
-  ],
   "stop_points": [
-    "No persistir con laringoscopia si la oxigenación empeora.",
-    "No repetir la misma técnica sin modificación tras fracaso.",
-    "No retrasar FONA una vez declarado CICO."
+    "no persistir con laringoscopia si la oxigenación empeora; no retrasar eFONA una vez declarado CICO."
+  ],
+  "confirmation": [
+    "oxigenación/ventilación restablecidas y ETCO₂ cuando exista vía avanzada."
   ],
   "complications": {
-    "immediate": [
-      "Hipoxemia.",
-      "Aspiración.",
-      "Trauma de vía aérea.",
-      "Parada cardiorrespiratoria."
-    ],
-    "early": [
-      "Edema o lesión de tejidos por intentos repetidos."
-    ],
-    "late": []
-  },
-  "rescue": [
-    "BVM y SGA para recuperar oxigenación.",
-    "Cambio de operador/dispositivo.",
-    "FONA en CICO."
-  ],
-  "aftercare": [
-    "Documentar dificultad.",
-    "Informar al paciente/equipo cuando sea posible.",
-    "Planificar futuras estrategias de vía aérea."
-  ],
-  "documentation": [
-    "Número de intentos.",
-    "Dispositivos utilizados.",
-    "Punto de escalada.",
-    "Momento de declaración CICO si ocurrió.",
-    "Método final de oxigenación/intubación."
-  ],
-  "pearls": [
-    "Cada intento debe aportar un cambio real de estrategia; repetir lo mismo empeora trauma y tiempo de hipoxemia."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar algoritmo pediátrico específico."
-    ],
-    "pregnancy": [],
-    "obesity": [
-      "Escalar precozmente ante deterioro rápido de oxigenación."
-    ],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Planificar antes del primer intento si la dificultad es previsible."
+    "unclassified": [
+      "hipoxemia, aspiración, trauma y retraso de eFONA."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [
-    "airway-rsi",
-    "sedoanalgesia"
+  "aftercare": [
+    "documentar la dificultad y comunicarla al paciente/equipo."
+  ],
+  "documentation": [
+    "intentos, dispositivos, cambios de estrategia y punto de escalada."
   ],
   "sources": [
     {
-      "title": "Guidelines for the management of unanticipated difficult tracheal intubation in adults",
-      "organization": "Difficult Airway Society",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "Difficult Airway Society, 2025 guidelines for management of unanticipated difficult tracheal intubation in adults (BJA 2026;136:283–307).",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": [
+    "rescatar oxigenación con BVM/SGA; si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA."
+  ],
+  "escalation": [
+    "si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA."
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-012 — Vía aérea difícil / fracaso de intubación — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "09dd49f7808d88d30554aa5dd361e636a155814614b170471b90ab5f65116eb1",
+    "sections": {
+      "Objetivo": "mantener oxigenación mientras se limita el trauma de intentos repetidos y se progresa hacia rescate.",
+      "Indicaciones": "laringoscopia/intubación fallida o ventilación comprometida.",
+      "Contraindicaciones/precauciones": "no repetir intentos sin optimización o cambio real de estrategia.",
+      "Material": "BVM, SGA, videolaringoscopio, bougie, succión y equipo eFONA.",
+      "Anatomía": "vía oral, supraglótica y membrana cricotiroidea.",
+      "Preparación": "declarar dificultad, pedir ayuda y asignar plan A-B-C-D.",
+      "Técnica paso a paso": "optimizar posición/succión/dispositivo; limitar intentos; cambiar operador/dispositivo; rescatar oxigenación con BVM/SGA; si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA.",
+      "STOP": "no persistir con laringoscopia si la oxigenación empeora; no retrasar eFONA una vez declarado CICO.",
+      "Confirmación": "oxigenación/ventilación restablecidas y ETCO₂ cuando exista vía avanzada.",
+      "Complicaciones": "hipoxemia, aspiración, trauma y retraso de eFONA.",
+      "Después": "documentar la dificultad y comunicarla al paciente/equipo.",
+      "Documentación": "intentos, dispositivos, cambios de estrategia y punto de escalada.",
+      "Fuentes": "Difficult Airway Society, 2025 guidelines for management of unanticipated difficult tracheal intubation in adults (BJA 2026;136:283–307).",
+      "QA": "YELLOW; revisión humana vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "rescatar oxigenación con BVM/SGA; si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si no se puede intubar ni oxigenar, declarar CICO y realizar eFONA."
+        }
+      ]
+    }
+  },
+  "pending_review": []
 }

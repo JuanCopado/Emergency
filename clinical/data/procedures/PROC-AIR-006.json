@@ -1,188 +1,115 @@
 {
   "procedure_id": "PROC-AIR-006",
   "name": "Ventilación bolsa-válvula-mascarilla a dos operadores",
-  "family": "Vía aérea y ventilación",
+  "family": "VÍA AÉREA Y VENTILACIÓN",
   "level": "CORE",
-  "population": [
-    "all"
-  ],
-  "setting": [
-    "ED",
-    "prehospital",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Maximizar el sello de mascarilla y la apertura mandibular cuando BVM a un operador es insuficiente.",
+  "objective": "maximizar el sello facial y la apertura mandibular cuando la ventilación con un operador es insuficiente.",
   "indications": [
-    "Fuga importante.",
-    "Obesidad.",
-    "Anatomía difícil.",
-    "Hipoxemia severa.",
-    "Necesidad de ventilación optimizada."
+    "fuga relevante, obesidad, anatomía difícil, hipoxemia grave o ventilación BVM ineficaz con un operador."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [],
-    "precautions": [
-      "Evitar hiperventilación y ventilación excesiva.",
-      "Mantener vigilancia de aspiración e insuflación gástrica."
+    "unclassified": [
+      "evitar hiperventilación y presiones excesivas."
     ]
   },
   "equipment": {
-    "essential": [
-      "Bolsa autoinflable.",
-      "Mascarilla adecuada.",
-      "Oxígeno/reservorio.",
-      "Dos operadores coordinados."
-    ],
-    "optional": [
-      "Adjuncts de vía aérea.",
-      "PEEP según necesidad."
-    ],
-    "monitoring": [
-      "SpO₂.",
-      "ETCO₂ si disponible."
-    ],
-    "rescue": [
-      "Dispositivo supraglótico.",
-      "Equipo de intubación."
+    "unclassified": [
+      "BVM completo, oxígeno, reservorio, PEEP si procede y adjuncts."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Mandíbula.",
-      "Contorno facial."
-    ],
-    "target": [
-      "Sello facial a dos manos y elevación mandibular."
-    ],
-    "avoid": [
-      "Compresión excesiva de tejidos blandos y fuga por mala posición."
-    ],
-    "laterality": null,
-    "variants": [
-      "Sello a dos manos con elevación mandibular."
+    "unclassified": [
+      "mandíbula, sello facial y vía aérea superior."
     ]
   },
   "preparation": {
-    "patient_position": "Optimizada para apertura de vía aérea; rampa cuando proceda.",
-    "operator_position": "Operador 1 en cabecera para sello y elevación mandibular; operador 2 junto a la bolsa.",
-    "monitoring": [
-      "SpO₂.",
-      "ETCO₂ si disponible."
-    ],
-    "asepsis": [],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Asignar roles.",
-      "Comprobar oxígeno y circuito.",
-      "Preparar plan de escalada."
+    "unclassified": [
+      "asignar claramente operador de mascarilla y operador de bolsa."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Operador 1 sella la mascarilla con ambas manos y eleva la mandíbula.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Operador 2 comprime la bolsa de forma coordinada y controlada.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Añadir adjunct o PEEP según necesidad clínica.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Optimizar posición si persiste ventilación subóptima.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Reevaluar expansión torácica, SpO₂ y ETCO₂.",
-      "critical": true,
-      "visual_hint": null
+      "action": "el operador 1 usa ambas manos para sellar la mascarilla y elevar la mandíbula; el operador 2 comprime la bolsa durante ~1 segundo hasta elevación visible del tórax; ajustar posición/adjunct/PEEP según respuesta."
     }
-  ],
-  "confirmation": [
-    "Expansión torácica bilateral.",
-    "Mejoría de SpO₂.",
-    "ETCO₂ adecuado cuando está disponible."
   ],
   "stop_points": [
-    "Ventilación inefectiva pese a optimización.",
-    "Fuga grave persistente.",
-    "Distensión gástrica significativa.",
-    "Deterioro de oxigenación."
+    "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate."
+  ],
+  "confirmation": [
+    "expansión torácica bilateral y mejoría de oxigenación/ETCO₂."
   ],
   "complications": {
-    "immediate": [
-      "Aspiración.",
-      "Insuflación gástrica.",
-      "Fuga.",
-      "Barotrauma."
-    ],
-    "early": [],
-    "late": []
-  },
-  "rescue": [
-    "Escalar a dispositivo supraglótico o intubación si la ventilación sigue siendo ineficaz.",
-    "Mantener oxigenación con la mejor técnica disponible durante la escalada."
-  ],
-  "aftercare": [
-    "Mantener hasta recuperación o vía aérea definitiva."
-  ],
-  "documentation": [
-    "Técnica a dos operadores.",
-    "Adjuncts.",
-    "Respuesta.",
-    "Escalada realizada."
-  ],
-  "pearls": [
-    "En ventilación difícil, el sello a dos manos y la elevación mandibular suelen ser superiores al intento repetido a un operador."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar equipo pediátrico y adaptar fuerza/volumen."
-    ],
-    "pregnancy": [],
-    "obesity": [
-      "Especialmente útil junto con posición en rampa."
-    ],
-    "trauma": [
-      "Mantener precauciones cervicales cuando corresponda."
-    ],
-    "anticoagulation": [],
-    "difficult_anatomy": [
-      "Técnica preferente cuando el sello a una mano es insuficiente."
+    "unclassified": [
+      "aspiración, insuflación gástrica, fuga y barotrauma."
     ]
   },
-  "pocus": null,
-  "pharmacology_links": [],
+  "aftercare": [
+    "mantener hasta recuperación o vía aérea avanzada."
+  ],
+  "documentation": [
+    "técnica a dos operadores y respuesta."
+  ],
   "sources": [
     {
-      "title": "European Resuscitation Council Guidelines 2025",
-      "organization": "European Resuscitation Council",
-      "year": 2025,
-      "url": null,
-      "doi": null,
-      "accessed": "2026-10-06"
+      "title": "Resuscitation Council UK/ERC Adult Advanced Life Support 2025.",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": [
+    "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate."
+  ],
+  "escalation": [
+    "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate."
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration from canonical text; human review required."
+      "YELLOW; revisión humana de vía aérea pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/01-airway-ventilation.md",
+    "source_heading": "PROC-AIR-006 — BVM a dos operadores — CORE",
+    "family_preamble": "# 1. Vía aérea y ventilación\n\nEstado de familia: **YELLOW**. Las dosis, sedación y bloqueantes neuromusculares se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: DAS 2025, SCCM RSI 2023, ERC/RCUK 2025 y recursos NTSP para traqueostomía.",
+    "source_sha256": "1e7afc2e54a486fab459b4a13828655c8fedb4cda134079a845332251c04cbbd",
+    "sections": {
+      "Objetivo": "maximizar el sello facial y la apertura mandibular cuando la ventilación con un operador es insuficiente.",
+      "Indicaciones": "fuga relevante, obesidad, anatomía difícil, hipoxemia grave o ventilación BVM ineficaz con un operador.",
+      "Contraindicaciones/precauciones": "evitar hiperventilación y presiones excesivas.",
+      "Material": "BVM completo, oxígeno, reservorio, PEEP si procede y adjuncts.",
+      "Anatomía": "mandíbula, sello facial y vía aérea superior.",
+      "Preparación": "asignar claramente operador de mascarilla y operador de bolsa.",
+      "Técnica paso a paso": "el operador 1 usa ambas manos para sellar la mascarilla y elevar la mandíbula; el operador 2 comprime la bolsa durante ~1 segundo hasta elevación visible del tórax; ajustar posición/adjunct/PEEP según respuesta.",
+      "STOP": "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate.",
+      "Confirmación": "expansión torácica bilateral y mejoría de oxigenación/ETCO₂.",
+      "Complicaciones": "aspiración, insuflación gástrica, fuga y barotrauma.",
+      "Después": "mantener hasta recuperación o vía aérea avanzada.",
+      "Documentación": "técnica a dos operadores y respuesta.",
+      "Fuentes": "Resuscitation Council UK/ERC Adult Advanced Life Support 2025.",
+      "QA": "YELLOW; revisión humana de vía aérea pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "ventilación inefectiva pese a optimización → escalar a supraglótico/intubación o estrategia de rescate."
+        }
+      ]
+    }
+  },
+  "pending_review": []
 }
