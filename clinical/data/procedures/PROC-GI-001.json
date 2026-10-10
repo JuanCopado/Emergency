@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-001",
+  "name": "Sonda nasogástrica",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "descomprimir el estómago o proporcionar acceso gástrico cuando existe una indicación concreta.",
+  "indications": [
+    "obstrucción/íleo con distensión o vómitos, descompresión, administración enteral seleccionada u obtención de aspirado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "trauma facial/base de cráneo, lesión esofágica, ingestión cáustica o cirugía esofagogástrica reciente según contexto; considerar vía orogástrica si la vía nasal no es segura."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "SNG apropiada, lubricante hidrosoluble, jeringa, fijación y sistema de drenaje/aspiración."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "suelo nasal, nasofaringe, orofaringe, esófago y estómago."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "explicar, posición semisentada si es posible, elegir narina y estimar longitud de inserción según protocolo/dispositivo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "lubricar, introducir por el suelo nasal, avanzar suavemente hacia orofaringe/esófago, facilitar deglución si coopera y continuar hasta la longitud prevista; fijar sin tensión."
+    }
+  ],
+  "stop_points": [
+    "tos intensa, desaturación, resistencia marcada, sangrado importante o sospecha de entrada respiratoria."
+  ],
+  "confirmation": [
+    "para una SNG destinada a alimentación/medicación, NHS England mantiene pH gástrico en rango seguro o radiografía como métodos aceptables de confirmación inicial; no usar auscultación de aire (“whoosh test”) ni apariencia del aspirado como prueba de posición."
+  ],
+  "complications": {
+    "unclassified": [
+      "epistaxis, colocación pulmonar, aspiración, perforación y sinusitis."
+    ]
+  },
+  "aftercare": [
+    "no introducir medicación/alimento ni realizar flush hasta confirmar posición cuando se trate de uso enteral."
+  ],
+  "documentation": [
+    "tipo, longitud externa y método de confirmación."
+  ],
+  "sources": [
+    {
+      "title": "NHS England enduring nasogastric tube safety standards; GI/critical-care procedural guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana GI/UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-001 — Sonda nasogástrica — CORE",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "924c948a0d17f2c313ab9408d8aaa358e037e2935ead079462e226c7f98cda1e",
+    "sections": {
+      "Objetivo": "descomprimir el estómago o proporcionar acceso gástrico cuando existe una indicación concreta.",
+      "Indicaciones": "obstrucción/íleo con distensión o vómitos, descompresión, administración enteral seleccionada u obtención de aspirado.",
+      "Contraindicaciones/precauciones": "trauma facial/base de cráneo, lesión esofágica, ingestión cáustica o cirugía esofagogástrica reciente según contexto; considerar vía orogástrica si la vía nasal no es segura.",
+      "Material": "SNG apropiada, lubricante hidrosoluble, jeringa, fijación y sistema de drenaje/aspiración.",
+      "Anatomía": "suelo nasal, nasofaringe, orofaringe, esófago y estómago.",
+      "Preparación": "explicar, posición semisentada si es posible, elegir narina y estimar longitud de inserción según protocolo/dispositivo.",
+      "Técnica paso a paso": "lubricar, introducir por el suelo nasal, avanzar suavemente hacia orofaringe/esófago, facilitar deglución si coopera y continuar hasta la longitud prevista; fijar sin tensión.",
+      "STOP": "tos intensa, desaturación, resistencia marcada, sangrado importante o sospecha de entrada respiratoria.",
+      "Confirmación": "para una SNG destinada a alimentación/medicación, NHS England mantiene pH gástrico en rango seguro o radiografía como métodos aceptables de confirmación inicial; no usar auscultación de aire (“whoosh test”) ni apariencia del aspirado como prueba de posición.",
+      "Complicaciones": "epistaxis, colocación pulmonar, aspiración, perforación y sinusitis.",
+      "Después": "no introducir medicación/alimento ni realizar flush hasta confirmar posición cuando se trate de uso enteral.",
+      "Documentación": "tipo, longitud externa y método de confirmación.",
+      "Fuentes": "NHS England enduring nasogastric tube safety standards; GI/critical-care procedural guidance.",
+      "QA": "YELLOW; revisión humana GI/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

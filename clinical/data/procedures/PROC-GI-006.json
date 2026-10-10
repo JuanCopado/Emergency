@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-006",
+  "name": "Desimpactación fecal",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aliviar una impactación fecal distal sintomática y prevenir complicaciones obstructivas.",
+  "indications": [
+    "fecaloma palpable en ampolla rectal con clínica compatible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sospecha de perforación, obstrucción proximal completa, neutropenia grave seleccionada, dolor abdominal peritoneal o sangrado significativo."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes, lubricante, material de protección y analgesia."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "canal anal y ampolla rectal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "privacidad, decúbito lateral y valoración de tolerancia/riesgo vagal."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "lubricar abundantemente, fragmentar de forma gradual y extraer pequeñas porciones; combinar después con enema/laxante si es apropiado y no existe obstrucción proximal."
+    }
+  ],
+  "stop_points": [
+    "bradicardia, síncope, dolor intenso, sangrado o resistencia anormal."
+  ],
+  "confirmation": [
+    "evacuación suficiente y alivio de síntomas."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión mucosa, sangrado, respuesta vagal y perforación rara."
+    ]
+  },
+  "aftercare": [
+    "plan de prevención de recurrencia y tratamiento de causa."
+  ],
+  "documentation": [
+    "hallazgos, volumen aproximado y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional constipation/fecal impaction management; GI emergency references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana GI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-006 — Desimpactación fecal — CORE",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "21a94ee5cef912d3e9a1c11e7335d2e5784358c53fafeebfe0d93702f3af5087",
+    "sections": {
+      "Objetivo": "aliviar una impactación fecal distal sintomática y prevenir complicaciones obstructivas.",
+      "Indicaciones": "fecaloma palpable en ampolla rectal con clínica compatible.",
+      "Contraindicaciones/precauciones": "sospecha de perforación, obstrucción proximal completa, neutropenia grave seleccionada, dolor abdominal peritoneal o sangrado significativo.",
+      "Material": "guantes, lubricante, material de protección y analgesia.",
+      "Anatomía": "canal anal y ampolla rectal.",
+      "Preparación": "privacidad, decúbito lateral y valoración de tolerancia/riesgo vagal.",
+      "Técnica paso a paso": "lubricar abundantemente, fragmentar de forma gradual y extraer pequeñas porciones; combinar después con enema/laxante si es apropiado y no existe obstrucción proximal.",
+      "STOP": "bradicardia, síncope, dolor intenso, sangrado o resistencia anormal.",
+      "Confirmación": "evacuación suficiente y alivio de síntomas.",
+      "Complicaciones": "lesión mucosa, sangrado, respuesta vagal y perforación rara.",
+      "Después": "plan de prevención de recurrencia y tratamiento de causa.",
+      "Documentación": "hallazgos, volumen aproximado y respuesta.",
+      "Fuentes": "Merck Manual Professional constipation/fecal impaction management; GI emergency references.",
+      "QA": "YELLOW; revisión humana GI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

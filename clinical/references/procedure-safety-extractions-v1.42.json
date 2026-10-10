@@ -193,6 +193,14 @@
       }
     ]
   },
+  "PROC-GI-009": {
+    "escalation": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "escalar a endoscopia o cirugía si falla."
+      }
+    ]
+  },
   "PROC-NEURO-003": {
     "escalation": [
       {

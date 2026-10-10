@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-007",
+  "name": "Reducción manual de prolapso rectal seleccionado",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reducir un prolapso viable antes de que progrese a edema, estrangulación o isquemia.",
+  "indications": [
+    "prolapso rectal agudo reducible sin necrosis/peritonitis."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "tejido necrótico/isquémico, perforación, peritonitis o irreductibilidad requieren cirugía urgente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "lubricante, guantes, analgesia/sedación y agente osmótico tópico si protocolo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "recto prolapsado, mucosa y esfínter."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "evaluar viabilidad, edema y perfusión del tejido."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "lubricar, reducir edema con compresión suave y sostenida; cuando sea necesario puede utilizarse azúcar granulada como agente osmótico sobre la mucosa edematosa; aplicar presión manual uniforme desde el segmento distal y avanzar progresivamente."
+    }
+  ],
+  "stop_points": [
+    "dolor creciente, sangrado importante, tejido no viable o fracaso de reducción cuidadosa."
+  ],
+  "confirmation": [
+    "mucosa reducida, dolor/edema mejorados y tejido viable."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión mucosa, recurrencia, estrangulación e isquemia."
+    ]
+  },
+  "aftercare": [
+    "valoración colorrectal, especialmente si recurrencia."
+  ],
+  "documentation": [
+    "viabilidad, técnica y resultado."
+  ],
+  "sources": [
+    {
+      "title": "Merck/MSD Manual Professional rectal prolapse management; colorectal emergency references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana coloproctología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-007 — Reducción manual de prolapso rectal seleccionado — ADVANCED",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "45bb372b5c62dc4968685b737eaa44afac8e9b0c2308f8947b83cb7ac158460c",
+    "sections": {
+      "Objetivo": "reducir un prolapso viable antes de que progrese a edema, estrangulación o isquemia.",
+      "Indicaciones": "prolapso rectal agudo reducible sin necrosis/peritonitis.",
+      "Contraindicaciones/precauciones": "tejido necrótico/isquémico, perforación, peritonitis o irreductibilidad requieren cirugía urgente.",
+      "Material": "lubricante, guantes, analgesia/sedación y agente osmótico tópico si protocolo.",
+      "Anatomía": "recto prolapsado, mucosa y esfínter.",
+      "Preparación": "evaluar viabilidad, edema y perfusión del tejido.",
+      "Técnica paso a paso": "lubricar, reducir edema con compresión suave y sostenida; cuando sea necesario puede utilizarse azúcar granulada como agente osmótico sobre la mucosa edematosa; aplicar presión manual uniforme desde el segmento distal y avanzar progresivamente.",
+      "STOP": "dolor creciente, sangrado importante, tejido no viable o fracaso de reducción cuidadosa.",
+      "Confirmación": "mucosa reducida, dolor/edema mejorados y tejido viable.",
+      "Complicaciones": "lesión mucosa, recurrencia, estrangulación e isquemia.",
+      "Después": "valoración colorrectal, especialmente si recurrencia.",
+      "Documentación": "viabilidad, técnica y resultado.",
+      "Fuentes": "Merck/MSD Manual Professional rectal prolapse management; colorectal emergency references.",
+      "QA": "YELLOW; revisión humana coloproctología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

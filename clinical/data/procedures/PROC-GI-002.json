@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-002",
+  "name": "Sonda orogástrica",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar acceso/descompresión gástrica cuando la vía nasal no es apropiada.",
+  "indications": [
+    "paciente intubado, trauma facial o contraindicación nasal seleccionada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "lesión esofágica, ingestión cáustica, cirugía esofagogástrica reciente o anatomía alterada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "sonda, lubricante, fijación y sistema de drenaje."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "boca, orofaringe, esófago y estómago."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "proteger dentición/tubo traqueal y colocar al paciente de forma segura."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "lubricar, introducir por línea media, dirigir hacia esófago evitando enrollamiento oral y avanzar suavemente hasta longitud prevista."
+    }
+  ],
+  "stop_points": [
+    "resistencia, sangrado, alteración ventilatoria o enrollamiento persistente."
+  ],
+  "confirmation": [
+    "método validado antes de uso terapéutico; radiografía cuando corresponda por protocolo/indicación."
+  ],
+  "complications": {
+    "unclassified": [
+      "trauma oral/esofágico, mala posición y aspiración."
+    ]
+  },
+  "aftercare": [
+    "conectar a drenaje o utilizar solo tras confirmación apropiada."
+  ],
+  "documentation": [
+    "tipo, profundidad y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "NHS England enteral tube safety standards; critical-care enteral access procedural references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana GI/UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-002 — Sonda orogástrica — CORE",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "035e0fb67ee413949fc375eb8909a5ad4801e112bcc922f77b90d36e76b0b7a7",
+    "sections": {
+      "Objetivo": "proporcionar acceso/descompresión gástrica cuando la vía nasal no es apropiada.",
+      "Indicaciones": "paciente intubado, trauma facial o contraindicación nasal seleccionada.",
+      "Contraindicaciones/precauciones": "lesión esofágica, ingestión cáustica, cirugía esofagogástrica reciente o anatomía alterada.",
+      "Material": "sonda, lubricante, fijación y sistema de drenaje.",
+      "Anatomía": "boca, orofaringe, esófago y estómago.",
+      "Preparación": "proteger dentición/tubo traqueal y colocar al paciente de forma segura.",
+      "Técnica paso a paso": "lubricar, introducir por línea media, dirigir hacia esófago evitando enrollamiento oral y avanzar suavemente hasta longitud prevista.",
+      "STOP": "resistencia, sangrado, alteración ventilatoria o enrollamiento persistente.",
+      "Confirmación": "método validado antes de uso terapéutico; radiografía cuando corresponda por protocolo/indicación.",
+      "Complicaciones": "trauma oral/esofágico, mala posición y aspiración.",
+      "Después": "conectar a drenaje o utilizar solo tras confirmación apropiada.",
+      "Documentación": "tipo, profundidad y confirmación.",
+      "Fuentes": "NHS England enteral tube safety standards; critical-care enteral access procedural references.",
+      "QA": "YELLOW; revisión humana GI/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

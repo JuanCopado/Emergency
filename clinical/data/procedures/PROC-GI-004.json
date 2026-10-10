@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-004",
+  "name": "Paracentesis terapéutica",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aliviar ascitis tensa/sintomática reduciendo riesgo de complicaciones circulatorias.",
+  "indications": [
+    "ascitis con disnea, dolor/tensión, saciedad precoz o ascitis refractaria que requiere drenaje."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ausencia de ventana segura, infección de pared o anatomía compleja; monitorizar hemodinámica y función renal."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, catéter flexible, sistema de drenaje, anestesia local y albúmina cuando esté indicada."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pared abdominal, vasos, vejiga, asas y bolsillo de ascitis."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "ventana ecográfica segura, plan de volumen y estrategia de expansión."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "anestesiar, introducir catéter en bolsillo seguro, conectar drenaje y permitir drenaje controlado con reevaluación de dolor y hemodinámica."
+    }
+  ],
+  "stop_points": [
+    "hipotensión sintomática, dolor intenso, sangrado o drenaje francamente sanguinolento."
+  ],
+  "confirmation": [
+    "alivio clínico y reducción de tensión abdominal."
+  ],
+  "complications": {
+    "unclassified": [
+      "hipotensión, disfunción circulatoria postparacentesis, fuga, sangrado y perforación."
+    ]
+  },
+  "aftercare": [
+    "en cirrosis con paracentesis de gran volumen ≥5 L, AASLD recomienda albúmina; materiales AASLD actuales describen 6–8 g por litro de ascitis retirado para prevenir disfunción circulatoria postparacentesis."
+  ],
+  "documentation": [
+    "volumen total, respuesta, albúmina administrada y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "AASLD Practice Guidance on Ascites, SBP and HRS, 2021; AASLD refractory ascites educational review 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana hepatología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-004 — Paracentesis terapéutica — ADVANCED/POCUS",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "f26f4018165efd407129ffbeb0d26857eb1e80b2409979b730d3f81cf9992ead",
+    "sections": {
+      "Objetivo": "aliviar ascitis tensa/sintomática reduciendo riesgo de complicaciones circulatorias.",
+      "Indicaciones": "ascitis con disnea, dolor/tensión, saciedad precoz o ascitis refractaria que requiere drenaje.",
+      "Contraindicaciones/precauciones": "ausencia de ventana segura, infección de pared o anatomía compleja; monitorizar hemodinámica y función renal.",
+      "Material": "ecógrafo, catéter flexible, sistema de drenaje, anestesia local y albúmina cuando esté indicada.",
+      "Anatomía": "pared abdominal, vasos, vejiga, asas y bolsillo de ascitis.",
+      "Preparación": "ventana ecográfica segura, plan de volumen y estrategia de expansión.",
+      "Técnica paso a paso": "anestesiar, introducir catéter en bolsillo seguro, conectar drenaje y permitir drenaje controlado con reevaluación de dolor y hemodinámica.",
+      "STOP": "hipotensión sintomática, dolor intenso, sangrado o drenaje francamente sanguinolento.",
+      "Confirmación": "alivio clínico y reducción de tensión abdominal.",
+      "Complicaciones": "hipotensión, disfunción circulatoria postparacentesis, fuga, sangrado y perforación.",
+      "Después": "en cirrosis con paracentesis de gran volumen ≥5 L, AASLD recomienda albúmina; materiales AASLD actuales describen 6–8 g por litro de ascitis retirado para prevenir disfunción circulatoria postparacentesis.",
+      "Documentación": "volumen total, respuesta, albúmina administrada y complicaciones.",
+      "Fuentes": "AASLD Practice Guidance on Ascites, SBP and HRS, 2021; AASLD refractory ascites educational review 2025.",
+      "QA": "YELLOW; revisión humana hepatología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-GI-009",
+  "name": "Extracción de cuerpo extraño rectal",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un cuerpo extraño evitando perforación, hemorragia y lesión esfinteriana.",
+  "indications": [
+    "objeto retenido accesible, paciente estable y sin signos de perforación."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "peritonitis, aire libre, objeto cortante/fragil de alto riesgo, objeto alto/no visible o extracción ciega."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes, lubricante, anoscopio/proctoscopio, instrumental apropiado, analgesia/sedación y protección."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "canal anal, recto, unión rectosigmoidea y esfínteres."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "historia del objeto, examen abdominal/rectal cuidadoso y radiografía/TC cuando tamaño, forma o riesgo de perforación no estén claros."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "obtener relajación/analgesia, visualizar o palpar el objeto, realizar extracción transanal controlada solo si puede sujetarse con seguridad y detener intentos si se desplaza proximalmente; escalar a endoscopia o cirugía si falla."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, sangrado, incapacidad de controlar el objeto o sospecha de perforación."
+  ],
+  "confirmation": [
+    "objeto íntegro y reevaluación abdominal/anorrectal sin lesión significativa."
+  ],
+  "complications": {
+    "unclassified": [
+      "perforación, hemorragia, lesión esfinteriana, fragmento retenido e infección."
+    ]
+  },
+  "aftercare": [
+    "observación e imagen/endoscopia selectiva según mecanismo, dificultad y hallazgos."
+  ],
+  "documentation": [
+    "objeto, imagen previa, técnica, integridad y lesiones."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional 2025; WSES-AAST anorectal emergency guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "escalar a endoscopia o cirugía si falla."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cirugía/GI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-009 — Extracción de cuerpo extraño rectal — ADVANCED",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "e42db017af76b82ede00eaf55c0efc1cd767aaaa1eae1a212b8f8980c00f178c",
+    "sections": {
+      "Objetivo": "retirar un cuerpo extraño evitando perforación, hemorragia y lesión esfinteriana.",
+      "Indicaciones": "objeto retenido accesible, paciente estable y sin signos de perforación.",
+      "Contraindicaciones/precauciones": "peritonitis, aire libre, objeto cortante/fragil de alto riesgo, objeto alto/no visible o extracción ciega.",
+      "Material": "guantes, lubricante, anoscopio/proctoscopio, instrumental apropiado, analgesia/sedación y protección.",
+      "Anatomía": "canal anal, recto, unión rectosigmoidea y esfínteres.",
+      "Preparación": "historia del objeto, examen abdominal/rectal cuidadoso y radiografía/TC cuando tamaño, forma o riesgo de perforación no estén claros.",
+      "Técnica paso a paso": "obtener relajación/analgesia, visualizar o palpar el objeto, realizar extracción transanal controlada solo si puede sujetarse con seguridad y detener intentos si se desplaza proximalmente; escalar a endoscopia o cirugía si falla.",
+      "STOP": "dolor intenso, sangrado, incapacidad de controlar el objeto o sospecha de perforación.",
+      "Confirmación": "objeto íntegro y reevaluación abdominal/anorrectal sin lesión significativa.",
+      "Complicaciones": "perforación, hemorragia, lesión esfinteriana, fragmento retenido e infección.",
+      "Después": "observación e imagen/endoscopia selectiva según mecanismo, dificultad y hallazgos.",
+      "Documentación": "objeto, imagen previa, técnica, integridad y lesiones.",
+      "Fuentes": "Merck Manual Professional 2025; WSES-AAST anorectal emergency guidance.",
+      "QA": "YELLOW; revisión humana cirugía/GI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "escalar a endoscopia o cirugía si falla."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-003",
+  "name": "Paracentesis diagnóstica",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener líquido ascítico para diagnóstico etiológico y detección de infección.",
+  "indications": [
+    "ascitis de nueva aparición; cirrosis con ingreso/descompensación o sospecha de PBE; otras indicaciones diagnósticas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ausencia de ventana segura, infección de pared o anatomía compleja. La coagulopatía de cirrosis por sí sola no implica corrección rutinaria previa; individualizar riesgo hemorrágico."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, aguja/catéter, anestesia local, tubos y frascos de hemocultivo cuando se sospecha PBE."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pared abdominal, vasos epigástricos, vejiga, asas y líquido libre."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "localizar bolsillo seguro con ecografía, evitar vasos superficiales y vaciar vejiga cuando sea relevante."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "antisepsia/anestesia, punción ecoguiada o con sitio marcado inmediatamente antes, aspirar líquido y distribuir muestras según objetivo; si se investiga PBE, inocular líquido en frascos de hemocultivo al pie de cama cuando sea posible."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, sangre persistente, ausencia de líquido pese a trayecto correcto o deterioro."
+  ],
+  "confirmation": [
+    "muestra adecuada y estabilidad clínica."
+  ],
+  "complications": {
+    "unclassified": [
+      "sangrado, perforación intestinal/vesical, infección y fuga."
+    ]
+  },
+  "aftercare": [
+    "procesar recuento celular/diferencial, albúmina/proteína y microbiología según indicación; tratar sin retraso si hay PBE."
+  ],
+  "documentation": [
+    "sitio, uso de US, aspecto/volumen y estudios enviados."
+  ],
+  "sources": [
+    {
+      "title": "AASLD Practice Guidance on Ascites, SBP and HRS, 2021; AASLD educational updates 2025–2026; ACEP Ultrasound Guidelines 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana hepatología/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-003 — Paracentesis diagnóstica — ADVANCED/POCUS",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "b64c11f87ead66af13d98b12b13bb8938fca896cf10a8091cf03f72af6f64de6",
+    "sections": {
+      "Objetivo": "obtener líquido ascítico para diagnóstico etiológico y detección de infección.",
+      "Indicaciones": "ascitis de nueva aparición; cirrosis con ingreso/descompensación o sospecha de PBE; otras indicaciones diagnósticas.",
+      "Contraindicaciones/precauciones": "ausencia de ventana segura, infección de pared o anatomía compleja. La coagulopatía de cirrosis por sí sola no implica corrección rutinaria previa; individualizar riesgo hemorrágico.",
+      "Material": "ecógrafo, aguja/catéter, anestesia local, tubos y frascos de hemocultivo cuando se sospecha PBE.",
+      "Anatomía": "pared abdominal, vasos epigástricos, vejiga, asas y líquido libre.",
+      "Preparación": "localizar bolsillo seguro con ecografía, evitar vasos superficiales y vaciar vejiga cuando sea relevante.",
+      "Técnica paso a paso": "antisepsia/anestesia, punción ecoguiada o con sitio marcado inmediatamente antes, aspirar líquido y distribuir muestras según objetivo; si se investiga PBE, inocular líquido en frascos de hemocultivo al pie de cama cuando sea posible.",
+      "STOP": "dolor intenso, sangre persistente, ausencia de líquido pese a trayecto correcto o deterioro.",
+      "Confirmación": "muestra adecuada y estabilidad clínica.",
+      "Complicaciones": "sangrado, perforación intestinal/vesical, infección y fuga.",
+      "Después": "procesar recuento celular/diferencial, albúmina/proteína y microbiología según indicación; tratar sin retraso si hay PBE.",
+      "Documentación": "sitio, uso de US, aspecto/volumen y estudios enviados.",
+      "Fuentes": "AASLD Practice Guidance on Ascites, SBP and HRS, 2021; AASLD educational updates 2025–2026; ACEP Ultrasound Guidelines 2023.",
+      "QA": "YELLOW; revisión humana hepatología/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

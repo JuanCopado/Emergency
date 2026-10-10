@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-008",
+  "name": "Manejo inicial de gastrostomía desplazada",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "preservar un trayecto maduro y evitar colocación intraperitoneal/falsa vía.",
+  "indications": [
+    "gastrostomía accidentalmente retirada o desplazada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "trayecto reciente/no maduro, peritonitis, dolor abdominal significativo o anatomía dudosa → no reemplazar a ciegas."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "dispositivo de reemplazo apropiado, lubricante y método de confirmación según protocolo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pared abdominal, trayecto gastrocutáneo y estómago."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "determinar fecha/tipo de colocación y tiempo desde la salida; valorar signos de peritonitis."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "si el trayecto es claramente maduro y el operador está entrenado, introducir un dispositivo apropiado sin fuerza para mantener el trayecto; fijar y confirmar posición antes de alimentación/medicación."
+    }
+  ],
+  "stop_points": [
+    "resistencia, dolor, sangrado, trayecto reciente o duda de posición."
+  ],
+  "confirmation": [
+    "método validado según dispositivo/protocolo, con contraste/endoscopia si existe duda."
+  ],
+  "complications": {
+    "unclassified": [
+      "falsa vía, peritonitis, sangrado y cierre del trayecto."
+    ]
+  },
+  "aftercare": [
+    "revisión por equipo de nutrición/endoscopia/cirugía."
+  ],
+  "documentation": [
+    "tipo, edad del trayecto, tiempo fuera, reemplazo y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "ASPEN/enteral-access practice principles; GI/endoscopy gastrostomy replacement guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana GI/cirugía pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-008 — Manejo inicial de gastrostomía desplazada — ADVANCED",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "340e20c8b3998797517a34c3214dca7173dd96ad69057746ea1b6387b350a4ab",
+    "sections": {
+      "Objetivo": "preservar un trayecto maduro y evitar colocación intraperitoneal/falsa vía.",
+      "Indicaciones": "gastrostomía accidentalmente retirada o desplazada.",
+      "Contraindicaciones/precauciones": "trayecto reciente/no maduro, peritonitis, dolor abdominal significativo o anatomía dudosa → no reemplazar a ciegas.",
+      "Material": "dispositivo de reemplazo apropiado, lubricante y método de confirmación según protocolo.",
+      "Anatomía": "pared abdominal, trayecto gastrocutáneo y estómago.",
+      "Preparación": "determinar fecha/tipo de colocación y tiempo desde la salida; valorar signos de peritonitis.",
+      "Técnica paso a paso": "si el trayecto es claramente maduro y el operador está entrenado, introducir un dispositivo apropiado sin fuerza para mantener el trayecto; fijar y confirmar posición antes de alimentación/medicación.",
+      "STOP": "resistencia, dolor, sangrado, trayecto reciente o duda de posición.",
+      "Confirmación": "método validado según dispositivo/protocolo, con contraste/endoscopia si existe duda.",
+      "Complicaciones": "falsa vía, peritonitis, sangrado y cierre del trayecto.",
+      "Después": "revisión por equipo de nutrición/endoscopia/cirugía.",
+      "Documentación": "tipo, edad del trayecto, tiempo fuera, reemplazo y confirmación.",
+      "Fuentes": "ASPEN/enteral-access practice principles; GI/endoscopy gastrostomy replacement guidance.",
+      "QA": "YELLOW; revisión humana GI/cirugía pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

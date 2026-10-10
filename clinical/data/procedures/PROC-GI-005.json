@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GI-005",
+  "name": "Anoscopia",
+  "family": "ABDOMEN Y DIGESTIVO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "visualizar canal anal y recto distal para identificar una causa accesible de sangrado, dolor o cuerpo extraño.",
+  "indications": [
+    "sangrado anorectal, lesión anal, hemorroides/trombosis seleccionadas o cuerpo extraño distal."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "perforación sospechada, dolor extremo no controlable, sepsis perineal o inestabilidad."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anoscopio, lubricante, luz, guantes y analgesia si precisa."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "margen anal, canal anal y recto distal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "privacidad, posición lateral o litotomía, inspección externa previa."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "lubricar, introducir suavemente con obturador, retirar obturador y examinar circunferencialmente al retirar de forma lenta."
+    }
+  ],
+  "stop_points": [
+    "dolor desproporcionado, sangrado importante o resistencia fija."
+  ],
+  "confirmation": [
+    "visualización adecuada de la región objetivo."
+  ],
+  "complications": {
+    "unclassified": [
+      "dolor, sangrado y lesión mucosa."
+    ]
+  },
+  "aftercare": [
+    "tratar o derivar según hallazgo."
+  ],
+  "documentation": [
+    "hallazgos, calidad de examen y tolerancia."
+  ],
+  "sources": [
+    {
+      "title": "WSES-AAST anorectal emergencies guidance; Merck Manual Professional anorectal examination principles.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cirugía/GI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/09-gi-abdomen.md",
+    "source_heading": "PROC-GI-005 — Anoscopia — CORE",
+    "family_preamble": "# 9. Abdomen y digestivo\n\nEstado de familia: **YELLOW**. Fuentes troncales: guías GI/urgencias, WHO/major-society guidance y referencias procedimentales profesionales actuales.",
+    "source_sha256": "51d43c6ff8b19f5a5552693e4651e238543b1ac02091151c83684f12a6ce1c4d",
+    "sections": {
+      "Objetivo": "visualizar canal anal y recto distal para identificar una causa accesible de sangrado, dolor o cuerpo extraño.",
+      "Indicaciones": "sangrado anorectal, lesión anal, hemorroides/trombosis seleccionadas o cuerpo extraño distal.",
+      "Contraindicaciones/precauciones": "perforación sospechada, dolor extremo no controlable, sepsis perineal o inestabilidad.",
+      "Material": "anoscopio, lubricante, luz, guantes y analgesia si precisa.",
+      "Anatomía": "margen anal, canal anal y recto distal.",
+      "Preparación": "privacidad, posición lateral o litotomía, inspección externa previa.",
+      "Técnica paso a paso": "lubricar, introducir suavemente con obturador, retirar obturador y examinar circunferencialmente al retirar de forma lenta.",
+      "STOP": "dolor desproporcionado, sangrado importante o resistencia fija.",
+      "Confirmación": "visualización adecuada de la región objetivo.",
+      "Complicaciones": "dolor, sangrado y lesión mucosa.",
+      "Después": "tratar o derivar según hallazgo.",
+      "Documentación": "hallazgos, calidad de examen y tolerancia.",
+      "Fuentes": "WSES-AAST anorectal emergencies guidance; Merck Manual Professional anorectal examination principles.",
+      "QA": "YELLOW; revisión humana cirugía/GI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
