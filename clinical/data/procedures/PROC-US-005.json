@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-US-005",
+  "name": "Ecografía para drenaje pleural",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "facilitar colocación segura de drenaje pleural.",
+  "indications": [
+    "colección pleural accesible para drenaje."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ausencia de ventana, colección compleja no adecuada o anatomía insegura."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, kit de drenaje/pigtail y material estéril."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pleura, pulmón, diafragma y vísceras."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "localizar colección y trayecto."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "guiar aguja al espacio pleural; si Seldinger, confirmar guía en colección antes de dilatar."
+    }
+  ],
+  "stop_points": [
+    "guía no confirmada, pulmón/víscera en trayecto o sangrado."
+  ],
+  "confirmation": [
+    "drenaje funcional y posición coherente."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión pulmonar/visceral, sangrado, malposición."
+    ]
+  },
+  "aftercare": [
+    "conectar sistema y monitorizar."
+  ],
+  "documentation": [
+    "sitio, método y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "BTS Clinical Statement on Pleural Procedures 2023, correction 2026; ACEP Ultrasound Guidelines 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-005 — Drenaje pleural ecoguiado — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "4f251bf34a5971b313f861603cb8232bf7daef1d6f28b35a0b89a2c2575420a4",
+    "sections": {
+      "Objetivo": "facilitar colocación segura de drenaje pleural.",
+      "Indicaciones": "colección pleural accesible para drenaje.",
+      "Contraindicaciones/precauciones": "ausencia de ventana, colección compleja no adecuada o anatomía insegura.",
+      "Material": "ecógrafo, kit de drenaje/pigtail y material estéril.",
+      "Anatomía": "pleura, pulmón, diafragma y vísceras.",
+      "Preparación": "localizar colección y trayecto.",
+      "Técnica paso a paso": "guiar aguja al espacio pleural; si Seldinger, confirmar guía en colección antes de dilatar.",
+      "STOP": "guía no confirmada, pulmón/víscera en trayecto o sangrado.",
+      "Confirmación": "drenaje funcional y posición coherente.",
+      "Complicaciones": "lesión pulmonar/visceral, sangrado, malposición.",
+      "Después": "conectar sistema y monitorizar.",
+      "Documentación": "sitio, método y confirmación.",
+      "Fuentes": "BTS Clinical Statement on Pleural Procedures 2023, correction 2026; ACEP Ultrasound Guidelines 2023.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

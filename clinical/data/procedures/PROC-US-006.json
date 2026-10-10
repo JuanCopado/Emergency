@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-US-006",
+  "name": "Ecografía para paracentesis",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "seleccionar trayecto seguro hacia ascitis.",
+  "indications": [
+    "paracentesis diagnóstica o terapéutica."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ausencia de bolsillo seguro o pared/visceras en trayecto."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, transductor y material de paracentesis."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pared abdominal, vasos epigástricos, vejiga, asas y líquido."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "explorar con paciente en posición final; Doppler si necesario."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "localizar bolsillo, evitar vasos/vísceras, marcar o guiar dinámicamente y puncionar por trayecto seguro."
+    }
+  ],
+  "stop_points": [
+    "ventana cambia, asas interpuestas o sangrado."
+  ],
+  "confirmation": [
+    "líquido ascítico obtenido."
+  ],
+  "complications": {
+    "unclassified": [
+      "sangrado, perforación y fuga."
+    ]
+  },
+  "aftercare": [
+    "reevaluar y controlar sitio."
+  ],
+  "documentation": [
+    "ventana, US y resultado."
+  ],
+  "sources": [
+    {
+      "title": "AASLD Practice Guidance on Ascites, SBP and HRS, 2021; ACEP Ultrasound Guidelines 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-006 — Paracentesis ecoguiada — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "a701548fe656c0e1418c7fade7e4cf7b653ecc02f3b5114edfd3f474232aba8e",
+    "sections": {
+      "Objetivo": "seleccionar trayecto seguro hacia ascitis.",
+      "Indicaciones": "paracentesis diagnóstica o terapéutica.",
+      "Contraindicaciones/precauciones": "ausencia de bolsillo seguro o pared/visceras en trayecto.",
+      "Material": "ecógrafo, transductor y material de paracentesis.",
+      "Anatomía": "pared abdominal, vasos epigástricos, vejiga, asas y líquido.",
+      "Preparación": "explorar con paciente en posición final; Doppler si necesario.",
+      "Técnica paso a paso": "localizar bolsillo, evitar vasos/vísceras, marcar o guiar dinámicamente y puncionar por trayecto seguro.",
+      "STOP": "ventana cambia, asas interpuestas o sangrado.",
+      "Confirmación": "líquido ascítico obtenido.",
+      "Complicaciones": "sangrado, perforación y fuga.",
+      "Después": "reevaluar y controlar sitio.",
+      "Documentación": "ventana, US y resultado.",
+      "Fuentes": "AASLD Practice Guidance on Ascites, SBP and HRS, 2021; ACEP Ultrasound Guidelines 2023.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

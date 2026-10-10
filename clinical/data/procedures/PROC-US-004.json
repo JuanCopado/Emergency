@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-US-004",
+  "name": "Ecografía para toracocentesis",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "seleccionar una ventana pleural segura.",
+  "indications": [
+    "toracocentesis diagnóstica/terapéutica con líquido pleural accesible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ausencia de ventana segura o anatomía no identificable."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, transductor apropiado y material de toracocentesis."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "diafragma, pulmón, hígado/bazo y paquete intercostal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "explorar con el paciente en la misma posición del procedimiento."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "localizar derrame, medir profundidad, identificar diafragma/vísceras, marcar o guiar en tiempo real y entrar por trayecto seguro."
+    }
+  ],
+  "stop_points": [
+    "pérdida de ventana, pulmón interpuesto o anatomía discordante."
+  ],
+  "confirmation": [
+    "aguja/catéter en colección y drenaje esperado."
+  ],
+  "complications": {
+    "unclassified": [
+      "neumotórax, sangrado y lesión visceral."
+    ]
+  },
+  "aftercare": [
+    "reevaluación pleuropulmonar."
+  ],
+  "documentation": [
+    "ventana, profundidad y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "BTS Clinical Statement on Pleural Procedures 2023, correction 2026; ACEP Ultrasound Guidelines 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-004 — Toracocentesis ecoguiada — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "9a6e61a29c591201899f207d279f570ea896da00688ccf7aff04c1973f1dad3d",
+    "sections": {
+      "Objetivo": "seleccionar una ventana pleural segura.",
+      "Indicaciones": "toracocentesis diagnóstica/terapéutica con líquido pleural accesible.",
+      "Contraindicaciones/precauciones": "ausencia de ventana segura o anatomía no identificable.",
+      "Material": "ecógrafo, transductor apropiado y material de toracocentesis.",
+      "Anatomía": "diafragma, pulmón, hígado/bazo y paquete intercostal.",
+      "Preparación": "explorar con el paciente en la misma posición del procedimiento.",
+      "Técnica paso a paso": "localizar derrame, medir profundidad, identificar diafragma/vísceras, marcar o guiar en tiempo real y entrar por trayecto seguro.",
+      "STOP": "pérdida de ventana, pulmón interpuesto o anatomía discordante.",
+      "Confirmación": "aguja/catéter en colección y drenaje esperado.",
+      "Complicaciones": "neumotórax, sangrado y lesión visceral.",
+      "Después": "reevaluación pleuropulmonar.",
+      "Documentación": "ventana, profundidad y confirmación.",
+      "Fuentes": "BTS Clinical Statement on Pleural Procedures 2023, correction 2026; ACEP Ultrasound Guidelines 2023.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

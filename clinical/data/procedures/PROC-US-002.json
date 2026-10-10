@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-US-002",
+  "name": "Ecografía para CVC",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aumentar seguridad del acceso venoso central.",
+  "indications": [
+    "CVC cuando la anatomía permite guía ecográfica."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "trombosis, infección local o ausencia de ventana segura."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, kit CVC, barrera estéril máxima."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vena, arteria y estructuras adyacentes del sitio elegido."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "mapear anatomía y trombo; antisepsia/barrera máxima."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "visualizar punción en tiempo real, confirmar punta/aguja, introducir guía y confirmar guía intravascular antes de dilatar."
+    }
+  ],
+  "stop_points": [
+    "no dilatar si la guía no está inequívocamente confirmada."
+  ],
+  "confirmation": [
+    "guía y catéter en vaso objetivo."
+  ],
+  "complications": {
+    "unclassified": [
+      "punción arterial, hematoma, neumotórax, malposición e infección."
+    ]
+  },
+  "aftercare": [
+    "fijar y descartar complicaciones según contexto."
+  ],
+  "documentation": [
+    "sitio, técnica y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "ACEP Ultrasound Guidelines 2023; CDC intravascular catheter recommendations 2024.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-002 — CVC ecoguiado — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "6c0e9df57668bef9cf27bb43947bee4b52c9384f40ec68bf0a573f889b4f4518",
+    "sections": {
+      "Objetivo": "aumentar seguridad del acceso venoso central.",
+      "Indicaciones": "CVC cuando la anatomía permite guía ecográfica.",
+      "Contraindicaciones/precauciones": "trombosis, infección local o ausencia de ventana segura.",
+      "Material": "ecógrafo, kit CVC, barrera estéril máxima.",
+      "Anatomía": "vena, arteria y estructuras adyacentes del sitio elegido.",
+      "Preparación": "mapear anatomía y trombo; antisepsia/barrera máxima.",
+      "Técnica paso a paso": "visualizar punción en tiempo real, confirmar punta/aguja, introducir guía y confirmar guía intravascular antes de dilatar.",
+      "STOP": "no dilatar si la guía no está inequívocamente confirmada.",
+      "Confirmación": "guía y catéter en vaso objetivo.",
+      "Complicaciones": "punción arterial, hematoma, neumotórax, malposición e infección.",
+      "Después": "fijar y descartar complicaciones según contexto.",
+      "Documentación": "sitio, técnica y confirmación.",
+      "Fuentes": "ACEP Ultrasound Guidelines 2023; CDC intravascular catheter recommendations 2024.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

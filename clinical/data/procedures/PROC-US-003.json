@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-US-003",
+  "name": "Ecografía para línea arterial",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "facilitar canulación arterial segura.",
+  "indications": [
+    "acceso arterial difícil o anatomía no evidente."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección local, isquemia distal o lesión arterial conocida."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo lineal, catéter arterial y sistema de transductor."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "arteria objetivo, vena y nervios."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "mapear vaso y perfusión distal."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar arteria no compresible/pulsátil, puncionar con punta visible y avanzar catéter."
+    }
+  ],
+  "stop_points": [
+    "punción venosa/tejido fuera de objetivo o punta no visible."
+  ],
+  "confirmation": [
+    "waveform arterial y posición intraluminal."
+  ],
+  "complications": {
+    "unclassified": [
+      "hematoma, trombosis, isquemia e infección."
+    ]
+  },
+  "aftercare": [
+    "fijar y vigilar perfusión."
+  ],
+  "documentation": [
+    "sitio, técnica y waveform."
+  ],
+  "sources": [
+    {
+      "title": "ACEP Ultrasound Guidelines 2023; Society of Hospital Medicine ultrasound-guided vascular access position statement.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-003 — Línea arterial ecoguiada — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "38a55d90e8c5e482bca7d0265ef1b3843001a000dd0ede1dd93c67c897a223b4",
+    "sections": {
+      "Objetivo": "facilitar canulación arterial segura.",
+      "Indicaciones": "acceso arterial difícil o anatomía no evidente.",
+      "Contraindicaciones/precauciones": "infección local, isquemia distal o lesión arterial conocida.",
+      "Material": "ecógrafo lineal, catéter arterial y sistema de transductor.",
+      "Anatomía": "arteria objetivo, vena y nervios.",
+      "Preparación": "mapear vaso y perfusión distal.",
+      "Técnica paso a paso": "identificar arteria no compresible/pulsátil, puncionar con punta visible y avanzar catéter.",
+      "STOP": "punción venosa/tejido fuera de objetivo o punta no visible.",
+      "Confirmación": "waveform arterial y posición intraluminal.",
+      "Complicaciones": "hematoma, trombosis, isquemia e infección.",
+      "Después": "fijar y vigilar perfusión.",
+      "Documentación": "sitio, técnica y waveform.",
+      "Fuentes": "ACEP Ultrasound Guidelines 2023; Society of Hospital Medicine ultrasound-guided vascular access position statement.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

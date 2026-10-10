@@ -589,6 +589,14 @@
       }
     ]
   },
+  "PROC-US-010": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "hallazgo dudoso o deterioro clínico → escalar a imagen/tratamiento definitivo."
+      }
+    ]
+  },
   "PROC-VASC-001": {
     "rescue": [
       {

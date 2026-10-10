@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-US-009",
+  "name": "Ecografía para artrocentesis",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "guiar aspiración articular evitando estructuras de riesgo.",
+  "indications": [
+    "derrame articular diagnóstico/terapéutico."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección cutánea en trayecto o prótesis sin coordinación especialista."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, aguja/jeringa y material estéril."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "receso articular y vasos/nervios vecinos."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "localizar derrame y trayecto seguro."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "introducir aguja bajo visión hasta el derrame y aspirar."
+    }
+  ],
+  "stop_points": [
+    "trayecto inseguro, parestesia o sangre pulsátil."
+  ],
+  "confirmation": [
+    "líquido obtenido y aguja en colección."
+  ],
+  "complications": {
+    "unclassified": [
+      "infección, sangrado y lesión neurovascular."
+    ]
+  },
+  "aftercare": [
+    "procesar muestra y reevaluar."
+  ],
+  "documentation": [
+    "articulación, volumen y estudios."
+  ],
+  "sources": [
+    {
+      "title": "SANJO Guideline 2023; ACEP Ultrasound Guidelines 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-009 — Artrocentesis ecoguiada — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "75dd3139c088bf36951317f84a09fef5de2042b2f911ebaabfe7a6893e1f51ad",
+    "sections": {
+      "Objetivo": "guiar aspiración articular evitando estructuras de riesgo.",
+      "Indicaciones": "derrame articular diagnóstico/terapéutico.",
+      "Contraindicaciones/precauciones": "infección cutánea en trayecto o prótesis sin coordinación especialista.",
+      "Material": "ecógrafo, aguja/jeringa y material estéril.",
+      "Anatomía": "receso articular y vasos/nervios vecinos.",
+      "Preparación": "localizar derrame y trayecto seguro.",
+      "Técnica paso a paso": "introducir aguja bajo visión hasta el derrame y aspirar.",
+      "STOP": "trayecto inseguro, parestesia o sangre pulsátil.",
+      "Confirmación": "líquido obtenido y aguja en colección.",
+      "Complicaciones": "infección, sangrado y lesión neurovascular.",
+      "Después": "procesar muestra y reevaluar.",
+      "Documentación": "articulación, volumen y estudios.",
+      "Fuentes": "SANJO Guideline 2023; ACEP Ultrasound Guidelines 2023.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

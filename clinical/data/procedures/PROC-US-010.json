@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-US-010",
+  "name": "Confirmación ecográfica de complicaciones postprocedimiento",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "detectar complicaciones inmediatas seleccionadas tras procedimientos.",
+  "indications": [
+    "control tras CVC, toracocentesis/drenaje, paracentesis, bloqueos u otros procedimientos cuando POCUS aporta información útil."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "un POCUS negativo no sustituye pruebas exigidas por protocolo o alta sospecha clínica."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo y transductor según región."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pulmón/pleura, vasos, cavidades o tejidos del procedimiento."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "definir la complicación que se busca y comparar con el examen previo cuando exista."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "explorar la región objetivo, buscar signos de neumotórax, hematoma, derrame residual, malposición superficial u otra complicación pertinente."
+    }
+  ],
+  "stop_points": [
+    "hallazgo dudoso o deterioro clínico → escalar a imagen/tratamiento definitivo."
+  ],
+  "confirmation": [
+    "hallazgos ecográficos concordantes con la clínica."
+  ],
+  "complications": {
+    "unclassified": [
+      "falsa seguridad por estudio incompleto o mal interpretado."
+    ]
+  },
+  "aftercare": [
+    "integrar con evolución clínica y pruebas adicionales cuando correspondan."
+  ],
+  "documentation": [
+    "ventanas, calidad y hallazgos."
+  ],
+  "sources": [
+    {
+      "title": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine, 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "hallazgo dudoso o deterioro clínico → escalar a imagen/tratamiento definitivo."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-010 — Ecografía postprocedimiento — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "35480d6c89c76d1994d6a15bd93d88140dcecb376cd191d675155883aa7ffbf9",
+    "sections": {
+      "Objetivo": "detectar complicaciones inmediatas seleccionadas tras procedimientos.",
+      "Indicaciones": "control tras CVC, toracocentesis/drenaje, paracentesis, bloqueos u otros procedimientos cuando POCUS aporta información útil.",
+      "Contraindicaciones/precauciones": "un POCUS negativo no sustituye pruebas exigidas por protocolo o alta sospecha clínica.",
+      "Material": "ecógrafo y transductor según región.",
+      "Anatomía": "pulmón/pleura, vasos, cavidades o tejidos del procedimiento.",
+      "Preparación": "definir la complicación que se busca y comparar con el examen previo cuando exista.",
+      "Técnica paso a paso": "explorar la región objetivo, buscar signos de neumotórax, hematoma, derrame residual, malposición superficial u otra complicación pertinente.",
+      "STOP": "hallazgo dudoso o deterioro clínico → escalar a imagen/tratamiento definitivo.",
+      "Confirmación": "hallazgos ecográficos concordantes con la clínica.",
+      "Complicaciones": "falsa seguridad por estudio incompleto o mal interpretado.",
+      "Después": "integrar con evolución clínica y pruebas adicionales cuando correspondan.",
+      "Documentación": "ventanas, calidad y hallazgos.",
+      "Fuentes": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine, 2023.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "hallazgo dudoso o deterioro clínico → escalar a imagen/tratamiento definitivo."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

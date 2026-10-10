@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-US-001",
+  "name": "Ecografía para acceso venoso periférico",
+  "family": "POCUS PROCEDIMENTAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "facilitar acceso venoso periférico difícil manteniendo visualización de la punta.",
+  "indications": [
+    "venas no palpables/visibles o múltiples intentos fallidos."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "trombosis, infección local o vena demasiado profunda para la longitud del catéter."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo lineal, gel/cubierta, catéter apropiado y material IV."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vena compresible, arteria pulsátil y nervios próximos."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "mapear vaso, profundidad y trayecto."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar vena, elegir eje corto o largo, puncionar bajo guía dinámica y avanzar manteniendo la punta identificada."
+    }
+  ],
+  "stop_points": [
+    "no avanzar si la punta no está claramente localizada."
+  ],
+  "confirmation": [
+    "catéter intraluminal y flush sin extravasación."
+  ],
+  "complications": {
+    "unclassified": [
+      "punción arterial, infiltración, hematoma y lesión nerviosa."
+    ]
+  },
+  "aftercare": [
+    "fijar y reevaluar permeabilidad."
+  ],
+  "documentation": [
+    "vaso, técnica ecográfica, intentos y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine, 2023; Society of Hospital Medicine ultrasound-guided vascular access position statement.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/15-pocus-procedural.md",
+    "source_heading": "PROC-US-001 — VVP ecoguiada — ADVANCED",
+    "family_preamble": "# 15. POCUS procedimental\n\nEstado: **YELLOW**. POCUS guía la aguja; no sustituye competencia clínica/anatómica.",
+    "source_sha256": "1e491d92017c42898aed9e284e558b14a009f666021d7b7494cc86d6c4ae7aef",
+    "sections": {
+      "Objetivo": "facilitar acceso venoso periférico difícil manteniendo visualización de la punta.",
+      "Indicaciones": "venas no palpables/visibles o múltiples intentos fallidos.",
+      "Contraindicaciones/precauciones": "trombosis, infección local o vena demasiado profunda para la longitud del catéter.",
+      "Material": "ecógrafo lineal, gel/cubierta, catéter apropiado y material IV.",
+      "Anatomía": "vena compresible, arteria pulsátil y nervios próximos.",
+      "Preparación": "mapear vaso, profundidad y trayecto.",
+      "Técnica paso a paso": "identificar vena, elegir eje corto o largo, puncionar bajo guía dinámica y avanzar manteniendo la punta identificada.",
+      "STOP": "no avanzar si la punta no está claramente localizada.",
+      "Confirmación": "catéter intraluminal y flush sin extravasación.",
+      "Complicaciones": "punción arterial, infiltración, hematoma y lesión nerviosa.",
+      "Después": "fijar y reevaluar permeabilidad.",
+      "Documentación": "vaso, técnica ecográfica, intentos y confirmación.",
+      "Fuentes": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine, 2023; Society of Hospital Medicine ultrasound-guided vascular access position statement.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
