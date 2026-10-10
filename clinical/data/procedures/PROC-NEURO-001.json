@@ -1,241 +1,104 @@
 {
   "procedure_id": "PROC-NEURO-001",
   "name": "Punción lumbar",
-  "family": "Neurología",
+  "family": "NEUROLOGÍA",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "ward",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Obtener líquido cefalorraquídeo para diagnóstico y/o medir presión de apertura cuando esté indicado.",
+  "objective": "obtener LCR para diagnóstico y/o medir presión de apertura cuando esté indicado.",
   "indications": [
-    "Sospecha de infección o inflamación del sistema nervioso central.",
-    "Enfermedades neurológicas en las que el análisis de LCR modifica diagnóstico o manejo.",
-    "Hemorragia subaracnoidea seleccionada tras estrategia diagnóstica apropiada.",
-    "Evaluación de trastornos de presión del LCR cuando proceda."
+    "sospecha de infección/inflamación del SNC; enfermedades neurológicas donde el análisis de LCR modifica diagnóstico o manejo; hemorragia subaracnoidea seleccionada tras estrategia diagnóstica apropiada; evaluación de trastornos de presión del LCR."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [
-      "Infección cutánea en el sitio de punción.",
-      "Alteración hemostática clínicamente significativa.",
-      "Inestabilidad cardiorrespiratoria.",
-      "Anatomía compleja sin estrategia segura."
-    ],
-    "precautions": [
-      "Sospecha de lesión ocupante de espacio, herniación o gradiente de presión intracraneal requiere evaluación previa apropiada.",
-      "La necesidad de neuroimagen antes de LP depende del contexto clínico y riesgo individual.",
-      "Revisar antitrombóticos y hemostasia antes del procedimiento."
+    "unclassified": [
+      "estabilizar primero vía aérea no protegida, compromiso respiratorio, shock, convulsiones no controladas o riesgo hemorrágico. No realizar LP ante infección en el sitio, púrpura extensa/progresiva, riesgo de lesión ocupante de espacio o signos clínicos de hipertensión intracraneal con riesgo de herniación. NICE 2024 desaconseja neuroimagen rutinaria antes de LP; reservarla para focalidad neurológica nueva, pupilas anormales, GCS ≤9 o deterioro sostenido/rápido del nivel de conciencia, entre otros factores de riesgo."
     ]
   },
   "equipment": {
-    "essential": [
-      "Kit de punción lumbar.",
-      "Aguja con estilete, preferentemente atraumática cuando sea apropiada.",
-      "Tubos de recogida.",
-      "Antiséptico y campo estéril.",
-      "Anestésico local."
-    ],
-    "optional": [
-      "Manómetro y conexión estéril si se medirá presión de apertura."
-    ],
-    "monitoring": [
-      "Monitorización clínica y fisiológica según estado del paciente."
-    ],
-    "rescue": [
-      "Material de soporte vital y acceso a manejo neurocrítico si el contexto lo requiere."
+    "unclassified": [
+      "kit de LP, aguja con estilete preferentemente atraumática cuando sea apropiada, manómetro si se medirá presión, tubos, antiséptico, campo estéril y anestésico local."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Crestas ilíacas.",
-      "Interespacios lumbares bajos.",
-      "Línea media lumbar."
-    ],
-    "target": [
-      "Espacio subaracnoideo lumbar."
-    ],
-    "avoid": [
-      "Trayectorias altas.",
-      "Trayectorias repetidamente traumáticas.",
-      "Raíces nerviosas cuando se desencadena dolor radicular intenso."
-    ],
-    "laterality": null,
-    "variants": [
-      "Abordaje en decúbito lateral o sentado según objetivo y contexto."
+    "unclassified": [
+      "interespacios lumbares bajos, línea media, ligamentos y espacio subaracnoideo."
     ]
   },
   "preparation": {
-    "patient_position": "Decúbito lateral o sentado; decúbito lateral relajado si se requiere presión de apertura interpretable.",
-    "operator_position": "Posición que permita identificar línea media, mantener asepsia y controlar la trayectoria de la aguja.",
-    "monitoring": [
-      "Según situación clínica."
-    ],
-    "asepsis": [
-      "Antisepsia cutánea.",
-      "Campo estéril."
-    ],
-    "analgesia_sedation": [
-      "Anestesia local; sedación solo si está indicada y con monitorización adecuada."
-    ],
-    "prechecks": [
-      "Confirmar indicación.",
-      "Valorar riesgo de herniación/masa.",
-      "Revisar hemostasia y antitrombóticos.",
-      "Consentimiento cuando sea posible."
+    "unclassified": [
+      "confirmar indicación/riesgos, revisar hemostasia y antitrombóticos, obtener consentimiento cuando sea posible y colocar al paciente lateral o sentado. Para presión de apertura interpretable, preferir decúbito lateral relajado."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Identificar un interespacio lumbar apropiado.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 2,
-      "action": "Preparar el campo estéril e infiltrar anestesia local.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 3,
-      "action": "Introducir la aguja con estilete con trayectoria controlada.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 4,
-      "action": "Avanzar gradualmente evitando intentos traumáticos repetidos.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 5,
-      "action": "Comprobar salida de LCR retirando el estilete cuando corresponda.",
-      "critical": true,
-      "visual_hint": null
-    },
-    {
-      "order": 6,
-      "action": "Medir presión de apertura antes de retirar volumen significativo si está indicada.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 7,
-      "action": "Recoger muestras en los tubos requeridos.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 8,
-      "action": "Reinsertar el estilete y retirar la aguja.",
-      "critical": false,
-      "visual_hint": null
-    },
-    {
-      "order": 9,
-      "action": "Aplicar apósito y reevaluar al paciente.",
-      "critical": false,
-      "visual_hint": null
+      "action": "identificar interespacio; antisepsia/anestesia; introducir aguja con estilete de forma controlada; comprobar LCR; medir presión antes de retirar volumen significativo si está indicada; recoger muestras; reinsertar estilete y retirar."
     }
   ],
-  "confirmation": [
-    "Flujo de LCR.",
-    "Muestras adecuadas.",
-    "Ausencia de deterioro clínico inmediato."
-  ],
   "stop_points": [
-    "Dolor radicular intenso o persistente.",
-    "Sangrado relevante.",
-    "Deterioro neurológico.",
-    "Resistencia ósea repetida sin reposicionamiento.",
-    "Anatomía incierta o imposibilidad de mantener técnica segura.",
-    "Inestabilidad cardiorrespiratoria."
+    "deterioro neurológico, dolor radicular intenso/persistente, sangrado relevante, resistencia ósea repetida, anatomía incierta o inestabilidad."
+  ],
+  "confirmation": [
+    "flujo de LCR, muestras adecuadas y estabilidad clínica inmediata."
   ],
   "complications": {
-    "immediate": [
-      "Dolor radicular.",
-      "Punción traumática o sangrado.",
-      "Deterioro neurológico en paciente mal seleccionado."
-    ],
-    "early": [
-      "Cefalea postpunción.",
-      "Dolor lumbar.",
-      "Infección."
-    ],
-    "late": [
-      "Complicaciones infecciosas o hemorrágicas raras."
+    "unclassified": [
+      "cefalea postpunción, dolor lumbar, punción traumática, sangrado, infección, lesión neural rara y herniación en paciente mal seleccionado."
     ]
   },
-  "rescue": [
-    "Detener y reevaluar indicación, anatomía y seguridad.",
-    "Optimizar posición o solicitar operador con mayor experiencia/guía por imagen cuando proceda.",
-    "Ante deterioro neurológico o sospecha de herniación, activar manejo neurocrítico urgente."
-  ],
   "aftercare": [
-    "Vigilar síntomas posteriores.",
-    "Revisar resultados críticos del LCR.",
-    "Tratar complicaciones según módulos correspondientes.",
-    "No imponer reposo rutinario solo para prevenir cefalea postpunción."
+    "vigilar síntomas y resultados críticos. En sospecha de meningitis, no retrasar antibióticos por intentos prolongados de LP; realizarla tan pronto como sea seguro si inicialmente se pospone."
   ],
   "documentation": [
-    "Indicación y consentimiento.",
-    "Posición e interespacio.",
-    "Tipo/calibre de aguja si disponible.",
-    "Número de intentos.",
-    "Presión de apertura si se midió.",
-    "Aspecto del LCR y tubos recogidos.",
-    "Incidencias, complicaciones y estado postprocedimiento."
-  ],
-  "pearls": [
-    "La presión de apertura requiere condiciones de medición estandarizadas para ser interpretable.",
-    "Evitar intentos traumáticos repetidos; escalar técnica cuando la anatomía o el acceso son difíciles."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar la técnica pediátrica canónica específica cuando corresponda."
-    ],
-    "pregnancy": [],
-    "obesity": [
-      "Considerar guía por imagen si la anatomía superficial es difícil."
-    ],
-    "trauma": [],
-    "anticoagulation": [
-      "Revisar riesgo hemorrágico y manejo de antitrombóticos antes del procedimiento."
-    ],
-    "difficult_anatomy": [
-      "Considerar operador experto y/o guía por imagen."
-    ]
-  },
-  "pocus": null,
-  "pharmacology_links": [
-    "sedoanalgesia",
-    "procedures-pharmacology"
+    "indicación, posición, interespacio, tipo/calibre de aguja si disponible, intentos, presión si medida, aspecto del LCR, tubos y estado postprocedimiento."
   ],
   "sources": [
     {
-      "title": "Consensus guidelines for lumbar puncture in patients with neurological diseases",
-      "organization": "JPND BIOMARKAPD / BioMS consortium",
-      "year": 2017,
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5454085/",
-      "doi": "10.1016/j.dadm.2017.04.007",
-      "accessed": "2026-10-06"
+      "title": "NICE NG240 Bacterial meningitis and meningococcal disease, 2024; Engelborghs et al. consensus LP guideline, 2017.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": null,
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration completed; human clinical review still required."
+      "YELLOW; revisión humana neurología/infecciosas pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/08-neurology.md",
+    "source_heading": "PROC-NEURO-001 — Punción lumbar — CORE",
+    "family_preamble": "# 8. Neurología\n\nEstado de familia: **YELLOW**. La familia está estructurada contra el schema canónico v1.41, pero requiere revisión clínica humana antes de cualquier promoción. La fase visual permanece **PAUSADA**.",
+    "source_sha256": "dea99c3a4464b315b4ef5f97bb676cb4dd039f1b8f26fb1a0459c389ca18ee9d",
+    "sections": {
+      "Objetivo": "obtener LCR para diagnóstico y/o medir presión de apertura cuando esté indicado.",
+      "Indicaciones": "sospecha de infección/inflamación del SNC; enfermedades neurológicas donde el análisis de LCR modifica diagnóstico o manejo; hemorragia subaracnoidea seleccionada tras estrategia diagnóstica apropiada; evaluación de trastornos de presión del LCR.",
+      "Contraindicaciones/precauciones": "estabilizar primero vía aérea no protegida, compromiso respiratorio, shock, convulsiones no controladas o riesgo hemorrágico. No realizar LP ante infección en el sitio, púrpura extensa/progresiva, riesgo de lesión ocupante de espacio o signos clínicos de hipertensión intracraneal con riesgo de herniación. NICE 2024 desaconseja neuroimagen rutinaria antes de LP; reservarla para focalidad neurológica nueva, pupilas anormales, GCS ≤9 o deterioro sostenido/rápido del nivel de conciencia, entre otros factores de riesgo.",
+      "Material": "kit de LP, aguja con estilete preferentemente atraumática cuando sea apropiada, manómetro si se medirá presión, tubos, antiséptico, campo estéril y anestésico local.",
+      "Anatomía": "interespacios lumbares bajos, línea media, ligamentos y espacio subaracnoideo.",
+      "Preparación": "confirmar indicación/riesgos, revisar hemostasia y antitrombóticos, obtener consentimiento cuando sea posible y colocar al paciente lateral o sentado. Para presión de apertura interpretable, preferir decúbito lateral relajado.",
+      "Técnica paso a paso": "identificar interespacio; antisepsia/anestesia; introducir aguja con estilete de forma controlada; comprobar LCR; medir presión antes de retirar volumen significativo si está indicada; recoger muestras; reinsertar estilete y retirar.",
+      "STOP": "deterioro neurológico, dolor radicular intenso/persistente, sangrado relevante, resistencia ósea repetida, anatomía incierta o inestabilidad.",
+      "Confirmación": "flujo de LCR, muestras adecuadas y estabilidad clínica inmediata.",
+      "Complicaciones": "cefalea postpunción, dolor lumbar, punción traumática, sangrado, infección, lesión neural rara y herniación en paciente mal seleccionado.",
+      "Después": "vigilar síntomas y resultados críticos. En sospecha de meningitis, no retrasar antibióticos por intentos prolongados de LP; realizarla tan pronto como sea seguro si inicialmente se pospone.",
+      "Documentación": "indicación, posición, interespacio, tipo/calibre de aguja si disponible, intentos, presión si medida, aspecto del LCR, tubos y estado postprocedimiento.",
+      "Fuentes": "NICE NG240 Bacterial meningitis and meningococcal disease, 2024; Engelborghs et al. consensus LP guideline, 2017.",
+      "QA": "YELLOW; revisión humana neurología/infecciosas pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
 }

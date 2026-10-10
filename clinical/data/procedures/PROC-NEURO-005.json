@@ -1,240 +1,144 @@
 {
   "procedure_id": "PROC-NEURO-005",
-  "name": "Monitorización de presión intracraneal y presión de perfusión cerebral",
-  "family": "Neurología",
+  "name": "Monitorización de presión intracraneal (PIC) y presión de perfusión cerebral (PPC)",
+  "family": "NEUROLOGÍA",
   "level": "SPECIALIST",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ICU",
-    "ED"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Medir la presión intracraneal de forma continua en pacientes neurocríticos seleccionados y usarla con clínica e imagen para guiar el manejo.",
+  "objective": "medir PIC de forma continua en pacientes neurocríticos seleccionados y usarla, junto con clínica y neuroimagen, para guiar manejo.",
   "indications": [
-    "TCE grave u otras patologías neurocríticas cuando la monitorización invasiva aporte información terapéutica.",
-    "Manejo de TCE grave guiado por información de PIC según Brain Trauma Foundation."
+    "TCE grave u otras patologías neurocríticas cuando la monitorización invasiva aportará información terapéutica; BTF recomienda el manejo de TCE grave utilizando información de PIC para reducir mortalidad hospitalaria y a 2 semanas."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [
-      "Coagulopatía significativa.",
-      "Infección en el sitio o sistémica según contexto.",
-      "Situaciones en las que la monitorización no cambiará objetivos terapéuticos."
-    ],
-    "precautions": [
-      "Decisión compartida con Neurocirugía/UCI.",
-      "Una cifra aislada no sustituye clínica ni neuroimagen.",
-      "Distinguir artefacto técnico de cambio fisiológico."
+    "unclassified": [
+      "decisión de Neurocirugía/UCI; valorar coagulopatía, infección, anatomía, objetivo terapéutico y proporcionalidad; una cifra aislada nunca sustituye clínica/TC."
     ]
   },
   "equipment": {
-    "essential": [
-      "EVD o sensor intraparenquimatoso.",
-      "Transductor/monitor.",
-      "Sistema de drenaje si EVD.",
-      "Equipo estéril."
-    ],
-    "optional": [],
-    "monitoring": [
-      "Hemodinámica continua.",
-      "Exploración neurológica seriada."
-    ],
-    "rescue": [
-      "Acceso inmediato a Neurocirugía/UCI."
+    "unclassified": [
+      "EVD o sensor intraparenquimatoso, transductor/monitor, sistema de drenaje si EVD, equipo estéril y monitorización hemodinámica."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Ventrículos.",
-      "Foramen de Monro.",
-      "Parénquima cerebral.",
-      "Referencia externa institucional."
-    ],
-    "target": [
-      "Compartimento ventricular o intraparenquimatoso según dispositivo."
-    ],
-    "avoid": [
-      "Manipulación no autorizada del EVD.",
-      "Interpretación de lecturas no plausibles sin revisar el sistema."
-    ],
-    "laterality": null,
-    "variants": [
-      "Catéter ventricular externo.",
-      "Sensor intraparenquimatoso."
+    "unclassified": [
+      "ventrículos, foramen de Monro, parénquima, trayecto del dispositivo y referencia externa institucional."
     ]
   },
   "preparation": {
-    "patient_position": "Cabeza y cuello en posición que favorezca retorno venoso y permita nivelación reproducible.",
-    "operator_position": "Junto al sistema y monitor para verificar nivelación y señal.",
-    "monitoring": [
-      "PAM.",
-      "PIC.",
-      "PPC calculada.",
-      "Estado neurológico."
-    ],
-    "asepsis": [
-      "Técnica estéril para inserción/manipulación según protocolo."
-    ],
-    "analgesia_sedation": [
-      "Según estado neurocrítico y módulos correspondientes."
-    ],
-    "prechecks": [
-      "Verificar tipo de sensor.",
-      "Confirmar referencia y nivelación.",
-      "Poner a cero cuando corresponda.",
-      "Confirmar modo de monitorización/drenaje."
+    "unclassified": [
+      "optimizar cabeza/cuello para retorno venoso, monitorizar hemodinámica, verificar tipo de sensor, nivelar y poner a cero según dispositivo/protocolo."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Verificar dispositivo y orden neurocrítica.",
-      "critical": true,
-      "visual_hint": null
+      "action": "verificar dispositivo y orden"
     },
     {
       "order": 2,
-      "action": "Nivelar el transductor al punto de referencia institucional.",
-      "critical": true,
-      "visual_hint": null
+      "action": "nivelar el transductor"
     },
     {
       "order": 3,
-      "action": "Poner a cero cuando corresponda según dispositivo.",
-      "critical": true,
-      "visual_hint": null
+      "action": "poner a cero cuando corresponda"
     },
     {
       "order": 4,
-      "action": "Confirmar el modo de monitorización o drenaje.",
-      "critical": true,
-      "visual_hint": null
+      "action": "confirmar modo monitorización/drenaje"
     },
     {
       "order": 5,
-      "action": "Observar morfología de onda y tendencia.",
-      "critical": true,
-      "visual_hint": null
+      "action": "observar onda y tendencia"
     },
     {
       "order": 6,
-      "action": "Re-nivelar tras cambios de posición.",
-      "critical": true,
-      "visual_hint": null
+      "action": "re-nivelar tras cambios de posición"
     },
     {
       "order": 7,
-      "action": "Calcular PPC = PAM − PIC.",
-      "critical": true,
-      "visual_hint": null
+      "action": "calcular **PPC = PAM − PIC**"
     },
     {
       "order": 8,
-      "action": "Correlacionar PIC/PPC con clínica, TC y respuesta terapéutica.",
-      "critical": true,
-      "visual_hint": null
+      "action": "correlacionar con clínica/TC y respuesta terapéutica."
     }
   ],
-  "confirmation": [
-    "Señal y morfología coherentes con el contexto.",
-    "Lectura reproducible tras revisar nivelación y conexiones.",
-    "Datos clínicos y técnicos concordantes."
-  ],
   "stop_points": [
-    "Deterioro neurológico.",
-    "Elevación sostenida o abrupta de PIC.",
-    "Pérdida de onda.",
-    "Desconexión o fuga.",
-    "Sobredrenaje.",
-    "Sospecha de infección o hemorragia.",
-    "Lectura no plausible."
+    "deterioro neurológico; elevación sostenida/abrupta; pérdida de onda; desconexión; fuga; sobredrenaje; sospecha de infección/hemorragia; lectura no plausible."
+  ],
+  "confirmation": [
+    "señal y morfología coherentes con contexto clínico, sin artefactos evidentes; datos discordantes obligan a revisar el sistema antes de tratar la cifra."
   ],
   "complications": {
-    "immediate": [
-      "Hemorragia.",
-      "Malposición.",
-      "Sobredrenaje.",
-      "Pérdida de señal."
-    ],
-    "early": [
-      "Obstrucción.",
-      "Infección/ventriculitis."
-    ],
-    "late": [
-      "Deriva del sensor.",
-      "Complicaciones infecciosas o mecánicas."
+    "unclassified": [
+      "infección/ventriculitis, hemorragia, obstrucción, malposición, sobredrenaje, pérdida de señal y deriva del sensor."
     ]
   },
-  "rescue": [
-    "Verificar nivelación, conexiones y modo.",
-    "Corregir causas técnicas permitidas por protocolo.",
-    "Escalar inmediatamente a Neurocirugía/UCI ante deterioro o PIC elevada.",
-    "No manipular un EVD fuera de protocolo."
-  ],
   "aftercare": [
-    "Vigilancia neurocrítica continua.",
-    "En TCE grave, tratar PIC >22 mmHg según BTF.",
-    "Objetivo de PPC generalmente 60–70 mmHg, individualizado según autorregulación y contexto.",
-    "Evitar perseguir PPC >70 mmHg agresivamente con fluidos/presores."
+    "vigilancia neurocrítica continua. En TCE grave, BTF recomienda tratar **PIC >22 mmHg** y un objetivo de **PPC 60–70 mmHg**, individualizando según autorregulación y contexto; evitar perseguir PPC >70 mmHg de forma agresiva con fluidos/presores."
   ],
   "documentation": [
-    "Tipo de dispositivo.",
-    "Referencia y nivelación.",
-    "Modo de monitorización/drenaje.",
-    "PIC y PPC.",
-    "Tendencias.",
-    "Cambios de posición.",
-    "Intervenciones y respuesta."
-  ],
-  "pearls": [
-    "Interpretar tendencias y contexto, no una cifra aislada.",
-    "PPC = PAM − PIC.",
-    "Revisar primero artefactos y nivelación cuando los datos sean discordantes."
-  ],
-  "special_adaptations": {
-    "pediatric": [],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [
-      "Aplicar umbrales BTF descritos aquí solo al contexto de TCE grave adulto."
-    ],
-    "anticoagulation": [
-      "Valorar riesgo hemorrágico con Neurocirugía."
-    ],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [
-    "intracranial-hypertension",
-    "vasoactive-inotrope-infusions"
+    "tipo de dispositivo, referencia/nivelación, modo, PIC/PPC, tendencia, cambios de posición, intervenciones y respuesta."
   ],
   "sources": [
     {
-      "title": "Guidelines for the Management of Severe TBI, 4th Edition",
-      "organization": "Brain Trauma Foundation",
-      "year": 2016,
-      "url": "https://braintrauma.org/coma/guidelines/severe-tbi",
-      "doi": null,
-      "accessed": "2026-10-06"
-    },
-    {
-      "title": "The Insertion and Management of External Ventricular Drains: An Evidence-Based Consensus Statement",
-      "organization": "Neurocritical Care Society",
-      "year": 2016,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/26738503/",
-      "doi": "10.1007/s12028-015-0224-8",
-      "accessed": "2026-10-06"
+      "title": "Brain Trauma Foundation, *Guidelines for the Management of Severe TBI, 4th Edition*; Fried et al., Neurocritical Care Society EVD consensus, 2016.",
+      "organization": null,
+      "year": null
     }
+  ],
+  "rescue": [
+    "verificar nivelación/conexiones/modo, corregir causas técnicas permitidas por protocolo y escalar inmediatamente a Neurocirugía/UCI ante deterioro o PIC elevada; no manipular un EVD fuera de protocolo."
+  ],
+  "escalation": [
+    "escalar inmediatamente a Neurocirugía/UCI ante deterioro o PIC elevada"
   ],
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration completed; human clinical review still required."
+      "YELLOW; revisión humana pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/08-neurology.md",
+    "source_heading": "PROC-NEURO-005 — Monitorización de presión intracraneal (PIC) y presión de perfusión cerebral (PPC) — SPECIALIST",
+    "family_preamble": "# 8. Neurología\n\nEstado de familia: **YELLOW**. La familia está estructurada contra el schema canónico v1.41, pero requiere revisión clínica humana antes de cualquier promoción. La fase visual permanece **PAUSADA**.",
+    "source_sha256": "38306581450fda28657d89a67b77c788a8b8fbcde047972527fb3a0f093d123f",
+    "sections": {
+      "Objetivo": "medir PIC de forma continua en pacientes neurocríticos seleccionados y usarla, junto con clínica y neuroimagen, para guiar manejo.",
+      "Indicaciones": "TCE grave u otras patologías neurocríticas cuando la monitorización invasiva aportará información terapéutica; BTF recomienda el manejo de TCE grave utilizando información de PIC para reducir mortalidad hospitalaria y a 2 semanas.",
+      "Contraindicaciones/precauciones": "decisión de Neurocirugía/UCI; valorar coagulopatía, infección, anatomía, objetivo terapéutico y proporcionalidad; una cifra aislada nunca sustituye clínica/TC.",
+      "Material": "EVD o sensor intraparenquimatoso, transductor/monitor, sistema de drenaje si EVD, equipo estéril y monitorización hemodinámica.",
+      "Anatomía": "ventrículos, foramen de Monro, parénquima, trayecto del dispositivo y referencia externa institucional.",
+      "Preparación": "optimizar cabeza/cuello para retorno venoso, monitorizar hemodinámica, verificar tipo de sensor, nivelar y poner a cero según dispositivo/protocolo.",
+      "Técnica paso a paso": "1) verificar dispositivo y orden; 2) nivelar el transductor; 3) poner a cero cuando corresponda; 4) confirmar modo monitorización/drenaje; 5) observar onda y tendencia; 6) re-nivelar tras cambios de posición; 7) calcular **PPC = PAM − PIC**; 8) correlacionar con clínica/TC y respuesta terapéutica.",
+      "Confirmación": "señal y morfología coherentes con contexto clínico, sin artefactos evidentes; datos discordantes obligan a revisar el sistema antes de tratar la cifra.",
+      "STOP": "deterioro neurológico; elevación sostenida/abrupta; pérdida de onda; desconexión; fuga; sobredrenaje; sospecha de infección/hemorragia; lectura no plausible.",
+      "Complicaciones": "infección/ventriculitis, hemorragia, obstrucción, malposición, sobredrenaje, pérdida de señal y deriva del sensor.",
+      "Rescate": "verificar nivelación/conexiones/modo, corregir causas técnicas permitidas por protocolo y escalar inmediatamente a Neurocirugía/UCI ante deterioro o PIC elevada; no manipular un EVD fuera de protocolo.",
+      "Después": "vigilancia neurocrítica continua. En TCE grave, BTF recomienda tratar **PIC >22 mmHg** y un objetivo de **PPC 60–70 mmHg**, individualizando según autorregulación y contexto; evitar perseguir PPC >70 mmHg de forma agresiva con fluidos/presores.",
+      "Documentación": "tipo de dispositivo, referencia/nivelación, modo, PIC/PPC, tendencia, cambios de posición, intervenciones y respuesta.",
+      "Fuentes": "Brain Trauma Foundation, *Guidelines for the Management of Severe TBI, 4th Edition*; Fried et al., Neurocritical Care Society EVD consensus, 2016.",
+      "QA": "YELLOW; revisión humana pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Rescate",
+          "quote": "verificar nivelación/conexiones/modo, corregir causas técnicas permitidas por protocolo y escalar inmediatamente a Neurocirugía/UCI ante deterioro o PIC elevada; no manipular un EVD fuera de protocolo."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Rescate",
+          "quote": "escalar inmediatamente a Neurocirugía/UCI ante deterioro o PIC elevada"
+        }
+      ]
+    }
+  },
+  "pending_review": []
 }

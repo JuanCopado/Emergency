@@ -193,6 +193,22 @@
       }
     ]
   },
+  "PROC-NEURO-003": {
+    "escalation": [
+      {
+        "section": "Rescate",
+        "quote": "contactar Neurocirugía/UCI de forma urgente"
+      }
+    ]
+  },
+  "PROC-NEURO-005": {
+    "escalation": [
+      {
+        "section": "Rescate",
+        "quote": "escalar inmediatamente a Neurocirugía/UCI ante deterioro o PIC elevada"
+      }
+    ]
+  },
   "PROC-ORTHO-004": {
     "rescue": [
       {

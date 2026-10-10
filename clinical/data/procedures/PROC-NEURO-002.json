@@ -1,170 +1,127 @@
 {
   "procedure_id": "PROC-NEURO-002",
   "name": "Medición de presión de apertura de LCR",
-  "family": "Neurología",
+  "family": "NEUROLOGÍA",
   "level": "CORE",
-  "population": [
-    "adult"
-  ],
-  "setting": [
-    "ED",
-    "ward",
-    "ICU"
-  ],
+  "schema_version": "1.42",
   "status": "YELLOW",
-  "objective": "Obtener una presión de apertura de LCR interpretable durante una punción lumbar.",
+  "objective": "obtener una presión de apertura interpretable durante una punción lumbar.",
   "indications": [
-    "Situaciones en las que la presión de apertura modifica el diagnóstico o tratamiento, incluyendo sospecha de trastornos de presión del LCR."
+    "sospecha de hipertensión/hipotensión del LCR u otra situación en la que el valor modifique diagnóstico o tratamiento."
   ],
   "contraindications_precautions": {
-    "absolute": [],
-    "relative": [
-      "Todas las contraindicaciones propias de la punción lumbar."
-    ],
-    "precautions": [
-      "La posición sentada, Valsalva, tos, agitación o flexión extrema pueden invalidar la interpretación.",
-      "No interpretar una lectura con fuga, obstrucción o sistema mal nivelado."
+    "unclassified": [
+      "comparte contraindicaciones de la LP; una medición con el paciente sentado, con Valsalva, tos, agitación o flexión extrema puede no ser comparable con valores de referencia obtenidos en decúbito lateral."
     ]
   },
   "equipment": {
-    "essential": [
-      "Manómetro.",
-      "Conexión estéril compatible con el sistema de LP."
-    ],
-    "optional": [],
-    "monitoring": [
-      "Según estado clínico."
-    ],
-    "rescue": [
-      "Material habitual de punción lumbar y soporte clínico."
+    "unclassified": [
+      "manómetro y conexión estéril compatibles con el sistema de LP."
     ]
   },
   "anatomy": {
-    "landmarks": [
-      "Punto de acceso lumbar ya establecido."
-    ],
-    "target": [
-      "Columna de LCR comunicada con el espacio subaracnoideo."
-    ],
-    "avoid": [
-      "Compresión abdominal o posturas que aumenten artificialmente la presión."
-    ],
-    "laterality": null,
-    "variants": [
-      "Medición en decúbito lateral relajado como referencia preferente."
+    "unclassified": [
+      "columna de LCR comunicada con el espacio subaracnoideo; referencia de nivel del manómetro respecto al paciente según técnica."
     ]
   },
   "preparation": {
-    "patient_position": "Decúbito lateral relajado, sin flexión extrema, cuando sea posible.",
-    "operator_position": "Junto al manómetro, asegurando lectura estable y sistema correctamente conectado.",
-    "monitoring": [
-      "Según contexto."
-    ],
-    "asepsis": [
-      "Mantener circuito estéril."
-    ],
-    "analgesia_sedation": [],
-    "prechecks": [
-      "Evitar Valsalva, tos o agitación durante la lectura.",
-      "Confirmar que el sistema está libre de fugas y obstrucción."
+    "unclassified": [
+      "decúbito lateral relajado cuando sea posible; piernas sin flexión excesiva; evitar Valsalva; asegurar sistema sin burbujas/obstrucción."
     ]
   },
   "steps": [
     {
       "order": 1,
-      "action": "Obtener acceso subaracnoideo mediante punción lumbar.",
-      "critical": true,
-      "visual_hint": null
+      "action": "obtener acceso subaracnoideo"
     },
     {
       "order": 2,
-      "action": "Conectar el manómetro antes de retirar volumen significativo de LCR.",
-      "critical": true,
-      "visual_hint": null
+      "action": "conectar manómetro antes de retirar volumen significativo"
     },
     {
       "order": 3,
-      "action": "Permitir que la columna de LCR se estabilice.",
-      "critical": true,
-      "visual_hint": null
+      "action": "permitir que la columna se estabilice"
     },
     {
       "order": 4,
-      "action": "Leer el nivel sin comprimir el abdomen ni forzar la postura.",
-      "critical": true,
-      "visual_hint": null
+      "action": "leer el nivel sin comprimir el abdomen ni forzar postura"
     },
     {
       "order": 5,
-      "action": "Registrar el valor y las condiciones exactas de medición.",
-      "critical": false,
-      "visual_hint": null
+      "action": "registrar valor y condiciones de medición."
     }
-  ],
-  "confirmation": [
-    "Columna de LCR estable.",
-    "Lectura reproducible en condiciones apropiadas."
   ],
   "stop_points": [
-    "Tos o Valsalva.",
-    "Agitación.",
-    "Posición inadecuada.",
-    "Fuga u obstrucción.",
-    "Sistema no nivelado."
+    "tos, esfuerzo, agitación, posición incorrecta, fuga, obstrucción o sistema no nivelado hacen la lectura no fiable y obligan a corregir antes de interpretar."
+  ],
+  "confirmation": [
+    "oscilación/estabilización coherente de la columna y lectura reproducible en condiciones adecuadas."
   ],
   "complications": {
-    "immediate": [
-      "Interpretación errónea por técnica o posición."
-    ],
-    "early": [],
-    "late": []
+    "unclassified": [
+      "no añade riesgos importantes más allá de la LP, pero una técnica deficiente puede producir interpretación diagnóstica errónea."
+    ]
   },
-  "rescue": [
-    "Corregir posición o artefacto y repetir la medición si sigue siendo clínicamente necesaria.",
-    "No basar decisiones mayores en una cifra discordante con clínica y contexto."
-  ],
   "aftercare": [
-    "Continuar toma de muestras o tratamiento según indicación.",
-    "Reevaluar al paciente tras la LP."
+    "continuar toma de muestras/terapia según indicación y reevaluar al paciente."
   ],
   "documentation": [
-    "Valor y unidad.",
-    "Posición del paciente.",
-    "Condiciones que puedan alterar la lectura.",
-    "Momento de la medición respecto a extracción de LCR."
+    "valor, unidad, posición, estado del paciente, condiciones que puedan alterar la lectura y momento respecto a extracción de LCR."
   ],
-  "pearls": [
-    "Registrar siempre las condiciones de medición; una cifra sin contexto puede ser engañosa."
-  ],
-  "special_adaptations": {
-    "pediatric": [
-      "Usar referencias pediátricas específicas cuando corresponda."
-    ],
-    "pregnancy": [],
-    "obesity": [],
-    "trauma": [],
-    "anticoagulation": [],
-    "difficult_anatomy": []
-  },
-  "pocus": null,
-  "pharmacology_links": [],
   "sources": [
     {
-      "title": "Consensus guidelines for lumbar puncture in patients with neurological diseases",
-      "organization": "JPND BIOMARKAPD / BioMS consortium",
-      "year": 2017,
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5454085/",
-      "doi": "10.1016/j.dadm.2017.04.007",
-      "accessed": "2026-10-06"
+      "title": "Engelborghs et al., 2017, doi:10.1016/j.dadm.2017.04.007.",
+      "organization": null,
+      "year": null
     }
   ],
+  "rescue": [
+    "repetir la medición tras corregir posición/artefacto si es clínicamente necesario; no basar decisiones mayores en una cifra discordante con clínica y contexto."
+  ],
+  "escalation": null,
   "qa": {
     "clinical_qa": "pending",
     "visual_qa": "paused",
     "human_review_required": true,
-    "last_updated": "2026-10-06",
+    "last_updated": null,
     "notes": [
-      "Structured migration completed; human clinical review still required."
+      "YELLOW; revisión humana pendiente."
     ]
-  }
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/08-neurology.md",
+    "source_heading": "PROC-NEURO-002 — Medición de presión de apertura de LCR — CORE",
+    "family_preamble": "# 8. Neurología\n\nEstado de familia: **YELLOW**. La familia está estructurada contra el schema canónico v1.41, pero requiere revisión clínica humana antes de cualquier promoción. La fase visual permanece **PAUSADA**.",
+    "source_sha256": "e8f52732cc5f29806b995305a0dd3d131e224cb513200b748efb1ae3f35a7e15",
+    "sections": {
+      "Objetivo": "obtener una presión de apertura interpretable durante una punción lumbar.",
+      "Indicaciones": "sospecha de hipertensión/hipotensión del LCR u otra situación en la que el valor modifique diagnóstico o tratamiento.",
+      "Contraindicaciones/precauciones": "comparte contraindicaciones de la LP; una medición con el paciente sentado, con Valsalva, tos, agitación o flexión extrema puede no ser comparable con valores de referencia obtenidos en decúbito lateral.",
+      "Material": "manómetro y conexión estéril compatibles con el sistema de LP.",
+      "Anatomía": "columna de LCR comunicada con el espacio subaracnoideo; referencia de nivel del manómetro respecto al paciente según técnica.",
+      "Preparación": "decúbito lateral relajado cuando sea posible; piernas sin flexión excesiva; evitar Valsalva; asegurar sistema sin burbujas/obstrucción.",
+      "Técnica paso a paso": "1) obtener acceso subaracnoideo; 2) conectar manómetro antes de retirar volumen significativo; 3) permitir que la columna se estabilice; 4) leer el nivel sin comprimir el abdomen ni forzar postura; 5) registrar valor y condiciones de medición.",
+      "Confirmación": "oscilación/estabilización coherente de la columna y lectura reproducible en condiciones adecuadas.",
+      "STOP": "tos, esfuerzo, agitación, posición incorrecta, fuga, obstrucción o sistema no nivelado hacen la lectura no fiable y obligan a corregir antes de interpretar.",
+      "Complicaciones": "no añade riesgos importantes más allá de la LP, pero una técnica deficiente puede producir interpretación diagnóstica errónea.",
+      "Rescate": "repetir la medición tras corregir posición/artefacto si es clínicamente necesario; no basar decisiones mayores en una cifra discordante con clínica y contexto.",
+      "Después": "continuar toma de muestras/terapia según indicación y reevaluar al paciente.",
+      "Documentación": "valor, unidad, posición, estado del paciente, condiciones que puedan alterar la lectura y momento respecto a extracción de LCR.",
+      "Fuentes": "Engelborghs et al., 2017, doi:10.1016/j.dadm.2017.04.007.",
+      "QA": "YELLOW; revisión humana pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Rescate",
+          "quote": "repetir la medición tras corregir posición/artefacto si es clínicamente necesario; no basar decisiones mayores en una cifra discordante con clínica y contexto."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
 }
