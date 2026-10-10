@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-TRA-003",
+  "name": "Torniquete de extremidad",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "detener hemorragia potencialmente mortal de una extremidad cuando la presión directa no es suficiente o factible.",
+  "indications": [
+    "sangrado grave de extremidad no controlado con presión directa."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no colocar sobre una articulación; el dolor es esperable y no indica aflojamiento."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "torniquete comercial aprobado y marcador de hora."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "segmento de extremidad proximal a la lesión."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "exponer si no retrasa control."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "RCUK/ERC 2025 recomienda colocarlo aproximadamente 5–7 cm proximal a la lesión y no sobre una articulación; ajustar hasta que el sangrado se detenga por completo, fijar y registrar hora. Si persiste sangrado, aplicar un segundo torniquete proximal al primero."
+    }
+  ],
+  "stop_points": [
+    "no aflojar periódicamente ni cubrir el torniquete de forma que oculte su presencia."
+  ],
+  "confirmation": [
+    "cese completo del sangrado."
+  ],
+  "complications": {
+    "unclassified": [
+      "dolor, lesión nerviosa/isquémica y fracaso por colocación o tensión insuficientes."
+    ]
+  },
+  "aftercare": [
+    "control quirúrgico/hemostático definitivo; la liberación corresponde a profesionales en un entorno adecuado."
+  ],
+  "documentation": [
+    "sitio, hora y número de torniquetes."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC First Aid 2025; ERC 2025 Special Circumstances.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "Si persiste sangrado, aplicar un segundo torniquete proximal al primero."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-003 — Torniquete de extremidad — CORE",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "8bb0d785308777cd2509dc7f2a17b0b7dbdca4c45114b137633fb45be3a152d1",
+    "sections": {
+      "Objetivo": "detener hemorragia potencialmente mortal de una extremidad cuando la presión directa no es suficiente o factible.",
+      "Indicaciones": "sangrado grave de extremidad no controlado con presión directa.",
+      "Contraindicaciones/precauciones": "no colocar sobre una articulación; el dolor es esperable y no indica aflojamiento.",
+      "Material": "torniquete comercial aprobado y marcador de hora.",
+      "Anatomía": "segmento de extremidad proximal a la lesión.",
+      "Preparación": "exponer si no retrasa control.",
+      "Técnica paso a paso": "RCUK/ERC 2025 recomienda colocarlo aproximadamente 5–7 cm proximal a la lesión y no sobre una articulación; ajustar hasta que el sangrado se detenga por completo, fijar y registrar hora. Si persiste sangrado, aplicar un segundo torniquete proximal al primero.",
+      "STOP": "no aflojar periódicamente ni cubrir el torniquete de forma que oculte su presencia.",
+      "Confirmación": "cese completo del sangrado.",
+      "Complicaciones": "dolor, lesión nerviosa/isquémica y fracaso por colocación o tensión insuficientes.",
+      "Después": "control quirúrgico/hemostático definitivo; la liberación corresponde a profesionales en un entorno adecuado.",
+      "Documentación": "sitio, hora y número de torniquetes.",
+      "Fuentes": "RCUK/ERC First Aid 2025; ERC 2025 Special Circumstances.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "Si persiste sangrado, aplicar un segundo torniquete proximal al primero."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

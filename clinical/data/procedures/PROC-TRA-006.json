@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-TRA-006",
+  "name": "Collar cervical: selección y colocación",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "limitar movimiento cervical como parte de una estrategia selectiva de restricción.",
+  "indications": [
+    "sospecha de lesión cervical cuando el protocolo determina que el collar aporta beneficio."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no comprometer vía aérea, ventilación ni retorno venoso; no forzar deformidad o posición dolorosa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "collar ajustable o tallas adecuadas."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "mentón, esternón, occipucio y columna cervical."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "estabilización manual y evaluación previa de cuello/vía aérea."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "medir, seleccionar talla, colocar sin flexo-extensión, cerrar simétricamente y comprobar que no compromete mandíbula/vía aérea."
+    }
+  ],
+  "stop_points": [
+    "compromiso respiratorio, dolor intenso o déficit neurológico nuevo."
+  ],
+  "confirmation": [
+    "soporte adecuado sin presión excesiva ni cambio neurológico."
+  ],
+  "complications": {
+    "unclassified": [
+      "presión cutánea, mal ajuste, aumento de presión yugular e incomodidad."
+    ]
+  },
+  "aftercare": [
+    "reevaluar necesidad; el collar no sustituye la valoración definitiva."
+  ],
+  "documentation": [
+    "talla, indicación y examen neurológico."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC First Aid 2025; trauma spinal-motion-restriction guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-006 — Collar cervical: selección y colocación — CORE",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "f572d78610feb7b3a625350c2130ebdb204bc80fbc8b68cb664518988ec4fd83",
+    "sections": {
+      "Objetivo": "limitar movimiento cervical como parte de una estrategia selectiva de restricción.",
+      "Indicaciones": "sospecha de lesión cervical cuando el protocolo determina que el collar aporta beneficio.",
+      "Contraindicaciones/precauciones": "no comprometer vía aérea, ventilación ni retorno venoso; no forzar deformidad o posición dolorosa.",
+      "Material": "collar ajustable o tallas adecuadas.",
+      "Anatomía": "mentón, esternón, occipucio y columna cervical.",
+      "Preparación": "estabilización manual y evaluación previa de cuello/vía aérea.",
+      "Técnica paso a paso": "medir, seleccionar talla, colocar sin flexo-extensión, cerrar simétricamente y comprobar que no compromete mandíbula/vía aérea.",
+      "STOP": "compromiso respiratorio, dolor intenso o déficit neurológico nuevo.",
+      "Confirmación": "soporte adecuado sin presión excesiva ni cambio neurológico.",
+      "Complicaciones": "presión cutánea, mal ajuste, aumento de presión yugular e incomodidad.",
+      "Después": "reevaluar necesidad; el collar no sustituye la valoración definitiva.",
+      "Documentación": "talla, indicación y examen neurológico.",
+      "Fuentes": "RCUK/ERC First Aid 2025; trauma spinal-motion-restriction guidance.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

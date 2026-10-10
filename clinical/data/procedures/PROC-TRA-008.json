@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-TRA-008",
+  "name": "Extricación básica de emergencia",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar al paciente de un entorno peligroso o permitir tratamiento vital inmediato.",
+  "indications": [
+    "amenaza ambiental, incendio, tráfico, derrumbe o imposibilidad de tratar ABC in situ."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "si la escena es segura y existe tiempo, preferir extricación controlada; no exponer rescatadores a peligro no mitigado."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "PPE y dispositivos de extracción disponibles."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "lesiones sospechadas y eje axial."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "seguridad de escena y control rápido de hemorragia/vía aérea si puede hacerse sin retrasar salida."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "asignar líder, estabilizar lo posible, liberar obstáculos, movilizar por la ruta más segura con mínimos giros y transferir a zona segura."
+    }
+  ],
+  "stop_points": [
+    "atrapamiento complejo o riesgo estructural → rescate técnico especializado."
+  ],
+  "confirmation": [
+    "paciente en zona segura con ABC reevaluado."
+  ],
+  "complications": {
+    "unclassified": [
+      "agravamiento de lesiones y pérdida de dispositivos."
+    ]
+  },
+  "aftercare": [
+    "trauma survey completo."
+  ],
+  "documentation": [
+    "motivo, método y eventos durante extricación."
+  ],
+  "sources": [
+    {
+      "title": "WHO Basic Emergency Care; prehospital trauma guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "atrapamiento complejo o riesgo estructural → rescate técnico especializado."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma/prehospitalaria pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-008 — Extricación básica de emergencia — CORE",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "6079310c2fc5062f51dd476457ac7e24587f49452dfde4bedfd47899c45a12be",
+    "sections": {
+      "Objetivo": "retirar al paciente de un entorno peligroso o permitir tratamiento vital inmediato.",
+      "Indicaciones": "amenaza ambiental, incendio, tráfico, derrumbe o imposibilidad de tratar ABC in situ.",
+      "Contraindicaciones/precauciones": "si la escena es segura y existe tiempo, preferir extricación controlada; no exponer rescatadores a peligro no mitigado.",
+      "Material": "PPE y dispositivos de extracción disponibles.",
+      "Anatomía": "lesiones sospechadas y eje axial.",
+      "Preparación": "seguridad de escena y control rápido de hemorragia/vía aérea si puede hacerse sin retrasar salida.",
+      "Técnica paso a paso": "asignar líder, estabilizar lo posible, liberar obstáculos, movilizar por la ruta más segura con mínimos giros y transferir a zona segura.",
+      "STOP": "atrapamiento complejo o riesgo estructural → rescate técnico especializado.",
+      "Confirmación": "paciente en zona segura con ABC reevaluado.",
+      "Complicaciones": "agravamiento de lesiones y pérdida de dispositivos.",
+      "Después": "trauma survey completo.",
+      "Documentación": "motivo, método y eventos durante extricación.",
+      "Fuentes": "WHO Basic Emergency Care; prehospital trauma guidance.",
+      "QA": "YELLOW; revisión humana trauma/prehospitalaria pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "atrapamiento complejo o riesgo estructural → rescate técnico especializado."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

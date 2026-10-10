@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-TRA-004",
+  "name": "Binder pélvico",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "estabilizar temporalmente el anillo pélvico y reducir sangrado potencial en fractura inestable.",
+  "indications": [
+    "trauma con sospecha de fractura pélvica inestable y shock/mecanismo compatible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no colocar a nivel de cintura/crestas ilíacas; evitar manipulación repetida de pelvis y vigilar presión cutánea."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "binder comercial o sábana si el protocolo permite improvisación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "trocánteres mayores y anillo pélvico."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "movilización mínima y coordinada, control simultáneo de hemorragia y reanimación."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "localizar ambos trocánteres mayores, deslizar el binder con mínima movilización, centrarlo a nivel trocantérico y cerrar según fabricante."
+    }
+  ],
+  "stop_points": [
+    "colocación alta, deterioro cutáneo importante o interferencia con otras intervenciones."
+  ],
+  "confirmation": [
+    "posición sobre trocánteres y estabilidad del dispositivo; la mejoría hemodinámica no sustituye control definitivo."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesiones cutáneas/por presión, compresión nerviosa y falsa seguridad."
+    ]
+  },
+  "aftercare": [
+    "imagen y control hemorrágico definitivo; retirar o recolocar solo según plan de trauma."
+  ],
+  "documentation": [
+    "hora, tipo de dispositivo y posición."
+  ],
+  "sources": [
+    {
+      "title": "ERC 2025 Special Circumstances — severe hypovolaemia/traumatic cardiac arrest; trauma pelvic haemorrhage guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-004 — Binder pélvico — CORE",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "6eaffac6cc1b58279677884424646be5964ba8b27281a4973d7cc10ce62c8afb",
+    "sections": {
+      "Objetivo": "estabilizar temporalmente el anillo pélvico y reducir sangrado potencial en fractura inestable.",
+      "Indicaciones": "trauma con sospecha de fractura pélvica inestable y shock/mecanismo compatible.",
+      "Contraindicaciones/precauciones": "no colocar a nivel de cintura/crestas ilíacas; evitar manipulación repetida de pelvis y vigilar presión cutánea.",
+      "Material": "binder comercial o sábana si el protocolo permite improvisación.",
+      "Anatomía": "trocánteres mayores y anillo pélvico.",
+      "Preparación": "movilización mínima y coordinada, control simultáneo de hemorragia y reanimación.",
+      "Técnica paso a paso": "localizar ambos trocánteres mayores, deslizar el binder con mínima movilización, centrarlo a nivel trocantérico y cerrar según fabricante.",
+      "STOP": "colocación alta, deterioro cutáneo importante o interferencia con otras intervenciones.",
+      "Confirmación": "posición sobre trocánteres y estabilidad del dispositivo; la mejoría hemodinámica no sustituye control definitivo.",
+      "Complicaciones": "lesiones cutáneas/por presión, compresión nerviosa y falsa seguridad.",
+      "Después": "imagen y control hemorrágico definitivo; retirar o recolocar solo según plan de trauma.",
+      "Documentación": "hora, tipo de dispositivo y posición.",
+      "Fuentes": "ERC 2025 Special Circumstances — severe hypovolaemia/traumatic cardiac arrest; trauma pelvic haemorrhage guidance.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

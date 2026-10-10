@@ -223,6 +223,60 @@
       }
     ]
   },
+  "PROC-TRA-001": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización."
+      }
+    ]
+  },
+  "PROC-TRA-002": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "sangrado persistente, herida cavitaria profunda no controlable o deterioro hemodinámico → cirugía/intervención definitiva."
+      }
+    ]
+  },
+  "PROC-TRA-003": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "Si persiste sangrado, aplicar un segundo torniquete proximal al primero."
+      }
+    ]
+  },
+  "PROC-TRA-008": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "atrapamiento complejo o riesgo estructural → rescate técnico especializado."
+      }
+    ]
+  },
+  "PROC-TRA-009": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "resistencia por diseño del casco o atrapamiento no reconocido → detener y usar técnica específica."
+      }
+    ]
+  },
+  "PROC-TRA-010": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "ventana no diagnóstica o discordancia clínica → no declarar examen negativo; escalar a imagen/intervención según estabilidad."
+      }
+    ]
+  },
   "PROC-VASC-001": {
     "rescue": [
       {

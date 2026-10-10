@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-TRA-001",
+  "name": "Control de hemorragia externa por compresión directa",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "detener una hemorragia externa potencialmente mortal de forma inmediata.",
+  "indications": [
+    "sangrado externo visible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "usar PPE; no perder tiempo buscando material sofisticado si puede aplicarse presión manual inmediata."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes, gasas/apósitos o material limpio, vendaje compresivo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "herida y foco vascular subyacente."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "exponer rápidamente el foco."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "aplicar presión manual firme y continua directamente sobre la herida; añadir apósito estándar o hemostático y mantener presión; cuando se controle, fijar con vendaje compresivo."
+    }
+  ],
+  "stop_points": [
+    "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización."
+  ],
+  "confirmation": [
+    "cese o reducción marcada del sangrado y perfusión distal compatible con la lesión."
+  ],
+  "complications": {
+    "unclassified": [
+      "retraso de escalada o lesión tisular por presión mal aplicada."
+    ]
+  },
+  "aftercare": [
+    "reevaluar shock, sangrado oculto y necesidad de control definitivo."
+  ],
+  "documentation": [
+    "localización, método y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC First Aid 2025 — life-threatening bleeding; ERC 2025 Special Circumstances.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización."
+  ],
+  "escalation": [
+    "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-001 — Control de hemorragia externa por compresión directa — CORE",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "36c53b3a0e60dd6d092b15178a84f059b80b84534ed419985193df0b0e72c1bb",
+    "sections": {
+      "Objetivo": "detener una hemorragia externa potencialmente mortal de forma inmediata.",
+      "Indicaciones": "sangrado externo visible.",
+      "Contraindicaciones/precauciones": "usar PPE; no perder tiempo buscando material sofisticado si puede aplicarse presión manual inmediata.",
+      "Material": "guantes, gasas/apósitos o material limpio, vendaje compresivo.",
+      "Anatomía": "herida y foco vascular subyacente.",
+      "Preparación": "exponer rápidamente el foco.",
+      "Técnica paso a paso": "aplicar presión manual firme y continua directamente sobre la herida; añadir apósito estándar o hemostático y mantener presión; cuando se controle, fijar con vendaje compresivo.",
+      "STOP": "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización.",
+      "Confirmación": "cese o reducción marcada del sangrado y perfusión distal compatible con la lesión.",
+      "Complicaciones": "retraso de escalada o lesión tisular por presión mal aplicada.",
+      "Después": "reevaluar shock, sangrado oculto y necesidad de control definitivo.",
+      "Documentación": "localización, método y respuesta.",
+      "Fuentes": "RCUK/ERC First Aid 2025 — life-threatening bleeding; ERC 2025 Special Circumstances.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "si el sangrado sigue siendo potencialmente mortal pese a presión, escalar de inmediato a packing y/o torniquete según localización."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

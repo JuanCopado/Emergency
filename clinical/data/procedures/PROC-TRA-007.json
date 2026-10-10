@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-TRA-007",
+  "name": "Log-roll / movilización coordinada del politraumatizado",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "movilizar al paciente cuando sea necesario manteniendo alineación y evitando movimientos innecesarios.",
+  "indications": [
+    "inspección posterior, higiene, transferencia o intervención que requiera giro."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar log-roll rutinario en pelvis inestable o paciente hemodinámicamente crítico cuando exista una alternativa de transferencia más estable."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "equipo entrenado y superficie de transferencia."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "eje cabeza-cuello-tronco-pelvis."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "líder identificado, dispositivos/tubos asegurados y roles asignados."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "estabilizar cabeza, hombros, pelvis y piernas; girar de forma coordinada como una unidad solo lo necesario; inspeccionar/intervenir y retornar o transferir."
+    }
+  ],
+  "stop_points": [
+    "deterioro hemodinámico, desplazamiento evidente de pelvis o pérdida de dispositivos/vía aérea."
+  ],
+  "confirmation": [
+    "transferencia completada con alineación y estado neurológico sin cambios."
+  ],
+  "complications": {
+    "unclassified": [
+      "desplazamiento de fracturas, pérdida de líneas/tubos y dolor."
+    ]
+  },
+  "aftercare": [
+    "reevaluar ABC y neurovascular."
+  ],
+  "documentation": [
+    "motivo y resultado."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC First Aid 2025 selective spinal motion restriction principles; WHO–ICRC Basic Emergency Care trauma handling.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-007 — Log-roll / movilización coordinada — CORE",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "51808bc94eabe3ff321b26417420a1038236137df32eca09ac1ebcedd63929a1",
+    "sections": {
+      "Objetivo": "movilizar al paciente cuando sea necesario manteniendo alineación y evitando movimientos innecesarios.",
+      "Indicaciones": "inspección posterior, higiene, transferencia o intervención que requiera giro.",
+      "Contraindicaciones/precauciones": "evitar log-roll rutinario en pelvis inestable o paciente hemodinámicamente crítico cuando exista una alternativa de transferencia más estable.",
+      "Material": "equipo entrenado y superficie de transferencia.",
+      "Anatomía": "eje cabeza-cuello-tronco-pelvis.",
+      "Preparación": "líder identificado, dispositivos/tubos asegurados y roles asignados.",
+      "Técnica paso a paso": "estabilizar cabeza, hombros, pelvis y piernas; girar de forma coordinada como una unidad solo lo necesario; inspeccionar/intervenir y retornar o transferir.",
+      "STOP": "deterioro hemodinámico, desplazamiento evidente de pelvis o pérdida de dispositivos/vía aérea.",
+      "Confirmación": "transferencia completada con alineación y estado neurológico sin cambios.",
+      "Complicaciones": "desplazamiento de fracturas, pérdida de líneas/tubos y dolor.",
+      "Después": "reevaluar ABC y neurovascular.",
+      "Documentación": "motivo y resultado.",
+      "Fuentes": "RCUK/ERC First Aid 2025 selective spinal motion restriction principles; WHO–ICRC Basic Emergency Care trauma handling.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

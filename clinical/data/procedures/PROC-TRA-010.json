@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-TRA-010",
+  "name": "eFAST",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "detectar rápidamente hemopericardio, líquido intraperitoneal y neumotórax/hemotórax en trauma.",
+  "indications": [
+    "trauma con shock, mecanismo significativo o sospecha toracoabdominal."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retrasar control hemorrágico o descompresión vital; un estudio negativo no excluye lesión relevante."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo y transductores adecuados."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pericardio, recesos hepatorrenal/esplenorrenal, pelvis y pleuras."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "integrar el examen dentro de la reanimación con paciente supino cuando sea posible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "obtener ventanas pericárdica, RUQ, LUQ, pelvis y pleuras bilaterales; repetir si cambia la clínica o tras intervenciones."
+    }
+  ],
+  "stop_points": [
+    "ventana no diagnóstica o discordancia clínica → no declarar examen negativo; escalar a imagen/intervención según estabilidad."
+  ],
+  "confirmation": [
+    "interpretación integrada con hemodinámica y mecanismo."
+  ],
+  "complications": {
+    "unclassified": [
+      "falsos negativos/positivos, retraso de tratamiento y falsa tranquilidad."
+    ]
+  },
+  "aftercare": [
+    "repetir POCUS o realizar CT/quirófano/IR según estabilidad y hallazgos."
+  ],
+  "documentation": [
+    "ventanas obtenidas, calidad, hallazgos y limitaciones."
+  ],
+  "sources": [
+    {
+      "title": "trauma POCUS standards; ERC 2025 Special Circumstances.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "ventana no diagnóstica o discordancia clínica → no declarar examen negativo; escalar a imagen/intervención según estabilidad."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma/POCUS pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-010 — eFAST — CORE/POCUS",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "819e5cdaa71e6e9a59de392f35410a7e531f20b5bc0a6dd40836214195d03ac9",
+    "sections": {
+      "Objetivo": "detectar rápidamente hemopericardio, líquido intraperitoneal y neumotórax/hemotórax en trauma.",
+      "Indicaciones": "trauma con shock, mecanismo significativo o sospecha toracoabdominal.",
+      "Contraindicaciones/precauciones": "no retrasar control hemorrágico o descompresión vital; un estudio negativo no excluye lesión relevante.",
+      "Material": "ecógrafo y transductores adecuados.",
+      "Anatomía": "pericardio, recesos hepatorrenal/esplenorrenal, pelvis y pleuras.",
+      "Preparación": "integrar el examen dentro de la reanimación con paciente supino cuando sea posible.",
+      "Técnica paso a paso": "obtener ventanas pericárdica, RUQ, LUQ, pelvis y pleuras bilaterales; repetir si cambia la clínica o tras intervenciones.",
+      "STOP": "ventana no diagnóstica o discordancia clínica → no declarar examen negativo; escalar a imagen/intervención según estabilidad.",
+      "Confirmación": "interpretación integrada con hemodinámica y mecanismo.",
+      "Complicaciones": "falsos negativos/positivos, retraso de tratamiento y falsa tranquilidad.",
+      "Después": "repetir POCUS o realizar CT/quirófano/IR según estabilidad y hallazgos.",
+      "Documentación": "ventanas obtenidas, calidad, hallazgos y limitaciones.",
+      "Fuentes": "trauma POCUS standards; ERC 2025 Special Circumstances.",
+      "QA": "YELLOW; revisión humana trauma/POCUS pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "ventana no diagnóstica o discordancia clínica → no declarar examen negativo; escalar a imagen/intervención según estabilidad."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

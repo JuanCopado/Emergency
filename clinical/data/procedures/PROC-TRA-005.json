@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-TRA-005",
+  "name": "Inmovilización espinal selectiva",
+  "family": "TRAUMA Y CONTROL DE HEMORRAGIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "limitar movimientos potencialmente dañinos sin aplicar inmovilización indiscriminada.",
+  "indications": [
+    "trauma con hallazgos clínicos o mecanismo que justifican restricción según protocolo."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "nunca comprometer vía aérea, ventilación o perfusión; evitar mantener al paciente sobre tabla rígida más tiempo del necesario."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "estabilización manual, camilla/camilla cuchara, colchón de vacío y collar cuando esté indicado."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "columna cervical y toracolumbar."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "evaluación neurológica y asignación de roles."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "estabilización manual inicial, mantener alineación neutra tolerada, usar dispositivos de transferencia/soporte selectivamente y reducir movimientos innecesarios."
+    }
+  ],
+  "stop_points": [
+    "deterioro respiratorio/hemodinámico, dolor neurológico nuevo o resistencia a una posición neutra forzada."
+  ],
+  "confirmation": [
+    "alineación tolerada y examen neurológico sin deterioro."
+  ],
+  "complications": {
+    "unclassified": [
+      "dolor, úlceras por presión, restricción respiratoria y aumento de tiempos de atención."
+    ]
+  },
+  "aftercare": [
+    "retirar restricciones cuando la evaluación/protocolo lo permita."
+  ],
+  "documentation": [
+    "indicación, dispositivos y neuro pre/post."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC First Aid 2025 — selective spinal motion restriction; trauma guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/05-trauma-hemorrhage.md",
+    "source_heading": "PROC-TRA-005 — Restricción selectiva del movimiento espinal — CORE",
+    "family_preamble": "# 5. Trauma y control de hemorragia\n\nEstado de familia: **YELLOW**. Principio transversal: tratar primero amenazas vitales, minimizar interrupciones y documentar examen neurovascular antes/después de inmovilizar cuando sea posible. Fuentes troncales: ERC 2025 special circumstances/trauma, WHO Basic Emergency Care y trauma guidance reconocida.",
+    "source_sha256": "100886f4d3343178783f9cfbb3e9bc4a004d2518e755fc522673e79f3298c46d",
+    "sections": {
+      "Objetivo": "limitar movimientos potencialmente dañinos sin aplicar inmovilización indiscriminada.",
+      "Indicaciones": "trauma con hallazgos clínicos o mecanismo que justifican restricción según protocolo.",
+      "Contraindicaciones/precauciones": "nunca comprometer vía aérea, ventilación o perfusión; evitar mantener al paciente sobre tabla rígida más tiempo del necesario.",
+      "Material": "estabilización manual, camilla/camilla cuchara, colchón de vacío y collar cuando esté indicado.",
+      "Anatomía": "columna cervical y toracolumbar.",
+      "Preparación": "evaluación neurológica y asignación de roles.",
+      "Técnica paso a paso": "estabilización manual inicial, mantener alineación neutra tolerada, usar dispositivos de transferencia/soporte selectivamente y reducir movimientos innecesarios.",
+      "STOP": "deterioro respiratorio/hemodinámico, dolor neurológico nuevo o resistencia a una posición neutra forzada.",
+      "Confirmación": "alineación tolerada y examen neurológico sin deterioro.",
+      "Complicaciones": "dolor, úlceras por presión, restricción respiratoria y aumento de tiempos de atención.",
+      "Después": "retirar restricciones cuando la evaluación/protocolo lo permita.",
+      "Documentación": "indicación, dispositivos y neuro pre/post.",
+      "Fuentes": "RCUK/ERC First Aid 2025 — selective spinal motion restriction; trauma guidance.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
