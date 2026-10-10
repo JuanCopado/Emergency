@@ -1,0 +1,106 @@
+{
+  "procedure_id": "PROC-EYE-001",
+  "name": "Irrigación ocular en exposición química",
+  "family": "OFTALMOLOGÍA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar el agente químico inmediatamente y restaurar pH fisiológico para limitar lesión corneal/conjuntival.",
+  "indications": [
+    "exposición ocular a ácidos, álcalis u otros irritantes químicos."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retrasar la irrigación por historia, exploración, búsqueda del producto o consulta; usar cualquier líquido no tóxico disponible si no hay solución estéril inmediata. Si existe globo abierto evidente, priorizar escudo y oftalmología."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "solución salina, Ringer lactato, BSS o agua si es lo único disponible; anestésico tópico, separador palpebral y tiras de pH."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "córnea, conjuntiva bulbar/palpebral y fondos de saco."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "PPE, retirar lentes de contacto, abrir párpados y comenzar irrigación inmediatamente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "irrigar de nasal a temporal alejando el flujo del ojo contralateral; pedir al paciente mover el ojo en todas direcciones; evertir párpados y retirar partículas visibles/retidas en fórnices; continuar hasta pH fisiológico."
+    }
+  ],
+  "stop_points": [
+    "no intentar neutralización química ácido-base; no detener por volumen arbitrario si el pH sigue alterado."
+  ],
+  "confirmation": [
+    "pH 7,0–7,2 estable al menos 5 min después de detener irrigación y ausencia de partículas retenidas visibles."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión corneal/conjuntival persistente, edema, cicatrización, simbléfaron y déficit limbar."
+    ]
+  },
+  "aftercare": [
+    "agudeza visual, fluoresceína, evaluación limbar/conjuntival y oftalmología según gravedad."
+  ],
+  "documentation": [
+    "sustancia, hora, irrigación previa, líquido/volumen aproximado, pH seriado y hallazgos."
+  ],
+  "sources": [
+    {
+      "title": "AAO EyeWiki, Chemical (Alkali and Acid) Injury of the Conjunctiva and Cornea, updated 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmología pendiente."
+    ]
+  },
+  "aliases": [
+    "PROC-SP-006"
+  ],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-001 — Irrigación ocular química — CORE",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "447acdeda15e9c14a77be3f5178f6305334fa79ecb46bfe1f5f77a0a67cd51a1",
+    "sections": {
+      "Objetivo": "retirar el agente químico inmediatamente y restaurar pH fisiológico para limitar lesión corneal/conjuntival.",
+      "Indicaciones": "exposición ocular a ácidos, álcalis u otros irritantes químicos.",
+      "Contraindicaciones/precauciones": "no retrasar la irrigación por historia, exploración, búsqueda del producto o consulta; usar cualquier líquido no tóxico disponible si no hay solución estéril inmediata. Si existe globo abierto evidente, priorizar escudo y oftalmología.",
+      "Material": "solución salina, Ringer lactato, BSS o agua si es lo único disponible; anestésico tópico, separador palpebral y tiras de pH.",
+      "Anatomía": "córnea, conjuntiva bulbar/palpebral y fondos de saco.",
+      "Preparación": "PPE, retirar lentes de contacto, abrir párpados y comenzar irrigación inmediatamente.",
+      "Técnica paso a paso": "irrigar de nasal a temporal alejando el flujo del ojo contralateral; pedir al paciente mover el ojo en todas direcciones; evertir párpados y retirar partículas visibles/retidas en fórnices; continuar hasta pH fisiológico.",
+      "STOP": "no intentar neutralización química ácido-base; no detener por volumen arbitrario si el pH sigue alterado.",
+      "Confirmación": "pH 7,0–7,2 estable al menos 5 min después de detener irrigación y ausencia de partículas retenidas visibles.",
+      "Complicaciones": "lesión corneal/conjuntival persistente, edema, cicatrización, simbléfaron y déficit limbar.",
+      "Después": "agudeza visual, fluoresceína, evaluación limbar/conjuntival y oftalmología según gravedad.",
+      "Documentación": "sustancia, hora, irrigación previa, líquido/volumen aproximado, pH seriado y hallazgos.",
+      "Fuentes": "AAO EyeWiki, Chemical (Alkali and Acid) Injury of the Conjunctiva and Cornea, updated 2026.",
+      "QA": "YELLOW; revisión humana oftalmología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

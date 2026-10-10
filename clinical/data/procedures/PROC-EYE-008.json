@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-EYE-008",
+  "name": "Descompresión lateral cantotomía/cantólisis",
+  "family": "OFTALMOLOGÍA",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "descomprimir de inmediato un síndrome compartimental orbitario (OCS) para preservar perfusión retiniana y del nervio óptico.",
+  "indications": [
+    "diagnóstico clínico de OCS con proptosis/tensión orbitaria y deterioro visual, RAPD, oftalmoplejía u otros signos de neuropatía óptica; una PIO >40 mmHg apoya la indicación cuando puede medirse sin retraso."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retrasar descompresión por TC si la clínica es convincente. La sospecha de globo abierto exige máxima precaución y estrategia oftalmológica/trauma específica, pero no elimina la urgencia de tratar un OCS verdadero."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anestesia local si no retrasa, hemostato, tijera roma/bisturí, material de hemostasia y escudo ocular cuando corresponda."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "canto lateral, tendón cantal lateral (crus inferior y superior), globo y glándula/arteria lagrimal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "documentar rápidamente agudeza visual/pupila/motilidad cuando sea posible; no retrasar el procedimiento por exploraciones prolongadas."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar cantotomía lateral; identificar y seccionar primero el crus inferior del tendón cantal; reevaluar tensión, visión y PIO si es medible. Considerar cantólisis superior solo si la descompresión inferior es insuficiente y con especial cautela por riesgo de lesión lagrimal/hemorragia."
+    }
+  ],
+  "stop_points": [
+    "no esperar imagen ante OCS clínico; detener disección ciega si no se identifica anatomía y buscar apoyo quirúrgico inmediato."
+  ],
+  "confirmation": [
+    "liberación del párpado/proptosis, descenso de tensión/PIO y mejoría o estabilización de función visual cuando sea evaluable."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia, lesión del globo o aparato lagrimal, cicatriz y necesidad de reparación/decompresión orbital adicional."
+    ]
+  },
+  "aftercare": [
+    "oftalmología/orbital surgery urgente, control de causa y reevaluación visual seriada."
+  ],
+  "documentation": [
+    "indicación clínica, ojo, hallazgos pre/post, pasos y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "American Academy of Ophthalmology EyeWiki, Orbital Compartment Syndrome / Pre-Ophthalmologist Management of Eye Trauma (consultado 2026).",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "Considerar cantólisis superior solo si la descompresión inferior es insuficiente y con especial cautela por riesgo de lesión lagrimal/hemorragia."
+  ],
+  "escalation": [
+    "detener disección ciega si no se identifica anatomía y buscar apoyo quirúrgico inmediato."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmológica pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-008 — Cantotomía/cantólisis lateral — SPECIALIST",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "47e84a4788cfb0021e9fa88d2c3834b44943a847cea56d04cb7225fbc12717e4",
+    "sections": {
+      "Objetivo": "descomprimir de inmediato un síndrome compartimental orbitario (OCS) para preservar perfusión retiniana y del nervio óptico.",
+      "Indicaciones": "diagnóstico clínico de OCS con proptosis/tensión orbitaria y deterioro visual, RAPD, oftalmoplejía u otros signos de neuropatía óptica; una PIO >40 mmHg apoya la indicación cuando puede medirse sin retraso.",
+      "Contraindicaciones/precauciones": "no retrasar descompresión por TC si la clínica es convincente. La sospecha de globo abierto exige máxima precaución y estrategia oftalmológica/trauma específica, pero no elimina la urgencia de tratar un OCS verdadero.",
+      "Material": "anestesia local si no retrasa, hemostato, tijera roma/bisturí, material de hemostasia y escudo ocular cuando corresponda.",
+      "Anatomía": "canto lateral, tendón cantal lateral (crus inferior y superior), globo y glándula/arteria lagrimal.",
+      "Preparación": "documentar rápidamente agudeza visual/pupila/motilidad cuando sea posible; no retrasar el procedimiento por exploraciones prolongadas.",
+      "Técnica paso a paso": "realizar cantotomía lateral; identificar y seccionar primero el crus inferior del tendón cantal; reevaluar tensión, visión y PIO si es medible. Considerar cantólisis superior solo si la descompresión inferior es insuficiente y con especial cautela por riesgo de lesión lagrimal/hemorragia.",
+      "STOP": "no esperar imagen ante OCS clínico; detener disección ciega si no se identifica anatomía y buscar apoyo quirúrgico inmediato.",
+      "Confirmación": "liberación del párpado/proptosis, descenso de tensión/PIO y mejoría o estabilización de función visual cuando sea evaluable.",
+      "Complicaciones": "hemorragia, lesión del globo o aparato lagrimal, cicatriz y necesidad de reparación/decompresión orbital adicional.",
+      "Después": "oftalmología/orbital surgery urgente, control de causa y reevaluación visual seriada.",
+      "Documentación": "indicación clínica, ojo, hallazgos pre/post, pasos y respuesta.",
+      "Fuentes": "American Academy of Ophthalmology EyeWiki, Orbital Compartment Syndrome / Pre-Ophthalmologist Management of Eye Trauma (consultado 2026).",
+      "QA": "YELLOW; revisión humana oftalmológica pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "Considerar cantólisis superior solo si la descompresión inferior es insuficiente y con especial cautela por riesgo de lesión lagrimal/hemorragia."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "detener disección ciega si no se identifica anatomía y buscar apoyo quirúrgico inmediato."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

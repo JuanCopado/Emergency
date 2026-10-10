@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-EYE-006",
+  "name": "Tonometría",
+  "family": "OFTALMOLOGÍA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "medir presión intraocular cuando el resultado cambia el manejo.",
+  "indications": [
+    "sospecha de glaucoma agudo, hipertensión ocular u otras indicaciones seleccionadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "globo abierto sospechado o evidente, laceración penetrante/perforante o lesión que pueda empeorar con presión sobre el ojo."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "tonómetro, anestésico tópico según dispositivo y material de desinfección."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "córnea y globo ocular."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "descartar primero signos de ruptura ocular y calibrar/preparar dispositivo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "anestesiar si corresponde, colocar al paciente correctamente y obtener lecturas reproducibles con mínima presión externa."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, mala alineación, hallazgos de globo abierto o lectura claramente discordante que sugiera error técnico."
+  ],
+  "confirmation": [
+    "lecturas reproducibles coherentes con clínica y ojo contralateral cuando la comparación sea apropiada."
+  ],
+  "complications": {
+    "unclassified": [
+      "abrasión, infección cruzada y error de medición."
+    ]
+  },
+  "aftercare": [
+    "tratamiento y consulta según presión y diagnóstico."
+  ],
+  "documentation": [
+    "ojo, método, valores y hora."
+  ],
+  "sources": [
+    {
+      "title": "AAO EyeWiki, acute glaucoma/ocular trauma guidance; AAO emergency ophthalmology principles.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-006 — Tonometría — CORE",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "4ca343a94edc6bd75ac931ad2952e363033714036c5eeb02c520fe4893df3d57",
+    "sections": {
+      "Objetivo": "medir presión intraocular cuando el resultado cambia el manejo.",
+      "Indicaciones": "sospecha de glaucoma agudo, hipertensión ocular u otras indicaciones seleccionadas.",
+      "Contraindicaciones/precauciones": "globo abierto sospechado o evidente, laceración penetrante/perforante o lesión que pueda empeorar con presión sobre el ojo.",
+      "Material": "tonómetro, anestésico tópico según dispositivo y material de desinfección.",
+      "Anatomía": "córnea y globo ocular.",
+      "Preparación": "descartar primero signos de ruptura ocular y calibrar/preparar dispositivo.",
+      "Técnica paso a paso": "anestesiar si corresponde, colocar al paciente correctamente y obtener lecturas reproducibles con mínima presión externa.",
+      "STOP": "dolor intenso, mala alineación, hallazgos de globo abierto o lectura claramente discordante que sugiera error técnico.",
+      "Confirmación": "lecturas reproducibles coherentes con clínica y ojo contralateral cuando la comparación sea apropiada.",
+      "Complicaciones": "abrasión, infección cruzada y error de medición.",
+      "Después": "tratamiento y consulta según presión y diagnóstico.",
+      "Documentación": "ojo, método, valores y hora.",
+      "Fuentes": "AAO EyeWiki, acute glaucoma/ocular trauma guidance; AAO emergency ophthalmology principles.",
+      "QA": "YELLOW; revisión humana oftalmología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

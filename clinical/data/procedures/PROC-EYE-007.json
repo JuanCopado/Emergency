@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-EYE-007",
+  "name": "Parche/protección ocular rígida",
+  "family": "OFTALMOLOGÍA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proteger un globo potencialmente abierto sin ejercer presión ni permitir manipulación accidental.",
+  "indications": [
+    "trauma penetrante/perforante o ruptura ocular sospechada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no utilizar parche compresivo ni aplicar presión directa sobre el globo; no retirar cuerpos extraños empalados."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "escudo rígido y cinta."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "rebordes orbitarios y globo ocular."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "suspender tonometría/manipulación, mantener NPO y minimizar tos/vómito/esfuerzo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "colocar el escudo apoyado exclusivamente sobre rebordes orbitarios y fijarlo sin ejercer presión sobre el ojo."
+    }
+  ],
+  "stop_points": [
+    "cualquier maniobra que comprima el globo o intente retirar un objeto penetrante."
+  ],
+  "confirmation": [
+    "escudo estable, sin contacto/compresión del globo."
+  ],
+  "complications": {
+    "unclassified": [
+      "mínimas si está correctamente colocado."
+    ]
+  },
+  "aftercare": [
+    "analgesia/antiemético, actualización antitetánica cuando corresponda y oftalmología/cirugía urgente."
+  ],
+  "documentation": [
+    "mecanismo, sospecha, escudo aplicado y estado visual si fue posible medirlo sin presión."
+  ],
+  "sources": [
+    {
+      "title": "AAO EyeWiki Ocular Penetrating and Perforating Injuries / Pre-Ophthalmologist Management of Eye Trauma, updated 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "analgesia/antiemético, actualización antitetánica cuando corresponda y oftalmología/cirugía urgente."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-007 — Escudo ocular rígido — CORE",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "8f27b74dcdad53e6a53a48e2eec6b9caca23e5f2b5865dd6a478088697e83bb5",
+    "sections": {
+      "Objetivo": "proteger un globo potencialmente abierto sin ejercer presión ni permitir manipulación accidental.",
+      "Indicaciones": "trauma penetrante/perforante o ruptura ocular sospechada.",
+      "Contraindicaciones/precauciones": "no utilizar parche compresivo ni aplicar presión directa sobre el globo; no retirar cuerpos extraños empalados.",
+      "Material": "escudo rígido y cinta.",
+      "Anatomía": "rebordes orbitarios y globo ocular.",
+      "Preparación": "suspender tonometría/manipulación, mantener NPO y minimizar tos/vómito/esfuerzo.",
+      "Técnica paso a paso": "colocar el escudo apoyado exclusivamente sobre rebordes orbitarios y fijarlo sin ejercer presión sobre el ojo.",
+      "STOP": "cualquier maniobra que comprima el globo o intente retirar un objeto penetrante.",
+      "Confirmación": "escudo estable, sin contacto/compresión del globo.",
+      "Complicaciones": "mínimas si está correctamente colocado.",
+      "Después": "analgesia/antiemético, actualización antitetánica cuando corresponda y oftalmología/cirugía urgente.",
+      "Documentación": "mecanismo, sospecha, escudo aplicado y estado visual si fue posible medirlo sin presión.",
+      "Fuentes": "AAO EyeWiki Ocular Penetrating and Perforating Injuries / Pre-Ophthalmologist Management of Eye Trauma, updated 2026.",
+      "QA": "YELLOW; revisión humana oftalmología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "analgesia/antiemético, actualización antitetánica cuando corresponda y oftalmología/cirugía urgente."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

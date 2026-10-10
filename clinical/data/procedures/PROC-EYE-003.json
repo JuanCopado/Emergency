@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-EYE-003",
+  "name": "Eversión palpebral",
+  "family": "OFTALMOLOGÍA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "visualizar conjuntiva tarsal y fondos de saco para detectar cuerpos extraños o partículas químicas ocultas.",
+  "indications": [
+    "sensación persistente de cuerpo extraño, abrasiones corneales verticales, exposición química o sospecha de material bajo párpado superior."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar en globo abierto evidente o trauma penetrante con estructura inestable."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "buena iluminación, hisopo, anestésico tópico si procede."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "borde palpebral, tarso superior y conjuntiva tarsal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "pedir al paciente mirar hacia abajo y relajar el párpado."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "sujetar pestañas, colocar hisopo sobre tarso superior y evertir suavemente; inspeccionar conjuntiva y fórnix; doble eversión solo por operador entrenado si existe alta sospecha de partícula profunda."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, resistencia anormal o sospecha de lesión penetrante."
+  ],
+  "confirmation": [
+    "conjuntiva tarsal y fórnix suficientemente visualizados."
+  ],
+  "complications": {
+    "unclassified": [
+      "irritación, abrasión y trauma palpebral."
+    ]
+  },
+  "aftercare": [
+    "retirar material solo si es superficial/seguro y reevaluar córnea con fluoresceína."
+  ],
+  "documentation": [
+    "hallazgos y material retirado."
+  ],
+  "sources": [
+    {
+      "title": "AAO EyeWiki, Chemical Injury of the Conjunctiva and Cornea; Removal of Corneal Foreign Bodies, updated 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-003 — Eversión palpebral — CORE",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "baf337b3a05c7b87168b491ae5bc7c67e73fb08b874937a75044339f9a3e608b",
+    "sections": {
+      "Objetivo": "visualizar conjuntiva tarsal y fondos de saco para detectar cuerpos extraños o partículas químicas ocultas.",
+      "Indicaciones": "sensación persistente de cuerpo extraño, abrasiones corneales verticales, exposición química o sospecha de material bajo párpado superior.",
+      "Contraindicaciones/precauciones": "evitar en globo abierto evidente o trauma penetrante con estructura inestable.",
+      "Material": "buena iluminación, hisopo, anestésico tópico si procede.",
+      "Anatomía": "borde palpebral, tarso superior y conjuntiva tarsal.",
+      "Preparación": "pedir al paciente mirar hacia abajo y relajar el párpado.",
+      "Técnica paso a paso": "sujetar pestañas, colocar hisopo sobre tarso superior y evertir suavemente; inspeccionar conjuntiva y fórnix; doble eversión solo por operador entrenado si existe alta sospecha de partícula profunda.",
+      "STOP": "dolor intenso, resistencia anormal o sospecha de lesión penetrante.",
+      "Confirmación": "conjuntiva tarsal y fórnix suficientemente visualizados.",
+      "Complicaciones": "irritación, abrasión y trauma palpebral.",
+      "Después": "retirar material solo si es superficial/seguro y reevaluar córnea con fluoresceína.",
+      "Documentación": "hallazgos y material retirado.",
+      "Fuentes": "AAO EyeWiki, Chemical Injury of the Conjunctiva and Cornea; Removal of Corneal Foreign Bodies, updated 2026.",
+      "QA": "YELLOW; revisión humana oftalmología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

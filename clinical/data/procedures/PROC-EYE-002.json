@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-EYE-002",
+  "name": "Medición de pH ocular",
+  "family": "OFTALMOLOGÍA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "monitorizar la descontaminación de una lesión química ocular.",
+  "indications": [
+    "exposición química ocular."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "nunca retrasar la irrigación inicial para medir pH."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "papel indicador de pH."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "fondo de saco conjuntival inferior."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "cuando ya se ha irrigado, pausar brevemente sin manipular la córnea."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "tocar suavemente la conjuntiva inferior, no la córnea, leer el pH y continuar irrigación si está fuera de rango; repetir tras nueva irrigación."
+    }
+  ],
+  "stop_points": [
+    "contacto traumático con córnea o manipulación que retrase la irrigación."
+  ],
+  "confirmation": [
+    "AAO EyeWiki recomienda pH 7,0–7,2 estable tras esperar al menos 5 min después de finalizar irrigación."
+  ],
+  "complications": {
+    "unclassified": [
+      "irritación local mínima."
+    ]
+  },
+  "aftercare": [
+    "continuar exploración ocular completa."
+  ],
+  "documentation": [
+    "valores, hora y relación temporal con irrigación."
+  ],
+  "sources": [
+    {
+      "title": "AAO EyeWiki, Chemical (Alkali and Acid) Injury of the Conjunctiva and Cornea, updated 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-002 — Medición de pH ocular — CORE",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "a2ba896871b1cb8a4066e8cf4c51f4d0edbaabd3aef57fc864408b36c7c86471",
+    "sections": {
+      "Objetivo": "monitorizar la descontaminación de una lesión química ocular.",
+      "Indicaciones": "exposición química ocular.",
+      "Contraindicaciones/precauciones": "nunca retrasar la irrigación inicial para medir pH.",
+      "Material": "papel indicador de pH.",
+      "Anatomía": "fondo de saco conjuntival inferior.",
+      "Preparación": "cuando ya se ha irrigado, pausar brevemente sin manipular la córnea.",
+      "Técnica paso a paso": "tocar suavemente la conjuntiva inferior, no la córnea, leer el pH y continuar irrigación si está fuera de rango; repetir tras nueva irrigación.",
+      "STOP": "contacto traumático con córnea o manipulación que retrase la irrigación.",
+      "Confirmación": "AAO EyeWiki recomienda pH 7,0–7,2 estable tras esperar al menos 5 min después de finalizar irrigación.",
+      "Complicaciones": "irritación local mínima.",
+      "Después": "continuar exploración ocular completa.",
+      "Documentación": "valores, hora y relación temporal con irrigación.",
+      "Fuentes": "AAO EyeWiki, Chemical (Alkali and Acid) Injury of the Conjunctiva and Cornea, updated 2026.",
+      "QA": "YELLOW; revisión humana oftalmología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

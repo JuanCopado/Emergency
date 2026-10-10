@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-EYE-005",
+  "name": "Tinción con fluoresceína",
+  "family": "OFTALMOLOGÍA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "identificar abrasiones y detectar fuga de humor acuoso por defecto de espesor completo.",
+  "indications": [
+    "abrasión, trauma corneal o sospecha seleccionada de perforación cuando el globo abierto no es ya evidente."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "en globo abierto evidente evitar manipulación innecesaria y presión; una prueba Seidel negativa no excluye una lesión sellada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "tira de fluoresceína, suero y luz azul cobalto."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "córnea, limbo y conjuntiva."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "no comprimir el globo; humedecer la tira sin contaminar."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "aplicar suavemente fluoresceína, inspeccionar con azul cobalto y buscar una corriente clara que diluye el tinte naranja/verde sobre la lesión."
+    }
+  ],
+  "stop_points": [
+    "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología."
+  ],
+  "confirmation": [
+    "patrón de tinción de abrasión o flujo compatible con fuga acuosa."
+  ],
+  "complications": {
+    "unclassified": [
+      "irritación/tinción transitoria y falsa seguridad por falso negativo."
+    ]
+  },
+  "aftercare": [
+    "manejar según lesión y mantener protección si existe sospecha de perforación."
+  ],
+  "documentation": [
+    "localización/patrón y resultado de Seidel."
+  ],
+  "sources": [
+    {
+      "title": "AAO EyeWiki Seidel Test, updated 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología."
+  ],
+  "escalation": [
+    "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-005 — Fluoresceína / prueba de Seidel — CORE",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "fc5b041027ab33f61b97d8fb1c84f895495e4e59b715117a5d35cead5bc13754",
+    "sections": {
+      "Objetivo": "identificar abrasiones y detectar fuga de humor acuoso por defecto de espesor completo.",
+      "Indicaciones": "abrasión, trauma corneal o sospecha seleccionada de perforación cuando el globo abierto no es ya evidente.",
+      "Contraindicaciones/precauciones": "en globo abierto evidente evitar manipulación innecesaria y presión; una prueba Seidel negativa no excluye una lesión sellada.",
+      "Material": "tira de fluoresceína, suero y luz azul cobalto.",
+      "Anatomía": "córnea, limbo y conjuntiva.",
+      "Preparación": "no comprimir el globo; humedecer la tira sin contaminar.",
+      "Técnica paso a paso": "aplicar suavemente fluoresceína, inspeccionar con azul cobalto y buscar una corriente clara que diluye el tinte naranja/verde sobre la lesión.",
+      "STOP": "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología.",
+      "Confirmación": "patrón de tinción de abrasión o flujo compatible con fuga acuosa.",
+      "Complicaciones": "irritación/tinción transitoria y falsa seguridad por falso negativo.",
+      "Después": "manejar según lesión y mantener protección si existe sospecha de perforación.",
+      "Documentación": "localización/patrón y resultado de Seidel.",
+      "Fuentes": "AAO EyeWiki Seidel Test, updated 2026.",
+      "QA": "YELLOW; revisión humana oftalmología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

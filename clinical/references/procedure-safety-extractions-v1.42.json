@@ -241,6 +241,56 @@
       }
     ]
   },
+  "PROC-EYE-004": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "empezar por irrigación; si persiste, usar hisopo húmedo; si está adherido/embebido superficialmente, retirar tangencialmente bajo lámpara con instrumento apropiado manteniendo control constante."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "oftalmología si central, profundo, residual o complicado."
+      }
+    ]
+  },
+  "PROC-EYE-005": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "Seidel positivo o sospecha creciente de globo abierto → no continuar maniobras, colocar escudo rígido y activar oftalmología."
+      }
+    ]
+  },
+  "PROC-EYE-007": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "analgesia/antiemético, actualización antitetánica cuando corresponda y oftalmología/cirugía urgente."
+      }
+    ]
+  },
+  "PROC-EYE-008": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "Considerar cantólisis superior solo si la descompresión inferior es insuficiente y con especial cautela por riesgo de lesión lagrimal/hemorragia."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "detener disección ciega si no se identifica anatomía y buscar apoyo quirúrgico inmediato."
+      }
+    ]
+  },
   "PROC-GI-009": {
     "escalation": [
       {

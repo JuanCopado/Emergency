@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-EYE-004",
+  "name": "Extracción de cuerpo extraño corneal superficial",
+  "family": "OFTALMOLOGÍA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un cuerpo extraño superficial minimizando daño estromal y descartando penetración.",
+  "indications": [
+    "cuerpo extraño corneal superficial visible y accesible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "mecanismo de alta velocidad, Seidel positivo, cámara anterior anormal, objeto profundo/central complejo o sospecha de cuerpo extraño intraocular → no retirar bedside y derivar urgentemente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "lámpara de hendidura, anestésico tópico, irrigación, hisopo y aguja fina/spud/burr por operador entrenado."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "epitelio corneal, estroma y cámara anterior."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "medir agudeza visual antes de manipulación cuando sea posible; fluoresceína y exploración bajo magnificación."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "empezar por irrigación; si persiste, usar hisopo húmedo; si está adherido/embebido superficialmente, retirar tangencialmente bajo lámpara con instrumento apropiado manteniendo control constante."
+    }
+  ],
+  "stop_points": [
+    "cualquier indicio de penetración, fuga, objeto profundo, dolor intraocular o pérdida de cámara anterior normal."
+  ],
+  "confirmation": [
+    "objeto retirado, defecto residual superficial y ausencia de signos de globo abierto."
+  ],
+  "complications": {
+    "unclassified": [
+      "abrasión, infección, cicatriz, anillo de óxido y lesión iatrogénica más profunda."
+    ]
+  },
+  "aftercare": [
+    "tratamiento tópico/seguimiento según tamaño/localización/material; oftalmología si central, profundo, residual o complicado."
+  ],
+  "documentation": [
+    "agudeza visual, localización/material, método y defecto residual."
+  ],
+  "sources": [
+    {
+      "title": "AAO EyeWiki Removal of Corneal Foreign Bodies, updated 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "empezar por irrigación; si persiste, usar hisopo húmedo; si está adherido/embebido superficialmente, retirar tangencialmente bajo lámpara con instrumento apropiado manteniendo control constante."
+  ],
+  "escalation": [
+    "oftalmología si central, profundo, residual o complicado."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana oftalmología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/12-ophthalmology.md",
+    "source_heading": "PROC-EYE-004 — Cuerpo extraño corneal superficial — CORE",
+    "family_preamble": "# 12. Oftalmología\n\nEstado: **YELLOW**.",
+    "source_sha256": "241ecd9e1d6f39855ad6ebe4bc777512765bb4c5f42bc4850eee62d822d946c2",
+    "sections": {
+      "Objetivo": "retirar un cuerpo extraño superficial minimizando daño estromal y descartando penetración.",
+      "Indicaciones": "cuerpo extraño corneal superficial visible y accesible.",
+      "Contraindicaciones/precauciones": "mecanismo de alta velocidad, Seidel positivo, cámara anterior anormal, objeto profundo/central complejo o sospecha de cuerpo extraño intraocular → no retirar bedside y derivar urgentemente.",
+      "Material": "lámpara de hendidura, anestésico tópico, irrigación, hisopo y aguja fina/spud/burr por operador entrenado.",
+      "Anatomía": "epitelio corneal, estroma y cámara anterior.",
+      "Preparación": "medir agudeza visual antes de manipulación cuando sea posible; fluoresceína y exploración bajo magnificación.",
+      "Técnica paso a paso": "empezar por irrigación; si persiste, usar hisopo húmedo; si está adherido/embebido superficialmente, retirar tangencialmente bajo lámpara con instrumento apropiado manteniendo control constante.",
+      "STOP": "cualquier indicio de penetración, fuga, objeto profundo, dolor intraocular o pérdida de cámara anterior normal.",
+      "Confirmación": "objeto retirado, defecto residual superficial y ausencia de signos de globo abierto.",
+      "Complicaciones": "abrasión, infección, cicatriz, anillo de óxido y lesión iatrogénica más profunda.",
+      "Después": "tratamiento tópico/seguimiento según tamaño/localización/material; oftalmología si central, profundo, residual o complicado.",
+      "Documentación": "agudeza visual, localización/material, método y defecto residual.",
+      "Fuentes": "AAO EyeWiki Removal of Corneal Foreign Bodies, updated 2026.",
+      "QA": "YELLOW; revisión humana oftalmología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "empezar por irrigación; si persiste, usar hisopo húmedo; si está adherido/embebido superficialmente, retirar tangencialmente bajo lámpara con instrumento apropiado manteniendo control constante."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "oftalmología si central, profundo, residual o complicado."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}
