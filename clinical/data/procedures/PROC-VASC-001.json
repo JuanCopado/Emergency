@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-VASC-001",
+  "name": "Vía venosa periférica",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener acceso IV seguro con el menor calibre y longitud que permitan la terapia prevista.",
+  "indications": [
+    "administración de fluidos, fármacos, contraste, hemoderivados o extracción seleccionada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar infección local, extremidad con fístula AV, linfedema significativo o acceso distal a lesión vascular cuando exista alternativa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "catéter periférico, torniquete, antiséptico, guantes, conector, flush y fijación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "venas superficiales de mano/antebrazo y estructuras neurovasculares adyacentes."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "higiene de manos, antisepsia, elegir una vena de extremidad superior en adultos cuando sea posible y seleccionar calibre según propósito/duración."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "colocar torniquete, puncionar con bisel arriba, observar retorno, bajar ángulo, avanzar catéter sin empujar la aguja dentro de la vena, liberar torniquete, conectar, comprobar permeabilidad y fijar."
+    }
+  ],
+  "stop_points": [
+    "dolor, resistencia, edema, parestesia o extravasación durante flush."
+  ],
+  "confirmation": [
+    "flush fácil sin dolor/edema y función adecuada del acceso."
+  ],
+  "complications": {
+    "unclassified": [
+      "infiltración/extravasación, flebitis, hematoma, infección y lesión nerviosa."
+    ]
+  },
+  "aftercare": [
+    "inspeccionar diariamente y retirar si aparece flebitis, infección o mal funcionamiento."
+  ],
+  "documentation": [
+    "sitio, calibre, intentos y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "CDC Summary of Recommendations for Intravascular Catheter-Related Infections, reviewed 2024.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "inspeccionar diariamente y retirar si aparece flebitis, infección o mal funcionamiento."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana vascular/enfermería pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-001 — Vía venosa periférica — CORE",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "67f6aaecad09689b46b45251a87ed70aa78f2669b526e5d9dc973e2047445df4",
+    "sections": {
+      "Objetivo": "obtener acceso IV seguro con el menor calibre y longitud que permitan la terapia prevista.",
+      "Indicaciones": "administración de fluidos, fármacos, contraste, hemoderivados o extracción seleccionada.",
+      "Contraindicaciones/precauciones": "evitar infección local, extremidad con fístula AV, linfedema significativo o acceso distal a lesión vascular cuando exista alternativa.",
+      "Material": "catéter periférico, torniquete, antiséptico, guantes, conector, flush y fijación.",
+      "Anatomía": "venas superficiales de mano/antebrazo y estructuras neurovasculares adyacentes.",
+      "Preparación": "higiene de manos, antisepsia, elegir una vena de extremidad superior en adultos cuando sea posible y seleccionar calibre según propósito/duración.",
+      "Técnica paso a paso": "colocar torniquete, puncionar con bisel arriba, observar retorno, bajar ángulo, avanzar catéter sin empujar la aguja dentro de la vena, liberar torniquete, conectar, comprobar permeabilidad y fijar.",
+      "STOP": "dolor, resistencia, edema, parestesia o extravasación durante flush.",
+      "Confirmación": "flush fácil sin dolor/edema y función adecuada del acceso.",
+      "Complicaciones": "infiltración/extravasación, flebitis, hematoma, infección y lesión nerviosa.",
+      "Después": "inspeccionar diariamente y retirar si aparece flebitis, infección o mal funcionamiento.",
+      "Documentación": "sitio, calibre, intentos y complicaciones.",
+      "Fuentes": "CDC Summary of Recommendations for Intravascular Catheter-Related Infections, reviewed 2024.",
+      "QA": "YELLOW; revisión humana vascular/enfermería pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Después",
+          "quote": "inspeccionar diariamente y retirar si aparece flebitis, infección o mal funcionamiento."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

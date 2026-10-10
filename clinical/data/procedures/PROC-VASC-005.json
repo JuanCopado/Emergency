@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-005",
+  "name": "Acceso intraóseo pediátrico",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "conseguir acceso vascular de rescate en niño cuando IV no es oportuno.",
+  "indications": [
+    "shock, parada u otra emergencia con necesidad inmediata de fármacos/fluidos y acceso IV fallido/no factible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fractura, infección, IO previa en el mismo hueso y selección de sitio/aguja no compatible con edad/tamaño."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "dispositivo IO pediátrico, aguja apropiada, extensión, flush, fijación y analgesia IO si está consciente."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "tibia proximal/distal u otros sitios autorizados por dispositivo/edad."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "seleccionar sitio, palpar referencias y comprobar longitud de aguja adecuada."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "antisepsia, inserción controlada, confirmar estabilidad, conectar extensión, flush, fijar y vigilar."
+    }
+  ],
+  "stop_points": [
+    "extravasación, edema, dolor desproporcionado o signos compartimentales."
+  ],
+  "confirmation": [
+    "acceso estable y flush sin infiltración."
+  ],
+  "complications": {
+    "unclassified": [
+      "síndrome compartimental, fractura, necrosis, infección y lesión fisaria."
+    ]
+  },
+  "aftercare": [
+    "sustituir por acceso IV/central definitivo cuando sea posible."
+  ],
+  "documentation": [
+    "sitio, aguja/dispositivo, intentos y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "AHA/AAP 2025 Pediatric Advanced Life Support; device-specific instructions.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría/reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-005 — Acceso intraóseo pediátrico — CORE/PED",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "930ab89a580fd98cf84399e7ebf2f30cd1bd7c7a26a8de5d759f187fd5e225c9",
+    "sections": {
+      "Objetivo": "conseguir acceso vascular de rescate en niño cuando IV no es oportuno.",
+      "Indicaciones": "shock, parada u otra emergencia con necesidad inmediata de fármacos/fluidos y acceso IV fallido/no factible.",
+      "Contraindicaciones/precauciones": "fractura, infección, IO previa en el mismo hueso y selección de sitio/aguja no compatible con edad/tamaño.",
+      "Material": "dispositivo IO pediátrico, aguja apropiada, extensión, flush, fijación y analgesia IO si está consciente.",
+      "Anatomía": "tibia proximal/distal u otros sitios autorizados por dispositivo/edad.",
+      "Preparación": "seleccionar sitio, palpar referencias y comprobar longitud de aguja adecuada.",
+      "Técnica paso a paso": "antisepsia, inserción controlada, confirmar estabilidad, conectar extensión, flush, fijar y vigilar.",
+      "STOP": "extravasación, edema, dolor desproporcionado o signos compartimentales.",
+      "Confirmación": "acceso estable y flush sin infiltración.",
+      "Complicaciones": "síndrome compartimental, fractura, necrosis, infección y lesión fisaria.",
+      "Después": "sustituir por acceso IV/central definitivo cuando sea posible.",
+      "Documentación": "sitio, aguja/dispositivo, intentos y complicaciones.",
+      "Fuentes": "AHA/AAP 2025 Pediatric Advanced Life Support; device-specific instructions.",
+      "QA": "YELLOW; revisión humana pediatría/reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

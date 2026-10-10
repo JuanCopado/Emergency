@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-006",
+  "name": "Catéter venoso central yugular interna ecoguiado",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener acceso venoso central seguro cuando existe una indicación justificada.",
+  "indications": [
+    "vasoactivos, acceso difícil, terapias que requieren vía central o monitorización seleccionada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección local, trombosis, anatomía alterada y riesgo hemorrágico significativo; ponderar alternativas y el riesgo mecánico del sitio."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "kit CVC, ecógrafo lineal, barrera estéril máxima, clorhexidina alcohólica >0,5% salvo contraindicación, anestesia local y fijación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "yugular interna, carótida, pleura y nervio vago."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "ecografía previa para anatomía/trombosis, time-out, higiene de manos y barrera estéril máxima; Trendelenburg solo si clínicamente tolerado."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar vena y arteria; puncionar con guía ecográfica dinámica; confirmar retorno venoso; avanzar guía sin resistencia; confirmar la guía dentro del sistema venoso antes de dilatar; dilatar, avanzar catéter, aspirar/lavar luces y fijar."
+    }
+  ],
+  "stop_points": [
+    "no dilatar si existe cualquier duda sobre la posición de la guía; detener ante punción arterial, arritmia sostenida, resistencia o pérdida de visualización segura."
+  ],
+  "confirmation": [
+    "guía/catéter venoso por ecografía y método postprocedimiento apropiado; descartar complicación pleural según contexto."
+  ],
+  "complications": {
+    "unclassified": [
+      "punción arterial, hematoma, neumotórax, hemotórax, arritmia, embolia aérea, trombosis e infección."
+    ]
+  },
+  "aftercare": [
+    "apósito estéril, vigilancia y retirada precoz cuando deje de ser imprescindible."
+  ],
+  "documentation": [
+    "indicación, sitio, US, intentos, longitud, confirmación y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "CDC Summary of Recommendations for Intravascular Catheter-Related Infections, updated 2024; ultrasound-guided vascular access standards.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana vascular/UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-006 — CVC yugular interna ecoguiado — ADVANCED/POCUS",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "8390951430af75394a39addf0f1a0ffebda7c7d7693cc20c5fa53e1d3e231801",
+    "sections": {
+      "Objetivo": "obtener acceso venoso central seguro cuando existe una indicación justificada.",
+      "Indicaciones": "vasoactivos, acceso difícil, terapias que requieren vía central o monitorización seleccionada.",
+      "Contraindicaciones/precauciones": "infección local, trombosis, anatomía alterada y riesgo hemorrágico significativo; ponderar alternativas y el riesgo mecánico del sitio.",
+      "Material": "kit CVC, ecógrafo lineal, barrera estéril máxima, clorhexidina alcohólica >0,5% salvo contraindicación, anestesia local y fijación.",
+      "Anatomía": "yugular interna, carótida, pleura y nervio vago.",
+      "Preparación": "ecografía previa para anatomía/trombosis, time-out, higiene de manos y barrera estéril máxima; Trendelenburg solo si clínicamente tolerado.",
+      "Técnica paso a paso": "identificar vena y arteria; puncionar con guía ecográfica dinámica; confirmar retorno venoso; avanzar guía sin resistencia; confirmar la guía dentro del sistema venoso antes de dilatar; dilatar, avanzar catéter, aspirar/lavar luces y fijar.",
+      "STOP": "no dilatar si existe cualquier duda sobre la posición de la guía; detener ante punción arterial, arritmia sostenida, resistencia o pérdida de visualización segura.",
+      "Confirmación": "guía/catéter venoso por ecografía y método postprocedimiento apropiado; descartar complicación pleural según contexto.",
+      "Complicaciones": "punción arterial, hematoma, neumotórax, hemotórax, arritmia, embolia aérea, trombosis e infección.",
+      "Después": "apósito estéril, vigilancia y retirada precoz cuando deje de ser imprescindible.",
+      "Documentación": "indicación, sitio, US, intentos, longitud, confirmación y complicaciones.",
+      "Fuentes": "CDC Summary of Recommendations for Intravascular Catheter-Related Infections, updated 2024; ultrasound-guided vascular access standards.",
+      "QA": "YELLOW; revisión humana vascular/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

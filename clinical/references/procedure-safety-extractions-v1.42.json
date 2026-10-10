@@ -148,5 +148,27 @@
         "quote": "hipotensión, auto-PEEP, presiones elevadas o deterioro súbito → comprobar tubo/circuito, desconectar si es necesario y ventilar manualmente mientras se busca la causa."
       }
     ]
+  },
+  "PROC-VASC-001": {
+    "rescue": [
+      {
+        "section": "Después",
+        "quote": "inspeccionar diariamente y retirar si aparece flebitis, infección o mal funcionamiento."
+      }
+    ]
+  },
+  "PROC-VASC-015": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "identificar la complicación; controlar sangrado externo sin manipulación ciega; usar POCUS/imagen para neumotórax, hemotórax o malposición; consultar cirugía vascular/intervencionismo para canulación arterial de gran calibre; tratar neumotórax/hemotórax según módulos específicos; para embolia aérea, ocluir entrada de aire, administrar O2 y manejar hemodinámica."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "consultar cirugía vascular/intervencionismo para canulación arterial de gran calibre"
+      }
+    ]
   }
 }

@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-009",
+  "name": "Técnica de Seldinger",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "colocar un catéter sobre guía manteniendo control continuo de la trayectoria.",
+  "indications": [
+    "CVC, catéter pleural, línea arterial y otros dispositivos diseñados para técnica Seldinger."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no dilatar ni avanzar si la posición de aguja/guía no está inequívocamente confirmada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "aguja, guía, bisturí, dilatador y catéter compatibles."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "depende del vaso o cavidad objetivo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar objetivo, profundidad y compatibilidad de componentes; mantener siempre control del extremo proximal de la guía."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "punción y retorno, introducir guía sin resistencia, retirar aguja manteniendo control de guía, pequeña incisión cutánea, dilatar solo lo necesario, retirar dilatador, avanzar catéter sobre guía y retirar guía al final."
+    }
+  ],
+  "stop_points": [
+    "resistencia de guía/catéter, pérdida de control del extremo proximal, arritmia persistente o posición dudosa."
+  ],
+  "confirmation": [
+    "guía y catéter en objetivo por método apropiado y función adecuada del dispositivo."
+  ],
+  "complications": {
+    "unclassified": [
+      "pérdida de guía, perforación, falsa vía, hematoma, arritmia y lesión vascular."
+    ]
+  },
+  "aftercare": [
+    "fijar y confirmar posición final según dispositivo."
+  ],
+  "documentation": [
+    "dispositivo, guía, confirmación y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "vascular-access standards and device instructions.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana vascular pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-009 — Técnica de Seldinger — ADVANCED",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "2240b42a19c78553649a0c6780d4d57d0d0457f89849aa06eec19794af3cb9cf",
+    "sections": {
+      "Objetivo": "colocar un catéter sobre guía manteniendo control continuo de la trayectoria.",
+      "Indicaciones": "CVC, catéter pleural, línea arterial y otros dispositivos diseñados para técnica Seldinger.",
+      "Contraindicaciones/precauciones": "no dilatar ni avanzar si la posición de aguja/guía no está inequívocamente confirmada.",
+      "Material": "aguja, guía, bisturí, dilatador y catéter compatibles.",
+      "Anatomía": "depende del vaso o cavidad objetivo.",
+      "Preparación": "confirmar objetivo, profundidad y compatibilidad de componentes; mantener siempre control del extremo proximal de la guía.",
+      "Técnica paso a paso": "punción y retorno, introducir guía sin resistencia, retirar aguja manteniendo control de guía, pequeña incisión cutánea, dilatar solo lo necesario, retirar dilatador, avanzar catéter sobre guía y retirar guía al final.",
+      "STOP": "resistencia de guía/catéter, pérdida de control del extremo proximal, arritmia persistente o posición dudosa.",
+      "Confirmación": "guía y catéter en objetivo por método apropiado y función adecuada del dispositivo.",
+      "Complicaciones": "pérdida de guía, perforación, falsa vía, hematoma, arritmia y lesión vascular.",
+      "Después": "fijar y confirmar posición final según dispositivo.",
+      "Documentación": "dispositivo, guía, confirmación y complicaciones.",
+      "Fuentes": "vascular-access standards and device instructions.",
+      "QA": "YELLOW; revisión humana vascular pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

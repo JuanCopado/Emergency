@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-010",
+  "name": "Línea arterial radial",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "monitorización invasiva continua de presión arterial y acceso para muestreo arterial repetido.",
+  "indications": [
+    "shock, uso de vasoactivos, necesidad de monitorización beat-to-beat o gasometrías frecuentes."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección local, isquemia distal, lesión arterial conocida o anatomía no segura."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "catéter arterial, ecógrafo preferentemente, transductor/tubing presurizado, antiséptico, anestesia local y fijación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "arteria radial, venas vecinas y ramas nerviosas."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "valorar perfusión distal, preparar transductor y poner a cero; explorar diámetro/trayecto con US cuando esté disponible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "preferir guía ecográfica en tiempo real cuando sea factible; puncionar arteria, confirmar entrada intraluminal, avanzar catéter o guía, conectar al sistema, nivelar/cero y fijar."
+    }
+  ],
+  "stop_points": [
+    "isquemia distal, hematoma expansivo, resistencia o posición dudosa."
+  ],
+  "confirmation": [
+    "waveform arterial de morfología adecuada, presión coherente con clínica y perfusión distal conservada."
+  ],
+  "complications": {
+    "unclassified": [
+      "trombosis, isquemia, hematoma, infección, pseudoaneurisma y oclusión."
+    ]
+  },
+  "aftercare": [
+    "vigilancia de perfusión y necesidad; retirar cuando deje de ser necesaria."
+  ],
+  "documentation": [
+    "sitio, técnica, US, intentos, waveform y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "Society of Hospital Medicine ultrasound-guided vascular access position statement; German Society of Anaesthesiology haemodynamic monitoring guideline 2024; evidence summaries 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-010 — Línea arterial radial — ADVANCED",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "bb241d6feeb1b82e06171c3e439ce1d140c18b80466954539494663cfddf517f",
+    "sections": {
+      "Objetivo": "monitorización invasiva continua de presión arterial y acceso para muestreo arterial repetido.",
+      "Indicaciones": "shock, uso de vasoactivos, necesidad de monitorización beat-to-beat o gasometrías frecuentes.",
+      "Contraindicaciones/precauciones": "infección local, isquemia distal, lesión arterial conocida o anatomía no segura.",
+      "Material": "catéter arterial, ecógrafo preferentemente, transductor/tubing presurizado, antiséptico, anestesia local y fijación.",
+      "Anatomía": "arteria radial, venas vecinas y ramas nerviosas.",
+      "Preparación": "valorar perfusión distal, preparar transductor y poner a cero; explorar diámetro/trayecto con US cuando esté disponible.",
+      "Técnica paso a paso": "preferir guía ecográfica en tiempo real cuando sea factible; puncionar arteria, confirmar entrada intraluminal, avanzar catéter o guía, conectar al sistema, nivelar/cero y fijar.",
+      "STOP": "isquemia distal, hematoma expansivo, resistencia o posición dudosa.",
+      "Confirmación": "waveform arterial de morfología adecuada, presión coherente con clínica y perfusión distal conservada.",
+      "Complicaciones": "trombosis, isquemia, hematoma, infección, pseudoaneurisma y oclusión.",
+      "Después": "vigilancia de perfusión y necesidad; retirar cuando deje de ser necesaria.",
+      "Documentación": "sitio, técnica, US, intentos, waveform y complicaciones.",
+      "Fuentes": "Society of Hospital Medicine ultrasound-guided vascular access position statement; German Society of Anaesthesiology haemodynamic monitoring guideline 2024; evidence summaries 2026.",
+      "QA": "YELLOW; revisión humana UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

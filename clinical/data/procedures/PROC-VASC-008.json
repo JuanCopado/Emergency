@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-008",
+  "name": "Catéter venoso central subclavio/axilar",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener acceso venoso central infraclavicular reduciendo riesgo mecánico mediante guía ecográfica.",
+  "indications": [
+    "necesidad de CVC cuando la anatomía y experiencia favorecen vía axilar/subclavia."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección local, deformidad clavicular importante, lesión pleural ipsilateral, trombosis o riesgo hemorrágico significativo. CDC favorece subclavia en adultos no dialíticos para reducir infección cuando el riesgo mecánico es aceptable, pero no debe usarse para hemodiálisis si existe riesgo de estenosis venosa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "kit CVC, ecografía, barrera estéril máxima, clorhexidina alcohólica >0,5% salvo contraindicación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vena axilar/subclavia, arteria, primera costilla, pleura y plexo braquial."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "mapear vena/arteria/pleura y elegir trayecto infraclavicular seguro; time-out y barrera estéril máxima."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "punción dinámica con punta visible; confirmar retorno; avanzar guía sin resistencia; confirmar guía intravascular antes de dilatar; colocar catéter, aspirar/lavar y fijar."
+    }
+  ],
+  "stop_points": [
+    "trayectoria hacia pleura/arteria, guía no confirmada, resistencia o hematoma expansivo."
+  ],
+  "confirmation": [
+    "posición venosa por US/ECG u otra técnica validada y exclusión de neumotórax cuando corresponda."
+  ],
+  "complications": {
+    "unclassified": [
+      "neumotórax, hemotórax, punción arterial, lesión neural, trombosis e infección."
+    ]
+  },
+  "aftercare": [
+    "vigilancia del sitio y necesidad del acceso."
+  ],
+  "documentation": [
+    "sitio/lado, técnica US, intentos, confirmación y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "CDC catheter-related infection recommendations updated 2024; vascular access ultrasound standards.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana vascular/UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-008 — CVC subclavio/axilar ecoguiado — ADVANCED",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "d2e0d14852276b9fa9111b5a2209ed08835c879cef366626f845cf646bf11beb",
+    "sections": {
+      "Objetivo": "obtener acceso venoso central infraclavicular reduciendo riesgo mecánico mediante guía ecográfica.",
+      "Indicaciones": "necesidad de CVC cuando la anatomía y experiencia favorecen vía axilar/subclavia.",
+      "Contraindicaciones/precauciones": "infección local, deformidad clavicular importante, lesión pleural ipsilateral, trombosis o riesgo hemorrágico significativo. CDC favorece subclavia en adultos no dialíticos para reducir infección cuando el riesgo mecánico es aceptable, pero no debe usarse para hemodiálisis si existe riesgo de estenosis venosa.",
+      "Material": "kit CVC, ecografía, barrera estéril máxima, clorhexidina alcohólica >0,5% salvo contraindicación.",
+      "Anatomía": "vena axilar/subclavia, arteria, primera costilla, pleura y plexo braquial.",
+      "Preparación": "mapear vena/arteria/pleura y elegir trayecto infraclavicular seguro; time-out y barrera estéril máxima.",
+      "Técnica paso a paso": "punción dinámica con punta visible; confirmar retorno; avanzar guía sin resistencia; confirmar guía intravascular antes de dilatar; colocar catéter, aspirar/lavar y fijar.",
+      "STOP": "trayectoria hacia pleura/arteria, guía no confirmada, resistencia o hematoma expansivo.",
+      "Confirmación": "posición venosa por US/ECG u otra técnica validada y exclusión de neumotórax cuando corresponda.",
+      "Complicaciones": "neumotórax, hemotórax, punción arterial, lesión neural, trombosis e infección.",
+      "Después": "vigilancia del sitio y necesidad del acceso.",
+      "Documentación": "sitio/lado, técnica US, intentos, confirmación y complicaciones.",
+      "Fuentes": "CDC catheter-related infection recommendations updated 2024; vascular access ultrasound standards.",
+      "QA": "YELLOW; revisión humana vascular/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

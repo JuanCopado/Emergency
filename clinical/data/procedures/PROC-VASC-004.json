@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-004",
+  "name": "Acceso intraóseo humeral proximal",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar acceso IO rápido de alto flujo cuando IV no es oportuno.",
+  "indications": [
+    "emergencia con necesidad inmediata de acceso y anatomía humeral adecuada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fractura proximal, prótesis/hardware, infección local o IO reciente en el mismo hueso."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "dispositivo IO, aguja apropiada, extensión, flush y fijador."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "cabeza humeral/tubérculo mayor y estructuras neurovasculares regionales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "posicionar brazo según fabricante y localizar el punto de inserción con referencias anatómicas."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "antisepsia, insertar en la dirección recomendada por el dispositivo, reconocer pérdida de resistencia, retirar estilete, conectar, hacer flush y fijar firmemente."
+    }
+  ],
+  "stop_points": [
+    "posición dudosa, extravasación, edema o dolor creciente."
+  ],
+  "confirmation": [
+    "estabilidad y flush sin infiltración."
+  ],
+  "complications": {
+    "unclassified": [
+      "extravasación, síndrome compartimental, fractura y lesión neurovascular."
+    ]
+  },
+  "aftercare": [
+    "reevaluación frecuente y transición a acceso definitivo."
+  ],
+  "documentation": [
+    "sitio, dispositivo y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "AHA Adult ALS 2025; device-specific instructions.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana reanimación pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-004 — Acceso intraóseo humeral proximal — CORE",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "f7f010281b98b8ef86ff31a11ca1e32b2ca642c120991e41f028d782364e7a3f",
+    "sections": {
+      "Objetivo": "proporcionar acceso IO rápido de alto flujo cuando IV no es oportuno.",
+      "Indicaciones": "emergencia con necesidad inmediata de acceso y anatomía humeral adecuada.",
+      "Contraindicaciones/precauciones": "fractura proximal, prótesis/hardware, infección local o IO reciente en el mismo hueso.",
+      "Material": "dispositivo IO, aguja apropiada, extensión, flush y fijador.",
+      "Anatomía": "cabeza humeral/tubérculo mayor y estructuras neurovasculares regionales.",
+      "Preparación": "posicionar brazo según fabricante y localizar el punto de inserción con referencias anatómicas.",
+      "Técnica paso a paso": "antisepsia, insertar en la dirección recomendada por el dispositivo, reconocer pérdida de resistencia, retirar estilete, conectar, hacer flush y fijar firmemente.",
+      "STOP": "posición dudosa, extravasación, edema o dolor creciente.",
+      "Confirmación": "estabilidad y flush sin infiltración.",
+      "Complicaciones": "extravasación, síndrome compartimental, fractura y lesión neurovascular.",
+      "Después": "reevaluación frecuente y transición a acceso definitivo.",
+      "Documentación": "sitio, dispositivo y respuesta.",
+      "Fuentes": "AHA Adult ALS 2025; device-specific instructions.",
+      "QA": "YELLOW; revisión humana reanimación pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

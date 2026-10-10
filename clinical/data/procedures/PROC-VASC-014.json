@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-014",
+  "name": "Retirada segura de CVC",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un CVC minimizando embolia aérea, sangrado, infección y retención de fragmentos.",
+  "indications": [
+    "acceso ya no esencial, infección/disfunción, complicación o cambio de estrategia; CDC recomienda retirar con prontitud cualquier catéter intravascular que deje de ser necesario."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "catéter arterial o gran calibre colocado inadvertidamente en arteria, catéter tunelizado/implantable, sospecha de adherencia/trombosis o resistencia a la retirada requieren un plan específico y posible apoyo especializado."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes, antiséptico, material para retirar sutura/fijador, gasas, apósito oclusivo/impermeable y monitorización cuando el riesgo lo justifique."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "trayecto venoso central, punto de salida y posible canal transcutáneo persistente."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "verificar tipo de catéter, suspender infusiones, colocar al paciente en decúbito supino y, cuando sea tolerado/pertinente, con cabeza baja; explicar maniobra y preparar Valsalva o retirada durante espiración."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "retirar fijadores; pedir Valsalva/espiración en el momento de retirada si el paciente coopera; retirar el catéter de forma continua y controlada; aplicar presión inmediata; comprobar integridad del catéter y cubrir el sitio con apósito oclusivo."
+    }
+  ],
+  "stop_points": [
+    "resistencia, catéter incompleto, sangrado persistente, disnea súbita, dolor torácico o déficit neurológico."
+  ],
+  "confirmation": [
+    "catéter íntegro, hemostasia y ausencia de síntomas inmediatos."
+  ],
+  "complications": {
+    "unclassified": [
+      "embolia aérea inmediata o retardada, hemorragia, fragmento retenido, infección y trombosis."
+    ]
+  },
+  "aftercare": [
+    "mantener vigilancia clínica y el sitio ocluido según protocolo; la literatura 2025–2026 destaca que la embolia aérea puede presentarse de forma retardada."
+  ],
+  "documentation": [
+    "tipo/sitio de CVC, posición del paciente, maniobra respiratoria si se utilizó, integridad, hemostasia y eventos."
+  ],
+  "sources": [
+    {
+      "title": "CDC intravascular catheter recommendations, updated 2024; J Vasc Bras integrative review 2025; J Crit Care systematic review 2026 on delayed air embolism after CVC removal.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana UCI/enfermería vascular pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-014 — Retirada segura de CVC — CORE",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "69f3c7898992b480e950547880daf7694246feeebcbc387ab3d07992a96e9a7f",
+    "sections": {
+      "Objetivo": "retirar un CVC minimizando embolia aérea, sangrado, infección y retención de fragmentos.",
+      "Indicaciones": "acceso ya no esencial, infección/disfunción, complicación o cambio de estrategia; CDC recomienda retirar con prontitud cualquier catéter intravascular que deje de ser necesario.",
+      "Contraindicaciones/precauciones": "catéter arterial o gran calibre colocado inadvertidamente en arteria, catéter tunelizado/implantable, sospecha de adherencia/trombosis o resistencia a la retirada requieren un plan específico y posible apoyo especializado.",
+      "Material": "guantes, antiséptico, material para retirar sutura/fijador, gasas, apósito oclusivo/impermeable y monitorización cuando el riesgo lo justifique.",
+      "Anatomía": "trayecto venoso central, punto de salida y posible canal transcutáneo persistente.",
+      "Preparación": "verificar tipo de catéter, suspender infusiones, colocar al paciente en decúbito supino y, cuando sea tolerado/pertinente, con cabeza baja; explicar maniobra y preparar Valsalva o retirada durante espiración.",
+      "Técnica paso a paso": "retirar fijadores; pedir Valsalva/espiración en el momento de retirada si el paciente coopera; retirar el catéter de forma continua y controlada; aplicar presión inmediata; comprobar integridad del catéter y cubrir el sitio con apósito oclusivo.",
+      "STOP": "resistencia, catéter incompleto, sangrado persistente, disnea súbita, dolor torácico o déficit neurológico.",
+      "Confirmación": "catéter íntegro, hemostasia y ausencia de síntomas inmediatos.",
+      "Complicaciones": "embolia aérea inmediata o retardada, hemorragia, fragmento retenido, infección y trombosis.",
+      "Después": "mantener vigilancia clínica y el sitio ocluido según protocolo; la literatura 2025–2026 destaca que la embolia aérea puede presentarse de forma retardada.",
+      "Documentación": "tipo/sitio de CVC, posición del paciente, maniobra respiratoria si se utilizó, integridad, hemostasia y eventos.",
+      "Fuentes": "CDC intravascular catheter recommendations, updated 2024; J Vasc Bras integrative review 2025; J Crit Care systematic review 2026 on delayed air embolism after CVC removal.",
+      "QA": "YELLOW; revisión humana UCI/enfermería vascular pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

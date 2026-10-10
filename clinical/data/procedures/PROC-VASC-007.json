@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-007",
+  "name": "Catéter venoso central femoral ecoguiado",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar acceso venoso central rápido mediante vena femoral común cuando el balance riesgo-beneficio favorece este sitio.",
+  "indications": [
+    "necesidad de acceso central en contexto donde femoral ofrece ventaja logística o anatómica."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección/contaminación inguinal, trombosis, trauma pélvico/vascular y anatomía no segura. CDC recomienda evitar la vena femoral en adultos cuando es posible por mayor riesgo infeccioso; si se usa por emergencia o necesidad clínica, reevaluar para cambio de sitio cuando sea razonable."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "kit CVC, ecógrafo, barrera estéril máxima y antisepsia con clorhexidina alcohólica >0,5% salvo contraindicación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vena femoral común, arteria femoral, nervio y ligamento inguinal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "mapa ecográfico, higiene de manos, barrera estéril máxima y selección del nivel adecuado respecto al ligamento inguinal."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar vena compresible; punción dinámica; retorno venoso; avanzar guía; confirmar guía intravascular antes de dilatar; colocar catéter, aspirar/lavar y fijar."
+    }
+  ],
+  "stop_points": [
+    "punción por encima del ligamento inguinal, duda de posición de guía, resistencia, sospecha arterial o hematoma expansivo."
+  ],
+  "confirmation": [
+    "visualización ecográfica de la guía/vaso y función de todas las luces."
+  ],
+  "complications": {
+    "unclassified": [
+      "punción arterial, hematoma, hemorragia retroperitoneal si acceso alto, trombosis e infección."
+    ]
+  },
+  "aftercare": [
+    "higiene/apósito, vigilancia y reevaluación precoz de la necesidad y del sitio."
+  ],
+  "documentation": [
+    "indicación, lado, técnica US, intentos y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "CDC Summary of Recommendations for Intravascular Catheter-Related Infections, updated 2024.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana vascular/UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-007 — CVC femoral ecoguiado — ADVANCED/POCUS",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "5d9b591a6aaedc5a2d0a2f0e3f48f0118192178b7cb3c1f6e3371c74ceafb3d8",
+    "sections": {
+      "Objetivo": "proporcionar acceso venoso central rápido mediante vena femoral común cuando el balance riesgo-beneficio favorece este sitio.",
+      "Indicaciones": "necesidad de acceso central en contexto donde femoral ofrece ventaja logística o anatómica.",
+      "Contraindicaciones/precauciones": "infección/contaminación inguinal, trombosis, trauma pélvico/vascular y anatomía no segura. CDC recomienda evitar la vena femoral en adultos cuando es posible por mayor riesgo infeccioso; si se usa por emergencia o necesidad clínica, reevaluar para cambio de sitio cuando sea razonable.",
+      "Material": "kit CVC, ecógrafo, barrera estéril máxima y antisepsia con clorhexidina alcohólica >0,5% salvo contraindicación.",
+      "Anatomía": "vena femoral común, arteria femoral, nervio y ligamento inguinal.",
+      "Preparación": "mapa ecográfico, higiene de manos, barrera estéril máxima y selección del nivel adecuado respecto al ligamento inguinal.",
+      "Técnica paso a paso": "identificar vena compresible; punción dinámica; retorno venoso; avanzar guía; confirmar guía intravascular antes de dilatar; colocar catéter, aspirar/lavar y fijar.",
+      "STOP": "punción por encima del ligamento inguinal, duda de posición de guía, resistencia, sospecha arterial o hematoma expansivo.",
+      "Confirmación": "visualización ecográfica de la guía/vaso y función de todas las luces.",
+      "Complicaciones": "punción arterial, hematoma, hemorragia retroperitoneal si acceso alto, trombosis e infección.",
+      "Después": "higiene/apósito, vigilancia y reevaluación precoz de la necesidad y del sitio.",
+      "Documentación": "indicación, lado, técnica US, intentos y complicaciones.",
+      "Fuentes": "CDC Summary of Recommendations for Intravascular Catheter-Related Infections, updated 2024.",
+      "QA": "YELLOW; revisión humana vascular/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

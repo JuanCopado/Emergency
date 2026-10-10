@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-012",
+  "name": "Punción arterial / gasometría arterial",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener una muestra arterial representativa de oxigenación, ventilación y equilibrio ácido-base.",
+  "indications": [
+    "cuando la información arterial modifica manejo y no basta una muestra venosa/capilar."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección local, compromiso vascular distal, anatomía alterada o riesgo hemorrágico significativo; prolongar compresión si anticoagulado/coagulopático."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "jeringa heparinizada para gasometría, aguja, antiséptico y gasas."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "arteria radial habitualmente; alternativas según contexto."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "documentar FiO₂/dispositivo ventilatorio y elegir un sitio con perfusión adecuada."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "antisepsia, punción arterial controlada, permitir llenado espontáneo, retirar, comprimir hasta hemostasia, eliminar burbujas y mezclar suavemente según laboratorio."
+    }
+  ],
+  "stop_points": [
+    "parestesia intensa, dolor desproporcionado, sangrado persistente o isquemia distal."
+  ],
+  "confirmation": [
+    "muestra con características arteriales, sin burbujas relevantes y hemostasia local."
+  ],
+  "complications": {
+    "unclassified": [
+      "hematoma, espasmo, trombosis, lesión nerviosa e isquemia."
+    ]
+  },
+  "aftercare": [
+    "enviar con rapidez según protocolo y reevaluar el sitio."
+  ],
+  "documentation": [
+    "sitio, FiO₂/ventilación y dificultades."
+  ],
+  "sources": [
+    {
+      "title": "critical-care blood-gas sampling standards.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-012 — Punción arterial / gasometría — CORE",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "7a4e9841fe9c5df70871493bdc24fad22f83363bdc95bb4f32e00dc9df408721",
+    "sections": {
+      "Objetivo": "obtener una muestra arterial representativa de oxigenación, ventilación y equilibrio ácido-base.",
+      "Indicaciones": "cuando la información arterial modifica manejo y no basta una muestra venosa/capilar.",
+      "Contraindicaciones/precauciones": "infección local, compromiso vascular distal, anatomía alterada o riesgo hemorrágico significativo; prolongar compresión si anticoagulado/coagulopático.",
+      "Material": "jeringa heparinizada para gasometría, aguja, antiséptico y gasas.",
+      "Anatomía": "arteria radial habitualmente; alternativas según contexto.",
+      "Preparación": "documentar FiO₂/dispositivo ventilatorio y elegir un sitio con perfusión adecuada.",
+      "Técnica paso a paso": "antisepsia, punción arterial controlada, permitir llenado espontáneo, retirar, comprimir hasta hemostasia, eliminar burbujas y mezclar suavemente según laboratorio.",
+      "STOP": "parestesia intensa, dolor desproporcionado, sangrado persistente o isquemia distal.",
+      "Confirmación": "muestra con características arteriales, sin burbujas relevantes y hemostasia local.",
+      "Complicaciones": "hematoma, espasmo, trombosis, lesión nerviosa e isquemia.",
+      "Después": "enviar con rapidez según protocolo y reevaluar el sitio.",
+      "Documentación": "sitio, FiO₂/ventilación y dificultades.",
+      "Fuentes": "critical-care blood-gas sampling standards.",
+      "QA": "YELLOW; revisión humana UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

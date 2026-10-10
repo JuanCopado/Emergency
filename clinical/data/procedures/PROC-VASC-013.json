@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-013",
+  "name": "Toma de hemocultivos",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "maximizar rendimiento diagnóstico y minimizar contaminación.",
+  "indications": [
+    "sospecha de bacteriemia, sepsis, endocarditis u otra infección donde el cultivo sanguíneo pueda modificar el tratamiento."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retrasar antibióticos críticos por intentos prolongados; si es posible, extraer antes de antimicrobianos."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "frascos aerobio/anaerobio según sistema, antiséptico alcohólico para piel, alcohol isopropílico al 70% para septos, guantes y material de venopunción."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "venopunción periférica, preferentemente de extremidad superior; evitar línea central salvo sospecha específica de infección relacionada con catéter."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "identificar paciente con al menos dos identificadores, higiene de manos, desinfectar septos y piel, dejar secar el antiséptico."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "CDC 2026 recomienda en adultos obtener al menos dos sets, idealmente 2–4 sets en 24 h según cuadro; cada set suele incluir un frasco aerobio y uno anaerobio. Obtener aproximadamente 20 mL por set cuando el sistema lo permita, típicamente 10 mL por frasco; usar sitios de venopunción distintos para sets separados."
+    }
+  ],
+  "stop_points": [
+    "no volver a palpar el sitio antiseptizado sin repetir preparación; no obtener volumen insuficiente deliberadamente salvo limitación clínica."
+  ],
+  "confirmation": [
+    "número de sets, volumen, etiquetado, fecha/hora y sitio correctamente documentados."
+  ],
+  "complications": {
+    "unclassified": [
+      "contaminación, hematoma, anemia iatrogénica y falsos positivos/negativos por técnica o volumen inadecuados."
+    ]
+  },
+  "aftercare": [
+    "transportar inmediatamente al laboratorio; interpretar contaminantes en contexto clínico y del número de sets positivos."
+  ],
+  "documentation": [
+    "número de sets, volumen por frasco si se controla, sitio, método, hora, relación con antibióticos y persona que realizó la extracción."
+  ],
+  "sources": [
+    {
+      "title": "CDC Prevent Adult Blood Culture Contamination / Collect Adult Blood Culture Sets, updated 31 Mar 2026; CLSI M47 ED2.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana microbiología/infecciosas pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-013 — Toma de hemocultivos — CORE",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "c8fa61a704b254bac1a1b5bd961fdef06f59053cef2b724760681db05acdcb10",
+    "sections": {
+      "Objetivo": "maximizar rendimiento diagnóstico y minimizar contaminación.",
+      "Indicaciones": "sospecha de bacteriemia, sepsis, endocarditis u otra infección donde el cultivo sanguíneo pueda modificar el tratamiento.",
+      "Contraindicaciones/precauciones": "no retrasar antibióticos críticos por intentos prolongados; si es posible, extraer antes de antimicrobianos.",
+      "Material": "frascos aerobio/anaerobio según sistema, antiséptico alcohólico para piel, alcohol isopropílico al 70% para septos, guantes y material de venopunción.",
+      "Anatomía": "venopunción periférica, preferentemente de extremidad superior; evitar línea central salvo sospecha específica de infección relacionada con catéter.",
+      "Preparación": "identificar paciente con al menos dos identificadores, higiene de manos, desinfectar septos y piel, dejar secar el antiséptico.",
+      "Técnica paso a paso": "CDC 2026 recomienda en adultos obtener al menos dos sets, idealmente 2–4 sets en 24 h según cuadro; cada set suele incluir un frasco aerobio y uno anaerobio. Obtener aproximadamente 20 mL por set cuando el sistema lo permita, típicamente 10 mL por frasco; usar sitios de venopunción distintos para sets separados.",
+      "STOP": "no volver a palpar el sitio antiseptizado sin repetir preparación; no obtener volumen insuficiente deliberadamente salvo limitación clínica.",
+      "Confirmación": "número de sets, volumen, etiquetado, fecha/hora y sitio correctamente documentados.",
+      "Complicaciones": "contaminación, hematoma, anemia iatrogénica y falsos positivos/negativos por técnica o volumen inadecuados.",
+      "Después": "transportar inmediatamente al laboratorio; interpretar contaminantes en contexto clínico y del número de sets positivos.",
+      "Documentación": "número de sets, volumen por frasco si se controla, sitio, método, hora, relación con antibióticos y persona que realizó la extracción.",
+      "Fuentes": "CDC Prevent Adult Blood Culture Contamination / Collect Adult Blood Culture Sets, updated 31 Mar 2026; CLSI M47 ED2.",
+      "QA": "YELLOW; revisión humana microbiología/infecciosas pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

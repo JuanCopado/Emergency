@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-VASC-002",
+  "name": "Vía venosa periférica ecoguiada",
+  "family": "ACCESO VASCULAR Y MONITORIZACIÓN",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener VVP segura en pacientes con acceso difícil evitando múltiples intentos a ciegas.",
+  "indications": [
+    "venas no palpables/visibles, obesidad, edema o intentos convencionales repetidamente fallidos."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección local, trombosis o vena demasiado profunda para la longitud del catéter."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo lineal, cubierta/gel, catéter de longitud suficiente, antiséptico y fijación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vena compresible, arteria no compresible/pulsátil y nervios adyacentes."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "mapear vaso, medir profundidad/diámetro y elegir un trayecto que permita una longitud intravascular suficiente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar vena y arteria, antisepsia, punción dinámica en eje corto o largo, mantener control de la punta, confirmar entrada intraluminal, avanzar catéter bajo US cuando sea posible, flush y fijar."
+    }
+  ],
+  "stop_points": [
+    "no avanzar si la punta no está identificada o si se sospecha punción arterial/nerviosa."
+  ],
+  "confirmation": [
+    "catéter intraluminal, flush fácil y ausencia de extravasación."
+  ],
+  "complications": {
+    "unclassified": [
+      "punción arterial, infiltración, hematoma y lesión nerviosa."
+    ]
+  },
+  "aftercare": [
+    "reevaluar permeabilidad y fijación; considerar catéter más largo si la vena es profunda."
+  ],
+  "documentation": [
+    "vaso, profundidad aproximada, técnica US, intentos y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "Society of Hospital Medicine position statement on ultrasound-guided vascular access; CDC 2024.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana POCUS/vascular pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/02-vascular-monitoring.md",
+    "source_heading": "PROC-VASC-002 — Vía venosa periférica ecoguiada — ADVANCED/POCUS",
+    "family_preamble": "# 2. Acceso vascular y monitorización\n\nEstado de familia: **YELLOW**. Las dosis/infusiones se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: CDC catheter infection guidance 2024, AHA 2025 ALS vascular access, MSD/Merck 2025 para acceso arterial y principios de ultrasonido dinámico.",
+    "source_sha256": "264bf5ffa8e6f28724d150662760bf1abb6ed81ea04094a17c90066ee5dd8177",
+    "sections": {
+      "Objetivo": "obtener VVP segura en pacientes con acceso difícil evitando múltiples intentos a ciegas.",
+      "Indicaciones": "venas no palpables/visibles, obesidad, edema o intentos convencionales repetidamente fallidos.",
+      "Contraindicaciones/precauciones": "infección local, trombosis o vena demasiado profunda para la longitud del catéter.",
+      "Material": "ecógrafo lineal, cubierta/gel, catéter de longitud suficiente, antiséptico y fijación.",
+      "Anatomía": "vena compresible, arteria no compresible/pulsátil y nervios adyacentes.",
+      "Preparación": "mapear vaso, medir profundidad/diámetro y elegir un trayecto que permita una longitud intravascular suficiente.",
+      "Técnica paso a paso": "identificar vena y arteria, antisepsia, punción dinámica en eje corto o largo, mantener control de la punta, confirmar entrada intraluminal, avanzar catéter bajo US cuando sea posible, flush y fijar.",
+      "STOP": "no avanzar si la punta no está identificada o si se sospecha punción arterial/nerviosa.",
+      "Confirmación": "catéter intraluminal, flush fácil y ausencia de extravasación.",
+      "Complicaciones": "punción arterial, infiltración, hematoma y lesión nerviosa.",
+      "Después": "reevaluar permeabilidad y fijación; considerar catéter más largo si la vena es profunda.",
+      "Documentación": "vaso, profundidad aproximada, técnica US, intentos y confirmación.",
+      "Fuentes": "Society of Hospital Medicine position statement on ultrasound-guided vascular access; CDC 2024.",
+      "QA": "YELLOW; revisión humana POCUS/vascular pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
