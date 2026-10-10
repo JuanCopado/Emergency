@@ -7,6 +7,7 @@ This tool performs arithmetic only and never substitutes a dose from another syn
 
 import json
 from pathlib import Path
+from pediatric_numbers import positive, finite_result
 
 ROOT = Path(__file__).parents[1]
 DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-antibiotics.json"
@@ -15,10 +16,9 @@ def load_registry(path=DEFAULT_REGISTRY):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     return {x["id"]: x for x in data["entries"]}
 
+@finite_result
 def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
-    weight = float(weight_kg)
-    if weight <= 0:
-        raise ValueError("weight_kg must be > 0")
+    weight = positive("weight_kg", weight_kg)
     item = load_registry(path).get(entry_id)
     if not item:
         raise ValueError(f"unknown antibiotic entry: {entry_id}")
@@ -33,20 +33,20 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
         "frequency": item.get("frequency"),
     }
     if item.get("dose_per_kg") is not None:
-        dose = float(item["dose_per_kg"]) * weight
+        dose = positive("calculated dose", positive("dose_per_kg", item["dose_per_kg"]) * weight)
         if item.get("max_dose") is not None:
-            dose = min(dose, float(item["max_dose"]))
+            dose = min(dose, positive("max_dose", item["max_dose"]))
         result["dose"] = dose
         result["dose_unit"] = item.get("dose_unit")
         conc = item.get("source_concentration_per_ml")
-        if conc:
-            result["volume_ml"] = dose / float(conc)
+        if conc is not None:
+            result["volume_ml"] = dose / positive("source_concentration_per_ml", conc)
         return result
     if item.get("dose_per_kg_min") is not None and item.get("dose_per_kg_max") is not None:
-        low = float(item["dose_per_kg_min"]) * weight
-        high = float(item["dose_per_kg_max"]) * weight
+        low = positive("calculated dose", positive("dose_per_kg_min", item["dose_per_kg_min"]) * weight)
+        high = positive("calculated dose", positive("dose_per_kg_max", item["dose_per_kg_max"]) * weight)
         if item.get("max_dose") is not None:
-            cap = float(item["max_dose"])
+            cap = positive("max_dose", item["max_dose"])
             low = min(low, cap)
             high = min(high, cap)
         result["dose_range"] = [low, high]

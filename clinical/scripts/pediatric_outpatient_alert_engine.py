@@ -4,6 +4,7 @@
 import json
 import re
 from pathlib import Path
+from pediatric_numbers import outpatient_inputs
 
 ROOT=Path(__file__).parents[1]
 RULES=ROOT/"qa"/"pediatric-outpatient-alert-rules.json"
@@ -68,6 +69,15 @@ def evaluate(regimen_id, patient, active_medications=None, product=None, registr
     registry=registry or _load(REGISTRY)
     rules=rules or _load(RULES)
     e=_entry(registry,regimen_id)
+    try:
+        outpatient_inputs(patient, product, e)
+    except ValueError as exc:
+        return {
+            "regimen_id": regimen_id, "drug": e["drug"], "blocked": True,
+            "prescription_status": "BLOCKED", "highest_severity": "STOP",
+            "counts": {"STOP": 1, "ALERT": 0, "CAUTION": 0, "INFO": 0},
+            "alerts": [_alert("STOP", "INVALID_NUMERIC_INPUT", str(exc), "Correct the numeric input before calculating.")],
+        }
     drug=e["drug"]
     drug_norm=_norm(drug)
     classes=_drug_classes(drug,rules)

@@ -9,6 +9,7 @@ Fail-closed by design:
 
 import json
 from pathlib import Path
+from pediatric_numbers import positive, nonnegative, finite_result
 
 ROOT = Path(__file__).parents[1]
 DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-infusion-localization.json"
@@ -19,13 +20,14 @@ def load_registry(path=DEFAULT_REGISTRY):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     return {item["drug"]: item for item in data["drugs"]}
 
+@finite_result
 def _resolved_concentration(item, weight):
     mode = item.get("preparation_mode")
     if mode == "fixed_concentration":
         value = item.get("final_concentration_per_ml")
-        if not value or float(value) <= 0:
+        if not value or positive("concentration", value) <= 0:
             raise ValueError(f"{item['drug']}: final concentration missing")
-        return float(value)
+        return positive("concentration", value)
     if mode == "weight_normalized":
         amount_per_kg = item.get("drug_amount_per_kg")
         final_volume = item.get("final_volume_ml")
@@ -34,32 +36,31 @@ def _resolved_concentration(item, weight):
             raise ValueError(f"{item['drug']}: weight-normalized preparation incomplete")
         if unit != "mg/kg" or item.get("concentration_unit") != "micrograms/mL":
             raise ValueError(f"{item['drug']}: unsupported weight-normalized units")
-        total_micrograms = float(amount_per_kg) * 1000.0 * weight
-        return total_micrograms / float(final_volume)
+        total_micrograms = positive("drug_amount_per_kg", amount_per_kg) * 1000.0 * weight
+        return total_micrograms / positive("final_volume_ml", final_volume)
     if mode == "weight_banded_concentration":
         bands = item.get("concentration_bands") or []
         for band in bands:
-            low = float(band.get("min_weight_kg", 0))
+            low = nonnegative("min_weight_kg", band.get("min_weight_kg", 0))
             high = band.get("max_weight_kg")
-            if weight >= low and (high is None or weight <= float(high)):
+            if weight >= low and (high is None or weight <= positive("max_weight_kg", high)):
                 value = band.get("concentration_per_ml")
-                if not value or float(value) <= 0:
+                if not value or positive("concentration", value) <= 0:
                     raise ValueError(f"{item['drug']}: invalid weight-band concentration")
-                return float(value)
+                return positive("concentration", value)
         raise ValueError(f"{item['drug']}: no source-verified concentration band for requested weight")
     raise ValueError(f"{item['drug']}: unsupported preparation mode {mode}")
 
+@finite_result
 def pump_table(drug, weight_kg, path=DEFAULT_REGISTRY):
-    weight = float(weight_kg)
-    if weight <= 0:
-        raise ValueError("weight_kg must be > 0")
+    weight = positive("weight_kg", weight_kg)
     item = load_registry(path).get(drug)
     if not item:
         raise ValueError(f"unknown drug: {drug}")
     if item.get("status") not in ALLOWED_STATUSES:
         raise ValueError(f"{drug}: source verification is insufficient for automatic pump-table generation")
     max_weight = item.get("max_weight_kg")
-    if max_weight is not None and weight > float(max_weight):
+    if max_weight is not None and weight > positive("max_weight_kg", max_weight):
         raise ValueError(f"{drug}: requested weight exceeds source-verified preparation range")
     doses = item.get("dose_ladder") or []
     if not doses:
@@ -68,7 +69,7 @@ def pump_table(drug, weight_kg, path=DEFAULT_REGISTRY):
     unit = item.get("dose_unit")
     rows = []
     for raw in doses:
-        dose = float(raw)
+        dose = positive("dose_ladder", raw)
         if dose <= 0:
             raise ValueError(f"{drug}: invalid dose ladder")
         if unit == "micrograms/kg/min":

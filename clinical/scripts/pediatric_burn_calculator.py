@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """Pediatric burn resuscitation arithmetic using 3 mL/kg/%TBSA modified Parkland."""
 
-def _positive(name, value):
-    value=float(value)
-    if value <= 0: raise ValueError(f'{name} must be > 0')
-    return value
+from pediatric_numbers import positive as _positive, nonnegative, finite_result
 
+@finite_result
 def maintenance_ml_day(weight_kg):
     w=_positive('weight_kg',weight_kg)
     if w <= 10: return 100*w
     if w <= 20: return 1000+50*(w-10)
     return 1500+20*(w-20)
 
+@finite_result
 def burn_plan(weight_kg, tbsa_percent, hours_since_burn=0):
     w=_positive('weight_kg',weight_kg); tbsa=_positive('tbsa_percent',tbsa_percent)
     if tbsa > 100: raise ValueError('tbsa_percent must be <=100')
-    elapsed=float(hours_since_burn)
+    elapsed=nonnegative("hours_since_burn", hours_since_burn)
     if elapsed < 0: raise ValueError('hours_since_burn must be >=0')
     total=3.0*w*tbsa
     first=total/2.0; second=total/2.0

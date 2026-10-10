@@ -14,6 +14,7 @@ import json
 import math
 from pathlib import Path
 from pediatric_outpatient_alert_engine import evaluate as evaluate_alerts
+from pediatric_numbers import finite_number, positive, outpatient_inputs, finite_tree, finite_result
 
 REGISTRY = Path(__file__).parents[1] / "qa" / "pediatric-outpatient-medications.json"
 
@@ -32,9 +33,7 @@ def load_registry(path=REGISTRY):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 def _num(v,name):
-    if isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v):
-        raise ValueError(f"{name} must be a finite number")
-    return float(v)
+    return finite_number(name, v)
 
 def _entry(registry, regimen_id):
     for x in registry.get("entries",[]):
@@ -45,11 +44,11 @@ def _entry(registry, regimen_id):
 def _weight(entry, patient):
     basis=entry.get("weight_basis")
     if basis=="actual":
-        return _num(patient.get("actual_weight_kg"),"actual_weight_kg")
+        return positive("actual_weight_kg",patient.get("actual_weight_kg"))
     if basis=="ideal":
-        return _num(patient.get("ideal_weight_kg"),"ideal_weight_kg")
+        return positive("ideal_weight_kg",patient.get("ideal_weight_kg"))
     if basis=="adjusted":
-        return _num(patient.get("adjusted_weight_kg"),"adjusted_weight_kg")
+        return positive("adjusted_weight_kg",patient.get("adjusted_weight_kg"))
     if basis in {"fixed_age_band","fixed_weight_band","device","topical","not_weight_based"}:
         return None
     raise ValueError("unsupported or missing weight_basis")
@@ -80,8 +79,9 @@ def _fixed_band(entry, patient):
     raise ValueError("no matching age/weight band for regimen")
 
 def _apply_max(dose, entry):
+    dose=positive("calculated dose", dose)
     cap=entry.get("max_mg_per_dose")
-    return min(dose,cap) if cap is not None else dose
+    return min(dose,positive("max_mg_per_dose", cap)) if cap is not None else dose
 
 def _volume(dose_mg, concentration_mg_per_ml, entry, verified_external=False):
     conc=_num(concentration_mg_per_ml,"concentration_mg_per_ml")
@@ -89,7 +89,7 @@ def _volume(dose_mg, concentration_mg_per_ml, entry, verified_external=False):
     allowed=[float(x["mg_per_ml"]) for x in entry.get("verified_concentrations",[]) if x.get("mg_per_ml") is not None]
     if allowed and not any(abs(conc-x)<1e-9 for x in allowed) and not verified_external:
         raise ValueError("concentration is not in registry; set external_concentration_verified=true only after checking the exact product/SmPC")
-    exact=dose_mg/conc
+    exact=positive("calculated volume", dose_mg/conc)
     return {"exact_ml":exact,"rounded_0_1_ml":round(exact+1e-12,1),"concentration_mg_per_ml":conc}
 
 def _matched_verified_concentration(entry, concentration_mg_per_ml):
@@ -213,8 +213,17 @@ def _check_organ_function_gates(entry, patient):
         if hepatic.get("block_if_severe") and severity=="severe":
             raise ValueError(hepatic.get("message","standard regimen is not valid in severe hepatic impairment"))
 
+@finite_result
 def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, selected_duration_days=None, selected_volume_ml=None, registry=None, active_medications=None):
     registry=registry or load_registry()
+    entry=_entry(registry,regimen_id)
+    outpatient_inputs(patient, product, entry)
+    finite_tree(entry, "regimen")
+    for name, value in (("selected_dose_per_kg", selected_dose_per_kg),
+                        ("selected_duration_days", selected_duration_days),
+                        ("selected_volume_ml", selected_volume_ml)):
+        if value is not None:
+            positive(name, value)
     safety=preflight(regimen_id,patient,active_medications=active_medications,product=product,registry=registry)
     if safety["blocked"]:
         raise MedicationSafetyStop(safety)
@@ -252,13 +261,13 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
             if selected_dose_per_kg<lo or selected_dose_per_kg>hi:
                 raise ValueError("selected_dose_per_kg outside source range")
             perkg=selected_dose_per_kg
-        dose=_apply_max(perkg*w,e)
+        dose=_apply_max(positive("dose_mg_per_kg",perkg)*w,e)
         result.update({"dosing_weight_kg":w,"dose_mg_per_kg":perkg,"dose_mg":dose})
     elif model in {"fixed_age_band","fixed_weight_band"}:
         band=_fixed_band(e,patient)
         dose=band.get("dose_mg")
         if dose is None and band.get("dose_mg_per_kg") is not None:
-            w=_num(patient.get("actual_weight_kg"),"actual_weight_kg")
+            w=positive("actual_weight_kg",patient.get("actual_weight_kg"))
             dose=_apply_max(_num(band["dose_mg_per_kg"],"dose_mg_per_kg")*w,{**e,"max_mg_per_dose":band.get("max_mg_per_dose",e.get("max_mg_per_dose"))})
             result["dosing_weight_kg"]=w
             result["dose_mg_per_kg"]=band["dose_mg_per_kg"]
@@ -280,11 +289,11 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         course_doses=0
         course_ml=0.0
         for phase in e["schedule"]:
-            perkg=phase["dose_mg_per_kg"]
+            perkg=positive("dose_mg_per_kg",phase["dose_mg_per_kg"])
             phase_dose=_apply_max(perkg*w,{**e,"max_mg_per_dose":phase.get("max_mg_per_dose")})
             phase_out={**phase,"dose_mg":phase_dose}
-            phase_days=int(phase.get("days",1))
-            phase_doses_per_day=int(phase.get("doses_per_day",1))
+            phase_days=int(positive("phase days",phase.get("days",1)))
+            phase_doses_per_day=int(positive("phase doses_per_day",phase.get("doses_per_day",1)))
             phase_out["total_phase_doses"]=phase_days*phase_doses_per_day
             course_doses += phase_out["total_phase_doses"]
             if product is not None and product.get("concentration_mg_per_ml") is not None:
@@ -321,7 +330,7 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
             else:
                 raise ValueError("fixed_schedule phase requires dose_mg or dose_mg_per_kg")
             phase_out={**phase,"dose_mg":phase_dose}
-            phase_doses=int(phase.get("total_phase_doses",phase.get("doses",1)))
+            phase_doses=int(positive("total_phase_doses",phase.get("total_phase_doses",phase.get("doses",1))))
             phase_out["total_phase_doses"]=phase_doses
             course_doses += phase_doses
             if product is not None and product.get("concentration_mg_per_ml") is not None:
@@ -366,10 +375,10 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         result["volume_per_dose"]={"exact_ml":volume_ml,"rounded_0_1_ml":round(volume_ml+1e-12,1),"concentration_mg_per_ml":None}
         result["dose_unit"]="mL"
     elif model=="volume_ml_per_kg_course":
-        w=_num(patient.get("actual_weight_kg"),"actual_weight_kg")
-        perkg=_num(e["volume_ml_per_kg"],"volume_ml_per_kg")
+        w=positive("actual_weight_kg",patient.get("actual_weight_kg"))
+        perkg=positive("volume_ml_per_kg",e["volume_ml_per_kg"])
         total_volume=w*perkg
-        hours=_num(e["administration_hours"],"administration_hours")
+        hours=positive("administration_hours",e["administration_hours"])
         result.update({"dosing_weight_kg":w,"total_rehydration_ml":total_volume,"administration_hours":hours,"target_ml_per_hour":total_volume/hours})
         dose=None
     elif model=="sachet_schedule":
@@ -408,6 +417,8 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
     if dose is not None and product is None and e.get("liquid_capable",False):
         result["volume_status"]="concentration_required_for_ml"
 
+    if doses_per_day is not None: positive("doses_per_day", doses_per_day)
+    if duration is not None: positive("duration_days", duration)
     result["doses_per_day"]=doses_per_day
     result["duration_days"]=duration
     if dose is not None and doses_per_day and duration:
