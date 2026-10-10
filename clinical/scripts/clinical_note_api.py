@@ -429,6 +429,9 @@ def export_note_bytes(note, fmt):
 def dispatch(path, payload):
     if not isinstance(payload, dict):
         raise ValueError("request payload must be an object")
+    if path == "/api/pediatric-outpatient/calculate":
+        from pediatric_outpatient_api import calculate_request
+        return HTTPStatus.OK, calculate_request(payload)
     if path == "/api/clinical-note/new":
         return HTTPStatus.OK, new_note(
             age_years=payload.get("age_years"),

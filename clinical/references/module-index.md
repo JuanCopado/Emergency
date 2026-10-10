@@ -8,6 +8,8 @@ v1.42 Unicode and shared safety preambles: see `qa/V1.42_UNICODE_SAFETY_PREAMBLE
 
 v1.42 CI and procedure catalog: see `qa/V1.42_CI_PROCEDURE_CATALOG.md`. The frontend catalog derives 196 canonical procedures plus four aliases from the textual index and 16 families; no module IDs, routing, clinical text or evidence statuses changed.
 
+v1.42 pediatric consolidation: see `qa/V1.42_PEDIATRIC_CONSOLIDATION.md`. Finite arithmetic, existing safety gates and 89-regimen canonical frontend validated locally; no module IDs, routing or evidence statuses changed.
+
 Read only the bundles required by `router.md`. Within a bundle, locate the exact
 heading `## <module-id>`. Every routed ID must resolve here and in its target
 bundle; `scripts/validate_modules.py` enforces that invariant.

@@ -60,6 +60,7 @@ export default function Home() {
             <Link to="/clinical" className="btn-ghost">
               <Icon name="heart" size={18} /> Patologías
             </Link>
+            <Link to="/pediatrics" className="btn-ghost">Pediatría ambulatoria</Link>
           </div>
         </div>
       </section>

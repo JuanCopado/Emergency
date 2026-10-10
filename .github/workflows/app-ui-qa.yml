@@ -15,6 +15,8 @@ on:
       - 'clinical/templates/**'
       - 'clinical/assets/fonts/**'
       - 'clinical/requirements*.txt'
+      - 'clinical/qa/pediatric-outpatient-medications.json'
+      - 'clinical/qa/pediatric-outpatient-alert-rules.json'
       - '.github/workflows/app-ui-qa.yml'
   pull_request:
     paths:
@@ -29,6 +31,8 @@ on:
       - 'clinical/templates/**'
       - 'clinical/assets/fonts/**'
       - 'clinical/requirements*.txt'
+      - 'clinical/qa/pediatric-outpatient-medications.json'
+      - 'clinical/qa/pediatric-outpatient-alert-rules.json'
       - '.github/workflows/app-ui-qa.yml'
   workflow_dispatch:
 
@@ -71,6 +75,7 @@ jobs:
         run: |
           npm run guides:test
           npm run procedures:test
+          npm run pediatrics:check
       - name: Typecheck
         run: npm run typecheck
       - name: Test
@@ -78,8 +83,12 @@ jobs:
       - name: Build
         run: npm run build
       - name: Ensure build did not change committed catalogs
-        run: git diff --exit-code -- src/data/generatedClinicalGuides.json src/data/generatedProcedures.json
+        run: git diff --exit-code -- src/data/generatedClinicalGuides.json src/data/generatedProcedures.json src/data/generatedPediatricOutpatient.json
       - name: Verify actual browser PDF fidelity
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome
         run: npm run guides:print-check
+      - name: Verify pediatric form against canonical backend
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: npm run pediatrics:browser-check

@@ -885,6 +885,13 @@
       "note": "PADIS 2025 conditional preference for dexmedetomidine over propofol when light sedation and/or delirium reduction are highest priorities reconfirmed; 2018 preference for propofol/dexmedetomidine over benzodiazepines retained. Dexmedetomidine ICU no-loading and max 1.4 micrograms/kg/h product information reconfirmed. Remains yellow pending human ICU/pharmacy review and Portugal/Azores product/formulary reconciliation."
     },
     "pediatric-emergency-medications": {
+      "pediatric_consolidation_review": {
+        "date": "2026-10-10",
+        "scope": "Strict finite-number runtime validation and regression coverage; clinical formulas unchanged",
+        "record": "qa/V1.42_PEDIATRIC_CONSOLIDATION.md",
+        "clinical_evidence_reverified": false,
+        "human_review_required": true
+      },
       "priority": "high",
       "primary_source": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
       "primary_source_url": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
@@ -1083,6 +1090,13 @@
       "note": "134 active CORE/SPECIALIST scales plus 45 formulas registered centrally. Metadata and deterministic formula engine implemented. High-impact tools require source-by-source validation and human review before green promotion; complex decision rules are not reduced to artificial numeric scores."
     },
     "pediatric-outpatient-medications": {
+      "pediatric_consolidation_review": {
+        "date": "2026-10-10",
+        "scope": "Three synthetic fixture gates, finite arithmetic, canonical catalog and frontend/API integration; focal source comparison recorded separately",
+        "record": "qa/V1.42_PEDIATRIC_CONSOLIDATION.md",
+        "clinical_evidence_reverified": false,
+        "human_review_required": true
+      },
       "priority": "high",
       "primary_source": "Royal Children's Hospital pediatric acute pain/urticaria/gastroenteritis/asthma/antimicrobial guidance + GINA 2026 + NICE lower-UTI guidance + current SmPC/product labeling + Pediatric Pharmacy Association obesity dosing principles",
       "primary_source_url": "https://www.rch.org.au/clinicalguide/",

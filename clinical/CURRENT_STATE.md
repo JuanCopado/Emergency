@@ -1,3 +1,13 @@
+# Consolidación v1.42 — pediatría — 10/10/2026
+
+- Base limpia: `a740da808719f5184738c13d644019fc2d869ebd`, rama `v1.42-codex-consolidation`.
+- Banco ambulatorio reconciliado: 15/18 → 18/18 mediante tres criterios explícitos en fixtures. Los gates siguen activos y rizatriptán a 40 kg sigue bloqueado.
+- Validación numérica común rechaza tipos inválidos, NaN/inf, divisores cero y desbordamientos en calculadores pediátricos afectados.
+- Los 17 fármacos previos eran adultos. Nuevo catálogo/formulario canónico: 89 regímenes, 52 grupos, 52 principios nombrados más dos grupos de composición no desglosada, 88 diagnósticos y 58 descripciones de presentación (28 líquidas). Sin regímenes ocultos ni ausentes.
+- Clinical QA 7/7 y 493 pruebas únicas PASS; frontend 162/162, typecheck/build, cuatro escenarios con API/navegador reales y cuatro PDFs PASS. Actions remoto pendiente.
+- Detalle y archivos: `qa/V1.42_PEDIATRIC_CONSOLIDATION.md`. Pendientes: revisión humana/producto de rizatriptán, URL RCH de crup, despliegue del backend y validación prospectiva.
+- 29 GREEN / 102 YELLOW preservados; procedimientos YELLOW y `CLINICALLY_PENDING`. Main intacto, sin merge ni push. Migración estructurada aún no iniciada; visuales PAUSADAS.
+
 # Consolidación v1.42 — CI y catálogo de procedimientos — 09/10/2026
 
 - Base limpia: `813fa576ec781445fd56350e24cbed9f37dbca01`, rama `v1.42-codex-consolidation`.

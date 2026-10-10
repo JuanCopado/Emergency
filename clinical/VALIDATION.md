@@ -1,3 +1,12 @@
+# v1.42 — pediatría, 10/10/2026
+
+- Banco 18/18 PASS (antes 15/18); fixtures actualizados sin debilitar gates. Rizatriptán a 40 kg conserva bloqueo.
+- Quince regresiones Python nuevas PASS: números finitos/tipos/divisores/desbordamiento, gates, inventario exacto y API canónica. Clinical QA 7/7 con 493 pruebas únicas PASS.
+- Frontend 162/162 PASS (9 nuevas), typecheck/build PASS. Catálogo 89/89 regímenes; 52 grupos y 52 principios nombrados, sin inferir composición de dos grupos no desglosados.
+- Cuatro escenarios de navegador con backend Python real PASS; generadores guías 3/3 y procedimientos 8/8, cuatro PDFs reales y comprobación de artefacto pediátrico PASS. actionlint 1.7.12 sin ShellCheck/Pyflakes y diff-check PASS.
+- Entorno Windows/Python 3.14.7/Node 24.21/Edge; Actions remoto no ejecutado. El cálculo frontend requiere backend accesible. Sin validación clínica prospectiva ni promoción de evidencia.
+- Informe, definiciones de inventario, fuentes focales y límites: `qa/V1.42_PEDIATRIC_CONSOLIDATION.md`.
+
 # v1.42 — CI y catálogo de procedimientos, 09/10/2026
 
 - Clinical QA 7/7 PASS con 478 pruebas únicas; 43 regresiones v1.42 y 7 scores también ejecutados por separado, sin sumarlos de nuevo. Los seis validadores estructurales previos siguen activos; discovery incorpora scores/evidencia y elimina duplicación de esquemas.

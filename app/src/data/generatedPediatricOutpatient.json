@@ -1,0 +1,4483 @@
+{
+  "source": "clinical/qa/pediatric-outpatient-medications.json",
+  "source_revision": "c6fce6dccf65f669968d22aac4364911aa3b955e47718798b2165d1592b38620",
+  "status": "yellow_human_pediatric_pharmacy_review_required",
+  "safety_rules": [
+    "Select regimen by diagnosis; never copy a dose across indications.",
+    "Liquid mL may be generated only from an explicitly verified exact product concentration.",
+    "Apply source adult/per-dose and daily caps.",
+    "Weight basis is explicit. Do not substitute actual/ideal/adjusted weight silently.",
+    "Marked obesity requires drug-specific review when evidence is limited; adult maximums still apply when the source specifies them.",
+    "Renal/hepatic impairment, allergy, drug interactions, inability to tolerate oral treatment, red flags and age restrictions may override outpatient treatment.",
+    "Oral-drop output may be generated only when the exact product has a verified mg/drop or drops/mL factor; never assume a universal drops/mL conversion.",
+    "When an oral-drop product is used, return mg, mL and whole drops per dose, plus the verified product identity and source of the drop factor."
+  ],
+  "condition_rules": [
+    {
+      "id": "surgical-red-flags",
+      "field": "surgical_red_flags",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Surgical red flags invalidate routine outpatient medication treatment.",
+      "action": "Obtain urgent surgical/ED assessment."
+    },
+    {
+      "id": "active-anaphylaxis",
+      "field": "active_anaphylaxis",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Active anaphylaxis requires immediate adrenaline/emergency treatment, not routine outpatient medication selection.",
+      "action": "Activate the anaphylaxis pathway immediately."
+    },
+    {
+      "id": "hypoxaemia",
+      "field": "significant_hypoxaemia",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Significant hypoxaemia is incompatible with routine outpatient medication-only management.",
+      "action": "Stabilize and use the respiratory/emergency pathway."
+    },
+    {
+      "id": "suspected-sepsis",
+      "field": "suspected_sepsis",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Suspected sepsis overrides routine outpatient medication pathways.",
+      "action": "Activate the sepsis/emergency pathway."
+    },
+    {
+      "id": "cannot-tolerate-oral",
+      "field": "unable_to_tolerate_oral",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Oral outpatient treatment is incompatible with inability to tolerate oral medication/fluids.",
+      "action": "Use the appropriate parenteral/observation/admission pathway."
+    },
+    {
+      "id": "requires-admission",
+      "field": "requires_admission",
+      "equals": true,
+      "severity": "STOP",
+      "message": "The patient has an admission-level clinical indication.",
+      "action": "Do not use a routine discharge prescription pathway."
+    },
+    {
+      "id": "clinical-instability",
+      "field": "clinically_unstable",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Clinical instability invalidates routine outpatient medication selection.",
+      "action": "Use the emergency/resuscitation/admission pathway before outpatient prescribing."
+    },
+    {
+      "id": "clarithromycin-qt-history",
+      "drug": "clarithromycin",
+      "field": "known_qt_prolongation_or_ventricular_arrhythmia",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Clarithromycin is contraindicated with known QT prolongation or ventricular arrhythmia.",
+      "action": "Use a non-QT-risk alternative.",
+      "source_url": "https://www.medicines.org.uk/emc/product/4357/smpc"
+    },
+    {
+      "id": "clarithromycin-electrolytes",
+      "drug": "clarithromycin",
+      "field": "hypokalaemia_or_hypomagnesaemia",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Clarithromycin is contraindicated with hypokalaemia/hypomagnesaemia due to QT risk.",
+      "action": "Correct electrolytes and choose/reassess therapy.",
+      "source_url": "https://www.medicines.org.uk/emc/product/11561/smpc"
+    },
+    {
+      "id": "ondansetron-qt-history",
+      "drug": "ondansetron",
+      "field": "known_qt_prolongation_or_ventricular_arrhythmia",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Ondansetron adds QT/arrhythmia risk in patients with QT prolongation or ventricular arrhythmia.",
+      "action": "Review necessity, ECG/electrolytes and alternatives.",
+      "source_url": "https://www.medicines.org.uk/emc/product/5216/smpc"
+    },
+    {
+      "id": "ondansetron-electrolytes",
+      "drug": "ondansetron",
+      "field": "hypokalaemia_or_hypomagnesaemia",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Electrolyte abnormalities increase ondansetron-associated arrhythmia risk.",
+      "action": "Correct electrolytes and reassess QT risk.",
+      "source_url": "https://www.medicines.org.uk/emc/product/5216/smpc"
+    },
+    {
+      "id": "ibuprofen-dehydration-alert",
+      "drug": "ibuprofen",
+      "field": "dehydrated",
+      "equals": true,
+      "severity": "STOP",
+      "message": "Ibuprofen should be avoided in dehydration because of renal risk.",
+      "action": "Use alternative analgesia/antipyresis and treat dehydration.",
+      "source_url": "https://www.medicines.org.uk/emc/product/10524/smpc"
+    },
+    {
+      "id": "pregnancy-antiparasitic-review",
+      "categories": [
+        "antiparasitic"
+      ],
+      "field": "pregnant",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Pregnancy changes the benefit-risk profile of several antiparasitic regimens.",
+      "action": "Review pregnancy-specific guidance/product labeling before prescribing.",
+      "source_url": "https://www.cdc.gov/"
+    },
+    {
+      "id": "ibuprofen-pregnancy",
+      "drug": "ibuprofen",
+      "field": "pregnant",
+      "equals": true,
+      "severity": "ALERT",
+      "message": "Pregnancy changes NSAID benefit-risk and gestational-age restrictions apply.",
+      "action": "Review gestational age and pregnancy-specific NSAID guidance before prescribing.",
+      "source_url": "https://www.medicines.org.uk/emc/product/10524/smpc"
+    }
+  ],
+  "drugs": [
+    {
+      "id": "aciclovir",
+      "name": "aciclovir",
+      "components": [
+        "aciclovir"
+      ]
+    },
+    {
+      "id": "albendazole",
+      "name": "albendazole",
+      "components": [
+        "albendazole"
+      ]
+    },
+    {
+      "id": "amoxicillin",
+      "name": "amoxicillin",
+      "components": [
+        "amoxicillin"
+      ]
+    },
+    {
+      "id": "amoxicillin-clavulanate",
+      "name": "amoxicillin + clavulanate",
+      "components": [
+        "amoxicillin",
+        "clavulanate"
+      ]
+    },
+    {
+      "id": "azelastine-fluticasone-propionate",
+      "name": "azelastine + fluticasone propionate",
+      "components": [
+        "azelastine",
+        "fluticasone propionate"
+      ]
+    },
+    {
+      "id": "azithromycin",
+      "name": "azithromycin",
+      "components": [
+        "azithromycin"
+      ]
+    },
+    {
+      "id": "budesonide-formoterol",
+      "name": "budesonide + formoterol",
+      "components": [
+        "budesonide",
+        "formoterol"
+      ]
+    },
+    {
+      "id": "cefalexin",
+      "name": "cefalexin",
+      "components": [
+        "cefalexin"
+      ]
+    },
+    {
+      "id": "cetirizine",
+      "name": "cetirizine",
+      "components": [
+        "cetirizine"
+      ]
+    },
+    {
+      "id": "chloramphenicol",
+      "name": "chloramphenicol",
+      "components": [
+        "chloramphenicol"
+      ]
+    },
+    {
+      "id": "ciclesonide",
+      "name": "ciclesonide",
+      "components": [
+        "ciclesonide"
+      ]
+    },
+    {
+      "id": "ciprofloxacin",
+      "name": "ciprofloxacin",
+      "components": [
+        "ciprofloxacin"
+      ]
+    },
+    {
+      "id": "ciprofloxacin-dexamethasone",
+      "name": "ciprofloxacin + dexamethasone",
+      "components": [
+        "ciprofloxacin",
+        "dexamethasone"
+      ]
+    },
+    {
+      "id": "clarithromycin",
+      "name": "clarithromycin",
+      "components": [
+        "clarithromycin"
+      ]
+    },
+    {
+      "id": "clindamycin",
+      "name": "clindamycin",
+      "components": [
+        "clindamycin"
+      ]
+    },
+    {
+      "id": "clotrimazole",
+      "name": "clotrimazole",
+      "components": [
+        "clotrimazole"
+      ]
+    },
+    {
+      "id": "desloratadine",
+      "name": "desloratadine",
+      "components": [
+        "desloratadine"
+      ]
+    },
+    {
+      "id": "dexamethasone",
+      "name": "dexamethasone",
+      "components": [
+        "dexamethasone"
+      ]
+    },
+    {
+      "id": "dimeticone",
+      "name": "dimeticone",
+      "components": [
+        "dimeticone"
+      ]
+    },
+    {
+      "id": "docusate-sodium",
+      "name": "docusate sodium",
+      "components": [
+        "docusate sodium"
+      ]
+    },
+    {
+      "id": "epinephrine",
+      "name": "epinephrine",
+      "components": [
+        "epinephrine"
+      ]
+    },
+    {
+      "id": "fexofenadine",
+      "name": "fexofenadine",
+      "components": [
+        "fexofenadine"
+      ]
+    },
+    {
+      "id": "fluticasone-propionate",
+      "name": "fluticasone propionate",
+      "components": [
+        "fluticasone propionate"
+      ]
+    },
+    {
+      "id": "hydrocortisone",
+      "name": "hydrocortisone",
+      "components": [
+        "hydrocortisone"
+      ]
+    },
+    {
+      "id": "ibuprofen",
+      "name": "ibuprofen",
+      "components": [
+        "ibuprofen"
+      ]
+    },
+    {
+      "id": "ivermectin",
+      "name": "ivermectin",
+      "components": [
+        "ivermectin"
+      ]
+    },
+    {
+      "id": "ketotifen",
+      "name": "ketotifen",
+      "components": [
+        "ketotifen"
+      ]
+    },
+    {
+      "id": "lactulose",
+      "name": "lactulose",
+      "components": [
+        "lactulose"
+      ]
+    },
+    {
+      "id": "loratadine",
+      "name": "loratadine",
+      "components": [
+        "loratadine"
+      ]
+    },
+    {
+      "id": "low-osmolarity-oral-rehydration-solution",
+      "name": "low-osmolarity oral rehydration solution",
+      "components": [
+        "low-osmolarity oral rehydration solution"
+      ]
+    },
+    {
+      "id": "macrogol-3350-electrolytes",
+      "name": "macrogol 3350 + electrolytes",
+      "components": [
+        "macrogol 3350",
+        "electrolytes"
+      ]
+    },
+    {
+      "id": "mebendazole",
+      "name": "mebendazole",
+      "components": [
+        "mebendazole"
+      ]
+    },
+    {
+      "id": "methylprednisolone-aceponate",
+      "name": "methylprednisolone aceponate",
+      "components": [
+        "methylprednisolone aceponate"
+      ]
+    },
+    {
+      "id": "mometasone-furoate",
+      "name": "mometasone furoate",
+      "components": [
+        "mometasone furoate"
+      ]
+    },
+    {
+      "id": "montelukast",
+      "name": "montelukast",
+      "components": [
+        "montelukast"
+      ]
+    },
+    {
+      "id": "mupirocin",
+      "name": "mupirocin",
+      "components": [
+        "mupirocin"
+      ]
+    },
+    {
+      "id": "nitrofurantoin",
+      "name": "nitrofurantoin",
+      "components": [
+        "nitrofurantoin"
+      ]
+    },
+    {
+      "id": "olopatadine",
+      "name": "olopatadine",
+      "components": [
+        "olopatadine"
+      ]
+    },
+    {
+      "id": "ondansetron",
+      "name": "ondansetron",
+      "components": [
+        "ondansetron"
+      ]
+    },
+    {
+      "id": "oseltamivir",
+      "name": "oseltamivir",
+      "components": [
+        "oseltamivir"
+      ]
+    },
+    {
+      "id": "paracetamol",
+      "name": "paracetamol",
+      "components": [
+        "paracetamol"
+      ]
+    },
+    {
+      "id": "permethrin",
+      "name": "permethrin",
+      "components": [
+        "permethrin"
+      ]
+    },
+    {
+      "id": "phenazone-lidocaine",
+      "name": "phenazone + lidocaine",
+      "components": [
+        "phenazone",
+        "lidocaine"
+      ]
+    },
+    {
+      "id": "phenoxymethylpenicillin",
+      "name": "phenoxymethylpenicillin",
+      "components": [
+        "phenoxymethylpenicillin"
+      ]
+    },
+    {
+      "id": "pimecrolimus",
+      "name": "pimecrolimus",
+      "components": [
+        "pimecrolimus"
+      ]
+    },
+    {
+      "id": "praziquantel",
+      "name": "praziquantel",
+      "components": [
+        "praziquantel"
+      ]
+    },
+    {
+      "id": "prednisolone",
+      "name": "prednisolone",
+      "components": [
+        "prednisolone"
+      ]
+    },
+    {
+      "id": "pyrantel-pamoate",
+      "name": "pyrantel pamoate",
+      "components": [
+        "pyrantel pamoate"
+      ]
+    },
+    {
+      "id": "rizatriptan",
+      "name": "rizatriptan",
+      "components": [
+        "rizatriptan"
+      ]
+    },
+    {
+      "id": "salbutamol",
+      "name": "salbutamol",
+      "components": [
+        "salbutamol"
+      ]
+    },
+    {
+      "id": "trimethoprim",
+      "name": "trimethoprim",
+      "components": [
+        "trimethoprim"
+      ]
+    },
+    {
+      "id": "trimethoprim-sulfamethoxazole",
+      "name": "trimethoprim + sulfamethoxazole",
+      "components": [
+        "trimethoprim",
+        "sulfamethoxazole"
+      ]
+    }
+  ],
+  "regimens": [
+    {
+      "id": "acyclovir-hsv-mucocutaneous-standard-renal",
+      "category": "antiviral",
+      "drug": "aciclovir",
+      "diagnosis": "non-neonatal uncomplicated mucocutaneous herpes simplex in a child when oral aciclovir is clinically appropriate and standard renal dosing is suitable",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL oral suspension"
+        },
+        {
+          "mg_per_ml": 80,
+          "label": "400 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_age_months": 23,
+          "dose_mg": 100,
+          "doses_per_day": 5,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 24,
+          "max_age_months": 215,
+          "dose_mg": 200,
+          "doses_per_day": 5,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "five times daily at approximately 4-hour intervals while awake",
+      "duration_days": 5,
+      "required_patient_flags": [
+        {
+          "field": "renal_adjustment_required",
+          "equals": false,
+          "message": "this standard HSV regimen must not be used when renal dose adjustment is required"
+        }
+      ],
+      "administration": "Oral suspension; maintain hydration. Neonatal herpes and severe/immunocompromised disease are outside this outpatient regimen.",
+      "contraindications": [
+        "aciclovir/valaciclovir hypersensitivity"
+      ],
+      "cautions": [
+        "renal impairment requires adjustment",
+        "neonatal HSV requires IV/specialist pathway",
+        "renal impairment requires dose/interval adjustment",
+        "maintain hydration and review nephrotoxic co-medications",
+        "neonatal HSV is excluded from this oral outpatient regimen and requires IV/specialist management"
+      ],
+      "source": "Current aciclovir 200 mg/5 mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard aciclovir outpatient regimen is blocked when renal dose adjustment is required"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic adjustment encoded; prioritize renal function and hydration."
+      },
+      "min_age_months": 1,
+      "excluded_patient_flags": [
+        {
+          "field": "severe_or_immunocompromised_hsv",
+          "equals": true,
+          "message": "severe HSV or significant immunocompromise may require IV/specialist management rather than this outpatient oral regimen"
+        }
+      ],
+      "drug_id": "aciclovir"
+    },
+    {
+      "id": "acyclovir-varicella-standard-renal",
+      "category": "antiviral",
+      "drug": "aciclovir",
+      "diagnosis": "varicella requiring oral aciclovir because a clinician has confirmed increased risk of moderate/severe disease or another guideline-supported indication",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 800,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL oral suspension"
+        },
+        {
+          "mg_per_ml": 80,
+          "label": "400 mg/5 mL oral suspension"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "renal_adjustment_required",
+          "equals": false,
+          "message": "this standard varicella regimen must not be used when renal dose adjustment is required"
+        },
+        {
+          "field": "varicella_oral_antiviral_indication_confirmed",
+          "equals": true,
+          "message": "oral aciclovir is not routinely recommended for otherwise healthy children with uncomplicated typical varicella; confirm a guideline-supported indication"
+        }
+      ],
+      "administration": "Start as early as clinically appropriate; in immunocompetent chickenpox product information advises beginning within 24 hours of rash onset. Maintain adequate hydration. Shake suspension.",
+      "contraindications": [
+        "aciclovir/valaciclovir hypersensitivity"
+      ],
+      "cautions": [
+        "renal impairment",
+        "concurrent nephrotoxic medicines",
+        "immunocompromised/severe disease may require specialist/IV treatment",
+        "renal impairment requires dose/interval adjustment",
+        "maintain hydration and review nephrotoxic co-medications",
+        "for maximum benefit in outpatient varicella, start within 24 hours of rash onset",
+        "AAP/CDC do not recommend routine oral aciclovir for otherwise healthy children with typical uncomplicated varicella"
+      ],
+      "source": "CDC varicella clinical guidance + current aciclovir SmPC",
+      "source_url": "https://www.cdc.gov/chickenpox/hcp/clinical-guidance/index.html",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard aciclovir outpatient regimen is blocked when renal dose adjustment is required"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic adjustment encoded; prioritize renal function and hydration."
+      },
+      "excluded_patient_flags": [
+        {
+          "field": "severe_or_disseminated_varicella",
+          "equals": true,
+          "message": "severe/disseminated or immunocompromised varicella requires urgent specialist/inpatient assessment and usually IV aciclovir"
+        }
+      ],
+      "drug_id": "aciclovir"
+    },
+    {
+      "id": "albendazole-ascariasis-ge2y",
+      "category": "antiparasitic",
+      "drug": "albendazole",
+      "diagnosis": "ascariasis in child age >=2 years when albendazole is selected",
+      "route": "PO",
+      "weight_basis": "not_weight_based",
+      "min_age_months": 24,
+      "dose_model": "fixed_dose",
+      "fixed_dose_mg": 400,
+      "doses_per_day": 1,
+      "frequency": "single dose",
+      "duration_days": 1,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 20,
+          "label": "400 mg/20 mL oral suspension strength documented in Portugal; verify current exact product"
+        }
+      ],
+      "administration": "Take on an empty stomach for ascariasis per CDC.",
+      "contraindications": [
+        "benzimidazole hypersensitivity"
+      ],
+      "source": "CDC Soil-transmitted Helminths Clinical Care 2024",
+      "source_url": "https://www.cdc.gov/sth/hcp/clinical-care/index.html",
+      "drug_id": "albendazole"
+    },
+    {
+      "id": "albendazole-pinworm-ge2y",
+      "category": "antiparasitic",
+      "drug": "albendazole",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years after household hygiene plan",
+      "route": "PO",
+      "weight_basis": "not_weight_based",
+      "min_age_months": 24,
+      "dose_model": "fixed_schedule",
+      "liquid_capable": true,
+      "schedule": [
+        {
+          "name": "dose_1_day_1",
+          "dose_mg": 400,
+          "total_phase_doses": 1
+        },
+        {
+          "name": "dose_2_day_15",
+          "dose_mg": 400,
+          "total_phase_doses": 1
+        }
+      ],
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 20,
+          "label": "400 mg/20 mL oral suspension (Zentel strength documented in Portugal product information; current local stock still requires Infomed/Azores confirmation)"
+        }
+      ],
+      "frequency": "single dose, repeat once after 2 weeks",
+      "duration_days": 15,
+      "administration": "Take on an empty stomach for pinworm per CDC. Treat household/caregiver contacts simultaneously when clinically appropriate and reinforce hand hygiene, bathing, laundering and nail hygiene.",
+      "contraindications": [
+        "benzimidazole hypersensitivity"
+      ],
+      "cautions": [
+        "children <2 years require individualized risk-benefit assessment rather than this regimen",
+        "pregnancy considerations in adolescents"
+      ],
+      "source": "CDC Pinworm Clinical Overview 2024; INFARMED product-strength documentation",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html",
+      "drug_id": "albendazole"
+    },
+    {
+      "id": "amox-clav-bite",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin/clavulanate",
+      "diagnosis": "high-risk but clinically uninfected animal/human bite requiring oral antibiotic prophylaxis after adequate wound assessment/irrigation",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 22.5,
+      "max_mg_per_dose": 875,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 80,
+          "label": "400/57 mg per 5 mL; amoxicillin component 80 mg/mL"
+        }
+      ],
+      "administration": "Give at the start of a meal; shake suspension before each dose.",
+      "contraindications": [
+        "penicillin hypersensitivity",
+        "previous severe immediate beta-lactam hypersensitivity",
+        "previous co-amoxiclav-associated jaundice/hepatic impairment"
+      ],
+      "source": "RCH Animal and human bites + RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Animal_and_human_bites/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "7:1 amoxicillin/clavulanate suspension is not recommended below creatinine clearance 30 mL/min because dose-adjustment recommendations are unavailable for this ratio"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Dose with caution and monitor hepatic function at regular intervals."
+      },
+      "cautions": [
+        "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
+        "hepatic impairment requires caution and monitoring",
+        "specific RCH bite guidance recommends IV therapy and at least 14 days total treatment for established infected wounds; do not reuse this 5-day prophylaxis regimen for established infection",
+        "check tetanus status and assess rabies/lyssavirus or blood-borne-virus exposure when relevant",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "established_bite_infection",
+          "equals": true,
+          "message": "this 5-day regimen is for prophylaxis of a high-risk uninfected bite; established/grossly infected bite requires the infected-wound pathway and often IV/surgical management"
+        }
+      ],
+      "min_age_months": 1,
+      "drug_id": "amoxicillin-clavulanate"
+    },
+    {
+      "id": "amox-clav-preseptal-stepdown",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin/clavulanate",
+      "diagnosis": "orbital cellulitis oral step-down after initial inpatient IV therapy, specialist assessment and clear clinical improvement",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 22.5,
+      "max_mg_per_dose": 875,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": [
+        10,
+        14
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 80,
+          "label": "400/57 mg per 5 mL; amoxicillin component"
+        }
+      ],
+      "administration": "Give at the start of a meal. Not a substitute for orbital-cellulitis imaging/specialist/inpatient pathway when indicated.",
+      "contraindications": [
+        "penicillin hypersensitivity",
+        "previous severe immediate beta-lactam hypersensitivity",
+        "previous co-amoxiclav-associated jaundice/hepatic impairment"
+      ],
+      "source": "RCH Periorbital and orbital cellulitis",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Periorbital_and_orbital_cellulitis/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "7:1 amoxicillin/clavulanate suspension is not recommended below creatinine clearance 30 mL/min because dose-adjustment recommendations are unavailable for this ratio"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Dose with caution and monitor hepatic function at regular intervals."
+      },
+      "cautions": [
+        "renal impairment below CrCl 30 mL/min requires a different formulation/regimen",
+        "hepatic impairment requires caution and monitoring",
+        "mild periorbital/preseptal cellulitis uses the separate cefalexin/cefuroxime pathway",
+        "orbital cellulitis requires admission, ENT/ophthalmology input and usually urgent imaging",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "required_patient_flags": [
+        {
+          "field": "orbital_cellulitis_stepdown_after_iv_confirmed",
+          "equals": true,
+          "message": "amoxicillin/clavulanate 22.5 mg/kg twice daily is an orbital-cellulitis oral step-down regimen after initial IV/specialist management, not a routine mild preseptal regimen"
+        }
+      ],
+      "min_age_months": 1,
+      "drug_id": "amoxicillin-clavulanate"
+    },
+    {
+      "id": "amoxicillin-aom",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "acute otitis media when antibiotic treatment is indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 30,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "May be taken with or without food; follow exact product label. Complete the prescribed course.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "cautions": [
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity"
+      ],
+      "drug_id": "amoxicillin"
+    },
+    {
+      "id": "amoxicillin-cap-outpatient",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "mild community-acquired pneumonia treated as outpatient",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 30,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "cautions": [
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity"
+      ],
+      "administration": "May be taken with or without food; shake suspension and use the exact product concentration.",
+      "required_patient_flags": [
+        {
+          "field": "cap_outpatient_criteria_met",
+          "equals": true,
+          "message": "outpatient CAP regimen requires a clinically stable child without admission-level respiratory distress/hypoxaemia, able to tolerate oral treatment, with appropriate follow-up"
+        }
+      ],
+      "drug_id": "amoxicillin"
+    },
+    {
+      "id": "amoxicillin-dental-abscess",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "dental abscess requiring antibiotic plus dental/surgical management",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 25,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "Antibiotic does not replace definitive dental/surgical treatment.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "cautions": [
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "min_age_months": 1,
+      "drug_id": "amoxicillin"
+    },
+    {
+      "id": "amoxicillin-gas-sore-throat-adherence",
+      "category": "oral_antibiotic",
+      "drug": "amoxicillin",
+      "diagnosis": "GAS sore throat/tonsillitis when amoxicillin once-daily second-line strategy is selected to improve adherence",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 50,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": 10,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        },
+        {
+          "mg_per_ml": 100,
+          "label": "500 mg/5 mL where exact product verified"
+        }
+      ],
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "cautions": [
+        "do not extrapolate this once-daily GAS regimen to other infections",
+        "renal impairment requires dose/frequency adjustment below GFR 30 mL/min",
+        "monitor for antibiotic-associated diarrhea/hypersensitivity"
+      ],
+      "source": "RCH Sore throat",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard outpatient amoxicillin regimen is not valid when eGFR/GFR is below 30 mL/min; use a renal-adjusted regimen",
+        "detail": "For children <40 kg, current SmPC uses 15 mg/kg twice daily at GFR 10-30 and 15 mg/kg once daily at GFR <10; dialysis requires separate handling."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Monitor liver function when clinically indicated; no universal pediatric hepatic dose algorithm is encoded."
+      },
+      "administration": "May be taken with or without food; shake suspension and use the exact product concentration.",
+      "drug_id": "amoxicillin"
+    },
+    {
+      "id": "azelastine-fluticasone-nasal-ge12",
+      "category": "allergic_rhinitis_intranasal_combo",
+      "drug": "azelastine 137 micrograms + fluticasone propionate 50 micrograms/actuation",
+      "diagnosis": "moderate-to-severe seasonal/perennial allergic rhinitis age >=12 years when monotherapy with intranasal antihistamine or corticosteroid is insufficient",
+      "route": "intranasal",
+      "weight_basis": "device",
+      "min_age_months": 144,
+      "max_age_months": 215,
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "azelastine hydrochloride 137 mcg + fluticasone propionate 50 mcg/actuation",
+          "sprays_per_nostril_per_dose": 1,
+          "doses_per_day": 2
+        }
+      ],
+      "frequency": "one spray in each nostril twice daily",
+      "administration": "Regular use is required for full benefit. Avoid contact with eyes. Shake/prime according to exact product.",
+      "cautions": [
+        "not recommended below 12 years in cited SmPC",
+        "no specific renal/hepatic data",
+        "local nasal adverse effects"
+      ],
+      "source": "Azelastine/fluticasone 137/50 mcg SmPC, current 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/101780/smpc",
+      "drug_id": "azelastine-fluticasone-propionate"
+    },
+    {
+      "id": "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
+      "category": "oral_antibiotic",
+      "drug": "azithromycin",
+      "diagnosis": "GAS sore throat in child with immediate beta-lactam hypersensitivity when macrolide treatment is indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 12,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL oral suspension"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "immediate_or_severe_beta_lactam_allergy",
+          "equals": true,
+          "message": "this entry is specifically the immediate beta-lactam allergy pathway"
+        }
+      ],
+      "administration": "Once daily; may be given with or without food according to exact suspension SmPC. Shake reconstituted suspension.",
+      "cautions": [
+        "QT prolongation",
+        "macrolide resistance/local susceptibility",
+        "hepatic impairment",
+        "GFR <10 mL/min requires caution",
+        "severe hepatic impairment requires caution",
+        "QT prolongation/arrhythmia risk"
+      ],
+      "source": "RCH Sore throat; azithromycin 200 mg/5 mL SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 10,
+        "message": "azithromycin standard regimen should be used cautiously below GFR 10 mL/min; specialist/product-specific review required"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No adjustment for mild/moderate hepatic impairment; severe hepatic impairment requires caution because data are lacking."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ],
+      "drug_id": "azithromycin"
+    },
+    {
+      "id": "azithromycin-pertussis-ge6mo",
+      "category": "oral_antibiotic",
+      "drug": "azithromycin",
+      "diagnosis": "pertussis treatment/prophylaxis regimen age >=6 months",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 6,
+      "dose_model": "schedule_by_day",
+      "liquid_capable": true,
+      "schedule": [
+        {
+          "name": "day_1",
+          "days": 1,
+          "doses_per_day": 1,
+          "dose_mg_per_kg": 10,
+          "max_mg_per_dose": 500
+        },
+        {
+          "name": "days_2_to_5",
+          "days": 4,
+          "doses_per_day": 1,
+          "dose_mg_per_kg": 5,
+          "max_mg_per_dose": 250
+        }
+      ],
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL"
+        }
+      ],
+      "administration": "Once daily, with or without food; immediately before a meal may improve GI tolerability. Shake suspension.",
+      "cautions": [
+        "QT prolongation/arrhythmia risk",
+        "severe hepatic impairment",
+        "GFR <10 mL/min requires caution",
+        "severe hepatic impairment requires caution",
+        "QT prolongation/arrhythmia risk"
+      ],
+      "source": "RCH Antimicrobial guidelines; azithromycin 200 mg/5 mL SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 10,
+        "message": "azithromycin standard regimen should be used cautiously below GFR 10 mL/min; specialist/product-specific review required"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No adjustment for mild/moderate hepatic impairment; severe hepatic impairment requires caution because data are lacking."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ],
+      "drug_id": "azithromycin"
+    },
+    {
+      "id": "azithromycin-pertussis-lt6mo",
+      "category": "oral_antibiotic",
+      "drug": "azithromycin",
+      "diagnosis": "pertussis treatment/prophylaxis regimen in infant <6 months",
+      "route": "PO",
+      "weight_basis": "actual",
+      "max_age_months": 5,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 10,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 40,
+          "label": "200 mg/5 mL"
+        }
+      ],
+      "administration": "Once daily, with or without food; immediately before a meal may improve GI tolerability. Shake suspension.",
+      "cautions": [
+        "QT prolongation/arrhythmia risk",
+        "severe hepatic impairment",
+        "GFR <10 mL/min requires caution",
+        "severe hepatic impairment requires caution",
+        "QT prolongation/arrhythmia risk"
+      ],
+      "source": "RCH Antimicrobial guidelines; azithromycin 200 mg/5 mL SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 10,
+        "message": "azithromycin standard regimen should be used cautiously below GFR 10 mL/min; specialist/product-specific review required"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No adjustment for mild/moderate hepatic impairment; severe hepatic impairment requires caution because data are lacking."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ],
+      "drug_id": "azithromycin"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-12to17-gina2026",
+      "category": "asthma_controller_ics_formoterol_air_mart",
+      "drug": "budesonide/formoterol",
+      "diagnosis": "asthma age 12-17 years using GINA 2026 AIR/MART strategy",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 144,
+      "max_age_months": 215,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "budesonide/formoterol delivered 160/4.5 micrograms (metered 200/6) per inhalation",
+          "step1_2": "1 inhalation as needed",
+          "step3": "1 inhalation twice (or once) daily plus 1 as needed",
+          "step4_5": "2 inhalations twice daily plus 1 as needed",
+          "maximum_total_inhalations_24h": 12
+        }
+      ],
+      "frequency": "by GINA treatment step",
+      "administration": "AIR/MART only with an appropriate ICS-formoterol product. Seek medical care if >12 total inhalations are needed in 24 h.",
+      "source": "GINA 2026 Strategy Report, Box 4-8B",
+      "source_url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+      "drug_id": "budesonide-formoterol"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-6to11-gina2026",
+      "category": "asthma_controller_ics_formoterol_air_mart",
+      "drug": "budesonide/formoterol",
+      "diagnosis": "asthma age 6-11 years using GINA 2026 AIR/MART strategy with the specified low-dose budesonide-formoterol formulation",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "budesonide/formoterol delivered 80/4.5 micrograms (metered 100/6) per inhalation",
+          "step1_2": "1 inhalation as needed",
+          "step3": "1 inhalation once daily plus 1 as needed",
+          "step4": "1 inhalation twice daily plus 1 as needed",
+          "maximum_total_inhalations_24h": 8
+        }
+      ],
+      "frequency": "by GINA treatment step",
+      "administration": "Use only the specified ICS-formoterol strength/device suitable for AIR/MART. Seek medical care if >8 total inhalations are needed in 24 h.",
+      "source": "GINA 2026 Strategy Report, Box 4-8B",
+      "source_url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+      "drug_id": "budesonide-formoterol"
+    },
+    {
+      "id": "budesonide-formoterol-controller-6to11-step3-rch",
+      "category": "asthma_controller_ics_laba",
+      "drug": "budesonide/formoterol",
+      "diagnosis": "asthma age 6-11 years, Step 3 ICS/LABA maintenance option",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "budesonide/formoterol pMDI 100/3 micrograms",
+          "puffs_per_dose": 2,
+          "doses_per_day": 2,
+          "alternative": "DPI 200/6 micrograms: 1 inhalation twice daily"
+        }
+      ],
+      "frequency": "twice daily maintenance; reliever strategy must match written plan",
+      "administration": "Controller regimen only. Confirm whether separate SABA or MART strategy is being used; do not mix plans silently.",
+      "source": "RCH asthma in primary school-aged children",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "drug_id": "budesonide-formoterol"
+    },
+    {
+      "id": "cefalexin-cellulitis",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "mild/moderate cellulitis suitable for oral outpatient therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        5,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "May be given without regard to meals. Reassess if rapidly progressive or systemic illness.",
+      "contraindications": [
+        "cephalosporin hypersensitivity",
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "immediate severe beta-lactam allergy",
+        "marked renal impairment requires dose review",
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "source": "RCH Antimicrobial guidelines; cefalexin SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "required_patient_flags": [
+        {
+          "field": "cellulitis_outpatient_criteria_met",
+          "equals": true,
+          "message": "oral cellulitis treatment requires mild/moderate disease suitable for outpatient therapy with review if worsening or no improvement by ~48 hours"
+        }
+      ],
+      "min_age_months": 1,
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-cervical-lymphadenitis-mild",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "mild bacterial cervical lymphadenitis suitable for oral outpatient therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "contraindications": [
+        "cephalosporin hypersensitivity",
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "deep neck infection red flags",
+        "abscess requiring drainage",
+        "renal impairment",
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "source": "RCH Antimicrobial guidelines, updated Feb 2025",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "required_patient_flags": [
+        {
+          "field": "systemically_well",
+          "equals": true,
+          "message": "oral cefalexin lymphadenitis regimen is for a well child with mild bacterial lymphadenitis"
+        },
+        {
+          "field": "review_within_48h_planned",
+          "equals": true,
+          "message": "mild bacterial cervical lymphadenitis treated orally should have planned review within 48 hours"
+        }
+      ],
+      "min_age_months": 1,
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-cystitis",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "uncomplicated lower UTI/cystitis in a child >3 months who is not systemically unwell",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "cautions": [
+        "culture/resistance history",
+        "renal impairment",
+        "marked renal impairment requires dose reduction"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
+      ],
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "GAS sore throat in child with non-immediate/non-severe penicillin hypersensitivity where alternate beta-lactam is appropriate",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 25,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 10,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "immediate_or_severe_beta_lactam_allergy",
+          "equals": false,
+          "message": "cefalexin alternate-beta-lactam regimen is not appropriate for immediate/severe beta-lactam allergy"
+        }
+      ],
+      "administration": "Can be given without regard to meals for the cited formulation.",
+      "contraindications": [
+        "cephalosporin hypersensitivity",
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "take detailed beta-lactam allergy history; immediate/severe reactions should avoid both penicillin and cephalosporin classes per RCH guidance",
+        "marked renal impairment requires dose reduction"
+      ],
+      "source": "RCH Sore throat + RCH beta-lactam allergy guidance",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-impetigo-extensive",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "impetigo that is extensive or unsuitable for localized topical therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "Can be taken without regard to meals; verify exact SmPC.",
+      "contraindications": [
+        "cephalosporin hypersensitivity",
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "immediate severe beta-lactam allergy",
+        "renal impairment",
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "source": "RCH Antimicrobial guidelines, updated Feb 2025",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "min_age_months": 1,
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-infected-eczema-bacterial",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "secondary bacterial infection of eczema with localized crusting/weeping/pustules, child systemically well and suitable for oral therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        5,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "administration": "Continue appropriate eczema skin care/topical anti-inflammatory treatment after crust removal unless contraindicated. Reassess if not improving.",
+      "contraindications": [
+        "cephalosporin hypersensitivity",
+        "cephalosporin hypersensitivity"
+      ],
+      "cautions": [
+        "systemic illness/severe infection may require admission/IV therapy",
+        "consider MRSA if high-risk or not responding",
+        "eczema herpeticum requires prompt antiviral pathway, not antibiotic alone",
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "source": "RCH Eczema / Eczema management + RCH antimicrobial skin dosing",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "min_age_months": 1,
+      "required_patient_flags": [
+        {
+          "field": "systemically_well",
+          "equals": true,
+          "message": "oral treatment of infected eczema is for a systemically well child; systemic features or severe infection may require admission/IV therapy"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_eczema_herpeticum",
+          "equals": true,
+          "message": "suspected eczema herpeticum requires prompt antiviral/specialist assessment and must not be managed as bacterial infected eczema alone"
+        }
+      ],
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-preseptal",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "mild preseptal cellulitis in a well child",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "max_mg_per_dose": 750,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        7,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "contraindications": [
+        "cephalosporin hypersensitivity",
+        "cephalosporin hypersensitivity"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "cautions": [
+        "marked renal impairment requires dose reduction",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "required_patient_flags": [
+        {
+          "field": "mild_preseptal_cellulitis_confirmed",
+          "equals": true,
+          "message": "cefalexin outpatient regimen is for mild preseptal/periorbital cellulitis in a well child after orbital red flags are excluded"
+        },
+        {
+          "field": "follow_up_assured",
+          "equals": true,
+          "message": "mild preseptal cellulitis outpatient treatment requires assured follow-up"
+        }
+      ],
+      "min_age_months": 1,
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-ge12mo",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "acute pyelonephritis age >=12 months using the RCH high-dose oral step-down regimen after initial pediatric assessment/therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 12,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 45,
+      "max_mg_per_dose": 1500,
+      "doses_per_day": 3,
+      "frequency": "three times daily",
+      "duration_days": [
+        7,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "cautions": [
+        "culture/resistance",
+        "renal impairment",
+        "systemic illness may require IV/inpatient care",
+        "marked renal impairment requires dose reduction",
+        "NICE also permits first-line oral cefalexin in selected children >=3 months with pyelonephritis using different age-banded doses; preserve that as a separate source-specific strategy rather than merging doses",
+        "under 3 months, toxic/systemically unwell, vomiting or sepsis-risk children require specialist/hospital pathway"
+      ],
+      "source": "RCH UTI",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "rch_pyelo_high_dose_stepdown_confirmed",
+          "equals": true,
+          "message": "this high-dose cefalexin regimen is the RCH early oral step-down pathway for acute pyelonephritis; do not use it as an unreviewed generic cystitis/outpatient regimen"
+        },
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
+      ],
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-lt12mo",
+      "category": "oral_antibiotic",
+      "drug": "cefalexin",
+      "diagnosis": "acute pyelonephritis age 3-11 months using the RCH high-dose oral step-down regimen after initial pediatric assessment/therapy",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "max_age_months": 11,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 25,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": [
+        7,
+        10
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL"
+        }
+      ],
+      "cautions": [
+        "young infant threshold for admission/IV treatment",
+        "culture/resistance",
+        "renal impairment",
+        "marked renal impairment requires dose reduction",
+        "NICE also permits first-line oral cefalexin in selected children >=3 months with pyelonephritis using different age-banded doses; preserve that as a separate source-specific strategy rather than merging doses",
+        "under 3 months, toxic/systemically unwell, vomiting or sepsis-risk children require specialist/hospital pathway"
+      ],
+      "source": "RCH UTI",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+      },
+      "administration": "May be given without regard to meals; shake suspension and use exact product strength.",
+      "contraindications": [
+        "cephalosporin hypersensitivity"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "rch_pyelo_high_dose_stepdown_confirmed",
+          "equals": true,
+          "message": "this high-dose cefalexin regimen is the RCH early oral step-down pathway for acute pyelonephritis; do not use it as an unreviewed generic cystitis/outpatient regimen"
+        },
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
+      ],
+      "drug_id": "cefalexin"
+    },
+    {
+      "id": "cetirizine-urticaria-6to11mo",
+      "category": "antihistamine",
+      "drug": "cetirizine",
+      "diagnosis": "isolated acute urticaria without anaphylaxis, age 6-11 months",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 6,
+      "max_age_months": 11,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.25,
+      "max_mg_per_dose": 2.5,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 1,
+          "label": "1 mg/mL oral solution"
+        }
+      ],
+      "administration": "Use a non-sedating antihistamine. Avoid NSAIDs as they can worsen urticaria.",
+      "cautions": [
+        "renal impairment requires individualized interval",
+        "age <6 months requires pediatric review",
+        "any airway/respiratory/circulatory or significant GI involvement = evaluate for anaphylaxis",
+        "renal impairment requires individualized pediatric dosing"
+      ],
+      "source": "RCH Urticaria; current cetirizine product concentration",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric cetirizine dose must be individualized in renal impairment using renal clearance, age and weight; standard regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No adjustment for isolated hepatic impairment; adjust when hepatic and renal impairment coexist."
+      },
+      "contraindications": [
+        "cetirizine/hydroxyzine/piperazine hypersensitivity",
+        "end-stage renal disease per product labeling"
+      ],
+      "drug_id": "cetirizine"
+    },
+    {
+      "id": "cetirizine-urticaria-ge1y",
+      "category": "antihistamine",
+      "drug": "cetirizine",
+      "diagnosis": "isolated acute urticaria/allergic symptoms, age >=1 year",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 1,
+          "label": "1 mg/mL oral solution"
+        }
+      ],
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 23,
+          "dose_mg": 2.5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 24,
+          "max_age_months": 71,
+          "dose_mg": 2.5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 144,
+          "dose_mg": 10,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "age-band schedule",
+      "administration": "May be given as oral solution. Avoid NSAIDs in acute urticaria if they worsen symptoms.",
+      "cautions": [
+        "renal impairment requires dose-interval review",
+        "anaphylaxis features require adrenaline pathway, not antihistamine alone",
+        "renal impairment requires individualized pediatric dosing"
+      ],
+      "source": "RCH Urticaria; cetirizine 1 mg/mL SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric cetirizine dose must be individualized in renal impairment using renal clearance, age and weight; standard regimen is blocked"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No adjustment for isolated hepatic impairment; adjust when hepatic and renal impairment coexist."
+      },
+      "contraindications": [
+        "cetirizine/hydroxyzine/piperazine hypersensitivity",
+        "end-stage renal disease per product labeling"
+      ],
+      "drug_id": "cetirizine"
+    },
+    {
+      "id": "chloramphenicol05-bacterial-conjunctivitis",
+      "category": "ophthalmology_topical",
+      "drug": "chloramphenicol 0.5% eye drops",
+      "diagnosis": "uncomplicated bacterial conjunctivitis with purulent discharge, clear cornea and no infiltrate after red-eye assessment",
+      "route": "ophthalmic",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Instil chloramphenicol 0.5% eye drops 4-6 times per day for 5-7 days, with eye toilet and hand-hygiene/infection-control measures.",
+      "drops_per_dose": 1,
+      "doses_per_day_range": [
+        4,
+        6
+      ],
+      "duration_days": [
+        5,
+        7
+      ],
+      "liquid_capable": false,
+      "contraindications": [
+        "chloramphenicol hypersensitivity"
+      ],
+      "cautions": [
+        "unilateral red eye needs diagnostic caution",
+        "pain/photophobia/corneal infiltrate/vision change/trauma/contact-lens ulcer require ophthalmic pathway",
+        "stop if hypersensitivity and seek review"
+      ],
+      "source": "RCH Acute red eye",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_red_eye/",
+      "required_patient_flags": [
+        {
+          "field": "sight_threatening_red_eye_excluded",
+          "equals": true,
+          "message": "outpatient conjunctivitis treatment requires exclusion of severe pain, photophobia, reduced visual acuity, corneal involvement/trauma or other sight-threatening red-eye features"
+        }
+      ],
+      "min_age_months": 1,
+      "excluded_patient_flags": [
+        {
+          "field": "neonatal_conjunctivitis",
+          "equals": true,
+          "message": "neonatal conjunctivitis requires neonatal/systemic infection assessment and specialist advice rather than the generic outpatient conjunctivitis pathway"
+        }
+      ],
+      "drug_id": "chloramphenicol"
+    },
+    {
+      "id": "ciclesonide-controller-6to11-step2",
+      "category": "asthma_controller_ics",
+      "drug": "ciclesonide",
+      "diagnosis": "asthma age 6-11 years, Step 2 low-dose ICS preventer",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "ciclesonide 80 microgram/actuation",
+          "puffs_per_dose": 1,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Use prescribed inhaler correctly; review adherence, technique and control before step-up.",
+      "source": "RCH asthma in primary school-aged children",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "drug_id": "ciclesonide"
+    },
+    {
+      "id": "ciprofloxacin-aoe-ge1y-intact-tm",
+      "category": "ent_otologic",
+      "drug": "ciprofloxacin 2 mg/mL ear drops",
+      "diagnosis": "acute otitis externa in child >1 year with intact tympanic membrane and susceptible organisms",
+      "route": "otic",
+      "weight_basis": "topical",
+      "min_age_months": 12,
+      "dose_model": "topical",
+      "topical_instructions": "Instil one 0.25 mL single-dose ampoule into the affected ear twice daily for 7 days. Warm ampoule in the hand; keep affected ear upward about 5 minutes after instillation.",
+      "volume_per_administration_ml": 0.25,
+      "doses_per_day": 2,
+      "duration_days": 7,
+      "liquid_capable": false,
+      "contraindications": [
+        "ciprofloxacin/quinolone hypersensitivity"
+      ],
+      "cautions": [
+        "this product indication specifies intact tympanic membrane",
+        "verify exact product and diagnosis"
+      ],
+      "source": "Cetraxal 2 mg/mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/8847/smpc",
+      "drug_id": "ciprofloxacin"
+    },
+    {
+      "id": "ciprofloxacin-dexamethasone-aoe-ge1y",
+      "category": "ent_otologic",
+      "drug": "ciprofloxacin 3 mg/mL + dexamethasone 1 mg/mL ear drops",
+      "diagnosis": "acute otitis externa in child age >=1 year when this combination is selected",
+      "route": "otic",
+      "weight_basis": "topical",
+      "min_age_months": 12,
+      "dose_model": "topical",
+      "topical_instructions": "Instil 4 drops into the affected ear twice daily for 7 days. Warm suspension in the hand before use and follow product positioning instructions.",
+      "drops_per_dose": 4,
+      "doses_per_day": 2,
+      "duration_days": 7,
+      "liquid_capable": false,
+      "contraindications": [
+        "quinolone/dexamethasone or excipient hypersensitivity",
+        "viral or fungal otic infection per SmPC"
+      ],
+      "cautions": [
+        "verify tympanic membrane/diagnosis and exact product",
+        "persistent/worsening symptoms require review"
+      ],
+      "source": "Ciprofloxacin/dexamethasone 3 mg/mL + 1 mg/mL ear drops SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/101381/smpc",
+      "drug_id": "ciprofloxacin-dexamethasone"
+    },
+    {
+      "id": "clarithromycin-aom-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "acute otitis media when antibiotic treatment is indicated and penicillin allergy/intolerance requires a macrolide alternative",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 7.999,
+          "dose_mg": null,
+          "dose_mg_per_kg": 7.5,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg": 11,
+          "max_weight_kg": 19,
+          "dose_mg": 125,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg": 19,
+          "max_weight_kg": 29,
+          "dose_mg": 187.5,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        },
+        {
+          "min_weight_kg": 29,
+          "max_weight_kg": 40,
+          "dose_mg": 250,
+          "doses_per_day": 2,
+          "duration_days": [
+            5,
+            7
+          ]
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "May be taken with or without food. Verify exact suspension strength; important CYP3A/QT interactions apply.",
+      "contraindications": [
+        "macrolide hypersensitivity",
+        "concomitant contraindicated QT/CYP3A interacting medicines per SmPC",
+        "macrolide hypersensitivity"
+      ],
+      "cautions": [
+        "hepatic impairment",
+        "renal impairment",
+        "QT prolongation",
+        "electrolyte disturbance",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
+      ],
+      "source": "NICE NG91 acute otitis media, amended 2022; clarithromycin SmPC for product use",
+      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      },
+      "drug_id": "clarithromycin"
+    },
+    {
+      "id": "clarithromycin-cap-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "community-acquired pneumonia in child when oral macrolide is selected for penicillin allergy/intolerance or atypical pathogen coverage",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 7.999,
+          "dose_mg": null,
+          "dose_mg_per_kg": 7.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 11,
+          "max_weight_kg": 19,
+          "dose_mg": 125,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 19,
+          "max_weight_kg": 29,
+          "dose_mg": 187.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 29,
+          "max_weight_kg": 40,
+          "dose_mg": 250,
+          "doses_per_day": 2,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "May be taken with or without food; verify exact product and interaction profile.",
+      "cautions": [
+        "QT prolongation",
+        "drug interactions",
+        "renal/hepatic impairment",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
+      ],
+      "source": "NICE NG250 pneumonia; RCH CAP allergy pathway",
+      "source_url": "https://www.nice.org.uk/guidance/NG250/chapter/recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      },
+      "contraindications": [
+        "macrolide hypersensitivity"
+      ],
+      "drug_id": "clarithromycin"
+    },
+    {
+      "id": "clarithromycin-pertussis-ge1mo",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "pertussis when clarithromycin selected, age >=1 month",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 7.5,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL"
+        }
+      ],
+      "administration": "May be given without regard to meals; food/drink after the suspension can reduce bitter aftertaste.",
+      "contraindications": [
+        "important QT-prolonging/interacting medicines per SmPC",
+        "macrolide hypersensitivity"
+      ],
+      "cautions": [
+        "renal impairment may require dose reduction",
+        "hepatic impairment",
+        "QT prolongation",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
+      ],
+      "source": "RCH antimicrobial pertussis regimen; clarithromycin 125 mg/5 mL SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      },
+      "drug_id": "clarithromycin"
+    },
+    {
+      "id": "clarithromycin-sinusitis-penicillin-allergy",
+      "category": "oral_antibiotic",
+      "drug": "clarithromycin",
+      "diagnosis": "acute sinusitis requiring antibiotic in child with penicillin allergy/intolerance",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 7.999,
+          "dose_mg": null,
+          "dose_mg_per_kg": 7.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 11,
+          "max_weight_kg": 19,
+          "dose_mg": 125,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 19,
+          "max_weight_kg": 29,
+          "dose_mg": 187.5,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 29,
+          "max_weight_kg": 40,
+          "dose_mg": 250,
+          "doses_per_day": 2,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "May be taken with or without food; verify exact formulation.",
+      "contraindications": [
+        "macrolide hypersensitivity",
+        "macrolide hypersensitivity"
+      ],
+      "cautions": [
+        "QT prolongation",
+        "hepatic impairment",
+        "renal impairment",
+        "CYP3A interactions",
+        "CrCl <30 mL/min/1.73m² requires half the usual total daily dose",
+        "hepatic impairment",
+        "QT prolongation and major CYP3A interactions"
+      ],
+      "source": "NICE NG79 acute sinusitis",
+      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 30,
+        "message": "standard clarithromycin regimen is not valid below creatinine clearance 30 mL/min/1.73m²; pediatric SmPC reduces total daily dose by half"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Use caution in hepatic impairment; avoid severe hepatic failure combined with renal impairment."
+      },
+      "drug_id": "clarithromycin"
+    },
+    {
+      "id": "clindamycin-mrsa-skin",
+      "category": "oral_antibiotic",
+      "drug": "clindamycin",
+      "diagnosis": "mild MRSA skin infection when clindamycin selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 10,
+      "max_mg_per_dose": 450,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "administration": "Oral solution; take at least 30 minutes before lying down to reduce oesophageal irritation.",
+      "cautions": [
+        "local clindamycin resistance/inducible resistance",
+        "history of C. difficile",
+        "C. difficile/antibiotic-associated colitis risk",
+        "renal/hepatic monitoring for prolonged therapy",
+        "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+      ],
+      "source": "RCH antimicrobial MRSA pathway",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 15,
+          "label": "75 mg/5 mL oral solution"
+        }
+      ],
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No routine dose modification for renal insufficiency in cited oral SmPC; monitor in severe disease/prolonged therapy."
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No routine dose modification for hepatic insufficiency; monitor severe hepatic disease/prolonged therapy."
+      },
+      "contraindications": [
+        "clindamycin/lincomycin hypersensitivity"
+      ],
+      "min_age_months": 1,
+      "drug_id": "clindamycin"
+    },
+    {
+      "id": "clotrimazole1-cutaneous-candida",
+      "category": "dermatology_antifungal_topical",
+      "drug": "clotrimazole 1% cream",
+      "diagnosis": "localized cutaneous candidal infection including candidal intertrigo/nappy rash when antifungal therapy is indicated",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply thinly and evenly 2-3 times daily; continue for at least 2 weeks for candidal infection per SmPC.",
+      "frequency": "2-3 times daily",
+      "duration_days": 14,
+      "liquid_capable": false,
+      "contraindications": [
+        "hypersensitivity to clotrimazole/product excipients"
+      ],
+      "cautions": [
+        "avoid eyes/mouth",
+        "persistent diaper rash needs diagnostic reassessment"
+      ],
+      "source": "Clotrimazole 1% cream SmPC, updated Aug 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/102509/smpc",
+      "drug_id": "clotrimazole"
+    },
+    {
+      "id": "clotrimazole1-tinea-corporis",
+      "category": "dermatology_antifungal_topical",
+      "drug": "clotrimazole 1% cream",
+      "diagnosis": "localized tinea corporis/cruris or other susceptible superficial dermatophyte infection excluding scalp/nail disease",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply a thin layer to affected and surrounding skin 2-3 times daily. Continue for at least 1 month for dermatophyte infection according to the cited SmPC. Keep skin clean and dry.",
+      "frequency": "2-3 times daily",
+      "duration_days": 28,
+      "liquid_capable": false,
+      "contraindications": [
+        "hypersensitivity to clotrimazole/product excipients"
+      ],
+      "cautions": [
+        "do not use for scalp or nail infection",
+        "avoid eyes/mouth",
+        "reassess if not improving"
+      ],
+      "source": "Clotrimazole 1% cream SmPC, updated Aug 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/102509/smpc",
+      "drug_id": "clotrimazole"
+    },
+    {
+      "id": "desloratadine-allergic-rhinitis-urticaria",
+      "category": "antihistamine",
+      "drug": "desloratadine",
+      "diagnosis": "allergic rhinitis or urticaria, age >=1 year",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.5,
+          "label": "0.5 mg/mL oral solution"
+        }
+      ],
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_mg": 1.25,
+          "doses_per_day": 1
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 2.5,
+          "doses_per_day": 1
+        },
+        {
+          "min_age_months": 144,
+          "dose_mg": 5,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "source": "NeoClarityn 0.5 mg/mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/6510/smpc",
+      "administration": "Oral solution once daily using the supplied measuring device; may be taken with or without food unless the exact product states otherwise.",
+      "contraindications": [
+        "desloratadine/loratadine/product hypersensitivity"
+      ],
+      "cautions": [
+        "significant renal impairment requires caution/product-specific review"
+      ],
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "known significant renal impairment requires product-specific pediatric review before standard desloratadine dosing"
+      },
+      "hepatic_adjustment": {
+        "mode": "no_specific_adjustment_encoded",
+        "detail": "No pediatric hepatic dose algorithm encoded; significant hepatic disease requires product-specific review."
+      },
+      "drug_id": "desloratadine"
+    },
+    {
+      "id": "dexamethasone-asthma-1to11y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "dexamethasone",
+      "diagnosis": "acute asthma exacerbation when dexamethasone strategy selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 12,
+      "max_age_months": 143,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        0.3,
+        0.6
+      ],
+      "max_mg_per_dose": 12,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        1,
+        2
+      ],
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.4,
+          "label": "2 mg/5 mL"
+        }
+      ],
+      "source": "GINA 2026; dexamethasone 2 mg/5 mL SmPC",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required for the cited oral formulations."
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No hepatic dose adjustment is required for the cited oral formulations."
+      },
+      "contraindications": [
+        "systemic fungal infection",
+        "systemic infection unless appropriate anti-infective treatment is provided"
+      ],
+      "cautions": [
+        "short courses are used in these pathways; prolonged therapy has corticosteroid withdrawal/adrenal-suppression considerations"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
+        }
+      ],
+      "drug_id": "dexamethasone"
+    },
+    {
+      "id": "dexamethasone-croup-mild-moderate",
+      "category": "croup_steroid",
+      "drug": "dexamethasone",
+      "diagnosis": "croup with stridor/risk features suitable for outpatient management after assessment",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 6,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.15,
+      "max_mg_per_dose": 12,
+      "doses_per_day": 1,
+      "frequency": "single dose",
+      "duration_days": 1,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.4,
+          "label": "2 mg/5 mL"
+        }
+      ],
+      "source": "RCH Croup; dexamethasone product concentration",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required for the cited oral formulations."
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No hepatic dose adjustment is required for the cited oral formulations."
+      },
+      "contraindications": [
+        "systemic fungal infection",
+        "systemic infection unless appropriate anti-infective treatment is provided"
+      ],
+      "cautions": [
+        "short courses are used in these pathways; prolonged therapy has corticosteroid withdrawal/adrenal-suppression considerations"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "croup_discharge_criteria_met",
+          "equals": true,
+          "message": "outpatient croup treatment requires discharge criteria to be met (including no stridor at rest; observe appropriately after nebulised adrenaline if used)"
+        }
+      ],
+      "drug_id": "dexamethasone"
+    },
+    {
+      "id": "dimeticone4-head-lice",
+      "category": "dermatology_ectoparasite",
+      "drug": "dimeticone 4% lotion",
+      "diagnosis": "head lice when dimeticone 4% topical therapy is selected",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply dimeticone 4% according to the exact product directions and repeat treatment after 7 days as recommended by the cited RCH antimicrobial guidance.",
+      "frequency": "one application, repeat after 7 days",
+      "duration_days": 7,
+      "liquid_capable": false,
+      "cautions": [
+        "treat only live infestation according to local policy",
+        "follow product-specific flammability/application precautions"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "drug_id": "dimeticone"
+    },
+    {
+      "id": "docusate-paediatric-constipation-ge6mo",
+      "category": "gastrointestinal_laxative",
+      "drug": "docusate sodium 12.5 mg/5 mL oral solution",
+      "diagnosis": "functional/idiopathic constipation in child >6 months when docusate is specifically selected as an alternative stool-softener",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 6,
+      "max_age_months": 143,
+      "dose_model": "fixed_volume_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 6,
+          "max_age_months": 11,
+          "dose_ml": 5,
+          "doses_per_day": 3
+        },
+        {
+          "min_age_months": 12,
+          "max_age_months": 143,
+          "dose_ml_range": [
+            5,
+            10
+          ],
+          "doses_per_day": 3
+        }
+      ],
+      "frequency": "three times daily",
+      "duration_days": null,
+      "administration": "Dilute each dose in a glass of flavoured drink such as fruit juice or milk and drink within 30 minutes of preparation. Ensure adequate fluid intake.",
+      "contraindications": [
+        "abdominal pain with possible obstruction",
+        "intestinal obstruction",
+        "nausea/vomiting",
+        "docusate hypersensitivity"
+      ],
+      "cautions": [
+        "not first-line over macrogol in the project constipation pathway",
+        "sorbitol/fructose and phenylalanine excipient considerations depend on product"
+      ],
+      "source": "Docusol Paediatric 12.5 mg/5 mL SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/12341/smpc",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ],
+      "drug_id": "docusate-sodium"
+    },
+    {
+      "id": "epinephrine-autoinjector-discharge-rch",
+      "category": "anaphylaxis_discharge",
+      "drug": "epinephrine/adrenaline auto-injector",
+      "diagnosis": "anaphylaxis discharge plan when auto-injector is indicated",
+      "route": "IM auto-injector",
+      "weight_basis": "device",
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_weight_kg_inclusive": 7.5,
+          "max_weight_kg": 20,
+          "device": "EpiPen Jr 150 micrograms"
+        },
+        {
+          "min_weight_kg": 20,
+          "max_weight_kg": 50,
+          "device": "EpiPen 300 micrograms"
+        },
+        {
+          "min_weight_kg": 50,
+          "device": "500 microgram device may be considered in adolescents >12 years where locally available; 300 microgram device remains product/pathway dependent"
+        }
+      ],
+      "administration": "Provide two devices when indicated, device training, written anaphylaxis action plan and allergy referral. IM adrenaline remains first-line for recurrent anaphylaxis.",
+      "source": "RCH Anaphylaxis",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Anaphylaxis/",
+      "required_patient_flags": [
+        {
+          "field": "anaphylaxis_discharge_criteria_met",
+          "equals": true,
+          "message": "adrenaline auto-injector discharge plan requires clinical stability, appropriate post-adrenaline observation and discharge education/follow-up"
+        }
+      ],
+      "drug_id": "epinephrine"
+    },
+    {
+      "id": "fexofenadine-allergic-rhinitis",
+      "category": "antihistamine",
+      "drug": "fexofenadine",
+      "diagnosis": "seasonal allergic rhinitis when fexofenadine selected",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 72,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 30,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 144,
+          "dose_mg": 120,
+          "doses_per_day": 1
+        }
+      ],
+      "administration": "For the 120 mg adolescent tablet regimen, take before a meal. Product/age licensing varies; verify exact product.",
+      "source": "Current fexofenadine SmPC / product labeling",
+      "source_url": "https://www.medicines.org.uk/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "renal impairment in children requires product-specific review because pediatric safety/efficacy data are not established"
+      },
+      "hepatic_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "hepatic impairment in children requires product-specific review because pediatric safety/efficacy data are not established"
+      },
+      "contraindications": [
+        "fexofenadine/product hypersensitivity"
+      ],
+      "cautions": [
+        "renal/hepatic impairment requires pediatric product-specific review",
+        "separate aluminium/magnesium antacids per product instructions"
+      ],
+      "drug_id": "fexofenadine"
+    },
+    {
+      "id": "fluticasone-controller-6to11-step2",
+      "category": "asthma_controller_ics",
+      "drug": "fluticasone propionate",
+      "diagnosis": "asthma age 6-11 years, Step 2 low-dose ICS preventer",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "device": "fluticasone propionate 50 microgram/actuation",
+          "puffs_per_dose": 1,
+          "doses_per_day": 2
+        }
+      ],
+      "frequency": "twice daily",
+      "administration": "Use spacer with pMDI when appropriate; rinse mouth after ICS. Check adherence and technique before step-up.",
+      "source": "RCH asthma in primary school-aged children",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "drug_id": "fluticasone-propionate"
+    },
+    {
+      "id": "fluticasone-controller-preschool",
+      "category": "asthma_controller_ics",
+      "drug": "fluticasone propionate",
+      "diagnosis": "preschool asthma age 1-5 years requiring first-line preventer treatment",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "min_age_months": 12,
+      "max_age_months": 71,
+      "dose_model": "device",
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "device": "fluticasone propionate 50 microgram/actuation pMDI + spacer",
+          "puffs_per_dose": 1,
+          "doses_per_day": 2
+        }
+      ],
+      "frequency": "1 puff twice daily",
+      "administration": "Use pMDI with spacer; facemask until coordinated with mouthpiece. Rinse mouth/brush teeth after ICS where feasible. Review control and technique.",
+      "cautions": [
+        "monitor growth",
+        "oral candidiasis/dysphonia",
+        "step down to lowest effective dose"
+      ],
+      "source": "RCH Preschool asthma 1-5 years",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Preschool_asthma_%281-5_years%29/",
+      "drug_id": "fluticasone-propionate"
+    },
+    {
+      "id": "fluticasone-propionate-nasal-allergic-rhinitis",
+      "category": "allergic_rhinitis_intranasal",
+      "drug": "fluticasone propionate 50 micrograms/actuation nasal spray",
+      "diagnosis": "seasonal or perennial allergic rhinitis when fluticasone propionate nasal spray is selected",
+      "route": "intranasal",
+      "weight_basis": "device",
+      "min_age_months": 48,
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 48,
+          "max_age_months": 143,
+          "device": "fluticasone propionate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 1,
+          "doses_per_day": 1,
+          "max_sprays_per_nostril_per_day": 2
+        },
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "fluticasone propionate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 2,
+          "doses_per_day": 1,
+          "max_sprays_per_nostril_per_day": 4,
+          "maintenance_note": "reduce to 1 spray per nostril daily when controlled"
+        }
+      ],
+      "frequency": "once daily initially; selected patients may require product-label step-up",
+      "administration": "Prefer morning dosing. Use lowest effective dose and correct intranasal technique; avoid eye contact.",
+      "cautions": [
+        "epistaxis/nasal irritation",
+        "growth monitoring for prolonged pediatric use",
+        "CYP3A4 interactions can increase systemic corticosteroid exposure"
+      ],
+      "source": "Flixonase Aqueous Nasal Spray SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/845/smpc",
+      "portugal_reconciliation": "Portuguese market documents list fluticasone propionate 50 micrograms/dose nasal products; exact pediatric-labelled product and Azores availability require Infomed verification.",
+      "drug_id": "fluticasone-propionate"
+    },
+    {
+      "id": "hydrocortisone1-eczema-sensitive-mild",
+      "category": "dermatology_topical",
+      "drug": "hydrocortisone 1% (10 mg/g)",
+      "diagnosis": "mild-to-moderate eczema flare on sensitive areas such as face/groin when a mild topical corticosteroid is appropriate",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply a thin appropriate amount to affected eczema twice daily until the flare is resolved. Use ointment where practical for emollient effect; avoid prolonged unsupervised treatment.",
+      "frequency": "twice daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "contraindications": [
+        "hypersensitivity to product",
+        "untreated primary bacterial/fungal/viral skin infection at treatment site unless separately treated"
+      ],
+      "cautions": [
+        "avoid eyes",
+        "use lowest effective potency",
+        "review persistent/recurrent facial eczema",
+        "infants require clinician-directed use"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "portugal_reconciliation": "INFARMED lists hydrocortisone 10 mg/g topical strength in Portugal; pediatric indication/product-specific RCM and Azores stock still require exact product verification.",
+      "drug_id": "hydrocortisone"
+    },
+    {
+      "id": "ibuprofen-pain-fever-home",
+      "category": "analgesic_antipyretic",
+      "drug": "ibuprofen",
+      "diagnosis": "mild/moderate pain or fever when NSAID is appropriate",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 10,
+      "max_mg_per_dose": 400,
+      "doses_per_day": 3,
+      "frequency": "every 6-8 h as needed; home schedule capped at 3 doses/day",
+      "duration_days": [
+        1,
+        3
+      ],
+      "daily_max_mg_per_kg": 30,
+      "adult_max_daily_mg": 2400,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 20,
+          "label": "100 mg/5 mL"
+        }
+      ],
+      "administration": "Give with food; use the lowest effective dose for the shortest duration.",
+      "excluded_patient_flags": [
+        {
+          "field": "dehydrated",
+          "equals": true,
+          "message": "avoid ibuprofen in dehydration because of renal risk"
+        },
+        {
+          "field": "significant_renal_impairment",
+          "equals": true,
+          "message": "avoid/seek specialist dosing advice in significant renal impairment"
+        },
+        {
+          "field": "nsaid_hypersensitivity",
+          "equals": true,
+          "message": "contraindicated with prior ibuprofen/aspirin/NSAID hypersensitivity"
+        },
+        {
+          "field": "active_or_recurrent_peptic_ulcer_bleeding",
+          "equals": true,
+          "message": "contraindicated with active/recurrent peptic ulcer or GI bleeding"
+        }
+      ],
+      "cautions": [
+        "anticoagulant use",
+        "bleeding risk"
+      ],
+      "source": "RCH Acute Pain Management 2024; ibuprofen 100 mg/5 mL SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/",
+      "drug_id": "ibuprofen"
+    },
+    {
+      "id": "ivermectin-strongyloides-ge15kg",
+      "category": "antiparasitic",
+      "drug": "ivermectin",
+      "diagnosis": "uncomplicated acute/chronic strongyloidiasis with confirmed clinical indication in child weighing >=15 kg",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.2,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        1,
+        2
+      ],
+      "liquid_capable": false,
+      "minimum_patient_values": [
+        {
+          "field": "actual_weight_kg",
+          "minimum": 15,
+          "message": "CDC lists weight <15 kg as a relative contraindication for ivermectin strongyloidiasis treatment"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_or_confirmed_loa_loa",
+          "equals": true,
+          "message": "ivermectin is relatively contraindicated with suspected/confirmed concomitant Loa loa infection"
+        }
+      ],
+      "administration": "Oral ivermectin; verify exact tablet strength and local product instructions. Follow-up stool examination is recommended if symptoms persist with initially positive stool testing.",
+      "cautions": [
+        "pregnancy/lactation in adolescents",
+        "hyperinfection/disseminated disease requires specialist/inpatient management"
+      ],
+      "source": "CDC Strongyloides Clinical Care 2024",
+      "source_url": "https://www.cdc.gov/strongyloides/hcp/clinical-care/index.html",
+      "drug_id": "ivermectin"
+    },
+    {
+      "id": "ketotifen-eye-allergic-conjunctivitis-ge3",
+      "category": "ophthalmology_antiallergic",
+      "drug": "ketotifen 0.25 mg/mL eye drops",
+      "diagnosis": "symptomatic seasonal allergic conjunctivitis age >=3 years",
+      "route": "ophthalmic",
+      "weight_basis": "topical",
+      "min_age_months": 36,
+      "dose_model": "topical",
+      "topical_instructions": "Instil 1 drop into affected eye(s) twice daily. Avoid touching the dropper tip and follow contact-lens instructions.",
+      "drops_per_dose": 1,
+      "doses_per_day": 2,
+      "duration_days": null,
+      "liquid_capable": false,
+      "contraindications": [
+        "ketotifen/product hypersensitivity"
+      ],
+      "cautions": [
+        "if symptoms do not improve or worsen, reassess diagnosis",
+        "benzalkonium-containing products may affect contact lenses"
+      ],
+      "source": "Zaditen ketotifen 0.25 mg/mL SmPC 2025; INFARMED ketotifen ophthalmic protocol",
+      "source_url": "https://www.medicines.org.uk/emc/product/4327/smpc",
+      "portugal_reconciliation": "INFARMED confirms ketotifen 0.25 mg/mL ophthalmic products/protocol; a 2025 recall affected one specific Zaditen lot, not the whole active substance. Verify current product/lot/Azores stock.",
+      "required_patient_flags": [
+        {
+          "field": "sight_threatening_red_eye_excluded",
+          "equals": true,
+          "message": "outpatient conjunctivitis treatment requires exclusion of severe pain, photophobia, reduced visual acuity, corneal involvement/trauma or other sight-threatening red-eye features"
+        }
+      ],
+      "drug_id": "ketotifen"
+    },
+    {
+      "id": "lactulose-constipation-1mo18y",
+      "category": "gastrointestinal_laxative",
+      "drug": "lactulose 3.335 g/5 mL",
+      "diagnosis": "functional/idiopathic constipation when lactulose is selected because macrogol is unsuitable/not tolerated or as an adjunct according to the constipation plan",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 1,
+      "max_age_months": 215,
+      "dose_model": "fixed_volume_band",
+      "bands": [
+        {
+          "min_age_months": 1,
+          "max_age_months": 11,
+          "dose_ml": 2.5,
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_ml_range": [
+            2.5,
+            10
+          ],
+          "doses_per_day": 2
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 215,
+          "dose_ml_range": [
+            5,
+            20
+          ],
+          "doses_per_day": 2
+        }
+      ],
+      "frequency": "twice daily in the NICE pediatric ranges; titrate according to response",
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "May be taken diluted or undiluted; may be taken with water or fruit juice. Maintain adequate fluid intake. Effect may take 2-3 days. Select the actual volume within the age-band range according to response; the engine does not choose it automatically.",
+      "cautions": [
+        "dose is titrated to response",
+        "contains manufacturing residues of lactose/galactose/fructose; check relevant intolerances"
+      ],
+      "source": "NICE CG99 plus Duphalac 3.335 g/5 mL SmPC",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "product_strength": "3.335 g/5 mL (667 mg/mL)",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ],
+      "drug_id": "lactulose"
+    },
+    {
+      "id": "loratadine-allergic-rhinitis-urticaria",
+      "category": "antihistamine",
+      "drug": "loratadine",
+      "diagnosis": "allergic rhinitis or urticaria, age >=2 years",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 24,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 1,
+          "label": "1 mg/mL syrup"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 30,
+          "dose_mg": 5,
+          "doses_per_day": 1
+        },
+        {
+          "min_weight_kg": 30,
+          "dose_mg": 10,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Oral syrup. In severe hepatic impairment use the product-label reduced initial frequency rather than this standard regimen.",
+      "contraindications": [
+        "hypersensitivity to loratadine/product excipients"
+      ],
+      "cautions": [
+        "severe hepatic impairment"
+      ],
+      "source": "Clarityn Allergy 1 mg/mL SmPC 2025",
+      "source_url": "https://www.medicines.org.uk/emc/product/13696/smpc",
+      "drug_id": "loratadine"
+    },
+    {
+      "id": "macrogol3350-electrolytes-constipation-maintenance-1to11",
+      "category": "gastrointestinal_laxative",
+      "drug": "macrogol 3350 + electrolytes paediatric sachet",
+      "diagnosis": "chronic functional/idiopathic constipation maintenance in child 1-11 years after assessment for impaction/red flags",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "max_age_months": 143,
+      "dose_model": "sachet_schedule",
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "sachets_per_day": 1,
+          "max_sachets_per_day": 4
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "sachets_per_day": 2,
+          "max_sachets_per_day": 4
+        }
+      ],
+      "frequency": "daily; titrate to regular soft stools",
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "For the referenced paediatric formulation each sachet contains macrogol 3350 6.563 g with electrolytes and is reconstituted in 62.5 mL water. Adjust dose to response; do not stop abruptly after prolonged treatment.",
+      "contraindications": [
+        "intestinal perforation/obstruction",
+        "ileus",
+        "severe inflammatory bowel disease/toxic megacolon per product SmPC"
+      ],
+      "source": "NICE CG99 + Movicol Paediatric Plain 6.9 g SmPC",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "product_strength": "macrogol 3350 6.563 g per paediatric sachet",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ],
+      "drug_id": "macrogol-3350-electrolytes"
+    },
+    {
+      "id": "macrogol3350-electrolytes-disimpaction-5to11",
+      "category": "gastrointestinal_laxative",
+      "drug": "macrogol 3350 + electrolytes paediatric sachet",
+      "diagnosis": "faecal impaction due to functional/idiopathic constipation in child 5-11 years when oral macrogol disimpaction is appropriate",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 60,
+      "max_age_months": 143,
+      "dose_model": "sachet_schedule",
+      "bands": [
+        {
+          "min_age_months": 60,
+          "max_age_months": 143,
+          "schedule": [
+            {
+              "day": 1,
+              "sachets": 4
+            },
+            {
+              "day": 2,
+              "sachets": 6
+            },
+            {
+              "day": 3,
+              "sachets": 8
+            },
+            {
+              "day": 4,
+              "sachets": 10
+            },
+            {
+              "day": 5,
+              "sachets": 12
+            },
+            {
+              "day": 6,
+              "sachets": 12
+            },
+            {
+              "day": 7,
+              "sachets": 12
+            }
+          ],
+          "duration_days": 7
+        }
+      ],
+      "frequency": "daily total divided and consumed within 12 hours",
+      "duration_days": 7,
+      "liquid_capable": false,
+      "administration": "Each referenced paediatric sachet is reconstituted in 62.5 mL water. Stop escalation/course once disimpaction has occurred and transition to maintenance plan.",
+      "contraindications": [
+        "intestinal perforation/obstruction",
+        "ileus",
+        "severe inflammatory bowel disease/toxic megacolon"
+      ],
+      "cautions": [
+        "not recommended by cited SmPC for faecal impaction with impaired cardiovascular function or renal insufficiency",
+        "review within 1 week"
+      ],
+      "source": "NICE CG99; paediatric macrogol SmPC",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "product_strength": "macrogol 3350 6.563 g per paediatric sachet",
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_bowel_obstruction_or_constipation_red_flag",
+          "equals": true,
+          "message": "laxative outpatient pathway is blocked when bowel obstruction or a constipation red flag suggests an organic/surgical cause"
+        }
+      ],
+      "drug_id": "macrogol-3350-electrolytes"
+    },
+    {
+      "id": "mebendazole-pinworm-ge2y",
+      "category": "antiparasitic",
+      "drug": "mebendazole",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years",
+      "route": "PO",
+      "weight_basis": "not_weight_based",
+      "min_age_months": 24,
+      "dose_model": "fixed_schedule",
+      "liquid_capable": false,
+      "schedule": [
+        {
+          "name": "dose_1_day_1",
+          "dose_mg": 100,
+          "total_phase_doses": 1
+        },
+        {
+          "name": "dose_2_day_15",
+          "dose_mg": 100,
+          "total_phase_doses": 1
+        }
+      ],
+      "frequency": "single dose, repeat once after 2 weeks",
+      "duration_days": 15,
+      "administration": "Second dose is required because treatment kills worms but not eggs. Combine with household hygiene measures.",
+      "contraindications": [
+        "mebendazole hypersensitivity"
+      ],
+      "cautions": [
+        "children <2 years require individualized risk-benefit assessment",
+        "avoid unsupervised prolonged/high-dose use"
+      ],
+      "source": "CDC Pinworm Clinical Overview 2024",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html",
+      "drug_id": "mebendazole"
+    },
+    {
+      "id": "methylprednisolone-aceponate-eczema-body-moderate",
+      "category": "dermatology_topical",
+      "drug": "methylprednisolone aceponate 0.1%",
+      "diagnosis": "mild-to-moderate eczema flare on body requiring moderate-potency topical corticosteroid",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply once daily to affected body areas until resolved; use short courses on sensitive sites only under clinician direction.",
+      "frequency": "once daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "cautions": [
+        "avoid prolonged facial/flexural use",
+        "avoid untreated infection",
+        "monitor recurrent need"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "drug_id": "methylprednisolone-aceponate"
+    },
+    {
+      "id": "mometasone-eczema-body-severe",
+      "category": "dermatology_topical",
+      "drug": "mometasone furoate 0.1%",
+      "diagnosis": "severe eczema flare on body when a potent topical corticosteroid is appropriate",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply once daily to affected body areas until resolved, using the shortest effective course. Do not use very potent steroids without dermatology advice.",
+      "frequency": "once daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "cautions": [
+        "not routine for face/groin",
+        "skin atrophy risk with prolonged use",
+        "avoid untreated infection"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "drug_id": "mometasone-furoate"
+    },
+    {
+      "id": "mometasone-nasal-allergic-rhinitis",
+      "category": "allergic_rhinitis_intranasal",
+      "drug": "mometasone furoate 50 micrograms/actuation nasal spray",
+      "diagnosis": "seasonal or perennial allergic rhinitis requiring intranasal corticosteroid",
+      "route": "intranasal",
+      "weight_basis": "device",
+      "min_age_months": 36,
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 36,
+          "max_age_months": 143,
+          "device": "mometasone furoate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 1,
+          "doses_per_day": 1,
+          "total_daily_micrograms": 100
+        },
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "device": "mometasone furoate 50 micrograms/actuation",
+          "sprays_per_nostril_per_dose": 2,
+          "doses_per_day": 1,
+          "total_daily_micrograms": 200,
+          "maintenance_note": "after control, 1 spray per nostril daily may be effective"
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Prime/use exact spray per SmPC. Aim away from nasal septum. Use regularly; full benefit may take up to 48 hours. Use lowest effective dose after control.",
+      "cautions": [
+        "epistaxis/local irritation",
+        "recent nasal surgery/trauma until healed",
+        "monitor growth with prolonged corticosteroid use"
+      ],
+      "source": "Mometasone furoate 50 mcg/actuation SmPC; RCH allergic rhinitis",
+      "source_url": "https://www.medicines.org.uk/emc/product/10299/smpc",
+      "portugal_reconciliation": "INFARMED documentation confirms mometasone nasal 50 micrograms/dose presentations in Portugal; current exact brand/Azores stock must be checked in Infomed.",
+      "drug_id": "mometasone-furoate"
+    },
+    {
+      "id": "montelukast-controller-6to11",
+      "category": "asthma_controller_ltra",
+      "drug": "montelukast",
+      "diagnosis": "asthma age 6-11 years when montelukast is selected as alternative/adjunct controller",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 5,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Review for agitation, sleep disturbance or altered mood and stop/reassess if these occur.",
+      "cautions": [
+        "neuropsychiatric adverse effects",
+        "not an acute reliever"
+      ],
+      "source": "RCH asthma 6-11 years; INFARMED pediatric 5 mg chewable presentations",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "drug_id": "montelukast"
+    },
+    {
+      "id": "montelukast-controller-preschool",
+      "category": "asthma_controller_ltra",
+      "drug": "montelukast",
+      "diagnosis": "preschool asthma age 1-5 years when LTRA is chosen as alternative/adjunct preventer",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 12,
+      "max_age_months": 71,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_mg": 4,
+          "doses_per_day": 1
+        }
+      ],
+      "frequency": "once daily",
+      "administration": "Chewable/granule product depends on age and local product. Stop and review if agitation, sleep disturbance, mood or behavioral changes occur.",
+      "cautions": [
+        "neuropsychiatric adverse effects",
+        "not for acute bronchospasm"
+      ],
+      "source": "RCH Preschool asthma; INFARMED confirms 4 mg pediatric chewable presentations in Portugal",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Preschool_asthma_%281-5_years%29/",
+      "drug_id": "montelukast"
+    },
+    {
+      "id": "mupirocin-localized-impetigo",
+      "category": "topical_antibiotic",
+      "drug": "mupirocin 2%",
+      "diagnosis": "localized impetigo suitable for topical therapy",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply mupirocin 2% to affected area three times daily for 5 days.",
+      "doses_per_day": 3,
+      "duration_days": 5,
+      "liquid_capable": false,
+      "source": "RCH antimicrobial/skin infection guidance",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "drug_id": "mupirocin"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-nice-3d",
+      "category": "oral_antibiotic",
+      "drug": "nitrofurantoin",
+      "diagnosis": "lower UTI/cystitis, NICE short-course variant",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.75,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 3,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 5,
+          "label": "25 mg/5 mL"
+        }
+      ],
+      "administration": "Take with food or milk; shake the suspension well before use.",
+      "minimum_patient_values": [
+        {
+          "field": "egfr_mL_min",
+          "minimum": 45,
+          "message": "nitrofurantoin outpatient regimen requires eGFR >=45 mL/min in this module"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "g6pd_deficiency",
+          "equals": true,
+          "message": "nitrofurantoin is contraindicated in G6PD deficiency in the cited SmPC"
+        },
+        {
+          "field": "acute_porphyria",
+          "equals": true,
+          "message": "nitrofurantoin is contraindicated in acute porphyria"
+        },
+        {
+          "field": "suspected_pyelonephritis",
+          "equals": true,
+          "message": "nitrofurantoin must not be used for pyelonephritis/renal parenchymal infection"
+        }
+      ],
+      "source": "NICE NG109 short-course lower UTI regimen; nitrofurantoin 25 mg/5 mL SmPC for product/food/contraindications",
+      "source_url": "https://www.nice.org.uk/guidance/ng109",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 45,
+        "message": "nitrofurantoin is contraindicated below eGFR 45 mL/min in the cited pediatric suspension SmPC"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No routine pediatric hepatic dose algorithm encoded; stop/review if hepatic toxicity is suspected."
+      },
+      "contraindications": [
+        "nitrofurantoin/nitrofuran hypersensitivity",
+        "eGFR <45 mL/min",
+        "G6PD deficiency",
+        "acute porphyria",
+        "age under 3 months"
+      ],
+      "cautions": [
+        "not for renal parenchymal/upper UTI",
+        "pulmonary/hepatic/neurologic toxicity precautions"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
+      ],
+      "drug_id": "nitrofurantoin"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-smpc-7d",
+      "category": "oral_antibiotic",
+      "drug": "nitrofurantoin",
+      "diagnosis": "acute lower UTI using current 25 mg/5 mL SmPC course",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.75,
+      "doses_per_day": 4,
+      "frequency": "four times daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 5,
+          "label": "25 mg/5 mL"
+        }
+      ],
+      "administration": "Take with food or milk; shake the suspension well before use.",
+      "minimum_patient_values": [
+        {
+          "field": "egfr_mL_min",
+          "minimum": 45,
+          "message": "nitrofurantoin is contraindicated below eGFR 45 mL/min in this SmPC regimen"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "g6pd_deficiency",
+          "equals": true,
+          "message": "contraindicated in G6PD deficiency"
+        },
+        {
+          "field": "acute_porphyria",
+          "equals": true,
+          "message": "contraindicated in acute porphyria"
+        },
+        {
+          "field": "suspected_pyelonephritis",
+          "equals": true,
+          "message": "not for renal parenchymal/upper UTI"
+        }
+      ],
+      "source": "Nitrofurantoin 25 mg/5 mL SmPC, updated 2026",
+      "source_url": "https://www.medicines.org.uk/emc/product/9953/smpc",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 45,
+        "message": "nitrofurantoin is contraindicated below eGFR 45 mL/min in the cited pediatric suspension SmPC"
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "No routine pediatric hepatic dose algorithm encoded; stop/review if hepatic toxicity is suspected."
+      },
+      "contraindications": [
+        "nitrofurantoin/nitrofuran hypersensitivity",
+        "eGFR <45 mL/min",
+        "G6PD deficiency",
+        "acute porphyria",
+        "age under 3 months"
+      ],
+      "cautions": [
+        "not for renal parenchymal/upper UTI",
+        "pulmonary/hepatic/neurologic toxicity precautions"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
+      ],
+      "drug_id": "nitrofurantoin"
+    },
+    {
+      "id": "olopatadine-allergic-conjunctivitis-ge3",
+      "category": "ophthalmology_antiallergic",
+      "drug": "olopatadine 1 mg/mL eye drops",
+      "diagnosis": "seasonal allergic conjunctivitis age >=3 years",
+      "route": "ophthalmic",
+      "weight_basis": "topical",
+      "min_age_months": 36,
+      "dose_model": "topical",
+      "topical_instructions": "Instil 1 drop into affected eye(s) twice daily, approximately 8-hourly. Avoid touching the dropper tip. Remove contact lenses according to product instructions.",
+      "drops_per_dose": 1,
+      "doses_per_day": 2,
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "Ophthalmic use only. May be maintained for up to 4 months if clinically required under product guidance.",
+      "contraindications": [
+        "olopatadine/product hypersensitivity"
+      ],
+      "cautions": [
+        "eye pain, photophobia, reduced vision or corneal signs require diagnostic reassessment",
+        "separate from other eye drops by product-recommended interval"
+      ],
+      "source": "Olopatadine 1 mg/mL eye drops SmPC",
+      "source_url": "https://www.medicines.org.uk/emc/product/10890/smpc",
+      "required_patient_flags": [
+        {
+          "field": "sight_threatening_red_eye_excluded",
+          "equals": true,
+          "message": "outpatient conjunctivitis treatment requires exclusion of severe pain, photophobia, reduced visual acuity, corneal involvement/trauma or other sight-threatening red-eye features"
+        }
+      ],
+      "drug_id": "olopatadine"
+    },
+    {
+      "id": "ondansetron-gastroenteritis-initial",
+      "category": "antiemetic",
+      "drug": "ondansetron",
+      "diagnosis": "persistent nausea/vomiting with gastroenteritis to support oral rehydration; child >6 months",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 6,
+      "dose_model": "fixed_weight_band",
+      "doses_per_day": 1,
+      "duration_days": 1,
+      "liquid_capable": true,
+      "bands": [
+        {
+          "min_weight_kg_inclusive": 8,
+          "max_weight_kg": 14.999,
+          "dose_mg": 2,
+          "doses_per_day": 1,
+          "duration_days": 1
+        },
+        {
+          "min_weight_kg_inclusive": 15,
+          "max_weight_kg": 30,
+          "dose_mg": 4,
+          "doses_per_day": 1,
+          "duration_days": 1
+        },
+        {
+          "min_weight_kg": 30,
+          "dose_mg": 8,
+          "doses_per_day": 1,
+          "duration_days": 1
+        }
+      ],
+      "administration": "Adjunct to oral rehydration only. Improvement in vomiting does not exclude serious disease.",
+      "cautions": [
+        "QT prolongation risk",
+        "electrolyte disturbance",
+        "bilious vomiting or surgical red flags",
+        "moderate/severe hepatic impairment: total daily dose must not exceed 8 mg"
+      ],
+      "source": "RCH Gastroenteritis, current guideline",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Gastroenteritis/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required in the cited SmPC."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Moderate/severe hepatic impairment: total daily oral/IV dose should not exceed 8 mg."
+      },
+      "contraindications": [
+        "ondansetron hypersensitivity",
+        "concomitant apomorphine"
+      ],
+      "pharmacy_review_note": "RCH table prints 8-15 and 15-30 kg. Engine resolves the shared 15-kg boundary as 4 mg (15 to 30 kg) and keeps >30 kg as 8 mg.",
+      "required_patient_flags": [
+        {
+          "field": "gastroenteritis_red_flags_excluded",
+          "equals": true,
+          "message": "ondansetron for gastroenteritis requires consideration/exclusion of red flags and alternative diagnoses, particularly bilious vomiting, vomiting without diarrhoea, surgical abdomen or raised intracranial pressure"
+        }
+      ],
+      "drug_id": "ondansetron"
+    },
+    {
+      "id": "ondansetron-migraine-vomiting-ed",
+      "category": "antiemetic",
+      "drug": "ondansetron",
+      "diagnosis": "migraine with vomiting during/after ED assessment when oral ondansetron is selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 0.15,
+      "max_mg_per_dose": 8,
+      "doses_per_day": 1,
+      "frequency": "single oral dose in the acute episode",
+      "duration_days": 1,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 0.8,
+          "label": "4 mg/5 mL syrup"
+        }
+      ],
+      "administration": "This use is guideline-based for migraine-associated vomiting; the cited syrup SmPC concentration is used only for volume arithmetic, not to imply the migraine indication is product-licensed.",
+      "cautions": [
+        "QT prolongation",
+        "electrolyte disturbance",
+        "serotonergic interactions",
+        "severe hepatic impairment affects total daily dose",
+        "moderate/severe hepatic impairment: total daily dose must not exceed 8 mg"
+      ],
+      "source": "RCH Headache + current ondansetron 4 mg/5 mL SmPC for concentration",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/",
+      "renal_adjustment": {
+        "mode": "none_required",
+        "detail": "No renal dose adjustment is required in the cited SmPC."
+      },
+      "hepatic_adjustment": {
+        "mode": "caution_no_specific_reduction",
+        "detail": "Moderate/severe hepatic impairment: total daily oral/IV dose should not exceed 8 mg."
+      },
+      "contraindications": [
+        "ondansetron hypersensitivity",
+        "concomitant apomorphine"
+      ],
+      "required_patient_flags": [
+        {
+          "field": "secondary_headache_red_flags_excluded",
+          "equals": true,
+          "message": "migraine-directed outpatient treatment requires secondary headache red flags to be excluded or appropriately investigated"
+        }
+      ],
+      "drug_id": "ondansetron"
+    },
+    {
+      "id": "ors-clinical-dehydration-50mlkg4h",
+      "category": "gastrointestinal_rehydration",
+      "drug": "low-osmolarity oral rehydration solution",
+      "diagnosis": "gastroenteritis with clinical dehydration suitable for oral rehydration",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "volume_ml_per_kg_course",
+      "volume_ml_per_kg": 50,
+      "administration_hours": 4,
+      "frequency": "frequent small amounts over 4 hours plus maintenance/ongoing losses",
+      "duration_days": 1,
+      "liquid_capable": false,
+      "administration": "Use low-osmolarity ORS 240-250 mOsm/L. Give frequently in small amounts; continue breastfeeding. Avoid fruit juice/carbonated drinks during rehydration. Add maintenance fluid and replace ongoing losses.",
+      "excluded_patient_flags": [
+        {
+          "field": "shock_or_iv_fluid_indication",
+          "equals": true,
+          "message": "oral-only rehydration regimen is not appropriate when IV resuscitation/rehydration is indicated"
+        }
+      ],
+      "source": "NICE CG84 gastroenteritis",
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations",
+      "max_age_months": 59,
+      "cautions": [
+        "this exact 50 mL/kg over 4 h / 5 mL/kg post-stool entry is source-scoped to NICE CG84 children under 5 years; older children require an age-appropriate hydration pathway"
+      ],
+      "drug_id": "low-osmolarity-oral-rehydration-solution"
+    },
+    {
+      "id": "ors-post-stool-highrisk-5mlkg",
+      "category": "gastrointestinal_rehydration",
+      "drug": "low-osmolarity oral rehydration solution",
+      "diagnosis": "replacement after a large watery stool in a child at increased risk of recurrent dehydration after rehydration",
+      "route": "PO",
+      "weight_basis": "actual",
+      "dose_model": "volume_ml_per_kg_course",
+      "volume_ml_per_kg": 5,
+      "administration_hours": 1,
+      "frequency": "after each large watery stool",
+      "duration_days": null,
+      "liquid_capable": false,
+      "administration": "Give 5 mL/kg after each large watery stool when risk of recurrent dehydration is increased. Continue usual feeding after rehydration.",
+      "source": "NICE CG84 gastroenteritis",
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations",
+      "max_age_months": 59,
+      "cautions": [
+        "this exact 50 mL/kg over 4 h / 5 mL/kg post-stool entry is source-scoped to NICE CG84 children under 5 years; older children require an age-appropriate hydration pathway"
+      ],
+      "drug_id": "low-osmolarity-oral-rehydration-solution"
+    },
+    {
+      "id": "oseltamivir-influenza-ge1y",
+      "category": "antiviral",
+      "drug": "oseltamivir",
+      "diagnosis": "influenza treatment age >=1 year when antiviral treatment indicated",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 12,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 6,
+          "label": "6 mg/mL oral suspension"
+        }
+      ],
+      "bands": [
+        {
+          "max_weight_kg": 15,
+          "dose_mg": 30,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 15,
+          "max_weight_kg": 23,
+          "dose_mg": 45,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 23,
+          "max_weight_kg": 40,
+          "dose_mg": 60,
+          "doses_per_day": 2,
+          "duration_days": 5
+        },
+        {
+          "min_weight_kg": 40,
+          "dose_mg": 75,
+          "doses_per_day": 2,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "twice daily for 5 days",
+      "source": "CDC influenza antiviral dosing table",
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard pediatric oseltamivir regimen is blocked in known renal impairment because the cited SmPC lacks dosing recommendations for children <=12 years and uses separate adolescent adjustments"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No dose adjustment is required for hepatic dysfunction in the cited SmPC, although pediatric hepatic-disorder studies are lacking."
+      },
+      "contraindications": [
+        "oseltamivir hypersensitivity"
+      ],
+      "cautions": [
+        "known renal impairment requires age-specific adjustment/review",
+        "monitor for neuropsychiatric events",
+        "clinical benefit is greatest when started as early as possible, ideally within 48 hours for uncomplicated outpatients; high-risk/severe/progressive illness should be treated promptly even when presentation is later"
+      ],
+      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified.",
+      "required_patient_flags": [
+        {
+          "field": "influenza_antiviral_indication_confirmed",
+          "equals": true,
+          "message": "oseltamivir should be used when influenza antiviral treatment is clinically indicated (priority high-risk/severe/progressive groups, or selected uncomplicated outpatients when early treatment is appropriate)"
+        }
+      ],
+      "drug_id": "oseltamivir"
+    },
+    {
+      "id": "oseltamivir-influenza-lt1y",
+      "category": "antiviral",
+      "drug": "oseltamivir",
+      "diagnosis": "influenza treatment in infant <1 year when antiviral treatment indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "max_age_months": 11,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 3,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 6,
+          "label": "6 mg/mL oral suspension"
+        }
+      ],
+      "source": "CDC influenza antiviral dosing table",
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "standard pediatric oseltamivir regimen is blocked in known renal impairment because the cited SmPC lacks dosing recommendations for children <=12 years and uses separate adolescent adjustments"
+      },
+      "hepatic_adjustment": {
+        "mode": "none_required",
+        "detail": "No dose adjustment is required for hepatic dysfunction in the cited SmPC, although pediatric hepatic-disorder studies are lacking."
+      },
+      "contraindications": [
+        "oseltamivir hypersensitivity"
+      ],
+      "cautions": [
+        "known renal impairment requires age-specific adjustment/review",
+        "monitor for neuropsychiatric events",
+        "clinical benefit is greatest when started as early as possible, ideally within 48 hours for uncomplicated outpatients; high-risk/severe/progressive illness should be treated promptly even when presentation is later"
+      ],
+      "administration": "Oral suspension; may be taken with or without food. Use the exact 6 mg/mL product concentration where verified.",
+      "required_patient_flags": [
+        {
+          "field": "influenza_antiviral_indication_confirmed",
+          "equals": true,
+          "message": "oseltamivir should be used when influenza antiviral treatment is clinically indicated (priority high-risk/severe/progressive groups, or selected uncomplicated outpatients when early treatment is appropriate)"
+        }
+      ],
+      "drug_id": "oseltamivir"
+    },
+    {
+      "id": "paracetamol-pain-fever-home",
+      "category": "analgesic_antipyretic",
+      "drug": "paracetamol",
+      "diagnosis": "mild/moderate pain or fever in a child >1 month suitable for home treatment",
+      "route": "PO",
+      "weight_basis": "ideal",
+      "min_age_months": 1,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 15,
+      "max_mg_per_dose": 1000,
+      "doses_per_day": 4,
+      "frequency": "every 6 h as needed; minimum interval 4 h",
+      "duration_days": [
+        1,
+        3
+      ],
+      "daily_max_mg_per_kg": 60,
+      "adult_max_daily_mg": 4000,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 24,
+          "label": "120 mg/5 mL"
+        }
+      ],
+      "administration": "May be taken with or without food. Shake suspension. Avoid all other paracetamol/acetaminophen-containing products.",
+      "contraindications": [
+        "hypersensitivity to paracetamol"
+      ],
+      "cautions": [
+        "severe hepatic impairment",
+        "severe renal impairment",
+        "malnutrition or glutathione depletion",
+        "duplicate paracetamol products",
+        "fever in an infant under 3 months requires age-specific febrile-infant assessment and must not be treated as a simple home-fever problem solely because a paracetamol dose can be calculated"
+      ],
+      "source": "RCH Acute Pain Management 2024; current paracetamol SmPC 120 mg/5 mL",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/",
+      "required_patient_flags": [
+        {
+          "field": "home_analgesia_antipyresis_appropriate",
+          "equals": true,
+          "message": "home paracetamol calculation requires that the child has been clinically assessed as suitable for home analgesia/antipyresis"
+        }
+      ],
+      "drug_id": "paracetamol"
+    },
+    {
+      "id": "permethrin5-scabies",
+      "category": "dermatology_antiparasitic_topical",
+      "drug": "permethrin 5% cream",
+      "diagnosis": "scabies in a child suitable for topical treatment",
+      "route": "topical",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply as directed to the entire appropriate skin surface; RCH describes neck-down application left on for at least 8 hours, usually overnight. Repeat after 7 days if required. Treat household/close contacts simultaneously and decontaminate clothing/bedding per local advice.",
+      "frequency": "single application; repeat after 7 days when indicated",
+      "duration_days": 7,
+      "liquid_capable": false,
+      "cautions": [
+        "infants/young children may require head/neck/scalp application per product/local guideline",
+        "avoid eyes and mucosa",
+        "post-scabetic itch may persist"
+      ],
+      "source": "RCH Antimicrobial guidelines",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "drug_id": "permethrin"
+    },
+    {
+      "id": "phenazone-lidocaine-aom-pain",
+      "category": "ent_analgesic_topical",
+      "drug": "phenazone 40 mg/g + lidocaine 10 mg/g ear drops",
+      "diagnosis": "acute otitis media pain when immediate oral antibiotic is not given and there is no tympanic membrane perforation or otorrhoea",
+      "route": "otic",
+      "weight_basis": "topical",
+      "dose_model": "topical",
+      "topical_instructions": "Apply 4 drops to the affected ear 2-3 times daily for up to 7 days.",
+      "drops_per_dose": 4,
+      "doses_per_day_range": [
+        2,
+        3
+      ],
+      "duration_days": [
+        1,
+        7
+      ],
+      "liquid_capable": false,
+      "excluded_patient_flags": [
+        {
+          "field": "immediate_oral_antibiotic_given",
+          "equals": true,
+          "message": "NICE analgesic ear-drop option is for cases where an immediate oral antibiotic is not given"
+        },
+        {
+          "field": "tm_perforation_or_otorrhoea",
+          "equals": true,
+          "message": "do not use this phenazone/lidocaine regimen with tympanic membrane perforation or otorrhoea"
+        }
+      ],
+      "source": "NICE NG91 acute otitis media, amended 2022",
+      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations",
+      "drug_id": "phenazone-lidocaine"
+    },
+    {
+      "id": "phenoxymethylpenicillin-gas-sore-throat",
+      "category": "oral_antibiotic",
+      "drug": "phenoxymethylpenicillin",
+      "diagnosis": "GAS sore throat/tonsillitis in a child for whom antibiotic treatment is indicated",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 15,
+      "max_mg_per_dose": 500,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 10,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 25,
+          "label": "125 mg/5 mL oral solution"
+        },
+        {
+          "mg_per_ml": 50,
+          "label": "250 mg/5 mL oral solution"
+        }
+      ],
+      "administration": "Take phenoxymethylpenicillin at least 30 minutes before or 2 hours after food for the cited oral-solution SmPC. Complete 10 days for GAS to reduce late complications.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "cautions": [
+        "marked renal impairment requires dose review",
+        "antibiotic only when clinical/pathway indication is met"
+      ],
+      "source": "RCH Sore throat, updated Oct 2024; current phenoxymethylpenicillin SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "drug_id": "phenoxymethylpenicillin"
+    },
+    {
+      "id": "phenoxymethylpenicillin-sinusitis-child",
+      "category": "oral_antibiotic",
+      "drug": "phenoxymethylpenicillin",
+      "diagnosis": "acute sinusitis in a child when immediate/back-up antibiotic is indicated and first-choice penicillin is appropriate",
+      "route": "PO",
+      "weight_basis": "fixed_age_band",
+      "min_age_months": 1,
+      "dose_model": "fixed_age_band",
+      "liquid_capable": true,
+      "bands": [
+        {
+          "min_age_months": 1,
+          "max_age_months": 11,
+          "dose_mg": 62.5,
+          "doses_per_day": 4,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 12,
+          "max_age_months": 71,
+          "dose_mg": 125,
+          "doses_per_day": 4,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 72,
+          "max_age_months": 143,
+          "dose_mg": 250,
+          "doses_per_day": 4,
+          "duration_days": 5
+        },
+        {
+          "min_age_months": 144,
+          "max_age_months": 215,
+          "dose_mg": 500,
+          "doses_per_day": 4,
+          "duration_days": 5
+        }
+      ],
+      "frequency": "four times daily",
+      "administration": "Use exact product instructions. Oral penicillin V absorption is reduced by food for many products; follow the exact SmPC and preferably dose away from meals when specified.",
+      "contraindications": [
+        "penicillin hypersensitivity"
+      ],
+      "cautions": [
+        "renal impairment may require interval review",
+        "severe systemic/orbital/intracranial features require hospital pathway"
+      ],
+      "source": "NICE NG79 acute sinusitis",
+      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations",
+      "drug_id": "phenoxymethylpenicillin"
+    },
+    {
+      "id": "pimecrolimus-eczema-sensitive-secondline",
+      "category": "dermatology_topical",
+      "drug": "pimecrolimus 1% cream",
+      "diagnosis": "mild-to-moderate eczema on sensitive areas when second-line non-steroid topical therapy is selected",
+      "route": "topical",
+      "weight_basis": "topical",
+      "min_age_months": 3,
+      "dose_model": "topical",
+      "topical_instructions": "Apply twice daily until symptoms resolve. Limit treatment to 6 weeks; for age 3-23 months limit course to 3 weeks per cited RCH guidance.",
+      "frequency": "twice daily",
+      "duration_days": null,
+      "liquid_capable": false,
+      "cautions": [
+        "second-line therapy",
+        "avoid application to active untreated infection",
+        "avoid eyes/mucosa"
+      ],
+      "source": "RCH Eczema 2024",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "drug_id": "pimecrolimus"
+    },
+    {
+      "id": "praziquantel-schisto-mansoni-haematobium-ge4y",
+      "category": "antiparasitic",
+      "drug": "praziquantel",
+      "diagnosis": "Schistosoma mansoni/S. haematobium/S. intercalatum infection in child age >=4 years under a confirmed treatment plan",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 48,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 20,
+      "doses_per_day": 2,
+      "frequency": "two divided doses over one day",
+      "duration_days": 1,
+      "liquid_capable": false,
+      "administration": "Take with liquid during a meal. CDC notes limited trial safety data below age 4, although WHO mass-drug-administration recommendations include younger children in some settings.",
+      "cautions": [
+        "species must be identified because S. japonicum/S. mekongi require a different 60 mg/kg/day regimen",
+        "consider repeat treatment 2-4 weeks later in selected light infections"
+      ],
+      "source": "CDC Schistosomiasis Clinical Care 2024",
+      "source_url": "https://www.cdc.gov/schistosomiasis/hcp/treatment/index.html",
+      "drug_id": "praziquantel"
+    },
+    {
+      "id": "prednisolone-asthma-2to5y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "prednisolone",
+      "diagnosis": "moderately severe/severe asthma exacerbation suitable for discharge, age 2-5 years",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 24,
+      "max_age_months": 71,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        1,
+        2
+      ],
+      "max_mg_per_dose": 30,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "source": "GINA 2026 pediatric acute asthma",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
+        }
+      ],
+      "drug_id": "prednisolone"
+    },
+    {
+      "id": "prednisolone-asthma-6to11y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "prednisolone",
+      "diagnosis": "acute asthma exacerbation suitable for discharge, age 6-11 years",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 72,
+      "max_age_months": 143,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        1,
+        2
+      ],
+      "max_mg_per_dose": 40,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "source": "GINA 2026 pediatric acute asthma",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
+        }
+      ],
+      "drug_id": "prednisolone"
+    },
+    {
+      "id": "prednisolone-asthma-lt2y",
+      "category": "antiasthmatic_systemic_steroid",
+      "drug": "prednisolone",
+      "diagnosis": "moderate/severe wheeze/asthma-like episode age <2 years only when a pediatric/ED clinician has explicitly prescribed an oral prednisolone discharge course after hospital assessment",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1,
+      "max_age_months": 23,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg_range": [
+        1,
+        2
+      ],
+      "max_mg_per_dose": 20,
+      "doses_per_day": 1,
+      "frequency": "once daily",
+      "duration_days": [
+        3,
+        5
+      ],
+      "liquid_capable": true,
+      "administration": "Give according to written asthma discharge plan; food may reduce GI upset if product permits.",
+      "source": "GINA 2026 pediatric acute asthma",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "required_patient_flags": [
+        {
+          "field": "specialist_or_ed_discharge_plan",
+          "equals": true,
+          "message": "prednisolone in children under 2 years is not a generic outpatient regimen; explicit pediatric/ED discharge plan is required"
+        },
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "systemic corticosteroid outpatient/discharge regimen requires the child to meet asthma discharge criteria after acute assessment"
+        }
+      ],
+      "cautions": [
+        "current oral prednisolone SmPC describes use under 2 years in the hospital setting; do not initiate from arithmetic alone"
+      ],
+      "pharmacy_review_status": "PASS_WITH_RESTRICTION",
+      "drug_id": "prednisolone"
+    },
+    {
+      "id": "pyrantel-pinworm-ge2y",
+      "category": "antiparasitic",
+      "drug": "pyrantel pamoate",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years when pyrantel is selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 24,
+      "dose_model": "fixed_schedule",
+      "liquid_capable": true,
+      "max_mg_per_dose": 1000,
+      "schedule": [
+        {
+          "name": "dose_1_day_1",
+          "dose_mg_per_kg": 11,
+          "max_mg_per_dose": 1000,
+          "total_phase_doses": 1
+        },
+        {
+          "name": "dose_2_day_15",
+          "dose_mg_per_kg": 11,
+          "max_mg_per_dose": 1000,
+          "total_phase_doses": 1
+        }
+      ],
+      "frequency": "single dose, repeat once after 2 weeks",
+      "duration_days": 15,
+      "administration": "Verify exact salt/base convention and suspension concentration before calculating mL; concentrations vary by product.",
+      "cautions": [
+        "children <2 years require individualized risk-benefit assessment",
+        "hepatic disease requires product-specific review"
+      ],
+      "source": "CDC Pinworm Clinical Overview 2024",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html",
+      "drug_id": "pyrantel-pamoate"
+    },
+    {
+      "id": "rizatriptan-migraine-rch",
+      "category": "migraine_abortive",
+      "drug": "rizatriptan",
+      "diagnosis": "migraine in child >6 years when oral simple analgesics are ineffective and rizatriptan is selected",
+      "route": "PO",
+      "weight_basis": "fixed_weight_band",
+      "min_age_months": 73,
+      "dose_model": "fixed_weight_band",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "max_weight_kg": 39.999,
+          "dose_mg": 5,
+          "doses_per_day": 1,
+          "note": "may repeat once after at least 2 hours if headache recurs; max 2 doses/24h"
+        },
+        {
+          "min_weight_kg": 40,
+          "dose_mg": 10,
+          "doses_per_day": 1,
+          "note": "source states >40 kg; exact 40 kg intentionally left unmatched/fail-closed"
+        }
+      ],
+      "frequency": "single dose early in migraine; may repeat once after >=2 h if recurrence; max 2 doses/24 h",
+      "administration": "Use after simple oral analgesics are ineffective. Maintain hydration/rest in dark quiet environment. Avoid opioids.",
+      "cautions": [
+        "propranolol increases rizatriptan concentration—avoid or use lower dose with specialist advice",
+        "cardiovascular contraindications/triptan interactions require product-specific screening",
+        "exactly 40 kg is unresolved by cited RCH wording and should be clinician-reviewed"
+      ],
+      "source": "RCH Headache",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/",
+      "required_patient_flags": [
+        {
+          "field": "secondary_headache_red_flags_excluded",
+          "equals": true,
+          "message": "migraine-directed outpatient treatment requires secondary headache red flags to be excluded or appropriately investigated"
+        }
+      ],
+      "drug_id": "rizatriptan"
+    },
+    {
+      "id": "salbutamol-asthma-discharge-rch",
+      "category": "antiasthmatic_relief",
+      "drug": "salbutamol",
+      "diagnosis": "asthma/wheeze discharge reliever via pMDI + spacer under written asthma action plan",
+      "route": "inhaled",
+      "weight_basis": "device",
+      "dose_model": "device",
+      "liquid_capable": false,
+      "bands": [
+        {
+          "max_age_months": 71,
+          "device": "100 microgram/puff pMDI + spacer",
+          "puffs": 6
+        },
+        {
+          "min_age_months": 72,
+          "device": "100 microgram/puff pMDI + spacer",
+          "puffs": 12
+        }
+      ],
+      "frequency": "per written asthma action plan; urgent review if reliever is required again within 4 h after discharge",
+      "administration": "One puff at a time through spacer with correct technique. Ensure written action plan and controller review.",
+      "source": "RCH asthma discharge education; GINA 2026 acute asthma",
+      "source_url": "https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/Asthma_Inpatient_Discharge_Education/",
+      "required_patient_flags": [
+        {
+          "field": "asthma_discharge_criteria_met",
+          "equals": true,
+          "message": "discharge salbutamol regimen requires clinical resolution sufficient for discharge, adequate oxygenation/oral intake and a written asthma action plan"
+        }
+      ],
+      "drug_id": "salbutamol"
+    },
+    {
+      "id": "tmp-smx-mrsa-skin",
+      "category": "oral_antibiotic",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "diagnosis": "mild MRSA-suspected/confirmed skin infection when TMP-SMX selected",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1.5,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 4,
+      "max_mg_per_dose": 160,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 5,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 8,
+          "label": "40 mg TMP/200 mg SMX per 5 mL; TMP 8 mg/mL"
+        }
+      ],
+      "administration": "Dose expressed as trimethoprim component. Taking with food or drink may reduce GI upset.",
+      "contraindications": [
+        "sulfonamide/trimethoprim hypersensitivity"
+      ],
+      "cautions": [
+        "significant renal impairment",
+        "folate deficiency",
+        "drug interactions including methotrexate/warfarin",
+        "hyperkalemia risk",
+        "renal impairment requires age-specific specialist review",
+        "monitor potassium/renal function when clinically indicated"
+      ],
+      "source": "RCH Antimicrobial guidelines; Co-Trimoxazole pediatric suspension SmPC 2026",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric co-trimoxazole renal-failure dosing is not defined for children <=12 years in the cited SmPC; standard regimen is blocked in known renal impairment"
+      },
+      "hepatic_adjustment": {
+        "mode": "block_if_severe",
+        "block_if_severe": true,
+        "message": "significant hepatic dysfunction requires specialist/product-specific review"
+      },
+      "drug_id": "trimethoprim-sulfamethoxazole"
+    },
+    {
+      "id": "tmp-smx-pertussis-ge6wk",
+      "category": "oral_antibiotic",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "diagnosis": "pertussis when macrolide cannot be used, age >6 weeks",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 1.5,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 4,
+      "max_mg_per_dose": 160,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 7,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 8,
+          "label": "TMP 8 mg/mL in 40/200 mg per 5 mL suspension"
+        }
+      ],
+      "administration": "Dose expressed as trimethoprim component. May be preferable with food/drink to reduce GI upset.",
+      "contraindications": [
+        "sulfonamide/trimethoprim hypersensitivity"
+      ],
+      "source": "RCH antimicrobial pertussis regimen; Co-Trimoxazole SmPC",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "renal_adjustment": {
+        "mode": "block_standard_regimen",
+        "message": "pediatric co-trimoxazole renal-failure dosing is not defined for children <=12 years in the cited SmPC; standard regimen is blocked in known renal impairment"
+      },
+      "hepatic_adjustment": {
+        "mode": "block_if_severe",
+        "block_if_severe": true,
+        "message": "significant hepatic dysfunction requires specialist/product-specific review"
+      },
+      "cautions": [
+        "renal impairment requires age-specific specialist review",
+        "monitor potassium/renal function when clinically indicated"
+      ],
+      "drug_id": "trimethoprim-sulfamethoxazole"
+    },
+    {
+      "id": "trimethoprim-cystitis-low-resistance",
+      "category": "oral_antibiotic",
+      "drug": "trimethoprim",
+      "diagnosis": "lower UTI/cystitis age >=3 months when trimethoprim is selected and resistance risk is low/susceptibility supports use",
+      "route": "PO",
+      "weight_basis": "actual",
+      "min_age_months": 3,
+      "dose_model": "mg_per_kg_per_dose",
+      "dose_mg_per_kg": 4,
+      "max_mg_per_dose": 200,
+      "doses_per_day": 2,
+      "frequency": "twice daily",
+      "duration_days": 3,
+      "liquid_capable": true,
+      "verified_concentrations": [
+        {
+          "mg_per_ml": 10,
+          "label": "50 mg/5 mL oral suspension"
+        }
+      ],
+      "required_patient_flags": [
+        {
+          "field": "low_resistance_risk_or_susceptible",
+          "equals": true,
+          "message": "NICE trimethoprim lower-UTI regimen requires low resistance risk or susceptibility-based selection"
+        },
+        {
+          "field": "urine_sample_obtained_before_antibiotic",
+          "equals": true,
+          "message": "pediatric UTI/pyelonephritis treatment requires an age-appropriate urine sample for urinalysis/culture before antibiotics whenever clinically feasible"
+        }
+      ],
+      "excluded_patient_flags": [
+        {
+          "field": "suspected_pyelonephritis",
+          "equals": true,
+          "message": "this 3-day lower-UTI trimethoprim regimen is not for pyelonephritis"
+        }
+      ],
+      "administration": "Oral suspension. Monitor renal function/electrolytes when clinically indicated; renal impairment can require dose reduction.",
+      "contraindications": [
+        "trimethoprim hypersensitivity",
+        "severe hepatic insufficiency per cited SmPC",
+        "severe hepatic insufficiency",
+        "megaloblastic anaemia/major blood dyscrasias"
+      ],
+      "cautions": [
+        "eGFR 15-30: cited SmPC uses normal dose for 3 days then half dose for longer treatment; eGFR <15 requires specialist/specific adjustment",
+        "folate deficiency",
+        "hyperkalemia/drug interactions"
+      ],
+      "source": "NICE NG109 lower UTI + Trimethoprim 50 mg/5 mL SmPC revised Jun 2026",
+      "source_url": "https://www.nice.org.uk/guidance/ng109/chapter/Recommendations",
+      "renal_adjustment": {
+        "mode": "standard_if_egfr_at_least",
+        "minimum_egfr": 15,
+        "message": "standard trimethoprim regimen is not valid below eGFR 15 mL/min; product-specific reduced dosing/specialist review required",
+        "detail": "eGFR 15-30: current SmPC permits normal dose for 3 days then half dose for longer courses."
+      },
+      "hepatic_adjustment": {
+        "mode": "block_if_severe",
+        "block_if_severe": true,
+        "message": "trimethoprim is contraindicated in severe hepatic insufficiency"
+      },
+      "drug_id": "trimethoprim"
+    }
+  ],
+  "inventory": {
+    "regimens": 89,
+    "source_drug_labels": 54,
+    "drug_groups": 52,
+    "named_active_ingredients": 52,
+    "unspecified_component_groups": [
+      "electrolytes",
+      "low-osmolarity oral rehydration solution"
+    ],
+    "diagnoses": 88,
+    "drug_diagnosis_pairs": 89,
+    "documented_presentation_descriptions": 58,
+    "verified_liquid_products": 28,
+    "hidden_regimens": 0
+  }
+}

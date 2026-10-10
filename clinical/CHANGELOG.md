@@ -1,3 +1,10 @@
+## v1.42 consolidation — pediatric contracts and canonical frontend (YELLOW)
+- Reconcile three synthetic outpatient fixtures with existing clinical gates; 18/18 expectations pass, including continued blocking at exactly 40 kg for the RCH rizatriptan regimen.
+- Share strict finite-number validation across affected pediatric calculators; reject malformed types, nonfinite input/output, zero divisors and overflow hidden by dose caps.
+- Generate 89 outpatient regimens in 52 drug/combination groups from the canonical registry/rules. Add a diagnosis-specific form and thin API using the existing calculator; preserve source limits, alerts and stale-response/catalog checks. The former 17-drug frontend catalog is adult-only and unchanged.
+- Add 15 Python and nine frontend tests plus four actual browser/backend scenarios. Clinical QA 7/7, 493 unique Python tests, frontend 162, typecheck/build and browser checks PASS locally. Remote Actions pending.
+- See `qa/V1.42_PEDIATRIC_CONSOLIDATION.md` for inventory definitions, source discrepancies and limits. No clinical regimen, evidence-status, procedure migration or visual changes; no merge/push.
+
 ## v1.42 consolidation — CI coverage and complete procedure catalog (YELLOW)
 - Cover v1.x pushes, PRs and clinical input paths in Clinical/UI QA; install declared Python runtime/test requirements and run canonical-artifact and browser-PDF checks.
 - Discover all Python suites once, including scores and evidence, preserving structural validators and clinical release gates. Keep surveillance mutation guards; avoid duplicate push/PR regression jobs.
