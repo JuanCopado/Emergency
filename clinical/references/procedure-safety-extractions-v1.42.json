@@ -505,6 +505,68 @@
       }
     ]
   },
+  "PROC-SP-002": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "repetir si evoluciona y escalar a cirugía."
+      }
+    ]
+  },
+  "PROC-SP-003": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "traslado rápido a centro con capacidad de reimplante."
+      }
+    ]
+  },
+  "PROC-SP-004": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "extracción controlada en entorno quirúrgico apropiado."
+      }
+    ]
+  },
+  "PROC-SP-010": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "depresión respiratoria, hipoventilación o alteración de conciencia → tratar como intoxicación opioide clínica según módulo correspondiente."
+      }
+    ]
+  },
+  "PROC-SP-011": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "transferir a centro ECPR/ECLS cuando existan criterios de alto riesgo."
+      }
+    ]
+  },
+  "PROC-SP-012": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si un centro ECPR no puede alcanzarse en un tiempo razonable, iniciar recalentamiento no extracorpóreo apropiado mientras continúa la resucitación."
+      }
+    ]
+  },
+  "PROC-SP-013": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "posición incierta, acceso vascular inseguro, isquemia distal o deterioro atribuible al dispositivo obligan a reevaluación/retirada según protocolo."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "hemostasia definitiva urgente, retirada protocolizada y vigilancia vascular."
+      }
+    ]
+  },
   "PROC-THX-001": {
     "rescue": [
       {

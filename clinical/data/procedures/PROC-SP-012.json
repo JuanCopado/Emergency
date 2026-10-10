@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-SP-012",
+  "name": "Recalentamiento invasivo seleccionado",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar recalentamiento interno o extracorpóreo en hipotermia grave seleccionada.",
+  "indications": [
+    "hipotermia grave con inestabilidad hemodinámica, arritmias graves, parada cardiaca o fracaso de medidas externas según contexto."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "seleccionar el método según gravedad, causa, recursos y tiempo hasta un centro ECLS; evitar procedimientos invasivos que retrasen una estrategia extracorpórea indicada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "fluidos IV calentados, sistemas de recalentamiento interno seleccionados y, cuando corresponda, VA-ECMO/bypass para ECLS."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "acceso vascular y, según la técnica, circuito extracorpóreo o cavidades corporales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "temperatura central fiable, manipulación suave, monitorización avanzada, corrección de causas asociadas y consulta precoz con centro ECPR/ECLS."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "elegir estrategia según estabilidad; en parada por hipotermia, RCUK/ERC 2025 recomienda recalentamiento con VA-ECMO cuando esté disponible; si un centro ECPR no puede alcanzarse en un tiempo razonable, iniciar recalentamiento no extracorpóreo apropiado mientras continúa la resucitación."
+    }
+  ],
+  "stop_points": [
+    "no retrasar ECLS en un candidato apropiado; detener cualquier técnica invasiva ante complicación mecánica o hemorrágica."
+  ],
+  "confirmation": [
+    "ascenso sostenido de temperatura central, recuperación hemodinámica/eléctrica y corrección progresiva de la fisiología de hipotermia."
+  ],
+  "complications": {
+    "unclassified": [
+      "sangrado, infección, lesión vascular, alteraciones hidroelectrolíticas y complicaciones del circuito/reperfusión."
+    ]
+  },
+  "aftercare": [
+    "cuidados postrecalentamiento, tratamiento etiológico y vigilancia de arritmias/reperfusión."
+  ],
+  "documentation": [
+    "temperatura seriada, método, tiempos, transporte/activación ECLS y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Resuscitation Council UK / ERC 2025 Special Circumstances — accidental hypothermia.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "si un centro ECPR no puede alcanzarse en un tiempo razonable, iniciar recalentamiento no extracorpóreo apropiado mientras continúa la resucitación."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana UCI/ECLS pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-012 — Recalentamiento invasivo — SPECIALIST",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "92d99e4bf20efc51e18ff2d6f8ec1eed333099560f83fa1161d7117267d9a870",
+    "sections": {
+      "Objetivo": "proporcionar recalentamiento interno o extracorpóreo en hipotermia grave seleccionada.",
+      "Indicaciones": "hipotermia grave con inestabilidad hemodinámica, arritmias graves, parada cardiaca o fracaso de medidas externas según contexto.",
+      "Contraindicaciones/precauciones": "seleccionar el método según gravedad, causa, recursos y tiempo hasta un centro ECLS; evitar procedimientos invasivos que retrasen una estrategia extracorpórea indicada.",
+      "Material": "fluidos IV calentados, sistemas de recalentamiento interno seleccionados y, cuando corresponda, VA-ECMO/bypass para ECLS.",
+      "Anatomía": "acceso vascular y, según la técnica, circuito extracorpóreo o cavidades corporales.",
+      "Preparación": "temperatura central fiable, manipulación suave, monitorización avanzada, corrección de causas asociadas y consulta precoz con centro ECPR/ECLS.",
+      "Técnica paso a paso": "elegir estrategia según estabilidad; en parada por hipotermia, RCUK/ERC 2025 recomienda recalentamiento con VA-ECMO cuando esté disponible; si un centro ECPR no puede alcanzarse en un tiempo razonable, iniciar recalentamiento no extracorpóreo apropiado mientras continúa la resucitación.",
+      "STOP": "no retrasar ECLS en un candidato apropiado; detener cualquier técnica invasiva ante complicación mecánica o hemorrágica.",
+      "Confirmación": "ascenso sostenido de temperatura central, recuperación hemodinámica/eléctrica y corrección progresiva de la fisiología de hipotermia.",
+      "Complicaciones": "sangrado, infección, lesión vascular, alteraciones hidroelectrolíticas y complicaciones del circuito/reperfusión.",
+      "Después": "cuidados postrecalentamiento, tratamiento etiológico y vigilancia de arritmias/reperfusión.",
+      "Documentación": "temperatura seriada, método, tiempos, transporte/activación ECLS y respuesta.",
+      "Fuentes": "Resuscitation Council UK / ERC 2025 Special Circumstances — accidental hypothermia.",
+      "QA": "YELLOW; revisión humana UCI/ECLS pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si un centro ECPR no puede alcanzarse en un tiempo razonable, iniciar recalentamiento no extracorpóreo apropiado mientras continúa la resucitación."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

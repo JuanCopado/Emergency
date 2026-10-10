@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-SP-001",
+  "name": "Fasciotomía/escisión de emergencia: reconocimiento y preparación",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reconocer precozmente un síndrome compartimental agudo y evitar retrasos en la descompresión quirúrgica.",
+  "indications": [
+    "sospecha clínica alta o evidencia objetiva compatible en una extremidad de riesgo."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "la decisión es fundamentalmente clínica; una medición de presión aislada no debe retrasar fasciotomía cuando el cuadro es convincente. La fasciotomía definitiva requiere equipo entrenado."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "monitorización, analgesia, material de retirada de constricción y dispositivo de presión compartimental cuando la medición aporte valor."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "compartimentos fasciales de la extremidad y estructuras neurovasculares contenidas."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "retirar vendajes/yesos constrictivos, colocar la extremidad aproximadamente al nivel del corazón, repetir examen neurovascular y activar cirugía/trauma."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "reevaluar dolor desproporcionado, dolor con estiramiento pasivo, tensión, sensibilidad/motor y perfusión; usar presión compartimental como adjunto en casos inciertos o pacientes no evaluables; proceder a descompresión quirúrgica urgente cuando la indicación esté establecida."
+    }
+  ],
+  "stop_points": [
+    "deterioro progresivo, déficit motor/sensitivo o clínica convincente no deben quedar en observación a la espera de pruebas seriadas."
+  ],
+  "confirmation": [
+    "diagnóstico clínico integrado y decisión quirúrgica; la mejoría tras retirar constricción no excluye vigilancia si persiste riesgo."
+  ],
+  "complications": {
+    "unclassified": [
+      "necrosis muscular, lesión nerviosa, rabdomiólisis, insuficiencia renal, infección, contractura y amputación si se retrasa."
+    ]
+  },
+  "aftercare": [
+    "fasciotomía de todos los compartimentos implicados y cuidados quirúrgicos/renales posteriores."
+  ],
+  "documentation": [
+    "hora de inicio/evolución, hallazgos seriados, presiones si se midieron, decisión y tiempos hasta cirugía."
+  ],
+  "sources": [
+    {
+      "title": "AAOS/METRC Appropriate Use Criteria and Clinical Practice Guideline for Acute Compartment Syndrome; review literature 2020–2024.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana traumatología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-001 — Síndrome compartimental: reconocimiento y preparación para fasciotomía — SPECIALIST",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "22ac4347b6cc75a4b7382d0daa1120c6de3668f19a424b2257852751851a066d",
+    "sections": {
+      "Objetivo": "reconocer precozmente un síndrome compartimental agudo y evitar retrasos en la descompresión quirúrgica.",
+      "Indicaciones": "sospecha clínica alta o evidencia objetiva compatible en una extremidad de riesgo.",
+      "Contraindicaciones/precauciones": "la decisión es fundamentalmente clínica; una medición de presión aislada no debe retrasar fasciotomía cuando el cuadro es convincente. La fasciotomía definitiva requiere equipo entrenado.",
+      "Material": "monitorización, analgesia, material de retirada de constricción y dispositivo de presión compartimental cuando la medición aporte valor.",
+      "Anatomía": "compartimentos fasciales de la extremidad y estructuras neurovasculares contenidas.",
+      "Preparación": "retirar vendajes/yesos constrictivos, colocar la extremidad aproximadamente al nivel del corazón, repetir examen neurovascular y activar cirugía/trauma.",
+      "Técnica paso a paso": "reevaluar dolor desproporcionado, dolor con estiramiento pasivo, tensión, sensibilidad/motor y perfusión; usar presión compartimental como adjunto en casos inciertos o pacientes no evaluables; proceder a descompresión quirúrgica urgente cuando la indicación esté establecida.",
+      "STOP": "deterioro progresivo, déficit motor/sensitivo o clínica convincente no deben quedar en observación a la espera de pruebas seriadas.",
+      "Confirmación": "diagnóstico clínico integrado y decisión quirúrgica; la mejoría tras retirar constricción no excluye vigilancia si persiste riesgo.",
+      "Complicaciones": "necrosis muscular, lesión nerviosa, rabdomiólisis, insuficiencia renal, infección, contractura y amputación si se retrasa.",
+      "Después": "fasciotomía de todos los compartimentos implicados y cuidados quirúrgicos/renales posteriores.",
+      "Documentación": "hora de inicio/evolución, hallazgos seriados, presiones si se midieron, decisión y tiempos hasta cirugía.",
+      "Fuentes": "AAOS/METRC Appropriate Use Criteria and Clinical Practice Guideline for Acute Compartment Syndrome; review literature 2020–2024.",
+      "QA": "YELLOW; revisión humana traumatología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

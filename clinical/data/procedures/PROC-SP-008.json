@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-SP-008",
+  "name": "Carbón activado: administración segura",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reducir absorción gastrointestinal o aumentar eliminación de tóxicos seleccionados cuando el beneficio esperado supera el riesgo.",
+  "indications": [
+    "intoxicación por sustancia adsorbible en un contexto donde toxicología considera útil carbón activado; la recomendación depende del tóxico, tiempo, gravedad, formulación y tratamientos alternativos."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "vía aérea no protegida con deterioro de conciencia, íleo/obstrucción, perforación, cáusticos o sustancias con alto riesgo de aspiración. No usar de rutina en todas las sobredosis."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "carbón activado y vía oral/NG apropiada."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "tracto gastrointestinal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar sustancia, tiempo, gravedad y capacidad de proteger vía aérea con módulo toxicológico/centro de toxicología."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "administrar dosis y estrategia —única, adicional o múltiple— exclusivamente desde el módulo toxicológico específico; evitar administración forzada y vigilar vómito/aspiración."
+    }
+  ],
+  "stop_points": [
+    "deterioro de conciencia, vómitos repetidos, aspiración o signos de obstrucción intestinal."
+  ],
+  "confirmation": [
+    "administración tolerada dentro de una indicación toxicológica documentada."
+  ],
+  "complications": {
+    "unclassified": [
+      "aspiración, vómitos, neumonitis y obstrucción intestinal rara."
+    ]
+  },
+  "aftercare": [
+    "monitorización y tratamiento específico/antídoto; no asumir que el carbón sustituye el soporte o tratamiento definitivo."
+  ],
+  "documentation": [
+    "tóxico, tiempo, justificación, dosis/vía desde módulo, tolerancia y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "Clinical Toxicology Recommendations Collaborative, Recommendations on activated charcoal in acute oral overdose, 2026; AACT/EAPCCT Position Paper on Single-Dose Activated Charcoal.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana toxicología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-008 — Carbón activado — CORE",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "9c4d48a2761f64b6447579876ab1bb8eab3547ce6149ba1ca991a36aeff68a1f",
+    "sections": {
+      "Objetivo": "reducir absorción gastrointestinal o aumentar eliminación de tóxicos seleccionados cuando el beneficio esperado supera el riesgo.",
+      "Indicaciones": "intoxicación por sustancia adsorbible en un contexto donde toxicología considera útil carbón activado; la recomendación depende del tóxico, tiempo, gravedad, formulación y tratamientos alternativos.",
+      "Contraindicaciones/precauciones": "vía aérea no protegida con deterioro de conciencia, íleo/obstrucción, perforación, cáusticos o sustancias con alto riesgo de aspiración. No usar de rutina en todas las sobredosis.",
+      "Material": "carbón activado y vía oral/NG apropiada.",
+      "Anatomía": "tracto gastrointestinal.",
+      "Preparación": "confirmar sustancia, tiempo, gravedad y capacidad de proteger vía aérea con módulo toxicológico/centro de toxicología.",
+      "Técnica paso a paso": "administrar dosis y estrategia —única, adicional o múltiple— exclusivamente desde el módulo toxicológico específico; evitar administración forzada y vigilar vómito/aspiración.",
+      "STOP": "deterioro de conciencia, vómitos repetidos, aspiración o signos de obstrucción intestinal.",
+      "Confirmación": "administración tolerada dentro de una indicación toxicológica documentada.",
+      "Complicaciones": "aspiración, vómitos, neumonitis y obstrucción intestinal rara.",
+      "Después": "monitorización y tratamiento específico/antídoto; no asumir que el carbón sustituye el soporte o tratamiento definitivo.",
+      "Documentación": "tóxico, tiempo, justificación, dosis/vía desde módulo, tolerancia y complicaciones.",
+      "Fuentes": "Clinical Toxicology Recommendations Collaborative, Recommendations on activated charcoal in acute oral overdose, 2026; AACT/EAPCCT Position Paper on Single-Dose Activated Charcoal.",
+      "QA": "YELLOW; revisión humana toxicología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

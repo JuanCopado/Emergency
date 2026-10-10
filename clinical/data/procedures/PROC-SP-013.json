@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-SP-013",
+  "name": "REBOA (oclusión endovascular resucitativa de la aorta)",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "oclusión aórtica temporal como puente excepcional a hemostasia definitiva en escenarios muy seleccionados.",
+  "indications": [
+    "solo dentro de un programa institucional con operadores acreditados, selección protocolizada y capacidad inmediata de cirugía/intervencionismo."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no es tratamiento rutinario del shock hemorrágico. La guía EAST 2025 emitió recomendación condicional en contra de REBOA en trauma inestable con sangrado subdiafragmático y en fractura pélvica cerrada inestable por ausencia de beneficio y señal de daño; cualquier uso debe ser excepcional y protocolizado."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "acceso arterial de gran calibre/dispositivo REBOA, ecografía, monitorización invasiva y recursos de control hemorrágico definitivo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "arteria femoral común, aorta torácica/abdominal y zonas de oclusión definidas por dispositivo/protocolo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "activar trauma/cirugía vascular/intervencionismo, transfusión masiva y destino hemostático definitivo antes de la oclusión."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "obtener acceso arterial femoral común seguro; avanzar el dispositivo según protocolo del centro y fabricante; confirmar posición; inflar únicamente en la zona indicada y por el mínimo tiempo necesario; vigilar perfusión proximal/distal y transición inmediata a hemostasia definitiva."
+    }
+  ],
+  "stop_points": [
+    "no utilizar sin destino definitivo inmediato; posición incierta, acceso vascular inseguro, isquemia distal o deterioro atribuible al dispositivo obligan a reevaluación/retirada según protocolo."
+  ],
+  "confirmation": [
+    "posición verificada y efecto hemodinámico temporal coherente, sin asumir beneficio clínico definitivo."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión femoral/aortoilíaca, disección, trombosis, isquemia de extremidad/visceral/médula, rotura vascular y lesión por reperfusión."
+    ]
+  },
+  "aftercare": [
+    "hemostasia definitiva urgente, retirada protocolizada y vigilancia vascular."
+  ],
+  "documentation": [
+    "indicación excepcional, criterios de selección, tiempos de oclusión, zona, respuesta y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "EAST Practice Management Guideline 2025; implementación institucional de trauma/vascular.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "posición incierta, acceso vascular inseguro, isquemia distal o deterioro atribuible al dispositivo obligan a reevaluación/retirada según protocolo."
+  ],
+  "escalation": [
+    "hemostasia definitiva urgente, retirada protocolizada y vigilancia vascular."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-013 — REBOA (oclusión endovascular resucitativa de la aorta) — SPECIALIST",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "5e88bffba39df003870b415c00df734e1cc93baed390e88d7f359cd9ecfc3fff",
+    "sections": {
+      "Objetivo": "oclusión aórtica temporal como puente excepcional a hemostasia definitiva en escenarios muy seleccionados.",
+      "Indicaciones": "solo dentro de un programa institucional con operadores acreditados, selección protocolizada y capacidad inmediata de cirugía/intervencionismo.",
+      "Contraindicaciones/precauciones": "no es tratamiento rutinario del shock hemorrágico. La guía EAST 2025 emitió recomendación condicional en contra de REBOA en trauma inestable con sangrado subdiafragmático y en fractura pélvica cerrada inestable por ausencia de beneficio y señal de daño; cualquier uso debe ser excepcional y protocolizado.",
+      "Material": "acceso arterial de gran calibre/dispositivo REBOA, ecografía, monitorización invasiva y recursos de control hemorrágico definitivo.",
+      "Anatomía": "arteria femoral común, aorta torácica/abdominal y zonas de oclusión definidas por dispositivo/protocolo.",
+      "Preparación": "activar trauma/cirugía vascular/intervencionismo, transfusión masiva y destino hemostático definitivo antes de la oclusión.",
+      "Técnica paso a paso": "obtener acceso arterial femoral común seguro; avanzar el dispositivo según protocolo del centro y fabricante; confirmar posición; inflar únicamente en la zona indicada y por el mínimo tiempo necesario; vigilar perfusión proximal/distal y transición inmediata a hemostasia definitiva.",
+      "STOP": "no utilizar sin destino definitivo inmediato; posición incierta, acceso vascular inseguro, isquemia distal o deterioro atribuible al dispositivo obligan a reevaluación/retirada según protocolo.",
+      "Confirmación": "posición verificada y efecto hemodinámico temporal coherente, sin asumir beneficio clínico definitivo.",
+      "Complicaciones": "lesión femoral/aortoilíaca, disección, trombosis, isquemia de extremidad/visceral/médula, rotura vascular y lesión por reperfusión.",
+      "Después": "hemostasia definitiva urgente, retirada protocolizada y vigilancia vascular.",
+      "Documentación": "indicación excepcional, criterios de selección, tiempos de oclusión, zona, respuesta y complicaciones.",
+      "Fuentes": "EAST Practice Management Guideline 2025; implementación institucional de trauma/vascular.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "posición incierta, acceso vascular inseguro, isquemia distal o deterioro atribuible al dispositivo obligan a reevaluación/retirada según protocolo."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "hemostasia definitiva urgente, retirada protocolizada y vigilancia vascular."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

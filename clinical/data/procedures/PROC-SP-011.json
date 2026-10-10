@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-SP-011",
+  "name": "Manejo de hipotermia: recalentamiento externo activo",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "limitar pérdida térmica y aumentar temperatura central en hipotermia leve/moderada o como puente en cuadros más graves.",
+  "indications": [
+    "hipotermia accidental con circulación espontánea, especialmente estadios leves/moderados; complemento mientras se organiza recalentamiento avanzado cuando está indicado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "manipulación suave en hipotermia grave; evitar calor local intenso sobre piel insensible y medidas que retrasen traslado a centro ECLS en pacientes con riesgo de parada o en parada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "aislamiento, retirada de ropa mojada, mantas/aire caliente, monitor de temperatura central y fluidos calentados cuando estén indicados."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "tronco y circulación central."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "medir temperatura central con termómetro de baja lectura cuando sea posible, monitorizar ritmo y retirar ropa mojada."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "aislar del ambiente, aplicar calentamiento activo principalmente al tronco, usar aire caliente/medios externos controlados y fluidos calentados cuando formen parte del plan; reevaluar temperatura y estabilidad."
+    }
+  ],
+  "stop_points": [
+    "arritmia, deterioro hemodinámico, quemadura térmica o candidato a recalentamiento extracorpóreo que está siendo retrasado por medidas externas."
+  ],
+  "confirmation": [
+    "tendencia ascendente de temperatura central y estabilidad clínica."
+  ],
+  "complications": {
+    "unclassified": [
+      "quemaduras, hipotensión por vasodilatación y afterdrop."
+    ]
+  },
+  "aftercare": [
+    "continuar hasta objetivo y tratar causa; transferir a centro ECPR/ECLS cuando existan criterios de alto riesgo."
+  ],
+  "documentation": [
+    "temperatura seriada, método y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Resuscitation Council UK / ERC 2025 Special Circumstances — accidental hypothermia.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "transferir a centro ECPR/ECLS cuando existan criterios de alto riesgo."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urgencias/UCI pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-011 — Recalentamiento externo activo — CORE",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "2adeb22ec8118c05cb6a8cdcbc389efa15f8f6d7fe92e21a0030165970a735c5",
+    "sections": {
+      "Objetivo": "limitar pérdida térmica y aumentar temperatura central en hipotermia leve/moderada o como puente en cuadros más graves.",
+      "Indicaciones": "hipotermia accidental con circulación espontánea, especialmente estadios leves/moderados; complemento mientras se organiza recalentamiento avanzado cuando está indicado.",
+      "Contraindicaciones/precauciones": "manipulación suave en hipotermia grave; evitar calor local intenso sobre piel insensible y medidas que retrasen traslado a centro ECLS en pacientes con riesgo de parada o en parada.",
+      "Material": "aislamiento, retirada de ropa mojada, mantas/aire caliente, monitor de temperatura central y fluidos calentados cuando estén indicados.",
+      "Anatomía": "tronco y circulación central.",
+      "Preparación": "medir temperatura central con termómetro de baja lectura cuando sea posible, monitorizar ritmo y retirar ropa mojada.",
+      "Técnica paso a paso": "aislar del ambiente, aplicar calentamiento activo principalmente al tronco, usar aire caliente/medios externos controlados y fluidos calentados cuando formen parte del plan; reevaluar temperatura y estabilidad.",
+      "STOP": "arritmia, deterioro hemodinámico, quemadura térmica o candidato a recalentamiento extracorpóreo que está siendo retrasado por medidas externas.",
+      "Confirmación": "tendencia ascendente de temperatura central y estabilidad clínica.",
+      "Complicaciones": "quemaduras, hipotensión por vasodilatación y afterdrop.",
+      "Después": "continuar hasta objetivo y tratar causa; transferir a centro ECPR/ECLS cuando existan criterios de alto riesgo.",
+      "Documentación": "temperatura seriada, método y respuesta.",
+      "Fuentes": "Resuscitation Council UK / ERC 2025 Special Circumstances — accidental hypothermia.",
+      "QA": "YELLOW; revisión humana urgencias/UCI pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "transferir a centro ECPR/ECLS cuando existan criterios de alto riesgo."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

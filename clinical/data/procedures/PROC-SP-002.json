@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-SP-002",
+  "name": "Descompresión de síndrome compartimental: medidas temporales",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "apoyar el diagnóstico cuando la clínica es incierta.",
+  "indications": [
+    "sospecha de síndrome compartimental con examen no concluyente."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retrasar fasciotomía si clínica es clara; una presión normal aislada no excluye evolución temprana."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "dispositivo calibrado y aguja/sistema correspondiente."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "compartimento específico y estructuras de riesgo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "identificar compartimento y calibrar equipo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "introducir el sistema en el compartimento objetivo evitando vasos/nervios, registrar presión y correlacionar con presión arterial/perfusión según protocolo."
+    }
+  ],
+  "stop_points": [
+    "valor discordante con clínica o deterioro progresivo."
+  ],
+  "confirmation": [
+    "lectura reproducible e interpretable en contexto."
+  ],
+  "complications": {
+    "unclassified": [
+      "hematoma, infección y falsa seguridad diagnóstica."
+    ]
+  },
+  "aftercare": [
+    "repetir si evoluciona y escalar a cirugía."
+  ],
+  "documentation": [
+    "compartimento, presión y contexto hemodinámico."
+  ],
+  "sources": [
+    {
+      "title": "AAOS/METRC Clinical Practice Guideline and Appropriate Use Criteria for Acute Compartment Syndrome; contemporary orthopedic trauma evidence.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "repetir si evoluciona y escalar a cirugía."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-002 — Medición de presión compartimental — ADVANCED",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "6265427bfaf34805ce046e19725b9b2e84d16ee5530d3f28c7316872b66fb981",
+    "sections": {
+      "Objetivo": "apoyar el diagnóstico cuando la clínica es incierta.",
+      "Indicaciones": "sospecha de síndrome compartimental con examen no concluyente.",
+      "Contraindicaciones/precauciones": "no retrasar fasciotomía si clínica es clara; una presión normal aislada no excluye evolución temprana.",
+      "Material": "dispositivo calibrado y aguja/sistema correspondiente.",
+      "Anatomía": "compartimento específico y estructuras de riesgo.",
+      "Preparación": "identificar compartimento y calibrar equipo.",
+      "Técnica paso a paso": "introducir el sistema en el compartimento objetivo evitando vasos/nervios, registrar presión y correlacionar con presión arterial/perfusión según protocolo.",
+      "STOP": "valor discordante con clínica o deterioro progresivo.",
+      "Confirmación": "lectura reproducible e interpretable en contexto.",
+      "Complicaciones": "hematoma, infección y falsa seguridad diagnóstica.",
+      "Después": "repetir si evoluciona y escalar a cirugía.",
+      "Documentación": "compartimento, presión y contexto hemodinámico.",
+      "Fuentes": "AAOS/METRC Clinical Practice Guideline and Appropriate Use Criteria for Acute Compartment Syndrome; contemporary orthopedic trauma evidence.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "repetir si evoluciona y escalar a cirugía."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

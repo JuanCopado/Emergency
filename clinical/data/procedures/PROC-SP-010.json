@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-SP-010",
+  "name": "Descontaminación en exposición a opioides/polvos tóxicos",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "minimizar exposición secundaria y descontaminar de forma segura sin aerosolizar polvo.",
+  "indications": [
+    "contaminación cutánea, ropa/equipo contaminados o contacto ocupacional con polvo de opioide ilícito sospechado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "la exposición dérmica breve a polvo de fentanilo no equivale por sí sola a intoxicación clínica; naloxona se reserva para un síndrome opioide real, especialmente depresión respiratoria."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "PPE apropiado al riesgo, bolsas para ropa contaminada, jabón y agua."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "piel, mucosas y vía respiratoria según exposición."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "retirar al paciente/personal de la fuente, evitar agitar polvo y valorar respiración/estado mental."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "retirar ropa contaminada con mínima dispersión, embolsarla, lavar piel expuesta con abundante jabón y agua y cubrir heridas abiertas. CDC/NIOSH indica no usar gel hidroalcohólico, limpiadores con alcohol ni lejía sobre piel contaminada."
+    }
+  ],
+  "stop_points": [
+    "depresión respiratoria, hipoventilación o alteración de conciencia → tratar como intoxicación opioide clínica según módulo correspondiente."
+  ],
+  "confirmation": [
+    "contaminación visible retirada y ausencia de progresión clínica."
+  ],
+  "complications": {
+    "unclassified": [
+      "aerosolización secundaria, contaminación del personal y retraso en tratar una intoxicación verdadera."
+    ]
+  },
+  "aftercare": [
+    "observación según exposición y síntomas; descontaminar PPE/equipo según fabricante."
+  ],
+  "documentation": [
+    "sustancia sospechada, vía de exposición, PPE, descontaminación y síntomas."
+  ],
+  "sources": [
+    {
+      "title": "CDC/NIOSH Fentanyl: PPE and Decontamination / Emergency Responders at Risk, reviewed 2024; ACMT/AACT occupational fentanyl exposure position statement.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "depresión respiratoria, hipoventilación o alteración de conciencia → tratar como intoxicación opioide clínica según módulo correspondiente."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana toxicología/salud laboral pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-010 — Exposición a opioides/polvos — CORE",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "30856e53ea3f2e6fea92dcf1a4cbff8adf3cffa3291774032a9acb3a4af89f0a",
+    "sections": {
+      "Objetivo": "minimizar exposición secundaria y descontaminar de forma segura sin aerosolizar polvo.",
+      "Indicaciones": "contaminación cutánea, ropa/equipo contaminados o contacto ocupacional con polvo de opioide ilícito sospechado.",
+      "Contraindicaciones/precauciones": "la exposición dérmica breve a polvo de fentanilo no equivale por sí sola a intoxicación clínica; naloxona se reserva para un síndrome opioide real, especialmente depresión respiratoria.",
+      "Material": "PPE apropiado al riesgo, bolsas para ropa contaminada, jabón y agua.",
+      "Anatomía": "piel, mucosas y vía respiratoria según exposición.",
+      "Preparación": "retirar al paciente/personal de la fuente, evitar agitar polvo y valorar respiración/estado mental.",
+      "Técnica paso a paso": "retirar ropa contaminada con mínima dispersión, embolsarla, lavar piel expuesta con abundante jabón y agua y cubrir heridas abiertas. CDC/NIOSH indica no usar gel hidroalcohólico, limpiadores con alcohol ni lejía sobre piel contaminada.",
+      "STOP": "depresión respiratoria, hipoventilación o alteración de conciencia → tratar como intoxicación opioide clínica según módulo correspondiente.",
+      "Confirmación": "contaminación visible retirada y ausencia de progresión clínica.",
+      "Complicaciones": "aerosolización secundaria, contaminación del personal y retraso en tratar una intoxicación verdadera.",
+      "Después": "observación según exposición y síntomas; descontaminar PPE/equipo según fabricante.",
+      "Documentación": "sustancia sospechada, vía de exposición, PPE, descontaminación y síntomas.",
+      "Fuentes": "CDC/NIOSH Fentanyl: PPE and Decontamination / Emergency Responders at Risk, reviewed 2024; ACMT/AACT occupational fentanyl exposure position statement.",
+      "QA": "YELLOW; revisión humana toxicología/salud laboral pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "depresión respiratoria, hipoventilación o alteración de conciencia → tratar como intoxicación opioide clínica según módulo correspondiente."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

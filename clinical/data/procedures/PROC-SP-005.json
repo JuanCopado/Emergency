@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-SP-005",
+  "name": "Manejo inicial de mordeduras y heridas contaminadas complejas",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reducir contaminación, detectar lesión profunda y prevenir infección.",
+  "indications": [
+    "mordeduras humanas/animales y heridas altamente contaminadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "mano, cara, articulación, tendón, inmunosupresión o signos de infección profunda requieren evaluación especializada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "irrigación, instrumental de exploración y apósitos."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "estructuras profundas de la región afectada."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "analgesia, historia de especie/exposición y valoración de tétanos/rabia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "irrigar ampliamente, explorar, desbridar tejido claramente desvitalizado de forma selectiva y decidir cierre según riesgo."
+    }
+  ],
+  "stop_points": [
+    "lesión tendinosa/articular/neurovascular o infección profunda."
+  ],
+  "confirmation": [
+    "herida limpia y estructuras críticas evaluadas."
+  ],
+  "complications": {
+    "unclassified": [
+      "infección, tenosinovitis, artritis séptica y daño estructural."
+    ]
+  },
+  "aftercare": [
+    "profilaxis/antibiótico según especie, sitio y riesgo."
+  ],
+  "documentation": [
+    "mecanismo, profundidad y profilaxis."
+  ],
+  "sources": [
+    {
+      "title": "IDSA Skin and Soft Tissue Infection guideline; CDC rabies/tetanus guidance; bite-wound emergency references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-005 — Mordeduras/heridas contaminadas — CORE",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "0641dd06261ac901607e2491275f7c6c573490a2a17dd257d92a64dd38cb1608",
+    "sections": {
+      "Objetivo": "reducir contaminación, detectar lesión profunda y prevenir infección.",
+      "Indicaciones": "mordeduras humanas/animales y heridas altamente contaminadas.",
+      "Contraindicaciones/precauciones": "mano, cara, articulación, tendón, inmunosupresión o signos de infección profunda requieren evaluación especializada.",
+      "Material": "irrigación, instrumental de exploración y apósitos.",
+      "Anatomía": "estructuras profundas de la región afectada.",
+      "Preparación": "analgesia, historia de especie/exposición y valoración de tétanos/rabia.",
+      "Técnica paso a paso": "irrigar ampliamente, explorar, desbridar tejido claramente desvitalizado de forma selectiva y decidir cierre según riesgo.",
+      "STOP": "lesión tendinosa/articular/neurovascular o infección profunda.",
+      "Confirmación": "herida limpia y estructuras críticas evaluadas.",
+      "Complicaciones": "infección, tenosinovitis, artritis séptica y daño estructural.",
+      "Después": "profilaxis/antibiótico según especie, sitio y riesgo.",
+      "Documentación": "mecanismo, profundidad y profilaxis.",
+      "Fuentes": "IDSA Skin and Soft Tissue Infection guideline; CDC rabies/tetanus guidance; bite-wound emergency references.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

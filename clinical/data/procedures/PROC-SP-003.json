@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-SP-003",
+  "name": "Reimplantación temporal/protección de amputación",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "preservar la viabilidad de un segmento amputado para posible reimplante.",
+  "indications": [
+    "amputación traumática con segmento recuperable."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "prioridad absoluta al control hemorrágico y estabilización del paciente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "gasa estéril húmeda, bolsa sellada, recipiente con mezcla fría y etiquetas."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "segmento amputado y muñón."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "controlar hemorragia del paciente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "envolver el segmento en gasa estéril humedecida, sellar en bolsa y colocar la bolsa sobre mezcla hielo-agua sin contacto directo."
+    }
+  ],
+  "stop_points": [
+    "no congelar ni sumergir directamente en agua/hielo."
+  ],
+  "confirmation": [
+    "segmento identificado, protegido y refrigerado indirectamente."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión térmica del tejido o contaminación."
+    ]
+  },
+  "aftercare": [
+    "traslado rápido a centro con capacidad de reimplante."
+  ],
+  "documentation": [
+    "hora de amputación/recuperación y método de conservación."
+  ],
+  "sources": [
+    {
+      "title": "American Society for Surgery of the Hand / hand-trauma preservation principles; WHO Basic Emergency Care trauma principles.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "traslado rápido a centro con capacidad de reimplante."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-003 — Amputación: conservación de segmento — CORE",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "5ad0998bcc76b39b0975cb873e6e38bdc6441502fb3ac530d678264eb6d3a04d",
+    "sections": {
+      "Objetivo": "preservar la viabilidad de un segmento amputado para posible reimplante.",
+      "Indicaciones": "amputación traumática con segmento recuperable.",
+      "Contraindicaciones/precauciones": "prioridad absoluta al control hemorrágico y estabilización del paciente.",
+      "Material": "gasa estéril húmeda, bolsa sellada, recipiente con mezcla fría y etiquetas.",
+      "Anatomía": "segmento amputado y muñón.",
+      "Preparación": "controlar hemorragia del paciente.",
+      "Técnica paso a paso": "envolver el segmento en gasa estéril humedecida, sellar en bolsa y colocar la bolsa sobre mezcla hielo-agua sin contacto directo.",
+      "STOP": "no congelar ni sumergir directamente en agua/hielo.",
+      "Confirmación": "segmento identificado, protegido y refrigerado indirectamente.",
+      "Complicaciones": "lesión térmica del tejido o contaminación.",
+      "Después": "traslado rápido a centro con capacidad de reimplante.",
+      "Documentación": "hora de amputación/recuperación y método de conservación.",
+      "Fuentes": "American Society for Surgery of the Hand / hand-trauma preservation principles; WHO Basic Emergency Care trauma principles.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "traslado rápido a centro con capacidad de reimplante."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

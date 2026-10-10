@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-SP-007",
+  "name": "Lavado gástrico en indicaciones excepcionales",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "descontaminación gastrointestinal excepcional en una intoxicación potencialmente letal cuando el beneficio esperado supera claramente el riesgo.",
+  "indications": [
+    "no debe utilizarse de rutina. Considerarlo solo en ingestas muy seleccionadas, potencialmente letales, con asesoramiento toxicológico y cuando la sustancia/tiempo/contexto hacen plausible un beneficio."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "vía aérea no protegida con reflejos comprometidos, cáusticos, hidrocarburos con alto riesgo de aspiración, riesgo de perforación/hemorragia gastrointestinal o anatomía que impida un procedimiento seguro."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "equipo completo de vía aérea, sonda orogástrica de gran calibre apropiada, sistema de aspiración/irrigación y monitorización."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "orofaringe, esófago y estómago."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "consultar toxicología/centro de información toxicológica, identificar agente/tiempo y proteger la vía aérea cuando esté indicado antes del procedimiento."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar únicamente con protocolo especializado, sonda confirmada en estómago y alícuotas controladas, evitando sobrepresión o retraso del antídoto/tratamiento de soporte."
+    }
+  ],
+  "stop_points": [
+    "aspiración, sangrado, resistencia, deterioro respiratorio/hemodinámico o duda de posición de la sonda."
+  ],
+  "confirmation": [
+    "procedimiento completado sin complicación dentro de una indicación excepcional bien documentada; la ausencia de contenido no demuestra descontaminación completa."
+  ],
+  "complications": {
+    "unclassified": [
+      "aspiración, neumonía química, perforación, hemorragia, hipoxia y alteraciones hidroelectrolíticas."
+    ]
+  },
+  "aftercare": [
+    "tratamiento toxicológico específico y soporte."
+  ],
+  "documentation": [
+    "tóxico, cantidad estimada, tiempo, justificación, protección de vía aérea, técnica y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "AACT/EAPCCT Position Paper Update: Gastric Lavage for Gastrointestinal Decontamination (2013), listado vigente en AACT; toxicología local.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana toxicología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-007 — Lavado gástrico — SPECIALIST",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "6b27b3d7c3ceca48fcf2e2434ea5fd11101c7ea8f5f01786dd14a850a3cdb782",
+    "sections": {
+      "Objetivo": "descontaminación gastrointestinal excepcional en una intoxicación potencialmente letal cuando el beneficio esperado supera claramente el riesgo.",
+      "Indicaciones": "no debe utilizarse de rutina. Considerarlo solo en ingestas muy seleccionadas, potencialmente letales, con asesoramiento toxicológico y cuando la sustancia/tiempo/contexto hacen plausible un beneficio.",
+      "Contraindicaciones/precauciones": "vía aérea no protegida con reflejos comprometidos, cáusticos, hidrocarburos con alto riesgo de aspiración, riesgo de perforación/hemorragia gastrointestinal o anatomía que impida un procedimiento seguro.",
+      "Material": "equipo completo de vía aérea, sonda orogástrica de gran calibre apropiada, sistema de aspiración/irrigación y monitorización.",
+      "Anatomía": "orofaringe, esófago y estómago.",
+      "Preparación": "consultar toxicología/centro de información toxicológica, identificar agente/tiempo y proteger la vía aérea cuando esté indicado antes del procedimiento.",
+      "Técnica paso a paso": "realizar únicamente con protocolo especializado, sonda confirmada en estómago y alícuotas controladas, evitando sobrepresión o retraso del antídoto/tratamiento de soporte.",
+      "STOP": "aspiración, sangrado, resistencia, deterioro respiratorio/hemodinámico o duda de posición de la sonda.",
+      "Confirmación": "procedimiento completado sin complicación dentro de una indicación excepcional bien documentada; la ausencia de contenido no demuestra descontaminación completa.",
+      "Complicaciones": "aspiración, neumonía química, perforación, hemorragia, hipoxia y alteraciones hidroelectrolíticas.",
+      "Después": "tratamiento toxicológico específico y soporte.",
+      "Documentación": "tóxico, cantidad estimada, tiempo, justificación, protección de vía aérea, técnica y complicaciones.",
+      "Fuentes": "AACT/EAPCCT Position Paper Update: Gastric Lavage for Gastrointestinal Decontamination (2013), listado vigente en AACT; toxicología local.",
+      "QA": "YELLOW; revisión humana toxicología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

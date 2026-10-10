@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-SP-004",
+  "name": "Extracción de empalamiento: principios de no retirada y control",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "estabilizar objeto empalado y prevenir hemorragia/lesión secundaria.",
+  "indications": [
+    "objeto penetrante retenido."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retirar salvo situación excepcional que impida RCP/vía aérea o extracción del entorno."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "apósitos voluminosos, vendas y material de control hemorrágico."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "trayecto del objeto y estructuras regionales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "ABC, control de hemorragia alrededor y plan de traslado."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "estabilizar el objeto con apósitos, evitar movimiento y acortar solo si el traslado lo exige y existe equipo adecuado."
+    }
+  ],
+  "stop_points": [
+    "extracción no planificada o manipulación que aumente sangrado."
+  ],
+  "confirmation": [
+    "objeto inmóvil y paciente estable para traslado."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia, lesión vascular/visceral y contaminación."
+    ]
+  },
+  "aftercare": [
+    "extracción controlada en entorno quirúrgico apropiado."
+  ],
+  "documentation": [
+    "mecanismo, localización y estabilización."
+  ],
+  "sources": [
+    {
+      "title": "WHO Basic Emergency Care; contemporary trauma impalement management principles.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "extracción controlada en entorno quirúrgico apropiado."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-004 — Empalamiento — CORE",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "a9cc8df60ade3f47d96707668948f6ff9c2246c7021f2b0a1e42dc3871556d94",
+    "sections": {
+      "Objetivo": "estabilizar objeto empalado y prevenir hemorragia/lesión secundaria.",
+      "Indicaciones": "objeto penetrante retenido.",
+      "Contraindicaciones/precauciones": "no retirar salvo situación excepcional que impida RCP/vía aérea o extracción del entorno.",
+      "Material": "apósitos voluminosos, vendas y material de control hemorrágico.",
+      "Anatomía": "trayecto del objeto y estructuras regionales.",
+      "Preparación": "ABC, control de hemorragia alrededor y plan de traslado.",
+      "Técnica paso a paso": "estabilizar el objeto con apósitos, evitar movimiento y acortar solo si el traslado lo exige y existe equipo adecuado.",
+      "STOP": "extracción no planificada o manipulación que aumente sangrado.",
+      "Confirmación": "objeto inmóvil y paciente estable para traslado.",
+      "Complicaciones": "hemorragia, lesión vascular/visceral y contaminación.",
+      "Después": "extracción controlada en entorno quirúrgico apropiado.",
+      "Documentación": "mecanismo, localización y estabilización.",
+      "Fuentes": "WHO Basic Emergency Care; contemporary trauma impalement management principles.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "extracción controlada en entorno quirúrgico apropiado."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

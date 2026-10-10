@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-SP-009",
+  "name": "Descontaminación cutánea química",
+  "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "detener exposición dérmica y proteger al personal.",
+  "indications": [
+    "contaminación cutánea química."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sustancias reactivas con agua requieren ficha específica."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "PPE, bolsas para ropa, agua/solución adecuada y cepillo para sólidos secos si corresponde."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "piel y superficies expuestas."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "zona de descontaminación y PPE apropiado."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "retirar ropa/joyas, cepillar sólidos secos cuando proceda e irrigar ampliamente las sustancias compatibles con agua."
+    }
+  ],
+  "stop_points": [
+    "reacción exotérmica o sustancia cuya ficha contraindique agua."
+  ],
+  "confirmation": [
+    "contaminante retirado y síntomas estabilizados."
+  ],
+  "complications": {
+    "unclassified": [
+      "quemadura química persistente e hipotermia."
+    ]
+  },
+  "aftercare": [
+    "tratamiento específico y vigilancia."
+  ],
+  "documentation": [
+    "sustancia, PPE y método de descontaminación."
+  ],
+  "sources": [
+    {
+      "title": "CDC/NIOSH hazardous-substance decontamination principles; substance-specific SDS/toxicology guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/16-special-rescue.md",
+    "source_heading": "PROC-SP-009 — Descontaminación cutánea química — CORE",
+    "family_preamble": "# 16. Procedimientos especiales y de rescate\n\nEstado: **YELLOW**. Muchos son de baja frecuencia/alto riesgo y requieren entrenamiento específico.",
+    "source_sha256": "cf268257d2560745ae226a20ef6abca51a2aaba8e1e927006203992f76765e27",
+    "sections": {
+      "Objetivo": "detener exposición dérmica y proteger al personal.",
+      "Indicaciones": "contaminación cutánea química.",
+      "Contraindicaciones/precauciones": "sustancias reactivas con agua requieren ficha específica.",
+      "Material": "PPE, bolsas para ropa, agua/solución adecuada y cepillo para sólidos secos si corresponde.",
+      "Anatomía": "piel y superficies expuestas.",
+      "Preparación": "zona de descontaminación y PPE apropiado.",
+      "Técnica paso a paso": "retirar ropa/joyas, cepillar sólidos secos cuando proceda e irrigar ampliamente las sustancias compatibles con agua.",
+      "STOP": "reacción exotérmica o sustancia cuya ficha contraindique agua.",
+      "Confirmación": "contaminante retirado y síntomas estabilizados.",
+      "Complicaciones": "quemadura química persistente e hipotermia.",
+      "Después": "tratamiento específico y vigilancia.",
+      "Documentación": "sustancia, PPE y método de descontaminación.",
+      "Fuentes": "CDC/NIOSH hazardous-substance decontamination principles; substance-specific SDS/toxicology guidance.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
