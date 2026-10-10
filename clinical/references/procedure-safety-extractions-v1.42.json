@@ -201,6 +201,52 @@
       }
     ]
   },
+  "PROC-GU-002": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "si entra en vagina, dejarla temporalmente como referencia y usar una nueva sonda estéril para uretra."
+      }
+    ]
+  },
+  "PROC-GU-003": {
+    "rescue": [
+      {
+        "section": "Después",
+        "quote": "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica."
+      }
+    ]
+  },
+  "PROC-GU-004": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "valorar sonda de tres vías/irrigación continua y urología si persiste hematuria significativa."
+      }
+    ]
+  },
+  "PROC-GU-008": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "urología, búsqueda etiológica y planificación de shunt quirúrgico si fracasa el manejo inicial."
+      }
+    ]
+  },
+  "PROC-GU-009": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "ginecología si hay lesión, objeto complejo o retención prolongada; valorar imagen si no se confirma extracción completa."
+      }
+    ]
+  },
   "PROC-NEURO-003": {
     "escalation": [
       {

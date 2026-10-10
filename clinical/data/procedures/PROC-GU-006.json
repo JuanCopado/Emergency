@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GU-006",
+  "name": "Catéter suprapúbico",
+  "family": "GENITOURINARIO",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "drenar la vejiga cuando el acceso uretral está contraindicado, no es posible o ha fracasado.",
+  "indications": [
+    "retención urinaria con necesidad de drenaje y acceso uretral contraindicado o fallido; en trauma uretral puede utilizarse para derivación urinaria cuando está indicado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "vejiga insuficientemente distendida, anatomía pélvica alterada, cirugía abdominal/pélvica previa, coagulopatía significativa o ascitis aumentan el riesgo; valorar alternativa o colocación bajo visión directa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, kit de cistostomía suprapúbica, anestesia local, material estéril y sistema de drenaje."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vejiga, sínfisis púbica, peritoneo, asas intestinales y vasos de pared abdominal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar vejiga distendida y posición con ecografía; buscar asas interpuestas y seleccionar trayecto seguro."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "bajo técnica estéril y guía ecográfica cuando sea posible, acceder a la vejiga por trayecto suprapúbico seguro, confirmar orina antes de avanzar el catéter y fijarlo tras comprobar drenaje."
+    }
+  ],
+  "stop_points": [
+    "vejiga no claramente identificable/distendida, asa intestinal en trayecto, ausencia de orina, dolor intenso, sangrado o posición incierta."
+  ],
+  "confirmation": [
+    "drenaje urinario libre y posición intravesical coherente; ecografía puede confirmar balón/catéter cuando sea necesario."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión intestinal/vascular, hemorragia, infección, falsa vía, extravasación y lesión vesical."
+    ]
+  },
+  "aftercare": [
+    "cuidados del sitio, vigilancia de débito y seguimiento urológico."
+  ],
+  "documentation": [
+    "indicación, uso de US, trayecto, dispositivo, retorno urinario y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "British Association of Urological Surgeons suprapubic catheter practice guidelines, revised 2020; EAU Urological Trauma Guidelines (US para guía de SPC en fase aguda).",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-006 — Catéter suprapúbico — SPECIALIST",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "6f48e083e2bf22719e82096b3f5ac4fc87196dba798fe7ddfd81ab3844a30082",
+    "sections": {
+      "Objetivo": "drenar la vejiga cuando el acceso uretral está contraindicado, no es posible o ha fracasado.",
+      "Indicaciones": "retención urinaria con necesidad de drenaje y acceso uretral contraindicado o fallido; en trauma uretral puede utilizarse para derivación urinaria cuando está indicado.",
+      "Contraindicaciones/precauciones": "vejiga insuficientemente distendida, anatomía pélvica alterada, cirugía abdominal/pélvica previa, coagulopatía significativa o ascitis aumentan el riesgo; valorar alternativa o colocación bajo visión directa.",
+      "Material": "ecógrafo, kit de cistostomía suprapúbica, anestesia local, material estéril y sistema de drenaje.",
+      "Anatomía": "vejiga, sínfisis púbica, peritoneo, asas intestinales y vasos de pared abdominal.",
+      "Preparación": "confirmar vejiga distendida y posición con ecografía; buscar asas interpuestas y seleccionar trayecto seguro.",
+      "Técnica paso a paso": "bajo técnica estéril y guía ecográfica cuando sea posible, acceder a la vejiga por trayecto suprapúbico seguro, confirmar orina antes de avanzar el catéter y fijarlo tras comprobar drenaje.",
+      "STOP": "vejiga no claramente identificable/distendida, asa intestinal en trayecto, ausencia de orina, dolor intenso, sangrado o posición incierta.",
+      "Confirmación": "drenaje urinario libre y posición intravesical coherente; ecografía puede confirmar balón/catéter cuando sea necesario.",
+      "Complicaciones": "lesión intestinal/vascular, hemorragia, infección, falsa vía, extravasación y lesión vesical.",
+      "Después": "cuidados del sitio, vigilancia de débito y seguimiento urológico.",
+      "Documentación": "indicación, uso de US, trayecto, dispositivo, retorno urinario y complicaciones.",
+      "Fuentes": "British Association of Urological Surgeons suprapubic catheter practice guidelines, revised 2020; EAU Urological Trauma Guidelines (US para guía de SPC en fase aguda).",
+      "QA": "YELLOW; revisión humana urología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

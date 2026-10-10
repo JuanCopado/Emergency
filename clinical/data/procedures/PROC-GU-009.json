@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-GU-009",
+  "name": "Extracción de cuerpo extraño vaginal",
+  "family": "GENITOURINARIO",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un cuerpo extraño vaginal visible/accesible evitando lesión mucosa, uretral, cervical o rectal.",
+  "indications": [
+    "objeto retenido con acceso seguro y paciente estable."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "objeto cortante, alto/no visible, sospecha de perforación/fístula, sangrado importante, paciente no cooperadora o necesidad de sedación/anestesia fuera del entorno disponible."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "espéculo, buena iluminación, pinzas adecuadas, lubricante, irrigación y analgesia/anestesia según caso."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "introito, paredes vaginales, fórnices, cérvix, uretra y recto."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "consentimiento, privacidad, acompañante/chaperón, historia del objeto/tiempo retenido y evaluación de abuso/violencia cuando el contexto lo requiera."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar inspección bajo visión; localizar el objeto; sujetarlo con instrumento apropiado y retirarlo suavemente siguiendo su eje; irrigar si procede; inspeccionar mucosa y cérvix tras la extracción."
+    }
+  ],
+  "stop_points": [
+    "dolor significativo, sangrado, resistencia, pérdida de visualización, objeto cortante o sospecha de perforación."
+  ],
+  "confirmation": [
+    "objeto íntegro retirado y ausencia de lesión relevante visible."
+  ],
+  "complications": {
+    "unclassified": [
+      "abrasión, laceración, hemorragia, infección, fragmento retenido, fístula y perforación."
+    ]
+  },
+  "aftercare": [
+    "ginecología si hay lesión, objeto complejo o retención prolongada; valorar imagen si no se confirma extracción completa."
+  ],
+  "documentation": [
+    "objeto, tiempo estimado, técnica, integridad, examen postprocedimiento y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "NCBI Bookshelf/StatPearls, Vaginal Foreign Body Evaluation and Treatment, updated 2023 / PubMed 2026 edition.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "ginecología si hay lesión, objeto complejo o retención prolongada; valorar imagen si no se confirma extracción completa."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ginecología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-009 — Extracción de cuerpo extraño vaginal — ADVANCED",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "81cd4d8f372d81aa9581f5f6a512854ae14f0f378b6152f64ea1485970b308b5",
+    "sections": {
+      "Objetivo": "retirar un cuerpo extraño vaginal visible/accesible evitando lesión mucosa, uretral, cervical o rectal.",
+      "Indicaciones": "objeto retenido con acceso seguro y paciente estable.",
+      "Contraindicaciones/precauciones": "objeto cortante, alto/no visible, sospecha de perforación/fístula, sangrado importante, paciente no cooperadora o necesidad de sedación/anestesia fuera del entorno disponible.",
+      "Material": "espéculo, buena iluminación, pinzas adecuadas, lubricante, irrigación y analgesia/anestesia según caso.",
+      "Anatomía": "introito, paredes vaginales, fórnices, cérvix, uretra y recto.",
+      "Preparación": "consentimiento, privacidad, acompañante/chaperón, historia del objeto/tiempo retenido y evaluación de abuso/violencia cuando el contexto lo requiera.",
+      "Técnica paso a paso": "realizar inspección bajo visión; localizar el objeto; sujetarlo con instrumento apropiado y retirarlo suavemente siguiendo su eje; irrigar si procede; inspeccionar mucosa y cérvix tras la extracción.",
+      "STOP": "dolor significativo, sangrado, resistencia, pérdida de visualización, objeto cortante o sospecha de perforación.",
+      "Confirmación": "objeto íntegro retirado y ausencia de lesión relevante visible.",
+      "Complicaciones": "abrasión, laceración, hemorragia, infección, fragmento retenido, fístula y perforación.",
+      "Después": "ginecología si hay lesión, objeto complejo o retención prolongada; valorar imagen si no se confirma extracción completa.",
+      "Documentación": "objeto, tiempo estimado, técnica, integridad, examen postprocedimiento y complicaciones.",
+      "Fuentes": "NCBI Bookshelf/StatPearls, Vaginal Foreign Body Evaluation and Treatment, updated 2023 / PubMed 2026 edition.",
+      "QA": "YELLOW; revisión humana ginecología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "ginecología si hay lesión, objeto complejo o retención prolongada; valorar imagen si no se confirma extracción completa."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

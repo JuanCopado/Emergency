@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GU-005",
+  "name": "Sonda de tres vías e irrigación continua",
+  "family": "GENITOURINARIO",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "mantener drenaje y prevenir nueva obstrucción por coágulos en hematuria significativa.",
+  "indications": [
+    "hematuria macroscópica con formación recurrente de coágulos tras evacuación inicial."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sospecha de perforación vesical, trauma uretral no resuelto, malposición del catéter o cirugía urológica reciente sin plan específico."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "sonda de tres vías de calibre adecuado, solución de irrigación, sistema cerrado de irrigación y bolsa de drenaje graduada."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vejiga, cuello vesical y luces de irrigación/drenaje."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "evacuar coágulos manualmente primero, confirmar posición y permeabilidad del catéter y registrar débito basal."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "conectar la irrigación al puerto correcto, iniciar flujo continuo y titularlo para mantener efluente rosado claro sin coágulos; contabilizar entrada y salida para obtener diuresis real."
+    }
+  ],
+  "stop_points": [
+    "dolor, distensión, ausencia de salida, nueva obstrucción, sangrado creciente o balance que sugiera retención intravesical."
+  ],
+  "confirmation": [
+    "drenaje continuo, vejiga no distendida y efluente sin coágulos obstructivos."
+  ],
+  "complications": {
+    "unclassified": [
+      "sobredistensión, obstrucción, espasmo, infección y errores de balance hídrico."
+    ]
+  },
+  "aftercare": [
+    "reducir flujo conforme se aclare el efluente y mantener coordinación urológica."
+  ],
+  "documentation": [
+    "velocidad/volumen de irrigación, entradas, salidas, diuresis neta y aspecto del efluente."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional bladder catheterization/continuous irrigation principles; AUA hematuria and urologic emergency references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-005 — Sonda de tres vías e irrigación vesical continua — ADVANCED",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "3821607834feba86409bc7bc8d2a9d5583b9936d01ff9ac28ed6e645e59b4f8c",
+    "sections": {
+      "Objetivo": "mantener drenaje y prevenir nueva obstrucción por coágulos en hematuria significativa.",
+      "Indicaciones": "hematuria macroscópica con formación recurrente de coágulos tras evacuación inicial.",
+      "Contraindicaciones/precauciones": "sospecha de perforación vesical, trauma uretral no resuelto, malposición del catéter o cirugía urológica reciente sin plan específico.",
+      "Material": "sonda de tres vías de calibre adecuado, solución de irrigación, sistema cerrado de irrigación y bolsa de drenaje graduada.",
+      "Anatomía": "vejiga, cuello vesical y luces de irrigación/drenaje.",
+      "Preparación": "evacuar coágulos manualmente primero, confirmar posición y permeabilidad del catéter y registrar débito basal.",
+      "Técnica paso a paso": "conectar la irrigación al puerto correcto, iniciar flujo continuo y titularlo para mantener efluente rosado claro sin coágulos; contabilizar entrada y salida para obtener diuresis real.",
+      "STOP": "dolor, distensión, ausencia de salida, nueva obstrucción, sangrado creciente o balance que sugiera retención intravesical.",
+      "Confirmación": "drenaje continuo, vejiga no distendida y efluente sin coágulos obstructivos.",
+      "Complicaciones": "sobredistensión, obstrucción, espasmo, infección y errores de balance hídrico.",
+      "Después": "reducir flujo conforme se aclare el efluente y mantener coordinación urológica.",
+      "Documentación": "velocidad/volumen de irrigación, entradas, salidas, diuresis neta y aspecto del efluente.",
+      "Fuentes": "Merck Manual Professional bladder catheterization/continuous irrigation principles; AUA hematuria and urologic emergency references.",
+      "QA": "YELLOW; revisión humana urología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-GU-004",
+  "name": "Irrigación vesical manual",
+  "family": "GENITOURINARIO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "restaurar drenaje vesical cuando existe obstrucción por coágulos.",
+  "indications": [
+    "hematuria macroscópica con retención/obstrucción por coágulos a través de un catéter adecuadamente posicionado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sospecha de perforación vesical, lesión uretral no resuelta o cirugía urológica reciente sin autorización específica."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "jeringa grande tipo Toomey o equivalente, solución estéril apropiada, recipiente de medición y sistema de tres vías si está disponible."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vejiga, cuello vesical y luz del catéter."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar que el catéter está dentro de vejiga y que el balón está correctamente posicionado; monitorizar dolor/distensión."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "desconectar de forma estéril el puerto correspondiente, instilar pequeñas cantidades de solución sin presión excesiva y aspirar suavemente coágulos; repetir hasta recuperar flujo y efluente progresivamente más claro."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, distensión creciente, resistencia marcada, incapacidad de recuperar líquido o sangrado creciente."
+  ],
+  "confirmation": [
+    "flujo urinario restablecido, disminución de coágulos y vejiga no distendida."
+  ],
+  "complications": {
+    "unclassified": [
+      "sobredistensión, lesión mucosa/vesical, infección y obstrucción persistente."
+    ]
+  },
+  "aftercare": [
+    "valorar sonda de tres vías/irrigación continua y urología si persiste hematuria significativa."
+  ],
+  "documentation": [
+    "volumen instilado, volumen recuperado, coágulos y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional bladder catheterization/irrigation principles; AUA hematuria and urologic emergency references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "valorar sonda de tres vías/irrigación continua y urología si persiste hematuria significativa."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-004 — Irrigación vesical manual para coágulos — CORE",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "3e208d6742983bb5588d5782abafd7b10e7f6744f25f1bc340eecde34f01e273",
+    "sections": {
+      "Objetivo": "restaurar drenaje vesical cuando existe obstrucción por coágulos.",
+      "Indicaciones": "hematuria macroscópica con retención/obstrucción por coágulos a través de un catéter adecuadamente posicionado.",
+      "Contraindicaciones/precauciones": "sospecha de perforación vesical, lesión uretral no resuelta o cirugía urológica reciente sin autorización específica.",
+      "Material": "jeringa grande tipo Toomey o equivalente, solución estéril apropiada, recipiente de medición y sistema de tres vías si está disponible.",
+      "Anatomía": "vejiga, cuello vesical y luz del catéter.",
+      "Preparación": "confirmar que el catéter está dentro de vejiga y que el balón está correctamente posicionado; monitorizar dolor/distensión.",
+      "Técnica paso a paso": "desconectar de forma estéril el puerto correspondiente, instilar pequeñas cantidades de solución sin presión excesiva y aspirar suavemente coágulos; repetir hasta recuperar flujo y efluente progresivamente más claro.",
+      "STOP": "dolor intenso, distensión creciente, resistencia marcada, incapacidad de recuperar líquido o sangrado creciente.",
+      "Confirmación": "flujo urinario restablecido, disminución de coágulos y vejiga no distendida.",
+      "Complicaciones": "sobredistensión, lesión mucosa/vesical, infección y obstrucción persistente.",
+      "Después": "valorar sonda de tres vías/irrigación continua y urología si persiste hematuria significativa.",
+      "Documentación": "volumen instilado, volumen recuperado, coágulos y respuesta.",
+      "Fuentes": "Merck Manual Professional bladder catheterization/irrigation principles; AUA hematuria and urologic emergency references.",
+      "QA": "YELLOW; revisión humana urología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "valorar sonda de tres vías/irrigación continua y urología si persiste hematuria significativa."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

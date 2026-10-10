@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GU-007",
+  "name": "Reducción manual de parafimosis",
+  "family": "GENITOURINARIO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reducir el prepucio retraído que constriñe el glande y restaurar perfusión.",
+  "indications": [
+    "parafimosis aguda sin necrosis establecida."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "isquemia avanzada, necrosis, infección grave o fracaso de reducción manual requieren urología urgente y posible incisión dorsal."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "lubricante, compresas/gasa, anestesia tópica o bloqueo peneano según necesidad y material de reducción de edema."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "glande, corona y anillo prepucial edematoso."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "analgesia, valorar color/temperatura/perfusión y reducir edema con compresión manual sostenida antes de la maniobra."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "comprimir el glande y edema durante varios minutos, lubricar, presionar el glande con ambos pulgares mientras se tracciona simultáneamente el prepucio hacia distal hasta cubrir la corona."
+    }
+  ],
+  "stop_points": [
+    "dolor intolerable, tejido necrótico, sangrado importante o fracaso tras intento razonable."
+  ],
+  "confirmation": [
+    "prepucio cubriendo el glande, reducción del edema/dolor y perfusión mejorada."
+  ],
+  "complications": {
+    "unclassified": [
+      "fisuras, sangrado, recurrencia e isquemia si el tratamiento se retrasa."
+    ]
+  },
+  "aftercare": [
+    "urología si recurrencia, fimosis significativa o necesidad de tratamiento definitivo."
+  ],
+  "documentation": [
+    "perfusión pre/post, analgesia y resultado."
+  ],
+  "sources": [
+    {
+      "title": "urology emergency references; Merck Manual Professional paraphimosis management.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-007 — Reducción manual de parafimosis — CORE",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "d6683ebf6007c064b2164dfa97533e18c43e92d1629f8d16667734731c39c6a1",
+    "sections": {
+      "Objetivo": "reducir el prepucio retraído que constriñe el glande y restaurar perfusión.",
+      "Indicaciones": "parafimosis aguda sin necrosis establecida.",
+      "Contraindicaciones/precauciones": "isquemia avanzada, necrosis, infección grave o fracaso de reducción manual requieren urología urgente y posible incisión dorsal.",
+      "Material": "lubricante, compresas/gasa, anestesia tópica o bloqueo peneano según necesidad y material de reducción de edema.",
+      "Anatomía": "glande, corona y anillo prepucial edematoso.",
+      "Preparación": "analgesia, valorar color/temperatura/perfusión y reducir edema con compresión manual sostenida antes de la maniobra.",
+      "Técnica paso a paso": "comprimir el glande y edema durante varios minutos, lubricar, presionar el glande con ambos pulgares mientras se tracciona simultáneamente el prepucio hacia distal hasta cubrir la corona.",
+      "STOP": "dolor intolerable, tejido necrótico, sangrado importante o fracaso tras intento razonable.",
+      "Confirmación": "prepucio cubriendo el glande, reducción del edema/dolor y perfusión mejorada.",
+      "Complicaciones": "fisuras, sangrado, recurrencia e isquemia si el tratamiento se retrasa.",
+      "Después": "urología si recurrencia, fimosis significativa o necesidad de tratamiento definitivo.",
+      "Documentación": "perfusión pre/post, analgesia y resultado.",
+      "Fuentes": "urology emergency references; Merck Manual Professional paraphimosis management.",
+      "QA": "YELLOW; revisión humana urología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-GU-001",
+  "name": "Sondaje vesical masculino",
+  "family": "GENITOURINARIO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "drenar la vejiga, monitorizar diuresis o obtener una muestra cuando existe una indicación clínica válida.",
+  "indications": [
+    "retención urinaria, monitorización crítica, cirugía/procedimiento u otras indicaciones justificadas; evitar uso rutinario sin indicación."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sangre en meato, trauma pélvico/genital con sospecha de lesión uretral, resistencia significativa o cirugía uretral reciente. AUA recomienda uretrografía retrógrada antes de un sondaje ciego cuando existe sangre en meato tras trauma pélvico/genital."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "sonda del calibre/tipo apropiado, campo estéril, lubricante hidrosoluble, jeringa para balón y sistema cerrado."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "uretra peneana, bulbar y prostática, esfínter y cuello vesical."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar indicación, higiene de manos, técnica estéril, antisepsia periuretral y lubricación abundante."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "elevar el pene para rectificar la uretra, avanzar la sonda suavemente sin fuerza, confirmar flujo de orina, avanzar hasta la bifurcación antes de inflar el balón y después fijar evitando tracción."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, resistencia fija, sangrado uretral o ausencia de retorno con duda de posición; no inflar balón si la posición intravesical no está confirmada."
+  ],
+  "confirmation": [
+    "drenaje urinario libre y balón intravesical sin dolor ni resistencia."
+  ],
+  "complications": {
+    "unclassified": [
+      "falsa vía, lesión uretral, hematuria, infección y retención por malposición."
+    ]
+  },
+  "aftercare": [
+    "mantener sistema cerrado y retirar tan pronto deje de ser necesario."
+  ],
+  "documentation": [
+    "indicación, tipo/calibre, volumen de balón según fabricante, dificultad, débito inicial y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "CDC CAUTI Summary of Recommendations, reviewed 2024; AUA Urotrauma Guideline.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología/enfermería pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-001 — Sondaje vesical masculino — CORE",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "58981cf7d726d905877d7c3a83710b3e808d0e84be5826269c565f745714d1c6",
+    "sections": {
+      "Objetivo": "drenar la vejiga, monitorizar diuresis o obtener una muestra cuando existe una indicación clínica válida.",
+      "Indicaciones": "retención urinaria, monitorización crítica, cirugía/procedimiento u otras indicaciones justificadas; evitar uso rutinario sin indicación.",
+      "Contraindicaciones/precauciones": "sangre en meato, trauma pélvico/genital con sospecha de lesión uretral, resistencia significativa o cirugía uretral reciente. AUA recomienda uretrografía retrógrada antes de un sondaje ciego cuando existe sangre en meato tras trauma pélvico/genital.",
+      "Material": "sonda del calibre/tipo apropiado, campo estéril, lubricante hidrosoluble, jeringa para balón y sistema cerrado.",
+      "Anatomía": "uretra peneana, bulbar y prostática, esfínter y cuello vesical.",
+      "Preparación": "confirmar indicación, higiene de manos, técnica estéril, antisepsia periuretral y lubricación abundante.",
+      "Técnica paso a paso": "elevar el pene para rectificar la uretra, avanzar la sonda suavemente sin fuerza, confirmar flujo de orina, avanzar hasta la bifurcación antes de inflar el balón y después fijar evitando tracción.",
+      "STOP": "dolor intenso, resistencia fija, sangrado uretral o ausencia de retorno con duda de posición; no inflar balón si la posición intravesical no está confirmada.",
+      "Confirmación": "drenaje urinario libre y balón intravesical sin dolor ni resistencia.",
+      "Complicaciones": "falsa vía, lesión uretral, hematuria, infección y retención por malposición.",
+      "Después": "mantener sistema cerrado y retirar tan pronto deje de ser necesario.",
+      "Documentación": "indicación, tipo/calibre, volumen de balón según fabricante, dificultad, débito inicial y complicaciones.",
+      "Fuentes": "CDC CAUTI Summary of Recommendations, reviewed 2024; AUA Urotrauma Guideline.",
+      "QA": "YELLOW; revisión humana urología/enfermería pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

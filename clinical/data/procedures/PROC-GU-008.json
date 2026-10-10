@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-GU-008",
+  "name": "Descompresión inicial de priapismo isquémico",
+  "family": "GENITOURINARIO",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aliviar la isquemia cavernosa y preservar la función eréctil.",
+  "indications": [
+    "priapismo isquémico confirmado o fuertemente sospechado; AUA/SMSNA lo considera una urgencia urológica que requiere intervención inmediata."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "diferenciar priapismo no isquémico y recurrente; monitorizar PA/FC durante simpaticomimético intracavernoso y coordinar urología precozmente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anestesia/bloqueo peneano, aguja/catéter, jeringas, suero para irrigación y fenilefrina intracavernosa desde módulo farmacológico."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "cuerpos cavernosos; punción lateral en posiciones aproximadas de 3 o 9 horas, evitando uretra/cuerpo esponjoso dorsal/ventral."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "historia y duración, examen, analgesia/bloqueo, monitorización cardiovascular y gasometría cavernosa cuando el diagnóstico no sea inequívoco."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar bloqueo si precisa; puncionar lateralmente el cuerpo cavernoso; aspirar sangre oscura/coágulos; irrigar con suero según protocolo; después administrar fenilefrina intracavernosa titulada desde módulo farmacológico. AUA/SMSNA recomienda que aspiración/irrigación preceda a fenilefrina cuando se combinan."
+    }
+  ],
+  "stop_points": [
+    "hipertensión significativa, arritmia, dolor torácico, sangrado relevante, anatomía dudosa o ausencia de respuesta tras manejo inicial protocolizado → escalada urológica."
+  ],
+  "confirmation": [
+    "detumescencia, alivio del dolor y recuperación progresiva de consistencia cavernosa."
+  ],
+  "complications": {
+    "unclassified": [
+      "hematoma, infección, lesión uretral/cavernosa, efectos cardiovasculares de fenilefrina y fibrosis/disfunción eréctil si el tratamiento se retrasa."
+    ]
+  },
+  "aftercare": [
+    "urología, búsqueda etiológica y planificación de shunt quirúrgico si fracasa el manejo inicial."
+  ],
+  "documentation": [
+    "duración, hallazgos, aspirado, irrigación, dosis acumulada de fenilefrina desde módulo, respuesta y eventos adversos."
+  ],
+  "sources": [
+    {
+      "title": "AUA/SMSNA Diagnosis and Management of Priapism Guideline, 2022.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "urología, búsqueda etiológica y planificación de shunt quirúrgico si fracasa el manejo inicial."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-008 — Descompresión inicial de priapismo isquémico — ADVANCED",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "53f13b04fc5a69f387a933eb1c8952b0dce29836d1e79748036fa8a0b3753835",
+    "sections": {
+      "Objetivo": "aliviar la isquemia cavernosa y preservar la función eréctil.",
+      "Indicaciones": "priapismo isquémico confirmado o fuertemente sospechado; AUA/SMSNA lo considera una urgencia urológica que requiere intervención inmediata.",
+      "Contraindicaciones/precauciones": "diferenciar priapismo no isquémico y recurrente; monitorizar PA/FC durante simpaticomimético intracavernoso y coordinar urología precozmente.",
+      "Material": "anestesia/bloqueo peneano, aguja/catéter, jeringas, suero para irrigación y fenilefrina intracavernosa desde módulo farmacológico.",
+      "Anatomía": "cuerpos cavernosos; punción lateral en posiciones aproximadas de 3 o 9 horas, evitando uretra/cuerpo esponjoso dorsal/ventral.",
+      "Preparación": "historia y duración, examen, analgesia/bloqueo, monitorización cardiovascular y gasometría cavernosa cuando el diagnóstico no sea inequívoco.",
+      "Técnica paso a paso": "realizar bloqueo si precisa; puncionar lateralmente el cuerpo cavernoso; aspirar sangre oscura/coágulos; irrigar con suero según protocolo; después administrar fenilefrina intracavernosa titulada desde módulo farmacológico. AUA/SMSNA recomienda que aspiración/irrigación preceda a fenilefrina cuando se combinan.",
+      "STOP": "hipertensión significativa, arritmia, dolor torácico, sangrado relevante, anatomía dudosa o ausencia de respuesta tras manejo inicial protocolizado → escalada urológica.",
+      "Confirmación": "detumescencia, alivio del dolor y recuperación progresiva de consistencia cavernosa.",
+      "Complicaciones": "hematoma, infección, lesión uretral/cavernosa, efectos cardiovasculares de fenilefrina y fibrosis/disfunción eréctil si el tratamiento se retrasa.",
+      "Después": "urología, búsqueda etiológica y planificación de shunt quirúrgico si fracasa el manejo inicial.",
+      "Documentación": "duración, hallazgos, aspirado, irrigación, dosis acumulada de fenilefrina desde módulo, respuesta y eventos adversos.",
+      "Fuentes": "AUA/SMSNA Diagnosis and Management of Priapism Guideline, 2022.",
+      "QA": "YELLOW; revisión humana urología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "urología, búsqueda etiológica y planificación de shunt quirúrgico si fracasa el manejo inicial."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

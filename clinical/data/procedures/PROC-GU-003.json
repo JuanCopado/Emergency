@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-GU-003",
+  "name": "Sondaje vesical con sonda coudé",
+  "family": "GENITOURINARIO",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "facilitar el sondaje masculino difícil cuando la obstrucción funcional/anatómica probable es prostática y no existe sospecha de lesión uretral traumática.",
+  "indications": [
+    "dificultad con sonda recta estándar en varón, especialmente con hiperplasia prostática conocida o probable."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sangre en meato, trauma pélvico/genital, resistencia fija, estenosis uretral conocida compleja o cirugía uretral reciente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "sonda coudé de calibre apropiado, gel lubricante y campo estéril."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "uretra bulbar/prostática; la punta curva debe orientarse hacia anterior/12 horas."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "analgesia/lubricación, técnica estéril y limitar intentos traumáticos repetidos."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "orientar la punta hacia las 12 horas, avanzar suavemente manteniendo orientación, detenerse ante resistencia fija, confirmar salida de orina, avanzar completamente antes de inflar balón y fijar."
+    }
+  ],
+  "stop_points": [
+    "resistencia importante, dolor intenso, sangrado o creación sospechada de falsa vía."
+  ],
+  "confirmation": [
+    "flujo urinario libre y balón intravesical sin dolor."
+  ],
+  "complications": {
+    "unclassified": [
+      "falsa vía, hematuria, perforación/lesión uretral e infección."
+    ]
+  },
+  "aftercare": [
+    "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica."
+  ],
+  "documentation": [
+    "tipo/calibre, orientación, intentos y resultado."
+  ],
+  "sources": [
+    {
+      "title": "urologic difficult-catheterization references; AUA Urotrauma principles.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica."
+  ],
+  "escalation": [
+    "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-003 — Sondaje vesical con sonda coudé — ADVANCED",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "eacc77ca7cb7ab3353e8e58248095217aaeb3b496e1e8b8312f3ce62e5eea4fa",
+    "sections": {
+      "Objetivo": "facilitar el sondaje masculino difícil cuando la obstrucción funcional/anatómica probable es prostática y no existe sospecha de lesión uretral traumática.",
+      "Indicaciones": "dificultad con sonda recta estándar en varón, especialmente con hiperplasia prostática conocida o probable.",
+      "Contraindicaciones/precauciones": "sangre en meato, trauma pélvico/genital, resistencia fija, estenosis uretral conocida compleja o cirugía uretral reciente.",
+      "Material": "sonda coudé de calibre apropiado, gel lubricante y campo estéril.",
+      "Anatomía": "uretra bulbar/prostática; la punta curva debe orientarse hacia anterior/12 horas.",
+      "Preparación": "analgesia/lubricación, técnica estéril y limitar intentos traumáticos repetidos.",
+      "Técnica paso a paso": "orientar la punta hacia las 12 horas, avanzar suavemente manteniendo orientación, detenerse ante resistencia fija, confirmar salida de orina, avanzar completamente antes de inflar balón y fijar.",
+      "STOP": "resistencia importante, dolor intenso, sangrado o creación sospechada de falsa vía.",
+      "Confirmación": "flujo urinario libre y balón intravesical sin dolor.",
+      "Complicaciones": "falsa vía, hematuria, perforación/lesión uretral e infección.",
+      "Después": "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica.",
+      "Documentación": "tipo/calibre, orientación, intentos y resultado.",
+      "Fuentes": "urologic difficult-catheterization references; AUA Urotrauma principles.",
+      "QA": "YELLOW; revisión humana urología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Después",
+          "quote": "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "si fracasa un intento cuidadoso, evitar múltiples intentos y solicitar urología/guía endoscópica."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

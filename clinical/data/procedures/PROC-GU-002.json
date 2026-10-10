@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-GU-002",
+  "name": "Sondaje vesical femenino",
+  "family": "GENITOURINARIO",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar drenaje vesical seguro y con mínima contaminación.",
+  "indications": [
+    "mismas indicaciones clínicas de sondaje permanente/intermitente cuando una alternativa menos invasiva no es adecuada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "trauma uretral/pélvico, cirugía reciente, anatomía compleja o resistencia significativa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "sonda apropiada, campo estéril, lubricante, jeringa de balón y sistema cerrado."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "meato uretral anterior a la vagina, uretra corta y vejiga."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "privacidad, higiene de manos, técnica estéril, separación de labios y antisepsia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar claramente el meato, lubricar, avanzar la sonda suavemente hasta obtener orina, avanzar un poco más para asegurar posición intravesical e inflar balón solo entonces; fijar sin tensión."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, resistencia, sangrado o duda de localización; si entra en vagina, dejarla temporalmente como referencia y usar una nueva sonda estéril para uretra."
+  ],
+  "confirmation": [
+    "drenaje libre y balón intravesical sin dolor."
+  ],
+  "complications": {
+    "unclassified": [
+      "trauma uretral, infección y malposición."
+    ]
+  },
+  "aftercare": [
+    "sistema cerrado y retirada precoz cuando cese la indicación."
+  ],
+  "documentation": [
+    "indicación, calibre, dificultad y débito."
+  ],
+  "sources": [
+    {
+      "title": "CDC CAUTI Summary of Recommendations, reviewed 2024.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "si entra en vagina, dejarla temporalmente como referencia y usar una nueva sonda estéril para uretra."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana urología/enfermería pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/10-genitourinary.md",
+    "source_heading": "PROC-GU-002 — Sondaje vesical femenino — CORE",
+    "family_preamble": "# 10. Genitourinario\n\nEstado de familia: **YELLOW**. Fuentes troncales: urologic/emergency procedural references y protocolos específicos.",
+    "source_sha256": "ab581c4bae49bfadd867e631bc28c71752e56b150821430cb09fb445341b79a9",
+    "sections": {
+      "Objetivo": "proporcionar drenaje vesical seguro y con mínima contaminación.",
+      "Indicaciones": "mismas indicaciones clínicas de sondaje permanente/intermitente cuando una alternativa menos invasiva no es adecuada.",
+      "Contraindicaciones/precauciones": "trauma uretral/pélvico, cirugía reciente, anatomía compleja o resistencia significativa.",
+      "Material": "sonda apropiada, campo estéril, lubricante, jeringa de balón y sistema cerrado.",
+      "Anatomía": "meato uretral anterior a la vagina, uretra corta y vejiga.",
+      "Preparación": "privacidad, higiene de manos, técnica estéril, separación de labios y antisepsia.",
+      "Técnica paso a paso": "identificar claramente el meato, lubricar, avanzar la sonda suavemente hasta obtener orina, avanzar un poco más para asegurar posición intravesical e inflar balón solo entonces; fijar sin tensión.",
+      "STOP": "dolor intenso, resistencia, sangrado o duda de localización; si entra en vagina, dejarla temporalmente como referencia y usar una nueva sonda estéril para uretra.",
+      "Confirmación": "drenaje libre y balón intravesical sin dolor.",
+      "Complicaciones": "trauma uretral, infección y malposición.",
+      "Después": "sistema cerrado y retirada precoz cuando cese la indicación.",
+      "Documentación": "indicación, calibre, dificultad y débito.",
+      "Fuentes": "CDC CAUTI Summary of Recommendations, reviewed 2024.",
+      "QA": "YELLOW; revisión humana urología/enfermería pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "si entra en vagina, dejarla temporalmente como referencia y usar una nueva sonda estéril para uretra."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}
