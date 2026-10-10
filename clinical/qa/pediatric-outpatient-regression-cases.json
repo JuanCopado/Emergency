@@ -146,7 +146,8 @@
       "patient": {
         "age_months": 120,
         "actual_weight_kg": 55,
-        "ideal_weight_kg": 35
+        "ideal_weight_kg": 35,
+        "home_analgesia_antipyresis_appropriate": true
       },
       "product": {
         "concentration_mg_per_ml": 24
@@ -233,7 +234,8 @@
         "known_renal_impairment": true,
         "egfr_mL_min": 20,
         "known_hepatic_impairment": true,
-        "hepatic_severity": "moderate"
+        "hepatic_severity": "moderate",
+        "croup_discharge_criteria_met": true
       },
       "product": {
         "concentration_mg_per_ml": 0.4
@@ -258,7 +260,8 @@
       "regimen_id": "rizatriptan-migraine-rch",
       "patient": {
         "age_months": 120,
-        "actual_weight_kg": 40
+        "actual_weight_kg": 40,
+        "secondary_headache_red_flags_excluded": true
       },
       "expect_error_contains": "no matching"
     }
