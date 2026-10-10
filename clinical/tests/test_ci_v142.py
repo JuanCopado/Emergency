@@ -32,7 +32,9 @@ class WorkflowCoverageTests(unittest.TestCase):
                                 'clinical/tests/test_clinical_scores_registry.py'],
             'app-ui-qa.yml': ['app/src/pages/ClinicalLibrary.tsx', 'clinical/modules/procedures/02-vascular-monitoring.md',
                              'clinical/modules/emergency-procedures-index.md', 'clinical/references/module-index.md',
-                             'clinical/MODULES.md', 'clinical/requirements-test.txt'],
+                             'clinical/MODULES.md', 'clinical/requirements-test.txt',
+                             'clinical/qa/pediatric-outpatient-medications.json',
+                             'clinical/qa/pediatric-outpatient-alert-rules.json'],
         }
         for name, changed_paths in paths.items():
             for event in ('push', 'pull_request'):
@@ -73,7 +75,8 @@ class WorkflowCoverageTests(unittest.TestCase):
         steps = workflow('app-ui-qa.yml')['jobs']['ui']['steps']
         commands = '\n'.join(step.get('run', '') for step in steps)
         for required in ('npm ci', 'npm test', 'npm run typecheck', 'npm run build',
-                         'npm run guides:test', 'npm run procedures:test', 'npm run guides:print-check'):
+                         'npm run guides:test', 'npm run procedures:test', 'npm run guides:print-check',
+                         'npm run pediatrics:check', 'npm run pediatrics:browser-check'):
             self.assertIn(required, commands)
 
     def test_surveillance_guard_covers_v142_without_duplicate_pr_tests(self):
