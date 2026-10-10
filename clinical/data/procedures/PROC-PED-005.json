@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-PED-005",
+  "name": "Acceso intraóseo pediátrico",
+  "family": "PEDIATRÍA",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener acceso vascular de emergencia cuando IV no es oportuno.",
+  "indications": [
+    "shock, parada u otra emergencia con necesidad inmediata de acceso."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fractura, infección local, IO previa en mismo hueso o limitaciones del dispositivo."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "dispositivo IO pediátrico, aguja apropiada, flush y fijación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "tibia proximal/distal u otros sitios autorizados según edad/dispositivo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "seleccionar sitio/tamaño y analgesia intraósea si consciente desde módulo farmacológico."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar landmark, antisepsia, insertar controladamente, confirmar estabilidad, hacer flush y fijar."
+    }
+  ],
+  "stop_points": [
+    "extravasación o signos de síndrome compartimental."
+  ],
+  "confirmation": [
+    "flujo adecuado sin infiltración."
+  ],
+  "complications": {
+    "unclassified": [
+      "extravasación, compartimental, fractura e infección."
+    ]
+  },
+  "aftercare": [
+    "sustituir por acceso definitivo cuando sea posible."
+  ],
+  "documentation": [
+    "sitio, aguja, intentos y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "ERC/RCUK 2025; AHA/PALS 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-005 — Acceso intraóseo pediátrico — CORE/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "568f19c13c5928fc9007fae6c941f018adced8705c69b5152ca37a19c03dc238",
+    "sections": {
+      "Objetivo": "obtener acceso vascular de emergencia cuando IV no es oportuno.",
+      "Indicaciones": "shock, parada u otra emergencia con necesidad inmediata de acceso.",
+      "Contraindicaciones/precauciones": "fractura, infección local, IO previa en mismo hueso o limitaciones del dispositivo.",
+      "Material": "dispositivo IO pediátrico, aguja apropiada, flush y fijación.",
+      "Anatomía": "tibia proximal/distal u otros sitios autorizados según edad/dispositivo.",
+      "Preparación": "seleccionar sitio/tamaño y analgesia intraósea si consciente desde módulo farmacológico.",
+      "Técnica paso a paso": "identificar landmark, antisepsia, insertar controladamente, confirmar estabilidad, hacer flush y fijar.",
+      "STOP": "extravasación o signos de síndrome compartimental.",
+      "Confirmación": "flujo adecuado sin infiltración.",
+      "Complicaciones": "extravasación, compartimental, fractura e infección.",
+      "Después": "sustituir por acceso definitivo cuando sea posible.",
+      "Documentación": "sitio, aguja, intentos y respuesta.",
+      "Fuentes": "ERC/RCUK 2025; AHA/PALS 2025.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

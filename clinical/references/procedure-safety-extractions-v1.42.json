@@ -409,6 +409,42 @@
       }
     ]
   },
+  "PROC-PED-001": {
+    "rescue": [
+      {
+        "section": "Después",
+        "quote": "escalar a adjunct/BVM si persiste obstrucción."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "escalar a adjunct/BVM si persiste obstrucción."
+      }
+    ]
+  },
+  "PROC-PED-002": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "usar dos operadores si el sello o la ventilación son ineficaces."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "escalar a supraglótico/intubación si BVM sigue siendo ineficaz."
+      }
+    ]
+  },
+  "PROC-PED-003": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "bradicardia, desaturación o intento prolongado → retirar, reoxigenar y cambiar estrategia."
+      }
+    ]
+  },
   "PROC-THX-001": {
     "rescue": [
       {

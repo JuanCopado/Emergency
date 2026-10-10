@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-PED-007",
+  "name": "Sondaje vesical pediátrico",
+  "family": "PEDIATRÍA",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener drenaje o muestra urinaria estéril cuando está indicado.",
+  "indications": [
+    "retención, monitorización crítica o necesidad de muestra para cultivo cuando no basta una muestra no invasiva."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sospecha de lesión uretral, anatomía compleja o cirugía urológica reciente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "catéter de tamaño apropiado, campo estéril, lubricante y recipiente/bolsa."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "uretra y vejiga pediátrica."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "técnica estéril, tamaño correcto y contenedor estéril preparado."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "lubricar y avanzar sin fuerza; si se obtiene muestra para cultivo, recolectar directamente del catéter con técnica estéril; inflar balón solo si el catéter lo incorpora y la posición intravesical está confirmada."
+    }
+  ],
+  "stop_points": [
+    "resistencia, sangrado, dolor intenso o duda de posición."
+  ],
+  "confirmation": [
+    "drenaje urinario libre y ausencia de dolor/extravasación."
+  ],
+  "complications": {
+    "unclassified": [
+      "trauma uretral, falsa vía e infección."
+    ]
+  },
+  "aftercare": [
+    "sistema cerrado y retirada precoz cuando deje de estar indicado."
+  ],
+  "documentation": [
+    "calibre, balón si aplica, muestra obtenida y resultado."
+  ],
+  "sources": [
+    {
+      "title": "AAP urinary tract infection guidance for catheterized specimens; pediatric urinary catheterization procedural standards.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría/urología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-007 — Sondaje vesical pediátrico — CORE/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "3d60404b8ea953d2fa6e735832119f17e31bd037e7a6505b49ed0f1f30158d96",
+    "sections": {
+      "Objetivo": "obtener drenaje o muestra urinaria estéril cuando está indicado.",
+      "Indicaciones": "retención, monitorización crítica o necesidad de muestra para cultivo cuando no basta una muestra no invasiva.",
+      "Contraindicaciones/precauciones": "sospecha de lesión uretral, anatomía compleja o cirugía urológica reciente.",
+      "Material": "catéter de tamaño apropiado, campo estéril, lubricante y recipiente/bolsa.",
+      "Anatomía": "uretra y vejiga pediátrica.",
+      "Preparación": "técnica estéril, tamaño correcto y contenedor estéril preparado.",
+      "Técnica paso a paso": "lubricar y avanzar sin fuerza; si se obtiene muestra para cultivo, recolectar directamente del catéter con técnica estéril; inflar balón solo si el catéter lo incorpora y la posición intravesical está confirmada.",
+      "STOP": "resistencia, sangrado, dolor intenso o duda de posición.",
+      "Confirmación": "drenaje urinario libre y ausencia de dolor/extravasación.",
+      "Complicaciones": "trauma uretral, falsa vía e infección.",
+      "Después": "sistema cerrado y retirada precoz cuando deje de estar indicado.",
+      "Documentación": "calibre, balón si aplica, muestra obtenida y resultado.",
+      "Fuentes": "AAP urinary tract infection guidance for catheterized specimens; pediatric urinary catheterization procedural standards.",
+      "QA": "YELLOW; revisión humana pediatría/urología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

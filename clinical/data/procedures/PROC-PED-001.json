@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-PED-001",
+  "name": "Apertura y posicionamiento de vía aérea pediátrica",
+  "family": "PEDIATRÍA",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "optimizar la permeabilidad de la vía aérea pediátrica.",
+  "indications": [
+    "obstrucción por lengua, ventilación ineficaz o preparación para BVM/intubación."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar hiperextensión, especialmente en lactantes; si trauma, minimizar movimiento cervical sin comprometer la vía aérea."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "rollo escapular si precisa, aspiración y dispositivos pediátricos."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "occipucio prominente, lengua relativamente grande y vía aérea superior pediátrica."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "colocar cabeza en posición neutra o ligera extensión según edad/tamaño."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "frente-mentón si no trauma; jaw thrust si trauma; ajustar posición hasta obtener mejor paso de aire y ventilación."
+    }
+  ],
+  "stop_points": [
+    "empeoramiento de ventilación o deterioro neurológico."
+  ],
+  "confirmation": [
+    "mejor paso de aire y expansión torácica."
+  ],
+  "complications": {
+    "unclassified": [
+      "obstrucción por mala posición y movimiento cervical."
+    ]
+  },
+  "aftercare": [
+    "escalar a adjunct/BVM si persiste obstrucción."
+  ],
+  "documentation": [
+    "posición y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "escalar a adjunct/BVM si persiste obstrucción."
+  ],
+  "escalation": [
+    "escalar a adjunct/BVM si persiste obstrucción."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-001 — Apertura/posicionamiento de vía aérea — CORE/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "f6970a55c909c36219831d1283c236ac6e3b5b5b23a25398649e48f652d9cbe8",
+    "sections": {
+      "Objetivo": "optimizar la permeabilidad de la vía aérea pediátrica.",
+      "Indicaciones": "obstrucción por lengua, ventilación ineficaz o preparación para BVM/intubación.",
+      "Contraindicaciones/precauciones": "evitar hiperextensión, especialmente en lactantes; si trauma, minimizar movimiento cervical sin comprometer la vía aérea.",
+      "Material": "rollo escapular si precisa, aspiración y dispositivos pediátricos.",
+      "Anatomía": "occipucio prominente, lengua relativamente grande y vía aérea superior pediátrica.",
+      "Preparación": "colocar cabeza en posición neutra o ligera extensión según edad/tamaño.",
+      "Técnica paso a paso": "frente-mentón si no trauma; jaw thrust si trauma; ajustar posición hasta obtener mejor paso de aire y ventilación.",
+      "STOP": "empeoramiento de ventilación o deterioro neurológico.",
+      "Confirmación": "mejor paso de aire y expansión torácica.",
+      "Complicaciones": "obstrucción por mala posición y movimiento cervical.",
+      "Después": "escalar a adjunct/BVM si persiste obstrucción.",
+      "Documentación": "posición y respuesta.",
+      "Fuentes": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "QA": "YELLOW; revisión humana pediatría pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Después",
+          "quote": "escalar a adjunct/BVM si persiste obstrucción."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "escalar a adjunct/BVM si persiste obstrucción."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

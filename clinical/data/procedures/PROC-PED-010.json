@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-PED-010",
+  "name": "Cardioversión/desfibrilación pediátrica",
+  "family": "PEDIATRÍA",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "tratar taquiarritmia inestable con pulso o ritmos desfibrilables en parada pediátrica.",
+  "indications": [
+    "cardioversión sincronizada en taquiarritmia con pulso e inestabilidad; desfibrilación en FV/TV sin pulso."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "verificar peso estimado/real y modo SYNC antes de cardioversión; minimizar pausas de compresiones en parada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "desfibrilador manual cuando esté disponible, parches apropiados, monitorización y sedación si la situación permite cardioversión consciente."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "posiciones anterolateral o anteroposterior que aseguren buen contacto y separación adecuada de parches."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "identificar ritmo, colocar parches y seleccionar energía según algoritmo pediátrico vigente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "para FV/TV sin pulso, AHA/AAP 2025 considera razonable 2–4 J/kg inicialmente; por simplicidad docente, 2 J/kg es una opción razonable. Segundo choque 4 J/kg; posteriores ≥4 J/kg sin superar 10 J/kg ni la dosis máxima adulta. Para cardioversión sincronizada, seguir energía específica por ritmo/algoritmo vigente y confirmar marcadores sobre QRS antes de descargar."
+    }
+  ],
+  "stop_points": [
+    "no usar modo sincronizado en FV/TV sin pulso; no realizar choques apilados de rutina; reiniciar compresiones inmediatamente tras desfibrilación."
+  ],
+  "confirmation": [
+    "conversión del ritmo y mejoría hemodinámica o continuación correcta del algoritmo de parada."
+  ],
+  "complications": {
+    "unclassified": [
+      "quemaduras, arritmia inducida, fallo de sincronización y descarga accidental."
+    ]
+  },
+  "aftercare": [
+    "tratar causa reversible y continuar cuidados postreanimación."
+  ],
+  "documentation": [
+    "ritmo, peso usado para cálculo, energía de cada choque, sincronización y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "AHA/AAP 2025 Pediatric Advanced Life Support Guidelines.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría/cardiología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-010 — Cardioversión/desfibrilación pediátrica — CORE/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "a34610d7999cf8258cbed69145f90d9b7b535f5b8be7d272aa14d1d17ed19042",
+    "sections": {
+      "Objetivo": "tratar taquiarritmia inestable con pulso o ritmos desfibrilables en parada pediátrica.",
+      "Indicaciones": "cardioversión sincronizada en taquiarritmia con pulso e inestabilidad; desfibrilación en FV/TV sin pulso.",
+      "Contraindicaciones/precauciones": "verificar peso estimado/real y modo SYNC antes de cardioversión; minimizar pausas de compresiones en parada.",
+      "Material": "desfibrilador manual cuando esté disponible, parches apropiados, monitorización y sedación si la situación permite cardioversión consciente.",
+      "Anatomía": "posiciones anterolateral o anteroposterior que aseguren buen contacto y separación adecuada de parches.",
+      "Preparación": "identificar ritmo, colocar parches y seleccionar energía según algoritmo pediátrico vigente.",
+      "Técnica paso a paso": "para FV/TV sin pulso, AHA/AAP 2025 considera razonable 2–4 J/kg inicialmente; por simplicidad docente, 2 J/kg es una opción razonable. Segundo choque 4 J/kg; posteriores ≥4 J/kg sin superar 10 J/kg ni la dosis máxima adulta. Para cardioversión sincronizada, seguir energía específica por ritmo/algoritmo vigente y confirmar marcadores sobre QRS antes de descargar.",
+      "STOP": "no usar modo sincronizado en FV/TV sin pulso; no realizar choques apilados de rutina; reiniciar compresiones inmediatamente tras desfibrilación.",
+      "Confirmación": "conversión del ritmo y mejoría hemodinámica o continuación correcta del algoritmo de parada.",
+      "Complicaciones": "quemaduras, arritmia inducida, fallo de sincronización y descarga accidental.",
+      "Después": "tratar causa reversible y continuar cuidados postreanimación.",
+      "Documentación": "ritmo, peso usado para cálculo, energía de cada choque, sincronización y respuesta.",
+      "Fuentes": "AHA/AAP 2025 Pediatric Advanced Life Support Guidelines.",
+      "QA": "YELLOW; revisión humana pediatría/cardiología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

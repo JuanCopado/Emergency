@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-PED-003",
+  "name": "Intubación pediátrica",
+  "family": "PEDIATRÍA",
+  "level": "ADVANCED/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "establecer una vía aérea traqueal definitiva con mínima hipoxemia y bradicardia peri-intubación.",
+  "indications": [
+    "incapacidad de proteger vía aérea, fracaso ventilatorio/oxigenatorio o reanimación avanzada seleccionada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar intentos prolongados; preparar plan de rescate antes de iniciar."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "videolaringoscopio/laringoscopio, tubo apropiado, estilete/bougie si procede, succión, BVM, capnografía y fijación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "glotis pediátrica y vía aérea superior."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "checklist, preoxigenación, selección de tubo/profundidad según edad/tamaño y fármacos desde módulo pediátrico."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "laringoscopia o videolaringoscopia, paso del tubo bajo visión, inflar cuff si aplica con presión segura, ventilar y confirmar por capnografía."
+    }
+  ],
+  "stop_points": [
+    "bradicardia, desaturación o intento prolongado → retirar, reoxigenar y cambiar estrategia."
+  ],
+  "confirmation": [
+    "capnografía de onda sostenida, expansión bilateral y profundidad apropiada."
+  ],
+  "complications": {
+    "unclassified": [
+      "hipoxemia, bradicardia, trauma, intubación esofágica/endobronquial y edema subglótico."
+    ]
+  },
+  "aftercare": [
+    "fijación, ventilación protectora y sedoanalgesia."
+  ],
+  "documentation": [
+    "dispositivo, tamaño, cuff, profundidad, intentos y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "bradicardia, desaturación o intento prolongado → retirar, reoxigenar y cambiar estrategia."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana vía aérea pediátrica pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-003 — Intubación pediátrica — ADVANCED/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "e5563a2f3ae7e1c8b4f72abfea1ea1ecbdd6dc80ad3bcf75b64a76e7716e4eb6",
+    "sections": {
+      "Objetivo": "establecer una vía aérea traqueal definitiva con mínima hipoxemia y bradicardia peri-intubación.",
+      "Indicaciones": "incapacidad de proteger vía aérea, fracaso ventilatorio/oxigenatorio o reanimación avanzada seleccionada.",
+      "Contraindicaciones/precauciones": "evitar intentos prolongados; preparar plan de rescate antes de iniciar.",
+      "Material": "videolaringoscopio/laringoscopio, tubo apropiado, estilete/bougie si procede, succión, BVM, capnografía y fijación.",
+      "Anatomía": "glotis pediátrica y vía aérea superior.",
+      "Preparación": "checklist, preoxigenación, selección de tubo/profundidad según edad/tamaño y fármacos desde módulo pediátrico.",
+      "Técnica paso a paso": "laringoscopia o videolaringoscopia, paso del tubo bajo visión, inflar cuff si aplica con presión segura, ventilar y confirmar por capnografía.",
+      "STOP": "bradicardia, desaturación o intento prolongado → retirar, reoxigenar y cambiar estrategia.",
+      "Confirmación": "capnografía de onda sostenida, expansión bilateral y profundidad apropiada.",
+      "Complicaciones": "hipoxemia, bradicardia, trauma, intubación esofágica/endobronquial y edema subglótico.",
+      "Después": "fijación, ventilación protectora y sedoanalgesia.",
+      "Documentación": "dispositivo, tamaño, cuff, profundidad, intentos y confirmación.",
+      "Fuentes": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "QA": "YELLOW; revisión humana vía aérea pediátrica pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "bradicardia, desaturación o intento prolongado → retirar, reoxigenar y cambiar estrategia."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

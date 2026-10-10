@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-PED-002",
+  "name": "BVM pediátrica",
+  "family": "PEDIATRÍA",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar ventilación efectiva minimizando volutrauma e insuflación gástrica.",
+  "indications": [
+    "apnea, ventilación inadecuada o soporte peri-intubación."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar volúmenes excesivos y mascarilla mal ajustada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "bolsa pediátrica, mascarilla adecuada, oxígeno, reservorio, PEEP si está indicada y adjuncts."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "sello facial, mandíbula y vía aérea superior."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "posición óptima y elección correcta de mascarilla."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "crear sello, elevar mandíbula y ventilar solo hasta elevación visible del tórax; usar dos operadores si el sello o la ventilación son ineficaces."
+    }
+  ],
+  "stop_points": [
+    "ausencia de elevación torácica, fuga importante o deterioro de oxigenación."
+  ],
+  "confirmation": [
+    "expansión torácica, mejoría de SpO₂/FC y ETCO₂ si está disponible."
+  ],
+  "complications": {
+    "unclassified": [
+      "insuflación gástrica, aspiración, barotrauma e hipoventilación."
+    ]
+  },
+  "aftercare": [
+    "escalar a supraglótico/intubación si BVM sigue siendo ineficaz."
+  ],
+  "documentation": [
+    "tamaño de mascarilla, técnica y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "usar dos operadores si el sello o la ventilación son ineficaces."
+  ],
+  "escalation": [
+    "escalar a supraglótico/intubación si BVM sigue siendo ineficaz."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-002 — BVM pediátrica — CORE/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "2535a226abb57217c2d23aa8ae44d5f26e6565a4869bf45481d271e01a2a7805",
+    "sections": {
+      "Objetivo": "proporcionar ventilación efectiva minimizando volutrauma e insuflación gástrica.",
+      "Indicaciones": "apnea, ventilación inadecuada o soporte peri-intubación.",
+      "Contraindicaciones/precauciones": "evitar volúmenes excesivos y mascarilla mal ajustada.",
+      "Material": "bolsa pediátrica, mascarilla adecuada, oxígeno, reservorio, PEEP si está indicada y adjuncts.",
+      "Anatomía": "sello facial, mandíbula y vía aérea superior.",
+      "Preparación": "posición óptima y elección correcta de mascarilla.",
+      "Técnica paso a paso": "crear sello, elevar mandíbula y ventilar solo hasta elevación visible del tórax; usar dos operadores si el sello o la ventilación son ineficaces.",
+      "STOP": "ausencia de elevación torácica, fuga importante o deterioro de oxigenación.",
+      "Confirmación": "expansión torácica, mejoría de SpO₂/FC y ETCO₂ si está disponible.",
+      "Complicaciones": "insuflación gástrica, aspiración, barotrauma e hipoventilación.",
+      "Después": "escalar a supraglótico/intubación si BVM sigue siendo ineficaz.",
+      "Documentación": "tamaño de mascarilla, técnica y respuesta.",
+      "Fuentes": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "QA": "YELLOW; revisión humana pediatría pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "usar dos operadores si el sello o la ventilación son ineficaces."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "escalar a supraglótico/intubación si BVM sigue siendo ineficaz."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

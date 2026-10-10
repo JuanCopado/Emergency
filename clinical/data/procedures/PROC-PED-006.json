@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-PED-006",
+  "name": "Punción lumbar pediátrica",
+  "family": "PEDIATRÍA",
+  "level": "ADVANCED/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener LCR de forma segura cuando el resultado puede modificar diagnóstico o tratamiento.",
+  "indications": [
+    "sospecha de meningitis/infección del SNC u otras indicaciones pediátricas seleccionadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "NICE 2024 recomienda estabilizar primero vía aérea no protegida, compromiso respiratorio, shock, convulsiones no controladas o riesgo hemorrágico; no realizar LP ante púrpura extensa/progresiva, infección en el sitio, riesgo de lesión ocupante de espacio o signos de hipertensión intracraneal como focalidad nueva, pupilas anormales o deterioro sostenido del nivel de conciencia."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "kit LP pediátrico, aguja con estilete, tubos, anestesia local y campo estéril."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "interespacios lumbares bajos y línea media; adaptar profundidad y posición a edad/tamaño."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "posición lateral o sentada con asistente, sin comprometer respiración; medir glucemia inmediatamente antes cuando se estudie meningitis para interpretar relación LCR/glucosa."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar interespacio, antisepsia/anestesia, introducir aguja con estilete de forma controlada, obtener LCR, recoger tubos según prioridad y retirar tras reinsertar estilete."
+    }
+  ],
+  "stop_points": [
+    "deterioro respiratorio/neurológico, convulsión no controlada, sangrado importante, dolor radicular persistente o anatomía no segura."
+  ],
+  "confirmation": [
+    "flujo de LCR y muestras adecuadas sin deterioro clínico."
+  ],
+  "complications": {
+    "unclassified": [
+      "punción traumática, sangrado, infección, cefalea, lesión neural rara y herniación en paciente mal seleccionado."
+    ]
+  },
+  "aftercare": [
+    "no retrasar antibióticos por intentos prolongados; si la LP no puede hacerse antes, tratar y realizarla tan pronto como sea seguro."
+  ],
+  "documentation": [
+    "indicación, estabilidad previa, posición, nivel, intentos, aspecto y muestras."
+  ],
+  "sources": [
+    {
+      "title": "NICE NG240 Bacterial meningitis and meningococcal disease, updated 2024; NICE NG195 neonatal infection for newborn-specific LP.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría/infecciosas pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-006 — Punción lumbar pediátrica — ADVANCED/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "a6d1584442672477f8a85ee1b46ff1610b343a0702b821cc0481754d2eec226c",
+    "sections": {
+      "Objetivo": "obtener LCR de forma segura cuando el resultado puede modificar diagnóstico o tratamiento.",
+      "Indicaciones": "sospecha de meningitis/infección del SNC u otras indicaciones pediátricas seleccionadas.",
+      "Contraindicaciones/precauciones": "NICE 2024 recomienda estabilizar primero vía aérea no protegida, compromiso respiratorio, shock, convulsiones no controladas o riesgo hemorrágico; no realizar LP ante púrpura extensa/progresiva, infección en el sitio, riesgo de lesión ocupante de espacio o signos de hipertensión intracraneal como focalidad nueva, pupilas anormales o deterioro sostenido del nivel de conciencia.",
+      "Material": "kit LP pediátrico, aguja con estilete, tubos, anestesia local y campo estéril.",
+      "Anatomía": "interespacios lumbares bajos y línea media; adaptar profundidad y posición a edad/tamaño.",
+      "Preparación": "posición lateral o sentada con asistente, sin comprometer respiración; medir glucemia inmediatamente antes cuando se estudie meningitis para interpretar relación LCR/glucosa.",
+      "Técnica paso a paso": "identificar interespacio, antisepsia/anestesia, introducir aguja con estilete de forma controlada, obtener LCR, recoger tubos según prioridad y retirar tras reinsertar estilete.",
+      "STOP": "deterioro respiratorio/neurológico, convulsión no controlada, sangrado importante, dolor radicular persistente o anatomía no segura.",
+      "Confirmación": "flujo de LCR y muestras adecuadas sin deterioro clínico.",
+      "Complicaciones": "punción traumática, sangrado, infección, cefalea, lesión neural rara y herniación en paciente mal seleccionado.",
+      "Después": "no retrasar antibióticos por intentos prolongados; si la LP no puede hacerse antes, tratar y realizarla tan pronto como sea seguro.",
+      "Documentación": "indicación, estabilidad previa, posición, nivel, intentos, aspecto y muestras.",
+      "Fuentes": "NICE NG240 Bacterial meningitis and meningococcal disease, updated 2024; NICE NG195 neonatal infection for newborn-specific LP.",
+      "QA": "YELLOW; revisión humana pediatría/infecciosas pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

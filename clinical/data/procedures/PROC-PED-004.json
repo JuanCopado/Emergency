@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-PED-004",
+  "name": "Dispositivo supraglótico pediátrico",
+  "family": "PEDIATRÍA",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "rescatar oxigenación/ventilación cuando BVM o intubación son ineficaces o difíciles.",
+  "indications": [
+    "ventilación inadecuada con mascarilla o necesidad de vía aérea avanzada de rescate."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "seleccionar talla por peso/fabricante y no forzar inserción."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "SGA pediátrico, lubricante, jeringa si cuff, circuito y capnografía."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "orofaringe e hipofaringe."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "elegir talla y preparar estrategia alternativa."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "lubricar cara posterior, insertar siguiendo paladar sin fuerza, inflar cuff si aplica, ventilar y fijar."
+    }
+  ],
+  "stop_points": [
+    "ventilación imposible, fuga severa, trauma o deterioro de oxigenación."
+  ],
+  "confirmation": [
+    "ETCO₂ de onda y expansión torácica."
+  ],
+  "complications": {
+    "unclassified": [
+      "malposición, aspiración, trauma y fuga."
+    ]
+  },
+  "aftercare": [
+    "mantener si ventila adecuadamente o escalar según necesidad."
+  ],
+  "documentation": [
+    "dispositivo/talla, intentos y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/13-pediatrics.md",
+    "source_heading": "PROC-PED-004 — Supraglótico pediátrico — CORE/PED",
+    "family_preamble": "# 13. Pediatría\n\nEstado: **YELLOW**. Las técnicas pediátricas reutilizan la ficha canónica adulta cuando la anatomía y la secuencia son equivalentes, añadiendo modificadores de edad/tamaño/peso. Dosis y tamaños se resuelven desde módulos pediátricos canónicos.",
+    "source_sha256": "52620ed665f978d57fa0cbaa69736a5b04021b58e1a02ddd903ed431f1ce3b7d",
+    "sections": {
+      "Objetivo": "rescatar oxigenación/ventilación cuando BVM o intubación son ineficaces o difíciles.",
+      "Indicaciones": "ventilación inadecuada con mascarilla o necesidad de vía aérea avanzada de rescate.",
+      "Contraindicaciones/precauciones": "seleccionar talla por peso/fabricante y no forzar inserción.",
+      "Material": "SGA pediátrico, lubricante, jeringa si cuff, circuito y capnografía.",
+      "Anatomía": "orofaringe e hipofaringe.",
+      "Preparación": "elegir talla y preparar estrategia alternativa.",
+      "Técnica paso a paso": "lubricar cara posterior, insertar siguiendo paladar sin fuerza, inflar cuff si aplica, ventilar y fijar.",
+      "STOP": "ventilación imposible, fuga severa, trauma o deterioro de oxigenación.",
+      "Confirmación": "ETCO₂ de onda y expansión torácica.",
+      "Complicaciones": "malposición, aspiración, trauma y fuga.",
+      "Después": "mantener si ventila adecuadamente o escalar según necesidad.",
+      "Documentación": "dispositivo/talla, intentos y confirmación.",
+      "Fuentes": "RCUK/ERC Pediatric Life Support 2025; AHA/AAP 2025.",
+      "QA": "YELLOW; revisión humana pediatría pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
