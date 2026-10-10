@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-THX-006",
+  "name": "Toracocentesis terapéutica",
+  "family": "TÓRAX Y PLEURA",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aliviar síntomas por derrame pleural minimizando complicaciones del drenaje.",
+  "indications": [
+    "derrame pleural sintomático con ventana ecográfica segura y beneficio clínico esperado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ausencia de ventana segura o riesgo hemorrágico/procedimental inaceptable; planificar volumen y criterios de parada antes de iniciar."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, catéter pleural, sistema de drenaje por jeringa o gravedad, anestesia local y monitorización."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pleura, diafragma, pulmón, vísceras subdiafragmáticas y paquete intercostal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "TUS obligatoria para seleccionar sitio; paciente en posición final y plan de volumen/STOP."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "anestesiar; introducir un catéter para aspiraciones terapéuticas >60 mL; drenar lentamente mediante aspiración manual o gravedad. BTS desaconseja botella de vacío o succión mural para aspiración pleural terapéutica."
+    }
+  ],
+  "stop_points": [
+    "detener si aparece opresión/dolor torácico, tos persistente o empeora la disnea. En general, BTS recomienda no superar 1,5 L en un intento salvo plan especializado."
+  ],
+  "confirmation": [
+    "alivio clínico y estabilidad respiratoria/hemodinámica."
+  ],
+  "complications": {
+    "unclassified": [
+      "neumotórax, sangrado, síncope vasovagal y edema pulmonar de reexpansión."
+    ]
+  },
+  "aftercare": [
+    "reevaluación respiratoria y plan etiológico; imagen adicional solo cuando esté indicada."
+  ],
+  "documentation": [
+    "sitio/US, volumen total, método de drenaje, síntomas y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "BTS Clinical Statement on Pleural Procedures, 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana neumología/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-006 — Toracocentesis terapéutica — ADVANCED/POCUS",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "a6f8e48eeebfed8ff4b630df171b03bdc506d998a448dd84e4caabe459b16551",
+    "sections": {
+      "Objetivo": "aliviar síntomas por derrame pleural minimizando complicaciones del drenaje.",
+      "Indicaciones": "derrame pleural sintomático con ventana ecográfica segura y beneficio clínico esperado.",
+      "Contraindicaciones/precauciones": "ausencia de ventana segura o riesgo hemorrágico/procedimental inaceptable; planificar volumen y criterios de parada antes de iniciar.",
+      "Material": "ecógrafo, catéter pleural, sistema de drenaje por jeringa o gravedad, anestesia local y monitorización.",
+      "Anatomía": "pleura, diafragma, pulmón, vísceras subdiafragmáticas y paquete intercostal.",
+      "Preparación": "TUS obligatoria para seleccionar sitio; paciente en posición final y plan de volumen/STOP.",
+      "Técnica paso a paso": "anestesiar; introducir un catéter para aspiraciones terapéuticas >60 mL; drenar lentamente mediante aspiración manual o gravedad. BTS desaconseja botella de vacío o succión mural para aspiración pleural terapéutica.",
+      "STOP": "detener si aparece opresión/dolor torácico, tos persistente o empeora la disnea. En general, BTS recomienda no superar 1,5 L en un intento salvo plan especializado.",
+      "Confirmación": "alivio clínico y estabilidad respiratoria/hemodinámica.",
+      "Complicaciones": "neumotórax, sangrado, síncope vasovagal y edema pulmonar de reexpansión.",
+      "Después": "reevaluación respiratoria y plan etiológico; imagen adicional solo cuando esté indicada.",
+      "Documentación": "sitio/US, volumen total, método de drenaje, síntomas y complicaciones.",
+      "Fuentes": "BTS Clinical Statement on Pleural Procedures, 2023.",
+      "QA": "YELLOW; revisión humana neumología/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

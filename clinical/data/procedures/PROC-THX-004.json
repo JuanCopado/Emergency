@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-THX-004",
+  "name": "Catéter pleural tipo pigtail",
+  "family": "TÓRAX Y PLEURA",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "drenar aire o líquido pleural mediante catéter de pequeño calibre en indicaciones seleccionadas.",
+  "indications": [
+    "neumotórax y derrames pleurales apropiados para pequeño calibre según etiología y protocolo."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "hemotórax espeso/masivo, colección compleja, loculaciones extensas o anatomía desfavorable pueden requerir otro drenaje."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "kit pigtail Seldinger, ecógrafo, anestesia local, guía/dilatador y sistema de drenaje."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pleura, pulmón, diafragma y paquete intercostal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "localizar aire/líquido y seleccionar trayecto seguro; ecografía para líquido y cuando sea útil para neumotórax."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "punción controlada, confirmar entrada pleural, avanzar guía sin resistencia, confirmar posición de guía antes de dilatar, dilatar solo el trayecto necesario, avanzar catéter, retirar guía, conectar y fijar."
+    }
+  ],
+  "stop_points": [
+    "no dilatar si la guía no está inequívocamente en el espacio pleural; detener ante dolor intenso, resistencia o sangrado."
+  ],
+  "confirmation": [
+    "drenaje funcional y posición apropiada por clínica/US/imagen según contexto."
+  ],
+  "complications": {
+    "unclassified": [
+      "falsa vía, sangrado, lesión visceral, obstrucción, acodamiento y malposición."
+    ]
+  },
+  "aftercare": [
+    "monitorizar débito, fuga aérea, permeabilidad y necesidad de succión."
+  ],
+  "documentation": [
+    "indicación, calibre, sitio, técnica Seldinger y confirmación."
+  ],
+  "sources": [
+    {
+      "title": "BTS Clinical Statement on Pleural Procedures 2023, correction 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana neumología/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-004 — Catéter pleural tipo pigtail — ADVANCED",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "7642e1ce3297a8da69fb6e4b1727f288826f4ad6f788c8fe28a653fcc06de740",
+    "sections": {
+      "Objetivo": "drenar aire o líquido pleural mediante catéter de pequeño calibre en indicaciones seleccionadas.",
+      "Indicaciones": "neumotórax y derrames pleurales apropiados para pequeño calibre según etiología y protocolo.",
+      "Contraindicaciones/precauciones": "hemotórax espeso/masivo, colección compleja, loculaciones extensas o anatomía desfavorable pueden requerir otro drenaje.",
+      "Material": "kit pigtail Seldinger, ecógrafo, anestesia local, guía/dilatador y sistema de drenaje.",
+      "Anatomía": "pleura, pulmón, diafragma y paquete intercostal.",
+      "Preparación": "localizar aire/líquido y seleccionar trayecto seguro; ecografía para líquido y cuando sea útil para neumotórax.",
+      "Técnica paso a paso": "punción controlada, confirmar entrada pleural, avanzar guía sin resistencia, confirmar posición de guía antes de dilatar, dilatar solo el trayecto necesario, avanzar catéter, retirar guía, conectar y fijar.",
+      "STOP": "no dilatar si la guía no está inequívocamente en el espacio pleural; detener ante dolor intenso, resistencia o sangrado.",
+      "Confirmación": "drenaje funcional y posición apropiada por clínica/US/imagen según contexto.",
+      "Complicaciones": "falsa vía, sangrado, lesión visceral, obstrucción, acodamiento y malposición.",
+      "Después": "monitorizar débito, fuga aérea, permeabilidad y necesidad de succión.",
+      "Documentación": "indicación, calibre, sitio, técnica Seldinger y confirmación.",
+      "Fuentes": "BTS Clinical Statement on Pleural Procedures 2023, correction 2026.",
+      "QA": "YELLOW; revisión humana neumología/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

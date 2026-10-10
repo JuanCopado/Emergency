@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-THX-010",
+  "name": "Control inicial de herida torácica abierta",
+  "family": "TÓRAX Y PLEURA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "controlar hemorragia local y mantener ventilación sin convertir una herida abierta en neumotórax a tensión.",
+  "indications": [
+    "herida torácica abierta con comunicación pleural."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "RCUK/ERC 2025 desaconseja cubrir de forma completamente oclusiva una herida abierta si no se garantiza salida de aire."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "PPE, material de presión local, apósito vented/no oclusivo especializado si existe y equipo para descompresión/drenaje."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pared torácica, pleura y pulmón."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "ABC, oxígeno si indicado y control de hemorragia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "permitir comunicación libre con el exterior; controlar sangrado localizado con presión sin sellar completamente el defecto. Si existe entrenamiento/equipo, aplicar apósito ventilado/no oclusivo asegurando salida de aire. Tratar de inmediato cualquier fisiología de tensión y colocar drenaje pleural separado de la herida cuando esté indicado."
+    }
+  ],
+  "stop_points": [
+    "deterioro tras cualquier sellado → retirar/ventilar el apósito y tratar tensión."
+  ],
+  "confirmation": [
+    "ventilación estable o mejorada y ausencia de progresión a tensión."
+  ],
+  "complications": {
+    "unclassified": [
+      "neumotórax a tensión, hemorragia, infección y lesión pulmonar."
+    ]
+  },
+  "aftercare": [
+    "cirugía/trauma para reparación definitiva."
+  ],
+  "documentation": [
+    "tipo de herida, método de cobertura, drenaje y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "RCUK/ERC First Aid 2025 — open chest wounds; trauma guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "deterioro tras cualquier sellado → retirar/ventilar el apósito y tratar tensión."
+  ],
+  "escalation": [
+    "cirugía/trauma para reparación definitiva."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-010 — Control inicial de herida torácica abierta — CORE",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "a1689145dd7dbb3ae6214c9a4f7d554be5a6ced09af7c0d9a5cfb9496af3c187",
+    "sections": {
+      "Objetivo": "controlar hemorragia local y mantener ventilación sin convertir una herida abierta en neumotórax a tensión.",
+      "Indicaciones": "herida torácica abierta con comunicación pleural.",
+      "Contraindicaciones/precauciones": "RCUK/ERC 2025 desaconseja cubrir de forma completamente oclusiva una herida abierta si no se garantiza salida de aire.",
+      "Material": "PPE, material de presión local, apósito vented/no oclusivo especializado si existe y equipo para descompresión/drenaje.",
+      "Anatomía": "pared torácica, pleura y pulmón.",
+      "Preparación": "ABC, oxígeno si indicado y control de hemorragia.",
+      "Técnica paso a paso": "permitir comunicación libre con el exterior; controlar sangrado localizado con presión sin sellar completamente el defecto. Si existe entrenamiento/equipo, aplicar apósito ventilado/no oclusivo asegurando salida de aire. Tratar de inmediato cualquier fisiología de tensión y colocar drenaje pleural separado de la herida cuando esté indicado.",
+      "STOP": "deterioro tras cualquier sellado → retirar/ventilar el apósito y tratar tensión.",
+      "Confirmación": "ventilación estable o mejorada y ausencia de progresión a tensión.",
+      "Complicaciones": "neumotórax a tensión, hemorragia, infección y lesión pulmonar.",
+      "Después": "cirugía/trauma para reparación definitiva.",
+      "Documentación": "tipo de herida, método de cobertura, drenaje y respuesta.",
+      "Fuentes": "RCUK/ERC First Aid 2025 — open chest wounds; trauma guidance.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "deterioro tras cualquier sellado → retirar/ventilar el apósito y tratar tensión."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "cirugía/trauma para reparación definitiva."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

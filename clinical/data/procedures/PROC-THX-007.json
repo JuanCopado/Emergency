@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-THX-007",
+  "name": "Conexión y comprobación de sistema de sello de agua",
+  "family": "TÓRAX Y PLEURA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "permitir drenaje pleural y evitar reentrada de aire.",
+  "indications": [
+    "drenaje torácico conectado a sistema de sello de agua."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "seguir instrucciones del fabricante; no aplicar succión de rutina sin indicación."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "unidad de drenaje, tubing y soporte vertical."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "drenaje pleural y gradiente de presión entre tórax/sistema."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "llenar cámara al nivel indicado y comprobar todas las conexiones."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "conectar sin acodamientos, mantener sistema por debajo del tórax y vertical, observar oscilación/burbujeo y comprobar fugas; aplicar succión solo cuando esté indicada y al nivel prescrito."
+    }
+  ],
+  "stop_points": [
+    "desconexión, vuelco, fuga nueva importante o cese inesperado del drenaje con deterioro clínico."
+  ],
+  "confirmation": [
+    "funcionamiento coherente con la indicación y situación respiratoria."
+  ],
+  "complications": {
+    "unclassified": [
+      "entrada de aire, pérdida del sello, drenaje ineficaz, infección y tensión si el sistema queda obstruido."
+    ]
+  },
+  "aftercare": [
+    "vigilancia seriada de sistema, paciente y sitio de inserción."
+  ],
+  "documentation": [
+    "sistema, succión, débito, fuga y observaciones."
+  ],
+  "sources": [
+    {
+      "title": "BTS Pleural Procedures 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana neumología/enfermería pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-007 — Conexión y comprobación de sistema de sello de agua — CORE",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "3e2eeed53f696d01028b1822ca7979df4dd72217aa4289af44257b346d6c5258",
+    "sections": {
+      "Objetivo": "permitir drenaje pleural y evitar reentrada de aire.",
+      "Indicaciones": "drenaje torácico conectado a sistema de sello de agua.",
+      "Contraindicaciones/precauciones": "seguir instrucciones del fabricante; no aplicar succión de rutina sin indicación.",
+      "Material": "unidad de drenaje, tubing y soporte vertical.",
+      "Anatomía": "drenaje pleural y gradiente de presión entre tórax/sistema.",
+      "Preparación": "llenar cámara al nivel indicado y comprobar todas las conexiones.",
+      "Técnica paso a paso": "conectar sin acodamientos, mantener sistema por debajo del tórax y vertical, observar oscilación/burbujeo y comprobar fugas; aplicar succión solo cuando esté indicada y al nivel prescrito.",
+      "STOP": "desconexión, vuelco, fuga nueva importante o cese inesperado del drenaje con deterioro clínico.",
+      "Confirmación": "funcionamiento coherente con la indicación y situación respiratoria.",
+      "Complicaciones": "entrada de aire, pérdida del sello, drenaje ineficaz, infección y tensión si el sistema queda obstruido.",
+      "Después": "vigilancia seriada de sistema, paciente y sitio de inserción.",
+      "Documentación": "sistema, succión, débito, fuga y observaciones.",
+      "Fuentes": "BTS Pleural Procedures 2023.",
+      "QA": "YELLOW; revisión humana neumología/enfermería pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

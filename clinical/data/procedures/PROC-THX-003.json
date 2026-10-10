@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-THX-003",
+  "name": "Tubo de toracostomía / drenaje pleural",
+  "family": "TÓRAX Y PLEURA",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "drenar aire, sangre, pus u otro contenido pleural mediante un sistema seguro y adecuado a la indicación.",
+  "indications": [
+    "neumotórax, hemotórax, infección pleural/empiema, derrame sintomático u otras indicaciones específicas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "valorar coagulopatía, adherencias, anatomía alterada y sitio; para derrames, usar ecografía para seleccionar el trayecto. El calibre depende de la indicación, experiencia y protocolo."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "kit de drenaje, bisturí, pinza si disección roma, anestesia local, sutura/fijación y sistema de sello de agua."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "triángulo de seguridad, borde superior de la costilla, paquete neurovascular, pleura, pulmón y diafragma."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "consentimiento/time-out si la situación lo permite, analgesia, asepsia, confirmación de lado y ecografía cuando proceda."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "para drenajes pequeños, BTS describe técnica Seldinger; para drenajes grandes, disección roma. Evitar introducir un trocar metálico de forma ciega. Confirmar acceso pleural, avanzar el drenaje sin fuerza, conectar a sello de agua y fijar."
+    }
+  ],
+  "stop_points": [
+    "no utilizar un trocar afilado como método de empuje ciego; detener ante anatomía incierta, resistencia anormal o sangrado importante."
+  ],
+  "confirmation": [
+    "drenaje funcional, oscilación/burbujeo cuando corresponda y control clínico/imagen según indicación."
+  ],
+  "complications": {
+    "unclassified": [
+      "malposición, lesión pulmonar/intercostal/diafragmática/visceral, hemorragia, infección y enfisema subcutáneo."
+    ]
+  },
+  "aftercare": [
+    "vigilar débito, fuga aérea, permeabilidad, necesidad de succión y criterios de retirada."
+  ],
+  "documentation": [
+    "indicación, tamaño, sitio, técnica, profundidad, sistema, confirmación y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "BTS Clinical Statement on Pleural Procedures 2023, con corrección publicada en 2026; BTS Pleural Disease Guideline 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana neumología/trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-003 — Tubo de toracostomía / drenaje pleural — ADVANCED",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "b529f0c4ba8cadc9fd5d23c19135388cd888f14dc2dc75934543f9668937bef5",
+    "sections": {
+      "Objetivo": "drenar aire, sangre, pus u otro contenido pleural mediante un sistema seguro y adecuado a la indicación.",
+      "Indicaciones": "neumotórax, hemotórax, infección pleural/empiema, derrame sintomático u otras indicaciones específicas.",
+      "Contraindicaciones/precauciones": "valorar coagulopatía, adherencias, anatomía alterada y sitio; para derrames, usar ecografía para seleccionar el trayecto. El calibre depende de la indicación, experiencia y protocolo.",
+      "Material": "kit de drenaje, bisturí, pinza si disección roma, anestesia local, sutura/fijación y sistema de sello de agua.",
+      "Anatomía": "triángulo de seguridad, borde superior de la costilla, paquete neurovascular, pleura, pulmón y diafragma.",
+      "Preparación": "consentimiento/time-out si la situación lo permite, analgesia, asepsia, confirmación de lado y ecografía cuando proceda.",
+      "Técnica paso a paso": "para drenajes pequeños, BTS describe técnica Seldinger; para drenajes grandes, disección roma. Evitar introducir un trocar metálico de forma ciega. Confirmar acceso pleural, avanzar el drenaje sin fuerza, conectar a sello de agua y fijar.",
+      "STOP": "no utilizar un trocar afilado como método de empuje ciego; detener ante anatomía incierta, resistencia anormal o sangrado importante.",
+      "Confirmación": "drenaje funcional, oscilación/burbujeo cuando corresponda y control clínico/imagen según indicación.",
+      "Complicaciones": "malposición, lesión pulmonar/intercostal/diafragmática/visceral, hemorragia, infección y enfisema subcutáneo.",
+      "Después": "vigilar débito, fuga aérea, permeabilidad, necesidad de succión y criterios de retirada.",
+      "Documentación": "indicación, tamaño, sitio, técnica, profundidad, sistema, confirmación y complicaciones.",
+      "Fuentes": "BTS Clinical Statement on Pleural Procedures 2023, con corrección publicada en 2026; BTS Pleural Disease Guideline 2023.",
+      "QA": "YELLOW; revisión humana neumología/trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

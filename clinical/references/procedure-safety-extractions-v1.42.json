@@ -149,6 +149,36 @@
       }
     ]
   },
+  "PROC-THX-001": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "ausencia de respuesta obliga a comprobar lado, permeabilidad y diagnóstico alternativo; no repetir punciones ciegas sin reevaluación."
+      }
+    ]
+  },
+  "PROC-THX-009": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "cirugía definitiva inmediata."
+      }
+    ]
+  },
+  "PROC-THX-010": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "deterioro tras cualquier sellado → retirar/ventilar el apósito y tratar tensión."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "cirugía/trauma para reparación definitiva."
+      }
+    ]
+  },
   "PROC-VASC-001": {
     "rescue": [
       {

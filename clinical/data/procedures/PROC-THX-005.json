@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-THX-005",
+  "name": "Toracocentesis diagnóstica",
+  "family": "TÓRAX Y PLEURA",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener líquido pleural para diagnóstico mediante una técnica segura.",
+  "indications": [
+    "derrame pleural en el que el análisis del líquido puede cambiar el diagnóstico o el manejo."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ausencia de ventana ecográfica segura, infección cutánea en el trayecto o riesgo hemorrágico inaceptable tras valorar riesgo-beneficio."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, aguja/catéter de pequeño calibre, anestesia local, tubos de muestra y apósito."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pleura, pulmón, diafragma, hígado/bazo y paquete neurovascular intercostal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "BTS exige ecografía torácica para aspiración de derrame; localizar el bolsillo con el paciente en la misma posición del procedimiento y seleccionar un punto por encima del borde superior de la costilla."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "antisepsia/anestesia; punción por trayecto ecográficamente seguro y por encima de la costilla; aspirar el volumen diagnóstico necesario; distribuir muestras; retirar y sellar."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, tos persistente, disnea, sangre/aire inesperado o pérdida de la ventana segura."
+  ],
+  "confirmation": [
+    "muestra obtenida y estabilidad clínica; ecografía postprocedimiento si hay sospecha de complicación."
+  ],
+  "complications": {
+    "unclassified": [
+      "neumotórax, sangrado, lesión visceral e infección."
+    ]
+  },
+  "aftercare": [
+    "reevaluación clínica; radiografía no es obligatoria de rutina si el procedimiento fue no complicado y no existe sospecha clínica, según contexto/protocolo."
+  ],
+  "documentation": [
+    "sitio, uso de US, volumen diagnóstico, aspecto y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "BTS Clinical Statement on Pleural Procedures, 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana neumología/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-005 — Toracocentesis diagnóstica — ADVANCED/POCUS",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "109675ad2cb14f3e8d94bf6686ac6f72d010ab133eebd3c234b783f0938e6001",
+    "sections": {
+      "Objetivo": "obtener líquido pleural para diagnóstico mediante una técnica segura.",
+      "Indicaciones": "derrame pleural en el que el análisis del líquido puede cambiar el diagnóstico o el manejo.",
+      "Contraindicaciones/precauciones": "ausencia de ventana ecográfica segura, infección cutánea en el trayecto o riesgo hemorrágico inaceptable tras valorar riesgo-beneficio.",
+      "Material": "ecógrafo, aguja/catéter de pequeño calibre, anestesia local, tubos de muestra y apósito.",
+      "Anatomía": "pleura, pulmón, diafragma, hígado/bazo y paquete neurovascular intercostal.",
+      "Preparación": "BTS exige ecografía torácica para aspiración de derrame; localizar el bolsillo con el paciente en la misma posición del procedimiento y seleccionar un punto por encima del borde superior de la costilla.",
+      "Técnica paso a paso": "antisepsia/anestesia; punción por trayecto ecográficamente seguro y por encima de la costilla; aspirar el volumen diagnóstico necesario; distribuir muestras; retirar y sellar.",
+      "STOP": "dolor intenso, tos persistente, disnea, sangre/aire inesperado o pérdida de la ventana segura.",
+      "Confirmación": "muestra obtenida y estabilidad clínica; ecografía postprocedimiento si hay sospecha de complicación.",
+      "Complicaciones": "neumotórax, sangrado, lesión visceral e infección.",
+      "Después": "reevaluación clínica; radiografía no es obligatoria de rutina si el procedimiento fue no complicado y no existe sospecha clínica, según contexto/protocolo.",
+      "Documentación": "sitio, uso de US, volumen diagnóstico, aspecto y complicaciones.",
+      "Fuentes": "BTS Clinical Statement on Pleural Procedures, 2023.",
+      "QA": "YELLOW; revisión humana neumología/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

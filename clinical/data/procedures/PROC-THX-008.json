@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-THX-008",
+  "name": "Retirada de drenaje torácico",
+  "family": "TÓRAX Y PLEURA",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un drenaje pleural cuando su indicación ha resuelto minimizando recurrencia y entrada de aire.",
+  "indications": [
+    "resolución clínica y criterios específicos de la patología, sin fuga aérea relevante y con débito compatible con retirada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fuga aérea persistente, drenaje aún necesario, obstrucción no aclarada o incertidumbre sobre resolución."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "analgesia, campo, material de sutura/apósito oclusivo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "trayecto intercostal, pleura y piel."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar criterio de retirada, explicar maniobra y preparar cierre/oclusividad."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "retirar fijaciones, coordinar respiración según protocolo local, retirar de forma continua y controlada, cerrar sitio/aplicar apósito oclusivo y reevaluar."
+    }
+  ],
+  "stop_points": [
+    "deterioro respiratorio, sangrado relevante o resistencia inesperada."
+  ],
+  "confirmation": [
+    "estabilidad clínica, sitio sellado y ausencia de signos de recurrencia."
+  ],
+  "complications": {
+    "unclassified": [
+      "neumotórax/derrame recurrente, sangrado, entrada de aire e infección."
+    ]
+  },
+  "aftercare": [
+    "control clínico y radiografía/US cuando esté indicado por patología o síntomas."
+  ],
+  "documentation": [
+    "motivo, técnica, estado post y necesidad de imagen."
+  ],
+  "sources": [
+    {
+      "title": "BTS Pleural Procedures 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana neumología/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-008 — Retirada de drenaje torácico — ADVANCED",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "9159b2934d92c18a4e5bab46279a47ef5f13d8043db713c5fd9374c5a31cfa44",
+    "sections": {
+      "Objetivo": "retirar un drenaje pleural cuando su indicación ha resuelto minimizando recurrencia y entrada de aire.",
+      "Indicaciones": "resolución clínica y criterios específicos de la patología, sin fuga aérea relevante y con débito compatible con retirada.",
+      "Contraindicaciones/precauciones": "fuga aérea persistente, drenaje aún necesario, obstrucción no aclarada o incertidumbre sobre resolución.",
+      "Material": "analgesia, campo, material de sutura/apósito oclusivo.",
+      "Anatomía": "trayecto intercostal, pleura y piel.",
+      "Preparación": "confirmar criterio de retirada, explicar maniobra y preparar cierre/oclusividad.",
+      "Técnica paso a paso": "retirar fijaciones, coordinar respiración según protocolo local, retirar de forma continua y controlada, cerrar sitio/aplicar apósito oclusivo y reevaluar.",
+      "STOP": "deterioro respiratorio, sangrado relevante o resistencia inesperada.",
+      "Confirmación": "estabilidad clínica, sitio sellado y ausencia de signos de recurrencia.",
+      "Complicaciones": "neumotórax/derrame recurrente, sangrado, entrada de aire e infección.",
+      "Después": "control clínico y radiografía/US cuando esté indicado por patología o síntomas.",
+      "Documentación": "motivo, técnica, estado post y necesidad de imagen.",
+      "Fuentes": "BTS Pleural Procedures 2023.",
+      "QA": "YELLOW; revisión humana neumología/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-THX-002",
+  "name": "Toracostomía digital",
+  "family": "TÓRAX Y PLEURA",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "abrir el espacio pleural rápidamente para descomprimir aire o sangre, especialmente en trauma peri-parada/parada.",
+  "indications": [
+    "neumotórax a tensión traumático, parada traumática o fracaso/inadecuación de descompresión por aguja cuando el protocolo y competencia favorecen toracostomía abierta."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "requiere entrenamiento, anatomía identificable y precaución ante cirugía torácica previa/adherencias."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "bisturí, pinza roma, guantes, succión y tubo torácico si se continuará con drenaje."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "triángulo de seguridad, costillas, pleura y paquete intercostal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar lado, exponer tórax, antisepsia rápida si no retrasa y analgesia si el estado lo permite."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar incisión cutánea en sitio seguro, disección roma hasta costilla, entrar por encima del borde superior, perforar pleura de forma controlada y confirmar con dedo dentro del espacio pleural; no explorar más allá de lo necesario. Colocar drenaje si el contexto lo requiere."
+    }
+  ],
+  "stop_points": [
+    "anatomía incierta, resistencia no explicada, sangrado importante o sospecha de lesión visceral."
+  ],
+  "confirmation": [
+    "dedo intrapleural, salida de aire/sangre y respuesta clínica."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia, lesión pulmonar/diafragmática/intercostal, infección y falsa vía."
+    ]
+  },
+  "aftercare": [
+    "drenaje definitivo, conexión y control clínico/imaginológico."
+  ],
+  "documentation": [
+    "lado, sitio, hallazgos y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "ERC 2025 Special Circumstances — traumatic cardiac arrest; trauma/pleural procedural guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-002 — Toracostomía digital — ADVANCED",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "126c640fa5c231c03f2836db6789362456e5937d452219f1f79bfe6c090a47fc",
+    "sections": {
+      "Objetivo": "abrir el espacio pleural rápidamente para descomprimir aire o sangre, especialmente en trauma peri-parada/parada.",
+      "Indicaciones": "neumotórax a tensión traumático, parada traumática o fracaso/inadecuación de descompresión por aguja cuando el protocolo y competencia favorecen toracostomía abierta.",
+      "Contraindicaciones/precauciones": "requiere entrenamiento, anatomía identificable y precaución ante cirugía torácica previa/adherencias.",
+      "Material": "bisturí, pinza roma, guantes, succión y tubo torácico si se continuará con drenaje.",
+      "Anatomía": "triángulo de seguridad, costillas, pleura y paquete intercostal.",
+      "Preparación": "confirmar lado, exponer tórax, antisepsia rápida si no retrasa y analgesia si el estado lo permite.",
+      "Técnica paso a paso": "realizar incisión cutánea en sitio seguro, disección roma hasta costilla, entrar por encima del borde superior, perforar pleura de forma controlada y confirmar con dedo dentro del espacio pleural; no explorar más allá de lo necesario. Colocar drenaje si el contexto lo requiere.",
+      "STOP": "anatomía incierta, resistencia no explicada, sangrado importante o sospecha de lesión visceral.",
+      "Confirmación": "dedo intrapleural, salida de aire/sangre y respuesta clínica.",
+      "Complicaciones": "hemorragia, lesión pulmonar/diafragmática/intercostal, infección y falsa vía.",
+      "Después": "drenaje definitivo, conexión y control clínico/imaginológico.",
+      "Documentación": "lado, sitio, hallazgos y complicaciones.",
+      "Fuentes": "ERC 2025 Special Circumstances — traumatic cardiac arrest; trauma/pleural procedural guidance.",
+      "QA": "YELLOW; revisión humana trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

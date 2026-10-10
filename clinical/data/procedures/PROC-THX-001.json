@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-THX-001",
+  "name": "Descompresión inmediata de neumotórax a tensión",
+  "family": "TÓRAX Y PLEURA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "revertir de inmediato la fisiología obstructiva de un neumotórax a tensión con inestabilidad grave.",
+  "indications": [
+    "sospecha clínica o por POCUS de neumotórax a tensión con shock grave o parada; no esperar radiografía/TC."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no existe contraindicación absoluta en amenaza vital; la técnica depende del contexto, entrenamiento y dispositivo disponible."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "material para toracostomía abierta/digital o catéter de descompresión de longitud adecuada, oxígeno, monitorización y drenaje definitivo preparado."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pared torácica, espacio intercostal, pleura y paquete neurovascular."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar lateralidad, oxígeno/ventilación y sitio seguro sin retrasar tratamiento."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "en parada traumática o hipotensión extrema con fuerte sospecha, ERC 2025 favorece descompresión inmediata mediante toracostomía abierta cuando existe competencia; si se usa aguja/catéter, entrar por un sitio protocolizado sobre el borde superior de la costilla y avanzar hasta pleura. Preparar drenaje definitivo tras recuperación inicial."
+    }
+  ],
+  "stop_points": [
+    "ausencia de respuesta obliga a comprobar lado, permeabilidad y diagnóstico alternativo; no repetir punciones ciegas sin reevaluación."
+  ],
+  "confirmation": [
+    "salida de aire y mejoría hemodinámica/ventilatoria; POCUS puede confirmar resolución si no retrasa la intervención."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión vascular/pulmonar/diafragmática, fallo por catéter corto u obstruido, infección y falsa vía."
+    ]
+  },
+  "aftercare": [
+    "drenaje pleural definitivo y reevaluación seriada."
+  ],
+  "documentation": [
+    "lado, técnica, sitio, dispositivo y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "ERC 2025 Special Circumstances — traumatic cardiac arrest/tension pneumothorax; BTS Pleural Procedures 2023 para drenaje definitivo.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "ausencia de respuesta obliga a comprobar lado, permeabilidad y diagnóstico alternativo; no repetir punciones ciegas sin reevaluación."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana trauma/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-001 — Descompresión inmediata de neumotórax a tensión — CORE",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "893b6afe0daee694a6504d8fc61b0b01a9e5ab8b8edf3577c3bf6b0c5aeb176b",
+    "sections": {
+      "Objetivo": "revertir de inmediato la fisiología obstructiva de un neumotórax a tensión con inestabilidad grave.",
+      "Indicaciones": "sospecha clínica o por POCUS de neumotórax a tensión con shock grave o parada; no esperar radiografía/TC.",
+      "Contraindicaciones/precauciones": "no existe contraindicación absoluta en amenaza vital; la técnica depende del contexto, entrenamiento y dispositivo disponible.",
+      "Material": "material para toracostomía abierta/digital o catéter de descompresión de longitud adecuada, oxígeno, monitorización y drenaje definitivo preparado.",
+      "Anatomía": "pared torácica, espacio intercostal, pleura y paquete neurovascular.",
+      "Preparación": "confirmar lateralidad, oxígeno/ventilación y sitio seguro sin retrasar tratamiento.",
+      "Técnica paso a paso": "en parada traumática o hipotensión extrema con fuerte sospecha, ERC 2025 favorece descompresión inmediata mediante toracostomía abierta cuando existe competencia; si se usa aguja/catéter, entrar por un sitio protocolizado sobre el borde superior de la costilla y avanzar hasta pleura. Preparar drenaje definitivo tras recuperación inicial.",
+      "STOP": "ausencia de respuesta obliga a comprobar lado, permeabilidad y diagnóstico alternativo; no repetir punciones ciegas sin reevaluación.",
+      "Confirmación": "salida de aire y mejoría hemodinámica/ventilatoria; POCUS puede confirmar resolución si no retrasa la intervención.",
+      "Complicaciones": "lesión vascular/pulmonar/diafragmática, fallo por catéter corto u obstruido, infección y falsa vía.",
+      "Después": "drenaje pleural definitivo y reevaluación seriada.",
+      "Documentación": "lado, técnica, sitio, dispositivo y respuesta.",
+      "Fuentes": "ERC 2025 Special Circumstances — traumatic cardiac arrest/tension pneumothorax; BTS Pleural Procedures 2023 para drenaje definitivo.",
+      "QA": "YELLOW; revisión humana trauma/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "ausencia de respuesta obliga a comprobar lado, permeabilidad y diagnóstico alternativo; no repetir punciones ciegas sin reevaluación."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-THX-009",
+  "name": "Toracotomía de resucitación",
+  "family": "TÓRAX Y PLEURA",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "tratar causas traumáticas inmediatamente reversibles en un paciente que llega en extremis o sin pulso dentro de criterios de toracotomía de resucitación.",
+  "indications": [
+    "la guía EAST recomienda fuertemente EDT en pacientes sin pulso pero con signos de vida tras trauma penetrante torácico; ofrece recomendaciones condicionales en otros escenarios seleccionados de trauma penetrante y en trauma cerrado con signos de vida."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "EAST recomienda condicionalmente no realizarla en trauma cerrado sin pulso y sin signos de vida; la aplicabilidad depende del sistema de trauma, tiempos, mecanismo y capacidad quirúrgica inmediata."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "set de toracotomía, PPE, aspiración, instrumental vascular/cardiaco, desfibrilación interna si disponible y transfusión masiva."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "hemitórax izquierdo, pericardio, corazón, hilio pulmonar y aorta torácica descendente."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "activar trauma/cirugía, transfusión masiva y quirófano; asignar roles y minimizar exposición ocupacional."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "toracotomía anterolateral izquierda; abrir tórax; abrir pericardio si existe taponamiento; controlar hemorragia accesible, realizar masaje cardíaco interno cuando proceda y ocluir aorta descendente solo si está indicado como puente al control definitivo."
+    }
+  ],
+  "stop_points": [
+    "no realizar fuera de criterios del sistema o sin capacidad inmediata de cirugía definitiva; detener maniobras que provoquen lesión iatrogénica sin beneficio resucitativo."
+  ],
+  "confirmation": [
+    "control temporal de causa reversible, actividad cardíaca/ROSC o perfusión suficiente para traslado inmediato a cirugía."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia masiva, lesión cardiopulmonar/vascular iatrogénica y exposición del personal a sangre."
+    ]
+  },
+  "aftercare": [
+    "cirugía definitiva inmediata."
+  ],
+  "documentation": [
+    "mecanismo, presencia/ausencia de signos de vida, tiempos de RCP, maniobras y resultado."
+  ],
+  "sources": [
+    {
+      "title": "EAST Emergency Department Thoracotomy Practice Management Guideline (2015, guía vigente en EAST).",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "cirugía definitiva inmediata."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de trauma pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/03-thorax-pleura.md",
+    "source_heading": "PROC-THX-009 — Toracotomía de resucitación — SPECIALIST",
+    "family_preamble": "# 3. Tórax y pleura\n\nEstado de familia: **YELLOW**. Fuentes troncales: BTS Clinical Statement on Pleural Procedures 2023 (vigente), BTS Pleural Disease Guideline, ERC/trauma guidance y EAST para toracotomía resucitativa.",
+    "source_sha256": "2e7dfe69de6cfafc7c6265a6fa526fb1a9e59e3ecada2164d3b2e2cfd290a0c6",
+    "sections": {
+      "Objetivo": "tratar causas traumáticas inmediatamente reversibles en un paciente que llega en extremis o sin pulso dentro de criterios de toracotomía de resucitación.",
+      "Indicaciones": "la guía EAST recomienda fuertemente EDT en pacientes sin pulso pero con signos de vida tras trauma penetrante torácico; ofrece recomendaciones condicionales en otros escenarios seleccionados de trauma penetrante y en trauma cerrado con signos de vida.",
+      "Contraindicaciones/precauciones": "EAST recomienda condicionalmente no realizarla en trauma cerrado sin pulso y sin signos de vida; la aplicabilidad depende del sistema de trauma, tiempos, mecanismo y capacidad quirúrgica inmediata.",
+      "Material": "set de toracotomía, PPE, aspiración, instrumental vascular/cardiaco, desfibrilación interna si disponible y transfusión masiva.",
+      "Anatomía": "hemitórax izquierdo, pericardio, corazón, hilio pulmonar y aorta torácica descendente.",
+      "Preparación": "activar trauma/cirugía, transfusión masiva y quirófano; asignar roles y minimizar exposición ocupacional.",
+      "Técnica paso a paso": "toracotomía anterolateral izquierda; abrir tórax; abrir pericardio si existe taponamiento; controlar hemorragia accesible, realizar masaje cardíaco interno cuando proceda y ocluir aorta descendente solo si está indicado como puente al control definitivo.",
+      "STOP": "no realizar fuera de criterios del sistema o sin capacidad inmediata de cirugía definitiva; detener maniobras que provoquen lesión iatrogénica sin beneficio resucitativo.",
+      "Confirmación": "control temporal de causa reversible, actividad cardíaca/ROSC o perfusión suficiente para traslado inmediato a cirugía.",
+      "Complicaciones": "hemorragia masiva, lesión cardiopulmonar/vascular iatrogénica y exposición del personal a sangre.",
+      "Después": "cirugía definitiva inmediata.",
+      "Documentación": "mecanismo, presencia/ausencia de signos de vida, tiempos de RCP, maniobras y resultado.",
+      "Fuentes": "EAST Emergency Department Thoracotomy Practice Management Guideline (2015, guía vigente en EAST).",
+      "QA": "YELLOW; revisión humana de trauma pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "cirugía definitiva inmediata."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}
