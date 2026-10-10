@@ -28,7 +28,7 @@ const tabs:[Tab,string][]=[
  ['diagnostic','Apoio diagnóstico'],['plan','Plano'],['export','Exportar'],
 ];
 const mcdtKinds=['Analítica','Gasometria','ECG','Rx','TC/RM','Ecografia/POCUS','Microbiologia','Outro'];
-const directId=/\b(nome|name|sns|nif|morada|endereço|address|telefone|telemóvel|phone|mrn)\b\s*[:\-]/i;
+const directId=/\b(nome|name|sns|nif|morada|endereço|address|telefone|telemóvel|phone|mrn)\b\s*[:-]/i;
 const kindMap:Record<string,string>={
   'Analítica':'laboratory_report','Gasometria':'blood_gas','ECG':'ecg','Rx':'xray',
   'TC/RM':'ct','Ecografia/POCUS':'pocus','Microbiologia':'microbiology','Outro':'other_image',

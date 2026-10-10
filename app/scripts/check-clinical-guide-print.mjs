@@ -24,7 +24,7 @@ try {
     await page.goto(`http://127.0.0.1:4173${path}`, { waitUntil: 'networkidle' });
     await page.locator('.canonical-body').waitFor();
     await page.emulateMedia({ media: 'print' });
-    assert.equal(await page.locator('.canonical-body').evaluate((el) => getComputedStyle(el).visibility), 'visible');
+    assert.equal(await page.locator('.canonical-body').evaluate((el) => el.ownerDocument.defaultView.getComputedStyle(el).visibility), 'visible');
     const pdf = await page.pdf({ preferCSSPageSize: true, printBackground: true });
     const extract = spawnSync(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-c',
       'import io,sys; from pypdf import PdfReader; sys.stdout.buffer.write("\\n".join(p.extract_text() for p in PdfReader(io.BytesIO(sys.stdin.buffer.read())).pages).encode("utf-8"))',

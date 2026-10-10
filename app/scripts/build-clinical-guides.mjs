@@ -13,7 +13,7 @@ const modulesText = await readCanonical(resolve(clinicalRoot, 'MODULES.md'));
 
 const entries = indexText
   .split('\n')
-  .map((line) => line.match(/^\|\s*\`?([^|\`]+?)\`?\s*\|\s*\`([^\`]+)\`\s*\|$/))
+  .map((line) => line.match(/^\|\s*`?([^|`]+?)`?\s*\|\s*`([^`]+)`\s*\|$/))
   .filter(Boolean)
   .map((match) => ({ id: match[1].trim(), bundle: match[2].trim() }))
   .filter((entry) => entry.id !== 'Module ID');
@@ -22,7 +22,7 @@ const statusMap = new Map();
 for (const line of modulesText.split('\n')) {
   const parts = line.split('|').map((part) => part.trim());
   if (parts.length < 5) continue;
-  const idMatch = parts[1]?.match(/^\`([^\`]+)\`$/);
+  const idMatch = parts[1]?.match(/^`([^`]+)`$/);
   const status = parts[3]?.toLowerCase();
   if (idMatch && ['green', 'yellow', 'red'].includes(status)) statusMap.set(idMatch[1], status);
 }
