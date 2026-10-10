@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-018",
+  "name": "Trepanación de hematoma subungueal",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aliviar presión y dolor de un hematoma subungueal simple.",
+  "indications": [
+    "hematoma subungueal doloroso con placa y pliegues ungueales íntegros; Merck 2025 lo considera típico cuando ocupa >50% del lecho, aunque el criterio clínico principal es dolor/presión."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "avulsión de la uña, placa partida o laceración que se extiende a piel requieren evaluación para retirada/reparación; tras >1–2 días la sangre puede estar coagulada y la trepanación ser ineficaz."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "electrocauterio o aguja apropiada, antisepsia, protección y bloqueo digital solo si es necesario."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "placa ungueal, lecho y matriz."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "examen neurovascular y radiografía si se sospecha fractura distal relevante."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "crear uno o más orificios en la placa sobre el hematoma con cauterio o aguja; detener presión en cuanto se atraviese la placa y permitir drenaje espontáneo."
+    }
+  ],
+  "stop_points": [
+    "dolor brusco por contacto con lecho, imposibilidad de atravesar placa de forma segura, lesión ungueal compleja o sospecha de matriz lesionada."
+  ],
+  "confirmation": [
+    "salida de sangre y alivio rápido del dolor/presión."
+  ],
+  "complications": {
+    "unclassified": [
+      "infección, lesión del lecho, quemadura y drenaje incompleto."
+    ]
+  },
+  "aftercare": [
+    "apósito simple y cuidado local; no retirar una uña intacta solo por el tamaño del hematoma."
+  ],
+  "documentation": [
+    "tiempo desde lesión, integridad ungueal, técnica y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Do Nail Trephination, updated May 2025; Fingertip Fractures, updated Mar 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana mano/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-018 — Trepanación de hematoma subungueal — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "29c49d4351cad97b0babdaa9de4ddcfb3c236b029b0812cb12182bcf46393b14",
+    "sections": {
+      "Objetivo": "aliviar presión y dolor de un hematoma subungueal simple.",
+      "Indicaciones": "hematoma subungueal doloroso con placa y pliegues ungueales íntegros; Merck 2025 lo considera típico cuando ocupa >50% del lecho, aunque el criterio clínico principal es dolor/presión.",
+      "Contraindicaciones/precauciones": "avulsión de la uña, placa partida o laceración que se extiende a piel requieren evaluación para retirada/reparación; tras >1–2 días la sangre puede estar coagulada y la trepanación ser ineficaz.",
+      "Material": "electrocauterio o aguja apropiada, antisepsia, protección y bloqueo digital solo si es necesario.",
+      "Anatomía": "placa ungueal, lecho y matriz.",
+      "Preparación": "examen neurovascular y radiografía si se sospecha fractura distal relevante.",
+      "Técnica paso a paso": "crear uno o más orificios en la placa sobre el hematoma con cauterio o aguja; detener presión en cuanto se atraviese la placa y permitir drenaje espontáneo.",
+      "STOP": "dolor brusco por contacto con lecho, imposibilidad de atravesar placa de forma segura, lesión ungueal compleja o sospecha de matriz lesionada.",
+      "Confirmación": "salida de sangre y alivio rápido del dolor/presión.",
+      "Complicaciones": "infección, lesión del lecho, quemadura y drenaje incompleto.",
+      "Después": "apósito simple y cuidado local; no retirar una uña intacta solo por el tamaño del hematoma.",
+      "Documentación": "tiempo desde lesión, integridad ungueal, técnica y respuesta.",
+      "Fuentes": "Merck Manual Professional, How To Do Nail Trephination, updated May 2025; Fingertip Fractures, updated Mar 2025.",
+      "QA": "YELLOW; revisión humana mano/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

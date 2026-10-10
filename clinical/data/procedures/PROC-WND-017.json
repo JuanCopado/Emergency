@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-WND-017",
+  "name": "Extracción de anillo",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "liberar un dedo comprimido por un anillo antes de que progrese el compromiso de tejidos blandos o vascular.",
+  "indications": [
+    "edema o edema previsible con anillo que no puede retirarse de forma simple."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "laceración/fractura, deformidad distal, isquemia avanzada o material muy duro pueden hacer preferible cortar el anillo directamente o utilizar herramientas/especialista."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "lubricante, elevación/compresión, hilo o cinta elástica, cortador de anillos y protector cutáneo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "dedo, articulaciones, vasos y nervios digitales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "retirar otros anillos, documentar perfusión/sensibilidad, elevar la mano y reducir edema si existe tiempo y la perfusión es adecuada."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "intentar primero lubricación y compresión; si es apropiado usar técnica de hilo envolviendo distalmente y desenrollando desde proximal para hacer avanzar el anillo; si fracasa o la perfusión está comprometida, cortar el anillo protegiendo la piel y separar sus bordes."
+    }
+  ],
+  "stop_points": [
+    "empeoramiento de dolor, perfusión o sensibilidad; no insistir con técnica de hilo en dedo con trauma importante o isquemia."
+  ],
+  "confirmation": [
+    "anillo retirado y recuperación/mantenimiento de perfusión y sensibilidad distal."
+  ],
+  "complications": {
+    "unclassified": [
+      "laceración, lesión nerviosa, lesión térmica durante el corte y daño del anillo."
+    ]
+  },
+  "aftercare": [
+    "tratar la causa del edema/trauma y reevaluar neurovascular."
+  ],
+  "documentation": [
+    "perfusión/sensibilidad pre-post, método y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Remove a Ring Using the String Method, updated Jul 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "si fracasa o la perfusión está comprometida, cortar el anillo protegiendo la piel y separar sus bordes."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-017 — Extracción de anillo — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "f47e4f745d36050cedb9074723cedcd81177147d06c8b13c1b553ad6cd45435f",
+    "sections": {
+      "Objetivo": "liberar un dedo comprimido por un anillo antes de que progrese el compromiso de tejidos blandos o vascular.",
+      "Indicaciones": "edema o edema previsible con anillo que no puede retirarse de forma simple.",
+      "Contraindicaciones/precauciones": "laceración/fractura, deformidad distal, isquemia avanzada o material muy duro pueden hacer preferible cortar el anillo directamente o utilizar herramientas/especialista.",
+      "Material": "lubricante, elevación/compresión, hilo o cinta elástica, cortador de anillos y protector cutáneo.",
+      "Anatomía": "dedo, articulaciones, vasos y nervios digitales.",
+      "Preparación": "retirar otros anillos, documentar perfusión/sensibilidad, elevar la mano y reducir edema si existe tiempo y la perfusión es adecuada.",
+      "Técnica paso a paso": "intentar primero lubricación y compresión; si es apropiado usar técnica de hilo envolviendo distalmente y desenrollando desde proximal para hacer avanzar el anillo; si fracasa o la perfusión está comprometida, cortar el anillo protegiendo la piel y separar sus bordes.",
+      "STOP": "empeoramiento de dolor, perfusión o sensibilidad; no insistir con técnica de hilo en dedo con trauma importante o isquemia.",
+      "Confirmación": "anillo retirado y recuperación/mantenimiento de perfusión y sensibilidad distal.",
+      "Complicaciones": "laceración, lesión nerviosa, lesión térmica durante el corte y daño del anillo.",
+      "Después": "tratar la causa del edema/trauma y reevaluar neurovascular.",
+      "Documentación": "perfusión/sensibilidad pre-post, método y complicaciones.",
+      "Fuentes": "Merck Manual Professional, How To Remove a Ring Using the String Method, updated Jul 2025.",
+      "QA": "YELLOW; revisión humana de urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si fracasa o la perfusión está comprometida, cortar el anillo protegiendo la piel y separar sus bordes."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

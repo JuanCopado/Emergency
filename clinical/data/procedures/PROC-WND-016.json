@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-016",
+  "name": "Extracción de cuerpo extraño superficial",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un cuerpo extraño accesible minimizando lesión de estructuras profundas y fragmentos retenidos.",
+  "indications": [
+    "material superficial sintomático, contaminante o con riesgo razonable de infección, toxicidad o lesión funcional."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "proximidad a nervio, vaso, tendón, articulación, ojo o cavidad corporal; objeto profundo/no localizable o material fragmentable puede requerir imagen o especialista."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anestesia local, pinzas, bisturí, irrigación y US/Rx cuando la naturaleza del material lo aconseje."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "trayecto del objeto y estructuras vecinas."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "documentar neurovascular, localizar antes de ampliar la herida y elegir imagen cuando el material sea radiopaco o ecovisible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "exponer bajo visión, anestesiar, ampliar mínimamente siguiendo el trayecto si es necesario, retirar con pinza adecuada y reexplorar/irrigar."
+    }
+  ],
+  "stop_points": [
+    "pérdida de visualización, resistencia profunda, sangrado relevante, parestesia o proximidad a estructura crítica."
+  ],
+  "confirmation": [
+    "objeto íntegro recuperado o inspección/imagen sin fragmentos relevantes cuando la integridad sea dudosa."
+  ],
+  "complications": {
+    "unclassified": [
+      "fragmento retenido, infección, lesión neurovascular/tendinosa y cicatriz."
+    ]
+  },
+  "aftercare": [
+    "tétanos y cuidado de herida según contexto; informar si se decide dejar un fragmento inerte porque extraerlo supondría más riesgo."
+  ],
+  "documentation": [
+    "tipo/tamaño aproximado, imagen utilizada, método, integridad y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, skin/soft-tissue foreign-body removal procedures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de urgencias/cirugía pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-016 — Extracción de cuerpo extraño superficial — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "b0ce92abc80ab50c063a0d9764408c09f36a5d9c2b3a7f7be969d8d1fe9e9112",
+    "sections": {
+      "Objetivo": "retirar un cuerpo extraño accesible minimizando lesión de estructuras profundas y fragmentos retenidos.",
+      "Indicaciones": "material superficial sintomático, contaminante o con riesgo razonable de infección, toxicidad o lesión funcional.",
+      "Contraindicaciones/precauciones": "proximidad a nervio, vaso, tendón, articulación, ojo o cavidad corporal; objeto profundo/no localizable o material fragmentable puede requerir imagen o especialista.",
+      "Material": "anestesia local, pinzas, bisturí, irrigación y US/Rx cuando la naturaleza del material lo aconseje.",
+      "Anatomía": "trayecto del objeto y estructuras vecinas.",
+      "Preparación": "documentar neurovascular, localizar antes de ampliar la herida y elegir imagen cuando el material sea radiopaco o ecovisible.",
+      "Técnica paso a paso": "exponer bajo visión, anestesiar, ampliar mínimamente siguiendo el trayecto si es necesario, retirar con pinza adecuada y reexplorar/irrigar.",
+      "STOP": "pérdida de visualización, resistencia profunda, sangrado relevante, parestesia o proximidad a estructura crítica.",
+      "Confirmación": "objeto íntegro recuperado o inspección/imagen sin fragmentos relevantes cuando la integridad sea dudosa.",
+      "Complicaciones": "fragmento retenido, infección, lesión neurovascular/tendinosa y cicatriz.",
+      "Después": "tétanos y cuidado de herida según contexto; informar si se decide dejar un fragmento inerte porque extraerlo supondría más riesgo.",
+      "Documentación": "tipo/tamaño aproximado, imagen utilizada, método, integridad y complicaciones.",
+      "Fuentes": "Merck Manual Professional, skin/soft-tissue foreign-body removal procedures, updated 2025–2026.",
+      "QA": "YELLOW; revisión humana de urgencias/cirugía pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

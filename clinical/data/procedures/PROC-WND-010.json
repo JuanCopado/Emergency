@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-010",
+  "name": "Sutura continua",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "cerrar de forma rápida y uniforme una herida lineal seleccionada; la variante subcuticular busca un cierre cosmético intradérmico.",
+  "indications": [
+    "heridas limpias, lineales y de baja tensión; la variante subcuticular es especialmente útil en heridas rectas y sin tensión en zonas cosméticas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "contaminación, infección, tensión significativa, bordes irregulares o necesidad de ajustar individualmente la tensión favorecen otra técnica."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "portaagujas, pinza y sutura apropiada; absorbible para subcuticular cuando corresponda."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "dermis y plano intradérmico/subcuticular."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "irrigar, explorar, desbridar si precisa, anestesiar y conseguir hemostasia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "para continua cutánea, colocar un nudo inicial y avanzar con mordidas equidistantes manteniendo tensión uniforme; para subcuticular, realizar mordidas alternas intradérmicas paralelas a la herida."
+    }
+  ],
+  "stop_points": [
+    "tensión excesiva, inversión de bordes, isquemia o contaminación/lesión profunda no reconocida."
+  ],
+  "confirmation": [
+    "cierre uniforme, sin gaps ni estrangulación."
+  ],
+  "complications": {
+    "unclassified": [
+      "dehiscencia extensa si falla el hilo, infección, cicatriz y reacción al material."
+    ]
+  },
+  "aftercare": [
+    "proteger la herida de tensión y seguir criterios de retirada si se usa material no absorbible."
+  ],
+  "documentation": [
+    "tipo de técnica, material y resultado."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Repair a Laceration With a Subcuticular Running Suture, updated Jan 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de cirugía menor pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-010 — Sutura continua / subcuticular continua — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "7c4deb854fcb53dfcf9ee885075736a85316fd53492eece98ad41418c2e1ff3f",
+    "sections": {
+      "Objetivo": "cerrar de forma rápida y uniforme una herida lineal seleccionada; la variante subcuticular busca un cierre cosmético intradérmico.",
+      "Indicaciones": "heridas limpias, lineales y de baja tensión; la variante subcuticular es especialmente útil en heridas rectas y sin tensión en zonas cosméticas.",
+      "Contraindicaciones/precauciones": "contaminación, infección, tensión significativa, bordes irregulares o necesidad de ajustar individualmente la tensión favorecen otra técnica.",
+      "Material": "portaagujas, pinza y sutura apropiada; absorbible para subcuticular cuando corresponda.",
+      "Anatomía": "dermis y plano intradérmico/subcuticular.",
+      "Preparación": "irrigar, explorar, desbridar si precisa, anestesiar y conseguir hemostasia.",
+      "Técnica paso a paso": "para continua cutánea, colocar un nudo inicial y avanzar con mordidas equidistantes manteniendo tensión uniforme; para subcuticular, realizar mordidas alternas intradérmicas paralelas a la herida.",
+      "STOP": "tensión excesiva, inversión de bordes, isquemia o contaminación/lesión profunda no reconocida.",
+      "Confirmación": "cierre uniforme, sin gaps ni estrangulación.",
+      "Complicaciones": "dehiscencia extensa si falla el hilo, infección, cicatriz y reacción al material.",
+      "Después": "proteger la herida de tensión y seguir criterios de retirada si se usa material no absorbible.",
+      "Documentación": "tipo de técnica, material y resultado.",
+      "Fuentes": "Merck Manual Professional, How To Repair a Laceration With a Subcuticular Running Suture, updated Jan 2026.",
+      "QA": "YELLOW; revisión humana de cirugía menor pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

@@ -346,5 +346,37 @@
         "quote": "consultar cirugía vascular/intervencionismo para canulación arterial de gran calibre"
       }
     ]
+  },
+  "PROC-WND-017": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si fracasa o la perfusión está comprometida, cortar el anillo protegiendo la piel y separar sus bordes."
+      }
+    ]
+  },
+  "PROC-WND-019": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "añadir una segunda línea si la descompresión es insuficiente."
+      }
+    ]
+  },
+  "PROC-WND-020": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "inhalación, quemadura eléctrica/química grave o área crítica → protocolo especializado."
+      }
+    ]
+  },
+  "PROC-WND-022": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "seguimiento de mano cuando la lesión es compleja."
+      }
+    ]
   }
 }

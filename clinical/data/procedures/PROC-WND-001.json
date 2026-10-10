@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-WND-001",
+  "name": "Anestesia local por infiltración",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar analgesia local para procedimientos cutáneos.",
+  "indications": [
+    "reparación, drenaje o exploración de heridas seleccionadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "alergia real, infección extensa o dosis total acumulada cercana a máximo; no inyectar intravascularmente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anestésico, jeringa/aguja, antiséptico y monitorización según riesgo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "piel/subcutáneo y vasos locales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "calcular dosis total desde módulo farmacológico y explicar."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "antisepsia"
+    },
+    {
+      "order": 2,
+      "action": "insertar desde piel sana o borde"
+    },
+    {
+      "order": 3,
+      "action": "aspirar cuando proceda"
+    },
+    {
+      "order": 4,
+      "action": "infiltrar lentamente"
+    },
+    {
+      "order": 5,
+      "action": "ampliar campo con mínimo volumen efectivo."
+    }
+  ],
+  "stop_points": [
+    "síntomas de LAST o aspiración intravascular."
+  ],
+  "confirmation": [
+    "pérdida de sensibilidad antes de procedimiento."
+  ],
+  "complications": {
+    "unclassified": [
+      "dolor, hematoma, infección, LAST."
+    ]
+  },
+  "aftercare": [
+    "observar si dosis elevada/comorbilidad."
+  ],
+  "documentation": [
+    "agente/dosis desde módulo y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, local wound anesthesia/infiltration procedures; ACEP emergency wound-care principles.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-001 — Anestesia local por infiltración — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "f80f398bff3d8b373624e345bcae7e052897979b091c53087a7d0b012b89cd58",
+    "sections": {
+      "Objetivo": "proporcionar analgesia local para procedimientos cutáneos.",
+      "Indicaciones": "reparación, drenaje o exploración de heridas seleccionadas.",
+      "Contraindicaciones/precauciones": "alergia real, infección extensa o dosis total acumulada cercana a máximo; no inyectar intravascularmente.",
+      "Material": "anestésico, jeringa/aguja, antiséptico y monitorización según riesgo.",
+      "Anatomía": "piel/subcutáneo y vasos locales.",
+      "Preparación": "calcular dosis total desde módulo farmacológico y explicar.",
+      "Técnica paso a paso": "1) antisepsia; 2) insertar desde piel sana o borde; 3) aspirar cuando proceda; 4) infiltrar lentamente; 5) ampliar campo con mínimo volumen efectivo.",
+      "STOP": "síntomas de LAST o aspiración intravascular.",
+      "Confirmación": "pérdida de sensibilidad antes de procedimiento.",
+      "Complicaciones": "dolor, hematoma, infección, LAST.",
+      "Después": "observar si dosis elevada/comorbilidad.",
+      "Documentación": "agente/dosis desde módulo y respuesta.",
+      "Fuentes": "Merck Manual Professional, local wound anesthesia/infiltration procedures; ACEP emergency wound-care principles.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

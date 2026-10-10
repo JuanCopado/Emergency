@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-009",
+  "name": "Sutura simple interrumpida",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aproximar los bordes de una laceración permitiendo ajustar individualmente la tensión de cada punto.",
+  "indications": [
+    "laceraciones cutáneas que requieren cierre y en las que el control punto a punto de la tensión es deseable."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección, contaminación que no puede eliminarse o heridas de alto riesgo pueden requerir cierre diferido o segunda intención; las lesiones profundas requieren evaluación especializada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "portaagujas, pinza dentada, sutura apropiada, anestesia local, material de irrigación y apósito."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "epidermis, dermis y tejido subcutáneo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "limpiar, irrigar, explorar, desbridar cuando sea necesario, lograr hemostasia y anestesiar."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "introducir la aguja perpendicular a la piel; realizar mordidas simétricas; evertir suavemente los bordes; anudar lateralmente sin estrangular; colocar puntos adicionales con tensión uniforme."
+    }
+  ],
+  "stop_points": [
+    "blanqueamiento/isquemia, cierre forzado bajo tensión, contaminación residual o lesión profunda no evaluada."
+  ],
+  "confirmation": [
+    "bordes bien afrontados y ligeramente evertidos, sin gaps significativos ni compromiso vascular."
+  ],
+  "complications": {
+    "unclassified": [
+      "infección, dehiscencia, necrosis por exceso de tensión, marcas de sutura y cicatriz."
+    ]
+  },
+  "aftercare": [
+    "apósito, instrucciones y retirada según localización; inmovilizar si el movimiento genera tensión."
+  ],
+  "documentation": [
+    "localización, material/calibre, número de puntos, anestesia y estado neurovascular cuando aplique."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Repair a Laceration With Simple Interrupted Sutures, updated Jan 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de cirugía menor pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-009 — Sutura simple interrumpida — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "18357176f0951ac0b890132bd3f6679d4a341c02266bf3d952edf249eb76444d",
+    "sections": {
+      "Objetivo": "aproximar los bordes de una laceración permitiendo ajustar individualmente la tensión de cada punto.",
+      "Indicaciones": "laceraciones cutáneas que requieren cierre y en las que el control punto a punto de la tensión es deseable.",
+      "Contraindicaciones/precauciones": "infección, contaminación que no puede eliminarse o heridas de alto riesgo pueden requerir cierre diferido o segunda intención; las lesiones profundas requieren evaluación especializada.",
+      "Material": "portaagujas, pinza dentada, sutura apropiada, anestesia local, material de irrigación y apósito.",
+      "Anatomía": "epidermis, dermis y tejido subcutáneo.",
+      "Preparación": "limpiar, irrigar, explorar, desbridar cuando sea necesario, lograr hemostasia y anestesiar.",
+      "Técnica paso a paso": "introducir la aguja perpendicular a la piel; realizar mordidas simétricas; evertir suavemente los bordes; anudar lateralmente sin estrangular; colocar puntos adicionales con tensión uniforme.",
+      "STOP": "blanqueamiento/isquemia, cierre forzado bajo tensión, contaminación residual o lesión profunda no evaluada.",
+      "Confirmación": "bordes bien afrontados y ligeramente evertidos, sin gaps significativos ni compromiso vascular.",
+      "Complicaciones": "infección, dehiscencia, necrosis por exceso de tensión, marcas de sutura y cicatriz.",
+      "Después": "apósito, instrucciones y retirada según localización; inmovilizar si el movimiento genera tensión.",
+      "Documentación": "localización, material/calibre, número de puntos, anestesia y estado neurovascular cuando aplique.",
+      "Fuentes": "Merck Manual Professional, How To Repair a Laceration With Simple Interrupted Sutures, updated Jan 2026.",
+      "QA": "YELLOW; revisión humana de cirugía menor pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

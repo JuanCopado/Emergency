@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-002",
+  "name": "Bloqueo digital",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "anestesiar un dedo sin distorsionar los bordes de la herida.",
+  "indications": [
+    "laceración, extracción de anillo/cuerpo extraño, reducción, reparación ungueal u otros procedimientos digitales."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "alergia al anestésico, ausencia de landmarks por trauma severo, neuritis o necesidad de atravesar tejido infectado. La epinefrina puede utilizarse en dedos con circulación normal según práctica actual, pero debe individualizarse en isquemia o enfermedad vascular significativa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anestésico desde módulo farmacológico, jeringa pequeña, aguja fina, antiséptico y material para LAST."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "nervios digitales dorsales/volares a ambos lados del dedo y vasos digitales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "documentar perfusión/sensibilidad, calcular dosis total y realizar antisepsia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar bloqueo bilateral en la base del dedo con pequeños depósitos subcutáneos/perineurales, evitando inyección intravascular y sin necesidad de infiltrar el lecho de la herida."
+    }
+  ],
+  "stop_points": [
+    "dolor eléctrico persistente, alta resistencia a la inyección, aspiración sanguínea o signos de LAST."
+  ],
+  "confirmation": [
+    "pérdida de sensibilidad distal circunferencial antes de iniciar el procedimiento."
+  ],
+  "complications": {
+    "unclassified": [
+      "hematoma, infección, lesión neural, isquemia rara y LAST."
+    ]
+  },
+  "aftercare": [
+    "reevaluar perfusión y advertir protección del dedo insensible."
+  ],
+  "documentation": [
+    "agente/dosis, técnica, neurovascular pre/post y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Do a Digital Nerve Block, updated Apr 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana anestesia/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-002 — Bloqueo digital — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "f15c6cf3371a8e00c5ab544f6c5716c7d7d5a053bda6e516c9e4b59f6db0dbc7",
+    "sections": {
+      "Objetivo": "anestesiar un dedo sin distorsionar los bordes de la herida.",
+      "Indicaciones": "laceración, extracción de anillo/cuerpo extraño, reducción, reparación ungueal u otros procedimientos digitales.",
+      "Contraindicaciones/precauciones": "alergia al anestésico, ausencia de landmarks por trauma severo, neuritis o necesidad de atravesar tejido infectado. La epinefrina puede utilizarse en dedos con circulación normal según práctica actual, pero debe individualizarse en isquemia o enfermedad vascular significativa.",
+      "Material": "anestésico desde módulo farmacológico, jeringa pequeña, aguja fina, antiséptico y material para LAST.",
+      "Anatomía": "nervios digitales dorsales/volares a ambos lados del dedo y vasos digitales.",
+      "Preparación": "documentar perfusión/sensibilidad, calcular dosis total y realizar antisepsia.",
+      "Técnica paso a paso": "realizar bloqueo bilateral en la base del dedo con pequeños depósitos subcutáneos/perineurales, evitando inyección intravascular y sin necesidad de infiltrar el lecho de la herida.",
+      "STOP": "dolor eléctrico persistente, alta resistencia a la inyección, aspiración sanguínea o signos de LAST.",
+      "Confirmación": "pérdida de sensibilidad distal circunferencial antes de iniciar el procedimiento.",
+      "Complicaciones": "hematoma, infección, lesión neural, isquemia rara y LAST.",
+      "Después": "reevaluar perfusión y advertir protección del dedo insensible.",
+      "Documentación": "agente/dosis, técnica, neurovascular pre/post y respuesta.",
+      "Fuentes": "Merck Manual Professional, How To Do a Digital Nerve Block, updated Apr 2025.",
+      "QA": "YELLOW; revisión humana anestesia/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

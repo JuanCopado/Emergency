@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-011",
+  "name": "Punto colchonero vertical/horizontal",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "evertir bordes y redistribuir tensión lejos del borde de la herida.",
+  "indications": [
+    "heridas con tendencia a inversión o con tensión moderada; el horizontal es útil en piel con poco tejido subcutáneo o bordes frágiles, y el vertical mejora alineación y eversión."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "perfusión marginal, riesgo de necrosis por compresión, contaminación relevante o heridas donde una técnica profunda especializada sea más apropiada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "portaagujas, pinza, sutura y material estándar de cierre."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "epidermis, dermis y subcutáneo superficial."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "limpieza, irrigación, anestesia, exploración y hemostasia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "vertical: mordida amplia-profunda seguida de estrecha-superficial; horizontal: dos pases paralelos a través de ambos bordes. Ajustar solo hasta conseguir eversión y aproximación."
+    }
+  ],
+  "stop_points": [
+    "blanqueamiento, compromiso de perfusión, hundimiento excesivo de la sutura o tensión desproporcionada."
+  ],
+  "confirmation": [
+    "bordes evertidos y alineados sin isquemia."
+  ],
+  "complications": {
+    "unclassified": [
+      "necrosis de borde, marcas, dehiscencia e infección."
+    ]
+  },
+  "aftercare": [
+    "apósito y retirada según localización; inmovilizar si el movimiento genera tensión."
+  ],
+  "documentation": [
+    "tipo de colchonero, material y número de puntos."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Vertical and Horizontal Mattress Sutures, updated Jan 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de cirugía menor pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-011 — Puntos colchoneros vertical y horizontal — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "d50abfc1329c08c032781a002c4309359715d182fa290531219d249151f59bc5",
+    "sections": {
+      "Objetivo": "evertir bordes y redistribuir tensión lejos del borde de la herida.",
+      "Indicaciones": "heridas con tendencia a inversión o con tensión moderada; el horizontal es útil en piel con poco tejido subcutáneo o bordes frágiles, y el vertical mejora alineación y eversión.",
+      "Contraindicaciones/precauciones": "perfusión marginal, riesgo de necrosis por compresión, contaminación relevante o heridas donde una técnica profunda especializada sea más apropiada.",
+      "Material": "portaagujas, pinza, sutura y material estándar de cierre.",
+      "Anatomía": "epidermis, dermis y subcutáneo superficial.",
+      "Preparación": "limpieza, irrigación, anestesia, exploración y hemostasia.",
+      "Técnica paso a paso": "vertical: mordida amplia-profunda seguida de estrecha-superficial; horizontal: dos pases paralelos a través de ambos bordes. Ajustar solo hasta conseguir eversión y aproximación.",
+      "STOP": "blanqueamiento, compromiso de perfusión, hundimiento excesivo de la sutura o tensión desproporcionada.",
+      "Confirmación": "bordes evertidos y alineados sin isquemia.",
+      "Complicaciones": "necrosis de borde, marcas, dehiscencia e infección.",
+      "Después": "apósito y retirada según localización; inmovilizar si el movimiento genera tensión.",
+      "Documentación": "tipo de colchonero, material y número de puntos.",
+      "Fuentes": "Merck Manual Professional, Vertical and Horizontal Mattress Sutures, updated Jan 2026.",
+      "QA": "YELLOW; revisión humana de cirugía menor pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

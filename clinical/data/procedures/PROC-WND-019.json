@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-WND-019",
+  "name": "Escharotomía",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "liberar una escara circunferencial que compromete perfusión distal o ventilación.",
+  "indications": [
+    "quemadura circunferencial de espesor profundo con signos de compromiso vascular de una extremidad o restricción ventilatoria torácica atribuible a la escara."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "procedimiento de alto riesgo; distinguir escharotomía (hasta tejido subcutáneo) de fasciotomía; consultar precozmente a unidad de quemados."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "bisturí/electrocauterio, analgesia/sedación, hemostasia, monitorización y Doppler cuando sea útil."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "líneas de incisión seguras de extremidad o tórax, evitando trayectos neurovasculares vulnerables."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "activar burn team/centro de quemados, documentar perfusión/ventilación basal, analgesia y marcar trayecto."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar incisiones longitudinales a través de la escara hasta tejido subcutáneo viable, observando separación de bordes; extender solo lo necesario y añadir una segunda línea si la descompresión es insuficiente."
+    }
+  ],
+  "stop_points": [
+    "sangrado profundo, anatomía incierta o ausencia de mejoría que sugiera síndrome compartimental profundo/otra causa."
+  ],
+  "confirmation": [
+    "mejoría de perfusión distal (clínica/Doppler) o de expansión/ventilación torácica."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia, lesión nerviosa/vascular, infección, necesidad posterior de fasciotomía y cicatrización compleja."
+    ]
+  },
+  "aftercare": [
+    "cuidado en centro de quemados y cirugía/reconstrucción según evolución."
+  ],
+  "documentation": [
+    "indicación, líneas realizadas, perfusión/ventilación pre-post y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "American Burn Association, Clinical Practice Guidelines — Escharotomy and Decompressive Therapies in Burns.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "añadir una segunda línea si la descompresión es insuficiente."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de quemados pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-019 — Escharotomía — SPECIALIST",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "07cce999451e1ccaab7860523dff00d18848b767902296b1f56f41bebaa04059",
+    "sections": {
+      "Objetivo": "liberar una escara circunferencial que compromete perfusión distal o ventilación.",
+      "Indicaciones": "quemadura circunferencial de espesor profundo con signos de compromiso vascular de una extremidad o restricción ventilatoria torácica atribuible a la escara.",
+      "Contraindicaciones/precauciones": "procedimiento de alto riesgo; distinguir escharotomía (hasta tejido subcutáneo) de fasciotomía; consultar precozmente a unidad de quemados.",
+      "Material": "bisturí/electrocauterio, analgesia/sedación, hemostasia, monitorización y Doppler cuando sea útil.",
+      "Anatomía": "líneas de incisión seguras de extremidad o tórax, evitando trayectos neurovasculares vulnerables.",
+      "Preparación": "activar burn team/centro de quemados, documentar perfusión/ventilación basal, analgesia y marcar trayecto.",
+      "Técnica paso a paso": "realizar incisiones longitudinales a través de la escara hasta tejido subcutáneo viable, observando separación de bordes; extender solo lo necesario y añadir una segunda línea si la descompresión es insuficiente.",
+      "STOP": "sangrado profundo, anatomía incierta o ausencia de mejoría que sugiera síndrome compartimental profundo/otra causa.",
+      "Confirmación": "mejoría de perfusión distal (clínica/Doppler) o de expansión/ventilación torácica.",
+      "Complicaciones": "hemorragia, lesión nerviosa/vascular, infección, necesidad posterior de fasciotomía y cicatrización compleja.",
+      "Después": "cuidado en centro de quemados y cirugía/reconstrucción según evolución.",
+      "Documentación": "indicación, líneas realizadas, perfusión/ventilación pre-post y complicaciones.",
+      "Fuentes": "American Burn Association, Clinical Practice Guidelines — Escharotomy and Decompressive Therapies in Burns.",
+      "QA": "YELLOW; revisión humana de quemados pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "añadir una segunda línea si la descompresión es insuficiente."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

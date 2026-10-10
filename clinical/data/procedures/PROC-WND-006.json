@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-006",
+  "name": "Bloqueo interescalénico/selectivo de miembro superior",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "SPECIALIST/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar anestesia/analgesia de hombro y miembro superior proximal mediante bloqueo regional ecoguiado en pacientes seleccionados.",
+  "indications": [
+    "procedimientos de hombro o dolor severo cuando un bloqueo regional aporta beneficio y el riesgo respiratorio es aceptable."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "reserva respiratoria limitada, parálisis diafragmática contralateral, enfermedad pulmonar significativa, infección local, coagulopatía relevante, alergia o anatomía no identificable. El bloqueo interescalénico se asocia frecuentemente a paresia hemidiafragmática ipsilateral por afectación del nervio frénico."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo, aguja ecogénica, anestésico local desde módulo farmacológico, monitorización y equipo preparado para LAST/vía aérea."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "raíces/troncos del plexo braquial entre escalenos, nervio frénico sobre escaleno anterior, arteria vertebral/carótida/yugular y pleura."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "consentimiento, examen neurológico y respiratorio basal, monitorización, cálculo de dosis total y plan de rescate. En pacientes con riesgo respiratorio considerar una estrategia ahorradora del frénico en lugar de ISB convencional."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar plexo, nervio frénico y estructuras vasculares/pleurales; avanzar aguja in-plane manteniendo la punta visible; aspirar e inyectar de forma fraccionada con el mínimo volumen efectivo, evitando inyección intraneural."
+    }
+  ],
+  "stop_points": [
+    "dolor/parestesia intensa, alta presión de inyección, punta no visible, disnea, desaturación o signos de toxicidad sistémica por anestésico local."
+  ],
+  "confirmation": [
+    "difusión perineural adecuada y bloqueo sensitivo esperado, con vigilancia respiratoria."
+  ],
+  "complications": {
+    "unclassified": [
+      "paresia hemidiafragmática, lesión nerviosa, LAST, neumotórax, síndrome de Horner, ronquera y bloqueo vascular/inadvertido."
+    ]
+  },
+  "aftercare": [
+    "monitorizar respiración, fuerza y recuperación; en pacientes de alto riesgo respiratorio considerar alternativas como superior trunk o bloqueos más distales según experiencia y objetivo."
+  ],
+  "documentation": [
+    "lado, técnica US, anestésico/dosis, reserva respiratoria relevante, efecto y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "ASRA Pain Medicine 2025, phrenic-sparing shoulder block review; revisiones sistemáticas/meta-análisis 2025–2026 sobre ISB y paresia hemidiafragmática.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana anestesia regional pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-006 — Bloqueo interescalénico/selectivo de miembro superior — SPECIALIST",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "0290cb5ca603b02efedb5f04af07955636e7914c5730b321a0c13f0a946268d4",
+    "sections": {
+      "Objetivo": "proporcionar anestesia/analgesia de hombro y miembro superior proximal mediante bloqueo regional ecoguiado en pacientes seleccionados.",
+      "Indicaciones": "procedimientos de hombro o dolor severo cuando un bloqueo regional aporta beneficio y el riesgo respiratorio es aceptable.",
+      "Contraindicaciones/precauciones": "reserva respiratoria limitada, parálisis diafragmática contralateral, enfermedad pulmonar significativa, infección local, coagulopatía relevante, alergia o anatomía no identificable. El bloqueo interescalénico se asocia frecuentemente a paresia hemidiafragmática ipsilateral por afectación del nervio frénico.",
+      "Material": "ecógrafo, aguja ecogénica, anestésico local desde módulo farmacológico, monitorización y equipo preparado para LAST/vía aérea.",
+      "Anatomía": "raíces/troncos del plexo braquial entre escalenos, nervio frénico sobre escaleno anterior, arteria vertebral/carótida/yugular y pleura.",
+      "Preparación": "consentimiento, examen neurológico y respiratorio basal, monitorización, cálculo de dosis total y plan de rescate. En pacientes con riesgo respiratorio considerar una estrategia ahorradora del frénico en lugar de ISB convencional.",
+      "Técnica paso a paso": "identificar plexo, nervio frénico y estructuras vasculares/pleurales; avanzar aguja in-plane manteniendo la punta visible; aspirar e inyectar de forma fraccionada con el mínimo volumen efectivo, evitando inyección intraneural.",
+      "STOP": "dolor/parestesia intensa, alta presión de inyección, punta no visible, disnea, desaturación o signos de toxicidad sistémica por anestésico local.",
+      "Confirmación": "difusión perineural adecuada y bloqueo sensitivo esperado, con vigilancia respiratoria.",
+      "Complicaciones": "paresia hemidiafragmática, lesión nerviosa, LAST, neumotórax, síndrome de Horner, ronquera y bloqueo vascular/inadvertido.",
+      "Después": "monitorizar respiración, fuerza y recuperación; en pacientes de alto riesgo respiratorio considerar alternativas como superior trunk o bloqueos más distales según experiencia y objetivo.",
+      "Documentación": "lado, técnica US, anestésico/dosis, reserva respiratoria relevante, efecto y complicaciones.",
+      "Fuentes": "ASRA Pain Medicine 2025, phrenic-sparing shoulder block review; revisiones sistemáticas/meta-análisis 2025–2026 sobre ISB y paresia hemidiafragmática.",
+      "QA": "YELLOW; revisión humana anestesia regional pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

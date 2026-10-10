@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-012",
+  "name": "Grapas cutáneas",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "cerrar rápidamente laceraciones lineales de bordes definidos cuando el resultado cosmético no es prioritario.",
+  "indications": [
+    "laceraciones relativamente rectas del cuero cabelludo, tronco o extremidades de baja tensión."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar en cara/cuello por resultado cosmético inferior y usar con cautela en manos/pies; no usar sobre infección o lesión profunda no explorada. Si se prevé TC del área, considerar el posible artefacto de las grapas."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "grapadora cutánea, pinza para eversión si precisa y extractor."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "epidermis y dermis."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "irrigar, explorar, desbridar si procede, conseguir hemostasia y alinear bordes."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "evertir/aproximar los bordes, colocar la grapadora perpendicular al eje de la herida y aplicar cada grapa sin comprimir excesivamente; espaciar uniformemente."
+    }
+  ],
+  "stop_points": [
+    "superposición de bordes, atrapamiento de tejido profundo, blanqueamiento/isquemia o cierre bajo tensión."
+  ],
+  "confirmation": [
+    "bordes bien alineados y evertidos con grapas asentadas pero no incrustadas."
+  ],
+  "complications": {
+    "unclassified": [
+      "marcas, dolor, infección, mala alineación y cicatriz más visible."
+    ]
+  },
+  "aftercare": [
+    "apósito, instrucciones y retirada programada; confirmar capacidad de seguimiento."
+  ],
+  "documentation": [
+    "número de grapas, localización y resultado."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Repair a Laceration With Stapling, updated Jan 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de cirugía menor pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-012 — Grapas cutáneas — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "84ef1c14930d76045835215c8f98c0cbbbd11273d725c31eba5b03740fd04824",
+    "sections": {
+      "Objetivo": "cerrar rápidamente laceraciones lineales de bordes definidos cuando el resultado cosmético no es prioritario.",
+      "Indicaciones": "laceraciones relativamente rectas del cuero cabelludo, tronco o extremidades de baja tensión.",
+      "Contraindicaciones/precauciones": "evitar en cara/cuello por resultado cosmético inferior y usar con cautela en manos/pies; no usar sobre infección o lesión profunda no explorada. Si se prevé TC del área, considerar el posible artefacto de las grapas.",
+      "Material": "grapadora cutánea, pinza para eversión si precisa y extractor.",
+      "Anatomía": "epidermis y dermis.",
+      "Preparación": "irrigar, explorar, desbridar si procede, conseguir hemostasia y alinear bordes.",
+      "Técnica paso a paso": "evertir/aproximar los bordes, colocar la grapadora perpendicular al eje de la herida y aplicar cada grapa sin comprimir excesivamente; espaciar uniformemente.",
+      "STOP": "superposición de bordes, atrapamiento de tejido profundo, blanqueamiento/isquemia o cierre bajo tensión.",
+      "Confirmación": "bordes bien alineados y evertidos con grapas asentadas pero no incrustadas.",
+      "Complicaciones": "marcas, dolor, infección, mala alineación y cicatriz más visible.",
+      "Después": "apósito, instrucciones y retirada programada; confirmar capacidad de seguimiento.",
+      "Documentación": "número de grapas, localización y resultado.",
+      "Fuentes": "Merck Manual Professional, How To Repair a Laceration With Stapling, updated Jan 2026.",
+      "QA": "YELLOW; revisión humana de cirugía menor pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

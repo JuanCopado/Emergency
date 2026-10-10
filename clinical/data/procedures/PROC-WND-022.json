@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-WND-022",
+  "name": "Reparación de lecho ungueal",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "restaurar la anatomía del lecho ungueal cuando existe una laceración significativa y reducir riesgo de deformidad permanente.",
+  "indications": [
+    "placa ungueal severamente deformada/avulsionada, laceración visible del lecho o lesión que requiere exposición para reparación."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "amputación, fractura desplazada, lesión extensa de matriz germinal o pérdida tisular importante requieren cirugía de mano. Si la placa está íntegra y sin deformidad significativa, no debe retirarse solo por un hematoma."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "bloqueo digital, torniquete temporal si necesario, instrumental fino, sutura absorbible fina, apósito no adherente y férula si fractura distal."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "placa ungueal, lecho estéril, matriz germinal y falange distal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "examen neurovascular, radiografía AP/oblicua/lateral cuando se sospecha fractura y antisepsia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "retirar la placa solo si es necesario para exponer la lesión; irrigar; aproximar el lecho con sutura absorbible fina sin tensión; proteger con apósito no adherente y decidir sustituto/ferulización de la placa según la lesión y práctica local."
+    }
+  ],
+  "stop_points": [
+    "lesión extensa de matriz, pérdida de sustancia, fractura desplazada o imposibilidad de obtener una reparación anatómica segura."
+  ],
+  "confirmation": [
+    "bordes del lecho bien aproximados y perfusión distal conservada."
+  ],
+  "complications": {
+    "unclassified": [
+      "deformidad ungueal permanente, infección, adherencias, dolor y mala cicatrización."
+    ]
+  },
+  "aftercare": [
+    "comprobar el apósito precozmente para evitar adherencia dolorosa; seguimiento de mano cuando la lesión es compleja."
+  ],
+  "documentation": [
+    "lesión, estado de la placa/matriz, fractura asociada, técnica y material de reparación."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Fingertip Fractures, updated Mar 2025; hand/nail injury references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "seguimiento de mano cuando la lesión es compleja."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cirugía de mano pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-022 — Reparación de lecho ungueal — ADVANCED",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "d85db480f267ac76fbf4c5fa45946200d9cc4620978c183c6ff6a58787cc1b8e",
+    "sections": {
+      "Objetivo": "restaurar la anatomía del lecho ungueal cuando existe una laceración significativa y reducir riesgo de deformidad permanente.",
+      "Indicaciones": "placa ungueal severamente deformada/avulsionada, laceración visible del lecho o lesión que requiere exposición para reparación.",
+      "Contraindicaciones/precauciones": "amputación, fractura desplazada, lesión extensa de matriz germinal o pérdida tisular importante requieren cirugía de mano. Si la placa está íntegra y sin deformidad significativa, no debe retirarse solo por un hematoma.",
+      "Material": "bloqueo digital, torniquete temporal si necesario, instrumental fino, sutura absorbible fina, apósito no adherente y férula si fractura distal.",
+      "Anatomía": "placa ungueal, lecho estéril, matriz germinal y falange distal.",
+      "Preparación": "examen neurovascular, radiografía AP/oblicua/lateral cuando se sospecha fractura y antisepsia.",
+      "Técnica paso a paso": "retirar la placa solo si es necesario para exponer la lesión; irrigar; aproximar el lecho con sutura absorbible fina sin tensión; proteger con apósito no adherente y decidir sustituto/ferulización de la placa según la lesión y práctica local.",
+      "STOP": "lesión extensa de matriz, pérdida de sustancia, fractura desplazada o imposibilidad de obtener una reparación anatómica segura.",
+      "Confirmación": "bordes del lecho bien aproximados y perfusión distal conservada.",
+      "Complicaciones": "deformidad ungueal permanente, infección, adherencias, dolor y mala cicatrización.",
+      "Después": "comprobar el apósito precozmente para evitar adherencia dolorosa; seguimiento de mano cuando la lesión es compleja.",
+      "Documentación": "lesión, estado de la placa/matriz, fractura asociada, técnica y material de reparación.",
+      "Fuentes": "Merck Manual Professional, Fingertip Fractures, updated Mar 2025; hand/nail injury references.",
+      "QA": "YELLOW; revisión humana cirugía de mano pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "seguimiento de mano cuando la lesión es compleja."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

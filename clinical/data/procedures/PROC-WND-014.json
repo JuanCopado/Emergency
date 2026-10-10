@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-014",
+  "name": "Tiras de aproximación",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aproximar heridas superficiales de muy baja tensión o reforzar otro método de cierre.",
+  "indications": [
+    "laceraciones pequeñas, lineales y superficiales cuyos bordes se mantienen juntos sin fuerza."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "piel húmeda o grasa, sangrado activo, alta tensión, infección/contaminación relevante o zonas de movimiento importante sin inmovilización."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "tiras adhesivas, solución de limpieza, gasas y adhesivo cutáneo auxiliar si se utiliza."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "epidermis y dermis superficial."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "limpiar, secar completamente y conseguir hemostasia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "aproximar manualmente los bordes y colocar tiras perpendiculares a la herida desde un lado al otro, alternando lados para distribuir la tensión; reforzar si es necesario."
+    }
+  ],
+  "stop_points": [
+    "blanqueamiento, estrangulación, persistencia de gap o desprendimiento inmediato por humedad/tensión."
+  ],
+  "confirmation": [
+    "bordes alineados y estables sin tensión significativa."
+  ],
+  "complications": {
+    "unclassified": [
+      "desprendimiento precoz, dermatitis de contacto, dehiscencia y maceración."
+    ]
+  },
+  "aftercare": [
+    "mantener secas inicialmente y permitir que se desprendan espontáneamente o retirar según protocolo."
+  ],
+  "documentation": [
+    "técnica y número aproximado de tiras."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Skin Lacerations, updated 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana de cirugía menor pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-014 — Tiras de aproximación — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "5a5d98d6b8de34d4318366973c9268eee13cdd1141d3bd7ecc1b3628506d5073",
+    "sections": {
+      "Objetivo": "aproximar heridas superficiales de muy baja tensión o reforzar otro método de cierre.",
+      "Indicaciones": "laceraciones pequeñas, lineales y superficiales cuyos bordes se mantienen juntos sin fuerza.",
+      "Contraindicaciones/precauciones": "piel húmeda o grasa, sangrado activo, alta tensión, infección/contaminación relevante o zonas de movimiento importante sin inmovilización.",
+      "Material": "tiras adhesivas, solución de limpieza, gasas y adhesivo cutáneo auxiliar si se utiliza.",
+      "Anatomía": "epidermis y dermis superficial.",
+      "Preparación": "limpiar, secar completamente y conseguir hemostasia.",
+      "Técnica paso a paso": "aproximar manualmente los bordes y colocar tiras perpendiculares a la herida desde un lado al otro, alternando lados para distribuir la tensión; reforzar si es necesario.",
+      "STOP": "blanqueamiento, estrangulación, persistencia de gap o desprendimiento inmediato por humedad/tensión.",
+      "Confirmación": "bordes alineados y estables sin tensión significativa.",
+      "Complicaciones": "desprendimiento precoz, dermatitis de contacto, dehiscencia y maceración.",
+      "Después": "mantener secas inicialmente y permitir que se desprendan espontáneamente o retirar según protocolo.",
+      "Documentación": "técnica y número aproximado de tiras.",
+      "Fuentes": "Merck Manual Professional, Skin Lacerations, updated 2026.",
+      "QA": "YELLOW; revisión humana de cirugía menor pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

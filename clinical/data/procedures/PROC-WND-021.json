@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-WND-021",
+  "name": "Extracción de anzuelo superficial",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar anzuelo minimizando trauma adicional.",
+  "indications": [
+    "anzuelo cutáneo/subcutáneo superficial."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ojo, articulación, tendón, hueso, vaso/nervio o localización profunda."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anestesia, cortador, pinzas, protección ocular."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "trayecto/púa y estructuras cercanas."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "identificar número/dirección de púas."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "anestesiar si precisa"
+    },
+    {
+      "order": 2,
+      "action": "elegir retroceso, hilo, cobertura de púa o avance-corte según geometría"
+    },
+    {
+      "order": 3,
+      "action": "proteger operador"
+    },
+    {
+      "order": 4,
+      "action": "retirar"
+    },
+    {
+      "order": 5,
+      "action": "irrigar."
+    }
+  ],
+  "stop_points": [
+    "estructura crítica o imposibilidad de controlar púa."
+  ],
+  "confirmation": [
+    "anzuelo completo."
+  ],
+  "complications": {
+    "unclassified": [
+      "laceración, lesión neurovascular/tendinosa, fragmento retenido."
+    ]
+  },
+  "aftercare": [
+    "tétanos/cuidado herida."
+  ],
+  "documentation": [
+    "método."
+  ],
+  "sources": [
+    {
+      "title": "MSD/Merck Manual Professional, fishhook removal, updated 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-021 — Extracción de anzuelo superficial — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "200dd55f9d70641971f9f13026af52b8c8fc0f4e28c357075605061c5416a83c",
+    "sections": {
+      "Objetivo": "retirar anzuelo minimizando trauma adicional.",
+      "Indicaciones": "anzuelo cutáneo/subcutáneo superficial.",
+      "Contraindicaciones/precauciones": "ojo, articulación, tendón, hueso, vaso/nervio o localización profunda.",
+      "Material": "anestesia, cortador, pinzas, protección ocular.",
+      "Anatomía": "trayecto/púa y estructuras cercanas.",
+      "Preparación": "identificar número/dirección de púas.",
+      "Técnica paso a paso": "1) anestesiar si precisa; 2) elegir retroceso, hilo, cobertura de púa o avance-corte según geometría; 3) proteger operador; 4) retirar; 5) irrigar.",
+      "STOP": "estructura crítica o imposibilidad de controlar púa.",
+      "Confirmación": "anzuelo completo.",
+      "Complicaciones": "laceración, lesión neurovascular/tendinosa, fragmento retenido.",
+      "Después": "tétanos/cuidado herida.",
+      "Documentación": "método.",
+      "Fuentes": "MSD/Merck Manual Professional, fishhook removal, updated 2025.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-WND-004",
+  "name": "Bloqueo femoral ecoguiado",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "ADVANCED/POCUS",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "proporcionar analgesia regional para fractura de cadera/fémur u otros procedimientos apropiados.",
+  "indications": [
+    "dolor por fractura proximal de fémur/cadera o procedimientos seleccionados donde un bloqueo femoral sea adecuado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección local, alergia, déficit neurológico relevante no documentado, imposibilidad de monitorización o riesgo hemorrágico significativo. En pacientes con antitrombóticos, aplicar ASRA 2025 según si el bloqueo se considera profundo/no compresible."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "ecógrafo lineal, aguja ecogénica, anestésico local desde módulo farmacológico, monitor y equipo para LAST."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "nervio femoral lateral a arteria femoral, bajo fascia iliaca."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "consentimiento, examen neurovascular basal, monitorización, cálculo de dosis total y disponibilidad inmediata de protocolo/lípidos para LAST."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar arteria y nervio; avanzar aguja in-plane con punta visible; aspirar; inyectar fraccionado alrededor del nervio evitando inyección intraneural o intravascular."
+    }
+  ],
+  "stop_points": [
+    "dolor eléctrico intenso, alta presión de inyección, punta no visible, aspiración positiva o signos de LAST."
+  ],
+  "confirmation": [
+    "difusión perineural adecuada y analgesia esperada con preservación hemodinámica."
+  ],
+  "complications": {
+    "unclassified": [
+      "LAST, lesión nerviosa, hematoma, infección y bloqueo motor con riesgo de caída."
+    ]
+  },
+  "aftercare": [
+    "monitorizar al menos durante el periodo definido por protocolo institucional; RCoA 2025 recomienda vigilancia estrecha tras bloqueos periféricos/fasciales en urgencias y acceso inmediato a tratamiento de toxicidad por anestésicos locales."
+  ],
+  "documentation": [
+    "lado, técnica US, anestésico/dosis, hallazgos basales y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "ASRA Pain Medicine Antithrombotic Guidelines 5th ed., 2025; RCoA GPAS 2025; RCEM hip-fracture regional block guidance 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana anestesia/urgencias pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-004 — Bloqueo femoral ecoguiado — ADVANCED/POCUS",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "d39ec62025bc38c4293eeb6621458301d4f52cba0723c7b87008c495c3650fdf",
+    "sections": {
+      "Objetivo": "proporcionar analgesia regional para fractura de cadera/fémur u otros procedimientos apropiados.",
+      "Indicaciones": "dolor por fractura proximal de fémur/cadera o procedimientos seleccionados donde un bloqueo femoral sea adecuado.",
+      "Contraindicaciones/precauciones": "infección local, alergia, déficit neurológico relevante no documentado, imposibilidad de monitorización o riesgo hemorrágico significativo. En pacientes con antitrombóticos, aplicar ASRA 2025 según si el bloqueo se considera profundo/no compresible.",
+      "Material": "ecógrafo lineal, aguja ecogénica, anestésico local desde módulo farmacológico, monitor y equipo para LAST.",
+      "Anatomía": "nervio femoral lateral a arteria femoral, bajo fascia iliaca.",
+      "Preparación": "consentimiento, examen neurovascular basal, monitorización, cálculo de dosis total y disponibilidad inmediata de protocolo/lípidos para LAST.",
+      "Técnica paso a paso": "identificar arteria y nervio; avanzar aguja in-plane con punta visible; aspirar; inyectar fraccionado alrededor del nervio evitando inyección intraneural o intravascular.",
+      "STOP": "dolor eléctrico intenso, alta presión de inyección, punta no visible, aspiración positiva o signos de LAST.",
+      "Confirmación": "difusión perineural adecuada y analgesia esperada con preservación hemodinámica.",
+      "Complicaciones": "LAST, lesión nerviosa, hematoma, infección y bloqueo motor con riesgo de caída.",
+      "Después": "monitorizar al menos durante el periodo definido por protocolo institucional; RCoA 2025 recomienda vigilancia estrecha tras bloqueos periféricos/fasciales en urgencias y acceso inmediato a tratamiento de toxicidad por anestésicos locales.",
+      "Documentación": "lado, técnica US, anestésico/dosis, hallazgos basales y respuesta.",
+      "Fuentes": "ASRA Pain Medicine Antithrombotic Guidelines 5th ed., 2025; RCoA GPAS 2025; RCEM hip-fracture regional block guidance 2025.",
+      "QA": "YELLOW; revisión humana anestesia/urgencias pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

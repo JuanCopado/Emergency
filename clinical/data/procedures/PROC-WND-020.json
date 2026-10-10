@@ -1,0 +1,126 @@
+{
+  "procedure_id": "PROC-WND-020",
+  "name": "Manejo inicial de ampollas/quemaduras",
+  "family": "HERIDAS, PARTES BLANDAS Y ANESTESIA REGIONAL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "limitar lesión térmica y proteger tejido.",
+  "indications": [
+    "quemadura aguda."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar hielo directo/hipotermia y remedios tópicos no validados."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "agua corriente/irrigación, apósitos no adherentes, analgesia."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "profundidad cutánea y áreas especiales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "detener proceso y retirar joyas/ropa no adherida."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "enfriar apropiadamente sin hipotermia"
+    },
+    {
+      "order": 2,
+      "action": "cubrir"
+    },
+    {
+      "order": 3,
+      "action": "valorar profundidad/TBSA"
+    },
+    {
+      "order": 4,
+      "action": "manejar ampollas según tamaño/sitio/protocolo"
+    },
+    {
+      "order": 5,
+      "action": "derivar si criterios."
+    }
+  ],
+  "stop_points": [
+    "inhalación, quemadura eléctrica/química grave o área crítica → protocolo especializado."
+  ],
+  "confirmation": [
+    "dolor/control térmico y cobertura adecuada."
+  ],
+  "complications": {
+    "unclassified": [
+      "hipotermia, infección, pérdida de función."
+    ]
+  },
+  "aftercare": [
+    "tétanos, analgesia y burn referral."
+  ],
+  "documentation": [
+    "profundidad/TBSA/localización."
+  ],
+  "sources": [
+    {
+      "title": "American Burn Association burn referral/first-aid resources; WHO burn first-aid principles.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "inhalación, quemadura eléctrica/química grave o área crítica → protocolo especializado."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/07-wounds-regional-anesthesia.md",
+    "source_heading": "PROC-WND-020 — Manejo inicial de ampollas/quemaduras — CORE",
+    "family_preamble": "# 7. Heridas, partes blandas y anestesia regional\n\nEstado de familia: **YELLOW**. Dosis máximas y toxicidad de anestésicos locales se resuelven desde módulos farmacológicos canónicos. Fuentes troncales: emergency wound care, regional anesthesia/POCUS guidance y referencias de mano/quemados.",
+    "source_sha256": "584a2aaf0683d54eb238c3eb9e05d628100052f93b33b35e5e27649362fc6a8b",
+    "sections": {
+      "Objetivo": "limitar lesión térmica y proteger tejido.",
+      "Indicaciones": "quemadura aguda.",
+      "Contraindicaciones/precauciones": "evitar hielo directo/hipotermia y remedios tópicos no validados.",
+      "Material": "agua corriente/irrigación, apósitos no adherentes, analgesia.",
+      "Anatomía": "profundidad cutánea y áreas especiales.",
+      "Preparación": "detener proceso y retirar joyas/ropa no adherida.",
+      "Técnica paso a paso": "1) enfriar apropiadamente sin hipotermia; 2) cubrir; 3) valorar profundidad/TBSA; 4) manejar ampollas según tamaño/sitio/protocolo; 5) derivar si criterios.",
+      "STOP": "inhalación, quemadura eléctrica/química grave o área crítica → protocolo especializado.",
+      "Confirmación": "dolor/control térmico y cobertura adecuada.",
+      "Complicaciones": "hipotermia, infección, pérdida de función.",
+      "Después": "tétanos, analgesia y burn referral.",
+      "Documentación": "profundidad/TBSA/localización.",
+      "Fuentes": "American Burn Association burn referral/first-aid resources; WHO burn first-aid principles.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "inhalación, quemadura eléctrica/química grave o área crítica → protocolo especializado."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}
