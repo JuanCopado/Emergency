@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-ORTHO-014",
+  "name": "Férula cubital / gutter",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "inmovilizar 4.º–5.º rayos y lesiones cubitales.",
+  "indications": [
+    "fracturas/metacarpianas/falángicas seleccionadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "deformidad no reducida o lesión abierta compleja."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "férula, acolchado y venda."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "metacarpianos, falanges y articulaciones MCP."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular y posición intrínseco-plus según lesión."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "acolchar"
+    },
+    {
+      "order": 2,
+      "action": "incluir dedos adecuados"
+    },
+    {
+      "order": 3,
+      "action": "moldear con MCP flexionadas"
+    },
+    {
+      "order": 4,
+      "action": "vendar"
+    },
+    {
+      "order": 5,
+      "action": "comprobar perfusión."
+    }
+  ],
+  "stop_points": [
+    "compresión/rotación digital anormal."
+  ],
+  "confirmation": [
+    "posición y neurovascular."
+  ],
+  "complications": {
+    "unclassified": [
+      "rigidez, presión cutánea, malrotación."
+    ]
+  },
+  "aftercare": [
+    "revisión ortopédica."
+  ],
+  "documentation": [
+    "posición y neurovascular."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Ulnar gutter splinting procedures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-014 — Férula cubital / gutter — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "0e545dba087a770ed3bd2c0dc63befbd580db988fd5b6316772f08bee354a60a",
+    "sections": {
+      "Objetivo": "inmovilizar 4.º–5.º rayos y lesiones cubitales.",
+      "Indicaciones": "fracturas/metacarpianas/falángicas seleccionadas.",
+      "Contraindicaciones/precauciones": "deformidad no reducida o lesión abierta compleja.",
+      "Material": "férula, acolchado y venda.",
+      "Anatomía": "metacarpianos, falanges y articulaciones MCP.",
+      "Preparación": "neurovascular y posición intrínseco-plus según lesión.",
+      "Técnica paso a paso": "1) acolchar; 2) incluir dedos adecuados; 3) moldear con MCP flexionadas; 4) vendar; 5) comprobar perfusión.",
+      "STOP": "compresión/rotación digital anormal.",
+      "Confirmación": "posición y neurovascular.",
+      "Complicaciones": "rigidez, presión cutánea, malrotación.",
+      "Después": "revisión ortopédica.",
+      "Documentación": "posición y neurovascular.",
+      "Fuentes": "Merck Manual Professional, Ulnar gutter splinting procedures, updated 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

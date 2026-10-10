@@ -1,0 +1,126 @@
+{
+  "procedure_id": "PROC-ORTHO-019",
+  "name": "Valoración neurovascular pre/post reducción",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "detectar lesión vascular o nerviosa relacionada con lesión/manipulación.",
+  "indications": [
+    "toda luxación/fractura y férula relevante."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "ninguna; no debe omitirse salvo amenaza vital inmediata."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "examen clínico ± Doppler."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pulsos y territorios motores/sensitivos por miembro."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "exponer distalmente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "pulso/cap refill"
+    },
+    {
+      "order": 2,
+      "action": "color/temperatura"
+    },
+    {
+      "order": 3,
+      "action": "sensibilidad"
+    },
+    {
+      "order": 4,
+      "action": "motor"
+    },
+    {
+      "order": 5,
+      "action": "repetir tras procedimiento/férula."
+    }
+  ],
+  "stop_points": [
+    "deterioro nuevo → aflojar/retirar férula y reevaluar urgente."
+  ],
+  "confirmation": [
+    "hallazgos estables o mejorados."
+  ],
+  "complications": {
+    "unclassified": [
+      "omisión diagnóstica si no se documenta."
+    ]
+  },
+  "aftercare": [
+    "vigilancia si alto riesgo."
+  ],
+  "documentation": [
+    "hallazgos específicos pre/post."
+  ],
+  "sources": [
+    {
+      "title": "orthopedic trauma standards.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "deterioro nuevo → aflojar/retirar férula y reevaluar urgente."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-019 — Valoración neurovascular pre/post reducción — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "3fe009ba6409f0b5a2e062e39f2e4889add889eaca56c1c094c19fd3b0dd7370",
+    "sections": {
+      "Objetivo": "detectar lesión vascular o nerviosa relacionada con lesión/manipulación.",
+      "Indicaciones": "toda luxación/fractura y férula relevante.",
+      "Contraindicaciones/precauciones": "ninguna; no debe omitirse salvo amenaza vital inmediata.",
+      "Material": "examen clínico ± Doppler.",
+      "Anatomía": "pulsos y territorios motores/sensitivos por miembro.",
+      "Preparación": "exponer distalmente.",
+      "Técnica paso a paso": "1) pulso/cap refill; 2) color/temperatura; 3) sensibilidad; 4) motor; 5) repetir tras procedimiento/férula.",
+      "STOP": "deterioro nuevo → aflojar/retirar férula y reevaluar urgente.",
+      "Confirmación": "hallazgos estables o mejorados.",
+      "Complicaciones": "omisión diagnóstica si no se documenta.",
+      "Después": "vigilancia si alto riesgo.",
+      "Documentación": "hallazgos específicos pre/post.",
+      "Fuentes": "orthopedic trauma standards.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "deterioro nuevo → aflojar/retirar férula y reevaluar urgente."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ORTHO-006",
+  "name": "Reducción de luxaciones de dedos",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "restaurar congruencia articular, estabilidad y función digital.",
+  "indications": [
+    "luxaciones interfalángicas o metacarpofalángicas cerradas seleccionadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "lesión abierta, fractura-luxación compleja, lesión tendinosa, déficit neurovascular o articulación irreductible requieren cirugía de mano."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "bloqueo digital, férula/buddy tape y radiografías."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "articulación afectada, placa volar, ligamentos colaterales, tendones y paquetes neurovasculares."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "examen neurovascular/tendinoso y radiografías AP/lateral/oblicua cuando sea posible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "tras bloqueo, aplicar tracción suave y maniobra dirigida por el patrón; evitar hipertracción. Tras reducción, comprobar estabilidad lateral/volar-dorsal y función tendinosa."
+    }
+  ],
+  "stop_points": [
+    "articulación irreductible, bloqueo mecánico, dolor/crepitación anormal o inestabilidad marcada."
+  ],
+  "confirmation": [
+    "alineación clínica, estabilidad razonable, función tendinosa y radiografía postreducción."
+  ],
+  "complications": {
+    "unclassified": [
+      "fractura, lesión de placa volar/ligamentos/tendones, rigidez e inestabilidad."
+    ]
+  },
+  "aftercare": [
+    "buddy taping o férula según lesión y movilización protegida precoz cuando sea apropiada."
+  ],
+  "documentation": [
+    "articulación/patrón, neurovascular/tendones pre-post, técnica y estabilidad."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Finger Dislocations, updated Oct 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cirugía de mano pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-006 — Reducción de luxaciones de dedos — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "9794b41e30dff31adc3ceb22065d03588ca6674b5db9c10cc57aac38af9f8c67",
+    "sections": {
+      "Objetivo": "restaurar congruencia articular, estabilidad y función digital.",
+      "Indicaciones": "luxaciones interfalángicas o metacarpofalángicas cerradas seleccionadas.",
+      "Contraindicaciones/precauciones": "lesión abierta, fractura-luxación compleja, lesión tendinosa, déficit neurovascular o articulación irreductible requieren cirugía de mano.",
+      "Material": "bloqueo digital, férula/buddy tape y radiografías.",
+      "Anatomía": "articulación afectada, placa volar, ligamentos colaterales, tendones y paquetes neurovasculares.",
+      "Preparación": "examen neurovascular/tendinoso y radiografías AP/lateral/oblicua cuando sea posible.",
+      "Técnica paso a paso": "tras bloqueo, aplicar tracción suave y maniobra dirigida por el patrón; evitar hipertracción. Tras reducción, comprobar estabilidad lateral/volar-dorsal y función tendinosa.",
+      "STOP": "articulación irreductible, bloqueo mecánico, dolor/crepitación anormal o inestabilidad marcada.",
+      "Confirmación": "alineación clínica, estabilidad razonable, función tendinosa y radiografía postreducción.",
+      "Complicaciones": "fractura, lesión de placa volar/ligamentos/tendones, rigidez e inestabilidad.",
+      "Después": "buddy taping o férula según lesión y movilización protegida precoz cuando sea apropiada.",
+      "Documentación": "articulación/patrón, neurovascular/tendones pre-post, técnica y estabilidad.",
+      "Fuentes": "Merck Manual Professional, Finger Dislocations, updated Oct 2025.",
+      "QA": "YELLOW; revisión humana cirugía de mano pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

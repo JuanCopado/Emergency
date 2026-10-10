@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-ORTHO-007",
+  "name": "Reducción de luxación de pulgar",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "restaurar articulación MCP/IP del pulgar sin provocar interposición de placa volar ni lesión tendinosa.",
+  "indications": [
+    "luxación cerrada MCP o IP seleccionada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "lesión abierta, fractura-luxación compleja, luxación MCP irreductible o sospecha de interposición de placa volar requieren cirugía de mano."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "bloqueo digital, férula e imagen."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "MCP/IP, placa volar, ligamentos colaterales y tendones flexor/extensor."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "examen neurovascular/tendinoso y radiografías cuando sea posible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar bloqueo, exagerar mínimamente la deformidad solo si el patrón lo requiere para desenganchar la base, aplicar presión dirigida y evitar tracción longitudinal excesiva que favorezca interposición de placa volar."
+    }
+  ],
+  "stop_points": [
+    "resistencia fija, dolor/crepitación anormal o fracaso de intento cuidadoso → sospechar interposición y derivar."
+  ],
+  "confirmation": [
+    "alineación, estabilidad, función tendinosa y radiografía postreducción."
+  ],
+  "complications": {
+    "unclassified": [
+      "interposición de placa volar, lesión ligamentaria, fractura, rigidez e inestabilidad."
+    ]
+  },
+  "aftercare": [
+    "inmovilización según estabilidad y seguimiento de mano."
+  ],
+  "documentation": [
+    "articulación, técnica, estabilidad y neurovascular."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Finger/Thumb Dislocations, updated 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "resistencia fija, dolor/crepitación anormal o fracaso de intento cuidadoso → sospechar interposición y derivar."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cirugía de mano pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-007 — Reducción de luxación de pulgar — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "56228a482a7055b79a42f4116048115f4d81dfe8d886f2febdd522c9c6362f74",
+    "sections": {
+      "Objetivo": "restaurar articulación MCP/IP del pulgar sin provocar interposición de placa volar ni lesión tendinosa.",
+      "Indicaciones": "luxación cerrada MCP o IP seleccionada.",
+      "Contraindicaciones/precauciones": "lesión abierta, fractura-luxación compleja, luxación MCP irreductible o sospecha de interposición de placa volar requieren cirugía de mano.",
+      "Material": "bloqueo digital, férula e imagen.",
+      "Anatomía": "MCP/IP, placa volar, ligamentos colaterales y tendones flexor/extensor.",
+      "Preparación": "examen neurovascular/tendinoso y radiografías cuando sea posible.",
+      "Técnica paso a paso": "realizar bloqueo, exagerar mínimamente la deformidad solo si el patrón lo requiere para desenganchar la base, aplicar presión dirigida y evitar tracción longitudinal excesiva que favorezca interposición de placa volar.",
+      "STOP": "resistencia fija, dolor/crepitación anormal o fracaso de intento cuidadoso → sospechar interposición y derivar.",
+      "Confirmación": "alineación, estabilidad, función tendinosa y radiografía postreducción.",
+      "Complicaciones": "interposición de placa volar, lesión ligamentaria, fractura, rigidez e inestabilidad.",
+      "Después": "inmovilización según estabilidad y seguimiento de mano.",
+      "Documentación": "articulación, técnica, estabilidad y neurovascular.",
+      "Fuentes": "Merck Manual Professional, Finger/Thumb Dislocations, updated 2025.",
+      "QA": "YELLOW; revisión humana cirugía de mano pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "resistencia fija, dolor/crepitación anormal o fracaso de intento cuidadoso → sospechar interposición y derivar."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

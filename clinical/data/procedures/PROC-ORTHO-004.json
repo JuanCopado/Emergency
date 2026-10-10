@@ -1,0 +1,112 @@
+{
+  "procedure_id": "PROC-ORTHO-004",
+  "name": "Reducción de pronación dolorosa / subluxación de cabeza radial",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE/PED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reducir la subluxación de cabeza radial de forma rápida y atraumática.",
+  "indications": [
+    "niño pequeño con mecanismo típico, brazo no utilizado y ausencia de signos de lesión ósea significativa."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "deformidad, edema importante, equimosis extensa, dolor/tenderness fuera de la región de cabeza radial, compromiso neurovascular o mecanismo atípico obligan a descartar fractura u otra lesión."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "habitualmente ninguno; analgesia si precisa."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "cabeza radial y ligamento anular."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "examen del miembro completo, incluyendo perfusión, sensibilidad y palpación de clavícula/húmero/codo/antebrazo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "sujetar el codo y palpar la cabeza radial; usar hiperpronación como técnica inicial razonable o supinación-flexión como alternativa; aplicar la maniobra de forma firme pero controlada y reevaluar uso espontáneo."
+    }
+  ],
+  "stop_points": [
+    "dolor o deformidad atípicos, déficit neurovascular o fracaso tras intentos razonables → imagen y reconsiderar diagnóstico."
+  ],
+  "confirmation": [
+    "recuperación espontánea del uso del brazo, habitualmente en minutos."
+  ],
+  "complications": {
+    "unclassified": [
+      "dolor transitorio; fractura iatrogénica es rara y suele reflejar diagnóstico incorrecto."
+    ]
+  },
+  "aftercare": [
+    "no inmovilizar de rutina si recupera uso completo; explicar riesgo de recurrencia y evitar tracción axial del brazo."
+  ],
+  "documentation": [
+    "mecanismo, exploración previa, técnica y recuperación funcional."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Reduce a Radial Head Subluxation, updated Aug 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "dolor o deformidad atípicos, déficit neurovascular o fracaso tras intentos razonables → imagen y reconsiderar diagnóstico."
+  ],
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana pediatría/ortopedia pendiente."
+    ]
+  },
+  "aliases": [
+    "PROC-PED-008"
+  ],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-004 — Reducción de pronación dolorosa — CORE/PED",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "b5977e206fc30b821b42a204b87d511f22e35fa6c3972b56e06c0783c84e2bc8",
+    "sections": {
+      "Objetivo": "reducir la subluxación de cabeza radial de forma rápida y atraumática.",
+      "Indicaciones": "niño pequeño con mecanismo típico, brazo no utilizado y ausencia de signos de lesión ósea significativa.",
+      "Contraindicaciones/precauciones": "deformidad, edema importante, equimosis extensa, dolor/tenderness fuera de la región de cabeza radial, compromiso neurovascular o mecanismo atípico obligan a descartar fractura u otra lesión.",
+      "Material": "habitualmente ninguno; analgesia si precisa.",
+      "Anatomía": "cabeza radial y ligamento anular.",
+      "Preparación": "examen del miembro completo, incluyendo perfusión, sensibilidad y palpación de clavícula/húmero/codo/antebrazo.",
+      "Técnica paso a paso": "sujetar el codo y palpar la cabeza radial; usar hiperpronación como técnica inicial razonable o supinación-flexión como alternativa; aplicar la maniobra de forma firme pero controlada y reevaluar uso espontáneo.",
+      "STOP": "dolor o deformidad atípicos, déficit neurovascular o fracaso tras intentos razonables → imagen y reconsiderar diagnóstico.",
+      "Confirmación": "recuperación espontánea del uso del brazo, habitualmente en minutos.",
+      "Complicaciones": "dolor transitorio; fractura iatrogénica es rara y suele reflejar diagnóstico incorrecto.",
+      "Después": "no inmovilizar de rutina si recupera uso completo; explicar riesgo de recurrencia y evitar tracción axial del brazo.",
+      "Documentación": "mecanismo, exploración previa, técnica y recuperación funcional.",
+      "Fuentes": "Merck Manual Professional, How To Reduce a Radial Head Subluxation, updated Aug 2025.",
+      "QA": "YELLOW; revisión humana pediatría/ortopedia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "dolor o deformidad atípicos, déficit neurovascular o fracaso tras intentos razonables → imagen y reconsiderar diagnóstico."
+        }
+      ],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "escalation"
+  ]
+}

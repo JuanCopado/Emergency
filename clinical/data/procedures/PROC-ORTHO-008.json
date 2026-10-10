@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-ORTHO-008",
+  "name": "Reducción de luxación de muñeca/carpiana seleccionada",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "aliviar compresión del nervio mediano y restaurar alineación carpiana provisional como puente a cirugía.",
+  "indications": [
+    "luxación perilunar/lunar con deformidad, dolor intenso o compromiso del nervio mediano, tras consulta urgente con cirugía de mano."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "lesiones complejas de alta energía con fracturas asociadas; la reducción cerrada no sustituye el tratamiento quirúrgico definitivo."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "sedación, tracción, fluoroscopia o radiografías y férula."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "semilunar, huesos del carpo, radio distal, túnel carpiano y nervio mediano."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "documentar función del nervio mediano/perfusión y revisar imagen; activar cirugía de mano antes de múltiples intentos."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "aplicar tracción longitudinal sostenida, maniobra dirigida según patrón perilunar/lunar y presión controlada sobre el carpo; confirmar alineación y férulizar."
+    }
+  ],
+  "stop_points": [
+    "no repetir maniobras traumáticas, no retrasar cirugía, detener ante empeoramiento neurológico o resistencia marcada."
+  ],
+  "confirmation": [
+    "mejor alineación radiográfica y mejoría/estabilidad del nervio mediano."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión del nervio mediano, fractura, lesión ligamentaria y inestabilidad persistente."
+    ]
+  },
+  "aftercare": [
+    "cirugía de mano urgente incluso tras reducción cerrada satisfactoria."
+  ],
+  "documentation": [
+    "neurovascular pre/post, imagen, técnica y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "Orthopedic hand-trauma references on perilunate/lunate dislocations; urgent hand-surgery management standards.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "cirugía de mano urgente incluso tras reducción cerrada satisfactoria."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana cirugía de mano pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-008 — Reducción de luxación perilunar/lunar seleccionada — ADVANCED",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "d56128a42824d99666d009652626a4f4908e50dfb6e1c9b3dc597f3746d0ec05",
+    "sections": {
+      "Objetivo": "aliviar compresión del nervio mediano y restaurar alineación carpiana provisional como puente a cirugía.",
+      "Indicaciones": "luxación perilunar/lunar con deformidad, dolor intenso o compromiso del nervio mediano, tras consulta urgente con cirugía de mano.",
+      "Contraindicaciones/precauciones": "lesiones complejas de alta energía con fracturas asociadas; la reducción cerrada no sustituye el tratamiento quirúrgico definitivo.",
+      "Material": "sedación, tracción, fluoroscopia o radiografías y férula.",
+      "Anatomía": "semilunar, huesos del carpo, radio distal, túnel carpiano y nervio mediano.",
+      "Preparación": "documentar función del nervio mediano/perfusión y revisar imagen; activar cirugía de mano antes de múltiples intentos.",
+      "Técnica paso a paso": "aplicar tracción longitudinal sostenida, maniobra dirigida según patrón perilunar/lunar y presión controlada sobre el carpo; confirmar alineación y férulizar.",
+      "STOP": "no repetir maniobras traumáticas, no retrasar cirugía, detener ante empeoramiento neurológico o resistencia marcada.",
+      "Confirmación": "mejor alineación radiográfica y mejoría/estabilidad del nervio mediano.",
+      "Complicaciones": "lesión del nervio mediano, fractura, lesión ligamentaria y inestabilidad persistente.",
+      "Después": "cirugía de mano urgente incluso tras reducción cerrada satisfactoria.",
+      "Documentación": "neurovascular pre/post, imagen, técnica y respuesta.",
+      "Fuentes": "Orthopedic hand-trauma references on perilunate/lunate dislocations; urgent hand-surgery management standards.",
+      "QA": "YELLOW; revisión humana cirugía de mano pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "cirugía de mano urgente incluso tras reducción cerrada satisfactoria."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

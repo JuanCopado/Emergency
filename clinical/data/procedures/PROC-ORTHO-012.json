@@ -1,0 +1,124 @@
+{
+  "procedure_id": "PROC-ORTHO-012",
+  "name": "Férula braquiopalmar",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "inmovilizar lesiones de codo/antebrazo seleccionadas.",
+  "indications": [
+    "fracturas/luxaciones reducidas y lesiones que requieren inmovilización larga posterior."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "edema severo/compromiso vascular exige vigilancia y férula no circunferencial."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "acolchado, material rígido, venda y cabestrillo."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "brazo, codo, antebrazo y prominencias óseas."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular y posición funcional según lesión."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "acolchar"
+    },
+    {
+      "order": 2,
+      "action": "medir férula"
+    },
+    {
+      "order": 3,
+      "action": "colocar posterior"
+    },
+    {
+      "order": 4,
+      "action": "moldear"
+    },
+    {
+      "order": 5,
+      "action": "vendar sin comprimir"
+    },
+    {
+      "order": 6,
+      "action": "dejar dedos visibles."
+    }
+  ],
+  "stop_points": [
+    "dolor creciente, parestesias o cambio de perfusión."
+  ],
+  "confirmation": [
+    "inmovilización estable y neurovascular intacto."
+  ],
+  "complications": {
+    "unclassified": [
+      "presión, lesión cutánea, síndrome compartimental."
+    ]
+  },
+  "aftercare": [
+    "elevación/instrucciones de alarma."
+  ],
+  "documentation": [
+    "tipo y neurovascular."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Splinting procedures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-012 — Férula braquiopalmar — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "6b5a5de47e0c6a18b681f9ce6718f375902a9a323a0b774e01c2af06d6f62bf9",
+    "sections": {
+      "Objetivo": "inmovilizar lesiones de codo/antebrazo seleccionadas.",
+      "Indicaciones": "fracturas/luxaciones reducidas y lesiones que requieren inmovilización larga posterior.",
+      "Contraindicaciones/precauciones": "edema severo/compromiso vascular exige vigilancia y férula no circunferencial.",
+      "Material": "acolchado, material rígido, venda y cabestrillo.",
+      "Anatomía": "brazo, codo, antebrazo y prominencias óseas.",
+      "Preparación": "neurovascular y posición funcional según lesión.",
+      "Técnica paso a paso": "1) acolchar; 2) medir férula; 3) colocar posterior; 4) moldear; 5) vendar sin comprimir; 6) dejar dedos visibles.",
+      "STOP": "dolor creciente, parestesias o cambio de perfusión.",
+      "Confirmación": "inmovilización estable y neurovascular intacto.",
+      "Complicaciones": "presión, lesión cutánea, síndrome compartimental.",
+      "Después": "elevación/instrucciones de alarma.",
+      "Documentación": "tipo y neurovascular.",
+      "Fuentes": "Merck Manual Professional, Splinting procedures, updated 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

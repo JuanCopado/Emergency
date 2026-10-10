@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ORTHO-005",
+  "name": "Reducción de luxación de rótula",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "devolver la rótula a la tróclea y restaurar función/extensión.",
+  "indications": [
+    "luxación lateral de rótula no reducida espontáneamente."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fractura osteocondral importante, luxación no lateral, trauma complejo o lesión abierta requieren valoración ortopédica."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "analgesia, soporte de rodilla e imagen."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "rótula, tróclea, retináculos y aparato extensor."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "valorar neurovascular, derrame, integridad del aparato extensor y mecanismo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "colocar cadera flexionada para relajar cuádriceps; extender progresivamente la rodilla mientras se guía suavemente la rótula en dirección medial hasta la tróclea."
+    }
+  ],
+  "stop_points": [
+    "resistencia marcada, dolor desproporcionado o sospecha de fractura."
+  ],
+  "confirmation": [
+    "rótula centrada, alivio del dolor, extensión activa y examen neurovascular normal."
+  ],
+  "complications": {
+    "unclassified": [
+      "fractura osteocondral, hemartros, lesión retinacular y recurrencia."
+    ]
+  },
+  "aftercare": [
+    "imagen postreducción cuando proceda, inmovilización/brace breve según estabilidad y seguimiento ortopédico."
+  ],
+  "documentation": [
+    "mecanismo, técnica, examen postreducción y estabilidad."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Patellar Dislocations and reduction principles, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ortopedia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-005 — Reducción de luxación lateral de rótula — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "f87a0a3611efa3b0408069ee3e5c33af8a1a5adc9211884138f7bef35d759082",
+    "sections": {
+      "Objetivo": "devolver la rótula a la tróclea y restaurar función/extensión.",
+      "Indicaciones": "luxación lateral de rótula no reducida espontáneamente.",
+      "Contraindicaciones/precauciones": "fractura osteocondral importante, luxación no lateral, trauma complejo o lesión abierta requieren valoración ortopédica.",
+      "Material": "analgesia, soporte de rodilla e imagen.",
+      "Anatomía": "rótula, tróclea, retináculos y aparato extensor.",
+      "Preparación": "valorar neurovascular, derrame, integridad del aparato extensor y mecanismo.",
+      "Técnica paso a paso": "colocar cadera flexionada para relajar cuádriceps; extender progresivamente la rodilla mientras se guía suavemente la rótula en dirección medial hasta la tróclea.",
+      "STOP": "resistencia marcada, dolor desproporcionado o sospecha de fractura.",
+      "Confirmación": "rótula centrada, alivio del dolor, extensión activa y examen neurovascular normal.",
+      "Complicaciones": "fractura osteocondral, hemartros, lesión retinacular y recurrencia.",
+      "Después": "imagen postreducción cuando proceda, inmovilización/brace breve según estabilidad y seguimiento ortopédico.",
+      "Documentación": "mecanismo, técnica, examen postreducción y estabilidad.",
+      "Fuentes": "Merck Manual Professional, Patellar Dislocations and reduction principles, updated 2025–2026.",
+      "QA": "YELLOW; revisión humana ortopedia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

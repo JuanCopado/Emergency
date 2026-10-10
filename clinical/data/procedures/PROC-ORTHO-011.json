@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-ORTHO-011",
+  "name": "Tracción y alineación temporal de extremidad",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "corregir deformidad grosera y aliviar tensión sobre tejidos.",
+  "indications": [
+    "fractura/luxación seleccionada antes de férula/traslado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no usar fuerza brusca ni manipular lesión abierta compleja sin plan."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "analgesia, ayudante y férula."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "eje del miembro y estructuras neurovasculares."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "estabilizar proximal"
+    },
+    {
+      "order": 2,
+      "action": "tracción axial sostenida"
+    },
+    {
+      "order": 3,
+      "action": "alinear suavemente"
+    },
+    {
+      "order": 4,
+      "action": "mantener"
+    },
+    {
+      "order": 5,
+      "action": "férula."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso o pérdida de pulso/sensibilidad."
+  ],
+  "confirmation": [
+    "mejor alineación/perfusión."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión neurovascular, desplazamiento."
+    ]
+  },
+  "aftercare": [
+    "imagen y reevaluación."
+  ],
+  "documentation": [
+    "examen pre/post."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Overview of Fractures, updated 2025–2026; orthopedic trauma standards.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-011 — Tracción y alineación temporal de extremidad — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "077f566cf65790930baa077d2e0e3f5e425fa186712914ec77680ec26b00f812",
+    "sections": {
+      "Objetivo": "corregir deformidad grosera y aliviar tensión sobre tejidos.",
+      "Indicaciones": "fractura/luxación seleccionada antes de férula/traslado.",
+      "Contraindicaciones/precauciones": "no usar fuerza brusca ni manipular lesión abierta compleja sin plan.",
+      "Material": "analgesia, ayudante y férula.",
+      "Anatomía": "eje del miembro y estructuras neurovasculares.",
+      "Preparación": "neurovascular.",
+      "Técnica paso a paso": "1) estabilizar proximal; 2) tracción axial sostenida; 3) alinear suavemente; 4) mantener; 5) férula.",
+      "STOP": "dolor intenso o pérdida de pulso/sensibilidad.",
+      "Confirmación": "mejor alineación/perfusión.",
+      "Complicaciones": "lesión neurovascular, desplazamiento.",
+      "Después": "imagen y reevaluación.",
+      "Documentación": "examen pre/post.",
+      "Fuentes": "Merck Manual Professional, Overview of Fractures, updated 2025–2026; orthopedic trauma standards.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

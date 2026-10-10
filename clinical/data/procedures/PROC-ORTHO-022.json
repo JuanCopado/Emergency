@@ -1,0 +1,118 @@
+{
+  "procedure_id": "PROC-ORTHO-022",
+  "name": "Reducción de luxación mandibular",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "recolocar cóndilos mandibulares anteriores a eminencia articular.",
+  "indications": [
+    "luxación anterior aguda sin fractura."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "trauma/fractura, luxación crónica o anatomía compleja."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes/gasas, analgesia/sedación si precisa."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "ATM, cóndilo y eminencia articular."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "paciente sentado/apoyado y proteger dedos."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "pulgares protegidos sobre molares inferiores o técnica extraoral"
+    },
+    {
+      "order": 2,
+      "action": "presión inferior sostenida"
+    },
+    {
+      "order": 3,
+      "action": "luego posterior/superior"
+    },
+    {
+      "order": 4,
+      "action": "retirar pulgares rápidamente al cierre."
+    }
+  ],
+  "stop_points": [
+    "resistencia, dolor atípico o sospecha de fractura."
+  ],
+  "confirmation": [
+    "cierre bucal y movimiento mandibular restaurados."
+  ],
+  "complications": {
+    "unclassified": [
+      "mordedura del operador, fractura, recurrencia."
+    ]
+  },
+  "aftercare": [
+    "dieta blanda, limitar apertura amplia y seguimiento."
+  ],
+  "documentation": [
+    "técnica/sedación."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, mandibular dislocation reduction principles; maxillofacial emergency guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [
+    "PROC-ENT-011"
+  ],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-022 — Reducción de luxación mandibular — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "3732d4903de5f5f97fa8654db145765aac90d5686c9e36c71d70c11fc8de4926",
+    "sections": {
+      "Objetivo": "recolocar cóndilos mandibulares anteriores a eminencia articular.",
+      "Indicaciones": "luxación anterior aguda sin fractura.",
+      "Contraindicaciones/precauciones": "trauma/fractura, luxación crónica o anatomía compleja.",
+      "Material": "guantes/gasas, analgesia/sedación si precisa.",
+      "Anatomía": "ATM, cóndilo y eminencia articular.",
+      "Preparación": "paciente sentado/apoyado y proteger dedos.",
+      "Técnica paso a paso": "1) pulgares protegidos sobre molares inferiores o técnica extraoral; 2) presión inferior sostenida; 3) luego posterior/superior; 4) retirar pulgares rápidamente al cierre.",
+      "STOP": "resistencia, dolor atípico o sospecha de fractura.",
+      "Confirmación": "cierre bucal y movimiento mandibular restaurados.",
+      "Complicaciones": "mordedura del operador, fractura, recurrencia.",
+      "Después": "dieta blanda, limitar apertura amplia y seguimiento.",
+      "Documentación": "técnica/sedación.",
+      "Fuentes": "Merck Manual Professional, mandibular dislocation reduction principles; maxillofacial emergency guidance.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

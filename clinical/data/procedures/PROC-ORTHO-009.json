@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ORTHO-009",
+  "name": "Reducción de luxación de tobillo",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "restaurar alineación, perfusión y reducir amenaza cutánea/neurológica.",
+  "indications": [
+    "luxación o fractura-luxación de tobillo, especialmente si existe compromiso neurovascular, piel amenazada o deformidad marcada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "lesión abierta, vascular compleja o irreductible requiere cirugía urgente; la mayoría de las luxaciones de tobillo son fractura-luxación."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "analgesia/sedación, férula, monitorización y Rx."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "mortaja tibio-peronea, talo, maléolos y paquete neurovascular distal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "documentar piel y examen neurovascular; obtener Rx previa si no retrasa una reducción urgente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "flexionar rodilla para relajar gastrocnemio cuando sea posible; aplicar tracción longitudinal sostenida con contratracción, desimpactar el talo y revertir suavemente el mecanismo hasta recolocarlo en la mortaja."
+    }
+  ],
+  "stop_points": [
+    "perfusión que no retorna, resistencia marcada, dolor/crepitación anormal o reducción inestable no mantenible."
+  ],
+  "confirmation": [
+    "restauración de alineación, pulsos/perfusión y sensibilidad, seguida de Rx postreducción."
+  ],
+  "complications": {
+    "unclassified": [
+      "fractura adicional, lesión vascular/nerviosa, necrosis cutánea, síndrome compartimental y pérdida de reducción."
+    ]
+  },
+  "aftercare": [
+    "férula bien acolchada, control de edema y valoración ortopédica definitiva."
+  ],
+  "documentation": [
+    "piel/neurovascular pre-post, técnica, sedación, estabilidad y Rx."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Reduce an Ankle Dislocation, updated 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ortopedia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-009 — Reducción de luxación / fractura-luxación de tobillo — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "b45c1b7059670d4519d951f3494ee766e57ee087df46700794a1242a857d5c03",
+    "sections": {
+      "Objetivo": "restaurar alineación, perfusión y reducir amenaza cutánea/neurológica.",
+      "Indicaciones": "luxación o fractura-luxación de tobillo, especialmente si existe compromiso neurovascular, piel amenazada o deformidad marcada.",
+      "Contraindicaciones/precauciones": "lesión abierta, vascular compleja o irreductible requiere cirugía urgente; la mayoría de las luxaciones de tobillo son fractura-luxación.",
+      "Material": "analgesia/sedación, férula, monitorización y Rx.",
+      "Anatomía": "mortaja tibio-peronea, talo, maléolos y paquete neurovascular distal.",
+      "Preparación": "documentar piel y examen neurovascular; obtener Rx previa si no retrasa una reducción urgente.",
+      "Técnica paso a paso": "flexionar rodilla para relajar gastrocnemio cuando sea posible; aplicar tracción longitudinal sostenida con contratracción, desimpactar el talo y revertir suavemente el mecanismo hasta recolocarlo en la mortaja.",
+      "STOP": "perfusión que no retorna, resistencia marcada, dolor/crepitación anormal o reducción inestable no mantenible.",
+      "Confirmación": "restauración de alineación, pulsos/perfusión y sensibilidad, seguida de Rx postreducción.",
+      "Complicaciones": "fractura adicional, lesión vascular/nerviosa, necrosis cutánea, síndrome compartimental y pérdida de reducción.",
+      "Después": "férula bien acolchada, control de edema y valoración ortopédica definitiva.",
+      "Documentación": "piel/neurovascular pre-post, técnica, sedación, estabilidad y Rx.",
+      "Fuentes": "Merck Manual Professional, How To Reduce an Ankle Dislocation, updated 2025.",
+      "QA": "YELLOW; revisión humana ortopedia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

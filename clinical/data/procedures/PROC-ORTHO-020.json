@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ORTHO-020",
+  "name": "Artrocentesis de rodilla",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "obtener líquido sinovial para diagnóstico y/o aliviar un derrame seleccionado.",
+  "indications": [
+    "sospecha de artritis séptica, artritis por cristales o derrame sintomático. SANJO recomienda aspirar lo antes posible cuando se sospecha artritis séptica."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "infección cutánea sobre el trayecto; prótesis articular requiere coordinación con ortopedia. En sepsis o shock séptico no retrasar antibióticos por la aspiración."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "aguja/jeringa, antiséptico, anestesia, tubos/recipientes y ecografía si mejora seguridad/éxito."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "receso suprapatelar y abordajes medial/lateral seguros."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "antisepsia estricta y posición cómoda; evitar trayecto a través de celulitis."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "localizar el receso, anestesiar, introducir la aguja evitando cartílago, aspirar y retirar; distribuir la muestra priorizando microbiología/cultivo, recuento celular con diferencial y cristales si el volumen es limitado."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, sangre pulsátil, trayecto dudoso o sospecha de lesión vascular."
+  ],
+  "confirmation": [
+    "líquido obtenido y muestra correctamente identificada."
+  ],
+  "complications": {
+    "unclassified": [
+      "infección iatrogénica, sangrado, dolor y lesión de estructuras adyacentes."
+    ]
+  },
+  "aftercare": [
+    "enviar muestras sin demora; integrar resultado con clínica porque ningún valor aislado excluye artritis séptica."
+  ],
+  "documentation": [
+    "articulación, abordaje, uso de US, volumen/aspecto y estudios solicitados."
+  ],
+  "sources": [
+    {
+      "title": "SANJO Guideline for management of septic arthritis in native joints, 2023.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ortopedia/infecciosas pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-020 — Artrocentesis de rodilla — ADVANCED",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "217970cc8b58400dcb9c8c6f07d9bc54cf21b54228a152463707f14def5f9049",
+    "sections": {
+      "Objetivo": "obtener líquido sinovial para diagnóstico y/o aliviar un derrame seleccionado.",
+      "Indicaciones": "sospecha de artritis séptica, artritis por cristales o derrame sintomático. SANJO recomienda aspirar lo antes posible cuando se sospecha artritis séptica.",
+      "Contraindicaciones/precauciones": "infección cutánea sobre el trayecto; prótesis articular requiere coordinación con ortopedia. En sepsis o shock séptico no retrasar antibióticos por la aspiración.",
+      "Material": "aguja/jeringa, antiséptico, anestesia, tubos/recipientes y ecografía si mejora seguridad/éxito.",
+      "Anatomía": "receso suprapatelar y abordajes medial/lateral seguros.",
+      "Preparación": "antisepsia estricta y posición cómoda; evitar trayecto a través de celulitis.",
+      "Técnica paso a paso": "localizar el receso, anestesiar, introducir la aguja evitando cartílago, aspirar y retirar; distribuir la muestra priorizando microbiología/cultivo, recuento celular con diferencial y cristales si el volumen es limitado.",
+      "STOP": "dolor intenso, sangre pulsátil, trayecto dudoso o sospecha de lesión vascular.",
+      "Confirmación": "líquido obtenido y muestra correctamente identificada.",
+      "Complicaciones": "infección iatrogénica, sangrado, dolor y lesión de estructuras adyacentes.",
+      "Después": "enviar muestras sin demora; integrar resultado con clínica porque ningún valor aislado excluye artritis séptica.",
+      "Documentación": "articulación, abordaje, uso de US, volumen/aspecto y estudios solicitados.",
+      "Fuentes": "SANJO Guideline for management of septic arthritis in native joints, 2023.",
+      "QA": "YELLOW; revisión humana ortopedia/infecciosas pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

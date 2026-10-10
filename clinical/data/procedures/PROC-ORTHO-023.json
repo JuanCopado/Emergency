@@ -1,0 +1,118 @@
+{
+  "procedure_id": "PROC-ORTHO-023",
+  "name": "Reducción de luxación temporomandibular recurrente seleccionada",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reducir episodios recurrentes simples y reconocer cuándo derivar.",
+  "indications": [
+    "luxación recurrente sin trauma/fractura."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "crónica/irreductible o lesión ósea."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes, analgesia; jeringa/técnica extraoral si operador competente."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "ATM/cóndilo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "confirmar patrón recurrente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "intentar reducción manual estándar"
+    },
+    {
+      "order": 2,
+      "action": "considerar técnica extraoral o de jeringa en paciente cooperador"
+    },
+    {
+      "order": 3,
+      "action": "reevaluar."
+    }
+  ],
+  "stop_points": [
+    "fracaso repetido o dolor/trauma → maxilofacial."
+  ],
+  "confirmation": [
+    "función restaurada."
+  ],
+  "complications": {
+    "unclassified": [
+      "recurrencia, lesión dental/mandibular."
+    ]
+  },
+  "aftercare": [
+    "prevención y seguimiento maxilofacial."
+  ],
+  "documentation": [
+    "patrón y técnica."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, mandibular dislocation reduction principles; maxillofacial emergency guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "fracaso repetido o dolor/trauma → maxilofacial."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-023 — Luxación temporomandibular recurrente seleccionada — ADVANCED",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "73b9b47c115164f33158b7fe79b57a3a39a6ab8b39da57f6b59502df39b4ecfa",
+    "sections": {
+      "Objetivo": "reducir episodios recurrentes simples y reconocer cuándo derivar.",
+      "Indicaciones": "luxación recurrente sin trauma/fractura.",
+      "Contraindicaciones/precauciones": "crónica/irreductible o lesión ósea.",
+      "Material": "guantes, analgesia; jeringa/técnica extraoral si operador competente.",
+      "Anatomía": "ATM/cóndilo.",
+      "Preparación": "confirmar patrón recurrente.",
+      "Técnica paso a paso": "1) intentar reducción manual estándar; 2) considerar técnica extraoral o de jeringa en paciente cooperador; 3) reevaluar.",
+      "STOP": "fracaso repetido o dolor/trauma → maxilofacial.",
+      "Confirmación": "función restaurada.",
+      "Complicaciones": "recurrencia, lesión dental/mandibular.",
+      "Después": "prevención y seguimiento maxilofacial.",
+      "Documentación": "patrón y técnica.",
+      "Fuentes": "Merck Manual Professional, mandibular dislocation reduction principles; maxillofacial emergency guidance.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "fracaso repetido o dolor/trauma → maxilofacial."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

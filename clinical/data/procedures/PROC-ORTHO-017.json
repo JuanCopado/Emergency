@@ -1,0 +1,116 @@
+{
+  "procedure_id": "PROC-ORTHO-017",
+  "name": "Inmovilización de rodilla",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "limitar movimiento de rodilla lesionada.",
+  "indications": [
+    "lesiones seleccionadas postreducción o con necesidad de extensión relativa."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no usar como sustituto de valoración de lesión vascular/ligamentaria grave."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "inmovilizador, correas y muletas si precisa."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "rodilla/aparato extensor."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular y piel."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "posicionar rodilla"
+    },
+    {
+      "order": 2,
+      "action": "colocar férulas laterales/posteriores"
+    },
+    {
+      "order": 3,
+      "action": "ajustar correas"
+    },
+    {
+      "order": 4,
+      "action": "comprobar circulación."
+    }
+  ],
+  "stop_points": [
+    "dolor/parestesia o ajuste excesivo."
+  ],
+  "confirmation": [
+    "estabilidad y perfusión."
+  ],
+  "complications": {
+    "unclassified": [
+      "presión, rigidez, trombosis por inmovilización prolongada."
+    ]
+  },
+  "aftercare": [
+    "seguimiento e instrucciones."
+  ],
+  "documentation": [
+    "indicación y examen."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, knee immobilization and acute knee injury principles, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-017 — Inmovilizador de rodilla — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "84afb05e6a1a1db6448151d4b83cc4ec0cb6551c23978fbb97eaae7a40f3cc9a",
+    "sections": {
+      "Objetivo": "limitar movimiento de rodilla lesionada.",
+      "Indicaciones": "lesiones seleccionadas postreducción o con necesidad de extensión relativa.",
+      "Contraindicaciones/precauciones": "no usar como sustituto de valoración de lesión vascular/ligamentaria grave.",
+      "Material": "inmovilizador, correas y muletas si precisa.",
+      "Anatomía": "rodilla/aparato extensor.",
+      "Preparación": "neurovascular y piel.",
+      "Técnica paso a paso": "1) posicionar rodilla; 2) colocar férulas laterales/posteriores; 3) ajustar correas; 4) comprobar circulación.",
+      "STOP": "dolor/parestesia o ajuste excesivo.",
+      "Confirmación": "estabilidad y perfusión.",
+      "Complicaciones": "presión, rigidez, trombosis por inmovilización prolongada.",
+      "Después": "seguimiento e instrucciones.",
+      "Documentación": "indicación y examen.",
+      "Fuentes": "Merck Manual Professional, knee immobilization and acute knee injury principles, updated 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

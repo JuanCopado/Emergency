@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-ORTHO-018",
+  "name": "Cabestrillo e inmovilización de hombro",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "sostener miembro superior y reducir dolor.",
+  "indications": [
+    "lesiones de hombro/clavícula/postreducción seleccionadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar inmovilización excesiva prolongada si no indicada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "cabestrillo ± banda torácica."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "hombro/codo/mano."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "colocar antebrazo"
+    },
+    {
+      "order": 2,
+      "action": "ajustar soporte del codo"
+    },
+    {
+      "order": 3,
+      "action": "mano ligeramente elevada"
+    },
+    {
+      "order": 4,
+      "action": "añadir banda si precisa"
+    },
+    {
+      "order": 5,
+      "action": "revisar cuello/presión."
+    }
+  ],
+  "stop_points": [
+    "entumecimiento o cambio de color."
+  ],
+  "confirmation": [
+    "confort y soporte."
+  ],
+  "complications": {
+    "unclassified": [
+      "rigidez, presión cervical."
+    ]
+  },
+  "aftercare": [
+    "instrucciones de movilización según lesión."
+  ],
+  "documentation": [
+    "tipo."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, shoulder immobilization/sling principles, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-018 — Cabestrillo e inmovilización de hombro — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "d9242b2600f0d7cfbb73e66ac81503214bec9d7f56686b7a4550270f2127d13f",
+    "sections": {
+      "Objetivo": "sostener miembro superior y reducir dolor.",
+      "Indicaciones": "lesiones de hombro/clavícula/postreducción seleccionadas.",
+      "Contraindicaciones/precauciones": "evitar inmovilización excesiva prolongada si no indicada.",
+      "Material": "cabestrillo ± banda torácica.",
+      "Anatomía": "hombro/codo/mano.",
+      "Preparación": "neurovascular.",
+      "Técnica paso a paso": "1) colocar antebrazo; 2) ajustar soporte del codo; 3) mano ligeramente elevada; 4) añadir banda si precisa; 5) revisar cuello/presión.",
+      "STOP": "entumecimiento o cambio de color.",
+      "Confirmación": "confort y soporte.",
+      "Complicaciones": "rigidez, presión cervical.",
+      "Después": "instrucciones de movilización según lesión.",
+      "Documentación": "tipo.",
+      "Fuentes": "Merck Manual Professional, shoulder immobilization/sling principles, updated 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

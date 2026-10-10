@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-ORTHO-016",
+  "name": "Férula en U de tobillo",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "controlar inversión/eversión y edema.",
+  "indications": [
+    "lesiones de tobillo que requieren soporte medial-lateral."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no sustituye reducción de deformidad."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "férula en U, acolchado, venda."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "maléolos y calcáneo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "acolchar"
+    },
+    {
+      "order": 2,
+      "action": "aplicar desde pierna medial alrededor talón a lateral"
+    },
+    {
+      "order": 3,
+      "action": "moldear"
+    },
+    {
+      "order": 4,
+      "action": "vendar"
+    },
+    {
+      "order": 5,
+      "action": "revisar perfusión."
+    }
+  ],
+  "stop_points": [
+    "puntos de presión o compromiso vascular."
+  ],
+  "confirmation": [
+    "estabilidad."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión cutánea/compresión."
+    ]
+  },
+  "aftercare": [
+    "seguimiento."
+  ],
+  "documentation": [
+    "examen post."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Stirrup ankle splinting procedures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-016 — Férula en U de tobillo — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "bc7c855a73d1d3ff3ac2378e448fa192af9cae3f6f70ae25e7cb28cdf12f00ea",
+    "sections": {
+      "Objetivo": "controlar inversión/eversión y edema.",
+      "Indicaciones": "lesiones de tobillo que requieren soporte medial-lateral.",
+      "Contraindicaciones/precauciones": "no sustituye reducción de deformidad.",
+      "Material": "férula en U, acolchado, venda.",
+      "Anatomía": "maléolos y calcáneo.",
+      "Preparación": "neurovascular.",
+      "Técnica paso a paso": "1) acolchar; 2) aplicar desde pierna medial alrededor talón a lateral; 3) moldear; 4) vendar; 5) revisar perfusión.",
+      "STOP": "puntos de presión o compromiso vascular.",
+      "Confirmación": "estabilidad.",
+      "Complicaciones": "lesión cutánea/compresión.",
+      "Después": "seguimiento.",
+      "Documentación": "examen post.",
+      "Fuentes": "Merck Manual Professional, Stirrup ankle splinting procedures, updated 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

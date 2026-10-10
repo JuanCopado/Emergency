@@ -193,6 +193,54 @@
       }
     ]
   },
+  "PROC-ORTHO-004": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "dolor o deformidad atípicos, déficit neurovascular o fracaso tras intentos razonables → imagen y reconsiderar diagnóstico."
+      }
+    ]
+  },
+  "PROC-ORTHO-007": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "resistencia fija, dolor/crepitación anormal o fracaso de intento cuidadoso → sospechar interposición y derivar."
+      }
+    ]
+  },
+  "PROC-ORTHO-008": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "cirugía de mano urgente incluso tras reducción cerrada satisfactoria."
+      }
+    ]
+  },
+  "PROC-ORTHO-010": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "reducción abierta si la cerrada fracasa."
+      }
+    ]
+  },
+  "PROC-ORTHO-019": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "deterioro nuevo → aflojar/retirar férula y reevaluar urgente."
+      }
+    ]
+  },
+  "PROC-ORTHO-023": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "fracaso repetido o dolor/trauma → maxilofacial."
+      }
+    ]
+  },
   "PROC-THX-001": {
     "rescue": [
       {

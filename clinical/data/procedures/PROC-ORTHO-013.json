@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-ORTHO-013",
+  "name": "Férula antebraquiopalmar",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "inmovilizar muñeca/antebrazo distal.",
+  "indications": [
+    "lesiones estables o postreducción seleccionadas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "vigilar edema y perfusión."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "acolchado, material de férula y venda."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "radio/cúbito distal, muñeca y mano."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular y posición funcional."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "acolchar"
+    },
+    {
+      "order": 2,
+      "action": "colocar férula volar/dorsal según lesión"
+    },
+    {
+      "order": 3,
+      "action": "moldear"
+    },
+    {
+      "order": 4,
+      "action": "vendar"
+    },
+    {
+      "order": 5,
+      "action": "dejar dedos libres."
+    }
+  ],
+  "stop_points": [
+    "dolor/parestesia/perfusión alterada."
+  ],
+  "confirmation": [
+    "estabilidad y neurovascular."
+  ],
+  "complications": {
+    "unclassified": [
+      "presión/rigidez."
+    ]
+  },
+  "aftercare": [
+    "instrucciones y seguimiento."
+  ],
+  "documentation": [
+    "tipo y examen."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Volar/forearm splinting procedures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-013 — Férula antebraquiopalmar — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "8499b870c1512445953b328eb44ebe9fbb5abd7ee852af13de74f6baef582714",
+    "sections": {
+      "Objetivo": "inmovilizar muñeca/antebrazo distal.",
+      "Indicaciones": "lesiones estables o postreducción seleccionadas.",
+      "Contraindicaciones/precauciones": "vigilar edema y perfusión.",
+      "Material": "acolchado, material de férula y venda.",
+      "Anatomía": "radio/cúbito distal, muñeca y mano.",
+      "Preparación": "neurovascular y posición funcional.",
+      "Técnica paso a paso": "1) acolchar; 2) colocar férula volar/dorsal según lesión; 3) moldear; 4) vendar; 5) dejar dedos libres.",
+      "STOP": "dolor/parestesia/perfusión alterada.",
+      "Confirmación": "estabilidad y neurovascular.",
+      "Complicaciones": "presión/rigidez.",
+      "Después": "instrucciones y seguimiento.",
+      "Documentación": "tipo y examen.",
+      "Fuentes": "Merck Manual Professional, Volar/forearm splinting procedures, updated 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

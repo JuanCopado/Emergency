@@ -1,0 +1,120 @@
+{
+  "procedure_id": "PROC-ORTHO-015",
+  "name": "Férula posterior de pierna",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "inmovilizar tobillo/pierna distal.",
+  "indications": [
+    "fracturas/esguinces graves/postreducción."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "vigilar edema/compartimental."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "acolchado, férula posterior, venda."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "tibia/peroné, maléolos, talón."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "neurovascular y posición adecuada."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "acolchar prominencias"
+    },
+    {
+      "order": 2,
+      "action": "colocar férula posterior"
+    },
+    {
+      "order": 3,
+      "action": "mantener tobillo según lesión"
+    },
+    {
+      "order": 4,
+      "action": "vendar"
+    },
+    {
+      "order": 5,
+      "action": "revisar neurovascular."
+    }
+  ],
+  "stop_points": [
+    "dolor creciente, parestesia o perfusión alterada."
+  ],
+  "confirmation": [
+    "estabilidad y confort."
+  ],
+  "complications": {
+    "unclassified": [
+      "presión/compartimental/úlceras."
+    ]
+  },
+  "aftercare": [
+    "elevación y seguimiento."
+  ],
+  "documentation": [
+    "tipo y neurovascular."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Posterior ankle/leg splinting procedures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-015 — Férula posterior de pierna — CORE",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "e0fe45273c056deaf42e841b227fe5741fbf06cf50d90e3e80a9a39978c235ef",
+    "sections": {
+      "Objetivo": "inmovilizar tobillo/pierna distal.",
+      "Indicaciones": "fracturas/esguinces graves/postreducción.",
+      "Contraindicaciones/precauciones": "vigilar edema/compartimental.",
+      "Material": "acolchado, férula posterior, venda.",
+      "Anatomía": "tibia/peroné, maléolos, talón.",
+      "Preparación": "neurovascular y posición adecuada.",
+      "Técnica paso a paso": "1) acolchar prominencias; 2) colocar férula posterior; 3) mantener tobillo según lesión; 4) vendar; 5) revisar neurovascular.",
+      "STOP": "dolor creciente, parestesia o perfusión alterada.",
+      "Confirmación": "estabilidad y confort.",
+      "Complicaciones": "presión/compartimental/úlceras.",
+      "Después": "elevación y seguimiento.",
+      "Documentación": "tipo y neurovascular.",
+      "Fuentes": "Merck Manual Professional, Posterior ankle/leg splinting procedures, updated 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

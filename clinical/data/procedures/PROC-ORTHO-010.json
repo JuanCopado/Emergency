@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-ORTHO-010",
+  "name": "Reducción urgente de fractura desplazada seleccionada",
+  "family": "ORTOPEDIA, REDUCCIONES E INMOVILIZACIÓN",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "restaurar perfusión, aliviar amenaza cutánea/neurológica y obtener alineación funcional provisional.",
+  "indications": [
+    "fractura desplazada con déficit neurovascular, piel amenazada, deformidad marcada o dolor/compresión que mejora con realineación."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fractura abierta, lesión vascular compleja, fractura intraarticular compleja o patrón que requiere reducción abierta; no perseguir una reducción anatómica definitiva en urgencias cuando el objetivo es rescate neurovascular/provisional."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "analgesia/sedación, férulas, monitorización y material de imagen."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "eje óseo lesionado y estructuras neurovasculares/tejidos blandos regionales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "documentar estado neurovascular y piel, cubrir herida abierta con apósito estéril, antibiótico/tétanos según módulo cuando proceda y obtener imagen si no retrasa una reducción urgente."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "aplicar tracción longitudinal sostenida, corregir primero acortamiento y luego angulación/rotación con maniobras suaves, obtener alineación funcional suficiente para liberar piel/vasos/nervios y mantener con férula adecuada."
+    }
+  ],
+  "stop_points": [
+    "resistencia marcada, crepitación excesiva, empeoramiento de perfusión, dolor desproporcionado o sospecha de interposición/lesión vascular."
+  ],
+  "confirmation": [
+    "mejora clínica de alineación y perfusión, examen neurovascular repetido y radiografía postreducción."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión neurovascular, síndrome compartimental, desplazamiento secundario, lesión de tejidos blandos y fractura iatrogénica."
+    ]
+  },
+  "aftercare": [
+    "inmovilización, vigilancia de edema/compartimental y valoración ortopédica definitiva; reducción abierta si la cerrada fracasa."
+  ],
+  "documentation": [
+    "motivo de reducción, neurovascular y piel pre/post, técnica, sedación y control radiográfico."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Overview of Fractures and Distal Radius Fractures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "reducción abierta si la cerrada fracasa."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ortopedia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/06-orthopedics-reductions.md",
+    "source_heading": "PROC-ORTHO-010 — Reducción urgente de fractura desplazada seleccionada — ADVANCED",
+    "family_preamble": "# 6. Ortopedia, reducciones e inmovilización\n\nEstado de familia: **YELLOW**. Toda reducción incluye analgesia adecuada, imagen cuando no debe retrasar una reducción urgente y examen neurovascular pre/post. Fuentes troncales: Emergency Medicine Procedures, MSD/Merck Professional, orthopedic emergency guidance y guías específicas por lesión.",
+    "source_sha256": "a72ee0e974a49b9b8cf76cac0092c21bf66252c32ef3ff3890b129f6de9ffb83",
+    "sections": {
+      "Objetivo": "restaurar perfusión, aliviar amenaza cutánea/neurológica y obtener alineación funcional provisional.",
+      "Indicaciones": "fractura desplazada con déficit neurovascular, piel amenazada, deformidad marcada o dolor/compresión que mejora con realineación.",
+      "Contraindicaciones/precauciones": "fractura abierta, lesión vascular compleja, fractura intraarticular compleja o patrón que requiere reducción abierta; no perseguir una reducción anatómica definitiva en urgencias cuando el objetivo es rescate neurovascular/provisional.",
+      "Material": "analgesia/sedación, férulas, monitorización y material de imagen.",
+      "Anatomía": "eje óseo lesionado y estructuras neurovasculares/tejidos blandos regionales.",
+      "Preparación": "documentar estado neurovascular y piel, cubrir herida abierta con apósito estéril, antibiótico/tétanos según módulo cuando proceda y obtener imagen si no retrasa una reducción urgente.",
+      "Técnica paso a paso": "aplicar tracción longitudinal sostenida, corregir primero acortamiento y luego angulación/rotación con maniobras suaves, obtener alineación funcional suficiente para liberar piel/vasos/nervios y mantener con férula adecuada.",
+      "STOP": "resistencia marcada, crepitación excesiva, empeoramiento de perfusión, dolor desproporcionado o sospecha de interposición/lesión vascular.",
+      "Confirmación": "mejora clínica de alineación y perfusión, examen neurovascular repetido y radiografía postreducción.",
+      "Complicaciones": "lesión neurovascular, síndrome compartimental, desplazamiento secundario, lesión de tejidos blandos y fractura iatrogénica.",
+      "Después": "inmovilización, vigilancia de edema/compartimental y valoración ortopédica definitiva; reducción abierta si la cerrada fracasa.",
+      "Documentación": "motivo de reducción, neurovascular y piel pre/post, técnica, sedación y control radiográfico.",
+      "Fuentes": "Merck Manual Professional, Overview of Fractures and Distal Radius Fractures, updated 2025–2026.",
+      "QA": "YELLOW; revisión humana ortopedia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "reducción abierta si la cerrada fracasa."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}
