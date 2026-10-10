@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-OBS-007",
+  "name": "Inversión uterina: maniobra inicial de reposición",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "revertir rápidamente una inversión uterina aguda para controlar hemorragia y shock.",
+  "indications": [
+    "inversión uterina puerperal aguda, habitualmente con hemorragia y/o shock desproporcionado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "requiere reanimación, anestesia y obstetricia simultáneas. Suspender uterotónicos durante la reposición inicial y no intentar retirar una placenta aún adherida antes de reponer el útero, salvo estrategia obstétrica específica."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "accesos IV de gran calibre, sangre/hemoderivados, analgesia/anestesia, material PPH y quirófano disponible."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "fondo uterino invertido, anillo cervical, vagina y pelvis."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "pedir ayuda, reanimar agresivamente, suspender agentes uterotónicos temporalmente y preparar relajación uterina/anestesia si la reposición manual fracasa."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "colocar la palma o puño sobre el fondo invertido y aplicar presión firme, continua y sostenida siguiendo el eje vaginal hacia el ombligo hasta conseguir reposición; mantener la mano dentro hasta comprobar contracción y estabilidad."
+    }
+  ],
+  "stop_points": [
+    "no traccionar el cordón ni retirar placenta adherida antes de la reposición; fracaso de reducción, hemorragia persistente o shock refractario → quirófano y técnicas hidrostáticas/quirúrgicas según equipo."
+  ],
+  "confirmation": [
+    "fondo uterino nuevamente abdominal, cavidad restituida, útero contraído y sangrado reducido."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia masiva, shock, recurrencia, lesión uterina y necesidad de cirugía."
+    ]
+  },
+  "aftercare": [
+    "reiniciar uterotónicos tras reposición, continuar tratamiento PPH y vigilancia intensiva."
+  ],
+  "documentation": [
+    "hora de diagnóstico, shock/hemorragia, maniobras, fármacos/anestesia, momento de reposición y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "WHO PPH framework 2025/2026; HSE Primary PPH guideline 2025; contemporary obstetric emergency references.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "fracaso de reducción, hemorragia persistente o shock refractario → quirófano y técnicas hidrostáticas/quirúrgicas según equipo."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia/anestesia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-007 — Inversión uterina: reposición inicial — ADVANCED",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "0dda2dd0147bb92d721c905bebd8e794983298665b23eba50345d7e968ad01ee",
+    "sections": {
+      "Objetivo": "revertir rápidamente una inversión uterina aguda para controlar hemorragia y shock.",
+      "Indicaciones": "inversión uterina puerperal aguda, habitualmente con hemorragia y/o shock desproporcionado.",
+      "Contraindicaciones/precauciones": "requiere reanimación, anestesia y obstetricia simultáneas. Suspender uterotónicos durante la reposición inicial y no intentar retirar una placenta aún adherida antes de reponer el útero, salvo estrategia obstétrica específica.",
+      "Material": "accesos IV de gran calibre, sangre/hemoderivados, analgesia/anestesia, material PPH y quirófano disponible.",
+      "Anatomía": "fondo uterino invertido, anillo cervical, vagina y pelvis.",
+      "Preparación": "pedir ayuda, reanimar agresivamente, suspender agentes uterotónicos temporalmente y preparar relajación uterina/anestesia si la reposición manual fracasa.",
+      "Técnica paso a paso": "colocar la palma o puño sobre el fondo invertido y aplicar presión firme, continua y sostenida siguiendo el eje vaginal hacia el ombligo hasta conseguir reposición; mantener la mano dentro hasta comprobar contracción y estabilidad.",
+      "STOP": "no traccionar el cordón ni retirar placenta adherida antes de la reposición; fracaso de reducción, hemorragia persistente o shock refractario → quirófano y técnicas hidrostáticas/quirúrgicas según equipo.",
+      "Confirmación": "fondo uterino nuevamente abdominal, cavidad restituida, útero contraído y sangrado reducido.",
+      "Complicaciones": "hemorragia masiva, shock, recurrencia, lesión uterina y necesidad de cirugía.",
+      "Después": "reiniciar uterotónicos tras reposición, continuar tratamiento PPH y vigilancia intensiva.",
+      "Documentación": "hora de diagnóstico, shock/hemorragia, maniobras, fármacos/anestesia, momento de reposición y respuesta.",
+      "Fuentes": "WHO PPH framework 2025/2026; HSE Primary PPH guideline 2025; contemporary obstetric emergency references.",
+      "QA": "YELLOW; revisión humana obstetricia/anestesia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "fracaso de reducción, hemorragia persistente o shock refractario → quirófano y técnicas hidrostáticas/quirúrgicas según equipo."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-OBS-006",
+  "name": "Extracción manual de coágulos seleccionada",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "evacuar coágulos o restos accesibles que interfieren con la contracción uterina y la hemostasia dentro de un protocolo de PPH.",
+  "indications": [
+    "PPH con útero alto/atónico y sospecha de coágulos intrauterinos; sospecha de tejido retenido o necesidad de explorar cavidad tras fracaso del manejo inicial, por operador entrenado."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no usar como maniobra aislada ni repetir a ciegas; sospecha de ruptura uterina, placenta anormalmente adherente o anatomía incierta requieren obstetricia/quirófano. La exploración intrauterina aumenta riesgo infeccioso."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "analgesia/anestesia apropiada, guantes estériles largos, material PPH, ecografía cuando sea útil y antibiótico profiláctico según protocolo si se realiza manipulación intrauterina extensa/manual removal."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "cérvix, cavidad, fondo y cuernos uterinos."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "reanimación en paralelo, cuantificación de sangrado, evaluación de 4T, revisión de placenta y estabilización uterina externa."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "estabilizar el útero externamente; introducir la mano de forma controlada y explorar sistemáticamente cavidad/fondo/cuernos; retirar coágulos o restos libres accesibles; evitar maniobras de curetaje digital agresivo si existe adherencia."
+    }
+  ],
+  "stop_points": [
+    "resistencia anormal, sangrado creciente, sospecha de accreta/ruptura, dolor extremo o deterioro hemodinámico → escalar a quirófano/imagen/intervención definitiva."
+  ],
+  "confirmation": [
+    "reducción del contenido intrauterino, mejor tono uterino y disminución objetiva del sangrado."
+  ],
+  "complications": {
+    "unclassified": [
+      "trauma uterino/cervical, infección, hemorragia y retraso de tratamiento definitivo."
+    ]
+  },
+  "aftercare": [
+    "continuar bundle PPH, uterotónicos/TXA según módulos canónicos y reevaluar necesidad de evacuación guiada, balón, embolización o cirugía."
+  ],
+  "documentation": [
+    "indicación, hallazgos, material extraído, respuesta, profilaxis antibiótica si se usó y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "WHO Consolidated PPH Guidelines 2025; HSE National Clinical Practice Guideline for Primary PPH 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "resistencia anormal, sangrado creciente, sospecha de accreta/ruptura, dolor extremo o deterioro hemodinámico → escalar a quirófano/imagen/intervención definitiva."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-006 — Exploración uterina / extracción manual de coágulos seleccionada — ADVANCED",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "76ff1f64ee58dd363b1996702a0f973055cbb35a9b3bd7a6021896ae0f06db26",
+    "sections": {
+      "Objetivo": "evacuar coágulos o restos accesibles que interfieren con la contracción uterina y la hemostasia dentro de un protocolo de PPH.",
+      "Indicaciones": "PPH con útero alto/atónico y sospecha de coágulos intrauterinos; sospecha de tejido retenido o necesidad de explorar cavidad tras fracaso del manejo inicial, por operador entrenado.",
+      "Contraindicaciones/precauciones": "no usar como maniobra aislada ni repetir a ciegas; sospecha de ruptura uterina, placenta anormalmente adherente o anatomía incierta requieren obstetricia/quirófano. La exploración intrauterina aumenta riesgo infeccioso.",
+      "Material": "analgesia/anestesia apropiada, guantes estériles largos, material PPH, ecografía cuando sea útil y antibiótico profiláctico según protocolo si se realiza manipulación intrauterina extensa/manual removal.",
+      "Anatomía": "cérvix, cavidad, fondo y cuernos uterinos.",
+      "Preparación": "reanimación en paralelo, cuantificación de sangrado, evaluación de 4T, revisión de placenta y estabilización uterina externa.",
+      "Técnica paso a paso": "estabilizar el útero externamente; introducir la mano de forma controlada y explorar sistemáticamente cavidad/fondo/cuernos; retirar coágulos o restos libres accesibles; evitar maniobras de curetaje digital agresivo si existe adherencia.",
+      "STOP": "resistencia anormal, sangrado creciente, sospecha de accreta/ruptura, dolor extremo o deterioro hemodinámico → escalar a quirófano/imagen/intervención definitiva.",
+      "Confirmación": "reducción del contenido intrauterino, mejor tono uterino y disminución objetiva del sangrado.",
+      "Complicaciones": "trauma uterino/cervical, infección, hemorragia y retraso de tratamiento definitivo.",
+      "Después": "continuar bundle PPH, uterotónicos/TXA según módulos canónicos y reevaluar necesidad de evacuación guiada, balón, embolización o cirugía.",
+      "Documentación": "indicación, hallazgos, material extraído, respuesta, profilaxis antibiótica si se usó y complicaciones.",
+      "Fuentes": "WHO Consolidated PPH Guidelines 2025; HSE National Clinical Practice Guideline for Primary PPH 2025.",
+      "QA": "YELLOW; revisión humana obstetricia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "resistencia anormal, sangrado creciente, sospecha de accreta/ruptura, dolor extremo o deterioro hemodinámico → escalar a quirófano/imagen/intervención definitiva."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

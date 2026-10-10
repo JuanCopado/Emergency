@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-OBS-005",
+  "name": "Hemorragia posparto: masaje uterino y medidas iniciales",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "tratar atonía uterina mientras se activa simultáneamente el bundle completo de hemorragia posparto.",
+  "indications": [
+    "hemorragia posparto con útero atónico o causa aún no aclarada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no retrasar evaluación de Trauma, Tissue y Thrombin ni control definitivo por insistir en masaje aislado."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "monitorización, acceso IV, uterotónicos/TXA desde módulos farmacológicos, sangre/hemoderivados y material obstétrico."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "fondo, cuerpo y cavidad uterina."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "cuantificar pérdida, pedir ayuda, obtener accesos, vaciar vejiga si procede y activar protocolo de PPH."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "masaje uterino/fundal y, si es necesario, compresión bimanual; administrar tratamiento farmacológico canónico en paralelo y buscar sistemáticamente las 4T."
+    }
+  ],
+  "stop_points": [
+    "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa."
+  ],
+  "confirmation": [
+    "útero más firme y disminución objetiva del sangrado."
+  ],
+  "complications": {
+    "unclassified": [
+      "retraso de hemostasia definitiva si se usa como única medida."
+    ]
+  },
+  "aftercare": [
+    "continuar bundle PPH, reanimación hemostática y reevaluación seriada."
+  ],
+  "documentation": [
+    "pérdida cuantificada, tono, 4T evaluadas, tratamientos y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "WHO Consolidated Guidelines for Prevention, Diagnosis and Treatment of Postpartum Haemorrhage 2025; implementation guide 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa."
+  ],
+  "escalation": [
+    "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-005 — Hemorragia posparto: masaje uterino inicial — CORE",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "df571981044f03c28b503c8b33589d5c1daec9b4a9bc4ea9bf3259a1135ab869",
+    "sections": {
+      "Objetivo": "tratar atonía uterina mientras se activa simultáneamente el bundle completo de hemorragia posparto.",
+      "Indicaciones": "hemorragia posparto con útero atónico o causa aún no aclarada.",
+      "Contraindicaciones/precauciones": "no retrasar evaluación de Trauma, Tissue y Thrombin ni control definitivo por insistir en masaje aislado.",
+      "Material": "monitorización, acceso IV, uterotónicos/TXA desde módulos farmacológicos, sangre/hemoderivados y material obstétrico.",
+      "Anatomía": "fondo, cuerpo y cavidad uterina.",
+      "Preparación": "cuantificar pérdida, pedir ayuda, obtener accesos, vaciar vejiga si procede y activar protocolo de PPH.",
+      "Técnica paso a paso": "masaje uterino/fundal y, si es necesario, compresión bimanual; administrar tratamiento farmacológico canónico en paralelo y buscar sistemáticamente las 4T.",
+      "STOP": "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa.",
+      "Confirmación": "útero más firme y disminución objetiva del sangrado.",
+      "Complicaciones": "retraso de hemostasia definitiva si se usa como única medida.",
+      "Después": "continuar bundle PPH, reanimación hemostática y reevaluación seriada.",
+      "Documentación": "pérdida cuantificada, tono, 4T evaluadas, tratamientos y respuesta.",
+      "Fuentes": "WHO Consolidated Guidelines for Prevention, Diagnosis and Treatment of Postpartum Haemorrhage 2025; implementation guide 2026.",
+      "QA": "YELLOW; revisión humana obstetricia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "STOP",
+          "quote": "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "STOP",
+          "quote": "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

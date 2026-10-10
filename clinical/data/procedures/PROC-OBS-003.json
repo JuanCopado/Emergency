@@ -1,0 +1,115 @@
+{
+  "procedure_id": "PROC-OBS-003",
+  "name": "Manejo inicial de distocia de hombros",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "liberar un hombro fetal impactado minimizando lesión materna y fetal.",
+  "indications": [
+    "tras nacimiento de la cabeza, fracaso de salida de hombros con tracción axial rutinaria y signos compatibles."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "no realizar presión fúndica ni tracción excesiva de cabeza/cuello."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "equipo obstétrico/neonatal y material de reanimación."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "sínfisis púbica, sacro, hombros fetales y plexo braquial."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "declarar la emergencia, pedir ayuda, registrar tiempo y asignar roles."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "comenzar con McRoberts y presión suprapúbica; si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación."
+    }
+  ],
+  "stop_points": [
+    "evitar maniobras repetidas sin cambio de estrategia, presión fúndica y tracción excesiva."
+  ],
+  "confirmation": [
+    "liberación de hombros y nacimiento."
+  ],
+  "complications": {
+    "unclassified": [
+      "lesión del plexo braquial, fracturas, hipoxia fetal, hemorragia y trauma obstétrico materno."
+    ]
+  },
+  "aftercare": [
+    "evaluación neonatal y materna detalladas y vigilancia de PPH."
+  ],
+  "documentation": [
+    "secuencia exacta de maniobras, tiempo cabeza-cuerpo y resultado."
+  ],
+  "sources": [
+    {
+      "title": "RCOG Green-top Guideline No. 42 Shoulder Dystocia, reviewed 2026; ACOG shoulder dystocia guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": [
+    "si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación."
+  ],
+  "escalation": [
+    "si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-003 — Distocia de hombros — CORE",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "e4d4995c8fc60f3b24e36a79aea46334ae9f3b8713311cf493bece46cbb069d7",
+    "sections": {
+      "Objetivo": "liberar un hombro fetal impactado minimizando lesión materna y fetal.",
+      "Indicaciones": "tras nacimiento de la cabeza, fracaso de salida de hombros con tracción axial rutinaria y signos compatibles.",
+      "Contraindicaciones/precauciones": "no realizar presión fúndica ni tracción excesiva de cabeza/cuello.",
+      "Material": "equipo obstétrico/neonatal y material de reanimación.",
+      "Anatomía": "sínfisis púbica, sacro, hombros fetales y plexo braquial.",
+      "Preparación": "declarar la emergencia, pedir ayuda, registrar tiempo y asignar roles.",
+      "Técnica paso a paso": "comenzar con McRoberts y presión suprapúbica; si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación.",
+      "STOP": "evitar maniobras repetidas sin cambio de estrategia, presión fúndica y tracción excesiva.",
+      "Confirmación": "liberación de hombros y nacimiento.",
+      "Complicaciones": "lesión del plexo braquial, fracturas, hipoxia fetal, hemorragia y trauma obstétrico materno.",
+      "Después": "evaluación neonatal y materna detalladas y vigilancia de PPH.",
+      "Documentación": "secuencia exacta de maniobras, tiempo cabeza-cuerpo y resultado.",
+      "Fuentes": "RCOG Green-top Guideline No. 42 Shoulder Dystocia, reviewed 2026; ACOG shoulder dystocia guidance.",
+      "QA": "YELLOW; revisión humana obstetricia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación."
+        }
+      ],
+      "escalation": [
+        {
+          "section": "Técnica paso a paso",
+          "quote": "si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación."
+        }
+      ]
+    }
+  },
+  "pending_review": []
+}

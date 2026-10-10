@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-OBS-004",
+  "name": "Prolapso de cordón: medidas de rescate inmediatas",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "reducir la compresión del cordón y mantener perfusión fetal hasta parto urgente.",
+  "indications": [
+    "cordón prolapsado visible o palpable junto o por delante de la presentación fetal tras rotura de membranas."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar manipulación repetida del cordón y no intentar reintroducirlo de forma rutinaria."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes estériles, monitorización fetal si disponible y material obstétrico/neonatal."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "presentación fetal, cérvix, cordón y pelvis."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "activar de inmediato obstetricia/quirófano y equipo neonatal."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "elevar manualmente la presentación fetal para aliviar presión; colocar a la madre en posición que reduzca compresión; minimizar manipulación del cordón y cubrir con gasa estéril húmeda si está exteriorizado. Mantener la descompresión hasta parto definitivo."
+    }
+  ],
+  "stop_points": [
+    "no retrasar parto definitivo por maniobras temporizadoras."
+  ],
+  "confirmation": [
+    "reducción de compresión y, cuando se monitoriza, mejoría temporal de frecuencia fetal."
+  ],
+  "complications": {
+    "unclassified": [
+      "hipoxia fetal, vasoespasmo/trauma del cordón y muerte fetal."
+    ]
+  },
+  "aftercare": [
+    "parto urgente por la vía más rápida y segura según dilatación, presentación y estado fetal."
+  ],
+  "documentation": [
+    "hora de diagnóstico, FCF, medidas de descompresión y tiempo hasta parto."
+  ],
+  "sources": [
+    {
+      "title": "RCOG Green-top Guideline No. 50 Umbilical Cord Prolapse, reviewed/extended 2024.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "parto urgente por la vía más rápida y segura según dilatación, presentación y estado fetal."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-004 — Prolapso de cordón — CORE",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "6dee8928fd53a6a8ef076a7bc767d06037f6d6145cb6d13c9415f9cf05d6eddb",
+    "sections": {
+      "Objetivo": "reducir la compresión del cordón y mantener perfusión fetal hasta parto urgente.",
+      "Indicaciones": "cordón prolapsado visible o palpable junto o por delante de la presentación fetal tras rotura de membranas.",
+      "Contraindicaciones/precauciones": "evitar manipulación repetida del cordón y no intentar reintroducirlo de forma rutinaria.",
+      "Material": "guantes estériles, monitorización fetal si disponible y material obstétrico/neonatal.",
+      "Anatomía": "presentación fetal, cérvix, cordón y pelvis.",
+      "Preparación": "activar de inmediato obstetricia/quirófano y equipo neonatal.",
+      "Técnica paso a paso": "elevar manualmente la presentación fetal para aliviar presión; colocar a la madre en posición que reduzca compresión; minimizar manipulación del cordón y cubrir con gasa estéril húmeda si está exteriorizado. Mantener la descompresión hasta parto definitivo.",
+      "STOP": "no retrasar parto definitivo por maniobras temporizadoras.",
+      "Confirmación": "reducción de compresión y, cuando se monitoriza, mejoría temporal de frecuencia fetal.",
+      "Complicaciones": "hipoxia fetal, vasoespasmo/trauma del cordón y muerte fetal.",
+      "Después": "parto urgente por la vía más rápida y segura según dilatación, presentación y estado fetal.",
+      "Documentación": "hora de diagnóstico, FCF, medidas de descompresión y tiempo hasta parto.",
+      "Fuentes": "RCOG Green-top Guideline No. 50 Umbilical Cord Prolapse, reviewed/extended 2024.",
+      "QA": "YELLOW; revisión humana obstetricia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "parto urgente por la vía más rápida y segura según dilatación, presentación y estado fetal."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

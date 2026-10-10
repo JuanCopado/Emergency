@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-OBS-008",
+  "name": "Histerotomía resucitativa",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "SPECIALIST",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "mejorar la reanimación materna al aliviar la compresión aortocava y devolver a la circulación materna el volumen secuestrado en el útero; el beneficio fetal es secundario.",
+  "indications": [
+    "parada cardiaca durante embarazo con útero de tamaño suficiente para producir compresión aortocava (aproximadamente ≥20 semanas o fondo uterino al nivel/por encima del ombligo) cuando no se logra ROSC rápidamente."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "intervención de rescate tiempo-dependiente; no retrasar RCP, desfibrilación ni tratamiento de causas reversibles. Si el cérvix está completamente dilatado, el parto resucitativo puede lograrse por vía vaginal asistida en casos apropiados."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "equipo de reanimación, bisturí/instrumental obstétrico, material neonatal y control de hemorragia."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "pared abdominal, útero grávido, placenta, feto y vejiga."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "RCP de alta calidad, desplazamiento uterino manual a la izquierda, ALS estándar y activación inmediata de obstetricia, neonatología y anestesia."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "preparar precozmente y realizar el parto resucitativo lo antes posible en el lugar de la parada por equipo entrenado; si se requiere laparotomía/histerotomía, abrir abdomen y útero rápidamente, extraer al feto, pinzar/cortar el cordón y continuar reanimación materna/neonatal en paralelo."
+    }
+  ],
+  "stop_points": [
+    "no trasladar a quirófano si ello retrasa una intervención indicada; minimizar interrupciones de compresiones."
+  ],
+  "confirmation": [
+    "reevaluar ROSC, hemodinámica, ventilación, hemorragia y respuesta neonatal."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia masiva, lesión visceral, coagulopatía y necesidad de cirugía definitiva."
+    ]
+  },
+  "aftercare": [
+    "control hemorrágico, cirugía obstétrica definitiva y cuidados postparada multidisciplinarios."
+  ],
+  "documentation": [
+    "edad gestacional estimada/tamaño uterino, tiempos de parada, inicio de procedimiento, nacimiento y respuesta materno-neonatal."
+  ],
+  "sources": [
+    {
+      "title": "AHA 2025 Special Circumstances of Resuscitation; Resuscitation Council UK/ERC 2025 — cardiac arrest in pregnancy.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia/anestesia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-008 — Histerotomía resucitativa / parto resucitativo — SPECIALIST",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "e2ed2a7ac7051c49052b5e3fe1af26e99628f77fd6bb1655496159692846b69c",
+    "sections": {
+      "Objetivo": "mejorar la reanimación materna al aliviar la compresión aortocava y devolver a la circulación materna el volumen secuestrado en el útero; el beneficio fetal es secundario.",
+      "Indicaciones": "parada cardiaca durante embarazo con útero de tamaño suficiente para producir compresión aortocava (aproximadamente ≥20 semanas o fondo uterino al nivel/por encima del ombligo) cuando no se logra ROSC rápidamente.",
+      "Contraindicaciones/precauciones": "intervención de rescate tiempo-dependiente; no retrasar RCP, desfibrilación ni tratamiento de causas reversibles. Si el cérvix está completamente dilatado, el parto resucitativo puede lograrse por vía vaginal asistida en casos apropiados.",
+      "Material": "equipo de reanimación, bisturí/instrumental obstétrico, material neonatal y control de hemorragia.",
+      "Anatomía": "pared abdominal, útero grávido, placenta, feto y vejiga.",
+      "Preparación": "RCP de alta calidad, desplazamiento uterino manual a la izquierda, ALS estándar y activación inmediata de obstetricia, neonatología y anestesia.",
+      "Técnica paso a paso": "preparar precozmente y realizar el parto resucitativo lo antes posible en el lugar de la parada por equipo entrenado; si se requiere laparotomía/histerotomía, abrir abdomen y útero rápidamente, extraer al feto, pinzar/cortar el cordón y continuar reanimación materna/neonatal en paralelo.",
+      "STOP": "no trasladar a quirófano si ello retrasa una intervención indicada; minimizar interrupciones de compresiones.",
+      "Confirmación": "reevaluar ROSC, hemodinámica, ventilación, hemorragia y respuesta neonatal.",
+      "Complicaciones": "hemorragia masiva, lesión visceral, coagulopatía y necesidad de cirugía definitiva.",
+      "Después": "control hemorrágico, cirugía obstétrica definitiva y cuidados postparada multidisciplinarios.",
+      "Documentación": "edad gestacional estimada/tamaño uterino, tiempos de parada, inicio de procedimiento, nacimiento y respuesta materno-neonatal.",
+      "Fuentes": "AHA 2025 Special Circumstances of Resuscitation; Resuscitation Council UK/ERC 2025 — cardiac arrest in pregnancy.",
+      "QA": "YELLOW; revisión humana obstetricia/anestesia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

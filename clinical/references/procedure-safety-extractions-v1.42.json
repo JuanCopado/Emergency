@@ -361,6 +361,66 @@
       }
     ]
   },
+  "PROC-OBS-003": {
+    "rescue": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "Técnica paso a paso",
+        "quote": "si falla, progresar de forma estructurada a maniobras internas, extracción del brazo posterior o posición a cuatro apoyos según entrenamiento y situación."
+      }
+    ]
+  },
+  "PROC-OBS-004": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "parto urgente por la vía más rápida y segura según dilatación, presentación y estado fetal."
+      }
+    ]
+  },
+  "PROC-OBS-005": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa."
+      }
+    ],
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "sangrado persistente, shock, útero no responsivo, sospecha de ruptura o tejido retenido → escalar sin demora a balón, embolización o cirugía según causa."
+      }
+    ]
+  },
+  "PROC-OBS-006": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "resistencia anormal, sangrado creciente, sospecha de accreta/ruptura, dolor extremo o deterioro hemodinámico → escalar a quirófano/imagen/intervención definitiva."
+      }
+    ]
+  },
+  "PROC-OBS-007": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "fracaso de reducción, hemorragia persistente o shock refractario → quirófano y técnicas hidrostáticas/quirúrgicas según equipo."
+      }
+    ]
+  },
+  "PROC-OBS-009": {
+    "escalation": [
+      {
+        "section": "STOP",
+        "quote": "deterioro hemodinámico, sangrado persistente pese al balón, sospecha de ruptura o evidencia de una causa que exige cirugía. No permitir que el balón retrase embolización o cirugía cuando están indicadas."
+      }
+    ]
+  },
   "PROC-ORTHO-004": {
     "rescue": [
       {

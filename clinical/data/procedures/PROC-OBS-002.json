@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-OBS-002",
+  "name": "Pinzamiento/cuidado inicial del cordón",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "manejar el cordón umbilical favoreciendo transición neonatal y evitando hemorragia.",
+  "indications": [
+    "todo parto asistido."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "AHA/AAP 2025 recomienda diferir pinzamiento al menos 60 s en recién nacidos a término y pretérmino que no requieren reanimación inmediata; la conducta debe individualizarse si existe necesidad de reanimación urgente o compromiso materno."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "clamps/pinzas y tijera estéril."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "cordón umbilical y muñón neonatal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "valorar estabilidad materna y neonatal y coordinar con equipo neonatal."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "mantener al recién nacido caliente mientras se evalúa transición; cuando corresponde pinzar, colocar dos clamps y cortar entre ambos; comprobar hemostasia del muñón."
+    }
+  ],
+  "stop_points": [
+    "sangrado del muñón o deterioro neonatal/materno que obligue a modificar la estrategia."
+  ],
+  "confirmation": [
+    "muñón sin sangrado y transición neonatal adecuadamente atendida."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia del muñón y pinzamiento innecesariamente precoz."
+    ]
+  },
+  "aftercare": [
+    "cuidado seco del cordón y vigilancia neonatal."
+  ],
+  "documentation": [
+    "tiempo aproximado hasta pinzamiento y motivo si fue precoz."
+  ],
+  "sources": [
+    {
+      "title": "AHA/AAP Neonatal Resuscitation Guidelines 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia/neonatología pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-002 — Cordón: pinzamiento/cuidado inicial — CORE",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "afafa1222cbd2bece09c674c0cac08eaef75e562945821f8f88e922c331c38f7",
+    "sections": {
+      "Objetivo": "manejar el cordón umbilical favoreciendo transición neonatal y evitando hemorragia.",
+      "Indicaciones": "todo parto asistido.",
+      "Contraindicaciones/precauciones": "AHA/AAP 2025 recomienda diferir pinzamiento al menos 60 s en recién nacidos a término y pretérmino que no requieren reanimación inmediata; la conducta debe individualizarse si existe necesidad de reanimación urgente o compromiso materno.",
+      "Material": "clamps/pinzas y tijera estéril.",
+      "Anatomía": "cordón umbilical y muñón neonatal.",
+      "Preparación": "valorar estabilidad materna y neonatal y coordinar con equipo neonatal.",
+      "Técnica paso a paso": "mantener al recién nacido caliente mientras se evalúa transición; cuando corresponde pinzar, colocar dos clamps y cortar entre ambos; comprobar hemostasia del muñón.",
+      "STOP": "sangrado del muñón o deterioro neonatal/materno que obligue a modificar la estrategia.",
+      "Confirmación": "muñón sin sangrado y transición neonatal adecuadamente atendida.",
+      "Complicaciones": "hemorragia del muñón y pinzamiento innecesariamente precoz.",
+      "Después": "cuidado seco del cordón y vigilancia neonatal.",
+      "Documentación": "tiempo aproximado hasta pinzamiento y motivo si fue precoz.",
+      "Fuentes": "AHA/AAP Neonatal Resuscitation Guidelines 2025.",
+      "QA": "YELLOW; revisión humana obstetricia/neonatología pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

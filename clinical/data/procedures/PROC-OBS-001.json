@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-OBS-001",
+  "name": "Parto vaginal inminente no complicado",
+  "family": "OBSTETRICIA DE EMERGENCIA",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "asistir un parto vaginal inminente de forma segura cuando no hay tiempo para traslado.",
+  "indications": [
+    "coronación o parto inminente cefálico sin complicación obstétrica mayor identificada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "presentación anómala, hemorragia importante, distocia, prolapso de cordón o compromiso materno-fetal requieren escalada obstétrica urgente."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "PPE, paños, material para cordón, equipo neonatal y control de hemorragia."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "canal del parto, periné, cabeza y hombros fetales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "activar ayuda obstétrica/neonatal, privacidad, posición materna cómoda y equipo de reanimación neonatal disponible."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "permitir salida controlada de la cabeza sin tracción; comprobar cordón nucal; esperar restitución/rotación espontánea; guiar hombros suavemente solo con tracción axial mínima; recibir al recién nacido, secar y mantener temperatura."
+    }
+  ],
+  "stop_points": [
+    "no realizar tracción excesiva de cabeza/cuello; si los hombros no progresan con maniobras habituales, declarar distocia."
+  ],
+  "confirmation": [
+    "nacimiento completo y estabilidad materno-neonatal."
+  ],
+  "complications": {
+    "unclassified": [
+      "hemorragia, desgarros, distocia y depresión neonatal."
+    ]
+  },
+  "aftercare": [
+    "contacto piel con piel y pinzamiento diferido si madre/neonato estables; vigilar tercera etapa y PPH."
+  ],
+  "documentation": [
+    "hora de nacimiento, presentación, Apgar/estado inicial cuando corresponda y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "WHO intrapartum/newborn care principles; AHA/AAP Neonatal Resuscitation 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana obstetricia pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/14-obstetrics.md",
+    "source_heading": "PROC-OBS-001 — Parto vaginal inminente no complicado — CORE",
+    "family_preamble": "# 14. Obstetricia de emergencia\n\nEstado: **YELLOW**. Activar obstetricia/neonatología precozmente cuando esté disponible.",
+    "source_sha256": "8317e3801a951fc0f3e54941de88a0c35c365b348cea4968d66ed7e49a3ca45e",
+    "sections": {
+      "Objetivo": "asistir un parto vaginal inminente de forma segura cuando no hay tiempo para traslado.",
+      "Indicaciones": "coronación o parto inminente cefálico sin complicación obstétrica mayor identificada.",
+      "Contraindicaciones/precauciones": "presentación anómala, hemorragia importante, distocia, prolapso de cordón o compromiso materno-fetal requieren escalada obstétrica urgente.",
+      "Material": "PPE, paños, material para cordón, equipo neonatal y control de hemorragia.",
+      "Anatomía": "canal del parto, periné, cabeza y hombros fetales.",
+      "Preparación": "activar ayuda obstétrica/neonatal, privacidad, posición materna cómoda y equipo de reanimación neonatal disponible.",
+      "Técnica paso a paso": "permitir salida controlada de la cabeza sin tracción; comprobar cordón nucal; esperar restitución/rotación espontánea; guiar hombros suavemente solo con tracción axial mínima; recibir al recién nacido, secar y mantener temperatura.",
+      "STOP": "no realizar tracción excesiva de cabeza/cuello; si los hombros no progresan con maniobras habituales, declarar distocia.",
+      "Confirmación": "nacimiento completo y estabilidad materno-neonatal.",
+      "Complicaciones": "hemorragia, desgarros, distocia y depresión neonatal.",
+      "Después": "contacto piel con piel y pinzamiento diferido si madre/neonato estables; vigilar tercera etapa y PPH.",
+      "Documentación": "hora de nacimiento, presentación, Apgar/estado inicial cuando corresponda y complicaciones.",
+      "Fuentes": "WHO intrapartum/newborn care principles; AHA/AAP Neonatal Resuscitation 2025.",
+      "QA": "YELLOW; revisión humana obstetricia pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
