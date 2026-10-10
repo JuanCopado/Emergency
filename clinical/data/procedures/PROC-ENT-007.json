@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ENT-007",
+  "name": "Irrigación de conducto auditivo",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar cerumen o material seleccionado mediante irrigación de baja presión.",
+  "indications": [
+    "cerumen o cuerpo extraño pequeño/no absorbente cuando la membrana timpánica está íntegra y la irrigación es apropiada."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "perforación o tubo de ventilación, cirugía de oído previa relevante, batería, materia vegetal/higroscópica, objeto impactado medial al istmo o infección severa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "agua o solución a temperatura corporal, sistema de baja presión, recipiente y protección."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "conducto auditivo externo y membrana timpánica."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "revisar antecedentes y otoscopia; confirmar que el material no se expande con agua y que el tímpano puede considerarse íntegro."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "traccionar pabellón para alinear canal, dirigir el flujo hacia pared posterosuperior y no directamente al tímpano, irrigar suavemente y permitir salida libre."
+    }
+  ],
+  "stop_points": [
+    "dolor, vértigo, náusea intensa, sangrado, pérdida auditiva o falta de salida del líquido."
+  ],
+  "confirmation": [
+    "canal despejado y membrana timpánica reevaluable."
+  ],
+  "complications": {
+    "unclassified": [
+      "perforación, vértigo, otitis externa y lesión canalicular."
+    ]
+  },
+  "aftercare": [
+    "secar conducto y reevaluar."
+  ],
+  "documentation": [
+    "indicación, líquido usado, tolerancia y resultado."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, external ear irrigation and foreign-body removal procedures, updated 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ORL pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-007 — Irrigación de oído — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "360cbc459935cb69ac7fb53bffb6c8c74d2fdffb6e4004ee492db06e58b3fa4d",
+    "sections": {
+      "Objetivo": "retirar cerumen o material seleccionado mediante irrigación de baja presión.",
+      "Indicaciones": "cerumen o cuerpo extraño pequeño/no absorbente cuando la membrana timpánica está íntegra y la irrigación es apropiada.",
+      "Contraindicaciones/precauciones": "perforación o tubo de ventilación, cirugía de oído previa relevante, batería, materia vegetal/higroscópica, objeto impactado medial al istmo o infección severa.",
+      "Material": "agua o solución a temperatura corporal, sistema de baja presión, recipiente y protección.",
+      "Anatomía": "conducto auditivo externo y membrana timpánica.",
+      "Preparación": "revisar antecedentes y otoscopia; confirmar que el material no se expande con agua y que el tímpano puede considerarse íntegro.",
+      "Técnica paso a paso": "traccionar pabellón para alinear canal, dirigir el flujo hacia pared posterosuperior y no directamente al tímpano, irrigar suavemente y permitir salida libre.",
+      "STOP": "dolor, vértigo, náusea intensa, sangrado, pérdida auditiva o falta de salida del líquido.",
+      "Confirmación": "canal despejado y membrana timpánica reevaluable.",
+      "Complicaciones": "perforación, vértigo, otitis externa y lesión canalicular.",
+      "Después": "secar conducto y reevaluar.",
+      "Documentación": "indicación, líquido usado, tolerancia y resultado.",
+      "Fuentes": "Merck Manual Professional, external ear irrigation and foreign-body removal procedures, updated 2025–2026.",
+      "QA": "YELLOW; revisión humana ORL pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

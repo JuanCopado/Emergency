@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ENT-004",
+  "name": "Taponamiento nasal posterior / balón",
+  "family": "ORL",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "controlar hemorragia nasal posterior significativa.",
+  "indications": [
+    "sangrado posterior persistente o fracaso de medidas anteriores."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "requiere monitorización, analgesia y coordinación ORL; alto riesgo respiratorio y hemodinámico."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "balón/dispositivo posterior, monitor, oxígeno, aspiración y analgesia."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "coana y nasofaringe."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "asegurar vía aérea, acceso IV y apoyo ORL."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "introducir el dispositivo por el suelo nasal, posicionarlo en nasofaringe, inflar según fabricante y fijar."
+    }
+  ],
+  "stop_points": [
+    "hipoxia, bradicardia, aspiración, dolor desproporcionado o sangrado persistente."
+  ],
+  "confirmation": [
+    "control del sangrado y estabilidad."
+  ],
+  "complications": {
+    "unclassified": [
+      "hipoxia, respuesta vagal, necrosis, aspiración e infección."
+    ]
+  },
+  "aftercare": [
+    "ingreso/monitorización y tratamiento definitivo."
+  ],
+  "documentation": [
+    "dispositivo, parámetros según fabricante y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020; ORL emergency guidance.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-004 — Taponamiento posterior — ADVANCED",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "866d22c8234f8779dd81f126bdcb31e9bebea120ca6cda5f409c0202597f0a31",
+    "sections": {
+      "Objetivo": "controlar hemorragia nasal posterior significativa.",
+      "Indicaciones": "sangrado posterior persistente o fracaso de medidas anteriores.",
+      "Contraindicaciones/precauciones": "requiere monitorización, analgesia y coordinación ORL; alto riesgo respiratorio y hemodinámico.",
+      "Material": "balón/dispositivo posterior, monitor, oxígeno, aspiración y analgesia.",
+      "Anatomía": "coana y nasofaringe.",
+      "Preparación": "asegurar vía aérea, acceso IV y apoyo ORL.",
+      "Técnica paso a paso": "introducir el dispositivo por el suelo nasal, posicionarlo en nasofaringe, inflar según fabricante y fijar.",
+      "STOP": "hipoxia, bradicardia, aspiración, dolor desproporcionado o sangrado persistente.",
+      "Confirmación": "control del sangrado y estabilidad.",
+      "Complicaciones": "hipoxia, respuesta vagal, necrosis, aspiración e infección.",
+      "Después": "ingreso/monitorización y tratamiento definitivo.",
+      "Documentación": "dispositivo, parámetros según fabricante y respuesta.",
+      "Fuentes": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020; ORL emergency guidance.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

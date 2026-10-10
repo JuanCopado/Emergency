@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-ENT-012",
+  "name": "Reimplante urgente de diente permanente avulsionado",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "preservar un diente permanente avulsionado viable.",
+  "indications": [
+    "avulsión de diente permanente; no reimplantar dientes temporales."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fractura alveolar compleja, riesgo de aspiración, paciente no cooperador o prioridad médica superior."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes, suero/leche/medio de conservación y material de estabilización si procede."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "corona, raíz, ligamento periodontal y alveolo."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "manipular solo por la corona; no raspar la raíz; enjuagar suavemente si está contaminado."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "orientar correctamente, reinsertar suavemente en el alveolo y estabilizar con férula flexible si corresponde y existe competencia."
+    }
+  ],
+  "stop_points": [
+    "resistencia, fractura alveolar compleja o riesgo de aspiración."
+  ],
+  "confirmation": [
+    "posición anatómica razonable y estabilidad provisional."
+  ],
+  "complications": {
+    "unclassified": [
+      "reabsorción, anquilosis, infección y pérdida dentaria."
+    ]
+  },
+  "aftercare": [
+    "odontología urgente, profilaxis antitetánica y antibiótica cuando corresponda."
+  ],
+  "documentation": [
+    "tiempo extraoral, medio de conservación y momento del reimplante."
+  ],
+  "sources": [
+    {
+      "title": "International Association of Dental Traumatology (IADT) Guidelines 2020 — Avulsion of Permanent Teeth; AAPD Reference Manual 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "odontología urgente, profilaxis antitetánica y antibiótica cuando corresponda."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-012 — Reimplante urgente de diente permanente avulsionado — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "eae1c465b355d1c6463abb2a551a16e78d967d03fad0fad7e726ac9ace1816b9",
+    "sections": {
+      "Objetivo": "preservar un diente permanente avulsionado viable.",
+      "Indicaciones": "avulsión de diente permanente; no reimplantar dientes temporales.",
+      "Contraindicaciones/precauciones": "fractura alveolar compleja, riesgo de aspiración, paciente no cooperador o prioridad médica superior.",
+      "Material": "guantes, suero/leche/medio de conservación y material de estabilización si procede.",
+      "Anatomía": "corona, raíz, ligamento periodontal y alveolo.",
+      "Preparación": "manipular solo por la corona; no raspar la raíz; enjuagar suavemente si está contaminado.",
+      "Técnica paso a paso": "orientar correctamente, reinsertar suavemente en el alveolo y estabilizar con férula flexible si corresponde y existe competencia.",
+      "STOP": "resistencia, fractura alveolar compleja o riesgo de aspiración.",
+      "Confirmación": "posición anatómica razonable y estabilidad provisional.",
+      "Complicaciones": "reabsorción, anquilosis, infección y pérdida dentaria.",
+      "Después": "odontología urgente, profilaxis antitetánica y antibiótica cuando corresponda.",
+      "Documentación": "tiempo extraoral, medio de conservación y momento del reimplante.",
+      "Fuentes": "International Association of Dental Traumatology (IADT) Guidelines 2020 — Avulsion of Permanent Teeth; AAPD Reference Manual 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "odontología urgente, profilaxis antitetánica y antibiótica cuando corresponda."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

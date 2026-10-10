@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ENT-003",
+  "name": "Taponamiento nasal anterior",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "controlar epistaxis anterior persistente.",
+  "indications": [
+    "fracaso de compresión/cauterio o foco no tratable directamente."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "trauma facial importante o sospecha de lesión de base de cráneo requieren estrategia alternativa."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "dispositivo de taponamiento anterior, anestesia tópica, lubricante y monitorización."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "suelo nasal y cavidad nasal."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "aspirar coágulos accesibles y anestesiar."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "introducir el dispositivo paralelo al suelo nasal; expandir o hidratar según fabricante; fijar y observar."
+    }
+  ],
+  "stop_points": [
+    "resistencia marcada, dolor intenso, hipoxia o sangrado posterior persistente."
+  ],
+  "confirmation": [
+    "cese o reducción significativa del sangrado."
+  ],
+  "complications": {
+    "unclassified": [
+      "ulceración, necrosis, infección y desplazamiento."
+    ]
+  },
+  "aftercare": [
+    "plan de retirada y seguimiento ORL según riesgo."
+  ],
+  "documentation": [
+    "dispositivo, lado y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-003 — Taponamiento anterior — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "568a77cd5bff87876dea73c5cbf564c42b0cb8c2fb28d7555d4e0ed774127a80",
+    "sections": {
+      "Objetivo": "controlar epistaxis anterior persistente.",
+      "Indicaciones": "fracaso de compresión/cauterio o foco no tratable directamente.",
+      "Contraindicaciones/precauciones": "trauma facial importante o sospecha de lesión de base de cráneo requieren estrategia alternativa.",
+      "Material": "dispositivo de taponamiento anterior, anestesia tópica, lubricante y monitorización.",
+      "Anatomía": "suelo nasal y cavidad nasal.",
+      "Preparación": "aspirar coágulos accesibles y anestesiar.",
+      "Técnica paso a paso": "introducir el dispositivo paralelo al suelo nasal; expandir o hidratar según fabricante; fijar y observar.",
+      "STOP": "resistencia marcada, dolor intenso, hipoxia o sangrado posterior persistente.",
+      "Confirmación": "cese o reducción significativa del sangrado.",
+      "Complicaciones": "ulceración, necrosis, infección y desplazamiento.",
+      "Después": "plan de retirada y seguimiento ORL según riesgo.",
+      "Documentación": "dispositivo, lado y respuesta.",
+      "Fuentes": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

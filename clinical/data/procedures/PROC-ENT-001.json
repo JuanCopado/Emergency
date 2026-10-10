@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ENT-001",
+  "name": "Epistaxis: compresión y vasoconstrictor tópico",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "controlar epistaxis anterior de forma conservadora.",
+  "indications": [
+    "sangrado nasal anterior sin compromiso de vía aérea ni shock."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "sangrado posterior o masivo, trauma facial importante o inestabilidad requieren escalada."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "guantes, aspiración y vasoconstrictor tópico si procede."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "septo anterior y alas nasales."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "paciente sentado e inclinado hacia delante; retirar coágulos accesibles si es seguro."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "aplicar vasoconstrictor si no está contraindicado y comprimir ambas alas nasales contra el septo de forma continua."
+    }
+  ],
+  "stop_points": [
+    "compromiso de vía aérea, inestabilidad o sangrado no controlable."
+  ],
+  "confirmation": [
+    "cese del sangrado activo."
+  ],
+  "complications": {
+    "unclassified": [
+      "aspiración de sangre, recurrencia y efectos sistémicos del vasoconstrictor."
+    ]
+  },
+  "aftercare": [
+    "evitar manipulación nasal y tratar factores precipitantes."
+  ],
+  "documentation": [
+    "lado, medidas aplicadas y respuesta."
+  ],
+  "sources": [
+    {
+      "title": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-001 — Epistaxis: compresión/vasoconstrictor — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "3a9d1a6a6cc844cab73920ffa4eb1aaa9ff46d3a849c1eb43887c4010446be4d",
+    "sections": {
+      "Objetivo": "controlar epistaxis anterior de forma conservadora.",
+      "Indicaciones": "sangrado nasal anterior sin compromiso de vía aérea ni shock.",
+      "Contraindicaciones/precauciones": "sangrado posterior o masivo, trauma facial importante o inestabilidad requieren escalada.",
+      "Material": "guantes, aspiración y vasoconstrictor tópico si procede.",
+      "Anatomía": "septo anterior y alas nasales.",
+      "Preparación": "paciente sentado e inclinado hacia delante; retirar coágulos accesibles si es seguro.",
+      "Técnica paso a paso": "aplicar vasoconstrictor si no está contraindicado y comprimir ambas alas nasales contra el septo de forma continua.",
+      "STOP": "compromiso de vía aérea, inestabilidad o sangrado no controlable.",
+      "Confirmación": "cese del sangrado activo.",
+      "Complicaciones": "aspiración de sangre, recurrencia y efectos sistémicos del vasoconstrictor.",
+      "Después": "evitar manipulación nasal y tratar factores precipitantes.",
+      "Documentación": "lado, medidas aplicadas y respuesta.",
+      "Fuentes": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

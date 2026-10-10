@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ENT-002",
+  "name": "Cauterización nasal anterior",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "tratar un punto sangrante anterior visible.",
+  "indications": [
+    "epistaxis anterior focal persistente tras compresión."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "evitar cauterización septal bilateral enfrentada; no usar si el foco no es visible o el sangrado es profuso."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "anestesia/vasoconstrictor tópico, nitrato de plata o cauterio apropiado y aspiración."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "septo anterior/plexo de Kiesselbach."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "limpiar, secar y anestesiar el campo."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "identificar el punto; cauterizar un área pequeña alrededor del foco; reevaluar hemostasia."
+    }
+  ],
+  "stop_points": [
+    "sangrado no controlable o lesión septal extensa."
+  ],
+  "confirmation": [
+    "hemostasia local."
+  ],
+  "complications": {
+    "unclassified": [
+      "dolor, necrosis, costra y perforación septal."
+    ]
+  },
+  "aftercare": [
+    "cuidados nasales y revisión si recurre."
+  ],
+  "documentation": [
+    "lado, sitio y agente usado."
+  ],
+  "sources": [
+    {
+      "title": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-002 — Cauterización nasal anterior — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "eb6a06af0c661c5ca877c76ae2b448373f176285559414cf92a1aa5febb62da7",
+    "sections": {
+      "Objetivo": "tratar un punto sangrante anterior visible.",
+      "Indicaciones": "epistaxis anterior focal persistente tras compresión.",
+      "Contraindicaciones/precauciones": "evitar cauterización septal bilateral enfrentada; no usar si el foco no es visible o el sangrado es profuso.",
+      "Material": "anestesia/vasoconstrictor tópico, nitrato de plata o cauterio apropiado y aspiración.",
+      "Anatomía": "septo anterior/plexo de Kiesselbach.",
+      "Preparación": "limpiar, secar y anestesiar el campo.",
+      "Técnica paso a paso": "identificar el punto; cauterizar un área pequeña alrededor del foco; reevaluar hemostasia.",
+      "STOP": "sangrado no controlable o lesión septal extensa.",
+      "Confirmación": "hemostasia local.",
+      "Complicaciones": "dolor, necrosis, costra y perforación septal.",
+      "Después": "cuidados nasales y revisión si recurre.",
+      "Documentación": "lado, sitio y agente usado.",
+      "Fuentes": "AAO-HNSF Clinical Practice Guideline: Nosebleed (Epistaxis), 2020.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

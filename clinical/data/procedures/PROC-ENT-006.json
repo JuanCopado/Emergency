@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-ENT-006",
+  "name": "Extracción de cuerpo extraño del oído",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un cuerpo extraño del conducto auditivo sin lesionar piel, membrana timpánica ni cadena osicular.",
+  "indications": [
+    "cuerpo extraño visible y accesible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "batería botón o imán requieren extracción urgente; objeto medial al istmo, adyacente al tímpano, penetrante, extracción fallida previa, sangrado o paciente incapaz de permanecer inmóvil favorecen derivación ORL/sedación."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "otoscopio o microscopio si disponible, pinza, gancho/cureta o succión según forma."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "conducto cartilaginoso y óseo, istmo y membrana timpánica."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "identificar tipo, tamaño y posición; seleccionar técnica según morfología."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "usar pinza para objetos agarrables, gancho detrás de objetos lisos accesibles o succión cuando sea apropiado; inmovilizar insecto vivo antes de extracción si el tímpano está íntegro y el agente utilizado es seguro."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, sangrado, migración medial, contacto con tímpano o pérdida de cooperación."
+  ],
+  "confirmation": [
+    "objeto completo retirado y canal/tímpano revisados."
+  ],
+  "complications": {
+    "unclassified": [
+      "laceración, perforación timpánica, lesión osicular, otitis externa y fragmento retenido."
+    ]
+  },
+  "aftercare": [
+    "ORL si lesión, extracción incompleta o objeto medial al istmo."
+  ],
+  "documentation": [
+    "objeto, posición, técnica, intentos y estado del canal/tímpano."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Remove a Foreign Body From the External Ear, updated May 2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "ORL si lesión, extracción incompleta o objeto medial al istmo."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ORL pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-006 — Cuerpo extraño de oído — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "e5934e63087975da9cb087bec29f475154bfe01f5d5e1a99597a1f40288e3c3e",
+    "sections": {
+      "Objetivo": "retirar un cuerpo extraño del conducto auditivo sin lesionar piel, membrana timpánica ni cadena osicular.",
+      "Indicaciones": "cuerpo extraño visible y accesible.",
+      "Contraindicaciones/precauciones": "batería botón o imán requieren extracción urgente; objeto medial al istmo, adyacente al tímpano, penetrante, extracción fallida previa, sangrado o paciente incapaz de permanecer inmóvil favorecen derivación ORL/sedación.",
+      "Material": "otoscopio o microscopio si disponible, pinza, gancho/cureta o succión según forma.",
+      "Anatomía": "conducto cartilaginoso y óseo, istmo y membrana timpánica.",
+      "Preparación": "identificar tipo, tamaño y posición; seleccionar técnica según morfología.",
+      "Técnica paso a paso": "usar pinza para objetos agarrables, gancho detrás de objetos lisos accesibles o succión cuando sea apropiado; inmovilizar insecto vivo antes de extracción si el tímpano está íntegro y el agente utilizado es seguro.",
+      "STOP": "dolor intenso, sangrado, migración medial, contacto con tímpano o pérdida de cooperación.",
+      "Confirmación": "objeto completo retirado y canal/tímpano revisados.",
+      "Complicaciones": "laceración, perforación timpánica, lesión osicular, otitis externa y fragmento retenido.",
+      "Después": "ORL si lesión, extracción incompleta o objeto medial al istmo.",
+      "Documentación": "objeto, posición, técnica, intentos y estado del canal/tímpano.",
+      "Fuentes": "Merck Manual Professional, How To Remove a Foreign Body From the External Ear, updated May 2026.",
+      "QA": "YELLOW; revisión humana ORL pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "ORL si lesión, extracción incompleta o objeto medial al istmo."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

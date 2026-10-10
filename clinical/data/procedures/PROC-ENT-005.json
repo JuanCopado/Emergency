@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-ENT-005",
+  "name": "Extracción de cuerpo extraño nasal",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "retirar un cuerpo extraño nasal sin empujarlo hacia la nasofaringe ni lesionar la mucosa.",
+  "indications": [
+    "objeto nasal visible y accesible."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "batería botón o imanes requieren extracción inmediata/urgente por riesgo de necrosis; objeto posterior/no visible, enclavado, con penetración o niño no cooperador → ORL."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "buena iluminación, espéculo si precisa, aspiración, gancho/pinza apropiada y material de protección."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "vestíbulo, meato inferior y cavidad nasal anterior; la mayoría se localizan anterior al cornete medio."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "identificar tipo, tamaño y posición; evitar múltiples intentos que desplacen el objeto a posterior."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "en niño apropiado considerar presión positiva del cuidador (“parent's kiss”) para objetos no oclusivos/profundos; si no, retirar bajo visión con instrumento seleccionado según forma, idealmente pasando por detrás del objeto cuando se usa gancho."
+    }
+  ],
+  "stop_points": [
+    "pérdida de visualización, migración posterior, sangrado importante o batería adherida/necrosis extensa."
+  ],
+  "confirmation": [
+    "objeto íntegro retirado y reexploración de ambas fosas."
+  ],
+  "complications": {
+    "unclassified": [
+      "epistaxis, trauma mucoso, aspiración y fragmento retenido."
+    ]
+  },
+  "aftercare": [
+    "ORL si extracción incompleta, lesión significativa o batería/imán."
+  ],
+  "documentation": [
+    "objeto, lado, técnica, intentos y complicaciones."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, Nasal Foreign Bodies / How To Remove a Foreign Body From the Nose, updated Jun 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "ORL si extracción incompleta, lesión significativa o batería/imán."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ORL pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-005 — Cuerpo extraño nasal — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "757f53b311e8edb1b1d4618d582ec180ed0f146c742b7d2c5a1b598a331716ec",
+    "sections": {
+      "Objetivo": "retirar un cuerpo extraño nasal sin empujarlo hacia la nasofaringe ni lesionar la mucosa.",
+      "Indicaciones": "objeto nasal visible y accesible.",
+      "Contraindicaciones/precauciones": "batería botón o imanes requieren extracción inmediata/urgente por riesgo de necrosis; objeto posterior/no visible, enclavado, con penetración o niño no cooperador → ORL.",
+      "Material": "buena iluminación, espéculo si precisa, aspiración, gancho/pinza apropiada y material de protección.",
+      "Anatomía": "vestíbulo, meato inferior y cavidad nasal anterior; la mayoría se localizan anterior al cornete medio.",
+      "Preparación": "identificar tipo, tamaño y posición; evitar múltiples intentos que desplacen el objeto a posterior.",
+      "Técnica paso a paso": "en niño apropiado considerar presión positiva del cuidador (“parent's kiss”) para objetos no oclusivos/profundos; si no, retirar bajo visión con instrumento seleccionado según forma, idealmente pasando por detrás del objeto cuando se usa gancho.",
+      "STOP": "pérdida de visualización, migración posterior, sangrado importante o batería adherida/necrosis extensa.",
+      "Confirmación": "objeto íntegro retirado y reexploración de ambas fosas.",
+      "Complicaciones": "epistaxis, trauma mucoso, aspiración y fragmento retenido.",
+      "Después": "ORL si extracción incompleta, lesión significativa o batería/imán.",
+      "Documentación": "objeto, lado, técnica, intentos y complicaciones.",
+      "Fuentes": "Merck Manual Professional, Nasal Foreign Bodies / How To Remove a Foreign Body From the Nose, updated Jun 2025.",
+      "QA": "YELLOW; revisión humana ORL pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "ORL si extracción incompleta, lesión significativa o batería/imán."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

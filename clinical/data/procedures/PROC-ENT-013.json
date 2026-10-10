@@ -1,0 +1,110 @@
+{
+  "procedure_id": "PROC-ENT-013",
+  "name": "Ferulización flexible de traumatismo dentoalveolar",
+  "family": "ORL",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "estabilizar dientes permanentes reimplantados o luxados seleccionados.",
+  "indications": [
+    "avulsión, luxación o fractura alveolar según patrón IADT."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "fractura compleja, oclusión gravemente alterada o imposibilidad de alineación segura."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "férula flexible, composite/adhesivo, aislamiento y protección ocular."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "dientes lesionados y dientes vecinos estables."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "limpiar, secar y alinear sin fuerza."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "adaptar férula flexible, fijarla a dientes vecinos estables y comprobar oclusión y estabilidad."
+    }
+  ],
+  "stop_points": [
+    "interferencia oclusal importante, sangrado no controlado o lesión alveolar compleja."
+  ],
+  "confirmation": [
+    "estabilidad suficiente sin rigidez excesiva."
+  ],
+  "complications": {
+    "unclassified": [
+      "maloclusión, daño periodontal y fallo de la férula."
+    ]
+  },
+  "aftercare": [
+    "odontología urgente y duración de férula según lesión."
+  ],
+  "documentation": [
+    "dientes incluidos y técnica."
+  ],
+  "sources": [
+    {
+      "title": "International Association of Dental Traumatology (IADT) Guidelines 2020 — Fractures and Luxations; AAPD Reference Manual 2025–2026.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": [
+    "odontología urgente y duración de férula según lesión."
+  ],
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-013 — Ferulización flexible de traumatismo dentoalveolar — ADVANCED",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "ca307fdab0dceed5a64e5d804d6466c828348f6795358ca6f8184ca7c40823c0",
+    "sections": {
+      "Objetivo": "estabilizar dientes permanentes reimplantados o luxados seleccionados.",
+      "Indicaciones": "avulsión, luxación o fractura alveolar según patrón IADT.",
+      "Contraindicaciones/precauciones": "fractura compleja, oclusión gravemente alterada o imposibilidad de alineación segura.",
+      "Material": "férula flexible, composite/adhesivo, aislamiento y protección ocular.",
+      "Anatomía": "dientes lesionados y dientes vecinos estables.",
+      "Preparación": "limpiar, secar y alinear sin fuerza.",
+      "Técnica paso a paso": "adaptar férula flexible, fijarla a dientes vecinos estables y comprobar oclusión y estabilidad.",
+      "STOP": "interferencia oclusal importante, sangrado no controlado o lesión alveolar compleja.",
+      "Confirmación": "estabilidad suficiente sin rigidez excesiva.",
+      "Complicaciones": "maloclusión, daño periodontal y fallo de la férula.",
+      "Después": "odontología urgente y duración de férula según lesión.",
+      "Documentación": "dientes incluidos y técnica.",
+      "Fuentes": "International Association of Dental Traumatology (IADT) Guidelines 2020 — Fractures and Luxations; AAPD Reference Manual 2025–2026.",
+      "QA": "YELLOW."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": [
+        {
+          "section": "Después",
+          "quote": "odontología urgente y duración de férula según lesión."
+        }
+      ]
+    }
+  },
+  "pending_review": [
+    "rescue"
+  ]
+}

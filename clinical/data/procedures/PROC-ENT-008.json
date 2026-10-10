@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ENT-008",
+  "name": "Extracción de cerumen impactado",
+  "family": "ORL",
+  "level": "CORE",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "resolver cerumen impactado sintomático o que impide la evaluación necesaria del conducto/tímpano.",
+  "indications": [
+    "síntomas atribuibles al cerumen o imposibilidad de explorar adecuadamente el oído cuando la exploración es necesaria."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "factores modificadores incluyen tímpano no íntegro/tubos, cirugía de oído previa, estenosis/exostosis del canal, anticoagulación, diabetes, inmunosupresión o infección activa; elegir técnica acorde al riesgo."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "cerumenolítico, irrigación cuando sea segura, cureta o succión bajo visión."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "conducto auditivo externo y membrana timpánica."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "historia otológica y otoscopia; determinar si la irrigación está contraindicada."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "usar cerumenolítico, irrigación o extracción manual según anatomía y riesgo; evitar instrumentación ciega y reevaluar tras cada intento."
+    }
+  ],
+  "stop_points": [
+    "dolor intenso, sangrado, vértigo, pérdida auditiva aguda o resistencia inesperada."
+  ],
+  "confirmation": [
+    "conducto suficientemente despejado, síntomas mejorados y/o tímpano evaluable."
+  ],
+  "complications": {
+    "unclassified": [
+      "abrasión, perforación, otitis externa, vértigo e infección."
+    ]
+  },
+  "aftercare": [
+    "si persisten síntomas tras retirar cerumen, buscar otra causa; prevención individualizada si recurrencia."
+  ],
+  "documentation": [
+    "técnica, resultado y estado timpánico."
+  ],
+  "sources": [
+    {
+      "title": "AAO-HNSF Clinical Practice Guideline: Cerumen Impaction (Update), 2017; guideline remains the current AAO-HNS cerumen guideline.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ORL pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-008 — Cerumen impactado — CORE",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "30adfc8af8f199efc5a2e16ea2a7e2dd67e8b38e4dc44c6a9dfdee651647285e",
+    "sections": {
+      "Objetivo": "resolver cerumen impactado sintomático o que impide la evaluación necesaria del conducto/tímpano.",
+      "Indicaciones": "síntomas atribuibles al cerumen o imposibilidad de explorar adecuadamente el oído cuando la exploración es necesaria.",
+      "Contraindicaciones/precauciones": "factores modificadores incluyen tímpano no íntegro/tubos, cirugía de oído previa, estenosis/exostosis del canal, anticoagulación, diabetes, inmunosupresión o infección activa; elegir técnica acorde al riesgo.",
+      "Material": "cerumenolítico, irrigación cuando sea segura, cureta o succión bajo visión.",
+      "Anatomía": "conducto auditivo externo y membrana timpánica.",
+      "Preparación": "historia otológica y otoscopia; determinar si la irrigación está contraindicada.",
+      "Técnica paso a paso": "usar cerumenolítico, irrigación o extracción manual según anatomía y riesgo; evitar instrumentación ciega y reevaluar tras cada intento.",
+      "STOP": "dolor intenso, sangrado, vértigo, pérdida auditiva aguda o resistencia inesperada.",
+      "Confirmación": "conducto suficientemente despejado, síntomas mejorados y/o tímpano evaluable.",
+      "Complicaciones": "abrasión, perforación, otitis externa, vértigo e infección.",
+      "Después": "si persisten síntomas tras retirar cerumen, buscar otra causa; prevención individualizada si recurrencia.",
+      "Documentación": "técnica, resultado y estado timpánico.",
+      "Fuentes": "AAO-HNSF Clinical Practice Guideline: Cerumen Impaction (Update), 2017; guideline remains the current AAO-HNS cerumen guideline.",
+      "QA": "YELLOW; revisión humana ORL pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}

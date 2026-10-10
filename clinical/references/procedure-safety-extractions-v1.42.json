@@ -193,6 +193,54 @@
       }
     ]
   },
+  "PROC-ENT-005": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "ORL si extracción incompleta, lesión significativa o batería/imán."
+      }
+    ]
+  },
+  "PROC-ENT-006": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "ORL si lesión, extracción incompleta o objeto medial al istmo."
+      }
+    ]
+  },
+  "PROC-ENT-010": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "ingreso si vía aérea, sepsis o tolerancia oral son problemáticos."
+      }
+    ]
+  },
+  "PROC-ENT-012": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "odontología urgente, profilaxis antitetánica y antibiótica cuando corresponda."
+      }
+    ]
+  },
+  "PROC-ENT-013": {
+    "escalation": [
+      {
+        "section": "Después",
+        "quote": "odontología urgente y duración de férula según lesión."
+      }
+    ]
+  },
+  "PROC-ENT-014": {
+    "rescue": [
+      {
+        "section": "STOP",
+        "quote": "si no se contacta hueso en el trayecto esperado, retirar y reorientar; aspiración positiva, dolor eléctrico persistente o resistencia anormal obligan a detener/recolocar."
+      }
+    ]
+  },
   "PROC-GI-009": {
     "escalation": [
       {

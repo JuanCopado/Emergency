@@ -1,0 +1,104 @@
+{
+  "procedure_id": "PROC-ENT-009",
+  "name": "Drenaje de hematoma auricular",
+  "family": "ORL",
+  "level": "ADVANCED",
+  "schema_version": "1.42",
+  "status": "YELLOW",
+  "objective": "evacuar completamente el hematoma subpericondrial y readherir pericondrio al cartílago para prevenir oreja en coliflor.",
+  "indications": [
+    "hematoma auricular traumático doloroso/focal, típicamente dentro de los primeros 7 días."
+  ],
+  "contraindications_precautions": {
+    "unclassified": [
+      "celulitis/infección local, laceración no reparada con cartílago expuesto, diátesis hemorrágica o hematoma crónico/recurrente requieren individualización/ORL."
+    ]
+  },
+  "equipment": {
+    "unclassified": [
+      "bloqueo auricular o anestesia local, bisturí #15, hemostato, succión, irrigación y bolster/compresión moldeada."
+    ]
+  },
+  "anatomy": {
+    "unclassified": [
+      "piel, pericondrio y cartílago auricular; preservar relieves anatómicos."
+    ]
+  },
+  "preparation": {
+    "unclassified": [
+      "antisepsia, analgesia/bloqueo y elección de incisión en pliegue/borde para minimizar cicatriz."
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "realizar incisión, separar suavemente pericondrio, evacuar completamente, irrigar y colocar bolster/compresión que mantenga pericondrio adherido al cartílago sin comprometer perfusión."
+    }
+  ],
+  "stop_points": [
+    "necrosis, sangrado no controlado, infección extensa o imposibilidad de conseguir compresión segura."
+  ],
+  "confirmation": [
+    "pabellón recontorneado, cavidad vacía y compresión estable."
+  ],
+  "complications": {
+    "unclassified": [
+      "recurrencia, infección, condritis y deformidad permanente."
+    ]
+  },
+  "aftercare": [
+    "Merck 2025 desaconseja aspiración con aguja por alta recurrencia; mantener compresión y reevaluación precoz según protocolo/ORL."
+  ],
+  "documentation": [
+    "tiempo desde trauma, técnica, localización de incisión y bolster."
+  ],
+  "sources": [
+    {
+      "title": "Merck Manual Professional, How To Drain an Auricular Hematoma, updated May 2025.",
+      "organization": null,
+      "year": null
+    }
+  ],
+  "rescue": null,
+  "escalation": null,
+  "qa": {
+    "clinical_qa": "pending",
+    "visual_qa": "paused",
+    "human_review_required": true,
+    "last_updated": null,
+    "notes": [
+      "YELLOW; revisión humana ORL pendiente."
+    ]
+  },
+  "aliases": [],
+  "provenance": {
+    "source_path": "modules/procedures/11-ent.md",
+    "source_heading": "PROC-ENT-009 — Hematoma auricular: incisión, drenaje y compresión — ADVANCED",
+    "family_preamble": "# 11. ORL\n\nEstado: **YELLOW**.",
+    "source_sha256": "ca3ef4d5f4f7028204d2a61a30b07a88b92e753ac9a276444ba4286dff62f00a",
+    "sections": {
+      "Objetivo": "evacuar completamente el hematoma subpericondrial y readherir pericondrio al cartílago para prevenir oreja en coliflor.",
+      "Indicaciones": "hematoma auricular traumático doloroso/focal, típicamente dentro de los primeros 7 días.",
+      "Contraindicaciones/precauciones": "celulitis/infección local, laceración no reparada con cartílago expuesto, diátesis hemorrágica o hematoma crónico/recurrente requieren individualización/ORL.",
+      "Material": "bloqueo auricular o anestesia local, bisturí #15, hemostato, succión, irrigación y bolster/compresión moldeada.",
+      "Anatomía": "piel, pericondrio y cartílago auricular; preservar relieves anatómicos.",
+      "Preparación": "antisepsia, analgesia/bloqueo y elección de incisión en pliegue/borde para minimizar cicatriz.",
+      "Técnica paso a paso": "realizar incisión, separar suavemente pericondrio, evacuar completamente, irrigar y colocar bolster/compresión que mantenga pericondrio adherido al cartílago sin comprometer perfusión.",
+      "STOP": "necrosis, sangrado no controlado, infección extensa o imposibilidad de conseguir compresión segura.",
+      "Confirmación": "pabellón recontorneado, cavidad vacía y compresión estable.",
+      "Complicaciones": "recurrencia, infección, condritis y deformidad permanente.",
+      "Después": "Merck 2025 desaconseja aspiración con aguja por alta recurrencia; mantener compresión y reevaluación precoz según protocolo/ORL.",
+      "Documentación": "tiempo desde trauma, técnica, localización de incisión y bolster.",
+      "Fuentes": "Merck Manual Professional, How To Drain an Auricular Hematoma, updated May 2025.",
+      "QA": "YELLOW; revisión humana ORL pendiente."
+    },
+    "safety_excerpts": {
+      "rescue": [],
+      "escalation": []
+    }
+  },
+  "pending_review": [
+    "rescue",
+    "escalation"
+  ]
+}
