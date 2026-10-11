@@ -7,6 +7,20 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 
 const repo = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+
+test('module table and every frontend status match authoritative evidence', async () => {
+  const evidence = JSON.parse(await readFile(resolve(repo, 'clinical/references/evidence-registry.json'), 'utf8')).modules;
+  const table = await readFile(resolve(repo, 'clinical/MODULES.md'), 'utf8');
+  const statuses = new Map([...table.matchAll(/^\| `([^`]+)` \|[^|]+\| (green|yellow|red) \|/gm)].map((m) => [m[1], m[2]]));
+  const guides = JSON.parse(await readFile(resolve(repo, 'app/src/data/generatedClinicalGuides.json'), 'utf8'));
+  assert.equal(statuses.size, Object.keys(evidence).length);
+  assert.equal(guides.length, Object.keys(evidence).length);
+  for (const guide of guides) {
+    assert.equal(statuses.get(guide.id), evidence[guide.id].status, `MODULES: ${guide.id}`);
+    assert.equal(guide.status, evidence[guide.id].status, `frontend: ${guide.id}`);
+  }
+});
+
 async function buildFixture(t, index, bundles) {
   const root = await mkdtemp(resolve(tmpdir(), 'emergency-guides-'));
   t.after(() => rm(root, { recursive: true, force: true }));

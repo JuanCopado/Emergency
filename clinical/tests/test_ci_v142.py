@@ -32,7 +32,7 @@ class WorkflowCoverageTests(unittest.TestCase):
                                 'clinical/tests/test_clinical_scores_registry.py'],
             'app-ui-qa.yml': ['app/src/pages/ClinicalLibrary.tsx', 'clinical/modules/procedures/02-vascular-monitoring.md',
                              'clinical/modules/emergency-procedures-index.md', 'clinical/references/module-index.md',
-                             'clinical/MODULES.md', 'clinical/requirements-test.txt',
+                             'clinical/MODULES.md', 'clinical/references/evidence-registry.json', 'clinical/requirements-test.txt',
                              'clinical/qa/pediatric-outpatient-medications.json',
                              'clinical/qa/pediatric-outpatient-alert-rules.json'],
         }
