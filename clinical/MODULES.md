@@ -1,6 +1,6 @@
 # MODULES — índice verificado
 
-Propuesta de consolidación v1.36 (rama de trabajo): 131 IDs únicos; todos tienen sección y registro.
+Estado v1.42 auditado el 10/10/2026: 131 IDs únicos, 29 GREEN / 102 YELLOW / 0 RED; todos tienen sección y registro. Inventario derivado en `qa/V1.42_INVENTORY.json`; límites y P1 abierto en `qa/V1.42_FINAL_AUDIT.md`.
 El estado green/yellow corresponde al registro de evidencia, no a una declaración de validación clínica.
 
 | ID | Archivo de módulos | Evidencia |
@@ -65,7 +65,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `pediatric-arrhythmias` | `modules/special-populations.md` | yellow |
 | `pediatric-cardiac-arrest` | `modules/special-populations.md` | yellow |
 | `pediatric-status-epilepticus` | `modules/special-populations.md` | yellow |
-| `trauma-major-hemorrhage` | `modules/trauma-surgical.md` | green |
+| `trauma-major-hemorrhage` | `modules/trauma-surgical.md` | yellow |
 | `major-burns` | `modules/trauma-surgical.md` | green |
 | `smoke-inhalation-toxic-injury` | `modules/trauma-surgical.md` | yellow |
 | `obstetric-emergencies` | `modules/special-populations.md` | yellow |
@@ -84,7 +84,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `altered-consciousness` | `modules/neurologic.md` | yellow |
 | `headache-sah` | `modules/neurologic.md` | green |
 | `cns-infection` | `modules/neurologic.md` | green |
-| `traumatic-intracranial-mass-effect` | `modules/neurologic.md` | green |
+| `traumatic-intracranial-mass-effect` | `modules/neurologic.md` | yellow |
 | `acute-spinal-cord-compression` | `modules/neurologic.md` | green |
 | `cauda-equina-conus-emergency` | `modules/neurologic.md` | green |
 | `upper-gi-bleeding` | `modules/trauma-surgical.md` | yellow |
