@@ -3,9 +3,9 @@ name: emergency-medicine
 description: Emergency-care reasoning, stabilization, medication and infusion calculations with bedside mL/h rates, ECG/POCUS and uploaded clinical image review with modality-specific quality checks, provisional differential diagnosis, reassessment and disposition. Clinician support, not autonomous image diagnosis.
 ---
 
-# Emergency Medicine Skill v1.35 — ICU/ED Continuous Infusions (draft)
+# Emergency Medicine Skill v1.42 — consolidation (clinical review pending)
 
-Status: structural validation and 63 unit tests passed for this working draft; case-informed regressions included; prospective clinical and diagnostic-accuracy validation pending.
+Current status (2026-10-10): 503 Python tests and 162 frontend tests pass locally; 131 modules (29 GREEN / 102 YELLOW), 196 structured YELLOW procedures. CLINICALLY_PENDING: unresolved P1 in PROC-SP-002; not ready for final release review or clinical production. Automated QA is not prospective clinical validation; prospective clinical and diagnostic-accuracy validation pending. See `qa/V1.42_FINAL_AUDIT.md` and generated `qa/V1.42_INVENTORY.json`. The former 63-test statement belonged to the historical v1.35 snapshot.
 
 ## Purpose
 Support acute-care reasoning and operational bedside responses while prioritizing patient safety, explicit uncertainty, verification of high-risk recommendations, and reproducible calculations.

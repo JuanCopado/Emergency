@@ -1,4 +1,15 @@
-## v1.42 consolidation — source-preserving procedure migration (YELLOW, in progress)
+## v1.42 consolidation — global technical audit (clinical release blocked)
+- Complete all 196 source-preserving procedure JSON files across 16 families; preserve four aliases, 43 explicit rescue/153 pending and 55 explicit escalation/141 pending. All remain YELLOW.
+- Reproduce and correct two erroneous GREEN guide statuses to the existing YELLOW evidence state; add fidelity regression and evidence-registry CI trigger. Separate test/fix commits preserve traceability.
+- Derive global inventory and reconcile continuity documents, keeping historical snapshots. Record unresolved P1 title/content mismatch in PROC-SP-002 and P2 nomenclature review in PROC-SP-003; do not change clinical text.
+- Reproduce and separately fix 11 lint errors without changing clinical behavior. Local QA: 503 Python, 162 frontend, lint/typecheck/build, 12 Node checks, four browser PDFs and four pediatric API/browser scenarios PASS. Remote Actions pending; no prospective validation.
+- See `qa/V1.42_FINAL_AUDIT.md`, `qa/V1.42_INVENTORY.json` and the migration report. No main change, merge, push, dependency upgrade or automatic evidence promotion.
+
+## Historical block entries
+
+The entries below preserve the status and test counts observed when each block was performed.
+
+## v1.42 consolidation — source-preserving procedure migration foundation (historical; now complete)
 - Inventory 196 canonical procedures, four aliases and 16 families from local HEAD; 26 legacy JSON files validate v1.41 but diverge from textual source projections.
 - Add versioned source-preserving schema, deterministic extractor, literal safety excerpt register and real JSON Schema/fidelity invariants. Preserve unresolved rescue/escalation as null plus pending review; do not infer clinical subcategories or evidence metadata.
 - See `qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md` for family progress and limits. Canonical text, statuses and visual layer unchanged.

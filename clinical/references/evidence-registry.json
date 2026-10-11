@@ -590,7 +590,12 @@
         "report": "qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md",
         "scope": "Source-preserving structure only; rescue/escalation require explicit literal support. Family coverage is recorded in the report.",
         "clinical_evidence_reverified": false,
-        "human_review_required": true
+        "human_review_required": true,
+        "final_audit": "qa/V1.42_FINAL_AUDIT.md",
+        "unresolved_identity_review": [
+          "PROC-SP-002",
+          "PROC-SP-003"
+        ]
       },
       "priority": "high",
       "primary_source": "Procedure-specific RCEM, ACEP, WHO and specialty guidance",
@@ -1094,7 +1099,7 @@
       "stored_version": "Central registry v1.0 created 2026-10-03",
       "last_checked": "2026-10-03",
       "status": "yellow",
-      "note": "134 active CORE/SPECIALIST scales plus 45 formulas registered centrally. Metadata and deterministic formula engine implemented. High-impact tools require source-by-source validation and human review before green promotion; complex decision rules are not reduced to artificial numeric scores."
+      "note": "135 active CORE/SPECIALIST scales plus 45 formulas registered centrally. Metadata and deterministic formula engine implemented. High-impact tools require source-by-source validation and human review before green promotion; complex decision rules are not reduced to artificial numeric scores."
     },
     "pediatric-outpatient-medications": {
       "pediatric_consolidation_review": {

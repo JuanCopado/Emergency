@@ -1,4 +1,23 @@
-# Consolidación v1.42 — migración estructurada en curso — 10/10/2026
+# Estado actual v1.42 — auditoría global, 11/10/2026
+
+Rama `v1.42-codex-consolidation`; HEAD de código auditado `ea5b5c721cda219976b666df779d025df41852a3`. El commit documental posterior contiene este snapshot; no se atribuye su propio SHA.
+
+- Inventario derivado: [qa/V1.42_INVENTORY.json](qa/V1.42_INVENTORY.json); `scripts/audit_v142_inventory.py --check` verifica vigencia.
+- 131 módulos, 29 GREEN / 102 YELLOW / 0 RED; 135 escalas (122 específicas, 8 wrappers, 5 alias) y 45 fórmulas.
+- Migración COMPLETA: 196 JSON válidos, 16 familias, cuatro alias; 43 rescue explícitos / 153 pendientes y 55 escalation explícitas / 141 pendientes. ORTHO: 23 canónicos. Todos YELLOW.
+- Pediatría: 89 regímenes, 52 principios nombrados, 88 diagnósticos y banco 18/18. Nota: 92 reglas, 115 módulos cubiertos, 16 exclusiones explícitas.
+- QA local: 7/7, 503 pruebas Python en 22 archivos; frontend 162/162; lint, typecheck, build, 4+8 pruebas Node, cuatro PDF y cuatro escenarios API/navegador PASS. Generadores deterministas. CI remoto del HEAD local pendiente.
+- Cerrado P1 de dos estados derivados GREEN incorrectos: ahora YELLOW, conforme a evidencia; commits `e6db19e` (regresión) y `ea5b5c7` (fix).
+- P1 abierto SP-002: título de descompresión con ficha de medición de presión compartimental. No se altera texto clínico. SP-003 requiere revisión de nomenclatura (P2).
+- `CLINICALLY_PENDING`: NO listo para revisión final de release ni producción clínica. Pendientes revisión humana, rescates/escaladas, localización y validación prospectiva. Visuales PAUSADAS; main intacto, sin merge/push ni promociones automáticas.
+- Freeze evaluado el 11/10/2026: BLOQUEADO por P1 SP-002; no se crea tag/branch RC ni se inicia v1.43. Handoff: [qa/V1.42_RC1_FREEZE.md](qa/V1.42_RC1_FREEZE.md).
+- Informe vigente: [qa/V1.42_FINAL_AUDIT.md](qa/V1.42_FINAL_AUDIT.md). La aprobación automática de herramientas permitió completar los commits; no constituye aprobación clínica.
+
+# Histórico de continuidad
+
+Los bloques siguientes describen su fecha y alcance originales; no sustituyen el estado actual superior.
+
+# Snapshot histórico — inicio de migración estructurada — 10/10/2026
 
 - Base local limpia `a896ad67e14f33048f006574bffd273f04751b0b`, 13 commits por delante del remoto observado `0d2fcec1baba7dd50e352890777f4873d8a4dd0d`; continuar desde local.
 - Inventario: 196 canónicos, 4 alias, 16 familias; 26 JSON válidos contra schema v1.41, 170 ausentes. Las cifras 27/169 del auditor histórico son detección léxica, no clasificación clínica.

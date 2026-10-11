@@ -1,0 +1,688 @@
+{
+  "modules": {
+    "manifest_total": 131,
+    "evidence_total": 131,
+    "status_counts": {
+      "green": 29,
+      "yellow": 102
+    },
+    "missing_evidence": [],
+    "orphan_evidence": []
+  },
+  "procedures": {
+    "canonical": 196,
+    "aliases": {
+      "PROC-ENT-011": "PROC-ORTHO-022",
+      "PROC-PED-008": "PROC-ORTHO-004",
+      "PROC-US-007": "PROC-CV-006",
+      "PROC-SP-006": "PROC-EYE-001"
+    },
+    "textual_ids": 200,
+    "families": {
+      "AIR": 21,
+      "CV": 10,
+      "ENT": 13,
+      "EYE": 8,
+      "GI": 9,
+      "GU": 9,
+      "NEURO": 5,
+      "OBS": 9,
+      "ORTHO": 23,
+      "PED": 10,
+      "SP": 13,
+      "THX": 10,
+      "TRA": 10,
+      "US": 9,
+      "VASC": 15,
+      "WND": 22
+    },
+    "structured": 196,
+    "schema_valid": 196,
+    "rescue_explicit": 43,
+    "rescue_pending": 153,
+    "escalation_explicit": 55,
+    "escalation_pending": 141,
+    "status_counts": {
+      "YELLOW": 196
+    },
+    "index_card_differences": [
+      {
+        "procedure_id": "PROC-AIR-002",
+        "index_name": "Aspiración de secreciones de vía aérea",
+        "card_name": "Aspiración de secreciones",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-AIR-005",
+        "index_name": "Ventilación bolsa-válvula-mascarilla a un operador",
+        "card_name": "BVM a un operador",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-AIR-006",
+        "index_name": "Ventilación bolsa-válvula-mascarilla a dos operadores",
+        "card_name": "BVM a dos operadores",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-AIR-008",
+        "index_name": "Intubación orotraqueal con laringoscopia directa",
+        "card_name": "Intubación orotraqueal directa",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-AIR-012",
+        "index_name": "Algoritmo de vía aérea difícil / fracaso de intubación",
+        "card_name": "Vía aérea difícil / fracaso de intubación",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-AIR-013",
+        "index_name": "Confirmación del tubo endotraqueal por capnografía",
+        "card_name": "Confirmación del tubo por capnografía",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-AIR-014",
+        "index_name": "Fijación y cuidados inmediatos del tubo endotraqueal",
+        "card_name": "Fijación y cuidados del tubo traqueal",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-AIR-016",
+        "index_name": "Cricotiroidotomía por técnica de aguja/catéter",
+        "card_name": "Cricotiroidotomía por aguja/catéter",
+        "index_level": "SPECIALIST",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-AIR-017",
+        "index_name": "Manejo urgente de traqueostomía obstruida o desplazada",
+        "card_name": "Traqueostomía obstruida/desplazada",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-AIR-020",
+        "index_name": "Ventilación no invasiva CPAP/BiPAP",
+        "card_name": "VNI CPAP/BiPAP",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ENT-001",
+        "index_name": "Epistaxis: compresión y vasoconstrictor tópico",
+        "card_name": "Epistaxis: compresión/vasoconstrictor",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ENT-003",
+        "index_name": "Taponamiento nasal anterior",
+        "card_name": "Taponamiento anterior",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ENT-004",
+        "index_name": "Taponamiento nasal posterior / balón",
+        "card_name": "Taponamiento posterior",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-ENT-005",
+        "index_name": "Extracción de cuerpo extraño nasal",
+        "card_name": "Cuerpo extraño nasal",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ENT-006",
+        "index_name": "Extracción de cuerpo extraño del oído",
+        "card_name": "Cuerpo extraño de oído",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ENT-007",
+        "index_name": "Irrigación de conducto auditivo",
+        "card_name": "Irrigación de oído",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ENT-008",
+        "index_name": "Extracción de cerumen impactado",
+        "card_name": "Cerumen impactado",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ENT-009",
+        "index_name": "Drenaje de hematoma auricular",
+        "card_name": "Hematoma auricular: incisión, drenaje y compresión",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-ENT-010",
+        "index_name": "Drenaje de absceso periamigdalino",
+        "card_name": "Absceso periamigdalino: aspiración o incisión/drenaje",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-EYE-001",
+        "index_name": "Irrigación ocular en exposición química",
+        "card_name": "Irrigación ocular química",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-EYE-004",
+        "index_name": "Extracción de cuerpo extraño corneal superficial",
+        "card_name": "Cuerpo extraño corneal superficial",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-EYE-005",
+        "index_name": "Tinción con fluoresceína",
+        "card_name": "Fluoresceína / prueba de Seidel",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-EYE-007",
+        "index_name": "Parche/protección ocular rígida",
+        "card_name": "Escudo ocular rígido",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-EYE-008",
+        "index_name": "Descompresión lateral cantotomía/cantólisis",
+        "card_name": "Cantotomía/cantólisis lateral",
+        "index_level": "SPECIALIST",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-GU-004",
+        "index_name": "Irrigación vesical manual",
+        "card_name": "Irrigación vesical manual para coágulos",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-GU-005",
+        "index_name": "Sonda de tres vías e irrigación continua",
+        "card_name": "Sonda de tres vías e irrigación vesical continua",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-NEURO-003",
+        "index_name": "Manejo urgente de derivación ventricular externa",
+        "card_name": "Manejo urgente de derivación ventricular externa (EVD)",
+        "index_level": "SPECIALIST",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-NEURO-004",
+        "index_name": "Analgesia regional seleccionada en cefalea/occipital",
+        "card_name": "Bloqueo del nervio occipital mayor seleccionado",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-OBS-002",
+        "index_name": "Pinzamiento/cuidado inicial del cordón",
+        "card_name": "Cordón: pinzamiento/cuidado inicial",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-OBS-003",
+        "index_name": "Manejo inicial de distocia de hombros",
+        "card_name": "Distocia de hombros",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-OBS-004",
+        "index_name": "Prolapso de cordón: medidas de rescate inmediatas",
+        "card_name": "Prolapso de cordón",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-OBS-005",
+        "index_name": "Hemorragia posparto: masaje uterino y medidas iniciales",
+        "card_name": "Hemorragia posparto: masaje uterino inicial",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-OBS-006",
+        "index_name": "Extracción manual de coágulos seleccionada",
+        "card_name": "Exploración uterina / extracción manual de coágulos seleccionada",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-OBS-007",
+        "index_name": "Inversión uterina: maniobra inicial de reposición",
+        "card_name": "Inversión uterina: reposición inicial",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-OBS-008",
+        "index_name": "Histerotomía resucitativa",
+        "card_name": "Histerotomía resucitativa / parto resucitativo",
+        "index_level": "SPECIALIST",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-ORTHO-003",
+        "index_name": "Reducción de luxación de codo",
+        "card_name": "Reducción de luxación posterior de codo",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ORTHO-004",
+        "index_name": "Reducción de pronación dolorosa / subluxación de cabeza radial",
+        "card_name": "Reducción de pronación dolorosa",
+        "index_level": "CORE/PED",
+        "card_level": "CORE/PED"
+      },
+      {
+        "procedure_id": "PROC-ORTHO-005",
+        "index_name": "Reducción de luxación de rótula",
+        "card_name": "Reducción de luxación lateral de rótula",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ORTHO-008",
+        "index_name": "Reducción de luxación de muñeca/carpiana seleccionada",
+        "card_name": "Reducción de luxación perilunar/lunar seleccionada",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-ORTHO-009",
+        "index_name": "Reducción de luxación de tobillo",
+        "card_name": "Reducción de luxación / fractura-luxación de tobillo",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ORTHO-017",
+        "index_name": "Inmovilización de rodilla",
+        "card_name": "Inmovilizador de rodilla",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-ORTHO-023",
+        "index_name": "Reducción de luxación temporomandibular recurrente seleccionada",
+        "card_name": "Luxación temporomandibular recurrente seleccionada",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-PED-001",
+        "index_name": "Apertura y posicionamiento de vía aérea pediátrica",
+        "card_name": "Apertura/posicionamiento de vía aérea",
+        "index_level": "CORE/PED",
+        "card_level": "CORE/PED"
+      },
+      {
+        "procedure_id": "PROC-PED-004",
+        "index_name": "Dispositivo supraglótico pediátrico",
+        "card_name": "Supraglótico pediátrico",
+        "index_level": "CORE/PED",
+        "card_level": "CORE/PED"
+      },
+      {
+        "procedure_id": "PROC-PED-009",
+        "index_name": "Inmovilización pediátrica de extremidades",
+        "card_name": "Inmovilización pediátrica",
+        "index_level": "CORE/PED",
+        "card_level": "CORE/PED"
+      },
+      {
+        "procedure_id": "PROC-SP-001",
+        "index_name": "Fasciotomía/escisión de emergencia: reconocimiento y preparación",
+        "card_name": "Síndrome compartimental: reconocimiento y preparación para fasciotomía",
+        "index_level": "SPECIALIST",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-SP-002",
+        "index_name": "Descompresión de síndrome compartimental: medidas temporales",
+        "card_name": "Medición de presión compartimental",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-SP-003",
+        "index_name": "Reimplantación temporal/protección de amputación",
+        "card_name": "Amputación: conservación de segmento",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-SP-004",
+        "index_name": "Extracción de empalamiento: principios de no retirada y control",
+        "card_name": "Empalamiento",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-SP-005",
+        "index_name": "Manejo inicial de mordeduras y heridas contaminadas complejas",
+        "card_name": "Mordeduras/heridas contaminadas",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-SP-007",
+        "index_name": "Lavado gástrico en indicaciones excepcionales",
+        "card_name": "Lavado gástrico",
+        "index_level": "SPECIALIST",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-SP-008",
+        "index_name": "Carbón activado: administración segura",
+        "card_name": "Carbón activado",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-SP-010",
+        "index_name": "Descontaminación en exposición a opioides/polvos tóxicos",
+        "card_name": "Exposición a opioides/polvos",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-SP-011",
+        "index_name": "Manejo de hipotermia: recalentamiento externo activo",
+        "card_name": "Recalentamiento externo activo",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-SP-012",
+        "index_name": "Recalentamiento invasivo seleccionado",
+        "card_name": "Recalentamiento invasivo",
+        "index_level": "SPECIALIST",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-TRA-005",
+        "index_name": "Inmovilización espinal selectiva",
+        "card_name": "Restricción selectiva del movimiento espinal",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-TRA-007",
+        "index_name": "Log-roll / movilización coordinada del politraumatizado",
+        "card_name": "Log-roll / movilización coordinada",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-US-001",
+        "index_name": "Ecografía para acceso venoso periférico",
+        "card_name": "VVP ecoguiada",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-002",
+        "index_name": "Ecografía para CVC",
+        "card_name": "CVC ecoguiado",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-003",
+        "index_name": "Ecografía para línea arterial",
+        "card_name": "Línea arterial ecoguiada",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-004",
+        "index_name": "Ecografía para toracocentesis",
+        "card_name": "Toracocentesis ecoguiada",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-005",
+        "index_name": "Ecografía para drenaje pleural",
+        "card_name": "Drenaje pleural ecoguiado",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-006",
+        "index_name": "Ecografía para paracentesis",
+        "card_name": "Paracentesis ecoguiada",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-008",
+        "index_name": "Ecografía para bloqueos nerviosos",
+        "card_name": "Bloqueos nerviosos ecoguiados",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-009",
+        "index_name": "Ecografía para artrocentesis",
+        "card_name": "Artrocentesis ecoguiada",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-US-010",
+        "index_name": "Confirmación ecográfica de complicaciones postprocedimiento",
+        "card_name": "Ecografía postprocedimiento",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-VASC-006",
+        "index_name": "Catéter venoso central yugular interna ecoguiado",
+        "card_name": "CVC yugular interna ecoguiado",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED/POCUS"
+      },
+      {
+        "procedure_id": "PROC-VASC-007",
+        "index_name": "Catéter venoso central femoral ecoguiado",
+        "card_name": "CVC femoral ecoguiado",
+        "index_level": "ADVANCED/POCUS",
+        "card_level": "ADVANCED/POCUS"
+      },
+      {
+        "procedure_id": "PROC-VASC-008",
+        "index_name": "Catéter venoso central subclavio/axilar",
+        "card_name": "CVC subclavio/axilar ecoguiado",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-VASC-012",
+        "index_name": "Punción arterial / gasometría arterial",
+        "card_name": "Punción arterial / gasometría",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-WND-003",
+        "index_name": "Bloqueo hematoma de fractura",
+        "card_name": "Bloqueo de hematoma",
+        "index_level": "ADVANCED",
+        "card_level": "ADVANCED"
+      },
+      {
+        "procedure_id": "PROC-WND-006",
+        "index_name": "Bloqueo interescalénico/selectivo de miembro superior",
+        "card_name": "Bloqueo interescalénico/selectivo de miembro superior",
+        "index_level": "SPECIALIST/POCUS",
+        "card_level": "SPECIALIST"
+      },
+      {
+        "procedure_id": "PROC-WND-010",
+        "index_name": "Sutura continua",
+        "card_name": "Sutura continua / subcuticular continua",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-WND-011",
+        "index_name": "Punto colchonero vertical/horizontal",
+        "card_name": "Puntos colchoneros vertical y horizontal",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      },
+      {
+        "procedure_id": "PROC-WND-015",
+        "index_name": "Incisión y drenaje de absceso",
+        "card_name": "Incisión y drenaje de absceso cutáneo",
+        "index_level": "CORE",
+        "card_level": "CORE"
+      }
+    ]
+  },
+  "calculators": {
+    "scales": 135,
+    "formulas": 45,
+    "implementation_counts": {
+      "central_formula_alias": 5,
+      "dedicated_source_encoded_v1": 122,
+      "validated_official_external_wrapper": 8
+    },
+    "wrappers": [
+      "grace-2",
+      "saps3",
+      "mmrc",
+      "poisoning-severity",
+      "cssrs",
+      "wong-baker",
+      "clinical-frailty",
+      "barthel"
+    ],
+    "formula_aliases": [
+      "shock-index",
+      "modified-shock-index",
+      "rox-index",
+      "meld-na",
+      "maddrey"
+    ]
+  },
+  "clinical_note": {
+    "module_count": 131,
+    "diagnostic_rule_count": 92,
+    "covered_or_routed_count": 115,
+    "allowed_non_diagnostic_count": 16,
+    "remaining": [
+      "clinical-image-interpretation",
+      "clinical-note-diagnostic-support",
+      "ecg-pocus-integration",
+      "endocrine-metabolic",
+      "final-human-review-gate",
+      "high-flow-nasal-oxygen",
+      "icu-sedation-analgesia-infusions",
+      "medication-selection-safety",
+      "musculoskeletal-xray",
+      "other-clinical-image",
+      "pediatric-airway-rsi",
+      "pediatric-emergencies",
+      "pediatric-outpatient-medications",
+      "pocus-image",
+      "sedoanalgesia",
+      "vasoactive-inotrope-infusions"
+    ],
+    "unexpected_uncovered": [],
+    "stale_allowed": [],
+    "status": "PASS"
+  },
+  "pediatrics": {
+    "regimens": 89,
+    "source_drug_labels": 54,
+    "drug_groups": 52,
+    "named_active_ingredients": 52,
+    "unspecified_component_groups": [
+      "electrolytes",
+      "low-osmolarity oral rehydration solution"
+    ],
+    "diagnoses": 88,
+    "drug_diagnosis_pairs": 89,
+    "documented_presentation_descriptions": 58,
+    "verified_liquid_products": 28,
+    "hidden_regimens": 0
+  },
+  "frontend": {
+    "clinical_guides": 131,
+    "canonical_procedures": 196,
+    "pediatric_regimens": 89
+  },
+  "surveillance": {
+    "configured_sources": 8,
+    "enabled_sources": 8,
+    "source_ids": [
+      "dgs-portugal",
+      "ema-prac-safety-signals",
+      "infarmed",
+      "who-guidelines",
+      "erc",
+      "esc-guidelines",
+      "nice-guidance",
+      "infarmed-fnm"
+    ],
+    "evidence_primary_urls": 71
+  },
+  "python_test_files": [
+    "test_airway_procedure_schema_v141.py",
+    "test_ci_v142.py",
+    "test_clinical_scores_registry.py",
+    "test_evidence_change_classifier.py",
+    "test_evidence_clinical_diff.py",
+    "test_evidence_content_extractor.py",
+    "test_evidence_impact_report.py",
+    "test_evidence_review_pipeline.py",
+    "test_evidence_source_gate.py",
+    "test_evidence_surveillance.py",
+    "test_evidence_surveillance_critical_cycle.py",
+    "test_neurology_procedure_schema_v141.py",
+    "test_pediatric_drop_dosing.py",
+    "test_pediatric_v142.py",
+    "test_procedure_card_quality_v141.py",
+    "test_procedure_migration_v142.py",
+    "test_procedure_schema_coverage_v141.py",
+    "test_procedure_schema_v141.py",
+    "test_procedure_template_v141.py",
+    "test_procedures_v141.py",
+    "test_skill.py",
+    "test_visual_asset_metadata.py"
+  ]
+}

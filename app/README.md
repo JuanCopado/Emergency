@@ -1,8 +1,10 @@
-# Emergency — Referencia de perfusiones para Urgencias/UCI (Sprint 1)
+# Emergency — frontend v1.42
 
-> **Borrador — contenido NO validado clínicamente.** Todos los datos clínicos proceden del paquete de referencia *emergency-medicine* v1.35 y están pendientes de revisión humana (UCI, cardiología, farmacia hospitalaria). Prevalecen siempre los protocolos locales y el juicio clínico.
+Estado actual: 131 guías, 196 procedimientos más cuatro alias y 89 regímenes pediátricos, además de 17 fármacos adultos. QA local PASS; P1 abierto SP-002, sin aprobación de producción clínica. Ver [auditoría global](../clinical/qa/V1.42_FINAL_AUDIT.md). Las descripciones de Sprint 1 inferiores son históricas salvo actualización explícita.
 
-PWA (funciona sin conexión) para médicos de urgencias y cuidados intensivos: fichas de 17 fármacos en perfusión continua del adulto (vasoactivos/inotrópicos y sedoanalgesia de UCI) y una calculadora dosis ↔ mL/h que muestra toda la aritmética.
+> **Borrador — contenido NO validado clínicamente.** El catálogo adulto conserva su baseline v1.35; guías, procedimientos y pediatría derivan de las fuentes canónicas del repositorio y están pendientes de revisión humana (UCI, cardiología, farmacia hospitalaria). Prevalecen siempre los protocolos locales y el juicio clínico.
+
+Snapshot adulto original: PWA de consulta para médicos de urgencias y cuidados intensivos: fichas de 17 fármacos en perfusión continua del adulto (vasoactivos/inotrópicos y sedoanalgesia de UCI) y una calculadora dosis ↔ mL/h que muestra toda la aritmética.
 
 Interfaz en **español (por defecto)**, inglés (maestro), portugués europeo y chino simplificado; tema claro/oscuro; accesible (WCAG AA, ARIA, teclado); diseño *mobile-first*.
 
@@ -11,7 +13,7 @@ Interfaz en **español (por defecto)**, inglés (maestro), portugués europeo y 
 Node 22 y npm.
 
 ```bash
-npm install          # dependencias
+npm ci               # instalación desde lockfile
 npm run dev          # servidor de desarrollo (http://localhost:5173)
 npm run build        # typecheck (tsc -b) + build de producción en dist/ (incluye service worker)
 npm run preview      # sirve dist/ en http://localhost:4173
@@ -32,7 +34,7 @@ python3 scripts/python_expected.py /ruta/al/paquete/v135 > src/lib/__fixtures__/
 
 ## Arquitectura
 
-Vite + React 18 + TypeScript (strict) + Tailwind CSS + react-router + i18next + vite-plugin-pwa. Sin backend.
+Vite + React 18 + TypeScript (strict) + Tailwind CSS + react-router + i18next + vite-plugin-pwa. Consulta estática disponible como PWA; la nota clínica y el cálculo pediátrico requieren backend Python accesible. Desarrollo: proxy local; producción: configurar `VITE_CLINICAL_NOTE_API_BASE`. El despliegue no está validado.
 
 ```
 src/

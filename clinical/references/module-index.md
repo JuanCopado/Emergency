@@ -1,4 +1,4 @@
-# Module manifest v1.36 consolidation
+# Module manifest v1.42 consolidation
 
 v1.42 continuity: module IDs and routing are unchanged. Clinical-note runtime input/privacy/acceptance hardening is documented in `qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md`; its evidence status remains YELLOW.
 
@@ -11,6 +11,8 @@ v1.42 CI and procedure catalog: see `qa/V1.42_CI_PROCEDURE_CATALOG.md`. The fron
 v1.42 pediatric consolidation: see `qa/V1.42_PEDIATRIC_CONSOLIDATION.md`. Finite arithmetic, existing safety gates and 89-regimen canonical frontend validated locally; no module IDs, routing or evidence statuses changed.
 
 v1.42 procedure structural migration: see `qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md` for source-preserving JSON coverage and pending clinical classification. No module/routing changes or evidence promotion.
+
+v1.42 final audit: `qa/V1.42_FINAL_AUDIT.md`; generated inventory `qa/V1.42_INVENTORY.json`. 196 structured procedures complete; SP-002 P1 remains open. Clinical source/status dates unchanged.
 
 Read only the bundles required by `router.md`. Within a bundle, locate the exact
 heading `## <module-id>`. Every routed ID must resolve here and in its target
