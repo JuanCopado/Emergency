@@ -42,3 +42,10 @@ it.each([
 it('does not invent a canonical destination for an unknown procedure', () => {
   expect(getCanonicalProcedure('PROC-NOT-999')).toBeUndefined();
 });
+
+it('resolves SP-002 as pressure measurement rather than decompression', () => {
+  const procedure = getCanonicalProcedure('PROC-SP-002');
+  expect(procedure?.name).toBe('Medición de presión compartimental');
+  expect(procedure?.sourceHeading).toBe('PROC-SP-002 — Medición de presión compartimental — ADVANCED');
+  expect(generated.filter((p) => p.name === procedure?.name).map((p) => p.id)).toEqual(['PROC-SP-002']);
+});

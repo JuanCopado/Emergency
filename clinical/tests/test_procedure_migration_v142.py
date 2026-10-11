@@ -31,6 +31,35 @@ class ProcedureMigrationTests(unittest.TestCase):
             self.assertNotIn(target, self.aliases)
             self.assertFalse((DATA / (alias + '.json')).exists())
 
+    def test_cross_catalog_identity_has_no_new_unreviewed_variants(self):
+        baseline = load(ROOT / 'qa/procedure-migration-baseline-v1.42.json')
+        known_variants = {p['procedure_id'] for p in baseline['procedures']
+                          if p['index_card_title_differs']} - {'PROC-SP-002'}
+        frontend = {p['id']: p for p in load(ROOT.parent / 'app/src/data/generatedProcedures.json')}
+        self.assertEqual(set(frontend), set(self.cards))
+        for pid, card in self.cards.items():
+            with self.subTest(pid=pid):
+                data = load(DATA / (pid + '.json'))
+                self.assertEqual(data['name'], card['name'])
+                self.assertEqual(frontend[pid]['name'], card['name'])
+                self.assertEqual(frontend[pid]['sourceHeading'], card['source_heading'])
+                self.assertEqual(data['provenance']['source_heading'], card['source_heading'])
+                if pid not in known_variants:
+                    self.assertEqual(card['name'], card['card_name'])
+
+    def test_sp002_identity_matches_historically_normalized_card(self):
+        pid = 'PROC-SP-002'
+        expected = 'Medición de presión compartimental'
+        card = self.cards[pid]
+        data = load(DATA / (pid + '.json'))
+        frontend = next(p for p in load(ROOT.parent / 'app/src/data/generatedProcedures.json') if p['id'] == pid)
+        for title in (card['name'], card['card_name'], data['name'], frontend['name']):
+            self.assertEqual(title, expected)
+        visual_index = (ROOT / 'modules/emergency-procedures-physician-visual-index.md').read_text(encoding='utf-8')
+        self.assertIn(f'**{pid} — {expected}** — ADVANCED', visual_index)
+        self.assertEqual([p for p, c in self.cards.items() if c['card_name'] == expected], [pid])
+        self.assertEqual(data['status'], 'YELLOW')
+
     def test_every_projection_schema_and_source_fidelity(self):
         for pid, card in self.cards.items():
             with self.subTest(pid=pid):
