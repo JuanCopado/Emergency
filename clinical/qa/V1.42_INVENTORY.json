@@ -369,13 +369,6 @@
         "card_level": "SPECIALIST"
       },
       {
-        "procedure_id": "PROC-SP-002",
-        "index_name": "Descompresión de síndrome compartimental: medidas temporales",
-        "card_name": "Medición de presión compartimental",
-        "index_level": "ADVANCED",
-        "card_level": "ADVANCED"
-      },
-      {
         "procedure_id": "PROC-SP-003",
         "index_name": "Reimplantación temporal/protección de amputación",
         "card_name": "Amputación: conservación de segmento",

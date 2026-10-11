@@ -1,10 +1,10 @@
 # Validación vigente v1.42 — cierre global, 11/10/2026
 
-HEAD de código `ea5b5c721cda219976b666df779d025df41852a3`. Clinical QA 7/7 y 503/503 pruebas únicas de 22 archivos PASS, incluido scores. Frontend 162/162 PASS; lint, typecheck y build PASS. Fidelidad Node guías 4/4 y procedimientos 8/8; cuatro PDF reales y cuatro escenarios pediátricos con API real PASS. Banco pediátrico 18/18 incluido en QA. Unicode exacto PDF/JSON/DOCX, multipágina y rechazo explícito de glifo ausente verificados.
+HEAD de código `82e6ca92df617730dfa42936ba7dbc2bb9163c87`. Clinical QA 7/7 y 505/505 pruebas únicas de 22 archivos PASS, incluido scores. Frontend 163/163 PASS; lint, typecheck y build PASS. Fidelidad Node guías 4/4 y procedimientos 8/8; cuatro PDF reales y cuatro escenarios pediátricos con API real PASS. Banco pediátrico 18/18 incluido en QA. Unicode exacto PDF/JSON/DOCX, multipágina y rechazo explícito de glifo ausente verificados.
 
 196 JSON schema-valid y fieles a texto; generadores activos repetidos sin cambios. `pip check`, actionlint 1.7.12 (sin ShellCheck/Pyflakes) y diff-check PASS. Windows/Python 3.14.7/Node 24.21/Edge; instalación npm desde lockfile completada tras limitar memoria, sin cambios de dependencias. CI remoto no verificado: consulta de rama sin ejecuciones.
 
-P1 clínico abierto en SP-002; estado CLINICALLY_PENDING. QA automatizado no es validación prospectiva. Informe de comandos, resultados, límites y readiness: [qa/V1.42_FINAL_AUDIT.md](qa/V1.42_FINAL_AUDIT.md).
+SP-002 resuelto mediante historial interno, tests en rojo antes y verde después. P0/P1 técnicos abiertos = 0; estado CLINICALLY_PENDING. QA automatizado no es validación prospectiva. Informe de comandos, resultados, límites y readiness: [qa/V1.42_FINAL_AUDIT.md](qa/V1.42_FINAL_AUDIT.md).
 
 # Histórico de validaciones por bloque
 

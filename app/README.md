@@ -1,6 +1,6 @@
 # Emergency — frontend v1.42
 
-Estado actual: 131 guías, 196 procedimientos más cuatro alias y 89 regímenes pediátricos, además de 17 fármacos adultos. QA local PASS; P1 abierto SP-002, sin aprobación de producción clínica. Ver [auditoría global](../clinical/qa/V1.42_FINAL_AUDIT.md). Las descripciones de Sprint 1 inferiores son históricas salvo actualización explícita.
+Estado actual: 131 guías, 196 procedimientos más cuatro alias y 89 regímenes pediátricos, además de 17 fármacos adultos. QA local PASS; SP-002 resuelto, sin aprobación de producción clínica. Ver [auditoría global](../clinical/qa/V1.42_FINAL_AUDIT.md). Las descripciones de Sprint 1 inferiores son históricas salvo actualización explícita.
 
 > **Borrador — contenido NO validado clínicamente.** El catálogo adulto conserva su baseline v1.35; guías, procedimientos y pediatría derivan de las fuentes canónicas del repositorio y están pendientes de revisión humana (UCI, cardiología, farmacia hospitalaria). Prevalecen siempre los protocolos locales y el juicio clínico.
 

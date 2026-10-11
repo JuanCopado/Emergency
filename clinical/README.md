@@ -1,6 +1,6 @@
 # Emergency Medicine v1.42 — estado actual
 
-Consolidación técnica: 131 módulos, 196 procedimientos estructurados, 135 escalas, 45 fórmulas y 89 regímenes pediátricos. Inventario reproducible en `qa/V1.42_INVENTORY.json`; auditoría y límites en `qa/V1.42_FINAL_AUDIT.md`. QA local PASS; P1 abierto SP-002, CLINICALLY_PENDING: no listo para revisión final de release ni uso clínico en producción. Visuales pausadas. No es una competencia instalada/publicada por este repositorio.
+Consolidación técnica: 131 módulos, 196 procedimientos estructurados, 135 escalas, 45 fórmulas y 89 regímenes pediátricos. Inventario reproducible en `qa/V1.42_INVENTORY.json`; auditoría y límites en `qa/V1.42_FINAL_AUDIT.md`. QA local PASS; SP-002 resuelto, gate técnico sin P0/P1 abiertos; CLINICALLY_PENDING: no aprobado para uso clínico en producción. Visuales pausadas. No es una competencia instalada/publicada por este repositorio.
 
 ## Histórico v1.35/v1.36 y evolución
 

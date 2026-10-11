@@ -12,7 +12,7 @@ v1.42 pediatric consolidation: see `qa/V1.42_PEDIATRIC_CONSOLIDATION.md`. Finite
 
 v1.42 procedure structural migration: see `qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md` for source-preserving JSON coverage and pending clinical classification. No module/routing changes or evidence promotion.
 
-v1.42 final audit: `qa/V1.42_FINAL_AUDIT.md`; generated inventory `qa/V1.42_INVENTORY.json`. 196 structured procedures complete; SP-002 P1 remains open. Clinical source/status dates unchanged.
+v1.42 final audit: `qa/V1.42_FINAL_AUDIT.md`; generated inventory `qa/V1.42_INVENTORY.json`. 196 structured procedures complete; SP-002 identity P1 resolved (82e6ca9); technical RC gate evaluated in qa/V1.42_RC1_FREEZE.md. Clinical source/status dates unchanged.
 
 Read only the bundles required by `router.md`. Within a bundle, locate the exact
 heading `## <module-id>`. Every routed ID must resolve here and in its target

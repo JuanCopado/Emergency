@@ -1,3 +1,11 @@
+## v1.42 RC1 — resolve SP-002 from history and freeze technical baseline
+- Establish canonical identity as Medición de presión compartimental from explicit normalization 9e50ffc, evidence alignment b679f19 and review coverage 08bbe958; preserve the procedure body and all YELLOW states.
+- Reproduce two Python failures and one frontend failure (5427050), then align both indexes and regenerate the structured JSON and frontend catalog (82e6ca9). No new IDs, clinical technique, dose or visual asset.
+- New execution: 505 Python, Clinical QA 7/7, 163 frontend, lint/typecheck/build, 12 Node fidelity checks, four browser PDFs and four pediatric API scenarios PASS. Prior 503/162 results remain historical.
+- Technical P0/P1 open = 0 in audited scope; prospective validation, local evidence and P2/P3 remain pending. Local RC only, no merge/push. See qa/V1.42_RC1_FREEZE.md and qa/V1.42_SP002_IDENTITY_REVIEW.md.
+
+## Historical audit before SP-002 repair
+
 ## v1.42 consolidation — global technical audit (clinical release blocked)
 - Complete all 196 source-preserving procedure JSON files across 16 families; preserve four aliases, 43 explicit rescue/153 pending and 55 explicit escalation/141 pending. All remain YELLOW.
 - Reproduce and correct two erroneous GREEN guide statuses to the existing YELLOW evidence state; add fidelity regression and evidence-registry CI trigger. Separate test/fix commits preserve traceability.

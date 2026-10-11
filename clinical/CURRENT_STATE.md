@@ -1,17 +1,16 @@
-# Estado actual v1.42 — auditoría global, 11/10/2026
+# Estado actual v1.42 — freeze técnico RC1, 11/10/2026
 
-Rama `v1.42-codex-consolidation`; HEAD de código auditado `ea5b5c721cda219976b666df779d025df41852a3`. El commit documental posterior contiene este snapshot; no se atribuye su propio SHA.
+Rama `v1.42-codex-consolidation`. HEAD de código auditado `82e6ca92df617730dfa42936ba7dbc2bb9163c87`; el commit documental de freeze posterior es la base a fijar por `v1.42-rc1`. Su SHA exacto se verifica desde el ref, sin incrustar un hash autorreferencial en el propio commit.
 
-- Inventario derivado: [qa/V1.42_INVENTORY.json](qa/V1.42_INVENTORY.json); `scripts/audit_v142_inventory.py --check` verifica vigencia.
-- 131 módulos, 29 GREEN / 102 YELLOW / 0 RED; 135 escalas (122 específicas, 8 wrappers, 5 alias) y 45 fórmulas.
-- Migración COMPLETA: 196 JSON válidos, 16 familias, cuatro alias; 43 rescue explícitos / 153 pendientes y 55 escalation explícitas / 141 pendientes. ORTHO: 23 canónicos. Todos YELLOW.
-- Pediatría: 89 regímenes, 52 principios nombrados, 88 diagnósticos y banco 18/18. Nota: 92 reglas, 115 módulos cubiertos, 16 exclusiones explícitas.
-- QA local: 7/7, 503 pruebas Python en 22 archivos; frontend 162/162; lint, typecheck, build, 4+8 pruebas Node, cuatro PDF y cuatro escenarios API/navegador PASS. Generadores deterministas. CI remoto del HEAD local pendiente.
-- Cerrado P1 de dos estados derivados GREEN incorrectos: ahora YELLOW, conforme a evidencia; commits `e6db19e` (regresión) y `ea5b5c7` (fix).
-- P1 abierto SP-002: título de descompresión con ficha de medición de presión compartimental. No se altera texto clínico. SP-003 requiere revisión de nomenclatura (P2).
-- `CLINICALLY_PENDING`: NO listo para revisión final de release ni producción clínica. Pendientes revisión humana, rescates/escaladas, localización y validación prospectiva. Visuales PAUSADAS; main intacto, sin merge/push ni promociones automáticas.
-- Freeze evaluado el 11/10/2026: BLOQUEADO por P1 SP-002; no se crea tag/branch RC ni se inicia v1.43. Handoff: [qa/V1.42_RC1_FREEZE.md](qa/V1.42_RC1_FREEZE.md).
-- Informe vigente: [qa/V1.42_FINAL_AUDIT.md](qa/V1.42_FINAL_AUDIT.md). La aprobación automática de herramientas permitió completar los commits; no constituye aprobación clínica.
+- P0 abiertos = 0; P1 técnicos abiertos = 0 en el alcance auditado. SP-002 = Medición de presión compartimental, según historial `9e50ffc`, `b679f19` y `08bbe958`. Regresión `5427050`, reparación `82e6ca9`; ficha clínica intacta. Los dos estados derivados incorrectos ya fueron corregidos en `ea5b5c7`.
+- QA NUEVA: Clinical QA 7/7 y 505/505 Python; frontend 163/163; lint, typecheck, build, fidelidad Node 4+8, cuatro PDF y cuatro escenarios API/navegador PASS. No se reutilizan como ejecución nueva 503/162 anteriores.
+- Inventario derivado en [qa/V1.42_INVENTORY.json](qa/V1.42_INVENTORY.json): 131 módulos, 29 GREEN / 102 YELLOW / 0 RED; 135 escalas y 45 fórmulas.
+- 196 procedimientos estructurados/schema-valid; cuatro alias, 16 familias, 200 IDs textuales. Rescue 43 explícitos/153 pendientes; escalation 55/141. Todos YELLOW. ORTHO: 23 canónicos.
+- Pediatría: 89 regímenes, 52 principios nombrados y 18/18 casos. Nota: 92 reglas, 115 módulos cubiertos y 16 exclusiones.
+- RC técnico no equivale a validación clínica prospectiva: CLINICALLY_PENDING. No aprobado para producción clínica. P2/P3: SP-003 y otras variantes de título, rescates/escaladas, producto/jurisdicción, localización, backend, CI remoto y mantenimiento.
+- Base siguiente: `v1.42-rc1` en el SHA verificado al crear el ref. No crear `v1.43-clinical-ui-validation` en este bloque; solo desde ese RC en una instrucción posterior.
+- Main intacto, sin merge/push ni promoción YELLOW. Capa visual pausada; solo se corrige una etiqueta textual del índice visual, sin imágenes.
+- Auditoría: [qa/V1.42_FINAL_AUDIT.md](qa/V1.42_FINAL_AUDIT.md). Decisión histórica: [qa/V1.42_SP002_IDENTITY_REVIEW.md](qa/V1.42_SP002_IDENTITY_REVIEW.md). Freeze/handoff: [qa/V1.42_RC1_FREEZE.md](qa/V1.42_RC1_FREEZE.md).
 
 # Histórico de continuidad
 

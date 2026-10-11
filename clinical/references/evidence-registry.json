@@ -593,9 +593,17 @@
         "human_review_required": true,
         "final_audit": "qa/V1.42_FINAL_AUDIT.md",
         "unresolved_identity_review": [
-          "PROC-SP-002",
           "PROC-SP-003"
-        ]
+        ],
+        "resolved_identity_review": {
+          "PROC-SP-002": {
+            "canonical_title": "Medición de presión compartimental",
+            "decision": "qa/V1.42_SP002_IDENTITY_REVIEW.md",
+            "historical_normalization": "9e50ffcc6fba761734ed00c46c669864d5b38186",
+            "fix": "82e6ca92df617730dfa42936ba7dbc2bb9163c87",
+            "clinical_evidence_reverified": false
+          }
+        }
       },
       "priority": "high",
       "primary_source": "Procedure-specific RCEM, ACEP, WHO and specialty guidance",

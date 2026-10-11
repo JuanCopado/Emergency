@@ -1,6 +1,6 @@
 # MODULES — índice verificado
 
-Estado v1.42 auditado el 10/10/2026: 131 IDs únicos, 29 GREEN / 102 YELLOW / 0 RED; todos tienen sección y registro. Inventario derivado en `qa/V1.42_INVENTORY.json`; límites y P1 abierto en `qa/V1.42_FINAL_AUDIT.md`.
+Estado v1.42 auditado el 10/10/2026: 131 IDs únicos, 29 GREEN / 102 YELLOW / 0 RED; todos tienen sección y registro. Inventario derivado en `qa/V1.42_INVENTORY.json`; límites y cierre técnico en `qa/V1.42_FINAL_AUDIT.md`.
 El estado green/yellow corresponde al registro de evidencia, no a una declaración de validación clínica.
 
 | ID | Archivo de módulos | Evidencia |

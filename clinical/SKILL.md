@@ -5,7 +5,7 @@ description: Emergency-care reasoning, stabilization, medication and infusion ca
 
 # Emergency Medicine Skill v1.42 — consolidation (clinical review pending)
 
-Current status (2026-10-10): 503 Python tests and 162 frontend tests pass locally; 131 modules (29 GREEN / 102 YELLOW), 196 structured YELLOW procedures. CLINICALLY_PENDING: unresolved P1 in PROC-SP-002; not ready for final release review or clinical production. Automated QA is not prospective clinical validation; prospective clinical and diagnostic-accuracy validation pending. See `qa/V1.42_FINAL_AUDIT.md` and generated `qa/V1.42_INVENTORY.json`. The former 63-test statement belonged to the historical v1.35 snapshot.
+Current status (2026-10-11): 505 Python tests and 163 frontend tests pass locally; 131 modules (29 GREEN / 102 YELLOW), 196 structured YELLOW procedures. CLINICALLY_PENDING: SP-002 identity repaired from historical evidence; no open technical P0/P1 in the audited scope. Technical RC is not approval for clinical production. Automated QA is not prospective clinical validation; prospective clinical and diagnostic-accuracy validation pending. See `qa/V1.42_FINAL_AUDIT.md` and generated `qa/V1.42_INVENTORY.json`. The former 63-test statement belonged to the historical v1.35 snapshot.
 
 ## Purpose
 Support acute-care reasoning and operational bedside responses while prioritizing patient safety, explicit uncertainty, verification of high-risk recommendations, and reproducible calculations.

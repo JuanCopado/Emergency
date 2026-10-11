@@ -4,7 +4,9 @@ app/scripts/build-clinical-guides.mjs
 app/scripts/build-clinical-guides.node-test.mjs
 app/scripts/check-clinical-guide-print.mjs
 app/src/data/generatedClinicalGuides.json
+app/src/data/generatedProcedures.json
 app/src/pages/ClinicalNote.tsx
+app/src/test/procedure-catalog.test.ts
 clinical/CHANGELOG.md
 clinical/CURRENT_STATE.md
 clinical/MODULES.md
@@ -141,6 +143,8 @@ clinical/data/procedures/PROC-WND-019.json
 clinical/data/procedures/PROC-WND-020.json
 clinical/data/procedures/PROC-WND-021.json
 clinical/data/procedures/PROC-WND-022.json
+clinical/modules/emergency-procedures-index.md
+clinical/modules/emergency-procedures-physician-visual-index.md
 clinical/qa/V1.42_CHANGED_FILES.txt
 clinical/qa/V1.42_CI_PROCEDURE_CATALOG.md
 clinical/qa/V1.42_DIAGNOSTIC_CONTEXT_SEQUENCING.md
@@ -150,6 +154,7 @@ clinical/qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md
 clinical/qa/V1.42_PEDIATRIC_CONSOLIDATION.md
 clinical/qa/V1.42_PROCEDURE_STRUCTURED_MIGRATION.md
 clinical/qa/V1.42_RC1_FREEZE.md
+clinical/qa/V1.42_SP002_IDENTITY_REVIEW.md
 clinical/qa/V1.42_UNICODE_SAFETY_PREAMBLE.md
 clinical/references/evidence-registry.json
 clinical/references/module-index.md
@@ -157,3 +162,4 @@ clinical/references/procedure-safety-extractions-v1.42.json
 clinical/scripts/audit_v142_inventory.py
 clinical/scripts/report_procedure_migration.py
 clinical/tests/test_ci_v142.py
+clinical/tests/test_procedure_migration_v142.py
