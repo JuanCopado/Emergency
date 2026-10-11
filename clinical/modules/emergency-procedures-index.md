@@ -322,7 +322,7 @@
 # 16. PROCEDIMIENTOS ESPECIALES / RESCATE
 
 176. **PROC-SP-001 — Fasciotomía/escisión de emergencia: reconocimiento y preparación** — SPECIALIST  
-177. **PROC-SP-002 — Descompresión de síndrome compartimental: medidas temporales** — ADVANCED  
+177. **PROC-SP-002 — Medición de presión compartimental** — ADVANCED
 178. **PROC-SP-003 — Reimplantación temporal/protección de amputación** — CORE  
 179. **PROC-SP-004 — Extracción de empalamiento: principios de no retirada y control** — CORE  
 180. **PROC-SP-005 — Manejo inicial de mordeduras y heridas contaminadas complejas** — CORE  
