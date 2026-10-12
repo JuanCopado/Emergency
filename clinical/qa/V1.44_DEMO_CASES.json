@@ -1,0 +1,753 @@
+{
+  "schema_version": "1.0",
+  "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+  "purpose": "Synthetic regression expectations copied unchanged from pre-existing fixtures; not independent clinical validation. Unknown input is explicit. No real patient data.",
+  "cases": [
+    {
+      "id": "acs-st-elevation",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": true,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#acs-st-elevation",
+      "input": {
+        "id": "acs-st-elevation",
+        "age_years": 68,
+        "sex": "male",
+        "chief_complaint": "Dolor torácico opresivo con sudoración.",
+        "hpi": "Dolor torácico de inicio súbito con náusea.",
+        "ecg": "Supradesnivelamento de ST anterior.",
+        "expected_likely": "Síndrome coronario agudo",
+        "expected_modules": [
+          "acute-coronary-syndrome"
+        ],
+        "expected_must_not_miss": [
+          "Síndrome aórtica aguda",
+          "Embolia pulmonar"
+        ]
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Dolor torácico opresivo con sudoración.",
+        "tests": {
+          "ecg": "Supradesnivelamento de ST anterior."
+        },
+        "evolution": "Dolor torácico de inicio súbito con náusea.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "sepsis-shock",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": true,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#sepsis-shock",
+      "input": {
+        "id": "sepsis-shock",
+        "age_years": 81,
+        "sex": "female",
+        "chief_complaint": "Febre, confusão e hipotensão.",
+        "hpi": "Infeção urinária suspeita com febre e deterioração do estado mental.",
+        "labs": "Lactato elevado.",
+        "vitals": {
+          "bp": "84/48",
+          "hr": 120,
+          "rr": 26,
+          "spo2": 93,
+          "oxygen": "2 L/min",
+          "temperature_c": 39.1,
+          "gcs": "13"
+        },
+        "expected_likely": "Sépsis / choque séptico",
+        "expected_modules": [
+          "sepsis-shock"
+        ],
+        "expected_test_contains": "Lactato"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Febre, confusão e hipotensão.",
+        "tests": {
+          "labs": "Lactato elevado."
+        },
+        "evolution": "Infeção urinária suspeita com febre e deterioração do estado mental.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "dka",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": true,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#dka",
+      "input": {
+        "id": "dka",
+        "age_years": 24,
+        "sex": "female",
+        "chief_complaint": "Poliúria, vómitos e respiração profunda.",
+        "hpi": "Diabetes conhecida; hiperglicemia e cetose.",
+        "blood_gas": "Acidose metabólica com bicarbonato baixo; cetonemia positiva.",
+        "expected_likely": "Cetoacidose diabética / crise hiperglicémica",
+        "expected_modules": [
+          "diabetic-ketoacidosis-hhs"
+        ],
+        "expected_test_contains": "cetonas"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Poliúria, vómitos e respiração profunda.",
+        "tests": {
+          "blood_gas": "Acidose metabólica com bicarbonato baixo; cetonemia positiva."
+        },
+        "evolution": "Diabetes conhecida; hiperglicemia e cetose.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "major-trauma",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": true,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#major-trauma",
+      "input": {
+        "id": "major-trauma",
+        "age_years": 36,
+        "sex": "male",
+        "chief_complaint": "Politrauma após acidente de alta energia.",
+        "hpi": "Ejeção do veículo com hemorragia ativa e dor torácica.",
+        "vitals": {
+          "bp": "82/46",
+          "hr": 132,
+          "rr": 30,
+          "spo2": 90,
+          "oxygen": "ar ambiente",
+          "temperature_c": 35.8,
+          "gcs": "13"
+        },
+        "expected_likely": "Trauma major / politrauma",
+        "expected_modules": [
+          "major-trauma"
+        ],
+        "expected_immediate_treatment_module": "trauma-major-hemorrhage"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Politrauma após acidente de alta energia.",
+        "tests": {},
+        "evolution": "Ejeção do veículo com hemorragia ativa e dor torácica.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "acute-stroke",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#acute-stroke",
+      "input": {
+        "id": "acute-stroke",
+        "age_years": 74,
+        "sex": "female",
+        "chief_complaint": "Défice neurológico focal.",
+        "hpi": "Início súbito de afasia e hemiparesia direita.",
+        "exam_neurologic": "Afasia e hemiparesia direita.",
+        "expected_likely": "AVC isquémico agudo",
+        "expected_modules": [
+          "acute-ischemic-stroke"
+        ],
+        "expected_test_contains": "TC cranioencefálica"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Défice neurológico focal.",
+        "tests": {},
+        "evolution": "Início súbito de afasia e hemiparesia direita.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "anaphylaxis",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#anaphylaxis",
+      "input": {
+        "id": "anaphylaxis",
+        "age_years": 29,
+        "sex": "female",
+        "chief_complaint": "Urticária, estridor e sensação de desmaio.",
+        "hpi": "Início minutos após ingestão de alergénio conhecido.",
+        "vitals": {
+          "bp": "78/42",
+          "hr": 132,
+          "rr": 30,
+          "spo2": 91,
+          "oxygen": "ar ambiente",
+          "temperature_c": 36.8,
+          "gcs": "14"
+        },
+        "expected_likely": "Anafilaxia",
+        "expected_modules": [
+          "anaphylaxis"
+        ],
+        "expected_immediate_treatment_module": "anaphylaxis"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Urticária, estridor e sensação de desmaio.",
+        "tests": {},
+        "evolution": "Início minutos após ingestão de alergénio conhecido.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "hyponatraemia",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-final-cases-b.json#hyponatraemia",
+      "input": {
+        "id": "hyponatraemia",
+        "age_years": 75,
+        "sex": "female",
+        "chief_complaint": "Confusão e convulsão.",
+        "hpi": "Hiponatremia grave.",
+        "labs": "Sódio 120 mmol/L.",
+        "expected_likely": "Emergência do sódio (hipo/hipernatremia sintomática)",
+        "expected_modules": [
+          "sodium-emergencies"
+        ],
+        "expected_test_contains": "osmolaridade"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Confusão e convulsão.",
+        "tests": {
+          "labs": "Sódio 120 mmol/L."
+        },
+        "evolution": "Hiponatremia grave.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "status-epilepticus",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#status-epilepticus",
+      "input": {
+        "id": "status-epilepticus",
+        "age_years": 55,
+        "sex": "female",
+        "chief_complaint": "Convulsão prolongada.",
+        "hpi": "Convulsão há 5 minutos sem recuperação da consciência.",
+        "exam_neurologic": "Atividade convulsiva persistente.",
+        "vitals": {
+          "bp": "150/90",
+          "hr": 118,
+          "rr": 26,
+          "spo2": 92,
+          "oxygen": "ar ambiente",
+          "temperature_c": 37,
+          "gcs": "8"
+        },
+        "expected_likely": "Estado de mal epiléptico convulsivo",
+        "expected_modules": [
+          "status-epilepticus"
+        ],
+        "expected_immediate_treatment_module": "status-epilepticus"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Convulsão prolongada.",
+        "tests": {},
+        "evolution": "Convulsão há 5 minutos sem recuperação da consciência.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "upper-gi-bleeding",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#upper-gi-bleeding",
+      "input": {
+        "id": "upper-gi-bleeding",
+        "age_years": 66,
+        "sex": "male",
+        "chief_complaint": "Hematemese e melenas.",
+        "hpi": "Dois episódios de vómito com sangue e fezes negras.",
+        "vitals": {
+          "bp": "86/52",
+          "hr": 118,
+          "rr": 22,
+          "spo2": 96,
+          "oxygen": "ar ambiente",
+          "temperature_c": 36.5,
+          "gcs": "15"
+        },
+        "expected_likely": "Hemorragia digestiva alta",
+        "expected_modules": [
+          "upper-gi-bleeding"
+        ],
+        "expected_test_contains": "Glasgow-Blatchford"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Hematemese e melenas.",
+        "tests": {},
+        "evolution": "Dois episódios de vómito com sangue e fezes negras.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "bronchiolitis",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#bronchiolitis",
+      "input": {
+        "id": "bronchiolitis",
+        "age_years": 0.5,
+        "sex": "male",
+        "chief_complaint": "Tosse e dificuldade respiratória.",
+        "hpi": "Bronquiolite após coriza, retrações torácicas e dificuldade na alimentação.",
+        "vitals": {
+          "bp": "82/50",
+          "hr": 148,
+          "rr": 62,
+          "spo2": 89,
+          "oxygen": "ar ambiente",
+          "temperature_c": 37.7,
+          "gcs": "15"
+        },
+        "expected_likely": "Bronquiolite",
+        "expected_modules": [
+          "bronchiolitis"
+        ],
+        "expected_test_contains": "SpO2"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Tosse e dificuldade respiratória.",
+        "tests": {},
+        "evolution": "Bronquiolite após coriza, retrações torácicas e dificuldade na alimentação.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "febrile-infant",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-closure-cases.json#febrile-infant",
+      "input": {
+        "id": "febrile-infant",
+        "age_years": 0.08,
+        "sex": "female",
+        "chief_complaint": "Febre.",
+        "hpi": "Lactente de 29 dias com temperatura 38.3°C e irritabilidade.",
+        "expected_likely": "Lactente febril 0–90 dias / risco de infeção bacteriana invasiva",
+        "expected_modules": [
+          "febrile-infant-0-90-days"
+        ],
+        "expected_test_contains": "idade em dias"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Febre.",
+        "tests": {},
+        "evolution": "Lactente de 29 dias com temperatura 38.3°C e irritabilidade.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "toxic-overdose",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#toxic-overdose",
+      "input": {
+        "id": "toxic-overdose",
+        "age_years": 32,
+        "sex": "female",
+        "chief_complaint": "Alteração do estado mental.",
+        "hpi": "Sobredosagem medicamentosa intencional; possível coingestão.",
+        "vitals": {
+          "bp": "96/58",
+          "hr": 110,
+          "rr": 12,
+          "spo2": 94,
+          "oxygen": "ar ambiente",
+          "temperature_c": 36.1,
+          "gcs": "11"
+        },
+        "expected_likely": "Intoxicação aguda / toxíndrome",
+        "expected_modules": [
+          "toxicology"
+        ],
+        "expected_test_contains": "substância"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Alteração do estado mental.",
+        "tests": {},
+        "evolution": "Sobredosagem medicamentosa intencional; possível coingestão.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "resp-failure",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-final-cases-a.json#resp-failure",
+      "input": {
+        "id": "resp-failure",
+        "age_years": 69,
+        "sex": "male",
+        "chief_complaint": "Insuficiência respiratória.",
+        "hpi": "Falência respiratória com hipoxemia e hipercapnia.",
+        "blood_gas": "pH 7.25, PaCO2 elevada e hipoxemia.",
+        "vitals": {
+          "bp": "132/74",
+          "hr": 102,
+          "rr": 30,
+          "spo2": 82,
+          "oxygen": "ar ambiente",
+          "temperature_c": 37.1,
+          "gcs": "14"
+        },
+        "expected_likely": "Insuficiência respiratória aguda",
+        "expected_modules": [
+          "acute-respiratory-failure"
+        ],
+        "expected_test_contains": "gasometria"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Insuficiência respiratória.",
+        "tests": {
+          "blood_gas": "pH 7.25, PaCO2 elevada e hipoxemia."
+        },
+        "evolution": "Falência respiratória com hipoxemia e hipercapnia.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "cardiogenic-shock",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-final-cases-a.json#cardiogenic-shock",
+      "input": {
+        "id": "cardiogenic-shock",
+        "age_years": 73,
+        "sex": "male",
+        "chief_complaint": "Hipotensão e dispneia.",
+        "hpi": "Choque cardiogénico após IAM com edema pulmonar.",
+        "vitals": {
+          "bp": "76/48",
+          "hr": 112,
+          "rr": 30,
+          "spo2": 86,
+          "oxygen": "ar ambiente",
+          "temperature_c": 36.4,
+          "gcs": "14"
+        },
+        "expected_likely": "Choque cardiogénico",
+        "expected_modules": [
+          "cardiogenic-shock"
+        ],
+        "expected_test_contains": "POCUS"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Hipotensão e dispneia.",
+        "tests": {},
+        "evolution": "Choque cardiogénico após IAM com edema pulmonar.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "tension-pneumothorax",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#tension-pneumothorax",
+      "input": {
+        "id": "tension-pneumothorax",
+        "age_years": 22,
+        "sex": "male",
+        "chief_complaint": "Dispneia súbita e dor pleurítica.",
+        "hpi": "Início súbito.",
+        "exam_respiratory": "Ausência de murmúrio vesicular à direita.",
+        "vitals": {
+          "bp": "82/45",
+          "hr": 118,
+          "rr": 32,
+          "spo2": 78,
+          "oxygen": "ar ambiente",
+          "temperature_c": 36.4,
+          "gcs": "15"
+        },
+        "expected_likely": "Pneumotórax hipertensivo",
+        "expected_modules": [
+          "tension-pneumothorax"
+        ],
+        "expected_immediate_treatment_module": "tension-pneumothorax"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Dispneia súbita e dor pleurítica.",
+        "tests": {},
+        "evolution": "Início súbito.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "pediatric-dka",
+      "synthetic": true,
+      "layer": "note",
+      "pilot": false,
+      "provenance": "clinical-note-diagnostic-synthetic-cases.json#pediatric-dka",
+      "input": {
+        "id": "pediatric-dka",
+        "age_years": 11,
+        "sex": "female",
+        "chief_complaint": "Poliúria, vómitos e prostração.",
+        "hpi": "CAD pediátrica com hiperglicemia e respiração de Kussmaul.",
+        "blood_gas": "Acidose metabólica com cetonemia positiva.",
+        "expected_likely": "Cetoacidose diabética pediátrica",
+        "expected_modules": [
+          "pediatric-dka"
+        ],
+        "expected_test_contains": "eletrólitos"
+      },
+      "context": {
+        "weight_kg": null,
+        "allergies": "not specified in source fixture; not a negative history",
+        "history": "see hpi; otherwise not recorded",
+        "symptoms": "Poliúria, vómitos e prostração.",
+        "tests": {
+          "blood_gas": "Acidose metabólica com cetonemia positiva."
+        },
+        "evolution": "CAD pediátrica com hiperglicemia e respiração de Kussmaul.",
+        "missing_fields": "unknown; no invented normal values"
+      },
+      "expected_gate": "analysis resets clinician sign-off; export requires privacy and explicit review",
+      "export": "JSON assessment exact; PDF/DOCX representative only"
+    },
+    {
+      "id": "dexamethasone-organ-function-no-adjustment",
+      "synthetic": true,
+      "layer": "pediatrics",
+      "pilot": true,
+      "provenance": "pediatric-outpatient-regression-cases.json#dexamethasone-organ-function-no-adjustment",
+      "input": {
+        "id": "dexamethasone-organ-function-no-adjustment",
+        "regimen_id": "dexamethasone-croup-mild-moderate",
+        "patient": {
+          "age_months": 48,
+          "actual_weight_kg": 18,
+          "known_renal_impairment": true,
+          "egfr_mL_min": 20,
+          "known_hepatic_impairment": true,
+          "hepatic_severity": "moderate",
+          "croup_discharge_criteria_met": true
+        },
+        "product": {
+          "concentration_mg_per_ml": 0.4
+        },
+        "expect": {
+          "dose_mg": 2.6999999999999997,
+          "renal_adjustment.mode": "none_required",
+          "hepatic_adjustment.mode": "none_required"
+        }
+      },
+      "context": {
+        "sex": null,
+        "allergies": null,
+        "symptoms": "dexamethasone-croup-mild-moderate",
+        "history": {
+          "age_months": 48,
+          "actual_weight_kg": 18,
+          "known_renal_impairment": true,
+          "egfr_mL_min": 20,
+          "known_hepatic_impairment": true,
+          "hepatic_severity": "moderate",
+          "croup_discharge_criteria_met": true
+        },
+        "vitals": null,
+        "tests": null,
+        "evolution": "single synthetic calculation; unspecified fields remain unknown"
+      },
+      "expected_gate": "existing clinical criteria and medication preflight",
+      "export": "not available in pediatric UI; not claimed"
+    },
+    {
+      "id": "paracetamol-ideal-weight",
+      "synthetic": true,
+      "layer": "pediatrics",
+      "pilot": false,
+      "provenance": "pediatric-outpatient-regression-cases.json#paracetamol-ideal-weight",
+      "input": {
+        "id": "paracetamol-ideal-weight",
+        "regimen_id": "paracetamol-pain-fever-home",
+        "patient": {
+          "age_months": 120,
+          "actual_weight_kg": 55,
+          "ideal_weight_kg": 35,
+          "home_analgesia_antipyresis_appropriate": true
+        },
+        "product": {
+          "concentration_mg_per_ml": 24
+        },
+        "selected_duration_days": 2,
+        "expect": {
+          "dosing_weight_kg": 35,
+          "dose_mg": 525,
+          "volume_per_dose.rounded_0_1_ml": 21.9,
+          "total_doses": 8
+        }
+      },
+      "context": {
+        "sex": null,
+        "allergies": null,
+        "symptoms": "paracetamol-pain-fever-home",
+        "history": {
+          "age_months": 120,
+          "actual_weight_kg": 55,
+          "ideal_weight_kg": 35,
+          "home_analgesia_antipyresis_appropriate": true
+        },
+        "vitals": null,
+        "tests": null,
+        "evolution": "single synthetic calculation; unspecified fields remain unknown"
+      },
+      "expected_gate": "existing clinical criteria and medication preflight",
+      "export": "not available in pediatric UI; not claimed"
+    },
+    {
+      "id": "rizatriptan-40kg-boundary-block",
+      "synthetic": true,
+      "layer": "pediatrics",
+      "pilot": false,
+      "provenance": "pediatric-outpatient-regression-cases.json#rizatriptan-40kg-boundary-block",
+      "input": {
+        "id": "rizatriptan-40kg-boundary-block",
+        "regimen_id": "rizatriptan-migraine-rch",
+        "patient": {
+          "age_months": 120,
+          "actual_weight_kg": 40,
+          "secondary_headache_red_flags_excluded": true
+        },
+        "expect_error_contains": "no matching"
+      },
+      "context": {
+        "sex": null,
+        "allergies": null,
+        "symptoms": "rizatriptan-migraine-rch",
+        "history": {
+          "age_months": 120,
+          "actual_weight_kg": 40,
+          "secondary_headache_red_flags_excluded": true
+        },
+        "vitals": null,
+        "tests": null,
+        "evolution": "single synthetic calculation; unspecified fields remain unknown"
+      },
+      "expected_gate": "no matching",
+      "export": "not available in pediatric UI; not claimed"
+    },
+    {
+      "id": "mart-age-gate",
+      "synthetic": true,
+      "layer": "pediatrics",
+      "pilot": false,
+      "provenance": "pediatric-outpatient-regression-cases.json#mart-age-gate",
+      "input": {
+        "id": "mart-age-gate",
+        "regimen_id": "budesonide-formoterol-air-mart-6to11-gina2026",
+        "patient": {
+          "age_months": 60,
+          "actual_weight_kg": 20
+        },
+        "expect_error_contains": "minimum age"
+      },
+      "context": {
+        "sex": null,
+        "allergies": null,
+        "symptoms": "budesonide-formoterol-air-mart-6to11-gina2026",
+        "history": {
+          "age_months": 60,
+          "actual_weight_kg": 20
+        },
+        "vitals": null,
+        "tests": null,
+        "evolution": "single synthetic calculation; unspecified fields remain unknown"
+      },
+      "expected_gate": "minimum age",
+      "export": "not available in pediatric UI; not claimed"
+    }
+  ]
+}

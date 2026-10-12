@@ -1,3 +1,7 @@
+# v1.44 functional validation
+
+See `qa/V1.44_FUNCTIONAL_VALIDATION.md` and its matrix. No new modules, clinical IDs, routing or source changes.
+
 # Formal v1.43 closure
 
 See `qa/V1.43_UI_UX_FINAL.md`. No IDs, routing, clinical bodies or evidence statuses changed in the closure.

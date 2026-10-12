@@ -1,0 +1,61 @@
+{
+  "scope": "pilot",
+  "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+  "clinically_pending": true,
+  "cases": [
+    {
+      "id": "acs-st-elevation",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "sepsis-shock",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "dka",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "major-trauma",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "dexamethasone-organ-function-no-adjustment",
+      "layer": "pediatrics",
+      "engine_api": "PASS",
+      "expected_values": {
+        "dose_mg": 2.6999999999999997,
+        "renal_adjustment.mode": "none_required",
+        "hepatic_adjustment.mode": "none_required"
+      },
+      "browser": "NOT_RUN_HERE",
+      "export": "UNAVAILABLE",
+      "status": "PASS"
+    }
+  ],
+  "passed": 5
+}

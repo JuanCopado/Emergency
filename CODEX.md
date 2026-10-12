@@ -1,14 +1,14 @@
-# Codex bootstrap — Emergency v1.43 UI/UX
+# Codex bootstrap — Emergency v1.44 functional validation
 
 This file defines the safe entry point for Codex work on this repository.
 
 ## Repository and branch guard
 
 - Repository: `JuanCopado/Emergency`
-- Working branch: `v1.43-clinical-ui-validation`
+- Working branch: `v1.44-clinical-functional-validation`
 - Frozen baseline: `v1.42-rc1 @ 0fa17bf16864bb7b371b323b8557c63bc29ca4c2`. Preserve both `v1.42-rc1` and `v1.42-codex-consolidation` at that SHA.
 - Never modify, merge into, reset, or force-update `main`.
-- A newer HEAD on `v1.43-clinical-ui-validation` is expected after legitimate commits. Do not reset it back to the baseline merely because the SHA differs.
+- A newer HEAD on `v1.44-clinical-functional-validation` is expected after legitimate commits. Do not reset it back to the baseline merely because the SHA differs.
 
 Before editing, run:
 
@@ -20,7 +20,7 @@ git rev-parse HEAD
 git status --short
 ```
 
-If the active branch is not `v1.43-clinical-ui-validation`, stop and diagnose before editing.
+If the active branch is not `v1.44-clinical-functional-validation`, stop and diagnose before editing.
 If the working tree is unexpectedly dirty, stop and inspect the changes before editing.
 
 ## Mandatory reading order
@@ -86,7 +86,7 @@ Never claim a test, workflow, or clinical QA passed unless it was actually run a
 
 ## Current phase and historical initial mission
 
-The user authorized v1.43 UI/UX from the frozen RC. Read `clinical/qa/V1.43_UI_UX_AUDIT.md` for the audit, ten procedure layouts, screenshots, tests and remaining limits. Preserve clinical logic and evidence states. Scores remain textual; 186 procedures remain outside the ten-layout visual pilot. No clinical image is approved by this UI audit.
+The user closed v1.43 at 737bb1b8dce5ffbdb296bb0c99d134ea318c8298 and authorized v1.44 synthetic functional validation from that exact commit. Read clinical/qa/V1.43_UI_UX_FINAL.md and the v1.44 validation matrix. Preserve the v1.43 closure branch. Read `clinical/qa/V1.43_UI_UX_AUDIT.md` for the audit, ten procedure layouts, screenshots, tests and remaining limits. Preserve clinical logic and evidence states. Scores remain textual; 186 procedures remain outside the ten-layout visual pilot. No clinical image is approved by this UI audit.
 
 The historical first v1.42 task was a repository-wide, read-only audit and consolidation plan. Its later authorized implementation and technical freeze are documented in `clinical/qa/V1.42_RC1_FREEZE.md`.
 

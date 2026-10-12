@@ -1,3 +1,7 @@
+# Apertura v1.44 — 12/10/2026
+
+Rama `v1.44-clinical-functional-validation` desde el cierre limpio v1.43 `737bb1b8dce5ffbdb296bb0c99d134ea318c8298`. Ver `qa/V1.44_FUNCTIONAL_VALIDATION.md` y matriz. Banco de 20 casos; cinco pilotos motor/API y navegador representativo PASS. Fase ABIERTA, CLINICALLY_PENDING; sin cambios clínicos.
+
 # Cierre formal v1.43 — 12/10/2026
 
 Cerrada la fase UI/UX mediante `qa/V1.43_UI_UX_FINAL.md`, código validado a9a4d0d. Nuevas ejecuciones: 176 frontend, 505 Python, Clinical QA 7/7, 12 pruebas de fidelidad, typecheck/build PASS. Sin cambios clínicos; CLINICALLY_PENDING. v1.44 debe partir del commit documental de cierre con árbol limpio.

@@ -1,3 +1,7 @@
+## v1.44 — synthetic functional validation opening
+- Freeze v1.43 at 737bb1b8dce5ffbdb296bb0c99d134ea318c8298; open separate branch. Define 20 traceable fixtures and execute five pilots before expansion.
+- Add engine/API/export and real-browser expectation checks; production code and clinical evidence unchanged.
+
 ## v1.43 — formal UI/UX closure, 2026-10-12
 - Add qa/V1.43_UI_UX_FINAL.md with scope, priorities, remaining limits and fresh validation (176 frontend, 505 Python, 7 QA checks, 12 fidelity tests, typecheck/build).
 - Documentation only; canonical clinical content and evidence statuses unchanged. CLINICALLY_PENDING.

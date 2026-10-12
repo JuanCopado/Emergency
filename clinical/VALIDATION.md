@@ -1,3 +1,7 @@
+# Apertura v1.44 — 12/10/2026
+
+Cinco pilotos motor/API, cuatro notas en navegador y cuatro escenarios pediátricos PASS. Ver `qa/V1.44_FUNCTIONAL_VALIDATION.md`; ampliar antes de cerrar. Sin validación clínica prospectiva.
+
 # Cierre formal v1.43 — nueva ejecución 12/10/2026
 
 Ver `qa/V1.43_UI_UX_FINAL.md`: 176 frontend, 505 Python, QA 7/7, 12 pruebas Node, typecheck/build PASS. Lint/capturas/navegador anteriores conservan su fecha; no se presentan como nuevos. Diff clínico auditado contra RC1 sin cambios.

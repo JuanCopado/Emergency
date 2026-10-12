@@ -1176,5 +1176,13 @@
     "implementation_commit": "d24ffd98e77502ed9c1e29e1fe524a5c3eae99e6",
     "closure_record": "qa/V1.43_UI_UX_FINAL.md",
     "validated_head": "a9a4d0dc3c6fa057e12402edf87ef790d5cdb9b1"
+  },
+  "functional_validation_review": {
+    "date": "2026-10-12",
+    "record": "qa/V1.44_FUNCTIONAL_VALIDATION.md",
+    "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+    "status": "OPEN_CLINICALLY_PENDING",
+    "clinical_evidence_reverified": false,
+    "human_review_required": true
   }
 }

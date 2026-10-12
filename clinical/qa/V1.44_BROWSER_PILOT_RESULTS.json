@@ -1,0 +1,44 @@
+{
+  "scope": "pilot-note-browser",
+  "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+  "cases": [
+    {
+      "id": "acs-st-elevation",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "sepsis-shock",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "dka",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "major-trauma",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45"
+}
