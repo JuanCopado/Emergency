@@ -1,3 +1,8 @@
+## v1.44 — expand functional evidence without production changes
+- After five pilots, execute 20 canonical synthetic expectations through engine/API and 16 through real UI/JSON export. Verify representative PDF/DOCX downloads and four browser-print guides.
+- Add regressions for duplicate ECG, empty note, invalid export format and combined procedure filters. Fresh results: 509 Python, 177 frontend, Clinical QA 7/7, lint/typecheck/build, 12 fidelity checks PASS.
+- Keep scores UI, pediatric export and remaining coverage gaps explicit; phase OPEN/CLINICALLY_PENDING.
+
 ## v1.44 — synthetic functional validation opening
 - Freeze v1.43 at 737bb1b8dce5ffbdb296bb0c99d134ea318c8298; open separate branch. Define 20 traceable fixtures and execute five pilots before expansion.
 - Add engine/API/export and real-browser expectation checks; production code and clinical evidence unchanged.

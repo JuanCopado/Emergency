@@ -1,3 +1,9 @@
+# v1.44 abierta — ampliación funcional verificada, 12/10/2026
+
+Base de cierre v1.43: `737bb1b8dce5ffbdb296bb0c99d134ea318c8298`. Después de cinco pilotos: 20/20 motor/API y 16/16 notas UI/JSON PASS; cuatro escenarios pediátricos reales; PDF/DOCX representativos y cuatro PDFs de guías. Nuevas comprobaciones: 509 Python, Clinical QA 7/7, 177 frontend, lint/typecheck/build y 12 fidelidad PASS. Sin cambios de producción.
+
+Informe: `qa/V1.44_FUNCTIONAL_VALIDATION.md`; matriz y evidencia de ejecución adyacentes. Fase ABIERTA: faltan scores interactivos, export pediátrico, 186 fichas completas y ampliación E2E farmacológica. P0/P1 no confirmados en alcance; no declarar cierre global. CLINICALLY_PENDING, main/RC1/v1.43 preservados, sin merge/push/promoción.
+
 # Apertura v1.44 — 12/10/2026
 
 Rama `v1.44-clinical-functional-validation` desde el cierre limpio v1.43 `737bb1b8dce5ffbdb296bb0c99d134ea318c8298`. Ver `qa/V1.44_FUNCTIONAL_VALIDATION.md` y matriz. Banco de 20 casos; cinco pilotos motor/API y navegador representativo PASS. Fase ABIERTA, CLINICALLY_PENDING; sin cambios clínicos.

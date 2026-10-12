@@ -1,0 +1,213 @@
+{
+  "scope": "bank",
+  "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+  "clinically_pending": true,
+  "cases": [
+    {
+      "id": "acs-st-elevation",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "sepsis-shock",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "dka",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "major-trauma",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "acute-stroke",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "anaphylaxis",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "hyponatraemia",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "status-epilepticus",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "upper-gi-bleeding",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "bronchiolitis",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "febrile-infant",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "toxic-overdose",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "resp-failure",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "cardiogenic-shock",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "tension-pneumothorax",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "pediatric-dka",
+      "layer": "note",
+      "engine_api": "PASS",
+      "expectations": "PASS",
+      "review_gate": "PASS",
+      "json_export": "PASS",
+      "browser": "NOT_RUN_HERE",
+      "status": "PASS"
+    },
+    {
+      "id": "dexamethasone-organ-function-no-adjustment",
+      "layer": "pediatrics",
+      "engine_api": "PASS",
+      "expected_values": {
+        "dose_mg": 2.6999999999999997,
+        "renal_adjustment.mode": "none_required",
+        "hepatic_adjustment.mode": "none_required"
+      },
+      "browser": "NOT_RUN_HERE",
+      "export": "UNAVAILABLE",
+      "status": "PASS"
+    },
+    {
+      "id": "paracetamol-ideal-weight",
+      "layer": "pediatrics",
+      "engine_api": "PASS",
+      "expected_values": {
+        "dosing_weight_kg": 35,
+        "dose_mg": 525,
+        "volume_per_dose.rounded_0_1_ml": 21.9,
+        "total_doses": 8
+      },
+      "browser": "NOT_RUN_HERE",
+      "export": "UNAVAILABLE",
+      "status": "PASS"
+    },
+    {
+      "id": "rizatriptan-40kg-boundary-block",
+      "layer": "pediatrics",
+      "engine_api": "PASS",
+      "expected_rejection": "no matching",
+      "browser": "NOT_RUN_HERE",
+      "export": "UNAVAILABLE",
+      "status": "PASS"
+    },
+    {
+      "id": "mart-age-gate",
+      "layer": "pediatrics",
+      "engine_api": "PASS",
+      "expected_rejection": "minimum age",
+      "browser": "NOT_RUN_HERE",
+      "export": "UNAVAILABLE",
+      "status": "PASS"
+    }
+  ],
+  "passed": 20
+}

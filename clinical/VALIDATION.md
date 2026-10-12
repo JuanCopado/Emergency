@@ -1,3 +1,7 @@
+# v1.44 — resultados nuevos, 12/10/2026
+
+20/20 casos motor/API; 16/16 notas navegador/JSON; cuatro escenarios pediátricos reales; PDF/DOCX y cuatro PDFs de guías PASS. Clinical QA 7/7, 509 Python (cuatro tests nuevos), 177 frontend (uno nuevo), lint/typecheck/build y 12 fidelidad PASS. `qa/V1.44_CLINICAL_QA.json` registra las pruebas Python; informes engine/browser y matriz distinguen capas y pendientes. v1.44 permanece ABIERTA: QA técnico no es validación prospectiva.
+
 # Apertura v1.44 — 12/10/2026
 
 Cinco pilotos motor/API, cuatro notas en navegador y cuatro escenarios pediátricos PASS. Ver `qa/V1.44_FUNCTIONAL_VALIDATION.md`; ampliar antes de cerrar. Sin validación clínica prospectiva.

@@ -1183,6 +1183,7 @@
     "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
     "status": "OPEN_CLINICALLY_PENDING",
     "clinical_evidence_reverified": false,
-    "human_review_required": true
+    "human_review_required": true,
+    "executed_scope": "20 synthetic engine/API cases; 16 UI note flows; 509 Python and 177 frontend tests; not prospective validation"
   }
 }

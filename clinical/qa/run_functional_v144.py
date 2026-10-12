@@ -68,11 +68,16 @@ def check_pediatrics(case):
     if case.get('expect_error_contains'):
         for action in (lambda: calculate(**deepcopy(args)), lambda: dispatch('/api/pediatric-outpatient/calculate', deepcopy(payload))):
             try:
-                action()
+                response = action()
             except ValueError as exc:
                 assert case['expect_error_contains'] in str(exc), str(exc)
             else:
-                raise AssertionError('expected safety rejection absent')
+                # API translates MedicationSafetyStop into a structured HTTP-200 STOP.
+                assert isinstance(response, tuple) and response[0] == 200, 'expected safety rejection absent'
+                body = response[1]
+                assert body.get('blocked') is True and 'result' not in body
+                stops = [a['message'] for a in body['safety']['alerts'] if a['severity'] == 'STOP']
+                assert any(case['expect_error_contains'] in message for message in stops), stops
         return {'engine_api': 'PASS', 'expected_rejection': case['expect_error_contains'], 'browser': 'NOT_RUN_HERE', 'export': 'UNAVAILABLE'}
     direct = calculate(**deepcopy(args))
     status, body = dispatch('/api/pediatric-outpatient/calculate', payload)

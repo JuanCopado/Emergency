@@ -1,0 +1,162 @@
+{
+  "scope": "note-browser",
+  "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+  "cases": [
+    {
+      "id": "acs-st-elevation",
+      "binary_downloads": [
+        {
+          "format": "pdf",
+          "diagnosis_and_review_text": "PASS"
+        },
+        {
+          "format": "docx",
+          "diagnosis_and_review_text": "PASS"
+        }
+      ],
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "sepsis-shock",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "dka",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "major-trauma",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "acute-stroke",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "anaphylaxis",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "hyponatraemia",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "status-epilepticus",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "upper-gi-bleeding",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "bronchiolitis",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "febrile-infant",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "toxic-overdose",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "resp-failure",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "cardiogenic-shock",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "tension-pneumothorax",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    },
+    {
+      "id": "pediatric-dka",
+      "status": "PASS",
+      "input_api_ui": "PASS",
+      "expected_output": "PASS",
+      "actions_visible": "PASS",
+      "json_download_exact": "PASS",
+      "pending_review_stale_gates": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45"
+}

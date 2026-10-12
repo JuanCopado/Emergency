@@ -1,6 +1,6 @@
 // Synthetic input -> real API -> visible UI -> JSON export; no clinical accuracy claim.
 import assert from 'node:assert/strict';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
@@ -103,6 +103,21 @@ try {
       const submitted = exportResponse.request().postDataJSON().note;
       assert.deepEqual(exported, submitted, 'download differs from UI submitted note');
       assert.deepEqual(exported.assessment, a, 'export differs from analysis');
+      if (c.id === 'acs-st-elevation') {
+        row.binary_downloads = [];
+        for (const [label, format] of [['PDF', 'pdf'], ['Word (.docx)', 'docx']]) {
+          const binaryPromise = page.waitForEvent('download');
+          await page.getByRole('button', { name: label, exact: true }).click();
+          const binary = await binaryPromise;
+          assert.equal(await binary.failure(), null);
+          const verifier = spawnSync(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-c',
+            'import sys,zipfile; from xml.etree import ElementTree; from pypdf import PdfReader; p,fmt,expected=sys.argv[1:]; text="\\n".join(x.extract_text() for x in PdfReader(p).pages) if fmt=="pdf" else "".join(ElementTree.fromstring(zipfile.ZipFile(p).read("word/document.xml")).itertext()); assert expected in text; assert "Validação médica" in text',
+            await binary.path(), format, c.expected_likely,
+          ], { windowsHide: true, encoding: 'utf8', timeout: 15000 });
+          assert.equal(verifier.status, 0, verifier.stderr || verifier.error?.message);
+          row.binary_downloads.push({ format, diagnosis_and_review_text: 'PASS' });
+        }
+      }
       await page.getByRole('button', { name: 'História', exact: true }).click();
       await page.getByLabel('História da doença atual').fill(`${c.hpi || ''}\nDEMO: reavaliação pendente.`);
       await page.getByRole('button', { name: 'Apoio diagnóstico', exact: true }).click();

@@ -39,6 +39,18 @@ it('distinguishes a non-pilot source reference from a clinical technique card', 
   expect(screen.queryByRole('region', { name: 'STOP' })).not.toBeInTheDocument();
 });
 
+it('combines family and ID filters and links to the canonical detail', async () => {
+  await mount('/procedures');
+  const chosen = canonicalProcedures.find(p => p.id === 'PROC-VASC-007')!;
+  fireEvent.change(screen.getByLabelText('Familia'), { target: { value: chosen.family } });
+  expect(screen.getByRole('status')).toHaveTextContent(`${canonicalProcedures.filter(p => p.family === chosen.family).length} procedimientos`);
+  fireEvent.change(screen.getByLabelText('Nombre o PROC-ID'), { target: { value: chosen.id } });
+  expect(screen.getByRole('status')).toHaveTextContent('1 procedimientos');
+  expect(screen.getByRole('link', { name: new RegExp(chosen.id) })).toHaveAttribute('href', `/procedures/${chosen.id}`);
+  fireEvent.change(screen.getByLabelText('Familia'), { target: { value: canonicalProcedures.find(p => p.family !== chosen.family)!.family } });
+  expect(screen.getByText(/No hay coincidencias/)).toBeVisible();
+});
+
 it('places drug precautions and expanded module rules before opening the calculator', async () => {
   await renderAt('/drugs/norepinephrine', [{ path: '/drugs/:id', element: <DrugDetail /> }]);
   const link = screen.getByTestId('open-calculator');

@@ -1,3 +1,7 @@
+# v1.44 expanded functional evidence
+
+20 engine/API and 16 real-browser note cases PASS; see `qa/V1.44_FUNCTIONAL_VALIDATION_MATRIX.md`. No module IDs, routes, clinical bodies or evidence status changes. Functional coverage remains partial; phase open.
+
 # v1.44 functional validation
 
 See `qa/V1.44_FUNCTIONAL_VALIDATION.md` and its matrix. No new modules, clinical IDs, routing or source changes.
