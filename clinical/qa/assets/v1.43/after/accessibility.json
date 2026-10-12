@@ -1,0 +1,76 @@
+{
+  "scope": "Representative theme tokens and keyboard paths; not an accessibility certification",
+  "themes": [
+    {
+      "theme": "light",
+      "ratios": [
+        {
+          "pair": "fg/bg",
+          "ratio": 16.5
+        },
+        {
+          "pair": "muted/bg",
+          "ratio": 7
+        },
+        {
+          "pair": "primary-fg/primary",
+          "ratio": 5.93
+        },
+        {
+          "pair": "warn/warn-bg",
+          "ratio": 6.37
+        },
+        {
+          "pair": "danger/surface",
+          "ratio": 6.47
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "ratios": [
+        {
+          "pair": "fg/bg",
+          "ratio": 16.62
+        },
+        {
+          "pair": "muted/bg",
+          "ratio": 7.94
+        },
+        {
+          "pair": "primary-fg/primary",
+          "ratio": 9.12
+        },
+        {
+          "pair": "warn/warn-bg",
+          "ratio": 9.04
+        },
+        {
+          "pair": "danger/surface",
+          "ratio": 6.47
+        }
+      ]
+    }
+  ],
+  "keyboard": [
+    {
+      "tab": "Exame",
+      "field": "Exploração",
+      "result": "PASS"
+    },
+    {
+      "tab": "Problemas",
+      "field": "Problemas",
+      "result": "PASS"
+    },
+    {
+      "tab": "Plano",
+      "field": "Plano médico",
+      "result": "PASS"
+    },
+    {
+      "path": "Home → nota → pestañas → exportación bloqueada",
+      "result": "PASS"
+    }
+  ]
+}

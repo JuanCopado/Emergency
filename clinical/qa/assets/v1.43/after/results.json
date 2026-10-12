@@ -1,0 +1,2365 @@
+{
+  "phase": "after",
+  "url": "http://127.0.0.1:4175",
+  "browser": "155.0.4283.45",
+  "results": [
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1366,
+      "height": 768,
+      "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 11,
+      "loadMs": 71,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "note",
+      "route": "/clinical-note",
+      "width": 1366,
+      "height": 768,
+      "title": "Apoio ao diagnóstico",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drugs",
+      "route": "/drugs",
+      "width": 1366,
+      "height": 768,
+      "title": "Fármacos",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 16,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drug",
+      "route": "/drugs/norepinephrine",
+      "width": 1366,
+      "height": 768,
+      "title": "Norepinephrine",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 13,
+      "loadMs": 27,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "calculator",
+      "route": "/calculator?drug=norepinephrine&weight=70&dose=0.05",
+      "width": 1366,
+      "height": 768,
+      "title": "Calculadora de perfusiones",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 14,
+      "loadMs": 28,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pediatrics",
+      "route": "/pediatrics?regimen=paracetamol-pain-fever-home",
+      "width": 1366,
+      "height": 768,
+      "title": "Pediatría ambulatoria",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 11,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "clinical",
+      "route": "/clinical",
+      "width": 1366,
+      "height": 768,
+      "title": "Patologías y módulos",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 29,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "sepsis",
+      "route": "/clinical/sepsis-shock",
+      "width": 1366,
+      "height": 768,
+      "title": "Sepsis Shock",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 27,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guides",
+      "route": "/guides",
+      "width": 1366,
+      "height": 768,
+      "title": "Pantalla completa · impresión · PDF",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 33,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guide",
+      "route": "/guides/sepsis-shock",
+      "width": 1366,
+      "height": 768,
+      "title": "Sepsis Shock",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "scores",
+      "route": "/clinical/clinical-scores-calculators",
+      "width": 1366,
+      "height": 768,
+      "title": "Clinical Scores Calculators",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pocus",
+      "route": "/clinical/pocus",
+      "width": 1366,
+      "height": 768,
+      "title": "Pocus",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 27,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "ecg",
+      "route": "/clinical/ecg-image",
+      "width": 1366,
+      "height": 768,
+      "title": "Ecg Image",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 32,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedures",
+      "route": "/procedures",
+      "width": 1366,
+      "height": 768,
+      "title": "Procedimientos",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pilot",
+      "route": "/procedures/PROC-VASC-007",
+      "width": 1366,
+      "height": 768,
+      "title": "Catéter venoso central femoral ecoguiado",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 28,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "settings",
+      "route": "/settings",
+      "width": 1366,
+      "height": 768,
+      "title": "Ajustes",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 1366,
+      "height": 768,
+      "title": "Acerca de y aviso legal",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 35,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "not-found",
+      "route": "/route-does-not-exist",
+      "width": 1366,
+      "height": 768,
+      "title": "Página no encontrada",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-module",
+      "route": "/clinical/unknown",
+      "width": 1366,
+      "height": 768,
+      "title": "Módulo no encontrado",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-guide",
+      "route": "/guides/unknown",
+      "width": 1366,
+      "height": 768,
+      "title": "Guía no encontrada",
+      "documentWidth": 1366,
+      "viewportWidth": 1366,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedure-search-and-stop",
+      "width": 1366,
+      "stopTop": 192
+    },
+    {
+      "name": "keyboard",
+      "width": 1366,
+      "focused": {
+        "tag": "A",
+        "text": "Nota clínica"
+      }
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1920,
+      "height": 1080,
+      "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 11,
+      "loadMs": 49,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "note",
+      "route": "/clinical-note",
+      "width": 1920,
+      "height": 1080,
+      "title": "Apoio ao diagnóstico",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drugs",
+      "route": "/drugs",
+      "width": 1920,
+      "height": 1080,
+      "title": "Fármacos",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 16,
+      "loadMs": 27,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drug",
+      "route": "/drugs/norepinephrine",
+      "width": 1920,
+      "height": 1080,
+      "title": "Norepinephrine",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 13,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "calculator",
+      "route": "/calculator?drug=norepinephrine&weight=70&dose=0.05",
+      "width": 1920,
+      "height": 1080,
+      "title": "Calculadora de perfusiones",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 14,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pediatrics",
+      "route": "/pediatrics?regimen=paracetamol-pain-fever-home",
+      "width": 1920,
+      "height": 1080,
+      "title": "Pediatría ambulatoria",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 11,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "clinical",
+      "route": "/clinical",
+      "width": 1920,
+      "height": 1080,
+      "title": "Patologías y módulos",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "sepsis",
+      "route": "/clinical/sepsis-shock",
+      "width": 1920,
+      "height": 1080,
+      "title": "Sepsis Shock",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guides",
+      "route": "/guides",
+      "width": 1920,
+      "height": 1080,
+      "title": "Pantalla completa · impresión · PDF",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 31,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guide",
+      "route": "/guides/sepsis-shock",
+      "width": 1920,
+      "height": 1080,
+      "title": "Sepsis Shock",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 30,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "scores",
+      "route": "/clinical/clinical-scores-calculators",
+      "width": 1920,
+      "height": 1080,
+      "title": "Clinical Scores Calculators",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pocus",
+      "route": "/clinical/pocus",
+      "width": 1920,
+      "height": 1080,
+      "title": "Pocus",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "ecg",
+      "route": "/clinical/ecg-image",
+      "width": 1920,
+      "height": 1080,
+      "title": "Ecg Image",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 32,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedures",
+      "route": "/procedures",
+      "width": 1920,
+      "height": 1080,
+      "title": "Procedimientos",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pilot",
+      "route": "/procedures/PROC-VASC-007",
+      "width": 1920,
+      "height": 1080,
+      "title": "Catéter venoso central femoral ecoguiado",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "settings",
+      "route": "/settings",
+      "width": 1920,
+      "height": 1080,
+      "title": "Ajustes",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 1920,
+      "height": 1080,
+      "title": "Acerca de y aviso legal",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 35,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "not-found",
+      "route": "/route-does-not-exist",
+      "width": 1920,
+      "height": 1080,
+      "title": "Página no encontrada",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-module",
+      "route": "/clinical/unknown",
+      "width": 1920,
+      "height": 1080,
+      "title": "Módulo no encontrado",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-guide",
+      "route": "/guides/unknown",
+      "width": 1920,
+      "height": 1080,
+      "title": "Guía no encontrada",
+      "documentWidth": 1920,
+      "viewportWidth": 1920,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "keyboard",
+      "width": 1920,
+      "focused": {
+        "tag": "A",
+        "text": "Nota clínica"
+      }
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 768,
+      "height": 1024,
+      "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [
+        {
+          "tag": "DIV",
+          "text": ""
+        }
+      ],
+      "smallTargets": 3,
+      "loadMs": 54,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "note",
+      "route": "/clinical-note",
+      "width": 768,
+      "height": 1024,
+      "title": "Apoio ao diagnóstico",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drugs",
+      "route": "/drugs",
+      "width": 768,
+      "height": 1024,
+      "title": "Fármacos",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 8,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drug",
+      "route": "/drugs/norepinephrine",
+      "width": 768,
+      "height": 1024,
+      "title": "Norepinephrine",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 5,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "calculator",
+      "route": "/calculator?drug=norepinephrine&weight=70&dose=0.05",
+      "width": 768,
+      "height": 1024,
+      "title": "Calculadora de perfusiones",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 6,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pediatrics",
+      "route": "/pediatrics?regimen=paracetamol-pain-fever-home",
+      "width": 768,
+      "height": 1024,
+      "title": "Pediatría ambulatoria",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 3,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "clinical",
+      "route": "/clinical",
+      "width": 768,
+      "height": 1024,
+      "title": "Patologías y módulos",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "sepsis",
+      "route": "/clinical/sepsis-shock",
+      "width": 768,
+      "height": 1024,
+      "title": "Sepsis Shock",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guides",
+      "route": "/guides",
+      "width": 768,
+      "height": 1024,
+      "title": "Pantalla completa · impresión · PDF",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 33,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guide",
+      "route": "/guides/sepsis-shock",
+      "width": 768,
+      "height": 1024,
+      "title": "Sepsis Shock",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "scores",
+      "route": "/clinical/clinical-scores-calculators",
+      "width": 768,
+      "height": 1024,
+      "title": "Clinical Scores Calculators",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pocus",
+      "route": "/clinical/pocus",
+      "width": 768,
+      "height": 1024,
+      "title": "Pocus",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "ecg",
+      "route": "/clinical/ecg-image",
+      "width": 768,
+      "height": 1024,
+      "title": "Ecg Image",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 32,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedures",
+      "route": "/procedures",
+      "width": 768,
+      "height": 1024,
+      "title": "Procedimientos",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pilot",
+      "route": "/procedures/PROC-VASC-007",
+      "width": 768,
+      "height": 1024,
+      "title": "Catéter venoso central femoral ecoguiado",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 30,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "settings",
+      "route": "/settings",
+      "width": 768,
+      "height": 1024,
+      "title": "Ajustes",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 768,
+      "height": 1024,
+      "title": "Acerca de y aviso legal",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 33,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "not-found",
+      "route": "/route-does-not-exist",
+      "width": 768,
+      "height": 1024,
+      "title": "Página no encontrada",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-module",
+      "route": "/clinical/unknown",
+      "width": 768,
+      "height": 1024,
+      "title": "Módulo no encontrado",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-guide",
+      "route": "/guides/unknown",
+      "width": 768,
+      "height": 1024,
+      "title": "Guía no encontrada",
+      "documentWidth": 768,
+      "viewportWidth": 768,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "keyboard",
+      "width": 768,
+      "focused": {
+        "tag": "A",
+        "text": "Nota clínica"
+      }
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1024,
+      "height": 768,
+      "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [
+        {
+          "tag": "DIV",
+          "text": ""
+        }
+      ],
+      "smallTargets": 8,
+      "loadMs": 49,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "note",
+      "route": "/clinical-note",
+      "width": 1024,
+      "height": 768,
+      "title": "Apoio ao diagnóstico",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drugs",
+      "route": "/drugs",
+      "width": 1024,
+      "height": 768,
+      "title": "Fármacos",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 13,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drug",
+      "route": "/drugs/norepinephrine",
+      "width": 1024,
+      "height": 768,
+      "title": "Norepinephrine",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 10,
+      "loadMs": 28,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "calculator",
+      "route": "/calculator?drug=norepinephrine&weight=70&dose=0.05",
+      "width": 1024,
+      "height": 768,
+      "title": "Calculadora de perfusiones",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 11,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pediatrics",
+      "route": "/pediatrics?regimen=paracetamol-pain-fever-home",
+      "width": 1024,
+      "height": 768,
+      "title": "Pediatría ambulatoria",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 8,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "clinical",
+      "route": "/clinical",
+      "width": 1024,
+      "height": 768,
+      "title": "Patologías y módulos",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "sepsis",
+      "route": "/clinical/sepsis-shock",
+      "width": 1024,
+      "height": 768,
+      "title": "Sepsis Shock",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guides",
+      "route": "/guides",
+      "width": 1024,
+      "height": 768,
+      "title": "Pantalla completa · impresión · PDF",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 33,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guide",
+      "route": "/guides/sepsis-shock",
+      "width": 1024,
+      "height": 768,
+      "title": "Sepsis Shock",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "scores",
+      "route": "/clinical/clinical-scores-calculators",
+      "width": 1024,
+      "height": 768,
+      "title": "Clinical Scores Calculators",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pocus",
+      "route": "/clinical/pocus",
+      "width": 1024,
+      "height": 768,
+      "title": "Pocus",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "ecg",
+      "route": "/clinical/ecg-image",
+      "width": 1024,
+      "height": 768,
+      "title": "Ecg Image",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 32,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedures",
+      "route": "/procedures",
+      "width": 1024,
+      "height": 768,
+      "title": "Procedimientos",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pilot",
+      "route": "/procedures/PROC-VASC-007",
+      "width": 1024,
+      "height": 768,
+      "title": "Catéter venoso central femoral ecoguiado",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "settings",
+      "route": "/settings",
+      "width": 1024,
+      "height": 768,
+      "title": "Ajustes",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 31,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 1024,
+      "height": 768,
+      "title": "Acerca de y aviso legal",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 20,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "not-found",
+      "route": "/route-does-not-exist",
+      "width": 1024,
+      "height": 768,
+      "title": "Página no encontrada",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-module",
+      "route": "/clinical/unknown",
+      "width": 1024,
+      "height": 768,
+      "title": "Módulo no encontrado",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-guide",
+      "route": "/guides/unknown",
+      "width": 1024,
+      "height": 768,
+      "title": "Guía no encontrada",
+      "documentWidth": 1024,
+      "viewportWidth": 1024,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 7,
+      "loadMs": 30,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "keyboard",
+      "width": 1024,
+      "focused": {
+        "tag": "A",
+        "text": "Nota clínica"
+      }
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 375,
+      "height": 812,
+      "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [
+        {
+          "tag": "DIV",
+          "text": ""
+        }
+      ],
+      "smallTargets": 3,
+      "loadMs": 49,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "note",
+      "route": "/clinical-note",
+      "width": 375,
+      "height": 812,
+      "title": "Apoio ao diagnóstico",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drugs",
+      "route": "/drugs",
+      "width": 375,
+      "height": 812,
+      "title": "Fármacos",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 8,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drug",
+      "route": "/drugs/norepinephrine",
+      "width": 375,
+      "height": 812,
+      "title": "Norepinephrine",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 5,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "calculator",
+      "route": "/calculator?drug=norepinephrine&weight=70&dose=0.05",
+      "width": 375,
+      "height": 812,
+      "title": "Calculadora de perfusiones",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 6,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pediatrics",
+      "route": "/pediatrics?regimen=paracetamol-pain-fever-home",
+      "width": 375,
+      "height": 812,
+      "title": "Pediatría ambulatoria",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 3,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "clinical",
+      "route": "/clinical",
+      "width": 375,
+      "height": 812,
+      "title": "Patologías y módulos",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "sepsis",
+      "route": "/clinical/sepsis-shock",
+      "width": 375,
+      "height": 812,
+      "title": "Sepsis Shock",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guides",
+      "route": "/guides",
+      "width": 375,
+      "height": 812,
+      "title": "Pantalla completa · impresión · PDF",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 35,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guide",
+      "route": "/guides/sepsis-shock",
+      "width": 375,
+      "height": 812,
+      "title": "Sepsis Shock",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "scores",
+      "route": "/clinical/clinical-scores-calculators",
+      "width": 375,
+      "height": 812,
+      "title": "Clinical Scores Calculators",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 23,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pocus",
+      "route": "/clinical/pocus",
+      "width": 375,
+      "height": 812,
+      "title": "Pocus",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 28,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "ecg",
+      "route": "/clinical/ecg-image",
+      "width": 375,
+      "height": 812,
+      "title": "Ecg Image",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 33,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedures",
+      "route": "/procedures",
+      "width": 375,
+      "height": 812,
+      "title": "Procedimientos",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pilot",
+      "route": "/procedures/PROC-VASC-007",
+      "width": 375,
+      "height": 812,
+      "title": "Catéter venoso central femoral ecoguiado",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 27,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "settings",
+      "route": "/settings",
+      "width": 375,
+      "height": 812,
+      "title": "Ajustes",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 375,
+      "height": 812,
+      "title": "Acerca de y aviso legal",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 30,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "not-found",
+      "route": "/route-does-not-exist",
+      "width": 375,
+      "height": 812,
+      "title": "Página no encontrada",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-module",
+      "route": "/clinical/unknown",
+      "width": 375,
+      "height": 812,
+      "title": "Módulo no encontrado",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-guide",
+      "route": "/guides/unknown",
+      "width": 375,
+      "height": 812,
+      "title": "Guía no encontrada",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedure-search-and-stop",
+      "width": 375,
+      "stopTop": 192
+    },
+    {
+      "name": "keyboard",
+      "width": 375,
+      "focused": {
+        "tag": "A",
+        "text": "Nota clínica"
+      }
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 430,
+      "height": 932,
+      "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [
+        {
+          "tag": "DIV",
+          "text": ""
+        }
+      ],
+      "smallTargets": 3,
+      "loadMs": 52,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "note",
+      "route": "/clinical-note",
+      "width": 430,
+      "height": 932,
+      "title": "Apoio ao diagnóstico",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drugs",
+      "route": "/drugs",
+      "width": 430,
+      "height": 932,
+      "title": "Fármacos",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 8,
+      "loadMs": 29,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "drug",
+      "route": "/drugs/norepinephrine",
+      "width": 430,
+      "height": 932,
+      "title": "Norepinephrine",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 5,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "calculator",
+      "route": "/calculator?drug=norepinephrine&weight=70&dose=0.05",
+      "width": 430,
+      "height": 932,
+      "title": "Calculadora de perfusiones",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 6,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pediatrics",
+      "route": "/pediatrics?regimen=paracetamol-pain-fever-home",
+      "width": 430,
+      "height": 932,
+      "title": "Pediatría ambulatoria",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 3,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "clinical",
+      "route": "/clinical",
+      "width": 430,
+      "height": 932,
+      "title": "Patologías y módulos",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "sepsis",
+      "route": "/clinical/sepsis-shock",
+      "width": 430,
+      "height": 932,
+      "title": "Sepsis Shock",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 26,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guides",
+      "route": "/guides",
+      "width": 430,
+      "height": 932,
+      "title": "Pantalla completa · impresión · PDF",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 32,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "guide",
+      "route": "/guides/sepsis-shock",
+      "width": 430,
+      "height": 932,
+      "title": "Sepsis Shock",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "scores",
+      "route": "/clinical/clinical-scores-calculators",
+      "width": 430,
+      "height": 932,
+      "title": "Clinical Scores Calculators",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pocus",
+      "route": "/clinical/pocus",
+      "width": 430,
+      "height": 932,
+      "title": "Pocus",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 25,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "ecg",
+      "route": "/clinical/ecg-image",
+      "width": 430,
+      "height": 932,
+      "title": "Ecg Image",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 36,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "procedures",
+      "route": "/procedures",
+      "width": 430,
+      "height": 932,
+      "title": "Procedimientos",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "pilot",
+      "route": "/procedures/PROC-VASC-007",
+      "width": 430,
+      "height": 932,
+      "title": "Catéter venoso central femoral ecoguiado",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "settings",
+      "route": "/settings",
+      "width": 430,
+      "height": 932,
+      "title": "Ajustes",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "about",
+      "route": "/about",
+      "width": 430,
+      "height": 932,
+      "title": "Acerca de y aviso legal",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 31,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "not-found",
+      "route": "/route-does-not-exist",
+      "width": 430,
+      "height": 932,
+      "title": "Página no encontrada",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 24,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-module",
+      "route": "/clinical/unknown",
+      "width": 430,
+      "height": 932,
+      "title": "Módulo no encontrado",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 21,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "unknown-guide",
+      "route": "/guides/unknown",
+      "width": 430,
+      "height": 932,
+      "title": "Guía no encontrada",
+      "documentWidth": 430,
+      "viewportWidth": 430,
+      "unnamed": [],
+      "overflow": [],
+      "smallTargets": 2,
+      "loadMs": 22,
+      "brokenImages": 0,
+      "errors": [],
+      "warnings": [
+        "Service Worker registration blocked by Playwright"
+      ],
+      "resources": []
+    },
+    {
+      "name": "keyboard",
+      "width": 430,
+      "focused": {
+        "tag": "A",
+        "text": "Nota clínica"
+      }
+    }
+  ]
+}

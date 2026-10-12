@@ -1,0 +1,320 @@
+{
+  "purpose": "Exclusivamente sintético: pruebas de interfaz, sin respuestas clínicas esperadas ni datos de pacientes",
+  "cases": [
+    {
+      "id": "DEMO-01",
+      "synthetic": true,
+      "scenario": "chest-pain",
+      "age_years": 58,
+      "sex": "male",
+      "weight_kg": 82,
+      "allergies": "No conocidas (DEMO)",
+      "history": "Hipertensión",
+      "presentation": "Dolor torácico opresivo de 40 minutos",
+      "vitals": {
+        "bp": "145/90",
+        "hr": 105,
+        "rr": 22,
+        "spo2": 96,
+        "temp": 36.7
+      },
+      "tests": "ECG sintético pendiente de revisión",
+      "evolution": "Persistencia del dolor; reevaluación pendiente",
+      "route": "/clinical/non-coronary-chest-pain"
+    },
+    {
+      "id": "DEMO-02",
+      "synthetic": true,
+      "scenario": "sepsis",
+      "age_years": 72,
+      "sex": "female",
+      "weight_kg": 65,
+      "allergies": "Penicilina: exantema (DEMO)",
+      "history": "Diabetes tipo 2",
+      "presentation": "Fiebre, tos y deterioro general",
+      "vitals": {
+        "bp": "85/50",
+        "hr": 125,
+        "rr": 28,
+        "spo2": 91,
+        "temp": 39.1
+      },
+      "tests": "Lactato sintético 3.5 mmol/L",
+      "evolution": "Constantes repetidas sin mejoría documentada",
+      "route": "/clinical/sepsis-shock"
+    },
+    {
+      "id": "DEMO-03",
+      "synthetic": true,
+      "scenario": "stroke",
+      "age_years": 66,
+      "sex": "male",
+      "weight_kg": 76,
+      "allergies": "Desconocidas (DEMO)",
+      "history": "Fibrilación auricular",
+      "presentation": "Déficit motor derecho y alteración del habla",
+      "vitals": {
+        "bp": "170/95",
+        "hr": 96,
+        "rr": 20,
+        "spo2": 97,
+        "temp": 36.6
+      },
+      "tests": "TC sintética pendiente",
+      "evolution": "Déficit persistente",
+      "route": "/clinical/acute-ischemic-stroke"
+    },
+    {
+      "id": "DEMO-04",
+      "synthetic": true,
+      "scenario": "trauma",
+      "age_years": 34,
+      "sex": "female",
+      "weight_kg": 70,
+      "allergies": "No conocidas (DEMO)",
+      "history": "No referidos",
+      "presentation": "Traumatismo de alta energía con dolor pélvico",
+      "vitals": {
+        "bp": "90/60",
+        "hr": 120,
+        "rr": 26,
+        "spo2": 94,
+        "temp": 35.9
+      },
+      "tests": "Imagen sintética pendiente",
+      "evolution": "Dolor persistente",
+      "route": "/clinical/trauma-major-hemorrhage"
+    },
+    {
+      "id": "DEMO-05",
+      "synthetic": true,
+      "scenario": "anaphylaxis",
+      "age_years": 29,
+      "sex": "male",
+      "weight_kg": 78,
+      "allergies": "Frutos secos (DEMO)",
+      "history": "Asma",
+      "presentation": "Urticaria, disnea y mareo tras ingesta",
+      "vitals": {
+        "bp": "80/45",
+        "hr": 135,
+        "rr": 30,
+        "spo2": 90,
+        "temp": 36.5
+      },
+      "tests": "Sin pruebas complementarias sintéticas",
+      "evolution": "Reevaluación pendiente",
+      "route": "/clinical/anaphylaxis"
+    },
+    {
+      "id": "DEMO-06",
+      "synthetic": true,
+      "scenario": "dka",
+      "age_years": 23,
+      "sex": "female",
+      "weight_kg": 55,
+      "allergies": "No conocidas (DEMO)",
+      "history": "Diabetes tipo 1",
+      "presentation": "Vómitos, polidipsia y respiración profunda",
+      "vitals": {
+        "bp": "100/65",
+        "hr": 112,
+        "rr": 30,
+        "spo2": 98,
+        "temp": 37.1
+      },
+      "tests": "Glucosa sintética 420 mg/dL; pH 7.18",
+      "evolution": "Persistencia de síntomas",
+      "route": "/clinical/diabetic-ketoacidosis-hhs"
+    },
+    {
+      "id": "DEMO-07",
+      "synthetic": true,
+      "scenario": "hyponatremia",
+      "age_years": 79,
+      "sex": "female",
+      "weight_kg": 60,
+      "allergies": "Desconocidas (DEMO)",
+      "history": "Tratamiento diurético",
+      "presentation": "Confusión aguda y náuseas",
+      "vitals": {
+        "bp": "125/75",
+        "hr": 88,
+        "rr": 18,
+        "spo2": 97,
+        "temp": 36.8
+      },
+      "tests": "Sodio sintético 118 mmol/L",
+      "evolution": "Confusión persistente",
+      "route": "/clinical/sodium-emergencies"
+    },
+    {
+      "id": "DEMO-08",
+      "synthetic": true,
+      "scenario": "gi-bleeding",
+      "age_years": 63,
+      "sex": "male",
+      "weight_kg": 86,
+      "allergies": "No conocidas (DEMO)",
+      "history": "Úlcera previa",
+      "presentation": "Hematemesis y mareo",
+      "vitals": {
+        "bp": "95/60",
+        "hr": 115,
+        "rr": 24,
+        "spo2": 95,
+        "temp": 36.4
+      },
+      "tests": "Hemoglobina sintética 8.1 g/dL",
+      "evolution": "Sin nueva medición documentada",
+      "route": "/clinical/upper-gi-bleeding"
+    },
+    {
+      "id": "DEMO-09",
+      "synthetic": true,
+      "scenario": "status",
+      "age_years": 41,
+      "sex": "female",
+      "weight_kg": 68,
+      "allergies": "Desconocidas (DEMO)",
+      "history": "Epilepsia",
+      "presentation": "Crisis convulsivas repetidas sin recuperación",
+      "vitals": {
+        "bp": "140/85",
+        "hr": 130,
+        "rr": 24,
+        "spo2": 90,
+        "temp": 37.6
+      },
+      "tests": "Glucemia sintética pendiente",
+      "evolution": "Persistencia referida de crisis",
+      "route": "/clinical/status-epilepticus"
+    },
+    {
+      "id": "DEMO-10",
+      "synthetic": true,
+      "scenario": "bradycardia",
+      "age_years": 81,
+      "sex": "male",
+      "weight_kg": 73,
+      "allergies": "No conocidas (DEMO)",
+      "history": "Cardiopatía",
+      "presentation": "Síncope y pulso lento",
+      "vitals": {
+        "bp": "75/40",
+        "hr": 32,
+        "rr": 24,
+        "spo2": 92,
+        "temp": 36.2
+      },
+      "tests": "ECG sintético pendiente de aceptación",
+      "evolution": "Hipotensión persistente",
+      "route": "/clinical/ecg-pocus-integration"
+    },
+    {
+      "id": "DEMO-11",
+      "synthetic": true,
+      "scenario": "croup",
+      "age_years": 4,
+      "sex": "male",
+      "weight_kg": 18,
+      "allergies": "No conocidas (DEMO)",
+      "history": "No referidos",
+      "presentation": "Tos perruna y estridor referido",
+      "vitals": {
+        "bp": "100/60",
+        "hr": 118,
+        "rr": 26,
+        "spo2": 97,
+        "temp": 37.9
+      },
+      "tests": "Sin pruebas sintéticas adicionales",
+      "evolution": "Reevaluación respiratoria pendiente",
+      "route": "/clinical/croup"
+    },
+    {
+      "id": "DEMO-12",
+      "synthetic": true,
+      "scenario": "bronchiolitis",
+      "age_years": 0.5,
+      "sex": "female",
+      "weight_kg": 7,
+      "allergies": "Desconocidas (DEMO)",
+      "history": "Sin prematuridad referida",
+      "presentation": "Tos, dificultad para alimentación y sibilancias",
+      "vitals": {
+        "bp": "85/50",
+        "hr": 155,
+        "rr": 48,
+        "spo2": 93,
+        "temp": 37.8
+      },
+      "tests": "Sin pruebas sintéticas adicionales",
+      "evolution": "Ingesta reducida persistente",
+      "route": "/clinical/bronchiolitis"
+    },
+    {
+      "id": "DEMO-13",
+      "synthetic": true,
+      "scenario": "pediatric-asthma",
+      "age_years": 8,
+      "sex": "female",
+      "weight_kg": 27,
+      "allergies": "No conocidas (DEMO)",
+      "history": "Asma",
+      "presentation": "Sibilancias y disnea",
+      "vitals": {
+        "bp": "105/65",
+        "hr": 125,
+        "rr": 32,
+        "spo2": 94,
+        "temp": 37.0
+      },
+      "tests": "Sin pruebas sintéticas adicionales",
+      "evolution": "Persistencia de disnea",
+      "route": "/clinical/pediatric-acute-asthma"
+    },
+    {
+      "id": "DEMO-14",
+      "synthetic": true,
+      "scenario": "pediatric-fever",
+      "age_years": 10,
+      "sex": "male",
+      "weight_kg": 35,
+      "allergies": "No conocidas (DEMO)",
+      "history": "No referidos",
+      "presentation": "Fiebre y malestar sin foco confirmado",
+      "vitals": {
+        "bp": "110/70",
+        "hr": 108,
+        "rr": 22,
+        "spo2": 98,
+        "temp": 38.8
+      },
+      "tests": "Sin pruebas sintéticas adicionales",
+      "evolution": "Foco y criterios de alta sin verificar",
+      "route": "/clinical/pediatric-sepsis"
+    },
+    {
+      "id": "DEMO-15",
+      "synthetic": true,
+      "scenario": "pediatric-migraine",
+      "age_years": 12,
+      "sex": "female",
+      "weight_kg": 40,
+      "allergies": "No conocidas (DEMO)",
+      "history": "Cefaleas previas",
+      "presentation": "Cefalea pulsátil y fotofobia",
+      "vitals": {
+        "bp": "110/65",
+        "hr": 85,
+        "rr": 18,
+        "spo2": 99,
+        "temp": 36.6
+      },
+      "tests": "Exploración sintética pendiente",
+      "evolution": "Banderas rojas sin excluir",
+      "route": "/clinical/headache-sah"
+    }
+  ]
+}

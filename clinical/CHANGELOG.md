@@ -1,3 +1,11 @@
+## v1.43 — clinical UI/UX audit and limited procedure pilot
+- Preserve technical RC1 at 0fa17bf and begin v1.43-clinical-ui-validation from that exact clean baseline; record screenshots before changes.
+- Put drug precautions and expanded source rules before calculation; add clinical navigation, accessible labels, touch target sizes and mobile guide-grid wrapping.
+- Add searchable 196-procedure catalog with alias/family/level support and ten source-preserving pilot layouts. Keep shared preambles, STOP/confirmation, pending rescue/escalation and YELLOW. No approved visual assets exist; do not invent or promote them.
+- Provide pediatric section navigation, focus/announcement and primary arithmetic display without changing API values, gates or clinical logic.
+- Add fifteen exclusively synthetic UI cases and loopback browser checks; retain explicit limits for textual scores, 186 non-pilot references and prospective clinical validation.
+- See qa/V1.43_UI_UX_AUDIT.md for current verification and gallery. Main/RC1 unchanged; no merge/push.
+
 ## v1.42 RC1 — resolve SP-002 from history and freeze technical baseline
 - Establish canonical identity as Medición de presión compartimental from explicit normalization 9e50ffc, evidence alignment b679f19 and review coverage 08bbe958; preserve the procedure body and all YELLOW states.
 - Reproduce two Python failures and one frontend failure (5427050), then align both indexes and regenerate the structured JSON and frontend catalog (82e6ca9). No new IDs, clinical technique, dose or visual asset.

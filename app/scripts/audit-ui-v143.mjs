@@ -1,5 +1,7 @@
 // Local, synthetic UI inspection. Build first; no external services or patient data.
+/* global document, innerWidth */
 import { mkdirSync, writeFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
@@ -53,12 +55,39 @@ try {
         return { title: document.querySelector('main h1')?.textContent, documentWidth: document.documentElement.scrollWidth, viewportWidth: innerWidth, unnamed, overflow, smallTargets: small, loadMs: Math.round(performance.getEntriesByType('navigation')[0].loadEventEnd), brokenImages: [...document.images].filter(i => !i.complete || i.naturalWidth === 0).length };
       });
       report.results.push({ name, route, width, height, ...data, errors: [...errors], warnings: [...warnings], resources: [...resources] });
+      if (phase === 'after') {
+        assert(data.documentWidth <= width, `${route} overflows at ${width}: ${data.documentWidth}`);
+        assert.deepEqual(data.unnamed, [], `${route} has unnamed controls`);
+        assert.deepEqual(errors, [], `${route} has browser errors`);
+        assert.deepEqual(resources, [], `${route} has broken resources`);
+        assert.equal(data.brokenImages, 0);
+      }
       if (shots.has(name) && [375,1366].includes(width)) await page.screenshot({ path: `${output}${name}-${width}.webp`, type: 'webp', quality: 65, fullPage: false });
     }
-    // Inspect dark-mode readability separately; no screenshot-based contrast certification.
-    await page.goto(report.url + '/');
+    if (phase === 'after' && [375,1366].includes(width)) {
+      for (const id of ['PROC-VASC-007','PROC-VASC-006','PROC-VASC-010','PROC-AIR-015','PROC-THX-003','PROC-CV-006','PROC-CV-001','PROC-CV-004','PROC-TRA-004','PROC-ORTHO-001']) {
+        await page.goto(report.url + '/procedures/' + id, { waitUntil: 'networkidle' });
+        await page.getByRole('region', { name: 'STOP', exact: true }).waitFor();
+        await page.screenshot({ path: `${output}${id}-${width}.webp`, type: 'webp', quality: 65, fullPage: true });
+      }
+      await page.goto(report.url + '/procedures');
+      await page.getByLabel('Nombre o PROC-ID').fill('femoral');
+      await page.getByRole('status').filter({ hasText: '3 procedimientos' }).waitFor();
+      await page.getByLabel('Nombre o PROC-ID').fill('PROC-VASC-007');
+      await page.getByRole('link', { name: /Catéter venoso central femoral/ }).click();
+      await page.getByRole('link', { name: 'STOP', exact: true }).click();
+      const stopTop = await page.getByRole('region', { name: 'STOP', exact: true }).evaluate(el => el.getBoundingClientRect().top);
+      report.results.push({ name: 'procedure-search-and-stop', width, stopTop });
+    }
+    await page.goto(report.url + '/', { waitUntil: 'networkidle' });
+    await page.locator('main').focus();
     await page.keyboard.press('Tab');
-    report.results.push({ name: 'keyboard', width, focused: await page.evaluate(() => document.activeElement?.textContent?.trim()) });
+    report.results.push({ name: 'keyboard', width, focused: await page.evaluate(() => ({ tag: document.activeElement?.tagName, text: document.activeElement?.textContent?.trim() })) });
+    if (phase === 'after' && [375,1366].includes(width)) {
+      await page.getByRole('button', { name: /Cambiar a tema oscuro/ }).click();
+      await page.waitForTimeout(300); // Let the existing theme color transition settle.
+      await page.screenshot({ path: `${output}home-dark-${width}.webp`, type: 'webp', quality: 65 });
+    }
     await context.close();
     console.log(`Inspected ${routes.length} routes at ${width}x${height}`);
   }

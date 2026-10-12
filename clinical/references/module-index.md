@@ -1,3 +1,7 @@
+# UI/UX continuity v1.43
+
+See `qa/V1.43_UI_UX_AUDIT.md`: 131 module IDs, routes and evidence statuses unchanged. New frontend procedure navigation and ten layouts read existing canonical artifacts directly; synthetic DEMO cases are UI fixtures, not evidence cases or new clinical modules.
+
 # Module manifest v1.42 consolidation
 
 v1.42 continuity: module IDs and routing are unchanged. Clinical-note runtime input/privacy/acceptance hardening is documented in `qa/V1.42_P1_INPUT_PRIVACY_ACCEPTANCE.md`; its evidence status remains YELLOW.

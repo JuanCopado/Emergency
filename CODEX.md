@@ -1,14 +1,14 @@
-# Codex bootstrap — Emergency v1.42
+# Codex bootstrap — Emergency v1.43 UI/UX
 
 This file defines the safe entry point for Codex work on this repository.
 
 ## Repository and branch guard
 
 - Repository: `JuanCopado/Emergency`
-- Working branch: `v1.42-codex-consolidation`
-- Baseline commit used to create this consolidation branch: `bcb05891c6e95499acf1d20ba4388dcc5aed5766`
+- Working branch: `v1.43-clinical-ui-validation`
+- Frozen baseline: `v1.42-rc1 @ 0fa17bf16864bb7b371b323b8557c63bc29ca4c2`. Preserve both `v1.42-rc1` and `v1.42-codex-consolidation` at that SHA.
 - Never modify, merge into, reset, or force-update `main`.
-- A newer HEAD on `v1.42-codex-consolidation` is expected after legitimate commits. Do not reset it back to the baseline merely because the SHA differs.
+- A newer HEAD on `v1.43-clinical-ui-validation` is expected after legitimate commits. Do not reset it back to the baseline merely because the SHA differs.
 
 Before editing, run:
 
@@ -20,7 +20,7 @@ git rev-parse HEAD
 git status --short
 ```
 
-If the active branch is not `v1.42-codex-consolidation`, stop and diagnose before editing.
+If the active branch is not `v1.43-clinical-ui-validation`, stop and diagnose before editing.
 If the working tree is unexpectedly dirty, stop and inspect the changes before editing.
 
 ## Mandatory reading order
@@ -84,8 +84,10 @@ Never claim a test, workflow, or clinical QA passed unless it was actually run a
 
 `v1.39.1-clinical-note-hardening` may contain useful clinical-note hardening work. Compare it selectively. Do not merge or cherry-pick it wholesale without first auditing the diff and contracts.
 
-## Initial Codex mission
+## Current phase and historical initial mission
 
-The first v1.42 task is a repository-wide, read-only audit and consolidation plan. Inventory architecture, modules, procedures, scores/calculators, pharmacology, pediatrics, ECG/POCUS/imaging, clinical note/governance, evidence, frontend, contracts, export/PDF, tests, security, and technical debt.
+The user authorized v1.43 UI/UX from the frozen RC. Read `clinical/qa/V1.43_UI_UX_AUDIT.md` for the audit, ten procedure layouts, screenshots, tests and remaining limits. Preserve clinical logic and evidence states. Scores remain textual; 186 procedures remain outside the ten-layout visual pilot. No clinical image is approved by this UI audit.
+
+The historical first v1.42 task was a repository-wide, read-only audit and consolidation plan. Its later authorized implementation and technical freeze are documented in `clinical/qa/V1.42_RC1_FREEZE.md`.
 
 Classify findings P0/P1/P2/P3. Stop after the plan unless implementation has been explicitly authorized.

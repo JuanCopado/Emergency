@@ -1,3 +1,9 @@
+# Validación v1.43 — UI/UX local, 12/10/2026
+
+Informe reproducible: [qa/V1.43_UI_UX_AUDIT.md](qa/V1.43_UI_UX_AUDIT.md). Clinical QA 7/7 y 505 Python PASS; frontend 176 PASS (13 regresiones nuevas de piloto/seguridad), 12 pruebas Node de fidelidad PASS. Typecheck/lint/build PASS. Seis viewports, 120 combinaciones de rutas antes/después; después sin desbordamiento, controles sin nombre ni errores JavaScript/HTTP en esas pantallas. Quince casos DEMO con API real, exportación JSON/PDF/DOCX; cuatro casos pediátricos y cuatro PDFs de guías verificados. Pruebas de orden/foco del resultado pediátrico añadidas al test existente.
+
+Inspección de contraste de tokens y teclado local; no certificación de accesibilidad ni prueba con usuarios. No CI remoto, proveedor diagnóstico externo real, validación prospectiva o aprobación de imágenes. El historial inferior conserva los resultados del freeze anterior.
+
 # Validación vigente v1.42 — cierre global, 11/10/2026
 
 HEAD de código `82e6ca92df617730dfa42936ba7dbc2bb9163c87`. Clinical QA 7/7 y 505/505 pruebas únicas de 22 archivos PASS, incluido scores. Frontend 163/163 PASS; lint, typecheck y build PASS. Fidelidad Node guías 4/4 y procedimientos 8/8; cuatro PDF reales y cuatro escenarios pediátricos con API real PASS. Banco pediátrico 18/18 incluido en QA. Unicode exacto PDF/JSON/DOCX, multipágina y rechazo explícito de glifo ausente verificados.

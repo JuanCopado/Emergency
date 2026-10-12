@@ -1,3 +1,15 @@
+# Estado actual v1.43 — auditoría UI/UX, 12/10/2026
+
+Rama `v1.43-clinical-ui-validation`, desde `v1.42-rc1 @ 0fa17bf16864bb7b371b323b8557c63bc29ca4c2`. RC1 y v1.42 preservados. Auditoría inicial guardada en `2c2249b` antes de editar la interfaz.
+
+- Presentación: seguridad farmacológica antes del cálculo, accesos clínicos, Guías sin desbordamiento, labels/foco, resultado pediátrico destacado sin modificar valores.
+- Catálogo navegable de 196 procedimientos, filtros y cuatro alias; diez layouts piloto con texto/preambulo íntegros. Los otros 186 muestran referencia textual, no ficha visual completa. Ninguna imagen aprobada en el registro; no se generan ni aprueban imágenes.
+- QA y límites actuales: [qa/V1.43_UI_UX_AUDIT.md](qa/V1.43_UI_UX_AUDIT.md). Galería: [qa/assets/v1.43/index.html](qa/assets/v1.43/index.html). Quince casos exclusivamente sintéticos, sin validación diagnóstica prospectiva.
+- Inventario clínico preservado: 131 módulos, 29 GREEN / 102 YELLOW; 196 procedimientos YELLOW; 89 pautas pediátricas. CLINICALLY_PENDING. Scores siguen como referencia textual, sin calculadora interactiva nueva.
+- Pendientes: localización, revisión humana/lector de pantalla, catálogo completo de fichas visuales y revisión clínica heredada. Sin cambios en main, merge, push ni promociones.
+
+# Snapshot histórico: freeze RC1
+
 # Estado actual v1.42 — freeze técnico RC1, 11/10/2026
 
 Rama `v1.42-codex-consolidation`. HEAD de código auditado `82e6ca92df617730dfa42936ba7dbc2bb9163c87`; el commit documental de freeze posterior es la base a fijar por `v1.42-rc1`. Su SHA exacto se verifica desde el ref, sin incrustar un hash autorreferencial en el propio commit.

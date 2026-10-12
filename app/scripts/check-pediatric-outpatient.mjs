@@ -1,6 +1,8 @@
 // Production UI connected to the actual Python calculator, using loopback only.
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
+import { mkdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
@@ -48,6 +50,15 @@ try {
   await calculate(); await result().waitFor();
   const text = await result().innerText();
   assert.match(text, /525/); assert.match(text, /21\.9/); assert.match(text, /175/);
+  assert.equal(await result().evaluate(el => el === el.ownerDocument.activeElement), true);
+  if (process.env.UI_QA_SCREENSHOTS) {
+    mkdirSync(process.env.UI_QA_SCREENSHOTS, { recursive: true });
+    for (const width of [1366, 375]) {
+      await page.setViewportSize({ width, height: width === 375 ? 812 : 768 });
+      await result().evaluate(el => el.scrollIntoView({ block: 'start' }));
+      await page.screenshot({ path: join(process.env.UI_QA_SCREENSHOTS, `pediatric-result-${width}.webp`), type: 'webp', quality: 65 });
+    }
+  }
   console.log('PASS real API: paracetamol ideal-weight dose and complete course');
   await choose('dexamethasone-croup-mild-moderate');
   await page.getByLabel('Edad (meses)', { exact: true }).fill('48');

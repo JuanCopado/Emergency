@@ -1,0 +1,131 @@
+{
+  "cases": [
+    {
+      "id": "DEMO-01",
+      "route": "/clinical/non-coronary-chest-pain",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-02",
+      "route": "/clinical/sepsis-shock",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-03",
+      "route": "/clinical/acute-ischemic-stroke",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-04",
+      "route": "/clinical/trauma-major-hemorrhage",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-05",
+      "route": "/clinical/anaphylaxis",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-06",
+      "route": "/clinical/diabetic-ketoacidosis-hhs",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-07",
+      "route": "/clinical/sodium-emergencies",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-08",
+      "route": "/clinical/upper-gi-bleeding",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-09",
+      "route": "/clinical/status-epilepticus",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-10",
+      "route": "/clinical/ecg-pocus-integration",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-11",
+      "route": "/clinical/croup",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-12",
+      "route": "/clinical/bronchiolitis",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-13",
+      "route": "/clinical/pediatric-acute-asthma",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-14",
+      "route": "/clinical/pediatric-sepsis",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    },
+    {
+      "id": "DEMO-15",
+      "route": "/clinical/headache-sah",
+      "analysisHttp": 200,
+      "pendingBlocksExport": true,
+      "acceptedManualReport": true,
+      "staleAfterEdit": true
+    }
+  ],
+  "exports": [
+    ".json",
+    ".pdf",
+    ".docx"
+  ],
+  "browser": "155.0.4283.45",
+  "errors": []
+}
