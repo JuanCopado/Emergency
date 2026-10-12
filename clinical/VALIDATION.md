@@ -1,3 +1,7 @@
+# Cierre formal v1.43 — nueva ejecución 12/10/2026
+
+Ver `qa/V1.43_UI_UX_FINAL.md`: 176 frontend, 505 Python, QA 7/7, 12 pruebas Node, typecheck/build PASS. Lint/capturas/navegador anteriores conservan su fecha; no se presentan como nuevos. Diff clínico auditado contra RC1 sin cambios.
+
 # Validación v1.43 — UI/UX local, 12/10/2026
 
 Informe reproducible: [qa/V1.43_UI_UX_AUDIT.md](qa/V1.43_UI_UX_AUDIT.md). Clinical QA 7/7 y 505 Python PASS; frontend 176 PASS (13 regresiones nuevas de piloto/seguridad), 12 pruebas Node de fidelidad PASS. Typecheck/lint/build PASS. Seis viewports, 120 combinaciones de rutas antes/después; después sin desbordamiento, controles sin nombre ni errores JavaScript/HTTP en esas pantallas. Quince casos DEMO con API real, exportación JSON/PDF/DOCX; cuatro casos pediátricos y cuatro PDFs de guías verificados. Pruebas de orden/foco del resultado pediátrico añadidas al test existente.

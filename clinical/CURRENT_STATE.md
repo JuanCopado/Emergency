@@ -1,3 +1,7 @@
+# Cierre formal v1.43 — 12/10/2026
+
+Cerrada la fase UI/UX mediante `qa/V1.43_UI_UX_FINAL.md`, código validado a9a4d0d. Nuevas ejecuciones: 176 frontend, 505 Python, Clinical QA 7/7, 12 pruebas de fidelidad, typecheck/build PASS. Sin cambios clínicos; CLINICALLY_PENDING. v1.44 debe partir del commit documental de cierre con árbol limpio.
+
 # Estado actual v1.43 — auditoría UI/UX, 12/10/2026
 
 Rama `v1.43-clinical-ui-validation`, desde `v1.42-rc1 @ 0fa17bf16864bb7b371b323b8557c63bc29ca4c2`. RC1 y v1.42 preservados. Auditoría inicial guardada en `2c2249b` antes de editar la interfaz.

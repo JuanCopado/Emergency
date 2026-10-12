@@ -1,3 +1,7 @@
+# Formal v1.43 closure
+
+See `qa/V1.43_UI_UX_FINAL.md`. No IDs, routing, clinical bodies or evidence statuses changed in the closure.
+
 # UI/UX continuity v1.43
 
 See `qa/V1.43_UI_UX_AUDIT.md`: 131 module IDs, routes and evidence statuses unchanged. New frontend procedure navigation and ten layouts read existing canonical artifacts directly; synthetic DEMO cases are UI fixtures, not evidence cases or new clinical modules.

@@ -1,3 +1,7 @@
+## v1.43 — formal UI/UX closure, 2026-10-12
+- Add qa/V1.43_UI_UX_FINAL.md with scope, priorities, remaining limits and fresh validation (176 frontend, 505 Python, 7 QA checks, 12 fidelity tests, typecheck/build).
+- Documentation only; canonical clinical content and evidence statuses unchanged. CLINICALLY_PENDING.
+
 ## v1.43 — clinical UI/UX audit and limited procedure pilot
 - Preserve technical RC1 at 0fa17bf and begin v1.43-clinical-ui-validation from that exact clean baseline; record screenshots before changes.
 - Put drug precautions and expanded source rules before calculation; add clinical navigation, accessible labels, touch target sizes and mobile guide-grid wrapping.
