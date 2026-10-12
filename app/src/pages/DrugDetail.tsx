@@ -77,9 +77,6 @@ function DrugDetailView({ drug }: { drug: Drug }) {
               </span>
             </div>
           </div>
-          <Link to={`/calculator?drug=${drug.id}`} className="btn-primary w-full sm:w-auto" data-testid="open-calculator">
-            <Icon name="calc" size={18} /> {t('drug.openInCalculator')}
-          </Link>
         </div>
         {i18n.language !== 'en' && (
           <p className="mt-4 flex items-center gap-2 rounded-xl bg-surface-2 px-3 py-2 text-xs text-muted">
@@ -88,6 +85,47 @@ function DrugDetailView({ drug }: { drug: Drug }) {
         )}
       </header>
 
+      <Section id="sec-cautions" title={t('drug.cautions')}>
+        {drug.contraindications.length > 0 && (
+          <>
+            <h3 className="mb-1.5 text-xs font-bold uppercase tracking-wide text-danger">{t('drug.contraindications')}</h3>
+            <ul className="mb-3 space-y-2 text-sm">
+              {drug.contraindications.map((c, i) => (
+                <li key={i} className="flex gap-2">
+                  <Icon name="x" size={16} className="mt-0.5 shrink-0 text-danger" />
+                  <ClinicalText text={c} />
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        {drug.cautions.length ? (
+          <ul className="space-y-2 text-sm">
+            {drug.cautions.map((c, i) => (
+              <li key={i} className="flex gap-2">
+                <Icon name="alert" size={16} className="mt-0.5 shrink-0 text-warn" />
+                <ClinicalText text={c} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <Missing />
+        )}
+      </Section>
+
+      {mod && (
+        <details open className="card p-4 sm:p-5">
+          <summary className="cursor-pointer text-base font-bold">{t('drug.moduleRules')}</summary>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
+            {mod.rules.map((r, i) => (
+              <li key={i}><ClinicalText text={r} /></li>
+            ))}
+          </ul>
+        </details>
+      )}
+      <Link to={`/calculator?drug=${drug.id}`} className="btn-primary w-full sm:w-auto" data-testid="open-calculator">
+        <Icon name="calc" size={18} /> {t('drug.openInCalculator')}
+      </Link>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="min-w-0 space-y-4">
           <Section id="sec-position" title={t('drug.position')}>
@@ -244,34 +282,6 @@ function DrugDetailView({ drug }: { drug: Drug }) {
         </div>
 
         <aside className="min-w-0 space-y-4">
-          <Section id="sec-cautions" title={t('drug.cautions')}>
-            {drug.contraindications.length > 0 && (
-              <>
-                <h3 className="mb-1.5 text-xs font-bold uppercase tracking-wide text-danger">{t('drug.contraindications')}</h3>
-                <ul className="mb-3 space-y-2 text-sm">
-                  {drug.contraindications.map((c, i) => (
-                    <li key={i} className="flex gap-2">
-                      <Icon name="x" size={16} className="mt-0.5 shrink-0 text-danger" />
-                      <ClinicalText text={c} />
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-            {drug.cautions.length ? (
-              <ul className="space-y-2 text-sm">
-                {drug.cautions.map((c, i) => (
-                  <li key={i} className="flex gap-2">
-                    <Icon name="alert" size={16} className="mt-0.5 shrink-0 text-warn" />
-                    <ClinicalText text={c} />
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <Missing />
-            )}
-          </Section>
-
           {mod && (
             <Section id="sec-source" title={t('drug.source')}>
               <dl className="space-y-2 text-sm">
@@ -314,16 +324,6 @@ function DrugDetailView({ drug }: { drug: Drug }) {
             </Section>
           )}
 
-          {mod && (
-            <details className="card p-4 sm:p-5">
-              <summary className="cursor-pointer text-base font-bold">{t('drug.moduleRules')}</summary>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
-                {mod.rules.map((r, i) => (
-                  <li key={i}><ClinicalText text={r} /></li>
-                ))}
-              </ul>
-            </details>
-          )}
         </aside>
       </div>
     </article>

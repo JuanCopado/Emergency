@@ -13,7 +13,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       <select
         value={lang}
         onChange={(e) => isLang(e.target.value) && setLang(e.target.value)}
-        className="min-h-[40px] appearance-none rounded-xl border border-border bg-surface py-2 pl-8 pr-3 text-sm font-medium text-fg hover:bg-surface-2 focus:outline-none focus:ring-2 focus:ring-primary/40"
+        className="min-h-[44px] appearance-none rounded-xl border border-border bg-surface py-2 pl-8 pr-3 text-sm font-medium text-fg hover:bg-surface-2 focus:outline-none focus:ring-2 focus:ring-primary/40"
         data-testid="language-switcher"
       >
         {LANGUAGES.map((l) => (

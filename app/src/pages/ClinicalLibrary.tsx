@@ -52,7 +52,7 @@ export default function ClinicalLibrary() {
           <h1 className="mt-2 text-3xl font-extrabold tracking-tight">Patologías y módulos</h1>
           <p className="mt-2 max-w-3xl text-muted">Acceso directo al contenido clínico canónico con botones de algoritmo, pantalla completa, PDF y procedimientos relacionados.</p>
         </div>
-        <input className="input max-w-xl" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar patología o módulo…" />
+        <input aria-label="Buscar patología o módulo" className="input max-w-xl" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar patología o módulo…" />
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (
             <Link key={item.id} to={`/clinical/${item.id}`} className="card p-4 transition hover:border-primary/60">
@@ -105,7 +105,7 @@ export default function ClinicalLibrary() {
           {related.length ? (
             <div className="mt-4 grid gap-3 md:grid-cols-2">
               {related.map((proc) => (
-                <div key={proc.id} className="rounded-xl border border-border bg-surface-2 p-3">
+                <Link key={proc.id} to={`/procedures/${proc.id}`} className="rounded-xl border border-border bg-surface-2 p-3 hover:border-primary">
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <p className="font-bold">{proc.name}</p>
@@ -113,7 +113,7 @@ export default function ClinicalLibrary() {
                     </div>
                     <span className="rounded-full border border-border px-2 py-1 text-[10px] font-bold">{proc.level}</span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           ) : <p className="mt-3 text-sm text-muted">No se detectaron procedimientos relacionados de forma automática.</p>}

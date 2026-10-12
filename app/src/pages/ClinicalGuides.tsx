@@ -80,7 +80,7 @@ export default function ClinicalGuides() {
 
         <section>
           <h2 className="mb-3 text-xl font-bold">Algoritmos rápidos</h2>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {clinicalGuides.map((g) => (
               <Link key={g.id} to={`/guides/${g.id}`} className="card p-5 transition hover:border-primary/60">
                 <div className="flex items-start justify-between gap-3">
@@ -102,7 +102,7 @@ export default function ClinicalGuides() {
               <p className="text-sm text-muted">{filteredCanonical.length} de {canonicalGuides.length}</p>
             </div>
             <div className="flex w-full max-w-2xl flex-col gap-2 sm:flex-row">
-              <label className="sm:w-52">
+              <label className="min-w-0 sm:w-52">
                 <span className="sr-only">Filtrar formato</span>
                 <select className="input" value={formatFilter} onChange={(event) => setFormatFilter(event.target.value as typeof formatFilter)}>
                   <option value="all">Todos los formatos</option>
@@ -111,7 +111,7 @@ export default function ClinicalGuides() {
                   <option value="procedure">Procedimiento ilustrado</option>
                 </select>
               </label>
-              <label className="flex-1">
+              <label className="min-w-0 flex-1">
                 <span className="sr-only">Buscar guía clínica</span>
                 <input
                   className="input"
@@ -123,7 +123,7 @@ export default function ClinicalGuides() {
               </label>
             </div>
           </div>
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {filteredCanonical.map((guide) => (
               <Link key={guide.id} to={`/guides/${guide.id}`} className="card p-4 transition hover:border-primary/60">
                 <div className="flex items-start justify-between gap-3">

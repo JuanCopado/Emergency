@@ -1,4 +1,4 @@
-import { useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { calculatePediatric, findRegimen, numericInput, pediatricCatalog, regimensForDrug,
   type Calculation, type Fields, type Gate, type Regimen, type Value } from '../pediatrics/catalog';
@@ -35,11 +35,35 @@ function Details({ value }: { value: Value }) {
   return <span>{typeof value === 'boolean' ? (value ? 'Sí' : 'No') : String(value)}</span>;
 }
 
+// Reorder presentation only; every returned value retains its original units and precision.
+function ResultDetails({ value }: { value: Fields }) {
+  const primaryKeys = ['dose_mg', 'volume_per_dose', 'dosing_weight_kg', 'weight_basis',
+    'concentration_mg_per_ml', 'frequency', 'max_mg_per_dose', 'adult_max_daily_mg',
+    'daily_max_mg_per_kg', 'duration_days', 'estimated_total_course_ml'];
+  const primary = primaryKeys.filter(key => Object.hasOwn(value, key));
+  const remaining = Object.fromEntries(Object.entries(value).filter(([key]) => !primary.includes(key)));
+  return <>
+    <dl className="grid gap-3 sm:grid-cols-2" aria-label="Cálculo y pauta">
+      {primary.map(key => <div className="rounded-xl border border-primary/30 bg-surface-2 p-3" key={key}>
+        <dt className="font-bold">{label(key)}</dt><dd className="mt-1 text-lg"><Details value={value[key] ?? null} /></dd>
+      </div>)}
+    </dl>
+    <div className="border-t border-border pt-3"><h3 className="mb-2 font-bold">Detalle, precauciones y fuente</h3><Details value={remaining} /></div>
+  </>;
+}
+
 function RegimenForm({ regimen }: { regimen: Regimen }) {
   const [values, setValues] = useState<Record<string, string>>({});
   const [response, setResponse] = useState<Calculation>();
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  const resultRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (response) {
+      resultRef.current?.focus({ preventScroll: true });
+      resultRef.current?.scrollIntoView?.({ block: 'start' });
+    }
+  }, [response]);
   const revision = useRef(0);
   const change = (field: string, value: string) => {
     revision.current += 1;
@@ -88,13 +112,18 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
     }
   };
   return <div className="space-y-5">
-    <section className="card p-4 space-y-3" aria-label="Ficha canónica">
+    <nav aria-label="Secciones pediátricas" className="flex flex-wrap gap-2">
+      <a href="#pediatric-input" className="btn-primary">Datos y cálculo</a>
+      <a href="#pediatric-reference" className="btn-ghost">Ficha y precauciones</a>
+      {response && <a href="#pediatric-result" className="btn-ghost">Ver resultado</a>}
+    </nav>
+    <section id="pediatric-reference" className="card p-4 space-y-3" aria-label="Ficha canónica">
       <h2 className="text-xl font-bold">{regimen.drug}</h2><p>{regimen.diagnosis}</p>
       <p className="text-sm">{regimen.id} · YELLOW · pendiente de revisión clínica</p>
       <Details value={regimen} />
       {typeof regimen.source_url === 'string' && <a className="underline" href={regimen.source_url} target="_blank" rel="noreferrer">Consultar fuente canónica</a>}
     </section>
-    <form onSubmit={submit} className="card p-4 space-y-4" aria-label="Cálculo pediátrico">
+    <form id="pediatric-input" onSubmit={submit} className="card p-4 space-y-4" aria-label="Cálculo pediátrico">
       <h2 className="text-lg font-bold">Datos para la pauta seleccionada</h2>
       <p>Introduce datos verificados. Una dosis calculable no confirma indicación ni criterios de alta. Los campos vacíos no se interpretan como negativos.</p>
       <div className="grid gap-3 sm:grid-cols-2">{numericFields.map((f) => input(f, label(f)))}</div>
@@ -125,13 +154,14 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
         <label className="block"><input type="checkbox" checked={values.external_verified === 'yes'} onChange={(e) => change('external_verified', e.target.checked ? 'yes' : '')} /> Presentación externa al registro: ficha técnica comprobada</label>
       </div>}
       <button className="btn-primary" disabled={busy} type="submit">{busy ? 'Calculando…' : 'Comprobar y calcular'}</button>
-      {error && <p role="alert">{error}</p>}
+      {error && <p role="alert" className="rounded-xl border border-danger p-3 font-semibold text-danger">{error}</p>}
     </form>
-    {response && <section className="card p-4 space-y-3" aria-label="Resultado pediátrico">
+    <div aria-live="polite" aria-atomic="true" className="sr-only">{response ? (response.blocked ? 'Cálculo bloqueado. Revisa las alertas.' : 'Resultado aritmético disponible. Requiere revisión clínica.') : ''}</div>
+    {response && <section ref={resultRef} tabIndex={-1} id="pediatric-result" className={`card p-4 space-y-3 ${response.blocked ? 'border-danger' : 'border-primary'}`} aria-label="Resultado pediátrico">
       <h2 className="text-xl font-bold">{response.blocked ? 'Cálculo bloqueado' : 'Resultado aritmético — requiere revisión clínica'}</h2>
       <p>{response.safety.prescription_status}</p>
-      {response.safety.alerts.map((a, i) => <p key={i}><strong>{a.severity}: </strong>{a.message} {a.action}</p>)}
-      {!response.blocked && response.result && <Details value={response.result} />}
+      {response.safety.alerts.map((a, i) => <p key={i} className={`rounded-xl border p-3 ${a.severity === 'STOP' ? 'border-danger bg-surface text-danger' : 'border-warn bg-warn-bg text-warn'}`}><strong>{a.severity === 'STOP' ? '⛔ ' : '⚠ '}{a.severity}: </strong>{a.message} {a.action}</p>)}
+      {!response.blocked && response.result && <ResultDetails value={response.result} />}
     </section>}
   </div>;
 }

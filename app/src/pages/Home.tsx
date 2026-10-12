@@ -18,6 +18,14 @@ export default function Home() {
   };
   return (
     <div className="space-y-8">
+      <nav aria-label="Accesos clínicos" className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+        <Link to="/clinical-note" className="btn-primary">Nota clínica</Link>
+        <Link to="/procedures" className="btn-ghost">Procedimientos</Link>
+        <Link to="/pediatrics" className="btn-ghost">Pediatría</Link>
+        <Link to="/drugs" className="btn-ghost">Fármacos</Link>
+        <Link to="/clinical/clinical-scores-calculators" className="btn-ghost">Scores · referencia</Link>
+        <Link to="/guides" className="btn-ghost">Algoritmos / PDF</Link>
+      </nav>
       <section aria-labelledby="home-title" className="relative overflow-hidden rounded-3xl border border-border bg-surface p-5 shadow-card sm:p-8">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-28 -left-16 h-64 w-64 rounded-full bg-brand/10 blur-3xl" />

@@ -54,6 +54,10 @@ it('submits stable IDs and explicit data to the canonical backend and shows comp
   fireEvent.click(screen.getByRole('button', { name: 'Comprobar y calcular' }));
   const result = await screen.findByRole('region', { name: 'Resultado pediátrico' });
   expect(result).toHaveTextContent('525'); expect(result).toHaveTextContent('21.9'); expect(result).toHaveTextContent('175');
+  const summary = within(result).getByLabelText('Cálculo y pauta');
+  expect(summary).toHaveTextContent('525'); expect(summary).toHaveTextContent('21.875');
+  expect(result).toHaveTextContent('Número total de tomas'); expect(result).toHaveTextContent('8');
+  expect(result).toHaveFocus();
   const payload = JSON.parse(String(fetcher.mock.calls[0]?.[1]?.body));
   expect(payload.regimen_id).toBe(paracetamol);
   expect(payload.source_revision).toBe(pediatricCatalog.source_revision);

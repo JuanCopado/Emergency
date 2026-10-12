@@ -40,6 +40,7 @@
     color-scheme: dark;
   }
   html {
+    scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
   }
@@ -56,6 +57,10 @@
     *, *::before, *::after { transition: none !important; animation: none !important; }
   }
 }
+
+/* Long canonical IDs/URLs must wrap without hiding clinical content. */
+main { overflow-wrap: anywhere; }
+main section[id], main form[id] { scroll-margin-top: 6rem; }
 
 @layer components {
   .card { @apply rounded-2xl border border-border bg-surface shadow-card; }

@@ -314,7 +314,7 @@ export default function ClinicalNote(){
     </div><button className="btn-primary mt-3" onClick={addVital}>Adicionar constantes</button>
     {vitalSets.length>0&&<div className="mt-4 space-y-2 text-sm">{vitalSets.map((v,i)=><div key={i} className="rounded-xl border border-border p-3">{v.time_label||'—'} · TA {v.bp||'—'} · FC {v.hr??'—'} · FR {v.rr??'—'} · SpO₂ {v.spo2??'—'}% · {v.oxygen||'sem O₂ registado'}</div>)}</div>}
     </div>
-    <div className={card}><h2 className="text-lg font-bold">Exploração</h2><p className="mt-1 text-sm text-muted">Registe nova observação sem apagar a avaliação inicial.</p><textarea className="input mt-4 min-h-40" value={exam} onChange={e=>{setExam(e.target.value);touch()}} placeholder="Geral · Neuro · Respiratório · CV · Abdómen · Pele · Extremidades"/></div>
+    <div className={card}><h2 className="text-lg font-bold">Exploração</h2><p className="mt-1 text-sm text-muted">Registe nova observação sem apagar a avaliação inicial.</p><textarea className="input mt-4 min-h-40" aria-label="Exploração" value={exam} onChange={e=>{setExam(e.target.value);touch()}} placeholder="Geral · Neuro · Respiratório · CV · Abdómen · Pele · Extremidades"/></div>
    </section>}
 
    {tab==='mcdt'&&<section className="space-y-4">
@@ -334,7 +334,7 @@ export default function ClinicalNote(){
       <div className="mt-3 flex flex-wrap gap-2">{x.prepared?.processing.status==='routed_external'&&<button className="btn-ghost" disabled={busy||x.prepared.privacy.status==='STOP'||(x.prepared.privacy.manual_file_privacy_review_required&&!x.privacyChecked)||(x.prepared.privacy.burned_in_identifier_review_required&&!x.burnedChecked)} onClick={()=>void interpretCard(x.id)}>Interpretar com módulo IA</button>}<button className="btn-primary" disabled={busy||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>Aceitar</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>Editar</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>Rejeitar</button></div></article>)}
    </section>}
 
-   {tab==='problems'&&<section className={card}><h2 className="text-lg font-bold">Problemas</h2><p className="mt-1 text-sm text-muted">Lista numerada editável: ativo · a melhorar · resolvido · por esclarecer.</p><textarea className="input mt-4 min-h-56" value={problems} onChange={e=>{setProblems(e.target.value);touch()}} placeholder={"1. [ativo] …\n2. [por esclarecer] …"}/>{assessment?.active_problems.length? <div className="mt-4 rounded-xl border border-border p-3"><p className="text-xs font-bold uppercase text-muted">Problemas sugeridos pelo motor · requer revisão</p><ul className="mt-2 space-y-1 text-sm">{assessment.active_problems.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}</section>}
+   {tab==='problems'&&<section className={card}><h2 className="text-lg font-bold">Problemas</h2><p className="mt-1 text-sm text-muted">Lista numerada editável: ativo · a melhorar · resolvido · por esclarecer.</p><textarea className="input mt-4 min-h-56" aria-label="Problemas" value={problems} onChange={e=>{setProblems(e.target.value);touch()}} placeholder={"1. [ativo] …\n2. [por esclarecer] …"}/>{assessment?.active_problems.length? <div className="mt-4 rounded-xl border border-border p-3"><p className="text-xs font-bold uppercase text-muted">Problemas sugeridos pelo motor · requer revisão</p><ul className="mt-2 space-y-1 text-sm">{assessment.active_problems.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}</section>}
 
    {tab==='diagnostic'&&<section className="space-y-4">
     <div className={card}><div className="flex flex-wrap items-center gap-3"><div><h2 className="text-lg font-bold">Apoio diagnóstico</h2><p className="text-sm text-muted">Executado apenas sobre dados aceites e após preflight de privacidade.</p></div><button className="btn-primary ml-auto" disabled={busy||privacyStop} onClick={()=>void runDiagnostic()}>{busy?'A processar…':'Atualizar apoio diagnóstico'}</button></div>{diagnosticStale&&assessment&&<p className="mt-3 text-sm font-semibold text-warn">Os dados mudaram desde a última análise; resultado marcado como desatualizado.</p>}</div>
@@ -350,7 +350,7 @@ export default function ClinicalNote(){
    </section>}
 
    {tab==='plan'&&<section className="space-y-4">
-    <div className={card}><h2 className="text-lg font-bold">Plano médico</h2><textarea className="input mt-4 min-h-40" value={plan} onChange={e=>{setPlan(e.target.value);touch()}} placeholder="Plano introduzido/revisto pelo médico"/></div>
+    <div className={card}><h2 className="text-lg font-bold">Plano médico</h2><textarea className="input mt-4 min-h-40" aria-label="Plano médico" value={plan} onChange={e=>{setPlan(e.target.value);touch()}} placeholder="Plano introduzido/revisto pelo médico"/></div>
     <div className={card}><h2 className="font-bold">Pruebas sugeridas</h2>{assessment?.suggested_tests.length?<ul className="mt-3 space-y-2 text-sm">{assessment.suggested_tests.map((x,i)=><li key={i} className="rounded-xl border border-border p-3">{x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">Sem sugestões executadas.</p>}</div>
     <div className={card}><h2 className="font-bold">Tratamento sugerido</h2>{medicationGate&&<div className={`mt-3 rounded-xl border p-3 text-sm ${medicationGate.actionable?'border-ok text-ok':'border-warn bg-warn-bg text-warn'}`}>{medicationGate.message}</div>}{assessment?.treatment_suggestions.length?<ul className="mt-3 space-y-2 text-sm">{assessment.treatment_suggestions.map((x,i)=><li key={i} className="rounded-xl border border-border p-3"><strong>{x.priority||'routine'}</strong> · {x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">Sem tratamento gerado.</p>}</div>
     <div className="grid gap-4 md:grid-cols-2"><div className={card}><h2 className="font-bold">Destino</h2>{assessment?.disposition.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div><div className={card}><h2 className="font-bold">Reavaliação</h2>{assessment?.reassessment.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div></div>
@@ -383,7 +383,7 @@ export default function ClinicalNote(){
    {apiError&&<div role="alert" className="rounded-xl border border-danger bg-surface p-4 text-sm text-danger">{apiError}</div>}
 
    <nav className="overflow-x-auto" aria-label="Secções da nota"><div className="flex min-w-max gap-1 rounded-xl border border-border bg-surface p-1">
-    {tabs.map(([id,label])=><button key={id} onClick={()=>setTab(id)} className={`rounded-lg px-3 py-2 text-sm font-semibold ${tab===id?'bg-primary text-primary-fg':'text-muted hover:bg-surface-2'}`} aria-current={tab===id?'page':undefined}>{label}{id==='mcdt'&&pending>0?` (${pending})`:''}</button>)}
+    {tabs.map(([id,label])=><button key={id} onClick={()=>setTab(id)} className={`min-h-[44px] rounded-lg px-3 py-2 text-sm font-semibold ${tab===id?'bg-primary text-primary-fg':'text-muted hover:bg-surface-2'}`} aria-current={tab===id?'page':undefined}>{label}{id==='mcdt'&&pending>0?` (${pending})`:''}</button>)}
    </div></nav>
 
    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]">
