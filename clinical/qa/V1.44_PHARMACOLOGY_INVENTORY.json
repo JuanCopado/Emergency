@@ -1,0 +1,803 @@
+{
+  "clinical_status": "CLINICALLY_PENDING",
+  "adult": {
+    "drugs": 17,
+    "drug_ids": [
+      "norepinephrine",
+      "vasopressin",
+      "epinephrine",
+      "dopamine",
+      "dobutamine",
+      "milrinone",
+      "levosimendan",
+      "phenylephrine",
+      "angiotensin-ii",
+      "fentanyl",
+      "remifentanil",
+      "morphine",
+      "hydromorphone",
+      "propofol",
+      "dexmedetomidine",
+      "midazolam",
+      "ketamine"
+    ],
+    "categories": {
+      "icu-sedation-analgesia": 8,
+      "vasoactive-inotrope": 9
+    },
+    "preparations": 26,
+    "source_worked_examples": 34,
+    "caution_statements": 33,
+    "contraindication_statements": 2,
+    "organ_adjustment_texts": 3,
+    "numeric_maxima": 6,
+    "incompatibility_stability_model": "No structured product/line compatibility or stability model; source caution/module text remains visible",
+    "patient_specific_allergy_interaction_renal_hepatic_inputs": false,
+    "dedicated_export": false,
+    "http_calculator_backend": false
+  },
+  "pediatric": {
+    "regimens": 89,
+    "source_drug_labels": 54,
+    "drug_groups": 52,
+    "named_active_ingredients": 52,
+    "unspecified_component_groups": [
+      "electrolytes",
+      "low-osmolarity oral rehydration solution"
+    ],
+    "diagnoses": 88,
+    "drug_diagnosis_pairs": 89,
+    "documented_presentation_descriptions": 58,
+    "verified_liquid_products": 28,
+    "hidden_regimens": 0,
+    "renal_adjustment_entries": 40,
+    "hepatic_adjustment_entries": 40,
+    "rule_counts": {
+      "interactions": 13,
+      "condition_rules": 14,
+      "duplicate_rules": 4
+    },
+    "all_regimen_ids": [
+      "acyclovir-hsv-mucocutaneous-standard-renal",
+      "acyclovir-varicella-standard-renal",
+      "albendazole-ascariasis-ge2y",
+      "albendazole-pinworm-ge2y",
+      "amox-clav-bite",
+      "amox-clav-preseptal-stepdown",
+      "amoxicillin-aom",
+      "amoxicillin-cap-outpatient",
+      "amoxicillin-dental-abscess",
+      "amoxicillin-gas-sore-throat-adherence",
+      "azelastine-fluticasone-nasal-ge12",
+      "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
+      "azithromycin-pertussis-ge6mo",
+      "azithromycin-pertussis-lt6mo",
+      "budesonide-formoterol-air-mart-12to17-gina2026",
+      "budesonide-formoterol-air-mart-6to11-gina2026",
+      "budesonide-formoterol-controller-6to11-step3-rch",
+      "cefalexin-cellulitis",
+      "cefalexin-cervical-lymphadenitis-mild",
+      "cefalexin-cystitis",
+      "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "cefalexin-impetigo-extensive",
+      "cefalexin-infected-eczema-bacterial",
+      "cefalexin-preseptal",
+      "cefalexin-pyelonephritis-ge12mo",
+      "cefalexin-pyelonephritis-lt12mo",
+      "cetirizine-urticaria-6to11mo",
+      "cetirizine-urticaria-ge1y",
+      "chloramphenicol05-bacterial-conjunctivitis",
+      "ciclesonide-controller-6to11-step2",
+      "ciprofloxacin-aoe-ge1y-intact-tm",
+      "ciprofloxacin-dexamethasone-aoe-ge1y",
+      "clarithromycin-aom-penicillin-allergy",
+      "clarithromycin-cap-penicillin-allergy",
+      "clarithromycin-pertussis-ge1mo",
+      "clarithromycin-sinusitis-penicillin-allergy",
+      "clindamycin-mrsa-skin",
+      "clotrimazole1-cutaneous-candida",
+      "clotrimazole1-tinea-corporis",
+      "desloratadine-allergic-rhinitis-urticaria",
+      "dexamethasone-asthma-1to11y",
+      "dexamethasone-croup-mild-moderate",
+      "dimeticone4-head-lice",
+      "docusate-paediatric-constipation-ge6mo",
+      "epinephrine-autoinjector-discharge-rch",
+      "fexofenadine-allergic-rhinitis",
+      "fluticasone-controller-6to11-step2",
+      "fluticasone-controller-preschool",
+      "fluticasone-propionate-nasal-allergic-rhinitis",
+      "hydrocortisone1-eczema-sensitive-mild",
+      "ibuprofen-pain-fever-home",
+      "ivermectin-strongyloides-ge15kg",
+      "ketotifen-eye-allergic-conjunctivitis-ge3",
+      "lactulose-constipation-1mo18y",
+      "loratadine-allergic-rhinitis-urticaria",
+      "macrogol3350-electrolytes-constipation-maintenance-1to11",
+      "macrogol3350-electrolytes-disimpaction-5to11",
+      "mebendazole-pinworm-ge2y",
+      "methylprednisolone-aceponate-eczema-body-moderate",
+      "mometasone-eczema-body-severe",
+      "mometasone-nasal-allergic-rhinitis",
+      "montelukast-controller-6to11",
+      "montelukast-controller-preschool",
+      "mupirocin-localized-impetigo",
+      "nitrofurantoin-cystitis-nice-3d",
+      "nitrofurantoin-cystitis-smpc-7d",
+      "olopatadine-allergic-conjunctivitis-ge3",
+      "ondansetron-gastroenteritis-initial",
+      "ondansetron-migraine-vomiting-ed",
+      "ors-clinical-dehydration-50mlkg4h",
+      "ors-post-stool-highrisk-5mlkg",
+      "oseltamivir-influenza-ge1y",
+      "oseltamivir-influenza-lt1y",
+      "paracetamol-pain-fever-home",
+      "permethrin5-scabies",
+      "phenazone-lidocaine-aom-pain",
+      "phenoxymethylpenicillin-gas-sore-throat",
+      "phenoxymethylpenicillin-sinusitis-child",
+      "pimecrolimus-eczema-sensitive-secondline",
+      "praziquantel-schisto-mansoni-haematobium-ge4y",
+      "prednisolone-asthma-2to5y",
+      "prednisolone-asthma-6to11y",
+      "prednisolone-asthma-lt2y",
+      "pyrantel-pinworm-ge2y",
+      "rizatriptan-migraine-rch",
+      "salbutamol-asthma-discharge-rch",
+      "tmp-smx-mrsa-skin",
+      "tmp-smx-pertussis-ge6wk",
+      "trimethoprim-cystitis-low-resistance"
+    ]
+  },
+  "pilot_gaps": {
+    "amiodarone-arrhythmia": "Reference modules only; no amiodarone calculator/catalog entry",
+    "insulin-DKA": "Diagnostic note/reference only; no insulin medication calculator",
+    "NaCl-3-percent": "Diagnostic note/reference only; no hypertonic-saline medication calculator",
+    "status-epilepticus": "Diagnostic note/reference; sedation infusion arithmetic is not a status treatment selector",
+    "anaphylaxis": "Diagnostic note/reference and pediatric auto-injector catalog; adult epinephrine infusion is not IM anaphylaxis workflow",
+    "anticoagulation-reversal": "Reference modules only; no anticoagulant/antidote medication calculator"
+  },
+  "additional_gap": "Isoprenaline has no adult calculator entry; dopamine is covered without claiming indication selection",
+  "adult_cases": [
+    {
+      "id": "norepinephrine-1",
+      "drug": "norepinephrine",
+      "preparation": "ne-8mg-200ml",
+      "weight": 70,
+      "dose": 0.05,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 5.25,
+      "source_example_ml_h": 5.25,
+      "concentration": {
+        "value": 40,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 200,
+      "python": "PASS"
+    },
+    {
+      "id": "norepinephrine-2",
+      "drug": "norepinephrine",
+      "preparation": "ne-8mg-100ml",
+      "weight": 70,
+      "dose": 0.05,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 2.625,
+      "source_example_ml_h": 2.6,
+      "concentration": {
+        "value": 80,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "norepinephrine-3",
+      "drug": "norepinephrine",
+      "preparation": "ne-8mg-200ml",
+      "weight": 70,
+      "dose": 0.1,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 10.5,
+      "source_example_ml_h": 10.5,
+      "concentration": {
+        "value": 40,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 200,
+      "python": "PASS"
+    },
+    {
+      "id": "vasopressin-1",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "weight": null,
+      "dose": 0.03,
+      "unit": "units/min",
+      "expected_ml_h": 1.7999999999999998,
+      "source_example_ml_h": 1.8,
+      "concentration": {
+        "value": 1,
+        "unit": "units/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "vasopressin-2",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "weight": null,
+      "dose": 0.01,
+      "unit": "units/min",
+      "expected_ml_h": 0.6,
+      "source_example_ml_h": 0.6,
+      "concentration": {
+        "value": 1,
+        "unit": "units/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "vasopressin-3",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "weight": null,
+      "dose": 0.005,
+      "unit": "units/min",
+      "expected_ml_h": 0.3,
+      "source_example_ml_h": 0.3,
+      "concentration": {
+        "value": 1,
+        "unit": "units/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "vasopressin-4",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "weight": null,
+      "dose": 0.07,
+      "unit": "units/min",
+      "expected_ml_h": 4.2,
+      "source_example_ml_h": 4.2,
+      "concentration": {
+        "value": 1,
+        "unit": "units/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "vasopressin-5",
+      "drug": "vasopressin",
+      "preparation": "vp-50u-500ml",
+      "weight": null,
+      "dose": 0.03,
+      "unit": "units/min",
+      "expected_ml_h": 17.999999999999996,
+      "source_example_ml_h": 18,
+      "concentration": {
+        "value": 0.1,
+        "unit": "units/mL"
+      },
+      "final_volume_ml": 500,
+      "python": "PASS"
+    },
+    {
+      "id": "epinephrine-1",
+      "drug": "epinephrine",
+      "preparation": "epi-4mg-100ml",
+      "weight": 70,
+      "dose": 0.05,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 5.25,
+      "source_example_ml_h": 5.25,
+      "concentration": {
+        "value": 40,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "epinephrine-2",
+      "drug": "epinephrine",
+      "preparation": "epi-8mg-200ml",
+      "weight": 70,
+      "dose": 0.05,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 5.25,
+      "source_example_ml_h": null,
+      "concentration": {
+        "value": 40,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 200,
+      "python": "PASS"
+    },
+    {
+      "id": "dopamine-1",
+      "drug": "dopamine",
+      "preparation": "dopa-400mg-250ml",
+      "weight": 70,
+      "dose": 5,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 13.125,
+      "source_example_ml_h": 13.1,
+      "concentration": {
+        "value": 1600,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 250,
+      "python": "PASS"
+    },
+    {
+      "id": "dobutamine-1",
+      "drug": "dobutamine",
+      "preparation": "dobu-250mg-100ml",
+      "weight": 70,
+      "dose": 2.5,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 4.2,
+      "source_example_ml_h": 4.2,
+      "concentration": {
+        "value": 2500,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "dobutamine-2",
+      "drug": "dobutamine",
+      "preparation": "dobu-250mg-200ml",
+      "weight": 70,
+      "dose": 2.5,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 8.4,
+      "source_example_ml_h": 8.4,
+      "concentration": {
+        "value": 1250,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 200,
+      "python": "PASS"
+    },
+    {
+      "id": "milrinone-1",
+      "drug": "milrinone",
+      "preparation": "mil-20mg-100ml",
+      "weight": 70,
+      "dose": 0.375,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 7.875,
+      "source_example_ml_h": 7.9,
+      "concentration": {
+        "value": 200,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "levosimendan-1",
+      "drug": "levosimendan",
+      "preparation": "levo-12.5mg-500ml",
+      "weight": 70,
+      "dose": 0.1,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 16.8,
+      "source_example_ml_h": 16.8,
+      "concentration": {
+        "value": 25,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 500,
+      "python": "PASS"
+    },
+    {
+      "id": "levosimendan-2",
+      "drug": "levosimendan",
+      "preparation": "levo-0.05mg-ml",
+      "weight": 70,
+      "dose": 0.1,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 8.399999999999999,
+      "source_example_ml_h": null,
+      "concentration": {
+        "value": 0.05,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": null,
+      "python": "PASS"
+    },
+    {
+      "id": "phenylephrine-1",
+      "drug": "phenylephrine",
+      "preparation": "phe-10mg-500ml",
+      "weight": null,
+      "dose": 20,
+      "unit": "mcg/min",
+      "expected_ml_h": 60.0,
+      "source_example_ml_h": 60,
+      "concentration": {
+        "value": 20,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 500,
+      "python": "PASS"
+    },
+    {
+      "id": "phenylephrine-2",
+      "drug": "phenylephrine",
+      "preparation": "phe-2mg-100ml",
+      "weight": null,
+      "dose": 20,
+      "unit": "mcg/min",
+      "expected_ml_h": 60.0,
+      "source_example_ml_h": null,
+      "concentration": {
+        "value": 20,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "angiotensin-ii-1",
+      "drug": "angiotensin-ii",
+      "preparation": "at2-2.5mg-250ml",
+      "weight": 70,
+      "dose": 20,
+      "unit": "ng/kg/min",
+      "expected_ml_h": 8.4,
+      "source_example_ml_h": 8.4,
+      "concentration": {
+        "value": 10000,
+        "unit": "ng/mL"
+      },
+      "final_volume_ml": 250,
+      "python": "PASS"
+    },
+    {
+      "id": "angiotensin-ii-2",
+      "drug": "angiotensin-ii",
+      "preparation": "at2-2.5mg-500ml",
+      "weight": 70,
+      "dose": 20,
+      "unit": "ng/kg/min",
+      "expected_ml_h": 16.8,
+      "source_example_ml_h": null,
+      "concentration": {
+        "value": 5000,
+        "unit": "ng/mL"
+      },
+      "final_volume_ml": 500,
+      "python": "PASS"
+    },
+    {
+      "id": "fentanyl-1",
+      "drug": "fentanyl",
+      "preparation": "fen-1000mcg-100ml",
+      "weight": 70,
+      "dose": 0.7,
+      "unit": "mcg/kg/h",
+      "expected_ml_h": 4.9,
+      "source_example_ml_h": 4.9,
+      "concentration": {
+        "value": 10,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "fentanyl-2",
+      "drug": "fentanyl",
+      "preparation": "fen-1000mcg-100ml",
+      "weight": 70,
+      "dose": 1.5,
+      "unit": "mcg/kg/h",
+      "expected_ml_h": 10.5,
+      "source_example_ml_h": 10.5,
+      "concentration": {
+        "value": 10,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "remifentanil-1",
+      "drug": "remifentanil",
+      "preparation": "remi-5mg-100ml",
+      "weight": 70,
+      "dose": 0.1,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 8.4,
+      "source_example_ml_h": 8.4,
+      "concentration": {
+        "value": 50,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "remifentanil-2",
+      "drug": "remifentanil",
+      "preparation": "remi-5mg-100ml",
+      "weight": 70,
+      "dose": 0.025,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 2.1,
+      "source_example_ml_h": 2.1,
+      "concentration": {
+        "value": 50,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "morphine-1",
+      "drug": "morphine",
+      "preparation": "mor-100mg-100ml",
+      "weight": null,
+      "dose": 2,
+      "unit": "mg/h",
+      "expected_ml_h": 2.0,
+      "source_example_ml_h": 2,
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "hydromorphone-1",
+      "drug": "hydromorphone",
+      "preparation": "hm-10mg-100ml",
+      "weight": null,
+      "dose": 0.5,
+      "unit": "mg/h",
+      "expected_ml_h": 5.0,
+      "source_example_ml_h": 5,
+      "concentration": {
+        "value": 0.1,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "propofol-1",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "weight": 70,
+      "dose": 5,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 2.1,
+      "source_example_ml_h": 2.1,
+      "concentration": {
+        "value": 10,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "propofol-2",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "weight": 70,
+      "dose": 25,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 10.5,
+      "source_example_ml_h": 10.5,
+      "concentration": {
+        "value": 10,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "propofol-3",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "weight": 70,
+      "dose": 50,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 21.0,
+      "source_example_ml_h": 21,
+      "concentration": {
+        "value": 10,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "propofol-4",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "weight": 70,
+      "dose": 4,
+      "unit": "mg/kg/h",
+      "expected_ml_h": 28.0,
+      "source_example_ml_h": 28,
+      "concentration": {
+        "value": 10,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "propofol-5",
+      "drug": "propofol",
+      "preparation": "prop-2pct",
+      "weight": 70,
+      "dose": 5,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 1.05,
+      "source_example_ml_h": null,
+      "concentration": {
+        "value": 20,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": null,
+      "python": "PASS"
+    },
+    {
+      "id": "dexmedetomidine-1",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-400mcg-100ml",
+      "weight": 70,
+      "dose": 0.7,
+      "unit": "mcg/kg/h",
+      "expected_ml_h": 12.25,
+      "source_example_ml_h": 12.25,
+      "concentration": {
+        "value": 4,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "dexmedetomidine-2",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-400mcg-100ml",
+      "weight": 70,
+      "dose": 0.2,
+      "unit": "mcg/kg/h",
+      "expected_ml_h": 3.5,
+      "source_example_ml_h": 3.5,
+      "concentration": {
+        "value": 4,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "dexmedetomidine-3",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-400mcg-100ml",
+      "weight": 70,
+      "dose": 1.4,
+      "unit": "mcg/kg/h",
+      "expected_ml_h": 24.5,
+      "source_example_ml_h": 24.5,
+      "concentration": {
+        "value": 4,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "dexmedetomidine-4",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-8mcg-ml",
+      "weight": 70,
+      "dose": 0.7,
+      "unit": "mcg/kg/h",
+      "expected_ml_h": 6.125,
+      "source_example_ml_h": null,
+      "concentration": {
+        "value": 8,
+        "unit": "mcg/mL"
+      },
+      "final_volume_ml": null,
+      "python": "PASS"
+    },
+    {
+      "id": "midazolam-1",
+      "drug": "midazolam",
+      "preparation": "mid-100mg-100ml",
+      "weight": 70,
+      "dose": 0.03,
+      "unit": "mg/kg/h",
+      "expected_ml_h": 2.1,
+      "source_example_ml_h": 2.1,
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "midazolam-2",
+      "drug": "midazolam",
+      "preparation": "mid-100mg-100ml",
+      "weight": 70,
+      "dose": 0.1,
+      "unit": "mg/kg/h",
+      "expected_ml_h": 7.0,
+      "source_example_ml_h": 7,
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "midazolam-3",
+      "drug": "midazolam",
+      "preparation": "mid-100mg-100ml",
+      "weight": 70,
+      "dose": 0.2,
+      "unit": "mg/kg/h",
+      "expected_ml_h": 14.0,
+      "source_example_ml_h": 14,
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "ketamine-1",
+      "drug": "ketamine",
+      "preparation": "ket-100mg-100ml",
+      "weight": 70,
+      "dose": 1,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 4.2,
+      "source_example_ml_h": 4.2,
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    },
+    {
+      "id": "ketamine-2",
+      "drug": "ketamine",
+      "preparation": "ket-100mg-100ml",
+      "weight": 70,
+      "dose": 2,
+      "unit": "mcg/kg/min",
+      "expected_ml_h": 8.4,
+      "source_example_ml_h": 8.4,
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "final_volume_ml": 100,
+      "python": "PASS"
+    }
+  ]
+}

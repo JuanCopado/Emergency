@@ -1,0 +1,623 @@
+{
+  "adult": [
+    {
+      "id": "norepinephrine-1",
+      "drug": "norepinephrine",
+      "preparation": "ne-8mg-200ml",
+      "expected_ml_h": 5.25,
+      "displayed_ml_h": 5.3,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "norepinephrine-2",
+      "drug": "norepinephrine",
+      "preparation": "ne-8mg-100ml",
+      "expected_ml_h": 2.625,
+      "displayed_ml_h": 2.6,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "norepinephrine-3",
+      "drug": "norepinephrine",
+      "preparation": "ne-8mg-200ml",
+      "expected_ml_h": 10.5,
+      "displayed_ml_h": 10.5,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "vasopressin-1",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "expected_ml_h": 1.7999999999999998,
+      "displayed_ml_h": 1.8,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "vasopressin-2",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "expected_ml_h": 0.6,
+      "displayed_ml_h": 0.6,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "vasopressin-3",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "expected_ml_h": 0.3,
+      "displayed_ml_h": 0.3,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "vasopressin-4",
+      "drug": "vasopressin",
+      "preparation": "vp-100u-100ml",
+      "expected_ml_h": 4.2,
+      "displayed_ml_h": 4.2,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "vasopressin-5",
+      "drug": "vasopressin",
+      "preparation": "vp-50u-500ml",
+      "expected_ml_h": 17.999999999999996,
+      "displayed_ml_h": 18,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "epinephrine-1",
+      "drug": "epinephrine",
+      "preparation": "epi-4mg-100ml",
+      "expected_ml_h": 5.25,
+      "displayed_ml_h": 5.3,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "epinephrine-2",
+      "drug": "epinephrine",
+      "preparation": "epi-8mg-200ml",
+      "expected_ml_h": 5.25,
+      "displayed_ml_h": 5.3,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "dopamine-1",
+      "drug": "dopamine",
+      "preparation": "dopa-400mg-250ml",
+      "expected_ml_h": 13.125,
+      "displayed_ml_h": 13.1,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "dobutamine-1",
+      "drug": "dobutamine",
+      "preparation": "dobu-250mg-100ml",
+      "expected_ml_h": 4.2,
+      "displayed_ml_h": 4.2,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "dobutamine-2",
+      "drug": "dobutamine",
+      "preparation": "dobu-250mg-200ml",
+      "expected_ml_h": 8.4,
+      "displayed_ml_h": 8.4,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "milrinone-1",
+      "drug": "milrinone",
+      "preparation": "mil-20mg-100ml",
+      "expected_ml_h": 7.875,
+      "displayed_ml_h": 7.9,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "levosimendan-1",
+      "drug": "levosimendan",
+      "preparation": "levo-12.5mg-500ml",
+      "expected_ml_h": 16.8,
+      "displayed_ml_h": 16.8,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "levosimendan-2",
+      "drug": "levosimendan",
+      "preparation": "levo-0.05mg-ml",
+      "expected_ml_h": 8.399999999999999,
+      "displayed_ml_h": 8.4,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "phenylephrine-1",
+      "drug": "phenylephrine",
+      "preparation": "phe-10mg-500ml",
+      "expected_ml_h": 60,
+      "displayed_ml_h": 60,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "phenylephrine-2",
+      "drug": "phenylephrine",
+      "preparation": "phe-2mg-100ml",
+      "expected_ml_h": 60,
+      "displayed_ml_h": 60,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "angiotensin-ii-1",
+      "drug": "angiotensin-ii",
+      "preparation": "at2-2.5mg-250ml",
+      "expected_ml_h": 8.4,
+      "displayed_ml_h": 8.4,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "angiotensin-ii-2",
+      "drug": "angiotensin-ii",
+      "preparation": "at2-2.5mg-500ml",
+      "expected_ml_h": 16.8,
+      "displayed_ml_h": 16.8,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "fentanyl-1",
+      "drug": "fentanyl",
+      "preparation": "fen-1000mcg-100ml",
+      "expected_ml_h": 4.9,
+      "displayed_ml_h": 4.9,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "fentanyl-2",
+      "drug": "fentanyl",
+      "preparation": "fen-1000mcg-100ml",
+      "expected_ml_h": 10.5,
+      "displayed_ml_h": 10.5,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "remifentanil-1",
+      "drug": "remifentanil",
+      "preparation": "remi-5mg-100ml",
+      "expected_ml_h": 8.4,
+      "displayed_ml_h": 8.4,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "remifentanil-2",
+      "drug": "remifentanil",
+      "preparation": "remi-5mg-100ml",
+      "expected_ml_h": 2.1,
+      "displayed_ml_h": 2.1,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "morphine-1",
+      "drug": "morphine",
+      "preparation": "mor-100mg-100ml",
+      "expected_ml_h": 2,
+      "displayed_ml_h": 2,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "hydromorphone-1",
+      "drug": "hydromorphone",
+      "preparation": "hm-10mg-100ml",
+      "expected_ml_h": 5,
+      "displayed_ml_h": 5,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "propofol-1",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "expected_ml_h": 2.1,
+      "displayed_ml_h": 2.1,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "propofol-2",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "expected_ml_h": 10.5,
+      "displayed_ml_h": 10.5,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "propofol-3",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "expected_ml_h": 21,
+      "displayed_ml_h": 21,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "propofol-4",
+      "drug": "propofol",
+      "preparation": "prop-1pct",
+      "expected_ml_h": 28,
+      "displayed_ml_h": 28,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "propofol-5",
+      "drug": "propofol",
+      "preparation": "prop-2pct",
+      "expected_ml_h": 1.05,
+      "displayed_ml_h": 1.1,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "dexmedetomidine-1",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-400mcg-100ml",
+      "expected_ml_h": 12.25,
+      "displayed_ml_h": 12.3,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "dexmedetomidine-2",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-400mcg-100ml",
+      "expected_ml_h": 3.5,
+      "displayed_ml_h": 3.5,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "dexmedetomidine-3",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-400mcg-100ml",
+      "expected_ml_h": 24.5,
+      "displayed_ml_h": 24.5,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "dexmedetomidine-4",
+      "drug": "dexmedetomidine",
+      "preparation": "dex-8mcg-ml",
+      "expected_ml_h": 6.125,
+      "displayed_ml_h": 6.1,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "midazolam-1",
+      "drug": "midazolam",
+      "preparation": "mid-100mg-100ml",
+      "expected_ml_h": 2.1,
+      "displayed_ml_h": 2.1,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "midazolam-2",
+      "drug": "midazolam",
+      "preparation": "mid-100mg-100ml",
+      "expected_ml_h": 7,
+      "displayed_ml_h": 7,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "midazolam-3",
+      "drug": "midazolam",
+      "preparation": "mid-100mg-100ml",
+      "expected_ml_h": 14,
+      "displayed_ml_h": 14,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "ketamine-1",
+      "drug": "ketamine",
+      "preparation": "ket-100mg-100ml",
+      "expected_ml_h": 4.2,
+      "displayed_ml_h": 4.2,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    },
+    {
+      "id": "ketamine-2",
+      "drug": "ketamine",
+      "preparation": "ket-100mg-100ml",
+      "expected_ml_h": 8.4,
+      "displayed_ml_h": 8.4,
+      "status": "PASS",
+      "alerts_and_source": "visible",
+      "python_crosscheck": "PASS",
+      "export": "not available"
+    }
+  ],
+  "pediatric": [
+    {
+      "id": "obesity-amoxicillin-adult-cap",
+      "regimen_id": "amoxicillin-aom",
+      "status": "PASS",
+      "expected_rejection": false,
+      "json_export": "PASS",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "amoxicillin-renal-standard-block",
+      "regimen_id": "amoxicillin-aom",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "coamox-7to1-renal-block",
+      "regimen_id": "amox-clav-bite",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "gas-nonimmediate-cefalexin-allowed",
+      "regimen_id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "status": "PASS",
+      "expected_rejection": false,
+      "json_export": "PASS",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "gas-immediate-cefalexin-block",
+      "regimen_id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "gas-immediate-azithromycin",
+      "regimen_id": "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
+      "status": "PASS",
+      "expected_rejection": false,
+      "json_export": "PASS",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "nitrofurantoin-pyelonephritis-block",
+      "regimen_id": "nitrofurantoin-cystitis-nice-3d",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "trimethoprim-resistance-gate",
+      "regimen_id": "trimethoprim-cystitis-low-resistance",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "ibuprofen-dehydration-block",
+      "regimen_id": "ibuprofen-pain-fever-home",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "paracetamol-ideal-weight",
+      "regimen_id": "paracetamol-pain-fever-home",
+      "status": "PASS",
+      "expected_rejection": false,
+      "json_export": "PASS",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "unverified-concentration-block",
+      "regimen_id": "amox-clav-bite",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "pertussis-variable-schedule",
+      "regimen_id": "azithromycin-pertussis-ge6mo",
+      "status": "PASS",
+      "expected_rejection": false,
+      "json_export": "PASS",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "oseltamivir-renal-block",
+      "regimen_id": "oseltamivir-influenza-ge1y",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "cetirizine-renal-block",
+      "regimen_id": "cetirizine-urticaria-ge1y",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "ors-shock-block",
+      "regimen_id": "ors-clinical-dehydration-50mlkg4h",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "dexamethasone-organ-function-no-adjustment",
+      "regimen_id": "dexamethasone-croup-mild-moderate",
+      "status": "PASS",
+      "expected_rejection": false,
+      "json_export": "PASS",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "mart-age-gate",
+      "regimen_id": "budesonide-formoterol-air-mart-6to11-gina2026",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "rizatriptan-40kg-boundary-block",
+      "regimen_id": "rizatriptan-migraine-rch",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "exact-amoxicillin-allergy",
+      "regimen_id": "amoxicillin-aom",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "clarithromycin-simvastatin",
+      "regimen_id": "clarithromycin-pertussis-ge1mo",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "rizatriptan-other-triptan",
+      "regimen_id": "rizatriptan-migraine-rch",
+      "status": "PASS",
+      "expected_rejection": true,
+      "json_export": "blocked",
+      "safety": "all messages and actions preserved"
+    },
+    {
+      "id": "paracetamol-duplicate",
+      "regimen_id": "paracetamol-pain-fever-home",
+      "status": "PASS",
+      "expected_rejection": false,
+      "json_export": "PASS",
+      "safety": "all messages and actions preserved"
+    }
+  ],
+  "clinical_status": "CLINICALLY_PENDING"
+}

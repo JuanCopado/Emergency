@@ -1184,7 +1184,7 @@
     "status": "OPEN_CLINICALLY_PENDING",
     "clinical_evidence_reverified": false,
     "human_review_required": true,
-    "executed_scope": "20 synthetic engine/API cases; 16 UI note flows; 509 Python and 177 frontend tests; not prospective validation",
+    "executed_scope": "13 score forms, 3 pediatric exports in four formats, 196 procedure sheets and 4 aliases; 40 adult and 22 pediatric pharmacology browser cases; 567 Python, 370 frontend, 7/7 Clinical QA; not prospective validation",
     "score_forms_review": {
       "forms": 13,
       "api_tests": 54,
@@ -1210,6 +1210,19 @@
       "browser_routes": 200,
       "record": "qa/V1.44_PROCEDURE_BROWSER_RESULTS.json",
       "clinical_evidence_reverified": false
+    },
+    "pharmacology_review": {
+      "inventory": "qa/V1.44_PHARMACOLOGY_INVENTORY.json",
+      "python_arithmetic_cases": 40,
+      "browser_expansion": "PASS",
+      "clinical_evidence_reverified": false,
+      "browser_record": "qa/V1.44_PHARMACOLOGY_BROWSER_RESULTS.json",
+      "adult_drugs": 17,
+      "adult_preparations": 26,
+      "adult_browser_cases": 40,
+      "pediatric_browser_cases": 22,
+      "pediatric_regimens_covered": 16,
+      "pediatric_regimens_without_browser_case": 73
     }
   }
 }

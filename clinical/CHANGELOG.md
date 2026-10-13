@@ -1,3 +1,11 @@
+## v1.44 bloque D verificado — 13/10/2026
+
+D completado: 40 cálculos adultos E2E (17 fármacos, 26 preparaciones) y 22 escenarios pediátricos (16 regímenes, siete exports JSON y 15 rechazos esperados) PASS. Correcciones solo del conductor E2E: unidad del ejemplo y selector hepático. 73 regímenes sin caso específico de navegador; seis grupos piloto sin flujo farmacológico completo. Sin cambios clínicos ni promociones. v1.44 ABIERTA/CLINICALLY_PENDING; informe qa/V1.44_FUNCTIONAL_VALIDATION.md.
+
+## v1.44 cierre parcial — 13/10/2026
+
+A/B/C completados en 1b53039/1704cec/400999c. 13 scores, export pediatrico en cuatro formatos y 196 fichas + 4 alias PASS. QA local final: 567 Python, 370 frontend, 7/7 Clinical QA, lint/typecheck/build PASS. D: 17 farmacos, 26 preparaciones, 40 casos Python PASS; nuevo E2E NO EJECUTADO por fallo de revision automatica (cuota). D/documentacion sin commit. v1.44 ABIERTA, CLINICALLY_PENDING. Ver qa/V1.44_FUNCTIONAL_VALIDATION.md.
+
 ## v1.44 bloque C — 13/10/2026
 
 Bloque C: 196/196 fichas completas (186 incorporadas), 4 alias sin duplicacion, 16 familias. Componentes genericos y proyeccion literal del JSON canonico; STOP, confirmacion y fuentes visibles. Rescate/escalada solo donde existen. 209 pruebas frontend de procedimientos, 9 pruebas Node de fidelidad, 196 rutas + 4 alias en Edge PASS; lint/typecheck/build PASS. Sin imagenes nuevas, sin cambios de evidencia. CLINICALLY_PENDING.
