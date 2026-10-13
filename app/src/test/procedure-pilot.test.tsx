@@ -2,14 +2,14 @@ import { cleanup, fireEvent, screen, within } from '@testing-library/react';
 import { afterEach, expect, it } from 'vitest';
 import Procedures from '../pages/Procedures';
 import DrugDetail from '../pages/DrugDetail';
-import { procedurePilots } from '../clinical-guides/procedurePilots';
+import { procedureSheets } from '../clinical-guides/procedureSheets';
 import { canonicalProcedures } from '../clinical-guides/procedures';
 import { renderAt } from './render';
 
 afterEach(cleanup);
 const mount = (path: string) => renderAt(path, [{ path: '/procedures', element: <Procedures /> }, { path: '/procedures/:id', element: <Procedures /> }]);
 
-it.each(procedurePilots)('preserves all canonical sections and preamble for $procedure_id', async pilot => {
+it.each(procedureSheets)('preserves all canonical sections and preamble for $procedure_id', async pilot => {
   await mount(`/procedures/${pilot.procedure_id}`);
   const article = screen.getByRole('article');
   expect(article).toHaveTextContent(pilot.provenance.family_preamble.replace(/\s+/g, ' '));
@@ -17,8 +17,10 @@ it.each(procedurePilots)('preserves all canonical sections and preamble for $pro
   expect(within(article).getByRole('region', { name: 'STOP' })).toBeVisible();
   expect(within(article).getByRole('region', { name: 'Confirmación' })).toBeVisible();
   expect(article).toHaveTextContent('YELLOW');
-  expect(article.querySelectorAll('figure')).toHaveLength(1);
+  expect(article.querySelectorAll('figure')).toHaveLength(0);
   expect(article.querySelectorAll('img')).toHaveLength(0);
+  expect(within(article).queryAllByRole('region', {name:'Rescate y escalada'})).toHaveLength(pilot.rescue?.length || pilot.escalation?.length ? 1 : 0);
+  for (const line of [...(pilot.rescue || []), ...(pilot.escalation || [])]) expect(article).toHaveTextContent(line.replace(/\s+/g,' '));
 });
 
 it('searches 196 canonical rows by alias without duplicating the result', async () => {
@@ -32,11 +34,11 @@ it('searches 196 canonical rows by alias without duplicating the result', async 
   expect(screen.getByText(/No hay coincidencias/)).toBeVisible();
 });
 
-it('distinguishes a non-pilot source reference from a clinical technique card', async () => {
+it('renders the canonical SP-002 technique outside the former pilot', async () => {
   await mount('/procedures/PROC-SP-002');
   expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Medición de presión compartimental');
-  expect(screen.getByText('Ficha fuera del piloto visual')).toBeVisible();
-  expect(screen.queryByRole('region', { name: 'STOP' })).not.toBeInTheDocument();
+  expect(screen.getByRole('region', { name: 'STOP' })).toBeVisible();
+  expect(screen.getByRole('region', { name: 'Confirmación' })).toBeVisible();
 });
 
 it('combines family and ID filters and links to the canonical detail', async () => {

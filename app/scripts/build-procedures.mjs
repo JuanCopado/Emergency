@@ -58,6 +58,23 @@ export async function buildProcedureCatalog(root = defaultRoot) {
 
 export const serializeCatalog = (catalog) => JSON.stringify(catalog, null, 2) + '\n';
 
+export async function buildProcedureSheets(root = defaultRoot) {
+  const catalog = await buildProcedureCatalog(root);
+  const directory = resolve(root, 'data/procedures');
+  const files = (await readdir(directory)).filter(f => /^PROC-.*\.json$/.test(f));
+  if (files.length !== catalog.length) throw new Error('Structured procedure inventory mismatch');
+  return Promise.all(catalog.map(async p => {
+    const sheet = JSON.parse(await read(resolve(directory, `${p.id}.json`)));
+    if (sheet.procedure_id !== p.id || !sheet.provenance?.family_preamble ||
+        !sheet.provenance.sections.STOP || !sheet.provenance.sections['Confirmación'] || !sheet.provenance.sections.Fuentes) {
+      throw new Error(`Incomplete canonical sheet: ${p.id}`);
+    }
+    // Preserve every literal section, plus explicitly extracted rescue/escalation.
+    const {procedure_id, name, family, level, status, rescue, escalation, provenance} = sheet;
+    return {procedure_id, name, family, level, status, rescue, escalation, provenance};
+  }));
+}
+
 if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) {
   const catalog = await buildProcedureCatalog();
   const output = resolve(appRoot, 'src/data/generatedProcedures.json');
@@ -66,6 +83,13 @@ if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.m
     if (await read(output) !== text) throw new Error('Procedure catalog is stale; run npm run procedures:build');
   } else {
     await writeFile(output, text, 'utf8');
+  }
+  const sheetsOutput = resolve(appRoot, 'src/data/generatedProcedureSheets.json');
+  const sheetsText = serializeCatalog(await buildProcedureSheets());
+  if (process.argv.includes('--check')) {
+    if (await read(sheetsOutput) !== sheetsText) throw new Error('Procedure sheets are stale');
+  } else {
+    await writeFile(sheetsOutput, sheetsText, 'utf8');
   }
   console.log(`${catalog.length} canonical procedures + ${catalog.flatMap((p) => p.aliases).length} aliases; ${new Set(catalog.map((p) => p.family)).size} families`);
 }

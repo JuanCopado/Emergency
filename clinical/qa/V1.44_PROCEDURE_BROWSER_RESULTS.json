@@ -1,0 +1,992 @@
+{
+  "cases": [
+    {
+      "id": "PROC-AIR-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-011",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-012",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-013",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-014",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-015",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-016",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-017",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-018",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-019",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-020",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-AIR-021",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-CV-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-012",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-013",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ENT-014",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-EYE-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GI-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-GU-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-NEURO-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-NEURO-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-NEURO-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-NEURO-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-NEURO-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-OBS-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-011",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-012",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-013",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-014",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-015",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-016",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-017",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-018",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-019",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-020",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-021",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-022",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-ORTHO-023",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-PED-011",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-011",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-012",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-013",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-SP-014",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-THX-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-TRA-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-US-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-011",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-012",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-013",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-014",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-VASC-015",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-001",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-002",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-003",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-004",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-005",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-006",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-007",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-008",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-009",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-010",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-011",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-012",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-013",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-014",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-015",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-016",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-017",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-018",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-019",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-020",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-021",
+      "status": "PASS",
+      "all_sections_visible": true
+    },
+    {
+      "id": "PROC-WND-022",
+      "status": "PASS",
+      "all_sections_visible": true
+    }
+  ],
+  "aliases": {
+    "PROC-ENT-011": "PROC-ORTHO-022",
+    "PROC-PED-008": "PROC-ORTHO-004",
+    "PROC-SP-006": "PROC-EYE-001",
+    "PROC-US-007": "PROC-CV-006"
+  },
+  "search_and_filters": "PASS",
+  "clinical_status": "CLINICALLY_PENDING"
+}

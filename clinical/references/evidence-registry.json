@@ -1203,6 +1203,13 @@
       "python_tests": 566,
       "record": "qa/V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json",
       "clinical_evidence_reverified": false
+    },
+    "procedure_sheets_review": {
+      "canonical_sheets": 196,
+      "aliases": 4,
+      "browser_routes": 200,
+      "record": "qa/V1.44_PROCEDURE_BROWSER_RESULTS.json",
+      "clinical_evidence_reverified": false
     }
   }
 }

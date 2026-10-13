@@ -1,3 +1,7 @@
+## v1.44 bloque C — 13/10/2026
+
+Bloque C: 196/196 fichas completas (186 incorporadas), 4 alias sin duplicacion, 16 familias. Componentes genericos y proyeccion literal del JSON canonico; STOP, confirmacion y fuentes visibles. Rescate/escalada solo donde existen. 209 pruebas frontend de procedimientos, 9 pruebas Node de fidelidad, 196 rutas + 4 alias en Edge PASS; lint/typecheck/build PASS. Sin imagenes nuevas, sin cambios de evidencia. CLINICALLY_PENDING.
+
 ## v1.44 bloque B — 13/10/2026
 
 Bloque B: exportacion pediatrica JSON/PDF/DOCX e impresion desde snapshot canonico, invalidada al editar. Tres casos (paracetamol, dexametasona, rizatriptan), fidelidad de todos los campos, Unicode y 4-5 paginas PASS; 40 kg sigue bloqueado. 566 tests Python PASS; build/typecheck y lint PASS. Sin nuevas pautas ni promocion. CLINICALLY_PENDING.

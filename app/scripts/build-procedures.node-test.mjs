@@ -4,11 +4,24 @@ import { readFile, mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildProcedureCatalog, serializeCatalog } from './build-procedures.mjs';
+import { buildProcedureCatalog, buildProcedureSheets, serializeCatalog } from './build-procedures.mjs';
 
 const repo = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const aliases = { 'PROC-ENT-011': 'PROC-ORTHO-022', 'PROC-PED-008': 'PROC-ORTHO-004',
   'PROC-SP-006': 'PROC-EYE-001', 'PROC-US-007': 'PROC-CV-006' };
+
+test('all 196 complete sheets preserve every canonical section and explicit extraction', async () => {
+  const sheets = await buildProcedureSheets();
+  assert.equal(sheets.length,196);
+  assert.equal(new Set(sheets.map(s=>s.procedure_id)).size,196);
+  for (const sheet of sheets) {
+    const canonical=JSON.parse(await readFile(resolve(repo,`clinical/data/procedures/${sheet.procedure_id}.json`),'utf8'));
+    for(const [key,value] of Object.entries(sheet)) assert.deepEqual(value,canonical[key],`${sheet.procedure_id}: ${key}`);
+    assert.equal(sheet.status,'YELLOW');
+  }
+  const generated=await readFile(resolve(repo,'app/src/data/generatedProcedureSheets.json'),'utf8');
+  assert.equal(generated.replace(/\r\n/g,'\n'),serializeCatalog(sheets));
+});
 
 test('196 canonical IDs + 4 aliases = 200 textual IDs across 16 families', async () => {
   const catalog = await buildProcedureCatalog();
