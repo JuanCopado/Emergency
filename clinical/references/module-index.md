@@ -1,3 +1,7 @@
+## v1.44 verificación final del bloque — 13/10/2026
+
+Verificación final del código 1c343a91fbc7223a89cf24a9fcc21a6d193fd54e: 567 Python, 370 frontend, Clinical QA 7/7, lint/typecheck/build y diff-check PASS. D E2E: 40 adultos y 22 pediátricos PASS. P0/P1 nuevos no confirmados; P2 cobertura pendiente y flujos ausentes; P3 localización/avisos heredados. Main/RC1/v1.43 intactos, sin merge/push/promociones. Graphify local sin seguimiento. v1.44 ABIERTA/CLINICALLY_PENDING.
+
 ## v1.44 bloque D verificado — 13/10/2026
 
 D completado: 40 cálculos adultos E2E (17 fármacos, 26 preparaciones) y 22 escenarios pediátricos (16 regímenes, siete exports JSON y 15 rechazos esperados) PASS. Correcciones solo del conductor E2E: unidad del ejemplo y selector hepático. 73 regímenes sin caso específico de navegador; seis grupos piloto sin flujo farmacológico completo. Sin cambios clínicos ni promociones. v1.44 ABIERTA/CLINICALLY_PENDING; informe qa/V1.44_FUNCTIONAL_VALIDATION.md.

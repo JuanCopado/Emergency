@@ -1223,6 +1223,17 @@
       "pediatric_browser_cases": 22,
       "pediatric_regimens_covered": 16,
       "pediatric_regimens_without_browser_case": 73
+    },
+    "final_technical_verification": {
+      "code_sha": "1c343a91fbc7223a89cf24a9fcc21a6d193fd54e",
+      "python_tests": 567,
+      "frontend_tests": 370,
+      "clinical_qa_checks": 7,
+      "lint": "PASS",
+      "typecheck": "PASS",
+      "build": "PASS",
+      "record": "qa/V1.44_COMPLETION_CLINICAL_QA.json",
+      "clinical_evidence_reverified": false
     }
   }
 }
