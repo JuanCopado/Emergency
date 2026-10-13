@@ -1,3 +1,7 @@
+## v1.44 — interactive score forms
+
+13 formularios prioritarios conectados al motor canónico; 135 escalas / 45 fórmulas inventariadas, 122 escalas sin formulario en backlog. 54 tests API, 182 frontend (5 nuevos), 13 escenarios reales de navegador normal/boundary/reset PASS; lint/typecheck/build PASS. GRACE conserva wrapper oficial. Bloques B/C/D pendientes; CLINICALLY_PENDING.
+
 ## v1.44 — expand functional evidence without production changes
 - After five pilots, execute 20 canonical synthetic expectations through engine/API and 16 through real UI/JSON export. Verify representative PDF/DOCX downloads and four browser-print guides.
 - Add regressions for duplicate ECG, empty note, invalid export format and combined procedure filters. Fresh results: 509 Python, 177 frontend, Clinical QA 7/7, lint/typecheck/build, 12 fidelity checks PASS.

@@ -1,0 +1,110 @@
+{
+  "cases": [
+    {
+      "id": "news2",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "sofa",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "sofa-2",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "heart",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "grace-2",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "wells-pe",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "wells-dvt",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "years-pe",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "glasgow-blatchford",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "curb65",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "glasgow-coma",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "perc",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    },
+    {
+      "id": "nihss",
+      "normal": "PASS",
+      "boundary": "PASS",
+      "missing_input": "PASS",
+      "reset": "PASS",
+      "canonical_output_visible": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45"
+}

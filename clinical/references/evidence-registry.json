@@ -1178,12 +1178,19 @@
     "validated_head": "a9a4d0dc3c6fa057e12402edf87ef790d5cdb9b1"
   },
   "functional_validation_review": {
-    "date": "2026-10-12",
+    "date": "2026-10-13",
     "record": "qa/V1.44_FUNCTIONAL_VALIDATION.md",
     "base_sha": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
     "status": "OPEN_CLINICALLY_PENDING",
     "clinical_evidence_reverified": false,
     "human_review_required": true,
-    "executed_scope": "20 synthetic engine/API cases; 16 UI note flows; 509 Python and 177 frontend tests; not prospective validation"
+    "executed_scope": "20 synthetic engine/API cases; 16 UI note flows; 509 Python and 177 frontend tests; not prospective validation",
+    "score_forms_review": {
+      "forms": 13,
+      "api_tests": 54,
+      "frontend_tests": 182,
+      "browser_cases": 13,
+      "clinical_evidence_reverified": false
+    }
   }
 }

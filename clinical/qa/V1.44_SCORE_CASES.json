@@ -1,0 +1,427 @@
+{
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "news2",
+      "normal": {
+        "respiratory_rate": 16,
+        "spo2_percent": 98,
+        "supplemental_oxygen": false,
+        "systolic_bp_mmHg": 120,
+        "pulse_bpm": 70,
+        "consciousness": "alert",
+        "temperature_c": 37.0,
+        "spo2_scale": 1
+      },
+      "boundary": {
+        "respiratory_rate": 30,
+        "spo2_percent": 90,
+        "supplemental_oxygen": true,
+        "systolic_bp_mmHg": 85,
+        "pulse_bpm": 140,
+        "consciousness": "new_confusion",
+        "temperature_c": 40.0,
+        "spo2_scale": 1
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 19
+      },
+      "provenance": "test_skill.py::test_v137_news2_source_encoded_scale1_and_scale2"
+    },
+    {
+      "id": "sofa",
+      "normal": {
+        "pao2_fio2_mmHg": 450,
+        "respiratory_support": false,
+        "platelets_10e3_uL": 200,
+        "bilirubin_mg_dL": 0.8,
+        "map_mmHg": 80,
+        "vasoactive_mcg_kg_min": {
+          "dopamine": 0,
+          "epinephrine": 0,
+          "norepinephrine": 0,
+          "dobutamine_any_dose": false
+        },
+        "gcs": 15,
+        "creatinine_mg_dL": 0.9,
+        "urine_output_mL_day": 1200,
+        "baseline_sofa": 0
+      },
+      "boundary": {
+        "pao2_fio2_mmHg": 80,
+        "respiratory_support": true,
+        "platelets_10e3_uL": 10,
+        "bilirubin_mg_dL": 13,
+        "map_mmHg": 55,
+        "vasoactive_mcg_kg_min": {
+          "dopamine": 0,
+          "epinephrine": 0,
+          "norepinephrine": 0.2,
+          "dobutamine_any_dose": false
+        },
+        "gcs": 5,
+        "creatinine_mg_dL": 6,
+        "urine_output_mL_day": 100,
+        "baseline_sofa": 0
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 24
+      },
+      "provenance": "test_skill.py::test_v137_sofa1_source_encoded_zero_and_max"
+    },
+    {
+      "id": "sofa-2",
+      "normal": {
+        "gcs": 15,
+        "delirium_drug_required": false,
+        "pao2_fio2_mmHg": 350,
+        "advanced_ventilatory_support": false,
+        "ecmo": false,
+        "map_mmHg": 80,
+        "norepinephrine_mcg_kg_min": 0,
+        "epinephrine_mcg_kg_min": 0,
+        "other_vasopressor_or_inotrope": false,
+        "mechanical_circulatory_support": false,
+        "bilirubin_mg_dL": 1.0,
+        "creatinine_mg_dL": 1.0,
+        "urine_lt_0_5_ml_kg_h_6_12h": false,
+        "urine_lt_0_5_ml_kg_h_ge12h": false,
+        "urine_lt_0_3_ml_kg_h_ge24h": false,
+        "anuria_ge12h": false,
+        "receiving_or_meets_rrt_criteria": false,
+        "platelets_10e3_uL": 200
+      },
+      "boundary": {
+        "gcs": 3,
+        "delirium_drug_required": false,
+        "pao2_fio2_mmHg": 70,
+        "advanced_ventilatory_support": true,
+        "ecmo": false,
+        "map_mmHg": 50,
+        "norepinephrine_mcg_kg_min": 0.5,
+        "epinephrine_mcg_kg_min": 0,
+        "other_vasopressor_or_inotrope": false,
+        "mechanical_circulatory_support": false,
+        "bilirubin_mg_dL": 13,
+        "creatinine_mg_dL": 4.0,
+        "urine_lt_0_5_ml_kg_h_6_12h": false,
+        "urine_lt_0_5_ml_kg_h_ge12h": false,
+        "urine_lt_0_3_ml_kg_h_ge24h": false,
+        "anuria_ge12h": false,
+        "receiving_or_meets_rrt_criteria": true,
+        "platelets_10e3_uL": 40
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 24
+      },
+      "provenance": "test_skill.py::test_v137_sofa2_source_encoded_zero_and_max"
+    },
+    {
+      "id": "heart",
+      "normal": {
+        "history": "slightly_suspicious",
+        "ecg": "normal",
+        "age": 40,
+        "risk_factor_count": 0,
+        "known_atherosclerotic_disease": false,
+        "troponin_multiple_uln": 1.0
+      },
+      "boundary": {
+        "history": "highly_suspicious",
+        "ecg": "significant_st_depression",
+        "age": 70,
+        "risk_factor_count": 3,
+        "known_atherosclerotic_disease": false,
+        "troponin_multiple_uln": 3.0
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 10
+      },
+      "provenance": "test_skill.py::test_v137_heart_source_encoded_boundaries"
+    },
+    {
+      "id": "grace-2",
+      "normal": {
+        "age": 68,
+        "heart_rate_bpm": 95,
+        "systolic_bp_mmHg": 110,
+        "creatinine_mg_dL": 1.3,
+        "killip_class": 2,
+        "cardiac_arrest_at_admission": false,
+        "st_segment_deviation": true,
+        "elevated_cardiac_biomarkers": true
+      },
+      "boundary": {
+        "age": 68,
+        "heart_rate_bpm": 95,
+        "systolic_bp_mmHg": 110,
+        "cardiac_arrest_at_admission": false,
+        "st_segment_deviation": true,
+        "elevated_cardiac_biomarkers": true
+      },
+      "expected_normal": {
+        "input_mode": "complete_grace2"
+      },
+      "expected_boundary": {
+        "input_mode": "mini_grace_possible"
+      },
+      "provenance": "test_skill.py::test_v137_grace2_routes_to_official_calculator_without_fake_probability"
+    },
+    {
+      "id": "wells-pe",
+      "normal": {
+        "clinical_signs_dvt": false,
+        "pe_more_likely_than_alternative": false,
+        "heart_rate_bpm": 80,
+        "immobilization_ge3d_or_surgery_4w": false,
+        "previous_dvt_pe": false,
+        "hemoptysis": false,
+        "active_cancer": false
+      },
+      "boundary": {
+        "clinical_signs_dvt": true,
+        "pe_more_likely_than_alternative": true,
+        "heart_rate_bpm": 120,
+        "immobilization_ge3d_or_surgery_4w": true,
+        "previous_dvt_pe": true,
+        "hemoptysis": true,
+        "active_cancer": true
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 12.5
+      },
+      "provenance": "test_skill.py::test_v137_wells_pe_source_encoded"
+    },
+    {
+      "id": "wells-dvt",
+      "normal": {
+        "active_cancer": false,
+        "paralysis_paresis_or_recent_cast": false,
+        "bedridden_ge3d_or_major_surgery_12w": false,
+        "localized_deep_vein_tenderness": false,
+        "entire_leg_swollen": false,
+        "calf_swelling_ge3cm": false,
+        "pitting_edema_symptomatic_leg": false,
+        "collateral_superficial_nonvaricose_veins": false,
+        "previous_dvt": false,
+        "alternative_diagnosis_at_least_as_likely": true
+      },
+      "boundary": {
+        "active_cancer": true,
+        "paralysis_paresis_or_recent_cast": true,
+        "bedridden_ge3d_or_major_surgery_12w": true,
+        "localized_deep_vein_tenderness": true,
+        "entire_leg_swollen": true,
+        "calf_swelling_ge3cm": true,
+        "pitting_edema_symptomatic_leg": true,
+        "collateral_superficial_nonvaricose_veins": true,
+        "previous_dvt": true,
+        "alternative_diagnosis_at_least_as_likely": false
+      },
+      "expected_normal": {
+        "total": -2
+      },
+      "expected_boundary": {
+        "total": 9
+      },
+      "provenance": "test_skill.py::test_v137_wells_dvt_source_encoded"
+    },
+    {
+      "id": "years-pe",
+      "normal": {
+        "clinical_signs_dvt": false,
+        "hemoptysis": false,
+        "pe_most_likely": false,
+        "d_dimer_ng_mL_feu": 999
+      },
+      "boundary": {
+        "clinical_signs_dvt": true,
+        "hemoptysis": false,
+        "pe_most_likely": false,
+        "d_dimer_ng_mL_feu": 500
+      },
+      "expected_normal": {
+        "pe_excluded_by_years": true
+      },
+      "expected_boundary": {
+        "pe_excluded_by_years": false
+      },
+      "provenance": "test_skill.py::test_v137_years_thresholds_are_unit_explicit"
+    },
+    {
+      "id": "glasgow-blatchford",
+      "normal": {
+        "urea_mmol_L": 5.0,
+        "hemoglobin_g_dL": 14,
+        "sex": "male",
+        "systolic_bp_mmHg": 120,
+        "pulse_bpm": 80,
+        "melena": false,
+        "syncope": false,
+        "hepatic_disease": false,
+        "heart_failure": false
+      },
+      "boundary": {
+        "urea_mmol_L": 26,
+        "hemoglobin_g_dL": 9,
+        "sex": "male",
+        "systolic_bp_mmHg": 85,
+        "pulse_bpm": 110,
+        "melena": true,
+        "syncope": true,
+        "hepatic_disease": true,
+        "heart_failure": true
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 23
+      },
+      "provenance": "test_skill.py::test_v137_glasgow_blatchford_source_encoded"
+    },
+    {
+      "id": "curb65",
+      "normal": {
+        "confusion": false,
+        "urea_mmol_L": 7,
+        "respiratory_rate": 20,
+        "systolic_bp_mmHg": 120,
+        "diastolic_bp_mmHg": 70,
+        "age": 64
+      },
+      "boundary": {
+        "confusion": true,
+        "urea_mmol_L": 8,
+        "respiratory_rate": 30,
+        "systolic_bp_mmHg": 89,
+        "diastolic_bp_mmHg": 60,
+        "age": 65
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 5
+      },
+      "provenance": "test_skill.py::test_v137_curb65_source_encoded"
+    },
+    {
+      "id": "glasgow-coma",
+      "normal": {
+        "eye": 4,
+        "verbal": 5,
+        "motor": 6
+      },
+      "boundary": {
+        "eye": 1,
+        "verbal": 1,
+        "motor": 1
+      },
+      "expected_normal": {
+        "total": 15
+      },
+      "expected_boundary": {
+        "total": 3
+      },
+      "provenance": "test_skill.py::test_v137_gcs_source_encoded_and_non_testable"
+    },
+    {
+      "id": "perc",
+      "normal": {
+        "low_pretest_probability": true,
+        "age": 40,
+        "heart_rate_bpm": 90,
+        "spo2_percent": 98,
+        "hemoptysis": false,
+        "estrogen_use": false,
+        "previous_dvt_pe": false,
+        "unilateral_leg_swelling": false,
+        "recent_surgery_or_trauma_requiring_hospitalization_4w": false
+      },
+      "boundary": {
+        "low_pretest_probability": true,
+        "age": 50,
+        "heart_rate_bpm": 90,
+        "spo2_percent": 98,
+        "hemoptysis": false,
+        "estrogen_use": false,
+        "previous_dvt_pe": false,
+        "unilateral_leg_swelling": false,
+        "recent_surgery_or_trauma_requiring_hospitalization_4w": false
+      },
+      "expected_normal": {
+        "positive_count": 0,
+        "perc_negative": true
+      },
+      "expected_boundary": {
+        "positive_count": 1,
+        "perc_negative": false
+      },
+      "provenance": "test_skill.py::test_v137_perc_requires_low_pretest_probability_and_all_8_negative"
+    },
+    {
+      "id": "nihss",
+      "normal": {
+        "items": {
+          "1a_loc": 0,
+          "1b_loc_questions": 0,
+          "1c_loc_commands": 0,
+          "2_best_gaze": 0,
+          "3_visual": 0,
+          "4_facial_palsy": 0,
+          "5a_left_arm": 0,
+          "5b_right_arm": 0,
+          "6a_left_leg": 0,
+          "6b_right_leg": 0,
+          "7_limb_ataxia": 0,
+          "8_sensory": 0,
+          "9_best_language": 0,
+          "10_dysarthria": 0,
+          "11_extinction_inattention": 0
+        }
+      },
+      "boundary": {
+        "items": {
+          "1a_loc": 3,
+          "1b_loc_questions": 2,
+          "1c_loc_commands": 2,
+          "2_best_gaze": 2,
+          "3_visual": 3,
+          "4_facial_palsy": 3,
+          "5a_left_arm": 4,
+          "5b_right_arm": 4,
+          "6a_left_leg": 4,
+          "6b_right_leg": 4,
+          "7_limb_ataxia": 2,
+          "8_sensory": 2,
+          "9_best_language": 3,
+          "10_dysarthria": 2,
+          "11_extinction_inattention": 2
+        }
+      },
+      "expected_normal": {
+        "total": 0
+      },
+      "expected_boundary": {
+        "total": 42
+      },
+      "provenance": "test_skill.py::test_v137_nihss_source_encoded_boundaries_and_un"
+    }
+  ]
+}

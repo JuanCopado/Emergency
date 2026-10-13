@@ -1,3 +1,7 @@
+# v1.44 bloque A — 13/10/2026
+
+13 formularios prioritarios conectados al motor canónico; 135 escalas / 45 fórmulas inventariadas, 122 escalas sin formulario en backlog. 54 tests API, 182 frontend (5 nuevos), 13 escenarios reales de navegador normal/boundary/reset PASS; lint/typecheck/build PASS. GRACE conserva wrapper oficial. Bloques B/C/D pendientes; CLINICALLY_PENDING.
+
 # v1.44 abierta — ampliación funcional verificada, 12/10/2026
 
 Base de cierre v1.43: `737bb1b8dce5ffbdb296bb0c99d134ea318c8298`. Después de cinco pilotos: 20/20 motor/API y 16/16 notas UI/JSON PASS; cuatro escenarios pediátricos reales; PDF/DOCX representativos y cuatro PDFs de guías. Nuevas comprobaciones: 509 Python, Clinical QA 7/7, 177 frontend, lint/typecheck/build y 12 fidelidad PASS. Sin cambios de producción.

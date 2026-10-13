@@ -23,7 +23,7 @@ export default function Home() {
         <Link to="/procedures" className="btn-ghost">Procedimientos</Link>
         <Link to="/pediatrics" className="btn-ghost">Pediatría</Link>
         <Link to="/drugs" className="btn-ghost">Fármacos</Link>
-        <Link to="/clinical/clinical-scores-calculators" className="btn-ghost">Scores · referencia</Link>
+        <Link to="/scores" className="btn-ghost">Scores clínicos</Link>
         <Link to="/guides" className="btn-ghost">Algoritmos / PDF</Link>
       </nav>
       <section aria-labelledby="home-title" className="relative overflow-hidden rounded-3xl border border-border bg-surface p-5 shadow-card sm:p-8">

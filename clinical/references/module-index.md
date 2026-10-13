@@ -1,3 +1,7 @@
+# v1.44 scores interactivos
+
+13 formularios prioritarios conectados al motor canónico; 135 escalas / 45 fórmulas inventariadas, 122 escalas sin formulario en backlog. 54 tests API, 182 frontend (5 nuevos), 13 escenarios reales de navegador normal/boundary/reset PASS; lint/typecheck/build PASS. GRACE conserva wrapper oficial. Bloques B/C/D pendientes; CLINICALLY_PENDING.
+
 # v1.44 expanded functional evidence
 
 20 engine/API and 16 real-browser note cases PASS; see `qa/V1.44_FUNCTIONAL_VALIDATION_MATRIX.md`. No module IDs, routes, clinical bodies or evidence status changes. Functional coverage remains partial; phase open.
