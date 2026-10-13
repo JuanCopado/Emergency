@@ -1191,6 +1191,18 @@
       "frontend_tests": 182,
       "browser_cases": 13,
       "clinical_evidence_reverified": false
+    },
+    "pediatric_export_review": {
+      "cases": 3,
+      "formats": [
+        "json",
+        "pdf",
+        "docx",
+        "browser_print"
+      ],
+      "python_tests": 566,
+      "record": "qa/V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json",
+      "clinical_evidence_reverified": false
     }
   }
 }

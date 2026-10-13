@@ -1,0 +1,9 @@
+{
+  "synthetic": true,
+  "provenance": "Existing test_pediatric_v142 and v138 fixtures; no new clinical recommendations",
+  "cases": [
+    {"id":"paracetamol","calculation":{"regimen_id":"paracetamol-pain-fever-home","patient":{"age_months":120,"actual_weight_kg":55,"ideal_weight_kg":35,"home_analgesia_antipyresis_appropriate":true},"selected_duration_days":2,"product":{"concentration_mg_per_ml":24}},"expected":{"dose_mg":525,"dosing_weight_kg":35,"volume_per_dose.exact_ml":21.875,"volume_per_dose.rounded_0_1_ml":21.9,"total_doses":8}},
+    {"id":"dexamethasone","calculation":{"regimen_id":"dexamethasone-croup-mild-moderate","patient":{"age_months":48,"actual_weight_kg":18,"croup_discharge_criteria_met":true},"product":{"concentration_mg_per_ml":0.4}},"expected":{"dose_mg":2.7,"volume_per_dose.exact_ml":6.75}},
+    {"id":"rizatriptan","calculation":{"regimen_id":"rizatriptan-migraine-rch","patient":{"age_months":120,"actual_weight_kg":35,"secondary_headache_red_flags_excluded":true}},"expected":{"dose_mg":5}}
+  ]
+}

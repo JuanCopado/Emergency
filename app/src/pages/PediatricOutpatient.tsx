@@ -1,3 +1,4 @@
+import PediatricExport from '../pediatrics/PediatricExport';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { calculatePediatric, findRegimen, numericInput, pediatricCatalog, regimensForDrug,
@@ -55,6 +56,7 @@ function ResultDetails({ value }: { value: Fields }) {
 function RegimenForm({ regimen }: { regimen: Regimen }) {
   const [values, setValues] = useState<Record<string, string>>({});
   const [response, setResponse] = useState<Calculation>();
+  const [calculation, setCalculation] = useState<Fields>();
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const resultRef = useRef<HTMLElement>(null);
@@ -104,7 +106,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       }
       setBusy(true);
       const result = await calculatePediatric(body);
-      if (revision.current === requestedRevision) setResponse(result);
+      if (revision.current === requestedRevision) { setCalculation(body); setResponse(result); }
     } catch (e) {
       if (revision.current === requestedRevision) setError(e instanceof Error ? e.message : 'Error de cálculo');
     } finally {
@@ -162,6 +164,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       <p>{response.safety.prescription_status}</p>
       {response.safety.alerts.map((a, i) => <p key={i} className={`rounded-xl border p-3 ${a.severity === 'STOP' ? 'border-danger bg-surface text-danger' : 'border-warn bg-warn-bg text-warn'}`}><strong>{a.severity === 'STOP' ? '⛔ ' : '⚠ '}{a.severity}: </strong>{a.message} {a.action}</p>)}
       {!response.blocked && response.result && <ResultDetails value={response.result} />}
+      {!response.blocked && response.result && response.export_report && calculation && <PediatricExport report={response.export_report} calculation={calculation} result={response.result} />}
     </section>}
   </div>;
 }

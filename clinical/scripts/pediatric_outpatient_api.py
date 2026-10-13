@@ -22,6 +22,8 @@ def calculate_request(payload):
                            selected_dose_per_kg=payload.get('selected_dose_per_kg'),
                            selected_duration_days=payload.get('selected_duration_days'),
                            selected_volume_ml=payload.get('selected_volume_ml'))
-        return {'blocked': False, 'result': result, 'safety': result['medication_safety']}
+        from pediatric_result_exporter import build_report
+        return {'blocked': False, 'result': result, 'safety': result['medication_safety'],
+                'export_report': build_report(payload, result)}
     except MedicationSafetyStop as exc:
         return {'blocked': True, 'safety': exc.alert_result}

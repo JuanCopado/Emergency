@@ -173,3 +173,11 @@ main section[id], main form[id] { scroll-margin-top: 6rem; }
     -webkit-print-color-adjust: exact;
   }
 }
+
+.pediatric-print-sheet { display: none; }
+@media print {
+  body:has(> .pediatric-print-sheet) > :not(.pediatric-print-sheet) { display: none !important; }
+  .pediatric-print-sheet, .pediatric-print-sheet * { visibility: visible; }
+  .pediatric-print-sheet { display: block; color: black; background: white; font-size: 10pt; overflow-wrap: anywhere; }
+  .pediatric-print-sheet h3 { break-after: avoid; }
+}

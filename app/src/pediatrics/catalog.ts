@@ -1,3 +1,4 @@
+import type { PediatricReport } from './PediatricExport';
 import generated from '../data/generatedPediatricOutpatient.json';
 
 export type Value = string | number | boolean | null | Value[] | { [key: string]: Value };
@@ -19,7 +20,7 @@ export const findRegimen = (id: string) => pediatricCatalog.regimens.find((r) =>
 export const regimensForDrug = (id: string) => pediatricCatalog.regimens.filter((r) => r.drug_id === id);
 
 export type Safety = { prescription_status: string; alerts: { severity: string; message: string; action: string }[] };
-export type Calculation = { blocked: boolean; result?: Fields; safety: Safety };
+export type Calculation = { blocked: boolean; export_report?: PediatricReport; result?: Fields; safety: Safety };
 
 export async function calculatePediatric(body: Fields): Promise<Calculation> {
   const base = (import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/, '');

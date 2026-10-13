@@ -435,6 +435,9 @@ def dispatch(path, payload):
     if path == "/api/clinical-scores/calculate":
         from clinical_scores_api import calculate_request
         return HTTPStatus.OK, calculate_request(payload)
+    if path == "/api/pediatric-outpatient/export":
+        from pediatric_result_exporter import export_request
+        return HTTPStatus.OK, export_request(payload)
     if path == "/api/pediatric-outpatient/calculate":
         from pediatric_outpatient_api import calculate_request
         return HTTPStatus.OK, calculate_request(payload)

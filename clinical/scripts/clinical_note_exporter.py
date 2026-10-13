@@ -288,7 +288,10 @@ def _xml_escape(s): return html.escape(str(s), quote=False)
 def export_docx(note, out_path):
     gate=validate_for_export(note)
     if gate["blocked"]: raise ValueError("export blocked: "+" | ".join(x["message"] for x in gate["findings"] if x["severity"]=="STOP"))
-    sections=note_to_sections(note)
+    return export_sections_docx(note_to_sections(note), out_path)
+
+
+def export_sections_docx(sections, out_path):
     paras=[]
     for idx,(heading,lines) in enumerate(sections):
         if idx==0:
@@ -305,7 +308,7 @@ def export_docx(note, out_path):
     rels='''<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>'''
     wrels='''<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'''
     now=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    core=f'''<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><cp:title>Clinical Note</cp:title><cp:creator>Emergency Clinical Note Module</cp:creator><dcterms:created xsi:type="dcterms:W3CDTF">{now}</dcterms:created></cp:coreProperties>'''
+    core=f'''<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><cp:title>{_xml_escape(sections[0][0])}</cp:title><cp:creator>Emergency</cp:creator><dcterms:created xsi:type="dcterms:W3CDTF">{now}</dcterms:created></cp:coreProperties>'''
     app='''<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>Emergency Clinical Note Module</Application></Properties>'''
     out=Path(out_path); out.parent.mkdir(parents=True,exist_ok=True)
     with zipfile.ZipFile(out,"w",zipfile.ZIP_DEFLATED) as z:
@@ -333,13 +336,16 @@ def export_pdf(note, out_path):
     if gate["blocked"]:
         raise ValueError("export blocked: " + " | ".join(
             x["message"] for x in gate["findings"] if x["severity"] == "STOP"))
+    return export_sections_pdf(note_to_sections(note), out_path)
+
+
+def export_sections_pdf(sections, out_path):
     # Lazy imports keep DOCX/JSON independent of the PDF runtime dependency.
     from reportlab.lib.styles import ParagraphStyle
     from reportlab.pdfgen.canvas import Canvas
     from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
 
     fonts = _pdf_fonts()
-    sections = note_to_sections(note)
     styles = {
         "title": ParagraphStyle("title", fontName="EmergencySansBold", fontSize=16, leading=22, spaceAfter=4, keepWithNext=True),
         "heading": ParagraphStyle("heading", fontName="EmergencySansBold", fontSize=12, leading=18, spaceAfter=4, keepWithNext=True),
@@ -365,7 +371,7 @@ def export_pdf(note, out_path):
     buffer = io.BytesIO()
     document = SimpleDocTemplate(buffer, pagesize=(595, 842), leftMargin=50,
                                  rightMargin=50, topMargin=42, bottomMargin=45,
-                                 title="Clinical Note", author="Emergency Clinical Note Module")
+                                 title=sections[0][0], author="Emergency")
     document.build(story, canvasmaker=partial(Canvas, pdfVersion=(1, 4)))
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
