@@ -60,7 +60,7 @@ def regimens():
                             'mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.',
                             'No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.'],
         })
-    return rows + insulin_regimens() + sodium_regimens()
+    return rows + insulin_regimens() + sodium_regimens() + status_regimens()
 
 
 def contract(rid, label, group, group_label, drug, bundle, module, anchors, fields,
@@ -129,3 +129,37 @@ def sodium_regimens():
             model='weight_volume', dose=5,
             administration='Bolo IV 5 mL/kg en 5–20 min; reevaluación neurológica/pupilar inmediata, Na/Cl, función renal y estado hídrico. No pauta continua.', **metadata),
     ]
+
+
+def status_regimens():
+    rows = []
+    for key, drug, coefficient, cap, unit, route, anchor, extra in [
+        ('lorazepam', 'Lorazepam', .1, 4, 'mg', 'IV', '0.1 mg/kg IV (max 4 mg)', []),
+        ('diazepam', 'Diazepam', None, 10, 'mg', 'IV', '0.15--0.2 mg/kg IV (max 10 mg)', [field('dose_mg_kg', 'Dosis elegida según protocolo (mg/kg)', 'number', minimum=.15, maximum=.2)]),
+        ('midazolam', 'Midazolam', .2, 10, 'mg', 'IM', '0.2 mg/kg (max 10 mg when >40 kg)', [field('no_iv_access', 'No hay acceso IV; opción IM seleccionada', expected=True)]),
+        ('levetiracetam', 'Levetiracetam', 60, 4500, 'mg', 'IV', '60 mg/kg IV, max 4,500 mg', []),
+        ('fosphenytoin', 'Fosfenitoína', 20, 1500, 'mg PE', 'IV', '20 mg PE/kg IV, max 1,500 mg PE', [field('conduction_disease', 'Enfermedad de conducción/bloqueo AV u otra contraindicación cardíaca', expected=False)]),
+        ('valproate', 'Valproato sódico', 40, 3000, 'mg', 'IV', '40 mg/kg IV, max 3,000 mg', [field('hepatic_disease', 'Enfermedad hepática significativa', expected=False), field('pregnancy_childbearing_risk', 'Embarazo o potencial gestacional que requiere decisión especializada', expected=False)]),
+    ]:
+        first = key in ('lorazepam', 'diazepam', 'midazolam')
+        stage = [field('prior_bzd_doses', 'Dosis previas de benzodiacepina documentadas (0 o 1)', 'number', minimum=0, maximum=1, integer=True)] if first else [field('adequate_bzd_failed', 'Persistencia tras benzodiacepina adecuada confirmada', expected=True)]
+        rows.append(contract('status-' + key, ('Primera línea — ' if first else 'Segunda línea — ') + drug,
+            'status', 'Status epiléptico', drug, 'neurologic.md', 'status-epilepticus', [anchor],
+            [field('weight_kg', 'Peso verificado (kg)', 'number', positive=True, **({'exclusive_minimum': 40} if key == 'midazolam' else {})),
+             field('convulsive_status_confirmed', 'Status convulsivo confirmado; causas específicas evaluadas', expected=True),
+             field('airway_rescue_ready', 'Soporte respiratorio/rescate preparado', expected=True),
+             field('one_option_selected', 'Una sola alternativa elegida para esta fase', expected=True)] + stage + extra,
+            route=route, model='weight', dose=coefficient, coefficient_field='dose_mg_kg' if coefficient is None else None,
+            maximum={'value': cap, 'unit': unit}, dose_unit=unit,
+            administration='Dosis de esta alternativa y fase; no sumar alternativas automáticamente. Ver secuencia, reevaluación y escalada en la fuente completa.',
+            limitations=['Presentación, dilución, velocidad, compatibilidad y estabilidad no especificadas: no se generan mL ni mL/h.',
+                         'PE significa equivalentes de fenitoína; no convertir a mg de otra formulación.',
+                         'Repetición/escalada requieren reevaluación clínica; no hay programación automática.']))
+    for key, label, reason in [
+        ('refractory', 'Refractario tras segunda línea — UCI/EEG', 'Escalar a UCI/neurología, vía aérea y EEG continuo; pauta anestésica requiere protocolo especializado.'),
+        ('phenytoin-local', 'Fenitoína cuando no hay fosfenitoína', 'La fuente exige carga local monitorizada; no hay pauta de producto/velocidad local verificada. No sustituir mg PE automáticamente.'),
+    ]:
+        rows.append(contract('status-' + key, label, 'status', 'Status epiléptico', label,
+            'neurologic.md', 'status-epilepticus', ['second-line'], [], block_reason=reason,
+            limitations=[reason], administration=reason))
+    return rows

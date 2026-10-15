@@ -93,6 +93,9 @@ class SourceBoundFlowCases(unittest.TestCase):
         bank = json.loads((Path(__file__).resolve().parents[1] / 'qa/V1.44_ACUTE_MEDICATION_CASES.json').read_text(encoding='utf-8'))
         current = catalog()
         for case in bank['cases']:
+            import os
+            if os.environ.get('ACUTE_FLOW') and case['group'] != os.environ['ACUTE_FLOW']:
+                continue
             with self.subTest(case=case.get('case_id', case['id'])):
                 inputs = {**bank['common'], **case['inputs']}
                 row = next((r for r in current['regimens'] if r['id'] == case['id']), None)

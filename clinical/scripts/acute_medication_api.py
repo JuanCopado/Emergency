@@ -69,6 +69,7 @@ def _validate(row, inputs):
                 invalid |= 'maximum' in f and value > f['maximum']
                 invalid |= 'exclusive_minimum' in f and value <= f['exclusive_minimum']
                 invalid |= 'exclusive_maximum' in f and value >= f['exclusive_maximum']
+                invalid |= f.get('integer', False) and value != int(value)
         elif kind == 'choice':
             invalid |= not isinstance(value, str) or value not in f['options']
         if 'expected' in f:
@@ -80,6 +81,8 @@ def _validate(row, inputs):
         ceiling = 8 if inputs['high_ods_risk'] or inputs['correction_window'] == 'subsequent24' else 10
         if inputs['sodium_current_mmol_l'] - inputs['sodium_start_mmol_l'] >= ceiling:
             alerts.append(_alert('sodium_correction', 'Límite de corrección alcanzado: no calcular otro bolo; revisión urgente de trayectoria y plan de parada/relowering.'))
+    if row.get('block_reason'):
+        alerts.append(_alert('CLINICAL_REVIEW_REQUIRED', row['block_reason']))
     return alerts
 
 
@@ -88,6 +91,9 @@ def _calculate(row, inputs):
     pump = None
     if row['model'] == 'weight_volume':
         dose *= inputs['weight_kg']
+    if row['model'] == 'weight':
+        coefficient = inputs[row['coefficient_field']] if row.get('coefficient_field') else row['dose']
+        dose = min(coefficient * inputs['weight_kg'], row['maximum']['value'])
     if row['model'] == 'insulin':
         reference = hyperglycemia_calculate({'weight_kg': inputs['weight_kg'],
             'insulin_concentration_units_ml': inputs['concentration']})['insulin_infusion_reference']

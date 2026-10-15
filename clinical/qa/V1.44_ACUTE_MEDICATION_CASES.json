@@ -311,6 +311,351 @@
           "neurocritical_stop_plan": false
         }
       ]
+    },
+    {
+      "id": "status-lorazepam",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 70,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "prior_bzd_doses": 0
+      },
+      "expect": {
+        "dose": 4,
+        "dose_unit": "mg",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "prior_bzd_doses": 2
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ]
+    },
+    {
+      "id": "status-diazepam",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 70,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "prior_bzd_doses": 1,
+        "dose_mg_kg": 0.2
+      },
+      "expect": {
+        "dose": 10,
+        "dose_unit": "mg",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "dose_mg_kg": 0.1
+        },
+        {
+          "dose_mg_kg": 0.21
+        },
+        {
+          "prior_bzd_doses": 2
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ]
+    },
+    {
+      "id": "status-midazolam",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 70,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "prior_bzd_doses": 0,
+        "route": "IM",
+        "no_iv_access": true
+      },
+      "expect": {
+        "dose": 10,
+        "dose_unit": "mg",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "weight_kg": 40
+        },
+        {
+          "no_iv_access": false
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ]
+    },
+    {
+      "id": "status-levetiracetam",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 70,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "adequate_bzd_failed": true
+      },
+      "expect": {
+        "dose": 4200,
+        "dose_unit": "mg",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "adequate_bzd_failed": false
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ]
+    },
+    {
+      "id": "status-fosphenytoin",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 70,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "adequate_bzd_failed": true,
+        "conduction_disease": false
+      },
+      "expect": {
+        "dose": 1400,
+        "dose_unit": "mg PE",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "conduction_disease": true
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ]
+    },
+    {
+      "id": "status-valproate",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 70,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "adequate_bzd_failed": true,
+        "hepatic_disease": false,
+        "pregnancy_childbearing_risk": false
+      },
+      "expect": {
+        "dose": 2800,
+        "dose_unit": "mg",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "hepatic_disease": true
+        },
+        {
+          "pregnancy_childbearing_risk": true
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ]
+    },
+    {
+      "id": "status-refractory",
+      "group": "status",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "status-phenytoin-local",
+      "group": "status",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "status-levetiracetam",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 100,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "adequate_bzd_failed": true
+      },
+      "expect": {
+        "dose": 4500,
+        "dose_unit": "mg",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "adequate_bzd_failed": false
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ],
+      "case_id": "status-levetiracetam-cap"
+    },
+    {
+      "id": "status-fosphenytoin",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 100,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "adequate_bzd_failed": true,
+        "conduction_disease": false
+      },
+      "expect": {
+        "dose": 1500,
+        "dose_unit": "mg PE",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "conduction_disease": true
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ],
+      "case_id": "status-fosphenytoin-cap"
+    },
+    {
+      "id": "status-valproate",
+      "group": "status",
+      "inputs": {
+        "weight_kg": 100,
+        "convulsive_status_confirmed": true,
+        "airway_rescue_ready": true,
+        "one_option_selected": true,
+        "adequate_bzd_failed": true,
+        "hepatic_disease": false,
+        "pregnancy_childbearing_risk": false
+      },
+      "expect": {
+        "dose": 3000,
+        "dose_unit": "mg",
+        "withdrawal_ml": null,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "hepatic_disease": true
+        },
+        {
+          "pregnancy_childbearing_risk": true
+        },
+        {
+          "weight_kg": 0
+        },
+        {
+          "convulsive_status_confirmed": false
+        },
+        {
+          "airway_rescue_ready": false
+        },
+        {
+          "one_option_selected": false
+        }
+      ],
+      "case_id": "status-valproate-cap"
     }
   ]
 }
