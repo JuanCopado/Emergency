@@ -60,7 +60,7 @@ def regimens():
                             'mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.',
                             'No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.'],
         })
-    return rows + insulin_regimens() + sodium_regimens() + status_regimens()
+    return rows + insulin_regimens() + sodium_regimens() + status_regimens() + anaphylaxis_regimens()
 
 
 def contract(rid, label, group, group_label, drug, bundle, module, anchors, fields,
@@ -162,4 +162,37 @@ def status_regimens():
         rows.append(contract('status-' + key, label, 'status', 'Status epiléptico', label,
             'neurologic.md', 'status-epilepticus', ['second-line'], [], block_reason=reason,
             limitations=[reason], administration=reason))
+    return rows
+
+
+def anaphylaxis_regimens():
+    rows = []
+    for key, label, dose, age in [
+        ('adult', 'Adulto', 500, []),
+        ('over12', 'Pediatría mayor de 12 años', 500, [field('age_months', 'Edad verificada (meses)', 'number', exclusive_minimum=144), field('small_prepubertal', 'Paciente pequeño o prepuberal', expected=False)]),
+        ('6to12', 'Pediatría de 6 a 12 años', 300, [field('age_months', 'Edad verificada (meses)', 'number', minimum=72, maximum=144)]),
+        ('6monthsto6', 'Pediatría de 6 meses a menos de 6 años', 150, [field('age_months', 'Edad verificada (meses)', 'number', minimum=6, exclusive_maximum=72)]),
+    ]:
+        rows.append(contract('anaphylaxis-' + key, label + ' — adrenalina IM', 'anaphylaxis', 'Anafilaxia',
+            'Adrenalina', 'infection-respiratory.md', 'anaphylaxis', ['1 mg/mL (1:1000)', '500 micrograms IM (0.5 mL)', '5 min'],
+            [field('concentration', 'Concentración del producto (mg/mL)', 'number', expected=1),
+             field('product_verified', 'Producto adrenalina IM 1 mg/mL verificado', expected=True),
+             field('abc_compromise', 'Problemas de vía aérea, respiración o circulación por anafilaxia persistentes', expected=True),
+             field('prior_im_doses', 'Dosis IM adecuadas ya administradas', 'number', minimum=0, maximum=1, integer=True),
+             field('elapsed_min', 'Minutos desde la dosis IM previa (0 si ninguna)', 'number', minimum=0),
+             field('small_volume_checked', 'Volumen, vía IM y técnica comprobados independientemente', expected=True)] + age,
+            route='IM', population='adult' if key == 'adult' else 'pediatric', model='adrenaline_im', dose=dose, dose_unit='micrograms',
+            concentration={'value': 1, 'unit': 'mg/mL', 'role': 'IM product'},
+            preparation='Adrenalina 1 mg/mL (1:1000) para inyección IM; no es preparación IV.',
+            administration='IM; reevaluar ABC y constantes. Repetir después de 5 min si persiste compromiso. Tras dos dosis adecuadas, activar vía refractaria experta.',
+            limitations=['No sustituye la activación urgente ni la evaluación de respuesta.',
+                         'Mayores de 12 años pequeños/prepuberales: fuente primaria incluye excepción no transcrita en el módulo; bloquear y revisar, sin introducir una pauta nueva.',
+                         'Menores de 6 meses: la fuente ofrece un intervalo sin regla individual de selección; usar rama de revisión.']))
+    for key, label, reason in [
+        ('under6months', 'Menor de 6 meses — revisión de selección', 'La fuente almacena 100–150 microgramos; falta regla individual verificada. Requiere decisión pediátrica, sin dosis automática.'),
+        ('refractory', 'Refractaria tras dos dosis IM adecuadas', 'Activar soporte experto, monitorización y protocolo de perfusión IV. No hay preparación/velocidad IV local verificada; evitar bolos IV no monitorizados.'),
+    ]:
+        rows.append(contract('anaphylaxis-' + key, label, 'anaphylaxis', 'Anafilaxia', 'Adrenalina',
+            'infection-respiratory.md', 'anaphylaxis', ['Refractory anaphylaxis'], [],
+            block_reason=reason, limitations=[reason], administration=reason))
     return rows

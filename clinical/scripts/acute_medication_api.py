@@ -83,6 +83,8 @@ def _validate(row, inputs):
             alerts.append(_alert('sodium_correction', 'Límite de corrección alcanzado: no calcular otro bolo; revisión urgente de trayectoria y plan de parada/relowering.'))
     if row.get('block_reason'):
         alerts.append(_alert('CLINICAL_REVIEW_REQUIRED', row['block_reason']))
+    if not alerts and row['model'] == 'adrenaline_im' and inputs['prior_im_doses'] == 1 and inputs['elapsed_min'] < 5:
+        alerts.append(_alert('repeat_interval', 'Reevaluar; no se cumple el intervalo de 5 min de esta pauta IM.'))
     return alerts
 
 
@@ -104,7 +106,7 @@ def _calculate(row, inputs):
     withdrawal = dose / concentration['value'] if concentration and concentration['role'] == 'stock' else None
     return {'indication': row['label'], 'drug': row['drug'], 'route': row['route'],
             'dose': dose, 'dose_unit': row['dose_unit'], 'concentration': concentration,
-            'withdrawal_ml': withdrawal, 'administration_volume_ml': dose if row['model'] in ('volume', 'weight_volume') else None, 'pump_ml_h': pump,
+            'withdrawal_ml': withdrawal, 'administration_volume_ml': dose if row['model'] in ('volume', 'weight_volume') else dose / 1000 / concentration['value'] if row['model'] == 'adrenaline_im' else None, 'pump_ml_h': pump,
             'duration_min': duration, 'amount_per_hour': dose * 60 / duration if duration else None,
             'amount_per_hour_unit': row['dose_unit'] + '/h' if duration else None,
             'correction_ceiling_mmol_l': (8 if inputs['high_ods_risk'] or inputs['correction_window'] == 'subsequent24' else 10) if row.get('sodium_correction') else None,

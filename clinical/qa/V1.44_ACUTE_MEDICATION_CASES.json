@@ -656,6 +656,414 @@
         }
       ],
       "case_id": "status-valproate-cap"
+    },
+    {
+      "id": "anaphylaxis-adult",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true
+      },
+      "expect": {
+        "dose": 500,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.5,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        }
+      ]
+    },
+    {
+      "id": "anaphylaxis-adult",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 1,
+        "elapsed_min": 5,
+        "small_volume_checked": true
+      },
+      "expect": {
+        "dose": 500,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.5,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        }
+      ],
+      "case_id": "anaphylaxis-adult-repeat"
+    },
+    {
+      "id": "anaphylaxis-over12",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true,
+        "population": "pediatric",
+        "age_months": 156,
+        "small_prepubertal": false
+      },
+      "expect": {
+        "dose": 500,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.5,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        },
+        {
+          "age_months": 144
+        },
+        {
+          "small_prepubertal": true
+        }
+      ]
+    },
+    {
+      "id": "anaphylaxis-6to12",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true,
+        "population": "pediatric",
+        "age_months": 120
+      },
+      "expect": {
+        "dose": 300,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.3,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        },
+        {
+          "age_months": 71
+        },
+        {
+          "age_months": 145
+        }
+      ]
+    },
+    {
+      "id": "anaphylaxis-6monthsto6",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true,
+        "population": "pediatric",
+        "age_months": 12
+      },
+      "expect": {
+        "dose": 150,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.15,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        },
+        {
+          "age_months": 5
+        },
+        {
+          "age_months": 72
+        }
+      ]
+    },
+    {
+      "id": "anaphylaxis-under6months",
+      "group": "anaphylaxis",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "anaphylaxis-refractory",
+      "group": "anaphylaxis",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "anaphylaxis-over12",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true,
+        "population": "pediatric",
+        "age_months": 145,
+        "small_prepubertal": false
+      },
+      "expect": {
+        "dose": 500,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.5,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        },
+        {
+          "age_months": 144
+        },
+        {
+          "small_prepubertal": true
+        }
+      ],
+      "case_id": "anaphylaxis-over12-age-145"
+    },
+    {
+      "id": "anaphylaxis-6to12",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true,
+        "population": "pediatric",
+        "age_months": 72
+      },
+      "expect": {
+        "dose": 300,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.3,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        },
+        {
+          "age_months": 71
+        },
+        {
+          "age_months": 145
+        }
+      ],
+      "case_id": "anaphylaxis-6to12-age-72"
+    },
+    {
+      "id": "anaphylaxis-6to12",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true,
+        "population": "pediatric",
+        "age_months": 144
+      },
+      "expect": {
+        "dose": 300,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.3,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        },
+        {
+          "age_months": 71
+        },
+        {
+          "age_months": 145
+        }
+      ],
+      "case_id": "anaphylaxis-6to12-age-144"
+    },
+    {
+      "id": "anaphylaxis-6monthsto6",
+      "group": "anaphylaxis",
+      "inputs": {
+        "route": "IM",
+        "concentration": 1,
+        "product_verified": true,
+        "abc_compromise": true,
+        "prior_im_doses": 0,
+        "elapsed_min": 0,
+        "small_volume_checked": true,
+        "population": "pediatric",
+        "age_months": 6
+      },
+      "expect": {
+        "dose": 150,
+        "dose_unit": "micrograms",
+        "administration_volume_ml": 0.15,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "concentration": 0.1
+        },
+        {
+          "route": "IV"
+        },
+        {
+          "abc_compromise": false
+        },
+        {
+          "prior_im_doses": 2
+        },
+        {
+          "prior_im_doses": 1,
+          "elapsed_min": 4
+        },
+        {
+          "age_months": 5
+        },
+        {
+          "age_months": 72
+        }
+      ],
+      "case_id": "anaphylaxis-6monthsto6-age-6"
     }
   ]
 }
