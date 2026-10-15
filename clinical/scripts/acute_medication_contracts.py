@@ -60,7 +60,7 @@ def regimens():
                             'mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.',
                             'No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.'],
         })
-    return rows + insulin_regimens()
+    return rows + insulin_regimens() + sodium_regimens()
 
 
 def contract(rid, label, group, group_label, drug, bundle, module, anchors, fields,
@@ -97,3 +97,35 @@ def insulin_regimens():
                          'No calcula reposición de potasio ni dosis subcutánea de transición. No suspender por normalización aislada de glucosa.',
                          'Diagnóstico y fase requieren confirmación profesional; no se diagnostican automáticamente con estos campos.']))
     return rows
+
+
+def sodium_regimens():
+    product = [field('concentration', 'Concentración de NaCl (%)', 'number', expected=3),
+               field('product_verified', 'Producto NaCl 3% verificado', expected=True)]
+    metadata = {'dose_unit': 'mL', 'concentration': {'value': 3, 'unit': '%', 'role': 'ready-to-use'},
+                'preparation': 'Producto NaCl 3% verificado; no se calcula preparación desde concentrados.',
+                'limitations': ['Bolo con duración finita; no convertir en perfusión continua.',
+                                'No predice el cambio de sodio ni autoriza repeticiones automáticas.']}
+    return [
+        contract('sodium-hyponatremia', 'Hiponatremia con síntomas neurológicos atribuibles',
+            'sodium', 'NaCl 3%', 'Cloruro sódico 3%', 'renal-metabolic.md', 'sodium-emergencies',
+            ['150 mL sodium chloride 3% IV over 20 min', '10 mmol/L in the first 24 hours', '8 mmol/L in each subsequent 24 hours'],
+            product + [field('symptoms_attributable', 'Síntomas neurológicos moderados/graves atribuibles a hiponatremia confirmados', expected=True),
+                field('sodium_start_mmol_l', 'Na al inicio de la ventana de corrección (mmol/L)', 'number', positive=True),
+                field('sodium_current_mmol_l', 'Na actual (mmol/L)', 'number', positive=True),
+                field('correction_window', 'Ventana de corrección', 'choice', options=['first24', 'subsequent24']),
+                field('high_ods_risk', 'Riesgo alto de desmielinización osmótica'),
+                field('initial_response_reached', 'Ya hubo mejoría clínica o ascenso inicial aproximado de 5 mmol/L', expected=False),
+                field('reassessment_ready', 'Reevaluación de síntomas, Na, diuresis y plan de parada/relowering preparados', expected=True)],
+            model='volume', dose=150, duration_min=20, sodium_correction=True,
+            administration='Bolo de 150 mL IV en 20 min. Reevaluar síntomas y Na; detener bolos rutinarios tras respuesta inicial. Límite acumulado no es objetivo de tratamiento.', **metadata),
+        contract('sodium-icp', 'Herniación clínica / crisis de presión intracraneal adulta',
+            'sodium', 'NaCl 3%', 'Cloruro sódico 3%', 'neurologic.md', 'traumatic-intracranial-mass-effect',
+            ['3% sodium chloride 5 mL/kg IV over 5--20 minutes'],
+            product + [field('weight_kg', 'Peso verificado (kg)', 'number', positive=True),
+                field('duration_min', 'Duración del bolo (min)', 'number', minimum=5, maximum=20),
+                field('herniation_icp_confirmed', 'Herniación clínica / crisis ICP confirmada por el profesional', expected=True),
+                field('neurocritical_stop_plan', 'Plan neurocrítico local de límites, reevaluación y repetición verificado', expected=True)],
+            model='weight_volume', dose=5,
+            administration='Bolo IV 5 mL/kg en 5–20 min; reevaluación neurológica/pupilar inmediata, Na/Cl, función renal y estado hídrico. No pauta continua.', **metadata),
+    ]

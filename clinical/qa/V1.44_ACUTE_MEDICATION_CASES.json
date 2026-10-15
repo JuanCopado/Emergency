@@ -230,6 +230,87 @@
           "hhs_without_ketosis_acidosis": false
         }
       ]
+    },
+    {
+      "id": "sodium-hyponatremia",
+      "group": "sodium",
+      "inputs": {
+        "concentration": 3,
+        "product_verified": true,
+        "symptoms_attributable": true,
+        "sodium_start_mmol_l": 115,
+        "sodium_current_mmol_l": 116,
+        "correction_window": "first24",
+        "high_ods_risk": false,
+        "initial_response_reached": false,
+        "reassessment_ready": true
+      },
+      "expect": {
+        "dose": 150,
+        "dose_unit": "mL",
+        "administration_volume_ml": 150,
+        "duration_min": 20,
+        "pump_ml_h": null,
+        "correction_ceiling_mmol_l": 10
+      },
+      "reject": [
+        {
+          "symptoms_attributable": false
+        },
+        {
+          "concentration": 23.4
+        },
+        {
+          "sodium_current_mmol_l": 125
+        },
+        {
+          "initial_response_reached": true
+        },
+        {
+          "high_ods_risk": true,
+          "sodium_current_mmol_l": 123
+        },
+        {
+          "correction_window": "subsequent24",
+          "sodium_current_mmol_l": 123
+        }
+      ]
+    },
+    {
+      "id": "sodium-icp",
+      "group": "sodium",
+      "inputs": {
+        "concentration": 3,
+        "product_verified": true,
+        "weight_kg": 70,
+        "duration_min": 20,
+        "herniation_icp_confirmed": true,
+        "neurocritical_stop_plan": true
+      },
+      "expect": {
+        "dose": 350,
+        "dose_unit": "mL",
+        "administration_volume_ml": 350,
+        "duration_min": 20,
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "weight_kg": 0
+        },
+        {
+          "duration_min": 4
+        },
+        {
+          "duration_min": 21
+        },
+        {
+          "herniation_icp_confirmed": false
+        },
+        {
+          "neurocritical_stop_plan": false
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,721 @@
+{
+  "started_at": "2026-10-15T23:04:54.100Z",
+  "clinical_status": "CLINICALLY_PENDING",
+  "group": "sodium",
+  "cases": [
+    {
+      "id": "sodium-hyponatremia",
+      "regimen": "sodium-hyponatremia",
+      "status": "PASS",
+      "inputs": {
+        "population": "adult",
+        "route": "IV",
+        "indication_confirmed": true,
+        "allergy_contraindication_present": false,
+        "interaction_reviewed": true,
+        "monitoring_ready": true,
+        "local_protocol_verified": true,
+        "concentration": 3,
+        "product_verified": true,
+        "symptoms_attributable": true,
+        "sodium_start_mmol_l": 115,
+        "sodium_current_mmol_l": 116,
+        "correction_window": "first24",
+        "high_ods_risk": false,
+        "initial_response_reached": false,
+        "reassessment_ready": true
+      },
+      "expected": {
+        "dose": 150,
+        "dose_unit": "mL",
+        "administration_volume_ml": 150,
+        "duration_min": 20,
+        "pump_ml_h": null,
+        "correction_ceiling_mmol_l": 10
+      },
+      "actual": {
+        "indication": "Hiponatremia con síntomas neurológicos atribuibles",
+        "drug": "Cloruro sódico 3%",
+        "route": "IV",
+        "dose": 150,
+        "dose_unit": "mL",
+        "concentration": {
+          "value": 3,
+          "unit": "%",
+          "role": "ready-to-use"
+        },
+        "withdrawal_ml": null,
+        "administration_volume_ml": 150,
+        "pump_ml_h": null,
+        "duration_min": 20,
+        "amount_per_hour": 450,
+        "amount_per_hour_unit": "mL/h",
+        "correction_ceiling_mmol_l": 10,
+        "maximum": null,
+        "preparation": "Producto NaCl 3% verificado; no se calcula preparación desde concentrados.",
+        "compatibility": null,
+        "stability": null,
+        "administration": "Bolo de 150 mL IV en 20 min. Reevaluar síntomas y Na; detener bolos rutinarios tras respuesta inicial. Límite acumulado no es objetivo de tratamiento.",
+        "monitoring_and_warnings": "- Confirm glucose, measured serum osmolality, volume status, urine osmolality, urine sodium, urine potassium, hourly urine volume, renal function, medications and relevant adrenal/thyroid context. Distinguish true hypotonic hyponatraemia from hyperglycaemic/translocational hyponatraemia and pseudohyponatraemia before applying a correction algorithm.\n- Calculate serum osmolality and effective tonicity when inputs are available. With mmol/L units: `calculated osmolality = 2 x serum Na + glucose + urea`; `effective tonicity = 2 x serum Na + glucose`. With mg/dL units use `2 x serum Na + glucose/18 + BUN/2.8`. Calculate `osmolal gap = measured osmolality - calculated osmolality`. Urine osmolality and urine sodium are measured values, not derivable from serum sodium alone.\n- Interpret urine osmolality with urine volume: >800 mOsm/kg usually indicates appropriate concentration; <300 mOsm/kg with polyuria suggests diabetes insipidus; 300--800 mOsm/kg is indeterminate and includes partial DI, osmotic diuresis and renal dysfunction. Interpret urine sodium in context of volume status, diuretics and kidney disease.\n- When urine sodium, urine potassium and hourly urine volume are supplied, calculate electrolyte-free water clearance: `CeH2O = urine volume x [1 - (urine Na + urine K) / serum Na]`. Add stool/insensible losses separately. Use `scripts/sodium_water_balance.py` for deterministic arithmetic.\n- **Severe or moderately severe neurologic symptoms attributable to hyponatraemia:** European guidance supports **150 mL sodium chloride 3% IV over 20 min**, then reassess symptoms and sodium. Repeat boluses according to the current protocol until clinical improvement or approximately a **5 mmol/L initial rise** is achieved. Treat the symptomatic emergency, not the sodium number in isolation.\n- After the initial response, stop routine hypertonic boluses and prevent overcorrection. Avoid a rise greater than 10 mmol/L in the first 24 hours and greater than 8 mmol/L in each subsequent 24 hours; use a stricter ceiling (generally <=8 mmol/L/24 h) when osmotic-demeylination risk is high (e.g. very low sodium, alcoholism, malnutrition, advanced liver disease or hypokalaemia). Check sodium frequently during active correction and watch urine output for sudden water diuresis.\n- If sodium is rising too fast, stop sodium-raising therapy and initiate an urgent specialist-directed relowering strategy with electrolyte-free water and/or desmopressin according to the actual trajectory and urine output. Do not use a fixed desmopressin schedule blindly.\n- **Hypernatraemia:** restore shock first with appropriate isotonic crystalloid, then replace free-water deficit enterally or with IV electrolyte-free water while accounting for ongoing losses. Determine whether the disorder is acute versus chronic/unknown before selecting a correction rate. Chronic/unknown-duration hypernatraemia generally requires slower correction and serial sodium checks; there is no single correction rate appropriate to every adult.\n- Explicitly document: symptoms, acuity, target sodium change, current sodium trajectory, urine output, ongoing losses, and stop/relowering thresholds.",
+        "limitations": [
+          "Bolo con duración finita; no convertir en perfusión continua.",
+          "No predice el cambio de sodio ni autoriza repeticiones automáticas."
+        ],
+        "clinical_status": "CLINICALLY_PENDING",
+        "review_status": "CLINICAL_REVIEW_REQUIRED",
+        "source": {
+          "module": "sodium-emergencies",
+          "path": "clinical/modules/renal-metabolic.md",
+          "preamble": "# Renal, metabolic and toxicology modules\n\nShared gate: obtain glucose, ECG, electrolytes, acid-base status, renal function,\nmedications/toxins and volume/perfusion assessment. Repeat critical values and\nverify whether results are affected by sampling error.\n",
+          "body": "- Confirm glucose, measured serum osmolality, volume status, urine osmolality, urine sodium, urine potassium, hourly urine volume, renal function, medications and relevant adrenal/thyroid context. Distinguish true hypotonic hyponatraemia from hyperglycaemic/translocational hyponatraemia and pseudohyponatraemia before applying a correction algorithm.\n- Calculate serum osmolality and effective tonicity when inputs are available. With mmol/L units: `calculated osmolality = 2 x serum Na + glucose + urea`; `effective tonicity = 2 x serum Na + glucose`. With mg/dL units use `2 x serum Na + glucose/18 + BUN/2.8`. Calculate `osmolal gap = measured osmolality - calculated osmolality`. Urine osmolality and urine sodium are measured values, not derivable from serum sodium alone.\n- Interpret urine osmolality with urine volume: >800 mOsm/kg usually indicates appropriate concentration; <300 mOsm/kg with polyuria suggests diabetes insipidus; 300--800 mOsm/kg is indeterminate and includes partial DI, osmotic diuresis and renal dysfunction. Interpret urine sodium in context of volume status, diuretics and kidney disease.\n- When urine sodium, urine potassium and hourly urine volume are supplied, calculate electrolyte-free water clearance: `CeH2O = urine volume x [1 - (urine Na + urine K) / serum Na]`. Add stool/insensible losses separately. Use `scripts/sodium_water_balance.py` for deterministic arithmetic.\n- **Severe or moderately severe neurologic symptoms attributable to hyponatraemia:** European guidance supports **150 mL sodium chloride 3% IV over 20 min**, then reassess symptoms and sodium. Repeat boluses according to the current protocol until clinical improvement or approximately a **5 mmol/L initial rise** is achieved. Treat the symptomatic emergency, not the sodium number in isolation.\n- After the initial response, stop routine hypertonic boluses and prevent overcorrection. Avoid a rise greater than 10 mmol/L in the first 24 hours and greater than 8 mmol/L in each subsequent 24 hours; use a stricter ceiling (generally <=8 mmol/L/24 h) when osmotic-demeylination risk is high (e.g. very low sodium, alcoholism, malnutrition, advanced liver disease or hypokalaemia). Check sodium frequently during active correction and watch urine output for sudden water diuresis.\n- If sodium is rising too fast, stop sodium-raising therapy and initiate an urgent specialist-directed relowering strategy with electrolyte-free water and/or desmopressin according to the actual trajectory and urine output. Do not use a fixed desmopressin schedule blindly.\n- **Hypernatraemia:** restore shock first with appropriate isotonic crystalloid, then replace free-water deficit enterally or with IV electrolyte-free water while accounting for ongoing losses. Determine whether the disorder is acute versus chronic/unknown before selecting a correction rate. Chronic/unknown-duration hypernatraemia generally requires slower correction and serial sodium checks; there is no single correction rate appropriate to every adult.\n- Explicitly document: symptoms, acuity, target sodium change, current sodium trajectory, urine output, ongoing losses, and stop/relowering thresholds.",
+          "evidence": {
+            "priority": "high",
+            "primary_source": "European Clinical Practice Guideline on hyponatraemia + Society for Endocrinology emergency guidance",
+            "stored_version": "ESE/ERA-EDTA 2014; Society for Endocrinology 2022; v1.36 focused review 2026-10-02",
+            "last_checked": "2026-10-02",
+            "status": "yellow",
+            "note": "Core 150 mL 3% saline strategy and correction ceilings remain consistent with European guidance; v1.36 strengthens high-risk ceilings, relowering and documentation. Remains yellow because definitive European guidance is older and local hypertonic-saline/monitoring protocol requires human review.",
+            "primary_source_url": "https://academic.oup.com/ejendo/article/170/3/G1/6668028"
+          },
+          "localization": null
+        }
+      },
+      "report": {
+        "snapshot": {
+          "clinical_status": "CLINICALLY_PENDING",
+          "regimen_id": "sodium-hyponatremia",
+          "source_revision": "489a397aee02d7cd58cebaf20ff5e80d8c003b066735856ff85645b647ca44cd",
+          "inputs": {
+            "population": "adult",
+            "route": "IV",
+            "indication_confirmed": true,
+            "allergy_contraindication_present": false,
+            "interaction_reviewed": true,
+            "monitoring_ready": true,
+            "local_protocol_verified": true,
+            "concentration": 3,
+            "product_verified": true,
+            "symptoms_attributable": true,
+            "sodium_start_mmol_l": 115,
+            "sodium_current_mmol_l": 116,
+            "correction_window": "first24",
+            "high_ods_risk": false,
+            "initial_response_reached": false,
+            "reassessment_ready": true
+          },
+          "result": {
+            "indication": "Hiponatremia con síntomas neurológicos atribuibles",
+            "drug": "Cloruro sódico 3%",
+            "route": "IV",
+            "dose": 150,
+            "dose_unit": "mL",
+            "concentration": {
+              "value": 3,
+              "unit": "%",
+              "role": "ready-to-use"
+            },
+            "withdrawal_ml": null,
+            "administration_volume_ml": 150,
+            "pump_ml_h": null,
+            "duration_min": 20,
+            "amount_per_hour": 450,
+            "amount_per_hour_unit": "mL/h",
+            "correction_ceiling_mmol_l": 10,
+            "maximum": null,
+            "preparation": "Producto NaCl 3% verificado; no se calcula preparación desde concentrados.",
+            "compatibility": null,
+            "stability": null,
+            "administration": "Bolo de 150 mL IV en 20 min. Reevaluar síntomas y Na; detener bolos rutinarios tras respuesta inicial. Límite acumulado no es objetivo de tratamiento.",
+            "monitoring_and_warnings": "- Confirm glucose, measured serum osmolality, volume status, urine osmolality, urine sodium, urine potassium, hourly urine volume, renal function, medications and relevant adrenal/thyroid context. Distinguish true hypotonic hyponatraemia from hyperglycaemic/translocational hyponatraemia and pseudohyponatraemia before applying a correction algorithm.\n- Calculate serum osmolality and effective tonicity when inputs are available. With mmol/L units: `calculated osmolality = 2 x serum Na + glucose + urea`; `effective tonicity = 2 x serum Na + glucose`. With mg/dL units use `2 x serum Na + glucose/18 + BUN/2.8`. Calculate `osmolal gap = measured osmolality - calculated osmolality`. Urine osmolality and urine sodium are measured values, not derivable from serum sodium alone.\n- Interpret urine osmolality with urine volume: >800 mOsm/kg usually indicates appropriate concentration; <300 mOsm/kg with polyuria suggests diabetes insipidus; 300--800 mOsm/kg is indeterminate and includes partial DI, osmotic diuresis and renal dysfunction. Interpret urine sodium in context of volume status, diuretics and kidney disease.\n- When urine sodium, urine potassium and hourly urine volume are supplied, calculate electrolyte-free water clearance: `CeH2O = urine volume x [1 - (urine Na + urine K) / serum Na]`. Add stool/insensible losses separately. Use `scripts/sodium_water_balance.py` for deterministic arithmetic.\n- **Severe or moderately severe neurologic symptoms attributable to hyponatraemia:** European guidance supports **150 mL sodium chloride 3% IV over 20 min**, then reassess symptoms and sodium. Repeat boluses according to the current protocol until clinical improvement or approximately a **5 mmol/L initial rise** is achieved. Treat the symptomatic emergency, not the sodium number in isolation.\n- After the initial response, stop routine hypertonic boluses and prevent overcorrection. Avoid a rise greater than 10 mmol/L in the first 24 hours and greater than 8 mmol/L in each subsequent 24 hours; use a stricter ceiling (generally <=8 mmol/L/24 h) when osmotic-demeylination risk is high (e.g. very low sodium, alcoholism, malnutrition, advanced liver disease or hypokalaemia). Check sodium frequently during active correction and watch urine output for sudden water diuresis.\n- If sodium is rising too fast, stop sodium-raising therapy and initiate an urgent specialist-directed relowering strategy with electrolyte-free water and/or desmopressin according to the actual trajectory and urine output. Do not use a fixed desmopressin schedule blindly.\n- **Hypernatraemia:** restore shock first with appropriate isotonic crystalloid, then replace free-water deficit enterally or with IV electrolyte-free water while accounting for ongoing losses. Determine whether the disorder is acute versus chronic/unknown before selecting a correction rate. Chronic/unknown-duration hypernatraemia generally requires slower correction and serial sodium checks; there is no single correction rate appropriate to every adult.\n- Explicitly document: symptoms, acuity, target sodium change, current sodium trajectory, urine output, ongoing losses, and stop/relowering thresholds.",
+            "limitations": [
+              "Bolo con duración finita; no convertir en perfusión continua.",
+              "No predice el cambio de sodio ni autoriza repeticiones automáticas."
+            ],
+            "clinical_status": "CLINICALLY_PENDING",
+            "review_status": "CLINICAL_REVIEW_REQUIRED",
+            "source": {
+              "module": "sodium-emergencies",
+              "path": "clinical/modules/renal-metabolic.md",
+              "preamble": "# Renal, metabolic and toxicology modules\n\nShared gate: obtain glucose, ECG, electrolytes, acid-base status, renal function,\nmedications/toxins and volume/perfusion assessment. Repeat critical values and\nverify whether results are affected by sampling error.\n",
+              "body": "- Confirm glucose, measured serum osmolality, volume status, urine osmolality, urine sodium, urine potassium, hourly urine volume, renal function, medications and relevant adrenal/thyroid context. Distinguish true hypotonic hyponatraemia from hyperglycaemic/translocational hyponatraemia and pseudohyponatraemia before applying a correction algorithm.\n- Calculate serum osmolality and effective tonicity when inputs are available. With mmol/L units: `calculated osmolality = 2 x serum Na + glucose + urea`; `effective tonicity = 2 x serum Na + glucose`. With mg/dL units use `2 x serum Na + glucose/18 + BUN/2.8`. Calculate `osmolal gap = measured osmolality - calculated osmolality`. Urine osmolality and urine sodium are measured values, not derivable from serum sodium alone.\n- Interpret urine osmolality with urine volume: >800 mOsm/kg usually indicates appropriate concentration; <300 mOsm/kg with polyuria suggests diabetes insipidus; 300--800 mOsm/kg is indeterminate and includes partial DI, osmotic diuresis and renal dysfunction. Interpret urine sodium in context of volume status, diuretics and kidney disease.\n- When urine sodium, urine potassium and hourly urine volume are supplied, calculate electrolyte-free water clearance: `CeH2O = urine volume x [1 - (urine Na + urine K) / serum Na]`. Add stool/insensible losses separately. Use `scripts/sodium_water_balance.py` for deterministic arithmetic.\n- **Severe or moderately severe neurologic symptoms attributable to hyponatraemia:** European guidance supports **150 mL sodium chloride 3% IV over 20 min**, then reassess symptoms and sodium. Repeat boluses according to the current protocol until clinical improvement or approximately a **5 mmol/L initial rise** is achieved. Treat the symptomatic emergency, not the sodium number in isolation.\n- After the initial response, stop routine hypertonic boluses and prevent overcorrection. Avoid a rise greater than 10 mmol/L in the first 24 hours and greater than 8 mmol/L in each subsequent 24 hours; use a stricter ceiling (generally <=8 mmol/L/24 h) when osmotic-demeylination risk is high (e.g. very low sodium, alcoholism, malnutrition, advanced liver disease or hypokalaemia). Check sodium frequently during active correction and watch urine output for sudden water diuresis.\n- If sodium is rising too fast, stop sodium-raising therapy and initiate an urgent specialist-directed relowering strategy with electrolyte-free water and/or desmopressin according to the actual trajectory and urine output. Do not use a fixed desmopressin schedule blindly.\n- **Hypernatraemia:** restore shock first with appropriate isotonic crystalloid, then replace free-water deficit enterally or with IV electrolyte-free water while accounting for ongoing losses. Determine whether the disorder is acute versus chronic/unknown before selecting a correction rate. Chronic/unknown-duration hypernatraemia generally requires slower correction and serial sodium checks; there is no single correction rate appropriate to every adult.\n- Explicitly document: symptoms, acuity, target sodium change, current sodium trajectory, urine output, ongoing losses, and stop/relowering thresholds.",
+              "evidence": {
+                "priority": "high",
+                "primary_source": "European Clinical Practice Guideline on hyponatraemia + Society for Endocrinology emergency guidance",
+                "stored_version": "ESE/ERA-EDTA 2014; Society for Endocrinology 2022; v1.36 focused review 2026-10-02",
+                "last_checked": "2026-10-02",
+                "status": "yellow",
+                "note": "Core 150 mL 3% saline strategy and correction ceilings remain consistent with European guidance; v1.36 strengthens high-risk ceilings, relowering and documentation. Remains yellow because definitive European guidance is older and local hypertonic-saline/monitoring protocol requires human review.",
+                "primary_source_url": "https://academic.oup.com/ejendo/article/170/3/G1/6668028"
+              },
+              "localization": null
+            }
+          }
+        },
+        "sections": [
+          [
+            "Farmacología aguda — apoyo aritmético",
+            []
+          ],
+          [
+            "Estado y límites de validación",
+            [
+              "CLINICALLY_PENDING",
+              "Functional validation does not constitute prospective clinical validation."
+            ]
+          ],
+          [
+            "Datos y selección confirmados",
+            [
+              "regimen_id: sodium-hyponatremia",
+              "inputs.population: adult",
+              "inputs.route: IV",
+              "inputs.indication_confirmed: true",
+              "inputs.allergy_contraindication_present: false",
+              "inputs.interaction_reviewed: true",
+              "inputs.monitoring_ready: true",
+              "inputs.local_protocol_verified: true",
+              "inputs.concentration: 3",
+              "inputs.product_verified: true",
+              "inputs.symptoms_attributable: true",
+              "inputs.sodium_start_mmol_l: 115",
+              "inputs.sodium_current_mmol_l: 116",
+              "inputs.correction_window: first24",
+              "inputs.high_ods_risk: false",
+              "inputs.initial_response_reached: false",
+              "inputs.reassessment_ready: true"
+            ]
+          ],
+          [
+            "Resultado, preparación, límites, monitorización y evidencia",
+            [
+              "indication: Hiponatremia con síntomas neurológicos atribuibles",
+              "drug: Cloruro sódico 3%",
+              "route: IV",
+              "dose: 150",
+              "dose_unit: mL",
+              "concentration.value: 3",
+              "concentration.unit: %",
+              "concentration.role: ready-to-use",
+              "withdrawal_ml: null",
+              "administration_volume_ml: 150",
+              "pump_ml_h: null",
+              "duration_min: 20",
+              "amount_per_hour: 450.0",
+              "amount_per_hour_unit: mL/h",
+              "correction_ceiling_mmol_l: 10",
+              "maximum: null",
+              "preparation: Producto NaCl 3% verificado; no se calcula preparación desde concentrados.",
+              "compatibility: null",
+              "stability: null",
+              "administration: Bolo de 150 mL IV en 20 min. Reevaluar síntomas y Na; detener bolos rutinarios tras respuesta inicial. Límite acumulado no es objetivo de tratamiento.",
+              "monitoring_and_warnings: - Confirm glucose, measured serum osmolality, volume status, urine osmolality, urine sodium, urine potassium, hourly urine volume, renal function, medications and relevant adrenal/thyroid context. Distinguish true hypotonic hyponatraemia from hyperglycaemic/translocational hyponatraemia and pseudohyponatraemia before applying a correction algorithm.\n- Calculate serum osmolality and effective tonicity when inputs are available. With mmol/L units: `calculated osmolality = 2 x serum Na + glucose + urea`; `effective tonicity = 2 x serum Na + glucose`. With mg/dL units use `2 x serum Na + glucose/18 + BUN/2.8`. Calculate `osmolal gap = measured osmolality - calculated osmolality`. Urine osmolality and urine sodium are measured values, not derivable from serum sodium alone.\n- Interpret urine osmolality with urine volume: >800 mOsm/kg usually indicates appropriate concentration; <300 mOsm/kg with polyuria suggests diabetes insipidus; 300--800 mOsm/kg is indeterminate and includes partial DI, osmotic diuresis and renal dysfunction. Interpret urine sodium in context of volume status, diuretics and kidney disease.\n- When urine sodium, urine potassium and hourly urine volume are supplied, calculate electrolyte-free water clearance: `CeH2O = urine volume x [1 - (urine Na + urine K) / serum Na]`. Add stool/insensible losses separately. Use `scripts/sodium_water_balance.py` for deterministic arithmetic.\n- **Severe or moderately severe neurologic symptoms attributable to hyponatraemia:** European guidance supports **150 mL sodium chloride 3% IV over 20 min**, then reassess symptoms and sodium. Repeat boluses according to the current protocol until clinical improvement or approximately a **5 mmol/L initial rise** is achieved. Treat the symptomatic emergency, not the sodium number in isolation.\n- After the initial response, stop routine hypertonic boluses and prevent overcorrection. Avoid a rise greater than 10 mmol/L in the first 24 hours and greater than 8 mmol/L in each subsequent 24 hours; use a stricter ceiling (generally <=8 mmol/L/24 h) when osmotic-demeylination risk is high (e.g. very low sodium, alcoholism, malnutrition, advanced liver disease or hypokalaemia). Check sodium frequently during active correction and watch urine output for sudden water diuresis.\n- If sodium is rising too fast, stop sodium-raising therapy and initiate an urgent specialist-directed relowering strategy with electrolyte-free water and/or desmopressin according to the actual trajectory and urine output. Do not use a fixed desmopressin schedule blindly.\n- **Hypernatraemia:** restore shock first with appropriate isotonic crystalloid, then replace free-water deficit enterally or with IV electrolyte-free water while accounting for ongoing losses. Determine whether the disorder is acute versus chronic/unknown before selecting a correction rate. Chronic/unknown-duration hypernatraemia generally requires slower correction and serial sodium checks; there is no single correction rate appropriate to every adult.\n- Explicitly document: symptoms, acuity, target sodium change, current sodium trajectory, urine output, ongoing losses, and stop/relowering thresholds.",
+              "limitations[0]: Bolo con duración finita; no convertir en perfusión continua.",
+              "limitations[1]: No predice el cambio de sodio ni autoriza repeticiones automáticas.",
+              "clinical_status: CLINICALLY_PENDING",
+              "review_status: CLINICAL_REVIEW_REQUIRED",
+              "source.module: sodium-emergencies",
+              "source.path: clinical/modules/renal-metabolic.md",
+              "source.preamble: # Renal, metabolic and toxicology modules\n\nShared gate: obtain glucose, ECG, electrolytes, acid-base status, renal function,\nmedications/toxins and volume/perfusion assessment. Repeat critical values and\nverify whether results are affected by sampling error.\n",
+              "source.body: - Confirm glucose, measured serum osmolality, volume status, urine osmolality, urine sodium, urine potassium, hourly urine volume, renal function, medications and relevant adrenal/thyroid context. Distinguish true hypotonic hyponatraemia from hyperglycaemic/translocational hyponatraemia and pseudohyponatraemia before applying a correction algorithm.\n- Calculate serum osmolality and effective tonicity when inputs are available. With mmol/L units: `calculated osmolality = 2 x serum Na + glucose + urea`; `effective tonicity = 2 x serum Na + glucose`. With mg/dL units use `2 x serum Na + glucose/18 + BUN/2.8`. Calculate `osmolal gap = measured osmolality - calculated osmolality`. Urine osmolality and urine sodium are measured values, not derivable from serum sodium alone.\n- Interpret urine osmolality with urine volume: >800 mOsm/kg usually indicates appropriate concentration; <300 mOsm/kg with polyuria suggests diabetes insipidus; 300--800 mOsm/kg is indeterminate and includes partial DI, osmotic diuresis and renal dysfunction. Interpret urine sodium in context of volume status, diuretics and kidney disease.\n- When urine sodium, urine potassium and hourly urine volume are supplied, calculate electrolyte-free water clearance: `CeH2O = urine volume x [1 - (urine Na + urine K) / serum Na]`. Add stool/insensible losses separately. Use `scripts/sodium_water_balance.py` for deterministic arithmetic.\n- **Severe or moderately severe neurologic symptoms attributable to hyponatraemia:** European guidance supports **150 mL sodium chloride 3% IV over 20 min**, then reassess symptoms and sodium. Repeat boluses according to the current protocol until clinical improvement or approximately a **5 mmol/L initial rise** is achieved. Treat the symptomatic emergency, not the sodium number in isolation.\n- After the initial response, stop routine hypertonic boluses and prevent overcorrection. Avoid a rise greater than 10 mmol/L in the first 24 hours and greater than 8 mmol/L in each subsequent 24 hours; use a stricter ceiling (generally <=8 mmol/L/24 h) when osmotic-demeylination risk is high (e.g. very low sodium, alcoholism, malnutrition, advanced liver disease or hypokalaemia). Check sodium frequently during active correction and watch urine output for sudden water diuresis.\n- If sodium is rising too fast, stop sodium-raising therapy and initiate an urgent specialist-directed relowering strategy with electrolyte-free water and/or desmopressin according to the actual trajectory and urine output. Do not use a fixed desmopressin schedule blindly.\n- **Hypernatraemia:** restore shock first with appropriate isotonic crystalloid, then replace free-water deficit enterally or with IV electrolyte-free water while accounting for ongoing losses. Determine whether the disorder is acute versus chronic/unknown before selecting a correction rate. Chronic/unknown-duration hypernatraemia generally requires slower correction and serial sodium checks; there is no single correction rate appropriate to every adult.\n- Explicitly document: symptoms, acuity, target sodium change, current sodium trajectory, urine output, ongoing losses, and stop/relowering thresholds.",
+              "source.evidence.priority: high",
+              "source.evidence.primary_source: European Clinical Practice Guideline on hyponatraemia + Society for Endocrinology emergency guidance",
+              "source.evidence.stored_version: ESE/ERA-EDTA 2014; Society for Endocrinology 2022; v1.36 focused review 2026-10-02",
+              "source.evidence.last_checked: 2026-10-02",
+              "source.evidence.status: yellow",
+              "source.evidence.note: Core 150 mL 3% saline strategy and correction ceilings remain consistent with European guidance; v1.36 strengthens high-risk ceilings, relowering and documentation. Remains yellow because definitive European guidance is older and local hypertonic-saline/monitoring protocol requires human review.",
+              "source.evidence.primary_source_url: https://academic.oup.com/ejendo/article/170/3/G1/6668028",
+              "source.localization: null"
+            ]
+          ],
+          [
+            "Procedencia",
+            [
+              "source_revision: 489a397aee02d7cd58cebaf20ff5e80d8c003b066735856ff85645b647ca44cd"
+            ]
+          ]
+        ]
+      },
+      "gates": [
+        {
+          "key": "route",
+          "value": "PO",
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "route",
+              "message": "Revisar Vía; valor requerido: IV. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "allergy_contraindication_present",
+          "value": true,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "allergy_contraindication_present",
+              "message": "Revisar Alergia o contraindicación para esta opción; valor requerido: False. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "monitoring_ready",
+          "value": false,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "monitoring_ready",
+              "message": "Revisar Monitorización y medios de rescate disponibles; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "concentration",
+          "value": 0,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "concentration",
+              "message": "Revisar Concentración de NaCl (%); valor requerido: 3. No se cumple el contrato de esta pauta."
+            }
+          ]
+        }
+      ],
+      "rejectedInputs": [
+        {
+          "updates": {
+            "symptoms_attributable": false
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "symptoms_attributable",
+              "message": "Revisar Síntomas neurológicos moderados/graves atribuibles a hiponatremia confirmados; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "concentration": 23.4
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "concentration",
+              "message": "Revisar Concentración de NaCl (%); valor requerido: 3. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "sodium_current_mmol_l": 125
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "sodium_correction",
+              "message": "Límite de corrección alcanzado: no calcular otro bolo; revisión urgente de trayectoria y plan de parada/relowering."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "initial_response_reached": true
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "initial_response_reached",
+              "message": "Revisar Ya hubo mejoría clínica o ascenso inicial aproximado de 5 mmol/L; valor requerido: False. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "high_ods_risk": true,
+            "sodium_current_mmol_l": 123
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "sodium_correction",
+              "message": "Límite de corrección alcanzado: no calcular otro bolo; revisión urgente de trayectoria y plan de parada/relowering."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "correction_window": "subsequent24",
+            "sodium_current_mmol_l": 123
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "sodium_correction",
+              "message": "Límite de corrección alcanzado: no calcular otro bolo; revisión urgente de trayectoria y plan de parada/relowering."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        "json",
+        "pdf",
+        "docx",
+        "print"
+      ],
+      "pages": {
+        "pdf": 4,
+        "print": 4
+      },
+      "invalidation": "PASS"
+    },
+    {
+      "id": "sodium-icp",
+      "regimen": "sodium-icp",
+      "status": "PASS",
+      "inputs": {
+        "population": "adult",
+        "route": "IV",
+        "indication_confirmed": true,
+        "allergy_contraindication_present": false,
+        "interaction_reviewed": true,
+        "monitoring_ready": true,
+        "local_protocol_verified": true,
+        "concentration": 3,
+        "product_verified": true,
+        "weight_kg": 70,
+        "duration_min": 20,
+        "herniation_icp_confirmed": true,
+        "neurocritical_stop_plan": true
+      },
+      "expected": {
+        "dose": 350,
+        "dose_unit": "mL",
+        "administration_volume_ml": 350,
+        "duration_min": 20,
+        "pump_ml_h": null
+      },
+      "actual": {
+        "indication": "Herniación clínica / crisis de presión intracraneal adulta",
+        "drug": "Cloruro sódico 3%",
+        "route": "IV",
+        "dose": 350,
+        "dose_unit": "mL",
+        "concentration": {
+          "value": 3,
+          "unit": "%",
+          "role": "ready-to-use"
+        },
+        "withdrawal_ml": null,
+        "administration_volume_ml": 350,
+        "pump_ml_h": null,
+        "duration_min": 20,
+        "amount_per_hour": 1050,
+        "amount_per_hour_unit": "mL/h",
+        "correction_ceiling_mmol_l": null,
+        "maximum": null,
+        "preparation": "Producto NaCl 3% verificado; no se calcula preparación desde concentrados.",
+        "compatibility": null,
+        "stability": null,
+        "administration": "Bolo IV 5 mL/kg en 5–20 min; reevaluación neurológica/pupilar inmediata, Na/Cl, función renal y estado hídrico. No pauta continua.",
+        "monitoring_and_warnings": "- Treat traumatic extra-axial hematoma with ventricular/cisternal compression, midline displacement, neurologic decline or herniation signs as an immediate neurosurgical emergency. Hyperosmolar therapy is a bridge to definitive evacuation, not a substitute for it.\n- **Hospital da Horta local pathway (TCE protocol supplied 02/10/2026):** begin with ABCDE stabilization, trauma history/comorbidity review and complete examination. Avoid hypoxaemia (local card: SpO2 <94% or PaO2 <60 mmHg), avoid arterial hypotension (local card: SBP <90 mmHg), intubate/sedate/ventilate when GCS <=8 as clinically indicated, and watch for intracranial-hypertension signs. Obtain CBC + coagulation + renal function in moderate/severe TBI and in mild TBI with anticoagulation/coagulopathy or abnormal head CT.\n- **Local Horta mild-TBI CT routing:** GCS 15 asymptomatic with no listed risk factor -> discharge pathway with competent adult observation >=24 h and written alarm symptoms. GCS 15 symptomatic without listed risk factors -> head CT; if normal, observe in ED >=6 h and discharge only when asymptomatic/symptoms controlled. GCS 15 with >=1 local intracranial-injury risk factor, or GCS 13--14 -> head CT. Local risk factors shown on the card include epilepsy history, previous neurosurgery, age >65 years (context-dependent), coagulopathy/hypocoagulation, antiplatelet therapy, alcohol/drug use, impaired ability to assess clinically, high-energy mechanism, signs of skull fracture and new focal deficit.\n- **Local Horta anticoagulation exception:** for an anticoagulated patient with GCS 15 and a normal initial head CT, the card specifies ED surveillance for >=12 h rather than automatic ward admission.\n- **Local Horta moderate/severe pathway:** GCS 9--12 -> head CT and contact neurosurgery (HDES). GCS <=8 -> head CT and neurosurgical contact; add cervical-spine CT in an unconscious patient or when cervical injury is suspected. Disposition is based on neuroimaging/clinical course and local neurosurgical/ICU/transfer capability.\n- **Repeat head CT locally without delay** for symptomatic deterioration, a fall of >=2 GCS points, intracranial-hypertension signs or a new focal neurological deficit.\n- **Evidence boundary:** the Horta card is more CT-intensive in some mild-TBI groups than NICE NG232 (2023). When operating at Horta, use the local pathway unless formally superseded, while retaining NICE as an external comparison for protocol drift.\n- **Blood-pressure boundary:** the local card says avoid SBP <90 mmHg. For severe TBI, Brain Trauma Foundation supports higher age-stratified lower safety bounds: SBP >=100 mmHg for ages 50--69 and >=110 mmHg for ages 15--49 or >70. Therefore 90 mmHg must not be treated as the desired severe-TBI target; it is a local red-line threshold to reconcile with the higher BTF floors. These lower safety bounds are not automatic upper BP targets.\n- Activate neurosurgery/trauma and operating-room transfer now for mass effect/herniation. Elevate the head about 30 degrees, keep the neck neutral, avoid hypoxemia and fever, correct glucose extremes, provide monitored analgesia/sedation, obtain serial GCS and pupil examinations, and reverse anticoagulation when indicated. Do not give corticosteroids for traumatic brain injury.\n- Do not apply the blood-pressure target for spontaneous intraparenchymal hemorrhage, aneurysmal subarachnoid hemorrhage or ischemic stroke to TBI. Hypertension may be a compensatory response to raised intracranial pressure. First treat pain, agitation, hypoxemia and intracranial hypertension while preventing hypotension.\n- If ICP is monitored, individualize cerebral perfusion pressure, commonly within 60--70 mmHg. Treat ICP >22 mmHg when appropriate in severe TBI because values above this threshold are associated with increased mortality.\n- If severe hypertension persists after analgesia/sedation and hyperosmolar rescue, and controlled lowering is judged necessary, use a short-acting titratable IV agent with continuous BP monitoring and an explicit lower safety bound. For a compatible ready-to-use nicardipine concentration of 20 mg in 200 mL (0.1 mg/mL), start 5 mg/h = 50 mL/h; increase by 2.5 mg/h = 25 mL/h every 5--15 minutes; maximum 15 mg/h = 150 mL/h. Reduce promptly when the individualized target is reached and hold/reduce for hypotension or neurologic worsening. Verify formulation, contraindications and local protocol.\n- For adult clinical herniation or acute ICP crisis, ENLS 6.0 lists 3% sodium chloride 5 mL/kg IV over 5--20 minutes. Show the weight calculation and order it as a bolus volume plus administration time, not as a continuous infusion. It lists 23.4% sodium chloride 30 mL over 10--20 minutes as a concentrated specialist/refractory option; verify the local neurocritical-care protocol because concentrations and repeat-dose rules vary.\n- Monitor sodium, chloride, renal function, fluid status and acid-base status; repeat neurologic and pupil examinations immediately after treatment. Avoid severe hypernatremia and hyperchloremia; set repeat-dose/stop thresholds according to local neurocritical-care protocol.\n- Mannitol is an effective alternative when hypertonic sodium cannot be used, but hypovolemia, hypotension and renal dysfunction may make it hazardous. Brief controlled hyperventilation is a rescue bridge only for active herniation while definitive treatment is being mobilized, not prophylactic therapy.",
+        "limitations": [
+          "Bolo con duración finita; no convertir en perfusión continua.",
+          "No predice el cambio de sodio ni autoriza repeticiones automáticas."
+        ],
+        "clinical_status": "CLINICALLY_PENDING",
+        "review_status": "CLINICAL_REVIEW_REQUIRED",
+        "source": {
+          "module": "traumatic-intracranial-mass-effect",
+          "path": "clinical/modules/neurologic.md",
+          "preamble": "# Neurologic modules\n\nShared gate: establish last-known-well/onset, glucose, temperature, oxygenation,\nanticoagulants, seizure activity, trauma and baseline function. Perform serial\nfocused neurologic examinations; protect the airway when needed without obscuring\ntime-critical diagnosis.\n",
+          "body": "- Treat traumatic extra-axial hematoma with ventricular/cisternal compression, midline displacement, neurologic decline or herniation signs as an immediate neurosurgical emergency. Hyperosmolar therapy is a bridge to definitive evacuation, not a substitute for it.\n- **Hospital da Horta local pathway (TCE protocol supplied 02/10/2026):** begin with ABCDE stabilization, trauma history/comorbidity review and complete examination. Avoid hypoxaemia (local card: SpO2 <94% or PaO2 <60 mmHg), avoid arterial hypotension (local card: SBP <90 mmHg), intubate/sedate/ventilate when GCS <=8 as clinically indicated, and watch for intracranial-hypertension signs. Obtain CBC + coagulation + renal function in moderate/severe TBI and in mild TBI with anticoagulation/coagulopathy or abnormal head CT.\n- **Local Horta mild-TBI CT routing:** GCS 15 asymptomatic with no listed risk factor -> discharge pathway with competent adult observation >=24 h and written alarm symptoms. GCS 15 symptomatic without listed risk factors -> head CT; if normal, observe in ED >=6 h and discharge only when asymptomatic/symptoms controlled. GCS 15 with >=1 local intracranial-injury risk factor, or GCS 13--14 -> head CT. Local risk factors shown on the card include epilepsy history, previous neurosurgery, age >65 years (context-dependent), coagulopathy/hypocoagulation, antiplatelet therapy, alcohol/drug use, impaired ability to assess clinically, high-energy mechanism, signs of skull fracture and new focal deficit.\n- **Local Horta anticoagulation exception:** for an anticoagulated patient with GCS 15 and a normal initial head CT, the card specifies ED surveillance for >=12 h rather than automatic ward admission.\n- **Local Horta moderate/severe pathway:** GCS 9--12 -> head CT and contact neurosurgery (HDES). GCS <=8 -> head CT and neurosurgical contact; add cervical-spine CT in an unconscious patient or when cervical injury is suspected. Disposition is based on neuroimaging/clinical course and local neurosurgical/ICU/transfer capability.\n- **Repeat head CT locally without delay** for symptomatic deterioration, a fall of >=2 GCS points, intracranial-hypertension signs or a new focal neurological deficit.\n- **Evidence boundary:** the Horta card is more CT-intensive in some mild-TBI groups than NICE NG232 (2023). When operating at Horta, use the local pathway unless formally superseded, while retaining NICE as an external comparison for protocol drift.\n- **Blood-pressure boundary:** the local card says avoid SBP <90 mmHg. For severe TBI, Brain Trauma Foundation supports higher age-stratified lower safety bounds: SBP >=100 mmHg for ages 50--69 and >=110 mmHg for ages 15--49 or >70. Therefore 90 mmHg must not be treated as the desired severe-TBI target; it is a local red-line threshold to reconcile with the higher BTF floors. These lower safety bounds are not automatic upper BP targets.\n- Activate neurosurgery/trauma and operating-room transfer now for mass effect/herniation. Elevate the head about 30 degrees, keep the neck neutral, avoid hypoxemia and fever, correct glucose extremes, provide monitored analgesia/sedation, obtain serial GCS and pupil examinations, and reverse anticoagulation when indicated. Do not give corticosteroids for traumatic brain injury.\n- Do not apply the blood-pressure target for spontaneous intraparenchymal hemorrhage, aneurysmal subarachnoid hemorrhage or ischemic stroke to TBI. Hypertension may be a compensatory response to raised intracranial pressure. First treat pain, agitation, hypoxemia and intracranial hypertension while preventing hypotension.\n- If ICP is monitored, individualize cerebral perfusion pressure, commonly within 60--70 mmHg. Treat ICP >22 mmHg when appropriate in severe TBI because values above this threshold are associated with increased mortality.\n- If severe hypertension persists after analgesia/sedation and hyperosmolar rescue, and controlled lowering is judged necessary, use a short-acting titratable IV agent with continuous BP monitoring and an explicit lower safety bound. For a compatible ready-to-use nicardipine concentration of 20 mg in 200 mL (0.1 mg/mL), start 5 mg/h = 50 mL/h; increase by 2.5 mg/h = 25 mL/h every 5--15 minutes; maximum 15 mg/h = 150 mL/h. Reduce promptly when the individualized target is reached and hold/reduce for hypotension or neurologic worsening. Verify formulation, contraindications and local protocol.\n- For adult clinical herniation or acute ICP crisis, ENLS 6.0 lists 3% sodium chloride 5 mL/kg IV over 5--20 minutes. Show the weight calculation and order it as a bolus volume plus administration time, not as a continuous infusion. It lists 23.4% sodium chloride 30 mL over 10--20 minutes as a concentrated specialist/refractory option; verify the local neurocritical-care protocol because concentrations and repeat-dose rules vary.\n- Monitor sodium, chloride, renal function, fluid status and acid-base status; repeat neurologic and pupil examinations immediately after treatment. Avoid severe hypernatremia and hyperchloremia; set repeat-dose/stop thresholds according to local neurocritical-care protocol.\n- Mannitol is an effective alternative when hypertonic sodium cannot be used, but hypovolemia, hypotension and renal dysfunction may make it hazardous. Brief controlled hyperventilation is a rescue bridge only for active herniation while definitive treatment is being mobilized, not prophylactic therapy.",
+          "evidence": {
+            "priority": "high",
+            "primary_source": "Hospital da Horta local TCE protocol (supplied 2026-10-02) + NICE NG232 2023 + Brain Trauma Foundation severe TBI 4th edition + ENLS 6.0",
+            "stored_version": "Hospital da Horta local TCE card supplied 2026-10-02 (version/date not visible on image); NICE NG232 2023; BTF severe TBI current online; ENLS 6.0; v1.36 reconciliation 2026-10-02",
+            "last_checked": "2026-10-02",
+            "status": "yellow",
+            "note": "Local Horta CT/observation/neurosurgery routing integrated. Marked yellow because the card has no visible version/date and contains evidence-boundary differences: local SBP red line <90 versus higher BTF severe-TBI age-stratified floors; local mild-TBI CT/antiplatelet criteria are more conservative than NICE 2023. Human local review should confirm these are intentional.",
+            "primary_source_url": "https://www.nice.org.uk/guidance/ng232"
+          },
+          "localization": null
+        }
+      },
+      "report": {
+        "snapshot": {
+          "clinical_status": "CLINICALLY_PENDING",
+          "regimen_id": "sodium-icp",
+          "source_revision": "489a397aee02d7cd58cebaf20ff5e80d8c003b066735856ff85645b647ca44cd",
+          "inputs": {
+            "population": "adult",
+            "route": "IV",
+            "indication_confirmed": true,
+            "allergy_contraindication_present": false,
+            "interaction_reviewed": true,
+            "monitoring_ready": true,
+            "local_protocol_verified": true,
+            "concentration": 3,
+            "product_verified": true,
+            "weight_kg": 70,
+            "duration_min": 20,
+            "herniation_icp_confirmed": true,
+            "neurocritical_stop_plan": true
+          },
+          "result": {
+            "indication": "Herniación clínica / crisis de presión intracraneal adulta",
+            "drug": "Cloruro sódico 3%",
+            "route": "IV",
+            "dose": 350,
+            "dose_unit": "mL",
+            "concentration": {
+              "value": 3,
+              "unit": "%",
+              "role": "ready-to-use"
+            },
+            "withdrawal_ml": null,
+            "administration_volume_ml": 350,
+            "pump_ml_h": null,
+            "duration_min": 20,
+            "amount_per_hour": 1050,
+            "amount_per_hour_unit": "mL/h",
+            "correction_ceiling_mmol_l": null,
+            "maximum": null,
+            "preparation": "Producto NaCl 3% verificado; no se calcula preparación desde concentrados.",
+            "compatibility": null,
+            "stability": null,
+            "administration": "Bolo IV 5 mL/kg en 5–20 min; reevaluación neurológica/pupilar inmediata, Na/Cl, función renal y estado hídrico. No pauta continua.",
+            "monitoring_and_warnings": "- Treat traumatic extra-axial hematoma with ventricular/cisternal compression, midline displacement, neurologic decline or herniation signs as an immediate neurosurgical emergency. Hyperosmolar therapy is a bridge to definitive evacuation, not a substitute for it.\n- **Hospital da Horta local pathway (TCE protocol supplied 02/10/2026):** begin with ABCDE stabilization, trauma history/comorbidity review and complete examination. Avoid hypoxaemia (local card: SpO2 <94% or PaO2 <60 mmHg), avoid arterial hypotension (local card: SBP <90 mmHg), intubate/sedate/ventilate when GCS <=8 as clinically indicated, and watch for intracranial-hypertension signs. Obtain CBC + coagulation + renal function in moderate/severe TBI and in mild TBI with anticoagulation/coagulopathy or abnormal head CT.\n- **Local Horta mild-TBI CT routing:** GCS 15 asymptomatic with no listed risk factor -> discharge pathway with competent adult observation >=24 h and written alarm symptoms. GCS 15 symptomatic without listed risk factors -> head CT; if normal, observe in ED >=6 h and discharge only when asymptomatic/symptoms controlled. GCS 15 with >=1 local intracranial-injury risk factor, or GCS 13--14 -> head CT. Local risk factors shown on the card include epilepsy history, previous neurosurgery, age >65 years (context-dependent), coagulopathy/hypocoagulation, antiplatelet therapy, alcohol/drug use, impaired ability to assess clinically, high-energy mechanism, signs of skull fracture and new focal deficit.\n- **Local Horta anticoagulation exception:** for an anticoagulated patient with GCS 15 and a normal initial head CT, the card specifies ED surveillance for >=12 h rather than automatic ward admission.\n- **Local Horta moderate/severe pathway:** GCS 9--12 -> head CT and contact neurosurgery (HDES). GCS <=8 -> head CT and neurosurgical contact; add cervical-spine CT in an unconscious patient or when cervical injury is suspected. Disposition is based on neuroimaging/clinical course and local neurosurgical/ICU/transfer capability.\n- **Repeat head CT locally without delay** for symptomatic deterioration, a fall of >=2 GCS points, intracranial-hypertension signs or a new focal neurological deficit.\n- **Evidence boundary:** the Horta card is more CT-intensive in some mild-TBI groups than NICE NG232 (2023). When operating at Horta, use the local pathway unless formally superseded, while retaining NICE as an external comparison for protocol drift.\n- **Blood-pressure boundary:** the local card says avoid SBP <90 mmHg. For severe TBI, Brain Trauma Foundation supports higher age-stratified lower safety bounds: SBP >=100 mmHg for ages 50--69 and >=110 mmHg for ages 15--49 or >70. Therefore 90 mmHg must not be treated as the desired severe-TBI target; it is a local red-line threshold to reconcile with the higher BTF floors. These lower safety bounds are not automatic upper BP targets.\n- Activate neurosurgery/trauma and operating-room transfer now for mass effect/herniation. Elevate the head about 30 degrees, keep the neck neutral, avoid hypoxemia and fever, correct glucose extremes, provide monitored analgesia/sedation, obtain serial GCS and pupil examinations, and reverse anticoagulation when indicated. Do not give corticosteroids for traumatic brain injury.\n- Do not apply the blood-pressure target for spontaneous intraparenchymal hemorrhage, aneurysmal subarachnoid hemorrhage or ischemic stroke to TBI. Hypertension may be a compensatory response to raised intracranial pressure. First treat pain, agitation, hypoxemia and intracranial hypertension while preventing hypotension.\n- If ICP is monitored, individualize cerebral perfusion pressure, commonly within 60--70 mmHg. Treat ICP >22 mmHg when appropriate in severe TBI because values above this threshold are associated with increased mortality.\n- If severe hypertension persists after analgesia/sedation and hyperosmolar rescue, and controlled lowering is judged necessary, use a short-acting titratable IV agent with continuous BP monitoring and an explicit lower safety bound. For a compatible ready-to-use nicardipine concentration of 20 mg in 200 mL (0.1 mg/mL), start 5 mg/h = 50 mL/h; increase by 2.5 mg/h = 25 mL/h every 5--15 minutes; maximum 15 mg/h = 150 mL/h. Reduce promptly when the individualized target is reached and hold/reduce for hypotension or neurologic worsening. Verify formulation, contraindications and local protocol.\n- For adult clinical herniation or acute ICP crisis, ENLS 6.0 lists 3% sodium chloride 5 mL/kg IV over 5--20 minutes. Show the weight calculation and order it as a bolus volume plus administration time, not as a continuous infusion. It lists 23.4% sodium chloride 30 mL over 10--20 minutes as a concentrated specialist/refractory option; verify the local neurocritical-care protocol because concentrations and repeat-dose rules vary.\n- Monitor sodium, chloride, renal function, fluid status and acid-base status; repeat neurologic and pupil examinations immediately after treatment. Avoid severe hypernatremia and hyperchloremia; set repeat-dose/stop thresholds according to local neurocritical-care protocol.\n- Mannitol is an effective alternative when hypertonic sodium cannot be used, but hypovolemia, hypotension and renal dysfunction may make it hazardous. Brief controlled hyperventilation is a rescue bridge only for active herniation while definitive treatment is being mobilized, not prophylactic therapy.",
+            "limitations": [
+              "Bolo con duración finita; no convertir en perfusión continua.",
+              "No predice el cambio de sodio ni autoriza repeticiones automáticas."
+            ],
+            "clinical_status": "CLINICALLY_PENDING",
+            "review_status": "CLINICAL_REVIEW_REQUIRED",
+            "source": {
+              "module": "traumatic-intracranial-mass-effect",
+              "path": "clinical/modules/neurologic.md",
+              "preamble": "# Neurologic modules\n\nShared gate: establish last-known-well/onset, glucose, temperature, oxygenation,\nanticoagulants, seizure activity, trauma and baseline function. Perform serial\nfocused neurologic examinations; protect the airway when needed without obscuring\ntime-critical diagnosis.\n",
+              "body": "- Treat traumatic extra-axial hematoma with ventricular/cisternal compression, midline displacement, neurologic decline or herniation signs as an immediate neurosurgical emergency. Hyperosmolar therapy is a bridge to definitive evacuation, not a substitute for it.\n- **Hospital da Horta local pathway (TCE protocol supplied 02/10/2026):** begin with ABCDE stabilization, trauma history/comorbidity review and complete examination. Avoid hypoxaemia (local card: SpO2 <94% or PaO2 <60 mmHg), avoid arterial hypotension (local card: SBP <90 mmHg), intubate/sedate/ventilate when GCS <=8 as clinically indicated, and watch for intracranial-hypertension signs. Obtain CBC + coagulation + renal function in moderate/severe TBI and in mild TBI with anticoagulation/coagulopathy or abnormal head CT.\n- **Local Horta mild-TBI CT routing:** GCS 15 asymptomatic with no listed risk factor -> discharge pathway with competent adult observation >=24 h and written alarm symptoms. GCS 15 symptomatic without listed risk factors -> head CT; if normal, observe in ED >=6 h and discharge only when asymptomatic/symptoms controlled. GCS 15 with >=1 local intracranial-injury risk factor, or GCS 13--14 -> head CT. Local risk factors shown on the card include epilepsy history, previous neurosurgery, age >65 years (context-dependent), coagulopathy/hypocoagulation, antiplatelet therapy, alcohol/drug use, impaired ability to assess clinically, high-energy mechanism, signs of skull fracture and new focal deficit.\n- **Local Horta anticoagulation exception:** for an anticoagulated patient with GCS 15 and a normal initial head CT, the card specifies ED surveillance for >=12 h rather than automatic ward admission.\n- **Local Horta moderate/severe pathway:** GCS 9--12 -> head CT and contact neurosurgery (HDES). GCS <=8 -> head CT and neurosurgical contact; add cervical-spine CT in an unconscious patient or when cervical injury is suspected. Disposition is based on neuroimaging/clinical course and local neurosurgical/ICU/transfer capability.\n- **Repeat head CT locally without delay** for symptomatic deterioration, a fall of >=2 GCS points, intracranial-hypertension signs or a new focal neurological deficit.\n- **Evidence boundary:** the Horta card is more CT-intensive in some mild-TBI groups than NICE NG232 (2023). When operating at Horta, use the local pathway unless formally superseded, while retaining NICE as an external comparison for protocol drift.\n- **Blood-pressure boundary:** the local card says avoid SBP <90 mmHg. For severe TBI, Brain Trauma Foundation supports higher age-stratified lower safety bounds: SBP >=100 mmHg for ages 50--69 and >=110 mmHg for ages 15--49 or >70. Therefore 90 mmHg must not be treated as the desired severe-TBI target; it is a local red-line threshold to reconcile with the higher BTF floors. These lower safety bounds are not automatic upper BP targets.\n- Activate neurosurgery/trauma and operating-room transfer now for mass effect/herniation. Elevate the head about 30 degrees, keep the neck neutral, avoid hypoxemia and fever, correct glucose extremes, provide monitored analgesia/sedation, obtain serial GCS and pupil examinations, and reverse anticoagulation when indicated. Do not give corticosteroids for traumatic brain injury.\n- Do not apply the blood-pressure target for spontaneous intraparenchymal hemorrhage, aneurysmal subarachnoid hemorrhage or ischemic stroke to TBI. Hypertension may be a compensatory response to raised intracranial pressure. First treat pain, agitation, hypoxemia and intracranial hypertension while preventing hypotension.\n- If ICP is monitored, individualize cerebral perfusion pressure, commonly within 60--70 mmHg. Treat ICP >22 mmHg when appropriate in severe TBI because values above this threshold are associated with increased mortality.\n- If severe hypertension persists after analgesia/sedation and hyperosmolar rescue, and controlled lowering is judged necessary, use a short-acting titratable IV agent with continuous BP monitoring and an explicit lower safety bound. For a compatible ready-to-use nicardipine concentration of 20 mg in 200 mL (0.1 mg/mL), start 5 mg/h = 50 mL/h; increase by 2.5 mg/h = 25 mL/h every 5--15 minutes; maximum 15 mg/h = 150 mL/h. Reduce promptly when the individualized target is reached and hold/reduce for hypotension or neurologic worsening. Verify formulation, contraindications and local protocol.\n- For adult clinical herniation or acute ICP crisis, ENLS 6.0 lists 3% sodium chloride 5 mL/kg IV over 5--20 minutes. Show the weight calculation and order it as a bolus volume plus administration time, not as a continuous infusion. It lists 23.4% sodium chloride 30 mL over 10--20 minutes as a concentrated specialist/refractory option; verify the local neurocritical-care protocol because concentrations and repeat-dose rules vary.\n- Monitor sodium, chloride, renal function, fluid status and acid-base status; repeat neurologic and pupil examinations immediately after treatment. Avoid severe hypernatremia and hyperchloremia; set repeat-dose/stop thresholds according to local neurocritical-care protocol.\n- Mannitol is an effective alternative when hypertonic sodium cannot be used, but hypovolemia, hypotension and renal dysfunction may make it hazardous. Brief controlled hyperventilation is a rescue bridge only for active herniation while definitive treatment is being mobilized, not prophylactic therapy.",
+              "evidence": {
+                "priority": "high",
+                "primary_source": "Hospital da Horta local TCE protocol (supplied 2026-10-02) + NICE NG232 2023 + Brain Trauma Foundation severe TBI 4th edition + ENLS 6.0",
+                "stored_version": "Hospital da Horta local TCE card supplied 2026-10-02 (version/date not visible on image); NICE NG232 2023; BTF severe TBI current online; ENLS 6.0; v1.36 reconciliation 2026-10-02",
+                "last_checked": "2026-10-02",
+                "status": "yellow",
+                "note": "Local Horta CT/observation/neurosurgery routing integrated. Marked yellow because the card has no visible version/date and contains evidence-boundary differences: local SBP red line <90 versus higher BTF severe-TBI age-stratified floors; local mild-TBI CT/antiplatelet criteria are more conservative than NICE 2023. Human local review should confirm these are intentional.",
+                "primary_source_url": "https://www.nice.org.uk/guidance/ng232"
+              },
+              "localization": null
+            }
+          }
+        },
+        "sections": [
+          [
+            "Farmacología aguda — apoyo aritmético",
+            []
+          ],
+          [
+            "Estado y límites de validación",
+            [
+              "CLINICALLY_PENDING",
+              "Functional validation does not constitute prospective clinical validation."
+            ]
+          ],
+          [
+            "Datos y selección confirmados",
+            [
+              "regimen_id: sodium-icp",
+              "inputs.population: adult",
+              "inputs.route: IV",
+              "inputs.indication_confirmed: true",
+              "inputs.allergy_contraindication_present: false",
+              "inputs.interaction_reviewed: true",
+              "inputs.monitoring_ready: true",
+              "inputs.local_protocol_verified: true",
+              "inputs.concentration: 3",
+              "inputs.product_verified: true",
+              "inputs.weight_kg: 70",
+              "inputs.duration_min: 20",
+              "inputs.herniation_icp_confirmed: true",
+              "inputs.neurocritical_stop_plan: true"
+            ]
+          ],
+          [
+            "Resultado, preparación, límites, monitorización y evidencia",
+            [
+              "indication: Herniación clínica / crisis de presión intracraneal adulta",
+              "drug: Cloruro sódico 3%",
+              "route: IV",
+              "dose: 350",
+              "dose_unit: mL",
+              "concentration.value: 3",
+              "concentration.unit: %",
+              "concentration.role: ready-to-use",
+              "withdrawal_ml: null",
+              "administration_volume_ml: 350",
+              "pump_ml_h: null",
+              "duration_min: 20",
+              "amount_per_hour: 1050.0",
+              "amount_per_hour_unit: mL/h",
+              "correction_ceiling_mmol_l: null",
+              "maximum: null",
+              "preparation: Producto NaCl 3% verificado; no se calcula preparación desde concentrados.",
+              "compatibility: null",
+              "stability: null",
+              "administration: Bolo IV 5 mL/kg en 5–20 min; reevaluación neurológica/pupilar inmediata, Na/Cl, función renal y estado hídrico. No pauta continua.",
+              "monitoring_and_warnings: - Treat traumatic extra-axial hematoma with ventricular/cisternal compression, midline displacement, neurologic decline or herniation signs as an immediate neurosurgical emergency. Hyperosmolar therapy is a bridge to definitive evacuation, not a substitute for it.\n- **Hospital da Horta local pathway (TCE protocol supplied 02/10/2026):** begin with ABCDE stabilization, trauma history/comorbidity review and complete examination. Avoid hypoxaemia (local card: SpO2 <94% or PaO2 <60 mmHg), avoid arterial hypotension (local card: SBP <90 mmHg), intubate/sedate/ventilate when GCS <=8 as clinically indicated, and watch for intracranial-hypertension signs. Obtain CBC + coagulation + renal function in moderate/severe TBI and in mild TBI with anticoagulation/coagulopathy or abnormal head CT.\n- **Local Horta mild-TBI CT routing:** GCS 15 asymptomatic with no listed risk factor -> discharge pathway with competent adult observation >=24 h and written alarm symptoms. GCS 15 symptomatic without listed risk factors -> head CT; if normal, observe in ED >=6 h and discharge only when asymptomatic/symptoms controlled. GCS 15 with >=1 local intracranial-injury risk factor, or GCS 13--14 -> head CT. Local risk factors shown on the card include epilepsy history, previous neurosurgery, age >65 years (context-dependent), coagulopathy/hypocoagulation, antiplatelet therapy, alcohol/drug use, impaired ability to assess clinically, high-energy mechanism, signs of skull fracture and new focal deficit.\n- **Local Horta anticoagulation exception:** for an anticoagulated patient with GCS 15 and a normal initial head CT, the card specifies ED surveillance for >=12 h rather than automatic ward admission.\n- **Local Horta moderate/severe pathway:** GCS 9--12 -> head CT and contact neurosurgery (HDES). GCS <=8 -> head CT and neurosurgical contact; add cervical-spine CT in an unconscious patient or when cervical injury is suspected. Disposition is based on neuroimaging/clinical course and local neurosurgical/ICU/transfer capability.\n- **Repeat head CT locally without delay** for symptomatic deterioration, a fall of >=2 GCS points, intracranial-hypertension signs or a new focal neurological deficit.\n- **Evidence boundary:** the Horta card is more CT-intensive in some mild-TBI groups than NICE NG232 (2023). When operating at Horta, use the local pathway unless formally superseded, while retaining NICE as an external comparison for protocol drift.\n- **Blood-pressure boundary:** the local card says avoid SBP <90 mmHg. For severe TBI, Brain Trauma Foundation supports higher age-stratified lower safety bounds: SBP >=100 mmHg for ages 50--69 and >=110 mmHg for ages 15--49 or >70. Therefore 90 mmHg must not be treated as the desired severe-TBI target; it is a local red-line threshold to reconcile with the higher BTF floors. These lower safety bounds are not automatic upper BP targets.\n- Activate neurosurgery/trauma and operating-room transfer now for mass effect/herniation. Elevate the head about 30 degrees, keep the neck neutral, avoid hypoxemia and fever, correct glucose extremes, provide monitored analgesia/sedation, obtain serial GCS and pupil examinations, and reverse anticoagulation when indicated. Do not give corticosteroids for traumatic brain injury.\n- Do not apply the blood-pressure target for spontaneous intraparenchymal hemorrhage, aneurysmal subarachnoid hemorrhage or ischemic stroke to TBI. Hypertension may be a compensatory response to raised intracranial pressure. First treat pain, agitation, hypoxemia and intracranial hypertension while preventing hypotension.\n- If ICP is monitored, individualize cerebral perfusion pressure, commonly within 60--70 mmHg. Treat ICP >22 mmHg when appropriate in severe TBI because values above this threshold are associated with increased mortality.\n- If severe hypertension persists after analgesia/sedation and hyperosmolar rescue, and controlled lowering is judged necessary, use a short-acting titratable IV agent with continuous BP monitoring and an explicit lower safety bound. For a compatible ready-to-use nicardipine concentration of 20 mg in 200 mL (0.1 mg/mL), start 5 mg/h = 50 mL/h; increase by 2.5 mg/h = 25 mL/h every 5--15 minutes; maximum 15 mg/h = 150 mL/h. Reduce promptly when the individualized target is reached and hold/reduce for hypotension or neurologic worsening. Verify formulation, contraindications and local protocol.\n- For adult clinical herniation or acute ICP crisis, ENLS 6.0 lists 3% sodium chloride 5 mL/kg IV over 5--20 minutes. Show the weight calculation and order it as a bolus volume plus administration time, not as a continuous infusion. It lists 23.4% sodium chloride 30 mL over 10--20 minutes as a concentrated specialist/refractory option; verify the local neurocritical-care protocol because concentrations and repeat-dose rules vary.\n- Monitor sodium, chloride, renal function, fluid status and acid-base status; repeat neurologic and pupil examinations immediately after treatment. Avoid severe hypernatremia and hyperchloremia; set repeat-dose/stop thresholds according to local neurocritical-care protocol.\n- Mannitol is an effective alternative when hypertonic sodium cannot be used, but hypovolemia, hypotension and renal dysfunction may make it hazardous. Brief controlled hyperventilation is a rescue bridge only for active herniation while definitive treatment is being mobilized, not prophylactic therapy.",
+              "limitations[0]: Bolo con duración finita; no convertir en perfusión continua.",
+              "limitations[1]: No predice el cambio de sodio ni autoriza repeticiones automáticas.",
+              "clinical_status: CLINICALLY_PENDING",
+              "review_status: CLINICAL_REVIEW_REQUIRED",
+              "source.module: traumatic-intracranial-mass-effect",
+              "source.path: clinical/modules/neurologic.md",
+              "source.preamble: # Neurologic modules\n\nShared gate: establish last-known-well/onset, glucose, temperature, oxygenation,\nanticoagulants, seizure activity, trauma and baseline function. Perform serial\nfocused neurologic examinations; protect the airway when needed without obscuring\ntime-critical diagnosis.\n",
+              "source.body: - Treat traumatic extra-axial hematoma with ventricular/cisternal compression, midline displacement, neurologic decline or herniation signs as an immediate neurosurgical emergency. Hyperosmolar therapy is a bridge to definitive evacuation, not a substitute for it.\n- **Hospital da Horta local pathway (TCE protocol supplied 02/10/2026):** begin with ABCDE stabilization, trauma history/comorbidity review and complete examination. Avoid hypoxaemia (local card: SpO2 <94% or PaO2 <60 mmHg), avoid arterial hypotension (local card: SBP <90 mmHg), intubate/sedate/ventilate when GCS <=8 as clinically indicated, and watch for intracranial-hypertension signs. Obtain CBC + coagulation + renal function in moderate/severe TBI and in mild TBI with anticoagulation/coagulopathy or abnormal head CT.\n- **Local Horta mild-TBI CT routing:** GCS 15 asymptomatic with no listed risk factor -> discharge pathway with competent adult observation >=24 h and written alarm symptoms. GCS 15 symptomatic without listed risk factors -> head CT; if normal, observe in ED >=6 h and discharge only when asymptomatic/symptoms controlled. GCS 15 with >=1 local intracranial-injury risk factor, or GCS 13--14 -> head CT. Local risk factors shown on the card include epilepsy history, previous neurosurgery, age >65 years (context-dependent), coagulopathy/hypocoagulation, antiplatelet therapy, alcohol/drug use, impaired ability to assess clinically, high-energy mechanism, signs of skull fracture and new focal deficit.\n- **Local Horta anticoagulation exception:** for an anticoagulated patient with GCS 15 and a normal initial head CT, the card specifies ED surveillance for >=12 h rather than automatic ward admission.\n- **Local Horta moderate/severe pathway:** GCS 9--12 -> head CT and contact neurosurgery (HDES). GCS <=8 -> head CT and neurosurgical contact; add cervical-spine CT in an unconscious patient or when cervical injury is suspected. Disposition is based on neuroimaging/clinical course and local neurosurgical/ICU/transfer capability.\n- **Repeat head CT locally without delay** for symptomatic deterioration, a fall of >=2 GCS points, intracranial-hypertension signs or a new focal neurological deficit.\n- **Evidence boundary:** the Horta card is more CT-intensive in some mild-TBI groups than NICE NG232 (2023). When operating at Horta, use the local pathway unless formally superseded, while retaining NICE as an external comparison for protocol drift.\n- **Blood-pressure boundary:** the local card says avoid SBP <90 mmHg. For severe TBI, Brain Trauma Foundation supports higher age-stratified lower safety bounds: SBP >=100 mmHg for ages 50--69 and >=110 mmHg for ages 15--49 or >70. Therefore 90 mmHg must not be treated as the desired severe-TBI target; it is a local red-line threshold to reconcile with the higher BTF floors. These lower safety bounds are not automatic upper BP targets.\n- Activate neurosurgery/trauma and operating-room transfer now for mass effect/herniation. Elevate the head about 30 degrees, keep the neck neutral, avoid hypoxemia and fever, correct glucose extremes, provide monitored analgesia/sedation, obtain serial GCS and pupil examinations, and reverse anticoagulation when indicated. Do not give corticosteroids for traumatic brain injury.\n- Do not apply the blood-pressure target for spontaneous intraparenchymal hemorrhage, aneurysmal subarachnoid hemorrhage or ischemic stroke to TBI. Hypertension may be a compensatory response to raised intracranial pressure. First treat pain, agitation, hypoxemia and intracranial hypertension while preventing hypotension.\n- If ICP is monitored, individualize cerebral perfusion pressure, commonly within 60--70 mmHg. Treat ICP >22 mmHg when appropriate in severe TBI because values above this threshold are associated with increased mortality.\n- If severe hypertension persists after analgesia/sedation and hyperosmolar rescue, and controlled lowering is judged necessary, use a short-acting titratable IV agent with continuous BP monitoring and an explicit lower safety bound. For a compatible ready-to-use nicardipine concentration of 20 mg in 200 mL (0.1 mg/mL), start 5 mg/h = 50 mL/h; increase by 2.5 mg/h = 25 mL/h every 5--15 minutes; maximum 15 mg/h = 150 mL/h. Reduce promptly when the individualized target is reached and hold/reduce for hypotension or neurologic worsening. Verify formulation, contraindications and local protocol.\n- For adult clinical herniation or acute ICP crisis, ENLS 6.0 lists 3% sodium chloride 5 mL/kg IV over 5--20 minutes. Show the weight calculation and order it as a bolus volume plus administration time, not as a continuous infusion. It lists 23.4% sodium chloride 30 mL over 10--20 minutes as a concentrated specialist/refractory option; verify the local neurocritical-care protocol because concentrations and repeat-dose rules vary.\n- Monitor sodium, chloride, renal function, fluid status and acid-base status; repeat neurologic and pupil examinations immediately after treatment. Avoid severe hypernatremia and hyperchloremia; set repeat-dose/stop thresholds according to local neurocritical-care protocol.\n- Mannitol is an effective alternative when hypertonic sodium cannot be used, but hypovolemia, hypotension and renal dysfunction may make it hazardous. Brief controlled hyperventilation is a rescue bridge only for active herniation while definitive treatment is being mobilized, not prophylactic therapy.",
+              "source.evidence.priority: high",
+              "source.evidence.primary_source: Hospital da Horta local TCE protocol (supplied 2026-10-02) + NICE NG232 2023 + Brain Trauma Foundation severe TBI 4th edition + ENLS 6.0",
+              "source.evidence.stored_version: Hospital da Horta local TCE card supplied 2026-10-02 (version/date not visible on image); NICE NG232 2023; BTF severe TBI current online; ENLS 6.0; v1.36 reconciliation 2026-10-02",
+              "source.evidence.last_checked: 2026-10-02",
+              "source.evidence.status: yellow",
+              "source.evidence.note: Local Horta CT/observation/neurosurgery routing integrated. Marked yellow because the card has no visible version/date and contains evidence-boundary differences: local SBP red line <90 versus higher BTF severe-TBI age-stratified floors; local mild-TBI CT/antiplatelet criteria are more conservative than NICE 2023. Human local review should confirm these are intentional.",
+              "source.evidence.primary_source_url: https://www.nice.org.uk/guidance/ng232",
+              "source.localization: null"
+            ]
+          ],
+          [
+            "Procedencia",
+            [
+              "source_revision: 489a397aee02d7cd58cebaf20ff5e80d8c003b066735856ff85645b647ca44cd"
+            ]
+          ]
+        ]
+      },
+      "gates": [
+        {
+          "key": "route",
+          "value": "PO",
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "route",
+              "message": "Revisar Vía; valor requerido: IV. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "allergy_contraindication_present",
+          "value": true,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "allergy_contraindication_present",
+              "message": "Revisar Alergia o contraindicación para esta opción; valor requerido: False. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "monitoring_ready",
+          "value": false,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "monitoring_ready",
+              "message": "Revisar Monitorización y medios de rescate disponibles; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "concentration",
+          "value": 0,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "concentration",
+              "message": "Revisar Concentración de NaCl (%); valor requerido: 3. No se cumple el contrato de esta pauta."
+            }
+          ]
+        }
+      ],
+      "rejectedInputs": [
+        {
+          "updates": {
+            "weight_kg": 0
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "weight_kg",
+              "message": "Revisar Peso verificado (kg). No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "duration_min": 4
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "duration_min",
+              "message": "Revisar Duración del bolo (min). No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "duration_min": 21
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "duration_min",
+              "message": "Revisar Duración del bolo (min). No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "herniation_icp_confirmed": false
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "herniation_icp_confirmed",
+              "message": "Revisar Herniación clínica / crisis ICP confirmada por el profesional; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "updates": {
+            "neurocritical_stop_plan": false
+          },
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "neurocritical_stop_plan",
+              "message": "Revisar Plan neurocrítico local de límites, reevaluación y repetición verificado; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        "json",
+        "pdf",
+        "docx",
+        "print"
+      ],
+      "pages": {
+        "pdf": 5,
+        "print": 5
+      },
+      "invalidation": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45",
+  "source_revision": "489a397aee02d7cd58cebaf20ff5e80d8c003b066735856ff85645b647ca44cd",
+  "fixtures_sha256": "5fb8aa73e7f13ea3d7a9138818195ef0036981706d67b646fdd22e3e636f8981",
+  "status": "PASS",
+  "finished_at": "2026-10-15T23:04:59.917Z"
+}

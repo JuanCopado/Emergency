@@ -76,12 +76,18 @@ def _validate(row, inputs):
         if invalid:
             rule = ('; valor requerido: ' + str(f['expected'])) if 'expected' in f else ''
             alerts.append(_alert(key, 'Revisar ' + f['label'] + rule + '. No se cumple el contrato de esta pauta.'))
+    if not alerts and row.get('sodium_correction'):
+        ceiling = 8 if inputs['high_ods_risk'] or inputs['correction_window'] == 'subsequent24' else 10
+        if inputs['sodium_current_mmol_l'] - inputs['sodium_start_mmol_l'] >= ceiling:
+            alerts.append(_alert('sodium_correction', 'Límite de corrección alcanzado: no calcular otro bolo; revisión urgente de trayectoria y plan de parada/relowering.'))
     return alerts
 
 
 def _calculate(row, inputs):
     dose = row['dose']
     pump = None
+    if row['model'] == 'weight_volume':
+        dose *= inputs['weight_kg']
     if row['model'] == 'insulin':
         reference = hyperglycemia_calculate({'weight_kg': inputs['weight_kg'],
             'insulin_concentration_units_ml': inputs['concentration']})['insulin_infusion_reference']
@@ -92,9 +98,10 @@ def _calculate(row, inputs):
     withdrawal = dose / concentration['value'] if concentration and concentration['role'] == 'stock' else None
     return {'indication': row['label'], 'drug': row['drug'], 'route': row['route'],
             'dose': dose, 'dose_unit': row['dose_unit'], 'concentration': concentration,
-            'withdrawal_ml': withdrawal, 'administration_volume_ml': None, 'pump_ml_h': pump,
+            'withdrawal_ml': withdrawal, 'administration_volume_ml': dose if row['model'] in ('volume', 'weight_volume') else None, 'pump_ml_h': pump,
             'duration_min': duration, 'amount_per_hour': dose * 60 / duration if duration else None,
             'amount_per_hour_unit': row['dose_unit'] + '/h' if duration else None,
+            'correction_ceiling_mmol_l': (8 if inputs['high_ods_risk'] or inputs['correction_window'] == 'subsequent24' else 10) if row.get('sodium_correction') else None,
             'maximum': row['maximum'], 'preparation': row['preparation'],
             'compatibility': row['compatibility'], 'stability': row['stability'],
             'administration': row['administration'],
