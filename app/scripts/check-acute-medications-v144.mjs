@@ -35,7 +35,16 @@ try {
       const pending = page.waitForResponse(r => r.url().endsWith('/api/acute-medications/calculate'));
       await page.getByRole('button',{name:'Comprobar y calcular'}).click();
       const calculated = await (await pending).json();
-      assert.equal(calculated.blocked, false, JSON.stringify(calculated));
+      assert.equal(calculated.blocked, c.blocked || false, JSON.stringify(calculated));
+      if (c.blocked) {
+        await page.getByRole('heading',{name:'Cálculo bloqueado',exact:true}).waitFor();
+        assert.equal(calculated.result, undefined);
+        assert.equal(await page.getByRole('button',{name:'Exportar JSON',exact:true}).count(),0);
+        assert.equal(await page.locator('.acute-print-sheet').count(),0);
+        record.cases.push({id:c.case_id || c.id,regimen:c.id,status:'PASS',expected_block:true,inputs,alerts:calculated.alerts,exports:[]});
+        console.log(`PASS blocked ${c.case_id || c.id}`);
+        continue;
+      }
       await page.getByRole('region',{name:'Resultado farmacológico'}).waitFor();
       for (const [key,value] of Object.entries(c.expect)) {
         assert.deepEqual(calculated.result[key], value, `${c.id}: ${key}`);
@@ -79,6 +88,32 @@ for fmt,b64 in d['files'].items():
 print(json.dumps(pages))
 `], {input:JSON.stringify({sections:calculated.report.sections,files:Object.fromEntries(['pdf','docx','print'].map(k=>[k,files[k].toString('base64')]))}),encoding:'utf8',windowsHide:true});
       assert.equal(check.status, 0, check.stderr);
+      const rejectedInputs = [];
+      for (const updates of c.reject || []) {
+        for (const [key,value] of Object.entries(updates)) {
+          const spec = row.fields.find(f => f.key === key);
+          const control = page.locator(`[data-field="${key}"]`);
+          if (spec.kind === 'number') await control.fill(String(value));
+          else await control.selectOption(typeof value === 'boolean' ? (value ? 'yes' : 'no') : value);
+        }
+        assert.equal(await page.getByRole('region',{name:'Resultado farmacológico'}).count(),0);
+        assert.equal(await page.locator('.acute-print-sheet').count(),0);
+        const reply = page.waitForResponse(r => r.url().endsWith('/api/acute-medications/calculate'));
+        await page.getByRole('button',{name:'Comprobar y calcular'}).click();
+        const blocked = await (await reply).json();
+        assert.equal(blocked.blocked,true,JSON.stringify(updates));
+        assert.equal(blocked.result,undefined);
+        await page.getByRole('heading',{name:'Cálculo bloqueado',exact:true}).waitFor();
+        assert.equal(await page.getByRole('button',{name:'Exportar JSON',exact:true}).count(),0);
+        rejectedInputs.push({updates,alerts:blocked.alerts});
+        for (const key of Object.keys(updates)) {
+          const spec = row.fields.find(f => f.key === key);
+          const control = page.locator(`[data-field="${key}"]`);
+          const value = inputs[key];
+          if (spec.kind === 'number') await control.fill(String(value));
+          else await control.selectOption(typeof value === 'boolean' ? (value ? 'yes' : 'no') : value);
+        }
+      }
       const gates = [];
       for (const [key,value] of Object.entries({route:'PO',allergy_contraindication_present:true,monitoring_ready:false,...(row.fields.some(f=>f.key==='concentration')?{concentration:0}:{})})) {
         const data = await context.request.post(`${base}/api/acute-medications/calculate`, {data:{regimen_id:c.id,source_revision:catalog.source_revision,inputs:{...inputs,[key]:value}}});
@@ -90,7 +125,7 @@ print(json.dumps(pages))
       await page.getByRole('button',{name:'Comprobar y calcular'}).click();
       await page.getByRole('heading',{name:'Cálculo bloqueado',exact:true}).waitFor();
       assert.equal(await page.getByRole('button',{name:'Exportar JSON',exact:true}).count(),0);
-      record.cases.push({id:c.id,status:'PASS',inputs,expected:c.expect,actual:calculated.result,report:calculated.report,gates,exports:['json','pdf','docx','print'],pages:JSON.parse(check.stdout),invalidation:'PASS'});
+      record.cases.push({id:c.case_id || c.id,regimen:c.id,status:'PASS',inputs,expected:c.expect,actual:calculated.result,report:calculated.report,gates,rejectedInputs,exports:['json','pdf','docx','print'],pages:JSON.parse(check.stdout),invalidation:'PASS'});
       console.log(`PASS acute flow: ${c.id}`);
     }
     assert.deepEqual(record.errors,[]);

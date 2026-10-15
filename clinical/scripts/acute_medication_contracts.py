@@ -60,4 +60,40 @@ def regimens():
                             'mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.',
                             'No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.'],
         })
+    return rows + insulin_regimens()
+
+
+def contract(rid, label, group, group_label, drug, bundle, module, anchors, fields,
+             route='IV', population='adult', **values):
+    """Absent clinical values remain absent; callers supply all numeric rules."""
+    return {'id': rid, 'label': label, 'group': group, 'group_label': group_label,
+            'drug': drug, 'bundle': bundle, 'module': module, 'anchors': anchors,
+            'route': route, 'fields': common(route, population) + fields,
+            'model': 'fixed', 'dose': None, 'dose_unit': None, 'concentration': None,
+            'preparation': None, 'compatibility': None, 'stability': None, 'maximum': None,
+            'administration': '', 'limitations': ['Revisión clínica y conciliación local pendientes.'], **values}
+
+
+def insulin_regimens():
+    rows = []
+    for suffix, label, key, extra in [
+        ('dka', 'DKA — fase inicial', 'dka_or_mixed_initial', [field('dka_or_mixed_confirmed', 'DKA confirmada; no HHS aislado', expected=True), field('glucose_mg_dl', 'Glucosa (mg/dL)', 'number', minimum=250)]),
+        ('mixed', 'DKA/HHS mixto — fase inicial', 'dka_or_mixed_initial', [field('dka_or_mixed_confirmed', 'DKA/HHS mixto confirmado', expected=True), field('glucose_mg_dl', 'Glucosa (mg/dL)', 'number', minimum=250)]),
+        ('dextrose', 'DKA — glucosa inferior a 250 mg/dL / euglucémica', 'dka_after_glucose_below_250', [field('dka_or_mixed_confirmed', 'DKA o DKA/HHS mixto confirmado', expected=True), field('glucose_mg_dl', 'Glucosa (mg/dL)', 'number', positive=True, exclusive_maximum=250), field('dextrose_started', 'Dextrosa 5–10% y plan de continuación hasta resolución establecidos', expected=True)]),
+        ('hhs', 'HHS sin cetosis/acidosis significativa', 'hhs_without_significant_ketosis', [field('hhs_without_ketosis_acidosis', 'HHS confirmado sin cetosis/acidosis significativa', expected=True), field('fluid_osmolality_plan', 'Fluidos iniciales y control seriado de osmolalidad establecidos', expected=True), field('glucose_mg_dl', 'Glucosa actual (mg/dL)', 'number', positive=True)]),
+    ]:
+        rows.append(contract('insulin-' + suffix, label, 'insulin', 'Insulina / DKA', 'Insulina soluble/regular',
+            'renal-metabolic.md', 'diabetic-ketoacidosis-hhs',
+            ['0.1 units/kg/h', '0.05 units/kg/h', '100 units in a final volume of 100 mL', 'potassium is above 3.5 mmol/L'],
+            [field('weight_kg', 'Peso verificado (kg)', 'number', positive=True),
+             field('potassium_mmol_l', 'Potasio previo a insulina (mmol/L)', 'number', exclusive_minimum=3.5),
+             field('concentration', 'Concentración final verificada (units/mL)', 'number', expected=1),
+             field('preparation_verified', '100 unidades en volumen FINAL de 100 mL de NaCl 0,9%; producto y cebado local verificados', expected=True)] + extra,
+            model='insulin', insulin_key=key, dose_unit='units/h',
+            concentration={'value': 1, 'unit': 'units/mL', 'role': 'final'},
+            preparation='Insulina soluble/regular: 100 unidades en volumen FINAL de 100 mL de NaCl 0,9%; 1 unidad/mL. Cebado según protocolo local.',
+            administration='Perfusión IV continua mediante bomba. No es un bolo. Vigilar glucosa, potasio, cetonas, pH, fluidos y osmolalidad según el módulo completo.',
+            limitations=['K = 3,5 mmol/L se bloquea conservadoramente: la fuente exige superar 3,5 para iniciar/reanudar; requiere revisión profesional.',
+                         'No calcula reposición de potasio ni dosis subcutánea de transición. No suspender por normalización aislada de glucosa.',
+                         'Diagnóstico y fase requieren confirmación profesional; no se diagnostican automáticamente con estos campos.']))
     return rows

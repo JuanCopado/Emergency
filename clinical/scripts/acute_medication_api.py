@@ -4,6 +4,7 @@ import hashlib
 import json
 import math
 import tempfile
+from acid_base_hyperglycemia import calculate as hyperglycemia_calculate
 from copy import deepcopy
 from pathlib import Path
 
@@ -66,6 +67,8 @@ def _validate(row, inputs):
                 invalid |= f.get('positive', False) and value <= 0
                 invalid |= 'minimum' in f and value < f['minimum']
                 invalid |= 'maximum' in f and value > f['maximum']
+                invalid |= 'exclusive_minimum' in f and value <= f['exclusive_minimum']
+                invalid |= 'exclusive_maximum' in f and value >= f['exclusive_maximum']
         elif kind == 'choice':
             invalid |= not isinstance(value, str) or value not in f['options']
         if 'expected' in f:
@@ -78,12 +81,18 @@ def _validate(row, inputs):
 
 def _calculate(row, inputs):
     dose = row['dose']
+    pump = None
+    if row['model'] == 'insulin':
+        reference = hyperglycemia_calculate({'weight_kg': inputs['weight_kg'],
+            'insulin_concentration_units_ml': inputs['concentration']})['insulin_infusion_reference']
+        dose = reference[row['insulin_key'] + '_units_h']
+        pump = reference[row['insulin_key'] + '_ml_h']
     duration = row.get('duration_min', inputs.get('duration_min'))
     concentration = row.get('concentration')
     withdrawal = dose / concentration['value'] if concentration and concentration['role'] == 'stock' else None
     return {'indication': row['label'], 'drug': row['drug'], 'route': row['route'],
             'dose': dose, 'dose_unit': row['dose_unit'], 'concentration': concentration,
-            'withdrawal_ml': withdrawal, 'administration_volume_ml': None, 'pump_ml_h': None,
+            'withdrawal_ml': withdrawal, 'administration_volume_ml': None, 'pump_ml_h': pump,
             'duration_min': duration, 'amount_per_hour': dose * 60 / duration if duration else None,
             'amount_per_hour_unit': row['dose_unit'] + '/h' if duration else None,
             'maximum': row['maximum'], 'preparation': row['preparation'],

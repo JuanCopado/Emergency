@@ -87,5 +87,38 @@ class AmiodaroneFlow(unittest.TestCase):
             for value in [title, *paragraphs]: self.assertIn(value, text)
 
 
+class SourceBoundFlowCases(unittest.TestCase):
+    def test_independent_nominal_and_blocked_cases(self):
+        import json
+        bank = json.loads((Path(__file__).resolve().parents[1] / 'qa/V1.44_ACUTE_MEDICATION_CASES.json').read_text(encoding='utf-8'))
+        current = catalog()
+        for case in bank['cases']:
+            with self.subTest(case=case.get('case_id', case['id'])):
+                inputs = {**bank['common'], **case['inputs']}
+                row = next((r for r in current['regimens'] if r['id'] == case['id']), None)
+                self.assertIsNotNone(row, case['id'])
+                inputs = {k: v for k, v in inputs.items() if k in {f['key'] for f in row['fields']}}
+                payload = {'regimen_id': case['id'], 'source_revision': current['source_revision'], 'inputs': inputs}
+                actual = calculate_request(payload)
+                self.assertEqual(actual['blocked'], case.get('blocked', False))
+                if actual['blocked']:
+                    self.assertNotIn('result', actual)
+                    self.assertTrue(actual['alerts'])
+                    with self.assertRaises(ValueError):
+                        export_request({'format': 'json', 'calculation': payload, 'confirmed': True})
+                    continue
+                for key, expected in case['expect'].items():
+                    self.assertEqual(actual['result'][key], expected, key)
+                for updates in case.get('reject', []):
+                    rejected = calculate_request({**payload, 'inputs': {**inputs, **updates}})
+                    self.assertTrue(rejected['blocked'], updates)
+                    self.assertNotIn('result', rejected)
+                for f in row['fields']:
+                    for value in [None, {}, [], float('nan'), float('inf')]:
+                        rejected = calculate_request({**payload, 'inputs': {**inputs, f['key']: value}})
+                        self.assertTrue(rejected['blocked'], (case['id'], f['key'], value))
+                        self.assertNotIn('result', rejected)
+
+
 if __name__ == '__main__':
     unittest.main()
