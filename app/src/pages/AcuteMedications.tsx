@@ -28,9 +28,9 @@ export default function AcuteMedications() {
   const [error, setError] = useState('');
   const revision = useRef(0);
   useEffect(() => {
-    let alive = true;
+    let alive = true; const counter = revision;
     post<Catalog>('catalog', {}).then(value => {if (alive) setCatalog(value);}).catch(e => {if (alive) setError(String(e));});
-    return () => {alive = false; revision.current++;};
+    return () => {alive = false; counter.current++;};
   }, []);
   const clear = () => {revision.current++; setOutcome(undefined); setConfirmed(false); setCalculation(undefined); setError(''); setBusy(false);};
   const regimen = catalog?.regimens.find(r => r.id === id);
@@ -42,7 +42,7 @@ export default function AcuteMedications() {
       const inputs:Record<string,unknown> = {};
       for (const f of regimen.fields) {
         const value = values[f.key]?.trim();
-        if (!value) continue;
+        if (!value) throw new Error(`${f.label}: dato obligatorio sin documentar.`);
         if (f.kind === 'number') {
           if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(value) || !Number.isFinite(Number(value))) throw new Error(`${f.label}: introduce un número finito con punto decimal.`);
           inputs[f.key] = Number(value);
@@ -86,7 +86,7 @@ export default function AcuteMedications() {
       <h2 className="text-xl font-bold">{outcome.blocked ? 'Cálculo bloqueado' : 'Resultado aritmético — requiere revisión clínica'}</h2>
       {outcome.alerts.map(a => <p role="alert" key={a.code}>STOP: {a.message}</p>)}
       {outcome.result && <>
-        <dl className="grid gap-3 sm:grid-cols-2">{Object.entries({indication:'Indicación', drug:'Fármaco', route:'Vía', dose:'Dosis', dose_unit:'Unidad de dosis', concentration:'Concentración y función', withdrawal_ml:'Volumen extraído del producto (mL)', administration_volume_ml:'Volumen de administración (mL)', pump_ml_h:'Velocidad de bomba (mL/h)', duration_min:'Duración (min)', amount_per_hour:'Cantidad por hora', amount_per_hour_unit:'Unidad por hora', maximum:'Máximo', preparation:'Preparación / dilución', compatibility:'Compatibilidad', stability:'Estabilidad', administration:'Administración', limitations:'Datos ausentes / límites'}).map(([key,label]) => <div key={key}><dt className="font-bold">{label}</dt><dd data-result={key}>{display(outcome.result?.[key])}</dd></div>)}</dl>
+        <dl className="grid gap-3 sm:grid-cols-2">{Object.entries({indication:'Indicación', drug:'Fármaco', route:'Vía', dose:'Dosis', dose_unit:'Unidad de dosis', components:'Componentes y secuencia (no intercambiables)', correction_ceiling_mmol_l:'Límite acumulado de corrección de Na (mmol/L; no objetivo)', concentration:'Concentración y función', withdrawal_ml:'Volumen extraído del producto (mL)', administration_volume_ml:'Volumen de administración (mL)', pump_ml_h:'Velocidad de bomba (mL/h)', duration_min:'Duración (min)', amount_per_hour:'Cantidad por hora', amount_per_hour_unit:'Unidad por hora', maximum:'Máximo', preparation:'Preparación / dilución', compatibility:'Compatibilidad', stability:'Estabilidad', administration:'Administración', limitations:'Datos ausentes / límites'}).map(([key,label]) => <div key={key}><dt className="font-bold">{label}</dt><dd data-result={key}>{display(outcome.result?.[key])}</dd></div>)}</dl>
         <p className="whitespace-pre-wrap" data-testid="acute-warnings">{display(outcome.result.monitoring_and_warnings)}</p>
         <label className="block"><input type="checkbox" checked={confirmed} onChange={e => {revision.current++; setConfirmed(e.target.checked); setBusy(false);}} /> Confirmo haber revisado el resultado completo, sus límites y advertencias</label>
         <div className="flex flex-wrap gap-2">{(['json','pdf','docx'] as const).map(f => <button key={f} className="btn-ghost" disabled={!confirmed || busy} onClick={() => download(f)}>Exportar {f.toUpperCase()}</button>)}<button className="btn-ghost" disabled={!confirmed} onClick={() => window.print()}>Imprimir resultado</button></div>

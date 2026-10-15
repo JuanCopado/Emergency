@@ -91,11 +91,20 @@ def _validate(row, inputs):
 def _calculate(row, inputs):
     dose = row['dose']
     pump = None
+    components = row.get('components')
     if row['model'] == 'weight_volume':
         dose *= inputs['weight_kg']
     if row['model'] == 'weight':
         coefficient = inputs[row['coefficient_field']] if row.get('coefficient_field') else row['dose']
         dose = min(coefficient * inputs['weight_kg'], row['maximum']['value'])
+    if row['model'] == 'andexanet':
+        high = inputs['last_dose_hours'] < 8 and inputs['last_dose_mg'] > row['threshold_mg']
+        dose, rate = (800, 8) if high else (400, 4)
+        components = {'bolus_mg': dose, 'infusion_mg_min': rate, 'infusion_duration_min': 120, 'infusion_total_mg': rate * 120}
+    if row['model'] == 'ufh':
+        dose = min(inputs['recent_ufh_units'] / 100, row['maximum']['value'])
+    if row['model'] == 'enoxaparin':
+        dose *= inputs['enoxaparin_mg']
     if row['model'] == 'insulin':
         reference = hyperglycemia_calculate({'weight_kg': inputs['weight_kg'],
             'insulin_concentration_units_ml': inputs['concentration']})['insulin_infusion_reference']
@@ -105,7 +114,7 @@ def _calculate(row, inputs):
     concentration = row.get('concentration')
     withdrawal = dose / concentration['value'] if concentration and concentration['role'] == 'stock' else None
     return {'indication': row['label'], 'drug': row['drug'], 'route': row['route'],
-            'dose': dose, 'dose_unit': row['dose_unit'], 'concentration': concentration,
+            'dose': dose, 'dose_unit': row['dose_unit'], 'concentration': concentration, 'components': components,
             'withdrawal_ml': withdrawal, 'administration_volume_ml': dose if row['model'] in ('volume', 'weight_volume') else dose / 1000 / concentration['value'] if row['model'] == 'adrenaline_im' else None, 'pump_ml_h': pump,
             'duration_min': duration, 'amount_per_hour': dose * 60 / duration if duration else None,
             'amount_per_hour_unit': row['dose_unit'] + '/h' if duration else None,

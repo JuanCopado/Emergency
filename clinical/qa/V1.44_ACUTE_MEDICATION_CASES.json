@@ -1064,6 +1064,489 @@
         }
       ],
       "case_id": "anaphylaxis-6monthsto6-age-6"
+    },
+    {
+      "id": "reversal-dabigatran",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 2,
+        "anticoagulant": "dabigatran",
+        "reversal_indication": "major_bleeding"
+      },
+      "expect": {
+        "dose": 5,
+        "dose_unit": "g",
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "apixaban"
+        },
+        {
+          "reversal_indication": "minor_bleeding"
+        },
+        {
+          "product_verified": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-apixaban",
+      "case_id": "reversal-apixaban-low",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 2,
+        "anticoagulant": "apixaban",
+        "last_dose_mg": 5
+      },
+      "expect": {
+        "dose": 400,
+        "dose_unit": "mg",
+        "components": {
+          "bolus_mg": 400,
+          "infusion_mg_min": 4,
+          "infusion_duration_min": 120,
+          "infusion_total_mg": 480
+        },
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "edoxaban"
+        },
+        {
+          "last_dose_hours": -1
+        },
+        {
+          "last_dose_mg": 0
+        },
+        {
+          "life_threatening_uncontrolled_bleeding": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-apixaban",
+      "case_id": "reversal-apixaban-high",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 2,
+        "anticoagulant": "apixaban",
+        "last_dose_mg": 6
+      },
+      "expect": {
+        "dose": 800,
+        "dose_unit": "mg",
+        "components": {
+          "bolus_mg": 800,
+          "infusion_mg_min": 8,
+          "infusion_duration_min": 120,
+          "infusion_total_mg": 960
+        },
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "edoxaban"
+        },
+        {
+          "last_dose_hours": -1
+        },
+        {
+          "last_dose_mg": 0
+        },
+        {
+          "life_threatening_uncontrolled_bleeding": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-apixaban",
+      "case_id": "reversal-apixaban-8h",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 8,
+        "anticoagulant": "apixaban",
+        "last_dose_mg": 6
+      },
+      "expect": {
+        "dose": 400,
+        "dose_unit": "mg",
+        "components": {
+          "bolus_mg": 400,
+          "infusion_mg_min": 4,
+          "infusion_duration_min": 120,
+          "infusion_total_mg": 480
+        },
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "edoxaban"
+        },
+        {
+          "last_dose_hours": -1
+        },
+        {
+          "last_dose_mg": 0
+        },
+        {
+          "life_threatening_uncontrolled_bleeding": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-rivaroxaban",
+      "case_id": "reversal-rivaroxaban-low",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 2,
+        "anticoagulant": "rivaroxaban",
+        "last_dose_mg": 10
+      },
+      "expect": {
+        "dose": 400,
+        "dose_unit": "mg",
+        "components": {
+          "bolus_mg": 400,
+          "infusion_mg_min": 4,
+          "infusion_duration_min": 120,
+          "infusion_total_mg": 480
+        },
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "edoxaban"
+        },
+        {
+          "last_dose_hours": -1
+        },
+        {
+          "last_dose_mg": 0
+        },
+        {
+          "life_threatening_uncontrolled_bleeding": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-rivaroxaban",
+      "case_id": "reversal-rivaroxaban-high",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 2,
+        "anticoagulant": "rivaroxaban",
+        "last_dose_mg": 11
+      },
+      "expect": {
+        "dose": 800,
+        "dose_unit": "mg",
+        "components": {
+          "bolus_mg": 800,
+          "infusion_mg_min": 8,
+          "infusion_duration_min": 120,
+          "infusion_total_mg": 960
+        },
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "edoxaban"
+        },
+        {
+          "last_dose_hours": -1
+        },
+        {
+          "last_dose_mg": 0
+        },
+        {
+          "life_threatening_uncontrolled_bleeding": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-rivaroxaban",
+      "case_id": "reversal-rivaroxaban-8h",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 8,
+        "anticoagulant": "rivaroxaban",
+        "last_dose_mg": 11
+      },
+      "expect": {
+        "dose": 400,
+        "dose_unit": "mg",
+        "components": {
+          "bolus_mg": 400,
+          "infusion_mg_min": 4,
+          "infusion_duration_min": 120,
+          "infusion_total_mg": 480
+        },
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "edoxaban"
+        },
+        {
+          "last_dose_hours": -1
+        },
+        {
+          "last_dose_mg": 0
+        },
+        {
+          "life_threatening_uncontrolled_bleeding": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-ufh",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 2,
+        "anticoagulant": "ufh",
+        "recent_ufh_units": 6000,
+        "recent_window_hours": 2,
+        "time_adjustment_reviewed": true
+      },
+      "expect": {
+        "dose": 50,
+        "dose_unit": "mg",
+        "maximum": {
+          "value": 50,
+          "unit": "mg"
+        },
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "recent_ufh_units": 0
+        },
+        {
+          "last_dose_hours": 4
+        },
+        {
+          "time_adjustment_reviewed": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-enoxaparin-early",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 7,
+        "anticoagulant": "enoxaparin",
+        "enoxaparin_mg": 80
+      },
+      "expect": {
+        "dose": 80,
+        "dose_unit": "mg",
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "fondaparinux"
+        },
+        {
+          "enoxaparin_mg": 0
+        },
+        {
+          "last_dose_hours": 8
+        }
+      ]
+    },
+    {
+      "id": "reversal-enoxaparin-late",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 8,
+        "anticoagulant": "enoxaparin",
+        "enoxaparin_mg": 80
+      },
+      "expect": {
+        "dose": 40,
+        "dose_unit": "mg",
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "fondaparinux"
+        },
+        {
+          "enoxaparin_mg": 0
+        },
+        {
+          "last_dose_hours": 7
+        },
+        {
+          "last_dose_hours": 13
+        }
+      ]
+    },
+    {
+      "id": "reversal-enoxaparin-repeat",
+      "group": "reversal",
+      "inputs": {
+        "life_threatening_uncontrolled_bleeding": true,
+        "renal_hepatic_tests_reviewed": true,
+        "exact_agent_confirmed": true,
+        "product_verified": true,
+        "last_dose_hours": 7,
+        "anticoagulant": "enoxaparin",
+        "enoxaparin_mg": 80,
+        "prior_protamine_given": true,
+        "persistent_activity": true
+      },
+      "expect": {
+        "dose": 40,
+        "dose_unit": "mg",
+        "pump_ml_h": null
+      },
+      "reject": [
+        {
+          "anticoagulant": "fondaparinux"
+        },
+        {
+          "enoxaparin_mg": 0
+        },
+        {
+          "prior_protamine_given": false
+        },
+        {
+          "persistent_activity": false
+        }
+      ]
+    },
+    {
+      "id": "reversal-vka-pcc",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-superwarfarin",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-edoxaban",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-betrixaban",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-fondaparinux",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-other-lmwh",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-enoxaparin-over12",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-argatroban",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-bivalirudin",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-other-dti",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-danaparoid",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-fibrinolytics",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-antiplatelets",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-unknown",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
+    },
+    {
+      "id": "reversal-dabigatran-repeat",
+      "group": "reversal",
+      "inputs": {},
+      "blocked": true
     }
   ]
 }

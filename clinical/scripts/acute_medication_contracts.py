@@ -60,7 +60,7 @@ def regimens():
                             'mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.',
                             'No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.'],
         })
-    return rows + insulin_regimens() + sodium_regimens() + status_regimens() + anaphylaxis_regimens()
+    return rows + insulin_regimens() + sodium_regimens() + status_regimens() + anaphylaxis_regimens() + reversal_regimens()
 
 
 def contract(rid, label, group, group_label, drug, bundle, module, anchors, fields,
@@ -194,5 +194,75 @@ def anaphylaxis_regimens():
     ]:
         rows.append(contract('anaphylaxis-' + key, label, 'anaphylaxis', 'Anafilaxia', 'Adrenalina',
             'infection-respiratory.md', 'anaphylaxis', ['Refractory anaphylaxis'], [],
+            block_reason=reason, limitations=[reason], administration=reason))
+    return rows
+
+
+def reversal_regimens():
+    rows = []
+    agents = ['dabigatran', 'apixaban', 'rivaroxaban', 'ufh', 'enoxaparin', 'edoxaban', 'fondaparinux', 'other', 'unknown']
+    def add(key, label, drug, agent, anchors, extra, **values):
+        rows.append(contract('reversal-' + key, label, 'reversal', 'Reversión / antídotos', drug,
+            'procedures-pharmacology.md', 'anticoagulation-reversal', anchors,
+            [field('anticoagulant', 'Anticoagulante causal exacto', 'choice', options=agents, expected=agent),
+             field('exact_agent_confirmed', 'Agente, indicación y dosis previas confirmados', expected=True),
+             field('last_dose_hours', 'Horas desde última dosis conocida', 'number', minimum=0),
+             field('life_threatening_uncontrolled_bleeding', 'Hemorragia vital/no controlada confirmada', expected=True),
+             field('renal_hepatic_tests_reviewed', 'Función renal/hepática y pruebas específicas revisadas', expected=True),
+             field('product_verified', 'Producto exacto y disponibilidad verificados; riesgo trombótico revisado', expected=True)] + extra,
+            limitations=['No extrapolar a otro anticoagulante ni a hemorragia menor.',
+                         'Preparación, volumen, velocidad de bomba y conciliación de producto local no documentados en este contrato.',
+                         'Control de foco, reevaluación y reinicio antitrombótico requieren decisión profesional.'], **values))
+    add('dabigatran', 'Dabigatrán — idarucizumab', 'Idarucizumab', 'dabigatran', ['idarucizumab 5 g IV', '2 × 2.5 g consecutivos'],
+        [field('reversal_indication', 'Indicación de reversión', 'choice', options=['major_bleeding', 'urgent_surgery'])],
+        dose=5, dose_unit='g', administration='5 g IV como dos dosis consecutivas de 2,5 g. Reevaluar por rebote; segunda dosis no rutinaria.',
+        components={'consecutive_doses': 2, 'each_g': 2.5})
+    # Urgent surgery is an independent labelled indication; no false bleeding requirement.
+    rows[-1]['fields'] = [f for f in rows[-1]['fields'] if f['key'] != 'life_threatening_uncontrolled_bleeding']
+    for agent, threshold in [('apixaban', 5), ('rivaroxaban', 10)]:
+        add(agent, agent.capitalize() + ' — andexanet alfa', 'Andexanet alfa', agent,
+            ['400 mg IV', '800 mg IV', '4 mg/min durante 120 min', '8 mg/min durante 120 min', 'Si dosis o intervalo son desconocidos'],
+            [field('last_dose_mg', 'Última dosis del anticoagulante (mg)', 'number', positive=True)],
+            model='andexanet', threshold_mg=threshold, dose_unit='mg',
+            administration='Dosis mostrada = bolo IV; después perfusión de 120 min según los componentes. No convertir a mL sin producto/concentración verificados. Dosis/hora desconocidas: consultar hematología/farmacia.')
+    add('ufh', 'UFH reciente — referencia de protamina', 'Protamina', 'ufh',
+        ['1 mg de protamina por cada 100 U de UFH', '50 mg', '≤5 mg/min'],
+        [field('recent_ufh_units', 'UFH administrada en la ventana reciente (U)', 'number', positive=True),
+         field('recent_window_hours', 'Ventana reciente documentada (horas)', 'number', minimum=2, maximum=3),
+         field('time_adjustment_reviewed', 'Ajuste por tiempo y pauta final revisados según protocolo local', expected=True)],
+        model='ufh', dose_unit='mg', maximum={'value': 50, 'unit': 'mg'},
+        administration='Referencia aritmética de 1 mg por 100 U recientes, máximo habitual 50 mg; ajustar por tiempo transcurrido. IV lenta ≤5 mg/min; vigilar hipotensión/anafilaxia y aPTT/ACT.')
+    next(f for f in rows[-1]['fields'] if f['key'] == 'last_dose_hours')['maximum'] = 3
+    for suffix, label, coefficient, time_rules, extra in [
+        ('early', 'Menos de 8 horas', 1, {'exclusive_maximum': 8}, []),
+        ('late', 'De 8 a 12 horas', .5, {'minimum': 8, 'maximum': 12}, []),
+        ('repeat', 'Segunda dosis condicionada', .5, {}, [field('prior_protamine_given', 'Primera dosis de protamina documentada', expected=True), field('persistent_activity', 'Persisten sangrado/actividad y se confirmó indicación especializada', expected=True)]),
+    ]:
+        add('enoxaparin-' + suffix, 'Enoxaparina — ' + label, 'Protamina', 'enoxaparin',
+            ['1 mg protamina por 1 mg enoxaparina', '0.5 mg protamina por 1 mg enoxaparina'],
+            [field('enoxaparin_mg', 'Dosis causal de enoxaparina (mg; no unidades anti-Xa)', 'number', positive=True)] + extra,
+            model='enoxaparin', dose=coefficient, dose_unit='mg',
+            administration='Reversión parcial, no neutralización completa. Reevaluar sangrado, función renal y actividad anti-Xa; producto, máximo y velocidad según protocolo verificado.')
+        next(f for f in rows[-1]['fields'] if f['key'] == 'last_dose_hours').update(time_rules)
+    blocked = [
+        ('vka-pcc', 'VKA — vitamina K / 4F-PCC', 'Requiere INR, peso y tabla exacta del PCC local. No aplicar automáticamente a sangrado menor o INR aislado; no se ha verificado tabla de producto.'),
+        ('superwarfarin', 'Superwarfarinas', 'Vitamina K prolongada y seguimiento INR requieren toxicología/hematología; no hay pauta individual verificada.'),
+        ('edoxaban', 'Edoxabán', 'No extrapolar indicación EMA de andexanet; PCC inespecífico exige selección/dosis de protocolo experto.'),
+        ('betrixaban', 'Betrixabán', 'Verificar regulación y protocolo experto; no extrapolar andexanet.'),
+        ('fondaparinux', 'Fondaparinux', 'Sin antídoto específico aprobado en la fuente; protamina no neutraliza. Soporte/control de foco y consulta experta.'),
+        ('other-lmwh', 'Otras HBPM', 'Reversión parcial según ficha exacta; no convertir unidades entre HBPM.'),
+        ('enoxaparin-over12', 'Enoxaparina después de 12 horas', 'Necesidad individual según actividad persistente/función renal; no hay dosis universal.'),
+        ('argatroban', 'Argatrobán', 'Sin antídoto específico; suspender, soporte, control de foco y valoración de función hepática.'),
+        ('bivalirudin', 'Bivalirudina', 'Sin antídoto específico; suspender, soporte, control de foco y valoración renal.'),
+        ('other-dti', 'Otras trombinas directas parenterales', 'Sin pauta universal de antídoto; manejo experto por producto y función renal.'),
+        ('danaparoid', 'Danaparoide / heparinoides', 'No reversión fiable con protamina; soporte y hematología, sin pauta universal.'),
+        ('fibrinolytics', 'Trombolíticos / fibrinolíticos', 'Suspender; control urgente de fibrinógeno y coagulación, neuroimagen si ICH; crioprecipitado/fibrinógeno según protocolo.'),
+        ('antiplatelets', 'Antiagregantes', 'No hay antídoto universal; decisiones según sangrado/procedimiento. No transfusión plaquetaria automática.'),
+        ('unknown', 'Agente, dosis o tiempo desconocidos', 'Identificar agente, última dosis, pruebas y función orgánica. No elegir antídoto a ciegas.'),
+        ('dabigatran-repeat', 'Repetición de idarucizumab', 'No rutinaria: requiere criterios específicos del producto y hematología; no se automatiza.'),
+    ]
+    for key, label, reason in blocked:
+        rows.append(contract('reversal-' + key, label, 'reversal', 'Reversión / antídotos', label,
+            'procedures-pharmacology.md', 'anticoagulation-reversal', ['Identificar'], [],
             block_reason=reason, limitations=[reason], administration=reason))
     return rows

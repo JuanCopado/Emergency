@@ -48,9 +48,10 @@ try {
       await page.getByRole('region',{name:'Resultado farmacológico'}).waitFor();
       for (const [key,value] of Object.entries(c.expect)) {
         assert.deepEqual(calculated.result[key], value, `${c.id}: ${key}`);
-        if (await page.locator(`[data-result="${key}"]`).count()) {
+        assert.equal(await page.locator(`[data-result="${key}"]`).count(),1,`Missing visible result: ${key}`);
+        {
           const shown = await page.locator(`[data-result="${key}"]`).innerText();
-          assert.ok(value === null ? shown.includes('No especificado') : shown === String(value), `${key} rendered`);
+          assert.ok(value === null ? shown.includes('No especificado') : shown === (typeof value === 'object' ? JSON.stringify(value) : String(value)), `${key} rendered`);
         }
       }
       assert.equal(norm(await page.getByTestId('acute-warnings').innerText()), norm(calculated.result.monitoring_and_warnings));
@@ -90,6 +91,19 @@ print(json.dumps(pages))
       assert.equal(check.status, 0, check.stderr);
       const rejectedInputs = [];
       for (const updates of c.reject || []) {
+        const unavailable = Object.entries(updates).filter(([key,value]) => {
+          const field = row.fields.find(f => f.key === key);
+          return field.kind === 'choice' && !field.options.includes(value);
+        });
+        if (unavailable.length) {
+          for (const [key,value] of unavailable) assert.equal(await page.locator(`[data-field="${key}"] option`).filter({hasText:String(value)}).count(),0);
+          const response = await context.request.post(`${base}/api/acute-medications/calculate`, {data:{regimen_id:c.id,source_revision:catalog.source_revision,inputs:{...inputs,...updates}}});
+          const rejected = await response.json();
+          assert.equal(rejected.blocked,true);
+          assert.equal(rejected.result,undefined);
+          rejectedInputs.push({updates,layer:'Unavailable UI option + API gate',alerts:rejected.alerts});
+          continue;
+        }
         for (const [key,value] of Object.entries(updates)) {
           const spec = row.fields.find(f => f.key === key);
           const control = page.locator(`[data-field="${key}"]`);
