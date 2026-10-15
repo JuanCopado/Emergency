@@ -1,5 +1,7 @@
 # MODULES — índice verificado
 
+Actualización técnica 14/10/2026: pediatría ambulatoria 89/89 regímenes, 1061 escenarios de navegador y 89 exports JSON PASS. Registro: `qa/V1.44_PEDIATRIC_BROWSER_COMPLETION.md`. Evidencia YELLOW; v1.44 ABIERTA / CLINICALLY_PENDING, con seis flujos farmacológicos pendientes.
+
 Estado v1.42 auditado el 10/10/2026: 131 IDs únicos, 29 GREEN / 102 YELLOW / 0 RED; todos tienen sección y registro. Inventario derivado en `qa/V1.42_INVENTORY.json`; límites y cierre técnico en `qa/V1.42_FINAL_AUDIT.md`.
 El estado green/yellow corresponde al registro de evidencia, no a una declaración de validación clínica.
 

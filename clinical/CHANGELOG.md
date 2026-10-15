@@ -1,3 +1,7 @@
+## v1.44 cobertura pediátrica ampliada — 14/10/2026
+
+89/89 regímenes, 1061/1061 escenarios de navegador y 89 exports JSON PASS; los 73 regímenes sin prueba específica ya están cubiertos. Corregidos selector E2E, frecuencia numérica de dispositivos según banda canónica y selección de volumen en fixtures límite. Build PASS; Clinical QA 7/7 y 568 Python PASS. Evidencia en qa/V1.44_PEDIATRIC_BROWSER_COMPLETION.md. Seis grupos sin flujo completo: qa/V1.44_PHARMACOLOGY_GAPS.md. v1.44 ABIERTA / CLINICALLY_PENDING; sin promoción de evidencia.
+
 ## v1.44 verificación final del bloque — 13/10/2026
 
 Verificación final del código 1c343a91fbc7223a89cf24a9fcc21a6d193fd54e: 567 Python, 370 frontend, Clinical QA 7/7, lint/typecheck/build y diff-check PASS. D E2E: 40 adultos y 22 pediátricos PASS. P0/P1 nuevos no confirmados; P2 cobertura pendiente y flujos ausentes; P3 localización/avisos heredados. Main/RC1/v1.43 intactos, sin merge/push/promociones. Graphify local sin seguimiento. v1.44 ABIERTA/CLINICALLY_PENDING.

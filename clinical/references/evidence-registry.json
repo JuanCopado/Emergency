@@ -1110,6 +1110,13 @@
       "note": "135 active CORE/SPECIALIST scales plus 45 formulas registered centrally. Metadata and deterministic formula engine implemented. High-impact tools require source-by-source validation and human review before green promotion; complex decision rules are not reduced to artificial numeric scores."
     },
     "pediatric-outpatient-medications": {
+      "pediatric_browser_review": {
+        "date": "2026-10-14",
+        "scope": "89 regimens, 1061 synthetic browser scenarios and 89 JSON exports PASS; canonical device frequency preserved",
+        "record": "qa/V1.44_PEDIATRIC_BROWSER_COMPLETION.md",
+        "clinical_evidence_reverified": false,
+        "human_review_required": true
+      },
       "pediatric_consolidation_review": {
         "date": "2026-10-10",
         "scope": "Three synthetic fixture gates, finite arithmetic, canonical catalog and frontend/API integration; focal source comparison recorded separately",
