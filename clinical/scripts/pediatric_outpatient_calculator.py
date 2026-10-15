@@ -391,6 +391,7 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
     elif model=="device":
         band=_fixed_band(e,patient)
         result["device"]=band
+        doses_per_day=band.get("doses_per_day",doses_per_day)
     elif model=="topical":
         result["instructions"]=e["topical_instructions"]
         for field in (

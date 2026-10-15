@@ -26,6 +26,27 @@ BAD = [float('inf'), float('-inf'), float('nan'), True, '20', None, {}, []]
 
 
 class PediatricSafetyCases(unittest.TestCase):
+    def test_device_frequency_preserves_source_band(self):
+        for regimen_id, age, daily in (
+            ('fluticasone-controller-preschool', 24, 2),
+            ('ciclesonide-controller-6to11-step2', 84, 1),
+            ('fluticasone-controller-6to11-step2', 84, 2),
+            ('budesonide-formoterol-controller-6to11-step3-rch', 84, 2),
+            ('mometasone-nasal-allergic-rhinitis', 48, 1),
+            ('fluticasone-propionate-nasal-allergic-rhinitis', 60, 1),
+            ('azelastine-fluticasone-nasal-ge12', 156, 2),
+            ('budesonide-formoterol-air-mart-6to11-gina2026', 84, None),
+        ):
+            with self.subTest(regimen_id=regimen_id):
+                result = calculate(regimen_id, {
+                    'age_months': age, 'actual_weight_kg': 20,
+                    'allergies': [], 'active_medications': [],
+                    'known_renal_impairment': False,
+                    'known_hepatic_impairment': False,
+                })
+                self.assertEqual(result['device'].get('doses_per_day'), daily)
+                self.assertEqual(result['doses_per_day'], daily)
+
     def test_bank_all_eighteen_expectations(self):
         self.assertEqual(run(), {'cases': 18, 'passed': 18, 'errors': []})
 
