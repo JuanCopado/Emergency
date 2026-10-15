@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { DrugCard } from '../components/DrugCard';
 import { Icon } from '../components/Icon';
 import { drugs } from '../data';
@@ -36,6 +37,7 @@ export default function DrugList() {
       <header>
         <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">{t('list.title')}</h1>
         <p className="mt-1 text-muted">{t('list.subtitle')}</p>
+        <Link className="btn-ghost mt-3 inline-block" to="/acute-medications">Farmacología aguda por indicación</Link>
       </header>
 
       <div className="card space-y-4 p-4">

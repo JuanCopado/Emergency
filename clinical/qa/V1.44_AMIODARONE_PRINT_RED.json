@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-15T22:56:00.893Z",
+  "clinical_status": "CLINICALLY_PENDING",
+  "group": "amiodarone",
+  "cases": [],
+  "errors": [],
+  "browser": "155.0.4283.45",
+  "source_revision": "ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408",
+  "fixtures_sha256": "fd75cf4245edce37adf363244345922463e50c5d018ad6d361dcb8b649f2f256",
+  "status": "FAIL",
+  "failure": "AssertionError [ERR_ASSERTION]: Traceback (most recent call last):\r\n  File \"<string>\", line 14, in <module>\r\n    for expected in [heading]+paragraphs:assert norm(expected) in norm(text),(fmt,expected)\r\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError: ('print', 'Farmacología aguda — apoyo aritmético')\r\n\n\n1 !== 0\n\n    at file:///C:/Users/HISTTON/Emergency/app/scripts/check-acute-medications-v144.mjs:81:14\n    at async withClinicalApp (file:///C:/Users/HISTTON/Emergency/app/scripts/functional-harness.mjs:23:5)\n    at async file:///C:/Users/HISTTON/Emergency/app/scripts/check-acute-medications-v144.mjs:15:3",
+  "finished_at": "2026-10-15T22:56:05.183Z"
+}

@@ -1,0 +1,91 @@
+import copy
+import sys
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+from acute_medication_api import catalog, calculate_request, export_request
+
+
+def request(regimen, **inputs):
+    return {'regimen_id': regimen, 'source_revision': catalog()['source_revision'], 'inputs': {
+        'population': 'adult', 'route': 'IV', 'indication_confirmed': True,
+        'allergy_contraindication_present': False, 'interaction_reviewed': True,
+        'monitoring_ready': True, 'local_protocol_verified': True,
+        'concentration': 50, 'product_verified': True, **inputs,
+    }}
+
+
+class AmiodaroneFlow(unittest.TestCase):
+    def test_distinct_indications_and_source_preparation_limits(self):
+        for rid, extra, dose, volume in [
+            ('amiodarone-arrest-third', {'shock_count': 3}, 300, 6),
+            ('amiodarone-arrest-fifth', {'shock_count': 5, 'prior_300mg_given': True}, 150, 3),
+            ('amiodarone-failed-cardioversion', {'failed_cardioversion_unstable': True, 'duration_min': 20}, 300, 6),
+            ('amiodarone-maintenance', {'loading_pathway_confirmed': True}, 900, 18),
+        ]:
+            with self.subTest(rid=rid):
+                data = calculate_request(request(rid, **extra))
+                self.assertFalse(data['blocked'])
+                self.assertEqual(data['result']['dose'], dose)
+                self.assertEqual(data['result']['dose_unit'], 'mg')
+                self.assertEqual(data['result']['withdrawal_ml'], volume)
+                self.assertIsNone(data['result']['administration_volume_ml'])
+                self.assertIsNone(data['result']['pump_ml_h'])
+                self.assertTrue(data['result']['limitations'])
+                self.assertEqual(data['result']['clinical_status'], 'CLINICALLY_PENDING')
+
+    def test_gates_and_no_safe_fallback(self):
+        for update in [{'shock_count': 2}, {'concentration': 0}, {'concentration': 0.1},
+                       {'route': 'IM'}, {'population': 'pediatric'},
+                       {'allergy_contraindication_present': True}, {'product_verified': False},
+                       {'interaction_reviewed': False}, {'monitoring_ready': False},
+                       {'shock_count': float('nan')}, {'concentration': float('inf')}]:
+            with self.subTest(update=update):
+                data = calculate_request(request('amiodarone-arrest-third', shock_count=3, **update) if 'shock_count' not in update else request('amiodarone-arrest-third', **update))
+                self.assertTrue(data['blocked'])
+                self.assertNotIn('result', data)
+        data = calculate_request(request('amiodarone-failed-cardioversion', failed_cardioversion_unstable=True, duration_min=21))
+        self.assertTrue(data['blocked'])
+
+    def test_stale_revision_unknown_indication_and_fields(self):
+        payload = request('amiodarone-arrest-third', shock_count=3)
+        for altered in [{**payload, 'source_revision': 'stale'}, {**payload, 'regimen_id': 'amiodarone-af-unmodeled'}, {**payload, 'inputs': {**payload['inputs'], 'dose': 600}}]:
+            with self.assertRaises(ValueError): calculate_request(altered)
+
+    def test_export_requires_confirmation_and_complete_result_fidelity(self):
+        payload = request('amiodarone-arrest-third', shock_count=3)
+        calculated = calculate_request(payload)
+        body = {'calculation': payload, 'expected_result': calculated['result'], 'format': 'json', 'confirmed': True}
+        import base64, json
+        report = json.loads(base64.b64decode(export_request(body)['content_base64']))
+        self.assertEqual(report['snapshot']['result'], calculated['result'])
+        for bad in [{**body, 'confirmed': False}, {**body, 'expected_result': {**body['expected_result'], 'dose': 150}}]:
+            with self.assertRaises(ValueError): export_request(bad)
+        blocked = copy.deepcopy(payload); blocked['inputs']['route'] = 'IM'
+        with self.assertRaises(ValueError): export_request({**body, 'calculation': blocked})
+
+    def test_browser_json_number_roundtrip_keeps_export_faithful(self):
+        payload = request('amiodarone-arrest-third', shock_count=3)
+        result = calculate_request(payload)['result']
+        result['withdrawal_ml'] = 6  # JSON.stringify sends 6, not Python's 6.0.
+        body = {'calculation': payload, 'expected_result': result, 'format': 'json', 'confirmed': True}
+        self.assertEqual(export_request(body)['mime_type'], 'application/json')
+        result['withdrawal_ml'] = 6.01
+        with self.assertRaises(ValueError): export_request(body)
+
+    def test_docx_preserves_every_report_section_including_release_warning(self):
+        import base64, io, zipfile
+        from xml.etree import ElementTree
+        payload = request('amiodarone-arrest-third', shock_count=3)
+        data = calculate_request(payload)
+        exported = export_request({'calculation': payload, 'expected_result': data['result'], 'format': 'docx', 'confirmed': True})
+        with zipfile.ZipFile(io.BytesIO(base64.b64decode(exported['content_base64']))) as document:
+            xml = ElementTree.fromstring(document.read('word/document.xml'))
+        text = '\n'.join(n.text or '' for n in xml.iter('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t'))
+        for title, paragraphs in data['report']['sections']:
+            for value in [title, *paragraphs]: self.assertIn(value, text)
+
+
+if __name__ == '__main__':
+    unittest.main()

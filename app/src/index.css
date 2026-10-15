@@ -181,3 +181,10 @@ main section[id], main form[id] { scroll-margin-top: 6rem; }
   .pediatric-print-sheet { display: block; color: black; background: white; font-size: 10pt; overflow-wrap: anywhere; }
   .pediatric-print-sheet h3 { break-after: avoid; }
 }
+.acute-print-sheet { display: none; }
+@media print {
+  body:has(.acute-print-sheet) > * { display: none !important; }
+  .acute-print-sheet, .acute-print-sheet * { visibility: visible; }
+  body:has(.acute-print-sheet) > .acute-print-sheet { display: block !important; color: #000; background: #fff; padding: 10mm; font-size: 10pt; }
+  .acute-print-sheet p { white-space: pre-wrap; overflow-wrap: anywhere; }
+}

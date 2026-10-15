@@ -1,3 +1,11 @@
+## v1.44 recuperación farmacológica — 15/10/2026
+
+Checkpoint recuperado desde 2be842b: cuatro pautas de amiodarona verificadas
+en navegador con JSON/PDF/DOCX/impresión; seis tests Python focales PASS.
+Corregida visibilidad de impresión. Los cinco grupos restantes siguen pendientes
+en este checkpoint. Ver `qa/V1.44_ACUTE_RECOVERY.md`. CLINICALLY_PENDING;
+preparación final local de amiodarona sin verificar; ningún cambio de evidencia.
+
 ## v1.44 reconciliación del árbol — 15/10/2026
 
 Reconciliación 15/10/2026: trabajo pediátrico recuperado en commits separados; 1061/1061 escenarios de navegador, 89/89 regímenes y 89 exports JSON PASS; exportación focal JSON/PDF/DOCX/impresión PASS. Clinical QA 7/7, 568 Python, 370 frontend, lint/typecheck/build PASS. Inventario completo, ejecuciones interrumpidas conservadas, exclusiones locales sin borrados y procedencia en `qa/V1.44_WORKTREE_RECONCILIATION.md`. Seis flujos farmacológicos sin iniciar. v1.44 ABIERTA / CLINICALLY_PENDING; sin promoción de evidencia.

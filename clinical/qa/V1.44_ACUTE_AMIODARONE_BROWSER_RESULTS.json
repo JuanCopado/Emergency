@@ -1,0 +1,1232 @@
+{
+  "started_at": "2026-10-15T22:57:26.324Z",
+  "clinical_status": "CLINICALLY_PENDING",
+  "group": "amiodarone",
+  "cases": [
+    {
+      "id": "amiodarone-arrest-third",
+      "status": "PASS",
+      "inputs": {
+        "population": "adult",
+        "route": "IV",
+        "indication_confirmed": true,
+        "allergy_contraindication_present": false,
+        "interaction_reviewed": true,
+        "monitoring_ready": true,
+        "local_protocol_verified": true,
+        "shock_count": 3,
+        "concentration": 50,
+        "product_verified": true
+      },
+      "expected": {
+        "dose": 300,
+        "dose_unit": "mg",
+        "withdrawal_ml": 6,
+        "administration_volume_ml": null,
+        "pump_ml_h": null
+      },
+      "actual": {
+        "indication": "FV/TV sin pulso — después de tres descargas",
+        "drug": "Amiodarona",
+        "route": "IV",
+        "dose": 300,
+        "dose_unit": "mg",
+        "concentration": {
+          "value": 50,
+          "unit": "mg/mL",
+          "role": "stock"
+        },
+        "withdrawal_ml": 6,
+        "administration_volume_ml": null,
+        "pump_ml_h": null,
+        "duration_min": null,
+        "amount_per_hour": null,
+        "amount_per_hour_unit": null,
+        "maximum": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "administration": "300 mg IV después de un total de tres descargas; seguir ALS y continuar RCP.",
+        "monitoring_and_warnings": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+        "limitations": [
+          "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+          "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+          "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+        ],
+        "clinical_status": "CLINICALLY_PENDING",
+        "review_status": "CLINICAL_REVIEW_REQUIRED",
+        "source": {
+          "module": "adult-cardiac-arrest",
+          "path": "clinical/modules/cardiovascular.md",
+          "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+          "body": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+          "evidence": {
+            "priority": "high",
+            "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+            "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+            "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+            "last_checked": "2026-10-02",
+            "status": "yellow",
+            "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+          },
+          "localization": {
+            "drug": "amiodarone",
+            "status": "portugal_reference_found_local_pending",
+            "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+            "base_or_salt": "amiodarone hydrochloride",
+            "diluent": null,
+            "standard_concentration": null,
+            "stability": null,
+            "access": null,
+            "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+            "reviewed_by": null,
+            "reviewed_on": "2026-10-02"
+          }
+        }
+      },
+      "report": {
+        "snapshot": {
+          "clinical_status": "CLINICALLY_PENDING",
+          "regimen_id": "amiodarone-arrest-third",
+          "source_revision": "ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408",
+          "inputs": {
+            "population": "adult",
+            "route": "IV",
+            "indication_confirmed": true,
+            "allergy_contraindication_present": false,
+            "interaction_reviewed": true,
+            "monitoring_ready": true,
+            "local_protocol_verified": true,
+            "concentration": 50,
+            "product_verified": true,
+            "shock_count": 3
+          },
+          "result": {
+            "indication": "FV/TV sin pulso — después de tres descargas",
+            "drug": "Amiodarona",
+            "route": "IV",
+            "dose": 300,
+            "dose_unit": "mg",
+            "concentration": {
+              "value": 50,
+              "unit": "mg/mL",
+              "role": "stock"
+            },
+            "withdrawal_ml": 6,
+            "administration_volume_ml": null,
+            "pump_ml_h": null,
+            "duration_min": null,
+            "amount_per_hour": null,
+            "amount_per_hour_unit": null,
+            "maximum": null,
+            "preparation": null,
+            "compatibility": null,
+            "stability": null,
+            "administration": "300 mg IV después de un total de tres descargas; seguir ALS y continuar RCP.",
+            "monitoring_and_warnings": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+            "limitations": [
+              "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+            ],
+            "clinical_status": "CLINICALLY_PENDING",
+            "review_status": "CLINICAL_REVIEW_REQUIRED",
+            "source": {
+              "module": "adult-cardiac-arrest",
+              "path": "clinical/modules/cardiovascular.md",
+              "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "body": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+              "evidence": {
+                "priority": "high",
+                "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+                "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+                "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+                "last_checked": "2026-10-02",
+                "status": "yellow",
+                "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+              },
+              "localization": {
+                "drug": "amiodarone",
+                "status": "portugal_reference_found_local_pending",
+                "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+                "base_or_salt": "amiodarone hydrochloride",
+                "diluent": null,
+                "standard_concentration": null,
+                "stability": null,
+                "access": null,
+                "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+                "reviewed_by": null,
+                "reviewed_on": "2026-10-02"
+              }
+            }
+          }
+        },
+        "sections": [
+          [
+            "Farmacología aguda — apoyo aritmético",
+            []
+          ],
+          [
+            "Estado y límites de validación",
+            [
+              "CLINICALLY_PENDING",
+              "Functional validation does not constitute prospective clinical validation."
+            ]
+          ],
+          [
+            "Datos y selección confirmados",
+            [
+              "regimen_id: amiodarone-arrest-third",
+              "inputs.population: adult",
+              "inputs.route: IV",
+              "inputs.indication_confirmed: true",
+              "inputs.allergy_contraindication_present: false",
+              "inputs.interaction_reviewed: true",
+              "inputs.monitoring_ready: true",
+              "inputs.local_protocol_verified: true",
+              "inputs.concentration: 50",
+              "inputs.product_verified: true",
+              "inputs.shock_count: 3"
+            ]
+          ],
+          [
+            "Resultado, preparación, límites, monitorización y evidencia",
+            [
+              "indication: FV/TV sin pulso — después de tres descargas",
+              "drug: Amiodarona",
+              "route: IV",
+              "dose: 300",
+              "dose_unit: mg",
+              "concentration.value: 50",
+              "concentration.unit: mg/mL",
+              "concentration.role: stock",
+              "withdrawal_ml: 6.0",
+              "administration_volume_ml: null",
+              "pump_ml_h: null",
+              "duration_min: null",
+              "amount_per_hour: null",
+              "amount_per_hour_unit: null",
+              "maximum: null",
+              "preparation: null",
+              "compatibility: null",
+              "stability: null",
+              "administration: 300 mg IV después de un total de tres descargas; seguir ALS y continuar RCP.",
+              "monitoring_and_warnings: - Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+              "limitations[0]: Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "limitations[1]: mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "limitations[2]: No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.",
+              "clinical_status: CLINICALLY_PENDING",
+              "review_status: CLINICAL_REVIEW_REQUIRED",
+              "source.module: adult-cardiac-arrest",
+              "source.path: clinical/modules/cardiovascular.md",
+              "source.preamble: # Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "source.body: - Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+              "source.evidence.priority: high",
+              "source.evidence.primary_source: Resuscitation Council UK/ERC Guidelines 2025",
+              "source.evidence.primary_source_url: https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+              "source.evidence.stored_version: ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+              "source.evidence.last_checked: 2026-10-02",
+              "source.evidence.status: yellow",
+              "source.evidence.note: Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation.",
+              "source.localization.drug: amiodarone",
+              "source.localization.status: portugal_reference_found_local_pending",
+              "source.localization.product_strength: INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+              "source.localization.base_or_salt: amiodarone hydrochloride",
+              "source.localization.diluent: null",
+              "source.localization.standard_concentration: null",
+              "source.localization.stability: null",
+              "source.localization.access: null",
+              "source.localization.source: INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+              "source.localization.reviewed_by: null",
+              "source.localization.reviewed_on: 2026-10-02"
+            ]
+          ],
+          [
+            "Procedencia",
+            [
+              "source_revision: ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408"
+            ]
+          ]
+        ]
+      },
+      "gates": [
+        {
+          "key": "route",
+          "value": "PO",
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "route",
+              "message": "Revisar Vía; valor requerido: IV. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "allergy_contraindication_present",
+          "value": true,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "allergy_contraindication_present",
+              "message": "Revisar Alergia o contraindicación para esta opción; valor requerido: False. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "monitoring_ready",
+          "value": false,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "monitoring_ready",
+              "message": "Revisar Monitorización y medios de rescate disponibles; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "concentration",
+          "value": 0,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "concentration",
+              "message": "Revisar Concentración del producto (mg/mL; no dilución final); valor requerido: 50. No se cumple el contrato de esta pauta."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        "json",
+        "pdf",
+        "docx",
+        "print"
+      ],
+      "pages": {
+        "pdf": 4,
+        "print": 4
+      },
+      "invalidation": "PASS"
+    },
+    {
+      "id": "amiodarone-arrest-fifth",
+      "status": "PASS",
+      "inputs": {
+        "population": "adult",
+        "route": "IV",
+        "indication_confirmed": true,
+        "allergy_contraindication_present": false,
+        "interaction_reviewed": true,
+        "monitoring_ready": true,
+        "local_protocol_verified": true,
+        "shock_count": 5,
+        "prior_300mg_given": true,
+        "concentration": 50,
+        "product_verified": true
+      },
+      "expected": {
+        "dose": 150,
+        "dose_unit": "mg",
+        "withdrawal_ml": 3,
+        "pump_ml_h": null
+      },
+      "actual": {
+        "indication": "FV/TV sin pulso — dosis adicional después de cinco descargas",
+        "drug": "Amiodarona",
+        "route": "IV",
+        "dose": 150,
+        "dose_unit": "mg",
+        "concentration": {
+          "value": 50,
+          "unit": "mg/mL",
+          "role": "stock"
+        },
+        "withdrawal_ml": 3,
+        "administration_volume_ml": null,
+        "pump_ml_h": null,
+        "duration_min": null,
+        "amount_per_hour": null,
+        "amount_per_hour_unit": null,
+        "maximum": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "administration": "150 mg IV adicionales después de un total de cinco descargas; continuar ALS.",
+        "monitoring_and_warnings": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+        "limitations": [
+          "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+          "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+          "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+        ],
+        "clinical_status": "CLINICALLY_PENDING",
+        "review_status": "CLINICAL_REVIEW_REQUIRED",
+        "source": {
+          "module": "adult-cardiac-arrest",
+          "path": "clinical/modules/cardiovascular.md",
+          "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+          "body": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+          "evidence": {
+            "priority": "high",
+            "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+            "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+            "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+            "last_checked": "2026-10-02",
+            "status": "yellow",
+            "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+          },
+          "localization": {
+            "drug": "amiodarone",
+            "status": "portugal_reference_found_local_pending",
+            "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+            "base_or_salt": "amiodarone hydrochloride",
+            "diluent": null,
+            "standard_concentration": null,
+            "stability": null,
+            "access": null,
+            "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+            "reviewed_by": null,
+            "reviewed_on": "2026-10-02"
+          }
+        }
+      },
+      "report": {
+        "snapshot": {
+          "clinical_status": "CLINICALLY_PENDING",
+          "regimen_id": "amiodarone-arrest-fifth",
+          "source_revision": "ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408",
+          "inputs": {
+            "population": "adult",
+            "route": "IV",
+            "indication_confirmed": true,
+            "allergy_contraindication_present": false,
+            "interaction_reviewed": true,
+            "monitoring_ready": true,
+            "local_protocol_verified": true,
+            "concentration": 50,
+            "product_verified": true,
+            "shock_count": 5,
+            "prior_300mg_given": true
+          },
+          "result": {
+            "indication": "FV/TV sin pulso — dosis adicional después de cinco descargas",
+            "drug": "Amiodarona",
+            "route": "IV",
+            "dose": 150,
+            "dose_unit": "mg",
+            "concentration": {
+              "value": 50,
+              "unit": "mg/mL",
+              "role": "stock"
+            },
+            "withdrawal_ml": 3,
+            "administration_volume_ml": null,
+            "pump_ml_h": null,
+            "duration_min": null,
+            "amount_per_hour": null,
+            "amount_per_hour_unit": null,
+            "maximum": null,
+            "preparation": null,
+            "compatibility": null,
+            "stability": null,
+            "administration": "150 mg IV adicionales después de un total de cinco descargas; continuar ALS.",
+            "monitoring_and_warnings": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+            "limitations": [
+              "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+            ],
+            "clinical_status": "CLINICALLY_PENDING",
+            "review_status": "CLINICAL_REVIEW_REQUIRED",
+            "source": {
+              "module": "adult-cardiac-arrest",
+              "path": "clinical/modules/cardiovascular.md",
+              "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "body": "- Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+              "evidence": {
+                "priority": "high",
+                "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+                "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+                "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+                "last_checked": "2026-10-02",
+                "status": "yellow",
+                "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+              },
+              "localization": {
+                "drug": "amiodarone",
+                "status": "portugal_reference_found_local_pending",
+                "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+                "base_or_salt": "amiodarone hydrochloride",
+                "diluent": null,
+                "standard_concentration": null,
+                "stability": null,
+                "access": null,
+                "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+                "reviewed_by": null,
+                "reviewed_on": "2026-10-02"
+              }
+            }
+          }
+        },
+        "sections": [
+          [
+            "Farmacología aguda — apoyo aritmético",
+            []
+          ],
+          [
+            "Estado y límites de validación",
+            [
+              "CLINICALLY_PENDING",
+              "Functional validation does not constitute prospective clinical validation."
+            ]
+          ],
+          [
+            "Datos y selección confirmados",
+            [
+              "regimen_id: amiodarone-arrest-fifth",
+              "inputs.population: adult",
+              "inputs.route: IV",
+              "inputs.indication_confirmed: true",
+              "inputs.allergy_contraindication_present: false",
+              "inputs.interaction_reviewed: true",
+              "inputs.monitoring_ready: true",
+              "inputs.local_protocol_verified: true",
+              "inputs.concentration: 50",
+              "inputs.product_verified: true",
+              "inputs.shock_count: 5",
+              "inputs.prior_300mg_given: true"
+            ]
+          ],
+          [
+            "Resultado, preparación, límites, monitorización y evidencia",
+            [
+              "indication: FV/TV sin pulso — dosis adicional después de cinco descargas",
+              "drug: Amiodarona",
+              "route: IV",
+              "dose: 150",
+              "dose_unit: mg",
+              "concentration.value: 50",
+              "concentration.unit: mg/mL",
+              "concentration.role: stock",
+              "withdrawal_ml: 3.0",
+              "administration_volume_ml: null",
+              "pump_ml_h: null",
+              "duration_min: null",
+              "amount_per_hour: null",
+              "amount_per_hour_unit: null",
+              "maximum: null",
+              "preparation: null",
+              "compatibility: null",
+              "stability: null",
+              "administration: 150 mg IV adicionales después de un total de cinco descargas; continuar ALS.",
+              "monitoring_and_warnings: - Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+              "limitations[0]: Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "limitations[1]: mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "limitations[2]: No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.",
+              "clinical_status: CLINICALLY_PENDING",
+              "review_status: CLINICAL_REVIEW_REQUIRED",
+              "source.module: adult-cardiac-arrest",
+              "source.path: clinical/modules/cardiovascular.md",
+              "source.preamble: # Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "source.body: - Adult ALS pathway: recognize unresponsiveness with absent/abnormal breathing, call the resuscitation team, start high-quality CPR, attach the defibrillator and minimize pauses. Confirm arrest rapidly; do not delay compressions for monitor leads, IV access or airway procedures.\n- Classify rhythm as shockable (VF/pulseless VT) or non-shockable (PEA/asystole). Give a single shock for shockable rhythms and immediately resume CPR for 2 minutes. Up to three stacked shocks are reserved for selected witnessed/monitored VF/pVT with a defibrillator immediately available.\n- **Defibrillation energy (ERC/RCUK 2025):** for rectilinear biphasic or truncated-exponential biphasic waveforms, the first shock should be at least 150 J; for pulsed biphasic waveforms, 130--150 J. If the first shock fails and the device allows higher energy, increase subsequent shocks.\n- **Adrenaline:** non-shockable arrest: 1 mg IV as soon as possible; shockable VF/pVT: 1 mg after the third shock. Repeat 1 mg every 3--5 min while ALS continues.\n- **Amiodarone for refractory VF/pVT:** 300 mg IV after a total of three shocks; give a further 150 mg IV after a total of five shocks.\n- Attempt IV access first. If IV access cannot be achieved rapidly within two attempts, IO access is a reasonable alternative.\n- Use waveform capnography with an advanced airway; prioritize uninterrupted compressions and effective ventilation without hyperventilation. POCUS is permitted only by a trained operator during planned pauses and must never prolong the pulse/rhythm check.\n- Search for and treat reversible causes without delay: hypoxia, hypovolaemia, hypo-/hyperkalaemia and other metabolic disturbance, hypothermia, tension pneumothorax, cardiac tamponade, toxins, pulmonary thrombosis and coronary thrombosis.\n- For ROSC, transition immediately to post-arrest care: controlled oxygen/ventilation, haemodynamic stabilization, 12-lead ECG and cause-directed coronary/neuro/critical-care evaluation. If no ROSC, continue the algorithm and follow current local termination/transport policy; do not use a single factor as a termination rule.\n- These operational doses and energies are from ERC/RCUK 2025. Local defibrillator waveform, drug presentation, resuscitation trolley standards and Portugal/Azores protocols must be reconciled before local deployment.",
+              "source.evidence.priority: high",
+              "source.evidence.primary_source: Resuscitation Council UK/ERC Guidelines 2025",
+              "source.evidence.primary_source_url: https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+              "source.evidence.stored_version: ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+              "source.evidence.last_checked: 2026-10-02",
+              "source.evidence.status: yellow",
+              "source.evidence.note: Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation.",
+              "source.localization.drug: amiodarone",
+              "source.localization.status: portugal_reference_found_local_pending",
+              "source.localization.product_strength: INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+              "source.localization.base_or_salt: amiodarone hydrochloride",
+              "source.localization.diluent: null",
+              "source.localization.standard_concentration: null",
+              "source.localization.stability: null",
+              "source.localization.access: null",
+              "source.localization.source: INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+              "source.localization.reviewed_by: null",
+              "source.localization.reviewed_on: 2026-10-02"
+            ]
+          ],
+          [
+            "Procedencia",
+            [
+              "source_revision: ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408"
+            ]
+          ]
+        ]
+      },
+      "gates": [
+        {
+          "key": "route",
+          "value": "PO",
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "route",
+              "message": "Revisar Vía; valor requerido: IV. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "allergy_contraindication_present",
+          "value": true,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "allergy_contraindication_present",
+              "message": "Revisar Alergia o contraindicación para esta opción; valor requerido: False. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "monitoring_ready",
+          "value": false,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "monitoring_ready",
+              "message": "Revisar Monitorización y medios de rescate disponibles; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "concentration",
+          "value": 0,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "concentration",
+              "message": "Revisar Concentración del producto (mg/mL; no dilución final); valor requerido: 50. No se cumple el contrato de esta pauta."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        "json",
+        "pdf",
+        "docx",
+        "print"
+      ],
+      "pages": {
+        "pdf": 4,
+        "print": 4
+      },
+      "invalidation": "PASS"
+    },
+    {
+      "id": "amiodarone-failed-cardioversion",
+      "status": "PASS",
+      "inputs": {
+        "population": "adult",
+        "route": "IV",
+        "indication_confirmed": true,
+        "allergy_contraindication_present": false,
+        "interaction_reviewed": true,
+        "monitoring_ready": true,
+        "local_protocol_verified": true,
+        "failed_cardioversion_unstable": true,
+        "duration_min": 20,
+        "concentration": 50,
+        "product_verified": true
+      },
+      "expected": {
+        "dose": 300,
+        "duration_min": 20,
+        "amount_per_hour": 900,
+        "pump_ml_h": null
+      },
+      "actual": {
+        "indication": "Con pulso — cardioversión fallida e inestabilidad persistente",
+        "drug": "Amiodarona",
+        "route": "IV",
+        "dose": 300,
+        "dose_unit": "mg",
+        "concentration": {
+          "value": 50,
+          "unit": "mg/mL",
+          "role": "stock"
+        },
+        "withdrawal_ml": 6,
+        "administration_volume_ml": null,
+        "pump_ml_h": null,
+        "duration_min": 20,
+        "amount_per_hour": 900,
+        "amount_per_hour_unit": "mg/h",
+        "maximum": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "administration": "300 mg IV en 10–20 min según protocolo local; volver a intentar cardioversión.",
+        "monitoring_and_warnings": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+        "limitations": [
+          "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+          "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+          "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+        ],
+        "clinical_status": "CLINICALLY_PENDING",
+        "review_status": "CLINICAL_REVIEW_REQUIRED",
+        "source": {
+          "module": "adult-arrhythmias",
+          "path": "clinical/modules/cardiovascular.md",
+          "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+          "body": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+          "evidence": {
+            "priority": "high",
+            "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+            "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+            "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+            "last_checked": "2026-10-02",
+            "status": "yellow",
+            "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+          },
+          "localization": {
+            "drug": "amiodarone",
+            "status": "portugal_reference_found_local_pending",
+            "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+            "base_or_salt": "amiodarone hydrochloride",
+            "diluent": null,
+            "standard_concentration": null,
+            "stability": null,
+            "access": null,
+            "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+            "reviewed_by": null,
+            "reviewed_on": "2026-10-02"
+          }
+        }
+      },
+      "report": {
+        "snapshot": {
+          "clinical_status": "CLINICALLY_PENDING",
+          "regimen_id": "amiodarone-failed-cardioversion",
+          "source_revision": "ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408",
+          "inputs": {
+            "population": "adult",
+            "route": "IV",
+            "indication_confirmed": true,
+            "allergy_contraindication_present": false,
+            "interaction_reviewed": true,
+            "monitoring_ready": true,
+            "local_protocol_verified": true,
+            "concentration": 50,
+            "product_verified": true,
+            "failed_cardioversion_unstable": true,
+            "duration_min": 20
+          },
+          "result": {
+            "indication": "Con pulso — cardioversión fallida e inestabilidad persistente",
+            "drug": "Amiodarona",
+            "route": "IV",
+            "dose": 300,
+            "dose_unit": "mg",
+            "concentration": {
+              "value": 50,
+              "unit": "mg/mL",
+              "role": "stock"
+            },
+            "withdrawal_ml": 6,
+            "administration_volume_ml": null,
+            "pump_ml_h": null,
+            "duration_min": 20,
+            "amount_per_hour": 900,
+            "amount_per_hour_unit": "mg/h",
+            "maximum": null,
+            "preparation": null,
+            "compatibility": null,
+            "stability": null,
+            "administration": "300 mg IV en 10–20 min según protocolo local; volver a intentar cardioversión.",
+            "monitoring_and_warnings": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+            "limitations": [
+              "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+            ],
+            "clinical_status": "CLINICALLY_PENDING",
+            "review_status": "CLINICAL_REVIEW_REQUIRED",
+            "source": {
+              "module": "adult-arrhythmias",
+              "path": "clinical/modules/cardiovascular.md",
+              "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "body": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+              "evidence": {
+                "priority": "high",
+                "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+                "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+                "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+                "last_checked": "2026-10-02",
+                "status": "yellow",
+                "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+              },
+              "localization": {
+                "drug": "amiodarone",
+                "status": "portugal_reference_found_local_pending",
+                "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+                "base_or_salt": "amiodarone hydrochloride",
+                "diluent": null,
+                "standard_concentration": null,
+                "stability": null,
+                "access": null,
+                "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+                "reviewed_by": null,
+                "reviewed_on": "2026-10-02"
+              }
+            }
+          }
+        },
+        "sections": [
+          [
+            "Farmacología aguda — apoyo aritmético",
+            []
+          ],
+          [
+            "Estado y límites de validación",
+            [
+              "CLINICALLY_PENDING",
+              "Functional validation does not constitute prospective clinical validation."
+            ]
+          ],
+          [
+            "Datos y selección confirmados",
+            [
+              "regimen_id: amiodarone-failed-cardioversion",
+              "inputs.population: adult",
+              "inputs.route: IV",
+              "inputs.indication_confirmed: true",
+              "inputs.allergy_contraindication_present: false",
+              "inputs.interaction_reviewed: true",
+              "inputs.monitoring_ready: true",
+              "inputs.local_protocol_verified: true",
+              "inputs.concentration: 50",
+              "inputs.product_verified: true",
+              "inputs.failed_cardioversion_unstable: true",
+              "inputs.duration_min: 20"
+            ]
+          ],
+          [
+            "Resultado, preparación, límites, monitorización y evidencia",
+            [
+              "indication: Con pulso — cardioversión fallida e inestabilidad persistente",
+              "drug: Amiodarona",
+              "route: IV",
+              "dose: 300",
+              "dose_unit: mg",
+              "concentration.value: 50",
+              "concentration.unit: mg/mL",
+              "concentration.role: stock",
+              "withdrawal_ml: 6.0",
+              "administration_volume_ml: null",
+              "pump_ml_h: null",
+              "duration_min: 20",
+              "amount_per_hour: 900.0",
+              "amount_per_hour_unit: mg/h",
+              "maximum: null",
+              "preparation: null",
+              "compatibility: null",
+              "stability: null",
+              "administration: 300 mg IV en 10–20 min según protocolo local; volver a intentar cardioversión.",
+              "monitoring_and_warnings: - Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+              "limitations[0]: Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "limitations[1]: mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "limitations[2]: No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.",
+              "clinical_status: CLINICALLY_PENDING",
+              "review_status: CLINICAL_REVIEW_REQUIRED",
+              "source.module: adult-arrhythmias",
+              "source.path: clinical/modules/cardiovascular.md",
+              "source.preamble: # Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "source.body: - Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+              "source.evidence.priority: high",
+              "source.evidence.primary_source: Resuscitation Council UK/ERC Guidelines 2025",
+              "source.evidence.primary_source_url: https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+              "source.evidence.stored_version: ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+              "source.evidence.last_checked: 2026-10-02",
+              "source.evidence.status: yellow",
+              "source.evidence.note: Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation.",
+              "source.localization.drug: amiodarone",
+              "source.localization.status: portugal_reference_found_local_pending",
+              "source.localization.product_strength: INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+              "source.localization.base_or_salt: amiodarone hydrochloride",
+              "source.localization.diluent: null",
+              "source.localization.standard_concentration: null",
+              "source.localization.stability: null",
+              "source.localization.access: null",
+              "source.localization.source: INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+              "source.localization.reviewed_by: null",
+              "source.localization.reviewed_on: 2026-10-02"
+            ]
+          ],
+          [
+            "Procedencia",
+            [
+              "source_revision: ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408"
+            ]
+          ]
+        ]
+      },
+      "gates": [
+        {
+          "key": "route",
+          "value": "PO",
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "route",
+              "message": "Revisar Vía; valor requerido: IV. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "allergy_contraindication_present",
+          "value": true,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "allergy_contraindication_present",
+              "message": "Revisar Alergia o contraindicación para esta opción; valor requerido: False. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "monitoring_ready",
+          "value": false,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "monitoring_ready",
+              "message": "Revisar Monitorización y medios de rescate disponibles; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "concentration",
+          "value": 0,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "concentration",
+              "message": "Revisar Concentración del producto (mg/mL; no dilución final); valor requerido: 50. No se cumple el contrato de esta pauta."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        "json",
+        "pdf",
+        "docx",
+        "print"
+      ],
+      "pages": {
+        "pdf": 4,
+        "print": 4
+      },
+      "invalidation": "PASS"
+    },
+    {
+      "id": "amiodarone-maintenance",
+      "status": "PASS",
+      "inputs": {
+        "population": "adult",
+        "route": "IV",
+        "indication_confirmed": true,
+        "allergy_contraindication_present": false,
+        "interaction_reviewed": true,
+        "monitoring_ready": true,
+        "local_protocol_verified": true,
+        "loading_pathway_confirmed": true,
+        "concentration": 50,
+        "product_verified": true
+      },
+      "expected": {
+        "dose": 900,
+        "duration_min": 1440,
+        "amount_per_hour": 37.5,
+        "pump_ml_h": null
+      },
+      "actual": {
+        "indication": "Mantenimiento asociado a la carga del circuito de cardioversión",
+        "drug": "Amiodarona",
+        "route": "IV",
+        "dose": 900,
+        "dose_unit": "mg",
+        "concentration": {
+          "value": 50,
+          "unit": "mg/mL",
+          "role": "stock"
+        },
+        "withdrawal_ml": 18,
+        "administration_volume_ml": null,
+        "pump_ml_h": null,
+        "duration_min": 1440,
+        "amount_per_hour": 37.5,
+        "amount_per_hour_unit": "mg/h",
+        "maximum": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "administration": "900 mg durante 24 h en el contexto de continuación descrito; no aplicar a otra indicación.",
+        "monitoring_and_warnings": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+        "limitations": [
+          "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+          "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+          "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+        ],
+        "clinical_status": "CLINICALLY_PENDING",
+        "review_status": "CLINICAL_REVIEW_REQUIRED",
+        "source": {
+          "module": "adult-arrhythmias",
+          "path": "clinical/modules/cardiovascular.md",
+          "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+          "body": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+          "evidence": {
+            "priority": "high",
+            "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+            "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+            "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+            "last_checked": "2026-10-02",
+            "status": "yellow",
+            "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+          },
+          "localization": {
+            "drug": "amiodarone",
+            "status": "portugal_reference_found_local_pending",
+            "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+            "base_or_salt": "amiodarone hydrochloride",
+            "diluent": null,
+            "standard_concentration": null,
+            "stability": null,
+            "access": null,
+            "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+            "reviewed_by": null,
+            "reviewed_on": "2026-10-02"
+          }
+        }
+      },
+      "report": {
+        "snapshot": {
+          "clinical_status": "CLINICALLY_PENDING",
+          "regimen_id": "amiodarone-maintenance",
+          "source_revision": "ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408",
+          "inputs": {
+            "population": "adult",
+            "route": "IV",
+            "indication_confirmed": true,
+            "allergy_contraindication_present": false,
+            "interaction_reviewed": true,
+            "monitoring_ready": true,
+            "local_protocol_verified": true,
+            "concentration": 50,
+            "product_verified": true,
+            "loading_pathway_confirmed": true
+          },
+          "result": {
+            "indication": "Mantenimiento asociado a la carga del circuito de cardioversión",
+            "drug": "Amiodarona",
+            "route": "IV",
+            "dose": 900,
+            "dose_unit": "mg",
+            "concentration": {
+              "value": 50,
+              "unit": "mg/mL",
+              "role": "stock"
+            },
+            "withdrawal_ml": 18,
+            "administration_volume_ml": null,
+            "pump_ml_h": null,
+            "duration_min": 1440,
+            "amount_per_hour": 37.5,
+            "amount_per_hour_unit": "mg/h",
+            "maximum": null,
+            "preparation": null,
+            "compatibility": null,
+            "stability": null,
+            "administration": "900 mg durante 24 h en el contexto de continuación descrito; no aplicar a otra indicación.",
+            "monitoring_and_warnings": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+            "limitations": [
+              "Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato."
+            ],
+            "clinical_status": "CLINICALLY_PENDING",
+            "review_status": "CLINICAL_REVIEW_REQUIRED",
+            "source": {
+              "module": "adult-arrhythmias",
+              "path": "clinical/modules/cardiovascular.md",
+              "preamble": "# Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "body": "- Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+              "evidence": {
+                "priority": "high",
+                "primary_source": "Resuscitation Council UK/ERC Guidelines 2025",
+                "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+                "stored_version": "ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+                "last_checked": "2026-10-02",
+                "status": "yellow",
+                "note": "Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation."
+              },
+              "localization": {
+                "drug": "amiodarone",
+                "status": "portugal_reference_found_local_pending",
+                "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+                "base_or_salt": "amiodarone hydrochloride",
+                "diluent": null,
+                "standard_concentration": null,
+                "stability": null,
+                "access": null,
+                "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+                "reviewed_by": null,
+                "reviewed_on": "2026-10-02"
+              }
+            }
+          }
+        },
+        "sections": [
+          [
+            "Farmacología aguda — apoyo aritmético",
+            []
+          ],
+          [
+            "Estado y límites de validación",
+            [
+              "CLINICALLY_PENDING",
+              "Functional validation does not constitute prospective clinical validation."
+            ]
+          ],
+          [
+            "Datos y selección confirmados",
+            [
+              "regimen_id: amiodarone-maintenance",
+              "inputs.population: adult",
+              "inputs.route: IV",
+              "inputs.indication_confirmed: true",
+              "inputs.allergy_contraindication_present: false",
+              "inputs.interaction_reviewed: true",
+              "inputs.monitoring_ready: true",
+              "inputs.local_protocol_verified: true",
+              "inputs.concentration: 50",
+              "inputs.product_verified: true",
+              "inputs.loading_pathway_confirmed: true"
+            ]
+          ],
+          [
+            "Resultado, preparación, límites, monitorización y evidencia",
+            [
+              "indication: Mantenimiento asociado a la carga del circuito de cardioversión",
+              "drug: Amiodarona",
+              "route: IV",
+              "dose: 900",
+              "dose_unit: mg",
+              "concentration.value: 50",
+              "concentration.unit: mg/mL",
+              "concentration.role: stock",
+              "withdrawal_ml: 18.0",
+              "administration_volume_ml: null",
+              "pump_ml_h: null",
+              "duration_min: 1440",
+              "amount_per_hour: 37.5",
+              "amount_per_hour_unit: mg/h",
+              "maximum: null",
+              "preparation: null",
+              "compatibility: null",
+              "stability: null",
+              "administration: 900 mg durante 24 h en el contexto de continuación descrito; no aplicar a otra indicación.",
+              "monitoring_and_warnings: - Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+              "limitations[0]: Diluyente, concentración final, estabilidad y acceso local no especificados en el registro.",
+              "limitations[1]: mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.",
+              "limitations[2]: No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.",
+              "clinical_status: CLINICALLY_PENDING",
+              "review_status: CLINICAL_REVIEW_REQUIRED",
+              "source.module: adult-arrhythmias",
+              "source.path: clinical/modules/cardiovascular.md",
+              "source.preamble: # Cardiovascular modules\n\nShared gate: establish ABC status, perfusion, symptom onset, ECG timing, vascular\naccess, glucose, pregnancy possibility, bleeding risk, renal function and current\nantithrombotic therapy. Use serial examinations; a single normal ECG, troponin or\nPOCUS study does not exclude time-critical disease.\n",
+              "source.body: - Confirm pulse, ABC compromise and life-threatening features (shock with hypotension/poor perfusion, syncope, myocardial ischaemia, or heart failure/pulmonary oedema); attach monitor/defibrillator, obtain IV access and a 12-lead ECG if this does not delay treatment. Correct hypoxia, ischaemia, electrolyte/temperature disturbance and toxicologic causes.\n- **Unstable tachyarrhythmia with a pulse:** synchronized cardioversion is preferred. Sedate/anaesthetize a conscious patient if feasible without delaying treatment, recognizing that sedation may worsen haemodynamics. Synchronize to the R wave; if synchronization cannot be achieved in an unstable VT, use unsynchronized shocks rather than prolonging delay. If the patient becomes pulseless, switch immediately to `adult-cardiac-arrest`.\n- **Cardioversion energies (ERC/RCUK 2025):** atrial fibrillation: an initial synchronized shock at the defibrillator's maximum output is a reasonable strategy; atrial flutter or paroxysmal SVT: 70--120 J initially, then stepwise escalation; VT with a pulse: 120--150 J initially, then stepwise escalation. If cardioversion fails and instability persists, consider procainamide 10--15 mg/kg (max 1 g) over 20 min or amiodarone 300 mg IV over 10--20 min according to local availability/protocol, then re-attempt cardioversion; amiodarone may be followed by 900 mg over 24 h.\n- **Stable regular narrow-complex tachycardia:** use vagal manoeuvres then protocol-based adenosine when appropriate. Do not give reflex adenosine for irregular broad-complex tachycardia; avoid AV-nodal blockers in pre-excited atrial fibrillation. Stable monomorphic VT with structural heart disease or uncertain substrate still warrants expert review and electrical cardioversion is recommended by ERC/RCUK 2025.\n- **Bradycardia with adverse signs:** atropine 500 micrograms IV, repeat every 3--5 min to a maximum of 3 mg. Do **not** give atropine in high-degree AV block with a wide QRS because it is ineffective and may worsen the block; do not use it in cardiac-transplant patients. If atropine is ineffective, consider isoprenaline starting at 5 micrograms/min or adrenaline 2--10 micrograms/min while arranging pacing. For beta-blocker or calcium-channel-blocker toxicity, consider glucagon and use the toxicology pathway.\n- **Pacing:** establish early transvenous pacing in unstable symptomatic bradycardia refractory to drug therapy; transcutaneous pacing is a bridge or alternative when transvenous pacing is not immediately available. Do not delay pacing for repeated ineffective drug doses in a deteriorating patient.\n- For torsades/long-QT, toxicologic rhythms or device-related rhythms, use the matching special-circumstance pathway and verify drug/electrical details against current ERC/local protocol.\n- After conversion, document rhythm, cause, recurrence risk and disposition; seek cardiology input for new, recurrent, wide-complex or structurally associated arrhythmia.",
+              "source.evidence.priority: high",
+              "source.evidence.primary_source: Resuscitation Council UK/ERC Guidelines 2025",
+              "source.evidence.primary_source_url: https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines",
+              "source.evidence.stored_version: ERC/RCUK 2025; v1.36 focused consolidation review 2026-10-02",
+              "source.evidence.last_checked: 2026-10-02",
+              "source.evidence.status: yellow",
+              "source.evidence.note: Focused v1.36 review against official ERC/RCUK 2025 completed; explicit operational doses/energies and pacing/drug timing added. Remains yellow pending human clinical review plus Portugal/Azores equipment, formulary and local protocol reconciliation.",
+              "source.localization.drug: amiodarone",
+              "source.localization.status: portugal_reference_found_local_pending",
+              "source.localization.product_strength: INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+              "source.localization.base_or_salt: amiodarone hydrochloride",
+              "source.localization.diluent: null",
+              "source.localization.standard_concentration: null",
+              "source.localization.stability: null",
+              "source.localization.access: null",
+              "source.localization.source: INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+              "source.localization.reviewed_by: null",
+              "source.localization.reviewed_on: 2026-10-02"
+            ]
+          ],
+          [
+            "Procedencia",
+            [
+              "source_revision: ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408"
+            ]
+          ]
+        ]
+      },
+      "gates": [
+        {
+          "key": "route",
+          "value": "PO",
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "route",
+              "message": "Revisar Vía; valor requerido: IV. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "allergy_contraindication_present",
+          "value": true,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "allergy_contraindication_present",
+              "message": "Revisar Alergia o contraindicación para esta opción; valor requerido: False. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "monitoring_ready",
+          "value": false,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "monitoring_ready",
+              "message": "Revisar Monitorización y medios de rescate disponibles; valor requerido: True. No se cumple el contrato de esta pauta."
+            }
+          ]
+        },
+        {
+          "key": "concentration",
+          "value": 0,
+          "alerts": [
+            {
+              "severity": "STOP",
+              "code": "concentration",
+              "message": "Revisar Concentración del producto (mg/mL; no dilución final); valor requerido: 50. No se cumple el contrato de esta pauta."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        "json",
+        "pdf",
+        "docx",
+        "print"
+      ],
+      "pages": {
+        "pdf": 4,
+        "print": 4
+      },
+      "invalidation": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser": "155.0.4283.45",
+  "source_revision": "ddc2218a1f796fd65824e4d4bae284d454034c96e7b0b002523a24fb3bda8408",
+  "fixtures_sha256": "fd75cf4245edce37adf363244345922463e50c5d018ad6d361dcb8b649f2f256",
+  "status": "PASS",
+  "finished_at": "2026-10-15T22:57:36.685Z"
+}

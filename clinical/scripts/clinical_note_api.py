@@ -429,6 +429,15 @@ def export_note_bytes(note, fmt):
 def dispatch(path, payload):
     if not isinstance(payload, dict):
         raise ValueError("request payload must be an object")
+    if path == "/api/acute-medications/catalog":
+        from acute_medication_api import catalog
+        return HTTPStatus.OK, catalog()
+    if path == "/api/acute-medications/calculate":
+        from acute_medication_api import calculate_request
+        return HTTPStatus.OK, calculate_request(payload)
+    if path == "/api/acute-medications/export":
+        from acute_medication_api import export_request
+        return HTTPStatus.OK, export_request(payload)
     if path == "/api/clinical-scores/catalog":
         from clinical_scores_api import catalog
         return HTTPStatus.OK, catalog()

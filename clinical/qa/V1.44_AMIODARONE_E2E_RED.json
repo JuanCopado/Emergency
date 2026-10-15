@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-15T17:03:25.004Z",
+  "clinical_status": "CLINICALLY_PENDING",
+  "group": "amiodarone",
+  "cases": [],
+  "errors": [],
+  "browser": "155.0.4283.45",
+  "source_revision": "384d2504af64064f41d0172cecba6f5d2a4c5eb5771967099ac8ab94cb24e8d1",
+  "fixtures_sha256": "fd75cf4245edce37adf363244345922463e50c5d018ad6d361dcb8b649f2f256",
+  "status": "FAIL",
+  "failure": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Farmacología aguda por indicación' })\u001b[22m\n\n    at C:\\Users\\HISTTON\\Emergency\\app\\scripts\\check-acute-medications-v144.mjs:23:79\n    at async withClinicalApp (C:\\Users\\HISTTON\\Emergency\\app\\scripts\\functional-harness.mjs:23:5)\n    at async file:///C:/Users/HISTTON/Emergency/app/scripts/check-acute-medications-v144.mjs:15:3",
+  "finished_at": "2026-10-15T17:03:42.275Z"
+}
