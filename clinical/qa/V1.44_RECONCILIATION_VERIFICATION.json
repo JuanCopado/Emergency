@@ -1,0 +1,100 @@
+{
+  "date_utc": "2026-10-15T16:12:26.941668+00:00",
+  "tested_head": "4bb6aeecb66cc61f8022b9553c87bd8ac2893407",
+  "recovery_status": "COMPLETE_TECHNICAL_SCOPE",
+  "version_status": "OPEN",
+  "clinical_status": "CLINICALLY_PENDING",
+  "browser_summary": {
+    "regimens": 89,
+    "scenarios": 1061,
+    "pass": 1061,
+    "fail": 0,
+    "nominal_exports": 89
+  },
+  "browser_started_at": "2026-10-15T09:59:45.719Z",
+  "browser_finished_at": "2026-10-15T10:07:29.042Z",
+  "fixture_result_identity": "PASS",
+  "source_and_built_asset_hashes_match": {
+    "clinical/scripts/pediatric_outpatient_calculator.py": true,
+    "clinical/scripts/pediatric_outpatient_api.py": true,
+    "clinical/scripts/pediatric_outpatient_alert_engine.py": true,
+    "clinical/scripts/pediatric_result_exporter.py": true,
+    "clinical/qa/build_pediatric_browser_cases_v144.py": true,
+    "clinical/qa/V1.44_PEDIATRIC_BROWSER_CASES.json": true,
+    "app/scripts/check-pediatric-complete-v144.mjs": true,
+    "app/src/pages/PediatricOutpatient.tsx": true,
+    "app/src/pediatrics/PediatricExport.tsx": true,
+    "app/src/data/generatedPediatricOutpatient.json": true,
+    "app/dist/index.html": true,
+    "app/dist/assets/About-DX9aqHcN.js": true,
+    "app/dist/assets/Calculator-LPs7Npo1.js": true,
+    "app/dist/assets/ClinicalGuides-ChtfjLeX.js": true,
+    "app/dist/assets/ClinicalLibrary-B5jT0ASr.js": true,
+    "app/dist/assets/ClinicalNote-3blCMH5u.js": true,
+    "app/dist/assets/ClinicalScores-y0f5fSL4.js": true,
+    "app/dist/assets/PediatricOutpatient-C5QmpXoP.js": true,
+    "app/dist/assets/Procedures-CCdxvRVM.js": true,
+    "app/dist/assets/Settings-CoYGdLuk.js": true,
+    "app/dist/assets/canonical-Bc_4ZJsd.js": true,
+    "app/dist/assets/index-D0v4RphR.js": true,
+    "app/dist/assets/index-DKpxtzxA.css": true,
+    "app/dist/assets/procedures-BO2Fc7aF.js": true,
+    "app/dist/assets/workbox-window.prod.es5-BqEJf4Xk.js": true
+  },
+  "clinical_qa": "7/7 PASS; 568 Python",
+  "frontend": "370 PASS",
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "build": "PASS",
+  "exports": {
+    "cases": [
+      {
+        "id": "paracetamol",
+        "json": "PASS",
+        "pdf": "PASS",
+        "docx": "PASS",
+        "print": "PASS",
+        "fidelity": "all canonical sections",
+        "invalidated_on_edit": "PASS",
+        "pages": {
+          "pdf": 5,
+          "print": 5
+        }
+      },
+      {
+        "id": "dexamethasone",
+        "json": "PASS",
+        "pdf": "PASS",
+        "docx": "PASS",
+        "print": "PASS",
+        "fidelity": "all canonical sections",
+        "invalidated_on_edit": "PASS",
+        "pages": {
+          "pdf": 4,
+          "print": 5
+        }
+      },
+      {
+        "id": "rizatriptan",
+        "json": "PASS",
+        "pdf": "PASS",
+        "docx": "PASS",
+        "print": "PASS",
+        "fidelity": "all canonical sections",
+        "invalidated_on_edit": "PASS",
+        "pages": {
+          "pdf": 4,
+          "print": 4
+        }
+      }
+    ],
+    "boundary_40kg": "blocked",
+    "clinical_status": "CLINICALLY_PENDING"
+  },
+  "export_command": "node app/scripts/check-pediatric-export-v144.mjs",
+  "export_exit_code": 0,
+  "interrupted_run_excluded": true,
+  "new_clinical_rules": false,
+  "pharmacology_flows_implemented": false,
+  "final_git_clean_required": true
+}

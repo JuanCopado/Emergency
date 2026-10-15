@@ -1,0 +1,138 @@
+{
+  "protected_refs": {
+    "refs/codex/turn-diffs/checkpoints/07355bb37c6700935a6eb69cc7d00b8c/f886ac805999d83e551827eb4d4ea94b/1791993521039/0e60fb63-3670-48cd-916c-722dcde558c3": {
+      "initial": "49efe40de309489aa04715091b4c187f4847da8c",
+      "current": "49efe40de309489aa04715091b4c187f4847da8c",
+      "unchanged": true
+    },
+    "refs/codex/turn-diffs/checkpoints/89645562bcd6487fb396d8e3284b815f/9df79d76edbdb615dc33117a33d962cb/1791893643352/f958c127-d0da-4f6b-8497-6bc187c9501e": {
+      "initial": "0a7c627de1afbb878ad73e0ac8f4229251566c28",
+      "current": "0a7c627de1afbb878ad73e0ac8f4229251566c28",
+      "unchanged": true
+    },
+    "refs/codex/turn-diffs/checkpoints/c284c5ea01b6ee744ab58fbd32cecb46/6546005082cce07e799e32e2a7b9b433/1791894411026/e76efef6-a27d-4f10-b73c-4d9d8a535621": {
+      "initial": "4fd62be17a951641d12cfb17969a0e8f772169ac",
+      "current": "4fd62be17a951641d12cfb17969a0e8f772169ac",
+      "unchanged": true
+    },
+    "refs/heads/v1.42-codex-consolidation": {
+      "initial": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "current": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "unchanged": true
+    },
+    "refs/heads/v1.42-rc1": {
+      "initial": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "current": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "unchanged": true
+    },
+    "refs/heads/v1.43-clinical-ui-validation": {
+      "initial": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+      "current": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+      "unchanged": true
+    },
+    "refs/remotes/origin/HEAD": {
+      "initial": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "current": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch2": {
+      "initial": "5661f911fd90d266f751f85d407d1053162dfa11",
+      "current": "5661f911fd90d266f751f85d407d1053162dfa11",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch3": {
+      "initial": "77869e520778ba31be7cf8b05a15467a4a09e333",
+      "current": "77869e520778ba31be7cf8b05a15467a4a09e333",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch4": {
+      "initial": "8d5392cf296efcc5537d4befefacfcbd63c27f2d",
+      "current": "8d5392cf296efcc5537d4befefacfcbd63c27f2d",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch5": {
+      "initial": "a776d38f432ed8bd21071b1526dbe82cc5ad2c5e",
+      "current": "a776d38f432ed8bd21071b1526dbe82cc5ad2c5e",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch6": {
+      "initial": "f45cf9346d76d39b7c20222a323475c2c2ec66b3",
+      "current": "f45cf9346d76d39b7c20222a323475c2c2ec66b3",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch7": {
+      "initial": "a5c3b67c910a819a67f6158bfb03b8332ca07d7e",
+      "current": "a5c3b67c910a819a67f6158bfb03b8332ca07d7e",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-v2": {
+      "initial": "e5833e1018481b099705895d5ff35f54652efcdd",
+      "current": "e5833e1018481b099705895d5ff35f54652efcdd",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/normalized-evidence-sources": {
+      "initial": "b2de5654376a40f75a2a5a6aa51598c46d1097fc",
+      "current": "b2de5654376a40f75a2a5a6aa51598c46d1097fc",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/project-consolidation-graph-rag": {
+      "initial": "9a1a8e6226145f55d9e10fb30367defd1254e1a4",
+      "current": "9a1a8e6226145f55d9e10fb30367defd1254e1a4",
+      "unchanged": true
+    },
+    "refs/remotes/origin/fix/priority-audit-hardening": {
+      "initial": "d43911d6c0c3e8e0aeaf1ca3d545076315366a04",
+      "current": "d43911d6c0c3e8e0aeaf1ca3d545076315366a04",
+      "unchanged": true
+    },
+    "refs/remotes/origin/main": {
+      "initial": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "current": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.36-consolidation": {
+      "initial": "b45f0ebf1d202b623cc93cdc1411d820542004b4",
+      "current": "b45f0ebf1d202b623cc93cdc1411d820542004b4",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.37-scores-formulas-validation": {
+      "initial": "f7c38466afce3cca86c12a4420b817642f7e608f",
+      "current": "f7c38466afce3cca86c12a4420b817642f7e608f",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.38-pediatric-outpatient-medications": {
+      "initial": "11a85e52f52b94b8448b4818183d4c235c159684",
+      "current": "11a85e52f52b94b8448b4818183d4c235c159684",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.39-clinical-note-diagnostic-support": {
+      "initial": "cba7d69f4a630313711e14e6a5cffecb1d9a3a6d",
+      "current": "cba7d69f4a630313711e14e6a5cffecb1d9a3a6d",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.39.1-clinical-note-hardening": {
+      "initial": "1fd4e5c7733e752a780a69f0a603c8466bd23a3a",
+      "current": "1fd4e5c7733e752a780a69f0a603c8466bd23a3a",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.40-evidence-surveillance": {
+      "initial": "22e8e063f96d387ad29d461485ca68488b564e7b",
+      "current": "22e8e063f96d387ad29d461485ca68488b564e7b",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.41-procedures-visual": {
+      "initial": "bcb05891c6e95499acf1d20ba4388dcc5aed5766",
+      "current": "bcb05891c6e95499acf1d20ba4388dcc5aed5766",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.42-codex-consolidation": {
+      "initial": "0d2fcec1baba7dd50e352890777f4873d8a4dd0d",
+      "current": "0d2fcec1baba7dd50e352890777f4873d8a4dd0d",
+      "unchanged": true
+    }
+  },
+  "local_main_absent_initial_and_current": true,
+  "canonical_modules_and_pediatric_rules_changed": [],
+  "clinical_status": "CLINICALLY_PENDING",
+  "no_merge_commits": true
+}

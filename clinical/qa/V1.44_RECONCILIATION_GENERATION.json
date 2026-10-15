@@ -1,0 +1,22 @@
+[
+  {
+    "output": "clinical\\qa\\V1.44_PEDIATRIC_BROWSER_CASES.json",
+    "generator": "clinical/qa/build_pediatric_browser_cases_v144.py",
+    "hashes": [
+      "dd302054eebb11f651650122748681b9ae4a56e7d38402c1f124004aa7810766",
+      "dd302054eebb11f651650122748681b9ae4a56e7d38402c1f124004aa7810766",
+      "dd302054eebb11f651650122748681b9ae4a56e7d38402c1f124004aa7810766"
+    ],
+    "reproduced": true
+  },
+  {
+    "output": "app\\src\\data\\generatedPediatricOutpatient.json",
+    "generator": "clinical/scripts/build_pediatric_catalog.py",
+    "hashes": [
+      "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+      "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+      "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b"
+    ],
+    "reproduced": true
+  }
+]

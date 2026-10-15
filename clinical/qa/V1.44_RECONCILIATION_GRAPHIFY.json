@@ -1,0 +1,16 @@
+{
+  "previous_attempt": {
+    "command": "graphify update .",
+    "exit_code": 3221225477,
+    "time_utc": "2026-10-15T09:57:45.443227+00:00",
+    "stdout": "",
+    "stderr": "",
+    "scope": "Local AST index; ignored output preserved on disk"
+  },
+  "command": "GRAPHIFY_MAX_WORKERS=1 graphify update . --no-label --no-viz",
+  "exit_code": 0,
+  "time_utc": "2026-10-15T09:59:12.636208+00:00",
+  "stdout": "",
+  "stderr": "error: unknown update option: --no-label\n",
+  "scope": "Local AST-only index; no LLM labeling, ignored output preserved on disk"
+}

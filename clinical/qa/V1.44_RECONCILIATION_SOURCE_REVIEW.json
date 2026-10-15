@@ -1,0 +1,24 @@
+{
+  "baseline_head": "45572e37e7d6b357ee8a20effe778c7a7d321846",
+  "clinical_status": "CLINICALLY_PENDING",
+  "comparison": "UTF-8 normalized LF; initial byte-only comparison was affected by checkout CRLF, not source changes",
+  "evidence_change_only": {
+    "date": "2026-10-14",
+    "scope": "89 regimens, 1061 synthetic browser scenarios and 89 JSON exports PASS; canonical device frequency preserved",
+    "record": "qa/V1.44_PEDIATRIC_BROWSER_COMPLETION.md",
+    "clinical_evidence_reverified": false,
+    "human_review_required": true
+  },
+  "all_other_evidence_fields_unchanged": true,
+  "canonical_and_product_files_unchanged": {
+    "clinical/qa/pediatric-outpatient-medications.json": true,
+    "clinical/qa/pediatric-outpatient-alert-rules.json": true,
+    "app/src/data/generatedPediatricOutpatient.json": true,
+    "app/src/pages/PediatricOutpatient.tsx": true,
+    "clinical/scripts/pediatric_result_exporter.py": true
+  },
+  "new_doses_concentrations_indications_thresholds_contraindications": false,
+  "gate_relaxation": false,
+  "engine_change": "device result.doses_per_day inherits the already-selected canonical band; no dose or source modification",
+  "reviewed_diff": "clinical/scripts/pediatric_outpatient_calculator.py:395; test_pediatric_v142.py:29"
+}

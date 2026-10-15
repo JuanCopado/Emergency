@@ -1,3 +1,7 @@
+## v1.44 reconciliación del árbol — 15/10/2026
+
+Reconciliación 15/10/2026: trabajo pediátrico recuperado en commits separados; 1061/1061 escenarios de navegador, 89/89 regímenes y 89 exports JSON PASS; exportación focal JSON/PDF/DOCX/impresión PASS. Clinical QA 7/7, 568 Python, 370 frontend, lint/typecheck/build PASS. Inventario completo, ejecuciones interrumpidas conservadas, exclusiones locales sin borrados y procedencia en `qa/V1.44_WORKTREE_RECONCILIATION.md`. Seis flujos farmacológicos sin iniciar. v1.44 ABIERTA / CLINICALLY_PENDING; sin promoción de evidencia.
+
 ## v1.44 cobertura pediátrica ampliada — 14/10/2026
 
 89/89 regímenes, 1061/1061 escenarios de navegador y 89 exports JSON PASS; los 73 regímenes sin prueba específica ya están cubiertos. Corregidos selector E2E, frecuencia numérica de dispositivos según banda canónica y selección de volumen en fixtures límite. Build PASS; Clinical QA 7/7 y 568 Python PASS. Evidencia en qa/V1.44_PEDIATRIC_BROWSER_COMPLETION.md. Seis grupos sin flujo completo: qa/V1.44_PHARMACOLOGY_GAPS.md. v1.44 ABIERTA / CLINICALLY_PENDING; sin promoción de evidencia.

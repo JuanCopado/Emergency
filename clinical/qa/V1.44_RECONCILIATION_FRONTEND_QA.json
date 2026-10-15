@@ -1,0 +1,51 @@
+{
+  "head": "4bb6aeecb66cc61f8022b9553c87bd8ac2893407",
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "stdout": "> npm run guides:build && npm run procedures:build && npm run pediatrics:build && tsc -b && vite build\n> node scripts/build-clinical-guides.mjs\nGenerated 131 canonical clinical guides\n> node scripts/build-procedures.mjs\n196 canonical procedures + 4 aliases; 16 families\n> python ../clinical/scripts/build_pediatric_catalog.py\n{'regimens': 89, 'source_drug_labels': 54, 'drug_groups': 52, 'named_active_ingredients': 52, 'unspecified_component_groups': ['electrolytes', 'low-osmolarity oral rehydration solution'], 'diagnoses': 88, 'drug_diagnosis_pairs': 89, 'documented_presentation_descriptions': 58, 'verified_liquid_products': 28, 'hidden_regimens': 0}\nvite v5.4.21 building for production...\ntransforming...\n✓ 214 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/manifest.webmanifest                          0.62 kB\ndist/index.html                                    1.56 kB │ gzip:   0.71 kB\ndist/assets/index-DKpxtzxA.css                    33.40 kB │ gzip:   6.78 kB\ndist/assets/About-DX9aqHcN.js                      2.68 kB │ gzip:   0.87 kB\ndist/assets/Settings-CoYGdLuk.js                   3.49 kB │ gzip:   1.10 kB\ndist/assets/workbox-window.prod.es5-BqEJf4Xk.js    5.71 kB │ gzip:   2.34 kB\ndist/assets/ClinicalScores-y0f5fSL4.js             6.34 kB │ gzip:   2.63 kB\ndist/assets/ClinicalLibrary-B5jT0ASr.js            6.94 kB │ gzip:   2.77 kB\ndist/assets/ClinicalGuides-ChtfjLeX.js            14.72 kB │ gzip:   4.96 kB\ndist/assets/Calculator-LPs7Npo1.js                24.58 kB │ gzip:   7.11 kB\ndist/assets/ClinicalNote-3blCMH5u.js              29.50 kB │ gzip:   8.76 kB\ndist/assets/procedures-BO2Fc7aF.js                51.26 kB │ gzip:   6.57 kB\ndist/assets/PediatricOutpatient-C5QmpXoP.js      142.96 kB │ gzip:  30.05 kB\ndist/assets/canonical-Bc_4ZJsd.js                404.57 kB │ gzip: 128.70 kB\ndist/assets/index-D0v4RphR.js                    429.41 kB │ gzip: 133.95 kB\ndist/assets/Procedures-CCdxvRVM.js               449.84 kB │ gzip: 106.18 kB\n✓ built in 5.02s\nPWA v1.3.0\nmode      generateSW\nprecache  26 entries (1610.03 KiB)\nfiles generated\n  dist/sw.js\n  dist/workbox-9c191d2f.js\nnode_modules/zod/v4/core/util.js (400:0): A comment\n\"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle.\"\nin \"node_modules/zod/v4/core/util.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\nnode_modules/zod/v4/core/regexes.js (74:0): A comment\n\"/** Anchors a pattern source. The interpolation lives here rather than at the call site because\n * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it\n * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */\"\nin \"node_modules/zod/v4/core/regexes.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\n",
+      "stderr": "",
+      "finished_at": "2026-10-15T09:52:32.892743+00:00"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "stdout": "> tsc -b --noEmit\n",
+      "stderr": "",
+      "finished_at": "2026-10-15T09:52:39.168603+00:00"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "stdout": "> eslint .\n",
+      "stderr": "",
+      "finished_at": "2026-10-15T09:52:45.618207+00:00"
+    },
+    {
+      "command": [
+        "npm",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--minWorkers=1"
+      ],
+      "exit_code": 0,
+      "stdout": "> vitest run --maxWorkers=1 --minWorkers=1\n RUN  v2.1.9 C:/Users/HISTTON/Emergency/app\n ✓ src/test/ui.test.tsx (26 tests) 5628ms\n   ✓ Calculator > norepinephrine 0.05 mcg/kg/min, 70 kg, 40 mcg/mL → 5.3 mL/h with arithmetic 399ms\n   ✓ Clinical note diagnostic workspace > creates an MCDT review card and blocks export while review is pending 1237ms\n   ✓ Clinical note diagnostic workspace > requires explicit MCDT acceptance and clinician/privacy sign-off before export 544ms\n   ✓ Clinical note diagnostic workspace > requires privacy review before binary vision interpretation and keeps the result pending 381ms\n   ✓ Clinical note diagnostic workspace > privacy STOP catches labelled direct identifiers and blocks export 334ms\n ✓ src/lib/infusion.test.ts (97 tests) 23ms\n ✓ src/test/pediatric-outpatient.test.tsx (9 tests) 1225ms\n   ✓ exposes all 89 canonical regimens and 52 drug groups without age/weight filtering 557ms\n ✓ src/test/procedure-pilot.test.tsx (200 tests) 7166ms\n ✓ src/test/clinical-scores.test.tsx (5 tests) 1056ms\n   ✓ rejects nonfinite, malformed and out-of-range input before network calculation 789ms\n ✓ src/test/clinical-guide-fidelity.test.tsx (8 tests) 661ms\n   ✓ preserves canonical safety and body in the printable sheet at /clinical/airway-rsi 320ms\n ✓ src/i18n/i18n.test.ts (14 tests) 34ms\n ✓ src/test/procedure-catalog.test.ts (9 tests) 25ms\n ✓ src/test/pediatric-export.test.tsx (2 tests) 275ms\n Test Files  9 passed (9)\n      Tests  370 passed (370)\n   Start at  09:52:47\n   Duration  49.58s (transform 2.04s, setup 3.49s, collect 5.96s, tests 16.09s, environment 19.38s, prepare 2.15s)\nstderr | src/test/ui.test.tsx > Calculator > norepinephrine 0.05 mcg/kg/min, 70 kg, 40 mcg/mL → 5.3 mL/h with arithmetic\n⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.\n⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.\nstderr | src/test/pediatric-outpatient.test.tsx > exposes all 89 canonical regimens and 52 drug groups without age/weight filtering\n⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.\n⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.\nstderr | src/test/procedure-pilot.test.tsx > preserves all canonical sections and preamble for 'PROC-AIR-001'\n⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.\n⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.\nstderr | src/test/clinical-scores.test.tsx > rejects nonfinite, malformed and out-of-range input before network calculation\n⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.\n⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.\nstderr | src/test/clinical-guide-fidelity.test.tsx > preserves canonical safety and body in the printable sheet at /clinical/airway-rsi\n⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.\n⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.\n",
+      "stderr": "",
+      "finished_at": "2026-10-15T09:53:37.125362+00:00"
+    }
+  ]
+}
