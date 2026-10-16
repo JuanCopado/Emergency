@@ -17,6 +17,18 @@ def request(regimen, **inputs):
 
 
 class AmiodaroneFlow(unittest.TestCase):
+    def test_oversized_json_integer_is_a_gate_not_an_unhandled_exception(self):
+        data = calculate_request(request('amiodarone-arrest-third', shock_count=3, concentration=10**400))
+        self.assertTrue(data['blocked'])
+        self.assertNotIn('result', data)
+
+    def test_oversized_export_value_is_rejected_without_overflow(self):
+        payload = request('amiodarone-arrest-third', shock_count=3)
+        result = calculate_request(payload)['result']
+        result['dose'] = 10**400
+        with self.assertRaises(ValueError):
+            export_request({'format':'json', 'calculation':payload, 'expected_result':result, 'confirmed':True})
+
     def test_distinct_indications_and_source_preparation_limits(self):
         for rid, extra, dose, volume in [
             ('amiodarone-arrest-third', {'shock_count': 3}, 300, 6),
@@ -88,6 +100,14 @@ class AmiodaroneFlow(unittest.TestCase):
 
 
 class SourceBoundFlowCases(unittest.TestCase):
+    def test_every_contract_has_an_independent_browser_fixture(self):
+        import json
+        bank = json.loads((Path(__file__).resolve().parents[1] / 'qa/V1.44_ACUTE_MEDICATION_CASES.json').read_text(encoding='utf-8'))
+        rows = catalog()['regimens']
+        self.assertEqual({r['id'] for r in rows}, {c['id'] for c in bank['cases']})
+        self.assertEqual(len(rows), len({r['id'] for r in rows}))
+        self.assertEqual({r['group'] for r in rows}, {'amiodarone', 'insulin', 'sodium', 'status', 'anaphylaxis', 'reversal'})
+
     def test_independent_nominal_and_blocked_cases(self):
         import json
         bank = json.loads((Path(__file__).resolve().parents[1] / 'qa/V1.44_ACUTE_MEDICATION_CASES.json').read_text(encoding='utf-8'))

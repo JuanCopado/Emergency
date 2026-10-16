@@ -2,7 +2,6 @@
 import base64
 import hashlib
 import json
-import math
 import tempfile
 from acid_base_hyperglycemia import calculate as hyperglycemia_calculate
 from copy import deepcopy
@@ -10,7 +9,7 @@ from pathlib import Path
 
 from acute_medication_contracts import regimens
 from clinical_note_exporter import export_sections_pdf, export_sections_docx
-from pediatric_numbers import finite_tree
+from pediatric_numbers import finite_tree, finite_number, finite_result
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -48,6 +47,14 @@ def _alert(code, message):
     return {'severity': 'STOP', 'code': code, 'message': message}
 
 
+def _is_finite(value):
+    try:
+        finite_number('value', value)
+    except ValueError:
+        return False
+    return True
+
+
 def _validate(row, inputs):
     if not isinstance(inputs, dict):
         raise ValueError('inputs must be an object')
@@ -62,7 +69,7 @@ def _validate(row, inputs):
         if kind == 'boolean':
             invalid |= type(value) is not bool
         elif kind == 'number':
-            invalid |= type(value) not in (int, float) or not math.isfinite(value)
+            invalid |= type(value) not in (int, float) or not _is_finite(value)
             if not invalid:
                 invalid |= f.get('positive', False) and value <= 0
                 invalid |= 'minimum' in f and value < f['minimum']
@@ -88,6 +95,7 @@ def _validate(row, inputs):
     return alerts
 
 
+@finite_result
 def _calculate(row, inputs):
     dose = row['dose']
     pump = None
@@ -164,7 +172,7 @@ def calculate_request(payload):
 def _same_result(a, b):
     """JSON numbers survive JS/Python round trips; booleans remain a distinct type."""
     if type(a) in (int, float) and type(b) in (int, float):
-        return math.isfinite(a) and math.isfinite(b) and a == b
+        return _is_finite(a) and _is_finite(b) and a == b
     if type(a) is not type(b):
         return False
     if isinstance(a, dict):
