@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
+import { writeEvidence } from './write-qa-evidence.mjs';
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { withClinicalApp } from './functional-harness.mjs';
@@ -147,4 +148,4 @@ print(json.dumps(pages))
   record.status = 'PASS';
 } catch (e) {record.status = 'FAIL';record.failure = e.stack;process.exitCode = 1;console.error(e);}
 record.finished_at = new Date().toISOString();
-writeFileSync(target, JSON.stringify(record,null,2)+'\n');
+await writeEvidence(target, record);

@@ -6,6 +6,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from infusion_calculator import fixed_dose_ml_h, weight_per_hour_ml_h
+from acute_medication_api import catalog as acute_catalog
 from pediatric_catalog import build_catalog
 
 
@@ -29,13 +30,14 @@ def run():
             rate=weight_per_hour_ml_h(dose,e['weightKg'],conc['value']) if 'kg' in unit else fixed_dose_ml_h(dose,conc['value'])
             if e['expectedMlH'] is not None:assert abs(rate-e['expectedMlH'])<=0.051,(drug['id'],rate,e)
             cases.append({'id':f'{drug["id"]}-{i+1}','drug':drug['id'],'preparation':prep['id'],'weight':e['weightKg'],'dose':e['dose'],'unit':e['doseUnit'],'expected_ml_h':rate,'source_example_ml_h':e['expectedMlH'],'concentration':conc,'final_volume_ml':prep['finalVolumeMl'],'python':'PASS'})
+    acute = acute_catalog()
     missing_pilots={
-        'amiodarone-arrhythmia':'Reference modules only; no amiodarone calculator/catalog entry',
-        'insulin-DKA':'Diagnostic note/reference only; no insulin medication calculator',
-        'NaCl-3-percent':'Diagnostic note/reference only; no hypertonic-saline medication calculator',
-        'status-epilepticus':'Diagnostic note/reference; sedation infusion arithmetic is not a status treatment selector',
-        'anaphylaxis':'Diagnostic note/reference and pediatric auto-injector catalog; adult epinephrine infusion is not IM anaphylaxis workflow',
-        'anticoagulation-reversal':'Reference modules only; no anticoagulant/antidote medication calculator',
+      'amiodarone-arrhythmia':'Source-bound flow implemented; final preparation/local product reconciliation require clinical review',
+      'insulin-DKA':'Adult canonical engine connected; K=3.5 boundary, transition and local workflow require clinical review',
+      'NaCl-3-percent':'Two distinct bolus flows implemented; individual repeat/stop and neurocritical limits require clinical review',
+      'status-epilepticus':'Staged alternatives implemented; local preparations, phenytoin and refractory anaesthesia remain gated',
+      'anaphylaxis':'Adult/pediatric IM flows implemented; prepubertal exception, under six months and refractory IV require clinical review',
+      'anticoagulation-reversal':'Agent-specific flows implemented; PCC/local product tables and individualized branches remain gated',
     }
     inventory={'clinical_status':'CLINICALLY_PENDING','adult':{'drugs':len(db['drugs']),'drug_ids':[d['id'] for d in db['drugs']],
         'categories':{c:sum(d['category']==c for d in db['drugs']) for c in sorted({d['category'] for d in db['drugs']})},
@@ -51,7 +53,9 @@ def run():
         'hepatic_adjustment_entries':sum('hepatic_adjustment' in r for r in catalog['regimens']),
         'rule_counts':{k:len(v) for k,v in rules.items() if isinstance(v,list)},
         'all_regimen_ids':[r['id'] for r in catalog['regimens']]},
-        'pilot_gaps':missing_pilots,'additional_gap':'Isoprenaline has no adult calculator entry; dopamine is covered without claiming indication selection',
+        'pilot_gaps':missing_pilots,
+      'acute_source_revision':acute['source_revision'],
+      'acute_contracts':{group:{'regimens':[r['id'] for r in acute['regimens'] if r['group']==group], 'blocked':[r['id'] for r in acute['regimens'] if r['group']==group and r.get('block_reason')], 'status':'CLINICAL_REVIEW_REQUIRED'} for group in sorted({r['group'] for r in acute['regimens']})},'additional_gap':'Isoprenaline has no adult calculator entry; dopamine is covered without claiming indication selection',
         'adult_cases':cases}
     return inventory
 

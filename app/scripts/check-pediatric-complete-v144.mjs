@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { writeEvidence } from './write-qa-evidence.mjs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { withClinicalApp } from './functional-harness.mjs';
@@ -130,11 +131,11 @@ await withClinicalApp(async ({page, base, browser}) => {
     }
     results.cases.push(record);
     if (c.scenario === 'nominal' || record.status === 'FAIL') console.log(`${record.status} ${c.id}`);
-    writeFileSync(target, JSON.stringify(results, null, 2)+'\n');
+    await writeEvidence(target, results);
   }
 });
 results.finished_at = new Date().toISOString();
 results.summary = {regimens:new Set(results.cases.map(c=>c.regimen_id)).size, scenarios:results.cases.length, pass:results.cases.filter(c=>c.status==='PASS').length, fail:results.cases.filter(c=>c.status==='FAIL').length, nominal_exports:results.cases.filter(c=>c.export==='PASS').length};
-writeFileSync(target, JSON.stringify(results, null, 2)+'\n');
+await writeEvidence(target, results);
 console.log(JSON.stringify(results.summary));
 if (results.summary.fail || results.page_errors.length) process.exitCode = 1;
