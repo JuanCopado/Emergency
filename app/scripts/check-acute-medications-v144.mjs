@@ -38,6 +38,7 @@ try {
       const calculated = await (await pending).json();
       assert.equal(calculated.blocked, c.blocked || false, JSON.stringify(calculated));
       if (c.blocked) {
+        assert.deepEqual(calculated.alerts.map(a => a.code), ['CLINICAL_REVIEW_REQUIRED']);
         await page.getByRole('heading',{name:'Cálculo bloqueado',exact:true}).waitFor();
         assert.equal(calculated.result, undefined);
         assert.equal(await page.getByRole('button',{name:'Exportar JSON',exact:true}).count(),0);

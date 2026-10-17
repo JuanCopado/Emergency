@@ -126,7 +126,7 @@ class SourceBoundFlowCases(unittest.TestCase):
                 self.assertEqual(actual['blocked'], case.get('blocked', False))
                 if actual['blocked']:
                     self.assertNotIn('result', actual)
-                    self.assertTrue(actual['alerts'])
+                    self.assertEqual([a['code'] for a in actual['alerts']], ['CLINICAL_REVIEW_REQUIRED'])
                     with self.assertRaises(ValueError):
                         export_request({'format': 'json', 'calculation': payload, 'confirmed': True})
                     continue

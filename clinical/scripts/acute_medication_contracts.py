@@ -194,6 +194,8 @@ def anaphylaxis_regimens():
     ]:
         rows.append(contract('anaphylaxis-' + key, label, 'anaphylaxis', 'Anafilaxia', 'Adrenalina',
             'infection-respiratory.md', 'anaphylaxis', ['Refractory anaphylaxis'], [],
+            route='IM' if key == 'under6months' else 'IV',
+            population='pediatric' if key == 'under6months' else 'adult',
             block_reason=reason, limitations=[reason], administration=reason))
     return rows
 

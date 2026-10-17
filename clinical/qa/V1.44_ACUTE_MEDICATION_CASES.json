@@ -871,7 +871,10 @@
     {
       "id": "anaphylaxis-under6months",
       "group": "anaphylaxis",
-      "inputs": {},
+      "inputs": {
+        "population": "pediatric",
+        "route": "IM"
+      },
       "blocked": true
     },
     {
