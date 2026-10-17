@@ -1,0 +1,23 @@
+{
+  "recorded_at_utc": "2026-10-17T09:25:50.119161+00:00",
+  "version_status": "OPEN",
+  "clinical_status": "CLINICALLY_PENDING",
+  "code_head": "e2159c376ce88116984522d1793076b4be0e9d3d",
+  "lint": {
+    "command": "npm run lint",
+    "observed_exit_code": 0,
+    "execution_date": "2026-10-17"
+  },
+  "graphify": {
+    "command": "graphify update .",
+    "observed_exit_code": 0,
+    "execution_date": "2026-10-17",
+    "log": "[rtk] /!\\ No hook installed — run `rtk init -g` for automatic token savings\r\nRe-extracting code files in . (no LLM needed)...\r\n[graphify watch] 10 file(s) not classified (no supported extension or shebang), skipped: .gitignore, DejaVuSans-Bold.ttf, DejaVuSans.ttf, V1.44_ACUTE_COVERAGE.csv, V1.44_ACUTE_PEDIATRIC_INTERRUPTED.log, V1.44_ACUTE_PEDIATRIC_RETRY_INTERRUPTED.log (+4 more)\r\n  AST extraction: 100/387 uncached files (25%)\r\n  AST extraction: 200/387 uncached files (51%)\r\n  AST extraction: 300/387 uncached files (77%)\r\n  AST extraction: 387/387 uncached files (100%)\r\n[graphify] backed up curated graph (4 files) -> 2026-10-17/\r\n[graphify watch] Rebuilt: 4885 nodes, 7138 edges, 439 communities\r\n[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out\r\nCode graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.\r\n",
+    "initial_attempt": "Exit 1 without diagnostic output; retry with UTF-8 and unbuffered output completed successfully."
+  },
+  "source_hashes_verified": 48,
+  "evidence_hashes_verified": 18,
+  "regression_chain_hashes_verified": 3,
+  "non_codex_protected_refs_unchanged": true,
+  "note": "Documentation finalization only. Functional suites executed on October 15-16; not rerun or redated on October 17."
+}

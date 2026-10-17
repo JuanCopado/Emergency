@@ -1,0 +1,49 @@
+PASS paracetamol-pain-fever-home:nominal
+PASS ibuprofen-pain-fever-home:nominal
+PASS ondansetron-gastroenteritis-initial:nominal
+PASS cetirizine-urticaria-6to11mo:nominal
+PASS cetirizine-urticaria-ge1y:nominal
+PASS loratadine-allergic-rhinitis-urticaria:nominal
+PASS desloratadine-allergic-rhinitis-urticaria:nominal
+PASS fexofenadine-allergic-rhinitis:nominal
+PASS prednisolone-asthma-lt2y:nominal
+PASS prednisolone-asthma-2to5y:nominal
+PASS prednisolone-asthma-6to11y:nominal
+PASS dexamethasone-asthma-1to11y:nominal
+PASS dexamethasone-croup-mild-moderate:nominal
+PASS salbutamol-asthma-discharge-rch:nominal
+PASS amoxicillin-aom:nominal
+PASS amoxicillin-cap-outpatient:nominal
+PASS amoxicillin-dental-abscess:nominal
+PASS amox-clav-bite:nominal
+PASS amox-clav-preseptal-stepdown:nominal
+PASS cefalexin-cellulitis:nominal
+PASS cefalexin-preseptal:nominal
+PASS cefalexin-cystitis:nominal
+PASS cefalexin-pyelonephritis-lt12mo:nominal
+PASS cefalexin-pyelonephritis-ge12mo:nominal
+PASS tmp-smx-mrsa-skin:nominal
+PASS clindamycin-mrsa-skin:nominal
+PASS azithromycin-pertussis-lt6mo:nominal
+PASS azithromycin-pertussis-ge6mo:nominal
+PASS clarithromycin-pertussis-ge1mo:nominal
+PASS tmp-smx-pertussis-ge6wk:nominal
+PASS nitrofurantoin-cystitis-nice-3d:nominal
+PASS nitrofurantoin-cystitis-smpc-7d:nominal
+PASS oseltamivir-influenza-lt1y:nominal
+node:fs:2482
+    return binding.writeFileUtf8(
+                   ^
+
+Error: UNKNOWN: unknown error, open 'C:\Users\HISTTON\Emergency\clinical\qa\V1.44_PEDIATRIC_COMPLETE_BROWSER_RESULTS.json'
+    at writeFileSync (node:fs:2482:20)
+    at file:///C:/Users/HISTTON/Emergency/app/scripts/check-pediatric-complete-v144.mjs:133:5
+    at async withClinicalApp (file:///C:/Users/HISTTON/Emergency/app/scripts/functional-harness.mjs:23:5)
+    at async file:///C:/Users/HISTTON/Emergency/app/scripts/check-pediatric-complete-v144.mjs:41:1 {
+  errno: -4094,
+  code: 'UNKNOWN',
+  syscall: 'open',
+  path: 'C:\\Users\\HISTTON\\Emergency\\clinical\\qa\\V1.44_PEDIATRIC_COMPLETE_BROWSER_RESULTS.json'
+}
+
+Node.js v24.21.0

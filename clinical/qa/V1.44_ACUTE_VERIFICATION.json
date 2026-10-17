@@ -1,0 +1,240 @@
+{
+  "verified_at": "2026-10-17T09:24:11.334924+00:00",
+  "working_branch": "v1.44-clinical-functional-validation",
+  "code_head": "e2159c376ce88116984522d1793076b4be0e9d3d",
+  "recovery_head": "2be842b1f8344e8c6c5bf7577c696486a0a987f3",
+  "version_status": "OPEN",
+  "clinical_status": "CLINICALLY_PENDING",
+  "source_revision": "9102ef77313319aa08491ffed104fd2a473d152c044f8b9072abb23fb0d10960",
+  "acute_cases": 58,
+  "acute_contracts": 46,
+  "python_tests": 578,
+  "frontend_tests": 376,
+  "clinical_qa_checks": 7,
+  "pediatric": {
+    "regimens": 89,
+    "scenarios": 1061,
+    "pass": 1061,
+    "fail": 0,
+    "nominal_exports": 89
+  },
+  "pediatric_export_cases": 3,
+  "pediatric_boundary_40kg": "blocked",
+  "legacy_adult_cases": 40,
+  "legacy_pediatric_cases": 22,
+  "protected_refs": {
+    "refs/codex/turn-diffs/checkpoints/07355bb37c6700935a6eb69cc7d00b8c/f886ac805999d83e551827eb4d4ea94b/1791993521039/0e60fb63-3670-48cd-916c-722dcde558c3": {
+      "initial": "49efe40de309489aa04715091b4c187f4847da8c",
+      "current": "49efe40de309489aa04715091b4c187f4847da8c",
+      "unchanged": true
+    },
+    "refs/codex/turn-diffs/checkpoints/89645562bcd6487fb396d8e3284b815f/9df79d76edbdb615dc33117a33d962cb/1791893643352/f958c127-d0da-4f6b-8497-6bc187c9501e": {
+      "initial": "0a7c627de1afbb878ad73e0ac8f4229251566c28",
+      "current": "0a7c627de1afbb878ad73e0ac8f4229251566c28",
+      "unchanged": true
+    },
+    "refs/codex/turn-diffs/checkpoints/c284c5ea01b6ee744ab58fbd32cecb46/6546005082cce07e799e32e2a7b9b433/1791894411026/e76efef6-a27d-4f10-b73c-4d9d8a535621": {
+      "initial": "4fd62be17a951641d12cfb17969a0e8f772169ac",
+      "current": null,
+      "unchanged": false
+    },
+    "refs/heads/v1.42-codex-consolidation": {
+      "initial": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "current": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "unchanged": true
+    },
+    "refs/heads/v1.42-rc1": {
+      "initial": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "current": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+      "unchanged": true
+    },
+    "refs/heads/v1.43-clinical-ui-validation": {
+      "initial": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+      "current": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+      "unchanged": true
+    },
+    "refs/remotes/origin/HEAD": {
+      "initial": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "current": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch2": {
+      "initial": "5661f911fd90d266f751f85d407d1053162dfa11",
+      "current": "5661f911fd90d266f751f85d407d1053162dfa11",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch3": {
+      "initial": "77869e520778ba31be7cf8b05a15467a4a09e333",
+      "current": "77869e520778ba31be7cf8b05a15467a4a09e333",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch4": {
+      "initial": "8d5392cf296efcc5537d4befefacfcbd63c27f2d",
+      "current": "8d5392cf296efcc5537d4befefacfcbd63c27f2d",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch5": {
+      "initial": "a776d38f432ed8bd21071b1526dbe82cc5ad2c5e",
+      "current": "a776d38f432ed8bd21071b1526dbe82cc5ad2c5e",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch6": {
+      "initial": "f45cf9346d76d39b7c20222a323475c2c2ec66b3",
+      "current": "f45cf9346d76d39b7c20222a323475c2c2ec66b3",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-batch7": {
+      "initial": "a5c3b67c910a819a67f6158bfb03b8332ca07d7e",
+      "current": "a5c3b67c910a819a67f6158bfb03b8332ca07d7e",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/high-risk-source-splits-v2": {
+      "initial": "e5833e1018481b099705895d5ff35f54652efcdd",
+      "current": "e5833e1018481b099705895d5ff35f54652efcdd",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/normalized-evidence-sources": {
+      "initial": "b2de5654376a40f75a2a5a6aa51598c46d1097fc",
+      "current": "b2de5654376a40f75a2a5a6aa51598c46d1097fc",
+      "unchanged": true
+    },
+    "refs/remotes/origin/feat/project-consolidation-graph-rag": {
+      "initial": "9a1a8e6226145f55d9e10fb30367defd1254e1a4",
+      "current": "9a1a8e6226145f55d9e10fb30367defd1254e1a4",
+      "unchanged": true
+    },
+    "refs/remotes/origin/fix/priority-audit-hardening": {
+      "initial": "d43911d6c0c3e8e0aeaf1ca3d545076315366a04",
+      "current": "d43911d6c0c3e8e0aeaf1ca3d545076315366a04",
+      "unchanged": true
+    },
+    "refs/remotes/origin/main": {
+      "initial": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "current": "4f37263f581c41874fd3253147e6679b0b0685d8",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.36-consolidation": {
+      "initial": "b45f0ebf1d202b623cc93cdc1411d820542004b4",
+      "current": "b45f0ebf1d202b623cc93cdc1411d820542004b4",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.37-scores-formulas-validation": {
+      "initial": "f7c38466afce3cca86c12a4420b817642f7e608f",
+      "current": "f7c38466afce3cca86c12a4420b817642f7e608f",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.38-pediatric-outpatient-medications": {
+      "initial": "11a85e52f52b94b8448b4818183d4c235c159684",
+      "current": "11a85e52f52b94b8448b4818183d4c235c159684",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.39-clinical-note-diagnostic-support": {
+      "initial": "cba7d69f4a630313711e14e6a5cffecb1d9a3a6d",
+      "current": "cba7d69f4a630313711e14e6a5cffecb1d9a3a6d",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.39.1-clinical-note-hardening": {
+      "initial": "1fd4e5c7733e752a780a69f0a603c8466bd23a3a",
+      "current": "1fd4e5c7733e752a780a69f0a603c8466bd23a3a",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.40-evidence-surveillance": {
+      "initial": "22e8e063f96d387ad29d461485ca68488b564e7b",
+      "current": "22e8e063f96d387ad29d461485ca68488b564e7b",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.41-procedures-visual": {
+      "initial": "bcb05891c6e95499acf1d20ba4388dcc5aed5766",
+      "current": "bcb05891c6e95499acf1d20ba4388dcc5aed5766",
+      "unchanged": true
+    },
+    "refs/remotes/origin/v1.42-codex-consolidation": {
+      "initial": "0d2fcec1baba7dd50e352890777f4873d8a4dd0d",
+      "current": "0d2fcec1baba7dd50e352890777f4873d8a4dd0d",
+      "unchanged": true
+    }
+  },
+  "file_hashes": {
+    "clinical/scripts/acute_medication_api.py": "bcb73afc0983124e37d2ac31a7f256fc6665592b98982484b7a4f636a7a9daa6",
+    "clinical/scripts/acute_medication_contracts.py": "55aba28934fe8d1899a4549ee7720700caf187abfef375e92d18744bd9ed5b23",
+    "clinical/scripts/clinical_note_api.py": "cc5c498a738a2da9fe2a1612a94a3a935efde55c65a83f7f3f0edd575e5f3811",
+    "clinical/scripts/acid_base_hyperglycemia.py": "7d615410832d50a53ac03e4b6405564cb4cb1d4010fad2ce581b97e899c3f689",
+    "clinical/scripts/pediatric_numbers.py": "b8589463c873c2ffe809b17e6723a8d33d1de4229c0f7680896d9c6663714e15",
+    "clinical/scripts/clinical_note_exporter.py": "592d2fb989f763dad6fcd09237dcbfc7a43b443499d41179df2bfe98df26be9e",
+    "clinical/tests/test_acute_medication_v144.py": "aa9a74016039a0a18d622000aaf960821d4ddc868801322d00aa3fda113ab989",
+    "clinical/qa/run_pharmacology_v144.py": "30beb317684a8f40133b08f53613583422c99d569b6ada4388365130dd19b806",
+    "app/src/pages/AcuteMedications.tsx": "1e0748858adb59ca1c465f819356a8ca6ea7b21348fc6ed95c0beeabe570ec1d",
+    "app/src/App.tsx": "c90282c9f239a14f05ac0920371e350a921f0ca0f67caf1a563db03ac96da090",
+    "app/src/pages/DrugList.tsx": "b82218c28a933bb299bf31f1fe0f7adf9d5cc6c4ee8016c27d4c1af8a3ba8c18",
+    "app/src/index.css": "4e8911405025edd22c315730f61cff684fae553858147d18b106f71badbdf867",
+    "app/src/test/acute-medications.test.tsx": "be656dfd51aa939651ee0c22ac19753c28a9e0b13e240e4abcf0fc651dd6fc30",
+    "app/scripts/check-acute-medications-v144.mjs": "27fe186e426adb70e843a7626a872e9d4eb2165484957542389a6998f2202c26",
+    "clinical/qa/V1.44_ACUTE_MEDICATION_CASES.json": "b42bcb61fab0dc666af3fdafe5d0f1c04b92ef728e3da627e90982372d886fa2",
+    "clinical/references/evidence-registry.json": "adbb9d78d871a6b971a0722e5e73afe7047d67f281c7c5894c75003050ee8243",
+    "app/scripts/check-pediatric-complete-v144.mjs": "93ebf5f1dc19a8ecece34a2b9f46d1108b554a1783d32c6bd0a0147aea333376",
+    "app/scripts/write-qa-evidence.mjs": "fffbcb1cba72b4e95bb540ac84dfd5f79ccc8f686c4f390a52b9ade1ed442338",
+    "app/scripts/write-qa-evidence.node-test.mjs": "844af857685a8182e48818a91cd2aec5239b206231193d7a7237f590d89f913b",
+    "clinical/modules/cardiovascular.md": "85aaf9065141ee539809d0639e4512c4857dcd9a0b742d03fe67c48826bddb88",
+    "clinical/modules/infection-respiratory.md": "9078894f2a01db369c5e0717bd5cc8a2f18d5185204beeb9dd3e9682203ae7fe",
+    "clinical/modules/neurologic.md": "6fa3f96dc2b8fff9d022ee8a8b8e6dfb2d2b064be6b5b2154d19c08c2b8dc8cd",
+    "clinical/modules/procedures-pharmacology.md": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+    "clinical/modules/renal-metabolic.md": "026175f37e7f8d91a9ecf2de9f3f25cea093cc4defbebbd825ffc3ca5eb85611",
+    "app/dist/apple-touch-icon.png": "d8dd8cae46a26c4468c4e0f6d31fd8be83e75522e3f92047fe2dee5ea6979835",
+    "app/dist/favicon.svg": "3ff42192b9a299a2b34e74491d8335218aff32d06625bc9fc277b68382497738",
+    "app/dist/index.html": "7f4bf92c7a7741249a2a0e9a3156cd54b1198c93da5e65824f43efb933cb9812",
+    "app/dist/manifest.webmanifest": "5119a036b0a8b9703486ffed405b60395010948c123cbe83f9d592381c6b0c78",
+    "app/dist/maskable-512x512.png": "238ddf27a15e9572a9e31af821b4405451fdd9ee45b802fae7792a17f486dd51",
+    "app/dist/pwa-192x192.png": "5daa91ca632551011462b563ad3c0245c56e681be1cf7dc6d2f5dc37249def44",
+    "app/dist/pwa-512x512.png": "51aea219a98115abcca0b4d2258d305ead8d255875d4612fe08b40b5e3800483",
+    "app/dist/sw.js": "bee03d394c10368f58e8b3f3ed8892ec1c16b1f7a762afb55417f8ee25b4b69a",
+    "app/dist/workbox-9c191d2f.js": "04b086f1b2f4215ee4b659a7bc9c76162894abdb43fa876247bc7c0bd6fd1c37",
+    "app/dist/assets/About-CQayN7-o.js": "139951ed01cfc747f4076ab55f02385b422a0ea47035c27b3528b565e1aa42bf",
+    "app/dist/assets/AcuteMedications-Dpes1WFG.js": "85c7d6f466724192737f49b3a337dbb15f80d3af206c477232b83e4a2945c109",
+    "app/dist/assets/Calculator-D693EgJH.js": "37643a4c50b55a3cbd34fe735da8700229d59e0db97c54ca559e396db9a70986",
+    "app/dist/assets/canonical-Bc_4ZJsd.js": "443c964614bfb5c0f2e808e03c8f65a9a2049bf0ce5094bf0c93bfa6f196dd67",
+    "app/dist/assets/ClinicalGuides-CQR78T6v.js": "568bd7b51a77bdd50f4c3c29c89cab07ba92df2083e9acb72d3cfb9d9a9ef412",
+    "app/dist/assets/ClinicalLibrary-CYKg3Q39.js": "fdcda0822f55786e1e1b6c58c2457a8eb4bca9e40b0b8cd32af177469951a6ec",
+    "app/dist/assets/ClinicalNote-DcwAi8V8.js": "a9e008a918bdff9a85c7563119222cc3475b16db25f4889218dffe624225d07d",
+    "app/dist/assets/ClinicalScores-XsJer8Gp.js": "57df7866c95aeeb138c0720b7156607e07e9c4c2a92c1c315bfbd4bdf65266a4",
+    "app/dist/assets/index-B7TOAJet.js": "6b378899c8a499f3507c899ae0055188dfb68dc8bcf34480ac33962b02c9379d",
+    "app/dist/assets/index-DWFzXR9y.css": "bede405af5657470d1f015f60424a1b40ed09c9ffad5204ab998efb33fb364c6",
+    "app/dist/assets/PediatricOutpatient-D4kOfzdf.js": "4ef7fbeed4a6265b90d9d3d475248ab86d63cb368951253798ef21b5a67a8b51",
+    "app/dist/assets/procedures-BO2Fc7aF.js": "e68c75a6660483c2e7acbbb2e90b21b1ffaaea9bde47a4e14787bb8a1a9d1876",
+    "app/dist/assets/Procedures-CIwhC81N.js": "e0965cdfedbf210d2fdec51aacac69984751c184fd1351a101ea9a244fa5eea1",
+    "app/dist/assets/Settings-BJlKgcai.js": "27d0efa70e2f69fada58ca606fdf86d88e7844e6921dc9e0929e92ac2e9a91f4",
+    "app/dist/assets/workbox-window.prod.es5-BqEJf4Xk.js": "a5e753498adaeaf5aa2aeb6aa33cc8b477f6dae8621f1960ab8e12d4cebf9c70"
+  },
+  "primary_file_hashes": {
+    "amiodarone-primary.html": "959ec9d6e79bede6ae3303161552ffb7c3719e1d02bf3a2976734ccf4f97eafc",
+    "anaphylaxis-pediatric-primary.html": "0a0adf0d186e6cd14c1f9651a19b105dcadc3675b6b4e83255f24247c9bc88f2",
+    "anaphylaxis-primary.html": "18b29427729552c234072dd5130609b477eef487e780fe3caa9823ca1fc21f65",
+    "andexanet-primary.pdf": "d76eb7d2b9181d1d0f125bdc5509a34556d40d2f2fcf30641188353d1708362d",
+    "idarucizumab-primary.pdf": "0199adda5cb80f9ba50008f91c1bff941c43959ca29b9521d72baaf68f4d064a",
+    "insulin-consensus.html": "7990009882f7055e4c34b8d094c0abc9a20da24d1ec5097bdadec1ffc547c043",
+    "status-guideline.html": "918ac97060c3654aaf849e1262ed946abd6db1d2742d21f79dcdf29784aa72d0",
+    "status-esett.html": "693113b74d84cd267a728e067c25aff6612738bea104ea0f1bcb040d05be163a",
+    "status-aes.html": "5bfc75e289f57ebbb4a4ce7f9221562382e73bdbaf592000ca7f154ed60dea7f",
+    "anaphylaxis-2021.pdf": "1c07e3dd4e238e9228207525bec6d83c27d6edcd3c2cdfe819458f51ce466558"
+  },
+  "evidence_hashes": {
+    "V1.44_ACUTE_ALL_BROWSER_RESULTS.json": "b3b4b3143fda62d7618bd60569693200c720b717f6865709d5db9f56a07b0003",
+    "V1.44_ACUTE_AMIODARONE_BROWSER_RESULTS.json": "3eb283fa0b9627f3423ccd8ad5ab4552f5acfb20d1bbb89e9bd3a6c81eb64c1b",
+    "V1.44_ACUTE_ANAPHYLAXIS_BROWSER_RESULTS.json": "29dd9d38defd26fb392de2a911547413a2d07847a4f5bb7383a3d7423ba40b70",
+    "V1.44_ACUTE_BROWSER_REGRESSION_CHAIN.json": "0dc23e5e372634d6c607e2b67cdf9102fa7c330fdb608b348a6fdf49dbdabe84",
+    "V1.44_ACUTE_COVERAGE.csv": "9ee01cbfc3ee8cd668f09083440c950930caa9da7b82dd7d6306c8ba1b018875",
+    "V1.44_ACUTE_FRONTEND_QA.json": "ddcb1fbe9a0ee8ddd54f1921d5b158850957d910111d98fd7ad78b5ef1750b05",
+    "V1.44_ACUTE_GENERATORS_QA.json": "2dabc6e33e498851be0d223363ba4dcd6a050fd8684146b4eb30a32e5b9430db",
+    "V1.44_ACUTE_INFRASTRUCTURE_QA.json": "cadaa35126a60b480b8a0f34fd15f3d433b81d4e7aad37e6a455f412735c5cb0",
+    "V1.44_ACUTE_INSULIN_BROWSER_RESULTS.json": "a308c893f006d97dc0c83b585b8f10b5b50181a02402f6e98f9105f32b0d3659",
+    "V1.44_ACUTE_MEDICATION_CASES.json": "b42bcb61fab0dc666af3fdafe5d0f1c04b92ef728e3da627e90982372d886fa2",
+    "V1.44_ACUTE_PEDIATRIC_INTERRUPTED.log": "afbd8c9c3317a6ad0652e52c69eb18138a4d6255d4fbf3eaa24670b9ef77e9c8",
+    "V1.44_ACUTE_PEDIATRIC_INTERRUPTED.partial.txt": "f5210ee8c3a5a317cc435284d486a483f8449bd71a07f7dea7e0bee19d4e347e",
+    "V1.44_ACUTE_PEDIATRIC_RETRY_INTERRUPTED.log": "24d6773a54524946e38e42e850e154d43a380bb1761a5d92966d1a0331915faa",
+    "V1.44_ACUTE_PEDIATRIC_RETRY_INTERRUPTED.partial.txt": "acdbd0d1d1c374ed438070ec191c3da3aea74fd25429002d6e2efaf4f8e8883e",
+    "V1.44_ACUTE_PYTHON_QA.json": "314d04ca63ee52f062cee4a822c2e0a137fb4aa69a8205cc97fe1208517be97d",
+    "V1.44_ACUTE_REVERSAL_BROWSER_RESULTS.json": "69315726394429608d41d48b088615cc51eb0ec6e873a605c7fc629c63e09664",
+    "V1.44_ACUTE_SODIUM_BROWSER_RESULTS.json": "eb10ba29002547dd93f59222aced61cfb1d6705420066eeef53ec5fc70b1971c",
+    "V1.44_ACUTE_STATUS_BROWSER_RESULTS.json": "8dd8967f414fa539454d408cf905b74863fe1d21dafb9e0a61437d8845f4745c",
+    "V1.44_ACUTE_FINALIZATION_QA.json": "79f2c175621af875cda72a1cc93272333eca9513413e88618557f28b26ecffeb"
+  }
+}

@@ -1,3 +1,14 @@
+## v1.44 farmacología integrada — 16/10/2026
+
+Seis grupos implementados con alcance explícito y revisión clínica pendiente.
+58 escenarios / 46 contratos PASS: 39 calculables con cuatro formatos y 19
+bloqueos verificados. 578 Python, Clinical QA 7/7, 376 frontend,
+lint/typecheck/build y generadores deterministas PASS. Pediatría: 1061/1061,
+89 regímenes y 89 JSON; exportación focal de cuatro formatos PASS.
+Ver `qa/V1.44_ACUTE_FINAL_REVIEW.md` y matriz individual. v1.44 ABIERTA /
+CLINICALLY_PENDING, ningún YELLOW promovido. Los límites de producto, protocolo
+local y validación clínica impiden cierre funcional/clínico global.
+
 # v1.44 — resultados nuevos, 12/10/2026
 
 20/20 casos motor/API; 16/16 notas navegador/JSON; cuatro escenarios pediátricos reales; PDF/DOCX y cuatro PDFs de guías PASS. Clinical QA 7/7, 509 Python (cuatro tests nuevos), 177 frontend (uno nuevo), lint/typecheck/build y 12 fidelidad PASS. `qa/V1.44_CLINICAL_QA.json` registra las pruebas Python; informes engine/browser y matriz distinguen capas y pendientes. v1.44 permanece ABIERTA: QA técnico no es validación prospectiva.

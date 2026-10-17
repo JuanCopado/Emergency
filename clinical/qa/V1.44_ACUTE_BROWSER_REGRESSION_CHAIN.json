@@ -1,0 +1,31 @@
+{
+  "recorded_at_utc": "2026-10-17T09:19:51.717867+00:00",
+  "clinical_status": "CLINICALLY_PENDING",
+  "status": "PASS",
+  "observed_shell_exit_code": 0,
+  "commands": [
+    "node scripts/check-pediatric-complete-v144.mjs",
+    "node scripts/check-pediatric-export-v144.mjs",
+    "node scripts/check-pharmacology-v144.mjs"
+  ],
+  "sequence": "Serial; each command guarded by previous exit code. Completion and zero exit observed in exec session 94389 on 2026-10-16.",
+  "pediatric_started_at": "2026-10-16T17:50:56.232Z",
+  "pediatric_finished_at": "2026-10-16T17:57:36.342Z",
+  "pediatric": {
+    "regimens": 89,
+    "scenarios": 1061,
+    "pass": 1061,
+    "fail": 0,
+    "nominal_exports": 89
+  },
+  "pediatric_four_format_cases": 3,
+  "boundary_40kg": "blocked",
+  "legacy_adult_cases": 40,
+  "legacy_pediatric_cases": 22,
+  "artifact_hashes": {
+    "V1.44_PEDIATRIC_COMPLETE_BROWSER_RESULTS.json": "2aa75abe659718b133623bddf481ab7b1fea4b8ae0ed28a7020aafc0f2d2f540",
+    "V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json": "6cb32095124611b62afdc82bd00ea918b92d66aef501c6833e8974bc46f0bb2c",
+    "V1.44_PHARMACOLOGY_BROWSER_RESULTS.json": "c3669a5295aed992145879125a11d3f68a5899b3bc4f3daad9378408f85af989"
+  },
+  "note": "The two focal runners emit deterministic files without timestamps; repeated output is byte-identical to earlier committed reports. This record distinguishes the observed execution on October 16 from historical evidence; recording the manifest on October 17 is not a new test run."
+}

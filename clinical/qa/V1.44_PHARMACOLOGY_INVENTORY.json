@@ -150,12 +150,119 @@
     ]
   },
   "pilot_gaps": {
-    "amiodarone-arrhythmia": "Reference modules only; no amiodarone calculator/catalog entry",
-    "insulin-DKA": "Diagnostic note/reference only; no insulin medication calculator",
-    "NaCl-3-percent": "Diagnostic note/reference only; no hypertonic-saline medication calculator",
-    "status-epilepticus": "Diagnostic note/reference; sedation infusion arithmetic is not a status treatment selector",
-    "anaphylaxis": "Diagnostic note/reference and pediatric auto-injector catalog; adult epinephrine infusion is not IM anaphylaxis workflow",
-    "anticoagulation-reversal": "Reference modules only; no anticoagulant/antidote medication calculator"
+    "amiodarone-arrhythmia": "Source-bound flow implemented; final preparation/local product reconciliation require clinical review",
+    "insulin-DKA": "Adult canonical engine connected; K=3.5 boundary, transition and local workflow require clinical review",
+    "NaCl-3-percent": "Two distinct bolus flows implemented; individual repeat/stop and neurocritical limits require clinical review",
+    "status-epilepticus": "Staged alternatives implemented; local preparations, phenytoin and refractory anaesthesia remain gated",
+    "anaphylaxis": "Adult/pediatric IM flows implemented; prepubertal exception, under six months and refractory IV require clinical review",
+    "anticoagulation-reversal": "Agent-specific flows implemented; PCC/local product tables and individualized branches remain gated"
+  },
+  "acute_source_revision": "9102ef77313319aa08491ffed104fd2a473d152c044f8b9072abb23fb0d10960",
+  "acute_contracts": {
+    "amiodarone": {
+      "regimens": [
+        "amiodarone-arrest-third",
+        "amiodarone-arrest-fifth",
+        "amiodarone-failed-cardioversion",
+        "amiodarone-maintenance"
+      ],
+      "blocked": [],
+      "status": "CLINICAL_REVIEW_REQUIRED"
+    },
+    "anaphylaxis": {
+      "regimens": [
+        "anaphylaxis-adult",
+        "anaphylaxis-over12",
+        "anaphylaxis-6to12",
+        "anaphylaxis-6monthsto6",
+        "anaphylaxis-under6months",
+        "anaphylaxis-refractory"
+      ],
+      "blocked": [
+        "anaphylaxis-under6months",
+        "anaphylaxis-refractory"
+      ],
+      "status": "CLINICAL_REVIEW_REQUIRED"
+    },
+    "insulin": {
+      "regimens": [
+        "insulin-dka",
+        "insulin-mixed",
+        "insulin-dextrose",
+        "insulin-hhs"
+      ],
+      "blocked": [],
+      "status": "CLINICAL_REVIEW_REQUIRED"
+    },
+    "reversal": {
+      "regimens": [
+        "reversal-dabigatran",
+        "reversal-apixaban",
+        "reversal-rivaroxaban",
+        "reversal-ufh",
+        "reversal-enoxaparin-early",
+        "reversal-enoxaparin-late",
+        "reversal-enoxaparin-repeat",
+        "reversal-vka-pcc",
+        "reversal-superwarfarin",
+        "reversal-edoxaban",
+        "reversal-betrixaban",
+        "reversal-fondaparinux",
+        "reversal-other-lmwh",
+        "reversal-enoxaparin-over12",
+        "reversal-argatroban",
+        "reversal-bivalirudin",
+        "reversal-other-dti",
+        "reversal-danaparoid",
+        "reversal-fibrinolytics",
+        "reversal-antiplatelets",
+        "reversal-unknown",
+        "reversal-dabigatran-repeat"
+      ],
+      "blocked": [
+        "reversal-vka-pcc",
+        "reversal-superwarfarin",
+        "reversal-edoxaban",
+        "reversal-betrixaban",
+        "reversal-fondaparinux",
+        "reversal-other-lmwh",
+        "reversal-enoxaparin-over12",
+        "reversal-argatroban",
+        "reversal-bivalirudin",
+        "reversal-other-dti",
+        "reversal-danaparoid",
+        "reversal-fibrinolytics",
+        "reversal-antiplatelets",
+        "reversal-unknown",
+        "reversal-dabigatran-repeat"
+      ],
+      "status": "CLINICAL_REVIEW_REQUIRED"
+    },
+    "sodium": {
+      "regimens": [
+        "sodium-hyponatremia",
+        "sodium-icp"
+      ],
+      "blocked": [],
+      "status": "CLINICAL_REVIEW_REQUIRED"
+    },
+    "status": {
+      "regimens": [
+        "status-lorazepam",
+        "status-diazepam",
+        "status-midazolam",
+        "status-levetiracetam",
+        "status-fosphenytoin",
+        "status-valproate",
+        "status-refractory",
+        "status-phenytoin-local"
+      ],
+      "blocked": [
+        "status-refractory",
+        "status-phenytoin-local"
+      ],
+      "status": "CLINICAL_REVIEW_REQUIRED"
+    }
   },
   "additional_gap": "Isoprenaline has no adult calculator entry; dopamine is covered without claiming indication selection",
   "adult_cases": [

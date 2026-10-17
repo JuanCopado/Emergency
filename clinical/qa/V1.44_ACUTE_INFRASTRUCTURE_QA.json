@@ -1,0 +1,32 @@
+{
+  "clinical_status": "CLINICALLY_PENDING",
+  "version_status": "OPEN",
+  "tested_head": "25a3797c03084e797615497be6bd0cac47d09d78",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "--test",
+        "scripts/write-qa-evidence.node-test.mjs"
+      ],
+      "started_at": "2026-10-16T17:58:03.177138+00:00",
+      "finished_at": "2026-10-16T17:58:03.406505+00:00",
+      "returncode": 0,
+      "stdout": "✔ an interrupted replacement preserves the previous valid report and retries transient errors (15.384ms)\n✔ persistent replacement failures are bounded and never reported as success (0.843ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 150.1007\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "lint"
+      ],
+      "started_at": "2026-10-16T17:58:03.406535+00:00",
+      "finished_at": "2026-10-16T17:58:08.592252+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 lint\n> eslint .\n\n",
+      "stderr": ""
+    }
+  ],
+  "status": "PASS"
+}

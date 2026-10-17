@@ -1,0 +1,91 @@
+{
+  "clinical_status": "CLINICALLY_PENDING",
+  "version_status": "OPEN",
+  "tested_head": "ca8a0cccff5f13526978512245e7620bbf8a68ad",
+  "checks": [
+    {
+      "command": [
+        "npm.cmd",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--minWorkers=1",
+        "--reporter=json",
+        "--outputFile=../.qa-tmp/acute-vitest.json"
+      ],
+      "started_at": "2026-10-16T17:36:44.974689+00:00",
+      "finished_at": "2026-10-16T17:37:26.210907+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 test\n> vitest run --maxWorkers=1 --minWorkers=1 --reporter=json --outputFile=../.qa-tmp/acute-vitest.json\n\nJSON report written to C:/Users/HISTTON/Emergency/.qa-tmp/acute-vitest.json\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "guides:test"
+      ],
+      "started_at": "2026-10-16T17:37:26.210931+00:00",
+      "finished_at": "2026-10-16T17:37:27.411840+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 guides:test\n> node --test scripts/build-clinical-guides.node-test.mjs\n\n✔ module table and every frontend status match authoritative evidence (9.2424ms)\n✔ shared safety preamble and exact section body survive once, including CRLF (106.3042ms)\n✔ a section without shared preamble still retains its full body (100.134ms)\n✔ all committed guides match canonical preamble and section, without stale artifacts (188.5431ms)\nℹ tests 4\nℹ suites 0\nℹ pass 4\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 511.815\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "procedures:test"
+      ],
+      "started_at": "2026-10-16T17:37:27.411862+00:00",
+      "finished_at": "2026-10-16T17:37:28.483954+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 procedures:test\n> node --test scripts/build-procedures.node-test.mjs\n\n✔ all 196 complete sheets preserve every canonical section and explicit extraction (167.98ms)\n✔ 196 canonical IDs + 4 aliases = 200 textual IDs across 16 families (12.4478ms)\n✔ all four aliases resolve directly to existing canonical IDs (9.4014ms)\n✔ all metadata and source headings derive from canonical text (85.1688ms)\n✔ regeneration is deterministic and committed artifact is current (21.5826ms)\n✔ generation rejects duplicate index (9.9074ms)\n✔ generation rejects dangling alias (8.0426ms)\n✔ generation rejects alias chain (6.9263ms)\n✔ generation rejects inconsistent sources (7.4896ms)\nℹ tests 9\nℹ suites 0\nℹ pass 9\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 438.1112\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "lint"
+      ],
+      "started_at": "2026-10-16T17:37:28.483976+00:00",
+      "finished_at": "2026-10-16T17:37:34.589230+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 lint\n> eslint .\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "typecheck"
+      ],
+      "started_at": "2026-10-16T17:37:34.589257+00:00",
+      "finished_at": "2026-10-16T17:37:40.539171+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 typecheck\n> tsc -b --noEmit\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "started_at": "2026-10-16T17:37:40.539196+00:00",
+      "finished_at": "2026-10-16T17:37:55.225276+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 build\n> npm run guides:build && npm run procedures:build && npm run pediatrics:build && tsc -b && vite build\n\n\n> emergency@0.1.0 guides:build\n> node scripts/build-clinical-guides.mjs\n\nGenerated 131 canonical clinical guides\n\n> emergency@0.1.0 procedures:build\n> node scripts/build-procedures.mjs\n\n196 canonical procedures + 4 aliases; 16 families\n\n> emergency@0.1.0 pediatrics:build\n> python ../clinical/scripts/build_pediatric_catalog.py\n\n{'regimens': 89, 'source_drug_labels': 54, 'drug_groups': 52, 'named_active_ingredients': 52, 'unspecified_component_groups': ['electrolytes', 'low-osmolarity oral rehydration solution'], 'diagnoses': 88, 'drug_diagnosis_pairs': 89, 'documented_presentation_descriptions': 58, 'verified_liquid_products': 28, 'hidden_regimens': 0}\nvite v5.4.21 building for production...\ntransforming...\n✓ 215 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/manifest.webmanifest                          0.62 kB\ndist/index.html                                    1.56 kB │ gzip:   0.71 kB\ndist/assets/index-DWFzXR9y.css                    33.75 kB │ gzip:   6.83 kB\ndist/assets/About-CQayN7-o.js                      2.68 kB │ gzip:   0.87 kB\ndist/assets/Settings-BJlKgcai.js                   3.49 kB │ gzip:   1.10 kB\ndist/assets/workbox-window.prod.es5-BqEJf4Xk.js    5.71 kB │ gzip:   2.34 kB\ndist/assets/ClinicalScores-XsJer8Gp.js             6.34 kB │ gzip:   2.63 kB\ndist/assets/ClinicalLibrary-CYKg3Q39.js            6.94 kB │ gzip:   2.77 kB\ndist/assets/AcuteMedications-Dpes1WFG.js           7.28 kB │ gzip:   3.03 kB\ndist/assets/ClinicalGuides-CQR78T6v.js            14.72 kB │ gzip:   4.96 kB\ndist/assets/Calculator-D693EgJH.js                24.58 kB │ gzip:   7.11 kB\ndist/assets/ClinicalNote-DcwAi8V8.js              29.50 kB │ gzip:   8.76 kB\ndist/assets/procedures-BO2Fc7aF.js                51.26 kB │ gzip:   6.57 kB\ndist/assets/PediatricOutpatient-D4kOfzdf.js      142.96 kB │ gzip:  30.05 kB\ndist/assets/canonical-Bc_4ZJsd.js                404.57 kB │ gzip: 128.70 kB\ndist/assets/index-B7TOAJet.js                    429.65 kB │ gzip: 134.03 kB\ndist/assets/Procedures-CIwhC81N.js               449.84 kB │ gzip: 106.18 kB\n✓ built in 3.33s\n\nPWA v1.3.0\nmode      generateSW\nprecache  27 entries (1617.77 KiB)\nfiles generated\n  dist/sw.js\n  dist/workbox-9c191d2f.js\n",
+      "stderr": "node_modules/zod/v4/core/util.js (400:0): A comment\n\n\"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle.\"\n\nin \"node_modules/zod/v4/core/util.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\nnode_modules/zod/v4/core/regexes.js (74:0): A comment\n\n\"/** Anchors a pattern source. The interpolation lives here rather than at the call site because\n * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it\n * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */\"\n\nin \"node_modules/zod/v4/core/regexes.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\n"
+    }
+  ],
+  "vitest_summary": {
+    "numTotalTests": 376,
+    "numPassedTests": 376,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": true
+  },
+  "status": "PASS"
+}

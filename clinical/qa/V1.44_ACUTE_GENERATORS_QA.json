@@ -1,0 +1,95 @@
+{
+  "clinical_status": "CLINICALLY_PENDING",
+  "version_status": "OPEN",
+  "tested_head": "ca8a0cccff5f13526978512245e7620bbf8a68ad",
+  "checks": [
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "guides:build"
+      ],
+      "started_at": "2026-10-16T17:38:40.357607+00:00",
+      "finished_at": "2026-10-16T17:38:41.601540+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 guides:build\n> node scripts/build-clinical-guides.mjs\n\nGenerated 131 canonical clinical guides\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "procedures:build"
+      ],
+      "started_at": "2026-10-16T17:38:41.601566+00:00",
+      "finished_at": "2026-10-16T17:38:42.230749+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 procedures:build\n> node scripts/build-procedures.mjs\n\n196 canonical procedures + 4 aliases; 16 families\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "pediatrics:build"
+      ],
+      "started_at": "2026-10-16T17:38:42.230776+00:00",
+      "finished_at": "2026-10-16T17:38:42.903440+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 pediatrics:build\n> python ../clinical/scripts/build_pediatric_catalog.py\n\n{'regimens': 89, 'source_drug_labels': 54, 'drug_groups': 52, 'named_active_ingredients': 52, 'unspecified_component_groups': ['electrolytes', 'low-osmolarity oral rehydration solution'], 'diagnoses': 88, 'drug_diagnosis_pairs': 89, 'documented_presentation_descriptions': 58, 'verified_liquid_products': 28, 'hidden_regimens': 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "guides:build"
+      ],
+      "started_at": "2026-10-16T17:38:42.905507+00:00",
+      "finished_at": "2026-10-16T17:38:43.499132+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 guides:build\n> node scripts/build-clinical-guides.mjs\n\nGenerated 131 canonical clinical guides\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "procedures:build"
+      ],
+      "started_at": "2026-10-16T17:38:43.499162+00:00",
+      "finished_at": "2026-10-16T17:38:44.134821+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 procedures:build\n> node scripts/build-procedures.mjs\n\n196 canonical procedures + 4 aliases; 16 families\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "pediatrics:build"
+      ],
+      "started_at": "2026-10-16T17:38:44.134849+00:00",
+      "finished_at": "2026-10-16T17:38:44.781591+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 pediatrics:build\n> python ../clinical/scripts/build_pediatric_catalog.py\n\n{'regimens': 89, 'source_drug_labels': 54, 'drug_groups': 52, 'named_active_ingredients': 52, 'unspecified_component_groups': ['electrolytes', 'low-osmolarity oral rehydration solution'], 'diagnoses': 88, 'drug_diagnosis_pairs': 89, 'documented_presentation_descriptions': 58, 'verified_liquid_products': 28, 'hidden_regimens': 0}\n",
+      "stderr": ""
+    }
+  ],
+  "snapshots": [
+    {
+      "app/src/data/generatedClinicalGuides.json": "6ede8087641642f7c72bbf07b427834526f84dca16df6339449868a8c49e23cb",
+      "app/src/data/generatedPediatricOutpatient.json": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+      "app/src/data/generatedProcedureSheets.json": "f66bfae1121fb89929867943e1e85a0f457f26d202b0fe192fa536e101a370bc",
+      "app/src/data/generatedProcedures.json": "f124bc8795c965363ce1fb5b30ae5f0432b95bed5e7b7125530854fa62e6872b"
+    },
+    {
+      "app/src/data/generatedClinicalGuides.json": "6ede8087641642f7c72bbf07b427834526f84dca16df6339449868a8c49e23cb",
+      "app/src/data/generatedPediatricOutpatient.json": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+      "app/src/data/generatedProcedureSheets.json": "f66bfae1121fb89929867943e1e85a0f457f26d202b0fe192fa536e101a370bc",
+      "app/src/data/generatedProcedures.json": "f124bc8795c965363ce1fb5b30ae5f0432b95bed5e7b7125530854fa62e6872b"
+    }
+  ],
+  "deterministic": true,
+  "status": "PASS"
+}

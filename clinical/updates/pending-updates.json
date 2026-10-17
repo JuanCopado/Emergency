@@ -2,6 +2,15 @@
   "schema_version": "1.1",
   "pending_updates": [
     {
+      "module": "anaphylaxis",
+      "identified_on": "2026-10-16",
+      "source_url": "https://www.resus.org.uk/sites/default/files/2021-05/Emergency%20Treatment%20of%20Anaphylaxis%20May%202021_0.pdf",
+      "status": "clinical_reconciliation_required_no_dose_promoted",
+      "action": "The primary RCUK anaphylaxis table includes a small/prepubertal exception for children over twelve years absent from the canonical summary. Acute medication UI blocks that situation; reconcile the exception and infant dose selection with pediatric/local clinical review before enabling additional regimens. No canonical dose or evidence status changed. See qa/V1.44_ACUTE_PRIMARY_REVIEW.md.",
+      "reviewed_on": "2026-10-16",
+      "human_review_required": true
+    },
+    {
       "module": "myxedema-coma",
       "identified_on": "2026-09-27",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/42466568/",
