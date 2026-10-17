@@ -1,3 +1,14 @@
+## v1.44 conciliación de producto y protocolo — 17/10/2026
+
+Revisión documental de seis grupos: 19 contratos permanentemente bloqueados,
+18 perfiles de producto y 11 referencias de preparación separados en un dossier
+no ejecutable. Ningún producto/protocolo local aprobado ni firma humana aportada:
+0 PROFESSIONALLY_RECONCILED; gates y recomendaciones canónicas intactos.
+Ver `qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md` y el JSON asociado.
+QA nueva y límites en `qa/product-reconciliation-v144/QA_RESULTS.json`;
+los tests de futuros perfiles locales no implementados no se declaran PASS.
+v1.44 ABIERTA / CLINICALLY_PENDING; no funcionalmente cerrable.
+
 La propuesta v1.33 añade cinco rutas pediátricas específicas con fuentes primarias actuales; los límites por edad/exclusiones se indican en cada módulo. HSE (Irlanda) 2025 aporta la secuencia de status epiléptico de 1 mes–18 años; no se afirma que sustituya el protocolo portugués. Ver `updates/pediatric-pathways-review-2026-09-28.md`.
 La propuesta v1.32 incorpora la ruta de posible sangrado del intestino delgado después de EGD/colonoscopia no diagnósticas en el módulo existente `lower-gi-bleeding`, sin añadir ID. Fuentes principales: ESGE 2022 cápsula/enteroscopia y ACG 2015 small bowel bleeding (rama de angiografía/enterografía; fuente más antigua). Ver updates/small-bowel-bleeding-review-2026-09-28.md.
 La propuesta v1.31 reconcilia reversión/reinicio antitrombótico para hemorragia digestiva usando ESGE 2026 (úlcera péptica), ESGE 2021 (hemorragia baja) y ACG-CAG 2022. Hay desacuerdo de baja certeza sobre reversión rutinaria de DOAC; no se adopta un horario universal de reinicio. Ver updates/gi-antithrombotic-review-2026-09-28.md.

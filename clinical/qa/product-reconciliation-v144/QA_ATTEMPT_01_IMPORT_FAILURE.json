@@ -1,0 +1,86 @@
+{
+  "started_at": "2026-10-17T14:57:35.810036+00:00",
+  "tested_head": "08ff5ab2501ec2b4b84e3a95617f565ea952047d",
+  "version_status": "OPEN",
+  "clinical_status": "CLINICALLY_PENDING",
+  "purpose": "Technical regression with unchanged clinical implementation; no product or local protocol approved.",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\AppData\\Local\\Temp\\emergency-v142-unicode\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_acute_medication_v144.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-17T14:57:35.861073+00:00",
+      "finished_at": "2026-10-17T14:58:26.122253+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 50.029s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\AppData\\Local\\Temp\\emergency-v142-unicode\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_pharmacology_v144.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-17T14:58:26.123419+00:00",
+      "finished_at": "2026-10-17T14:58:26.332302+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.022s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\AppData\\Local\\Temp\\emergency-v142-unicode\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_pediatric_export_v144.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-17T14:58:26.333383+00:00",
+      "finished_at": "2026-10-17T14:58:26.514687+00:00",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "E\n======================================================================\nERROR: test_pediatric_export_v144 (unittest.loader._FailedTest.test_pediatric_export_v144)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_pediatric_export_v144\nTraceback (most recent call last):\n  File \"C:\\Python314\\Lib\\unittest\\loader.py\", line 433, in _find_test_path\n    module = self._get_module_from_name(name)\n  File \"C:\\Python314\\Lib\\unittest\\loader.py\", line 374, in _get_module_from_name\n    __import__(name)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\HISTTON\\Emergency\\clinical\\tests\\test_pediatric_export_v144.py\", line 10, in <module>\n    from pypdf import PdfReader\nImportError: cannot import name 'PdfReader' from 'pypdf' (unknown location)\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+    }
+  ],
+  "browser_driver_copies": [],
+  "historical_evidence_hashes": {
+    "clinical\\qa\\V1.44_ACUTE_ALL_BROWSER_RESULTS.json": "b3b4b3143fda62d7618bd60569693200c720b717f6865709d5db9f56a07b0003",
+    "clinical\\qa\\V1.44_ACUTE_AMIODARONE_BROWSER_RESULTS.json": "3eb283fa0b9627f3423ccd8ad5ab4552f5acfb20d1bbb89e9bd3a6c81eb64c1b",
+    "clinical\\qa\\V1.44_ACUTE_ANAPHYLAXIS_BROWSER_RESULTS.json": "29dd9d38defd26fb392de2a911547413a2d07847a4f5bb7383a3d7423ba40b70",
+    "clinical\\qa\\V1.44_ACUTE_INSULIN_BROWSER_RESULTS.json": "a308c893f006d97dc0c83b585b8f10b5b50181a02402f6e98f9105f32b0d3659",
+    "clinical\\qa\\V1.44_ACUTE_REVERSAL_BROWSER_RESULTS.json": "69315726394429608d41d48b088615cc51eb0ec6e873a605c7fc629c63e09664",
+    "clinical\\qa\\V1.44_ACUTE_SODIUM_BROWSER_RESULTS.json": "eb10ba29002547dd93f59222aced61cfb1d6705420066eeef53ec5fc70b1971c",
+    "clinical\\qa\\V1.44_ACUTE_STATUS_BROWSER_RESULTS.json": "8dd8967f414fa539454d408cf905b74863fe1d21dafb9e0a61437d8845f4745c",
+    "clinical\\qa\\V1.44_BROWSER_RESULTS.json": "7a5c9b989a8af11a88252219dec2364bf0f406b8d2d59e4e81257c36de0d56ef",
+    "clinical\\qa\\V1.44_PEDIATRIC_COMPLETE_BROWSER_RESULTS.json": "2aa75abe659718b133623bddf481ab7b1fea4b8ae0ed28a7020aafc0f2d2f540",
+    "clinical\\qa\\V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json": "6cb32095124611b62afdc82bd00ea918b92d66aef501c6833e8974bc46f0bb2c",
+    "clinical\\qa\\V1.44_PHARMACOLOGY_BROWSER_RESULTS.json": "c3669a5295aed992145879125a11d3f68a5899b3bc4f3daad9378408f85af989",
+    "clinical\\qa\\V1.44_PROCEDURE_BROWSER_RESULTS.json": "026a955e1b36751101c9d598a84c05aabe489f21a301f29156e48d52c7899b71",
+    "clinical\\qa\\V1.44_SCORE_BROWSER_RESULTS.json": "ac4b9746774eca737d64ecb95c28baf5950ac968ae51b5a806c3c65e00a8e766"
+  },
+  "status": "FAIL",
+  "error": "QA command failed: ['C:\\\\Users\\\\HISTTON\\\\AppData\\\\Local\\\\Temp\\\\emergency-v142-unicode\\\\Scripts\\\\python.exe', '-B', '-m', 'unittest', 'discover', '-s', 'clinical/tests', '-p', 'test_pediatric_export_v144.py']; see C:\\Users\\HISTTON\\Emergency\\clinical\\qa\\product-reconciliation-v144/QA_RESULTS.json",
+  "historical_evidence_unchanged": true,
+  "finished_at": "2026-10-17T14:58:26.522638+00:00"
+}

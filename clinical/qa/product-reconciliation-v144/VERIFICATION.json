@@ -1,0 +1,97 @@
+{
+  "verified_at": "2026-10-17T22:57:22.230006+00:00",
+  "initial_head": "08ff5ab2501ec2b4b84e3a95617f565ea952047d",
+  "tested_head": "08ff5ab2501ec2b4b84e3a95617f565ea952047d",
+  "branch": "v1.44-clinical-functional-validation",
+  "version_status": "OPEN",
+  "clinical_status": "CLINICALLY_PENDING",
+  "clinical_implementation_changed": false,
+  "professionally_reconciled": 0,
+  "focal_tests": [
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\Emergency\\.qa-tmp\\product-qa-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_acute_medication_v144.py"
+      ],
+      "tests": 10
+    },
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\Emergency\\.qa-tmp\\product-qa-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_pharmacology_v144.py"
+      ],
+      "tests": 1
+    },
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\Emergency\\.qa-tmp\\product-qa-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_pediatric_export_v144.py"
+      ],
+      "tests": 3
+    }
+  ],
+  "python_tests": 578,
+  "frontend_tests": 376,
+  "clinical_qa_checks": 7,
+  "acute_cases": 58,
+  "pediatric": {
+    "regimens": 89,
+    "scenarios": 1061,
+    "pass": 1061,
+    "fail": 0,
+    "nominal_exports": 89
+  },
+  "pediatric_four_format_cases": 3,
+  "legacy_adult_cases": 40,
+  "legacy_pediatric_cases": 22,
+  "historical_evidence_unchanged": true,
+  "protected_refs_unchanged": true,
+  "diff_check": "PASS",
+  "prior_source_hashes_unchanged": true,
+  "graphify_ast_update": "PASS",
+  "limits": [
+    "No new product/preparation/protocol runtime tests: those features remain unapproved and unimplemented.",
+    "The old environment import failure is preserved; the final full run used a new isolated environment with repository-pinned dependencies."
+  ],
+  "artifact_hashes": {
+    "BASELINE.json": "de260417ba6f2860b9e277dfd6f28deedb36f69847517f99845eb2ab70a7ff6e",
+    "ENVIRONMENT.txt": "d4470480c7ebab7a0ea7206c5cba402716d5e45946b43dc7c18dfa5c72d062ff",
+    "FRONTEND_RESULTS.json": "5474f30bdfa7220b0ac953ae7b3d2a0c755fad0e295a57f7877db1b05703fbdf",
+    "GRAPHIFY_UPDATE.log": "b97ddef9d7098a5df0e40e8ddb08ddd0c7c02ff4e4876efb1132944c20ddc61b",
+    "QA_ATTEMPT_01_IMPORT_FAILURE.json": "6cc107e42ebe5d1e189f274a8578115a6c39963883cb1507f30dddb1f91cb351",
+    "QA_RESULTS.json": "11f72e2a6680c18d3dee857cc96d35f166d04af85cc2d0697a4c2d4f89ddaac6",
+    "RECONCILIATION_INTEGRITY.json": "475cacf3a1f2a736176bae7dec58241fd2364b0cbd875e10f4587c36c8e64c15",
+    "REQUIREMENTS_AUDIT.md": "fef51ad3826eff0684c6f36a053c2d7350adb386c9a55fa9ea42804168cc72d7",
+    "V1.44_ACUTE_ALL_BROWSER_RESULTS.json": "71bc59bc981e6c26b4dbac5a6b80da251146884c1d3b09de8ebef1117f3c9306",
+    "V1.44_PEDIATRIC_COMPLETE_BROWSER_RESULTS.json": "0155dfd5c3aadf04d4fa0a199f3a1e0c7835870ffb4e38b1933c909464b78789",
+    "V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json": "6cb32095124611b62afdc82bd00ea918b92d66aef501c6833e8974bc46f0bb2c",
+    "V1.44_PHARMACOLOGY_BROWSER_RESULTS.json": "c3669a5295aed992145879125a11d3f68a5899b3bc4f3daad9378408f85af989"
+  },
+  "source_hashes": {
+    "clinical/qa/run_product_reconciliation_v144.py": "ee741d49507d66a71e95e0a8cf42e1fd24168ebcd8831bdcf445807c53303bca",
+    "clinical/qa/validate_product_reconciliation_v144.py": "007cd8296ef152a3a9201dc0c5f0c89147bb04c3179489d4fb075555fe0e22d6",
+    "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json": "b42eb3007f2481de488bb4a8dbabd36f590cb325c4452628a4d1e70264aa1274",
+    "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md": "a7accc1a219f3fa1501efc33e26800ff756060df074330f2a69ff695499d98e0"
+  }
+}

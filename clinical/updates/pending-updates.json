@@ -2,13 +2,90 @@
   "schema_version": "1.1",
   "pending_updates": [
     {
+      "module": "anticoagulation-reversal",
+      "identified_on": "2026-10-17",
+      "source_url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+      "status": "product_protocol_reconciliation_requires_human_review",
+      "action": "Keep PCC brands/presentations separate; no local table/signoff. Protamina Hospira SmPC uses strictly <5 mg/min versus inclusive canonical <=5; time adjustment requires professional reconciliation. No dose, gate or evidence status changed.",
+      "human_review_required": true,
+      "product_protocol_followup": {
+        "reviewed_on": "2026-10-17",
+        "source_url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+        "action": "Keep PCC brands/presentations separate; no local table/signoff. Protamina Hospira SmPC uses strictly <5 mg/min versus inclusive canonical <=5; time adjustment requires professional reconciliation. No dose, gate or evidence status changed.",
+        "report": "qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md",
+        "human_review_required": true,
+        "human_reviewer": null,
+        "runtime_change": false
+      }
+    },
+    {
+      "module": "status-epilepticus",
+      "identified_on": "2026-10-17",
+      "source_url": "https://cima.aemps.es/cima/dochtml/ft/56245/FichaTecnica_56245.html",
+      "status": "product_protocol_reconciliation_requires_human_review",
+      "action": "Phenytoin is not fosphenytoin; exact local product, diluted stability, rate and EEG/ICU protocol/signoff absent. No refractory anaesthetic selected.",
+      "human_review_required": true,
+      "product_protocol_followup": {
+        "reviewed_on": "2026-10-17",
+        "source_url": "https://cima.aemps.es/cima/dochtml/ft/56245/FichaTecnica_56245.html",
+        "action": "Phenytoin is not fosphenytoin; exact local product, diluted stability, rate and EEG/ICU protocol/signoff absent. No refractory anaesthetic selected.",
+        "report": "qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md",
+        "human_review_required": true,
+        "human_reviewer": null,
+        "runtime_change": false
+      }
+    },
+    {
+      "module": "sodium-emergencies",
+      "identified_on": "2026-10-17",
+      "source_url": "https://cima.aemps.es/cima/dochtml/ft/61987/FichaTecnica_61987.html",
+      "status": "product_protocol_reconciliation_requires_human_review",
+      "action": "20% concentrate is not ready-to-administer 3%; no local 3% product/compounding record. Direct OUP/ENLS/SfE access incomplete; no new mixing arithmetic enabled.",
+      "human_review_required": true,
+      "product_protocol_followup": {
+        "reviewed_on": "2026-10-17",
+        "source_url": "https://cima.aemps.es/cima/dochtml/ft/61987/FichaTecnica_61987.html",
+        "action": "20% concentrate is not ready-to-administer 3%; no local 3% product/compounding record. Direct OUP/ENLS/SfE access incomplete; no new mixing arithmetic enabled.",
+        "report": "qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md",
+        "human_review_required": true,
+        "human_reviewer": null,
+        "runtime_change": false
+      }
+    },
+    {
+      "module": "diabetic-ketoacidosis-hhs",
+      "identified_on": "2026-10-17",
+      "source_url": "https://www.ema.europa.eu/en/documents/product-information/actrapid-epar-product-information_en.pdf",
+      "status": "product_protocol_reconciliation_requires_human_review",
+      "action": "Separate 40/100 IU/mL vials from SC-only cartridges; no local bag, concentration, priming or potassium regimen approved. Existing clinical gates unchanged.",
+      "human_review_required": true,
+      "product_protocol_followup": {
+        "reviewed_on": "2026-10-17",
+        "source_url": "https://www.ema.europa.eu/en/documents/product-information/actrapid-epar-product-information_en.pdf",
+        "action": "Separate 40/100 IU/mL vials from SC-only cartridges; no local bag, concentration, priming or potassium regimen approved. Existing clinical gates unchanged.",
+        "report": "qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md",
+        "human_review_required": true,
+        "human_reviewer": null,
+        "runtime_change": false
+      }
+    },
+    {
       "module": "anaphylaxis",
       "identified_on": "2026-10-16",
       "source_url": "https://www.resus.org.uk/sites/default/files/2021-05/Emergency%20Treatment%20of%20Anaphylaxis%20May%202021_0.pdf",
       "status": "clinical_reconciliation_required_no_dose_promoted",
       "action": "The primary RCUK anaphylaxis table includes a small/prepubertal exception for children over twelve years absent from the canonical summary. Acute medication UI blocks that situation; reconcile the exception and infant dose selection with pediatric/local clinical review before enabling additional regimens. No canonical dose or evidence status changed. See qa/V1.44_ACUTE_PRIMARY_REVIEW.md.",
       "reviewed_on": "2026-10-16",
-      "human_review_required": true
+      "human_review_required": true,
+      "product_protocol_followup": {
+        "reviewed_on": "2026-10-17",
+        "source_url": "https://www.resus.org.uk/sites/default/files/2021-04/Refractory%20anaphylaxis%20algorithm%202021.pdf",
+        "action": "Professional IV reference recipe located; not proof of product-specific stability or local approval. Infant dose-selection and small/prepubertal discrepancy remain pending; 1 and 0.1 mg/mL presentations separated.",
+        "report": "qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md",
+        "human_review_required": true,
+        "human_reviewer": null,
+        "runtime_change": false
+      }
     },
     {
       "module": "myxedema-coma",
@@ -137,7 +214,16 @@
       "action": "Added in v1.34 after index audit identified missing age-specific rhythm/arrest or undifferentiated shock pathway. ERC/RCUK 2025 guidance checked; verify local Portugal/Azores pathway, energy/drug charts, implementation, and obtain human specialty review. See updates/shock-arrhythmia-arrest-review-2026-09-28.md.",
       "reviewed_on": "2026-09-28",
       "review_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
-      "human_review_required": true
+      "human_review_required": true,
+      "product_protocol_followup": {
+        "reviewed_on": "2026-10-17",
+        "source_url": "https://cima.aemps.es/cima/dochtml/ft/54723/FichaTecnica_54723.html",
+        "action": "Keep ALS dose/phase separate from product SmPC; no final local preparation or post-dilution stability approved.",
+        "report": "qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md",
+        "human_review_required": true,
+        "human_reviewer": null,
+        "runtime_change": false
+      }
     },
     {
       "module": "adult-cardiac-arrest",

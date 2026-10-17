@@ -1,0 +1,2158 @@
+{
+  "schema_version": "1.0",
+  "recorded_at_utc": "2026-10-17T22:56:40.639579+00:00",
+  "branch": "v1.44-clinical-functional-validation",
+  "initial_head": "08ff5ab2501ec2b4b84e3a95617f565ea952047d",
+  "version_status": "OPEN",
+  "clinical_status": "CLINICALLY_PENDING",
+  "non_executable_research_dossier": true,
+  "clinical_implementation_changed": false,
+  "professionally_reconciled_count": 0,
+  "source_revision": "9102ef77313319aa08491ffed104fd2a473d152c044f8b9072abb23fb0d10960",
+  "locale": {
+    "country": "PT",
+    "region": "Azores",
+    "institution": "Hospital da Horta",
+    "operational_verification": "NOT_PROVIDED"
+  },
+  "block_categories": {
+    "A": "product undefined locally",
+    "B": "strength/presentation unreconciled",
+    "C": "dilution unreconciled",
+    "D": "administration unreconciled",
+    "E": "documented local divergence",
+    "F": "incompatibility/non-substitution",
+    "G": "source or local specification missing",
+    "H": "clinical selection ambiguity"
+  },
+  "blocked_contracts": [
+    {
+      "id": "status-refractory",
+      "flow": "status",
+      "drug": "Refractario tras segunda línea — UCI/EEG",
+      "reason": "Escalar a UCI/neurología, vía aérea y EEG continuo; pauta anestésica requiere protocolo especializado.",
+      "block_categories": [
+        "D",
+        "G",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/neurologic.md",
+          "file_sha256": "6fa3f96dc2b8fff9d022ee8a8b8e6dfb2d2b064be6b5b2154d19c08c2b8dc8cd",
+          "primary_source": "NICE NG217 (updated 2025) + ACEP 2024 seizure clinical policy + AES convulsive status guidance/ESETT",
+          "primary_source_url": "https://www.nice.org.uk/guidance/ng217/chapter/7-Treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures",
+          "evidence_status": "yellow"
+        },
+        "module": "status-epilepticus",
+        "anchors": [
+          "second-line"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Neurology/ICU-approved anaesthetic and EEG/escalation protocol required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "status-phenytoin-local",
+      "flow": "status",
+      "drug": "Fenitoína cuando no hay fosfenitoína",
+      "reason": "La fuente exige carga local monitorizada; no hay pauta de producto/velocidad local verificada. No sustituir mg PE automáticamente.",
+      "block_categories": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "G"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/neurologic.md",
+          "file_sha256": "6fa3f96dc2b8fff9d022ee8a8b8e6dfb2d2b064be6b5b2154d19c08c2b8dc8cd",
+          "primary_source": "NICE NG217 (updated 2025) + ACEP 2024 seizure clinical policy + AES convulsive status guidance/ESETT",
+          "primary_source_url": "https://www.nice.org.uk/guidance/ng217/chapter/7-Treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures",
+          "evidence_status": "yellow"
+        },
+        "module": "status-epilepticus",
+        "anchors": [
+          "second-line"
+        ]
+      },
+      "product_candidates": [
+        "PHENYTOIN_RUBIO_2",
+        "PHENYTOIN_RUBIO_5"
+      ],
+      "preparation_candidates": [
+        "PREP_PHENYTOIN"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S12-phenytoin"
+      ],
+      "action": "Exact local product, stability and dose/monitoring selection required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "anaphylaxis-under6months",
+      "flow": "anaphylaxis",
+      "drug": "Adrenalina",
+      "reason": "La fuente almacena 100–150 microgramos; falta regla individual verificada. Requiere decisión pediátrica, sin dosis automática.",
+      "block_categories": [
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/infection-respiratory.md",
+          "file_sha256": "9078894f2a01db369c5e0717bd5cc8a2f18d5185204beeb9dd3e9682203ae7fe",
+          "primary_source": "Resuscitation Council UK / ERC 2025 anaphylaxis guidance",
+          "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines",
+          "evidence_status": "yellow"
+        },
+        "module": "anaphylaxis",
+        "anchors": [
+          "Refractory anaphylaxis"
+        ]
+      },
+      "product_candidates": [
+        "ADRENALINE_BASI_1"
+      ],
+      "preparation_candidates": [
+        "PREP_ADRENALINE_IM"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S13-adrenaline-basi"
+      ],
+      "action": "Pediatric dose selection; guideline range and product weight-based rule are not automatically interchangeable.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "anaphylaxis-refractory",
+      "flow": "anaphylaxis",
+      "drug": "Adrenalina",
+      "reason": "Activar soporte experto, monitorización y protocolo de perfusión IV. No hay preparación/velocidad IV local verificada; evitar bolos IV no monitorizados.",
+      "block_categories": [
+        "A",
+        "C",
+        "D",
+        "G"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/infection-respiratory.md",
+          "file_sha256": "9078894f2a01db369c5e0717bd5cc8a2f18d5185204beeb9dd3e9682203ae7fe",
+          "primary_source": "Resuscitation Council UK / ERC 2025 anaphylaxis guidance",
+          "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines",
+          "evidence_status": "yellow"
+        },
+        "module": "anaphylaxis",
+        "anchors": [
+          "Refractory anaphylaxis"
+        ]
+      },
+      "product_candidates": [
+        "ADRENALINE_BASI_1"
+      ],
+      "preparation_candidates": [
+        "PREP_ADRENALINE_REFRACTORY"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S13-adrenaline-basi"
+      ],
+      "action": "Exact product compatibility/stability and specialist/local approval required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-vka-pcc",
+      "flow": "reversal",
+      "drug": "VKA — vitamina K / 4F-PCC",
+      "reason": "Requiere INR, peso y tabla exacta del PCC local. No aplicar automáticamente a sangrado menor o INR aislado; no se ha verificado tabla de producto.",
+      "block_categories": [
+        "A",
+        "B",
+        "D",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [
+        "BERIPLEX_500",
+        "BERIPLEX_1000",
+        "OCTAPLEX_500",
+        "OCTAPLEX_1000",
+        "KONAKION_ADULT"
+      ],
+      "preparation_candidates": [
+        "PREP_BERIPLEX",
+        "PREP_OCTAPLEX",
+        "PREP_KONAKION"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S15-beriplex",
+        "S16-octaplex",
+        "S21-konakion"
+      ],
+      "action": "Select exact PCC and INR/weight table; do not infer interchangeability.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-superwarfarin",
+      "flow": "reversal",
+      "drug": "Superwarfarinas",
+      "reason": "Vitamina K prolongada y seguimiento INR requieren toxicología/hematología; no hay pauta individual verificada.",
+      "block_categories": [
+        "D",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [
+        "KONAKION_ADULT"
+      ],
+      "preparation_candidates": [
+        "PREP_KONAKION"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S21-konakion"
+      ],
+      "action": "Toxicology/hematology duration, route and INR follow-up decision required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-edoxaban",
+      "flow": "reversal",
+      "drug": "Edoxabán",
+      "reason": "No extrapolar indicación EMA de andexanet; PCC inespecífico exige selección/dosis de protocolo experto.",
+      "block_categories": [
+        "A",
+        "F",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Do not extend EMA andexanet indication; specialist nonspecific reversal selection required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-betrixaban",
+      "flow": "reversal",
+      "drug": "Betrixabán",
+      "reason": "Verificar regulación y protocolo experto; no extrapolar andexanet.",
+      "block_categories": [
+        "A",
+        "G",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Regulatory/product and specialist protocol review required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-fondaparinux",
+      "flow": "reversal",
+      "drug": "Fondaparinux",
+      "reason": "Sin antídoto específico aprobado en la fuente; protamina no neutraliza. Soporte/control de foco y consulta experta.",
+      "block_categories": [
+        "F",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Not a missing-dilution problem: no specific antidote in canonical source; protamine not a substitute.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-other-lmwh",
+      "flow": "reversal",
+      "drug": "Otras HBPM",
+      "reason": "Reversión parcial según ficha exacta; no convertir unidades entre HBPM.",
+      "block_categories": [
+        "A",
+        "B",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [
+        "PROTAMINE_HOSPIRA_10"
+      ],
+      "preparation_candidates": [
+        "PREP_PROTAMINE"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S22-protamine"
+      ],
+      "action": "Identify exact LMWH and its own label; do not convert units across products.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-enoxaparin-over12",
+      "flow": "reversal",
+      "drug": "Enoxaparina después de 12 horas",
+      "reason": "Necesidad individual según actividad persistente/función renal; no hay dosis universal.",
+      "block_categories": [
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [
+        "PROTAMINE_HOSPIRA_10"
+      ],
+      "preparation_candidates": [
+        "PREP_PROTAMINE"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S22-protamine"
+      ],
+      "action": "Residual activity, renal function and specialist indication must be established.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-argatroban",
+      "flow": "reversal",
+      "drug": "Argatrobán",
+      "reason": "Sin antídoto específico; suspender, soporte, control de foco y valoración de función hepática.",
+      "block_categories": [
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Support and causal-drug/hepatic assessment; no universal antidote dose.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-bivalirudin",
+      "flow": "reversal",
+      "drug": "Bivalirudina",
+      "reason": "Sin antídoto específico; suspender, soporte, control de foco y valoración renal.",
+      "block_categories": [
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Support and causal-drug/renal assessment; no universal antidote dose.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-other-dti",
+      "flow": "reversal",
+      "drug": "Otras trombinas directas parenterales",
+      "reason": "Sin pauta universal de antídoto; manejo experto por producto y función renal.",
+      "block_categories": [
+        "A",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Unknown exact agent prevents product-specific selection.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-danaparoid",
+      "flow": "reversal",
+      "drug": "Danaparoide / heparinoides",
+      "reason": "No reversión fiable con protamina; soporte y hematología, sin pauta universal.",
+      "block_categories": [
+        "F",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Specialist control/support; no universal reversal preparation.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-fibrinolytics",
+      "flow": "reversal",
+      "drug": "Trombolíticos / fibrinolíticos",
+      "reason": "Suspender; control urgente de fibrinógeno y coagulación, neuroimagen si ICH; crioprecipitado/fibrinógeno según protocolo.",
+      "block_categories": [
+        "A",
+        "D",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Bleeding phenotype and laboratory-guided blood-product protocol required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-antiplatelets",
+      "flow": "reversal",
+      "drug": "Antiagregantes",
+      "reason": "No hay antídoto universal; decisiones según sangrado/procedimiento. No transfusión plaquetaria automática.",
+      "block_categories": [
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "No automatic platelet/desmopressin regimen; clinical/procedure context required.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-unknown",
+      "flow": "reversal",
+      "drug": "Agente, dosis o tiempo desconocidos",
+      "reason": "Identificar agente, última dosis, pruebas y función orgánica. No elegir antídoto a ciegas.",
+      "block_categories": [
+        "A",
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [],
+      "preparation_candidates": [],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [],
+      "action": "Identify causal drug; do not choose an antidote empirically in software.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    },
+    {
+      "id": "reversal-dabigatran-repeat",
+      "flow": "reversal",
+      "drug": "Repetición de idarucizumab",
+      "reason": "No rutinaria: requiere criterios específicos del producto y hematología; no se automatiza.",
+      "block_categories": [
+        "H"
+      ],
+      "canonical_recommendation": {
+        "source": {
+          "path": "clinical/modules/procedures-pharmacology.md",
+          "file_sha256": "fe361ddca1a1402ee9f325282b55c7394dfcc79b8972f05f9df8c157d758e96c",
+          "primary_source": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+          "primary_source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "evidence_status": "yellow"
+        },
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ]
+      },
+      "product_candidates": [
+        "PRAXBIND_2500_50"
+      ],
+      "preparation_candidates": [
+        "PREP_PRAXBIND"
+      ],
+      "local_protocol": null,
+      "local_override": null,
+      "evidence": [
+        "S17-praxbind"
+      ],
+      "action": "Labelled repeat criteria are available, but require bleeding/urgent-procedure and laboratory reassessment.",
+      "execution_status": "BLOCKED",
+      "reconciliation_status": "CLINICAL_REVIEW_REQUIRED",
+      "human_review": null
+    }
+  ],
+  "products": [
+    {
+      "id": "AMIO_TRANGOREX_150_3",
+      "drug": "amiodarone",
+      "generic_name": "amiodarone",
+      "product_name": "Trangorex",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "50 mg/mL hydrochloride",
+      "container_volume_ml": 3,
+      "authorised_route": "IV",
+      "relevant_excipients": "Benzyl alcohol 60 mg/ampoule; polysorbate 80",
+      "stability": "Unopened 2 years; post-dilution window not established in the reviewed label",
+      "compatibility": "Glucose 5% only; concentration at least 0.6 mg/mL; do not mix other drugs; avoid DEHP equipment",
+      "storage": "Below 25 C; original light-protective packaging",
+      "source": "S08-trangorex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "ACTRAPID_VIAL_40",
+      "drug": "human soluble insulin",
+      "generic_name": "human soluble insulin",
+      "product_name": "Actrapid vial",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "40 IU/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "SC; IV by professionals",
+      "relevant_excipients": "Metacresol, glycerol, zinc",
+      "stability": "Labelled IV mixtures 24 h at room temperature in polypropylene; vial in use 4 weeks below 25 C",
+      "compatibility": "Only labelled compatible infusion media; adsorption requires monitoring; thiols/sulfites may degrade insulin",
+      "storage": "Unopened 2-8 C, do not freeze; protect light",
+      "source": "S09-actrapid",
+      "regulatory_scope": "EU/EMA; marketed presentation and local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S27-actrapid-pt"
+    },
+    {
+      "id": "ACTRAPID_VIAL_100",
+      "drug": "human soluble insulin",
+      "generic_name": "human soluble insulin",
+      "product_name": "Actrapid vial",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "100 IU/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "SC; IV by professionals",
+      "relevant_excipients": "Metacresol, glycerol, zinc",
+      "stability": "Labelled IV mixtures 24 h at room temperature in polypropylene; vial in use 6 weeks below 25 C",
+      "compatibility": "Only labelled compatible infusion media; adsorption requires monitoring; thiols/sulfites may degrade insulin",
+      "storage": "Unopened 2-8 C, do not freeze; protect light",
+      "source": "S09-actrapid",
+      "regulatory_scope": "EU/EMA; marketed presentation and local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S27-actrapid-pt"
+    },
+    {
+      "id": "ACTRAPID_PENFILL_100",
+      "drug": "human soluble insulin",
+      "generic_name": "human soluble insulin",
+      "product_name": "Actrapid Penfill",
+      "pharmaceutical_form": "cartridge",
+      "concentration": "100 IU/mL",
+      "container_volume_ml": 3,
+      "authorised_route": "SC only",
+      "relevant_excipients": "Same active product family; do not infer route interchangeability",
+      "stability": "In use 6 weeks below 30 C",
+      "compatibility": "Not an IV presentation; use a vial when IV administration is required",
+      "storage": "Unopened 2-8 C, do not freeze; light protection",
+      "source": "S09-actrapid",
+      "regulatory_scope": "EU/EMA; local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S27-actrapid-pt"
+    },
+    {
+      "id": "NACL_BBRAUN_20_10",
+      "drug": "sodium chloride",
+      "generic_name": "sodium chloride",
+      "product_name": "Cloruro de Sodio B. Braun 20%",
+      "pharmaceutical_form": "concentrate for infusion",
+      "concentration": "200 mg/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "IV after dilution only",
+      "relevant_excipients": "Water for injections",
+      "stability": "Dilutions: immediate microbiological use; conditional storage does not validate a specific 3% recipe",
+      "compatibility": "Mixture-specific compatibility required; not ready-to-administer 3%",
+      "storage": "No special unopened storage requirements",
+      "source": "S10-sodium-braun",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "PHENYTOIN_RUBIO_2",
+      "drug": "phenytoin sodium",
+      "generic_name": "phenytoin sodium",
+      "product_name": "Fenitoina Rubio",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "50 mg/mL",
+      "container_volume_ml": 2,
+      "authorised_route": "IV",
+      "relevant_excipients": "Ethanol, propylene glycol; alkaline solution",
+      "stability": "Unopened 3 years; post-dilution stability not specified in reviewed sections",
+      "compatibility": "Only sodium chloride 0.9%, final 1-10 mg/mL; not dextrose; no automatic substitution for mg PE",
+      "storage": "No special unopened storage requirements",
+      "source": "S12-phenytoin",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "PHENYTOIN_RUBIO_5",
+      "drug": "phenytoin sodium",
+      "generic_name": "phenytoin sodium",
+      "product_name": "Fenitoina Rubio",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "50 mg/mL",
+      "container_volume_ml": 5,
+      "authorised_route": "IV",
+      "relevant_excipients": "Ethanol, propylene glycol; alkaline solution",
+      "stability": "Unopened 3 years; post-dilution stability not specified in reviewed sections",
+      "compatibility": "Only sodium chloride 0.9%, final 1-10 mg/mL; not dextrose; no automatic substitution for mg PE",
+      "storage": "No special unopened storage requirements",
+      "source": "S12-phenytoin",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "ADRENALINE_BASI_1",
+      "drug": "epinephrine",
+      "generic_name": "epinephrine",
+      "product_name": "Adrenalina Basi",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "1 mg/mL",
+      "container_volume_ml": 1,
+      "authorised_route": "IM; IV/IO only under label-specific dilution and expertise",
+      "relevant_excipients": "Sodium metabisulfite 0.1 mg/mL",
+      "stability": "Immediate use after dilution",
+      "compatibility": "Label describes 0.1 mg/mL dilution in saline/dextrose media; this is not validation of a 0.01 mg/mL refractory infusion",
+      "storage": "Below 25 C; protect light",
+      "source": "S13-adrenaline-basi",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "ADRENALINE_AGUETTANT_01",
+      "drug": "epinephrine",
+      "generic_name": "epinephrine",
+      "product_name": "Adrenalina Aguettant",
+      "pharmaceutical_form": "prefilled syringe",
+      "concentration": "0.1 mg/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "IV/IO; not the IM 1 mg/mL presentation",
+      "relevant_excipients": "Sodium; see full excipient list",
+      "stability": "Unopened 2 years; no admixture stability established",
+      "compatibility": "No mixing in absence of compatibility studies",
+      "storage": "At most 25 C; do not freeze; aluminium bag protects light/oxygen",
+      "source": "S14-adrenaline-aguettant",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "BERIPLEX_500",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Beriplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 20,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 24 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S15-beriplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "BERIPLEX_1000",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Beriplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 40,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 24 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S15-beriplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "OCTAPLEX_500",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Octaplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 20,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 8 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S16-octaplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "OCTAPLEX_1000",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Octaplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 40,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 8 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S16-octaplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "PRAXBIND_2500_50",
+      "drug": "idarucizumab",
+      "generic_name": "idarucizumab",
+      "product_name": "Praxbind",
+      "pharmaceutical_form": "solution for injection/infusion",
+      "concentration": "2.5 g/50 mL",
+      "container_volume_ml": 50,
+      "authorised_route": "IV",
+      "relevant_excipients": "Sorbitol 2 g/vial; sodium 25 mg/vial; assess hereditary fructose intolerance",
+      "stability": "Opened chemical/physical 6 h up to 30 C, microbiological immediate use; unopened protected excursion up to 48 h at 30 C",
+      "compatibility": "No co-infusion/mixing; saline flush of existing line",
+      "storage": "2-8 C; no freezing; protect light",
+      "source": "S17-praxbind",
+      "regulatory_scope": "EU/EMA; local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S28-praxbind-pt"
+    },
+    {
+      "id": "ONDEXXYA_200",
+      "drug": "andexanet alfa",
+      "generic_name": "andexanet alfa",
+      "product_name": "Ondexxya",
+      "pharmaceutical_form": "powder for infusion",
+      "concentration": "200 mg/vial; 10 mg/mL after labelled reconstitution",
+      "container_volume_ml": 20,
+      "authorised_route": "IV",
+      "relevant_excipients": "Arginine hydrochloride, sucrose, mannitol, polysorbate 80",
+      "stability": "Reconstituted vial 16 h at 2-8 C; bag additional 8 h at room temperature; microbiological immediate use",
+      "compatibility": "No further dilution; low-protein-binding inline filter; no mixing with other medicines",
+      "storage": "2-8 C; no freezing",
+      "source": "S18-ondexxya",
+      "regulatory_scope": "EU/EMA; local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S29-ondexxya-pt"
+    },
+    {
+      "id": "KONAKION_ADULT",
+      "drug": "phytomenadione",
+      "generic_name": "phytomenadione",
+      "product_name": "Konakion 10 mg/mL",
+      "pharmaceutical_form": "oral/injectable mixed micellar solution",
+      "concentration": "10 mg/mL",
+      "container_volume_ml": 1,
+      "authorised_route": "Oral/IV",
+      "relevant_excipients": "Lecithin, glycocholic acid",
+      "stability": "Unopened 2 years; do not assume infusion-bag stability",
+      "compatibility": "Do not dilute or mix with injectable medicines",
+      "storage": "Below 25 C; protect light",
+      "source": "S21-konakion",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "KONAKION_PEDIATRIC",
+      "drug": "phytomenadione",
+      "generic_name": "phytomenadione",
+      "product_name": "Konakion 2 mg/0.2 mL",
+      "pharmaceutical_form": "oral/injectable mixed micellar solution",
+      "concentration": "10 mg/mL",
+      "container_volume_ml": 0.2,
+      "authorised_route": "Oral/IV; pediatric IM only per its specific indication",
+      "relevant_excipients": "Lecithin, glycocholic acid",
+      "stability": "Unopened 2 years; do not assume infusion-bag stability",
+      "compatibility": "Do not dilute or mix with injectable medicines",
+      "storage": "Below 25 C; protect light",
+      "source": "S21-konakion",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    },
+    {
+      "id": "PROTAMINE_HOSPIRA_10",
+      "drug": "protamine sulfate",
+      "generic_name": "protamine sulfate",
+      "product_name": "Protamina Hospira",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "10 mg/mL",
+      "container_volume_ml": 5,
+      "authorised_route": "Slow IV",
+      "relevant_excipients": "Methyl/propyl parabens; sodium 45 mg/vial",
+      "stability": "Unopened 3 years; no new diluted preparation accepted",
+      "compatibility": "Do not mix with other active medicines; some penicillins/cephalosporins incompatible",
+      "storage": "2-8 C; do not freeze; protect light",
+      "source": "S22-protamine",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  ],
+  "preparations": [
+    {
+      "id": "PREP_AMIO",
+      "product_ids": [
+        "AMIO_TRANGOREX_150_3"
+      ],
+      "source": [
+        "S01-als",
+        "S08-trangorex"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Glucose 5% per exact product",
+      "final_volume": null,
+      "final_concentration": null,
+      "route": "IV",
+      "administration_rate": "Canonical indication-specific duration retained; no new pump rate",
+      "compatibility": "Product restrictions above",
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "No approved local recipe or post-dilution stability; SmPC and ALS regimens must not be conflated.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_INSULIN",
+      "product_ids": [
+        "ACTRAPID_VIAL_40",
+        "ACTRAPID_VIAL_100"
+      ],
+      "source": [
+        "S02-dka",
+        "S09-actrapid"
+      ],
+      "withdrawn_amount": "Existing canonical reference: 100 IU; product withdrawal volume not selected",
+      "diluent": "Existing canonical reference: sodium chloride 0.9%; no new diluent selected",
+      "final_volume": "Existing canonical reference: FINAL 100 mL",
+      "final_concentration": "Existing contract: 1 IU/mL; within label range 0.05-1 IU/mL, but no local product approval",
+      "route": "IV",
+      "administration_rate": "Existing canonical dose per clinical phase; no new pump rule",
+      "compatibility": "Polypropylene and initial adsorption considerations",
+      "stability": "24 h room-temperature label evidence for listed systems",
+      "storage": "Local aseptic beyond-use time not approved",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Existing 100 IU/100 mL contract and confirmation gate retained; exact vial and local priming/signoff absent. No new mixture/variant; cartridge excluded.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_NACL3",
+      "product_ids": [
+        "NACL_BBRAUN_20_10"
+      ],
+      "source": [
+        "S03-hyponatremia",
+        "S04-enls",
+        "S10-sodium-braun",
+        "S23-sodium-sfe"
+      ],
+      "withdrawn_amount": null,
+      "diluent": null,
+      "final_volume": null,
+      "final_concentration": null,
+      "route": "IV",
+      "administration_rate": null,
+      "compatibility": null,
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "No exact local 3% product/validated sterile compounding recipe. Do not derive a 3% preparation from 20% concentrate.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_PHENYTOIN",
+      "product_ids": [
+        "PHENYTOIN_RUBIO_2",
+        "PHENYTOIN_RUBIO_5"
+      ],
+      "source": [
+        "S05-status",
+        "S12-phenytoin"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Sodium chloride 0.9%",
+      "final_volume": null,
+      "final_concentration": "Labelled range 1-10 mg/mL; no local selection",
+      "route": "IV",
+      "administration_rate": "Adult label maximum 50 mg/min is not a selected patient rate",
+      "compatibility": "No dextrose; separate from fosphenytoin PE units",
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Dose/phase, preparation stability, monitoring and local protocol require neurology/pharmacy review.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_ADRENALINE_IM",
+      "product_ids": [
+        "ADRENALINE_BASI_1"
+      ],
+      "source": [
+        "S06-anaphylaxis",
+        "S13-adrenaline-basi"
+      ],
+      "withdrawn_amount": "Only a professionally selected dose; no infant default",
+      "diluent": "No dilution for IM",
+      "final_volume": null,
+      "final_concentration": "1 mg/mL",
+      "route": "IM",
+      "administration_rate": "Not a pump infusion",
+      "compatibility": "Exact product route must match",
+      "stability": "After opening/dilution per label",
+      "storage": "Light protection",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Infant and small/prepubertal decision remains unresolved; product identification does not select a dose.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_ADRENALINE_REFRACTORY",
+      "product_ids": [
+        "ADRENALINE_BASI_1"
+      ],
+      "source": [
+        "S07-refractory",
+        "S13-adrenaline-basi"
+      ],
+      "withdrawn_amount": "RCUK reference uses 1 mg from 1 mL of 1 mg/mL",
+      "diluent": "Sodium chloride 0.9% per RCUK",
+      "final_volume": "RCUK wording: in 100 mL; precise local final-volume technique unapproved",
+      "final_concentration": null,
+      "route": "IV expert infusion",
+      "administration_rate": "RCUK reference 0.5-1 mL/kg/h titrated; not enabled",
+      "compatibility": "Dedicated pump line; no piggyback; continuous monitoring",
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Professional guideline recipe found, but exact product stability at the proposed final concentration and local approval absent.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_BERIPLEX",
+      "product_ids": [
+        "BERIPLEX_500",
+        "BERIPLEX_1000"
+      ],
+      "source": [
+        "S15-beriplex"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Supplied water for injection",
+      "final_volume": "500 IU: 20 mL; 1000 IU: 40 mL",
+      "final_concentration": "25 IU factor IX/mL",
+      "route": "IV",
+      "administration_rate": "Product-specific rate in SmPC section 4.2; no selected rate",
+      "compatibility": "No mixing; exact transfer device",
+      "stability": "See separate product stability; microbiological immediate use",
+      "storage": "Per exact profile",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "PCC product, INR, weight, indication, HIT assessment and local professional signoff absent.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_OCTAPLEX",
+      "product_ids": [
+        "OCTAPLEX_500",
+        "OCTAPLEX_1000"
+      ],
+      "source": [
+        "S16-octaplex"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Supplied water for injection",
+      "final_volume": "500 IU: 20 mL; 1000 IU: 40 mL",
+      "final_concentration": "25 IU factor IX/mL",
+      "route": "IV",
+      "administration_rate": "Product-specific rate in SmPC section 4.2; no selected rate",
+      "compatibility": "No mixing; exact transfer device",
+      "stability": "See separate product stability; microbiological immediate use",
+      "storage": "Per exact profile",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "PCC product, INR, weight, indication, HIT assessment and local professional signoff absent.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_PRAXBIND",
+      "product_ids": [
+        "PRAXBIND_2500_50"
+      ],
+      "source": [
+        "S17-praxbind"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "No additional admixture",
+      "final_volume": null,
+      "final_concentration": "2.5 g/50 mL",
+      "route": "IV",
+      "administration_rate": "Two consecutive labelled infusions or bolus; no automatic repeat",
+      "compatibility": "Dedicated access/flush; no co-infusion",
+      "stability": "Per exact product",
+      "storage": "Per exact product",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Repeat dose requires clinical/laboratory criteria and recorded specialist decision; stock and local protocol unverified.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_KONAKION",
+      "product_ids": [
+        "KONAKION_ADULT",
+        "KONAKION_PEDIATRIC"
+      ],
+      "source": [
+        "S21-konakion"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Do not dilute",
+      "final_volume": null,
+      "final_concentration": "10 mg/mL",
+      "route": "Indication-specific oral/IV",
+      "administration_rate": null,
+      "compatibility": "No mixing with other injectables",
+      "stability": null,
+      "storage": "Below 25 C; light protection",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "VKA/PCC versus superwarfarin indication, route, duration and local approval unresolved; no universal regimen.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    {
+      "id": "PREP_PROTAMINE",
+      "product_ids": [
+        "PROTAMINE_HOSPIRA_10"
+      ],
+      "source": [
+        "S22-protamine"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "No new dilution",
+      "final_volume": null,
+      "final_concentration": "10 mg/mL",
+      "route": "IV",
+      "administration_rate": "Exact label says <5 mg/min; existing canonical text <=5 mg/min requires reconciliation",
+      "compatibility": "No mixing with other active medicines",
+      "stability": null,
+      "storage": "2-8 C; protect light",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Anticoagulant, elapsed time and residual activity determine selection. No universal rule for other LMWH or >12 h enoxaparin.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01-als",
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "retrieved_at_utc": "2026-10-17T14:51:35.588284+00:00",
+      "http_status": 200,
+      "final_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "7656966dc071275cef029c995046c23832b84f571217e40f46c05d7a7b9252e1",
+      "local_artifact": "S01-als.html",
+      "bytes": 190232,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "2025"
+    },
+    {
+      "id": "S02-dka",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11272983/",
+      "retrieved_at_utc": "2026-10-17T14:51:35.589202+00:00",
+      "http_status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11272983/",
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "d7377c7f522b9781415b3522f26569aa81a2fe8047969bd63439437f82f46e1a",
+      "local_artifact": "S02-dka.html",
+      "bytes": 21379,
+      "access": "CHALLENGE_NOT_CLINICAL_TEXT",
+      "review_status": "REVIEWED_VIA_WEB_PRIMARY_TEXT",
+      "access_note": "The local HTTP 200 body is a reCAPTCHA challenge, not clinical evidence. Primary article text was separately read via web retrieval on 2026-10-17.",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "2024 consensus"
+    },
+    {
+      "id": "S03-hyponatremia",
+      "url": "https://academic.oup.com/ejendo/article/170/3/G1/6668028",
+      "retrieved_at_utc": "2026-10-17T14:51:35.590263+00:00",
+      "access": "FAILED",
+      "error": "HTTP Error 403: Forbidden",
+      "review_status": "ACCESS_BLOCKED",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "FAILED",
+      "document_version_or_revision": "2014; current full-text access blocked"
+    },
+    {
+      "id": "S04-enls",
+      "url": "https://www.neurocriticalcare.org/Portals/0/ENLS%205.0/ENLS%206.0/Protocol%20V6_0_Intracranial%20Hypertension%20and%20Herniation.pdf?ver=oGpOZQ2sI6-mgzJhEgTtTg%3D%3D",
+      "retrieved_at_utc": "2026-10-17T14:51:35.842277+00:00",
+      "access": "FAILED",
+      "error": "HTTP Error 403: Forbidden",
+      "review_status": "ACCESS_BLOCKED",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "FAILED",
+      "document_version_or_revision": "6.0 URL; direct access blocked"
+    },
+    {
+      "id": "S05-status",
+      "url": "https://www.nice.org.uk/guidance/ng217/chapter/7-Treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures",
+      "retrieved_at_utc": "2026-10-17T14:51:36.015322+00:00",
+      "http_status": 200,
+      "final_url": "https://www.nice.org.uk/guidance/ng217/chapter/7-Treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures",
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "918ac97060c3654aaf849e1262ed946abd6db1d2742d21f79dcdf29784aa72d0",
+      "local_artifact": "S05-status.html",
+      "bytes": 44740,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "NG217; January 2025 update noted"
+    },
+    {
+      "id": "S06-anaphylaxis",
+      "url": "https://www.resus.org.uk/sites/default/files/2021-05/Emergency%20Treatment%20of%20Anaphylaxis%20May%202021_0.pdf",
+      "retrieved_at_utc": "2026-10-17T14:51:36.102948+00:00",
+      "http_status": 200,
+      "final_url": "https://www.resus.org.uk/sites/default/files/2021-05/Emergency%20Treatment%20of%20Anaphylaxis%20May%202021_0.pdf",
+      "content_type": "application/pdf",
+      "sha256": "1c07e3dd4e238e9228207525bec6d83c27d6edcd3c2cdfe819458f51ce466558",
+      "local_artifact": "S06-anaphylaxis.pdf",
+      "bytes": 1875355,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "May 2021"
+    },
+    {
+      "id": "S07-refractory",
+      "url": "https://www.resus.org.uk/sites/default/files/2021-04/Refractory%20anaphylaxis%20algorithm%202021.pdf",
+      "retrieved_at_utc": "2026-10-17T14:51:36.345377+00:00",
+      "http_status": 200,
+      "final_url": "https://www.resus.org.uk/sites/default/files/2021-04/Refractory%20anaphylaxis%20algorithm%202021.pdf",
+      "content_type": "application/pdf",
+      "sha256": "2ed8a4977419c96caf2f7abc5f6e88338fb9ff063dfbe1f5ed0ad927a5945a1c",
+      "local_artifact": "S07-refractory.pdf",
+      "bytes": 43609,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "2021"
+    },
+    {
+      "id": "S08-trangorex",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/54723/FichaTecnica_54723.html",
+      "retrieved_at_utc": "2026-10-17T14:51:36.457063+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/54723/FichaTecnica_54723.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "12aa1eb2fc08b584e3a269743bd4b24b06435016406f901ac2ce58f1cc595a9c",
+      "local_artifact": "S08-trangorex.html",
+      "bytes": 148085,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "January 2022"
+    },
+    {
+      "id": "S09-actrapid",
+      "url": "https://www.ema.europa.eu/en/documents/product-information/actrapid-epar-product-information_en.pdf",
+      "retrieved_at_utc": "2026-10-17T14:51:36.469002+00:00",
+      "http_status": 200,
+      "final_url": "https://www.ema.europa.eu/en/documents/product-information/actrapid-epar-product-information_en.pdf",
+      "content_type": "application/pdf",
+      "sha256": "ade3655c1fe49f32845b18a44598531b9a6c464c01849fa3c2d264410742fc65",
+      "local_artifact": "S09-actrapid.pdf",
+      "bytes": 1056670,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S10-sodium-braun",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/61987/FichaTecnica_61987.html",
+      "retrieved_at_utc": "2026-10-17T14:51:36.565613+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/61987/FichaTecnica_61987.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "9dbbb761f24087177dde531b3eb478d2d75c2bb9d67ade0eb67c1e3442830e32",
+      "local_artifact": "S10-sodium-braun.html",
+      "bytes": 64738,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "July 2016"
+    },
+    {
+      "id": "S11-sodium-grifols",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/61231/FichaTecnica_61231.html",
+      "retrieved_at_utc": "2026-10-17T14:51:36.829747+00:00",
+      "access": "FAILED",
+      "error": "HTTP Error 404: Not Found",
+      "review_status": "ACCESS_BLOCKED",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "FAILED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S12-phenytoin",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/56245/FichaTecnica_56245.html",
+      "retrieved_at_utc": "2026-10-17T14:51:36.939035+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/56245/FichaTecnica_56245.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "520c770aef548f7d56bf4d3e82143cc6a3959c27650831ac2057167a812f3ea6",
+      "local_artifact": "S12-phenytoin.html",
+      "bytes": 69579,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "June 2021"
+    },
+    {
+      "id": "S13-adrenaline-basi",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/89175/FT_89175.html",
+      "retrieved_at_utc": "2026-10-17T14:51:36.993571+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/89175/FT_89175.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "3a10b1d171ee17378daaece4b94e600528e99bd4d25a87e4b2cbe054eef81d85",
+      "local_artifact": "S13-adrenaline-basi.html",
+      "bytes": 84554,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "July 2023"
+    },
+    {
+      "id": "S14-adrenaline-aguettant",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/80831/FT_80831.html",
+      "retrieved_at_utc": "2026-10-17T14:51:37.054591+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/80831/FT_80831.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "8638146c1009ea52f5b94fbcb7a1b475bf2f5aac63150172735b0afa885d9131",
+      "local_artifact": "S14-adrenaline-aguettant.html",
+      "bytes": 84742,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "July 2026"
+    },
+    {
+      "id": "S15-beriplex",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/76961/FT_76961.html",
+      "retrieved_at_utc": "2026-10-17T14:51:37.337359+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/76961/FT_76961.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "b627f87dcde9ae111a96f7495e655451c90f2760bfbca261e46a03bde5999138",
+      "local_artifact": "S15-beriplex.html",
+      "bytes": 179709,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "July 2017"
+    },
+    {
+      "id": "S16-octaplex",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/66447/FT_66447.html",
+      "retrieved_at_utc": "2026-10-17T14:51:37.379960+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/66447/FT_66447.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "eeb2e4b7aaa633a8dbb7b847039516ee4b560cc9c1bdba17a48011fc752e6b6e",
+      "local_artifact": "S16-octaplex.html",
+      "bytes": 184452,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "June 2024"
+    },
+    {
+      "id": "S17-praxbind",
+      "url": "https://www.ema.europa.eu/en/documents/product-information/praxbind-epar-product-information_en.pdf",
+      "retrieved_at_utc": "2026-10-17T14:51:37.452616+00:00",
+      "http_status": 200,
+      "final_url": "https://www.ema.europa.eu/en/documents/product-information/praxbind-epar-product-information_en.pdf",
+      "content_type": "application/pdf",
+      "sha256": "0199adda5cb80f9ba50008f91c1bff941c43959ca29b9521d72baaf68f4d064a",
+      "local_artifact": "S17-praxbind.pdf",
+      "bytes": 621639,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S18-ondexxya",
+      "url": "https://www.ema.europa.eu/en/documents/product-information/ondexxya-epar-product-information_en.pdf",
+      "retrieved_at_utc": "2026-10-17T14:51:37.739908+00:00",
+      "http_status": 200,
+      "final_url": "https://www.ema.europa.eu/en/documents/product-information/ondexxya-epar-product-information_en.pdf",
+      "content_type": "application/pdf",
+      "sha256": "d76eb7d2b9181d1d0f125bdc5509a34556d40d2f2fcf30641188353d1708362d",
+      "local_artifact": "S18-ondexxya.pdf",
+      "bytes": 513143,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S19-infarmed",
+      "url": "https://www.infarmed.pt/web/infarmed/servicos-on-line/pesquisa-do-medicamento",
+      "retrieved_at_utc": "2026-10-17T14:51:37.819218+00:00",
+      "http_status": 200,
+      "final_url": "https://www.infarmed.pt/web/infarmed/servicos-on-line/pesquisa-do-medicamento",
+      "content_type": "text/html;charset=UTF-8",
+      "sha256": "21b46b6f65bbe698f1a77cd38557e3d9d38b51822d18715ddea01074dc252a5d",
+      "local_artifact": "S19-infarmed.html",
+      "bytes": 312105,
+      "access": "RETRIEVED",
+      "review_status": "PORTAL_ONLY_NO_PRODUCT_OR_APPROVED_PROTOCOL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S20-horta",
+      "url": "https://hospitalhorta.pt/comissao-de-farmacia-e-terapeutica/",
+      "retrieved_at_utc": "2026-10-17T14:51:37.889130+00:00",
+      "http_status": 200,
+      "final_url": "https://hospitalhorta.pt/comissao-de-farmacia-e-terapeutica/",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "edaeaa161fa77d7ca4b625109b98e112354a55551f9e99e56625227db5d93a71",
+      "local_artifact": "S20-horta.html",
+      "bytes": 214063,
+      "access": "RETRIEVED",
+      "review_status": "PORTAL_ONLY_NO_PRODUCT_OR_APPROVED_PROTOCOL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S21-konakion",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/27262/",
+      "retrieved_at_utc": "2026-10-17T14:55:55.607787+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/27262/",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "0883bba43a2e30fdb7146b01192fbfb8993c2df12e99c681742397b22ad37116",
+      "local_artifact": "S21-konakion.html",
+      "bytes": 126889,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "December 2015"
+    },
+    {
+      "id": "S22-protamine",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+      "retrieved_at_utc": "2026-10-17T14:55:55.608656+00:00",
+      "http_status": 200,
+      "final_url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "2e8757604fb2059587bf3728446509ee709d5ec06d062f3eb1dfddaa89f36442",
+      "local_artifact": "S22-protamine.html",
+      "bytes": 70119,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "May 2020"
+    },
+    {
+      "id": "S23-sodium-sfe",
+      "url": "https://www.endocrinology.org/media/xhrhxhxm/emergency-management-of-severe-and-moderately-severely-symptomatic-hyponatraemia-in-adult-patients-2022.pdf",
+      "retrieved_at_utc": "2026-10-17T14:55:55.610016+00:00",
+      "access": "FAILED",
+      "error": "HTTP Error 403: Forbidden",
+      "review_status": "ACCESS_BLOCKED",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "FAILED",
+      "document_version_or_revision": "2022 URL; direct access blocked"
+    },
+    {
+      "id": "S24-esett",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7098487/",
+      "retrieved_at_utc": "2026-10-17T14:55:55.880000+00:00",
+      "http_status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7098487/",
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "0da8e01ccf77f75e161565d201dfc789e9a8a2503d0765a706a29e60e555a457",
+      "local_artifact": "S24-esett.html",
+      "bytes": 186061,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "access_note": "Local primary article text was retrieved and reviewed; browser retrieval access may differ.",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "2019"
+    },
+    {
+      "id": "S25-aes",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4749120/",
+      "retrieved_at_utc": "2026-10-17T14:55:56.087716+00:00",
+      "http_status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4749120/",
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "0f3c2b03c8fecf686f8fe2a597f9fee2eb14d5f83378383fc24134e7dcf22109",
+      "local_artifact": "S25-aes.html",
+      "bytes": 257228,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "access_note": "Local primary article text was retrieved and reviewed; browser retrieval access may differ.",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "2016"
+    },
+    {
+      "id": "S26-rcuk2025",
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines",
+      "retrieved_at_utc": "2026-10-17T14:55:56.207519+00:00",
+      "http_status": 200,
+      "final_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines",
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "3ed45382924aef9bd54b2e0fb39663b0860d1b97cb96a3cec415b338fa857e7d",
+      "local_artifact": "S26-rcuk2025.html",
+      "bytes": 148718,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "2025"
+    },
+    {
+      "id": "S27-actrapid-pt",
+      "url": "https://www.ema.europa.eu/pt/documents/product-information/actrapid-epar-product-information_pt.pdf",
+      "retrieved_at_utc": "2026-10-17T15:12:43.712440+00:00",
+      "http_status": 200,
+      "final_url": "https://www.ema.europa.eu/pt/documents/product-information/actrapid-epar-product-information_pt.pdf",
+      "content_type": "application/pdf",
+      "sha256": "13b4396e0d5b596e8a962096146996ad246635f5337a4b983c0922ebe1490761",
+      "local_artifact": "S27-actrapid-pt.pdf",
+      "bytes": 1106179,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S28-praxbind-pt",
+      "url": "https://www.ema.europa.eu/pt/documents/product-information/praxbind-epar-product-information_pt.pdf",
+      "retrieved_at_utc": "2026-10-17T15:12:43.713447+00:00",
+      "http_status": 200,
+      "final_url": "https://www.ema.europa.eu/pt/documents/product-information/praxbind-epar-product-information_pt.pdf",
+      "content_type": "application/pdf",
+      "sha256": "a023e7968da9a7e22fd91b0788c524e9f8da3cdb6a3fd35c87532d7ea179c1dd",
+      "local_artifact": "S28-praxbind-pt.pdf",
+      "bytes": 718826,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    },
+    {
+      "id": "S29-ondexxya-pt",
+      "url": "https://www.ema.europa.eu/pt/documents/product-information/ondexxya-epar-product-information_pt.pdf",
+      "retrieved_at_utc": "2026-10-17T15:12:43.714554+00:00",
+      "http_status": 200,
+      "final_url": "https://www.ema.europa.eu/pt/documents/product-information/ondexxya-epar-product-information_pt.pdf",
+      "content_type": "application/pdf",
+      "sha256": "10355aac56ff7bbe457c77abd1a393236b13414b8825143cd7ac1cc8de25194d",
+      "local_artifact": "S29-ondexxya-pt.pdf",
+      "bytes": 1299334,
+      "access": "RETRIEVED",
+      "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+      "reviewed_sections": "Relevant treatment/monitoring sections; access limits above apply.",
+      "professional_signoff": null,
+      "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+      "document_version_or_revision": "Current retrieved document; exact revision not established, do not substitute retrieval date"
+    }
+  ],
+  "conditional_and_operational_gaps": [
+    {
+      "ids": [
+        "anaphylaxis-over12"
+      ],
+      "trigger": "small_prepubertal=true",
+      "kind": "conditional_clinical_review_gate",
+      "action": "Resolve primary-source exception with pediatric human review; not a twentieth contract."
+    },
+    {
+      "ids": [
+        "insulin-dka",
+        "insulin-mixed",
+        "insulin-dextrose",
+        "insulin-hhs"
+      ],
+      "trigger": "potassium_mmol_l=3.5",
+      "kind": "conservative_boundary_gate",
+      "action": "Preserve strict existing gate and reconcile professional/local initiation criteria; no relaxation."
+    },
+    {
+      "group": "amiodarone",
+      "kind": "unsupported_local_preparation_output",
+      "action": "Stock withdrawal is calculable; final concentration and pump rate remain absent."
+    },
+    {
+      "group": "insulin",
+      "kind": "unapproved_local_product",
+      "action": "Existing canonical 100 IU/100 mL calculation is available with confirmation; exact product/priming/local approval absent."
+    },
+    {
+      "group": "sodium",
+      "kind": "unapproved_local_product",
+      "action": "Ready-to-use 3% confirmation required; no concentrated-product compounding functionality."
+    },
+    {
+      "group": "status",
+      "kind": "unsupported_local_preparation_output",
+      "action": "Six calculable options return dose, not unverified product volumes/rates."
+    },
+    {
+      "group": "reversal",
+      "kind": "unsupported_local_preparation_output",
+      "action": "Seven calculable contracts retain no local product-derived volume/pump workflow."
+    }
+  ],
+  "local_protocol": {
+    "institution": "Hospital da Horta",
+    "name": null,
+    "version": null,
+    "date": null,
+    "validity": null,
+    "approved": false,
+    "product": null,
+    "preparation": null,
+    "dose": null,
+    "monitoring": null,
+    "exceptions": null,
+    "findings": "Local formulary checklist and localization JSON remain unsigned. Horta CFT public page establishes a committee, not a drug protocol. Historic TCE photograph is not a medication preparation approval."
+  },
+  "local_override": null,
+  "professional_checklist": {
+    "dose": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "presentation": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "concentration": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "dilution": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "stability": {
+      "status": "BLOCKED",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "compatibility": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "rate": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "route": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "monitoring": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "label": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "local_protocol": {
+      "status": "BLOCKED",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    },
+    "export": {
+      "status": "REVIEW",
+      "reviewer": null,
+      "date": null,
+      "evidence": null
+    }
+  },
+  "acceptance_tests_not_executed": [
+    "Product A/B selection and preparation in application: blocked until approved runtime product model exists.",
+    "Approved local protocol selection/absence: no approved local protocol supplied.",
+    "New product conversion, unsupported mixture and concentration rejection: no new executable product feature claimed.",
+    "Export of product/preparation/protocol identifiers: not implemented; existing exports tested only for current contracts."
+  ]
+}

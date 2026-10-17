@@ -1,0 +1,13 @@
+[rtk] /!\ No hook installed — run `rtk init -g` for automatic token savings
+Re-extracting code files in . (no LLM needed)...
+[graphify watch] 11 file(s) not classified (no supported extension or shebang), skipped: .gitignore, DejaVuSans-Bold.ttf, DejaVuSans.ttf, GRAPHIFY_UPDATE.log, V1.44_ACUTE_COVERAGE.csv, V1.44_ACUTE_PEDIATRIC_INTERRUPTED.log (+5 more)
+  AST extraction: 100/406 uncached files (24%)
+  AST extraction: 200/406 uncached files (49%)
+  AST extraction: 300/406 uncached files (73%)
+  AST extraction: 400/406 uncached files (98%)
+  AST extraction: 406/406 uncached files (100%)
+[graphify watch] community set changed since labeling (439 saved labels, 444 communities now; renamed 49 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (4 files) -> 2026-10-17/
+[graphify watch] Rebuilt: 4920 nodes, 7188 edges, 444 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.

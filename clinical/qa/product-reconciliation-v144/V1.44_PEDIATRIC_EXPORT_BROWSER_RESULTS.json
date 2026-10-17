@@ -1,0 +1,45 @@
+{
+  "cases": [
+    {
+      "id": "paracetamol",
+      "json": "PASS",
+      "pdf": "PASS",
+      "docx": "PASS",
+      "print": "PASS",
+      "fidelity": "all canonical sections",
+      "invalidated_on_edit": "PASS",
+      "pages": {
+        "pdf": 5,
+        "print": 5
+      }
+    },
+    {
+      "id": "dexamethasone",
+      "json": "PASS",
+      "pdf": "PASS",
+      "docx": "PASS",
+      "print": "PASS",
+      "fidelity": "all canonical sections",
+      "invalidated_on_edit": "PASS",
+      "pages": {
+        "pdf": 4,
+        "print": 5
+      }
+    },
+    {
+      "id": "rizatriptan",
+      "json": "PASS",
+      "pdf": "PASS",
+      "docx": "PASS",
+      "print": "PASS",
+      "fidelity": "all canonical sections",
+      "invalidated_on_edit": "PASS",
+      "pages": {
+        "pdf": 4,
+        "print": 4
+      }
+    }
+  ],
+  "boundary_40kg": "blocked",
+  "clinical_status": "CLINICALLY_PENDING"
+}

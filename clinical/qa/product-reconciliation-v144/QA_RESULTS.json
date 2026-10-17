@@ -1,0 +1,265 @@
+{
+  "started_at": "2026-10-17T15:05:58.778449+00:00",
+  "tested_head": "08ff5ab2501ec2b4b84e3a95617f565ea952047d",
+  "version_status": "OPEN",
+  "clinical_status": "CLINICALLY_PENDING",
+  "purpose": "Technical regression with unchanged clinical implementation; no product or local protocol approved.",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\Emergency\\.qa-tmp\\product-qa-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_acute_medication_v144.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-17T15:05:58.823804+00:00",
+      "finished_at": "2026-10-17T15:06:55.476110+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 56.445s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\Emergency\\.qa-tmp\\product-qa-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_pharmacology_v144.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-17T15:06:55.477790+00:00",
+      "finished_at": "2026-10-17T15:06:55.734750+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.025s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\Emergency\\.qa-tmp\\product-qa-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "clinical/tests",
+        "-p",
+        "test_pediatric_export_v144.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-17T15:06:55.736223+00:00",
+      "finished_at": "2026-10-17T15:06:56.815903+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.628s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\HISTTON\\Emergency\\.qa-tmp\\product-qa-venv\\Scripts\\python.exe",
+        "-B",
+        "clinical/qa/qa_runner.py"
+      ],
+      "cwd": ".",
+      "started_at": "2026-10-17T15:06:56.817649+00:00",
+      "finished_at": "2026-10-17T15:08:10.765083+00:00",
+      "returncode": 0,
+      "stdout": "{\n  \"schema_version\": \"1.0\",\n  \"automated_pass\": true,\n  \"automated_status\": \"PASS\",\n  \"checks\": [\n    {\n      \"name\": \"module-integrity\",\n      \"passed\": true,\n      \"returncode\": 0,\n      \"stdout\": \"MODULE VALIDATION PASSED: 131 modules resolved\",\n      \"stderr\": \"\"\n    },\n    {\n      \"name\": \"evidence-coverage\",\n      \"passed\": true,\n      \"returncode\": 0,\n      \"stdout\": \"{\\n  \\\"total_modules\\\": 131,\\n  \\\"registered\\\": 131,\\n  \\\"unregistered\\\": 0,\\n  \\\"status_counts\\\": {\\n    \\\"green\\\": 29,\\n    \\\"yellow\\\": 102,\\n    \\\"red\\\": 0\\n  },\\n  \\\"errors\\\": [],\\n  \\\"warnings\\\": []\\n}\",\n      \"stderr\": \"\"\n    },\n    {\n      \"name\": \"clinical-case-provenance\",\n      \"passed\": true,\n      \"returncode\": 0,\n      \"stdout\": \"CLINICAL CASE VALIDATION PASSED: 27 sourced regressions\",\n      \"stderr\": \"\"\n    },\n    {\n      \"name\": \"real-image-provenance\",\n      \"passed\": true,\n      \"returncode\": 0,\n      \"stdout\": \"{\\n  \\\"cases\\\": 4,\\n  \\\"errors\\\": []\\n}\",\n      \"stderr\": \"\"\n    },\n    {\n      \"name\": \"image-source-registry\",\n      \"passed\": true,\n      \"returncode\": 0,\n      \"stdout\": \"{\\n  \\\"errors\\\": [],\\n  \\\"ready_sources\\\": [\\n    \\\"echonet-dynamic\\\",\\n    \\\"mimic-cxr-2.1.0\\\",\\n    \\\"ptb-xl\\\",\\n    \\\"rsna-ich-2019\\\"\\n  ],\\n  \\\"pending_sources\\\": [\\n    {\\n      \\\"id\\\": \\\"chexpert\\\",\\n      \\\"pending_gates\\\": [\\n        \\\"license_or_dua_verified\\\",\\n        \\\"redistribution_rule_documented\\\"\\n      ]\\n    }\\n  ],\\n  \\\"source_count\\\": 5\\n}\",\n      \"stderr\": \"\"\n    },\n    {\n      \"name\": \"blinded-image-template\",\n      \"passed\": true,\n      \"returncode\": 0,\n      \"stdout\": \"{\\n  \\\"errors\\\": [],\\n  \\\"warnings\\\": [],\\n  \\\"metrics_eligible\\\": true,\\n  \\\"case_count\\\": 1,\\n  \\\"positive_reference_cases\\\": 0,\\n  \\\"negative_reference_cases\\\": 1,\\n  \\\"binary_predictions\\\": 0,\\n  \\\"unresolved_predictions\\\": 1,\\n  \\\"repeated_patient_groups\\\": 0\\n}\",\n      \"stderr\": \"\"\n    },\n    {\n      \"name\": \"unit-regression-tests\",\n      \"passed\": true,\n      \"returncode\": 0,\n      \"stdout\": \"\",\n      \"stderr\": \"..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................\\n----------------------------------------------------------------------\\nRan 578 tests in 71.837s\\n\\nOK\"\n    }\n  ],\n  \"human_gates\": {\n    \"high_risk_not_green\": [\n      \"acid-base-emergencies\",\n      \"acute-heart-failure\",\n      \"acute-liver-failure\",\n      \"acute-mesenteric-ischemia\",\n      \"acute-respiratory-failure\",\n      \"adult-arrhythmias\",\n      \"adult-cardiac-arrest\",\n      \"alcohol-withdrawal\",\n      \"altered-consciousness\",\n      \"anaphylaxis\",\n      \"anticoagulation-reversal\",\n      \"arrhythmias-cardiac-arrest\",\n      \"blood-gas-image\",\n      \"bronchiolitis\",\n      \"calcium-magnesium-emergencies\",\n      \"clinical-image-interpretation\",\n      \"clinical-note-diagnostic-support\",\n      \"clinical-scores-calculators\",\n      \"critical-valvular-disease\",\n      \"croup\",\n      \"ct-mri-screenshot\",\n      \"dermatology-severe\",\n      \"device-complications\",\n      \"ecg-image\",\n      \"ecg-pocus-integration\",\n      \"electrolytes\",\n      \"emergency-infectious-diseases\",\n      \"emergency-procedures\",\n      \"empiric-antibiotics\",\n      \"endocrine-metabolic\",\n      \"ent-emergencies\",\n      \"environmental-emergencies\",\n      \"febrile-infant-0-90-days\",\n      \"final-human-review-gate\",\n      \"hematology-oncology\",\n      \"hypertensive-emergencies\",\n      \"icu-sedation-analgesia-infusions\",\n      \"life-threatening-hemoptysis\",\n      \"lower-gi-bleeding\",\n      \"medication-selection-safety\",\n      \"myxedema-coma\",\n      \"non-coronary-chest-pain\",\n      \"noninvasive-ventilation\",\n      \"obstetric-emergencies\",\n      \"ophthalmology-emergencies\",\n      \"ophthalmology-image\",\n      \"orthopedic-emergencies\",\n      \"pediatric-abdominal-surgical-emergencies\",\n      \"pediatric-acute-asthma\",\n      \"pediatric-acute-respiratory-support\",\n      \"pediatric-adrenal-crisis\",\n      \"pediatric-airway-rsi\",\n      \"pediatric-arrhythmias\",\n      \"pediatric-blood-transfusion-major-hemorrhage\",\n      \"pediatric-burns\",\n      \"pediatric-cardiac-arrest\",\n      \"pediatric-cns-infection\",\n      \"pediatric-dehydration-shock\",\n      \"pediatric-dka\",\n      \"pediatric-drowning-hypothermia\",\n      \"pediatric-electrolyte-emergencies\",\n      \"pediatric-emergencies\",\n      \"pediatric-emergency-medications\",\n      \"pediatric-foreign-body-emergencies\",\n      \"pediatric-head-injury\",\n      \"pediatric-hematology-oncology-emergencies\",\n      \"pediatric-hypertensive-emergency\",\n      \"pediatric-iv-fluid-therapy\",\n      \"pediatric-major-trauma\",\n      \"pediatric-outpatient-medications\",\n      \"pediatric-procedural-sedation\",\n      \"pediatric-sepsis\",\n      \"pediatric-shock\",\n      \"pediatric-status-epilepticus\",\n      \"pediatric-toxicology\",\n      \"pocus\",\n      \"pocus-image\",\n      \"psychiatric-emergencies\",\n      \"pulmonary-embolism\",\n      \"smoke-inhalation-toxic-injury\",\n      \"sodium-emergencies\",\n      \"soft-tissue-infections\",\n      \"status-epilepticus\",\n      \"thyroid-storm\",\n      \"toxicology\",\n      \"trauma-major-hemorrhage\",\n      \"traumatic-intracranial-mass-effect\",\n      \"undifferentiated-shock\",\n      \"vasoactive-inotrope-infusions\"\n    ],\n    \"localization_pending\": [\n      \"amiodarone\",\n      \"dexmedetomidine\",\n      \"dobutamine\",\n      \"dopamine\",\n      \"epinephrine\",\n      \"fentanyl\",\n      \"isoprenaline\",\n      \"midazolam\",\n      \"norepinephrine\",\n      \"propofol\",\n      \"remifentanil\",\n      \"vasopressin\"\n    ],\n    \"clinical_release_status\": \"CLINICALLY_PENDING\"\n  },\n  \"disclaimer\": \"Automated QA PASS is not clinical validation and does not auto-promote evidence status.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--minWorkers=1",
+        "--reporter=json",
+        "--outputFile=../clinical/qa/product-reconciliation-v144/FRONTEND_RESULTS.json"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:08:10.766597+00:00",
+      "finished_at": "2026-10-17T15:08:45.280931+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 test\n> vitest run --maxWorkers=1 --minWorkers=1 --reporter=json --outputFile=../clinical/qa/product-reconciliation-v144/FRONTEND_RESULTS.json\n\nJSON report written to C:/Users/HISTTON/Emergency/clinical/qa/product-reconciliation-v144/FRONTEND_RESULTS.json\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "guides:test"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:08:45.282271+00:00",
+      "finished_at": "2026-10-17T15:08:46.258319+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 guides:test\n> node --test scripts/build-clinical-guides.node-test.mjs\n\n✔ module table and every frontend status match authoritative evidence (8.0942ms)\n✔ shared safety preamble and exact section body survive once, including CRLF (84.2864ms)\n✔ a section without shared preamble still retains its full body (82.8694ms)\n✔ all committed guides match canonical preamble and section, without stale artifacts (175.5387ms)\nℹ tests 4\nℹ suites 0\nℹ pass 4\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 442.726\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "procedures:test"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:08:46.259948+00:00",
+      "finished_at": "2026-10-17T15:08:47.110129+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 procedures:test\n> node --test scripts/build-procedures.node-test.mjs\n\n✔ all 196 complete sheets preserve every canonical section and explicit extraction (140.82ms)\n✔ 196 canonical IDs + 4 aliases = 200 textual IDs across 16 families (12.1371ms)\n✔ all four aliases resolve directly to existing canonical IDs (7.4211ms)\n✔ all metadata and source headings derive from canonical text (57.6876ms)\n✔ regeneration is deterministic and committed artifact is current (14.0849ms)\n✔ generation rejects duplicate index (9.6373ms)\n✔ generation rejects dangling alias (5.678ms)\n✔ generation rejects alias chain (4.1227ms)\n✔ generation rejects inconsistent sources (5.4229ms)\nℹ tests 9\nℹ suites 0\nℹ pass 9\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 350.4128\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "lint"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:08:47.111787+00:00",
+      "finished_at": "2026-10-17T15:08:51.196167+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 lint\n> eslint .\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:08:51.197796+00:00",
+      "finished_at": "2026-10-17T15:08:56.861373+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 typecheck\n> tsc -b --noEmit\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:08:56.863068+00:00",
+      "finished_at": "2026-10-17T15:09:10.425655+00:00",
+      "returncode": 0,
+      "stdout": "\n> emergency@0.1.0 build\n> npm run guides:build && npm run procedures:build && npm run pediatrics:build && tsc -b && vite build\n\n\n> emergency@0.1.0 guides:build\n> node scripts/build-clinical-guides.mjs\n\nGenerated 131 canonical clinical guides\n\n> emergency@0.1.0 procedures:build\n> node scripts/build-procedures.mjs\n\n196 canonical procedures + 4 aliases; 16 families\n\n> emergency@0.1.0 pediatrics:build\n> python ../clinical/scripts/build_pediatric_catalog.py\n\n{'regimens': 89, 'source_drug_labels': 54, 'drug_groups': 52, 'named_active_ingredients': 52, 'unspecified_component_groups': ['electrolytes', 'low-osmolarity oral rehydration solution'], 'diagnoses': 88, 'drug_diagnosis_pairs': 89, 'documented_presentation_descriptions': 58, 'verified_liquid_products': 28, 'hidden_regimens': 0}\nvite v5.4.21 building for production...\ntransforming...\n✓ 215 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/manifest.webmanifest                          0.62 kB\ndist/index.html                                    1.56 kB │ gzip:   0.71 kB\ndist/assets/index-DWFzXR9y.css                    33.75 kB │ gzip:   6.83 kB\ndist/assets/About-CQayN7-o.js                      2.68 kB │ gzip:   0.87 kB\ndist/assets/Settings-BJlKgcai.js                   3.49 kB │ gzip:   1.10 kB\ndist/assets/workbox-window.prod.es5-BqEJf4Xk.js    5.71 kB │ gzip:   2.34 kB\ndist/assets/ClinicalScores-XsJer8Gp.js             6.34 kB │ gzip:   2.63 kB\ndist/assets/ClinicalLibrary-CYKg3Q39.js            6.94 kB │ gzip:   2.77 kB\ndist/assets/AcuteMedications-Dpes1WFG.js           7.28 kB │ gzip:   3.03 kB\ndist/assets/ClinicalGuides-CQR78T6v.js            14.72 kB │ gzip:   4.96 kB\ndist/assets/Calculator-D693EgJH.js                24.58 kB │ gzip:   7.11 kB\ndist/assets/ClinicalNote-DcwAi8V8.js              29.50 kB │ gzip:   8.76 kB\ndist/assets/procedures-BO2Fc7aF.js                51.26 kB │ gzip:   6.57 kB\ndist/assets/PediatricOutpatient-D4kOfzdf.js      142.96 kB │ gzip:  30.05 kB\ndist/assets/canonical-Bc_4ZJsd.js                404.57 kB │ gzip: 128.70 kB\ndist/assets/index-B7TOAJet.js                    429.65 kB │ gzip: 134.03 kB\ndist/assets/Procedures-CIwhC81N.js               449.84 kB │ gzip: 106.18 kB\n✓ built in 3.02s\n\nPWA v1.3.0\nmode      generateSW\nprecache  27 entries (1617.77 KiB)\nfiles generated\n  dist/sw.js\n  dist/workbox-9c191d2f.js\n",
+      "stderr": "node_modules/zod/v4/core/util.js (400:0): A comment\n\n\"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle.\"\n\nin \"node_modules/zod/v4/core/util.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\nnode_modules/zod/v4/core/regexes.js (74:0): A comment\n\n\"/** Anchors a pattern source. The interpolation lives here rather than at the call site because\n * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it\n * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */\"\n\nin \"node_modules/zod/v4/core/regexes.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\n"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/check-reconciliation-acute-medications-v144.mjs"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:09:10.429780+00:00",
+      "finished_at": "2026-10-17T15:10:54.790772+00:00",
+      "returncode": 0,
+      "stdout": "PASS acute flow: amiodarone-arrest-third\nPASS acute flow: amiodarone-arrest-fifth\nPASS acute flow: amiodarone-failed-cardioversion\nPASS acute flow: amiodarone-maintenance\nPASS acute flow: insulin-dka\nPASS acute flow: insulin-mixed\nPASS acute flow: insulin-dextrose\nPASS acute flow: insulin-hhs\nPASS acute flow: sodium-hyponatremia\nPASS acute flow: sodium-icp\nPASS acute flow: status-lorazepam\nPASS acute flow: status-diazepam\nPASS acute flow: status-midazolam\nPASS acute flow: status-levetiracetam\nPASS acute flow: status-fosphenytoin\nPASS acute flow: status-valproate\nPASS blocked status-refractory\nPASS blocked status-phenytoin-local\nPASS acute flow: status-levetiracetam\nPASS acute flow: status-fosphenytoin\nPASS acute flow: status-valproate\nPASS acute flow: anaphylaxis-adult\nPASS acute flow: anaphylaxis-adult\nPASS acute flow: anaphylaxis-over12\nPASS acute flow: anaphylaxis-6to12\nPASS acute flow: anaphylaxis-6monthsto6\nPASS blocked anaphylaxis-under6months\nPASS blocked anaphylaxis-refractory\nPASS acute flow: anaphylaxis-over12\nPASS acute flow: anaphylaxis-6to12\nPASS acute flow: anaphylaxis-6to12\nPASS acute flow: anaphylaxis-6monthsto6\nPASS acute flow: reversal-dabigatran\nPASS acute flow: reversal-apixaban\nPASS acute flow: reversal-apixaban\nPASS acute flow: reversal-apixaban\nPASS acute flow: reversal-rivaroxaban\nPASS acute flow: reversal-rivaroxaban\nPASS acute flow: reversal-rivaroxaban\nPASS acute flow: reversal-ufh\nPASS acute flow: reversal-enoxaparin-early\nPASS acute flow: reversal-enoxaparin-late\nPASS acute flow: reversal-enoxaparin-repeat\nPASS blocked reversal-vka-pcc\nPASS blocked reversal-superwarfarin\nPASS blocked reversal-edoxaban\nPASS blocked reversal-betrixaban\nPASS blocked reversal-fondaparinux\nPASS blocked reversal-other-lmwh\nPASS blocked reversal-enoxaparin-over12\nPASS blocked reversal-argatroban\nPASS blocked reversal-bivalirudin\nPASS blocked reversal-other-dti\nPASS blocked reversal-danaparoid\nPASS blocked reversal-fibrinolytics\nPASS blocked reversal-antiplatelets\nPASS blocked reversal-unknown\nPASS blocked reversal-dabigatran-repeat\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "scripts/check-reconciliation-pediatric-complete-v144.mjs"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:10:54.795072+00:00",
+      "finished_at": "2026-10-17T15:18:48.487223+00:00",
+      "returncode": 0,
+      "stdout": "PASS paracetamol-pain-fever-home:nominal\nPASS ibuprofen-pain-fever-home:nominal\nPASS ondansetron-gastroenteritis-initial:nominal\nPASS cetirizine-urticaria-6to11mo:nominal\nPASS cetirizine-urticaria-ge1y:nominal\nPASS loratadine-allergic-rhinitis-urticaria:nominal\nPASS desloratadine-allergic-rhinitis-urticaria:nominal\nPASS fexofenadine-allergic-rhinitis:nominal\nPASS prednisolone-asthma-lt2y:nominal\nPASS prednisolone-asthma-2to5y:nominal\nPASS prednisolone-asthma-6to11y:nominal\nPASS dexamethasone-asthma-1to11y:nominal\nPASS dexamethasone-croup-mild-moderate:nominal\nPASS salbutamol-asthma-discharge-rch:nominal\nPASS amoxicillin-aom:nominal\nPASS amoxicillin-cap-outpatient:nominal\nPASS amoxicillin-dental-abscess:nominal\nPASS amox-clav-bite:nominal\nPASS amox-clav-preseptal-stepdown:nominal\nPASS cefalexin-cellulitis:nominal\nPASS cefalexin-preseptal:nominal\nPASS cefalexin-cystitis:nominal\nPASS cefalexin-pyelonephritis-lt12mo:nominal\nPASS cefalexin-pyelonephritis-ge12mo:nominal\nPASS tmp-smx-mrsa-skin:nominal\nPASS clindamycin-mrsa-skin:nominal\nPASS azithromycin-pertussis-lt6mo:nominal\nPASS azithromycin-pertussis-ge6mo:nominal\nPASS clarithromycin-pertussis-ge1mo:nominal\nPASS tmp-smx-pertussis-ge6wk:nominal\nPASS nitrofurantoin-cystitis-nice-3d:nominal\nPASS nitrofurantoin-cystitis-smpc-7d:nominal\nPASS oseltamivir-influenza-lt1y:nominal\nPASS oseltamivir-influenza-ge1y:nominal\nPASS epinephrine-autoinjector-discharge-rch:nominal\nPASS mupirocin-localized-impetigo:nominal\nPASS clarithromycin-aom-penicillin-allergy:nominal\nPASS phenoxymethylpenicillin-sinusitis-child:nominal\nPASS clarithromycin-sinusitis-penicillin-allergy:nominal\nPASS clarithromycin-cap-penicillin-allergy:nominal\nPASS cefalexin-impetigo-extensive:nominal\nPASS cefalexin-cervical-lymphadenitis-mild:nominal\nPASS fluticasone-controller-preschool:nominal\nPASS montelukast-controller-preschool:nominal\nPASS ciclesonide-controller-6to11-step2:nominal\nPASS fluticasone-controller-6to11-step2:nominal\nPASS montelukast-controller-6to11:nominal\nPASS budesonide-formoterol-controller-6to11-step3-rch:nominal\nPASS budesonide-formoterol-air-mart-6to11-gina2026:nominal\nPASS budesonide-formoterol-air-mart-12to17-gina2026:nominal\nPASS hydrocortisone1-eczema-sensitive-mild:nominal\nPASS methylprednisolone-aceponate-eczema-body-moderate:nominal\nPASS mometasone-eczema-body-severe:nominal\nPASS pimecrolimus-eczema-sensitive-secondline:nominal\nPASS permethrin5-scabies:nominal\nPASS clotrimazole1-tinea-corporis:nominal\nPASS clotrimazole1-cutaneous-candida:nominal\nPASS ors-clinical-dehydration-50mlkg4h:nominal\nPASS ors-post-stool-highrisk-5mlkg:nominal\nPASS macrogol3350-electrolytes-constipation-maintenance-1to11:nominal\nPASS macrogol3350-electrolytes-disimpaction-5to11:nominal\nPASS lactulose-constipation-1mo18y:nominal\nPASS albendazole-pinworm-ge2y:nominal\nPASS mebendazole-pinworm-ge2y:nominal\nPASS pyrantel-pinworm-ge2y:nominal\nPASS ivermectin-strongyloides-ge15kg:nominal\nPASS albendazole-ascariasis-ge2y:nominal\nPASS praziquantel-schisto-mansoni-haematobium-ge4y:nominal\nPASS acyclovir-varicella-standard-renal:nominal\nPASS acyclovir-hsv-mucocutaneous-standard-renal:nominal\nPASS chloramphenicol05-bacterial-conjunctivitis:nominal\nPASS ciprofloxacin-dexamethasone-aoe-ge1y:nominal\nPASS ciprofloxacin-aoe-ge1y-intact-tm:nominal\nPASS phenazone-lidocaine-aom-pain:nominal\nPASS rizatriptan-migraine-rch:nominal\nPASS ondansetron-migraine-vomiting-ed:nominal\nPASS dimeticone4-head-lice:nominal\nPASS cefalexin-infected-eczema-bacterial:nominal\nPASS mometasone-nasal-allergic-rhinitis:nominal\nPASS fluticasone-propionate-nasal-allergic-rhinitis:nominal\nPASS azelastine-fluticasone-nasal-ge12:nominal\nPASS olopatadine-allergic-conjunctivitis-ge3:nominal\nPASS ketotifen-eye-allergic-conjunctivitis-ge3:nominal\nPASS docusate-paediatric-constipation-ge6mo:nominal\nPASS phenoxymethylpenicillin-gas-sore-throat:nominal\nPASS amoxicillin-gas-sore-throat-adherence:nominal\nPASS cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy:nominal\nPASS azithromycin-gas-sore-throat-immediate-beta-lactam-allergy:nominal\nPASS trimethoprim-cystitis-low-resistance:nominal\n{\"regimens\":89,\"scenarios\":1061,\"pass\":1061,\"fail\":0,\"nominal_exports\":89}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "scripts/check-reconciliation-pediatric-export-v144.mjs"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:18:48.494051+00:00",
+      "finished_at": "2026-10-17T15:18:56.828180+00:00",
+      "returncode": 0,
+      "stdout": "PASS pediatric exports: paracetamol\nPASS pediatric exports: dexamethasone\nPASS pediatric exports: rizatriptan\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "scripts/check-reconciliation-pharmacology-v144.mjs"
+      ],
+      "cwd": "app",
+      "started_at": "2026-10-17T15:18:56.833412+00:00",
+      "finished_at": "2026-10-17T15:19:12.786457+00:00",
+      "returncode": 0,
+      "stdout": "PASS drug: norepinephrine\nPASS drug: vasopressin\nPASS drug: epinephrine\nPASS drug: dopamine\nPASS drug: dobutamine\nPASS drug: milrinone\nPASS drug: levosimendan\nPASS drug: phenylephrine\nPASS drug: angiotensin-ii\nPASS drug: fentanyl\nPASS drug: remifentanil\nPASS drug: morphine\nPASS drug: hydromorphone\nPASS drug: propofol\nPASS drug: dexmedetomidine\nPASS drug: midazolam\nPASS drug: ketamine\nPASS pediatric pharmacology: obesity-amoxicillin-adult-cap\nPASS pediatric pharmacology: amoxicillin-renal-standard-block\nPASS pediatric pharmacology: coamox-7to1-renal-block\nPASS pediatric pharmacology: gas-nonimmediate-cefalexin-allowed\nPASS pediatric pharmacology: gas-immediate-cefalexin-block\nPASS pediatric pharmacology: gas-immediate-azithromycin\nPASS pediatric pharmacology: nitrofurantoin-pyelonephritis-block\nPASS pediatric pharmacology: trimethoprim-resistance-gate\nPASS pediatric pharmacology: ibuprofen-dehydration-block\nPASS pediatric pharmacology: paracetamol-ideal-weight\nPASS pediatric pharmacology: unverified-concentration-block\nPASS pediatric pharmacology: pertussis-variable-schedule\nPASS pediatric pharmacology: oseltamivir-renal-block\nPASS pediatric pharmacology: cetirizine-renal-block\nPASS pediatric pharmacology: ors-shock-block\nPASS pediatric pharmacology: dexamethasone-organ-function-no-adjustment\nPASS pediatric pharmacology: mart-age-gate\nPASS pediatric pharmacology: rizatriptan-40kg-boundary-block\nPASS pediatric pharmacology: exact-amoxicillin-allergy\nPASS pediatric pharmacology: clarithromycin-simvastatin\nPASS pediatric pharmacology: rizatriptan-other-triptan\nPASS pediatric pharmacology: paracetamol-duplicate\n",
+      "stderr": ""
+    }
+  ],
+  "browser_driver_copies": [
+    {
+      "original": "app\\scripts\\check-acute-medications-v144.mjs",
+      "original_sha256": "27fe186e426adb70e843a7626a872e9d4eb2165484957542389a6998f2202c26",
+      "executed_sha256": "19473df999bc3d1c82b7a978cea76d1f895b4bf1fee3a0b4756727e1bb782b49",
+      "only_change": {
+        "from": "../../clinical/qa/V1.44_ACUTE_${group.toUpperCase()}_BROWSER_RESULTS.json",
+        "to": "../../clinical/qa/product-reconciliation-v144/V1.44_ACUTE_${group.toUpperCase()}_BROWSER_RESULTS.json"
+      }
+    },
+    {
+      "original": "app\\scripts\\check-pediatric-complete-v144.mjs",
+      "original_sha256": "93ebf5f1dc19a8ecece34a2b9f46d1108b554a1783d32c6bd0a0147aea333376",
+      "executed_sha256": "0982499a0a6b3ec3b92bcd1cc571b61bc45aecb4af584a61812648dff69feb00",
+      "only_change": {
+        "from": "../../clinical/qa/V1.44_PEDIATRIC_${only ? 'FILTERED' : 'COMPLETE'}_BROWSER_RESULTS.json",
+        "to": "../../clinical/qa/product-reconciliation-v144/V1.44_PEDIATRIC_${only ? 'FILTERED' : 'COMPLETE'}_BROWSER_RESULTS.json"
+      }
+    },
+    {
+      "original": "app\\scripts\\check-pediatric-export-v144.mjs",
+      "original_sha256": "eebbfa9922ed11322534de36e32c45c83a51f550b0c1517ba509a66bd04192b8",
+      "executed_sha256": "1ddfd79f2a096eb8ba26c980662d85ee286fee966e72c1947996eb3b24dac070",
+      "only_change": {
+        "from": "../../clinical/qa/V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json",
+        "to": "../../clinical/qa/product-reconciliation-v144/V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json"
+      }
+    },
+    {
+      "original": "app\\scripts\\check-pharmacology-v144.mjs",
+      "original_sha256": "4b62ab471e3a1c7900bf22e7a96c23ad52008059cb0d56917a750b4ceb4eea46",
+      "executed_sha256": "08e7bb05614cdc6d7039e5d0043372f8f1c5d951ee6fccd2550cfe08185d604b",
+      "only_change": {
+        "from": "../../clinical/qa/V1.44_PHARMACOLOGY_BROWSER_RESULTS.json",
+        "to": "../../clinical/qa/product-reconciliation-v144/V1.44_PHARMACOLOGY_BROWSER_RESULTS.json"
+      }
+    }
+  ],
+  "historical_evidence_hashes": {
+    "clinical\\qa\\V1.44_ACUTE_ALL_BROWSER_RESULTS.json": "b3b4b3143fda62d7618bd60569693200c720b717f6865709d5db9f56a07b0003",
+    "clinical\\qa\\V1.44_ACUTE_AMIODARONE_BROWSER_RESULTS.json": "3eb283fa0b9627f3423ccd8ad5ab4552f5acfb20d1bbb89e9bd3a6c81eb64c1b",
+    "clinical\\qa\\V1.44_ACUTE_ANAPHYLAXIS_BROWSER_RESULTS.json": "29dd9d38defd26fb392de2a911547413a2d07847a4f5bb7383a3d7423ba40b70",
+    "clinical\\qa\\V1.44_ACUTE_INSULIN_BROWSER_RESULTS.json": "a308c893f006d97dc0c83b585b8f10b5b50181a02402f6e98f9105f32b0d3659",
+    "clinical\\qa\\V1.44_ACUTE_REVERSAL_BROWSER_RESULTS.json": "69315726394429608d41d48b088615cc51eb0ec6e873a605c7fc629c63e09664",
+    "clinical\\qa\\V1.44_ACUTE_SODIUM_BROWSER_RESULTS.json": "eb10ba29002547dd93f59222aced61cfb1d6705420066eeef53ec5fc70b1971c",
+    "clinical\\qa\\V1.44_ACUTE_STATUS_BROWSER_RESULTS.json": "8dd8967f414fa539454d408cf905b74863fe1d21dafb9e0a61437d8845f4745c",
+    "clinical\\qa\\V1.44_BROWSER_RESULTS.json": "7a5c9b989a8af11a88252219dec2364bf0f406b8d2d59e4e81257c36de0d56ef",
+    "clinical\\qa\\V1.44_PEDIATRIC_COMPLETE_BROWSER_RESULTS.json": "2aa75abe659718b133623bddf481ab7b1fea4b8ae0ed28a7020aafc0f2d2f540",
+    "clinical\\qa\\V1.44_PEDIATRIC_EXPORT_BROWSER_RESULTS.json": "6cb32095124611b62afdc82bd00ea918b92d66aef501c6833e8974bc46f0bb2c",
+    "clinical\\qa\\V1.44_PHARMACOLOGY_BROWSER_RESULTS.json": "c3669a5295aed992145879125a11d3f68a5899b3bc4f3daad9378408f85af989",
+    "clinical\\qa\\V1.44_PROCEDURE_BROWSER_RESULTS.json": "026a955e1b36751101c9d598a84c05aabe489f21a301f29156e48d52c7899b71",
+    "clinical\\qa\\V1.44_SCORE_BROWSER_RESULTS.json": "ac4b9746774eca737d64ecb95c28baf5950ac968ae51b5a806c3c65e00a8e766"
+  },
+  "status": "PASS",
+  "historical_evidence_unchanged": true,
+  "finished_at": "2026-10-17T15:19:12.808805+00:00"
+}
