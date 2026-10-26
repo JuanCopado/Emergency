@@ -1,3 +1,7 @@
+## T01 — arquitectura y CI, 26/10/2026
+
+Integración técnica selectiva en rama aislada: normalización de procedencia, grafo determinista, endurecimiento de validadores y cobertura CI para codex/**. Catálogo regenerado para 131 módulos; sin modificación del registro canónico ni reglas clínicas. Cuatro P1 y 19 contratos bloqueados preservados. Auditoría reforzada detecta revisiones GREEN vencidas; CLINICALLY_PENDING. Resultados y límites en docs/T01_IMPLEMENTATION_REPORT.md.
+
 ## v1.44 L02 technical snapshot — 26/10/2026
 
 - Added selected documentary audit inputs, preserved Cloud task cards and an input manifest in an isolated technical clone.

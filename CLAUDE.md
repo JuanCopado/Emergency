@@ -17,6 +17,13 @@ Idioma: español. Respuestas breves, sin introducción ni resumen final.
 - Editar con Edit; nunca reescribir archivos completos. Mostrar solo fragmentos cambiados.
 - No leer: `node_modules/`, `dist/`, `package-lock.json`, `*.zip`, `screenshots/`, `SOURCE_SHA256.json`, `evidence-registry.json` completo (usar grep/jq).
 
+## Arquitectura y procedencia
+- `docs/ARCHITECTURE.md`: límites entre contenido canónico, app, grafo y futuro RAG.
+- `clinical/references/evidence-registry.json` y `module-index.md` siguen siendo canónicos.
+- Regenerar metadatos con `python3 clinical/scripts/normalize_evidence_sources.py`; comprobar con `--check`.
+- El catálogo derivado y el grafo no pueden promover evidencia ni modificar decisiones clínicas.
+- RAG y modelos externos son contratos/candidatos; no declararlos implementados o validados.
+
 ## Seguridad clínica (no se recorta nunca)
 Dosis, unidades, diluyente, concentración, aritmética, mL/h, máximos, contraindicaciones y avisos se mantienen íntegros. Contenido = borrador hasta revisión humana. Protocolo local y DGS/INFARMED prevalecen.
 

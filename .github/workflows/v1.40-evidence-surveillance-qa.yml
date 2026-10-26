@@ -1,7 +1,7 @@
 name: Evidence surveillance guardrails
 on:
   push:
-    branches: [main, 'v1.*']
+    branches: [main, 'v1.*', 'codex/**']
     paths:
       - "clinical/scripts/evidence_*.py"
       - "clinical/scripts/urgent_safety_triage.py"

@@ -3,6 +3,7 @@
 
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 
@@ -10,32 +11,49 @@ ROW = re.compile(r"^\| ([a-z0-9-]+) \| `([^`]+)` \|$", re.MULTILINE)
 HEADING = re.compile(r"^## ([a-z0-9-]+)$", re.MULTILINE)
 
 
+def _contains_exact_module(line: str, module_id: str) -> bool:
+    return bool(
+        re.search(
+            rf"(?<![a-z0-9-]){re.escape(module_id)}(?![a-z0-9-])",
+            line,
+        )
+    )
+
+
 def validate(root: Path):
     index = (root / "references/module-index.md").read_text(encoding="utf-8")
-    manifest = dict(ROW.findall(index))
+    rows = ROW.findall(index)
     errors = []
 
-    if not manifest:
+    if not rows:
         errors.append("module manifest has no entries")
 
-    seen_sections = set()
+    id_counts = Counter(module_id for module_id, _ in rows)
+    duplicate_ids = sorted(module_id for module_id, count in id_counts.items() if count > 1)
+    if duplicate_ids:
+        errors.append(f"duplicate module IDs in manifest: {', '.join(duplicate_ids)}")
+
+    manifest = dict(rows)
+
     for module_id, relative_path in manifest.items():
         target = root / relative_path
         if not target.is_file():
             errors.append(f"{module_id}: missing bundle {relative_path}")
             continue
-        headings = set(HEADING.findall(target.read_text(encoding="utf-8")))
-        if module_id not in headings:
+        headings = HEADING.findall(target.read_text(encoding="utf-8"))
+        heading_count = headings.count(module_id)
+        if heading_count == 0:
             errors.append(f"{module_id}: missing '## {module_id}' in {relative_path}")
-        key = (relative_path, module_id)
-        if key in seen_sections:
-            errors.append(f"{module_id}: duplicate manifest mapping")
-        seen_sections.add(key)
+        elif heading_count > 1:
+            errors.append(
+                f"{module_id}: duplicate '## {module_id}' sections in {relative_path}"
+            )
 
     router = (root / "references/router.md").read_text(encoding="utf-8")
     route_lines = [line for line in router.splitlines() if "->" in line]
     for line in route_lines:
-        if not any(module_id in line for module_id in manifest):
+        rhs = line.split("->", 1)[1]
+        if not any(_contains_exact_module(rhs, module_id) for module_id in manifest):
             errors.append(f"route resolves to no known module: {line.strip()}")
 
     bundle_sections = {}

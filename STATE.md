@@ -1,29 +1,15 @@
-# STATE — 02/10/2026
+# STATE — T01, 26/10/2026
 
-## Clínico (`clinical/`) — línea clínica v1.35 + consolidación v1.36 en rama separada
-- Línea clínica v1.35: 106 IDs; 106/106 evidencia (31 green, 75 yellow, 0 red); 63/63 tests.
-- Rama v1.36-consolidation: **127 IDs; 127/127 evidencia (29 green, 98 yellow, 0 red); 151 tests PASS**.
-- v1.35: `vasoactive-inotrope-infusions` (cardiovascular.md) y `icu-sedation-analgesia-infusions` (procedures-pharmacology.md). Nota: `updates/icu-infusions-review-2026-09-29.md`.
-- Pendiente v1.35: revisión UCI/cardio/farmacia; noradrenalina base vs tartrato en producto PT; diluyentes y concentraciones estándar locales; política vasopresor periférico; disponibilidad angiotensina II/levosimendán en Azores; SSC 2026 y ESC 2023 texto completo no accesibles.
-- Consolidación v1.36 avanzada: QA transversal, revisión de high-risk, localización Portugal/Azores y Fase 4 pediátrica en curso. `pediatric-iv-fluid-therapy` cubre resucitación, mantenimiento, déficit y tiempos por síndrome. `pediatric-emergency-medications` añade cálculo seguro por peso/bolos/fluidos/mL-h con concentraciones y escalas verificadas por fuentes pediátricas/SmPC; no depende de protocolo local de Horta. No promover cambios clínicos sin revisión humana.
-
-- Antibióticos pediátricos: registro por síndrome auditado y ampliado con neumonía NICE 2025; no se usa tabla universal por peso.
-
-## App (`app/`) — Sprint 1
-- PWA React+Vite+TS, i18n en (maestro)/es (defecto)/pt/zh, tema claro/oscuro, offline.
-- 17 fármacos adultos de perfusión desde v1.35; calculadora mL/h directa/inversa con aritmética y tabla de titulación.
-- 126 tests; build/lint/typecheck OK. Nombre provisional "Emergency" (`src/config/brand.ts`).
-- Sprint 2: perfusiones pediátricas, bolos/ISR, catálogo completo de módulos, pipeline de contenido con versiones, flujo de revisión clínica.
-
-## Reglas fijas
-Validación médica: Juan y equipo humano. No llamar validación clínica a los tests.
-
-- Pediatría v1.36: rutas específicas añadidas para fluidoterapia IV, asma aguda y RSI/intubación.
-
-- Pediatría v1.36: añadido módulo high-risk de emergencias electrolíticas pediátricas.
-
-- Pediatría v1.36: añadido módulo high-risk de hemoderivados y hemorragia masiva pediátrica.
-
-- Pediatría v1.36: añadido módulo high-risk de sedoanalgesia procedimental pediátrica.
-
-- Fase 5 imagen: infraestructura de banco ciego v1.1 y métricas fail-closed integrada; sin claims de precisión hasta dataset real autorizado/desidentificado con referencia independiente.
+- Base v1.44: `ada519ac2f8e31ce807f397319ce260724642756`.
+- Rama aislada de trabajo: `codex/v144-t01-architecture-ci`; sin merge ni publicación.
+- 131 módulos; estados preservados: 29 GREEN / 102 YELLOW. CLINICALLY_PENDING.
+- Catálogo derivado: 220 fuentes; 131 módulos con procedencia; 77 identidades compuestas pendientes.
+- Grafo determinista de procedencia: no produce recomendaciones ni aprobación clínica.
+- RAG: contrato documental; recuperación semántica y modelos no implementados por T01.
+- Cuatro P1 originales abiertos: GMA-P1-001, GMA-P1-002, GMA-P1-003, GMA-C-P1-001.
+- Los 19 contratos agudos bloqueados conservan su estado y código.
+- CI propuesta en esta rama: push `main`, `v1.*`, `codex/**`, sujeto a rutas; sin ejecución remota acreditada.
+- Auditoría reforzada bloquea tres GREEN con revisión vencida: ictus isquémico, SCA y sepsis/shock.
+- No se alteran fechas, fuentes canónicas, dosis, fórmulas ni protocolos para pasar QA.
+- Los resultados técnicos y límites de T01 se documentan en `docs/T01_IMPLEMENTATION_REPORT.md`.
+- C01 permanece separado y sin modificar. MVP pendiente de resolver los gates de QA y revisión humana.

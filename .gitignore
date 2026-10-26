@@ -5,3 +5,8 @@ __pycache__/
 *.pyc
 app/screenshots/*-full.png
 .DS_Store
+
+# Reproducible architecture tooling outputs
+knowledge-graph/generated/
+graphify-out/
+.graphify/

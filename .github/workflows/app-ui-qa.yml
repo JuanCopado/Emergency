@@ -2,7 +2,7 @@ name: App UI QA
 
 on:
   push:
-    branches: [main, 'v1.*']
+    branches: [main, 'v1.*', 'codex/**']
     paths:
       - 'app/**'
       - 'clinical/modules/**'
@@ -78,6 +78,10 @@ jobs:
           npm run guides:test
           npm run procedures:test
           npm run pediatrics:check
+      - name: Lint
+        run: npm run lint
+      - name: Evidence writer regression
+        run: node --test scripts/write-qa-evidence.node-test.mjs
       - name: Typecheck
         run: npm run typecheck
       - name: Test

@@ -45,6 +45,46 @@ class WorkflowCoverageTests(unittest.TestCase):
                 for path in changed_paths:
                     self.assertTrue(any(fnmatch.fnmatchcase(path, pattern) for pattern in config['paths']), (name, event, path))
 
+    def test_codex_push_branches_and_architecture_paths(self):
+        branches = ('codex/v144-t01-architecture-ci', 'codex/team/nested-task',
+                    'main', 'v1.44-clinical-functional-validation')
+        cases = {
+            'clinical-qa.yml': ('clinical/scripts/normalize_evidence_sources.py',
+                'clinical/references/evidence-sources.json', 'docs/ARCHITECTURE.md',
+                'knowledge-graph/README.md', 'rag/README.md', 'models/MODEL_REGISTRY.md',
+                '.graphifyignore', '.github/workflows/clinical-qa.yml'),
+            'app-ui-qa.yml': ('app/src/pages/Home.tsx', '.github/workflows/app-ui-qa.yml'),
+            'v1.40-evidence-surveillance-qa.yml': ('clinical/references/evidence-sources.json',),
+        }
+        for name, paths in cases.items():
+            for event in ('push', 'pull_request'):
+                config = workflow(name)['on'][event]
+                for branch in branches:
+                    self.assertTrue(any(fnmatch.fnmatchcase(branch, pattern)
+                        for pattern in config.get('branches', ['*'])), (name, event, branch))
+                for path in paths:
+                    self.assertTrue(any(fnmatch.fnmatchcase(path, pattern)
+                        for pattern in config['paths']), (name, event, path))
+        for name in cases:
+            self.assertFalse(any(fnmatch.fnmatchcase('unrelated/task', pattern)
+                for pattern in workflow(name)['on']['push']['branches']))
+
+    def test_technical_checks_preserve_existing_qa(self):
+        clinical = '\n'.join(step.get('run', '') for step in
+            workflow('clinical-qa.yml')['jobs']['qa']['steps'])
+        for command in ('normalize_evidence_sources.py --check', 'qa/qa_runner.py',
+                        'build_project_graph.py --output'):
+            self.assertIn(command, clinical)
+        app = '\n'.join(step.get('run', '') for step in
+            workflow('app-ui-qa.yml')['jobs']['ui']['steps'])
+        self.assertIn('npm run lint', app)
+        self.assertIn('node --test scripts/write-qa-evidence.node-test.mjs', app)
+        # Specialized intake and scheduled surveillance must not become push CI.
+        for name in ('evidence-surveillance.yml', 'urgent-medication-safety-surveillance.yml'):
+            self.assertNotIn('push', workflow(name)['on'])
+        self.assertEqual(workflow('ptbxl-blinded-intake.yml')['on']['push']['branches'],
+                         ['v1.36-consolidation'])
+
     def test_python_requirements_installed_before_qa(self):
         for name, job_name in [('clinical-qa.yml', 'qa'), ('app-ui-qa.yml', 'ui')]:
             steps = workflow(name)['jobs'][job_name]['steps']
