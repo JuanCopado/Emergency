@@ -1,0 +1,702 @@
+{
+  "status": "PENDING_DOCUMENTARY_RECONCILIATION",
+  "count": 77,
+  "risk": "Compound source identity does not prove per-claim coverage, license, currentness or professional approval. No automatic splitting or RAG production eligibility.",
+  "sources": [
+    {
+      "source_id": "src-008024ae",
+      "title": "Perth Children's Hospital Labetalol monograph reviewed Apr 2026 + Hydralazine monograph 2025 + RCH Hypertension current",
+      "modules": [
+        "pediatric-hypertensive-emergency"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-0aac7b23",
+      "title": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society joint consensus on thyroid storm; ATA hyperthyroidism guideline for comparison",
+      "modules": [
+        "thyroid-storm"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-0b5d8884",
+      "title": "Royal Children's Hospital Emergency Airway Management current guideline + pediatric emergency airway/CICO guidance",
+      "modules": [
+        "pediatric-airway-rsi"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-0dd3d1d9",
+      "title": "ESGE small-bowel capsule/DAE guideline 2022; ACG small-bowel bleeding 2015; ACG LGIB 2023; ESGE LGIB 2021",
+      "modules": [
+        "lower-gi-bleeding"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-171ca877",
+      "title": "WHO guidelines on meningitis diagnosis, treatment and care plus encephalitis guidance",
+      "modules": [
+        "cns-infection"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-1852d04d",
+      "title": "SCCM PADIS 2018 (Crit Care Med 2018;46:e825-e873) and PADIS 2025 focused update (Crit Care Med 2025;53:e711-e727); EU/UK SmPC (Dexdor, remifentanil, midazolam, fentanyl, Ketalar); US Diprivan label; KSCCM 2021 PADIS opioid table",
+      "modules": [
+        "icu-sedation-analgesia-infusions"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-18c5f80e",
+      "title": "ACR Appropriateness Criteria for altered mental status/coma/delirium plus syndrome-specific resuscitation guidance",
+      "modules": [
+        "altered-consciousness"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-1955a55f",
+      "title": "WHO meningitis guideline 2025 + NICE NG240 2024 + RCH/PIC Meningitis and encephalitis current",
+      "modules": [
+        "pediatric-cns-infection"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-1ec7c96c",
+      "title": "RCH/PIC acute poisoning + activated charcoal + paracetamol + TCA poisoning",
+      "modules": [
+        "pediatric-toxicology"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-210d6ef4",
+      "title": "RCH/PIC Adrenal crisis and acute adrenal insufficiency current + Starship Stress Steroid Management 2024",
+      "modules": [
+        "pediatric-adrenal-crisis"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-2ba89fb0",
+      "title": "NICE NG9 bronchiolitis (oxygen threshold update 2021); Canadian Paediatric Society bronchiolitis position statement",
+      "modules": [
+        "bronchiolitis"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-3155b389",
+      "title": "NICE NG254 suspected sepsis under 16 (2025); NICE NG29 pediatric IV fluids; RCH dehydration/gastroenteritis CPG",
+      "modules": [
+        "pediatric-dehydration-shock"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-33fe8c99",
+      "title": "ACEP ultrasound guidance plus image-review safety workflow",
+      "modules": [
+        "pocus-image"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-3a8016fd",
+      "title": "European Clinical Practice Guideline on hyponatraemia + Society for Endocrinology emergency guidance",
+      "modules": [
+        "sodium-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-404c6c98",
+      "title": "Clinical image-review workflow plus diagnosis-specific wound/dermatology guidance",
+      "modules": [
+        "skin-wound-image"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-42cecfed",
+      "title": "Official ERS/ATS NIV guideline 2017 + ERS HFNC guideline 2022",
+      "modules": [
+        "noninvasive-ventilation"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-45cf1d46",
+      "title": "ACP/AAFP acute musculoskeletal injury pain guideline plus diagnosis-specific emergency guidance",
+      "modules": [
+        "acute-musculoskeletal-pain"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-4a787db0",
+      "title": "Project governance rule: all yellow modules require appropriate human specialist review plus post-correction Clinical QA before green promotion",
+      "modules": [
+        "final-human-review-gate"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-54d2e525",
+      "title": "ACEP ultrasound guidance plus syndrome-specific ECG guidance",
+      "modules": [
+        "ecg-pocus-integration"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-5616660a",
+      "title": "Surviving Sepsis Campaign pediatric 2026 + NICE NG254 2025",
+      "modules": [
+        "pediatric-sepsis"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-5885b015",
+      "title": "ACOG Gestational Hypertension and Preeclampsia (reaffirmed 2026) + ACOG emergency resources + WHO maternal health guidance 2025",
+      "modules": [
+        "obstetric-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-5c6be6a2",
+      "title": "ERS 2022 HFNC guideline + ERS/ATS 2017 NIV guideline + syndrome-specific current guidance",
+      "modules": [
+        "acute-respiratory-failure"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-67d14d76",
+      "title": "RCH/PIC Fever and suspected/confirmed neutropenia + Hyperleukocytosis updated Oct 2025 + Sickle cell disease + PCH rasburicase monograph",
+      "modules": [
+        "pediatric-hematology-oncology-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-6998fea6",
+      "title": "ESO/EANS guideline on spontaneous intracerebral haemorrhage plus AHA/ASA spontaneous ICH guideline",
+      "modules": [
+        "spontaneous-intracerebral-hemorrhage"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-6f0c0d80",
+      "title": "ACR Appropriateness Criteria plus image-review safety workflow",
+      "modules": [
+        "ct-mri-screenshot"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-7164c947",
+      "title": "AHA/ACC/ESC ECG standards plus image-review safety workflow",
+      "modules": [
+        "ecg-image"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-723eb73b",
+      "title": "ESC/ERS acute pulmonary embolism guideline + ESC ACVC Clinical Decision-Making Toolkit",
+      "modules": [
+        "pulmonary-embolism"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-72439614",
+      "title": "EMA Praxbind/Ondexxya product information; AHA/ASA 2022 ICH guideline; ACC anticoagulant bleeding pathway; ISTH SSC DOAC reversal guidance",
+      "modules": [
+        "anticoagulation-reversal"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-73cb0636",
+      "title": "ETA/BTA/Society for Endocrinology/Welsh Endocrine and Diabetes Society joint consensus on myxoedema coma; ATA hypothyroidism guideline for comparison",
+      "modules": [
+        "myxedema-coma"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-752e0307",
+      "title": "ERC/RCUK Paediatric Life Support 2025 + AHA/AAP PALS 2025 + SSC Pediatric Sepsis 2026 + NICE NG29/CG84 + HSE pediatric status 2025 + SCCM PANDEM 2022 + official product information",
+      "modules": [
+        "pediatric-emergency-medications"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-75a9945a",
+      "title": "ERC Paediatric Life Support 2025 drowning/hypothermia + RCH/PIC Drowning current",
+      "modules": [
+        "pediatric-drowning-hypothermia"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-7ca4293d",
+      "title": "NICE non-complex and complex fracture guidance plus specialty standards",
+      "modules": [
+        "orthopedic-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-84d38140",
+      "title": "AHA/ACC chest-pain guidance plus ESC/ACR syndrome-specific guidance",
+      "modules": [
+        "non-coronary-chest-pain"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-84f73990",
+      "title": "Canadian Paediatric Society ≤90-day febrile infant statement (updated 2026); AAP febrile infant CPG",
+      "modules": [
+        "febrile-infant-0-90-days"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-855a66bd",
+      "title": "Canonical multi-source registry: current specialty guidelines and original/validated score definitions; key anchors include AHA/ASA stroke, RCP NEWS2, SCCM Phoenix pediatric sepsis, NICE GCS/head injury, ESC PE/ACS and validated original score publications",
+      "modules": [
+        "clinical-scores-calculators"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-8aff58af",
+      "title": "2024 ESC Guidelines for elevated blood pressure and hypertension plus syndrome-specific stroke, aortic, ACS and pregnancy guidance",
+      "modules": [
+        "hypertensive-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-8c0c7fd7",
+      "title": "Standard quantitative acid-base physiology plus syndrome-specific current guidance",
+      "modules": [
+        "acid-base-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-8c8cb5ae",
+      "title": "ERS clinical practice guideline for HFNC in acute respiratory failure; Roca multicenter ROX validation study",
+      "modules": [
+        "high-flow-nasal-oxygen"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-92261a5d",
+      "title": "RCH/PIC Intussusception updated Feb 2026 + Acute abdominal pain + Acute scrotal pain Jan 2026 + adolescent gynecology Aug 2025",
+      "modules": [
+        "pediatric-abdominal-surgical-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-94b522bc",
+      "title": "ERC/RCUK Paediatric Life Support 2025 + Royal Children's Hospital HFNP and CPAP/NIV guidance",
+      "modules": [
+        "pediatric-acute-respiratory-support"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-95846ed7",
+      "title": "Royal Children's Hospital pediatric acute pain/urticaria/gastroenteritis/asthma/antimicrobial guidance + GINA 2026 + NICE lower-UTI guidance + current SmPC/product labeling + Pediatric Pharmacy Association obesity dosing principles",
+      "modules": [
+        "pediatric-outpatient-medications"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-9613b197",
+      "title": "Society for Endocrinology emergency guidance for acute hypo/hypercalcaemia + RCUK/ERC 2025 resuscitation guidance",
+      "modules": [
+        "calcium-magnesium-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-9e2a43e2",
+      "title": "AHA 2023 life-threatening poisoning update; 2023 US/Canada acetaminophen consensus; EXTRIP toxin-specific recommendations; ASRA LAST checklist; official antidote product information",
+      "modules": [
+        "toxicology"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-a4070235",
+      "title": "GDPR privacy-by-design/data-minimization principles + EDPB Guidelines 01/2025 on Pseudonymisation + existing Emergency syndrome/image/score modules; clinical-layout design informed by six clinician-supplied de-identified history examples",
+      "modules": [
+        "clinical-note-diagnostic-support"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-af3f79df",
+      "title": "European guideline on major bleeding and coagulopathy following trauma, sixth edition 2023 + DGS Norma 011/2013 updated 18/07/2017",
+      "modules": [
+        "trauma-major-hemorrhage"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-b0395758",
+      "title": "Surviving Sepsis Campaign 2026 + IDSA cUTI 2025 + current syndrome-specific IDSA/ESCMID guidance",
+      "modules": [
+        "empiric-antibiotics"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-b3964c3c",
+      "title": "2025 ESC Guidelines for myocarditis and pericarditis plus current image-guided pericardiocentesis literature",
+      "modules": [
+        "cardiac-tamponade-pericardial-emergency"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-b39c223b",
+      "title": "2024 ESC hypertension guideline plus syndrome-specific ACC/AHA, AHA/ASA and ACOG guidance and current product labels",
+      "modules": [
+        "iv-antihypertensive-selection"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-b5e20534",
+      "title": "Modality-specific professional guidance plus independent local reference diagnosis",
+      "modules": [
+        "clinical-image-interpretation"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-b692fc55",
+      "title": "RCH Procedural Sedation + RCH Ketamine Procedural Sedation + RCH Nitrous Oxide + RCH Intranasal Fentanyl",
+      "modules": [
+        "pediatric-procedural-sedation"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-b938ac20",
+      "title": "Canadian Paediatric Society acute croup statement; Royal Children’s Hospital acute upper-airway obstruction CPG",
+      "modules": [
+        "croup"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-c1cae2c1",
+      "title": "WHO Medication Without Harm (policy brief 2024/high-risk situations) + ISMP High-Alert Medications in Acute Care Settings 2024 + syndrome-specific drug labeling",
+      "modules": [
+        "medication-selection-safety"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-c72d85a7",
+      "title": "NICE NG29 IV fluid therapy + NICE CG84 gastroenteritis + SSC Pediatric Sepsis 2026 + ISPAD DKA 2022 + RCH Dehydration/Hypernatraemia 2026",
+      "modules": [
+        "pediatric-iv-fluid-therapy"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-d04f49d6",
+      "title": "ESC syncope guideline plus ACEP geriatric emergency guidance",
+      "modules": [
+        "syncope-falls-frailty"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-d3e96d67",
+      "title": "RCH/PIC Head injury current guideline + pediatric trauma guidance",
+      "modules": [
+        "pediatric-head-injury"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-d408ff01",
+      "title": "RCH/PIC Diabetic ketoacidosis updated July 2025 + ISPAD DKA/HHS consensus 2022",
+      "modules": [
+        "pediatric-dka"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-d67a4246",
+      "title": "European Resuscitation Council 2025 Paediatric Life Support; Resuscitation Council UK 2025 Paediatric Life Support",
+      "modules": [
+        "pediatric-arrhythmias",
+        "pediatric-cardiac-arrest",
+        "pediatric-shock"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-d94acdd7",
+      "title": "British Thoracic Society emergency oxygen guidance; Resuscitation Council UK ABCDE and adult emergency handbook; device-specific NHS oxygen policies",
+      "modules": [
+        "oxygen-therapy-emergency"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-d9ee254f",
+      "title": "Hospital da Horta local TCE protocol (supplied 2026-10-02) + NICE NG232 2023 + Brain Trauma Foundation severe TBI 4th edition + ENLS 6.0",
+      "modules": [
+        "traumatic-intracranial-mass-effect"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-e2280413",
+      "title": "RCH/PIC Major paediatric trauma primary/secondary/tertiary survey + cervical spine assessment, current 2026",
+      "modules": [
+        "pediatric-major-trauma"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-e87f4a29",
+      "title": "HSE National Clinical Guideline CDI/0277/1.0/2025 + NICE NG217",
+      "modules": [
+        "pediatric-status-epilepticus"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-e965a579",
+      "title": "RCH pediatric hyperkalaemia/hypokalaemia/hypomagnesaemia guidelines + NICE NG29 sodium emergencies + Calcium Gluconate 10% SmPC + RCH hypoglycaemia",
+      "modules": [
+        "pediatric-electrolyte-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-ea01d2de",
+      "title": "NICE NG217 (updated 2025) + ACEP 2024 seizure clinical policy + AES convulsive status guidance/ESETT",
+      "modules": [
+        "status-epilepticus"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-f131794d",
+      "title": "RCH/PIC Burns acute management updated April 2026 + NSW ACI Burn fluid resuscitation Feb 2026",
+      "modules": [
+        "pediatric-burns"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-f18a6f55",
+      "title": "RCH/PIC Foreign body ingestion current + Foreign bodies inhaled + ESPGHAN button battery position paper",
+      "modules": [
+        "pediatric-foreign-body-emergencies"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-f21ac867",
+      "title": "ERC/RCUK Paediatric Life Support 2025 + RCH Blood Product Prescription + RCH Trauma Primary Survey",
+      "modules": [
+        "pediatric-blood-transfusion-major-hemorrhage"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-f21eb639",
+      "title": "NICE NG234 spinal metastases/MSCC plus 2024 acute traumatic spinal cord injury hemodynamic guideline",
+      "modules": [
+        "acute-spinal-cord-compression"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-fa86e08f",
+      "title": "Surviving Sepsis Campaign 2026 (Crit Care Med 2026, doi:10.1097/CCM.0000000000007075); SSC 2021; US product labels (norepinephrine, Vasostrict, epinephrine, dopamine, dobutamine, milrinone, phenylephrine, Giapreza); EU/UK SmPC (noradrenaline, Simdax)",
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-fc28192f",
+      "title": "AAO Preferred Practice Patterns plus image-review safety workflow",
+      "modules": [
+        "ophthalmology-image"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry"
+    },
+    {
+      "source_id": "src-legacy-acute-msk-diagnosis-guidance",
+      "title": "Legacy diagnosis-specific emergency guidance set for acute musculoskeletal pain",
+      "modules": [
+        "acute-musculoskeletal-pain"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    },
+    {
+      "source_id": "src-legacy-acute-respiratory-syndrome-set",
+      "title": "Legacy syndrome-specific acute respiratory failure guidance beyond core ARDS ventilation",
+      "modules": [
+        "acute-respiratory-failure"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    },
+    {
+      "source_id": "src-legacy-altered-consciousness-resuscitation-set",
+      "title": "Legacy syndrome-specific resuscitation guidance set for altered consciousness",
+      "modules": [
+        "altered-consciousness"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    },
+    {
+      "source_id": "src-legacy-icu-midazolam-fentanyl-ksccm",
+      "title": "Legacy unresolved ICU sedation sources: midazolam, fentanyl and KSCCM opioid table",
+      "modules": [
+        "icu-sedation-analgesia-infusions"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    },
+    {
+      "source_id": "src-legacy-noncoronary-chest-pain-set",
+      "title": "Legacy ESC/ACR syndrome-specific non-coronary chest-pain guidance set",
+      "modules": [
+        "non-coronary-chest-pain"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    },
+    {
+      "source_id": "src-legacy-oxygen-implementation-set",
+      "title": "Legacy oxygen implementation set: RCUK ABCDE/emergency handbook and device-specific NHS oxygen policies",
+      "modules": [
+        "oxygen-therapy-emergency"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    },
+    {
+      "source_id": "src-legacy-pericardiocentesis-literature",
+      "title": "Legacy image-guided pericardiocentesis literature set pending individual verification",
+      "modules": [
+        "cardiac-tamponade-pericardial-emergency"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    },
+    {
+      "source_id": "src-legacy-vasoactive-milrinone-levosimendan",
+      "title": "Legacy unresolved vasoactive labels: milrinone and levosimendan",
+      "modules": [
+        "vasoactive-inotrope-infusions"
+      ],
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry_pending_individual_verification"
+    }
+  ]
+}

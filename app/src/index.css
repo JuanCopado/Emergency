@@ -82,6 +82,11 @@ main section[id], main form[id] { scroll-margin-top: 6rem; }
   background: white;
 }
 @media print {
+  /* Preserve canonical letter sequences in extracted PDF text (fi, ffi, etc.). */
+  .clinical-guide-sheet,
+  .clinical-module-sheet {
+    font-variant-ligatures: none;
+  }
   @page {
     size: A4 landscape;
     margin: 10mm;

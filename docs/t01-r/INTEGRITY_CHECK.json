@@ -1,0 +1,15 @@
+{
+  "protected_manifest_total": 673,
+  "unchanged": 672,
+  "authorized_technical_exception": {
+    "path": "app/src/index.css",
+    "reason": "Print-only font ligature rendering; five added CSS lines, no canonical text or gate changes",
+    "before_sha256": "4e8911405025edd22c315730f61cff684fae553858147d18b106f71badbdf867",
+    "after_sha256": "48f191cb651c7032ad6899c44fec1fa4ef64984e3578e1eceacdc985dd626f0a"
+  },
+  "clinical_modules_files_unchanged": 31,
+  "canonical_module_ids": 131,
+  "registry_index_contracts_qa_sources_unchanged": true,
+  "C01_unchanged": true,
+  "baseline_and_origin_main_refs_unchanged": true
+}

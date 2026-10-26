@@ -1,0 +1,244 @@
+{
+  "schema": "t01-r.renewal-preparation.v1",
+  "scope": "Documentary preparation only; no clinical renewal or metadata mutation",
+  "search_scope": "Repository-local records, updates and continuity queues; no external professional attestation obtained",
+  "dossiers": [
+    {
+      "module_id": "acute-ischemic-stroke",
+      "status": "PENDING_AUTHORIZED_PROFESSIONAL_REVIEW",
+      "canonical_registry_entry": {
+        "priority": "high",
+        "primary_source": "AHA/ASA acute ischemic stroke guideline",
+        "stored_version": "2026",
+        "last_checked": "2026-09-14",
+        "status": "green"
+      },
+      "canonical_bundle": "clinical/modules/neurologic.md",
+      "canonical_bundle_sha256": "0731b5c36a10a417ed5a4f12dc8207552eda8628dd727203c173dd51a8f0a919",
+      "evaluation_date": "2026-10-26",
+      "age_days": 42,
+      "window_days": 30,
+      "last_day_within_window": "2026-10-14",
+      "overdue_from": "2026-10-15",
+      "days_beyond_window": 12,
+      "normalized_references": [
+        {
+          "relation": {
+            "source_id": "src-f93597b3",
+            "role": "canonical_registry_identity",
+            "claim_scope": "module-level"
+          },
+          "source": {
+            "source_id": "src-f93597b3",
+            "title": "AHA/ASA acute ischemic stroke guideline",
+            "organization": "AHA/ASA",
+            "source_type": "guideline",
+            "url": null,
+            "persistent_id": null,
+            "version": "2026",
+            "publication_date": null,
+            "last_verified": "2026-09-14",
+            "language": null,
+            "jurisdiction": null,
+            "license_status": "unknown",
+            "provenance": "legacy_evidence_registry",
+            "compound_identity": false,
+            "modules": [
+              "acute-ischemic-stroke"
+            ]
+          }
+        }
+      ],
+      "related_professional_queue": [
+        {
+          "id": "REVIEW-SUB-glucose",
+          "name": "glucose",
+          "source_review": "SOURCE_INCOMPLETE",
+          "medical_review": "NAMED_DATED_REVIEW_REQUIRED",
+          "reviewer": "NOT_DOCUMENTED",
+          "review_date": "NOT_DOCUMENTED"
+        }
+      ],
+      "professional_review_evidence_found": false,
+      "reviewer": null,
+      "professional_review_date": null,
+      "decision": null,
+      "source_currentness_confirmed": false,
+      "required_before_renewal": [
+        "Named reviewer and specialty; date of actual review",
+        "Exact official document, edition, publication date, URL/DOI and retained evidence",
+        "Review complete module and reconcile canonical vs historical components",
+        "Assess applicability Portugal/Azores and local product/protocol dependencies",
+        "Record disagreements and decision with limitations; no automatic promotion",
+        "Any future metadata change requires explicit clinical authorization; rerun unchanged gates"
+      ]
+    },
+    {
+      "module_id": "acute-coronary-syndrome",
+      "status": "PENDING_AUTHORIZED_PROFESSIONAL_REVIEW",
+      "canonical_registry_entry": {
+        "priority": "high",
+        "primary_source": "ESC acute coronary syndromes guideline",
+        "stored_version": "2023",
+        "last_checked": "2026-09-14",
+        "status": "green"
+      },
+      "canonical_bundle": "clinical/modules/cardiovascular.md",
+      "canonical_bundle_sha256": "de43b2d2a10215979e1d402f42da504e2df6b2191fe0e20a6103e1de6b2602c0",
+      "evaluation_date": "2026-10-26",
+      "age_days": 42,
+      "window_days": 30,
+      "last_day_within_window": "2026-10-14",
+      "overdue_from": "2026-10-15",
+      "days_beyond_window": 12,
+      "normalized_references": [
+        {
+          "relation": {
+            "source_id": "src-a1827c81",
+            "role": "canonical_registry_identity",
+            "claim_scope": "module-level"
+          },
+          "source": {
+            "source_id": "src-a1827c81",
+            "title": "ESC acute coronary syndromes guideline",
+            "organization": "ESC",
+            "source_type": "guideline",
+            "url": null,
+            "persistent_id": null,
+            "version": "2023",
+            "publication_date": null,
+            "last_verified": "2026-09-14",
+            "language": null,
+            "jurisdiction": null,
+            "license_status": "unknown",
+            "provenance": "legacy_evidence_registry",
+            "compound_identity": false,
+            "modules": [
+              "acute-coronary-syndrome"
+            ]
+          }
+        }
+      ],
+      "related_professional_queue": [
+        {
+          "id": "REVIEW-SUB-oxygen",
+          "name": "oxygen",
+          "source_review": "SOURCE_INCOMPLETE",
+          "medical_review": "NAMED_DATED_REVIEW_REQUIRED",
+          "reviewer": "NOT_DOCUMENTED",
+          "review_date": "NOT_DOCUMENTED"
+        }
+      ],
+      "professional_review_evidence_found": false,
+      "reviewer": null,
+      "professional_review_date": null,
+      "decision": null,
+      "source_currentness_confirmed": false,
+      "required_before_renewal": [
+        "Named reviewer and specialty; date of actual review",
+        "Exact official document, edition, publication date, URL/DOI and retained evidence",
+        "Review complete module and reconcile canonical vs historical components",
+        "Assess applicability Portugal/Azores and local product/protocol dependencies",
+        "Record disagreements and decision with limitations; no automatic promotion",
+        "Any future metadata change requires explicit clinical authorization; rerun unchanged gates"
+      ]
+    },
+    {
+      "module_id": "sepsis-shock",
+      "status": "PENDING_AUTHORIZED_PROFESSIONAL_REVIEW",
+      "canonical_registry_entry": {
+        "priority": "high",
+        "primary_source": "Surviving Sepsis Campaign adult guideline",
+        "stored_version": "2026",
+        "last_checked": "2026-09-14",
+        "status": "green"
+      },
+      "canonical_bundle": "clinical/modules/infection-respiratory.md",
+      "canonical_bundle_sha256": "a1029e0ed6d39860acd937f550d5ae8359fc6c82a0323422a7ad1a5701c88cc4",
+      "evaluation_date": "2026-10-26",
+      "age_days": 42,
+      "window_days": 30,
+      "last_day_within_window": "2026-10-14",
+      "overdue_from": "2026-10-15",
+      "days_beyond_window": 12,
+      "normalized_references": [
+        {
+          "relation": {
+            "source_id": "src-91bf17a6",
+            "role": "canonical_registry_identity",
+            "claim_scope": "module-level"
+          },
+          "source": {
+            "source_id": "src-91bf17a6",
+            "title": "Surviving Sepsis Campaign adult guideline",
+            "organization": "Surviving Sepsis Campaign",
+            "source_type": "guideline",
+            "url": null,
+            "persistent_id": null,
+            "version": "2026",
+            "publication_date": null,
+            "last_verified": "2026-09-14",
+            "language": null,
+            "jurisdiction": null,
+            "license_status": "unknown",
+            "provenance": "legacy_evidence_registry",
+            "compound_identity": false,
+            "modules": [
+              "sepsis-shock"
+            ]
+          }
+        },
+        {
+          "relation": {
+            "source_id": "src-ssc-sepsis-2026",
+            "role": "historical_component_pending_reconciliation",
+            "claim_scope": "adult sepsis and septic shock"
+          },
+          "source": {
+            "source_id": "src-ssc-sepsis-2026",
+            "title": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026",
+            "organization": "Surviving Sepsis Campaign",
+            "source_type": "guideline",
+            "url": "https://sccm.org/survivingsepsiscampaign/guidelines-and-resources/surviving-sepsis-campaign-adult-guidelines",
+            "persistent_id": "doi:10.1007/s00134-026-08361-1",
+            "version": "2026",
+            "publication_date": "2026-03-23",
+            "last_verified": "2026-10-02",
+            "language": "en",
+            "jurisdiction": "international",
+            "license_status": "unknown",
+            "provenance": "verified_official_and_primary_source",
+            "compound_identity": false,
+            "modules": [
+              "sepsis-shock",
+              "vasoactive-inotrope-infusions"
+            ]
+          }
+        }
+      ],
+      "related_professional_queue": [
+        {
+          "id": "REVIEW-SUB-norepinephrine",
+          "name": "norepinephrine",
+          "source_review": "SOURCE_INCOMPLETE",
+          "medical_review": "NAMED_DATED_REVIEW_REQUIRED",
+          "reviewer": "NOT_DOCUMENTED",
+          "review_date": "NOT_DOCUMENTED"
+        }
+      ],
+      "professional_review_evidence_found": false,
+      "reviewer": null,
+      "professional_review_date": null,
+      "decision": null,
+      "source_currentness_confirmed": false,
+      "required_before_renewal": [
+        "Named reviewer and specialty; date of actual review",
+        "Exact official document, edition, publication date, URL/DOI and retained evidence",
+        "Review complete module and reconcile canonical vs historical components",
+        "Assess applicability Portugal/Azores and local product/protocol dependencies",
+        "Record disagreements and decision with limitations; no automatic promotion",
+        "Any future metadata change requires explicit clinical authorization; rerun unchanged gates"
+      ]
+    }
+  ]
+}

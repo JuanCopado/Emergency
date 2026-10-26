@@ -1,0 +1,162 @@
+{
+  "base": "ada519ac2f8e31ce807f397319ce260724642756",
+  "reviewed_commit": "ed9b983f0b77a49e049f512b57e31d0d0a7602e2",
+  "file_count": 25,
+  "files": [
+    {
+      "path": ".github/workflows/app-ui-qa.yml",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "8e833567539b80fed3c64760208c13edb2687dae7048dc959b2de1b6c167bb44"
+    },
+    {
+      "path": ".github/workflows/clinical-qa.yml",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "f8eafebfecb278977403f955b70d12e7beaffad03978dd9adbb6c9d5484eb02b"
+    },
+    {
+      "path": ".github/workflows/v1.40-evidence-surveillance-qa.yml",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "d862d14d362346b57fbc77756673edd1108edce21c6e59c47c89e9bb4e562417"
+    },
+    {
+      "path": ".gitignore",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "57e792ed20e2c5f9314bc06e7b8666ea4fc443b5d7f4c7dce41af4438a77620e"
+    },
+    {
+      "path": ".graphifyignore",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "6ab4cb58db50f4ac89f236f2c3cd4c8090dc33d4ef358f9df14d77a298523094"
+    },
+    {
+      "path": "CLAUDE.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "9bbd736c62d2988171f0ca352f69d508f0f20a13dc01da97898d8a4d6e879357"
+    },
+    {
+      "path": "README.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "82f794cccca5dba9ad227f7adb5c2b5ae348b11d1258c950546148a7501d8154"
+    },
+    {
+      "path": "STATE.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "bd6d30f38f0719b06ba9de70a933c84e49a4407576b1ca1a78a28054ae92faf7"
+    },
+    {
+      "path": "clinical/CHANGELOG.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "916ba45593edbc2813d66e807f223b95a19dbd185073ca80bc42333693b93205"
+    },
+    {
+      "path": "clinical/references/evidence-source-overrides.json",
+      "review": "REVIEWED",
+      "scope": "Derived provenance metadata",
+      "sha256_at_T01": "81aa2546cad84c10e5fc4a942c89718c9096d1e8009feb973e39ea9a79e114eb"
+    },
+    {
+      "path": "clinical/references/evidence-sources.json",
+      "review": "REVIEWED",
+      "scope": "Derived provenance metadata",
+      "sha256_at_T01": "34be7f5c1ef8d74a3ba6300c2b4cceaa4b795f21751007d9109b8f93c7010468"
+    },
+    {
+      "path": "clinical/scripts/audit_evidence_coverage.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "51a4962a5e108e79791688dca461d251c00ad97c45be85e76e72f848b1126e50"
+    },
+    {
+      "path": "clinical/scripts/build_project_graph.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "79bc26c2bc2eee0a5ce9b0fc32741cc891f20ba78c59714037a54759241b686f"
+    },
+    {
+      "path": "clinical/scripts/normalize_evidence_sources.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "119686072443a26b2108319aa8c0774ba6ef8bf37b7fd38fb3d9f6ff3c02e718"
+    },
+    {
+      "path": "clinical/scripts/validate_modules.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "51e8328d4014e1a17705c3f4b899df405723aca6374605004c31da731e01f1a9"
+    },
+    {
+      "path": "clinical/tests/test_ci_v142.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "58635c2ab01728bce22c1acfeb2f6a10a2f6f046f71df135f21e6856fb328c5c"
+    },
+    {
+      "path": "clinical/tests/test_evidence_normalization_t01.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "b433b85879f4a7107cb1e848e79411c7fb495ff5e572060dcdca3d0b6549db5c"
+    },
+    {
+      "path": "clinical/tests/test_project_graph.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "f00bdddf1fb293c4338a06c4bbaac70302a300f5a4b4a343efcd610d436044d4"
+    },
+    {
+      "path": "clinical/tests/test_validation_hardening.py",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "f86b73bd8eeed31a425751409c732fa598c1bb7b288be31e52571a4e0cbe95cb"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "010d7131be855e4a387a8fbbd7b2484a8bde04c73f1632d68bcb64e0ea3f7c08"
+    },
+    {
+      "path": "docs/GRAPHIFY.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "8b29271676637f183de659a12e9e1255598b37a8ce4cc9dc24f6bc48368fb585"
+    },
+    {
+      "path": "docs/T01_IMPLEMENTATION_REPORT.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "2879a43d23b49d276d62fca541d49a136051133df5097f930fa7c9cda5a7d784"
+    },
+    {
+      "path": "knowledge-graph/README.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "f39736ea6ced5aab8a2314e4993f46d1cc72ed985ab7ef787c1836c826b1f088"
+    },
+    {
+      "path": "models/MODEL_REGISTRY.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "86ac286a3384cfcc22c038e7500cfedd9292ff6d0706e4728a6633e2a7afa2e1"
+    },
+    {
+      "path": "rag/README.md",
+      "review": "REVIEWED",
+      "scope": "Technical implementation / tests / documentation",
+      "sha256_at_T01": "0afc73e7750ddc6f45f44ea6b3841f3150dc9a0d19151a227cd7d893d8f61363"
+    }
+  ],
+  "confirmed_important_defects_remaining_in_T01_diff": [],
+  "canonical_module_count": 131,
+  "HIGH_RISK_count": 57,
+  "P1_status": "FOUR_ORIGINAL_P1_OPEN",
+  "acute_contracts": "19_BLOCKED_UNCHANGED"
+}
