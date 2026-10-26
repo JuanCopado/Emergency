@@ -1,0 +1,2885 @@
+[
+  {
+    "id": "PREP-ne-8mg-200ml",
+    "entities": [
+      "norepinephrine"
+    ],
+    "regimen_ids": [
+      "adult:norepinephrine"
+    ],
+    "source": "app/src/data/drugs.json:86 #norepinephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 8,
+      "unit": "mg"
+    },
+    "diluent": "Glucose 5%, sodium chloride 0.9% or glucose-saline (UK SmPC); US labelling uses dextrose-containing diluents",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 200,
+    "final_concentration": {
+      "value": 40,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      "Starting dose varies by source: US label 8-12 micrograms/min then 2-4 micrograms/min maintenance; UK SmPC 0.4-0.8 mg/h base initially; ESC 2021 heart-failure table 0.2-1.0 micrograms/kg/min, a starting dose criticised as unnecessarily high, with AHA-cited 0.05 micrograms/kg/min for cardiogenic shock."
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 40.0,
+      "documented": 40,
+      "match": true
+    },
+    "raw": {
+      "id": "ne-8mg-200ml",
+      "amount": {
+        "value": 8,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 200,
+      "diluent": "Glucose 5%, sodium chloride 0.9% or glucose-saline (UK SmPC); US labelling uses dextrose-containing diluents",
+      "concentration": {
+        "value": 40,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "8 mg norepinephrine base to a final volume of 200 mL = 40 micrograms/mL (the UK SmPC standard concentration is 40 mg/L base)."
+    }
+  },
+  {
+    "id": "PREP-ne-8mg-100ml",
+    "entities": [
+      "norepinephrine"
+    ],
+    "regimen_ids": [
+      "adult:norepinephrine"
+    ],
+    "source": "app/src/data/drugs.json:86 #norepinephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 8,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 80,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      "Starting dose varies by source: US label 8-12 micrograms/min then 2-4 micrograms/min maintenance; UK SmPC 0.4-0.8 mg/h base initially; ESC 2021 heart-failure table 0.2-1.0 micrograms/kg/min, a starting dose criticised as unnecessarily high, with AHA-cited 0.05 micrograms/kg/min for cardiogenic shock."
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 80.0,
+      "documented": 80,
+      "match": true
+    },
+    "raw": {
+      "id": "ne-8mg-100ml",
+      "amount": {
+        "value": 8,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 80,
+        "unit": "mcg/mL"
+      },
+      "isDefault": false,
+      "label": "Fluid-restricted",
+      "note": "Fluid-restricted alternative 8 mg/100 mL = 80 micrograms/mL."
+    }
+  },
+  {
+    "id": "PREP-vp-100u-100ml",
+    "entities": [
+      "vasopressin"
+    ],
+    "regimen_ids": [
+      "adult:vasopressin"
+    ],
+    "source": "app/src/data/drugs.json:141 #vasopressin",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 100,
+      "unit": "units"
+    },
+    "diluent": "Sodium chloride 0.9% or glucose 5%",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 1,
+      "unit": "units/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 1.0,
+      "documented": 1,
+      "match": true
+    },
+    "raw": {
+      "id": "vp-100u-100ml",
+      "amount": {
+        "value": 100,
+        "unit": "units"
+      },
+      "finalVolumeMl": 100,
+      "diluent": "Sodium chloride 0.9% or glucose 5%",
+      "concentration": {
+        "value": 1,
+        "unit": "units/mL"
+      },
+      "isDefault": true,
+      "label": "Fluid restriction",
+      "note": "Preparation (label): 100 units to a final volume of 100 mL = 1 unit/mL (fluid restriction)."
+    }
+  },
+  {
+    "id": "PREP-vp-50u-500ml",
+    "entities": [
+      "vasopressin"
+    ],
+    "regimen_ids": [
+      "adult:vasopressin"
+    ],
+    "source": "app/src/data/drugs.json:141 #vasopressin",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 50,
+      "unit": "units"
+    },
+    "diluent": "Sodium chloride 0.9% or glucose 5%",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 500,
+    "final_concentration": {
+      "value": 0.1,
+      "unit": "units/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 0.1,
+      "documented": 0.1,
+      "match": true
+    },
+    "raw": {
+      "id": "vp-50u-500ml",
+      "amount": {
+        "value": 50,
+        "unit": "units"
+      },
+      "finalVolumeMl": 500,
+      "diluent": "Sodium chloride 0.9% or glucose 5%",
+      "concentration": {
+        "value": 0.1,
+        "unit": "units/mL"
+      },
+      "isDefault": false,
+      "label": "Dilute",
+      "note": "50 units/500 mL = 0.1 unit/mL."
+    }
+  },
+  {
+    "id": "PREP-epi-4mg-100ml",
+    "entities": [
+      "epinephrine"
+    ],
+    "regimen_ids": [
+      "adult:epinephrine"
+    ],
+    "source": "app/src/data/drugs.json:196 #epinephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 4,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 40,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.05,
+      "max": 2,
+      "text": "Label: 0.05-2 micrograms/kg/min."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 40.0,
+      "documented": 40,
+      "match": true
+    },
+    "raw": {
+      "id": "epi-4mg-100ml",
+      "amount": {
+        "value": 4,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 40,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "4 mg to a final volume of 100 mL = 40 micrograms/mL. US label uses glucose 5% and a 1 microgram/mL dilution, so confirm local diluent/concentration."
+    }
+  },
+  {
+    "id": "PREP-epi-8mg-200ml",
+    "entities": [
+      "epinephrine"
+    ],
+    "regimen_ids": [
+      "adult:epinephrine"
+    ],
+    "source": "app/src/data/drugs.json:196 #epinephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 8,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 200,
+    "final_concentration": {
+      "value": 40,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.05,
+      "max": 2,
+      "text": "Label: 0.05-2 micrograms/kg/min."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 40.0,
+      "documented": 40,
+      "match": true
+    },
+    "raw": {
+      "id": "epi-8mg-200ml",
+      "amount": {
+        "value": 8,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 200,
+      "diluent": null,
+      "concentration": {
+        "value": 40,
+        "unit": "mcg/mL"
+      },
+      "isDefault": false,
+      "label": "Standard (200 mL)",
+      "note": "Or 8 mg/200 mL; confirm local diluent/concentration."
+    }
+  },
+  {
+    "id": "PREP-dopa-400mg-250ml",
+    "entities": [
+      "dopamine"
+    ],
+    "regimen_ids": [
+      "adult:dopamine"
+    ],
+    "source": "app/src/data/drugs.json:246 #dopamine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 400,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 250,
+    "final_concentration": {
+      "value": 1600,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 1600.0,
+      "documented": 1600,
+      "match": true
+    },
+    "raw": {
+      "id": "dopa-400mg-250ml",
+      "amount": {
+        "value": 400,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 250,
+      "diluent": null,
+      "concentration": {
+        "value": 1600,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Premix",
+      "note": "Premixed 400 mg/250 mL = 1,600 micrograms/mL (labelled premix; 250 mL is the common standard)."
+    }
+  },
+  {
+    "id": "PREP-dobu-250mg-100ml",
+    "entities": [
+      "dobutamine"
+    ],
+    "regimen_ids": [
+      "adult:dobutamine"
+    ],
+    "source": "app/src/data/drugs.json:287 #dobutamine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 250,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 2500,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 2,
+      "max": 20,
+      "text": "Usual 2-20 micrograms/kg/min."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 2500.0,
+      "documented": 2500,
+      "match": true
+    },
+    "raw": {
+      "id": "dobu-250mg-100ml",
+      "amount": {
+        "value": 250,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 2500,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "250 mg to a final volume of 100 mL = 2,500 micrograms/mL."
+    }
+  },
+  {
+    "id": "PREP-dobu-250mg-200ml",
+    "entities": [
+      "dobutamine"
+    ],
+    "regimen_ids": [
+      "adult:dobutamine"
+    ],
+    "source": "app/src/data/drugs.json:287 #dobutamine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 250,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 200,
+    "final_concentration": {
+      "value": 1250,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 2,
+      "max": 20,
+      "text": "Usual 2-20 micrograms/kg/min."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 1250.0,
+      "documented": 1250,
+      "match": true
+    },
+    "raw": {
+      "id": "dobu-250mg-200ml",
+      "amount": {
+        "value": 250,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 200,
+      "diluent": null,
+      "concentration": {
+        "value": 1250,
+        "unit": "mcg/mL"
+      },
+      "isDefault": false,
+      "label": "Dilute",
+      "note": "Or 250 mg/200 mL = 1,250 micrograms/mL."
+    }
+  },
+  {
+    "id": "PREP-mil-20mg-100ml",
+    "entities": [
+      "milrinone"
+    ],
+    "regimen_ids": [
+      "adult:milrinone"
+    ],
+    "source": "app/src/data/drugs.json:338 #milrinone",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 20,
+      "unit": "mg"
+    },
+    "diluent": "Sodium chloride 0.45%/0.9% or glucose 5%",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 200,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.375,
+      "max": 0.75,
+      "text": "Label: maintenance 0.375-0.75 micrograms/kg/min."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 200.0,
+      "documented": 200,
+      "match": true
+    },
+    "raw": {
+      "id": "mil-20mg-100ml",
+      "amount": {
+        "value": 20,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": "Sodium chloride 0.45%/0.9% or glucose 5%",
+      "concentration": {
+        "value": 200,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "Preparation (label): 20 mg to a final volume of 100 mL = 200 micrograms/mL."
+    }
+  },
+  {
+    "id": "PREP-levo-12.5mg-500ml",
+    "entities": [
+      "levosimendan"
+    ],
+    "regimen_ids": [
+      "adult:levosimendan"
+    ],
+    "source": "app/src/data/drugs.json:380 #levosimendan",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 12.5,
+      "unit": "mg"
+    },
+    "diluent": "Glucose 5%",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 500,
+    "final_concentration": {
+      "value": 25,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.05,
+      "max": 0.2,
+      "text": "Range 0.05-0.2 micrograms/kg/min for a recommended 24 hours."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 25.0,
+      "documented": 25,
+      "match": true
+    },
+    "raw": {
+      "id": "levo-12.5mg-500ml",
+      "amount": {
+        "value": 12.5,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 500,
+      "diluent": "Glucose 5%",
+      "concentration": {
+        "value": 25,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "SmPC",
+      "note": "Preparation (SmPC): 12.5 mg (5 mL) in 500 mL glucose 5% = 25 micrograms/mL (500 mL is the labelled volume)."
+    }
+  },
+  {
+    "id": "PREP-levo-0.05mg-ml",
+    "entities": [
+      "levosimendan"
+    ],
+    "regimen_ids": [
+      "adult:levosimendan"
+    ],
+    "source": "app/src/data/drugs.json:380 #levosimendan",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "value": 0.05,
+      "unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.05,
+      "max": 0.2,
+      "text": "Range 0.05-0.2 micrograms/kg/min for a recommended 24 hours."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": null,
+      "documented": 0.05,
+      "match": "NOT_APPLICABLE_PREMIX_OR_ABSENT_AMOUNT"
+    },
+    "raw": {
+      "id": "levo-0.05mg-ml",
+      "amount": null,
+      "finalVolumeMl": null,
+      "diluent": null,
+      "concentration": {
+        "value": 0.05,
+        "unit": "mg/mL"
+      },
+      "isDefault": false,
+      "label": "Alternative",
+      "note": "0.05 mg/mL is the alternative (amount and volume not stated in source)."
+    }
+  },
+  {
+    "id": "PREP-phe-10mg-500ml",
+    "entities": [
+      "phenylephrine"
+    ],
+    "regimen_ids": [
+      "adult:phenylephrine"
+    ],
+    "source": "app/src/data/drugs.json:434 #phenylephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 10,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 500,
+    "final_concentration": {
+      "value": 20,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 20.0,
+      "documented": 20,
+      "match": true
+    },
+    "raw": {
+      "id": "phe-10mg-500ml",
+      "amount": {
+        "value": 10,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 500,
+      "diluent": null,
+      "concentration": {
+        "value": 20,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Label",
+      "note": "Preparation (label): 10 mg in 500 mL = 20 micrograms/mL. Diluted solution use within 4 hours at room temperature or 24 hours refrigerated."
+    }
+  },
+  {
+    "id": "PREP-phe-2mg-100ml",
+    "entities": [
+      "phenylephrine"
+    ],
+    "regimen_ids": [
+      "adult:phenylephrine"
+    ],
+    "source": "app/src/data/drugs.json:434 #phenylephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 2,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 20,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 20.0,
+      "documented": 20,
+      "match": true
+    },
+    "raw": {
+      "id": "phe-2mg-100ml",
+      "amount": {
+        "value": 2,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 20,
+        "unit": "mcg/mL"
+      },
+      "isDefault": false,
+      "label": "Label (100 mL)",
+      "note": "Proportionally 2 mg/100 mL gives the same concentration."
+    }
+  },
+  {
+    "id": "PREP-at2-2.5mg-250ml",
+    "entities": [
+      "angiotensin II"
+    ],
+    "regimen_ids": [
+      "adult:angiotensin-ii"
+    ],
+    "source": "app/src/data/drugs.json:485 #angiotensin-ii",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 2.5,
+      "unit": "mg"
+    },
+    "diluent": "Sodium chloride 0.9%",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 250,
+    "final_concentration": {
+      "value": 10000,
+      "unit": "ng/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 10000.0,
+      "documented": 10000,
+      "match": true
+    },
+    "raw": {
+      "id": "at2-2.5mg-250ml",
+      "amount": {
+        "value": 2.5,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 250,
+      "diluent": "Sodium chloride 0.9%",
+      "concentration": {
+        "value": 10000,
+        "unit": "ng/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "2.5 mg in 250 mL sodium chloride 0.9% = 10,000 ng/mL."
+    }
+  },
+  {
+    "id": "PREP-at2-2.5mg-500ml",
+    "entities": [
+      "angiotensin II"
+    ],
+    "regimen_ids": [
+      "adult:angiotensin-ii"
+    ],
+    "source": "app/src/data/drugs.json:485 #angiotensin-ii",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 2.5,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 500,
+    "final_concentration": {
+      "value": 5000,
+      "unit": "ng/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 5000.0,
+      "documented": 5000,
+      "match": true
+    },
+    "raw": {
+      "id": "at2-2.5mg-500ml",
+      "amount": {
+        "value": 2.5,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 500,
+      "diluent": null,
+      "concentration": {
+        "value": 5000,
+        "unit": "ng/mL"
+      },
+      "isDefault": false,
+      "label": "Dilute",
+      "note": "Or 2.5 mg/500 mL = 5,000 ng/mL."
+    }
+  },
+  {
+    "id": "PREP-fen-1000mcg-100ml",
+    "entities": [
+      "fentanyl"
+    ],
+    "regimen_ids": [
+      "adult:fentanyl"
+    ],
+    "source": "app/src/data/drugs.json:536 #fentanyl",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 1000,
+      "unit": "mcg"
+    },
+    "diluent": "Glucose 5% or sodium chloride 0.9% (SmPC)",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 10,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.7,
+      "max": 10,
+      "text": "Infusion range 0.7-10 micrograms/kg/h (KSCCM 2021 PADIS table; start low after titrated boluses to CPOT/BPS)."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 10.0,
+      "documented": 10,
+      "match": true
+    },
+    "raw": {
+      "id": "fen-1000mcg-100ml",
+      "amount": {
+        "value": 1000,
+        "unit": "mcg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": "Glucose 5% or sodium chloride 0.9% (SmPC)",
+      "concentration": {
+        "value": 10,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "1,000 micrograms (20 mL of 50 micrograms/mL) to a final volume of 100 mL = 10 micrograms/mL."
+    }
+  },
+  {
+    "id": "PREP-remi-5mg-100ml",
+    "entities": [
+      "remifentanil"
+    ],
+    "regimen_ids": [
+      "adult:remifentanil"
+    ],
+    "source": "app/src/data/drugs.json:579 #remifentanil",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 5,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 50,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.006,
+      "max": 0.74,
+      "text": "SmPC range 0.006-0.74 micrograms/kg/min; if analgesia is inadequate at 0.2 micrograms/kg/min add a sedative."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 50.0,
+      "documented": 50,
+      "match": true
+    },
+    "raw": {
+      "id": "remi-5mg-100ml",
+      "amount": {
+        "value": 5,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 50,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "5 mg to a final volume of 100 mL = 50 micrograms/mL (SmPC range 20-50 micrograms/mL)."
+    }
+  },
+  {
+    "id": "PREP-mor-100mg-100ml",
+    "entities": [
+      "morphine"
+    ],
+    "regimen_ids": [
+      "adult:morphine"
+    ],
+    "source": "app/src/data/drugs.json:621 #morphine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 100,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 1,
+      "unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 2,
+      "max": 30,
+      "text": "Reference range (KSCCM 2021): morphine 2-30 mg/h; not weight-based."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 1.0,
+      "documented": 1,
+      "match": true
+    },
+    "raw": {
+      "id": "mor-100mg-100ml",
+      "amount": {
+        "value": 100,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "Morphine 100 mg to 100 mL = 1 mg/mL."
+    }
+  },
+  {
+    "id": "PREP-hm-10mg-100ml",
+    "entities": [
+      "hydromorphone"
+    ],
+    "regimen_ids": [
+      "adult:hydromorphone"
+    ],
+    "source": "app/src/data/drugs.json:663 #hydromorphone",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 10,
+      "unit": "mg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 0.1,
+      "unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.5,
+      "max": 3,
+      "text": "Reference range (KSCCM 2021): hydromorphone 0.5-3 mg/h; not weight-based."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 0.1,
+      "documented": 0.1,
+      "match": true
+    },
+    "raw": {
+      "id": "hm-10mg-100ml",
+      "amount": {
+        "value": 10,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 0.1,
+        "unit": "mg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "Hydromorphone 10 mg to 100 mL = 0.1 mg/mL."
+    }
+  },
+  {
+    "id": "PREP-prop-1pct",
+    "entities": [
+      "propofol"
+    ],
+    "regimen_ids": [
+      "adult:propofol"
+    ],
+    "source": "app/src/data/drugs.json:704 #propofol",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 1000,
+      "unit": "mg"
+    },
+    "diluent": "Undiluted",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 10,
+      "unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 5,
+      "max": 50,
+      "text": "Most patients need 5-50 micrograms/kg/min (0.3-3 mg/kg/h)."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 10.0,
+      "documented": 10,
+      "match": true
+    },
+    "raw": {
+      "id": "prop-1pct",
+      "amount": {
+        "value": 1000,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": "Undiluted",
+      "concentration": {
+        "value": 10,
+        "unit": "mg/mL"
+      },
+      "isDefault": true,
+      "label": "1% undiluted",
+      "note": "Undiluted 10 mg/mL (1%; 1,000 mg in a 100 mL vial)."
+    }
+  },
+  {
+    "id": "PREP-prop-2pct",
+    "entities": [
+      "propofol"
+    ],
+    "regimen_ids": [
+      "adult:propofol"
+    ],
+    "source": "app/src/data/drugs.json:704 #propofol",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "Undiluted",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "value": 20,
+      "unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 5,
+      "max": 50,
+      "text": "Most patients need 5-50 micrograms/kg/min (0.3-3 mg/kg/h)."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": null,
+      "documented": 20,
+      "match": "NOT_APPLICABLE_PREMIX_OR_ABSENT_AMOUNT"
+    },
+    "raw": {
+      "id": "prop-2pct",
+      "amount": null,
+      "finalVolumeMl": null,
+      "diluent": "Undiluted",
+      "concentration": {
+        "value": 20,
+        "unit": "mg/mL"
+      },
+      "isDefault": false,
+      "label": "2% undiluted",
+      "note": "20 mg/mL presentations halve the mL/h (vial size not stated in source)."
+    }
+  },
+  {
+    "id": "PREP-dex-400mcg-100ml",
+    "entities": [
+      "dexmedetomidine"
+    ],
+    "regimen_ids": [
+      "adult:dexmedetomidine"
+    ],
+    "source": "app/src/data/drugs.json:761 #dexmedetomidine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 400,
+      "unit": "mcg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 4,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.2,
+      "max": 1.4,
+      "text": "Adjust stepwise within 0.2-1.4 micrograms/kg/h."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 4.0,
+      "documented": 4,
+      "match": true
+    },
+    "raw": {
+      "id": "dex-400mcg-100ml",
+      "amount": {
+        "value": 400,
+        "unit": "mcg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": null,
+      "concentration": {
+        "value": 4,
+        "unit": "mcg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "400 micrograms (4 mL of 100 micrograms/mL) to a final volume of 100 mL = 4 micrograms/mL."
+    }
+  },
+  {
+    "id": "PREP-dex-8mcg-ml",
+    "entities": [
+      "dexmedetomidine"
+    ],
+    "regimen_ids": [
+      "adult:dexmedetomidine"
+    ],
+    "source": "app/src/data/drugs.json:761 #dexmedetomidine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "value": 8,
+      "unit": "mcg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.2,
+      "max": 1.4,
+      "text": "Adjust stepwise within 0.2-1.4 micrograms/kg/h."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": null,
+      "documented": 8,
+      "match": "NOT_APPLICABLE_PREMIX_OR_ABSENT_AMOUNT"
+    },
+    "raw": {
+      "id": "dex-8mcg-ml",
+      "amount": null,
+      "finalVolumeMl": null,
+      "diluent": null,
+      "concentration": {
+        "value": 8,
+        "unit": "mcg/mL"
+      },
+      "isDefault": false,
+      "label": "SmPC alternative",
+      "note": "SmPC allows 4 or 8 micrograms/mL (amount and volume for 8 micrograms/mL not stated in source)."
+    }
+  },
+  {
+    "id": "PREP-mid-100mg-100ml",
+    "entities": [
+      "midazolam"
+    ],
+    "regimen_ids": [
+      "adult:midazolam"
+    ],
+    "source": "app/src/data/drugs.json:817 #midazolam",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 100,
+      "unit": "mg"
+    },
+    "diluent": "Sodium chloride 0.9% or glucose 5%",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 1,
+      "unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 0.03,
+      "max": 0.2,
+      "text": "UK SmPC: maintenance 0.03-0.2 mg/kg/h."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 1.0,
+      "documented": 1,
+      "match": true
+    },
+    "raw": {
+      "id": "mid-100mg-100ml",
+      "amount": {
+        "value": 100,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": "Sodium chloride 0.9% or glucose 5%",
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "100 mg to a final volume of 100 mL = 1 mg/mL (confirm local standard; SmPC lists compatible diluents)."
+    }
+  },
+  {
+    "id": "PREP-ket-100mg-100ml",
+    "entities": [
+      "ketamine"
+    ],
+    "regimen_ids": [
+      "adult:ketamine"
+    ],
+    "source": "app/src/data/drugs.json:859 #ketamine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "value": 100,
+      "unit": "mg"
+    },
+    "diluent": "Glucose 5% or sodium chloride 0.9% (SmPC)",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 100,
+    "final_concentration": {
+      "value": 1,
+      "unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": {
+      "min": 1,
+      "max": 2,
+      "text": "0.5 mg/kg IV once, then 1-2 micrograms/kg/min."
+    },
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "app/src/data/drugs.json meta.contentVersion=v1.35",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": {
+      "expected": 1.0,
+      "documented": 1,
+      "match": true
+    },
+    "raw": {
+      "id": "ket-100mg-100ml",
+      "amount": {
+        "value": 100,
+        "unit": "mg"
+      },
+      "finalVolumeMl": 100,
+      "diluent": "Glucose 5% or sodium chloride 0.9% (SmPC)",
+      "concentration": {
+        "value": 1,
+        "unit": "mg/mL"
+      },
+      "isDefault": true,
+      "label": "Standard",
+      "note": "100 mg to a final volume of 100 mL = 1 mg/mL."
+    }
+  },
+  {
+    "id": "PREP-PED-norepinephrine",
+    "entities": [
+      "norepinephrine"
+    ],
+    "regimen_ids": [
+      "pump:norepinephrine"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:7 #norepinephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "drug_amount_per_kg": 0.3,
+      "drug_amount_per_kg_unit": "mg/kg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 50,
+    "final_concentration": {
+      "final_concentration_per_ml": null,
+      "concentration_unit": "micrograms/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1,
+      2
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: noradrenaline 0.02-2 mcg/kg/min; 0.3 mg/kg in 50 mL gives 1 mL/h = 0.1 mcg/kg/min",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "norepinephrine",
+      "category": "vasopressor",
+      "clinical_position": "ERC/RCUK 2025 first-line vasopressor by shock phenotype; SSC 2026 does not prefer norepinephrine over epinephrine universally in pediatric septic shock",
+      "dose_unit": "micrograms/kg/min",
+      "dose_ladder": [
+        0.02,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1,
+        2
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": 50,
+      "final_concentration_per_ml": null,
+      "concentration_unit": "micrograms/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified",
+      "preparation_mode": "weight_normalized",
+      "drug_amount_per_kg": 0.3,
+      "drug_amount_per_kg_unit": "mg/kg",
+      "source": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: noradrenaline 0.02-2 mcg/kg/min; 0.3 mg/kg in 50 mL gives 1 mL/h = 0.1 mcg/kg/min"
+    }
+  },
+  {
+    "id": "PREP-PED-epinephrine",
+    "entities": [
+      "epinephrine"
+    ],
+    "regimen_ids": [
+      "pump:epinephrine"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:35 #epinephrine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "drug_amount_per_kg": 0.3,
+      "drug_amount_per_kg_unit": "mg/kg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 50,
+    "final_concentration": {
+      "final_concentration_per_ml": null,
+      "concentration_unit": "micrograms/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      1,
+      1.5
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: adrenaline 0.05-1.5 mcg/kg/min; 0.3 mg/kg in 50 mL gives 1 mL/h = 0.1 mcg/kg/min",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "epinephrine",
+      "category": "inotrope/vasopressor",
+      "clinical_position": "ERC/RCUK 2025 first-line inotrope by shock phenotype; AHA/AAP 2025 and SSC 2026 support epinephrine as an initial vasoactive option in pediatric septic shock",
+      "dose_unit": "micrograms/kg/min",
+      "dose_ladder": [
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.5,
+        1,
+        1.5
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": 50,
+      "final_concentration_per_ml": null,
+      "concentration_unit": "micrograms/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified",
+      "preparation_mode": "weight_normalized",
+      "drug_amount_per_kg": 0.3,
+      "drug_amount_per_kg_unit": "mg/kg",
+      "source": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: adrenaline 0.05-1.5 mcg/kg/min; 0.3 mg/kg in 50 mL gives 1 mL/h = 0.1 mcg/kg/min"
+    }
+  },
+  {
+    "id": "PREP-PED-dopamine",
+    "entities": [
+      "dopamine"
+    ],
+    "regimen_ids": [
+      "pump:dopamine"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:63 #dopamine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {
+      "drug_amount_per_kg": 30,
+      "drug_amount_per_kg_unit": "mg/kg"
+    },
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 50,
+    "final_concentration": {
+      "final_concentration_per_ml": null,
+      "concentration_unit": "micrograms/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      5,
+      10,
+      15,
+      20
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: dopamine 5-20 mcg/kg/min; for <30 kg, 30 mg/kg in 50 mL gives 1 mL/h = 10 mcg/kg/min",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "dopamine",
+      "category": "inotrope/vasopressor",
+      "clinical_position": "AHA/AAP 2025: alternative initial vasoactive infusion when epinephrine/norepinephrine unavailable; not preferred first-line in current pediatric septic shock",
+      "dose_unit": "micrograms/kg/min",
+      "dose_ladder": [
+        5,
+        10,
+        15,
+        20
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": 50,
+      "final_concentration_per_ml": null,
+      "concentration_unit": "micrograms/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified_with_restriction",
+      "preparation_mode": "weight_normalized",
+      "drug_amount_per_kg": 30,
+      "drug_amount_per_kg_unit": "mg/kg",
+      "source": "Malaysia Ministry of Health Paediatric Protocols 5th ed 2025: dopamine 5-20 mcg/kg/min; for <30 kg, 30 mg/kg in 50 mL gives 1 mL/h = 10 mcg/kg/min",
+      "restrictions": [
+        "source concentration formula explicitly stated for children <30 kg in the cited protocol"
+      ],
+      "max_weight_kg": 29.999
+    }
+  },
+  {
+    "id": "PREP-PED-dobutamine",
+    "entities": [
+      "dobutamine"
+    ],
+    "regimen_ids": [
+      "pump:dobutamine"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:92 #dobutamine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {},
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": 500,
+    "final_concentration": {
+      "final_concentration_per_ml": 500,
+      "concentration_unit": "micrograms/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      2,
+      5,
+      7.5,
+      10,
+      15,
+      20
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "Dobutamine SmPC: pediatric initial 5 mcg/kg/min, titrate 2-20 mcg/kg/min; example infusion solution 0.5 mg/mL",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "dobutamine",
+      "category": "inotrope",
+      "clinical_position": "AHA/AAP 2025: may be reasonable for pediatric cardiogenic shock; product SmPC provides pediatric posology",
+      "dose_unit": "micrograms/kg/min",
+      "dose_ladder": [
+        2,
+        5,
+        7.5,
+        10,
+        15,
+        20
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": 500,
+      "final_concentration_per_ml": 500,
+      "concentration_unit": "micrograms/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified",
+      "preparation_mode": "fixed_concentration",
+      "source": "Dobutamine SmPC: pediatric initial 5 mcg/kg/min, titrate 2-20 mcg/kg/min; example infusion solution 0.5 mg/mL"
+    }
+  },
+  {
+    "id": "PREP-PED-milrinone",
+    "entities": [
+      "milrinone"
+    ],
+    "regimen_ids": [
+      "pump:milrinone"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:117 #milrinone",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {},
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "final_concentration_per_ml": 200,
+      "concentration_unit": "micrograms/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.25,
+      0.375,
+      0.5,
+      0.75
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "Milrinone SmPC: pediatric infusion 0.25-0.75 mcg/kg/min; published infusion solution 200 mcg/mL",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "milrinone",
+      "category": "inodilator",
+      "clinical_position": "ERC/RCUK 2025 first-line inodilator by phenotype; SmPC provides pediatric infusion range",
+      "dose_unit": "micrograms/kg/min",
+      "dose_ladder": [
+        0.25,
+        0.375,
+        0.5,
+        0.75
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": null,
+      "final_concentration_per_ml": 200,
+      "concentration_unit": "micrograms/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified",
+      "preparation_mode": "fixed_concentration",
+      "source": "Milrinone SmPC: pediatric infusion 0.25-0.75 mcg/kg/min; published infusion solution 200 mcg/mL",
+      "restrictions": [
+        "SmPC advises against pediatric use in renal impairment because data are lacking"
+      ]
+    }
+  },
+  {
+    "id": "PREP-PED-midazolam",
+    "entities": [
+      "midazolam"
+    ],
+    "regimen_ids": [
+      "pump:midazolam"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:143 #midazolam",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {},
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "final_concentration_per_ml": 1,
+      "concentration_unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.06,
+      0.08,
+      0.1,
+      0.12
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "Midazolam SmPC updated 2025: >6 months maintenance 0.06-0.12 mg/kg/h; concentrations >1 mg/mL not recommended in children <15 kg, so 1 mg/mL is a source-supported calculation concentration",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "midazolam",
+      "category": "sedative",
+      "clinical_position": "PICU sedation: SCCM ICU Liberation/PANDEM supports protocolized sedation; SmPC provides pediatric ICU dose",
+      "dose_unit": "milligrams/kg/hour",
+      "dose_ladder": [
+        0.06,
+        0.08,
+        0.1,
+        0.12
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": null,
+      "final_concentration_per_ml": 1,
+      "concentration_unit": "mg/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified",
+      "preparation_mode": "fixed_concentration",
+      "source": "Midazolam SmPC updated 2025: >6 months maintenance 0.06-0.12 mg/kg/h; concentrations >1 mg/mL not recommended in children <15 kg, so 1 mg/mL is a source-supported calculation concentration"
+    }
+  },
+  {
+    "id": "PREP-PED-fentanyl",
+    "entities": [
+      "fentanyl"
+    ],
+    "regimen_ids": [
+      "pump:fentanyl"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:166 #fentanyl",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {},
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "final_concentration_per_ml": 50,
+      "concentration_unit": "micrograms/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.5,
+      1,
+      2,
+      3,
+      5
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "SCCM ICU Liberation pediatric usual dose 0.5-5 mcg/kg/h + fentanyl SmPC 50 mcg/mL, IV bolus/infusion in children",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "fentanyl",
+      "category": "opioid analgesic",
+      "clinical_position": "SCCM pediatric ICU Liberation: opioid first-line for pain; usual continuous dose 0.5-5 mcg/kg/h",
+      "dose_unit": "micrograms/kg/hour",
+      "dose_ladder": [
+        0.5,
+        1,
+        2,
+        3,
+        5
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": null,
+      "final_concentration_per_ml": 50,
+      "concentration_unit": "micrograms/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified",
+      "preparation_mode": "fixed_concentration",
+      "source": "SCCM ICU Liberation pediatric usual dose 0.5-5 mcg/kg/h + fentanyl SmPC 50 mcg/mL, IV bolus/infusion in children",
+      "restrictions": [
+        "continuous PICU use requires airway/respiratory monitoring and specialist titration"
+      ]
+    }
+  },
+  {
+    "id": "PREP-PED-dexmedetomidine",
+    "entities": [
+      "dexmedetomidine"
+    ],
+    "regimen_ids": [
+      "pump:dexmedetomidine"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:193 #dexmedetomidine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {},
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "final_concentration_per_ml": 4,
+      "concentration_unit": "micrograms/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1,
+      1.5,
+      2
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "SCCM pediatric ICU Liberation usual dose 0.2-2 mcg/kg/h + European SmPC source concentration 4 mcg/mL; pediatric posology is not licensed in that SmPC",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "dexmedetomidine",
+      "category": "sedative",
+      "clinical_position": "PANDEM/SCCM supports alpha2-agonists and pediatric dexmedetomidine use; current European SmPC states pediatric safety/efficacy not established and gives no pediatric posology",
+      "dose_unit": "micrograms/kg/hour",
+      "dose_ladder": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1,
+        1.5,
+        2
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": null,
+      "final_concentration_per_ml": 4,
+      "concentration_unit": "micrograms/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified_off_label",
+      "preparation_mode": "fixed_concentration",
+      "source": "SCCM pediatric ICU Liberation usual dose 0.2-2 mcg/kg/h + European SmPC source concentration 4 mcg/mL; pediatric posology is not licensed in that SmPC",
+      "restrictions": [
+        "guideline-supported pediatric use conflicts with European product label lack of pediatric posology; treat as off-label/product-jurisdiction dependent"
+      ]
+    }
+  },
+  {
+    "id": "PREP-PED-ketamine",
+    "entities": [
+      "ketamine"
+    ],
+    "regimen_ids": [
+      "pump:ketamine"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:222 #ketamine",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {},
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "final_concentration_per_ml": null,
+      "concentration_unit": "mg/mL",
+      "concentration_bands": [
+        {
+          "min_weight_kg": 0,
+          "max_weight_kg": 10,
+          "concentration_per_ml": 1,
+          "concentration_unit": "mg/mL"
+        },
+        {
+          "min_weight_kg": 10.0001,
+          "max_weight_kg": 40,
+          "concentration_per_ml": 2,
+          "concentration_unit": "mg/mL"
+        },
+        {
+          "min_weight_kg": 40.0001,
+          "max_weight_kg": null,
+          "concentration_per_ml": 4,
+          "concentration_unit": "mg/mL"
+        }
+      ]
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "Royal Children's Hospital Ketamine Infusion current online: 100-200 mcg/kg/h usual start, range 0-400 mcg/kg/h; standard concentrations 1 mg/mL (0-10 kg), 2 mg/mL (10-40 kg), 4 mg/mL (>=40 kg/fluid restricted)",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "ketamine",
+      "category": "sedative/analgesic",
+      "clinical_position": "Analgesic continuous infusion for severe pain/major trauma/burns/mucositis under pediatric pain/ICU/anesthesia supervision; this is not a generic PICU sedation ladder",
+      "dose_unit": "milligrams/kg/hour",
+      "dose_ladder": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": null,
+      "final_concentration_per_ml": null,
+      "concentration_unit": "mg/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "source_verified_with_restriction",
+      "preparation_mode": "weight_banded_concentration",
+      "concentration_bands": [
+        {
+          "min_weight_kg": 0,
+          "max_weight_kg": 10,
+          "concentration_per_ml": 1,
+          "concentration_unit": "mg/mL"
+        },
+        {
+          "min_weight_kg": 10.0001,
+          "max_weight_kg": 40,
+          "concentration_per_ml": 2,
+          "concentration_unit": "mg/mL"
+        },
+        {
+          "min_weight_kg": 40.0001,
+          "max_weight_kg": null,
+          "concentration_per_ml": 4,
+          "concentration_unit": "mg/mL"
+        }
+      ],
+      "source": "Royal Children's Hospital Ketamine Infusion current online: 100-200 mcg/kg/h usual start, range 0-400 mcg/kg/h; standard concentrations 1 mg/mL (0-10 kg), 2 mg/mL (10-40 kg), 4 mg/mL (>=40 kg/fluid restricted)",
+      "restrictions": [
+        "analgesia/pain-service or ICU/anesthesia supervised use; not a universal sedation regimen"
+      ]
+    }
+  },
+  {
+    "id": "PREP-PED-propofol",
+    "entities": [
+      "propofol"
+    ],
+    "regimen_ids": [
+      "pump:propofol"
+    ],
+    "source": "clinical/qa/pediatric-infusion-localization.json:268 #propofol",
+    "source_product": "NOT_DOCUMENTED",
+    "original_concentration": "NOT_DOCUMENTED",
+    "amount_used": {},
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": {
+      "final_concentration_per_ml": 10,
+      "concentration_unit": "mg/mL"
+    },
+    "route": "NOT_DOCUMENTED",
+    "rate": [
+      0.5,
+      1,
+      2,
+      3,
+      4
+    ],
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": "PANDEM 2022: <4 mg/kg/h and <48 h may be a safe alternative; European SmPC/product restrictions may prohibit pediatric ICU sedation",
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "SYMBOLIC_WEIGHT_DEPENDENT_OR_NOT_INDEPENDENTLY_RECHECKED",
+    "raw": {
+      "drug": "propofol",
+      "category": "sedative/anaesthetic",
+      "clinical_position": "PANDEM 2022 suggests short-term (<48 h) continuous propofol <4 mg/kg/h may be useful; some European SmPCs prohibit ICU sedation in patients <=16 years",
+      "dose_unit": "milligrams/kg/hour",
+      "dose_ladder": [
+        0.5,
+        1,
+        2,
+        3,
+        4
+      ],
+      "product_strength": null,
+      "diluent": null,
+      "final_volume_ml": null,
+      "final_concentration_per_ml": 10,
+      "concentration_unit": "mg/mL",
+      "peripheral_policy": null,
+      "stability": null,
+      "smart_pump_entry": null,
+      "status": "guideline_supported_product_restricted",
+      "preparation_mode": "fixed_concentration",
+      "source": "PANDEM 2022: <4 mg/kg/h and <48 h may be a safe alternative; European SmPC/product restrictions may prohibit pediatric ICU sedation",
+      "restrictions": [
+        "guideline/product-label conflict; do not auto-generate as routine PICU sedation without jurisdiction/product review"
+      ]
+    }
+  },
+  {
+    "id": "PREP_AMIO",
+    "entities": [
+      "amiodarone"
+    ],
+    "regimen_ids": [
+      "acute:amiodarone-arrest-third",
+      "acute:amiodarone-arrest-fifth",
+      "acute:amiodarone-failed-cardioversion",
+      "acute:amiodarone-maintenance"
+    ],
+    "source": [
+      "S01-als",
+      "S08-trangorex"
+    ],
+    "source_product": [
+      "AMIO_TRANGOREX_150_3"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "Glucose 5% per exact product",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": "NOT_DOCUMENTED",
+    "route": "IV",
+    "rate": "Canonical indication-specific duration retained; no new pump rate",
+    "compatibility": "Product restrictions above",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": [
+      "S01-als",
+      "S08-trangorex"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_AMIO",
+      "product_ids": [
+        "AMIO_TRANGOREX_150_3"
+      ],
+      "source": [
+        "S01-als",
+        "S08-trangorex"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Glucose 5% per exact product",
+      "final_volume": null,
+      "final_concentration": null,
+      "route": "IV",
+      "administration_rate": "Canonical indication-specific duration retained; no new pump rate",
+      "compatibility": "Product restrictions above",
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "No approved local recipe or post-dilution stability; SmPC and ALS regimens must not be conflated.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    "additional_canonical_sources": [
+      "clinical/scripts/acute_medication_contracts.py:21 #amiodarone-arrest-third",
+      "clinical/scripts/acute_medication_contracts.py:26 #amiodarone-arrest-fifth",
+      "clinical/scripts/acute_medication_contracts.py:32 #amiodarone-failed-cardioversion",
+      "clinical/scripts/acute_medication_contracts.py:38 #amiodarone-maintenance"
+    ]
+  },
+  {
+    "id": "PREP_INSULIN",
+    "entities": [
+      "insulin"
+    ],
+    "regimen_ids": [
+      "acute:insulin-dka",
+      "acute:insulin-mixed",
+      "acute:insulin-dextrose",
+      "acute:insulin-hhs"
+    ],
+    "source": [
+      "S02-dka",
+      "S09-actrapid"
+    ],
+    "source_product": [
+      "ACTRAPID_VIAL_40",
+      "ACTRAPID_VIAL_100"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "Existing canonical reference: 100 IU; product withdrawal volume not selected",
+    "diluent": "Existing canonical reference: sodium chloride 0.9%; no new diluent selected",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "Existing canonical reference: FINAL 100 mL",
+    "final_concentration": "Existing contract: 1 IU/mL; within label range 0.05-1 IU/mL, but no local product approval",
+    "route": "IV",
+    "rate": "Existing canonical dose per clinical phase; no new pump rule",
+    "compatibility": "Polypropylene and initial adsorption considerations",
+    "stability": "24 h room-temperature label evidence for listed systems",
+    "storage": "Local aseptic beyond-use time not approved",
+    "source_version": [
+      "S02-dka",
+      "S09-actrapid"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_INSULIN",
+      "product_ids": [
+        "ACTRAPID_VIAL_40",
+        "ACTRAPID_VIAL_100"
+      ],
+      "source": [
+        "S02-dka",
+        "S09-actrapid"
+      ],
+      "withdrawn_amount": "Existing canonical reference: 100 IU; product withdrawal volume not selected",
+      "diluent": "Existing canonical reference: sodium chloride 0.9%; no new diluent selected",
+      "final_volume": "Existing canonical reference: FINAL 100 mL",
+      "final_concentration": "Existing contract: 1 IU/mL; within label range 0.05-1 IU/mL, but no local product approval",
+      "route": "IV",
+      "administration_rate": "Existing canonical dose per clinical phase; no new pump rule",
+      "compatibility": "Polypropylene and initial adsorption considerations",
+      "stability": "24 h room-temperature label evidence for listed systems",
+      "storage": "Local aseptic beyond-use time not approved",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Existing 100 IU/100 mL contract and confirmation gate retained; exact vial and local priming/signoff absent. No new mixture/variant; cartridge excluded.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    "additional_canonical_sources": [
+      "clinical/scripts/acute_medication_contracts.py #insulin-dka",
+      "clinical/scripts/acute_medication_contracts.py #insulin-mixed",
+      "clinical/scripts/acute_medication_contracts.py #insulin-dextrose",
+      "clinical/scripts/acute_medication_contracts.py #insulin-hhs"
+    ]
+  },
+  {
+    "id": "PREP_NACL3",
+    "entities": [
+      "sodium chloride"
+    ],
+    "regimen_ids": [
+      "acute:sodium-hyponatremia",
+      "acute:sodium-icp"
+    ],
+    "source": [
+      "S03-hyponatremia",
+      "S04-enls",
+      "S10-sodium-braun",
+      "S23-sodium-sfe"
+    ],
+    "source_product": [
+      "NACL_BBRAUN_20_10"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "NOT_DOCUMENTED",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": "NOT_DOCUMENTED",
+    "route": "IV",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "NOT_DOCUMENTED",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": [
+      "S03-hyponatremia",
+      "S04-enls",
+      "S10-sodium-braun",
+      "S23-sodium-sfe"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_NACL3",
+      "product_ids": [
+        "NACL_BBRAUN_20_10"
+      ],
+      "source": [
+        "S03-hyponatremia",
+        "S04-enls",
+        "S10-sodium-braun",
+        "S23-sodium-sfe"
+      ],
+      "withdrawn_amount": null,
+      "diluent": null,
+      "final_volume": null,
+      "final_concentration": null,
+      "route": "IV",
+      "administration_rate": null,
+      "compatibility": null,
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "No exact local 3% product/validated sterile compounding recipe. Do not derive a 3% preparation from 20% concentrate.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    "additional_canonical_sources": [
+      "clinical/scripts/acute_medication_contracts.py:110 #sodium-hyponatremia",
+      "clinical/scripts/acute_medication_contracts.py:122 #sodium-icp"
+    ]
+  },
+  {
+    "id": "PREP_PHENYTOIN",
+    "entities": [
+      "phenytoin"
+    ],
+    "regimen_ids": [],
+    "source": [
+      "S05-status",
+      "S12-phenytoin"
+    ],
+    "source_product": [
+      "PHENYTOIN_RUBIO_2",
+      "PHENYTOIN_RUBIO_5"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "Sodium chloride 0.9%",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": "Labelled range 1-10 mg/mL; no local selection",
+    "route": "IV",
+    "rate": "Adult label maximum 50 mg/min is not a selected patient rate",
+    "compatibility": "No dextrose; separate from fosphenytoin PE units",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": [
+      "S05-status",
+      "S12-phenytoin"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_PHENYTOIN",
+      "product_ids": [
+        "PHENYTOIN_RUBIO_2",
+        "PHENYTOIN_RUBIO_5"
+      ],
+      "source": [
+        "S05-status",
+        "S12-phenytoin"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Sodium chloride 0.9%",
+      "final_volume": null,
+      "final_concentration": "Labelled range 1-10 mg/mL; no local selection",
+      "route": "IV",
+      "administration_rate": "Adult label maximum 50 mg/min is not a selected patient rate",
+      "compatibility": "No dextrose; separate from fosphenytoin PE units",
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Dose/phase, preparation stability, monitoring and local protocol require neurology/pharmacy review.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  },
+  {
+    "id": "PREP_ADRENALINE_IM",
+    "entities": [
+      "epinephrine"
+    ],
+    "regimen_ids": [
+      "acute:anaphylaxis-adult",
+      "acute:anaphylaxis-over12",
+      "acute:anaphylaxis-6to12",
+      "acute:anaphylaxis-6monthsto6"
+    ],
+    "source": [
+      "S06-anaphylaxis",
+      "S13-adrenaline-basi"
+    ],
+    "source_product": [
+      "ADRENALINE_BASI_1"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "Only a professionally selected dose; no infant default",
+    "diluent": "No dilution for IM",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": "1 mg/mL",
+    "route": "IM",
+    "rate": "Not a pump infusion",
+    "compatibility": "Exact product route must match",
+    "stability": "After opening/dilution per label",
+    "storage": "Light protection",
+    "source_version": [
+      "S06-anaphylaxis",
+      "S13-adrenaline-basi"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_ADRENALINE_IM",
+      "product_ids": [
+        "ADRENALINE_BASI_1"
+      ],
+      "source": [
+        "S06-anaphylaxis",
+        "S13-adrenaline-basi"
+      ],
+      "withdrawn_amount": "Only a professionally selected dose; no infant default",
+      "diluent": "No dilution for IM",
+      "final_volume": null,
+      "final_concentration": "1 mg/mL",
+      "route": "IM",
+      "administration_rate": "Not a pump infusion",
+      "compatibility": "Exact product route must match",
+      "stability": "After opening/dilution per label",
+      "storage": "Light protection",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Infant and small/prepubertal decision remains unresolved; product identification does not select a dose.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    },
+    "additional_canonical_sources": [
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-adult",
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-over12",
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-6to12",
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-6monthsto6"
+    ]
+  },
+  {
+    "id": "PREP_ADRENALINE_REFRACTORY",
+    "entities": [
+      "epinephrine"
+    ],
+    "regimen_ids": [],
+    "source": [
+      "S07-refractory",
+      "S13-adrenaline-basi"
+    ],
+    "source_product": [
+      "ADRENALINE_BASI_1"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "RCUK reference uses 1 mg from 1 mL of 1 mg/mL",
+    "diluent": "Sodium chloride 0.9% per RCUK",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "RCUK wording: in 100 mL; precise local final-volume technique unapproved",
+    "final_concentration": "NOT_DOCUMENTED",
+    "route": "IV expert infusion",
+    "rate": "RCUK reference 0.5-1 mL/kg/h titrated; not enabled",
+    "compatibility": "Dedicated pump line; no piggyback; continuous monitoring",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "NOT_DOCUMENTED",
+    "source_version": [
+      "S07-refractory",
+      "S13-adrenaline-basi"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_ADRENALINE_REFRACTORY",
+      "product_ids": [
+        "ADRENALINE_BASI_1"
+      ],
+      "source": [
+        "S07-refractory",
+        "S13-adrenaline-basi"
+      ],
+      "withdrawn_amount": "RCUK reference uses 1 mg from 1 mL of 1 mg/mL",
+      "diluent": "Sodium chloride 0.9% per RCUK",
+      "final_volume": "RCUK wording: in 100 mL; precise local final-volume technique unapproved",
+      "final_concentration": null,
+      "route": "IV expert infusion",
+      "administration_rate": "RCUK reference 0.5-1 mL/kg/h titrated; not enabled",
+      "compatibility": "Dedicated pump line; no piggyback; continuous monitoring",
+      "stability": null,
+      "storage": null,
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Professional guideline recipe found, but exact product stability at the proposed final concentration and local approval absent.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  },
+  {
+    "id": "PREP_BERIPLEX",
+    "entities": [],
+    "regimen_ids": [],
+    "source": [
+      "S15-beriplex"
+    ],
+    "source_product": [
+      "BERIPLEX_500",
+      "BERIPLEX_1000"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "Supplied water for injection",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "500 IU: 20 mL; 1000 IU: 40 mL",
+    "final_concentration": "25 IU factor IX/mL",
+    "route": "IV",
+    "rate": "Product-specific rate in SmPC section 4.2; no selected rate",
+    "compatibility": "No mixing; exact transfer device",
+    "stability": "See separate product stability; microbiological immediate use",
+    "storage": "Per exact profile",
+    "source_version": [
+      "S15-beriplex"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_BERIPLEX",
+      "product_ids": [
+        "BERIPLEX_500",
+        "BERIPLEX_1000"
+      ],
+      "source": [
+        "S15-beriplex"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Supplied water for injection",
+      "final_volume": "500 IU: 20 mL; 1000 IU: 40 mL",
+      "final_concentration": "25 IU factor IX/mL",
+      "route": "IV",
+      "administration_rate": "Product-specific rate in SmPC section 4.2; no selected rate",
+      "compatibility": "No mixing; exact transfer device",
+      "stability": "See separate product stability; microbiological immediate use",
+      "storage": "Per exact profile",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "PCC product, INR, weight, indication, HIT assessment and local professional signoff absent.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  },
+  {
+    "id": "PREP_OCTAPLEX",
+    "entities": [],
+    "regimen_ids": [],
+    "source": [
+      "S16-octaplex"
+    ],
+    "source_product": [
+      "OCTAPLEX_500",
+      "OCTAPLEX_1000"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "Supplied water for injection",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "500 IU: 20 mL; 1000 IU: 40 mL",
+    "final_concentration": "25 IU factor IX/mL",
+    "route": "IV",
+    "rate": "Product-specific rate in SmPC section 4.2; no selected rate",
+    "compatibility": "No mixing; exact transfer device",
+    "stability": "See separate product stability; microbiological immediate use",
+    "storage": "Per exact profile",
+    "source_version": [
+      "S16-octaplex"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_OCTAPLEX",
+      "product_ids": [
+        "OCTAPLEX_500",
+        "OCTAPLEX_1000"
+      ],
+      "source": [
+        "S16-octaplex"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Supplied water for injection",
+      "final_volume": "500 IU: 20 mL; 1000 IU: 40 mL",
+      "final_concentration": "25 IU factor IX/mL",
+      "route": "IV",
+      "administration_rate": "Product-specific rate in SmPC section 4.2; no selected rate",
+      "compatibility": "No mixing; exact transfer device",
+      "stability": "See separate product stability; microbiological immediate use",
+      "storage": "Per exact profile",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "PCC product, INR, weight, indication, HIT assessment and local professional signoff absent.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  },
+  {
+    "id": "PREP_PRAXBIND",
+    "entities": [
+      "idarucizumab"
+    ],
+    "regimen_ids": [],
+    "source": [
+      "S17-praxbind"
+    ],
+    "source_product": [
+      "PRAXBIND_2500_50"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "No additional admixture",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": "2.5 g/50 mL",
+    "route": "IV",
+    "rate": "Two consecutive labelled infusions or bolus; no automatic repeat",
+    "compatibility": "Dedicated access/flush; no co-infusion",
+    "stability": "Per exact product",
+    "storage": "Per exact product",
+    "source_version": [
+      "S17-praxbind"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_PRAXBIND",
+      "product_ids": [
+        "PRAXBIND_2500_50"
+      ],
+      "source": [
+        "S17-praxbind"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "No additional admixture",
+      "final_volume": null,
+      "final_concentration": "2.5 g/50 mL",
+      "route": "IV",
+      "administration_rate": "Two consecutive labelled infusions or bolus; no automatic repeat",
+      "compatibility": "Dedicated access/flush; no co-infusion",
+      "stability": "Per exact product",
+      "storage": "Per exact product",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Repeat dose requires clinical/laboratory criteria and recorded specialist decision; stock and local protocol unverified.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  },
+  {
+    "id": "PREP_KONAKION",
+    "entities": [
+      "phytomenadione"
+    ],
+    "regimen_ids": [],
+    "source": [
+      "S21-konakion"
+    ],
+    "source_product": [
+      "KONAKION_ADULT",
+      "KONAKION_PEDIATRIC"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "Do not dilute",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": "10 mg/mL",
+    "route": "Indication-specific oral/IV",
+    "rate": "NOT_DOCUMENTED",
+    "compatibility": "No mixing with other injectables",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "Below 25 C; light protection",
+    "source_version": [
+      "S21-konakion"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_KONAKION",
+      "product_ids": [
+        "KONAKION_ADULT",
+        "KONAKION_PEDIATRIC"
+      ],
+      "source": [
+        "S21-konakion"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "Do not dilute",
+      "final_volume": null,
+      "final_concentration": "10 mg/mL",
+      "route": "Indication-specific oral/IV",
+      "administration_rate": null,
+      "compatibility": "No mixing with other injectables",
+      "stability": null,
+      "storage": "Below 25 C; light protection",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "VKA/PCC versus superwarfarin indication, route, duration and local approval unresolved; no universal regimen.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  },
+  {
+    "id": "PREP_PROTAMINE",
+    "entities": [
+      "protamine"
+    ],
+    "regimen_ids": [],
+    "source": [
+      "S22-protamine"
+    ],
+    "source_product": [
+      "PROTAMINE_HOSPIRA_10"
+    ],
+    "original_concentration": "SEE_PRODUCT_PROFILE",
+    "amount_used": "NOT_DOCUMENTED",
+    "diluent": "No new dilution",
+    "added_diluent_volume": "NOT_DOCUMENTED",
+    "final_volume_ml": "NOT_DOCUMENTED",
+    "final_concentration": "10 mg/mL",
+    "route": "IV",
+    "rate": "Exact label says <5 mg/min; existing canonical text <=5 mg/min requires reconciliation",
+    "compatibility": "No mixing with other active medicines",
+    "stability": "NOT_DOCUMENTED",
+    "storage": "2-8 C; protect light",
+    "source_version": [
+      "S22-protamine"
+    ],
+    "local_protocol": "NOT_DOCUMENTED",
+    "reconciliation": "PHARMACY_REVIEW_REQUIRED",
+    "arithmetic": "DOCUMENTARY_REFERENCE_NOT_APPROVED_RECIPE",
+    "raw": {
+      "id": "PREP_PROTAMINE",
+      "product_ids": [
+        "PROTAMINE_HOSPIRA_10"
+      ],
+      "source": [
+        "S22-protamine"
+      ],
+      "withdrawn_amount": null,
+      "diluent": "No new dilution",
+      "final_volume": null,
+      "final_concentration": "10 mg/mL",
+      "route": "IV",
+      "administration_rate": "Exact label says <5 mg/min; existing canonical text <=5 mg/min requires reconciliation",
+      "compatibility": "No mixing with other active medicines",
+      "stability": null,
+      "storage": "2-8 C; protect light",
+      "label_required": [
+        "patient/order",
+        "drug",
+        "product and lot",
+        "dose and units",
+        "final concentration",
+        "final volume",
+        "route",
+        "rate",
+        "preparation time",
+        "expiry",
+        "preparer/checker",
+        "protocol version"
+      ],
+      "status": "BLOCKED",
+      "reason": "Anticoagulant, elapsed time and residual activity determine selection. No universal rule for other LMWH or >12 h enoxaparin.",
+      "local_protocol": null,
+      "human_review": null,
+      "runtime_enabled": false
+    }
+  }
+]

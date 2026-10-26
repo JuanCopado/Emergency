@@ -1,0 +1,212 @@
+{
+  "date": "2026-10-25",
+  "branch": "v1.44-clinical-functional-validation",
+  "head": "42b7d2bbc4acaa19c5072ad9a5fccbbaa19de95d",
+  "metrics": [
+    [
+      1,
+      "Principios activos/nombres identificados",
+      255,
+      "Nombres documentados según diccionario conciliado; 18 complejos aparte. Total molecular exhaustivo: NOT_DETERMINABLE."
+    ],
+    [
+      2,
+      "Combinaciones farmacológicas explícitas",
+      7,
+      "Combinaciones registradas; concentración distinta no crea medicamento."
+    ],
+    [
+      3,
+      "Registros fuente adultos",
+      59,
+      "Registros, no regímenes clínicos únicos."
+    ],
+    [
+      4,
+      "Registros fuente pediátricos",
+      163,
+      "Registros, no regímenes clínicos únicos."
+    ],
+    [
+      5,
+      "Presentaciones/descriptores",
+      93,
+      "19 perfiles regulatorios nombrados; no son 93 productos locales ni SKUs confirmados."
+    ],
+    [
+      6,
+      "Referencias de preparación/dilución",
+      47,
+      "26 adultas + 10 pediátricas + 11 del dossier; no 47 recetas locales completas."
+    ],
+    [
+      7,
+      "Protocolos locales conciliados registrados",
+      0,
+      "Sin incorporación nueva; dossier y cola actual sin protocolo/firmas locales. Referencias o casillas de confirmación no cuentan."
+    ],
+    [
+      8,
+      "Archivos de calculadoras farmacológicas",
+      16,
+      "Incluye fluidos/hemoderivados; 5 fórmulas genéricas dentro de esos motores."
+    ],
+    [
+      9,
+      "Registros con evidencia de UI funcional",
+      133,
+      "IDs recontados en artefactos preservados; evidencia de navegador del 17/10/2026, no ejecución nueva."
+    ],
+    [
+      10,
+      "Registros con evidencia de exportación funcional",
+      116,
+      "JSON individual o cuatro formatos según contrato; no cuatro formatos para todos."
+    ],
+    [
+      11,
+      "Registros con evidencia automatizada individual",
+      201,
+      "Incluye fallos y bloqueos esperados; no significa todos aprobados."
+    ],
+    [
+      12,
+      "Registros con al menos un caso STOP documentado",
+      135,
+      "No verifica exhaustivamente todos los gates; no nueva ejecución."
+    ],
+    [
+      13,
+      "Registros con evidencia local completa y aprobación profesional",
+      0,
+      "Revisión profesional nominal y fechada requerida; no existe nueva firma."
+    ],
+    [
+      14,
+      "Descriptores pendientes de identidad exacta de producto",
+      74,
+      "Lista de IDs en current-statistics.json; no equivale a stock."
+    ],
+    [
+      15,
+      "Entidades pendientes de revisión farmacéutica",
+      273,
+      "255 nombres + 18 complejos; incluye menciones/exposiciones, no sólo tratamientos implementados."
+    ],
+    [
+      16,
+      "Entidades pendientes de revisión médica",
+      273,
+      "Misma cola documental; cero aprobaciones nuevas."
+    ],
+    [
+      17,
+      "Registros con discrepancia de unidad reproducida",
+      44,
+      "Además 2 registros de ceftriaxona en conflicto de fuente/población, conflicto de protamina y defectos transversales; total global de afectados: NOT_DETERMINABLE."
+    ],
+    [
+      18,
+      "Bloques P0/P1/P2/P3",
+      {
+        "P0": 0,
+        "P1": 4,
+        "P2": 8,
+        "P3": 2
+      },
+      "Hallazgos independientes; detalles P2 y celdas omitidas no se suman como bloques nuevos."
+    ]
+  ],
+  "missing_product_identity_ids": [
+    "PROD-ebfb05eadfbe",
+    "PROD-faa2aca35278",
+    "PROD-c4998ea7f381",
+    "PROD-e90be151307d",
+    "PROD-5ae460df6ed3",
+    "PROD-207d43bbf069",
+    "PROD-0d1a1ec36753",
+    "PROD-29618c53dfb6",
+    "PROD-c0e11a18230d",
+    "PROD-4542db9713d4",
+    "PROD-f3cac6121f5e",
+    "PROD-178cf7ad783c",
+    "PROD-d989c1368454",
+    "PROD-ec5b00903c68",
+    "PROD-c86984847212",
+    "PROD-085bc35b7525",
+    "PROD-49085f7df6fe",
+    "PROD-2095557193e6",
+    "PROD-9913eb20f6e8",
+    "PROD-e4718a11c0b4",
+    "PROD-428126daf4e4",
+    "PROD-4dfce9345854",
+    "PROD-df4ec4f71330",
+    "PROD-fa4fffa7cc83",
+    "PROD-cd2a46c836f8",
+    "PROD-549cad87da79",
+    "PROD-0f6a974b50f8",
+    "PROD-69e34acb0e4f",
+    "PROD-2fb055126516",
+    "PROD-955fe597564b",
+    "PROD-d9fc4fff4064",
+    "PROD-a8ca12970ef6",
+    "PROD-db02be00fe45",
+    "PROD-2eed33044c3e",
+    "PROD-fb71059fe039",
+    "PROD-fbed1d9b83ed",
+    "PROD-d56c27692f46",
+    "PROD-d9ef99c84302",
+    "PROD-b5c295e8898a",
+    "PROD-a1fa12df6ac3",
+    "PROD-7de766a3a019",
+    "PROD-afc712d30e4d",
+    "PROD-6c4e3c1b064a",
+    "PROD-226922dd416c",
+    "PROD-9ade112abef0",
+    "PROD-7e32116d182d",
+    "PROD-7068a44ac260",
+    "PROD-e85f80dc00ba",
+    "PROD-36749fb55a80",
+    "PROD-34c38a86697e",
+    "PROD-722c2c8daa17",
+    "PROD-f12bd6574955",
+    "PROD-ef7d47e2d690",
+    "PROD-9ee1dc5a3135",
+    "PROD-ff6e38e9e337",
+    "PROD-4281998c0a13",
+    "PROD-0a78018090d0",
+    "PROD-8b853d75cb26",
+    "PROD-45ac3482db68",
+    "PROD-274b0deee709",
+    "PROD-1c237f401b43",
+    "PROD-dd2fb388c00d",
+    "PROD-e109eab6fd71",
+    "PROD-5cfbead5220d",
+    "PROD-d19c4a0e91e2",
+    "PROD-9a91cd308420",
+    "PROD-72fa56297435",
+    "PROD-997b243e6a92",
+    "PROD-d7a9784f9fe2",
+    "PROD-25861f809797",
+    "PROD-7eb9d36cd984",
+    "PROD-4f5f171fc343",
+    "PROD-bf0f1d189abd",
+    "PROD-cf1907c8fb44"
+  ],
+  "source_hashes": {
+    "clinical/qa/global-medication-audit-v144/entity-inventory.json": "13cce0812ef609dd2cfd2dca2afdfbdb37f1ea4b19569a1aaa7072f876a986c1",
+    "clinical/qa/global-medication-audit-v144/combinations.json": "07252748f761a4e9eb83183e26fa17dddf9243e40119b9c96716f11c5721ef9a",
+    "clinical/qa/global-medication-audit-v144/regimens.json": "0f2c975722c04c7402da28d02d106c8fec9f69bd71929c7e9a8ab94b0dbf84be",
+    "clinical/qa/global-medication-audit-v144/products.json": "97d1ab95edebd3c46074c06c9d806e8d5b05cc14578be8e86d96819e76d0a502",
+    "clinical/qa/global-medication-audit-v144/preparations.json": "0b7c8e219d4edf07bee5e570d3126ef1b6d50ba0f93cb2c1839bfafd22e76861",
+    "clinical/qa/global-medication-audit-v144/calculator-manifest.json": "5922cc401d3d3b9112fb3dceba8577acb1264f6aef9a5b0d04c9b26d96a2468f",
+    "clinical/qa/global-medication-audit-v144/review-queue.json": "866f1cef1d1726f95a7276a82b9e1690228d3da144efbfda117525e8edacb3f1",
+    "clinical/qa/global-medication-audit-v144/findings.json": "c9793035d043be53340f7b5c458222fa0cdbd8c29f885aeae9ad68011afb946b",
+    "clinical/qa/global-medication-audit-v144/probes.json": "805f1eaaf5983483ace7b0d0d54e7ab4c33bd446e72b81dca6ad37cf745c7fff"
+  },
+  "complex_entities": 18,
+  "clinical_status": "CLINICALLY_PENDING",
+  "new_browser_runs": 0,
+  "new_clinical_approvals": 0,
+  "global_semantic_audit_complete": false
+}

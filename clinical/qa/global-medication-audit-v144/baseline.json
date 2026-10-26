@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-18",
+  "timezone": "Atlantic/Azores",
+  "head": "42b7d2bbc4acaa19c5072ad9a5fccbbaa19de95d",
+  "branch": "v1.44-clinical-functional-validation",
+  "initial_worktree": "CLEAN",
+  "protected_refs": {
+    "refs/remotes/origin/main": "4f37263f581c41874fd3253147e6679b0b0685d8",
+    "refs/heads/v1.42-rc1": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+    "refs/heads/v1.42-codex-consolidation": "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+    "refs/heads/v1.43-clinical-ui-validation": "737bb1b8dce5ffbdb296bb0c99d134ea318c8298"
+  },
+  "evidence_registry_sha256": "adbb9d78d871a6b971a0722e5e73afe7047d67f281c7c5894c75003050ee8243",
+  "prior_source_file_hash_comparison": {
+    "clinical/modules/cardiovascular.md": true,
+    "clinical/modules/clinical-images.md": true,
+    "clinical/modules/clinical-scores-calculators.md": true,
+    "clinical/modules/disposition-crosscutting.md": true,
+    "clinical/modules/documentation-governance.md": true,
+    "clinical/modules/emergency-procedures-index.md": true,
+    "clinical/modules/emergency-procedures-physician-visual-index.md": true,
+    "clinical/modules/emergency-procedures-visual.md": true,
+    "clinical/modules/image-modalities.md": true,
+    "clinical/modules/infection-respiratory.md": true,
+    "clinical/modules/neurologic.md": true,
+    "clinical/modules/procedures-pharmacology.md": true,
+    "clinical/modules/renal-metabolic.md": true,
+    "clinical/modules/special-populations.md": true,
+    "clinical/modules/trauma-surgical.md": true,
+    "clinical/references/evidence-registry.json": true,
+    "clinical/qa/localization-portugal-azores.json": true,
+    "clinical/scripts/acute_medication_api.py": true,
+    "clinical/scripts/acute_medication_contracts.py": true,
+    "app/src/pages/AcuteMedications.tsx": true
+  },
+  "clinical_status": "CLINICALLY_PENDING",
+  "scope": "audit-only; not clinical implementation or professional approval"
+}

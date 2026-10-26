@@ -1,0 +1,29 @@
+[
+  {
+    "name": "acenocoumarol",
+    "aliases": [
+      "acenocumarol"
+    ],
+    "source": "clinical/modules/procedures-pharmacology.md:77",
+    "role": "ANTICOAGULANT_EXPOSURE_FOR_REVERSAL",
+    "official_identity": "sources/acenocumarol-aemps.html"
+  },
+  {
+    "name": "urokinase",
+    "aliases": [
+      "uroquinasa"
+    ],
+    "source": "clinical/modules/procedures-pharmacology.md:119",
+    "role": "FIBRINOLYTIC_EXPOSURE_FOR_BLEEDING_MANAGEMENT",
+    "official_identity": "NOT_RECHECKED"
+  },
+  {
+    "name": "aminocaproic acid",
+    "aliases": [
+      "aminocaproico"
+    ],
+    "source": "clinical/modules/procedures-pharmacology.md:119",
+    "role": "CONDITIONAL_TREATMENT_MENTION_WITHOUT_DOSE",
+    "official_identity": "NOT_RECHECKED"
+  }
+]

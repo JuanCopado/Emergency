@@ -1,0 +1,2456 @@
+[
+  {
+    "id": "PROD-ebfb05eadfbe",
+    "entities": [
+      "paracetamol"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 24,
+      "label": "120 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 24,
+      "label": "120 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:23 #paracetamol-pain-fever-home"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-faa2aca35278",
+    "entities": [
+      "ibuprofen"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 20,
+      "label": "100 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 20,
+      "label": "100 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:70 #ibuprofen-pain-fever-home"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-c4998ea7f381",
+    "entities": [
+      "cetirizine"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 1,
+      "label": "1 mg/mL oral solution"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 1,
+      "label": "1 mg/mL oral solution"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:190 #cetirizine-urticaria-6to11mo",
+      "clinical/qa/pediatric-outpatient-medications.json:233 #cetirizine-urticaria-ge1y"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-e90be151307d",
+    "entities": [
+      "loratadine"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 1,
+      "label": "1 mg/mL syrup"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 1,
+      "label": "1 mg/mL syrup"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:296 #loratadine-allergic-rhinitis-urticaria"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-5ae460df6ed3",
+    "entities": [
+      "desloratadine"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 0.5,
+      "label": "0.5 mg/mL oral solution"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 0.5,
+      "label": "0.5 mg/mL oral solution"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:335 #desloratadine-allergic-rhinitis-urticaria"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-207d43bbf069",
+    "entities": [
+      "dexamethasone"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 0.4,
+      "label": "2 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 0.4,
+      "label": "2 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:537 #dexamethasone-asthma-1to11y",
+      "clinical/qa/pediatric-outpatient-medications.json:590 #dexamethasone-croup-mild-moderate"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-0d1a1ec36753",
+    "entities": [
+      "salbutamol"
+    ],
+    "route": "inhaled",
+    "description": "100 microgram/puff pMDI + spacer",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "100 microgram/puff pMDI + spacer",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:636 #salbutamol-asthma-discharge-rch"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-29618c53dfb6",
+    "entities": [
+      "amoxicillin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 50,
+      "label": "250 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 50,
+      "label": "250 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:669 #amoxicillin-aom",
+      "clinical/qa/pediatric-outpatient-medications.json:711 #amoxicillin-cap-outpatient",
+      "clinical/qa/pediatric-outpatient-medications.json:763 #amoxicillin-dental-abscess",
+      "clinical/qa/pediatric-outpatient-medications.json:3669 #amoxicillin-gas-sore-throat-adherence"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-c0e11a18230d",
+    "entities": [
+      "amoxicillin",
+      "clavulanic acid"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 80,
+      "label": "400/57 mg per 5 mL; amoxicillin component 80 mg/mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 80,
+      "label": "400/57 mg per 5 mL; amoxicillin component 80 mg/mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:806 #amox-clav-bite"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-4542db9713d4",
+    "entities": [
+      "amoxicillin",
+      "clavulanic acid"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 80,
+      "label": "400/57 mg per 5 mL; amoxicillin component"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 80,
+      "label": "400/57 mg per 5 mL; amoxicillin component"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:859 #amox-clav-preseptal-stepdown"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-f3cac6121f5e",
+    "entities": [
+      "cefalexin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 50,
+      "label": "250 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 50,
+      "label": "250 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:915 #cefalexin-cellulitis",
+      "clinical/qa/pediatric-outpatient-medications.json:968 #cefalexin-preseptal",
+      "clinical/qa/pediatric-outpatient-medications.json:1024 #cefalexin-cystitis",
+      "clinical/qa/pediatric-outpatient-medications.json:1072 #cefalexin-pyelonephritis-lt12mo",
+      "clinical/qa/pediatric-outpatient-medications.json:1132 #cefalexin-pyelonephritis-ge12mo",
+      "clinical/qa/pediatric-outpatient-medications.json:2091 #cefalexin-impetigo-extensive",
+      "clinical/qa/pediatric-outpatient-medications.json:2134 #cefalexin-cervical-lymphadenitis-mild",
+      "clinical/qa/pediatric-outpatient-medications.json:3347 #cefalexin-infected-eczema-bacterial",
+      "clinical/qa/pediatric-outpatient-medications.json:3716 #cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-178cf7ad783c",
+    "entities": [
+      "sulfamethoxazole",
+      "trimethoprim"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 8,
+      "label": "40 mg TMP/200 mg SMX per 5 mL; TMP 8 mg/mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 8,
+      "label": "40 mg TMP/200 mg SMX per 5 mL; TMP 8 mg/mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1191 #tmp-smx-mrsa-skin"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-d989c1368454",
+    "entities": [
+      "clindamycin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 15,
+      "label": "75 mg/5 mL oral solution"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 15,
+      "label": "75 mg/5 mL oral solution"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1236 #clindamycin-mrsa-skin"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-ec5b00903c68",
+    "entities": [
+      "azithromycin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 40,
+      "label": "200 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 40,
+      "label": "200 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1279 #azithromycin-pertussis-lt6mo",
+      "clinical/qa/pediatric-outpatient-medications.json:1323 #azithromycin-pertussis-ge6mo"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-c86984847212",
+    "entities": [
+      "clarithromycin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 25,
+      "label": "125 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 25,
+      "label": "125 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1378 #clarithromycin-pertussis-ge1mo"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-085bc35b7525",
+    "entities": [
+      "sulfamethoxazole",
+      "trimethoprim"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 8,
+      "label": "TMP 8 mg/mL in 40/200 mg per 5 mL suspension"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 8,
+      "label": "TMP 8 mg/mL in 40/200 mg per 5 mL suspension"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1424 #tmp-smx-pertussis-ge6wk"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-49085f7df6fe",
+    "entities": [
+      "nitrofurantoin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 5,
+      "label": "25 mg/5 mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 5,
+      "label": "25 mg/5 mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1465 #nitrofurantoin-cystitis-nice-3d",
+      "clinical/qa/pediatric-outpatient-medications.json:1540 #nitrofurantoin-cystitis-smpc-7d"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-2095557193e6",
+    "entities": [
+      "oseltamivir"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 6,
+      "label": "6 mg/mL oral suspension"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 6,
+      "label": "6 mg/mL oral suspension"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1615 #oseltamivir-influenza-lt1y",
+      "clinical/qa/pediatric-outpatient-medications.json:1662 #oseltamivir-influenza-ge1y"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-9913eb20f6e8",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "IM auto-injector",
+    "description": "EpiPen Jr 150 micrograms",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "EpiPen Jr 150 micrograms",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1734 #epinephrine-autoinjector-discharge-rch"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-e4718a11c0b4",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "IM auto-injector",
+    "description": "EpiPen 300 micrograms",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "EpiPen 300 micrograms",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1734 #epinephrine-autoinjector-discharge-rch"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-428126daf4e4",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "IM auto-injector",
+    "description": "500 microgram device may be considered in adolescents >12 years where locally available; 300 microgram device remains product/pathway dependent",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "500 microgram device may be considered in adolescents >12 years where locally available; 300 microgram device remains product/pathway dependent",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1734 #epinephrine-autoinjector-discharge-rch"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-4dfce9345854",
+    "entities": [
+      "mupirocin"
+    ],
+    "route": "topical",
+    "description": "mupirocin 2%",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "mupirocin 2%",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1770 #mupirocin-localized-impetigo"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-df4ec4f71330",
+    "entities": [
+      "clarithromycin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 25,
+      "label": "125 mg/5 mL oral suspension"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 25,
+      "label": "125 mg/5 mL oral suspension"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:1785 #clarithromycin-aom-penicillin-allergy",
+      "clinical/qa/pediatric-outpatient-medications.json:1933 #clarithromycin-sinusitis-penicillin-allergy",
+      "clinical/qa/pediatric-outpatient-medications.json:2013 #clarithromycin-cap-penicillin-allergy"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-fa4fffa7cc83",
+    "entities": [
+      "fluticasone propionate"
+    ],
+    "route": "inhaled",
+    "description": "fluticasone propionate 50 microgram/actuation pMDI + spacer",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "fluticasone propionate 50 microgram/actuation pMDI + spacer",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2190 #fluticasone-controller-preschool"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-cd2a46c836f8",
+    "entities": [
+      "ciclesonide"
+    ],
+    "route": "inhaled",
+    "description": "ciclesonide 80 microgram/actuation",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "ciclesonide 80 microgram/actuation",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2247 #ciclesonide-controller-6to11-step2"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-549cad87da79",
+    "entities": [
+      "fluticasone propionate"
+    ],
+    "route": "inhaled",
+    "description": "fluticasone propionate 50 microgram/actuation",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "fluticasone propionate 50 microgram/actuation",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2271 #fluticasone-controller-6to11-step2"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-0f6a974b50f8",
+    "entities": [
+      "budesonide",
+      "formoterol"
+    ],
+    "route": "inhaled",
+    "description": "budesonide/formoterol pMDI 100/3 micrograms",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "budesonide/formoterol pMDI 100/3 micrograms",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2323 #budesonide-formoterol-controller-6to11-step3-rch"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-69e34acb0e4f",
+    "entities": [
+      "budesonide",
+      "formoterol"
+    ],
+    "route": "inhaled",
+    "description": "DPI 200/6 micrograms: 1 inhalation twice daily",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "DPI 200/6 micrograms: 1 inhalation twice daily",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2323 #budesonide-formoterol-controller-6to11-step3-rch"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-2fb055126516",
+    "entities": [
+      "budesonide",
+      "formoterol"
+    ],
+    "route": "inhaled",
+    "description": "budesonide/formoterol delivered 80/4.5 micrograms (metered 100/6) per inhalation",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "budesonide/formoterol delivered 80/4.5 micrograms (metered 100/6) per inhalation",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2348 #budesonide-formoterol-air-mart-6to11-gina2026"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-955fe597564b",
+    "entities": [
+      "budesonide",
+      "formoterol"
+    ],
+    "route": "inhaled",
+    "description": "budesonide/formoterol delivered 160/4.5 micrograms (metered 200/6) per inhalation",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "budesonide/formoterol delivered 160/4.5 micrograms (metered 200/6) per inhalation",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2374 #budesonide-formoterol-air-mart-12to17-gina2026"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-d9fc4fff4064",
+    "entities": [
+      "hydrocortisone"
+    ],
+    "route": "topical",
+    "description": "hydrocortisone 1% (10 mg/g)",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "hydrocortisone 1% (10 mg/g)",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2400 #hydrocortisone1-eczema-sensitive-mild"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-a8ca12970ef6",
+    "entities": [
+      "methylprednisolone aceponate"
+    ],
+    "route": "topical",
+    "description": "methylprednisolone aceponate 0.1%",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "methylprednisolone aceponate 0.1%",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2426 #methylprednisolone-aceponate-eczema-body-moderate"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-db02be00fe45",
+    "entities": [
+      "mometasone furoate"
+    ],
+    "route": "topical",
+    "description": "mometasone furoate 0.1%",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "mometasone furoate 0.1%",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2446 #mometasone-eczema-body-severe"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-2eed33044c3e",
+    "entities": [
+      "pimecrolimus"
+    ],
+    "route": "topical",
+    "description": "pimecrolimus 1% cream",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "pimecrolimus 1% cream",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2466 #pimecrolimus-eczema-sensitive-secondline"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-fb71059fe039",
+    "entities": [
+      "permethrin"
+    ],
+    "route": "topical",
+    "description": "permethrin 5% cream",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "permethrin 5% cream",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2487 #permethrin5-scabies"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-fbed1d9b83ed",
+    "entities": [
+      "clotrimazole"
+    ],
+    "route": "topical",
+    "description": "clotrimazole 1% cream",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "clotrimazole 1% cream",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2507 #clotrimazole1-tinea-corporis",
+      "clinical/qa/pediatric-outpatient-medications.json:2530 #clotrimazole1-cutaneous-candida"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-d56c27692f46",
+    "entities": [
+      "macrogol 3350",
+      "macrogol with electrolytes"
+    ],
+    "route": "PO",
+    "description": "macrogol 3350 6.563 g per paediatric sachet",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "macrogol 3350 6.563 g per paediatric sachet",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2601 #macrogol3350-electrolytes-constipation-maintenance-1to11",
+      "clinical/qa/pediatric-outpatient-medications.json:2645 #macrogol3350-electrolytes-disimpaction-5to11"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-d9ef99c84302",
+    "entities": [
+      "lactulose"
+    ],
+    "route": "PO",
+    "description": "3.335 g/5 mL (667 mg/mL)",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "3.335 g/5 mL (667 mg/mL)",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2716 #lactulose-constipation-1mo18y"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-b5c295e8898a",
+    "entities": [
+      "albendazole"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 20,
+      "label": "400 mg/20 mL oral suspension (Zentel strength documented in Portugal product information; current local stock still requires Infomed/Azores confirmation)"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 20,
+      "label": "400 mg/20 mL oral suspension (Zentel strength documented in Portugal product information; current local stock still requires Infomed/Azores confirmation)"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2771 #albendazole-pinworm-ge2y"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-a1fa12df6ac3",
+    "entities": [
+      "albendazole"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 20,
+      "label": "400 mg/20 mL oral suspension strength documented in Portugal; verify current exact product"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 20,
+      "label": "400 mg/20 mL oral suspension strength documented in Portugal; verify current exact product"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2920 #albendazole-ascariasis-ge2y"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-7de766a3a019",
+    "entities": [
+      "aciclovir"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 40,
+      "label": "200 mg/5 mL oral suspension"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 40,
+      "label": "200 mg/5 mL oral suspension"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2969 #acyclovir-varicella-standard-renal",
+      "clinical/qa/pediatric-outpatient-medications.json:3036 #acyclovir-hsv-mucocutaneous-standard-renal"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-afc712d30e4d",
+    "entities": [
+      "aciclovir"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 80,
+      "label": "400 mg/5 mL oral suspension"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 80,
+      "label": "400 mg/5 mL oral suspension"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:2969 #acyclovir-varicella-standard-renal",
+      "clinical/qa/pediatric-outpatient-medications.json:3036 #acyclovir-hsv-mucocutaneous-standard-renal"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-6c4e3c1b064a",
+    "entities": [
+      "chloramphenicol"
+    ],
+    "route": "ophthalmic",
+    "description": "chloramphenicol 0.5% eye drops",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "chloramphenicol 0.5% eye drops",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3109 #chloramphenicol05-bacterial-conjunctivitis"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-226922dd416c",
+    "entities": [
+      "ciprofloxacin",
+      "dexamethasone"
+    ],
+    "route": "otic",
+    "description": "ciprofloxacin 3 mg/mL + dexamethasone 1 mg/mL ear drops",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "ciprofloxacin 3 mg/mL + dexamethasone 1 mg/mL ear drops",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3154 #ciprofloxacin-dexamethasone-aoe-ge1y"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-9ade112abef0",
+    "entities": [
+      "ciprofloxacin"
+    ],
+    "route": "otic",
+    "description": "ciprofloxacin 2 mg/mL ear drops",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "ciprofloxacin 2 mg/mL ear drops",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3179 #ciprofloxacin-aoe-ge1y-intact-tm"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-7e32116d182d",
+    "entities": [
+      "lidocaine",
+      "phenazone"
+    ],
+    "route": "otic",
+    "description": "phenazone 40 mg/g + lidocaine 10 mg/g ear drops",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "phenazone 40 mg/g + lidocaine 10 mg/g ear drops",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3203 #phenazone-lidocaine-aom-pain"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-7068a44ac260",
+    "entities": [
+      "ondansetron"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 0.8,
+      "label": "4 mg/5 mL syrup"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 0.8,
+      "label": "4 mg/5 mL syrup"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3278 #ondansetron-migraine-vomiting-ed"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-e85f80dc00ba",
+    "entities": [
+      "dimeticone"
+    ],
+    "route": "topical",
+    "description": "dimeticone 4% lotion",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "dimeticone 4% lotion",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3328 #dimeticone4-head-lice"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-36749fb55a80",
+    "entities": [
+      "mometasone furoate"
+    ],
+    "route": "intranasal",
+    "description": "mometasone furoate 50 micrograms/actuation",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "mometasone furoate 50 micrograms/actuation",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3408 #mometasone-nasal-allergic-rhinitis"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-34c38a86697e",
+    "entities": [
+      "fluticasone propionate"
+    ],
+    "route": "intranasal",
+    "description": "fluticasone propionate 50 micrograms/actuation",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "fluticasone propionate 50 micrograms/actuation",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3448 #fluticasone-propionate-nasal-allergic-rhinitis"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-722c2c8daa17",
+    "entities": [
+      "azelastine",
+      "fluticasone propionate"
+    ],
+    "route": "intranasal",
+    "description": "azelastine hydrochloride 137 mcg + fluticasone propionate 50 mcg/actuation",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "azelastine hydrochloride 137 mcg + fluticasone propionate 50 mcg/actuation",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3488 #azelastine-fluticasone-nasal-ge12"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-f12bd6574955",
+    "entities": [
+      "olopatadine"
+    ],
+    "route": "ophthalmic",
+    "description": "olopatadine 1 mg/mL eye drops",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "olopatadine 1 mg/mL eye drops",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3518 #olopatadine-allergic-conjunctivitis-ge3"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-ef7d47e2d690",
+    "entities": [
+      "ketotifen"
+    ],
+    "route": "ophthalmic",
+    "description": "ketotifen 0.25 mg/mL eye drops",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "topical",
+    "concentration_content_units": "ketotifen 0.25 mg/mL eye drops",
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3550 #ketotifen-eye-allergic-conjunctivitis-ge3"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-9ee1dc5a3135",
+    "entities": [
+      "phenoxymethylpenicillin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 25,
+      "label": "125 mg/5 mL oral solution"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 25,
+      "label": "125 mg/5 mL oral solution"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3633 #phenoxymethylpenicillin-gas-sore-throat"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-ff6e38e9e337",
+    "entities": [
+      "phenoxymethylpenicillin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 50,
+      "label": "250 mg/5 mL oral solution"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 50,
+      "label": "250 mg/5 mL oral solution"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3633 #phenoxymethylpenicillin-gas-sore-throat"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-4281998c0a13",
+    "entities": [
+      "amoxicillin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 100,
+      "label": "500 mg/5 mL where exact product verified"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 100,
+      "label": "500 mg/5 mL where exact product verified"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3669 #amoxicillin-gas-sore-throat-adherence"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-0a78018090d0",
+    "entities": [
+      "azithromycin"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 40,
+      "label": "200 mg/5 mL oral suspension"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 40,
+      "label": "200 mg/5 mL oral suspension"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3764 #azithromycin-gas-sore-throat-immediate-beta-lactam-allergy"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-8b853d75cb26",
+    "entities": [
+      "trimethoprim"
+    ],
+    "route": "PO",
+    "description": {
+      "mg_per_ml": 10,
+      "label": "50 mg/5 mL oral suspension"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "mg_per_ml": 10,
+      "label": "50 mg/5 mL oral suspension"
+    },
+    "sources": [
+      "clinical/qa/pediatric-outpatient-medications.json:3816 #trimethoprim-cystitis-low-resistance"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-45ac3482db68",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "IM anterolateral thigh",
+    "description": {
+      "value": 1,
+      "unit": "mg/mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "value": 1,
+      "unit": "mg/mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-bolus-medications.json:7 #anaphylaxis-epinephrine-im"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-274b0deee709",
+    "entities": [
+      "glucose"
+    ],
+    "route": "IV/IO",
+    "description": {
+      "value": 0.1,
+      "unit": "g/mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "value": 0.1,
+      "unit": "g/mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-bolus-medications.json:22 #hypoglycemia-dextrose10"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-1c237f401b43",
+    "entities": [
+      "fentanyl"
+    ],
+    "route": "intranasal",
+    "description": {
+      "value": 50,
+      "unit": "micrograms/mL"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "value": 50,
+      "unit": "micrograms/mL"
+    },
+    "sources": [
+      "clinical/qa/pediatric-bolus-medications.json:191 #pain-fentanyl-intranasal"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-dd2fb388c00d",
+    "entities": [
+      "amiodarone"
+    ],
+    "route": "IV",
+    "description": {
+      "value": 50,
+      "unit": "mg/mL",
+      "role": "stock"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "value": 50,
+      "unit": "mg/mL",
+      "role": "stock"
+    },
+    "sources": [
+      "clinical/scripts/acute_medication_contracts.py:21 #amiodarone-arrest-third",
+      "clinical/scripts/acute_medication_contracts.py:26 #amiodarone-arrest-fifth",
+      "clinical/scripts/acute_medication_contracts.py:32 #amiodarone-failed-cardioversion",
+      "clinical/scripts/acute_medication_contracts.py:38 #amiodarone-maintenance"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-e109eab6fd71",
+    "entities": [
+      "sodium chloride"
+    ],
+    "route": "IV",
+    "description": {
+      "value": 3,
+      "unit": "%",
+      "role": "ready-to-use"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "value": 3,
+      "unit": "%",
+      "role": "ready-to-use"
+    },
+    "sources": [
+      "clinical/scripts/acute_medication_contracts.py:110 #sodium-hyponatremia",
+      "clinical/scripts/acute_medication_contracts.py:122 #sodium-icp"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-5cfbead5220d",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "IM",
+    "description": {
+      "value": 1,
+      "unit": "mg/mL",
+      "role": "IM product"
+    },
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": {
+      "value": 1,
+      "unit": "mg/mL",
+      "role": "IM product"
+    },
+    "sources": [
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-adult",
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-over12",
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-6to12",
+      "clinical/scripts/acute_medication_contracts.py #anaphylaxis-6monthsto6"
+    ],
+    "kind": "CONCENTRATION_OR_FORMULATION_DESCRIPTOR",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {}
+  },
+  {
+    "id": "PROD-6ab9779a58d7",
+    "entities": [
+      "amiodarone"
+    ],
+    "route": "IV",
+    "description": "50 mg/mL hydrochloride",
+    "product_identity": "Trangorex",
+    "pharmaceutical_form": "solution for injection",
+    "concentration_content_units": "50 mg/mL hydrochloride",
+    "sources": [
+      "S08-trangorex"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "AMIO_TRANGOREX_150_3",
+      "drug": "amiodarone",
+      "generic_name": "amiodarone",
+      "product_name": "Trangorex",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "50 mg/mL hydrochloride",
+      "container_volume_ml": 3,
+      "authorised_route": "IV",
+      "relevant_excipients": "Benzyl alcohol 60 mg/ampoule; polysorbate 80",
+      "stability": "Unopened 2 years; post-dilution window not established in the reviewed label",
+      "compatibility": "Glucose 5% only; concentration at least 0.6 mg/mL; do not mix other drugs; avoid DEHP equipment",
+      "storage": "Below 25 C; original light-protective packaging",
+      "source": "S08-trangorex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-7cabd3a565b2",
+    "entities": [
+      "insulin"
+    ],
+    "route": "SC; IV by professionals",
+    "description": "40 IU/mL",
+    "product_identity": "Actrapid vial",
+    "pharmaceutical_form": "solution for injection",
+    "concentration_content_units": "40 IU/mL",
+    "sources": [
+      "S09-actrapid"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "ACTRAPID_VIAL_40",
+      "drug": "human soluble insulin",
+      "generic_name": "human soluble insulin",
+      "product_name": "Actrapid vial",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "40 IU/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "SC; IV by professionals",
+      "relevant_excipients": "Metacresol, glycerol, zinc",
+      "stability": "Labelled IV mixtures 24 h at room temperature in polypropylene; vial in use 4 weeks below 25 C",
+      "compatibility": "Only labelled compatible infusion media; adsorption requires monitoring; thiols/sulfites may degrade insulin",
+      "storage": "Unopened 2-8 C, do not freeze; protect light",
+      "source": "S09-actrapid",
+      "regulatory_scope": "EU/EMA; marketed presentation and local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S27-actrapid-pt"
+    }
+  },
+  {
+    "id": "PROD-e5b48ccc583b",
+    "entities": [
+      "insulin"
+    ],
+    "route": "SC; IV by professionals",
+    "description": "100 IU/mL",
+    "product_identity": "Actrapid vial",
+    "pharmaceutical_form": "solution for injection",
+    "concentration_content_units": "100 IU/mL",
+    "sources": [
+      "S09-actrapid"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "ACTRAPID_VIAL_100",
+      "drug": "human soluble insulin",
+      "generic_name": "human soluble insulin",
+      "product_name": "Actrapid vial",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "100 IU/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "SC; IV by professionals",
+      "relevant_excipients": "Metacresol, glycerol, zinc",
+      "stability": "Labelled IV mixtures 24 h at room temperature in polypropylene; vial in use 6 weeks below 25 C",
+      "compatibility": "Only labelled compatible infusion media; adsorption requires monitoring; thiols/sulfites may degrade insulin",
+      "storage": "Unopened 2-8 C, do not freeze; protect light",
+      "source": "S09-actrapid",
+      "regulatory_scope": "EU/EMA; marketed presentation and local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S27-actrapid-pt"
+    }
+  },
+  {
+    "id": "PROD-002a46727d9f",
+    "entities": [
+      "insulin"
+    ],
+    "route": "SC only",
+    "description": "100 IU/mL",
+    "product_identity": "Actrapid Penfill",
+    "pharmaceutical_form": "cartridge",
+    "concentration_content_units": "100 IU/mL",
+    "sources": [
+      "S09-actrapid"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "ACTRAPID_PENFILL_100",
+      "drug": "human soluble insulin",
+      "generic_name": "human soluble insulin",
+      "product_name": "Actrapid Penfill",
+      "pharmaceutical_form": "cartridge",
+      "concentration": "100 IU/mL",
+      "container_volume_ml": 3,
+      "authorised_route": "SC only",
+      "relevant_excipients": "Same active product family; do not infer route interchangeability",
+      "stability": "In use 6 weeks below 30 C",
+      "compatibility": "Not an IV presentation; use a vial when IV administration is required",
+      "storage": "Unopened 2-8 C, do not freeze; light protection",
+      "source": "S09-actrapid",
+      "regulatory_scope": "EU/EMA; local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S27-actrapid-pt"
+    }
+  },
+  {
+    "id": "PROD-c20a8199e8c0",
+    "entities": [
+      "sodium chloride"
+    ],
+    "route": "IV after dilution only",
+    "description": "200 mg/mL",
+    "product_identity": "Cloruro de Sodio B. Braun 20%",
+    "pharmaceutical_form": "concentrate for infusion",
+    "concentration_content_units": "200 mg/mL",
+    "sources": [
+      "S10-sodium-braun"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "NACL_BBRAUN_20_10",
+      "drug": "sodium chloride",
+      "generic_name": "sodium chloride",
+      "product_name": "Cloruro de Sodio B. Braun 20%",
+      "pharmaceutical_form": "concentrate for infusion",
+      "concentration": "200 mg/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "IV after dilution only",
+      "relevant_excipients": "Water for injections",
+      "stability": "Dilutions: immediate microbiological use; conditional storage does not validate a specific 3% recipe",
+      "compatibility": "Mixture-specific compatibility required; not ready-to-administer 3%",
+      "storage": "No special unopened storage requirements",
+      "source": "S10-sodium-braun",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-2b2dc4648179",
+    "entities": [
+      "phenytoin"
+    ],
+    "route": "IV",
+    "description": "50 mg/mL",
+    "product_identity": "Fenitoina Rubio",
+    "pharmaceutical_form": "solution for injection",
+    "concentration_content_units": "50 mg/mL",
+    "sources": [
+      "S12-phenytoin"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "PHENYTOIN_RUBIO_2",
+      "drug": "phenytoin sodium",
+      "generic_name": "phenytoin sodium",
+      "product_name": "Fenitoina Rubio",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "50 mg/mL",
+      "container_volume_ml": 2,
+      "authorised_route": "IV",
+      "relevant_excipients": "Ethanol, propylene glycol; alkaline solution",
+      "stability": "Unopened 3 years; post-dilution stability not specified in reviewed sections",
+      "compatibility": "Only sodium chloride 0.9%, final 1-10 mg/mL; not dextrose; no automatic substitution for mg PE",
+      "storage": "No special unopened storage requirements",
+      "source": "S12-phenytoin",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-4e558f031698",
+    "entities": [
+      "phenytoin"
+    ],
+    "route": "IV",
+    "description": "50 mg/mL",
+    "product_identity": "Fenitoina Rubio",
+    "pharmaceutical_form": "solution for injection",
+    "concentration_content_units": "50 mg/mL",
+    "sources": [
+      "S12-phenytoin"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "PHENYTOIN_RUBIO_5",
+      "drug": "phenytoin sodium",
+      "generic_name": "phenytoin sodium",
+      "product_name": "Fenitoina Rubio",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "50 mg/mL",
+      "container_volume_ml": 5,
+      "authorised_route": "IV",
+      "relevant_excipients": "Ethanol, propylene glycol; alkaline solution",
+      "stability": "Unopened 3 years; post-dilution stability not specified in reviewed sections",
+      "compatibility": "Only sodium chloride 0.9%, final 1-10 mg/mL; not dextrose; no automatic substitution for mg PE",
+      "storage": "No special unopened storage requirements",
+      "source": "S12-phenytoin",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-980d567b54b5",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "IM; IV/IO only under label-specific dilution and expertise",
+    "description": "1 mg/mL",
+    "product_identity": "Adrenalina Basi",
+    "pharmaceutical_form": "solution for injection",
+    "concentration_content_units": "1 mg/mL",
+    "sources": [
+      "S13-adrenaline-basi"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "ADRENALINE_BASI_1",
+      "drug": "epinephrine",
+      "generic_name": "epinephrine",
+      "product_name": "Adrenalina Basi",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "1 mg/mL",
+      "container_volume_ml": 1,
+      "authorised_route": "IM; IV/IO only under label-specific dilution and expertise",
+      "relevant_excipients": "Sodium metabisulfite 0.1 mg/mL",
+      "stability": "Immediate use after dilution",
+      "compatibility": "Label describes 0.1 mg/mL dilution in saline/dextrose media; this is not validation of a 0.01 mg/mL refractory infusion",
+      "storage": "Below 25 C; protect light",
+      "source": "S13-adrenaline-basi",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-d5f6846febff",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "IV/IO; not the IM 1 mg/mL presentation",
+    "description": "0.1 mg/mL",
+    "product_identity": "Adrenalina Aguettant",
+    "pharmaceutical_form": "prefilled syringe",
+    "concentration_content_units": "0.1 mg/mL",
+    "sources": [
+      "S14-adrenaline-aguettant"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "ADRENALINE_AGUETTANT_01",
+      "drug": "epinephrine",
+      "generic_name": "epinephrine",
+      "product_name": "Adrenalina Aguettant",
+      "pharmaceutical_form": "prefilled syringe",
+      "concentration": "0.1 mg/mL",
+      "container_volume_ml": 10,
+      "authorised_route": "IV/IO; not the IM 1 mg/mL presentation",
+      "relevant_excipients": "Sodium; see full excipient list",
+      "stability": "Unopened 2 years; no admixture stability established",
+      "compatibility": "No mixing in absence of compatibility studies",
+      "storage": "At most 25 C; do not freeze; aluminium bag protects light/oxygen",
+      "source": "S14-adrenaline-aguettant",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-254bf97f533f",
+    "entities": [],
+    "route": "IV",
+    "description": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "product_identity": "Beriplex",
+    "pharmaceutical_form": "powder + supplied water for injection",
+    "concentration_content_units": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "sources": [
+      "S15-beriplex"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "BERIPLEX_500",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Beriplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 20,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 24 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S15-beriplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-d1b8821d5be1",
+    "entities": [],
+    "route": "IV",
+    "description": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "product_identity": "Beriplex",
+    "pharmaceutical_form": "powder + supplied water for injection",
+    "concentration_content_units": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "sources": [
+      "S15-beriplex"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "BERIPLEX_1000",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Beriplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 40,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 24 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S15-beriplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-0febe4824e7a",
+    "entities": [],
+    "route": "IV",
+    "description": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "product_identity": "Octaplex",
+    "pharmaceutical_form": "powder + supplied water for injection",
+    "concentration_content_units": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "sources": [
+      "S16-octaplex"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "OCTAPLEX_500",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Octaplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "500 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 20,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 8 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S16-octaplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-3a77ce6db7ab",
+    "entities": [],
+    "route": "IV",
+    "description": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "product_identity": "Octaplex",
+    "pharmaceutical_form": "powder + supplied water for injection",
+    "concentration_content_units": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+    "sources": [
+      "S16-octaplex"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "OCTAPLEX_1000",
+      "drug": "four-factor prothrombin complex",
+      "generic_name": "four-factor prothrombin complex",
+      "product_name": "Octaplex",
+      "pharmaceutical_form": "powder + supplied water for injection",
+      "concentration": "1000 IU factor IX/vial; reconstituted 25 IU factor IX/mL",
+      "container_volume_ml": 40,
+      "authorised_route": "IV",
+      "relevant_excipients": "Heparin; sodium; product-specific composition and HIT contraindication must be checked",
+      "stability": "Chemical/physical stability 8 h at 25 C; microbiological immediate use remains the default",
+      "compatibility": "Do not mix with other medicinal products; use the supplied product-specific transfer system",
+      "storage": "At most 25 C; do not freeze; protect light",
+      "source": "S16-octaplex",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-94f35b262a3a",
+    "entities": [
+      "idarucizumab"
+    ],
+    "route": "IV",
+    "description": "2.5 g/50 mL",
+    "product_identity": "Praxbind",
+    "pharmaceutical_form": "solution for injection/infusion",
+    "concentration_content_units": "2.5 g/50 mL",
+    "sources": [
+      "S17-praxbind"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "PRAXBIND_2500_50",
+      "drug": "idarucizumab",
+      "generic_name": "idarucizumab",
+      "product_name": "Praxbind",
+      "pharmaceutical_form": "solution for injection/infusion",
+      "concentration": "2.5 g/50 mL",
+      "container_volume_ml": 50,
+      "authorised_route": "IV",
+      "relevant_excipients": "Sorbitol 2 g/vial; sodium 25 mg/vial; assess hereditary fructose intolerance",
+      "stability": "Opened chemical/physical 6 h up to 30 C, microbiological immediate use; unopened protected excursion up to 48 h at 30 C",
+      "compatibility": "No co-infusion/mixing; saline flush of existing line",
+      "storage": "2-8 C; no freezing; protect light",
+      "source": "S17-praxbind",
+      "regulatory_scope": "EU/EMA; local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S28-praxbind-pt"
+    }
+  },
+  {
+    "id": "PROD-6e2f50f9e13d",
+    "entities": [
+      "andexanet alfa"
+    ],
+    "route": "IV",
+    "description": "200 mg/vial; 10 mg/mL after labelled reconstitution",
+    "product_identity": "Ondexxya",
+    "pharmaceutical_form": "powder for infusion",
+    "concentration_content_units": "200 mg/vial; 10 mg/mL after labelled reconstitution",
+    "sources": [
+      "S18-ondexxya"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "ONDEXXYA_200",
+      "drug": "andexanet alfa",
+      "generic_name": "andexanet alfa",
+      "product_name": "Ondexxya",
+      "pharmaceutical_form": "powder for infusion",
+      "concentration": "200 mg/vial; 10 mg/mL after labelled reconstitution",
+      "container_volume_ml": 20,
+      "authorised_route": "IV",
+      "relevant_excipients": "Arginine hydrochloride, sucrose, mannitol, polysorbate 80",
+      "stability": "Reconstituted vial 16 h at 2-8 C; bag additional 8 h at room temperature; microbiological immediate use",
+      "compatibility": "No further dilution; low-protein-binding inline filter; no mixing with other medicines",
+      "storage": "2-8 C; no freezing",
+      "source": "S18-ondexxya",
+      "regulatory_scope": "EU/EMA; local stock unknown",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": "S29-ondexxya-pt"
+    }
+  },
+  {
+    "id": "PROD-903f7888c170",
+    "entities": [
+      "phytomenadione"
+    ],
+    "route": "Oral/IV",
+    "description": "10 mg/mL",
+    "product_identity": "Konakion 10 mg/mL",
+    "pharmaceutical_form": "oral/injectable mixed micellar solution",
+    "concentration_content_units": "10 mg/mL",
+    "sources": [
+      "S21-konakion"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "KONAKION_ADULT",
+      "drug": "phytomenadione",
+      "generic_name": "phytomenadione",
+      "product_name": "Konakion 10 mg/mL",
+      "pharmaceutical_form": "oral/injectable mixed micellar solution",
+      "concentration": "10 mg/mL",
+      "container_volume_ml": 1,
+      "authorised_route": "Oral/IV",
+      "relevant_excipients": "Lecithin, glycocholic acid",
+      "stability": "Unopened 2 years; do not assume infusion-bag stability",
+      "compatibility": "Do not dilute or mix with injectable medicines",
+      "storage": "Below 25 C; protect light",
+      "source": "S21-konakion",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-3d73277f3dc1",
+    "entities": [
+      "phytomenadione"
+    ],
+    "route": "Oral/IV; pediatric IM only per its specific indication",
+    "description": "10 mg/mL",
+    "product_identity": "Konakion 2 mg/0.2 mL",
+    "pharmaceutical_form": "oral/injectable mixed micellar solution",
+    "concentration_content_units": "10 mg/mL",
+    "sources": [
+      "S21-konakion"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "KONAKION_PEDIATRIC",
+      "drug": "phytomenadione",
+      "generic_name": "phytomenadione",
+      "product_name": "Konakion 2 mg/0.2 mL",
+      "pharmaceutical_form": "oral/injectable mixed micellar solution",
+      "concentration": "10 mg/mL",
+      "container_volume_ml": 0.2,
+      "authorised_route": "Oral/IV; pediatric IM only per its specific indication",
+      "relevant_excipients": "Lecithin, glycocholic acid",
+      "stability": "Unopened 2 years; do not assume infusion-bag stability",
+      "compatibility": "Do not dilute or mix with injectable medicines",
+      "storage": "Below 25 C; protect light",
+      "source": "S21-konakion",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-3192e85905e4",
+    "entities": [
+      "protamine"
+    ],
+    "route": "Slow IV",
+    "description": "10 mg/mL",
+    "product_identity": "Protamina Hospira",
+    "pharmaceutical_form": "solution for injection",
+    "concentration_content_units": "10 mg/mL",
+    "sources": [
+      "S22-protamine"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "PROTAMINE_HOSPIRA_10",
+      "drug": "protamine sulfate",
+      "generic_name": "protamine sulfate",
+      "product_name": "Protamina Hospira",
+      "pharmaceutical_form": "solution for injection",
+      "concentration": "10 mg/mL",
+      "container_volume_ml": 5,
+      "authorised_route": "Slow IV",
+      "relevant_excipients": "Methyl/propyl parabens; sodium 45 mg/vial",
+      "stability": "Unopened 3 years; no new diluted preparation accepted",
+      "compatibility": "Do not mix with other active medicines; some penicillins/cephalosporins incompatible",
+      "storage": "2-8 C; do not freeze; protect light",
+      "source": "S22-protamine",
+      "regulatory_scope": "Spain/AEMPS; not Portuguese stock verification",
+      "local_stock": null,
+      "local_product_identifier": null,
+      "local_protocol": null,
+      "human_review": null,
+      "status": "CLINICAL_REVIEW_REQUIRED",
+      "runtime_enabled": false,
+      "portuguese_rcm_source": null
+    }
+  },
+  {
+    "id": "PROD-3a0907c14aa2",
+    "entities": [
+      "tramadol"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": {
+      "concentration_mg_per_ml": 100,
+      "mg_per_drop": 2.5,
+      "derived_drops_per_ml": 40
+    },
+    "product_identity": "Tramal",
+    "pharmaceutical_form": "oral_drops",
+    "concentration_content_units": {
+      "concentration_mg_per_ml": 100,
+      "mg_per_drop": 2.5,
+      "derived_drops_per_ml": 40
+    },
+    "sources": [
+      "clinical/references/verified-oral-drop-products.json #tramal-100mgml-oral-drops-dropper-pt"
+    ],
+    "kind": "NAMED_REGULATORY_PRODUCT_PROFILE",
+    "state": "DOCUMENTED_PRODUCT",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "id": "tramal-100mgml-oral-drops-dropper-pt",
+      "country": "Portugal",
+      "drug": "tramadol hydrochloride",
+      "brand": "Tramal",
+      "form": "oral_drops",
+      "concentration_mg_per_ml": 100,
+      "mg_per_drop": 2.5,
+      "derived_drops_per_ml": 40,
+      "status": "verified_regulatory_source",
+      "source": "INFARMED pharmacovigilance bulletin / circular on Tramal oral drops administration",
+      "source_url": "https://www.infarmed.pt/documents/15786/1091622/8672938.PDF/a70c927a-cb24-444f-91fa-5a2fc9d89183?version=1.0",
+      "safety_note": "One drop from the dropper contains 2.5 mg tramadol hydrochloride."
+    }
+  },
+  {
+    "id": "PROD-d19c4a0e91e2",
+    "entities": [
+      "norepinephrine"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: 1 mg/mL; ampoules 1 mL, 5 mL and 10 mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: 1 mg/mL; ampoules 1 mL, 5 mL and 10 mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #norepinephrine"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "norepinephrine",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: 1 mg/mL; ampoules 1 mL, 5 mL and 10 mL",
+      "base_or_salt": "listed as noradrenaline 1 mg/mL, bitartrate form; exact marketed product equivalent/base expression must be checked on the actual RCM/label",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.63; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-9a91cd308420",
+    "entities": [
+      "epinephrine"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: 1 mg/mL; ampoule 1 mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: 1 mg/mL; ampoule 1 mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #epinephrine"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "epinephrine",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: 1 mg/mL; ampoule 1 mL",
+      "base_or_salt": "listed as adrenaline 1 mg/mL as hydrochloride or tartrate; exact local product/label must be checked",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.62; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-72fa56297435",
+    "entities": [
+      "dopamine"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: 40 mg/mL; ampoule 5 mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: 40 mg/mL; ampoule 5 mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #dopamine"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "dopamine",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: 40 mg/mL; ampoule 5 mL",
+      "base_or_salt": "dopamine hydrochloride",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.63; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-997b243e6a92",
+    "entities": [
+      "dobutamine"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: 12.5 mg/mL; vial 20 mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: 12.5 mg/mL; vial 20 mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #dobutamine"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "dobutamine",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: 12.5 mg/mL; vial 20 mL",
+      "base_or_salt": "dobutamine hydrochloride",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.63; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-d7a9784f9fe2",
+    "entities": [
+      "amiodarone"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #amiodarone"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "amiodarone",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: 50 mg/mL; ampoule 3 mL",
+      "base_or_salt": "amiodarone hydrochloride",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.2.3, p.62; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-25861f809797",
+    "entities": [
+      "isoprenaline"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: 1 mg/mL; ampoule 2 mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: 1 mg/mL; ampoule 2 mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #isoprenaline"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "isoprenaline",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: 1 mg/mL; ampoule 2 mL",
+      "base_or_salt": "isoprenaline hydrochloride",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.63; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-7eb9d36cd984",
+    "entities": [
+      "propofol"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: propofol emulsion 10 mg/mL and 20 mg/mL; 20 mL ampoule and 50 mL prefilled syringe listed",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: propofol emulsion 10 mg/mL and 20 mg/mL; 20 mL ampoule and 50 mL prefilled syringe listed",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #propofol"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "propofol",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: propofol emulsion 10 mg/mL and 20 mg/mL; 20 mL ampoule and 50 mL prefilled syringe listed",
+      "base_or_salt": "propofol",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, general anaesthetics section, p.39; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-4f5f171fc343",
+    "entities": [
+      "dexmedetomidine"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED Portuguese product reference: Dexdor concentrate for solution for infusion 100 micrograms/mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED Portuguese product reference: Dexdor concentrate for solution for infusion 100 micrograms/mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #dexmedetomidine"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "dexmedetomidine",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED Portuguese product reference: Dexdor concentrate for solution for infusion 100 micrograms/mL",
+      "base_or_salt": "dexmedetomidine; product-specific RCM/Infomed still required for exact excipients and dilution handling",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Portuguese Dexdor documentation; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-bf0f1d189abd",
+    "entities": [
+      "midazolam"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED hospital formulary reference: midazolam injection 5 mg/mL; ampoules 3 mL and 10 mL",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED hospital formulary reference: midazolam injection 5 mg/mL; ampoules 3 mL and 10 mL",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #midazolam"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "midazolam",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED hospital formulary reference: midazolam injection 5 mg/mL; ampoules 3 mL and 10 mL",
+      "base_or_salt": "midazolam hydrochloride",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, benzodiazepines section, p.47; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  },
+  {
+    "id": "PROD-cf1907c8fb44",
+    "entities": [
+      "remifentanil"
+    ],
+    "route": "NOT_DOCUMENTED",
+    "description": "INFARMED Portuguese reference: remifentanil powder for concentrate for solution for injection/infusion 1 mg, 2 mg and 5 mg",
+    "product_identity": "NOT_DOCUMENTED",
+    "pharmaceutical_form": "NOT_DOCUMENTED",
+    "concentration_content_units": "INFARMED Portuguese reference: remifentanil powder for concentrate for solution for injection/infusion 1 mg, 2 mg and 5 mg",
+    "sources": [
+      "clinical/qa/localization-portugal-azores.json #remifentanil"
+    ],
+    "kind": "LOCALIZATION_DESCRIPTOR_NOT_STOCK_CONFIRMATION",
+    "state": "PRODUCT_REVIEW_REQUIRED",
+    "local_confirmation": "NOT_DOCUMENTED",
+    "raw": {
+      "drug": "remifentanil",
+      "status": "portugal_reference_found_local_pending",
+      "product_strength": "INFARMED Portuguese reference: remifentanil powder for concentrate for solution for injection/infusion 1 mg, 2 mg and 5 mg",
+      "base_or_salt": "remifentanil; exact local brand/product reconstitution and final concentration must follow product RCM",
+      "diluent": null,
+      "standard_concentration": null,
+      "stability": null,
+      "access": null,
+      "source": "INFARMED Portuguese generic-authorisation reference; local Horta stock/RCM not verified",
+      "reviewed_by": null,
+      "reviewed_on": "2026-10-02"
+    }
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "id": "GMA-P1-001",
+    "priority": "P1",
+    "kind": "REPRODUCED_UNIT_DEFECT",
+    "title": "Dosis total pediátrica conserva unidad por kg",
+    "evidence": [
+      "clinical/scripts/pediatric_bolus_calculator.py:38",
+      "clinical/scripts/pediatric_bolus_calculator.py:59",
+      "clinical/scripts/pediatric_antibiotic_calculator.py:40",
+      "probes.json"
+    ],
+    "detail": "23 resultados de bolo y 21 de antibióticos multiplican por peso y devuelven dose/dose_range con dose_unit aún mg/kg, mL/kg u otra unidad por kg. El campo total y su etiqueta no son dimensionalmente coherentes. Son CLIs independientes; no atribuir este fallo al calculador ambulatorio ni al flujo agudo sin prueba.",
+    "next": "Definir contrato de unidad de dosis total con revisión clínica y probar máximos, rangos, concentraciones y consumidores antes de autorizar corrección."
+  },
+  {
+    "id": "GMA-P1-002",
+    "priority": "P1",
+    "kind": "REPRODUCED_INPUT_GUARD_DEFECT",
+    "title": "Entradas inválidas producen resultados numéricos en calculadoras independientes",
+    "evidence": [
+      "clinical/scripts/infusion_calculator.py:4",
+      "clinical/scripts/infusion_calculator.py:16",
+      "clinical/scripts/clinical_calculator.py:192",
+      "probes.json"
+    ],
+    "detail": "Peso/dosis negativos y NaN producen dosis o tasas negativas/no finitas; volumen cero en infusion_ml_h genera ZeroDivisionError. Las validaciones de las APIs aguda y ambulatoria no protegen estas entradas CLI.",
+    "next": "Auditar todos los consumidores y acordar rechazo uniforme antes de corregir. No usar salidas de los casos sintéticos."
+  },
+  {
+    "id": "GMA-P1-003",
+    "priority": "P1",
+    "kind": "DOCUMENTED_SOURCE_CONFLICT",
+    "title": "Protamina: límite de velocidad canónico y perfil de producto no coinciden en la igualdad",
+    "evidence": [
+      "clinical/modules/procedures-pharmacology.md:103",
+      "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json #PROTAMINE_HOSPIRA_10",
+      "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.md"
+    ],
+    "detail": "El dossier previo registra <5 mg/min en el producto frente a ≤5 mg/min en la referencia canónica. Se conserva como discrepancia documental; esta auditoría no cambia ni aprueba el límite ni declara una nueva verificación regulatoria completa.",
+    "next": "Farmacia y medicina deben conciliar el producto exacto y firmar la decisión; conservar ambas fuentes."
+  },
+  {
+    "id": "GMA-P2-001",
+    "priority": "P2",
+    "kind": "REPRODUCED_NUMERIC_BOUNDARY_DEFECT",
+    "title": "El motor TypeScript permite overflow con entradas finitas extremas",
+    "evidence": [
+      "app/src/lib/infusion.ts:183",
+      "app/src/lib/infusion.ts:230",
+      "probes-ts.json"
+    ],
+    "detail": "doseToRate y rateToDose retornan status=ok con Infinity tras multiplicación de entradas finitas extremas. Cero, negativos e incompatibilidad de unidades sí se rechazan en los casos focales. No se ha reproducido administración clínica ni recorrido navegador con estos extremos.",
+    "next": "Revisar finite checks de resultados y límites de UI sin modificar fórmulas clínicas."
+  },
+  {
+    "id": "GMA-P2-002",
+    "priority": "P2",
+    "kind": "COVERAGE_AND_IDENTITY_GAP",
+    "title": "No existe denominador global de regímenes atómicos conciliado",
+    "evidence": [
+      "regimens.json",
+      "regimen-duplicates.json",
+      "narrative-statements.json"
+    ],
+    "detail": "Los siete contenedores estructurados y los módulos narrativos solapan indicaciones, etapas, bandas y alternativas. Contar sus filas como regímenes clínicos únicos sería incorrecto. La matriz conserva todas las filas y señala duplicados; el total global atómico queda NOT_DETERMINABLE.",
+    "next": "Conciliar IDs clínicos por ingrediente/indicación/población/vía/etapa y descomponer alternativas, con trazabilidad."
+  },
+  {
+    "id": "GMA-P2-003",
+    "priority": "P2",
+    "kind": "INTEGRATION_GAP",
+    "title": "Bolos, antibióticos y bombas pediátricos carecen de formulario farmacológico equivalente",
+    "evidence": [
+      "regimens.json",
+      "clinical/scripts/pediatric_bolus_calculator.py",
+      "clinical/scripts/pediatric_antibiotic_calculator.py",
+      "clinical/scripts/pediatric_pump_table.py",
+      "app/src/pages/PediatricOutpatient.tsx"
+    ],
+    "detail": "La UI ambulatoria cubre sus 89 IDs; no acredita formularios, exportación ni gates de los catálogos pediátricos hospitalarios. Las guías visibles no son formularios de cálculo.",
+    "next": "Después de conciliar fuentes y corregir contratos, planificar integración y pruebas por ID."
+  },
+  {
+    "id": "GMA-P2-004",
+    "priority": "P2",
+    "kind": "KNOWN_SAFE_BLOCK_AND_PROFESSIONAL_DEPENDENCY",
+    "title": "Diecinueve contratos agudos continúan bloqueados",
+    "evidence": [
+      "regimens.json",
+      "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json #blocked_contracts"
+    ],
+    "detail": "Status epiléptico: 2; anafilaxia: 2; reversión/antídotos: 15. Un PASS de bloqueo acredita rechazo, no tratamiento implementado. Son bloqueos prioritarios del proyecto, de revisión ALTA, sin evidencia de bypass en los casos revisados.",
+    "next": "Mantener todos los bloqueos hasta producto/protocolo y revisión profesional nominal fechada."
+  },
+  {
+    "id": "GMA-P2-005",
+    "priority": "P2",
+    "kind": "PRODUCT_AND_PREPARATION_GAP",
+    "title": "Concentraciones documentadas no equivalen a productos o preparaciones locales conciliados",
+    "evidence": [
+      "products.json",
+      "preparations.json",
+      "narrative-product-preparation-candidates.json"
+    ],
+    "detail": "No hay identidad/localización/protocolo/aprobación humana completos para uso local. Hay recetas sin volumen añadido, estabilidad o compatibilidad y menciones narrativas aún sin descomponer. La aritmética de 23 referencias adultas con cantidad/volumen explícitos es coherente; tres no son comprobables por datos ausentes. Esto no acredita compatibilidad.",
+    "next": "Farmacia concilia SKU/presentación, base/sal, volumen final versus añadido, estabilidad, acceso y conservación."
+  },
+  {
+    "id": "GMA-P2-006",
+    "priority": "P2",
+    "kind": "GATE_SCOPE_LIMITATION",
+    "title": "Gates clínicos heterogéneos y revisión manual de seguridad",
+    "evidence": [
+      "app/src/pages/Calculator.tsx:143",
+      "clinical/scripts/acute_medication_contracts.py:8",
+      "clinical/scripts/pediatric_outpatient_alert_engine.py:311"
+    ],
+    "detail": "Adulto perfusiones: advertencias de máximo/rango. Agudos: STOP por campos/confirmaciones, pero una casilla no identifica alergias, interacciones o protocolos locales. Ambulatorio: STOP bloquea; ALERT/CAUTION no. No hay base exhaustiva universal de incompatibilidades, embarazo o ajuste de órgano.",
+    "next": "Definir por régimen qué debe bloquear, qué es aviso y qué revisión humana es obligatoria."
+  },
+  {
+    "id": "GMA-P2-007",
+    "priority": "P2",
+    "kind": "EXPORT_COVERAGE_GAP",
+    "title": "Exportación farmacológica incompleta fuera de los pilotos",
+    "evidence": [
+      "regimens.json",
+      "clinical/qa/product-reconciliation-v144/V1.44_PHARMACOLOGY_BROWSER_RESULTS.json"
+    ],
+    "detail": "Las 17 referencias de perfusión adulta constan con exportación no disponible. El éxito JSON de cada pauta ambulatoria no prueba PDF/DOCX/impresión de cada una; esos formatos tienen un piloto focal. Ningún bloqueo agudo cuenta como exportación funcional.",
+    "next": "Definir snapshot con unidades correctas, fuentes, alertas y caducidad; verificar los cuatro formatos por riesgo."
+  },
+  {
+    "id": "GMA-P2-008",
+    "priority": "P2",
+    "kind": "EVIDENCE_AND_APPROVAL_GAP",
+    "title": "Falta conciliación profesional nominal y fechada",
+    "evidence": [
+      "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json",
+      "clinical/qa/PEDIATRIC_OUTPATIENT_PHARMACY_REVIEW.json",
+      "clinical/qa/PEDIATRIC_OUTPATIENT_PEDIATRIC_CLINICAL_REVIEW.json"
+    ],
+    "detail": "Las revisiones automatizadas y los perfiles regulatorios son evidencia documental. No sustituyen aprobación de farmacia, medicina/pediatría ni validación prospectiva. No se ha certificado vigencia actual de todas las fuentes externas.",
+    "next": "Cola profesional por lotes con responsables, fecha, producto/protocolo y decisión explícita."
+  },
+  {
+    "id": "GMA-P3-001",
+    "priority": "P3",
+    "kind": "DOCUMENTATION_CURRENCY",
+    "title": "Los resúmenes históricos conservan cifras y estados de etapas previas",
+    "evidence": [
+      "clinical/CURRENT_STATE.md",
+      "clinical/SKILL.md",
+      "clinical/qa/V1.44_PHARMACOLOGY_INVENTORY.json"
+    ],
+    "detail": "Los contadores históricos no son un inventario global actual. Esta auditoría separa revisión de hoy, evidencia técnica del 17 de octubre y estados anteriores.",
+    "next": "Mantener fecha, HEAD, alcance y denominador junto a cada métrica; sin sustituir evidencia histórica."
+  },
+  {
+    "id": "GMA-P3-002",
+    "priority": "P3",
+    "kind": "MAINTAINABILITY",
+    "title": "Sinónimos, mezclas y productos no tienen identidad global común",
+    "evidence": [
+      "entity-inventory.json",
+      "regimen-duplicates.json"
+    ],
+    "detail": "El catálogo distingue fármacos por fuentes locales, incluyendo sinónimos, productos nombrados, mezclas sin composición y menciones sólo de interacción. Falta un identificador de principio activo compartido entre todos los dominios.",
+    "next": "Aprobar diccionario y reglas de deduplicación antes de reutilizarlos en ejecución."
+  },
+  {
+    "id": "GMA-C-P1-001",
+    "priority": "P1",
+    "kind": "DOCUMENTED_SOURCE_AND_AGE_SCOPE_CONFLICT",
+    "sources": [
+      "clinical/qa/pediatric-antibiotics.json #sepsis-community-ceftriaxone",
+      "clinical/qa/pediatric-antibiotics-by-syndrome.json #sepsis-community-ceftriaxone",
+      "sources/nice-ng51.html",
+      "sources/nice-ng254-antibiotics.html"
+    ],
+    "detail": "Ceftriaxona en sepsis: <16 años/NG254 frente a hasta 17 años/NG51 sustituida. No se ha demostrado un resultado clínico peligroso ni un bypass en navegador. La delimitación de población y fuente exige conciliación profesional antes de fusionar o usar los registros.",
+    "review_priority": "ALTA",
+    "parent_finding": null
+  }
+]

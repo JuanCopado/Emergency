@@ -1,0 +1,574 @@
+{
+    "schema":  "emergency.l02.handoff.v1",
+    "clinical_status":  "CLINICALLY_PENDING",
+    "runtime_parent_commit":  "42b7d2bbc4acaa19c5072ad9a5fccbbaa19de95d",
+    "baseline_branch":  "codex/v144-hybrid-baseline",
+    "execution_commit_contract":  "Assigned by external DISPATCH_MANIFEST.json after this snapshot is committed; no circular self-hash.",
+    "protected_references":  {
+                                 "main":  "UNTOUCHED",
+                                 "rc1":  "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+                                 "v143":  "737bb1b8dce5ffbdb296bb0c99d134ea318c8298"
+                             },
+    "unpublished_ancestral_commits":  [
+                                          "42b7d2bbc4acaa19c5072ad9a5fccbbaa19de95d",
+                                          "08ff5ab2501ec2b4b84e3a95617f565ea952047d",
+                                          "e2159c376ce88116984522d1793076b4be0e9d3d",
+                                          "fcadd89b15d3e00ebd65b80c86fbe2c76dbb5f4b",
+                                          "25a3797c03084e797615497be6bd0cac47d09d78",
+                                          "ca8a0cccff5f13526978512245e7620bbf8a68ad",
+                                          "7383406639114557a60e0eef54b3ccdf01b36d55",
+                                          "d2837f48374d187cf8dfc0e975a0d194f20597fa",
+                                          "b672a08974b16e175910be5e79b01205f1b38c15",
+                                          "b3a1a4512d203270fb36766b9dd6692f8012fc8b",
+                                          "56efdeec1d20f28fbdd7596a48c812ef7505853a",
+                                          "2be842b1f8344e8c6c5bf7577c696486a0a987f3",
+                                          "4bb6aeecb66cc61f8022b9553c87bd8ac2893407",
+                                          "d1a075c40b2d99aa7d88491ea4a7e6c0c63e90fe",
+                                          "98913e380b2e8eabb3187c1558ce2f89b02118c4",
+                                          "45572e37e7d6b357ee8a20effe778c7a7d321846",
+                                          "1c343a91fbc7223a89cf24a9fcc21a6d193fd54e",
+                                          "400999cec5b89edcc1000481ddde77500331d23d",
+                                          "1704cec2504bf538e6787aa00e7a857f27f15b4a",
+                                          "1b530393cb7ea3f7d0dc206134d86d45866b204e",
+                                          "250aab89eb40a9063d72c8fdff9dfeb00ea50b5a",
+                                          "65d37aac6efc089a941f0f9959c0ff8fcbb163e2",
+                                          "737bb1b8dce5ffbdb296bb0c99d134ea318c8298",
+                                          "a9a4d0dc3c6fa057e12402edf87ef790d5cdb9b1",
+                                          "46a3b4783920760219be689dbde3f4ea8838b4ce",
+                                          "d24ffd98e77502ed9c1e29e1fe524a5c3eae99e6",
+                                          "2c2249b15ad96c5fa9442d07dc59d45f99bf72a0",
+                                          "0fa17bf16864bb7b371b323b8557c63bc29ca4c2",
+                                          "82e6ca92df617730dfa42936ba7dbc2bb9163c87",
+                                          "54270507e109be27aad3881ec679f54970a7d7ad",
+                                          "bb2b7c1f2ad2d3132e42dee307083ec5f0aea628",
+                                          "ea5b5c721cda219976b666df779d025df41852a3",
+                                          "e6db19e9046b8b163260dc4ac5f6fabb68564990",
+                                          "18832a15ab2186729bbb688ac08e6e3a237aa183",
+                                          "e7e0ef8c9246aff472fc67c211cf2c30f5fa91bd",
+                                          "6123772544fc6e0fc1a8fe95a7d40dbc2cfee77b",
+                                          "8d1885031833ad5c4f59112e3b6a4360c9033752",
+                                          "08ac8942fee09caca887e19c964a412071b12393",
+                                          "c105a8964a7807d8430e2c85167daa11628bdcbb",
+                                          "3d1667337f07614d5ffec1a149a3b66a1293bb60",
+                                          "f776a8dca10badabaaba488d1756fda8a7326902",
+                                          "5a09860cd9a0896f3714c30d8abc2ea5a1cbacc3",
+                                          "f34d5ead7bfe3e7f3e5b5c09eef9781fcef81eb0",
+                                          "b4ba811b19eda56fa4e55fb64baf8aba7d79484f",
+                                          "182d5f90b7eb876ba536721701d14d1e5321d359",
+                                          "06f7c4d0ea95f007577753fc1a07a35755542a88",
+                                          "51688bccb7bc70e17413ec80b7867d3db8efc6de",
+                                          "129e86e92d02dcd02f91bcaeabee1e3f8f99fe2f",
+                                          "62be534a2e7559c46198c0ab5a251bf62dcd9926",
+                                          "8b16083b748593800c3f2f8c3b7050dfa76c2e49",
+                                          "84bb62da5be54e2364ba613881f77963f170a9f7",
+                                          "a896ad67e14f33048f006574bffd273f04751b0b",
+                                          "fdf751e8c61ef2d4173cdc89f459e5bbabfc54e5",
+                                          "16974c6f8768bf4d9e00dc1a752507c6e2e39550",
+                                          "c5f2be39a2bba476a9f2bb6c193a2af2fa42ec8d",
+                                          "a740da808719f5184738c13d644019fc2d869ebd",
+                                          "16e28e8913db62b3a5c8a35d3f97642165533859",
+                                          "930f0e3dde7636520840746ef273afec663616aa",
+                                          "813fa576ec781445fd56350e24cbed9f37dbca01",
+                                          "8a1dc3c249c330c92a7d1fe998abc1b32c7ec9c2",
+                                          "d7a51a1137cb26e2bd9aa1bd790abbe0ee90aed4",
+                                          "182cab07c2b0d6b4ccfc7af3d425ce73e35ea612",
+                                          "f49e6547e849b888ccdacf1b871faa86dfd6ded1",
+                                          "7836942b051d17f47f781a258c75d09d30a3ed9c"
+                                      ],
+    "selected_sources":  [
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/entity-inventory.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/entity-inventory.json",
+                                 "sha256":  "13cce0812ef609dd2cfd2dca2afdfbdb37f1ea4b19569a1aaa7072f876a986c1",
+                                 "bytes":  794473
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/combinations.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/combinations.json",
+                                 "sha256":  "07252748f761a4e9eb83183e26fa17dddf9243e40119b9c96716f11c5721ef9a",
+                                 "bytes":  2897
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/regimens.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/regimens.json",
+                                 "sha256":  "0f2c975722c04c7402da28d02d106c8fec9f69bd71929c7e9a8ab94b0dbf84be",
+                                 "bytes":  1335617
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/products.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/products.json",
+                                 "sha256":  "97d1ab95edebd3c46074c06c9d806e8d5b05cc14578be8e86d96819e76d0a502",
+                                 "bytes":  88773
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/preparations.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/preparations.json",
+                                 "sha256":  "0b7c8e219d4edf07bee5e570d3126ef1b6d50ba0f93cb2c1839bfafd22e76861",
+                                 "bytes":  89363
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/calculator-manifest.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/calculator-manifest.json",
+                                 "sha256":  "5922cc401d3d3b9112fb3dceba8577acb1264f6aef9a5b0d04c9b26d96a2468f",
+                                 "bytes":  1145
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/review-queue.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/review-queue.json",
+                                 "sha256":  "866f1cef1d1726f95a7276a82b9e1690228d3da144efbfda117525e8edacb3f1",
+                                 "bytes":  288348
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/findings.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/findings.json",
+                                 "sha256":  "c9793035d043be53340f7b5c458222fa0cdbd8c29f885aeae9ad68011afb946b",
+                                 "bytes":  9866
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/probes.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/probes.json",
+                                 "sha256":  "805f1eaaf5983483ace7b0d0d54e7ab4c33bd446e72b81dca6ad37cf745c7fff",
+                                 "bytes":  35051
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/counts.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/counts.json",
+                                 "sha256":  "51ca9222172ffb4b6970842b80b16a246a3c6e33d77da437bf16039beaee6ea8",
+                                 "bytes":  1421
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_PENDING_SELECTED",
+                                 "source_locator":  "clinical/qa/global-medication-audit-v144/baseline.json",
+                                 "destination":  "clinical/qa/global-medication-audit-v144/baseline.json",
+                                 "sha256":  "616fe09d1af6328efafcf3877ecea99c8fe3ff165432eb4798bb48dcdba29fc8",
+                                 "bytes":  1959
+                             },
+                             {
+                                 "source_kind":  "DOCUMENTARY_CONTINUATION",
+                                 "source_locator":  "reconciliation-20261018/new-named-entities.json",
+                                 "destination":  "clinical/qa/hybrid/supplements/reconciliation-20261018/new-named-entities.json",
+                                 "sha256":  "aef54ad4750374141e2395df95db4a56072fb96216443e23ec20c0f418c46cc8",
+                                 "bytes":  785
+                             },
+                             {
+                                 "source_kind":  "DOCUMENTARY_CONTINUATION",
+                                 "source_locator":  "reconciliation-20261018/structured-fields-20261025/V1.44_CURRENT_AUDIT_STATUS.md",
+                                 "destination":  "clinical/qa/hybrid/supplements/reconciliation-20261018/structured-fields-20261025/V1.44_CURRENT_AUDIT_STATUS.md",
+                                 "sha256":  "a3a1f68ee730dd718c1db3cd5b105dda9072f07470210c736e7e09d28c4ed13b",
+                                 "bytes":  5781
+                             },
+                             {
+                                 "source_kind":  "DOCUMENTARY_CONTINUATION",
+                                 "source_locator":  "reconciliation-20261018/structured-fields-20261025/current-statistics.json",
+                                 "destination":  "clinical/qa/hybrid/supplements/reconciliation-20261018/structured-fields-20261025/current-statistics.json",
+                                 "sha256":  "5cacf3251f4e1ffe29123e21df6a4d85e5c9b4eebd087a41fbcc6e8b60e8c4f5",
+                                 "bytes":  6874
+                             },
+                             {
+                                 "source_kind":  "DOCUMENTARY_CONTINUATION",
+                                 "source_locator":  "reconciliation-20261018/structured-fields-20261025/current-findings.json",
+                                 "destination":  "clinical/qa/hybrid/supplements/reconciliation-20261018/structured-fields-20261025/current-findings.json",
+                                 "sha256":  "1cf4154e3530fd378e0645ba51b5d049914e04e83cd3d636425b56f17ef7f0fd",
+                                 "bytes":  10607
+                             },
+                             {
+                                 "source_kind":  "DOCUMENTARY_CONTINUATION",
+                                 "source_locator":  "reconciliation-20261018/structured-fields-20261025/current-professional-review-queue.json",
+                                 "destination":  "clinical/qa/hybrid/supplements/reconciliation-20261018/structured-fields-20261025/current-professional-review-queue.json",
+                                 "sha256":  "37daa4273d5a2d8289e706a491ac7eb12a6abc74b266049cf519675f80666a32",
+                                 "bytes":  290125
+                             },
+                             {
+                                 "source_kind":  "DOCUMENTARY_CONTINUATION",
+                                 "source_locator":  "reconciliation-20261018/structured-fields-20261025/current-coverage-record-ids.json",
+                                 "destination":  "clinical/qa/hybrid/supplements/reconciliation-20261018/structured-fields-20261025/current-coverage-record-ids.json",
+                                 "sha256":  "3ab72349587c5c4aac490b90dedb25d4ce8ec7aa69ffbb0ebb51d97adfe80240",
+                                 "bytes":  26758
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_TASK_CARD",
+                                 "source_locator":  "hybrid-plan-20261026/tasks/C01.md",
+                                 "destination":  "clinical/qa/hybrid/task-cards/C01.md",
+                                 "sha256":  "f812cab4550dca19231341f2a749ba74bf55677ff6f32816a79cbb91aca48de7",
+                                 "bytes":  2791
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_TASK_CARD",
+                                 "source_locator":  "hybrid-plan-20261026/tasks/C02.md",
+                                 "destination":  "clinical/qa/hybrid/task-cards/C02.md",
+                                 "sha256":  "36a439c529b9bcdf8af753848d29e81fabd5fc9c933a623fd4df42bcd3b83265",
+                                 "bytes":  2827
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_TASK_CARD",
+                                 "source_locator":  "hybrid-plan-20261026/tasks/C03.md",
+                                 "destination":  "clinical/qa/hybrid/task-cards/C03.md",
+                                 "sha256":  "1837beb896d2c51a68dd991f47f04ff689e626e1489597cc618b5fa99e26b536",
+                                 "bytes":  2814
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_TASK_CARD",
+                                 "source_locator":  "hybrid-plan-20261026/tasks/C04.md",
+                                 "destination":  "clinical/qa/hybrid/task-cards/C04.md",
+                                 "sha256":  "163d5089494e7e01ac773481708f9409098632a00c7ec52e473eb1513561caeb",
+                                 "bytes":  2943
+                             },
+                             {
+                                 "source_kind":  "ORIGINAL_TASK_CARD",
+                                 "source_locator":  "hybrid-plan-20261026/tasks/C05.md",
+                                 "destination":  "clinical/qa/hybrid/task-cards/C05.md",
+                                 "sha256":  "92e1051fc44ca75ed01bb094e760d3bbcce659b74e79fc956042ae6160a4cfa7",
+                                 "bytes":  2751
+                             }
+                         ],
+    "excluded_pending_files":  [
+                                   {
+                                       "path":  "clinical/CHANGELOG.md",
+                                       "sha256":  "24980c317a5acc4eb218d16a0b8d2a6cac0c2edd6ee7b77cb287fecef584e9a2",
+                                       "reason":  "Previous uncommitted summary not copied; new isolated L02 entry preserves historical HEAD and links current supplement."
+                                   },
+                                   {
+                                       "path":  "clinical/CURRENT_STATE.md",
+                                       "sha256":  "60547b0c9ff782fc4e3a67816121495e57874509b4da64d2d9b0bccb969f4a60",
+                                       "reason":  "Previous uncommitted summary not copied; new isolated L02 entry preserves historical HEAD and links current supplement."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/V1.44_GLOBAL_MEDICATION_INVENTORY.md",
+                                       "sha256":  "aec5cdc9d599cf0ab4c99b4c4d29b0ca163238e0c8cd072e461f06bbf15b1eff",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/V1.44_MEDICATION_REGIMEN_MATRIX.md",
+                                       "sha256":  "e83f64cba2198064602304e2319c369ac61aa84d56421be5c3edba8501d2bb92",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/V1.44_MEDICATION_SAFETY_GATES.md",
+                                       "sha256":  "875210a6f868eef7b00dcee3526b9805b4cb42fcb6b6ce67e5185c11c4bef7bc",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/V1.44_PHARMACY_CLINICAL_REVIEW_QUEUE.md",
+                                       "sha256":  "0dac37c6cdbd56bacab5e833f5c275a4da83c50784ccec23851e1fe1e7f1cd13",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/V1.44_PRODUCT_PREPARATION_REGISTRY.md",
+                                       "sha256":  "2d44d147d43cc612b91259940519bd93886f1bbb09dfcfb929e613cd7e21a4e9",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/README.md",
+                                       "sha256":  "0fdaff3afadcf011af4fd20c47e7a47b3c2c06d1b8228106c20371df9d65c218",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/aliases.txt",
+                                       "sha256":  "d20ba8a76afd245fd2079fbc1fd4b5c3df28a93050b89884f2ccefcc1af49aa2",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/entity-inventory.csv",
+                                       "sha256":  "d948dc6e7eb7490405841931fdf8c62a716ae1dafc35abfd99a28ab44a714edf",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/external-source-access.json",
+                                       "sha256":  "940a5d8fb3561f900526aea7058a358c46686ff3b26b073de42d65ce0fa4e348",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/integrity-verification.json",
+                                       "sha256":  "6b56b97d8f7c24617501edb9a7c7c87b8e1cb7814e3b412365f80aae68a1fcec",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/lots.json",
+                                       "sha256":  "7c447b5319761a5d1d0d935a0ee1108f9a1cb6cf0db41e0a269bf432fa2dcd11",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/narrative-product-preparation-candidates.json",
+                                       "sha256":  "f3cdd141d54645c0d7062bd58961cea6a3b405dd7efbc6043904b770aec0d5ac",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/narrative-statements.json",
+                                       "sha256":  "5ed785af91bddffc9d0b31ec5a71afd06e8d5bc0ea1d73c33bb835ea651f4b01",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/preparations.csv",
+                                       "sha256":  "585860fb1508397533cdc1ddea619ac9b489dddceca6118c7b765638966d4b58",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/probes-ts.json",
+                                       "sha256":  "6b0d9bf051289d3a84196f572d7c823ef4520d14ea47646f3519bb9eae5628ae",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/products.csv",
+                                       "sha256":  "33c9ffbf434121546b21a9710a3186f58cdc02376a0aa7be0f55aa81647d3383",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/regimen-duplicates.json",
+                                       "sha256":  "7a0b6f61014957172294e79147cfe04646e030663f4d8bd5ce258c6bcddfbb4d",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/regimens.csv",
+                                       "sha256":  "23e05d0e63c059c31143d575969854692e4559db7058cc7351214d0e24e87f00",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/reproduce/aliases.txt",
+                                       "sha256":  "5c9c8a702050c3b63e809b8e0bae20703931b5b18a7fc252699d3d3892679da6",
+                                       "reason":  "Archived audit writers not required by C01-C05; original and backup preserved."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/reproduce/build_audit.py",
+                                       "sha256":  "c262bf0a2aadece1d561b2960ac298b098e2280ac3c1650f783b514faa7734ba",
+                                       "reason":  "Archived audit writers not required by C01-C05; original and backup preserved."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/reproduce/discover.py",
+                                       "sha256":  "6d9211f8836f9b6566ef653887e6118515f62d75b3d7398c5fd0ff7103bd862e",
+                                       "reason":  "Archived audit writers not required by C01-C05; original and backup preserved."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/reproduce/explore.py",
+                                       "sha256":  "99d1e3d16069022f14148778a039af4800a92bae5dd784fbe80fa21986590232",
+                                       "reason":  "Archived audit writers not required by C01-C05; original and backup preserved."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/reproduce/probes-ts.cjs",
+                                       "sha256":  "fb3b69ebcb2d765410e38947e37c9ae0b8c6f5f2b243d358a85da78281439e6c",
+                                       "reason":  "Archived audit writers not required by C01-C05; original and backup preserved."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/reproduce/probes.py",
+                                       "sha256":  "b7b5782029354e6e2767c0f5bf3ab2678fdf4918d2c846e1a78f39ce33eecd1e",
+                                       "reason":  "Archived audit writers not required by C01-C05; original and backup preserved."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/reproduce/verify_audit.py",
+                                       "sha256":  "066be04d4e26a6fd5bbc9c0f3698e2dac33749ec2aacca4309539d29139243cc",
+                                       "reason":  "Archived audit writers not required by C01-C05; original and backup preserved."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/source-coverage.json",
+                                       "sha256":  "7826ebdcd7f8fffb93ee72011505f2e74af99d8bdf481279bf900eff922044c8",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/source-manifest.json",
+                                       "sha256":  "189df78e21c0e2325eca6eeb49f57c34ae264aabdba0cb8a7a49fa70e228750a",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/unmatched-terms-other-sources.json",
+                                       "sha256":  "7ddcfd412a3c12524f2b983b185683cbd79205f62dc6261aee24b91cd79e1baa",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/unmatched-terms.json",
+                                       "sha256":  "028ba2b93cece3c7691738453f8dc38305b628d3290095e8b173c458c2a0c906",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   },
+                                   {
+                                       "path":  "clinical/qa/global-medication-audit-v144/verification.json",
+                                       "sha256":  "e1ef804e8522e60fb5ea501bb34619ca0bc75518f1b186fb955fb472ddd02c1c",
+                                       "reason":  "Historical report, mirror or extraction detail not required by the bounded Cloud scopes; preserved in original and recovery backup."
+                                   }
+                               ],
+    "generated_document_paths":  [
+                                     "CODEX.md",
+                                     "clinical/CURRENT_STATE.md",
+                                     "clinical/CHANGELOG.md",
+                                     "clinical/qa/hybrid/README.md",
+                                     "clinical/qa/hybrid/CONTINUITY_INDEX.md"
+                                 ],
+    "tasks":  [
+                  {
+                      "id":  "C01",
+                      "title":  "Regresión del escritor de evidencia ante errores no transitorios",
+                      "branch":  "codex/v144-cloud-evidence-tests",
+                      "depends":  [
+                                      "L02_PUBLISHED_AND_DISPATCH_AUTHORIZED"
+                                  ],
+                      "reads":  [
+                                    "app/scripts/write-qa-evidence.mjs",
+                                    "app/scripts/write-qa-evidence.node-test.mjs"
+                                ],
+                      "write_ownership":  [
+                                              "app/scripts/write-qa-evidence.node-test.mjs"
+                                          ],
+                      "acceptance":  [
+                                         "Un error no reintentable conserva el informe anterior y rechaza la operación.",
+                                         "No se hacen pausas/reintentos para ese error y se conserva la causa del fallo.",
+                                         "No reescribir el escritor ni modificar reglas de cálculo.",
+                                         "No tocar archivos reales de evidencia; usar directorio temporal aislado.",
+                                         "Si la cobertura ya existe en la base recibida, informar NO_CHANGE en vez de duplicarla."
+                                     ],
+                      "tests":  [
+                                    "Desde app: node --test scripts/write-qa-evidence.node-test.mjs. Sin suite global."
+                                ],
+                      "recommended_model":  "Luna",
+                      "recommended_reasoning":  "Medium",
+                      "status":  "NOT_STARTED_BLOCKED_UNTIL_AUTHORIZED_DISPATCH",
+                      "task_card":  "clinical/qa/hybrid/task-cards/C01.md"
+                  },
+                  {
+                      "id":  "C02",
+                      "title":  "Accesibilidad por teclado del formulario agudo",
+                      "branch":  "codex/v144-cloud-acute-keyboard",
+                      "depends":  [
+                                      "L02_PUBLISHED_AND_DISPATCH_AUTHORIZED"
+                                  ],
+                      "reads":  [
+                                    "app/src/pages/AcuteMedications.tsx",
+                                    "app/src/test/render.tsx",
+                                    "app/src/test/acute-medications.test.tsx"
+                                ],
+                      "write_ownership":  [
+                                              "app/src/test/acute-medications.test.tsx"
+                                          ],
+                      "acceptance":  [
+                                         "Usar las fixtures existentes; ninguna dosis o pauta nueva.",
+                                         "Controles alcanzables por teclado, etiquetas disponibles y STOP visible con el estado bloqueado.",
+                                         "Exportación continúa requiriendo confirmación; no cambiar gates.",
+                                         "No modificar React, datos clínicos o estilos en esta tarea; un defecto de UI se entrega como hallazgo con reproducción.",
+                                         "No reescribir ni duplicar los casos ya existentes."
+                                     ],
+                      "tests":  [
+                                    "Desde app: npm test -- src/test/acute-medications.test.tsx --maxWorkers=1 --minWorkers=1."
+                                ],
+                      "recommended_model":  "Sol",
+                      "recommended_reasoning":  "Medium",
+                      "status":  "NOT_STARTED_BLOCKED_UNTIL_AUTHORIZED_DISPATCH",
+                      "task_card":  "clinical/qa/hybrid/task-cards/C02.md"
+                  },
+                  {
+                      "id":  "C03",
+                      "title":  "Regresión focal de exportación pediátrica ante fallo de red",
+                      "branch":  "codex/v144-cloud-pediatric-export-tests",
+                      "depends":  [
+                                      "L02_PUBLISHED_AND_DISPATCH_AUTHORIZED"
+                                  ],
+                      "reads":  [
+                                    "app/src/pediatrics/PediatricExport.tsx",
+                                    "app/src/test/pediatric-export.test.tsx"
+                                ],
+                      "write_ownership":  [
+                                              "app/src/test/pediatric-export.test.tsx"
+                                          ],
+                      "acceptance":  [
+                                         "Ante fallo de red no se dispara descarga ni se crea impresión nueva.",
+                                         "El error se comunica y el estado ocupado no queda atascado según el contrato actual.",
+                                         "Conservar las advertencias y CLINICALLY_PENDING de la fixture.",
+                                         "No modificar calculadoras, exportadores backend ni PediatricExport.tsx; reportar un defecto real antes de ampliar alcance.",
+                                         "No sumar las fixtures como tratamientos del catálogo."
+                                     ],
+                      "tests":  [
+                                    "Desde app: npm test -- src/test/pediatric-export.test.tsx --maxWorkers=1 --minWorkers=1."
+                                ],
+                      "recommended_model":  "Luna",
+                      "recommended_reasoning":  "Medium",
+                      "status":  "NOT_STARTED_BLOCKED_UNTIL_AUTHORIZED_DISPATCH",
+                      "task_card":  "clinical/qa/hybrid/task-cards/C03.md"
+                  },
+                  {
+                      "id":  "C04",
+                      "title":  "Ficha de trazabilidad literal de cuatro contratos de insulina",
+                      "branch":  "codex/v144-cloud-insulin-trace",
+                      "depends":  [
+                                      "L02_PUBLISHED_AND_DISPATCH_AUTHORIZED"
+                                  ],
+                      "reads":  [
+                                    "clinical/scripts/acute_medication_contracts.py",
+                                    "clinical/modules/renal-metabolic.md",
+                                    "clinical/qa/global-medication-audit-v144/regimens.json"
+                                ],
+                      "write_ownership":  [
+                                              "clinical/qa/hybrid/tasks/C04_INSULIN_SOURCE_TRACE.md"
+                                          ],
+                      "acceptance":  [
+                                         "Exactamente los cuatro IDs, referencias estables y texto literal verificable.",
+                                         "Separar contexto narrativo y restricción runtime; no completar campos por inferencia.",
+                                         "Conservar la frontera de potasio y los gates tal como existen, sin recomendación de cambio.",
+                                         "Los datos ausentes siguen NOT_DOCUMENTED y cualquier duda clínica va a L03.",
+                                         "Rotular revisión documental sin aprobación profesional; no promover evidencia."
+                                     ],
+                      "tests":  [
+                                    "Comprobación estática de IDs, referencias y literalidad; no ejecutar dosis ni suites de aplicación para una transcripción."
+                                ],
+                      "recommended_model":  "Luna",
+                      "recommended_reasoning":  "Low",
+                      "status":  "NOT_STARTED_BLOCKED_UNTIL_AUTHORIZED_DISPATCH",
+                      "task_card":  "clinical/qa/hybrid/task-cards/C04.md"
+                  },
+                  {
+                      "id":  "C05",
+                      "title":  "Revisión visual acotada de Home y Settings",
+                      "branch":  "codex/v144-cloud-ui-review",
+                      "depends":  [
+                                      "L02_PUBLISHED_AND_DISPATCH_AUTHORIZED"
+                                  ],
+                      "reads":  [
+                                    "app/src/pages/Home.tsx",
+                                    "app/src/pages/Settings.tsx",
+                                    "app/src/App.tsx"
+                                ],
+                      "write_ownership":  [
+                                              "clinical/qa/hybrid/tasks/C05_HOME_SETTINGS_REVIEW.md"
+                                          ],
+                      "acceptance":  [
+                                         "Identificar ruta, commit, viewport y pasos de cada observación.",
+                                         "Revisar 375x812 y 1440x900; señalar explícitamente lo no ejecutado.",
+                                         "No usar pacientes, notas clínicas ni capturas privadas.",
+                                         "Sin navegador disponible: marcar BLOCKED para la parte visual, no inventar PASS ni instalar dependencias nuevas.",
+                                         "No tocar index.css, traducciones globales, catálogos ni documentos de cierre."
+                                     ],
+                      "tests":  [
+                                    "Cuatro comprobaciones visuales de ruta/viewport si el entorno lo permite; reporte focal, sin suite global."
+                                ],
+                      "recommended_model":  "Luna",
+                      "recommended_reasoning":  "Low",
+                      "status":  "NOT_STARTED_BLOCKED_UNTIL_AUTHORIZED_DISPATCH",
+                      "task_card":  "clinical/qa/hybrid/task-cards/C05.md"
+                  }
+              ],
+    "clinical_pending":  {
+                             "P1_ids":  [
+                                            "GMA-P1-001",
+                                            "GMA-P1-002",
+                                            "GMA-P1-003",
+                                            "GMA-C-P1-001"
+                                        ],
+                             "blocked_acute_contracts":  19,
+                             "named_substances":  255,
+                             "complex_entities":  18,
+                             "medical_and_pharmacy_review_entities":  273,
+                             "L00S":  "PENDING_OWNER_ACCEPTED_STORAGE_RISK",
+                             "professional_approval_obtained":  false
+                         },
+    "privacy":  {
+                    "binary_ocr_performed":  false,
+                    "publication_authorized":  false,
+                    "findings":  0,
+                    "scan":  "Heuristic current-tree, selected-input and unpublished-history scan"
+                },
+    "scope":  "Technical/documentary snapshot only. No runtime, calculation, unit, dose, protocol, gate or evidence-state modification."
+}

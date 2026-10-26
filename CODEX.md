@@ -20,7 +20,8 @@ git rev-parse HEAD
 git status --short
 ```
 
-If the active branch is not `v1.44-clinical-functional-validation`, stop and diagnose before editing.
+The owner-authorized isolated L02 technical branch `codex/v144-hybrid-baseline` is also permitted for baseline preparation only; C01–C05 and publication remain unauthorized.
+For any other branch except `v1.44-clinical-functional-validation`, stop and diagnose unless an explicit owner dispatch names the exact task branch and execution SHA.
 If the working tree is unexpectedly dirty, stop and inspect the changes before editing.
 
 ## Mandatory reading order

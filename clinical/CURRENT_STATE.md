@@ -1,3 +1,7 @@
+## v1.44 L02 — isolated technical baseline, 26/10/2026
+
+Runtime parent: `42b7d2bbc4acaa19c5072ad9a5fccbbaa19de95d`. Selected audit inputs and C01–C05 scopes are indexed in `qa/hybrid/HANDOFF_MANIFEST.json` and `qa/hybrid/CONTINUITY_INDEX.md`. The 25/10 documentary follow-up records 255 names, four open P1 findings and 19 blocked acute contracts. No new clinical approval, clinical change or evidence promotion. v1.44 remains OPEN / CLINICALLY_PENDING. C01–C05 have not started.
+
 ## v1.44 conciliación de producto y protocolo — 17/10/2026
 
 Revisión documental de seis grupos: 19 contratos permanentemente bloqueados,

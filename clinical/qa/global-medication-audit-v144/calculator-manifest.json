@@ -1,0 +1,28 @@
+{
+  "counting_unit": "file exposing drug/dilution/infusion/fluid/transfusion calculations; helpers not separate calculators",
+  "files": [
+    "app/src/lib/infusion.ts",
+    "clinical/scripts/infusion_calculator.py",
+    "clinical/scripts/clinical_calculator.py",
+    "clinical/scripts/acute_medication_api.py",
+    "clinical/scripts/acid_base_hyperglycemia.py",
+    "clinical/scripts/sodium_water_balance.py",
+    "clinical/scripts/pediatric_outpatient_calculator.py",
+    "clinical/scripts/pediatric_bolus_calculator.py",
+    "clinical/scripts/pediatric_antibiotic_calculator.py",
+    "clinical/scripts/pediatric_pump_table.py",
+    "clinical/scripts/pediatric_emergency_calculator.py",
+    "clinical/scripts/pediatric_hypertension_calculator.py",
+    "clinical/scripts/pediatric_dka_calculator.py",
+    "clinical/scripts/pediatric_fluid_calculator.py",
+    "clinical/scripts/pediatric_burn_calculator.py",
+    "clinical/scripts/pediatric_blood_product_calculator.py"
+  ],
+  "generic_formula_ids": [
+    "mgkg-dose",
+    "mcgkgmin-to-mlh",
+    "mgkgh-to-mlh",
+    "unitskgh-to-mlh",
+    "final-concentration"
+  ]
+}

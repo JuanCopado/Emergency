@@ -1,3 +1,8 @@
+## v1.44 L02 technical snapshot — 26/10/2026
+
+- Added selected documentary audit inputs, preserved Cloud task cards and an input manifest in an isolated technical clone.
+- Preserved runtime parent, 64 unpublished local commits, four open P1 findings and 19 blocked acute contracts. No clinical logic or evidence-state change; CLINICALLY_PENDING.
+
 ## v1.44 conciliación de producto y protocolo — 17/10/2026
 
 Revisión documental de seis grupos: 19 contratos permanentemente bloqueados,

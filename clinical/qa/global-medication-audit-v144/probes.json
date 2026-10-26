@@ -1,0 +1,1022 @@
+{
+  "recorded_at_utc": "2026-10-18T09:38:15.595658+00:00",
+  "clinical_status": "CLINICALLY_PENDING",
+  "synthetic_boundary_probes_not_clinical_validation": true,
+  "probes": [
+    {
+      "id": "PY-INF-NEGATIVE",
+      "function": "infusion_calculator.infusion_ml_h",
+      "arguments": [
+        1,
+        10,
+        1,
+        -1
+      ],
+      "expected_contract": "reject negative weight",
+      "returned": {
+        "concentration_mcg_ml": 100.0,
+        "required_mcg_min": -1,
+        "ml_min": -0.01,
+        "ml_h": -0.6
+      }
+    },
+    {
+      "id": "PY-INF-NAN",
+      "function": "infusion_calculator.infusion_ml_h",
+      "arguments": [
+        1,
+        10,
+        "nan",
+        10
+      ],
+      "expected_contract": "reject non-finite dose",
+      "returned": {
+        "concentration_mcg_ml": 100.0,
+        "required_mcg_min": "nan",
+        "ml_min": "nan",
+        "ml_h": "nan"
+      }
+    },
+    {
+      "id": "PY-INF-ZERO-VOLUME",
+      "function": "infusion_calculator.infusion_ml_h",
+      "arguments": [
+        1,
+        0,
+        1,
+        10
+      ],
+      "expected_contract": "controlled input rejection",
+      "error": "ZeroDivisionError",
+      "message": "division by zero"
+    },
+    {
+      "id": "PY-INF-FIXED-NAN",
+      "function": "infusion_calculator.fixed_dose_ml_h",
+      "arguments": [
+        1,
+        "nan"
+      ],
+      "expected_contract": "reject non-finite concentration",
+      "returned": "nan"
+    },
+    {
+      "id": "PY-INF-FIXED-NEGATIVE",
+      "function": "infusion_calculator.fixed_dose_ml_h",
+      "arguments": [
+        -1,
+        1
+      ],
+      "expected_contract": "reject negative dose",
+      "returned": -1.0
+    },
+    {
+      "id": "PY-GENERIC-NEGATIVE",
+      "function": "clinical_calculator.calculate",
+      "arguments": [
+        "mgkg-dose",
+        {
+          "mg_per_kg": 1,
+          "weight_kg": -1
+        }
+      ],
+      "expected_contract": "reject negative weight",
+      "returned": [
+        -1,
+        "mg"
+      ]
+    },
+    {
+      "id": "PY-GENERIC-NAN",
+      "function": "clinical_calculator.calculate",
+      "arguments": [
+        "mcgkgmin-to-mlh",
+        {
+          "dose_mcg_kg_min": "nan",
+          "weight_kg": 10,
+          "concentration_mcg_mL": 1
+        }
+      ],
+      "expected_contract": "reject non-finite dose",
+      "returned": [
+        "nan",
+        "mL/h"
+      ]
+    },
+    {
+      "id": "pediatric-bolus-medications.json:anaphylaxis-epinephrine-im",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "anaphylaxis-epinephrine-im",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "anaphylaxis-epinephrine-im",
+        "drug": "epinephrine",
+        "weight_kg": 20.0,
+        "route": "IM anterolateral thigh",
+        "dose": 0.2,
+        "dose_unit": "mg/kg",
+        "volume_ml": 0.2,
+        "concentration_per_ml": 1.0,
+        "concentration_unit": "mg/mL"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:hypoglycemia-dextrose10",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "hypoglycemia-dextrose10",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "hypoglycemia-dextrose10",
+        "drug": "glucose 10%",
+        "weight_kg": 20.0,
+        "route": "IV/IO",
+        "dose": 4.0,
+        "dose_unit": "g/kg",
+        "volume_ml": 40.0,
+        "concentration_per_ml": 0.1,
+        "concentration_unit": "g/mL"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:hyperkalemia-arrest-insulin",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "hyperkalemia-arrest-insulin",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "hyperkalemia-arrest-insulin",
+        "drug": "short-acting insulin",
+        "weight_kg": 20.0,
+        "route": "IV/IO",
+        "dose": 2.0,
+        "dose_unit": "units/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:hyperkalemia-arrest-dextrose10",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "hyperkalemia-arrest-dextrose10",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "hyperkalemia-arrest-dextrose10",
+        "drug": "glucose 10%",
+        "weight_kg": 20.0,
+        "route": "IV/IO",
+        "dose": 100.0,
+        "dose_unit": "mL/kg",
+        "volume_ml": 100.0
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:severe-hypokalemia-potassium",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "severe-hypokalemia-potassium",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "severe-hypokalemia-potassium",
+        "drug": "potassium",
+        "weight_kg": 20.0,
+        "route": "IV/IO",
+        "dose": 20.0,
+        "dose_unit": "mmol/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:hypomagnesemia-magnesium",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "hypomagnesemia-magnesium",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "hypomagnesemia-magnesium",
+        "drug": "magnesium sulfate",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "dose_range": [
+          600.0,
+          1000.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:acute-asthma-magnesium",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "acute-asthma-magnesium",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "acute-asthma-magnesium",
+        "drug": "magnesium sulfate",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "dose_range": [
+          800.0,
+          1000.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:acute-asthma-ipratropium",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "acute-asthma-ipratropium",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "acute-asthma-ipratropium",
+        "drug": "ipratropium bromide",
+        "weight_kg": 20.0,
+        "route": "inhaled/nebulized",
+        "dose": 250.0,
+        "dose_unit": "micrograms nebulized"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:rsi-ketamine",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "rsi-ketamine",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "rsi-ketamine",
+        "drug": "ketamine",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "dose_range": [
+          20.0,
+          40.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:rsi-rocuronium",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "rsi-rocuronium",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "rsi-rocuronium",
+        "drug": "rocuronium",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "dose_range": [
+          20.0,
+          40.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:rsi-succinylcholine",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "rsi-succinylcholine",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "rsi-succinylcholine",
+        "drug": "succinylcholine",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "dose_range": [
+          20.0,
+          40.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:pain-paracetamol-po",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "pain-paracetamol-po",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "pain-paracetamol-po",
+        "drug": "paracetamol",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose": 300.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:pain-ibuprofen-po",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "pain-ibuprofen-po",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "pain-ibuprofen-po",
+        "drug": "ibuprofen",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose": 200.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:pain-fentanyl-intranasal",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "pain-fentanyl-intranasal",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "pain-fentanyl-intranasal",
+        "drug": "fentanyl",
+        "weight_kg": 20.0,
+        "route": "intranasal",
+        "dose": 30.0,
+        "dose_unit": "micrograms/kg",
+        "volume_ml": 0.6,
+        "concentration_per_ml": 50.0,
+        "concentration_unit": "micrograms/mL"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:opioid-toxicity-naloxone-initial",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "opioid-toxicity-naloxone-initial",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "opioid-toxicity-naloxone-initial",
+        "drug": "naloxone",
+        "weight_kg": 20.0,
+        "route": "IV/IM",
+        "dose": 200.0,
+        "dose_unit": "micrograms/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:opioid-toxicity-naloxone-escalation",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "opioid-toxicity-naloxone-escalation",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "opioid-toxicity-naloxone-escalation",
+        "drug": "naloxone",
+        "weight_kg": 20.0,
+        "route": "IV/IM",
+        "dose": 2000.0,
+        "dose_unit": "micrograms/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:asthma-discharge-salbutamol-pmdi",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "asthma-discharge-salbutamol-pmdi",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "asthma-discharge-salbutamol-pmdi",
+        "drug": "salbutamol",
+        "weight_kg": 20.0,
+        "route": "pMDI via spacer",
+        "dose": 2.0,
+        "dose_unit": "inhalations"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:croup-dexamethasone-severe",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "croup-dexamethasone-severe",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "croup-dexamethasone-severe",
+        "drug": "dexamethasone",
+        "weight_kg": 20.0,
+        "route": "PO/IM/IV according to severity/ability",
+        "dose": 12.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:gastroenteritis-ors-rehydration",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "gastroenteritis-ors-rehydration",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "gastroenteritis-ors-rehydration",
+        "drug": "low-osmolarity oral rehydration solution",
+        "weight_kg": 20.0,
+        "route": "PO/NG",
+        "dose": 1000.0,
+        "dose_unit": "mL/kg",
+        "volume_ml": 1000.0
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:asthma-prednisolone-lt2",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "asthma-prednisolone-lt2",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "asthma-prednisolone-lt2",
+        "drug": "prednisolone",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose_range": [
+          20.0,
+          20.0
+        ],
+        "dose_unit": "mg/kg/day"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:asthma-prednisolone-2to5",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "asthma-prednisolone-2to5",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "asthma-prednisolone-2to5",
+        "drug": "prednisolone",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose_range": [
+          20.0,
+          30.0
+        ],
+        "dose_unit": "mg/kg/day"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:asthma-prednisolone-6to11",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "asthma-prednisolone-6to11",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "asthma-prednisolone-6to11",
+        "drug": "prednisolone",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose_range": [
+          20.0,
+          40.0
+        ],
+        "dose_unit": "mg/kg/day"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:asthma-dexamethasone",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "asthma-dexamethasone",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "asthma-dexamethasone",
+        "drug": "dexamethasone",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose_range": [
+          6.0,
+          12.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:urticaria-cetirizine-6to11mo",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "urticaria-cetirizine-6to11mo",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "urticaria-cetirizine-6to11mo",
+        "drug": "cetirizine",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose": 2.5,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-bolus-medications.json:urticaria-cetirizine-age-bands",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "urticaria-cetirizine-age-bands",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "error": "ValueError",
+      "message": "urticaria-cetirizine-age-bands: unsupported registry shape"
+    },
+    {
+      "id": "pediatric-bolus-medications.json:gastroenteritis-ondansetron-single-dose",
+      "function": "pediatric_bolus_calculator.calculate",
+      "arguments": [
+        "gastroenteritis-ondansetron-single-dose",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "gastroenteritis-ondansetron-single-dose",
+        "drug": "ondansetron",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "dose": 3.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:sepsis-community-ceftriaxone",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "sepsis-community-ceftriaxone",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "sepsis-community-ceftriaxone",
+        "syndrome": "suspected community-acquired sepsis, age >=28 days and <16 years",
+        "drug": "ceftriaxone",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "once daily",
+        "dose": 1600.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:sepsis-newborn-community-ceftriaxone",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "sepsis-newborn-community-ceftriaxone",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "sepsis-newborn-community-ceftriaxone",
+        "syndrome": "community-acquired sepsis in newborn under 28 days, only if >40 weeks corrected gestational age and not receiving IV calcium",
+        "drug": "ceftriaxone",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "once daily",
+        "dose": 1000.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:sepsis-newborn-community-cefotaxime",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "sepsis-newborn-community-cefotaxime",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "sepsis-newborn-community-cefotaxime",
+        "syndrome": "community-acquired sepsis in newborn under 28 days when ceftriaxone criteria not met",
+        "drug": "cefotaxime",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 6-12 h depending on age",
+        "dose": 1000.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:pyelonephritis-ceftriaxone",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "pyelonephritis-ceftriaxone",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "pyelonephritis-ceftriaxone",
+        "syndrome": "acute pyelonephritis, age >=3 months",
+        "drug": "ceftriaxone",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "once daily",
+        "dose_range": [
+          1000.0,
+          1600.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:pyelonephritis-coamoxiclav-iv",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "pyelonephritis-coamoxiclav-iv",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "pyelonephritis-coamoxiclav-iv",
+        "syndrome": "acute pyelonephritis, age >=3 months; use when indicated by susceptibility/combination guidance",
+        "drug": "co-amoxiclav",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "three times daily",
+        "dose": 600.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:pyelonephritis-gentamicin-initial",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "pyelonephritis-gentamicin-initial",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "pyelonephritis-gentamicin-initial",
+        "syndrome": "acute pyelonephritis, age >=3 months, IV option",
+        "drug": "gentamicin",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "initial dose once daily; subsequent doses by serum concentration and renal function",
+        "dose": 140.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:pyelonephritis-amikacin-initial",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "pyelonephritis-amikacin-initial",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "pyelonephritis-amikacin-initial",
+        "syndrome": "acute pyelonephritis, age >=3 months, IV option",
+        "drug": "amikacin",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "initial dose once daily; subsequent doses by serum concentration and renal function",
+        "dose": 300.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:lower-uti-trimethoprim",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "lower-uti-trimethoprim",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "lower-uti-trimethoprim",
+        "syndrome": "lower UTI, age 3 months to 11 years, low resistance risk",
+        "drug": "trimethoprim",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "frequency": "twice daily for 3 days",
+        "dose": 80.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:lower-uti-nitrofurantoin",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "lower-uti-nitrofurantoin",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "lower-uti-nitrofurantoin",
+        "syndrome": "lower UTI, age 3 months to 11 years, eGFR >=45 mL/min",
+        "drug": "nitrofurantoin",
+        "weight_kg": 20.0,
+        "route": "PO",
+        "frequency": "four times daily for 3 days",
+        "dose": 15.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:cellulitis-flucloxacillin-iv",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "cellulitis-flucloxacillin-iv",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "cellulitis-flucloxacillin-iv",
+        "syndrome": "cellulitis/erysipelas, age >=1 month, severe/unable oral",
+        "drug": "flucloxacillin",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "four times daily, usually 5-7 days",
+        "dose_range": [
+          250.0,
+          500.0
+        ],
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:cellulitis-clarithromycin-po",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "cellulitis-clarithromycin-po",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "error": "ValueError",
+      "message": "cellulitis-clarithromycin-po: agent is verified but pediatric dose remains delegated to an external dose source"
+    },
+    {
+      "id": "pediatric-antibiotics.json:meningitis-ceftriaxone-ge2mo",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "meningitis-ceftriaxone-ge2mo",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "meningitis-ceftriaxone-ge2mo",
+        "syndrome": "suspected bacterial meningitis, age >=2 months",
+        "drug": "ceftriaxone",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "once daily",
+        "dose": 2000.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:meningitis-cefotaxime-ge2mo",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "meningitis-cefotaxime-ge2mo",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "meningitis-cefotaxime-ge2mo",
+        "syndrome": "suspected bacterial meningitis, age >=2 months, ceftriaxone unsuitable",
+        "drug": "cefotaxime",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 6 hours",
+        "dose": 1000.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:meningitis-dexamethasone-ge2mo",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "meningitis-dexamethasone-ge2mo",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "meningitis-dexamethasone-ge2mo",
+        "syndrome": "suspected bacterial meningitis, age >=2 months when steroid criteria met",
+        "drug": "dexamethasone",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 6 hours for 4 days",
+        "dose": 3.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:meningitis-vancomycin-pneumococcal-risk",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "meningitis-vancomycin-pneumococcal-risk",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "meningitis-vancomycin-pneumococcal-risk",
+        "syndrome": "suspected bacterial meningitis with resistant pneumococcal concern",
+        "drug": "vancomycin",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 6 h",
+        "dose": 300.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:febrile-neutropenia-piptazo",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "febrile-neutropenia-piptazo",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "febrile-neutropenia-piptazo",
+        "syndrome": "clinically stable pediatric febrile neutropenia",
+        "drug": "piperacillin-tazobactam",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 6 h",
+        "dose": 2000.0,
+        "dose_unit": "mg/kg piperacillin component"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:febrile-neutropenia-cefepime",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "febrile-neutropenia-cefepime",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "febrile-neutropenia-cefepime",
+        "syndrome": "pediatric febrile neutropenia with non-life-threatening penicillin hypersensitivity",
+        "drug": "cefepime",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 8 h",
+        "dose": 1000.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:febrile-neutropenia-ciprofloxacin-severe-allergy",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "febrile-neutropenia-ciprofloxacin-severe-allergy",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "febrile-neutropenia-ciprofloxacin-severe-allergy",
+        "syndrome": "pediatric febrile neutropenia with immediate/life-threatening beta-lactam allergy",
+        "drug": "ciprofloxacin",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 12 h; combine with vancomycin in cited pathway",
+        "dose": 200.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:febrile-neutropenia-vancomycin-severe-allergy",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "febrile-neutropenia-vancomycin-severe-allergy",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "febrile-neutropenia-vancomycin-severe-allergy",
+        "syndrome": "pediatric febrile neutropenia severe beta-lactam allergy or resistant Gram-positive risk",
+        "drug": "vancomycin",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "every 6 h with TDM",
+        "dose": 300.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:cap-nonsevere-amoxicillin-age-bands",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "cap-nonsevere-amoxicillin-age-bands",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "error": "ValueError",
+      "message": "cap-nonsevere-amoxicillin-age-bands: no arithmetic dose stored"
+    },
+    {
+      "id": "pediatric-antibiotics.json:cap-severe-coamoxiclav-iv-1to2mo",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "cap-severe-coamoxiclav-iv-1to2mo",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "cap-severe-coamoxiclav-iv-1to2mo",
+        "syndrome": "community-acquired pneumonia, severe, age 1-2 months",
+        "drug": "co-amoxiclav",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "twice daily",
+        "dose": 600.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:cap-severe-coamoxiclav-iv-ge3mo",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "cap-severe-coamoxiclav-iv-ge3mo",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "cap-severe-coamoxiclav-iv-ge3mo",
+        "syndrome": "community-acquired pneumonia, severe, age 3 months-17 years",
+        "drug": "co-amoxiclav",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "three times daily",
+        "dose": 600.0,
+        "dose_unit": "mg/kg"
+      }
+    },
+    {
+      "id": "pediatric-antibiotics.json:cap-severe-clarithromycin-iv-1mto11y",
+      "function": "pediatric_antibiotic_calculator.calculate",
+      "arguments": [
+        "cap-severe-clarithromycin-iv-1mto11y",
+        20
+      ],
+      "expected_contract": "total dose unit removes /kg after weight multiplication; no clinical selection implied",
+      "returned": {
+        "id": "cap-severe-clarithromycin-iv-1mto11y",
+        "syndrome": "community-acquired pneumonia, severe with suspected atypical pathogen, age 1 month-11 years",
+        "drug": "clarithromycin",
+        "weight_kg": 20.0,
+        "route": "IV",
+        "frequency": "twice daily",
+        "dose": 150.0,
+        "dose_unit": "mg/kg"
+      }
+    }
+  ],
+  "evidence_revisions": {
+    "acute": {
+      "evidence": "clinical/qa/product-reconciliation-v144/V1.44_ACUTE_ALL_BROWSER_RESULTS.json",
+      "recorded_revision": "9102ef77313319aa08491ffed104fd2a473d152c044f8b9072abb23fb0d10960",
+      "current_revision": "9102ef77313319aa08491ffed104fd2a473d152c044f8b9072abb23fb0d10960",
+      "match": true
+    },
+    "pediatric": {
+      "evidence": "clinical/qa/product-reconciliation-v144/V1.44_PEDIATRIC_COMPLETE_BROWSER_RESULTS.json",
+      "recorded_revision": "c6fce6dccf65f669968d22aac4364911aa3b955e47718798b2165d1592b38620",
+      "current_revision": "c6fce6dccf65f669968d22aac4364911aa3b955e47718798b2165d1592b38620",
+      "match": true
+    }
+  }
+}

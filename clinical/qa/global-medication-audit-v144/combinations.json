@@ -1,0 +1,95 @@
+[
+  {
+    "id": "COMBO-amoxicillin-clavulanic-acid",
+    "name": "amoxicillin + clavulanic acid",
+    "components": [
+      "amoxicillin",
+      "clavulanic acid"
+    ],
+    "regimen_records": [
+      "outpatient:amox-clav-bite",
+      "outpatient:amox-clav-preseptal-stepdown",
+      "antibiotic:pyelonephritis-coamoxiclav-iv",
+      "antibiotic:cap-severe-coamoxiclav-iv-1to2mo",
+      "antibiotic:cap-severe-coamoxiclav-iv-ge3mo",
+      "antibiotic-syndrome:cap-severe-coamoxiclav-iv-3m-17y",
+      "antibiotic-syndrome:cellulitis-coamoxiclav-iv-3m-17y"
+    ],
+    "counting_rule": "explicit named fixed combination, not coadministration"
+  },
+  {
+    "id": "COMBO-azelastine-fluticasone-propionate",
+    "name": "azelastine + fluticasone propionate",
+    "components": [
+      "azelastine",
+      "fluticasone propionate"
+    ],
+    "regimen_records": [
+      "outpatient:azelastine-fluticasone-nasal-ge12"
+    ],
+    "counting_rule": "explicit named fixed combination, not coadministration"
+  },
+  {
+    "id": "COMBO-budesonide-formoterol",
+    "name": "budesonide + formoterol",
+    "components": [
+      "budesonide",
+      "formoterol"
+    ],
+    "regimen_records": [
+      "outpatient:budesonide-formoterol-controller-6to11-step3-rch",
+      "outpatient:budesonide-formoterol-air-mart-6to11-gina2026",
+      "outpatient:budesonide-formoterol-air-mart-12to17-gina2026"
+    ],
+    "counting_rule": "explicit named fixed combination, not coadministration"
+  },
+  {
+    "id": "COMBO-ciprofloxacin-dexamethasone",
+    "name": "ciprofloxacin + dexamethasone",
+    "components": [
+      "ciprofloxacin",
+      "dexamethasone"
+    ],
+    "regimen_records": [
+      "outpatient:ciprofloxacin-dexamethasone-aoe-ge1y"
+    ],
+    "counting_rule": "explicit named fixed combination, not coadministration"
+  },
+  {
+    "id": "COMBO-phenazone-lidocaine",
+    "name": "phenazone + lidocaine",
+    "components": [
+      "phenazone",
+      "lidocaine"
+    ],
+    "regimen_records": [
+      "outpatient:phenazone-lidocaine-aom-pain"
+    ],
+    "counting_rule": "explicit named fixed combination, not coadministration"
+  },
+  {
+    "id": "COMBO-trimethoprim-sulfamethoxazole",
+    "name": "trimethoprim + sulfamethoxazole",
+    "components": [
+      "trimethoprim",
+      "sulfamethoxazole"
+    ],
+    "regimen_records": [
+      "outpatient:tmp-smx-mrsa-skin",
+      "outpatient:tmp-smx-pertussis-ge6wk"
+    ],
+    "counting_rule": "explicit named fixed combination, not coadministration"
+  },
+  {
+    "id": "COMBO-piperacillin-tazobactam",
+    "name": "piperacillin + tazobactam",
+    "components": [
+      "piperacillin",
+      "tazobactam"
+    ],
+    "regimen_records": [
+      "antibiotic:febrile-neutropenia-piptazo"
+    ],
+    "counting_rule": "explicit named fixed combination, not coadministration"
+  }
+]
