@@ -291,6 +291,14 @@
     "sources": "Fontes",
     "opensNewTab": "(abre num novo separador)"
   },
+  "stop": {
+    "title": "STOP — não continuar com este cálculo",
+    "code": "Código"
+  },
+  "blocked": {
+    "title": "Contrato bloqueado",
+    "requiresReview": "Requer protocolo local verificado e revisão profissional nominal. A aplicação não gera doses, volumes nem velocidades para esta opção."
+  },
   "drugNames": {
     "norepinephrine": "Noradrenalina",
     "vasopressin": "Vasopressina",

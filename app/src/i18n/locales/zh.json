@@ -283,6 +283,14 @@
     "sources": "来源",
     "opensNewTab": "（在新标签页中打开）"
   },
+  "stop": {
+    "title": "STOP — 请勿继续此计算",
+    "code": "代码"
+  },
+  "blocked": {
+    "title": "已阻止的方案",
+    "requiresReview": "需要经核实的本地方案和具名专业审核。本应用不会为此选项生成剂量、容量或速率。"
+  },
   "drugNames": {
     "norepinephrine": "去甲肾上腺素",
     "vasopressin": "血管加压素",

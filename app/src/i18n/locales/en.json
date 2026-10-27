@@ -287,6 +287,14 @@
     "sources": "Sources",
     "opensNewTab": "(opens in a new tab)"
   },
+  "stop": {
+    "title": "STOP — do not continue with this calculation",
+    "code": "Code"
+  },
+  "blocked": {
+    "title": "Blocked contract",
+    "requiresReview": "Requires a verified local protocol and named professional review. The app does not generate doses, volumes or rates for this option."
+  },
   "drugNames": {
     "norepinephrine": "Norepinephrine",
     "vasopressin": "Vasopressin",
