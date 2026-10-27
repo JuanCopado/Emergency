@@ -56,6 +56,44 @@ describe('StopAlert', () => {
   });
 });
 
+describe('StopAlert announcement priority', () => {
+  it('non-STOP alerts only: polite status, no assertive alert, icon and text', () => {
+    render(<StopAlert alerts={[{ severity: 'CAUTION', message: 'Precaución A' }, { severity: 'INFO', message: 'Nota B' }]} />);
+    expect(screen.queryByRole('alert')).toBeNull();
+    const status = screen.getByRole('status');
+    expect(status).toHaveAttribute('aria-live', 'polite');
+    expect(status).toHaveTextContent('CAUTION: Precaución A');
+    expect(status).toHaveTextContent('INFO: Nota B');
+    expect(status.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
+    expect(within(status).queryByRole('button')).toBeNull();
+  });
+
+  it('mixed alerts: STOP assertive, others polite, nothing lost', () => {
+    render(<StopAlert alerts={[{ severity: 'ALERT', message: 'Aviso' }, { severity: 'STOP', message: 'Bloqueo' }]} />);
+    const alert = screen.getByRole('alert');
+    const status = screen.getByRole('status');
+    expect(alert).toHaveAttribute('aria-live', 'assertive');
+    expect(alert).toHaveTextContent('STOP: Bloqueo');
+    expect(alert).not.toHaveTextContent('Aviso');
+    expect(status).toHaveTextContent('ALERT: Aviso');
+    expect(status).not.toHaveTextContent('Bloqueo');
+  });
+
+  it.each(['SEVERE', 'caution', 'Stop'])('unknown or differently cased severity %j is announced as STOP, keeping its label', (severity) => {
+    render(<StopAlert alerts={[{ severity, message: 'Mensaje literal' }]} />);
+    expect(screen.queryByRole('status')).toBeNull();
+    expect(screen.getByRole('alert')).toHaveTextContent(`${severity}: Mensaje literal`);
+  });
+
+  it('STOP group is focusable for later focus management and cannot be dismissed', () => {
+    render(<StopAlert alerts={[{ severity: 'STOP', message: 'Bloqueo' }]} />);
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveAttribute('tabindex', '-1');
+    fireEvent.keyDown(alert, { key: 'Escape' });
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+  });
+});
+
 describe('BlockedContractCard', () => {
   it('shows BLOCKED status, literal label and reason, and the professional review notice', () => {
     render(<BlockedContractCard {...FONDAPARINUX} />);
