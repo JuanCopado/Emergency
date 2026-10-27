@@ -1,6 +1,7 @@
 import PediatricExport from '../pediatrics/PediatricExport';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { formatClinicalNumber } from '../lib/clinicalInput';
 import { classifyPediatric, type Outcome, type PediatricSuccess } from '../lib/clinicalOutcome';
 import { calculatePediatric, findRegimen, numericInput, pediatricCatalog, regimensForDrug,
   type Calculation, type Fields, type Gate, type Regimen, type Value } from '../pediatrics/catalog';
@@ -29,11 +30,22 @@ const label = (key: string) => labels[key] || key.replaceAll('_', ' ');
 const omitted = new Set(['id', 'drug_id', 'drug', 'diagnosis', 'dose_model', 'liquid_capable', 'source_url',
   'medication_safety', 'prescription_status', 'status', 'regimen_id']);
 
-function Details({ value }: { value: Value }) {
+// Unit shown beside a number for unambiguous keys (mg vs mg/kg, mL, kg). Display only: full precision, decimal comma.
+const units: Record<string, string> = {
+  dose_mg: 'mg', dose_mg_per_kg: 'mg/kg', max_mg_per_dose: 'mg', adult_max_daily_mg: 'mg', daily_max_mg_per_kg: 'mg/kg',
+  dosing_weight_kg: 'kg', actual_weight_kg: 'kg', ideal_weight_kg: 'kg', adjusted_weight_kg: 'kg',
+  exact_ml: 'mL', rounded_0_1_ml: 'mL', estimated_total_course_ml: 'mL', concentration_mg_per_ml: 'mg/mL', mg_per_ml: 'mg/mL',
+};
+
+function Details({ value, field }: { value: Value; field?: string }) {
   if (value == null) return <span>No consta en la fuente</span>;
-  if (Array.isArray(value)) return <ul className="space-y-1">{value.map((v, i) => <li key={i}><Details value={v} /></li>)}</ul>;
+  if (Array.isArray(value)) return <ul className="space-y-1">{value.map((v, i) => <li key={i}><Details value={v} field={field} /></li>)}</ul>;
   if (typeof value === 'object') return <dl className="space-y-2">{Object.entries(value).filter(([k]) => !omitted.has(k)).map(([k, v]) =>
-    <div key={k}><dt className="font-semibold">{label(k)}</dt><dd className="ml-3"><Details value={v} /></dd></div>)}</dl>;
+    <div key={k}><dt className="font-semibold">{label(k)}</dt><dd className="ml-3"><Details value={v} field={k} /></dd></div>)}</dl>;
+  if (typeof value === 'number') {
+    const unit = field ? units[field] : undefined;
+    return <span className={unit ? 'whitespace-nowrap' : undefined}>{formatClinicalNumber(value) ?? 'No consta en la fuente'}{unit ? `\u00a0${unit}` : ''}</span>;
+  }
   return <span>{typeof value === 'boolean' ? (value ? 'Sí' : 'No') : String(value)}</span>;
 }
 
@@ -47,7 +59,7 @@ function ResultDetails({ value }: { value: Fields }) {
   return <>
     <dl className="grid gap-3 sm:grid-cols-2" aria-label="Cálculo y pauta">
       {primary.map(key => <div className="rounded-xl border border-primary/30 bg-surface-2 p-3" key={key}>
-        <dt className="font-bold">{label(key)}</dt><dd className="mt-1 text-lg"><Details value={value[key] ?? null} /></dd>
+        <dt className="font-bold">{label(key)}</dt><dd className="mt-1 text-lg"><Details value={value[key] ?? null} field={key} /></dd>
       </div>)}
     </dl>
     <div className="border-t border-border pt-3"><h3 className="mb-2 font-bold">Detalle, precauciones y fuente</h3><Details value={remaining} /></div>
@@ -59,6 +71,8 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   const [response, setResponse] = useState<Calculation>();
   // classifyPediatric (S0) is the only path to figures: STOP or unknown severity hides the dose even with blocked:false.
   const [outcome, setOutcome] = useState<Outcome<PediatricSuccess>>();
+  // G-P2: export and print exist only after explicit confirmation; any input change or new result resets it.
+  const [confirmed, setConfirmed] = useState(false);
   const [calculation, setCalculation] = useState<Fields>();
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -73,7 +87,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   const change = (field: string, value: string) => {
     revision.current += 1;
     setValues((old) => ({ ...old, [field]: value }));
-    setResponse(undefined); setOutcome(undefined); setError(''); setBusy(false);
+    setResponse(undefined); setOutcome(undefined); setConfirmed(false); setError(''); setBusy(false);
   };
   const gates: Gate[] = [...(regimen.required_patient_flags || []), ...(regimen.excluded_patient_flags || []),
     ...pediatricCatalog.condition_rules.filter((r) => !r.drug || r.drug === regimen.drug),
@@ -89,7 +103,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   const submit = async (event: FormEvent) => {
     event.preventDefault();
     const requestedRevision = ++revision.current;
-    setResponse(undefined); setOutcome(undefined); setError('');
+    setResponse(undefined); setOutcome(undefined); setConfirmed(false); setError('');
     try {
       const patient: Fields = {};
       for (const field of numericFields) if (values[field]?.trim()) patient[field] = numericInput(values[field], label(field), !field.includes('weight'));
@@ -173,7 +187,8 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       <p>{String(response.safety?.prescription_status ?? '')}</p>
       {(outcome.kind === 'ERROR' ? [] : outcome.alerts).map((a, i) => <p key={i} className={`rounded-xl border p-3 ${a.severity === 'STOP' || !['ALERT', 'CAUTION', 'INFO'].includes(a.severity) ? 'border-danger bg-surface text-danger' : 'border-warn bg-warn-bg text-warn'}`}><strong>{a.severity === 'STOP' || !['ALERT', 'CAUTION', 'INFO'].includes(a.severity) ? '⛔ ' : '⚠ '}{a.severity || 'STOP'}: </strong>{a.message} {a.action}</p>)}
       {success && <ResultDetails value={success.result as Fields} />}
-      {success && success.exportReport != null && calculation && <PediatricExport report={success.exportReport as NonNullable<Calculation['export_report']>} calculation={calculation} result={success.result as Fields} />}
+      {success && success.exportReport != null && calculation && <label className="block font-semibold"><input type="checkbox" checked={confirmed} onChange={(e) => setConfirmed(e.target.checked)} /> Confirmo haber revisado el resultado completo, sus límites y advertencias</label>}
+      {success && success.exportReport != null && calculation && confirmed && <PediatricExport report={success.exportReport as NonNullable<Calculation['export_report']>} calculation={calculation} result={success.result as Fields} />}
     </section>}
   </div>;
 }
