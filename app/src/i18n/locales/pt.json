@@ -275,6 +275,22 @@
     "title": "Página não encontrada",
     "body": "A página que procura não existe."
   },
+  "status": {
+    "clinicallyPending": "CLINICALLY_PENDING — validação clínica pendente",
+    "yellow": "YELLOW — evidência pendente de revisão",
+    "blocked": "Bloqueado — requer revisão profissional",
+    "demo": "DEMO — dados sintéticos",
+    "pilot": "Piloto — não validado"
+  },
+  "result": {
+    "notSpecified": "Não especificado na fonte",
+    "unitNotSpecified": "unidade não especificada",
+    "invalidValue": "Valor inválido: não utilizar",
+    "noDate": "Sem data",
+    "formula": "Fórmula",
+    "sources": "Fontes",
+    "opensNewTab": "(abre num novo separador)"
+  },
   "drugNames": {
     "norepinephrine": "Noradrenalina",
     "vasopressin": "Vasopressina",

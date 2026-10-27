@@ -267,6 +267,22 @@
     "title": "页面未找到",
     "body": "您访问的页面不存在。"
   },
+  "status": {
+    "clinicallyPending": "CLINICALLY_PENDING — 临床验证待定",
+    "yellow": "YELLOW — 证据待审核",
+    "blocked": "已阻止 — 需专业审核",
+    "demo": "DEMO — 合成数据",
+    "pilot": "试点 — 未验证"
+  },
+  "result": {
+    "notSpecified": "来源中未说明",
+    "unitNotSpecified": "单位未说明",
+    "invalidValue": "数值无效：请勿使用",
+    "noDate": "无日期",
+    "formula": "公式",
+    "sources": "来源",
+    "opensNewTab": "（在新标签页中打开）"
+  },
   "drugNames": {
     "norepinephrine": "去甲肾上腺素",
     "vasopressin": "血管加压素",
