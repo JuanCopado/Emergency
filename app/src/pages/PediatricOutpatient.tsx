@@ -192,7 +192,9 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
     </form>
     {/* Polite summary only for a result; a stopped calculation is announced once, assertively, below. */}
     <div aria-live="polite" aria-atomic="true" className="sr-only">{outcome && !stopped ? 'Resultado aritmético disponible. Requiere revisión clínica.' : ''}</div>
-    {response && outcome && <section ref={resultRef} tabIndex={-1} id="pediatric-result" className={`card p-4 space-y-3 ${stopped ? 'border-danger' : 'border-primary'}`} aria-label="Resultado pediátrico">
+    {/* Q05-R: an unconfirmed result is excluded from browser printing (Ctrl+P), not only from the print button. */}
+    {success && !confirmed && <p className="hidden print:block font-bold" data-testid="pediatric-print-blocked">Impresión no disponible: confirmar la revisión del resultado antes de imprimir.</p>}
+    {response && outcome && <section ref={resultRef} tabIndex={-1} id="pediatric-result" className={`card p-4 space-y-3 ${stopped ? 'border-danger' : 'border-primary'}${success && !confirmed ? ' print:hidden' : ''}`} aria-label="Resultado pediátrico">
       <h2 className="text-xl font-bold">{outcome.kind === 'STOP' ? 'STOP — cálculo detenido; no se muestra ninguna dosis' : stopped ? 'Cálculo bloqueado' : 'Resultado aritmético — requiere revisión clínica'}</h2>
       <p>{String(response.safety?.prescription_status ?? '')}</p>
       {needsStopFallback && <p role="alert" aria-live="assertive" tabIndex={-1} className="rounded-2xl border-2 border-danger p-3 font-bold text-danger" data-testid="stop-fallback">STOP: el cálculo está detenido; no se muestra ninguna dosis. Revise los avisos y la ficha.</p>}

@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   acceptClinicalUpload,
   analyzeClinicalNote,
@@ -69,6 +69,9 @@ export default function ClinicalNote(){
  const [diagnosticBusy,setDiagnosticBusy]=useState(false);
  const noteRevision=useRef(0);
  const diagnosticRequestId=useRef(0);
+ const exportRequest=useRef(0);
+ const mounted=useRef(false);
+ useEffect(()=>{mounted.current=true;return ()=>{mounted.current=false;exportRequest.current+=1;};},[]);
  const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
  const [clinicianReviewed,setClinicianReviewed]=useState(false);
  const [draftKind,setDraftKind]=useState('Outro'); const [draftName,setDraftName]=useState('');
@@ -287,16 +290,24 @@ export default function ClinicalNote(){
      if(requestId===diagnosticRequestId.current) setDiagnosticBusy(false);
    }
  }
+ // Q05-R: an export belongs to the note version and review state of its click. Editing the note,
+ // changing the privacy/review confirmations or leaving the page makes it stale: no late download.
+ function invalidateExport(){exportRequest.current+=1;}
  async function doExport(format:'docx'|'pdf'|'json'){
+   const id=++exportRequest.current;
+   const revision=noteRevision.current;
+   const isCurrent=()=>id===exportRequest.current&&revision===noteRevision.current;
    setApiError('');setApiBusy(true);
    try{
      const note=buildNote();
      const preflight=await preflightClinicalNote(note);
+     if(!isCurrent()) return;
      if(preflight.blocked){setApiError(preflight.findings.map(x=>x.message).join(' · '));return;}
      const out=await exportClinicalNote(note,format);
+     if(!isCurrent()) return;
      downloadBlob(out.filename,out.blob);
-   }catch(e){setApiError(e instanceof Error?e.message:'Exportação bloqueada pelo backend.');}
-   finally{setApiBusy(false);}
+   }catch(e){if(isCurrent()) setApiError(e instanceof Error?e.message:'Exportação bloqueada pelo backend.');}
+   finally{if(mounted.current) setApiBusy(false);}
  }
  const card='rounded-2xl border border-border bg-surface p-4 shadow-card';
  const timelineItems=timeline.slice().reverse();
@@ -357,8 +368,8 @@ export default function ClinicalNote(){
    </section>}
 
    {tab==='export'&&<section className={card}><h2 className="text-lg font-bold">Revisão e exportação</h2><div className="mt-4 grid gap-2 text-sm">
-    <label className="flex items-center gap-2"><input type="checkbox" checked={privacyAck} onChange={e=>setPrivacyAck(e.target.checked)}/> Identificadores diretos removidos; texto livre, metadados e privacidade revistos.</label>
-    <label className="flex items-center gap-2"><input type="checkbox" checked={clinicianReviewed} onChange={e=>setClinicianReviewed(e.target.checked)}/> Médico reviu e valida o conteúdo clínico atual.</label>
+    <label className="flex items-center gap-2"><input type="checkbox" checked={privacyAck} onChange={e=>{invalidateExport();setPrivacyAck(e.target.checked);}}/> Identificadores diretos removidos; texto livre, metadados e privacidade revistos.</label>
+    <label className="flex items-center gap-2"><input type="checkbox" checked={clinicianReviewed} onChange={e=>{invalidateExport();setClinicianReviewed(e.target.checked);}}/> Médico reviu e valida o conteúdo clínico atual.</label>
     <p>{pending===0?'✓ Sem cartões MCDT pendentes':`STOP: ${pending} MCDT pendente(s) de aceitar/editar/rejeitar.`}</p>
     {diagnosticStale&&assessment&&<p className="text-warn">A análise diagnóstica está desatualizada; pode exportar apenas se o médico aceitar explicitamente o estado atual.</p>}
    </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">Exportação bloqueada até cumprir privacidade, revisão médica e resolução dos MCDT pendentes.</p>}</section>}

@@ -1,4 +1,5 @@
 import type { ClinicalNotePayload, DiagnosticApiResponse, InterpretationFields, PreparedUpload } from './types';
+import { decodeExportFile, type ExportFormat } from '../lib/exportIntegrity';
 
 const API_BASE=(import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/,'');
 
@@ -70,21 +71,17 @@ export async function analyzeClinicalNote(note:ClinicalNotePayload){
   return postJson<DiagnosticApiResponse>('/api/clinical-note/analyze',{note});
 }
 
-function base64ToBlob(content:string,mime:string){
-  const binary=atob(content);
-  const bytes=new Uint8Array(binary.length);
-  for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
-  return new Blob([bytes],{type:mime});
-}
-
-export async function exportClinicalNote(note:ClinicalNotePayload,format:'docx'|'pdf'|'json'){
-  const result=await postJson<{filename:string;mime_type:string;content_base64:string}>('/api/clinical-note/export',{note,format});
-  return {filename:result.filename,blob:base64ToBlob(result.content_base64,result.mime_type)};
+export async function exportClinicalNote(note:ClinicalNotePayload,format:ExportFormat){
+  const result=await postJson<unknown>('/api/clinical-note/export',{note,format});
+  // Q05-R: wrong format, empty or corrupt base64 → error, never a partial download.
+  const file=decodeExportFile(result,format);
+  return {filename:file.filename,blob:new Blob([file.bytes],{type:file.mime})};
 }
 
 export function downloadBlob(filename:string,blob:Blob){
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
   a.href=url;a.download=filename;a.click();
-  setTimeout(()=>URL.revokeObjectURL(url),0);
+  // Revoking synchronously can cancel the download in some browsers; release it shortly after instead.
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
