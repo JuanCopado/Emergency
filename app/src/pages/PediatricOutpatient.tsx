@@ -68,6 +68,8 @@ function ResultDetails({ value }: { value: Fields }) {
   </>;
 }
 
+const ERROR_ID = 'pediatric-input-error';
+
 function RegimenForm({ regimen }: { regimen: Regimen }) {
   const [values, setValues] = useState<Record<string, string>>({});
   const [response, setResponse] = useState<Calculation>();
@@ -77,6 +79,11 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   const [confirmed, setConfirmed] = useState(false);
   const [calculation, setCalculation] = useState<Fields>();
   const [error, setError] = useState('');
+  const [errorField, setErrorField] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    if (errorField) formRef.current?.querySelector<HTMLInputElement>(`[data-field="${errorField}"]`)?.focus();
+  }, [errorField]);
   const [busy, setBusy] = useState(false);
   const resultRef = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -89,7 +96,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   const change = (field: string, value: string) => {
     revision.current += 1;
     setValues((old) => ({ ...old, [field]: value }));
-    setResponse(undefined); setOutcome(undefined); setConfirmed(false); setError(''); setBusy(false);
+    setResponse(undefined); setOutcome(undefined); setConfirmed(false); setError(''); setErrorField(null); setBusy(false);
   };
   const gates: Gate[] = [...(regimen.required_patient_flags || []), ...(regimen.excluded_patient_flags || []),
     ...pediatricCatalog.condition_rules.filter((r) => !r.drug || r.drug === regimen.drug),
@@ -99,16 +106,20 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
     ...(regimen.weight_basis === 'ideal' ? ['ideal_weight_kg'] : regimen.weight_basis === 'adjusted' ? ['adjusted_weight_kg'] : []),
     'egfr_mL_min', ...(regimen.minimum_patient_values || []).map((g) => g.field),
     ...(regimen.maximum_patient_values || []).map((g) => g.field)])];
+  // Q07-R: an input error is tied to its field (aria-invalid + aria-describedby) and the field receives focus.
   const input = (field: string, title: string, type = 'text') => <label key={field} className="block">{title}
-    <input className="input mt-1" type={type} inputMode={type === 'text' ? 'decimal' : undefined}
+    <input className="input mt-1" type={type} inputMode={type === 'text' ? 'decimal' : undefined} data-field={field}
+      aria-invalid={errorField === field ? true : undefined} aria-describedby={errorField === field ? ERROR_ID : undefined}
       value={values[field] || ''} onChange={(e) => change(field, e.target.value)} /></label>;
   const submit = async (event: FormEvent) => {
     event.preventDefault();
     const requestedRevision = ++revision.current;
-    setResponse(undefined); setOutcome(undefined); setConfirmed(false); setError('');
+    setResponse(undefined); setOutcome(undefined); setConfirmed(false); setError(''); setErrorField(null);
+    let parsing: string | null = null;
+    const parse = (field: string, name: string, allowZero = false) => { parsing = field; const n = numericInput(values[field] ?? '', name, allowZero); parsing = null; return n; };
     try {
       const patient: Fields = {};
-      for (const field of numericFields) if (values[field]?.trim()) patient[field] = numericInput(values[field], label(field), !field.includes('weight'));
+      for (const field of numericFields) if (values[field]?.trim()) patient[field] = parse(field, label(field), !field.includes('weight'));
       for (const gate of flags) if (values[gate.field]) patient[gate.field] = values[gate.field] === 'yes';
       if (values.hepatic_severity) patient.hepatic_severity = values.hepatic_severity;
       for (const field of ['allergies', 'active_medications']) {
@@ -116,11 +127,11 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       }
       const body: Fields = { regimen_id: regimen.id, patient };
       for (const [field, name] of [['selected_dose_per_kg', 'Dosis elegida'], ['selected_duration_days', 'Duración elegida'], ['selected_volume_ml', 'Volumen elegido']] as const) {
-        if (values[field]?.trim()) body[field] = numericInput(values[field], name);
+        if (values[field]?.trim()) body[field] = parse(field, name);
       }
       if (values.concentration?.trim()) {
         if (values.product_verified !== 'yes') throw new Error('Confirma la presentación exacta antes de calcular mL');
-        body.product = { concentration_mg_per_ml: numericInput(values.concentration, 'Concentración'),
+        body.product = { concentration_mg_per_ml: parse('concentration', 'Concentración'),
           external_concentration_verified: values.external_verified === 'yes' };
       }
       setBusy(true);
@@ -131,7 +142,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
         setCalculation(body); setResponse(result); setOutcome(classified);
       }
     } catch (e) {
-      if (revision.current === requestedRevision) setError(e instanceof Error ? e.message : 'Error de cálculo');
+      if (revision.current === requestedRevision) { setError(e instanceof Error ? e.message : 'Error de cálculo'); setErrorField(parsing); }
     } finally {
       if (revision.current === requestedRevision) setBusy(false);
     }
@@ -157,7 +168,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       <Details value={regimen} />
       {typeof regimen.source_url === 'string' && <a className="underline" href={regimen.source_url} target="_blank" rel="noreferrer">Consultar fuente canónica</a>}
     </section>
-    <form id="pediatric-input" onSubmit={submit} className="card p-4 space-y-4" aria-label="Cálculo pediátrico">
+    <form ref={formRef} id="pediatric-input" onSubmit={submit} className="card p-4 space-y-4" aria-label="Cálculo pediátrico">
       <h2 className="text-lg font-bold">Datos para la pauta seleccionada</h2>
       <p>Introduce datos verificados. Una dosis calculable no confirma indicación ni criterios de alta. Los campos vacíos no se interpretan como negativos.</p>
       <div className="grid gap-3 sm:grid-cols-2">{numericFields.map((f) => input(f, label(f)))}</div>
@@ -188,7 +199,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
         <label className="block"><input type="checkbox" checked={values.external_verified === 'yes'} onChange={(e) => change('external_verified', e.target.checked ? 'yes' : '')} /> Presentación externa al registro: ficha técnica comprobada</label>
       </div>}
       <button className="btn-primary" disabled={busy} type="submit">{busy ? 'Calculando…' : 'Comprobar y calcular'}</button>
-      {error && <p role="alert" className="rounded-xl border border-danger p-3 font-semibold text-danger">{error}</p>}
+      {error && <p id={ERROR_ID} role="alert" className="rounded-xl border border-danger p-3 font-semibold text-danger">{error}</p>}
     </form>
     {/* Polite summary only for a result; a stopped calculation is announced once, assertively, below. */}
     <div aria-live="polite" aria-atomic="true" className="sr-only">{outcome && !stopped ? 'Resultado aritmético disponible. Requiere revisión clínica.' : ''}</div>
