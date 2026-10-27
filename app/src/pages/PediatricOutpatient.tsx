@@ -1,6 +1,7 @@
 import PediatricExport from '../pediatrics/PediatricExport';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { classifyPediatric, type Outcome, type PediatricSuccess } from '../lib/clinicalOutcome';
 import { calculatePediatric, findRegimen, numericInput, pediatricCatalog, regimensForDrug,
   type Calculation, type Fields, type Gate, type Regimen, type Value } from '../pediatrics/catalog';
 
@@ -56,6 +57,8 @@ function ResultDetails({ value }: { value: Fields }) {
 function RegimenForm({ regimen }: { regimen: Regimen }) {
   const [values, setValues] = useState<Record<string, string>>({});
   const [response, setResponse] = useState<Calculation>();
+  // classifyPediatric (S0) is the only path to figures: STOP or unknown severity hides the dose even with blocked:false.
+  const [outcome, setOutcome] = useState<Outcome<PediatricSuccess>>();
   const [calculation, setCalculation] = useState<Fields>();
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -70,7 +73,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   const change = (field: string, value: string) => {
     revision.current += 1;
     setValues((old) => ({ ...old, [field]: value }));
-    setResponse(undefined); setError(''); setBusy(false);
+    setResponse(undefined); setOutcome(undefined); setError(''); setBusy(false);
   };
   const gates: Gate[] = [...(regimen.required_patient_flags || []), ...(regimen.excluded_patient_flags || []),
     ...pediatricCatalog.condition_rules.filter((r) => !r.drug || r.drug === regimen.drug),
@@ -86,7 +89,7 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   const submit = async (event: FormEvent) => {
     event.preventDefault();
     const requestedRevision = ++revision.current;
-    setResponse(undefined); setError('');
+    setResponse(undefined); setOutcome(undefined); setError('');
     try {
       const patient: Fields = {};
       for (const field of numericFields) if (values[field]?.trim()) patient[field] = numericInput(values[field], label(field), !field.includes('weight'));
@@ -106,13 +109,19 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       }
       setBusy(true);
       const result = await calculatePediatric(body);
-      if (revision.current === requestedRevision) { setCalculation(body); setResponse(result); }
+      if (revision.current === requestedRevision) {
+        const classified = classifyPediatric(result);
+        if (classified.kind === 'ERROR') { setError(`Respuesta del servidor no válida (${classified.detail}); no se muestra ningún resultado.`); return; }
+        setCalculation(body); setResponse(result); setOutcome(classified);
+      }
     } catch (e) {
       if (revision.current === requestedRevision) setError(e instanceof Error ? e.message : 'Error de cálculo');
     } finally {
       if (revision.current === requestedRevision) setBusy(false);
     }
   };
+  const success = outcome?.kind === 'SUCCESS' ? outcome.result : undefined;
+  const stopped = outcome?.kind === 'STOP' || outcome?.kind === 'BLOCKED';
   return <div className="space-y-5">
     <nav aria-label="Secciones pediátricas" className="flex flex-wrap gap-2">
       <a href="#pediatric-input" className="btn-primary">Datos y cálculo</a>
@@ -158,13 +167,13 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       <button className="btn-primary" disabled={busy} type="submit">{busy ? 'Calculando…' : 'Comprobar y calcular'}</button>
       {error && <p role="alert" className="rounded-xl border border-danger p-3 font-semibold text-danger">{error}</p>}
     </form>
-    <div aria-live="polite" aria-atomic="true" className="sr-only">{response ? (response.blocked ? 'Cálculo bloqueado. Revisa las alertas.' : 'Resultado aritmético disponible. Requiere revisión clínica.') : ''}</div>
-    {response && <section ref={resultRef} tabIndex={-1} id="pediatric-result" className={`card p-4 space-y-3 ${response.blocked ? 'border-danger' : 'border-primary'}`} aria-label="Resultado pediátrico">
-      <h2 className="text-xl font-bold">{response.blocked ? 'Cálculo bloqueado' : 'Resultado aritmético — requiere revisión clínica'}</h2>
-      <p>{response.safety.prescription_status}</p>
-      {response.safety.alerts.map((a, i) => <p key={i} className={`rounded-xl border p-3 ${a.severity === 'STOP' ? 'border-danger bg-surface text-danger' : 'border-warn bg-warn-bg text-warn'}`}><strong>{a.severity === 'STOP' ? '⛔ ' : '⚠ '}{a.severity}: </strong>{a.message} {a.action}</p>)}
-      {!response.blocked && response.result && <ResultDetails value={response.result} />}
-      {!response.blocked && response.result && response.export_report && calculation && <PediatricExport report={response.export_report} calculation={calculation} result={response.result} />}
+    <div aria-live="polite" aria-atomic="true" className="sr-only">{outcome ? (stopped ? 'Cálculo bloqueado. Revisa las alertas.' : 'Resultado aritmético disponible. Requiere revisión clínica.') : ''}</div>
+    {response && outcome && <section ref={resultRef} tabIndex={-1} id="pediatric-result" className={`card p-4 space-y-3 ${stopped ? 'border-danger' : 'border-primary'}`} aria-label="Resultado pediátrico">
+      <h2 className="text-xl font-bold">{outcome.kind === 'STOP' ? 'STOP — cálculo detenido; no se muestra ninguna dosis' : stopped ? 'Cálculo bloqueado' : 'Resultado aritmético — requiere revisión clínica'}</h2>
+      <p>{String(response.safety?.prescription_status ?? '')}</p>
+      {(outcome.kind === 'ERROR' ? [] : outcome.alerts).map((a, i) => <p key={i} className={`rounded-xl border p-3 ${a.severity === 'STOP' || !['ALERT', 'CAUTION', 'INFO'].includes(a.severity) ? 'border-danger bg-surface text-danger' : 'border-warn bg-warn-bg text-warn'}`}><strong>{a.severity === 'STOP' || !['ALERT', 'CAUTION', 'INFO'].includes(a.severity) ? '⛔ ' : '⚠ '}{a.severity || 'STOP'}: </strong>{a.message} {a.action}</p>)}
+      {success && <ResultDetails value={success.result as Fields} />}
+      {success && success.exportReport != null && calculation && <PediatricExport report={success.exportReport as NonNullable<Calculation['export_report']>} calculation={calculation} result={success.result as Fields} />}
     </section>}
   </div>;
 }

@@ -1,5 +1,6 @@
 import type { PediatricReport } from './PediatricExport';
 import generated from '../data/generatedPediatricOutpatient.json';
+import { parseClinicalNumber } from '../lib/clinicalInput';
 
 export type Value = string | number | boolean | null | Value[] | { [key: string]: Value };
 export type Fields = { [key: string]: Value };
@@ -34,9 +35,14 @@ export async function calculatePediatric(body: Fields): Promise<Calculation> {
 }
 
 export function numericInput(text: string, label: string, allowZero = false): number {
-  const n = Number(text);
-  if (!text.trim() || !Number.isFinite(n) || (allowZero ? n < 0 : n <= 0)) {
-    throw new Error(`${label}: introduce un número finito ${allowZero ? 'mayor o igual que cero' : 'mayor que cero'}`);
+  // Approved decimal policy: comma is the only decimal separator; the returned number is ordinary.
+  const parsed = parseClinicalNumber(text, { allowNegative: false });
+  if (!parsed.ok && /^\s*\d+\.\d+\s*$/.test(text)) {
+    throw new Error(`${label}: usa coma como separador decimal (p. ej. 12,5), no punto`);
+  }
+  const n = parsed.ok ? parsed.value : Number.NaN;
+  if (!Number.isFinite(n) || (allowZero ? n < 0 : n <= 0)) {
+    throw new Error(`${label}: introduce un número finito ${allowZero ? 'mayor o igual que cero' : 'mayor que cero'}, sin signo, exponente ni unidades; decimales con coma`);
   }
   return n;
 }
