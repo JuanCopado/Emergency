@@ -2,7 +2,8 @@ import PediatricExport from '../pediatrics/PediatricExport';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { formatClinicalNumber } from '../lib/clinicalInput';
-import { classifyPediatric, type Outcome, type PediatricSuccess } from '../lib/clinicalOutcome';
+import { StopAlert } from '../components/StopAlert';
+import { classifyPediatric, type Outcome, type PediatricSuccess, type SafetyAlert } from '../lib/clinicalOutcome';
 import { calculatePediatric, findRegimen, numericInput, pediatricCatalog, regimensForDrug,
   type Calculation, type Fields, type Gate, type Regimen, type Value } from '../pediatrics/catalog';
 
@@ -26,6 +27,7 @@ const labels: Record<string, string> = {
   minimum_patient_values: 'Valores mínimos requeridos', maximum_patient_values: 'Valores máximos permitidos',
   known_renal_impairment: 'Insuficiencia renal conocida', known_hepatic_impairment: 'Insuficiencia hepática conocida',
 };
+const NON_STOP = new Set(['ALERT', 'CAUTION', 'INFO']);
 const label = (key: string) => labels[key] || key.replaceAll('_', ' ');
 const omitted = new Set(['id', 'drug_id', 'drug', 'diagnosis', 'dose_model', 'liquid_capable', 'source_url',
   'medication_safety', 'prescription_status', 'status', 'regimen_id']);
@@ -136,6 +138,13 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
   };
   const success = outcome?.kind === 'SUCCESS' ? outcome.result : undefined;
   const stopped = outcome?.kind === 'STOP' || outcome?.kind === 'BLOCKED';
+  // U08c: alerts go through StopAlert (STOP → role=alert/assertive; ALERT/CAUTION/INFO → role=status/polite).
+  const alerts: SafetyAlert[] = outcome && outcome.kind !== 'ERROR' ? outcome.alerts : [];
+  // StopAlert groups by trimmed severity; classifyPediatric stops on any severity outside the exact set.
+  // If the calculation is stopped but StopAlert would render no STOP group (no alerts, or e.g. " ALERT "),
+  // an explicit assertive STOP keeps exactly one assertive announcement for every stopped result.
+  const stopGroupShown = alerts.some((a) => !NON_STOP.has(a.severity.trim()));
+  const needsStopFallback = stopped && !stopGroupShown;
   return <div className="space-y-5">
     <nav aria-label="Secciones pediátricas" className="flex flex-wrap gap-2">
       <a href="#pediatric-input" className="btn-primary">Datos y cálculo</a>
@@ -181,11 +190,13 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
       <button className="btn-primary" disabled={busy} type="submit">{busy ? 'Calculando…' : 'Comprobar y calcular'}</button>
       {error && <p role="alert" className="rounded-xl border border-danger p-3 font-semibold text-danger">{error}</p>}
     </form>
-    <div aria-live="polite" aria-atomic="true" className="sr-only">{outcome ? (stopped ? 'Cálculo bloqueado. Revisa las alertas.' : 'Resultado aritmético disponible. Requiere revisión clínica.') : ''}</div>
+    {/* Polite summary only for a result; a stopped calculation is announced once, assertively, below. */}
+    <div aria-live="polite" aria-atomic="true" className="sr-only">{outcome && !stopped ? 'Resultado aritmético disponible. Requiere revisión clínica.' : ''}</div>
     {response && outcome && <section ref={resultRef} tabIndex={-1} id="pediatric-result" className={`card p-4 space-y-3 ${stopped ? 'border-danger' : 'border-primary'}`} aria-label="Resultado pediátrico">
       <h2 className="text-xl font-bold">{outcome.kind === 'STOP' ? 'STOP — cálculo detenido; no se muestra ninguna dosis' : stopped ? 'Cálculo bloqueado' : 'Resultado aritmético — requiere revisión clínica'}</h2>
       <p>{String(response.safety?.prescription_status ?? '')}</p>
-      {(outcome.kind === 'ERROR' ? [] : outcome.alerts).map((a, i) => <p key={i} className={`rounded-xl border p-3 ${a.severity === 'STOP' || !['ALERT', 'CAUTION', 'INFO'].includes(a.severity) ? 'border-danger bg-surface text-danger' : 'border-warn bg-warn-bg text-warn'}`}><strong>{a.severity === 'STOP' || !['ALERT', 'CAUTION', 'INFO'].includes(a.severity) ? '⛔ ' : '⚠ '}{a.severity || 'STOP'}: </strong>{a.message} {a.action}</p>)}
+      {needsStopFallback && <p role="alert" aria-live="assertive" tabIndex={-1} className="rounded-2xl border-2 border-danger p-3 font-bold text-danger" data-testid="stop-fallback">STOP: el cálculo está detenido; no se muestra ninguna dosis. Revise los avisos y la ficha.</p>}
+      <StopAlert alerts={alerts} />
       {success && <ResultDetails value={success.result as Fields} />}
       {success && success.exportReport != null && calculation && <label className="block font-semibold"><input type="checkbox" checked={confirmed} onChange={(e) => setConfirmed(e.target.checked)} /> Confirmo haber revisado el resultado completo, sus límites y advertencias</label>}
       {success && success.exportReport != null && calculation && confirmed && <PediatricExport report={success.exportReport as NonNullable<Calculation['export_report']>} calculation={calculation} result={success.result as Fields} />}
