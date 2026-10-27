@@ -126,7 +126,37 @@ const NON_STOP_SEVERITIES = new Set(['ALERT', 'CAUTION', 'INFO']);
 // Quantity keys emitted by pediatric_outpatient_calculator.py (and its catalog bands), checked at any depth.
 const PEDIATRIC_QUANTITIES = new Set(['dose_mg', 'dose_mg_per_kg', 'dosing_weight_kg', 'exact_ml', 'rounded_0_1_ml',
   'estimated_total_course_ml', 'estimated_phase_ml', 'concentration_mg_per_ml', 'mg_per_ml', 'total_doses',
-  'total_phase_doses', 'doses_per_day', 'duration_days', 'sachets_per_day']);
+  'total_phase_doses', 'doses_per_day', 'sachets_per_day']);
+
+/** Finite non-negative number, or null where the backend omits the value. Strings are never converted. */
+const quantityOrNull = (value: unknown) => value === null || (typeof value === 'number' && Number.isFinite(value) && value >= 0);
+const finiteOrNull = (value: unknown) => value === null || (typeof value === 'number' && Number.isFinite(value));
+
+// _drops() in pediatric_outpatient_calculator.py: counts and factors are non-negative; the rounding
+// error is a signed percentage. Text fields (factor_source, product name, URL, warning) are not quantities.
+const DROP_QUANTITIES = ['exact_drops', 'rounded_whole_drops', 'mg_per_drop', 'drops_per_ml', 'delivered_mg_at_rounded_drops'] as const;
+function dropConversionValid(value: Json): boolean {
+  return DROP_QUANTITIES.every((key) => value[key] === undefined || quantityOrNull(value[key])) &&
+    (value.rounding_error_percent === undefined || finiteOrNull(value.rounding_error_percent));
+}
+
+/**
+ * S0-R2 (Q01–Q06): field-specific shapes taken from pediatric_outpatient_calculator.py and its catalog,
+ * applied wherever the key appears (result, matched_band, schedule phases):
+ * - duration_days: number, null or a [min, max] range of numbers (catalog bands);
+ * - total_rehydration_ml, target_ml_per_hour (volume_ml_per_kg_course model) and
+ *   volume_per_administration_ml (topical): number or null;
+ * - drops_per_dose: number (topical catalog) or the _drops() conversion object.
+ * Every number must be finite and non-negative (except the signed rounding error).
+ */
+const FIELD_RULES: Readonly<Record<string, (value: unknown) => boolean>> = Object.freeze({
+  duration_days: (value: unknown) => quantityOrNull(value) ||
+    (Array.isArray(value) && value.length === 2 && value.every((item) => typeof item === 'number' && Number.isFinite(item) && item >= 0)),
+  total_rehydration_ml: quantityOrNull,
+  target_ml_per_hour: quantityOrNull,
+  volume_per_administration_ml: quantityOrNull,
+  drops_per_dose: (value: unknown) => quantityOrNull(value) || (isObject(value) && dropConversionValid(value)),
+});
 
 /**
  * S0-R (R2): a quantity key may carry a non-negative number, null (backend omits it) or a
@@ -137,6 +167,7 @@ function quantitiesValid(value: unknown): boolean {
   if (Array.isArray(value)) return value.every(quantitiesValid);
   if (!isObject(value)) return true;
   return Object.entries(value).every(([key, item]) => {
+    if (Object.hasOwn(FIELD_RULES, key)) return FIELD_RULES[key]!(item);
     if (PEDIATRIC_QUANTITIES.has(key)) {
       if (typeof item === 'string' || typeof item === 'boolean') return false;
       if (typeof item === 'number') return item >= 0;
@@ -146,10 +177,22 @@ function quantitiesValid(value: unknown): boolean {
 }
 
 /**
+ * S0-R2 (phase 2) — proposed pediatric contract policy, PREPARED BUT NOT ACTIVE.
+ * A: result.regimen_id and result.drug non-empty strings and result.status exactly "calculated".
+ * B: export_report mandatory and structurally valid on SUCCESS of the current endpoint.
+ * dose_mg is never required (topical, device, sachet and volume-per-kg models have no mg dose).
+ * Activation requires explicit owner authorization; until then the default leaves both off.
+ */
+export type PediatricContractPolicy = { readonly requireIdentity: boolean; readonly requireExportReport: boolean };
+export const PEDIATRIC_CONTRACT_POLICY_CURRENT: PediatricContractPolicy = Object.freeze({ requireIdentity: false, requireExportReport: false });
+export const PEDIATRIC_CONTRACT_POLICY_PROPOSED_AB: PediatricContractPolicy = Object.freeze({ requireIdentity: true, requireExportReport: true });
+const nonEmptyString = (value: unknown) => typeof value === 'string' && value.trim() !== '';
+
+/**
  * Pediatric outpatient. Any alert whose severity is not ALERT, CAUTION or INFO —
  * including STOP and unknown or missing severities — is treated as STOP (fail closed).
  */
-export function classifyPediatric(raw: unknown): Outcome<PediatricSuccess> {
+export function classifyPediatric(raw: unknown, policy: PediatricContractPolicy = PEDIATRIC_CONTRACT_POLICY_CURRENT): Outcome<PediatricSuccess> {
   if (!isObject(raw)) return invalid('response is not an object');
   const safety = isObject(raw.safety) ? raw.safety : undefined;
   const alerts = safety ? readAlerts(safety.alerts, null) : 'missing';
@@ -165,11 +208,17 @@ export function classifyPediatric(raw: unknown): Outcome<PediatricSuccess> {
   const result = raw.result;
   if (!isObject(result)) return invalid('result is missing');
   if (Object.keys(result).length === 0) return invalid('result is empty');
+  if (policy.requireIdentity) {
+    if (!nonEmptyString(result.regimen_id)) return invalid('regimen id is missing');
+    if (!nonEmptyString(result.drug)) return invalid('drug is missing');
+    if (result.status !== 'calculated') return invalid('result status is not "calculated"');
+  }
   if (result.regimen_id !== undefined && typeof result.regimen_id !== 'string') return invalid('regimen id is malformed');
   if (result.status !== undefined && result.status !== 'calculated') return invalid('result status is not "calculated"');
   if (!allFinite(result)) return invalid('result contains a non-finite number');
   if (!quantitiesValid(result)) return invalid('a quantity is negative or not a number');
   // export_report is validated before any render or action; absent → no export/print (null).
+  if (policy.requireExportReport && raw.export_report === undefined) return invalid('export report is missing');
   if (raw.export_report !== undefined && !isClinicalReport(raw.export_report)) return invalid('export report is malformed');
   return {
     kind: 'SUCCESS',
