@@ -136,9 +136,18 @@ const finiteOrNull = (value: unknown) => value === null || (typeof value === 'nu
 // error is a signed percentage. Text fields (factor_source, product name, URL, warning) are not quantities.
 const DROP_QUANTITIES = ['exact_drops', 'rounded_whole_drops', 'mg_per_drop', 'drops_per_ml', 'delivered_mg_at_rounded_drops'] as const;
 function dropConversionValid(value: Json): boolean {
-  return DROP_QUANTITIES.every((key) => value[key] === undefined || quantityOrNull(value[key])) &&
+  // S0-R3: _drops() always returns exact_drops (number) and rounded_whole_drops (whole number); an object
+  // without them (e.g. {}) is not a conversion and must not be shown as one.
+  const exact = value.exact_drops;
+  const rounded = value.rounded_whole_drops;
+  return typeof exact === 'number' && typeof rounded === 'number' && Number.isInteger(rounded) &&
+    DROP_QUANTITIES.every((key) => value[key] === undefined || quantityOrNull(value[key])) &&
     (value.rounding_error_percent === undefined || finiteOrNull(value.rounding_error_percent));
 }
+
+/** [min, max] of two finite non-negative numbers (catalog ranges), or null. */
+const rangeOrNull = (value: unknown) => value === null ||
+  (Array.isArray(value) && value.length === 2 && value.every((item) => typeof item === 'number' && Number.isFinite(item) && item >= 0));
 
 /**
  * S0-R2 (Q01–Q06): field-specific shapes taken from pediatric_outpatient_calculator.py and its catalog,
@@ -147,15 +156,24 @@ function dropConversionValid(value: Json): boolean {
  * - total_rehydration_ml, target_ml_per_hour (volume_ml_per_kg_course model) and
  *   volume_per_administration_ml (topical): number or null;
  * - drops_per_dose: number (topical catalog) or the _drops() conversion object.
+ * S0-R3 (residual quantities, shapes verified in the catalog and 530 real responses):
+ * - administration_hours (volume_ml_per_kg_course), dose_ml (fixed_volume_band), applications_per_day and
+ *   repeat_after_days (topical pass-through; absent from the current catalog): number or null;
+ * - dose_ml_range (fixed_volume_band) and doses_per_day_range (topical): [min, max] or null.
  * Every number must be finite and non-negative (except the signed rounding error).
  */
 const FIELD_RULES: Readonly<Record<string, (value: unknown) => boolean>> = Object.freeze({
-  duration_days: (value: unknown) => quantityOrNull(value) ||
-    (Array.isArray(value) && value.length === 2 && value.every((item) => typeof item === 'number' && Number.isFinite(item) && item >= 0)),
+  duration_days: (value: unknown) => quantityOrNull(value) || rangeOrNull(value),
   total_rehydration_ml: quantityOrNull,
   target_ml_per_hour: quantityOrNull,
   volume_per_administration_ml: quantityOrNull,
   drops_per_dose: (value: unknown) => quantityOrNull(value) || (isObject(value) && dropConversionValid(value)),
+  administration_hours: quantityOrNull,
+  dose_ml: quantityOrNull,
+  applications_per_day: quantityOrNull,
+  repeat_after_days: quantityOrNull,
+  dose_ml_range: rangeOrNull,
+  doses_per_day_range: rangeOrNull,
 });
 
 /**
