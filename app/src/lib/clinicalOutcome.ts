@@ -186,10 +186,9 @@ function quantitiesValid(value: unknown): boolean {
   if (!isObject(value)) return true;
   return Object.entries(value).every(([key, item]) => {
     if (Object.hasOwn(FIELD_RULES, key)) return FIELD_RULES[key]!(item);
-    if (PEDIATRIC_QUANTITIES.has(key)) {
-      if (typeof item === 'string' || typeof item === 'boolean') return false;
-      if (typeof item === 'number') return item >= 0;
-    }
+    // PEDIATRIC-SAFETY-01 (NEW-05 delta): a quantity key is a finite non-negative number or null, the only
+    // shapes in 530 real backend responses; an object or array (e.g. dose_mg: {} or [5]) is not a quantity.
+    if (PEDIATRIC_QUANTITIES.has(key)) return quantityOrNull(item);
     return quantitiesValid(item);
   });
 }
