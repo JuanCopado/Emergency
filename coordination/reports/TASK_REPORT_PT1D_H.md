@@ -40,3 +40,13 @@ Trabajo: registro documental de referencia, alcance y límites. Pruebas PT-1D re
 No inferir seguridad irrestricta, firma, aprobación clínica o validez global desde un ensayo limitado. Próxima acción propuesta: el propietario podrá facilitar la evidencia para verificación independiente y decidir las autorizaciones posteriores; esta tarea no lo ejecuta. Tokens/coste: no disponibles como medición en las herramientas.
 
 Estado: **CLINICALLY_PENDING**.
+
+## Adenda D-001E — corrección de atribución (2026-10-29T14:24:40-05:00)
+
+El texto anterior se conserva literalmente como registro histórico D-001C/R1. Su TASK_ID PT1D_H se usó para documentar el PASS limitado de T0/T1, no para acreditar ejecución satisfactoria del H original. No sustituye los informes originales de esas pruebas.
+
+- **PT-1D/T0:** pruebas sintéticas de laboratorio restringido; PASS limitado declarado, no ejecutadas por Codex.
+- **PT-1D/T1:** negativas limitadas de exposición de herramientas; PASS limitado declarado, no ejecutadas por Codex.
+- **PT-1D/H:** intento inicial de registrar evidencias, **BLOCKED porque aún no existía el registro maestro**, según instrucción del propietario D-001E. Agente/entorno/fecha exacta originales: UNKNOWN/no acreditados. La incorporación posterior D-001C/R1 y publicación D-001D no convierten H en PASS. El ledger normaliza el ID a PT-1D/H y conserva el alias, sin duplicarlo.
+
+Fuentes originales de F (sanitización) y G (exportación): no disponibles. El informe publicado anterior sí se leyó y hasheó como documento; el ZIP sigue ausente y su hash solo declarado. Verificación de otro auditor: NOT_VERIFIED sin informe identificable. PT-1 GLOBAL permanece NOT_VERIFIED. No se reejecutan pruebas ni se inventa una cronología de F/G/H.

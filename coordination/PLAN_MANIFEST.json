@@ -1,9 +1,9 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "plan_version": "v1.1.1-reconstruction-draft",
   "PLAN_ID": "1a10fda3a5b8295125a4b82088710a9ac31cc7361a32272f4e948d86eb3e0597",
   "plan_id_origin": "Owner-supplied identifier; full master-plan bytes not supplied or rehashed",
-  "documentary_status": "LOCAL_PREPARATION_PENDING_OWNER_REVIEW",
+  "documentary_status": "PUBLISHED_DOCUMENTARY",
   "cutoff_at": "2026-10-29T13:57:58-05:00",
   "clinical_status": "CLINICALLY_PENDING",
   "owner_authority": {
@@ -17,7 +17,7 @@
   },
   "branch": "coordination/v144-control",
   "base_sha": "ada519ac2f8e31ce807f397319ce260724642756",
-  "published": false,
+  "published": true,
   "signed": false,
   "master_ledger": "coordination/MASTER_LEDGER.csv",
   "evidence": [
@@ -26,7 +26,7 @@
       "sha256": "b140c62873f8570a618ad8f4b35a02c1a0133141524ff61954bc66c1a3aa6142",
       "availability": "AVAILABLE_IN_TEMP_EVIDENCE",
       "verification": "LOCAL_INSTRUCTION_BYTES_SHA256_COMPUTED; NOT_OWNER_IDENTITY_OR_PERMANENT_LINK_VERIFICATION",
-      "local_copy_reference": "local_only:../evidence/OWNER_REQUEST_D001C.txt",
+      "local_copy_reference": "local_only:../evidence/sources/OWNER_REQUEST_D001C.txt",
       "reference_base": "Temporary clone repository root; local copy is not a published or durable link",
       "durable_link_status": "PENDING_EVIDENCE_LINK"
     },
@@ -48,6 +48,38 @@
         "pt1d_tests_repeated": false,
         "status": "NOT_VERIFIED"
       }
+    },
+    {
+      "reference": "local_only:../evidence/sources/TASK_REPORT_D001C_R1.md",
+      "title": "TASK_REPORT_D001C_R1.md",
+      "sha256": "1620dd723896dc81747183c63a9286e14e1c368cb2a4ac50f2067e6646a4e8aa",
+      "verification": "LOCAL_FILE_BYTES_SHA256_COMPUTED",
+      "availability": "AVAILABLE_IN_THIS_TEMP_EVIDENCE_NOT_PUBLISHED",
+      "limitation": "Hash verifies document bytes only, not a signature or all claims inside it"
+    },
+    {
+      "reference": "local_only:../evidence/sources/TASK_REPORT_D001D.md",
+      "title": "TASK_REPORT_D001D.md",
+      "sha256": "7ee81201332cde0d0a30a25826fee8b6559ca128082d2b9f39fd4ac7b306b2ed",
+      "verification": "LOCAL_FILE_BYTES_SHA256_COMPUTED",
+      "availability": "AVAILABLE_IN_THIS_TEMP_EVIDENCE_NOT_PUBLISHED",
+      "limitation": "Hash verifies document bytes only, not a signature or all claims inside it"
+    },
+    {
+      "reference": "local_only:../evidence/sources/OWNER_REQUEST_D001D.txt",
+      "title": "OWNER_REQUEST_D001D.txt",
+      "sha256": "0c382fe80a069e600444b5a97b6e0b55fe3d2ef1886bc6c31b584ac612d5aa21",
+      "verification": "LOCAL_FILE_BYTES_SHA256_COMPUTED",
+      "availability": "AVAILABLE_IN_THIS_TEMP_EVIDENCE_NOT_PUBLISHED",
+      "limitation": "Hash verifies document bytes only, not a signature or all claims inside it"
+    },
+    {
+      "reference": "local_only:../evidence/sources/OWNER_REQUEST_D001E.txt",
+      "title": "OWNER_REQUEST_D001E.txt",
+      "sha256": "dab1441694900d4fdc6eb9ae6121d011151b48b0d3dcccd90749f9c377dd4101",
+      "verification": "LOCAL_FILE_BYTES_SHA256_COMPUTED",
+      "availability": "AVAILABLE_IN_THIS_TEMP_EVIDENCE_NOT_PUBLISHED",
+      "limitation": "Hash verifies document bytes only, not a signature or all claims inside it"
     }
   ],
   "authorization_limits": [
@@ -61,10 +93,133 @@
     "No change to clinical code or data"
   ],
   "pending": [
-    "Owner review of local diff",
-    "Separate authorization for commit/publication",
+    "Independent review of D-001E local diff",
+    "Separate authorization for commit/publication of D-001E revision",
     "G0 worktree inventory reconciliation",
     "PT-1 global verification",
-    "Permanent owner-authorization evidence reference: PENDING_EVIDENCE_LINK"
-  ]
+    "Permanent owner-authorization evidence reference: PENDING_EVIDENCE_LINK",
+    "Original PT-1D/F and PT-1D/G reports, identifiable third-party report and ZIP bytes unavailable"
+  ],
+  "cutoff_at_semantics": "Historical D-001C/R1 preparation cutoff, preserved unchanged",
+  "operational_cutoff_at": "2026-10-29T14:24:40-05:00",
+  "publication": {
+    "task_id": "D-001D",
+    "branch": "coordination/v144-control",
+    "commit": "37c9c7c003d43fc1992ae353ee45190483651ca3",
+    "scope": "Published coordination ledger only; not full master plan or clinical release",
+    "result": "PUBLISHED_PASS",
+    "date": "2026-10-29",
+    "commit_committed_at": "2026-10-29T19:08:06Z",
+    "push_at": null,
+    "push_at_limitation": "Exact server push timestamp not recorded in available evidence; commit time is not push time",
+    "observed_published_by_report_at": "2026-10-29T14:10:28-05:00",
+    "report_title": "TASK_REPORT_D001D.md",
+    "report_reference": "local_only:../evidence/sources/TASK_REPORT_D001D.md",
+    "report_sha256": "7ee81201332cde0d0a30a25826fee8b6559ca128082d2b9f39fd4ac7b306b2ed",
+    "current_remote_sha_verified": "37c9c7c003d43fc1992ae353ee45190483651ca3"
+  },
+  "timeline": {
+    "local_preparation_at": "2026-10-29T13:50:48-05:00",
+    "local_review_prepared_at": "2026-10-29T13:57:58-05:00",
+    "local_review_report_issued_at": "2026-10-29T13:59:52-05:00",
+    "published_commit_at": "2026-10-29T19:08:06Z",
+    "publication_observed_by_report_at": "2026-10-29T14:10:28-05:00",
+    "publication_exact_push_at": null,
+    "operational_documentary_cutoff_at": "2026-10-29T14:24:40-05:00",
+    "sources": {
+      "preparation": "Published historical report TASK_REPORT_PT1D_H.md",
+      "review_cutoff": "Published PLAN_MANIFEST.json cutoff_at",
+      "review_report": "local_only:../evidence/sources/TASK_REPORT_D001C_R1.md",
+      "publication_report": "local_only:../evidence/sources/TASK_REPORT_D001D.md"
+    }
+  },
+  "working_revision": {
+    "task_id": "D-001E",
+    "base_sha": "37c9c7c003d43fc1992ae353ee45190483651ca3",
+    "status": "LOCAL_DOCUMENTARY_CORRECTIONS_NOT_PUBLISHED",
+    "commit_created": false,
+    "push_executed": false,
+    "cutoff_at": "2026-10-29T14:24:40-05:00"
+  },
+  "authorization_limits_scope": "Current D-001E working revision only; completed D-001D publication recorded separately",
+  "pt1d_tasks": {
+    "PT-1D/T0": {
+      "scope": "Restricted-laboratory synthetic tests",
+      "result": "OWNER_REPORTED_PASS_LIMITED",
+      "agent": "UNKNOWN",
+      "event_at": null,
+      "codex_execution": "NOT_EXECUTED"
+    },
+    "PT-1D/T1": {
+      "scope": "Limited negative tool-exposure tests",
+      "result": "OWNER_REPORTED_PASS_LIMITED",
+      "agent": "UNKNOWN",
+      "event_at": null,
+      "codex_execution": "NOT_EXECUTED"
+    },
+    "PT-1D/H": {
+      "scope": "Original attempt to register evidence in the master ledger",
+      "historical_result": "BLOCKED",
+      "historical_reason": "Master ledger did not exist",
+      "agent": "UNKNOWN",
+      "environment": "UNKNOWN",
+      "event_at": null,
+      "legacy_alias": "PT1D_H",
+      "history_source": "local_only:../evidence/sources/OWNER_REQUEST_D001E.txt",
+      "history_source_sha256": "dab1441694900d4fdc6eb9ae6121d011151b48b0d3dcccd90749f9c377dd4101",
+      "subsequent_incorporation": [
+        "D-001C",
+        "D-001C/R1",
+        "D-001D"
+      ],
+      "subsequent_incorporation_does_not_change_original_result": true
+    }
+  },
+  "pt1d_provenance": [
+    {
+      "task_id": "PT-1D/F",
+      "role": "Sanitization",
+      "source_title": null,
+      "source_reference": "PENDING_EVIDENCE_LINK",
+      "source_date": null,
+      "source_sha256": null,
+      "availability": "SOURCE_NOT_AVAILABLE",
+      "third_party_verification": "NOT_VERIFIED",
+      "codex_direct_verification": "NOT_VERIFIED"
+    },
+    {
+      "task_id": "PT-1D/G",
+      "role": "Evidence export",
+      "source_title": null,
+      "source_reference": "PENDING_EVIDENCE_LINK",
+      "source_date": null,
+      "source_sha256": null,
+      "availability": "SOURCE_NOT_AVAILABLE",
+      "third_party_verification": "NOT_VERIFIED",
+      "codex_direct_verification": "NOT_VERIFIED"
+    },
+    {
+      "task_id": "PT-1D/H",
+      "role": "Historical attempt and later documentary incorporation must be distinguished",
+      "source_title": "TASK_REPORT_PT1D_H.md (legacy documentary record, not original H execution report)",
+      "source_reference": "https://github.com/JuanCopado/Emergency/blob/37c9c7c003d43fc1992ae353ee45190483651ca3/coordination/reports/TASK_REPORT_PT1D_H.md",
+      "source_date": "2026-10-29T13:50:48-05:00",
+      "source_sha256": "491bb5a279565744d900a3826a57001ae335217cc0c17205203952067449b53d",
+      "availability": "PUBLISHED_GIT_OBJECT_READ_LOCALLY",
+      "third_party_verification": "NOT_VERIFIED",
+      "codex_direct_verification": "Document bytes verified against cloned Git object; original H execution not observed",
+      "limitation": "Published legacy record mislabels H as T0/T1; original H BLOCKED comes from current owner instruction, not a recovered original execution report"
+    }
+  ],
+  "integrity_manifest": {
+    "path": "coordination/SHA256SUMS.txt",
+    "scope": "All regular files under coordination/, excluding only coordination/SHA256SUMS.txt; symlinks forbidden",
+    "hash_algorithm": "SHA-256",
+    "path_base": "Git repository root",
+    "generation_order": "Finalize all documents first, then generate manifest; regenerate after any edit",
+    "self_excluded": true,
+    "embedded_manifest_digest": null,
+    "publication_status": "NEW_LOCAL_MANIFEST_NOT_PUBLISHED",
+    "limitation": "Existing D-001D commit is published; these revised file hashes are not"
+  }
 }
