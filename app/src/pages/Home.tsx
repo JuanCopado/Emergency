@@ -69,6 +69,7 @@ export default function Home() {
               <Icon name="heart" size={18} /> Patologías
             </Link>
             <Link to="/pediatrics" className="btn-ghost">Pediatría ambulatoria</Link>
+            <Link to="/insulin-uci" className="btn-ghost">Insulinoterapia UCI · simulación</Link>
           </div>
         </div>
       </section>

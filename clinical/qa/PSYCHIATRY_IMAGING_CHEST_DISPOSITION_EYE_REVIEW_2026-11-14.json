@@ -1,0 +1,300 @@
+{
+  "date": "2026-11-14",
+  "task": "Five adult framework source reconciliations requested sequentially by owner",
+  "owner_authorization": [
+    "Psychiatric emergencies: valida y pasa a verde",
+    "Después revisa y valida musculoskeletal radiography/noncoronary chest pain",
+    "Después revisa y valida observation-discharge/ophthalmology emergencies"
+  ],
+  "modules": [
+    "psychiatric-emergencies",
+    "musculoskeletal-xray",
+    "non-coronary-chest-pain",
+    "observation-discharge",
+    "ophthalmology-emergencies"
+  ],
+  "status": "green_for_reference_scope",
+  "sources": {
+    "psychiatric-emergencies": [
+      {
+        "title": "ACEP severe agitation clinical policy",
+        "version": "Approved2023; publishedJanuary2024",
+        "url": "https://www.acep.org/siteassets/new-pdfs/clinical-policies/severe-agitation-cp.pdf",
+        "scope": "Adult severe-agitation medication evidence and age/pregnancy/pediatric exclusions",
+        "access": "Primary policyPDF retrieved; recommendation and population sections checked; no new2026 agitation edition asserted"
+      },
+      {
+        "title": "ACEP adult psychiatric patient clinical policy",
+        "version": "April2017",
+        "url": "https://www.acep.org/siteassets/sites/acep/media/clinical-policies/final-cp-pdfs/psychpatient-cp.pdf",
+        "scope": "Targeted medical investigation in alert adults, not indiscriminate testing or denial of investigation in delirium",
+        "access": "Primary policyPDF indexed recommendation/scope text retrieved"
+      },
+      {
+        "title": "NICE NG10 violence and aggression",
+        "version": "2015guideline; current official recommendation text checked",
+        "url": "https://www.nice.org.uk/guidance/ng10/chapter/recommendations",
+        "scope": "De-escalation, least restrictive intervention and monitoring",
+        "access": "Official indexed recommendations retrieved; direct page403; no full new guideline appraisal asserted"
+      },
+      {
+        "title": "NICE NG225 self-harm",
+        "version": "2022guideline; current recommendations checked",
+        "url": "https://www.nice.org.uk/guidance/ng225/chapter/recommendations",
+        "scope": "Assessment/safety planning rather than a risk-score discharge decision",
+        "access": "Official indexed recommendations1.6 retrieved; existing suicide-risk module reused"
+      },
+      {
+        "title": "EMA olanzapine product information",
+        "version": "EPAR product information updated2026-02-27",
+        "url": "https://www.ema.europa.eu/en/documents/product-information/zyprexa-epar-product-information_en.pdf",
+        "scope": "IM olanzapine/parenteral benzodiazepine interaction and post-injection observation",
+        "access": "Official EMA productPDF warnings retrieved; not a new local formulary or IM dose recipe"
+      },
+      {
+        "title": "Portugal Lei35/2023 mental health law",
+        "version": "Published2023-07-21; original official text consulted",
+        "url": "https://diariodarepublica.pt/dr/detalhe/lei/35-2023-215980339",
+        "scope": "Necessity/proportionality, physician oversight, documentation and monitoring of coercive measures",
+        "access": "Official DR original text retrieved; no certification of consolidated-law completeness, local procedure, court deadline or patient-specific legal authorization"
+      }
+    ],
+    "musculoskeletal-xray": [
+      {
+        "title": "NICE NG38 non-complex fractures",
+        "version": "2016guideline; current official recommendation checked",
+        "url": "https://www.nice.org.uk/guidance/ng38/chapter/recommendations",
+        "scope": "Clinical suspicion, eligible imaging and consideration of first-line MRI for scaphoid",
+        "access": "Official recommendation1.2.3 and primary evidence text retrieved/indexed"
+      },
+      {
+        "title": "NICE CG124 hip fracture management",
+        "version": "Recommendation1.1.1 amended2014; guideline updated2023",
+        "url": "https://www.nice.org.uk/guidance/cg124/chapter/recommendations",
+        "scope": "MRI after adequate negative X-ray; CT if MRI unavailable within24h or contraindicated",
+        "access": "Official indexed recommendation retrieved; date of query not represented as new2026 recommendation"
+      },
+      {
+        "title": "Emergency clinical-image workflow safety specification",
+        "version": "Existing workflowv1.4; exact source/preamble loaded",
+        "url": "clinical/modules/clinical-images.md",
+        "scope": "Observed/inferred/unassessable distinction, image scope, no invented measurements or visual accuracy",
+        "access": "Existing canonical module read; internal workflow specification, not an external diagnostic-validation study"
+      }
+    ],
+    "non-coronary-chest-pain": [
+      {
+        "title": "AHA/ACC chest pain evaluation guideline",
+        "version": "2021",
+        "url": "https://www.jacc.org/doi/full/10.1016/j.jacc.2021.07.053",
+        "scope": "Early ECG, serial evaluation and dangerous alternative diagnoses",
+        "access": "Primary guideline recommendation text retrieved/indexed; no assay thresholds transplanted"
+      },
+      {
+        "title": "ACC ED acute chest pain expert consensus decision pathway",
+        "version": "2022",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10691881/",
+        "scope": "Assay-specific hs-troponin pathways and observation/disposition for intermediate concern",
+        "access": "Primary consensus text indexed and retrieved; not a new universal troponin cutoff"
+      },
+      {
+        "title": "ESC myocarditis/pericarditis guideline",
+        "version": "2025-08-29",
+        "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/myocarditis-and-pericarditis/",
+        "scope": "Initial ECG/biomarkers/echo and admission for higher-risk inflammatory syndromes",
+        "access": "Official ESC overview and primary official recommendation slide text retrieved; no full treatment/drug appraisal claimed"
+      }
+    ],
+    "observation-discharge": [
+      {
+        "title": "ACEP emergency department observation services policy",
+        "version": "RevisedJune2021",
+        "url": "https://www.acep.org/siteassets/new-pdfs/policy-statements/emergency-department-observation-services.pdf",
+        "scope": "Defined observation question, endpoints, responsibility, reassessment and escalation",
+        "access": "Official policyPDF retrieved; no unit staffing/capability inferred"
+      },
+      {
+        "title": "JACEP Open observation units interim practice update and policy review",
+        "version": "2026;volume7issue3,100354",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2688115226000299",
+        "scope": "Protocol-driven active observation and clear disposition criteria",
+        "access": "Primary publication abstract/structural sections indexed; PMC direct access challenge, no complete treatment-by-condition review claimed"
+      },
+      {
+        "title": "Joint Commission closed-loop communication of test results",
+        "version": "QuickSafety52,December2019",
+        "url": "https://www.jointcommission.org/-/media/tjc/newsletters/qs-52-closed-loop-comm-12-3-19-final.pdf",
+        "scope": "Named ownership, communication and action for pending/significant results",
+        "access": "Official primary safety communication indexed/retrieved; educational safety resource, explicitly not an accreditation standard"
+      }
+    ],
+    "ophthalmology-emergencies": [
+      {
+        "title": "College of Optometrists chemical eye trauma CMG",
+        "version": "Updated2026-03-13",
+        "url": "https://www.college-optometrists.org/clinical-guidance/clinical-management-guidelines/trauma_chemical",
+        "scope": "Immediate irrigation, pH restoration and urgent referral",
+        "access": "Official public clinical summary/update notes retrieved; member-only full recommendations not claimed read"
+      },
+      {
+        "title": "AAO open-globe assessment/preoperative management",
+        "version": "2020professional review; current indexed page checked",
+        "url": "https://www.aao.org/education/disease-review/open-globe-injury",
+        "scope": "Shield/no pressure and immediate specialist trauma care",
+        "access": "Official professional primary educational text indexed; not a new2026 PPP"
+      },
+      {
+        "title": "AAO-hosted EyeWiki chemical injury clinical resource",
+        "version": "Current professional educational resource",
+        "url": "https://eyewiki.aao.org/Chemical_%28Alkali_and_Acid%29_Injury_of_the_Conjunctiva_and_Cornea",
+        "scope": "Irrigation, pH reassessment, no acid/base neutralization and open-globe exception",
+        "access": "Professional educational text indexed; supplementary, not a formal PPP"
+      },
+      {
+        "title": "College of Optometrists primary angle closure CMG",
+        "version": "Updated2026-09-01,version18",
+        "url": "https://www.college-optometrists.org/clinical-guidance/clinical-management-guidelines/primaryangleclosure_primaryangleclosureglaucoma_pa",
+        "scope": "Urgent acute-angle-closure care; distinguish secondary mechanisms/topiramate",
+        "access": "Official public summary and update notes retrieved; member-only drug details not claimed read"
+      },
+      {
+        "title": "AHA central retinal artery occlusion scientific statement",
+        "version": "2021-03-08",
+        "url": "https://professional.heart.org/en/science-news/management-of-central-retinal-artery-occlusion",
+        "scope": "Retinal arterial occlusion is an urgent eye/stroke assessment problem",
+        "access": "Official statement summary and primary abstract retrieved; no automatic thrombolysis recommendation adopted"
+      },
+      {
+        "title": "AAO posterior vitreous detachment/retinal breaks/lattice PPP",
+        "version": "Published2025; current primary journal/index checked",
+        "url": "https://www.aaojournal.org/content/preferred-practice-pattern",
+        "scope": "Acute retinal symptoms need appropriate examination and specialist assessment",
+        "access": "Primary PPP/indexed sections and official benchmark summary located; no performance data for this application"
+      },
+      {
+        "title": "College of Optometrists orbital/preseptal cellulitis CMG",
+        "version": "Current official summary; exact revision not asserted",
+        "url": "https://www.college-optometrists.org/clinical-guidance/clinical-management-guidelines/cellulitis_preseptalandorbital",
+        "scope": "Orbital disease has vision/systemic danger and needs escalation",
+        "access": "Official indexed public summary retrieved; no local antibiotic protocol adopted"
+      },
+      {
+        "title": "College of Optometrists postoperative endophthalmitis CMG",
+        "version": "Current official summary; exact revision not asserted",
+        "url": "https://www.college-optometrists.org/clinical-guidance/clinical-management-guidelines/endophthalmitis_post-operative_exogenousendophthal",
+        "scope": "Urgent recognition after surgery/injection",
+        "access": "Official indexed public summary retrieved; no intravitreal drug recipe adopted"
+      },
+      {
+        "title": "BSR giant cell arteritis executive summary",
+        "version": "2020",
+        "url": "https://academic.oup.com/rheumatology/article/59/3/487/5714025",
+        "scope": "New visual symptoms in suspected GCA require same-day ophthalmology/systemic care",
+        "access": "Primary guideline executive-summary text retrieved/indexed; no new steroid dose schedule adopted"
+      }
+    ]
+  },
+  "before_counts": {
+    "green": 68,
+    "yellow": 63,
+    "red": 0
+  },
+  "registry_counts": {
+    "green": 73,
+    "yellow": 58,
+    "red": 0
+  },
+  "source_integrity": {
+    "non-coronary-chest-pain": {
+      "before_sha256": "7edfdce1d1b896adcec7c49da147b2190b8eda65f879fdcf080e7aba56e507ef",
+      "after_sha256": "f222812c14d36dde792907fe251b4da78eb8e577c7fb58e62b2fe0734b214e77"
+    },
+    "observation-discharge": {
+      "before_sha256": "c7eee55ea7aea72c57aca5f0984482ea4874a5f1a25b6c66ad5930da286930f6",
+      "after_sha256": "89cdb66110c81b5bb7f917aac8ad87722209f710581b112e507bcb8a2823fdc4"
+    },
+    "ophthalmology-emergencies": {
+      "before_sha256": "a29aadca0e049036303b4a4b543f7d4f469529ab6292b13006d0328bede85479",
+      "after_sha256": "917dd721c70837f4c2e9a5c7662a312ad7552961e47c754cb1d3063b9c103782"
+    },
+    "musculoskeletal-xray": {
+      "before_sha256": "e329ed9d7313875144e5326d7abdcb0818dffea5a0ac202db67bf58c7883dbc8",
+      "after_sha256": "0af79a5f1fcb2ab9f7516d6cfdba9a2cec32eb919b3845d883e678ee9c5cb1b4"
+    },
+    "psychiatric-emergencies": {
+      "before_sha256": "408524fabab3597a2eee38a3c1b9e565a1750c087f70ed1ad79f91beba9c63a9",
+      "after_sha256": "4260d1191b1d18019615e7ae2273925f5881a757ad2cc776221346b1b869d583"
+    }
+  },
+  "invariants": {
+    "changed_module_bodies": [
+      "non-coronary-chest-pain",
+      "observation-discharge",
+      "ophthalmology-emergencies",
+      "musculoskeletal-xray",
+      "psychiatric-emergencies"
+    ],
+    "other_sections_and_preambles_unchanged": true,
+    "changed_evidence_records": [
+      "musculoskeletal-xray",
+      "non-coronary-chest-pain",
+      "observation-discharge",
+      "ophthalmology-emergencies",
+      "psychiatric-emergencies"
+    ],
+    "protected_tracked_files_byte_identical_to_HEAD": 128,
+    "acute_medication_API_contracts_and_calculators_unchanged": true,
+    "blocked_medication_contracts_preserved": 19,
+    "individual_procedures_unchanged": true,
+    "broader_clinical_image_gate_unchanged_yellow": true,
+    "new_numeric_drug_dose_or_compounding_recipe": false
+  },
+  "image_validation": {
+    "scope": "Bibliographic reading/safety framework only",
+    "new_image_cases": 0,
+    "independent_expert_adjudication_performed": false,
+    "sensitivity_specificity_or_diagnostic_accuracy_established": false,
+    "broader_image_release_gate": "yellow, unchanged"
+  },
+  "localization_limits": "EMA olanzapine product warning and official Portuguese mental-health law original text checked. Not a local product/preparation, staffed psychiatric/ophthalmic pathway, confirmed image/MRI availability, legal consolidated-text audit, court-process certification or result-callback system implementation. Official source403/login limits documented per source.",
+  "technical_qa": {
+    "python": "638/638 PASS",
+    "new_safety_regressions": "6/6 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "220sources/131modules normalized",
+    "browser": "NOT RUN",
+    "report": "qa/PSYCHIATRY_IMAGING_CHEST_DISPOSITION_EYE_QA_2026-11-14.json"
+  },
+  "browser": "NOT RUN",
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "evidence_and_impact": {
+    "psychiatric-emergencies": {
+      "impact": "HIGH",
+      "bedside_change": "Explicit medical-assessment exclusion boundaries, coercion oversight, product-specific combination/observation safeguards and safe destination.",
+      "certainty": "ACEP severe-agitation agent recommendations LevelB; ketamine/special-population statements LevelC/consensus. ACEP targeted laboratory recommendation LevelC. EMA warning is product information; legal/process safeguards are not trial evidence. No independent evidence grade assigned to this umbrella."
+    },
+    "musculoskeletal-xray": {
+      "impact": "HIGH",
+      "bedside_change": "Persistent suspicion overrides reassurance from a negative film; exact hip/scaphoid imaging pathway and report ownership made explicit.",
+      "certainty": "NICE imaging recommendations; no source-to-source regrading and no diagnostic performance estimate for the application."
+    },
+    "non-coronary-chest-pain": {
+      "impact": "HIGH",
+      "bedside_change": "Clarifies early ECG, assay-specific serial testing, dangerous alternatives and inflammatory-cardiac escalation.",
+      "certainty": "AHA/ACC/ESC guideline and ACC expert-consensus framework; no new universal biomarker threshold or independent certainty reassignment."
+    },
+    "observation-discharge": {
+      "impact": "HIGH",
+      "bedside_change": "Names responsibility and actions for reassessment, pending tests and unsafe discharge barriers.",
+      "certainty": "ACEP organizational policy/interim professional review and JointCommission safety communication; process guidance, not a quantified reduction in harm."
+    },
+    "ophthalmology-emergencies": {
+      "impact": "HIGH",
+      "bedside_change": "Prioritizes irrigation and open-globe precautions, mechanisms of angle closure, and urgent retinal/infectious/systemic referral.",
+      "certainty": "Professional guidelines, scientific statements and educational summaries with access limitations stated; no new dose or independently assigned GRADE rating."
+    }
+  }
+}

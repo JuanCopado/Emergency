@@ -143,5 +143,55 @@ class SourceBoundFlowCases(unittest.TestCase):
                         self.assertNotIn('result', rejected)
 
 
+class StatusMidazolamSourceRegression(unittest.TestCase):
+    def payload(self, **changes):
+        import json
+        root = Path(__file__).resolve().parents[1]
+        bank = json.loads((root / 'qa/V1.44_ACUTE_MEDICATION_CASES.json').read_text())
+        case = next(c for c in bank['cases'] if c['id'] == 'status-midazolam')
+        current = catalog()
+        row = next(r for r in current['regimens'] if r['id'] == case['id'])
+        allowed = {f['key'] for f in row['fields']}
+        inputs = {k:v for k,v in {**bank['common'], **case['inputs']}.items() if k in allowed}
+        return {'regimen_id':case['id'], 'source_revision':current['source_revision'],
+                'inputs':{**inputs, **changes}}
+
+    def test_aes_adult_im_dose_is_fixed_above_40kg(self):
+        # AES initial IM dose is 10 mg above40 kg, including patients below50 kg.
+        # A 0.2 mg/kg cap would silently underdose41 and49 kg.
+        for weight in (40.0001, 41, 49, 50, 70, 200):
+            with self.subTest(weight=weight):
+                data = calculate_request(self.payload(weight_kg=weight, prior_bzd_doses=0))
+                self.assertFalse(data['blocked'])
+                self.assertEqual(data['result']['dose'], 10)
+                self.assertEqual(data['result']['dose_unit'], 'mg')
+                self.assertIsNone(data['result']['administration_volume_ml'])
+                self.assertIsNone(data['result']['pump_ml_h'])
+
+    def test_no_pediatric_fallback_or_automatic_initial_im_repeat(self):
+        for change in ({'weight_kg':40}, {'weight_kg':13}, {'population':'pediatric'},
+                       {'prior_bzd_doses':1}, {'no_iv_access':False}, {'route':'IV'}):
+            with self.subTest(change=change):
+                data = calculate_request(self.payload(**change))
+                self.assertTrue(data['blocked'])
+                self.assertNotIn('result', data)
+
+    def test_fixed_dose_export_matches_updated_canonical_source(self):
+        import base64, json
+        payload = self.payload(weight_kg=41, prior_bzd_doses=0)
+        data = calculate_request(payload)
+        result = data['result']
+        self.assertEqual(result['dose'],10)
+        self.assertIn('10 mg when >40 kg',result['source']['body'])
+        exported = export_request({'format':'json','calculation':payload,
+                                   'expected_result':result,'confirmed':True})
+        snapshot = json.loads(base64.b64decode(exported['content_base64']))['snapshot']
+        self.assertEqual(snapshot['result']['dose'],10)
+        self.assertEqual(snapshot['source_revision'],payload['source_revision'])
+        with self.assertRaises(ValueError):
+            export_request({'format':'json','calculation':payload,
+                            'expected_result':{**result,'dose':8.2},'confirmed':True})
+
+
 if __name__ == '__main__':
     unittest.main()

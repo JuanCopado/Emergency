@@ -1,0 +1,158 @@
+{
+  "date": "2026-11-13",
+  "modules": [
+    "acid-base-emergencies",
+    "sodium-emergencies"
+  ],
+  "status": "yellow",
+  "qa": "PASS",
+  "scope": "Four acid-base checks and subsequent sodium reference/local-protocol review; no automatic GREEN promotion.",
+  "source_comparisons": {
+    "acid-base-emergencies": [
+      {
+        "title": "SRLF/SFMU metabolic acidosis recommendations",
+        "version": "2019",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6695455/",
+        "scope": "Gap conventions, albumin correction, distinguish respiratory compensation; indexed primary recommendation text retrieved, full PMC page returned captcha"
+      },
+      {
+        "title": "ATS Interpretation of ABGs",
+        "version": "Current official educational page; not a new2026 guideline",
+        "url": "https://site.thoracic.org/assemblies/cc/clinical-education/interpretation-of-abgs",
+        "scope": "Winter and mixed-disorder framework; do not copy displayed AG/osmolality typography errors into code"
+      },
+      {
+        "title": "MSD primary changes and compensation table",
+        "version": "Current professional manual table; reviewed2026-11-13",
+        "url": "https://www.msdmanuals.com/professional/multimedia/table/primary-changes-and-compensations-in-simple-acid-base-disorders",
+        "scope": "Approximate compensation ranges; selected0.7 alkalosis slope lies in published0.6-0.75 range"
+      },
+      {
+        "title": "NIST units table",
+        "version": "Handbook44 AppendixC2026",
+        "url": "https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf",
+        "scope": "Pressure conversion based on1mmHg=133.3224Pa"
+      },
+      {
+        "title": "BICARICU-2 randomized clinical trial",
+        "version": "JAMA2025; DOI10.1001/jama.2025.20231",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41159812/",
+        "scope": "No day90 mortality benefit in studied severe metabolic acidemia plus moderate/severe AKI; no blanket bicarbonate indication inferred"
+      }
+    ],
+    "sodium-emergencies": [
+      {
+        "title": "Society for Endocrinology hyponatraemia emergency guidance",
+        "version": "2022",
+        "url": "https://www.endocrinology.org/media/xhrhxhxm/emergency-management-of-severe-and-moderately-severely-symptomatic-hyponatraemia-in-adult-patients-2022.pdf",
+        "scope": "Published intermittent bolus/initial-response and correction-ceiling approach"
+      },
+      {
+        "title": "European hyponatraemia clinical practice guideline",
+        "version": "2014; published final reference, not relabelled2026",
+        "url": "https://academic.oup.com/ejendo/article/170/3/G1/6668028",
+        "scope": "Monitoring, water-diuresis alert and specialist-directed rescue; primary indexed text retrieved, direct fetch fails publisher CDN redirect"
+      },
+      {
+        "title": "Evaluation and management of hypernatremia in adults: clinical perspectives",
+        "version": "2023",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10175862/",
+        "scope": "Conventional chronic/unknown correction reference, limits of adult evidence, different approach to excessive correction"
+      },
+      {
+        "title": "Adult hypernatremia correction systematic review",
+        "version": "2025; PMID39765195",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39765195/",
+        "scope": "Adult observational heterogeneity; does not establish a universal faster correction order"
+      },
+      {
+        "title": "ESE/ERA hyponatraemia candidate guideline",
+        "version": "Official PDF named draft/for review; final replacement not verified",
+        "url": "https://www.ese-hormones.org/media/nfca3mga/hyponatraemia-joint-guideline-draft-for-review.pdf",
+        "scope": "Candidate only, not adopted into stable doses"
+      },
+      {
+        "title": "ERA guideline collaboration directory",
+        "version": "Current listing names2026 ESE-ERA project",
+        "url": "https://www.era-online.org/era-guidance/",
+        "scope": "Listing without verified final publication link for this project; not proof that draft is final"
+      },
+      {
+        "title": "ESE published guideline directory entry",
+        "version": "2014 published entry",
+        "url": "https://www.ese-hormones.org/publications/directory/ese-clinical-guideline-for-the-management-of-hyponatraemia/",
+        "scope": "Published entry identified separately from newer candidate"
+      }
+    ]
+  },
+  "source_integrity": {
+    "acid-base-emergencies": {
+      "before_sha256": "d32f51c09d1afb3a35e36afe97943715cd3eca7b02722f944726a6b14b57dc05",
+      "after_sha256": "aadb9ef75f1621bee270d55da4450ef0ba75197abd8099225f2406d9d2402205"
+    },
+    "sodium-emergencies": {
+      "before_sha256": "9d097371a418baff0e16bb21637a7606e0ca3f7c48e6e30d4a9795ca1ffada18",
+      "after_sha256": "4d2ab2ed8160fbdf77df41f01634c312cb5099afaa43281d12a86dbffa1e168c"
+    }
+  },
+  "lab_metadata_from_owner": {
+    "gas_pressure_unit": "mmHg",
+    "electrolyte_bicarbonate_lactate_unit": "mmol/L",
+    "hemoglobin_unit": "g/dL",
+    "reported_gap_reference_mmol_l": [
+      7,
+      17
+    ],
+    "gap_potassium_convention": "not confirmed; supplied rounded arithmetic is compatible with potassium inclusion but not exact proof",
+    "analyzer_identity": null,
+    "albumin_value_and_unit": null,
+    "sample_type": null,
+    "comparative_column_timestamps": null,
+    "raw_report_patient_identifier_and_validator_name_stored": false,
+    "software_validation_signature_inferred": false
+  },
+  "implemented_safety_changes": [
+    "Explicit pressure and albumin conversions; reject duplicate-unit fields",
+    "Separate AG with/without potassium; selected no-K reference and unknown-albumin basis explicit",
+    "Winter interpretation conditional unless metabolic-acidosis component confirmed",
+    "Reject impossible/nonfinite acid-base inputs and zero sodium denominator",
+    "Synthetic tests include normal-pH mixed patterns, possible triple disorder, delta applicability and compensation boundaries",
+    "Sodium monitoring/rescue quantified from published references; draft separated from final sources"
+  ],
+  "remaining": {
+    "acid-base-emergencies": [
+      "Identify analyzer AG formula with/without potassium and matching local interval. Supplied report alone does not establish it."
+    ],
+    "sodium-emergencies": [
+      "Verify final publication status of2026 ESE/ERA replacement; official available PDF is marked draft/for review.",
+      "Confirm actual local3% ready product or Pharmacy preparation and acceptance of monitoring/rescue circuit."
+    ]
+  },
+  "privacy": "No exact patient dataset, identifier, date-linked laboratory case or validator identity committed. Synthetic regression values deliberately differ.",
+  "registry_counts": {
+    "green": 54,
+    "yellow": 77,
+    "red": 0
+  },
+  "invariants": {
+    "two_guide_bodies_changed_only": true,
+    "shared_preamble_and_other_renal_modules_preserved": true,
+    "acute_medication_API_and_contract_files_unchanged": true,
+    "blocked_medication_contracts": 19,
+    "insulin_dose_and_osmolality_formulas_unchanged": true
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "browser": "NOT RUN",
+  "technical_qa": {
+    "python": "615/615 PASS, including9 new synthetic safety cases",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "220 sources /131 modules, normalized",
+    "evidence_audit_errors": [],
+    "final_guide_clarification": "Hypernatremia urine-assessment paragraph labelled explicitly after full run; affected419-test guide suite and4 generator tests rerun PASS; code unchanged.",
+    "browser": "NOT RUN",
+    "initial_failure": "One inherited lowercase relowering-strategy text assertion; heading corrected, final complete run PASS."
+  }
+}

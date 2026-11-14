@@ -1,0 +1,51 @@
+{
+  "source_version": "RCCC / R. Pitarch 2012 (as attributed by index)",
+  "status": "CLINICALLY_PENDING",
+  "clinical_use_allowed": false,
+  "source_code_redistributed": false,
+  "sources": [
+    {
+      "url": "https://www.rccc.eu/protocolos/HG/index.html",
+      "retrieved_on": "2026-11-13",
+      "sha256_raw_bytes": "931aa100511474417db1e456e30e85c63d4f6f6d4c68a82ce8500620e77d4001",
+      "bytes": 5965,
+      "access": "retrieved"
+    },
+    {
+      "url": "https://www.rccc.eu/protocolos/HG/inicioIV.html",
+      "retrieved_on": "2026-11-13",
+      "sha256_raw_bytes": "f8344535016bc786c7825025a0cd9c59936ea7367deadf2e7b092c42b408e941",
+      "bytes": 4743,
+      "access": "retrieved"
+    },
+    {
+      "url": "https://www.rccc.eu/protocolos/HG/ajusteIV.html",
+      "retrieved_on": "2026-11-13",
+      "sha256_raw_bytes": "8834b081a56b78c10ea177051f1996b3aa8acb4e23c33a8958ea32c2699babf4",
+      "bytes": 12019,
+      "access": "retrieved"
+    },
+    {
+      "url": "https://www.rccc.eu/protocolos/HG/inicioSC.html",
+      "retrieved_on": "2026-11-13",
+      "sha256_raw_bytes": "717e3dc0401afee01730347c40146165d374c5b859e7f7947446d47aad3e03cb",
+      "bytes": 6112,
+      "access": "retrieved"
+    },
+    {
+      "url": "https://www.rccc.eu/protocolos/HG/ajusteSC.html",
+      "retrieved_on": "2026-11-13",
+      "sha256_raw_bytes": "f406c942078079b304dd600d5fbdf55d8bebb0f7078879a024aabd6dc134aed6",
+      "bytes": 4388,
+      "access": "retrieved"
+    }
+  ],
+  "current_guideline": {
+    "url": "https://doi.org/10.2337/dc26-S016",
+    "role": "Contemporary target and monitoring comparison only; does not validate RCCC dose rules."
+  },
+  "original_nice_sugar_link": {
+    "url": "https://studies.thegeorgeinstitute.org/nice/",
+    "access": "502 via web retrieval; original algorithm not independently verified"
+  }
+}

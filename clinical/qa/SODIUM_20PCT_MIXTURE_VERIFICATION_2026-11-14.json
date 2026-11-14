@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-14",
+  "module": "sodium-emergencies",
+  "prepared_by": "nursing_staff_owner_confirmed",
+  "owner_provided_recipe": true,
+  "verification_scope": "Mathematical verification of three stated-volume mixtures, plus foreign product-label reference review. Not an independent local preparation audit.",
+  "formula": "V20=Vfinal*(3-0.9)/(20-0.9)",
+  "exact_fraction": "0.1099476439790575916230366492",
+  "rounded_fraction": "0.11",
+  "rows": [
+    {
+      "final_volume_ml": 100.0,
+      "withdraw_from_actual_base_ml": 11.0,
+      "base_0_9pct_remaining_ml": 89.0,
+      "stock_20pct_added_ml": 11.0,
+      "nacl_total_g": 3.001,
+      "calculated_final_percent": 3.001,
+      "stock_ml_for_exact3pct": 10.99476439790576
+    },
+    {
+      "final_volume_ml": 250.0,
+      "withdraw_from_actual_base_ml": 27.5,
+      "base_0_9pct_remaining_ml": 222.5,
+      "stock_20pct_added_ml": 27.5,
+      "nacl_total_g": 7.5025,
+      "calculated_final_percent": 3.001,
+      "stock_ml_for_exact3pct": 27.486910994764397
+    },
+    {
+      "final_volume_ml": 500.0,
+      "withdraw_from_actual_base_ml": 55.0,
+      "base_0_9pct_remaining_ml": 445.0,
+      "stock_20pct_added_ml": 55.0,
+      "nacl_total_g": 15.005,
+      "calculated_final_percent": 3.001,
+      "stock_ml_for_exact3pct": 54.973821989528794
+    }
+  ],
+  "result": "All supplied rows yield3.001% w/v, approximately3%; equal-volume removal/addition preserves the assumed actual final volume.",
+  "mass_balance_100ml": "89mL*0.009g/mL+11mL*0.2g/mL=3.001g in100mL",
+  "conditions": [
+    "Final volume must be actual verified volume; using nominal bag markings alone is not proof of the premise.",
+    "Do not add the stated concentrate to the full starting volume without prior withdrawal.",
+    "Verify local product, compatible container/access, aseptic preparation, mixing, label and independent high-alert checks.",
+    "Foreign label immediate-use guidance is not a validated universal24h room-temperature hang time."
+  ],
+  "primary_sources": [
+    {
+      "title": "AEMPS CIMA sodium chloride20% concentrate61987",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/61987/FichaTecnica_61987.html",
+      "scope": "200mg/mL, dilution requirement, aseptic mixing, peripheral osmolarity condition and immediate-use guidance; not confirmed as local brand"
+    },
+    {
+      "title": "INFARMED therapeutic formulary sodium strengths",
+      "url": "https://www.infarmed.pt/documents/15786/1965139/Medicamentos%2Banti-infecciosos/a995d754-90dd-4474-9203-eb396a0737a0?download=true&version=1.1",
+      "scope": "Official generic0.9%=9mg/mL and20%=200mg/mL listing; no hospital stock or current product RCM inferred"
+    }
+  ],
+  "source_rejected_as_sole_support": "User-linked social-media reference is not the basis of validation; independent mass balance and regulatory sources used.",
+  "route_caveat": "Retrieved foreign20% concentrate label limits peripheral admixtures to800mOsm/L;3% NaCl theoretical osmolarity is approximately1027mOsm/L. Exact local product/access and urgent protocol must be reconciled, not assumed universally peripheral-compatible.",
+  "status": "yellow",
+  "preparation_arithmetic_verified": true,
+  "full_local_preparation_validated": false,
+  "remaining": [
+    "Exact dispensed local product, actual container/final-volume control and access/use-time conditions not independently verified.",
+    "Local monitoring/rescue acceptance remains unconfirmed;2026 draft is not promoted as final guidance."
+  ],
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "canonical_medication_contracts_changed": false,
+  "qa": {
+    "three_mixture_mass_balance_checks": "PASS: each3.001%",
+    "focused_python": "419/419 PASS",
+    "guide_generation": "4/4 PASS",
+    "module_scope": "Only sodium guide body changed; other module bodies and preamble preserved",
+    "source_catalog": "220 sources /131 modules, normalized",
+    "diff_check": "PASS",
+    "canonical_API_and_contract_files": "unchanged",
+    "full_regression": "Not rerun for this preparation-reference update; previous615Python/434frontend remain historical",
+    "browser": "NOT RUN"
+  },
+  "source_integrity": {
+    "before_sha256": "cfa0dc371afebd46702a29cec10b7deaff53864af51296cfeef5e9e539ba6728",
+    "after_sha256": "6f9d715bd215b95dc75eb746141d71893d37809e219f1ea2ce02d50afea132cd"
+  },
+  "counterexample_without_withdrawal": {
+    "base_ml": 100,
+    "concentrate20pct_added_ml": 11,
+    "final_volume_ml": 111,
+    "calculated_final_percent": 2.7927927927927927,
+    "purpose": "Demonstrates why adding to an unreduced full starting volume does not reproduce the supplied recipe."
+  }
+}

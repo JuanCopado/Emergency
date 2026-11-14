@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-13",
+  "module": "status-epilepticus",
+  "status": "green",
+  "owner_confirmation": {
+    "statement": "si a todo , todos los farmacos y escalada",
+    "scope": "All three requested local requirements: drugs/preparations, EEG access/circuit and escalation",
+    "independently_audited": false,
+    "on_site_continuous_EEG_inferred": false,
+    "exact_product_concentrations_inferred": false,
+    "new_named_pharmacy_or_neurology_signature": false
+  },
+  "source": "https://cms.aesnet.org/docs/default-source/press-releases-assets/cse-treatment-chart-final_rerelease.pdf",
+  "source_version": "AES2016 adopted adult initial IM regimen; source rechecked13/11/2026; NICE NG217 Jan2025 remains framework",
+  "fix": {
+    "contract": "status-midazolam",
+    "before": "Obsolete anchor and0.2mg/kg capped10mg despite canonical AES fixed10mg>40kg",
+    "after": "Existing adult>40kg initial IM contract fixed10mg; prior_bzd_doses must be0; no lower-weight/pediatric scope expansion",
+    "example": "41kg: previous model8.2mg, corrected adopted AES dose10mg",
+    "api_engine_changed": false,
+    "other_contracts_changed": false,
+    "blocked_contracts_unlocked": false
+  },
+  "registry_counts": {
+    "green": 47,
+    "yellow": 84,
+    "red": 0
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "technical_qa": {
+    "status": "PASS",
+    "python": 606,
+    "frontend": 434,
+    "global_checks": "7/7",
+    "guide_generation": "4/4",
+    "report": "qa/STATUS_MIDAZOLAM_RECONCILIATION_QA_2026-11-13.json"
+  }
+}

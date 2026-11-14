@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 
 type Field = {key:string; label:string; kind:'number'|'boolean'|'choice'; options?:string[]};
 type Regimen = {id:string; label:string; group:string; group_label:string; drug:string; route:string; dose_unit:string; fields:Field[]; source:{body:string; preamble:string}; limitations:string[]};
@@ -72,6 +73,7 @@ export default function AcuteMedications() {
   const reportContent = outcome?.report?.sections.map(([heading,paragraphs],i) => <section key={i}><h3 className="font-bold mt-4">{heading}</h3>{paragraphs.map((text,j) => <p className="whitespace-pre-wrap break-words" key={j}>{text}</p>)}</section>);
   return <div className="space-y-5">
     <header><h1 className="text-2xl font-bold">Farmacología aguda</h1><p>CLINICALLY_PENDING · Apoyo aritmético sujeto a revisión profesional y protocolo local. Selecciona una indicación y una opción; las alternativas no se administran juntas por defecto.</p></header>
+    <Link className="btn-ghost" to="/insulin-uci">Insulinoterapia UCI · laboratorio de simulación</Link>
     <label className="block">Grupo farmacológico<select className="input" aria-label="Grupo farmacológico" value={group} onChange={e => {clear(); setGroup(e.target.value); setId(''); setValues({});}}><option value="">Selecciona grupo</option>{groups.map(([key,label]) => <option value={key} key={key}>{label}</option>)}</select></label>
     {group && <label className="block">Indicación y opción<select className="input" aria-label="Indicación y opción" value={id} onChange={e => {clear(); setId(e.target.value); setValues({});}}><option value="">Selecciona indicación y opción</option>{catalog?.regimens.filter(r => r.group === group).map(r => <option key={r.id} value={r.id}>{r.label} — {r.drug}</option>)}</select></label>}
     {regimen && <>

@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-14",
+  "task": "Adult acute abdomen and acute musculoskeletal pain source review and owner-authorized GREEN",
+  "owner_authorization": "valida y pasa, continuing explicit GREEN review of these two named modules",
+  "modules": [
+    "acute-abdomen",
+    "acute-musculoskeletal-pain"
+  ],
+  "status": "green",
+  "sources": {
+    "acute-abdomen": [
+      {
+        "title": "ACR Acute Nonlocalized Abdominal Pain",
+        "version": "Current official variant tables consulted; no new2026 edition asserted",
+        "url": "https://acsearch.acr.org/docs/69467/Narrative/",
+        "scope": "Adult imaging by scenario; CT with IV contrast for nonlocalized pain with fever, no recent surgery",
+        "access": "Official indexed variant tables retrieved; direct narrative request403; full narrative not claimed read"
+      },
+      {
+        "title": "ACR Right Upper Quadrant Pain",
+        "version": "Revised2022",
+        "url": "https://acsearch.acr.org/docs/69474/Narrative/",
+        "scope": "Ultrasound first for suspected biliary disease; subsequent modality depends on variant",
+        "access": "Official indexed tables/PDF excerpts retrieved; direct narrative403"
+      },
+      {
+        "title": "ACR Acute Pelvic Pain in the Reproductive Age Group",
+        "version": "2023Update, published2024",
+        "url": "https://www.sciencedirect.com/science/article/pii/S1546144024002552",
+        "scope": "Pelvic ultrasound/Doppler and pregnancy/etiology-specific CT or MRI",
+        "access": "Primary publication abstract and indexed recommendations retrieved; no complete article access claimed"
+      },
+      {
+        "title": "WSES Jerusalem appendicitis guideline",
+        "version": "2025Edition; DOI10.1001/jamasurg.2025.6218",
+        "url": "https://doi.org/10.1001/jamasurg.2025.6218",
+        "scope": "Risk assessment/imaging and selected uncomplicated appendicitis management; not all acute abdomen",
+        "access": "Primary JAMA indexed abstract retrieved; no full recommendation-by-recommendation appendix review claimed"
+      },
+      {
+        "title": "WSES Bologna adhesive small bowel obstruction guideline",
+        "version": "2017Update, published2018",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6006983/",
+        "scope": "Peritonitis, strangulation and ischemia preclude routine conservative waiting",
+        "access": "Primary open-access guideline retrieved; no newly published2026 edition asserted"
+      }
+    ],
+    "acute-musculoskeletal-pain": [
+      {
+        "title": "ACP/AAFP acute non-low-back musculoskeletal injury pain guideline",
+        "version": "2020-08-17; current official ACP/AAFP recommendation pages checked",
+        "url": "https://www.acponline.org/acp-newsroom/acp-aafp-release-new-guideline-for-treatment-of-non-low-back-pain-from-musculoskeletal-injuries-in",
+        "scope": "Adult acute non-low-back injuries, topical NSAIDs first line; oral alternatives and restricted opioids",
+        "access": "Official ACP recommendation summary retrieved; no new2026 edition or full evidence appendix review claimed"
+      },
+      {
+        "title": "BOASt diagnosis and management of compartment syndrome of the extremities",
+        "version": "UpdatedJuly2025; website resource16September2025",
+        "url": "https://www.boa.ac.uk/resource/boast-10-pdf.html",
+        "scope": "Serial hourly at-risk assessment, pressure assessment if needed and immediate surgery after diagnosis",
+        "access": "Official standard HTML and linkedPDF indexed text retrieved"
+      },
+      {
+        "title": "RCEM acute compartment syndrome teaching resource",
+        "version": "Current official educational page checked",
+        "url": "https://www.rcemlearning.org/foamed/acute-compartment-syndrome/",
+        "scope": "Normal pulses do not exclude compartment syndrome; urgent specialist assessment",
+        "access": "Official professional educational text retrieved; supplementary, not labelled a new formal guideline"
+      },
+      {
+        "title": "EBJIS SANJO native-joint septic arthritis guideline",
+        "version": "2023-01-12",
+        "url": "https://jbji.copernicus.org/articles/8/29/2023/jbji-8-29-2023.html",
+        "scope": "Urgent aspiration; cultures before antibiotics if stable, prompt antibiotics in sepsis; crystals do not exclude infection",
+        "access": "Primary guideline HTML retrieved, diagnostic and antimicrobial sections checked"
+      },
+      {
+        "title": "NICE NG38 fractures non-complex assessment and management",
+        "version": "Published2016; current recommendation page checked",
+        "url": "https://www.nice.org.uk/guidance/ng38/chapter/recommendations",
+        "scope": "Eligible Ottawa rules and consideration of first-line MRI in suspected scaphoid fracture",
+        "access": "Official indexed recommendations and PDF excerpts retrieved; no new2026 revision claimed"
+      }
+    ]
+  },
+  "before_counts": {
+    "green": 58,
+    "yellow": 73,
+    "red": 0
+  },
+  "registry_counts": {
+    "green": 60,
+    "yellow": 71,
+    "red": 0
+  },
+  "source_integrity": {
+    "acute-abdomen": {
+      "before_sha256": "b3f5d63167014dbc1e9d4d0e2f3ae170d1b8e4950296e41eb8f97031815eee80",
+      "after_sha256": "9828d980831db1aa3f1db6cdccdc4fd86abd88d0f760f8f2e6028d544622e98f"
+    },
+    "acute-musculoskeletal-pain": {
+      "before_sha256": "eef0808bb5162a20a460e27980049cbfafa42612e7d310d61be320d3bc658d7a",
+      "after_sha256": "0205d66428a2a30797d75dc99fd8804ae4e1451ee0afbaaa9e46c731b252d368"
+    }
+  },
+  "invariants": {
+    "only_requested_module_bodies_changed": [
+      "acute-abdomen",
+      "acute-musculoskeletal-pain"
+    ],
+    "family_preamble_and_other_sections_unchanged": true,
+    "only_requested_evidence_records_changed": [
+      "acute-abdomen",
+      "acute-musculoskeletal-pain"
+    ],
+    "protected_tracked_files_byte_identical_to_HEAD": 25,
+    "acute_medication_API_and_contracts_unchanged": true,
+    "no_new_numeric_drug_regimens_or_calculator_changes": true,
+    "blocked_contracts_preserved": 19
+  },
+  "localization_limits": "Foreign primary references explicitly identified. No new Portuguese DGS acute-abdomen or injury-analgesia norm established by this search; no claim of national normative certification. No local staffing, imaging access/response time, product recipe, stock or independent signature inferred.",
+  "technical_qa": {
+    "python": "624/624 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "220 sources /131 modules, normalized",
+    "browser": "NOT RUN",
+    "report": "qa/ABDOMEN_MUSCULOSKELETAL_QA_2026-11-14.json"
+  },
+  "browser": "NOT RUN",
+  "clinical_release_status": "CLINICALLY_PENDING"
+}

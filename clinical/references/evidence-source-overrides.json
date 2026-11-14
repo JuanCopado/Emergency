@@ -1918,6 +1918,618 @@
       "modules": [
         "clinical-image-interpretation"
       ]
+    },
+    {
+      "source_id": "src-fda-tbi-wb-k234143",
+      "title": "FDA i-STAT TBI whole blood K234143",
+      "organization": "FDA",
+      "source_type": "regulatory",
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf23/K234143.pdf",
+      "persistent_id": null,
+      "version": "2024 clearance; administrative correction2024-08-05",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect",
+        "pediatric-head-injury"
+      ]
+    },
+    {
+      "source_id": "src-fda-tbi-plasma-k201778",
+      "title": "FDA i-STAT TBI Plasma K201778",
+      "organization": "FDA",
+      "source_type": "regulatory",
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/reviews/K201778.pdf",
+      "persistent_id": null,
+      "version": "2021 clearance",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect"
+      ]
+    },
+    {
+      "source_id": "src-tbi-wb-puccio-2026",
+      "title": "Whole-blood point-of-care GFAP/UCH-L1 after TBI",
+      "organization": "Puccio et al.",
+      "source_type": "study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42746312/",
+      "persistent_id": "doi:10.1016/j.lana.2026.101539",
+      "version": "2026;61:101539",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect"
+      ]
+    },
+    {
+      "source_id": "src-cbim-manley-2025",
+      "title": "NIH-NINDS TBI classification CBI-M",
+      "organization": "NIH-NINDS initiative authors",
+      "source_type": "consensus",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40409315/",
+      "persistent_id": "doi:10.1016/S1474-4422(25)00154-1",
+      "version": "2025;24:512-523",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect",
+        "pediatric-head-injury"
+      ]
+    },
+    {
+      "source_id": "src-cbim-evaluation-2026",
+      "title": "CBI-M CENTER-TBI/TRACK-TBI evaluation",
+      "organization": "Pisica et al.",
+      "source_type": "study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42899481/",
+      "persistent_id": "doi:10.1371/journal.pmed.1004945",
+      "version": "2026-10-20",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect",
+        "pediatric-head-injury"
+      ]
+    },
+    {
+      "source_id": "src-portugal-tbi-consensus-2026",
+      "title": "Mild TBI National Consensus Clinical Recommendations",
+      "organization": "Ferreira et al.",
+      "source_type": "consensus",
+      "url": "https://www.actamedicaportuguesa.com/revista/index.php/amp/article/view/24437",
+      "persistent_id": "doi:10.20344/amp.24437",
+      "version": "2026-07-20 ahead of print",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "pt",
+      "jurisdiction": "PT",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect"
+      ]
+    },
+    {
+      "source_id": "src-pediatric-gfap-age-2024",
+      "title": "Age-dependent GFAP differences in children without TBI",
+      "organization": "Mannix et al.",
+      "source_type": "study",
+      "url": "https://www.neurology.org/doi/full/10.1212/WNL.0000000000209651",
+      "persistent_id": "doi:10.1212/WNL.0000000000209651",
+      "version": "2024",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-head-injury"
+      ]
+    },
+    {
+      "source_id": "src-gcs-official-nt",
+      "title": "Glasgow Coma Scale official FAQ",
+      "organization": "Glasgow Coma Scale",
+      "source_type": "official_guidance",
+      "url": "https://www.glasgowcomascale.org/faq/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "traumatic-intracranial-mass-effect",
+        "pediatric-head-injury"
+      ]
+    },
+    {
+      "source_id": "src-rch-head-injury",
+      "title": "Head injury",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Head_injury/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-head-injury"
+      ]
+    },
+    {
+      "source_id": "src-cdc-pediatric-mtbi",
+      "title": "Pediatric mild TBI guidance",
+      "organization": "CDC",
+      "source_type": "guideline",
+      "url": "https://www.cdc.gov/traumatic-brain-injury/hcp/clinical-guidance/pediatric-mtbi.html",
+      "persistent_id": null,
+      "version": "2025 online guidance",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-head-injury"
+      ]
+    },
+    {
+      "source_id": "src-aap-aapd-sedation-2025",
+      "title": "Pediatric sedation monitoring and management",
+      "organization": "AAP/AAPD",
+      "source_type": "guideline",
+      "url": "https://www.aapd.org/globalassets/media/policies_guidelines/bp_monitoringsedation25.pdf",
+      "persistent_id": null,
+      "version": "reaffirmed June2025; reference updates",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-procedural-sedation"
+      ]
+    },
+    {
+      "source_id": "src-rch-ketamine-procedural",
+      "title": "Ketamine procedural sedation",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Ketamine_use_for_procedural_sedation/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-procedural-sedation"
+      ]
+    },
+    {
+      "source_id": "src-rch-intranasal-fentanyl",
+      "title": "Intranasal fentanyl",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/intranasal_fentanyl/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-procedural-sedation"
+      ]
+    },
+    {
+      "source_id": "src-rch-nitrous-oxygen",
+      "title": "Nitrous oxide oxygen mix",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Nitrous_Oxide_Oxygen_Mix/",
+      "persistent_id": null,
+      "version": "December2021 current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-procedural-sedation"
+      ]
+    },
+    {
+      "source_id": "src-rch-hfnp",
+      "title": "High flow nasal prong therapy",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/High_flow_nasal_prong_%28HFNP%29_therapy/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-acute-respiratory-support"
+      ]
+    },
+    {
+      "source_id": "src-rch-meningitis-encephalitis",
+      "title": "Meningitis and encephalitis",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Meningitis_encephalitis/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-cns-infection"
+      ]
+    },
+    {
+      "source_id": "src-rch-vancomycin-2024",
+      "title": "Vancomycin",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Vancomycin/",
+      "persistent_id": null,
+      "version": "July2024 current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-cns-infection"
+      ]
+    },
+    {
+      "source_id": "src-rch-paracetamol",
+      "title": "Paracetamol poisoning",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/paracetamol_poisoning/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-toxicology"
+      ]
+    },
+    {
+      "source_id": "src-rch-tca",
+      "title": "Tricyclic antidepressant poisoning",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Tricyclic_Antidepressant_%28TCA%29_Poisoning/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-toxicology"
+      ]
+    },
+    {
+      "source_id": "src-rch-dka-2025",
+      "title": "Diabetic ketoacidosis",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Diabetic_ketoacidosis/",
+      "persistent_id": null,
+      "version": "July2025",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-dka"
+      ]
+    },
+    {
+      "source_id": "src-rch-burns-2026",
+      "title": "Burns acute management",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Burns/",
+      "persistent_id": null,
+      "version": "April2026",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-burns"
+      ]
+    },
+    {
+      "source_id": "src-aci-burn-fluid-2026",
+      "title": "Burn fluid resuscitation",
+      "organization": "NSW ACI",
+      "source_type": "guideline",
+      "url": "https://aci.health.nsw.gov.au/networks/burn-injury/resources/patient-management/fluid-resuscitation",
+      "persistent_id": null,
+      "version": "February2026",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-burns"
+      ]
+    },
+    {
+      "source_id": "src-aci-burn-transfer-2026",
+      "title": "Transfer and retrieval of burn patients",
+      "organization": "NSW ACI",
+      "source_type": "guideline",
+      "url": "https://aci.health.nsw.gov.au/__data/assets/pdf_file/0004/162634/ACI-Transfer-and-retrieval-of-burn-patients-cpg.pdf",
+      "persistent_id": null,
+      "version": "November2026",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-burns"
+      ]
+    },
+    {
+      "source_id": "src-ssc-pediatric-2026",
+      "title": "Pediatric sepsis and septic shock",
+      "organization": "SCCM SSC",
+      "source_type": "guideline",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-the-management-of-sepsis-and-septic-shock-in",
+      "persistent_id": null,
+      "version": "2026",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-sepsis"
+      ]
+    },
+    {
+      "source_id": "src-nice-pediatric-sepsis-2025",
+      "title": "Suspected sepsis under16 NG254",
+      "organization": "NICE",
+      "source_type": "guideline",
+      "url": "https://www.nice.org.uk/guidance/ng254/resources/suspected-sepsis-in-under-16s-recognition-diagnosis-and-early-management-pdf-66144017065669",
+      "persistent_id": null,
+      "version": "2025; current PDF retrieved",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-sepsis"
+      ]
+    },
+    {
+      "source_id": "src-dgs-pediatric-fever-2018",
+      "title": "PAI Febre de Curta Duracao em Idade Pediatrica014/2018",
+      "organization": "DGS",
+      "source_type": "guideline",
+      "url": "https://www.dgs.pt/directrizes-da-dgs/normas-e-circulares-normativas/norma-n-0142018-de-03082018-pdf.aspx",
+      "persistent_id": null,
+      "version": "2018-08-03; targeted passages/index only",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "pt",
+      "jurisdiction": "PT",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-sepsis"
+      ]
+    },
+    {
+      "source_id": "src-rch-adrenal-2024",
+      "title": "Adrenal crisis and acute adrenal insufficiency",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Adrenal_crisis_and_acute_adrenal_insufficiency/",
+      "persistent_id": null,
+      "version": "October2024",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-adrenal-crisis"
+      ]
+    },
+    {
+      "source_id": "src-rch-hyperkalemia-2024",
+      "title": "Hyperkalaemia",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Hyperkalaemia/",
+      "persistent_id": null,
+      "version": "current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-adrenal-crisis"
+      ]
+    },
+    {
+      "source_id": "src-rch-charcoal",
+      "title": "Activated charcoal in poisonings",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Use_of_Activated_Charcoal_in_Poisonings/",
+      "persistent_id": null,
+      "version": "June2017 current online",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": "AU",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-toxicology"
+      ]
+    },
+    {
+      "source_id": "src-rch-cpap-niv",
+      "title": "CPAP and NIV: acute-care boundary",
+      "organization": "Royal Children’s Hospital",
+      "source_type": "guideline",
+      "url": "https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/Continuous_positive_airway_pressure_(CPAP)_and_non-invasive_ventilation_(NIV)/",
+      "persistent_id": null,
+      "version": "current online; chronic-care scope plus acute PICU boundary",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": "AU",
+      "license_status": "unknown",
+      "provenance": "verified_primary_source_targeted_scope",
+      "compound_identity": false,
+      "modules": [
+        "pediatric-acute-respiratory-support"
+      ]
+    },
+    {
+      "source_id": "src-hypernatremia-tte-2026",
+      "title": "Adult severe hypernatraemia target-trial emulation",
+      "organization": "Study authors",
+      "source_type": "observational_study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41240509/",
+      "persistent_id": "doi:10.1016/j.jcrc.2025.155354",
+      "version": "online2025-11-15;print2026-04",
+      "publication_date": "2025-11-15",
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_indexed_abstract",
+      "compound_identity": false,
+      "modules": [
+        "sodium-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-hypernatremia-correction-meta-2026",
+      "title": "Adult hypernatraemia correction meta-analysis6November2026",
+      "organization": "Study authors",
+      "source_type": "systematic_review_meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42989584/",
+      "persistent_id": "doi:10.23876/j.krcp.26.419",
+      "version": "ahead of print2026-11-06",
+      "publication_date": "2026-11-06",
+      "last_verified": "2026-11-14",
+      "language": "en",
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "verified_primary_indexed_abstract",
+      "compound_identity": false,
+      "modules": [
+        "sodium-emergencies"
+      ]
     }
   ],
   "module_sources": {
@@ -2275,6 +2887,41 @@
         "source_id": "src-nicardipine-dailymed-2026",
         "role": "regulatory_product_info",
         "claim_scope": "nicardipine infusion reference"
+      },
+      {
+        "source_id": "src-fda-tbi-wb-k234143",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "FDA i-STAT TBI whole blood K234143; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-fda-tbi-plasma-k201778",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "FDA i-STAT TBI Plasma K201778; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-tbi-wb-puccio-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Whole-blood point-of-care GFAP/UCH-L1 after TBI; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-cbim-manley-2025",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "NIH-NINDS TBI classification CBI-M; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-cbim-evaluation-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "CBI-M CENTER-TBI/TRACK-TBI evaluation; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-portugal-tbi-consensus-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Mild TBI National Consensus Clinical Recommendations; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-gcs-official-nt",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Glasgow Coma Scale official FAQ; targeted scope, not full institutional validation"
       }
     ],
     "noninvasive-ventilation": [
@@ -2597,6 +3244,176 @@
         "source_id": "src-internal-clinical-image-reference-set",
         "role": "internal_reference_set",
         "claim_scope": "independent local reference diagnoses for evaluation"
+      }
+    ],
+    "pediatric-head-injury": [
+      {
+        "source_id": "src-fda-tbi-wb-k234143",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "FDA i-STAT TBI whole blood K234143; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-cbim-manley-2025",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "NIH-NINDS TBI classification CBI-M; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-cbim-evaluation-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "CBI-M CENTER-TBI/TRACK-TBI evaluation; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-pediatric-gfap-age-2024",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Age-dependent GFAP differences in children without TBI; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-gcs-official-nt",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Glasgow Coma Scale official FAQ; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-head-injury",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Head injury; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-cdc-pediatric-mtbi",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Pediatric mild TBI guidance; targeted scope, not full institutional validation"
+      }
+    ],
+    "pediatric-procedural-sedation": [
+      {
+        "source_id": "src-aap-aapd-sedation-2025",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Pediatric sedation monitoring and management; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-ketamine-procedural",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Ketamine procedural sedation; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-intranasal-fentanyl",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Intranasal fentanyl; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-nitrous-oxygen",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Nitrous oxide oxygen mix; targeted scope, not full institutional validation"
+      }
+    ],
+    "pediatric-acute-respiratory-support": [
+      {
+        "source_id": "src-rcuk-pls-2025",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Paediatric life support; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-hfnp",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "High flow nasal prong therapy; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-cpap-niv",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "CPAP and NIV: acute-care boundary"
+      }
+    ],
+    "pediatric-cns-infection": [
+      {
+        "source_id": "src-rch-meningitis-encephalitis",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Meningitis and encephalitis; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-vancomycin-2024",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Vancomycin; targeted scope, not full institutional validation"
+      }
+    ],
+    "pediatric-toxicology": [
+      {
+        "source_id": "src-rch-paracetamol",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Paracetamol poisoning; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-tca",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Tricyclic antidepressant poisoning; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-charcoal",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Activated charcoal in poisonings"
+      }
+    ],
+    "pediatric-dka": [
+      {
+        "source_id": "src-rch-dka-2025",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Diabetic ketoacidosis; targeted scope, not full institutional validation"
+      }
+    ],
+    "pediatric-burns": [
+      {
+        "source_id": "src-rch-burns-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Burns acute management; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-aci-burn-fluid-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Burn fluid resuscitation; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-aci-burn-transfer-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Transfer and retrieval of burn patients; targeted scope, not full institutional validation"
+      }
+    ],
+    "pediatric-sepsis": [
+      {
+        "source_id": "src-ssc-pediatric-2026",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Pediatric sepsis and septic shock; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-nice-pediatric-sepsis-2025",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Suspected sepsis under16 NG254; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-dgs-pediatric-fever-2018",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "PAI Febre de Curta Duracao em Idade Pediatrica014/2018; targeted scope, not full institutional validation"
+      }
+    ],
+    "pediatric-adrenal-crisis": [
+      {
+        "source_id": "src-rch-adrenal-2024",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Adrenal crisis and acute adrenal insufficiency; targeted scope, not full institutional validation"
+      },
+      {
+        "source_id": "src-rch-hyperkalemia-2024",
+        "role": "focused_reference_review_20261114",
+        "claim_scope": "Hyperkalaemia; targeted scope, not full institutional validation"
+      }
+    ],
+    "sodium-emergencies": [
+      {
+        "source_id": "src-hypernatremia-tte-2026",
+        "role": "focused_review_20261114",
+        "claim_scope": "primary observational analysis;online2025-11-15,print April2026; abstract indexed"
+      },
+      {
+        "source_id": "src-hypernatremia-correction-meta-2026",
+        "role": "focused_review_20261114",
+        "claim_scope": "original synthesis of observational studies; indexed primary abstract; no uniform causal correction target"
       }
     ]
   }

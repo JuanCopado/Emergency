@@ -18,7 +18,8 @@
     "procedures:test": "node --test scripts/build-procedures.node-test.mjs",
     "pediatrics:build": "python ../clinical/scripts/build_pediatric_catalog.py",
     "pediatrics:check": "python ../clinical/scripts/build_pediatric_catalog.py --check",
-    "pediatrics:browser-check": "node scripts/check-pediatric-outpatient.mjs"
+    "pediatrics:browser-check": "node scripts/check-pediatric-outpatient.mjs",
+    "insulin:browser-check": "node scripts/check-insulin-uci.mjs"
   },
   "keywords": [],
   "author": "",

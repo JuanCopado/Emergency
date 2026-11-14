@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-13",
+  "module": "trauma-major-hemorrhage",
+  "owner_statement": "tenemos protocolo de activacion sigue las guidelines mas actualizadas pasalo a verde si esta actualizada",
+  "owner_protocol_availability_confirmed": true,
+  "independent_local_protocol_document_audited": false,
+  "review": "Latest European edition located: sixth (2023); no seventh edition located. Core stored TXA timing, fibrinogen, calcium, platelets, component strategy and early activation concordant. DGS listing still identifies 011/2013 updated18/07/2017.",
+  "sources": [
+    "https://link.springer.com/article/10.1186/s13054-023-04327-7",
+    "https://www.dgs.pt/directrizes-da-dgs/normas-e-circulares-normativas/norma-n-0112013-de-30072013-jpg.aspx"
+  ],
+  "status": "green",
+  "clinical_doses_changed": false,
+  "local_pack_contents_or_response_times_inferred": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "technical_qa_report": "qa/TOXICOLOGY_TRAUMA_QA_2026-11-13.json",
+  "registry_counts": {
+    "green": 45,
+    "yellow": 86,
+    "red": 0
+  }
+}

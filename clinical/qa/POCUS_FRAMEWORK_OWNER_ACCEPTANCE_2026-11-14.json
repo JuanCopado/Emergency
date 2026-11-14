@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-14",
+  "module": "pocus",
+  "status": "green",
+  "scope": "General clinical framework only: focused question, acquisition, image quality, documentation, limitations, clinical integration and escalation",
+  "owner_authorization": "User explicitly accepts general framework asGREEN; image interpretation remains orientative and requires human confirmation",
+  "evidence": {
+    "source": "ACEP2023 ultrasound guidelines",
+    "url": "https://www.acep.org/siteassets/new-pdfs/policy-statements/ultrasound-guidelines--emergency-point-of-care-and-clinical-ultrasound-guidelines-in-medicine.pdf",
+    "access": "Official indexed text and current ACEP resource listing; focused framework review, not new exhaustive63-page audit"
+  },
+  "pocus_image_status": "yellow",
+  "diagnostic_performance_validated": false,
+  "automatic_learning_implemented": false,
+  "future_case_bank": {
+    "targets": [
+      "hydronephrosis",
+      "gallstones",
+      "ascites",
+      "deep_vein_thrombosis",
+      "pneumothorax"
+    ],
+    "status": "PLANNED_NOT_IMPLEMENTED",
+    "requirements": [
+      "Deidentified images/clips with reuse rights and provenance",
+      "Expert reference labels, normal cases, mimics and inadequate studies",
+      "Separate development examples from held-out evaluation by patient",
+      "Versioned evaluation of each target and inadequate-image abstention",
+      "Human clinical confirmation; no claim that adding cases automatically trains the model"
+    ]
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "blocked_contracts_preserved": 19,
+  "registry_counts": {
+    "green": 117,
+    "yellow": 14
+  },
+  "technical_qa": {
+    "module_integrity": "131/131 PASS",
+    "evidence_coverage": "PASS:0 errors",
+    "diff_check": "PASS",
+    "model_training_or_diagnostic_accuracy_test": "NOT PERFORMED"
+  }
+}

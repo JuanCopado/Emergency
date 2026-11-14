@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-13",
+  "clinical_status": "CLINICALLY_PENDING",
+  "new_engine_tests": 45,
+  "new_dom_tests": 5,
+  "frontend_passed": 426,
+  "frontend_total": 426,
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "build": "PASS",
+  "global_qa_status": "PASS",
+  "global_qa_checks": [
+    {
+      "name": "module-integrity",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "evidence-coverage",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "clinical-case-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "real-image-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "image-source-registry",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "blinded-image-template",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "unit-regression-tests",
+      "passed": true,
+      "returncode": 0
+    }
+  ],
+  "python_passed": 603,
+  "python_total": 603,
+  "browser_status": "BLOCKED_ENVIRONMENT",
+  "browser_error": "Chromium socket() operation not permitted; expanded permissions forbidden by sandbox_approval=false",
+  "evidence_counts": {
+    "green": 2,
+    "yellow": 129,
+    "red": 0
+  },
+  "overdue_evidence_warnings_remaining": 116,
+  "source_reviews_renewed": 0,
+  "evidence_dates_changed": false,
+  "clinical_contracts_unblocked": 0
+}

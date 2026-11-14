@@ -35,7 +35,11 @@ class PediatricExportTests(unittest.TestCase):
                 self.assertEqual(report['snapshot']['result'],result)
                 self.assertEqual(report['snapshot']['safety'],computed['safety'])
                 self.assertEqual(report['snapshot']['clinical_status'],'CLINICALLY_PENDING')
-                self.assertEqual(report['snapshot']['evidence_status'],'yellow')
+                # Export the current evidence state without treating GREEN as
+                # clinical release; the independent CLINICALLY_PENDING check stays.
+                registry=json.loads((ROOT/'references/evidence-registry.json').read_text(encoding='utf-8'))
+                self.assertEqual(report['snapshot']['evidence_status'],
+                                 registry['modules']['pediatric-outpatient-medications']['status'])
                 for fmt in ('json','pdf','docx'):
                     data=base64.b64decode(export_request({'format':fmt,'calculation':body,'expected_result':result})['content_base64'])
                     if fmt=='json':self.assertEqual(json.loads(data),report);continue

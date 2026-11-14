@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-13",
+  "focused_regressions": {
+    "passed": 419,
+    "failed": 0,
+    "critical_content": "BAT adult age boundary; CaNa2EDTA identity; antivenom noninterchangeability retained"
+  },
+  "guide_generation": {
+    "passed": 4,
+    "failed": 0
+  },
+  "module_integrity": {
+    "resolved": 131
+  },
+  "evidence_audit": {
+    "errors": [],
+    "status_counts": {
+      "green": 45,
+      "yellow": 86,
+      "red": 0
+    }
+  },
+  "invariants": {
+    "only_two_registry_records_changed": true,
+    "family_preambles_preserved": true,
+    "canonical_medication_contracts_and_api_unchanged": true,
+    "global_review_date_and_policy_unchanged": true
+  },
+  "global_qa": "Not rerun: prior603-test run remains BLOCKED with25 errors after status-midazolam source anchor changed; no global PASS claimed.",
+  "browser": "NOT RUN; clinical guide data regeneration checked",
+  "release_status": "CLINICALLY_PENDING"
+}

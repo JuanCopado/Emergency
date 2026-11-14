@@ -1,0 +1,66 @@
+{
+  "status": "CLINICALLY_PENDING",
+  "clinical_use_allowed": false,
+  "frontend": {
+    "passed": 407,
+    "total": 407,
+    "new": 31
+  },
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "build": "PASS",
+  "acute_python": {
+    "passed": 10,
+    "total": 10
+  },
+  "global_qa": {
+    "automated_pass": false,
+    "automated_status": "BLOCKED"
+  },
+  "global_qa_checks": [
+    {
+      "name": "module-integrity",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "evidence-coverage",
+      "passed": false,
+      "returncode": 1
+    },
+    {
+      "name": "clinical-case-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "real-image-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "image-source-registry",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "blinded-image-template",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "unit-regression-tests",
+      "passed": false,
+      "returncode": 1
+    }
+  ],
+  "global_python": {
+    "passed": 602,
+    "total": 603,
+    "failed_test": "test_all_declared_high_risk_modules_have_evidence_records",
+    "reason": "27 overdue evidence review findings"
+  },
+  "browser": "BLOCKED_ENVIRONMENT: Chromium socket operation not permitted; no page opened",
+  "protected_clinical_contracts_changed": false,
+  "source_code_redistributed": false
+}

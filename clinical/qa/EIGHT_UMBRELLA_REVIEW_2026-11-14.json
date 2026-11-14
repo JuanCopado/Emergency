@@ -1,0 +1,308 @@
+{
+  "date": "2026-11-14",
+  "task": "Eight source-reconciled adult umbrella/safety frameworks, owner-requested validation",
+  "owner_authorization": [
+    "Review/validate endocrine, ENT, environmental, geriatric and hematology-oncology in ongoing GREEN workflow",
+    "Subsequently validate and turn GREEN electrolytes, infectious emergencies and procedures"
+  ],
+  "modules": [
+    "endocrine-metabolic",
+    "ent-emergencies",
+    "environmental-emergencies",
+    "geriatric-emergencies",
+    "hematology-oncology",
+    "electrolytes",
+    "emergency-infectious-diseases",
+    "emergency-procedures"
+  ],
+  "status": "green",
+  "sources": {
+    "endocrine-metabolic": [
+      {
+        "title": "Society for Endocrinology adrenal crisis guidance",
+        "version": "Current official emergency page",
+        "url": "https://www.endocrinology.org/clinical-practice/clinical-guidance/adrenal-crisis/",
+        "scope": "Immediate treatment; do not wait for diagnostic sampling",
+        "access": "Official indexed recommendation text retrieved"
+      },
+      {
+        "title": "JBDS-IP hospital hypoglycemia in adults with diabetes",
+        "version": "RevisedJanuary2023",
+        "url": "https://abcd.care/sites/default/files/site_uploads/JBDS_Guidelines_Current/JBDS_01_Hypo_Guideline_with_QR_code_January_2023.pdf",
+        "scope": "Safe oral/parenteral selection, repeat glucose, glucagon limitations and recurrence prevention",
+        "access": "PrimaryPDF retrieved; treatment and follow-up text checked; pregnancy/children excluded"
+      },
+      {
+        "title": "Society for Endocrinology emergency pituitary apoplexy guidance",
+        "version": "2016",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5314810/",
+        "scope": "Clinical suspicion, glucocorticoid indications, MRI and urgent specialist referral",
+        "access": "Primary open-access guidance retrieved; no new2026 guideline edition asserted"
+      },
+      {
+        "title": "European Journal of Endocrinology pituitary apoplexy update",
+        "version": "2026;volume194(2)",
+        "url": "https://academic.oup.com/ejendo/article-abstract/194/2/R49/8488015",
+        "scope": "Stabilization, neuro-ophthalmology monitoring and individualized surgery",
+        "access": "Primary review abstract retrieved; not presented as a new formal guideline or full-text appraisal"
+      }
+    ],
+    "ent-emergencies": [
+      {
+        "title": "ENTUK/BLA adult acute severe sore throat guideline",
+        "version": "Current hosted document; revision date not established",
+        "url": "https://www.entuk.org/_userfiles/pages/files/resources/adult_sore_throat_clinical_guideline.pdf",
+        "scope": "Supraglottitis despite normal oral view and urgent airway/ENT support",
+        "access": "OfficialPDF text retrieved; no new nebulized drug recipe adopted"
+      },
+      {
+        "title": "Oxford University Hospitals serious deep neck space infection guidance",
+        "version": "Reviewed2025-05-01",
+        "url": "https://tac-int-qg-app-liv.azurewebsites.net/hospital-guidelines/adult-antimicrobial-guide/empiric-treatment/ent-and-orofacial/serious-deep-neck-space-infections/",
+        "scope": "Urgent safe imaging, source control and ENT/ID assessment",
+        "access": "Official hospital guideline retrieved; foreign local antibiotic choices not adopted as Horta formulary"
+      },
+      {
+        "title": "AAO-HNSF clinical practice guideline epistaxis",
+        "version": "2020",
+        "url": "https://aao-hnsfjournals.onlinelibrary.wiley.com/doi/full/10.1177/0194599819890327",
+        "scope": "First-line local hemostasis before automatic anticoagulant reversal in non-life-threatening bleeding",
+        "access": "Primary guideline indexed key action statements retrieved"
+      },
+      {
+        "title": "NICE NG98 adult hearing loss recommendations",
+        "version": "2018guideline; current official recommendations checked",
+        "url": "https://www.nice.org.uk/guidance/ng98/chapter/recommendations",
+        "scope": "Sudden loss over3days or less within30days requires assessment within24h",
+        "access": "Official indexed recommendation1.1.2 retrieved"
+      }
+    ],
+    "environmental-emergencies": [
+      {
+        "title": "ERC/RCUK special circumstances in resuscitation",
+        "version": "2025-10-27",
+        "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines",
+        "scope": "Hypothermic resuscitation modifications, early rewarming referral and ventilation-first drowning",
+        "access": "Official primary text/recommendations retrieved"
+      },
+      {
+        "title": "Wilderness Medical Society heat illness guideline",
+        "version": "2024Update",
+        "url": "https://journals.sagepub.com/doi/full/10.1177/10806032241227924",
+        "scope": "Active cooling, no antipyretics, exertional hyponatremia differential and monitored disposition",
+        "access": "Primary guideline HTML retrieved; exertional focus and field-care exceptions recognized"
+      }
+    ],
+    "geriatric-emergencies": [
+      {
+        "title": "British Geriatrics Society Silver BookII holistic assessment",
+        "version": "2021edition; current online chapter checked",
+        "url": "https://www.bgs.org.uk/resources/silver-book-ii-holistic-assessment-of-older-people",
+        "scope": "Baseline function, comprehensive assessment, medicines, social support and transitions",
+        "access": "Official primary text/recommendations retrieved"
+      },
+      {
+        "title": "NICE NG249 falls assessment/prevention",
+        "version": "2025-04-29",
+        "url": "https://www.nice.org.uk/guidance/ng249/chapter/Recommendations",
+        "scope": "Comprehensive assessment for higher-risk fallers and individual risk factors",
+        "access": "Official indexed recommendations and primaryPDF excerpts retrieved"
+      },
+      {
+        "title": "IDSA asymptomatic bacteriuria guideline",
+        "version": "2019",
+        "url": "https://www.idsociety.org/practice-guideline/asymptomatic-bacteriuria/",
+        "scope": "Bacteriuria plus delirium/fall alone does not justify antibiotics without urinary/systemic features",
+        "access": "Official indexed recommendations retrieved; sepsis exception preserved"
+      }
+    ],
+    "hematology-oncology": [
+      {
+        "title": "NICE CG151 neutropenic sepsis recommendations",
+        "version": "2012guideline; current official text checked",
+        "url": "https://www.nice.org.uk/guidance/cg151/resources/neutropenic-sepsis-prevention-and-management-in-people-with-cancer-pdf-35109626262469",
+        "scope": "Unwell patients on anticancer treatment need immediate assessment and empiric antibiotics",
+        "access": "Official primaryPDF recommendation text retrieved;2024copyright not labelled a new guideline revision"
+      },
+      {
+        "title": "BSH updated tumour lysis syndrome guideline",
+        "version": "2025-09-03; page reviewed2025-12-08",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1111/bjh.70092",
+        "scope": "Risk-dependent prevention/treatment, electrolyte and renal monitoring, urate sample safety",
+        "access": "Primary guideline HTML retrieved; no fixed rasburicase dose or hydration volume transplanted"
+      },
+      {
+        "title": "EMA Fasturtec Portuguese product information",
+        "version": "Current retrieved Portuguese RCM",
+        "url": "https://www.ema.europa.eu/pt/documents/product-information/fasturtec-epar-product-information_pt.pdf",
+        "scope": "G6PD/hemolysis contraindication and urate sample handling",
+        "access": "Official Portuguese product information indexed text retrieved; no stock or locally compounded recipe inferred"
+      },
+      {
+        "title": "ATS Scholar management of leukostasis in AML",
+        "version": "Online2025-11-06; issueDecember2025",
+        "url": "https://academic.oup.com/atsscholar/article/6/4/512/8444063",
+        "scope": "End-organ injury matters beyond cell count; urgent specialist care; individualized cytoreduction/apheresis",
+        "access": "Primary clinical educational review retrieved; not labelled a randomized trial or formal new guideline"
+      }
+    ],
+    "electrolytes": [
+      {
+        "title": "UK Kidney Association hyperkalaemia guideline",
+        "version": "UpdatedJuly2026; stated review dateOctober2026",
+        "url": "https://guidelines.ukkidney.org/hyperkalaemia/",
+        "scope": "Adult assessment, pseudohyperkalemia and myocardial/shift/removal/monitoring distinctions",
+        "access": "Official current portal and indexed guideline content retrieved; no wholesale drug-dose reassessment claimed"
+      },
+      {
+        "title": "ISMP high-alert medicines in acute care",
+        "version": "2024list; existing medication-safety review2026-11-13",
+        "url": "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+        "scope": "Concentrated electrolytes, units, verified preparations and independent safety controls",
+        "access": "Existing source-reconciled medication-selection-safety record reused; no new full ISMP review claimed"
+      }
+    ],
+    "emergency-infectious-diseases": [
+      {
+        "title": "Surviving Sepsis Campaign adult sepsis/shock guideline",
+        "version": "2026-03-23",
+        "url": "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+        "scope": "Timely infection treatment/source control, individualization, reassessment and antimicrobial stewardship",
+        "access": "Official recommendation page retrieved; no new antibiotic recipe or universal fluid schedule adopted"
+      },
+      {
+        "title": "CDC core infection prevention and control practices",
+        "version": "Current official online guidance",
+        "url": "https://www.cdc.gov/infection-control/hcp/core-practices/index.html",
+        "scope": "Syndrome-based precautions at entry, before tests, with communication on transfer",
+        "access": "Official indexed core-practice and transmission-based precaution text retrieved"
+      },
+      {
+        "title": "DGS Sistema Nacional de Vigilancia Epidemiologica",
+        "version": "Current official service page; historical implementation references identified",
+        "url": "https://www.dgs.pt/servicos-on-line1/sinave-sistema-nacional-de-vigilancia-epidemiologica.aspx",
+        "scope": "Portugal public-health notification routing; current disease-specific list/definitions must be consulted",
+        "access": "Official DGS indexed page and FAQ retrieved; complete current notifiable-disease list and Azores operating arrangements not certified"
+      },
+      {
+        "title": "IDSA asymptomatic bacteriuria guideline",
+        "version": "2019",
+        "url": "https://www.idsociety.org/practice-guideline/asymptomatic-bacteriuria/",
+        "scope": "Bacteriuria plus delirium/fall alone does not justify antibiotics without urinary/systemic features",
+        "access": "Official indexed recommendations retrieved; sepsis exception preserved"
+      }
+    ],
+    "emergency-procedures": [
+      {
+        "title": "WHO intravascular catheter infection prevention part2 central venous catheters",
+        "version": "2026-05-28",
+        "url": "https://www.who.int/publications/i/item/9789240121805",
+        "scope": "Asepsis, training, care bundles and catheter life-cycle safety",
+        "access": "Official publication overview retrieved; linked fullPDF timed out, not claimed read"
+      },
+      {
+        "title": "WHO intravascular catheter infection prevention partI peripheral catheters",
+        "version": "2024-05-12",
+        "url": "https://www.who.int/publications/i/item/9789240093829",
+        "scope": "Asepsis, insertion, access, maintenance and removal framework",
+        "access": "Official publication overview retrieved; not an appraisal of every technique-specific recommendation"
+      },
+      {
+        "title": "Joint Commission Universal Protocol",
+        "version": "Current official poster/FAQ;2025standards excerpt",
+        "url": "https://www.jointcommission.org/-/media/tjc/documents/standards/universal-protocol/up_poster1pdf.pdf",
+        "scope": "Patient/site/procedure verification and team time-out",
+        "access": "Primary poster and officialFAQ indexed text retrieved; foreign framework, not Portuguese legal certification"
+      }
+    ]
+  },
+  "before_counts": {
+    "green": 60,
+    "yellow": 71,
+    "red": 0
+  },
+  "registry_counts": {
+    "green": 68,
+    "yellow": 63,
+    "red": 0
+  },
+  "source_integrity": {
+    "hematology-oncology": {
+      "before_sha256": "00db3de76324742ed62ee8b3b77b6efa9f1737eebab0d2e7c49fab657796dea8",
+      "after_sha256": "6180d0c2950a7005514bd27fec95ab8d93ba823b9b3d868b5efaabe539945f0f"
+    },
+    "ent-emergencies": {
+      "before_sha256": "12dca3f3875f98909ffbf14c6e17aeb6f2a609c2532a9b156e372a396e1202cc",
+      "after_sha256": "4a7df1fdc91eace5be6fa52742192af53e64133a8758e620a6aa5713a5958c35"
+    },
+    "environmental-emergencies": {
+      "before_sha256": "d00a4d991ccced4a142b6d32c019d7f12ea64b199574abbf496eaf9652175394",
+      "after_sha256": "d06b4aef608a705110eb1ceb1a6fd0684c8492c8546b8bbc23ae2aaed6e03cfe"
+    },
+    "emergency-infectious-diseases": {
+      "before_sha256": "80750c67e11a26cc833d5ec95a0826d6427746065703ae2a695ed077ad3aea4d",
+      "after_sha256": "ec8cbbb9a152fc99a64e243302829a5f3052259bee31853d4b9460275d4a4560"
+    },
+    "emergency-procedures": {
+      "before_sha256": "b141f8eeccdd37a80910ffdf888fab5744ceaadb556898092143fc6a0107d069",
+      "after_sha256": "d0986414280abdbf8c845d66a5ab05f9ca4d86341141cd28e3dda8b77c2f2d0b"
+    },
+    "electrolytes": {
+      "before_sha256": "ea7214052b3484f7a8ea4e0371222c175f95de2146b53d6abfd776d6bb709bf3",
+      "after_sha256": "280fd733fa3dc6af7e0af12ef4fc52f652c915634ddd739befcdb94aa055c9d9"
+    },
+    "endocrine-metabolic": {
+      "before_sha256": "3dc67df2633fb6342c41cef733bc7769e43d2fddccc2902fb4a96c146330837a",
+      "after_sha256": "5cc64ce967958468b00f997746267b19385460e886211c5494ceff994638964c"
+    },
+    "geriatric-emergencies": {
+      "before_sha256": "eed00497692654c4f45ec803a08663350524e95f386aa0f859aef7e7cfcf1e8a",
+      "after_sha256": "c480d5e5a7264fa3dece958b5000208527f95141831506fc271a7a7404b26e40"
+    }
+  },
+  "invariants": {
+    "changed_module_bodies": [
+      "hematology-oncology",
+      "ent-emergencies",
+      "environmental-emergencies",
+      "emergency-infectious-diseases",
+      "emergency-procedures",
+      "electrolytes",
+      "endocrine-metabolic",
+      "geriatric-emergencies"
+    ],
+    "other_sections_and_all_family_preambles_unchanged": true,
+    "changed_evidence_records": [
+      "electrolytes",
+      "emergency-infectious-diseases",
+      "emergency-procedures",
+      "endocrine-metabolic",
+      "ent-emergencies",
+      "environmental-emergencies",
+      "geriatric-emergencies",
+      "hematology-oncology"
+    ],
+    "protected_tracked_files_byte_identical_to_HEAD": 128,
+    "calculator_and_acute_medication_scripts_unchanged": true,
+    "individual_procedure_content_and_generated_sheets_unchanged": true,
+    "blocked_medication_contracts_preserved": 19,
+    "sodium_and_acid_base_still_yellow": true,
+    "no_new_numeric_drug_dose_or_preparation_recipe": true
+  },
+  "localization_limits": "DGS SINAVE official routing and Portuguese EMA rasburicase RCM identified. No complete current DGS norm audit, local formulary/stock, signed specialty review, staffing, imaging capability, extracorporeal center access or Azores notification implementation certified. WHO CVC2026 overview checked; fullPDF retrieval timed out.",
+  "scope_limits": "GREEN covers only the eight initial frameworks, not all endocrine/ENT/environmental/oncology subprotocols, pathogen-specific regimens,196 individual procedure sheets or visual diagnostic accuracy. Existing separate review gates remain.",
+  "technical_qa": {
+    "python": "632/632 PASS",
+    "new_safety_regressions": "8/8 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "220sources/131modules normalized",
+    "evidence_audit_errors": [],
+    "browser": "NOT RUN",
+    "report": "qa/EIGHT_UMBRELLA_QA_2026-11-14.json"
+  },
+  "browser": "NOT RUN",
+  "clinical_release_status": "CLINICALLY_PENDING"
+}

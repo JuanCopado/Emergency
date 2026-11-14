@@ -1,0 +1,22 @@
+{
+  "reported_on": "2026-11-13",
+  "reported_by": "Juan, propietario del proyecto",
+  "statement": "Tenemos las dos disponibles localmente",
+  "context": "Coma mixedematoso: disponibilidad IV y alternativa enteral local",
+  "intravenous_levothyroxine_available": true,
+  "enteral_levothyroxine_available": true,
+  "basis": "Confirmación explícita del propietario en esta conversación",
+  "independently_verified": false,
+  "exact_product_and_concentration_supplied": false,
+  "acute_enteral_loading_regimen_approved": false,
+  "full_protocol_release_declared": false,
+  "module": "myxedema-coma",
+  "evidence_status": "green",
+  "availability_gate": "owner_confirmed",
+  "remaining_gate": "Individual/local implementation outside reviewed scope; for myxedema no acute enteral loading regimen inferred",
+  "clinical_content_changed": false,
+  "canonical_contracts_changed": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "status_followup": "Owner explicitly requested GREEN promotion for completed/reviewed scope",
+  "current_status_report": "qa/THYROID_MODULES_OWNER_ACCEPTED_GREEN_2026-11-13.json"
+}

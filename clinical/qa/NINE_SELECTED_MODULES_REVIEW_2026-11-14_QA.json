@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "automated_pass": true,
+  "automated_status": "PASS",
+  "checks": [
+    {
+      "name": "module-integrity",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "MODULE VALIDATION PASSED: 131 modules resolved",
+      "stderr": ""
+    },
+    {
+      "name": "evidence-coverage",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"audit_date\": \"2026-11-14\",\n  \"total_modules\": 131,\n  \"registered\": 131,\n  \"normalized_sources\": 252,\n  \"compound_sources_pending_split\": 109,\n  \"unregistered\": 0,\n  \"status_counts\": {\n    \"green\": 112,\n    \"yellow\": 19,\n    \"red\": 0\n  },\n  \"errors\": [],\n  \"warnings\": [\n    \"clinical-image-interpretation: evidence review overdue (58 days; limit 30; status yellow)\",\n    \"blood-gas-image: evidence review overdue (48 days; limit 30; status yellow)\",\n    \"ct-mri-screenshot: evidence review overdue (48 days; limit 30; status yellow)\",\n    \"ecg-image: evidence review overdue (48 days; limit 30; status yellow)\",\n    \"ecg-pocus-integration: evidence review overdue (48 days; limit 30; status yellow)\",\n    \"ophthalmology-image: evidence review overdue (48 days; limit 30; status yellow)\",\n    \"pocus: evidence review overdue (48 days; limit 30; status yellow)\",\n    \"pocus-image: evidence review overdue (48 days; limit 30; status yellow)\",\n    \"final-human-review-gate: evidence review overdue (39 days; limit 30; status yellow)\"\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "name": "clinical-case-provenance",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "CLINICAL CASE VALIDATION PASSED: 27 sourced regressions",
+      "stderr": ""
+    },
+    {
+      "name": "real-image-provenance",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"cases\": 4,\n  \"errors\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "image-source-registry",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"ready_sources\": [\n    \"echonet-dynamic\",\n    \"mimic-cxr-2.1.0\",\n    \"ptb-xl\",\n    \"rsna-ich-2019\"\n  ],\n  \"pending_sources\": [\n    {\n      \"id\": \"chexpert\",\n      \"pending_gates\": [\n        \"license_or_dua_verified\",\n        \"redistribution_rule_documented\"\n      ]\n    }\n  ],\n  \"source_count\": 5\n}",
+      "stderr": ""
+    },
+    {
+      "name": "blinded-image-template",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"warnings\": [],\n  \"metrics_eligible\": true,\n  \"case_count\": 1,\n  \"positive_reference_cases\": 0,\n  \"negative_reference_cases\": 1,\n  \"binary_predictions\": 0,\n  \"unresolved_predictions\": 1,\n  \"repeated_patient_groups\": 0\n}",
+      "stderr": ""
+    },
+    {
+      "name": "unit-regression-tests",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 704 tests in 27.787s\n\nOK"
+    }
+  ],
+  "human_gates": {
+    "high_risk_not_green": [
+      "arrhythmias-cardiac-arrest",
+      "blood-gas-image",
+      "clinical-image-interpretation",
+      "clinical-note-diagnostic-support",
+      "clinical-scores-calculators",
+      "ct-mri-screenshot",
+      "ecg-image",
+      "ecg-pocus-integration",
+      "final-human-review-gate",
+      "icu-sedation-analgesia-infusions",
+      "ophthalmology-image",
+      "pediatric-outpatient-medications",
+      "pocus",
+      "pocus-image",
+      "sodium-emergencies",
+      "vasoactive-inotrope-infusions"
+    ],
+    "localization_pending": [
+      "amiodarone",
+      "dexmedetomidine",
+      "dobutamine",
+      "dopamine",
+      "epinephrine",
+      "fentanyl",
+      "isoprenaline",
+      "midazolam",
+      "norepinephrine",
+      "propofol",
+      "remifentanil",
+      "vasopressin"
+    ],
+    "clinical_release_status": "CLINICALLY_PENDING"
+  },
+  "disclaimer": "Automated QA PASS is not clinical validation and does not auto-promote evidence status.",
+  "focused_review_summary": {
+    "automated_regressions": "PASS",
+    "python_tests": 704,
+    "new_safety_tests": 6,
+    "frontend_tests": 434,
+    "guide_checks": 4,
+    "global_checks": 7,
+    "browser": "BLOCKED before execution:Chromium socket EPERM",
+    "browser_cases_executed": 0,
+    "browser_cases_planned": 8,
+    "protected_files_unchanged": 313,
+    "other_module_sections_unchanged": 83,
+    "medication_contracts_total": 46,
+    "blocked_medication_contracts": 19,
+    "clinical_release_status": "CLINICALLY_PENDING"
+  }
+}

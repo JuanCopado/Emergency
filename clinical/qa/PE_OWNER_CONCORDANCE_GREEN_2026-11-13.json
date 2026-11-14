@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-13",
+  "module": "pulmonary-embolism",
+  "status": "green",
+  "owner_confirmation": {
+    "date": "2026-11-13",
+    "reported_by": "Juan, propietario del proyecto",
+    "statement": "coincide con la guia incorporada pasa a verde",
+    "context": "Conciliación local de anticoagulación/reperfusión frente a la guía2026 incorporada",
+    "basis": "Confirmación explícita del propietario",
+    "independently_verified": false,
+    "new_specialist_signature": false
+  },
+  "review_basis": "AHA/ACC2026, ESC2019/ACVC2025 comparison and PRAGUE2026 already documented in FIRST_TEN_OVERDUE_REVIEW",
+  "clinical_content_changed": false,
+  "canonical_contracts_changed": false,
+  "new_human_signature": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "registry_counts_after_two_changes": {
+    "green": 37,
+    "yellow": 94,
+    "red": 0
+  },
+  "technical_qa": "PASS:603 Python,434 frontend,7/7 checks,4 guide-generation tests",
+  "qa_report": "qa/MESENTERIC_PE_LGIB_QA_2026-11-13.json",
+  "registry_counts": {
+    "green": 38,
+    "yellow": 93,
+    "red": 0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-14",
+  "module": "sodium-emergencies",
+  "owner_statement": "lo prepara enfermeria",
+  "prepared_by": "nursing_staff",
+  "scope": "Preparation responsibility for intended local3% sodium chloride",
+  "stock_strength": null,
+  "stock_volume_ml": null,
+  "diluent_and_strength": null,
+  "diluent_volume_ml": null,
+  "final_volume_ml": null,
+  "final_concentration_verified": false,
+  "status": "yellow",
+  "remaining": "Exact recipe and other local monitoring/rescue items remain unconfirmed.",
+  "clinical_doses_or_contracts_changed": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "qa": {
+    "guide_generation": "4/4 PASS",
+    "source_catalog": "220 sources /131 modules, normalized",
+    "diff_check": "PASS",
+    "full_regression": "Not rerun for this preparation-role declaration; previous615Python/434frontend remain historical evidence",
+    "browser": "NOT RUN"
+  },
+  "before_sha256": "4d2ab2ed8160fbdf77df41f01634c312cb5099afaa43281d12a86dbffa1e168c",
+  "after_sha256": "cfa0dc371afebd46702a29cec10b7deaff53864af51296cfeef5e9e539ba6728",
+  "subsequent_recipe_followup": "SODIUM_20PCT_MIXTURE_VERIFICATION_2026-11-14.json"
+}

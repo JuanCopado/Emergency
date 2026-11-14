@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
 import { getRelatedProcedures } from '../clinical-guides/relatedProcedures';
+import { ResuscitationCircuits } from '../components/ResuscitationCircuits';
 
 function StatusPill({ status }: { status: 'green' | 'yellow' | 'red' }) {
   const cls = status === 'green' ? 'bg-green-100 text-green-800' : status === 'red' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-900';
@@ -98,6 +99,7 @@ export default function ClinicalLibrary() {
         </header>
 
         <div className="mt-5"><CanonicalContent guide={guide} /></div>
+        {guide.id === 'arrhythmias-cardiac-arrest' ? <ResuscitationCircuits base="/clinical" /> : null}
 
         <section id="related-procedures" className="mt-7 border-t border-border pt-5">
           <h2 className="text-xl font-bold">Procedimientos relacionados</h2>

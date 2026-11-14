@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-14",
+  "owner_authorization": "Explicit latest instruction selecting1IU/mL, immediate use+24h obligatory local replacement and Lipuro6h/12h clarification",
+  "clinical_reviewer_previously_reported": "Rui Susano",
+  "pharmacy_reviewer_previously_reported": "Miguel S",
+  "reviewer_provenance": "Names and same-reviewer instruction declared by owner; no independently authenticated signatures invented",
+  "selected_empressin_preparation": {
+    "id": "empressin-local-1iu-ml-20261114",
+    "product": "Empressin20IU/mL",
+    "drug_amount_IU": 40,
+    "stock_volume_ml": 2,
+    "diluent": "NaCl0.9%",
+    "diluent_volume_ml": 38,
+    "final_volume_ml": 40,
+    "concentration_IU_ml": 1,
+    "local_selection_date": "2026-11-14",
+    "basis": "Explicit owner selection; differs from CIMA83405 preparation0.8IU/mL",
+    "pump_table": [
+      {
+        "dose_IU_min": 0.01,
+        "dose_IU_h": 0.6,
+        "rate_ml_h": 0.6
+      },
+      {
+        "dose_IU_min": 0.02,
+        "dose_IU_h": 1.2,
+        "rate_ml_h": 1.2
+      },
+      {
+        "dose_IU_min": 0.03,
+        "dose_IU_h": 1.8,
+        "rate_ml_h": 1.8
+      }
+    ],
+    "titration_interval_minutes": [
+      15,
+      20
+    ],
+    "routine_label_dose_upper_IU_min": 0.03,
+    "higher_doses": "Emergency-only per Empressin label; do not transfer routine Vasostrict0.07IU/min maximum",
+    "automated_patient_prescription": false
+  },
+  "local_replacement_policy": {
+    "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+    "source": "Owner instruction2026-11-14, local institutional policy declaration",
+    "start_immediately_after_opening_reconstitution_dilution": true,
+    "max_container_and_tubing_hours": 24,
+    "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+    "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+    "delayed_storage_authorized": false,
+    "manufacturer_chemical_stability_certified_by_this_policy": false,
+    "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+  },
+  "propofol_lipuro_policy": {
+    "product_scope": "Propofol Lipuro10mg/mL and20mg/mL only; do not extrapolate to other products/PFS",
+    "undiluted": {
+      "max_container_and_tubing_hours": 12,
+      "clock_start": "First opening/puncture, not a later syringe transfer",
+      "aseptic_immediate_extraction_and_administration_required": true,
+      "applies_to": "Original vial or aseptically and immediately filled sterile syringe, followed by immediate infusion"
+    },
+    "diluted_1percent": {
+      "max_hours_from_dilution": 6,
+      "prepare_immediately_before_use": true,
+      "max_propofol_parts": 1,
+      "max_diluent_parts": 4,
+      "minimum_concentration_mg_ml": 2,
+      "diluents": "CIMA-listed compatible fluids for Lipuro10mg/mL"
+    },
+    "prepared_syringe_for_deferred_storage": {
+      "authorized": false,
+      "use": "Immediate; no automatically inherited6h/12h storage allowance"
+    },
+    "two_percent_dilution_allowed": false,
+    "manufacturer_scope": "CIMA62953/64868; microbiological asepsis and clock limits remain distinct from local24h rule"
+  },
+  "sources": [
+    "https://cima.aemps.es/cima/dochtml/ft/83405/FT_83405.html",
+    "https://cima.aemps.es/cima/dochtml/ft/47034/FichaTecnica_47034.html",
+    "https://cima.aemps.es/cima/dochtml/ft/62953/FichaTecnica_62953.html",
+    "https://cima.aemps.es/cima/dochtml/ft/64868/FichaTecnica_64868.html"
+  ],
+  "source_comparison": "CIMA0.8IU/mL retained only as a separate manufacturer reference;1IU/mL and non-propofol24h replacement are local decisions. Shorter applicable product limits prevail. No product-specific chemical study for Empressin1IU/mL or Ketolar24h is invented.",
+  "registry_promotion": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "technical_qa": {
+    "python": "678/678 PASS",
+    "new_local_concentration_and_clock_tests": "5/5 PASS",
+    "product_reconciliation_tests": "9/9 PASS",
+    "frontend": "434/434 PASS",
+    "guides": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "source_catalog": "222sources/131modules",
+    "browser": "NOT RUN",
+    "report": "qa/LOCAL_INFUSION_DECISIONS_QA_2026-11-14.json"
+  },
+  "preservation": {
+    "baseline_commit": "5127fec2dcfdd78bffdf2ab9ce90f153a5f071ab",
+    "protected_runtime_contract_pediatric_procedure_files_unchanged": 313,
+    "individual_procedures_unchanged": 196,
+    "blocked_contracts_preserved": 19,
+    "registry_status_counts_unchanged": {
+      "green": 91,
+      "yellow": 40,
+      "red": 0
+    },
+    "source_attachment_not_edited": true
+  }
+}

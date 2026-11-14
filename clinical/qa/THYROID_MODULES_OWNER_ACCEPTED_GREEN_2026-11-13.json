@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-13",
+  "modules": [
+    "thyroid-storm",
+    "myxedema-coma"
+  ],
+  "status": "green",
+  "owner_instruction": "pasa a verde lo que vayamos haciendo",
+  "basis": "Primary-source comparison completed in FIRST_TEN_OVERDUE_REVIEW; owner hospital-use medications and IV/enteral availability declarations now recorded; explicit status-promotion instruction",
+  "registry_counts": {
+    "green": 35,
+    "yellow": 96,
+    "red": 0
+  },
+  "clinical_scope": {
+    "thyroid-storm": "Reviewed joint2026 guidance with hospital-use medication confirmation",
+    "myxedema-coma": "Reviewed IV guidance; available enteral route does not add an unvalidated acute enteral loading dose or equivalence"
+  },
+  "new_professional_signature": false,
+  "clinical_content_changed": false,
+  "canonical_contracts_changed": false,
+  "prospective_validation": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "router_status": "yellow: browser/local operational validation still not verified",
+  "publication": "Local only; no push",
+  "verification": {
+    "two_status_promotions_only": true,
+    "other129_records_and_guides_unchanged": true,
+    "all_clinical_bodies_and_runtime_unchanged": true,
+    "evidence_errors": 0,
+    "overdue_warnings": 79,
+    "guide_generation_tests": "4/4 PASS"
+  }
+}

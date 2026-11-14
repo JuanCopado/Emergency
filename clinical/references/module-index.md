@@ -1,3 +1,29 @@
+<!-- Sodium clinical referenceGREEN2026-11-14;owner preparation/fluids reconfirmed;113GREEN/18YELLOW; ../qa/SODIUM_CLINICAL_REFERENCE_CLOSURE_2026-11-14.json;mapping unchanged. -->
+<!-- Nine selected review2026-11-14:2GREEN/7YELLOW retained;112GREEN/19YELLOW; ../qa/NINE_SELECTED_MODULES_REVIEW_2026-11-14.json; mappings unchanged. -->
+<!-- Next10 owner-selected modules reviewed2026-11-14:110GREEN/21YELLOW; ../qa/NEXT_TEN_PEDIATRIC_ADULT_REVIEW_2026-11-14.json;131 mappings retained. -->
+<!-- TBI biomarker/CBI-M and eight pediatric modules reviewed2026-11-14;100GREEN/31YELLOW; ../qa/TBI_AND_EIGHT_PEDIATRIC_REVIEW_2026-11-14.json;131 mappings retained. -->
+<!--Owner local Empressin1IU/mL and handling clarification2026-11-14; ../qa/LOCAL_INFUSION_DECISIONS_2026-11-14.json; no mappings/status promotions.-->
+<!--17 product/preparation sheets reconciled2026-11-14; ../qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json; both infusion modules remainYELLOW,mappings unchanged. -->
+<!-- Ten shock/infusion/pediatric-support references reviewed2026-11-14:8GREEN/2YELLOW; ../qa/TEN_SHOCK_INFUSION_PEDIATRIC_SUPPORT_REVIEW_2026-11-14.json; no mappings or blocked contracts changed. -->
+<!-- Ten syncope/pediatric/resuscitation references reviewed2026-11-14; ../qa/TEN_SYNCOPE_PEDIATRIC_RESUSCITATION_REVIEW_2026-11-14.json; local operational gates and19 blocked contracts retained; mappings unchanged. -->
+<!-- Five adult frameworks GREEN2026-11-14; ../qa/PSYCHIATRY_IMAGING_CHEST_DISPOSITION_EYE_REVIEW_2026-11-14.json; musculoskeletal image accuracy remains unvalidated and broader image gate unchanged; mappings preserved. -->
+<!-- Eight adult umbrella/safety modules GREEN2026-11-14 by owner-requested validation; ../qa/EIGHT_UMBRELLA_REVIEW_2026-11-14.json; child/individual procedure states and mappings unchanged. -->
+<!-- Abdomen and musculoskeletal pain GREEN2026-11-14 by explicit owner request; ../qa/ABDOMEN_MUSCULOSKELETAL_REVIEW_2026-11-14.json; mappings unchanged. -->
+<!-- Delirium, alcohol-withdrawal and altered-consciousness GREEN2026-11-14; ../qa/DELIRIUM_WITHDRAWAL_CONSCIOUSNESS_REVIEW_2026-11-14.json; mappings unchanged. -->
+<!-- DVT GREEN2026-11-14 by explicit owner request; ../qa/DVT_REVIEW_AND_GREEN_2026-11-14.json; mapping unchanged. -->
+<!-- Sodium mixture arithmetic verified2026-11-14; ../qa/SODIUM_20PCT_MIXTURE_VERIFICATION_2026-11-14.json; no status/mapping change. -->
+<!-- Sodium preparation owner follow-up2026-11-14: nursing staff, recipe pending; ../qa/SODIUM_PREPARATION_FOLLOWUP_2026-11-14.json; mapping unchanged. -->
+<!-- Acid-base/sodium reviewed2026-11-13, remain YELLOW; ../qa/ACID_BASE_SODIUM_REVIEW_2026-11-13.json; mappings unchanged. -->
+<!-- TBI, NIV and calcium/magnesium GREEN2026-11-13; ../qa/TBI_NIV_CALCIUM_MAGNESIUM_RECONCILIATION_2026-11-13.json; mappings unchanged. -->
+<!-- Three accepted circuits GREEN2026-11-13; ../qa/HEMOPTYSIS_RESPIRATORY_LIVER_OWNER_ACCEPTANCE_2026-11-13.json; mappings unchanged. -->
+<!-- Reversal generic PCC and circuit GREEN2026-11-13; ../qa/REVERSAL_GENERIC_PCC_OWNER_ACCEPTANCE_2026-11-13.json; mapping unchanged. -->
+<!-- Status local acceptance and adult AES IM contract reconciled2026-11-13; ../qa/STATUS_OWNER_ACCEPTANCE_AND_MIDAZOLAM_FIX_2026-11-13.json; ID mapping unchanged. -->
+<!-- Obstetric circuit owner-accepted GREEN2026-11-13; ../qa/OBSTETRIC_OWNER_CIRCUIT_GREEN_2026-11-13.json; mapping unchanged. -->
+<!-- Toxicology rare products and trauma GREEN2026-11-13; see ../qa/TOXICOLOGY_RARE_PRODUCTS_REVIEW_2026-11-13.md; mappings unchanged. -->
+<!-- Anafilaxia GREEN aceptada; marco antibiótico GREEN 2026-11-13: ../qa/ANAPHYLAXIS_ANTIBIOTICS_ACCEPTANCE_2026-11-13.json; mappings unchanged. -->
+<!-- Second10 overdue source review2026-11-13: ../qa/NEXT_TEN_OVERDUE_REVIEW_2026-11-13.md; ID mappings unchanged. -->
+<!-- First ten overdue review 2026-11-13: ../qa/FIRST_TEN_OVERDUE_REVIEW_2026-11-13.md; mappings unchanged. -->
+<!-- Six-source reconciliation 2026-11-13: see ../qa/SIX_EVIDENCE_RECONCILIATIONS_2026-11-13.md; IDs and bundle mapping unchanged. -->
 ## v1.44 verificación final del bloque — 13/10/2026
 
 Verificación final del código 1c343a91fbc7223a89cf24a9fcc21a6d193fd54e: 567 Python, 370 frontend, Clinical QA 7/7, lint/typecheck/build y diff-check PASS. D E2E: 40 adultos y 22 pediátricos PASS. P0/P1 nuevos no confirmados; P2 cobertura pendiente y flujos ausentes; P3 localización/avisos heredados. Main/RC1/v1.43 intactos, sin merge/push/promociones. Graphify local sin seguimiento. v1.44 ABIERTA/CLINICALLY_PENDING.

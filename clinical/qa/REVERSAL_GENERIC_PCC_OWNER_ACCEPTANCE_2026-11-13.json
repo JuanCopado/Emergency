@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-13",
+  "module": "anticoagulation-reversal",
+  "status": "green",
+  "owner_acceptance": {
+    "statement": "actualiza si es necesario con la informacion , sin nombre comercial de PCC , aceptamos el algoritmo actualizado y se activa por cualquier medico y farmacia de guardia",
+    "algorithm_accepted": true,
+    "activation": "Any physician with on-call Pharmacy",
+    "PCC_commercial_name_required_for_module_green": false,
+    "independently_audited_local_stock": false,
+    "new_named_pharmacy_or_hematology_signature": false
+  },
+  "supplied_document": {
+    "file_name": "Texto pegado(1).txt",
+    "sha256": "cae138157b6ddb8c5bb5a08f6dd2c43c22296fbcb15561b8cfb6172951b1a1f2",
+    "declared_metadata": "UpToDate topic94788 v108.0; last updated1September2026; literature throughOctober2026",
+    "metadata_independently_authenticated": false,
+    "reviewed_scope": "Relevant sections: terminology, serious DOAC bleeding, PCC/aPCC, andexanet, adjuncts, urgent surgery and restart; references used to locate primary sources",
+    "full_text_copied_to_repository": false
+  },
+  "source_comparison": [
+    {
+      "topic": "Generic4F-PCC",
+      "decision": "Retain existing dosing ranges/options as professional selection, not automatic dose table; distinguish nonactivated4factor from activated/3factor; verify product at dispensing",
+      "source": "https://cvquality.acc.org/docs/default-source/initiatives/reduce-the-risk-pci-bleed/2020-acc-expert-consensus-decision-pathway-on-management-of-bleeding-in-patients-on-oral-anticoagulants.pdf"
+    },
+    {
+      "topic": "Andexanet regulatory context",
+      "decision": "FDA2025US sales withdrawal does not revoke EU authorization; PRACJune2026 retains approved-indication favorable benefit-risk. Preserve individualized decision and EMA indications/unknown-dose/heparin limitations.",
+      "sources": [
+        "https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/update-safety-andexxa",
+        "https://www.ema.europa.eu/en/documents/product-information/ondexxya-epar-product-information_en.pdf",
+        "https://www.ema.europa.eu/es/media/75190",
+        "https://b-s-h.org.uk/guidelines/guidelines/use-of-andexanet-alfa-a-british-society-for-haematology-position-statement"
+      ]
+    },
+    {
+      "topic": "Secondary broad antifibrinolytic suggestion",
+      "decision": "Do not turn into routine GI-bleed order; HALT-IT found no reduction in bleeding death and increased venous thrombosis with studied regimen. Keep syndrome-specific indications.",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/32563378/"
+    },
+    {
+      "topic": "Restart",
+      "decision": "Preserve individualized restart after hemostasis and persistent indication; no universal day added."
+    }
+  ],
+  "body_before_sha256": "a1eafeae9d5ce8b0ca4ecb9563f8bf9f1425eb528a5e18e04c0171b528524ff1",
+  "body_after_sha256": "eaab52092affcf83b3b191608dfca58fcc28f2967449eaba73a87fee14f927b0",
+  "registry_counts": {
+    "green": 48,
+    "yellow": 83,
+    "red": 0
+  },
+  "canonical_medication_contracts_changed": false,
+  "blocked_contracts_unlocked": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "technical_qa": {
+    "status": "PASS",
+    "python_tests": 606,
+    "frontend_tests": 434,
+    "global_checks": "7/7",
+    "guides": "4/4",
+    "report": "qa/REVERSAL_GENERIC_PCC_QA_2026-11-13.json"
+  }
+}

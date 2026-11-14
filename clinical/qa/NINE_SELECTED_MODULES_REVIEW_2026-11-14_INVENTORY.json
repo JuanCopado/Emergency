@@ -1,0 +1,2073 @@
+{
+  "scales": [
+    {
+      "id": "nihss",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "NINDS NIH Stroke Scale updated Feb 2024",
+      "source_url": "https://www.ninds.nih.gov/sites/default/files/documents/NIH-Stroke-Scale_updatedFeb2024_508.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "abcd2",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "ABCD2 2007",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17258668/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "canadian-tia-score",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Canadian TIA Score -3 to 23",
+      "source_url": "https://www.bmj.com/content/372/bmj.n49",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "aspects",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "ASPECTS 2000",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10905241/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pc-aspects",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "pc-ASPECTS 0-10",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7051302/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "modified-rankin",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "mRS 0-6",
+      "source_url": "https://manual.jointcommission.org/releases/TJC2026B/DataElem0569.html",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "glasgow-coma",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Structured Glasgow Coma Scale",
+      "source_url": "https://www.glasgowcomascale.org/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pediatric-gcs",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Paediatric GCS >=4 years / <4 years",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Altered_conscious_state/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "four-score",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "FOUR Score 0-16",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16178024/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "avpu",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "AVPU/ABCDE",
+      "source_url": "https://www.resus.org.uk/library/abcde-approach",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "ich-score",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "ICH Score 2001",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11283388/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "modified-fisher",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Modified Fisher 0-4",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16823296/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "hunt-hess",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Hunt-Hess I-V",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6404699/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "wfns-sah",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "WFNS SAH I-V",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4794735/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "stess",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "STESS 0-6",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10839336/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "bacterial-meningitis-score",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Bacterial Meningitis Score 0-6",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4543184/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cincinnati-stroke",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CPSS",
+      "source_url": "https://www.stroke.org/en/professionals/stroke-resource-library/pre-hospitalems",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "race-stroke",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "RACE",
+      "source_url": "https://racescale.org/how-to-use/table/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "fast-ed",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "FAST-ED",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961538/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "heart",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "HEART 0-10 normalized to local troponin ULN",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6005932/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "grace-2",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "GRACE 2.0",
+      "source_url": "https://www.gracescore.org/website.html",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "timi-ua-nstemi",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "TIMI UA/NSTEMI",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10938172/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "edacs",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "EDACS",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10691881/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cha2ds2-vasc",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CHA2DS2-VASc",
+      "source_url": "https://www.escardio.org/static-file/Escardio/Guidelines/ehw128_Addenda.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cha2ds2-va",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CHA2DS2-VA / ESC 2024",
+      "source_url": "https://www.escardio.org/static-file/Escardio/Guidelines/Products/Essential%20Messages/2024%20EM/Essential%20Messages_2024_AFib.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "has-bled",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "HAS-BLED",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21111555/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "orbit-bleeding",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "ORBIT 0-7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4670965/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "canadian-syncope",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Canadian Syncope Risk Score",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27378464/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "scai-shock",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "SCAI SHOCK 2022",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2022.01.018",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "killip-kimball",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Killip-Kimball I-IV",
+      "source_url": "https://academic.oup.com/eurheartj/article/26/4/384/2888056",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "duke-iscvid",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "2023 Duke-ISCVID",
+      "source_url": "https://academic.oup.com/cid/article/77/4/518/7151107",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "tisdale-qt",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Tisdale QT Risk Score 0-21",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11765673/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "wells-pe",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Wells PE standard + modified interpretation",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "revised-geneva",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Revised Geneva",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "perc",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PERC 8-item",
+      "source_url": "https://www.ahajournals.org/doi/pdf/10.1161/CIR.0000000000001415",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "years-pe",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "YEARS 2017",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28549662/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pesi",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PESI",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "spesi",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "sPESI",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "hestia",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Hestia 11 criteria",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "bova",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Bova 0-7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6421363/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "wells-dvt",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "2-level DVT Wells",
+      "source_url": "https://www.nice.org.uk/guidance/ng158/chapter/Recommendations",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "isth-dic",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "ISTH overt DIC",
+      "source_url": "https://www.isth.org/resource/resmgr/Workshops/Chinthammitr_DIC.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "sic",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "ISTH SIC",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11415329/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "sofa",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "SOFA-1 / Sepsis-3 classic 2016",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2492881",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "sofa-2",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "SOFA-2 2025",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2840822",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "qsofa",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "qSOFA / Sepsis-3",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2492881",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "news2",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "NEWS2 2017",
+      "source_url": "https://www.rcp.ac.uk/resources/national-early-warning-score-news-2/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "mews",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Classic MEWS",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK543670/table/ch10.Tab1/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "sirs",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "SIRS 4 criteria",
+      "source_url": "https://www.clevelandclinicmeded.com/medicalpubs/pharmacy/janfeb2002/table1.htm",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "apache2",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "APACHE II",
+      "source_url": "https://www.msdmanuals.com/professional/multimedia/table/acute-physiologic-assessment-and-chronic-health-evaluation-apache-ii-scoring-system",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "saps3",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "SAPS 3 score wrapper",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16450055/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "shock-index",
+      "implementation_status": "central_formula_alias",
+      "version": "Shock Index HR/SBP",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "modified-shock-index",
+      "implementation_status": "central_formula_alias",
+      "version": "Modified Shock Index HR/MAP",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "age-shock-index",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Age Shock Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "curb65",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CURB-65",
+      "source_url": "https://thorax.bmj.com/content/58/5/377",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "crb65",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CRB-65",
+      "source_url": "https://thorax.bmj.com/content/58/5/377",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "psi-port",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PSI/PORT Fine 1997",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7135093/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "smart-cop",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "SMART-COP 0-11",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7147127/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "decaf",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "DECAF",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22895999/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "mmrc",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "mMRC 0-4",
+      "source_url": "https://goldcopd.org/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "rox-index",
+      "implementation_status": "central_formula_alias",
+      "version": "ROX Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "hacor",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "HACOR 0-25",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9225644/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "berlin-ards",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Berlin ARDS 2012",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22797452/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "rts",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Revised Trauma Score",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5496419/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "iss",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Injury Severity Score",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2568949/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "niss",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "NISS 0-75",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8858478/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "triss",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "TRISS legacy MTOS",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3106646/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "abc-massive-transfusion",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Assessment of Blood Consumption",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19204506/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "canadian-ct-head",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Canadian CT Head Rule",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11356436/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "nexus-head-ct",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "NEXUS Head CT",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5507397/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "canadian-cspine",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Canadian C-Spine Rule",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/194296",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "nexus-cspine",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "NEXUS C-Spine",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5994619/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "glasgow-blatchford",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Glasgow-Blatchford Score",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11073021/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "rockall",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Complete Rockall 0-11",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2660506/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "aims65",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "AIMS65",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21907980/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "oakland",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Oakland Score original 7-variable form",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7341175/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "bisap",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "BISAP",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18519429/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "ranson",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Ranson non-gallstone and gallstone-modified",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482345/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "alvarado",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Alvarado",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3963537/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "air-appendicitis",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "AIR",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8154764/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "tokyo-biliary",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Tokyo biliary severity",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3429782/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "child-pugh",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Child-Turcotte-Pugh",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK598240/table/table4/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "meld-na",
+      "implementation_status": "central_formula_alias",
+      "version": "Legacy MELD-Na",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6448637/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "meld-3",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "MELD 3.0",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8608337/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "maddrey",
+      "implementation_status": "central_formula_alias",
+      "version": "Maddrey Discriminant Function",
+      "source_url": "https://www.aasld.org/liver-fellow-network/core-series/why-series/why-do-we-use-steroids-maddreys-discriminant-function",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "lille",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Lille model day 7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6448617/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "kings-college",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "King's College ALF criteria",
+      "source_url": "https://easl.eu/wp-content/uploads/2018/10/LiverFailure-English-report.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "kdigo-aki",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "KDIGO AKI 2012",
+      "source_url": "https://kdigo.org/wp-content/uploads/2016/10/KDIGO-2012-AKI-Guideline-English.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "mcmahon-rhabdo",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "McMahon rhabdomyolysis",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8804685/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "rumack-matthew",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Rumack-Matthew 150 treatment line",
+      "source_url": "https://www.merckmanuals.com/professional/injuries-poisoning/poisoning/acetaminophen-poisoning",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "poisoning-severity",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "WHO/IPCS Poisoning Severity Score 0-4",
+      "source_url": "https://www.who.int/publications/m/item/poisoning-severity-score",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "hunter-serotonin",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Hunter criteria",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12925718/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "ciwa-ar",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CIWA-Ar",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2597811/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pawss",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PAWSS 0-10",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6905615/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cows",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "COWS",
+      "source_url": "https://nida.nih.gov/sites/default/files/ClinicalOpiateWithdrawalScale.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cssrs",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "C-SSRS official instrument",
+      "source_url": "https://cssrs.columbia.edu/documents/screening/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "phq9",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PHQ-9 0-27",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11556941/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "gad7",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "GAD-7 0-21",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16717171/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "four-at",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "4AT",
+      "source_url": "https://www.the4at.com/userguide",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cam",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CAM",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cam-icu",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CAM-ICU",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "rass",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "RASS",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cpot",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CPOT",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9222682/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "bps",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Behavioral Pain Scale 3-12",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2391268/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "mascc",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "MASCC Risk Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4500479/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "cisne",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "CISNE 0-8",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6404710/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "lrinec",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "LRINEC 0-13",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5449710/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "bishop",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Traditional Bishop Score",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK615337/table/ch10.tab8/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "meows",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "NNUH MEOWS v7",
+      "source_url": "https://www.nnuh.nhs.uk/publication/download/modified-early-obstetric-warning-score-meows-mid33-ao13-v7/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "obstetric-shock-index",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Obstetric Shock Index HR/SBP",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31345740/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "puqe",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PUQE-24 3-15",
+      "source_url": "https://www.rcog.org.uk/media/5quba1n4/nvpandhyperemesisvpeer_review.pdf",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "fullpiers",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Original fullPIERS 48-h model",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7643272/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "rule-of-nines",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Wallace Rule of Nines — adults",
+      "source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK609553/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "lund-browder",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Lund-Browder age-adjusted",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8690712/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "revised-baux",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Revised Baux",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20038856/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pews",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Bedside PEWS 7-item / 0-26",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3387627/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "phoenix-sepsis",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Phoenix Sepsis Score 2024",
+      "source_url": "https://doi.org/10.1001/jama.2024.0196",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "psofa",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "pSOFA 0-24",
+      "source_url": "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2646857",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pelod2",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PELOD-2 0-33",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11554295/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pediatric-trauma-score",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Pediatric Trauma Score -6 to +12",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11065969/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "sipa",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "SIPA age 4-16 years",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27814956/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "flacc",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "FLACC 0-10",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9689143/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "wong-baker",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "Official Wong-Baker FACES 0-10",
+      "source_url": "https://wongbakerfaces.org/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pram",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PRAM 0-12",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18346499/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "westley-croup",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Westley Croup Score 0-17",
+      "source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK431070/table/article-20142.table1/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "clinical-dehydration",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Clinical Dehydration Scale 0-8",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15289767/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pediatric-appendicitis",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Pediatric Appendicitis Score 0-10",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12037754/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "parc",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "pARC 2018 continuous probability",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5869337/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pecarn-head-injury",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PECARN ciTBI rule <2 y / >=2 y",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19758692/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "pecarn-febrile-infant",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "PECARN 2019 febrile infant <=60 d",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30776077/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "step-by-step-infant",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Step-by-Step <=90 d",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27382134/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "apgar",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "AAP/ACOG APGAR 0-10",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "clinical-frailty",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "CFS v2.0",
+      "source_url": "https://www.dal.ca/sites/gmr/our-tools/clinical-frailty-scale.html",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "charlson",
+      "implementation_status": "dedicated_source_encoded_v1",
+      "version": "Original Charlson Comorbidity Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3677715/",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    },
+    {
+      "id": "barthel",
+      "implementation_status": "validated_official_external_wrapper",
+      "version": "Barthel Index 0-100",
+      "source_url": "https://www.sralab.org/rehabilitation-measures/barthel-index",
+      "review": "metadata_and_existing_implementation_checked_not_new_source_revalidation"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "map",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "shock-index-formula",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "modified-shock-index-formula",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "anion-gap",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "albumin-corrected-anion-gap",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "delta-ratio",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "winter-pco2",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "corrected-sodium-glucose",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "calculated-osmolality",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "effective-osmolality",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "free-water-deficit",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "corrected-calcium",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "cockcroft-gault",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "ckd-epi-2021",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "bedside-schwartz",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "fena",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "feurea",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "pao2-fio2",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "spo2-fio2",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "rox",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "aa-gradient",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "alveolar-o2",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "static-compliance",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "driving-pressure",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "minute-ventilation",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "ibw-devine",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "bsa-mosteller",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "bmi",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "holliday-segar",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "four-two-one",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "dehydration-deficit",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "parkland",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "mgkg-dose",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "mcgkgmin-to-mlh",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "mgkgh-to-mlh",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "unitskgh-to-mlh",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "final-concentration",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "qtc-bazett",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "qtc-fridericia",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "cao2",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "do2",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "cardiac-index",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "svr",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "meld-na-formula",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    },
+    {
+      "id": "maddrey-formula",
+      "implementation_status": "deterministic_engine",
+      "source_url": null,
+      "review": "individual_source_traceability_needs_mapping_to_shared_sources"
+    }
+  ],
+  "pediatric_regimens": [
+    {
+      "id": "paracetamol-pain-fever-home",
+      "drug": "paracetamol",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/",
+      "diagnosis": "mild/moderate pain or fever in a child >1 month suitable for home treatment",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ibuprofen-pain-fever-home",
+      "drug": "ibuprofen",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_pain_management/",
+      "diagnosis": "mild/moderate pain or fever when NSAID is appropriate",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ondansetron-gastroenteritis-initial",
+      "drug": "ondansetron",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Gastroenteritis/",
+      "diagnosis": "persistent nausea/vomiting with gastroenteritis to support oral rehydration; child >6 months",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cetirizine-urticaria-6to11mo",
+      "drug": "cetirizine",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/",
+      "diagnosis": "isolated acute urticaria without anaphylaxis, age 6-11 months",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cetirizine-urticaria-ge1y",
+      "drug": "cetirizine",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urticaria/",
+      "diagnosis": "isolated acute urticaria/allergic symptoms, age >=1 year",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "loratadine-allergic-rhinitis-urticaria",
+      "drug": "loratadine",
+      "source_url": "https://www.medicines.org.uk/emc/product/13696/smpc",
+      "diagnosis": "allergic rhinitis or urticaria, age >=2 years",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "desloratadine-allergic-rhinitis-urticaria",
+      "drug": "desloratadine",
+      "source_url": "https://www.medicines.org.uk/emc/product/6510/smpc",
+      "diagnosis": "allergic rhinitis or urticaria, age >=1 year",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "fexofenadine-allergic-rhinitis",
+      "drug": "fexofenadine",
+      "source_url": "https://www.medicines.org.uk/",
+      "diagnosis": "seasonal allergic rhinitis when fexofenadine selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "prednisolone-asthma-lt2y",
+      "drug": "prednisolone",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "diagnosis": "moderate/severe wheeze/asthma-like episode age <2 years only when a pediatric/ED clinician has explicitly prescribed an oral prednisolone discharge course after hospital assessment",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "prednisolone-asthma-2to5y",
+      "drug": "prednisolone",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "diagnosis": "moderately severe/severe asthma exacerbation suitable for discharge, age 2-5 years",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "prednisolone-asthma-6to11y",
+      "drug": "prednisolone",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "diagnosis": "acute asthma exacerbation suitable for discharge, age 6-11 years",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "dexamethasone-asthma-1to11y",
+      "drug": "dexamethasone",
+      "source_url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "diagnosis": "acute asthma exacerbation when dexamethasone strategy selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "dexamethasone-croup-mild-moderate",
+      "drug": "dexamethasone",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup/",
+      "diagnosis": "croup with stridor/risk features suitable for outpatient management after assessment",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "salbutamol-asthma-discharge-rch",
+      "drug": "salbutamol",
+      "source_url": "https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/Asthma_Inpatient_Discharge_Education/",
+      "diagnosis": "asthma/wheeze discharge reliever via pMDI + spacer under written asthma action plan",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "amoxicillin-aom",
+      "drug": "amoxicillin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "acute otitis media when antibiotic treatment is indicated",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "amoxicillin-cap-outpatient",
+      "drug": "amoxicillin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "mild community-acquired pneumonia treated as outpatient",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "amoxicillin-dental-abscess",
+      "drug": "amoxicillin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "dental abscess requiring antibiotic plus dental/surgical management",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "amox-clav-bite",
+      "drug": "amoxicillin/clavulanate",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Animal_and_human_bites/",
+      "diagnosis": "high-risk but clinically uninfected animal/human bite requiring oral antibiotic prophylaxis after adequate wound assessment/irrigation",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "amox-clav-preseptal-stepdown",
+      "drug": "amoxicillin/clavulanate",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Periorbital_and_orbital_cellulitis/",
+      "diagnosis": "orbital cellulitis oral step-down after initial inpatient IV therapy, specialist assessment and clear clinical improvement",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-cellulitis",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "mild/moderate cellulitis suitable for oral outpatient therapy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-preseptal",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "mild preseptal cellulitis in a well child",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-cystitis",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "uncomplicated lower UTI/cystitis in a child >3 months who is not systemically unwell",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-lt12mo",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
+      "diagnosis": "acute pyelonephritis age 3-11 months using the RCH high-dose oral step-down regimen after initial pediatric assessment/therapy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-pyelonephritis-ge12mo",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Urinary_tract_infection/",
+      "diagnosis": "acute pyelonephritis age >=12 months using the RCH high-dose oral step-down regimen after initial pediatric assessment/therapy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "tmp-smx-mrsa-skin",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "mild MRSA-suspected/confirmed skin infection when TMP-SMX selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "clindamycin-mrsa-skin",
+      "drug": "clindamycin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "mild MRSA skin infection when clindamycin selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "azithromycin-pertussis-lt6mo",
+      "drug": "azithromycin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "pertussis treatment/prophylaxis regimen in infant <6 months",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "azithromycin-pertussis-ge6mo",
+      "drug": "azithromycin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "pertussis treatment/prophylaxis regimen age >=6 months",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "clarithromycin-pertussis-ge1mo",
+      "drug": "clarithromycin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "pertussis when clarithromycin selected, age >=1 month",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "tmp-smx-pertussis-ge6wk",
+      "drug": "trimethoprim/sulfamethoxazole",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "pertussis when macrolide cannot be used, age >6 weeks",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-nice-3d",
+      "drug": "nitrofurantoin",
+      "source_url": "https://www.nice.org.uk/guidance/ng109",
+      "diagnosis": "lower UTI/cystitis, NICE short-course variant",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "nitrofurantoin-cystitis-smpc-7d",
+      "drug": "nitrofurantoin",
+      "source_url": "https://www.medicines.org.uk/emc/product/9953/smpc",
+      "diagnosis": "acute lower UTI using current 25 mg/5 mL SmPC course",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "oseltamivir-influenza-lt1y",
+      "drug": "oseltamivir",
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html",
+      "diagnosis": "influenza treatment in infant <1 year when antiviral treatment indicated",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "oseltamivir-influenza-ge1y",
+      "drug": "oseltamivir",
+      "source_url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html",
+      "diagnosis": "influenza treatment age >=1 year when antiviral treatment indicated",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "epinephrine-autoinjector-discharge-rch",
+      "drug": "epinephrine/adrenaline auto-injector",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Anaphylaxis/",
+      "diagnosis": "anaphylaxis discharge plan when auto-injector is indicated",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "mupirocin-localized-impetigo",
+      "drug": "mupirocin 2%",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "localized impetigo suitable for topical therapy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "clarithromycin-aom-penicillin-allergy",
+      "drug": "clarithromycin",
+      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations",
+      "diagnosis": "acute otitis media when antibiotic treatment is indicated and penicillin allergy/intolerance requires a macrolide alternative",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "phenoxymethylpenicillin-sinusitis-child",
+      "drug": "phenoxymethylpenicillin",
+      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations",
+      "diagnosis": "acute sinusitis in a child when immediate/back-up antibiotic is indicated and first-choice penicillin is appropriate",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "clarithromycin-sinusitis-penicillin-allergy",
+      "drug": "clarithromycin",
+      "source_url": "https://www.nice.org.uk/guidance/ng79/chapter/Recommendations",
+      "diagnosis": "acute sinusitis requiring antibiotic in child with penicillin allergy/intolerance",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "clarithromycin-cap-penicillin-allergy",
+      "drug": "clarithromycin",
+      "source_url": "https://www.nice.org.uk/guidance/NG250/chapter/recommendations",
+      "diagnosis": "community-acquired pneumonia in child when oral macrolide is selected for penicillin allergy/intolerance or atypical pathogen coverage",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-impetigo-extensive",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "impetigo that is extensive or unsuitable for localized topical therapy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-cervical-lymphadenitis-mild",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "mild bacterial cervical lymphadenitis suitable for oral outpatient therapy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "fluticasone-controller-preschool",
+      "drug": "fluticasone propionate",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Preschool_asthma_%281-5_years%29/",
+      "diagnosis": "preschool asthma age 1-5 years requiring first-line preventer treatment",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "montelukast-controller-preschool",
+      "drug": "montelukast",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Preschool_asthma_%281-5_years%29/",
+      "diagnosis": "preschool asthma age 1-5 years when LTRA is chosen as alternative/adjunct preventer",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ciclesonide-controller-6to11-step2",
+      "drug": "ciclesonide",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "diagnosis": "asthma age 6-11 years, Step 2 low-dose ICS preventer",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "fluticasone-controller-6to11-step2",
+      "drug": "fluticasone propionate",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "diagnosis": "asthma age 6-11 years, Step 2 low-dose ICS preventer",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "montelukast-controller-6to11",
+      "drug": "montelukast",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "diagnosis": "asthma age 6-11 years when montelukast is selected as alternative/adjunct controller",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "budesonide-formoterol-controller-6to11-step3-rch",
+      "drug": "budesonide/formoterol",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Asthma_in_primary_school-aged_children_%286-11_years%29/",
+      "diagnosis": "asthma age 6-11 years, Step 3 ICS/LABA maintenance option",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-6to11-gina2026",
+      "drug": "budesonide/formoterol",
+      "source_url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+      "diagnosis": "asthma age 6-11 years using GINA 2026 AIR/MART strategy with the specified low-dose budesonide-formoterol formulation",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "budesonide-formoterol-air-mart-12to17-gina2026",
+      "drug": "budesonide/formoterol",
+      "source_url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+      "diagnosis": "asthma age 12-17 years using GINA 2026 AIR/MART strategy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "hydrocortisone1-eczema-sensitive-mild",
+      "drug": "hydrocortisone 1% (10 mg/g)",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "diagnosis": "mild-to-moderate eczema flare on sensitive areas such as face/groin when a mild topical corticosteroid is appropriate",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "methylprednisolone-aceponate-eczema-body-moderate",
+      "drug": "methylprednisolone aceponate 0.1%",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "diagnosis": "mild-to-moderate eczema flare on body requiring moderate-potency topical corticosteroid",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "mometasone-eczema-body-severe",
+      "drug": "mometasone furoate 0.1%",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "diagnosis": "severe eczema flare on body when a potent topical corticosteroid is appropriate",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "pimecrolimus-eczema-sensitive-secondline",
+      "drug": "pimecrolimus 1% cream",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "diagnosis": "mild-to-moderate eczema on sensitive areas when second-line non-steroid topical therapy is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "permethrin5-scabies",
+      "drug": "permethrin 5% cream",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "scabies in a child suitable for topical treatment",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "clotrimazole1-tinea-corporis",
+      "drug": "clotrimazole 1% cream",
+      "source_url": "https://www.medicines.org.uk/emc/product/102509/smpc",
+      "diagnosis": "localized tinea corporis/cruris or other susceptible superficial dermatophyte infection excluding scalp/nail disease",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "clotrimazole1-cutaneous-candida",
+      "drug": "clotrimazole 1% cream",
+      "source_url": "https://www.medicines.org.uk/emc/product/102509/smpc",
+      "diagnosis": "localized cutaneous candidal infection including candidal intertrigo/nappy rash when antifungal therapy is indicated",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ors-clinical-dehydration-50mlkg4h",
+      "drug": "low-osmolarity oral rehydration solution",
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations",
+      "diagnosis": "gastroenteritis with clinical dehydration suitable for oral rehydration",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ors-post-stool-highrisk-5mlkg",
+      "drug": "low-osmolarity oral rehydration solution",
+      "source_url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations",
+      "diagnosis": "replacement after a large watery stool in a child at increased risk of recurrent dehydration after rehydration",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "macrogol3350-electrolytes-constipation-maintenance-1to11",
+      "drug": "macrogol 3350 + electrolytes paediatric sachet",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "diagnosis": "chronic functional/idiopathic constipation maintenance in child 1-11 years after assessment for impaction/red flags",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "macrogol3350-electrolytes-disimpaction-5to11",
+      "drug": "macrogol 3350 + electrolytes paediatric sachet",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "diagnosis": "faecal impaction due to functional/idiopathic constipation in child 5-11 years when oral macrogol disimpaction is appropriate",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "lactulose-constipation-1mo18y",
+      "drug": "lactulose 3.335 g/5 mL",
+      "source_url": "https://www.nice.org.uk/guidance/cg99/chapter/Recommendations",
+      "diagnosis": "functional/idiopathic constipation when lactulose is selected because macrogol is unsuitable/not tolerated or as an adjunct according to the constipation plan",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "albendazole-pinworm-ge2y",
+      "drug": "albendazole",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years after household hygiene plan",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "mebendazole-pinworm-ge2y",
+      "drug": "mebendazole",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "pyrantel-pinworm-ge2y",
+      "drug": "pyrantel pamoate",
+      "source_url": "https://www.cdc.gov/pinworm/hcp/clinical-overview/index.html",
+      "diagnosis": "confirmed/suspected Enterobius vermicularis (pinworm) in child age >=2 years when pyrantel is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ivermectin-strongyloides-ge15kg",
+      "drug": "ivermectin",
+      "source_url": "https://www.cdc.gov/strongyloides/hcp/clinical-care/index.html",
+      "diagnosis": "uncomplicated acute/chronic strongyloidiasis with confirmed clinical indication in child weighing >=15 kg",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "albendazole-ascariasis-ge2y",
+      "drug": "albendazole",
+      "source_url": "https://www.cdc.gov/sth/hcp/clinical-care/index.html",
+      "diagnosis": "ascariasis in child age >=2 years when albendazole is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "praziquantel-schisto-mansoni-haematobium-ge4y",
+      "drug": "praziquantel",
+      "source_url": "https://www.cdc.gov/schistosomiasis/hcp/treatment/index.html",
+      "diagnosis": "Schistosoma mansoni/S. haematobium/S. intercalatum infection in child age >=4 years under a confirmed treatment plan",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "acyclovir-varicella-standard-renal",
+      "drug": "aciclovir",
+      "source_url": "https://www.cdc.gov/chickenpox/hcp/clinical-guidance/index.html",
+      "diagnosis": "varicella requiring oral aciclovir because a clinician has confirmed increased risk of moderate/severe disease or another guideline-supported indication",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "acyclovir-hsv-mucocutaneous-standard-renal",
+      "drug": "aciclovir",
+      "source_url": "https://www.medicines.org.uk/emc/product/2450/smpc",
+      "diagnosis": "non-neonatal uncomplicated mucocutaneous herpes simplex in a child when oral aciclovir is clinically appropriate and standard renal dosing is suitable",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "chloramphenicol05-bacterial-conjunctivitis",
+      "drug": "chloramphenicol 0.5% eye drops",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_red_eye/",
+      "diagnosis": "uncomplicated bacterial conjunctivitis with purulent discharge, clear cornea and no infiltrate after red-eye assessment",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ciprofloxacin-dexamethasone-aoe-ge1y",
+      "drug": "ciprofloxacin 3 mg/mL + dexamethasone 1 mg/mL ear drops",
+      "source_url": "https://www.medicines.org.uk/emc/product/101381/smpc",
+      "diagnosis": "acute otitis externa in child age >=1 year when this combination is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ciprofloxacin-aoe-ge1y-intact-tm",
+      "drug": "ciprofloxacin 2 mg/mL ear drops",
+      "source_url": "https://www.medicines.org.uk/emc/product/8847/smpc",
+      "diagnosis": "acute otitis externa in child >1 year with intact tympanic membrane and susceptible organisms",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "phenazone-lidocaine-aom-pain",
+      "drug": "phenazone 40 mg/g + lidocaine 10 mg/g ear drops",
+      "source_url": "https://www.nice.org.uk/guidance/ng91/chapter/Recommendations",
+      "diagnosis": "acute otitis media pain when immediate oral antibiotic is not given and there is no tympanic membrane perforation or otorrhoea",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "rizatriptan-migraine-rch",
+      "drug": "rizatriptan",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/",
+      "diagnosis": "migraine in child >6 years when oral simple analgesics are ineffective and rizatriptan is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ondansetron-migraine-vomiting-ed",
+      "drug": "ondansetron",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Headache/",
+      "diagnosis": "migraine with vomiting during/after ED assessment when oral ondansetron is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "dimeticone4-head-lice",
+      "drug": "dimeticone 4% lotion",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "diagnosis": "head lice when dimeticone 4% topical therapy is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-infected-eczema-bacterial",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Eczema/",
+      "diagnosis": "secondary bacterial infection of eczema with localized crusting/weeping/pustules, child systemically well and suitable for oral therapy",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "mometasone-nasal-allergic-rhinitis",
+      "drug": "mometasone furoate 50 micrograms/actuation nasal spray",
+      "source_url": "https://www.medicines.org.uk/emc/product/10299/smpc",
+      "diagnosis": "seasonal or perennial allergic rhinitis requiring intranasal corticosteroid",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "fluticasone-propionate-nasal-allergic-rhinitis",
+      "drug": "fluticasone propionate 50 micrograms/actuation nasal spray",
+      "source_url": "https://www.medicines.org.uk/emc/product/845/smpc",
+      "diagnosis": "seasonal or perennial allergic rhinitis when fluticasone propionate nasal spray is selected",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "azelastine-fluticasone-nasal-ge12",
+      "drug": "azelastine 137 micrograms + fluticasone propionate 50 micrograms/actuation",
+      "source_url": "https://www.medicines.org.uk/emc/product/101780/smpc",
+      "diagnosis": "moderate-to-severe seasonal/perennial allergic rhinitis age >=12 years when monotherapy with intranasal antihistamine or corticosteroid is insufficient",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "olopatadine-allergic-conjunctivitis-ge3",
+      "drug": "olopatadine 1 mg/mL eye drops",
+      "source_url": "https://www.medicines.org.uk/emc/product/10890/smpc",
+      "diagnosis": "seasonal allergic conjunctivitis age >=3 years",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "ketotifen-eye-allergic-conjunctivitis-ge3",
+      "drug": "ketotifen 0.25 mg/mL eye drops",
+      "source_url": "https://www.medicines.org.uk/emc/product/4327/smpc",
+      "diagnosis": "symptomatic seasonal allergic conjunctivitis age >=3 years",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "docusate-paediatric-constipation-ge6mo",
+      "drug": "docusate sodium 12.5 mg/5 mL oral solution",
+      "source_url": "https://www.medicines.org.uk/emc/product/12341/smpc",
+      "diagnosis": "functional/idiopathic constipation in child >6 months when docusate is specifically selected as an alternative stool-softener",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "phenoxymethylpenicillin-gas-sore-throat",
+      "drug": "phenoxymethylpenicillin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "diagnosis": "GAS sore throat/tonsillitis in a child for whom antibiotic treatment is indicated",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "amoxicillin-gas-sore-throat-adherence",
+      "drug": "amoxicillin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "diagnosis": "GAS sore throat/tonsillitis when amoxicillin once-daily second-line strategy is selected to improve adherence",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "cefalexin-gas-sore-throat-nonimmediate-penicillin-allergy",
+      "drug": "cefalexin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "diagnosis": "GAS sore throat in child with non-immediate/non-severe penicillin hypersensitivity where alternate beta-lactam is appropriate",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "azithromycin-gas-sore-throat-immediate-beta-lactam-allergy",
+      "drug": "azithromycin",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/sore_throat/",
+      "diagnosis": "GAS sore throat in child with immediate beta-lactam hypersensitivity when macrolide treatment is indicated",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    },
+    {
+      "id": "trimethoprim-cystitis-low-resistance",
+      "drug": "trimethoprim",
+      "source_url": "https://www.nice.org.uk/guidance/ng109/chapter/Recommendations",
+      "diagnosis": "lower UTI/cystitis age >=3 months when trimethoprim is selected and resistance risk is low/susceptibility supports use",
+      "product_portugal_match": "not_newly_verified",
+      "review": "existing_source_and_safety_fields_inventoried_not_new89_entry_clinical_signoff"
+    }
+  ],
+  "infusion_sheets": [
+    {
+      "number": 1,
+      "drug": "norepinephrine",
+      "pending": [
+        "La receta candidata ya es25mg base/250mL. Falta soporte de estabilidad/sistema para100µg base/mL del producto real; SF no se autoriza por hiperglucemia sin datos del producto."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 2,
+      "drug": "epinephrine",
+      "pending": [
+        "Elegir producto/preparación concreta y respaldo de sistema/plazo de uso."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 3,
+      "drug": "vasopressin",
+      "pending": [
+        "La decisión local y el plazo están registrados; persiste el contraste de estabilidad fisicoquímica/material del preparado de1UI/mL, separado del aval CIMA0,8UI/mL."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 4,
+      "drug": "dopamine",
+      "pending": [
+        "Elegir mezcla habitual; jeringa de 4 mg/mL y sistema específico sin cerrar."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 5,
+      "drug": "dobutamine",
+      "pending": [
+        "Producto realmente utilizado y condiciones de la preparación concreta."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 6,
+      "drug": "milrinone",
+      "pending": [
+        "Clasificada como alternativa en el informe; receta20mg/100mL. Falta producto/sistema/plazo;48–72h no es un máximo universal de tratamiento."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 7,
+      "drug": "levosimendan",
+      "pending": [
+        "Origen declarado2,5mg/mL y receta candidata12,5mg/250mL SG5%. Falta vincularlos al producto real y sistema; no convertir compatibilidades no estudiadas en incompatibilidad demostrada."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 8,
+      "drug": "phenylephrine",
+      "pending": [
+        "Elegir bolsa comercial o preparación; trasvase y jeringa de 400 µg/mL sin aval trasladable."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 9,
+      "drug": "angiotensin-ii",
+      "pending": [
+        "Presentación y disponibilidad local; seleccionar receta y sistema."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 10,
+      "drug": "fentanyl",
+      "pending": [
+        "La receta candidata ya es2.500µg/50mL sin diluir. Falta respaldo de trasvase, recipiente y tiempo; no trasladar datos de diluciones a la jeringa sin diluir."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 11,
+      "drug": "remifentanil",
+      "pending": [
+        "Producto, concentración final elegida y sistema; no importar toda la lista de compatibilidad."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 12,
+      "drug": "morphine",
+      "pending": [
+        "Producto/pack real, convención de prescripción, dilución/sistema y plazo."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 13,
+      "drug": "hydromorphone",
+      "pending": [
+        "El informe propone2mg/mL y10mg/50mL. Falta identificar producto inyectable/gestión de suministro real y condiciones; la importación mencionada no queda probada."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 14,
+      "drug": "propofol",
+      "pending": [
+        "Límites Lipuro y método ya aclarados. Mantener correspondencia con el producto real y su sistema; no extrapolar a otras marcas o PFS."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 15,
+      "drug": "dexmedetomidine",
+      "pending": [
+        "Marca y concentración elegida, material y combinaciones concretas en Y."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 16,
+      "drug": "midazolam",
+      "pending": [
+        "Producto y evidencia para la concentración final/sistema; no aval global del PVC ni de Y."
+      ],
+      "automatic_pump_release": false
+    },
+    {
+      "number": 17,
+      "drug": "ketamine",
+      "pending": [
+        "Receta250mg/250mL y recambio local≤24h registrados. Falta respaldo de estabilidad/sistema; no se atribuye ese plazo a Ketolar."
+      ],
+      "automatic_pump_release": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "reported_on": "2026-11-13",
+  "reported_by": "Juan, propietario del proyecto",
+  "statement": "validado medicamentos para tormenta tiroidea uso hospitalario",
+  "scope": "Validación declarada de medicamentos para tormenta tiroidea para uso hospitalario",
+  "basis": "Confirmación explícita del propietario en esta conversación",
+  "independently_verified": false,
+  "named_pharmacy_reviewer_for_this_module": null,
+  "full_protocol_release_declared": false,
+  "clinical_content_changed": false,
+  "canonical_medication_contracts_changed": false,
+  "module": "thyroid-storm",
+  "evidence_status": "green",
+  "bibliographic_review": "Completed2026-11-13 against joint2026 consensus; unchanged by this declaration",
+  "medication_validation_gate": "owner_confirmed",
+  "remaining_gate": "Individual/local implementation outside reviewed scope; for myxedema no acute enteral loading regimen inferred",
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "previous_report": "qa/FIRST_TEN_OVERDUE_REVIEW_2026-11-13.json",
+  "verification": {
+    "metadata_only": true,
+    "zero_status_promotions": true,
+    "other130_registry_records_unchanged": true,
+    "clinical_content_and_runtime_unchanged": true,
+    "normalized_catalog_check": "PASS",
+    "evidence_audit_errors": 0,
+    "overdue_warnings": 79
+  },
+  "status_followup": "Owner explicitly requested GREEN promotion for completed/reviewed scope",
+  "current_status_report": "qa/THYROID_MODULES_OWNER_ACCEPTED_GREEN_2026-11-13.json"
+}

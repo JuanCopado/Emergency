@@ -58,19 +58,26 @@ def calculate_four_at(data):
         if data.get(k) is None: raise ValueError("missing 4AT input: "+k)
     alert=str(data["alertness"]).lower()
     if alert not in {"normal","clearly_abnormal"}: raise ValueError("alertness invalid")
+    def count(value, name, maximum):
+        if (isinstance(value, bool) or not isinstance(value, (int, float))
+                or not 0 <= value <= maximum or value != int(value)):
+            raise ValueError(f"{name} must be an integer from 0 to {maximum} or an explicit supported category")
+        return int(value)
     amt=data["amt4_mistakes"]
     if amt=="untestable": amt_score=2
     else:
-        amt=int(amt); amt_score=0 if amt==0 else 1 if amt==1 else 2
+        amt=count(amt,"amt4_mistakes",4); amt_score=0 if amt==0 else 1 if amt==1 else 2
     att=data["attention_months_backward"]
     if att=="untestable": att_score=2
+    elif att=="refuses": att_score=1
     else:
-        att=int(att); att_score=0 if att>=7 else 1 if att>=1 else 2
+        att=count(att,"attention_months_backward",12); att_score=0 if att>=7 else 1
     _bool(data["acute_change_or_fluctuation"],"acute_change_or_fluctuation")
     comp={"alertness":0 if alert=="normal" else 4,"amt4":amt_score,"attention":att_score,"acute_change":4 if data["acute_change_or_fluctuation"] else 0}
     total=sum(comp.values())
     band="possible_delirium_ge4" if total>=4 else "possible_cognitive_impairment_1_3" if total>=1 else "no_4at_signal_0"
     return {"id":"four-at","status":"complete","components":comp,"total":total,"range":[0,12],"interpretation":band,
+            "warning":"Use 'untestable' for inability due to illness, drowsiness or inattention; failed/refused performance scores differently. A score of 0 does not definitively exclude delirium; clinical assessment is required.",
             "source":{"url":"https://www.the4at.com/userguide","version":"4AT"}}
 
 def classify_cam(data, cam_icu=False):

@@ -1,0 +1,266 @@
+{
+  "date": "2026-11-14",
+  "scope": "Source-known teaching/development media intake; not model training or diagnostic evaluation",
+  "status": "REGISTERED_NOT_DIAGNOSTICALLY_VALIDATED",
+  "media_count": 5,
+  "images": 3,
+  "videos": 2,
+  "source_case_groups": 4,
+  "independent_patient_count": null,
+  "metrics_eligible": false,
+  "diagnostic_cases_evaluated": 0,
+  "automatic_learning_implemented": false,
+  "provider_configured_in_this_environment": false,
+  "provider_credentials_disclosed": false,
+  "native_video_adapter_validated": false,
+  "external_inference_performed": false,
+  "archive_filename": "EMERGENCY_PRIMER_LOTE_IMAGENES_VIDEOS_2026-11-14.zip",
+  "asset_path_base": "Relative to the delivered ZIP after extraction, not repository runtime paths",
+  "items": [
+    {
+      "id": "media-001",
+      "source_case_group_id": "case-001",
+      "modality": "chest_xray",
+      "file": "assets/media-001.jpg",
+      "original_filename": "Normal posteroanterior (PA) chest radiograph (X-ray).jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Normal_posteroanterior_%28PA%29_chest_radiograph_%28X-ray%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Mikael Häggström",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "rights_scope": "Educational reproduction/derivatives with applicable attribution/share-alike; no blanket legal or clinical certification",
+      "license_checked": "2026-11-14",
+      "size_bytes": 906335,
+      "sha256": "4cbbcf805291db949e4ff085ca3c7258b2823de21b2857ae684e6c91ff9a38a4",
+      "source_description": "Posteroanterior chest radiograph (\"X-ray\") taken of a 21 year old woman who presented with pain on the left side of her thorax after colliding with another player during a soccer game. It shows a normal chest without any signs of injury. Dx and Sin stand for \"right\" and \"left\" respectively.",
+      "split": "teaching_development",
+      "dataset_class": "teaching_source_known",
+      "independent_reference_verified": false,
+      "patient_independence_verified": false,
+      "deidentification_review": "Static image or sampled video frames visually inspected; no full-video/privacy certification",
+      "annotation_review": "No diagnostic annotations seen in inspected view(s); source label already known",
+      "metrics_eligible": false,
+      "training_performed": false,
+      "image_probe": {
+        "width": 1929,
+        "height": 2207,
+        "format": "JPEG"
+      },
+      "rights_review_status": "File-specific Commons licence checked, attribution retained; no source-wide permission inferred"
+    },
+    {
+      "id": "media-002",
+      "source_case_group_id": "case-001",
+      "modality": "chest_xray",
+      "file": "assets/media-002.jpg",
+      "original_filename": "Normal lateral chest radiograph (X-ray).jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Normal_lateral_chest_radiograph_(X-ray).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Normal_lateral_chest_radiograph_%28X-ray%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Mikael Häggström",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "rights_scope": "Educational reproduction/derivatives with applicable attribution/share-alike; no blanket legal or clinical certification",
+      "license_checked": "2026-11-14",
+      "size_bytes": 1114909,
+      "sha256": "d22911286846412a02aa484ffb8140e46cd3f5a2aab4687b63645075fa4e793b",
+      "source_description": "Lateral chest radiograph (\"X-ray\") taken of a 21 year old woman who presented with pain on the left side of her thorax after colliding with another player during a soccer game. It shows a normal chest without any signs of injury.",
+      "split": "teaching_development",
+      "dataset_class": "teaching_source_known",
+      "independent_reference_verified": false,
+      "patient_independence_verified": false,
+      "deidentification_review": "Static image or sampled video frames visually inspected; no full-video/privacy certification",
+      "annotation_review": "No diagnostic annotations seen in inspected view(s); source label already known",
+      "metrics_eligible": false,
+      "training_performed": false,
+      "image_probe": {
+        "width": 1769,
+        "height": 2453,
+        "format": "JPEG"
+      },
+      "rights_review_status": "File-specific Commons licence checked, attribution retained; no source-wide permission inferred"
+    },
+    {
+      "id": "media-003",
+      "source_case_group_id": "case-002",
+      "modality": "ct_mri",
+      "file": "assets/media-003.png",
+      "original_filename": "Hydronephrosis.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Hydronephrosis.png",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Hydronephrosis.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "James Heilman, MD",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "rights_scope": "Educational reproduction/derivatives with applicable attribution/share-alike; no blanket legal or clinical certification",
+      "license_checked": "2026-11-14",
+      "size_bytes": 666873,
+      "sha256": "0cf5d02311fcaa25b31049d17715d47f57dda21a50c8ce94958f16182b45fbb1",
+      "source_description": "Significant hydronephrosis of the left kidney",
+      "split": "teaching_development",
+      "dataset_class": "teaching_source_known",
+      "independent_reference_verified": false,
+      "patient_independence_verified": false,
+      "deidentification_review": "Static image or sampled video frames visually inspected; no full-video/privacy certification",
+      "annotation_review": "Diagnostic arrows visible: exclude from blinded evaluation",
+      "metrics_eligible": false,
+      "training_performed": false,
+      "image_probe": {
+        "width": 1160,
+        "height": 869,
+        "format": "PNG"
+      },
+      "rights_review_status": "File-specific Commons licence checked, attribution retained; no source-wide permission inferred",
+      "modality_correction": "Initial candidate routed as ultrasound from clinical topic; pixel inspection establishes CT, not POCUS"
+    },
+    {
+      "id": "media-004",
+      "source_case_group_id": "case-003",
+      "modality": "pocus",
+      "file": "assets/media-004.webm",
+      "original_filename": "UOTW 6 - Ultrasound of the Week 1.webm",
+      "source_page": "https://commons.wikimedia.org/wiki/File:UOTW_6_-_Ultrasound_of_the_Week_1.webm",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/UOTW_6_-_Ultrasound_of_the_Week_1.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Ben Smith",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "rights_scope": "Educational reproduction/derivatives with applicable attribution/share-alike; no blanket legal or clinical certification",
+      "license_checked": "2026-11-14",
+      "size_bytes": 763772,
+      "sha256": "7ba77f0839ec15873061a11f33ba5567513e32af2c5eba8d7f6baea24ebbee72",
+      "source_description": ":This is an 34 y/o male smoker who presents with 4 hours of sharp right sided chest pain, worse with deep inspiration. Vitals normal.\nFile:UOTW 6 - Ultrasound of the Week 1.webm",
+      "split": "teaching_development",
+      "dataset_class": "teaching_source_known",
+      "independent_reference_verified": false,
+      "patient_independence_verified": false,
+      "deidentification_review": "Static image or sampled video frames visually inspected; no full-video/privacy certification",
+      "annotation_review": "No diagnostic annotations seen in inspected view(s); source label already known",
+      "metrics_eligible": false,
+      "training_performed": false,
+      "video_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 792,
+            "height": 470,
+            "r_frame_rate": "25/1"
+          }
+        ],
+        "format": {
+          "duration": "6.000000"
+        }
+      },
+      "preview_frames": [
+        {
+          "time_seconds": 0.0,
+          "file": "previews/media-004-01.png"
+        },
+        {
+          "time_seconds": 2.0,
+          "file": "previews/media-004-02.png"
+        },
+        {
+          "time_seconds": 4.0,
+          "file": "previews/media-004-03.png"
+        },
+        {
+          "time_seconds": 5.85,
+          "file": "previews/media-004-04.png"
+        }
+      ],
+      "rights_review_status": "File-specific Commons licence checked, attribution retained; no source-wide permission inferred",
+      "native_video_inference_performed": false,
+      "dynamic_signs_adjudicated": false
+    },
+    {
+      "id": "media-005",
+      "source_case_group_id": "case-004",
+      "modality": "ct_mri",
+      "file": "assets/media-005.webm",
+      "original_filename": "PneumothoraxImCT.webm",
+      "source_page": "https://commons.wikimedia.org/wiki/File:PneumothoraxImCT.webm",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/PneumothoraxImCT.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Hg6996",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "rights_scope": "Educational reproduction/derivatives with applicable attribution/share-alike; no blanket legal or clinical certification",
+      "license_checked": "2026-11-14",
+      "size_bytes": 15790732,
+      "sha256": "3fabfa5b583c78a24cd14c08c154b08574afccd608040a90e9d09fb21b40804f",
+      "source_description": "CT Scan of a pneumothorax",
+      "split": "teaching_development",
+      "dataset_class": "teaching_source_known",
+      "independent_reference_verified": false,
+      "patient_independence_verified": false,
+      "deidentification_review": "Static image or sampled video frames visually inspected; no full-video/privacy certification",
+      "annotation_review": "No diagnostic annotations seen in inspected view(s); source label already known",
+      "metrics_eligible": false,
+      "training_performed": false,
+      "video_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 768,
+            "height": 460,
+            "r_frame_rate": "10/1"
+          }
+        ],
+        "format": {
+          "duration": "24.400000"
+        }
+      },
+      "preview_frames": [
+        {
+          "time_seconds": 0.0,
+          "file": "previews/media-005-01.png"
+        },
+        {
+          "time_seconds": 8.133,
+          "file": "previews/media-005-02.png"
+        },
+        {
+          "time_seconds": 16.267,
+          "file": "previews/media-005-03.png"
+        },
+        {
+          "time_seconds": 24.25,
+          "file": "previews/media-005-04.png"
+        }
+      ],
+      "rights_review_status": "File-specific Commons licence checked, attribution retained; no source-wide permission inferred",
+      "native_video_inference_performed": false,
+      "dynamic_signs_adjudicated": false
+    }
+  ],
+  "technical_qa": {
+    "offline_integrity": "PASS:5/5 files, hashes, sizes, group counts",
+    "media_decode": "PASS:3 image probes and2 ffprobe/ffmpeg video decodes",
+    "new_safety_regressions": "6/6 PASS",
+    "portable_archive": "PASS:ZIP CRC and5 original SHA256 matches",
+    "python": "716/716 PASS",
+    "global_checks": "7/7 PASS",
+    "protected_files_unchanged": 313,
+    "blocked_contracts_preserved": 19,
+    "pediatric_export_test_maintenance": "Three stale yellow expectations updated to match current canonical registry; clinical release still asserted CLINICALLY_PENDING",
+    "qa_report": "qa/IMAGE_MEDIA_FIRST_INTAKE_QA_2026-11-14.json",
+    "browser": "NOT RUN: no frontend change"
+  },
+  "limitations": [
+    "All source diagnoses known before intake; not a blind test",
+    "Reference labels have not been independently adjudicated",
+    "Only sampled video frames inspected; full clip privacy review remains pending",
+    "Two chest radiograph views share the same source case",
+    "Media003 is annotated CT, not POCUS; no motion conclusion drawn from previews"
+  ],
+  "module_counts_preserved": {
+    "green": 117,
+    "yellow": 14,
+    "red": 0
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "blocked_contracts_preserved": 19,
+  "archive_sha256": "991cb53518e8fb81dd3893e0bb31ae666f400452482f8e1262acd420615766f6",
+  "archive_size_bytes": 21346342,
+  "archive_library_file_id": "libfile_b756c42235388191a7de52de07bd5848",
+  "updated_protocol_library_file_id": "libfile_4b70541fc59c8191bdffc7899633c476"
+}

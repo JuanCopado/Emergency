@@ -4,6 +4,8 @@ Use the smallest relevant module set.
 Resolve every selected ID through `module-index.md`. Combine modules only when
 each changes immediate decisions; do not load an entire category.
 
+- adult head injury / mild TBI / traumatic brain injury biomarkers or CBI-M -> traumatic-intracranial-mass-effect; pediatric head injury -> pediatric-head-injury + pediatric-emergencies. Biomarker discussion never delays urgent CT or resuscitation.
+
 ## Clinical images
 - uploaded clinical photograph, radiograph, ultrasound frame/clip, CT/MRI screenshot or ECG image -> clinical-image-interpretation
 - musculoskeletal radiograph -> clinical-image-interpretation + musculoskeletal-xray

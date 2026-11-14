@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-14",
+  "module": "pediatric-outpatient-medications",
+  "status": "green",
+  "owner_statement": "Ya revisé está todo en orden pasa a verde este tema",
+  "scope": "Owner confirms review and conformity of the previously stated89-regimen clinical/pharmacy and product reconciliation scope",
+  "provenance": "Review completion and conformity declared by project owner Juan; no separate pediatric specialist/pharmacist signature, new product mapping or independent verification invented",
+  "regimens": 89,
+  "runtime_medication_rules_changed": false,
+  "exact_product_concentration_required_for_ml": true,
+  "verified_drop_factor_required": true,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "blocked_contracts_preserved": 19,
+  "technical_qa": {
+    "pediatric_high_risk_regressions": "18/18 PASS",
+    "module_integrity": "131/131 PASS",
+    "evidence_coverage": "PASS:0 errors;116green/15yellow/0red",
+    "browser": "NOT RERUN",
+    "source_and_dose_research": "No new research: owner acceptance only"
+  },
+  "registry_counts": {
+    "green": 116,
+    "yellow": 15
+  }
+}

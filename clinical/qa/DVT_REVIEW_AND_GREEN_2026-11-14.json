@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-14",
+  "module": "dvt",
+  "status": "green",
+  "owner_authorization": "revisa trombosis venosa profunda y pasa a verde",
+  "review_scope": "Adult acute lower-limb DVT clinical reference: diagnostic strategy, initial-treatment phases, surveillance, selected intervention and disposition. Not a complete pediatric/pregnancy/rare-site or long-term venous-disease guideline.",
+  "before_registry": {
+    "priority": "standard",
+    "primary_source": "ESVS venous thrombosis guideline and CHEST antithrombotic guidance",
+    "stored_version": "ESVS 2021; CHEST 2021",
+    "last_checked": "2026-09-27",
+    "status": "yellow"
+  },
+  "sources": [
+    {
+      "title": "NICE NG158 recommendations",
+      "version": "Published2020; updated2023-08-02; official overview reviewed2026-05-01",
+      "url": "https://www.nice.org.uk/guidance/ng158/chapter/recommendations",
+      "scope": "Adult nonpregnant diagnostic pathway and interim-treatment safety",
+      "access": "Official indexed recommendations retrieved; direct page fetch403, not represented as full-page download"
+    },
+    {
+      "title": "NICE NG158 official overview",
+      "version": "Review2026-05-01 concerns mobilisation; not a new2026 guideline edition",
+      "url": "https://www.nice.org.uk/guidance/ng158?UID=100694153520252215137",
+      "scope": "Version/surveillance status",
+      "access": "Official indexed overview retrieved"
+    },
+    {
+      "title": "ESVS venous thrombosis guideline",
+      "version": "2021; DOI10.1016/j.ejvs.2020.09.023",
+      "url": "https://angiolsurgery.org/society/organisations/esvs/guidelines/ESVS-Guidelines-Venous-Thrombosis-2021.pdf",
+      "scope": "Imaging limitations, selected intervention, IVC-filter boundaries and special populations",
+      "access": "Original guideline article-in-press copy retrieved from vascular-society host; ESVS official current listing corroborates identity. Official old PDF link redirects to login"
+    },
+    {
+      "title": "ESVS official current guideline listing",
+      "version": "2021 published guideline;2027 revision announced/in development",
+      "url": "https://esvs.org/esvs-2027-clinical-practice-guidelines-on-the-management-of-venous-thrombosis-expressions-of-interest-to-join-the-writing-committee/",
+      "scope": "Do not label a future revision as published current guidance",
+      "access": "Official listing and development notice retrieved"
+    },
+    {
+      "title": "CHEST antithrombotic therapy for VTE disease",
+      "version": "Second update2021; DOI10.1016/j.chest.2021.07.055",
+      "url": "https://journal.chestnet.org/article/S0012-3692%2821%2901506-3/fulltext",
+      "scope": "Distal-DVT surveillance versus treatment and treatment-phase duration",
+      "access": "Official indexed recommendation text retrieved; direct publisher fetch403"
+    },
+    {
+      "title": "ASH VTE treatment guidance",
+      "version": "2020; current official listing with ongoing review policy",
+      "url": "https://www.hematology.org/Resources/Clinical-Practice-Guidelines/Venous-Thromboembolism-Guidelines/Treatment",
+      "scope": "Uncomplicated-DVT home treatment with clinical selection; not a promise of local resources",
+      "access": "Official guideline listing and original BloodAdvances/PubMed recommendation text retrieved"
+    },
+    {
+      "title": "EMA apixaban product information",
+      "version": "Current retrieved adult VTE SmPC; not relabelled as a new2026 guideline",
+      "url": "https://www.ema.europa.eu/en/documents/product-information/eliquis-epar-product-information_en.pdf",
+      "scope": "Adult oral treatment phases and separation from AF dose-reduction rules",
+      "access": "Official SmPC retrieved; later find request429, no repeated retry"
+    },
+    {
+      "title": "EMA rivaroxaban product information",
+      "version": "Current retrieved adult VTE SmPC",
+      "url": "https://www.ema.europa.eu/en/documents/product-information/xarelto-epar-product-information_en.pdf",
+      "scope": "Adult oral treatment phases and food requirement",
+      "access": "Official SmPC and relevant adult dosing/administration text retrieved"
+    }
+  ],
+  "reconciliation": {
+    "diagnosis": "Source-specific diagnostic boundaries reconciled.",
+    "therapy": "Product-specific adult oral phases added, no AF dose-rule transfer, individualized contraindications and alternatives.",
+    "distal": "Selected CHEST weekly-two-week surveillance is compatible with ESVS first reassessment at one week; no automatic treatment of every distal DVT and no unscheduled surveillance discharge.",
+    "intervention": "Selected iliofemoral/limb-threat review, not routine thrombolysis or filter.",
+    "version_status": "No newer final dedicated ESVS/CHEST DVT replacement identified in this review. ESVS2027 under development is not a current edition; NICE May2026 review is not a2026 new guideline."
+  },
+  "portugal_context": {
+    "DGS": "Norma030/2011 updated2015-07-10 on lower-limb venous Doppler identified on official DGS site. No claim of a newly verified2026 DVT anticoagulation Norma or national conformity.",
+    "INFARMED": "Public2019 apixaban assessment identified as historical reimbursement/evaluation material, not current dosing authority. Current EMA SmPCs used for product-reference doses. No hospital-stock inference.",
+    "local_circuit": "No particular scan service, drug brand, vascular-call coverage or guaranteed transfer time independently verified. Bedside/site checks remain explicit."
+  },
+  "source_integrity": {
+    "before_sha256": "0531d308ba7e119a7f246bcb0fefb9897849ca9d9a8d628117fc34cabd497604",
+    "after_sha256": "a435c4934e45b95f9265c765dd8828bf2b8c816231995279e0a8cdae9c10faa1"
+  },
+  "invariants": {
+    "other_cardiovascular_bodies_and_preamble_preserved": true,
+    "Wells_score_engine_unchanged": true,
+    "acute_medication_API_and_contracts_unchanged": true,
+    "blocked_medication_contracts": 19
+  },
+  "registry_counts": {
+    "green": 55,
+    "yellow": 76,
+    "red": 0
+  },
+  "new_tests": "Two synthetic safety regressions: Wells threshold/alternative-diagnosis handling and diagnostic/treatment-phase boundaries",
+  "technical_qa": {
+    "python": "617/617 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "220 sources /131 modules, normalized",
+    "evidence_audit_errors": [],
+    "browser": "NOT RUN"
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "browser": "NOT RUN",
+  "authorization_limit": "Owner explicitly requests GREEN for the reviewed module; no independent specialist/pharmacist signature or prospective clinical validation fabricated."
+}

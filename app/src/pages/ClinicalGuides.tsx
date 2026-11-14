@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { clinicalGuides, getClinicalGuide } from '../clinical-guides/guides';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
 import { Icon } from '../components/Icon';
+import { ResuscitationCircuits } from '../components/ResuscitationCircuits';
 
 type GuideStatus = 'green' | 'yellow' | 'red';
 
@@ -226,6 +227,7 @@ export default function ClinicalGuides() {
         ) : null}
 
         {canonicalGuide ? <CanonicalBody guide={canonicalGuide} /> : null}
+        {canonicalGuide?.id === 'arrhythmias-cardiac-arrest' ? <ResuscitationCircuits base="/guides" /> : null}
 
         <footer className="mt-5 border-t border-slate-300 pt-3 text-[10px] leading-relaxed text-slate-600">
           {quickGuide ? <p><strong>Referencias:</strong> {quickGuide.references.join(' · ')}</p> : null}

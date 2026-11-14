@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-14",
+  "status": "BLOCKED",
+  "stage": "chromium_launch",
+  "reason": "Chromium process_singleton_posix.cc: socket() failed: Operation not permitted; no browser navigation executed",
+  "cases_planned": 8,
+  "cases_executed": 0,
+  "clinical_simulation": false
+}

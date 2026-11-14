@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-13",
+  "module": "acute-mesenteric-ischemia",
+  "owner_request": "Owner supplies proposed reference anticoagulation/vascular pathway; standing instruction to mark completed reviewed modules GREEN",
+  "primary_sources": [
+    {
+      "url": "https://doi.org/10.1016/j.ejvs.2025.06.010",
+      "version": "ESVS2025",
+      "access": "Full guideline PDF previously retrieved and current recommendations checked"
+    },
+    {
+      "url": "https://doi.org/10.1186/s13017-022-00443-x",
+      "version": "WSES2022",
+      "access": "Primary published recommendations indexed"
+    },
+    {
+      "url": "https://doi.org/10.1007/s00270-025-04080-0",
+      "version": "CIRSE2025 arterial mesenteric standards",
+      "access": "Primary published treatment section indexed"
+    },
+    {
+      "url": "https://www.medinfogalway.ie/ivguides/heparin-unfractionated-heparin-intravenous-adults",
+      "version": "Hospital guide references2024/2025",
+      "access": "Full hospital source page; institutional VTE regimen not adopted as mesenteric nomogram"
+    }
+  ],
+  "proposed_changes": {
+    "baseline": "Document CBC/platelets, aPTT/INR, renal function/electrolytes and bleeding/HIT context",
+    "anticoagulation": "Therapeutic anticoagulation for arterial AMI unless contraindicated, coordinated before intervention; peritonitis alone is not an instruction to omit or defer UFH",
+    "monitoring": "aPTT commonly4-6h after start/rate change per verified nomogram, laboratory-specific target; anti-Xa if aPTT unsuitable. Do not impose universal two-stable-check rule.",
+    "NOMI": "Restore flow/treat cause; systemic heparin may be considered case-by-case absent bleeding. Intra-arterial vasodilator under protective heparinization is separate specialist intervention, not an automatic prophylactic/therapeutic-dose order",
+    "surgery": "Peritonitis or deterioration requires urgent surgery assessment, not waiting for proven transmural infarction. Endovascular/open/hybrid selected by anatomy, bowel viability and available expertise",
+    "support": "Titrated fluid resuscitation, not indiscriminate aggressive volume; do not delay team activation until CTA",
+    "not_adopted": [
+      "No universal UFH bolus/rate/concentration supplied",
+      "No default bolus omission just for peritonitis",
+      "No fixed prophylactic/therapeutic NOMI dose",
+      "No automatic open-versus-endovascular split based solely on instability",
+      "No blanket femoral-access prohibition"
+    ]
+  },
+  "strength_certainty": "ESVS50 I C for MVT anticoagulation; ESVS37 IIa B endovascular arterial option; ESVS45 IIb C NOMI vasodilators. Institutional UFH monitoring guidance is not universal society evidence.",
+  "clinical_content_changed": true,
+  "canonical_medication_contracts_changed": false,
+  "local_insulin_simulator_changed": false,
+  "status": "green",
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "new_human_signature": false,
+  "body_before_sha256": "8156099f160f0ae505b3d323583a0511861c03e82f740e5f2c63a1ebd80fafeb",
+  "body_after_sha256": "90670cad4fe7149d7b214192205e61e8e66eb6c1a60ff1d46295c2d2cfcf457d",
+  "technical_qa": "PASS:603 Python,434 frontend,7/7 checks,4 guide-generation tests",
+  "qa_report": "qa/MESENTERIC_PE_LGIB_QA_2026-11-13.json",
+  "registry_counts": {
+    "green": 38,
+    "yellow": 93,
+    "red": 0
+  }
+}

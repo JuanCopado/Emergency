@@ -10,16 +10,30 @@ import json
 import math
 import sys
 
+MMHG_PER_KPA = 1000.0 / 133.3224
+
 
 def _number(name, value, required=False):
     if value is None and not required:
         return None
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{name} must be numeric")
-    value = float(value)
+    try:
+        value = float(value)
+    except OverflowError as exc:
+        raise ValueError(f"{name} must be finite") from exc
     if not math.isfinite(value):
         raise ValueError(f"{name} must be finite")
     return value
+
+
+def _one_unit(data, canonical, alternative, factor):
+    """Normalize explicitly named units; never silently select conflicting fields."""
+    if data.get(canonical) is not None and data.get(alternative) is not None:
+        raise ValueError(f"provide only one of {canonical} and {alternative}")
+    if data.get(alternative) is not None:
+        return _number(alternative, data[alternative]) * factor
+    return _number(canonical, data.get(canonical))
 
 
 def _glucose_mmol(data):
@@ -38,14 +52,33 @@ def _urea_mmol(data):
 
 def calculate(data):
     ph = _number("ph", data.get("ph"))
-    pco2 = _number("pco2_mm_hg", data.get("pco2_mm_hg"))
+    pco2 = _one_unit(data, "pco2_mm_hg", "pco2_kpa", MMHG_PER_KPA)
     hco3 = _number("hco3_mmol_l", data.get("hco3_mmol_l"))
     sodium = _number("sodium_mmol_l", data.get("sodium_mmol_l"))
     chloride = _number("chloride_mmol_l", data.get("chloride_mmol_l"))
-    albumin = _number("albumin_g_dl", data.get("albumin_g_dl"))
+    albumin = _one_unit(data, "albumin_g_dl", "albumin_g_l", 0.1)
+    potassium = _number("potassium_mmol_l", data.get("potassium_mmol_l"))
+    gap_reference = _number("anion_gap_reference_mmol_l",
+                            data.get("anion_gap_reference_mmol_l"))
+    if gap_reference is None:
+        gap_reference = 12.0
+    if gap_reference <= 0:
+        raise ValueError("anion_gap_reference_mmol_l must be positive")
+    confirmed_acidosis = data.get("metabolic_acidosis_confirmed")
+    if confirmed_acidosis is not None and not isinstance(confirmed_acidosis, bool):
+        raise ValueError("metabolic_acidosis_confirmed must be boolean")
+    if ph is not None and not 0 < ph < 14:
+        raise ValueError("ph must be between 0 and 14; this is not a clinical reference range")
+    for name, value in (("pco2", pco2), ("sodium_mmol_l", sodium)):
+        if value is not None and value <= 0:
+            raise ValueError(f"{name} must be positive")
+    for name, value in (("hco3_mmol_l", hco3), ("chloride_mmol_l", chloride),
+                        ("albumin", albumin), ("potassium_mmol_l", potassium)):
+        if value is not None and value < 0:
+            raise ValueError(f"{name} must be non-negative")
     glucose = _glucose_mmol(data)
     urea = _urea_mmol(data)
-    pao2 = _number("pao2_mm_hg", data.get("pao2_mm_hg"))
+    pao2 = _one_unit(data, "pao2_mm_hg", "pao2_kpa", MMHG_PER_KPA)
     fio2 = _number("fio2_fraction", data.get("fio2_fraction"))
     atmospheric_pressure = _number(
         "atmospheric_pressure_mm_hg", data.get("atmospheric_pressure_mm_hg"))
@@ -100,22 +133,44 @@ def calculate(data):
     if all(value is not None for value in (sodium, chloride, hco3)):
         gap = sodium - chloride - hco3
         result["anion_gap_mmol_l"] = gap
+        result["anion_gap_convention"] = "without_potassium"
+        result["anion_gap_reference_used_mmol_l"] = gap_reference
+        result["anion_gap_reference_source"] = (
+            "explicit_without_potassium_reference" if
+            data.get("anion_gap_reference_mmol_l") is not None else
+            "generic_12_not_a_verified_local_interval")
+        if potassium is not None:
+            result["anion_gap_including_potassium_mmol_l"] = gap + potassium
         corrected_gap = gap
         if albumin is not None:
             corrected_gap = gap + 2.5 * (4.0 - albumin)
             result["albumin_corrected_anion_gap_mmol_l"] = corrected_gap
-        if hco3 < 24 and corrected_gap > 12 and (24 - hco3) > 0:
-            result["delta_ratio"] = (corrected_gap - 12) / (24 - hco3)
+        if hco3 < 24 and corrected_gap > gap_reference:
+            result["delta_ratio"] = (corrected_gap - gap_reference) / (24 - hco3)
+            result["delta_ratio_basis"] = (
+                "albumin_corrected_without_potassium" if albumin is not None else
+                "uncorrected_without_potassium_albumin_unknown")
+            result["delta_ratio_safety"] = (
+                "Interpret only in established high-gap metabolic acidosis, using "
+                "a matching no-potassium reference; not a diagnosis by itself.")
 
     if hco3 is not None and hco3 < 24:
         center = 1.5 * hco3 + 8
         result["winters_expected_pco2_mm_hg"] = {
             "center": center, "low": center - 2, "high": center + 2}
         if pco2 is not None:
-            result["metabolic_acidosis_compensation"] = (
+            interpretation = (
                 "additional_respiratory_alkalosis" if pco2 < center - 2 else
                 "additional_respiratory_acidosis" if pco2 > center + 2 else
                 "appropriate_by_winters_formula")
+            if confirmed_acidosis is True:
+                result["metabolic_acidosis_compensation"] = interpretation
+            else:
+                result["metabolic_acidosis_compensation_if_confirmed"] = interpretation
+        result["compensation_safety"] = (
+            "Low bicarbonate alone does not establish primary metabolic acidosis; "
+            "exclude compensation for a primary respiratory disorder and verify "
+            "sample type before interpreting a PaCO2 compensation rule.")
 
     if hco3 is not None and hco3 > 24:
         center = 40 + 0.7 * (hco3 - 24)

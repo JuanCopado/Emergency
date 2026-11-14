@@ -1,0 +1,256 @@
+{
+  "date": "2026-11-13",
+  "operation": "status reconciliation, not source renewal",
+  "policy": "clinical/references/update-policy.md: YELLOW when review window exceeded",
+  "last_checked_dates_changed": false,
+  "recommendations_changed": false,
+  "review_windows_changed": false,
+  "validators_relaxed": false,
+  "promoted_to_green": 0,
+  "changes": [
+    {
+      "module": "adrenal-crisis",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "major-burns",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "acute-ischemic-stroke",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-14",
+      "age_days": 60,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "spontaneous-intracerebral-hemorrhage",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "acute-spinal-cord-compression",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "cauda-equina-conus-emergency",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "acute-coronary-syndrome",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-14",
+      "age_days": 60,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "sepsis-shock",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-14",
+      "age_days": 60,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "cardiogenic-shock",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "acute-aortic-syndrome",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "cardiac-tamponade-pericardial-emergency",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "airway-rsi",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-26",
+      "age_days": 48,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "iv-antihypertensive-selection",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "tension-pneumothorax",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-26",
+      "age_days": 48,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "potassium-emergencies",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-26",
+      "age_days": 48,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "abdominal-aortic-aneurysm",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-26",
+      "age_days": 48,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "sedoanalgesia",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-26",
+      "age_days": 48,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "diabetic-ketoacidosis-hhs",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-26",
+      "age_days": 48,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "acute-severe-asthma",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "copd-exacerbation",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "oxygen-therapy-emergency",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "high-flow-nasal-oxygen",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "cns-infection",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "headache-sah",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "infective-endocarditis",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "rhabdomyolysis",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    },
+    {
+      "module": "suicide-risk",
+      "from": "green",
+      "to": "yellow",
+      "last_checked_preserved": "2026-09-27",
+      "age_days": 47,
+      "review_window_days": 30,
+      "reason": "review window exceeded; bibliography not renewed"
+    }
+  ],
+  "remaining_action": "Review current authoritative sources for overdue modules; do not equate technical QA PASS with clinical clearance."
+}

@@ -1,0 +1,248 @@
+{
+  "date": "2026-11-14",
+  "baseline_commit": "6c673a0ab9029e95959b39670eee849eedb23754",
+  "task": "Review exact ten shock/infusion/pediatric-support modules requested by owner",
+  "owner_authorization": "revisa y valida los10",
+  "modules": [
+    "undifferentiated-shock",
+    "pediatric-shock",
+    "vasoactive-inotrope-infusions",
+    "icu-sedation-analgesia-infusions",
+    "pediatric-emergency-medications",
+    "pediatric-iv-fluid-therapy",
+    "pediatric-acute-asthma",
+    "pediatric-airway-rsi",
+    "pediatric-electrolyte-emergencies",
+    "pediatric-blood-transfusion-major-hemorrhage"
+  ],
+  "green_reference_scope": [
+    "undifferentiated-shock",
+    "pediatric-shock",
+    "pediatric-emergency-medications",
+    "pediatric-iv-fluid-therapy",
+    "pediatric-acute-asthma",
+    "pediatric-airway-rsi",
+    "pediatric-electrolyte-emergencies",
+    "pediatric-blood-transfusion-major-hemorrhage"
+  ],
+  "yellow_preparation_incomplete": [
+    "vasoactive-inotrope-infusions",
+    "icu-sedation-analgesia-infusions"
+  ],
+  "status": "eight_reference_frameworks_green_two_infusion_modules_remain_yellow",
+  "before_counts": {
+    "green": 83,
+    "yellow": 48,
+    "red": 0
+  },
+  "registry_counts": {
+    "green": 91,
+    "yellow": 40,
+    "red": 0
+  },
+  "sources": [
+    {
+      "title": "SSC adult2026",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+      "modules": [
+        "undifferentiated-shock",
+        "vasoactive-inotrope-infusions"
+      ],
+      "scope": "Dynamic fluid reassessment and source-directed vasopressor sequence; does not verify products/mixtures",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "SSC children2026",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-the-management-of-sepsis-and-septic-shock-in",
+      "modules": [
+        "pediatric-shock",
+        "pediatric-iv-fluid-therapy",
+        "pediatric-airway-rsi"
+      ],
+      "scope": "Resource-dependent fluid limits; uncertainty on vasoactive timing/choice/MAP; etomidate conditional caution",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "ERC Paediatric Life Support2025",
+      "url": "https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf",
+      "modules": [
+        "pediatric-shock",
+        "pediatric-emergency-medications",
+        "pediatric-blood-transfusion-major-hemorrhage"
+      ],
+      "scope": "Shock/haemorrhage and TXA; loading cap is not a maintenance cap; CPR boundary reconciled with previously reviewed arrhythmia/arrest modules",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "SCCM PADIS focused update2025",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+      "modules": [
+        "icu-sedation-analgesia-infusions"
+      ],
+      "scope": "Conditional dexmedetomidine preference for selected light sedation/delirium priorities; not validation of all drug preparations",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "GINA Strategy Report2026, boxes12-4 and young-child acute treatment",
+      "url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+      "modules": [
+        "pediatric-acute-asthma"
+      ],
+      "scope": "Young-child oxygen/SABA/ipratropium/steroids; magnesium and escalation",
+      "access": "Official source-specific indexed excerpts retrieved. Direct17MB PDF retrieval failed; no claim of complete full-report audit"
+    },
+    {
+      "title": "GINA Summary Guide July2026, pp34–36",
+      "url": "https://ginasthma.org/wp-content/uploads/2026/07/GINA-Summary-Guide-2026-WEB-WMS.pdf",
+      "modules": [
+        "pediatric-acute-asthma"
+      ],
+      "scope": "Age6–11 oxygen target and severity-based initial SABA/OCS",
+      "access": "Official complete PDF parsed; relevant treatment text and flowchart extracted. No GINA PDF/table reproduced for redistribution"
+    },
+    {
+      "title": "NICE NG29 current recommendations",
+      "url": "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations",
+      "modules": [
+        "pediatric-iv-fluid-therapy",
+        "pediatric-electrolyte-emergencies"
+      ],
+      "scope": "Fluid/maintenance and concentration-specific2.7% rescue; no automatic3% substitution",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "NICE CG84 current gastroenteritis guidance",
+      "url": "https://www.nice.org.uk/guidance/cg84/chapter/Recommendations",
+      "modules": [
+        "pediatric-iv-fluid-therapy"
+      ],
+      "scope": "Syndrome-specific ORS and IV-deficit branches",
+      "access": "Previously retrieved primary recommendations in this session reused; no independent new gastroenteritis review claimed"
+    },
+    {
+      "title": "RCH Emergency airway management current",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Emergency_airway_management/",
+      "modules": [
+        "pediatric-airway-rsi"
+      ],
+      "scope": "Named induction/paralytic ranges, oxygenation, waveform confirmation and post-intubation care",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "RCH Hyperkalaemia current",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Hyperkalaemia/",
+      "modules": [
+        "pediatric-electrolyte-emergencies"
+      ],
+      "scope": "Calcium salts, glucose-only bolus hyponatraemia caveat, insulin and monitoring",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "RCH Hypokalaemia current",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Hypokalaemia/",
+      "modules": [
+        "pediatric-electrolyte-emergencies"
+      ],
+      "scope": "Oral/IV caps, ward vs critical-care rates and all-source K accounting",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "RCH Hypomagnesaemia current",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Hypomagnesaemia/",
+      "modules": [
+        "pediatric-electrolyte-emergencies"
+      ],
+      "scope": "Elemental magnesium mmol doses and infusion time",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "Calcium gluconate10% SmPC, product6264",
+      "url": "https://www.medicines.org.uk/emc/product/6264/smpc",
+      "modules": [
+        "pediatric-electrolyte-emergencies"
+      ],
+      "scope": "Pediatric hypocalcaemia reference range; not Portuguese-product equivalence or local availability",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "RCH Blood product prescription current online; page notes older2016 underlying guidelines",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Blood_product_prescription/",
+      "modules": [
+        "pediatric-blood-transfusion-major-hemorrhage"
+      ],
+      "scope": "Critical vs stable volumes/rates, exact15/20kg source gaps and blood-bank clock; no claim this is a newly issued2026 guideline",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "RCH Intravenous fluids current",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Intravenous_fluids/",
+      "modules": [
+        "pediatric-iv-fluid-therapy"
+      ],
+      "scope": "Reduced maintenance, unreliable estimated deficits, daily/hourly approximation distinction",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "RCH Hypernatraemia current",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Hypernatraemia/",
+      "modules": [
+        "pediatric-iv-fluid-therapy",
+        "pediatric-electrolyte-emergencies"
+      ],
+      "scope": "Deficit replacement and sodium-related monitoring; severe cases individualized",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    },
+    {
+      "title": "RCH Diabetic ketoacidosis current",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Diabetic_Ketoacidosis/",
+      "modules": [
+        "pediatric-iv-fluid-therapy"
+      ],
+      "scope": "Saline/glucose contextual cross-check only; pediatric DKA module remains separate and not promoted",
+      "access": "Official primary recommendations retrieved; focused relevant sections checked"
+    }
+  ],
+  "changes": {
+    "undifferentiated-shock": "Phenotype/source-control and dynamic reassessment framework reconciled with current SSC2026 and existing cause-specific routes; no universal sepsis volume/pressor order for undifferentiated shock. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release.",
+    "pediatric-shock": "ERC2025 timing/SBP target distinguished from SSC2026 insufficient evidence on catecholamine choice/timing/MAP; resource-dependent bolus limits explicit. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release.",
+    "vasoactive-inotrope-infusions": "YELLOW retained: SSC2026 adult position and arithmetic rechecked; exact Portuguese product/base expression, diluent, container/tubing, compatibility and separate chemical/microbiological hang-time reconciliation incomplete. Existing foreign label examples are not newly certified preparations.",
+    "icu-sedation-analgesia-infusions": "YELLOW retained: PADIS2025 strategy and arithmetic rechecked; every opioid/sedative product, final mixture, line compatibility, stability and microbiological handling not fully reconciled. No blanket24h rule or new pharmacy approval.",
+    "pediatric-emergency-medications": "GREEN only for cross-cutting reference/dose-unit framework: CPR-dose boundary and TXA loading-only cap corrected. Does not revalidate every bolus/antibiotic/outpatient/pump registry entry. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release.",
+    "pediatric-iv-fluid-therapy": "NICE/SSC/RCH fluid framework reconciled; resource conditions,2.7% vs3%, daily-vs-hourly approximation and DKA ownership explicit; no new local sodium preparation approval. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release.",
+    "pediatric-acute-asthma": "GINA2026 oxygen and severity-specific SABA corrected; ipratropium nebulized dose age-qualified, steroids/magnesium and escalation checked against official current/indexed text. Full17MB strategy PDF download failed; targeted indexed primary excerpts and full official summary used, not a claimed complete full-report audit. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release.",
+    "pediatric-airway-rsi": "RCH ketamine/rocuronium selected; unnamed alternative removed; SSC2026 etomidate caution, capnography and post-intubation rescue preserved. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release.",
+    "pediatric-electrolyte-emergencies": "RCH K/Mg, calcium product reference and NICE sodium checked; hyponatraemia caveat for glucose-only K-shift bolus, concentration and line hazards explicit. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release.",
+    "pediatric-blood-transfusion-major-hemorrhage": "ERC TXA loading-only cap corrected; RCH bleeding/nonbleeding volumes and rates distinguished, exact-weight source gaps fail closed and4h clock starts at blood-bank departure. Owner requested review/validation2026-11-14; reference GREEN does not certify local products, competency, specialist/pharmacy signatures or prospective clinical release."
+  },
+  "evidence_certainty": "Guidelines, consensus and product-specific reference facts. Conditional/low-certainty and insufficient-evidence boundaries preserved. No new GRADE grading or clinical outcomes validation.",
+  "localization_limits": "No exact Portuguese RCM/formulary, container/tubing/stability approval, independent specialist/pharmacy signature or airway/PICU/transfusion capability established. Adult infusion review partial. GREEN pertains to the selected source framework, not independent clinical certification.",
+  "technical_qa": {
+    "python": "664/664 PASS",
+    "new_safety_arithmetic_regressions": "14/14 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "222sources/131modules normalized",
+    "browser": "NOT RUN",
+    "report": "qa/TEN_SHOCK_INFUSION_PEDIATRIC_SUPPORT_QA_2026-11-14.json",
+    "resolved_initial_failures": [
+      "Two legacy clinical-text assertions required the old undifferentiated SABA dose and ambiguous TXA maintenance cap; replaced by stronger source-specific assertions, no check removed.",
+      "MODULES table initially stale; synchronized its eight reference states before final regeneration and4/4 guide checks."
+    ]
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "browser": "NOT RUN",
+  "publication": "Local working branch only; no push/merge/main change",
+  "preservation": {
+    "exactly_ten_evidence_records_and_module_bodies_changed": true,
+    "other_bodies_and_shared_preambles_unchanged": true,
+    "runtime_calculation_and_canonical_medication_files_unchanged": true,
+    "protected_files_identical_to_baseline": 314,
+    "procedure_data_files_unchanged": 196,
+    "contracts_total": 46,
+    "blocked_contracts_preserved": 19,
+    "existing_test_changes": "Two legacy expected values corrected with named primary evidence and additional safety assertions; no tests removed",
+    "main_RC1_v143_untouched": true
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "date": "2026-11-14",
+  "task": "Owner-requested source reconciliation and validation of exact ten listed references",
+  "owner_authorization": "revisa y valida estas10 in ongoing GREEN review workflow",
+  "modules": [
+    "syncope-falls-frailty",
+    "febrile-infant-0-90-days",
+    "bronchiolitis",
+    "croup",
+    "pediatric-dehydration-shock",
+    "pediatric-status-epilepticus",
+    "adult-arrhythmias",
+    "adult-cardiac-arrest",
+    "pediatric-arrhythmias",
+    "pediatric-cardiac-arrest"
+  ],
+  "status": "green_for_selected_reference_scope",
+  "before_counts": {
+    "green": 73,
+    "yellow": 58,
+    "red": 0
+  },
+  "registry_counts": {
+    "green": 83,
+    "yellow": 48,
+    "red": 0
+  },
+  "sources": {
+    "syncope-falls-frailty": [
+      {
+        "title": "NICE CG109 transient loss of consciousness over16",
+        "version": "Updated2023-11-21",
+        "url": "https://www.nice.org.uk/guidance/cg109/chapter/Recommendations",
+        "scope": "History, witness account, ECG, targeted investigations, orthostatic assessment and red flags",
+        "access": "Primary official text retrieved/indexed; source-specific access recorded"
+      },
+      {
+        "title": "ESC syncope guideline",
+        "version": "2018; current official guideline collection checked",
+        "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/syncope/",
+        "scope": "Cardiac-risk recognition and monitoring; no new2018 replacement established by this search",
+        "access": "Official index and primary guideline indexed text retrieved; existing framework retained, no new copied ESC algorithm or a claimed2026 syncope CPG"
+      },
+      {
+        "title": "NICE NG249 falls assessment/prevention",
+        "version": "2025-04-29; existing focused review2026-11-14 reused",
+        "url": "https://www.nice.org.uk/guidance/ng249/chapter/Recommendations",
+        "scope": "Function, injuries, falls causes and safe support/disposition",
+        "access": "Previously retrieved primary recommendations within this session; no additional independent falls review claimed"
+      }
+    ],
+    "febrile-infant-0-90-days": [
+      {
+        "title": "CPS well-appearing febrile infants≤90days",
+        "version": "Updated2026-05-27; original2023-10-27",
+        "url": "https://cps.ca/en/documents/position/management-of-well-appearing-febrile-young-infants-aged-90-days",
+        "scope": "Selected0–28/29–60/61–90-day approach, cultures, LP risk and safe reassessment",
+        "access": "Primary current statement retrieved; exact age-based and unstable/LP paragraphs checked"
+      }
+    ],
+    "bronchiolitis": [
+      {
+        "title": "NICE NG9 bronchiolitis",
+        "version": "2015; oxygen/discharge update2021",
+        "url": "https://www.nice.org.uk/guidance/ng9/chapter/1-recommendations",
+        "scope": "Selected age/risk oxygen criteria and hospital discharge observation",
+        "access": "Official indexed recommendations retrieved, direct403; final recommendations distinguished from older evidence documents"
+      },
+      {
+        "title": "Australasian Bronchiolitis Guideline/PREDICT",
+        "version": "2025Update; doi10.1111/jpc.70144",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12397848/",
+        "scope": "Supportive care, low-flow/HF support boundaries, no routine drugs and conditional severe-ICU exception",
+        "access": "Primary guideline indexed full recommendation table/sections retrieved; no new ICU combination dose protocol adopted"
+      },
+      {
+        "title": "DGS Norma016/2012 bronchiolitis",
+        "version": "Original2012-12-19; updated2015-02-23",
+        "url": "https://www.dgs.pt/directrizes-da-dgs/normas-e-circulares-normativas/norma-n-0162012-de-19122012-png.aspx",
+        "scope": "Portugal comparison: oxygen≤92%, inpatient discharge≥92%; scope excludes PICU",
+        "access": "Official indexed primaryPDF recommendations checked; current institutional implementation and legal mandatory status not inferred"
+      }
+    ],
+    "croup": [
+      {
+        "title": "RCH croup clinical practice guideline",
+        "version": "Current hosted guideline consulted2026-11-14; no new edition year asserted",
+        "url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup_Laryngotracheobronchitis/",
+        "scope": "Selected severity-based dexamethasone, L-epinephrine and3h observation",
+        "access": "Official full guideline page retrieved; mild/moderate versus severe doses checked"
+      },
+      {
+        "title": "CPS acute management of croup",
+        "version": "Current official hosted statement",
+        "url": "https://cps.ca/en/documents/position/acute-management-of-croup",
+        "scope": "Alternative usual0.6mg/kg steroid approach; not blended with RCH severity branches",
+        "access": "Official statement retrieved; RCH selected for main operational sequence"
+      }
+    ],
+    "pediatric-dehydration-shock": [
+      {
+        "title": "NICE NG254 suspected sepsis under16",
+        "version": "Published2025-11-19",
+        "url": "https://www.nice.org.uk/guidance/ng254/chapter/Antibiotic-therapy-intravenous-fluid-and-oxygen",
+        "scope": "10mL/kg non-neonatal septic bolus maximum250mL with reassessment",
+        "access": "Official NICE page direct403. Guideline identity/publication verified in official NICE/NCBI Bookshelf metadata; final recommendation1.9 text read in an indexed reproduction of the NICE chapter (dejavu), not an independently authored guideline. Consultation draft not used as final evidence."
+      },
+      {
+        "title": "NICE NG29 IV fluids in children/young people",
+        "version": "2015; bolus amendmentOctober2022",
+        "url": "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations",
+        "scope": "Child10mL/kg versus term-neonate10–20mL/kg; reassessment and syndrome exceptions",
+        "access": "Official indexed final recommendations1.3.1–1.3.6 retrieved"
+      }
+    ],
+    "pediatric-status-epilepticus": [
+      {
+        "title": "HSE National Clinical Guideline pediatric status epilepticus",
+        "version": "CDI/0277/1.0/2025,Version0,effective2025-10-15,review2028-10-15",
+        "url": "https://www2.healthservice.hse.ie/files/584/",
+        "scope": "Selected complete1month–18year reference: two benzodiazepines, glucose, levetiracetam and specialist escalation",
+        "access": "Primary15-pagePDF retrieved by web; drug text on pages6–10 checked. Direct local download403; no universal local-product compatibility claim"
+      },
+      {
+        "title": "ERC pediatric life support detailed guideline",
+        "version": "2025; doi10.1016/j.resuscitation.2025.110767",
+        "url": "https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf",
+        "scope": "Selected detailed pediatric arrest sequence,4min adrenaline and distinct monitored stacked-shock exception",
+        "access": "Primary fullPDF text retrieved; monitored section and rationale verified against regular algorithm"
+      },
+      {
+        "title": "RCUK pediatric emergency algorithms/resources",
+        "version": "February2026Version6, supersedingJanuaryVersion5 located in search",
+        "url": "https://www.resus.org.uk/sites/default/files/2026-02/RCUK%20Paediatric%20emergency%20algorithms%20and%20resources%20Feb%2026%20V6.pdf",
+        "scope": "Arrhythmia-specific atropine/adrenaline/adenosine/amiodarone/cardioversion chart; simplified PALS comparison",
+        "access": "PrimaryPDF downloaded and pages6/10 rendered/visually inspected; chart-specific versus generic drug-table differences preserved"
+      }
+    ],
+    "adult-arrhythmias": [
+      {
+        "title": "ERC/RCUK adult advanced life support",
+        "version": "ERC2025; RCUK published2025-10-27",
+        "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+        "scope": "Adult cardioversion, bradycardia, drug/shock timing and adult stacked-shock counter",
+        "access": "Official full RCUK recommendation text and ERC primaryPDF indexed text retrieved; routine contract anchors retained"
+      }
+    ],
+    "adult-cardiac-arrest": [
+      {
+        "title": "ERC/RCUK adult advanced life support",
+        "version": "ERC2025; RCUK published2025-10-27",
+        "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+        "scope": "Adult cardioversion, bradycardia, drug/shock timing and adult stacked-shock counter",
+        "access": "Official full RCUK recommendation text and ERC primaryPDF indexed text retrieved; routine contract anchors retained"
+      }
+    ],
+    "pediatric-arrhythmias": [
+      {
+        "title": "RCUK pediatric emergency algorithms/resources",
+        "version": "February2026Version6, supersedingJanuaryVersion5 located in search",
+        "url": "https://www.resus.org.uk/sites/default/files/2026-02/RCUK%20Paediatric%20emergency%20algorithms%20and%20resources%20Feb%2026%20V6.pdf",
+        "scope": "Arrhythmia-specific atropine/adrenaline/adenosine/amiodarone/cardioversion chart; simplified PALS comparison",
+        "access": "PrimaryPDF downloaded and pages6/10 rendered/visually inspected; chart-specific versus generic drug-table differences preserved"
+      },
+      {
+        "title": "ERC pediatric life support detailed guideline",
+        "version": "2025; doi10.1016/j.resuscitation.2025.110767",
+        "url": "https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf",
+        "scope": "Selected detailed pediatric arrest sequence,4min adrenaline and distinct monitored stacked-shock exception",
+        "access": "Primary fullPDF text retrieved; monitored section and rationale verified against regular algorithm"
+      },
+      {
+        "title": "RCUK pediatric life support basic/advanced",
+        "version": "Published2025-10-27",
+        "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+        "scope": "Counterpart3–5min adrenaline wording and pediatric ABC/ALS",
+        "access": "Official current page text retrieved; incorrect guessed URL was not treated as evidence"
+      }
+    ],
+    "pediatric-cardiac-arrest": [
+      {
+        "title": "ERC pediatric life support detailed guideline",
+        "version": "2025; doi10.1016/j.resuscitation.2025.110767",
+        "url": "https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf",
+        "scope": "Selected detailed pediatric arrest sequence,4min adrenaline and distinct monitored stacked-shock exception",
+        "access": "Primary fullPDF text retrieved; monitored section and rationale verified against regular algorithm"
+      },
+      {
+        "title": "RCUK pediatric life support basic/advanced",
+        "version": "Published2025-10-27",
+        "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+        "scope": "Counterpart3–5min adrenaline wording and pediatric ABC/ALS",
+        "access": "Official current page text retrieved; incorrect guessed URL was not treated as evidence"
+      },
+      {
+        "title": "RCUK pediatric emergency algorithms/resources",
+        "version": "February2026Version6, supersedingJanuaryVersion5 located in search",
+        "url": "https://www.resus.org.uk/sites/default/files/2026-02/RCUK%20Paediatric%20emergency%20algorithms%20and%20resources%20Feb%2026%20V6.pdf",
+        "scope": "Arrhythmia-specific atropine/adrenaline/adenosine/amiodarone/cardioversion chart; simplified PALS comparison",
+        "access": "PrimaryPDF downloaded and pages6/10 rendered/visually inspected; chart-specific versus generic drug-table differences preserved"
+      }
+    ]
+  },
+  "source_integrity": {
+    "adult-arrhythmias": {
+      "before_sha256": "f56896e9be891cd39079ec3d0c5e25669422f3e1c3a768ab7b5c522774de6e3f",
+      "after_sha256": "eff9fcc602b62966daec47836a4d2d28ed109798f54fa91458dbd3b22625ac1c"
+    },
+    "adult-cardiac-arrest": {
+      "before_sha256": "37426c3f634f4ab3268fa688479070650582a910b9dafeec1441877c0e930f6f",
+      "after_sha256": "02528bec55da260182153411b68e64f212037c444cc7d3ac6804ecf4bd996754"
+    },
+    "syncope-falls-frailty": {
+      "before_sha256": "8a633e9503c21e50d7ee50338d8fd521a4812d53788a11c82fd5b79683e277b7",
+      "after_sha256": "b78e2b6d60de155f06c9b524938d32276b700f8847c9a1b0e836a3212dc47eb8"
+    },
+    "febrile-infant-0-90-days": {
+      "before_sha256": "97ef0e9fa11446ab4ec26209096f8336252e7a75cf0c5220f1e8afc8486fb303",
+      "after_sha256": "4eeab91c2df6b1e162d7098d20cf5f8d76b567624bbaf3828957e4bda6d75e63"
+    },
+    "bronchiolitis": {
+      "before_sha256": "796a4d96a6b302aa979a3d32a7d91ef907bdb3652bf9980a3899ffb2ad4ba5d6",
+      "after_sha256": "b1c9b6c10c9431b718bc10cff437bdf655c8438745abda5dc8afa3c876f3aae5"
+    },
+    "croup": {
+      "before_sha256": "385088bcf03b47b9d9842d13d79bc74175860ae76ad182934c79958bccb2b691",
+      "after_sha256": "a1510f92fdf3d94add6ae2e25dc8c220cbb38888d914e968ca981241cdc44d1f"
+    },
+    "pediatric-dehydration-shock": {
+      "before_sha256": "36d11899eb900fe3de8191dbda099d293fe9ca2805e0f181279b7d0e36a303d1",
+      "after_sha256": "b65e9d52b5c95f50f43170be774cb450ed0f0826797ec89dab79000b1df607cf"
+    },
+    "pediatric-status-epilepticus": {
+      "before_sha256": "3fbe6af4d7391c7332cce993a896558ba2684610bdd7a7a7b2b710841fdb5c39",
+      "after_sha256": "64f0285b71adcfb480ca2f2b9c0cfa6cc81536450ed2ef21840e2f1eccd2d6fc"
+    },
+    "pediatric-arrhythmias": {
+      "before_sha256": "29da608360cbc9611a829965333f54bd6ba347532ce82cd7bfe6addf02844062",
+      "after_sha256": "e1ba18c87a2e7350824bb8d46d5f911df74c90d1e7e56762707dbb5e64398da0"
+    },
+    "pediatric-cardiac-arrest": {
+      "before_sha256": "d06b8cba0f782ffe5c7054003bd0b8f70bef7559ab133535dac31c9de1d5f912",
+      "after_sha256": "e7652243055214fa3867a56afa64444c97c491278c429359e10d9662a9311799"
+    }
+  },
+  "critical_discrepancies_corrected": {
+    "pediatric_stacked_shocks": "Old5th/7th scheme replaced by detailed ERC: amiodarone after third stacked attempt, adrenaline at4min, second amiodarone after fifth shock. Do not import adult shock counting.",
+    "pediatric_bradycardia": "When CPR criterion is met, use10micrograms/kg arrest adrenaline, not1–2micrograms/kg pre-arrest small bolus.",
+    "adult_stacked_shocks": "Initial adult stack counts as one algorithm shock for drug timing; existing generic calculator does not encode this timing exception and is not validated for it."
+  },
+  "guideline_choices": {
+    "febrile_infant": "CPS2026 selected, hospitalize0–28d, age/marker approach; AAP bands not blended; defer unsafeLP without delaying antibiotics.",
+    "bronchiolitis": "NICE age/risk thresholds selected with PREDICT2025 support; DGS2015≤92/≥92difference explicit and local adoption not inferred. Conditional ICU combination exception documented without dosing.",
+    "croup": "RCH severity-based0.15mild/moderate,0.6severe(max12); CPS usual0.6not blended; selectedL-epinephrine1mg/mL5mL, observation from lastdose.",
+    "fluids": "NICE child10mL/kg and septic250mLcap distinguish term-neonate10–20mL/kg and other disease pathways.",
+    "status": "Retain completeHSE2025 sequence rather than mixing with ERC/RCUK;50mg/mL/5min source reference does not certify local product compatibility.",
+    "pediatric_arrest": "Select ERC detailed every4min/after>5shocks escalation; compare RCUK3–5min/from5th simplified diagram explicitly."
+  },
+  "invariants": {
+    "changed_module_bodies": [
+      "adult-arrhythmias",
+      "adult-cardiac-arrest",
+      "syncope-falls-frailty",
+      "febrile-infant-0-90-days",
+      "bronchiolitis",
+      "croup",
+      "pediatric-dehydration-shock",
+      "pediatric-status-epilepticus",
+      "pediatric-arrhythmias",
+      "pediatric-cardiac-arrest"
+    ],
+    "other_sections_and_all_preambles_unchanged": true,
+    "changed_evidence_records": [
+      "syncope-falls-frailty",
+      "febrile-infant-0-90-days",
+      "bronchiolitis",
+      "croup",
+      "pediatric-dehydration-shock",
+      "pediatric-status-epilepticus",
+      "adult-arrhythmias",
+      "adult-cardiac-arrest",
+      "pediatric-arrhythmias",
+      "pediatric-cardiac-arrest"
+    ],
+    "protected_tracked_files_identical_to_HEAD": 129,
+    "calculation_API_contract_and_bolus_registry_code_unchanged": true,
+    "blocked_contracts_preserved": 19,
+    "individual_procedures_unchanged": true,
+    "existing_test_expectations_not_weakened": true
+  },
+  "evidence_certainty": "Clinical practice guidelines/consensus and source-specific pediatric dose references; twelve targeted safety/arithmetic regressions do not establish patient outcomes, clinical diagnostic accuracy, local compatibility or clinician competency. No independent GRADE reassignment.",
+  "localization_limits": "No new institutional oxygen adoption, pharmacy preparation/stock, resuscitation equipment/cart/waveform audit, pacing/EEG/PICU/transport capability or independent specialty/pharmacy signature verified. Original clinical operational gates remain distinct from current evidence reference status.",
+  "technical_qa": {
+    "python": "650/650 PASS",
+    "new_safety_arithmetic_regressions": "12/12 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "222sources/131modules normalized",
+    "evidence_audit_errors": [],
+    "browser": "NOT RUN",
+    "report": "qa/TEN_SYNCOPE_PEDIATRIC_RESUSCITATION_QA_2026-11-14.json"
+  },
+  "browser": "NOT RUN",
+  "clinical_release_status": "CLINICALLY_PENDING"
+}

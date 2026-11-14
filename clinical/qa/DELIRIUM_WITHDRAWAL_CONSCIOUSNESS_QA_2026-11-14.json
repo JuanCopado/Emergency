@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-14",
+  "automated_status": "PASS",
+  "checks": [
+    {
+      "name": "module-integrity",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "evidence-coverage",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "clinical-case-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "real-image-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "image-source-registry",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "blinded-image-template",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "unit-regression-tests",
+      "passed": true,
+      "returncode": 0
+    }
+  ],
+  "technical_qa": {
+    "python": "622/622 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "220 sources /131 modules, normalized",
+    "evidence_audit_errors": [],
+    "final_reference_edit": "After wording condensation preserving clinical content:421 main+5 focused tests and4 guide-generation tests rerun PASS; code unchanged from full622 run.",
+    "initial_failure": "One inherited withdrawal safety-phrase assertion; preserved its exact safety wording before final complete run PASS.",
+    "browser": "NOT RUN"
+  },
+  "invariants": {
+    "only_three_requested_guide_bodies_changed": true,
+    "family_preambles_other_modules_preserved": true,
+    "score_helper_changed_only": "calculate_four_at",
+    "other_block14_score_functions_unchanged": true,
+    "acute_medication_API_and_contracts_unchanged": true,
+    "blocked_contracts_preserved": 19,
+    "all_scores_module_still_yellow": true
+  },
+  "registry_counts": {
+    "green": 58,
+    "yellow": 73,
+    "red": 0
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "source_report": "DELIRIUM_WITHDRAWAL_CONSCIOUSNESS_REVIEW_2026-11-14.json"
+}

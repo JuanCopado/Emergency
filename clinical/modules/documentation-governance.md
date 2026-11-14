@@ -125,6 +125,7 @@ Exports require privacy validation. The exported report contains the clinical sy
 
 ### Status
 Yellow. Technical/documentation module; requires final human clinical, legal/privacy and information-governance review before green.
+- **Review14/11/2026:** distinguish coverage of92 syndrome rules/60 synthetic scenarios from prospective diagnostic performance. EDPB01/2025 currently retrieved is version1 adopted for public consultation; consultation closure is not evidence of a final version. Privacy review must retain purpose/lawful basis, access, retention and deployment-specific controls; a regex screen or pseudonym alone does not certify anonymity or GDPR compliance. Owner authorization for this review is recorded, but no completed deployment-specific governance/clinical-performance assessment is invented. YELLOW retained with source-version clarification.
 
 ## final-human-review-gate
 

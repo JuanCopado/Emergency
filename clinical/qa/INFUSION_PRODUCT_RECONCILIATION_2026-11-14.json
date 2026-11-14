@@ -1,0 +1,2011 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-14",
+  "expected_sheets": 17,
+  "received_sheets": 17,
+  "scope": "Owner-supplied product/preparation drafts, primary-source reconciliation, not completed operational release",
+  "local_acceptance": {
+    "clinical_reviewer": "Rui Susano",
+    "pharmacy_reviewer": "Miguel S",
+    "date": "2026-11-14",
+    "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+  },
+  "global_rules": [
+    "Arithmetic is distinct from drug/product/concentration/material/temperature stability evidence.",
+    "A supported diluent is not a complete Y-site compatibility matrix. Do not label unlisted combinations proven incompatible.",
+    "Immediate use after preparation is not a zero-duration infusion order; connected-system hang time requires its own basis.",
+    "Do not apply a common24h tubing rule to all17 drugs. Pharmacy/local conditions and manufacturer/device limits remain specific.",
+    "Commercial examples or EU/Spanish authorization do not demonstrate Portugal/Azores local stock.",
+    "Clinical guidelines determine syndrome-specific drug position; do not import obsolete CIMA shock algorithms wholesale."
+  ],
+  "items": [
+    {
+      "number": 1,
+      "drug": "norepinephrine",
+      "role_reported": "active",
+      "product_reported": "10mL=10mg bitartrate=5mg base;50mL=50mg bitartrate=25mg base",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/62002/FT_62002.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 25,
+          "amount_unit": "mg_base",
+          "final_volume_ml": 250,
+          "concentration": 0.1,
+          "concentration_unit": "mg_base/mL",
+          "verification_scope": "uploaded_protocol_arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Declared stock is0.5mg base/mL=500micrograms base/mL; composition matches CIMA Braun62002. Name of actual local product still not explicitly selected. That label uses glucose5% and immediate use after opening, not a universal post-dilution24h rule."
+      ],
+      "pending": [
+        "La receta candidata ya es25mg base/250mL. Falta soporte de estabilidad/sistema para100µg base/mL del producto real; SF no se autoriza por hiperglucemia sin datos del producto."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Noradrenalina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "10mL=10mg bitartrate=5mg base;50mL=50mg bitartrate=25mg base"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Presentación declarada: 0,5 mg base/mL; equivalencia contrastada. El PNT aporta ahora la receta candidata.",
+      "pending_es": "La receta candidata ya es25mg base/250mL. Falta soporte de estabilidad/sistema para100µg base/mL del producto real; SF no se autoriza por hiperglucemia sin datos del producto.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 25,
+        "amount_unit": "mg_base",
+        "stock_volume_ml": 50,
+        "final_volume_ml": 250,
+        "concentration": 0.1,
+        "concentration_unit": "mg_base/mL",
+        "diluent_proposed": "Glucose5%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "recipe_previously_missing_now_proposed": true,
+      "pending_original_sheets": [
+        "Final local drug amount/base convention, volume and concentration are unspecified. NaCl-only diluent and proposed plastics are not established by this label."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 2,
+      "drug": "epinephrine",
+      "role_reported": "active",
+      "product_reported": "1mg/mL,1mL; Braun or Level suggested",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/68552/FT_68552.html",
+        "https://cima.aemps.es/cima/dochtml/ft/35403/FT_35403.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 5,
+          "amount_unit": "mg",
+          "final_volume_ml": 250,
+          "concentration": 0.02,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 10,
+          "amount_unit": "mg",
+          "final_volume_ml": 100,
+          "concentration": 0.1,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 5,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 0.1,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Concentrations20/100/100micrograms/mL are arithmetic-correct. Braun/Level require immediate use after dilution; no generic24h room-temperature approval. Level is a prefilled syringe, not the same ampoule. Braun may be slightly yellow initially; discard rules must match product and change in appearance. Septic shock sequencing remains SSC-specific, not universally second-line; refractory anaphylaxis retains its separate IM-first pathway."
+      ],
+      "pending": [
+        "Elegir producto/preparación concreta y respaldo de sistema/plazo de uso."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Adrenalina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "1mg/mL,1mL; Braun or Level suggested"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Aritmética de 20 y 100 µg/mL correcta; retirado aval genérico de 24 h.",
+      "pending_es": "Elegir producto/preparación concreta y respaldo de sistema/plazo de uso.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 5,
+        "amount_unit": "mg",
+        "stock_volume_ml": 5,
+        "final_volume_ml": 250,
+        "concentration": 0.02,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "Glucose5%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select actual product and source support for each20/100microgram/mL mixture, container and line; generic Y-site list not validated."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 3,
+      "drug": "vasopressin",
+      "role_reported": "active",
+      "product_reported": "Empressin20IU/mL,2mL",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/83405/FT_83405.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 40,
+          "amount_unit": "IU",
+          "final_volume_ml": 50,
+          "concentration": 0.8,
+          "concentration_unit": "IU/mL",
+          "verification_scope": "label_concentration_supported_local_system_pending"
+        },
+        {
+          "drug_amount": 40,
+          "amount_unit": "IU",
+          "final_volume_ml": 40,
+          "concentration": 1,
+          "concentration_unit": "IU/mL",
+          "verification_scope": "selected_local_standard_arithmetic_not_manufacturer_stability_certificate"
+        }
+      ],
+      "source_findings": [
+        "Manufacturer reference is0.8IU/mL; owner now selects1IU/mL locally, with its own pump table. This does not import foreign-product dose or chemical-stability data."
+      ],
+      "pending": [
+        "La decisión local y el plazo están registrados; persiste el contraste de estabilidad fisicoquímica/material del preparado de1UI/mL, separado del aval CIMA0,8UI/mL."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Vasopresina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "Empressin20IU/mL,2mL"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Seleccionado localmente 1 UI/mL:40UI(2mL)+38mL SF=40mL; tabla0,6/1,2/1,8mL/h. Uso inmediato y recambio local≤24h.",
+      "pending_es": "La decisión local y el plazo están registrados; persiste el contraste de estabilidad fisicoquímica/material del preparado de1UI/mL, separado del aval CIMA0,8UI/mL.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 40,
+        "amount_unit": "IU",
+        "stock_volume_ml": 2,
+        "final_volume_ml": 40,
+        "concentration": 1,
+        "concentration_unit": "IU/mL",
+        "diluent_proposed": "NaCl0.9%",
+        "verification_scope": "local_choice_arithmetic_verified_manufacturer_difference_explicit",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false,
+        "selection_source": "Latest explicit owner instruction"
+      },
+      "pending_original_sheets": [
+        "Connected-container/tubing replacement interval and material evidence remain unspecified; product source supports septic shock indication, not every vasoplegic syndrome."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "source_findings_before_owner_selection": [
+        "CIMA text revised03/2026:40IU(2mL)+48mL NaCl0.9%=50mL,0.8IU/mL.0.01/0.02/0.03IU/min correspond to0.75/1.5/2.25mL/h. Refrigerate unopened2–8C; dilute and use immediately after opening. The draft24h assertion is not supported by this label. Do not apply foreign Vasostrict1IU/mL or0.07IU/min to this preparation."
+      ],
+      "current_selected_preparation": {
+        "id": "empressin-local-1iu-ml-20261114",
+        "product": "Empressin20IU/mL",
+        "drug_amount_IU": 40,
+        "stock_volume_ml": 2,
+        "diluent": "NaCl0.9%",
+        "diluent_volume_ml": 38,
+        "final_volume_ml": 40,
+        "concentration_IU_ml": 1,
+        "local_selection_date": "2026-11-14",
+        "basis": "Explicit owner selection; differs from CIMA83405 preparation0.8IU/mL",
+        "pump_table": [
+          {
+            "dose_IU_min": 0.01,
+            "dose_IU_h": 0.6,
+            "rate_ml_h": 0.6
+          },
+          {
+            "dose_IU_min": 0.02,
+            "dose_IU_h": 1.2,
+            "rate_ml_h": 1.2
+          },
+          {
+            "dose_IU_min": 0.03,
+            "dose_IU_h": 1.8,
+            "rate_ml_h": 1.8
+          }
+        ],
+        "titration_interval_minutes": [
+          15,
+          20
+        ],
+        "routine_label_dose_upper_IU_min": 0.03,
+        "higher_doses": "Emergency-only per Empressin label; do not transfer routine Vasostrict0.07IU/min maximum",
+        "automated_patient_prescription": false
+      },
+      "protocol_followup_before_owner_choice": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 40,
+        "amount_unit": "IU",
+        "stock_volume_ml": 2,
+        "final_volume_ml": 50,
+        "concentration": 0.8,
+        "concentration_unit": "IU/mL",
+        "diluent_proposed": "NaCl0.9%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false,
+        "unsupported_alternative": {
+          "drug_amount": 40,
+          "amount_unit": "IU",
+          "final_volume_ml": 40,
+          "concentration": 1,
+          "concentration_unit": "IU/mL",
+          "status": "arithmetic_only_not_selected_CIMA_preparation"
+        }
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 4,
+      "drug": "dopamine",
+      "role_reported": "reference_alternative",
+      "product_reported": "40mg/mL;200mg/5mL; Grifols or Basi suggested",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/55454/FT_55454.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 200,
+          "amount_unit": "mg",
+          "final_volume_ml": 250,
+          "concentration": 0.8,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "label_concentration_supported_local_product_pending"
+        },
+        {
+          "drug_amount": 200,
+          "amount_unit": "mg",
+          "final_volume_ml": 500,
+          "concentration": 0.4,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "label_concentration_supported_local_product_pending"
+        },
+        {
+          "drug_amount": 200,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 4.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Grifols supports250/500mL dilution in listed fluids, including saline/glucose, and physicochemical stability at room temperature at least24h; preparation remains extemporaneous. The4mg/mL syringe is arithmetic-correct but its exact product/container evidence is not completed. Keep dopamine an alternative, not renal protection or routine septic-shock first line."
+      ],
+      "pending": [
+        "Elegir mezcla habitual; jeringa de 4 mg/mL y sistema específico sin cerrar."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Dopamina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "reference_alternative",
+          "protocol_draft_now_specifies_role": "reference_alternative"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "40mg/mL;200mg/5mL; Grifols or Basi suggested"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Alternativa; bolsas de 800/400 µg/mL respaldadas en Grifols; estabilidad química separada de asepsia.",
+      "pending_es": "Elegir mezcla habitual; jeringa de 4 mg/mL y sistema específico sin cerrar.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "reference_alternative",
+        "drug_amount": 200,
+        "amount_unit": "mg",
+        "stock_volume_ml": 5,
+        "final_volume_ml": 250,
+        "concentration": 0.8,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "Glucose5% or NaCl0.9%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Choose actual product and standard mixture. Do not turn24h chemical data into automatic storage/tubing authorization or a universal18G/peripheral concentration rule."
+      ],
+      "role_current_proposal": "reference_alternative",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 5,
+      "drug": "dobutamine",
+      "role_reported": "active",
+      "product_reported": "12.5mg/mL;250mg/20mL",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/85914/FT_85914.html",
+        "https://cima.aemps.es/cima/dochtml/ft/61952/FichaTecnica_61952.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 250,
+          "amount_unit": "mg",
+          "final_volume_ml": 250,
+          "concentration": 1.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 500,
+          "amount_unit": "mg",
+          "final_volume_ml": 250,
+          "concentration": 2.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 250,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 5.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "Hikma_label_concentration_supported_local_product_pending"
+        }
+      ],
+      "source_findings": [
+        "Current Hikma supports5mg/mL syringe, saline/glucose and24h physicochemical data at25C, with immediate microbiological use. The old Hospira page is marked revoked/suspended: not a current product selection. The>1mg/mL central-line text in Hikma is in the pediatric subsection; do not assert it as a universal adult-label threshold."
+      ],
+      "pending": [
+        "Producto realmente utilizado y condiciones de la preparación concreta."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Dobutamina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "12.5mg/mL;250mg/20mL"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Aritmética de 1/2/5 mg/mL correcta; contraste actual Hikma. Hospira consultada figura revocada.",
+      "pending_es": "Producto realmente utilizado y condiciones de la preparación concreta.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 250,
+        "amount_unit": "mg",
+        "stock_volume_ml": 20,
+        "final_volume_ml": 250,
+        "concentration": 1.0,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "Glucose5% or NaCl0.9%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select actual current product. Keep product-specific pink-color rules, dose convention, Y-site claims and device/hang-time conditions separate."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 6,
+      "drug": "milrinone",
+      "role_reported": "not_selected",
+      "product_reported": "1mg/mL;10mg/10mL; Corotrope or Lorien suggested",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/58849/FichaTecnica_58849.html",
+        "https://cima.aemps.es/cima/dochtml/ft/91153/FT_91153.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 20,
+          "amount_unit": "mg",
+          "final_volume_ml": 100,
+          "concentration": 0.2,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 10,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 0.2,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 50,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 1.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "200micrograms/mL calculations are correct. Lorien:24h chemical/physical diluted stability below25C, immediate microbiological use; do not refrigerate/freeze. Saline0.45/0.9% and glucose5% are listed. Furosemide/bumetanide precipitation and bicarbonate restriction confirmed. An undiluted loading dose does not by itself establish an undiluted1mg/mL prolonged maintenance preparation."
+      ],
+      "pending": [
+        "Clasificada como alternativa en el informe; receta20mg/100mL. Falta producto/sistema/plazo;48–72h no es un máximo universal de tratamiento."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Milrinona",
+      "control_points": {
+        "1_role": {
+          "status": "not_selected",
+          "value": "not_selected",
+          "protocol_draft_now_specifies_role": "reference_alternative"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "1mg/mL;10mg/10mL; Corotrope or Lorien suggested"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Aritmética de 200 µg/mL; incompatibilidades críticas y condiciones Lorien contrastadas.",
+      "pending_es": "Clasificada como alternativa en el informe; receta20mg/100mL. Falta producto/sistema/plazo;48–72h no es un máximo universal de tratamiento.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "reference_alternative",
+        "drug_amount": 20,
+        "amount_unit": "mg",
+        "stock_volume_ml": 20,
+        "final_volume_ml": 100,
+        "concentration": 0.2,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "NaCl0.9% or Glucose5%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Active/alternative choice and exact product remain open;1mg/mL maintenance, peripheral≤200micrograms/mL rule and material/line/recambio require specific support."
+      ],
+      "role_current_proposal": "reference_alternative",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 7,
+      "drug": "levosimendan",
+      "role_reported": "active",
+      "product_reported": "Strength and exact local product unspecified",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/64154/FichaTecnica_64154.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 12.5,
+          "amount_unit": "mg",
+          "final_volume_ml": 250,
+          "concentration": 0.05,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "uploaded_protocol_arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Simdax reference is liquid2.5mg/mL,12.5mg/5mL, with glucose5% instructions and maximum diluted0.05mg/mL. No local lyophilized presentation established.24h chemical stability25C and total after-dilution limit coexist with immediate microbiological use. Named connected-line compatibility is concentration-specific; unlisted combinations are unverified, not proven incompatible."
+      ],
+      "pending": [
+        "Origen declarado2,5mg/mL y receta candidata12,5mg/250mL SG5%. Falta vincularlos al producto real y sistema; no convertir compatibilidades no estudiadas en incompatibilidad demostrada."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Levosimendán",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "Strength and exact local product unspecified"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Referencia Simdax líquida: glucosa 5 %, máximo 0,05 mg/mL; no se certifica un liofilizado local. El PNT aporta ahora la receta candidata.",
+      "pending_es": "Origen declarado2,5mg/mL y receta candidata12,5mg/250mL SG5%. Falta vincularlos al producto real y sistema; no convertir compatibilidades no estudiadas en incompatibilidad demostrada.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 12.5,
+        "amount_unit": "mg",
+        "stock_volume_ml": 5,
+        "final_volume_ml": 250,
+        "concentration": 0.05,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "Glucose5%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "recipe_previously_missing_now_proposed": true,
+      "pending_original_sheets": [
+        "Actual product, precise recipe and system are missing. Do not infer universal PVC prohibition or saline precipitation solely from lack of a listed diluent."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 8,
+      "drug": "phenylephrine",
+      "role_reported": "reference_alternative",
+      "product_reported": "Altan10mg/mL ampoule or0.1mg/mL ready100mL bag",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/70638/FT_70638.html",
+        "https://cima.aemps.es/cima/dochtml/ft/84988/FT_84988.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 10,
+          "amount_unit": "mg_hydrochloride",
+          "final_volume_ml": 100,
+          "concentration": 0.1,
+          "concentration_unit": "mg_hydrochloride/mL",
+          "verification_scope": "ready_bag_label_concentration_supported"
+        },
+        {
+          "drug_amount": 20,
+          "amount_unit": "mg_hydrochloride",
+          "final_volume_ml": 50,
+          "concentration": 0.4,
+          "concentration_unit": "mg_hydrochloride/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Ready bag is100micrograms hydrochloride/mL, equivalent by label to80micrograms base/mL. Its24h chemical stability outside overwrap is distinct from immediate microbiological use. Do not transfer bag evidence to a400micrograms/mL compounded syringe or a bag-to-syringe transfer. The ampoule label does not establish those post-dilution times."
+      ],
+      "pending": [
+        "Elegir bolsa comercial o preparación; trasvase y jeringa de 400 µg/mL sin aval trasladable."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Fenilefrina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "reference_alternative",
+          "protocol_draft_now_specifies_role": "reference_alternative"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "Altan10mg/mL ampoule or0.1mg/mL ready100mL bag"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Altan comercial: 100 µg de hidrocloruro/mL, equivalentes según etiqueta a 80 µg base/mL.",
+      "pending_es": "Elegir bolsa comercial o preparación; trasvase y jeringa de 400 µg/mL sin aval trasladable.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "reference_alternative",
+        "drug_amount": 10,
+        "amount_unit": "mg_hydrochloride",
+        "stock_volume_ml": null,
+        "final_volume_ml": 100,
+        "concentration": 0.1,
+        "concentration_unit": "mg_hydrochloride/mL",
+        "diluent_proposed": "commercial ready bag",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select ready bag versus compounded product; keep prescription/base-salt convention explicit. No blanket100micrograms/mL/18G peripheral limit or generic tubing time certified."
+      ],
+      "role_current_proposal": "reference_alternative",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 9,
+      "drug": "angiotensin-ii",
+      "role_reported": "reference_alternative",
+      "product_reported": "Giapreza, local strength/pack unspecified",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/1191384003/FT_1191384003.html",
+        "https://www.ema.europa.eu/en/documents/product-information/giapreza-epar-product-information_es.pdf"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 2.5,
+          "amount_unit": "mg",
+          "final_volume_ml": 500,
+          "concentration": 0.005,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "label_concentration_supported_local_product_pending"
+        },
+        {
+          "drug_amount": 2.5,
+          "amount_unit": "mg",
+          "final_volume_ml": 250,
+          "concentration": 0.01,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "label_concentration_supported_local_product_pending"
+        },
+        {
+          "drug_amount": 5,
+          "amount_unit": "mg",
+          "final_volume_ml": 500,
+          "concentration": 0.01,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "label_concentration_supported_local_product_pending"
+        }
+      ],
+      "source_findings": [
+        "CIMA/EMA reference2.5mg/mL,1mL=2.5mg or2mL=5mg. Saline0.9% to5000 or10000ng/mL is documented. Refrigerate stock2–8C; diluted solution has24h physical/chemical limit with immediate microbiological use. Retain ng/kg/min dosing, central-line recommendation and VTE-prophylaxis caution in canonical module."
+      ],
+      "pending": [
+        "Presentación y disponibilidad local; seleccionar receta y sistema."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Angiotensina II",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "reference_alternative",
+          "protocol_draft_now_specifies_role": "reference_alternative"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "Giapreza, local strength/pack unspecified"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Giapreza: fuente CIMA/EMA, preparación a 5.000/10.000 ng/mL y límites de producto documentados.",
+      "pending_es": "Presentación y disponibilidad local; seleccionar receta y sistema.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "reference_alternative",
+        "drug_amount": 2.5,
+        "amount_unit": "mg",
+        "stock_volume_ml": 1,
+        "final_volume_ml": 250,
+        "concentration": 0.01,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "NaCl0.9%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Local availability/formulary and actual pack not established by European authorization; dedicated line does not establish every Y-site incompatibility."
+      ],
+      "role_current_proposal": "reference_alternative",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 10,
+      "drug": "fentanyl",
+      "role_reported": "active",
+      "product_reported": "50micrograms/mL;10/3mL proposed; Fentanest/Ethypharm/Basi suggested",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/41764/FichaTecnica_41764.html",
+        "https://cima.aemps.es/cima/pdfs/es/ft/84102/84102_ft.pdf"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 0.5,
+          "amount_unit": "mg",
+          "final_volume_ml": 10,
+          "concentration": 0.05,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 0.15,
+          "amount_unit": "mg",
+          "final_volume_ml": 3,
+          "concentration": 0.049999999999999996,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Fentanest has3/10mL presentations; Ethypharm reference lists2/10mL. Ethypharm lists5/25micrograms/mL diluted preparations; this does not certify every undiluted transfer or10micrograms/mL example. Sources checked do not establish the draft24–48h room-temperature or48h undiluted syringe rule."
+      ],
+      "pending": [
+        "La receta candidata ya es2.500µg/50mL sin diluir. Falta respaldo de trasvase, recipiente y tiempo; no trasladar datos de diluciones a la jeringa sin diluir."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Fentanilo",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "50micrograms/mL;10/3mL proposed; Fentanest/Ethypharm/Basi suggested"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Diferenciadas presentaciones Fentanest/Ethypharm; no aval general de 24–48 h a temperatura ambiente.",
+      "pending_es": "La receta candidata ya es2.500µg/50mL sin diluir. Falta respaldo de trasvase, recipiente y tiempo; no trasladar datos de diluciones a la jeringa sin diluir.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 2500,
+        "amount_unit": "micrograms",
+        "stock_volume_ml": 50,
+        "final_volume_ml": 50,
+        "concentration": 50.0,
+        "concentration_unit": "micrograms/mL",
+        "diluent_proposed": "undiluted",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Choose exact product/method, evidence for actual concentration/container and in-use time. Generic Y-site opioid/vasopressor combinations remain unverified."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 11,
+      "drug": "remifentanil",
+      "role_reported": "active",
+      "product_reported": "Lyophilized1/2/5mg; several products proposed",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/73168/FichaTecnica_73168.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 2,
+          "amount_unit": "mg",
+          "final_volume_ml": 40,
+          "concentration": 0.05,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 2.5,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 0.05,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 5,
+          "amount_unit": "mg",
+          "final_volume_ml": 100,
+          "concentration": 0.05,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 5,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 0.1,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Kabi: reconstitute to approximately1mg/mL, then mandatory further dilution;50micrograms/mL recommended adult reference. Manual infusion20–250 range is not ICU TCI approval.24h chemical data at25C do not remove immediate microbiological use. No epidural/intrathecal use; avoid blood-product line and residual-drug bolus. ICU treatment beyond3days is not recommended by this label."
+      ],
+      "pending": [
+        "Producto, concentración final elegida y sistema; no importar toda la lista de compatibilidad."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Remifentanilo",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "Lyophilized1/2/5mg; several products proposed"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Reconstitución y dilución posterior obligatoria; 50 µg/mL como referencia adulta; condiciones Kabi.",
+      "pending_es": "Producto, concentración final elegida y sistema; no importar toda la lista de compatibilidad.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 2,
+        "amount_unit": "mg",
+        "stock_volume_ml": 2,
+        "final_volume_ml": 40,
+        "concentration": 0.05,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "NaCl0.9% after reconstitution",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select product and50 versus100micrograms/mL local standard. Propofol catheter compatibility is documented; do not extend to all listed drugs or generic midazolam Y-site approval."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 12,
+      "drug": "morphine",
+      "role_reported": "active",
+      "product_reported": "Hydrochloride10/20mg/mL;400mg/20mL proposed",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/42221/FichaTecnica",
+        "https://www.nice.org.uk/guidance/cg187/chapter/Recommendations"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 50,
+          "amount_unit": "mg_hydrochloride",
+          "final_volume_ml": 100,
+          "concentration": 0.5,
+          "concentration_unit": "mg_hydrochloride/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 100,
+          "amount_unit": "mg_hydrochloride",
+          "final_volume_ml": 100,
+          "concentration": 1.0,
+          "concentration_unit": "mg_hydrochloride/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 50,
+          "amount_unit": "mg_hydrochloride",
+          "final_volume_ml": 50,
+          "concentration": 1.0,
+          "concentration_unit": "mg_hydrochloride/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 100,
+          "amount_unit": "mg_hydrochloride",
+          "final_volume_ml": 50,
+          "concentration": 2.0,
+          "concentration_unit": "mg_hydrochloride/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Braun10mg/mL and20mg/mL contain hydrochloride trihydrate, with7.6/15.2mg/mL base equivalents; do not silently change the prescription convention. Its checked label does not establish generic24–48h dilution stability. NICE CG187 says not to routinely offer opiates for acute heart failure; analgesia/palliation and individualized indications remain separate."
+      ],
+      "pending": [
+        "Producto/pack real, convención de prescripción, dilución/sistema y plazo."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Morfina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "Hydrochloride10/20mg/mL;400mg/20mL proposed"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Convención sal/base explícita; morfina no es tratamiento rutinario de insuficiencia cardíaca aguda.",
+      "pending_es": "Producto/pack real, convención de prescripción, dilución/sistema y plazo.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 50,
+        "amount_unit": "mg_hydrochloride",
+        "stock_volume_ml": 5,
+        "final_volume_ml": 100,
+        "concentration": 0.5,
+        "concentration_unit": "mg_hydrochloride/mL",
+        "diluent_proposed": "NaCl0.9% reference; Glucose5% requires product support",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select product/pack, verify400mg/20mL claim, actual diluent/concentration/system and Y-site data. Renal/hepatic accumulation and monitoring remain required."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 13,
+      "drug": "hydromorphone",
+      "role_reported": "reference_alternative",
+      "product_reported": "No local injectable strength selected",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/86201/FT_86201.html",
+        "https://www.medicines.org.uk/emc/product/4363/smpc"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 10,
+          "amount_unit": "mg_hydrochloride",
+          "final_volume_ml": 50,
+          "concentration": 0.2,
+          "concentration_unit": "mg_hydrochloride/mL",
+          "verification_scope": "uploaded_protocol_arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Cited CIMA86201 is Edunix oral capsules: not an injectable product source and not proof of nationwide absence. UK Palladone2mg/mL is a separate reference with material-specific stability and immediate microbiological use, not local availability. High-potency stock and mg-base/hydrochloride conventions are not interchangeable."
+      ],
+      "pending": [
+        "El informe propone2mg/mL y10mg/50mL. Falta identificar producto inyectable/gestión de suministro real y condiciones; la importación mencionada no queda probada."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Hidromorfona",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "reference_alternative",
+          "protocol_draft_now_specifies_role": "reference_alternative"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "No local injectable strength selected"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "El enlace Edunix es oral; no demuestra ausencia nacional de inyectables. Referencia UK separada. El PNT aporta ahora la receta candidata.",
+      "pending_es": "El informe propone2mg/mL y10mg/50mL. Falta identificar producto inyectable/gestión de suministro real y condiciones; la importación mencionada no queda probada.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "reference_alternative",
+        "drug_amount": 10,
+        "amount_unit": "mg_hydrochloride",
+        "stock_volume_ml": 5,
+        "final_volume_ml": 50,
+        "concentration": 0.2,
+        "concentration_unit": "mg_hydrochloride/mL",
+        "diluent_proposed": "NaCl0.9%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "recipe_previously_missing_now_proposed": true,
+      "pending_original_sheets": [
+        "Actual imported/local injectable product, strength, recipe, authorization/supply and system remain unidentified; no pump preparation approved."
+      ],
+      "role_current_proposal": "reference_alternative",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 14,
+      "drug": "propofol",
+      "role_reported": "active",
+      "product_reported": "1%=10mg/mL or2%=20mg/mL, multiple products proposed",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/62953/FichaTecnica_62953.html",
+        "https://cima.aemps.es/cima/dochtml/ft/64868/FichaTecnica_64868.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 500,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 10.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 1000,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 20.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Lipuro undiluted system/container maximum12h; diluted1% preparation maximum6h. Transfer of undiluted drug alone does not establish a universal6h rule.1% dilution rules and2% non-dilution are product-specific.4mg/kg/h and7days do not guarantee absence of PRIS. Do not infer universal≥5micron filter or Y-site rules."
+      ],
+      "pending": [
+        "Límites Lipuro y método ya aclarados. Mantener correspondencia con el producto real y su sistema; no extrapolar a otras marcas o PFS."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Propofol",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "1%=10mg/mL or2%=20mg/mL, multiple products proposed"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Lipuro:1%diluido6h;1%/2%sin diluir12h desde apertura, con extracción/administración asépticas inmediatas; sin precarga diferida.",
+      "pending_es": "Límites Lipuro y método ya aclarados. Mantener correspondencia con el producto real y su sistema; no extrapolar a otras marcas o PFS.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 1000,
+        "amount_unit": "mg",
+        "stock_volume_ml": 50,
+        "final_volume_ml": 50,
+        "concentration": 20.0,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "undiluted2%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select actual brand,strength and delivery method. Document product-specific emulsion handling, filter instructions and local replacement procedure."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "product_scope": "Propofol Lipuro10mg/mL and20mg/mL only; do not extrapolate to other products/PFS",
+        "undiluted": {
+          "max_container_and_tubing_hours": 12,
+          "clock_start": "First opening/puncture, not a later syringe transfer",
+          "aseptic_immediate_extraction_and_administration_required": true,
+          "applies_to": "Original vial or aseptically and immediately filled sterile syringe, followed by immediate infusion"
+        },
+        "diluted_1percent": {
+          "max_hours_from_dilution": 6,
+          "prepare_immediately_before_use": true,
+          "max_propofol_parts": 1,
+          "max_diluent_parts": 4,
+          "minimum_concentration_mg_ml": 2,
+          "diluents": "CIMA-listed compatible fluids for Lipuro10mg/mL"
+        },
+        "prepared_syringe_for_deferred_storage": {
+          "authorized": false,
+          "use": "Immediate; no automatically inherited6h/12h storage allowance"
+        },
+        "two_percent_dilution_allowed": false,
+        "manufacturer_scope": "CIMA62953/64868; microbiological asepsis and clock limits remain distinct from local24h rule"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 15,
+      "drug": "dexmedetomidine",
+      "role_reported": "active",
+      "product_reported": "100micrograms/mL;2/4/10mL; multiple brands proposed",
+      "source_urls": [
+        "https://www.ema.europa.eu/en/documents/product-information/dexdor-epar-product-information_en.pdf"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 200,
+          "amount_unit": "micrograms",
+          "final_volume_ml": 50,
+          "concentration": 4.0,
+          "concentration_unit": "micrograms/mL",
+          "verification_scope": "Dexdor_label_concentration_supported_local_product_pending"
+        },
+        {
+          "drug_amount": 400,
+          "amount_unit": "micrograms",
+          "final_volume_ml": 100,
+          "concentration": 4.0,
+          "concentration_unit": "micrograms/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 1000,
+          "amount_unit": "micrograms",
+          "final_volume_ml": 250,
+          "concentration": 4.0,
+          "concentration_unit": "micrograms/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 400,
+          "amount_unit": "micrograms",
+          "final_volume_ml": 50,
+          "concentration": 8.0,
+          "concentration_unit": "micrograms/mL",
+          "verification_scope": "Dexdor_label_concentration_supported_local_product_pending"
+        },
+        {
+          "drug_amount": 1000,
+          "amount_unit": "micrograms",
+          "final_volume_ml": 125,
+          "concentration": 8.0,
+          "concentration_unit": "micrograms/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 2000,
+          "amount_unit": "micrograms",
+          "final_volume_ml": 250,
+          "concentration": 8.0,
+          "concentration_unit": "micrograms/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Dexdor permits both4 and8micrograms/mL, not mandatory4 only.24h physicochemical25C data coexist with immediate microbiological use; natural-rubber adsorption caution confirmed. The label does not impose the proposed blanket no-refrigeration storage rule. Retain ICU no-loading,max1.4micrograms/kg/h, RASS0to−3 and mortality warning; no blanket delirium-prevention indication adopted."
+      ],
+      "pending": [
+        "Marca y concentración elegida, material y combinaciones concretas en Y."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Dexmedetomidina",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "100micrograms/mL;2/4/10mL; multiple brands proposed"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Dexdor permite 4 u 8 µg/mL; ambas recetas contrastadas; asepsia separada de estabilidad.",
+      "pending_es": "Marca y concentración elegida, material y combinaciones concretas en Y.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 400,
+        "amount_unit": "micrograms",
+        "stock_volume_ml": 4,
+        "final_volume_ml": 100,
+        "concentration": 4.0,
+        "concentration_unit": "micrograms/mL",
+        "diluent_proposed": "NaCl0.9%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select actual product,standard4/8 concentration, system and exact supported Y-site combinations."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 16,
+      "drug": "midazolam",
+      "role_reported": "active",
+      "product_reported": "1 or5mg/mL; Braun1mg/mL and Normon5mg/mL cited",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/68898/FichaTecnica_68898.html",
+        "https://cima.aemps.es/cima/dochtml/ft/65796/FT_65796.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 100,
+          "amount_unit": "mg",
+          "final_volume_ml": 100,
+          "concentration": 1.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 50,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 1.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 100,
+          "amount_unit": "mg",
+          "final_volume_ml": 50,
+          "concentration": 2.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        },
+        {
+          "drug_amount": 50,
+          "amount_unit": "mg",
+          "final_volume_ml": 10,
+          "concentration": 5.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Label expression is midazolam equivalent, not total hydrochloride mass. Normon stability example is15mg/100–1000mL: do not extend those data to1/2/5mg/mL. Braun24h ambient/3days5C physicochemical findings have a separate immediate-use microbiological condition. No general deep-sedation target is selected simply by drug name."
+      ],
+      "pending": [
+        "Producto y evidencia para la concentración final/sistema; no aval global del PVC ni de Y."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Midazolam",
+      "control_points": {
+        "1_role": {
+          "status": "owner_declared",
+          "value": "active",
+          "protocol_draft_now_specifies_role": "active"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "1 or5mg/mL; Braun1mg/mL and Normon5mg/mL cited"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Aritmética 1/2/5 mg/mL correcta; no extender estabilidad de mezclas de 15 mg/100–1.000 mL.",
+      "pending_es": "Producto y evidencia para la concentración final/sistema; no aval global del PVC ni de Y.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "active",
+        "drug_amount": 100,
+        "amount_unit": "mg",
+        "stock_volume_ml": 20,
+        "final_volume_ml": 100,
+        "concentration": 1.0,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "NaCl0.9%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "pending_original_sheets": [
+        "Select actual product and compatible concentration/material evidence; broad PVC adsorption and Y-site list are not independently established for these mixtures."
+      ],
+      "role_current_proposal": "active",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    },
+    {
+      "number": 17,
+      "drug": "ketamine",
+      "role_reported": "not_selected",
+      "product_reported": "Ketolar50mg/mL,10mL=500mg",
+      "source_urls": [
+        "https://cima.aemps.es/cima/dochtml/ft/47034/FichaTecnica_47034.html"
+      ],
+      "arithmetic_recipes": [
+        {
+          "drug_amount": 250,
+          "amount_unit": "mg",
+          "final_volume_ml": 250,
+          "concentration": 1.0,
+          "concentration_unit": "mg/mL",
+          "verification_scope": "uploaded_protocol_arithmetic_only_not_preparation_approval"
+        }
+      ],
+      "source_findings": [
+        "Ketolar contains benzethonium; its label requires immediate use after dilution, not generic24–48h. Barbiturate and diazepam mixture restrictions confirmed. Adult ICU adjunct use is distinct from anesthetic induction, asthma/status rescue and procedural sedation; retain existing low-certainty PADIS adjunct scope."
+      ],
+      "pending": [
+        "Receta250mg/250mL y recambio local≤24h registrados. Falta respaldo de estabilidad/sistema; no se atribuye ese plazo a Ketolar."
+      ],
+      "status": "PARTIAL_PRODUCT_AND_LOCAL_RECONCILIATION",
+      "automatic_pump_release": false,
+      "name_es": "Ketamina",
+      "control_points": {
+        "1_role": {
+          "status": "not_selected",
+          "value": "not_selected",
+          "protocol_draft_now_specifies_role": "reference_alternative"
+        },
+        "2_product": {
+          "status": "source_comparison_recorded_local_product_matching_partial",
+          "value": "Ketolar50mg/mL,10mL=500mg"
+        },
+        "3_preparation": {
+          "status": "arithmetic_checked_protocol_candidate_product_conditions_pending",
+          "operationally_released": false,
+          "protocol_recipe_now_explicit": true
+        },
+        "4_equipment_route_compatibility": {
+          "status": "owner_draft_recorded_exact_system_and_Y_site_verification_incomplete"
+        },
+        "5_stability_replacement": {
+          "status": "local_replacement_policy_recorded_source_specific_stability_remains_separate"
+        },
+        "6_acceptance": {
+          "status": "owner_declared_reviewers_and_date_recorded",
+          "independent_signature_authenticated": false
+        }
+      },
+      "summary_es": "Ketolar: presentación y restricciones de mezclas; uso inmediato tras diluir, sin aval de 24–48 h. El PNT aporta ahora la receta candidata. Uso inmediato y recambio local≤24h aceptados por el propietario.",
+      "pending_es": "Receta250mg/250mL y recambio local≤24h registrados. Falta respaldo de estabilidad/sistema; no se atribuye ese plazo a Ketolar.",
+      "protocol_followup": {
+        "source": "Protocolo_Perfusiones_UCI.md",
+        "section_role_proposed": "reference_alternative",
+        "drug_amount": 250,
+        "amount_unit": "mg",
+        "stock_volume_ml": 5,
+        "final_volume_ml": 250,
+        "concentration": 1.0,
+        "concentration_unit": "mg/mL",
+        "diluent_proposed": "NaCl0.9% or Glucose5%",
+        "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+        "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+        "automatic_pump_release": false
+      },
+      "recipe_previously_missing_now_proposed": true,
+      "pending_original_sheets": [
+        "Active/alternative selection and exact final recipe are missing. Do not create a ready pump setting or certify the general Y-site list."
+      ],
+      "role_current_proposal": "reference_alternative",
+      "replacement_policy": {
+        "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+        "source": "Owner instruction2026-11-14, local institutional policy declaration",
+        "start_immediately_after_opening_reconstitution_dilution": true,
+        "max_container_and_tubing_hours": 24,
+        "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+        "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+        "delayed_storage_authorized": false,
+        "manufacturer_chemical_stability_certified_by_this_policy": false,
+        "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+      },
+      "closure_followup_2026_11_14": {
+        "status": "GREEN_DOCUMENTARY_AND_OWNER_ACCEPTANCE",
+        "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json",
+        "automatic_pump_release": false,
+        "historical_pending_notes": "Retained as source limitations, not repeated requests for owner approval; no unsupported stability claim."
+      }
+    }
+  ],
+  "registry_counts": {
+    "green": 91,
+    "yellow": 40,
+    "red": 0
+  },
+  "blocked_contracts_preserved": 19,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "technical_qa": {
+    "python": "673/673 PASS",
+    "new_product_unit_safety_tests": "9/9 PASS",
+    "frontend": "434/434 PASS",
+    "guides": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "normalized_catalog": "222sources/131modules",
+    "browser": "NOT RUN",
+    "report": "qa/INFUSION_PRODUCT_RECONCILIATION_QA_2026-11-14.json"
+  },
+  "source_access_notes": {
+    "access": "Primary official pages/PDFs retrieved on2026-11-14; targeted product sections compared, not an independent exhaustive clinical-outcome audit",
+    "known_older_or_restricted_sources": [
+      "Noradrenalina Braun label text06/2021; composition used, obsolete shock-position statements not adopted",
+      "Dopamina Grifols label text12/2012, current posted source, not a newly issued2026 guideline",
+      "Dobutamina Hospira page revoked/suspended; historical comparison only",
+      "Edunix86201 oral capsules, not injectable source or market-wide availability proof"
+    ],
+    "known_product_updates": {
+      "Empressin": "03/2026",
+      "Dobutamina Hikma": "10/2025",
+      "Simdax": "09/2025",
+      "Palladone UK": "emc updated08/01/2026",
+      "Ketolar": "11/2023"
+    },
+    "portugal_limit": "No new exact INFARMED RCM or independently verified Horta stock/device library established. Owner-provided declarations preserved as such."
+  },
+  "uploaded_protocol_followup": {
+    "filename": "Protocolo_Perfusiones_UCI.md",
+    "library_file_id": "libfile_54db268fb4548191b0feba853a6c6a40",
+    "sha256": "88a5f9f14ea34668fb0ce8544e5f7aeb4d6c2bc4acbe99e0be00a9034c71a653",
+    "review_date": "2026-11-14",
+    "lines": 129,
+    "original_modified": false,
+    "authority": "User-supplied unsigned draft; named CIMA/SEFH/ICS/ASHP references are not individually identified in the file; primary product comparisons in companion record remain decisive",
+    "report": "qa/UPLOADED_ICU_INFUSION_PNT_REVIEW_2026-11-14.md"
+  },
+  "uploaded_protocol_findings": [
+    "The PNT now proposes concrete recipes for all17. These are candidates for the standard, not independent proof of product/container/microbial validation.",
+    "Noradrenaline100micrograms BASE/mL, fentanyl50micrograms/mL and propofol20mg/mL differ from old40/80,10 and10mg/mL examples: pump rates must be recalculated, never copied.",
+    "The24h-for-everything-except-propofol statement is not supported for the exact17 product/preparation systems. Immediate-use and physical/chemical data must stay distinct.",
+    "Do not universalize propofol6h just for transfer; Lipuro6h dilution/12h undiluted limits were checked. A locally stricter limit can be proposed but is not a universal manufacturer requirement.",
+    "Peripheral32micrograms/mL/18G and concentration-specific Y-site claims are proposed institutional rules, not verified generic manufacturer thresholds.",
+    "Signature and entry-into-force fields are blank. Earlier owner-declared names/date remain recorded separately, not inserted into a signed approval of this corrected PNT.",
+    "Latest owner instruction selects local Empressin1IU/mL and a distinct table. CIMA0.8IU/mL is retained as reference only; mandatory local24h ceiling is not manufacturer chemical certification. Lipuro6h diluted/12h undiluted immediate-use conditions now explicit."
+  ],
+  "preservation": {
+    "baseline_commit": "22a8c85da3f7853aad7d5c98e204483ca8cb03cd",
+    "exact_two_module_bodies_changed": [
+      "icu-sedation-analgesia-infusions",
+      "vasoactive-inotrope-infusions"
+    ],
+    "other_bodies_and_shared_preambles_unchanged": true,
+    "all_registry_statuses_unchanged": true,
+    "runtime_calculators_contracts_and_pediatric_registries_unchanged": true,
+    "protected_tracked_files_unchanged": 313,
+    "individual_procedures_unchanged": 196,
+    "blocked_contracts_preserved": 19,
+    "attachment_original_unchanged_sha256_verified": true,
+    "new_stock_or_signed_document_invented": false
+  },
+  "owner_clarification_2026_11_14": {
+    "record": "qa/LOCAL_INFUSION_DECISIONS_2026-11-14.json",
+    "local_replacement_policy": {
+      "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+      "source": "Owner instruction2026-11-14, local institutional policy declaration",
+      "start_immediately_after_opening_reconstitution_dilution": true,
+      "max_container_and_tubing_hours": 24,
+      "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+      "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+      "delayed_storage_authorized": false,
+      "manufacturer_chemical_stability_certified_by_this_policy": false,
+      "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+    },
+    "propofol_lipuro_policy": {
+      "product_scope": "Propofol Lipuro10mg/mL and20mg/mL only; do not extrapolate to other products/PFS",
+      "undiluted": {
+        "max_container_and_tubing_hours": 12,
+        "clock_start": "First opening/puncture, not a later syringe transfer",
+        "aseptic_immediate_extraction_and_administration_required": true,
+        "applies_to": "Original vial or aseptically and immediately filled sterile syringe, followed by immediate infusion"
+      },
+      "diluted_1percent": {
+        "max_hours_from_dilution": 6,
+        "prepare_immediately_before_use": true,
+        "max_propofol_parts": 1,
+        "max_diluent_parts": 4,
+        "minimum_concentration_mg_ml": 2,
+        "diluents": "CIMA-listed compatible fluids for Lipuro10mg/mL"
+      },
+      "prepared_syringe_for_deferred_storage": {
+        "authorized": false,
+        "use": "Immediate; no automatically inherited6h/12h storage allowance"
+      },
+      "two_percent_dilution_allowed": false,
+      "manufacturer_scope": "CIMA62953/64868; microbiological asepsis and clock limits remain distinct from local24h rule"
+    },
+    "scope": "Latest explicit owner instruction supersedes prior local choice, not manufacturer facts",
+    "technical_qa": {
+      "python": "678/678 PASS",
+      "new_local_concentration_and_clock_tests": "5/5 PASS",
+      "product_reconciliation_tests": "9/9 PASS",
+      "frontend": "434/434 PASS",
+      "guides": "4/4 PASS",
+      "global_checks": "7/7 PASS",
+      "source_catalog": "222sources/131modules",
+      "browser": "NOT RUN",
+      "report": "qa/LOCAL_INFUSION_DECISIONS_QA_2026-11-14.json"
+    }
+  },
+  "latest_technical_qa": {
+    "python": "678/678 PASS",
+    "new_local_concentration_and_clock_tests": "5/5 PASS",
+    "product_reconciliation_tests": "9/9 PASS",
+    "frontend": "434/434 PASS",
+    "guides": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "source_catalog": "222sources/131modules",
+    "browser": "NOT RUN",
+    "report": "qa/LOCAL_INFUSION_DECISIONS_QA_2026-11-14.json"
+  },
+  "latest_closure": "qa/INFUSION_SEVEN_POINT_CLOSURE_2026-11-14.json"
+}

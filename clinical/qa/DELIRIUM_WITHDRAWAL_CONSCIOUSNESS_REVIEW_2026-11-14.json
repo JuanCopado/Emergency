@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-14",
+  "modules": [
+    "delirium",
+    "alcohol-withdrawal",
+    "altered-consciousness"
+  ],
+  "status": "green",
+  "owner_authorization": {
+    "delirium": "revisa y valida; recorded within prior explicit instruction to mark completed reviewed modules GREEN",
+    "alcohol-withdrawal": "valida y pasa a verde",
+    "altered-consciousness": "valida y pasa a verde; repeated request handled once"
+  },
+  "scope": "Adult emergency reference workflows; individual patient/product checks and prospective clinical performance remain distinct.",
+  "previous_records": {
+    "delirium": {
+      "priority": "standard",
+      "primary_source": "NICE delirium guideline and geriatric emergency-care guidance",
+      "stored_version": "NICE CG103 with current surveillance; review 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    },
+    "alcohol-withdrawal": {
+      "priority": "high",
+      "primary_source": "ASAM Clinical Practice Guideline on Alcohol Withdrawal Management",
+      "primary_source_url": "https://www.asam.org/quality-care/clinical-guidelines/alcohol-withdrawal-management-guideline",
+      "stored_version": "2020",
+      "last_checked": "2026-09-27",
+      "status": "yellow",
+      "note": "Agent, cumulative dose and monitoring remain setting-, age- and liver-function dependent."
+    },
+    "altered-consciousness": {
+      "priority": "high",
+      "primary_source": "ACR Appropriateness Criteria for altered mental status/coma/delirium plus syndrome-specific resuscitation guidance",
+      "stored_version": "current online criteria reviewed 2026",
+      "last_checked": "2026-09-27",
+      "status": "yellow"
+    }
+  },
+  "sources": {
+    "delirium": [
+      {
+        "title": "NICE CG103",
+        "version": "Published2010; assessment update2023-01-18; checked2026-11-14",
+        "url": "https://www.nice.org.uk/guidance/cg103/chapter/Recommendations",
+        "scope": "Clinical assessment, causes/nonpharmacological care and conditional short-term medication",
+        "access": "Official indexed recommendation text and PDF excerpts; direct overview403. No new2026 edition claimed"
+      },
+      {
+        "title": "4AT developer user guide",
+        "version": "Current official scoring guide",
+        "url": "https://www.the4at.com/userguide",
+        "scope": "Exact scoring categories and limits of a negative screen",
+        "access": "Official guide full text retrieved"
+      },
+      {
+        "title": "ICU Delirium and Cognitive Impairment Study Group monitoring resources",
+        "version": "Current CAM-ICU/ICDSC resources; training manual2016 and flowsheet2023 listed",
+        "url": "https://www.icudelirium.org/medical-professionals/delirium/monitoring-delirium-in-the-icu",
+        "scope": "Setting-appropriate assessment and arousal context",
+        "access": "Official page retrieved; linked CDN manual/flowsheet downloads failed, not claimed fully read"
+      },
+      {
+        "title": "MHRA haloperidol delirium safety reminder",
+        "version": "2021-12-10; current official safety page",
+        "url": "https://www.gov.uk/drug-safety-update/haloperidol-haldol-reminder-of-risks-when-used-in-elderly-patients-for-the-acute-treatment-of-delirium",
+        "scope": "Cardiac/neurological contraindications, ECG/electrolytes and adverse-effect monitoring",
+        "access": "Official safety communication retrieved"
+      },
+      {
+        "title": "SCCM PADIS focused update",
+        "version": "2025-02-20",
+        "url": "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+        "scope": "Insufficient evidence for or against routine ICU antipsychotic treatment; not a positive recommendation",
+        "access": "Official recommendation page retrieved"
+      },
+      {
+        "title": "CIMA haloperidol product contraindications",
+        "version": "Current retrieved product information",
+        "url": "https://cima.aemps.es/cima/dochtml/ft/58345/FichaTecnica_58345.html",
+        "scope": "Product-specific cardiac/neurological contraindications, not local stock or a generic IV recipe",
+        "access": "Official indexed SmPC text retrieved"
+      }
+    ],
+    "alcohol-withdrawal": [
+      {
+        "title": "ASAM alcohol withdrawal management",
+        "version": "2020; current official guideline listing",
+        "url": "https://www.asam.org/docs/default-source/quality-science/the_asam_clinical_practice_guideline_on_alcohol-1.pdf",
+        "scope": "Assessment limitations, selected front-loading example and adjunct boundaries",
+        "access": "Official PDF and relevant recommendations retrieved"
+      },
+      {
+        "title": "UK DHSC alcohol treatment chapter10",
+        "version": "Published2025; current manual updated2026",
+        "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/10-pharmacological-interventions",
+        "scope": "Regimen selection, clinical setting/competency and benzodiazepine monitoring",
+        "access": "Official current chapter retrieved"
+      },
+      {
+        "title": "UK DHSC alcohol treatment chapter16",
+        "version": "Published2025-11-28; updated2026-04-17",
+        "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/16-alcohol-care-in-acute-hospitals",
+        "scope": "Risk-stratified thiamine prophylaxis versus Wernicke treatment and hospital escalation",
+        "access": "Official current chapter and relevant dose sections retrieved"
+      }
+    ],
+    "altered-consciousness": [
+      {
+        "title": "ACR Altered Mental Status, Coma, Delirium and Psychosis",
+        "version": "2024 update; DOI10.1016/j.jacr.2024.08.018",
+        "url": "https://acsearch.acr.org/docs/3102409/Narrative/",
+        "scope": "Indication-specific CT selection, including persistent impairment after treating presumed metabolic causes",
+        "access": "Official indexed variants/summary and primary publication abstract retrieved; direct narrative/PDF403"
+      },
+      {
+        "title": "AHA adult and pediatric special circumstances of resuscitation",
+        "version": "2025",
+        "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation/",
+        "scope": "Ventilation-first opioid rescue and flumazenil harm in unsuitable patients",
+        "access": "Official recommendation tables and supporting text retrieved"
+      },
+      {
+        "title": "ASAM glucose/thiamine timing",
+        "version": "2020 recommendationV.7",
+        "url": "https://www.asam.org/docs/default-source/quality-science/the_asam_clinical_practice_guideline_on_alcohol-1.pdf",
+        "scope": "Glucose and thiamine may be given concurrently/in either order; hypoglycemia treatment is not delayed",
+        "access": "Official exact recommendation retrieved"
+      }
+    ]
+  },
+  "source_integrity": {
+    "delirium": {
+      "before_sha256": "3c39ae658ea974c9473df58ce9e16b8546fc55a11ee20d5ea3d1c62d75b51a72",
+      "after_sha256": "5732bfed52565792eb9f6007c6754055c4dc55e6e76e0eb826905ffe3f7c806d"
+    },
+    "alcohol-withdrawal": {
+      "before_sha256": "596ee9cea7919f15f53d30ab9ebb7bccb0aede7358801ac9ec2d13408c4cb4e5",
+      "after_sha256": "6bdfc803d80b44b960868ad0604be16eead2faa12d259c99d4729460e3ff9cc6"
+    },
+    "altered-consciousness": {
+      "before_sha256": "910092fb3d2129e51709f7e881c4b952db7f1ec495312607c9c8917cb9af8595",
+      "after_sha256": "f48dfd931014c17b23acbf2da8cc679ce177e79640809033be4f7f6fc7816ef4"
+    }
+  },
+  "reconciliations": {
+    "delirium": "Separate screening from diagnosis, general care from rescue medication, and NICE short-term symptom control from PADIS ICU evidentiary uncertainty.",
+    "four_at": "Correct attention category mismatch and reject invalid counts without silent truncation; no claim of whole-score-catalog validation or new UI deployment.",
+    "withdrawal": "Use one selected ASAM loading example and current UK risk-stratified thiamine reference; do not stack alternative schedules. Older ASAM prophylactic thiamine dose differs from selected UK guidance, not a Wernicke treatment substitute.",
+    "consciousness": "Etiology-driven investigation, ACR imaging context and selective antidotes. ASAM permits glucose/thiamine in either order; older ENLS4 coma source identified but not adopted for a thiamine-before-glucose rule."
+  },
+  "localization_limits": "No new hospital staffing, product brand/dilution, stock or transfer guarantee independently verified. DGS036/2012 updated2014 identified as historical alcohol-related material, not claimed a newly verified emergency-dosing norm. Foreign guidance/SmPC reference status is explicit.",
+  "invariants": {
+    "only_three_requested_guide_bodies_changed": true,
+    "family_preambles_other_modules_preserved": true,
+    "score_helper_changed_only": "calculate_four_at",
+    "other_block14_score_functions_unchanged": true,
+    "acute_medication_API_and_contracts_unchanged": true,
+    "blocked_contracts_preserved": 19,
+    "all_scores_module_still_yellow": true
+  },
+  "registry_counts": {
+    "green": 58,
+    "yellow": 73,
+    "red": 0
+  },
+  "technical_qa": {
+    "python": "622/622 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "source_catalog": "220 sources /131 modules, normalized",
+    "evidence_audit_errors": [],
+    "final_reference_edit": "After wording condensation preserving clinical content:421 main+5 focused tests and4 guide-generation tests rerun PASS; code unchanged from full622 run.",
+    "initial_failure": "One inherited withdrawal safety-phrase assertion; preserved its exact safety wording before final complete run PASS.",
+    "browser": "NOT RUN"
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "browser": "NOT RUN"
+}

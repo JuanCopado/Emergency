@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-13",
+  "module": "arrhythmias-cardiac-arrest",
+  "scope": "Manual navigation, canonical routing safety and destination fidelity in /guides and /clinical",
+  "status": "yellow",
+  "registry_counts": {
+    "green": 33,
+    "yellow": 98,
+    "red": 0
+  },
+  "findings": [
+    {
+      "before": "Module references were non-clickable text",
+      "after": "Four manual navigation links in both views, showing each destination own evidence status"
+    },
+    {
+      "before": "Router did not explicitly route pediatric pulse-present CPR indication",
+      "after": "Canonical source explicitly routes HR<60/min plus poor perfusion despite adequate respiratory support to pediatric arrest/CPR even with detectable pulse"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+      "version": "RCUK2025 Paediatric Life Support",
+      "claim": "Age framework, no rigid inference, neonatal transition/local protocol distinction"
+    },
+    {
+      "url": "https://www.resus.org.uk/sites/default/files/2025-12/Paediatric%20advanced%20life%20support%20algorithm%20Nov%202025%20V2.pdf",
+      "version": "PALSNov2025V2",
+      "claim": "No signs of life OR bradycardia<60/min with poor perfusion; CPR exception confirmed against destination module"
+    },
+    {
+      "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
+      "version": "RCUK2025ALS",
+      "claim": "Pulse/instability pathway and arrest versus synchronized cardioversion separation"
+    }
+  ],
+  "validation": {
+    "focused_dom_navigation_cases": 8,
+    "focused_failed": 0,
+    "covers": [
+      "Adult with pulse",
+      "Adult arrest",
+      "Pediatric perfusing arrhythmia",
+      "Pediatric arrest or CPR indication",
+      "Two public guide surfaces",
+      "Each link resolves to own canonical source body/status",
+      "Pediatric pulse-present exception and neonatal exclusion visible"
+    ],
+    "frontend_passed": 434,
+    "python_passed": 603,
+    "global_checks_passed": 7,
+    "guide_generation_passed": 4,
+    "build": "PASS",
+    "lint": "PASS"
+  },
+  "remaining": [
+    "Real-browser check blocked by previously documented environment restriction; no new browser PASS claimed",
+    "Nominal local team/clinician operational validation not supplied",
+    "Destination modules remain YELLOW; no full dose/energy clinical validation inferred"
+  ],
+  "canonical_medication_contracts_changed": false,
+  "destination_clinical_bodies_changed": false,
+  "local_insulin_simulator_changed": false,
+  "new_human_signature": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "publication": "Local only; no push",
+  "qa_report": "qa/RESUSCITATION_ROUTER_OPERATIONAL_QA_2026-11-13.json"
+}

@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-13",
+  "module": "lower-gi-bleeding",
+  "status": "green",
+  "owner_confirmation": {
+    "date": "2026-11-13",
+    "reported_by": "Juan, propietario del proyecto",
+    "statement": "Queda validado y conciliado pasa a verde",
+    "context": "Reversión y reinicio de anticoagulantes en hemorragia digestiva baja",
+    "basis": "Confirmación explícita del propietario",
+    "independently_verified": false,
+    "new_named_specialist_signature": false
+  },
+  "reference_review": "qa/FIRST_TEN_OVERDUE_REVIEW_2026-11-13.json",
+  "clinical_content_changed": false,
+  "canonical_contracts_changed": false,
+  "new_specialist_signature": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "registry_counts": {
+    "green": 38,
+    "yellow": 93,
+    "red": 0
+  },
+  "technical_qa": "PASS:603 Python,434 frontend,7/7 checks,4 guide-generation tests",
+  "qa_report": "qa/MESENTERIC_PE_LGIB_QA_2026-11-13.json"
+}

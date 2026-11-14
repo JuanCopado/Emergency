@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-13",
+  "modules": {
+    "anaphylaxis": {
+      "status": "green",
+      "basis": "Explicit owner acceptance of proposed infusion and observation/discharge pathway",
+      "statement": "si aceptamos esta pauta pasa a verde",
+      "independently_verified_local_stock": false,
+      "new_pharmacy_signature": false
+    },
+    "empiric-antibiotics": {
+      "status": "green",
+      "scope": "Bibliographic/general adult framework only; not a locally certified regimen table",
+      "basis": "Current primary source reconciliation; clarify timing of empirical and targeted therapy",
+      "local_antibiogram_or_formulary_supplied": false
+    }
+  },
+  "registry_counts": {
+    "green": 43,
+    "yellow": 88,
+    "red": 0
+  },
+  "sources": [
+    "https://www.resus.org.uk/sites/default/files/2021-04/Refractory%20anaphylaxis%20algorithm%202021.pdf",
+    "https://www.nice.org.uk/guidance/ng258",
+    "https://www.idsociety.org/practice-guideline/complicated-urinary-tract-infections",
+    "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026"
+  ],
+  "canonical_medication_contracts_changed": false,
+  "blocked_contracts_unlocked": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "technical_qa": {
+    "focused_tests": "419/419 PASS",
+    "guide_generation": "4/4 PASS",
+    "module_integrity": "131/131 PASS",
+    "evidence_audit_errors": [],
+    "source_catalog": "220 sources /131 modules, normalized",
+    "global_qa": "BLOCKED: previous full run 603 tests,25 errors from status-midazolam canonical anchor; not rerun or represented as PASS",
+    "browser": "NOT RUN",
+    "canonical_contracts_and_api": "unchanged from HEAD"
+  }
+}

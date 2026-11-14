@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-13",
+  "modules": [
+    "life-threatening-hemoptysis",
+    "acute-respiratory-failure",
+    "acute-liver-failure"
+  ],
+  "status": "green",
+  "owner_acceptance": {
+    "hemoptysis": "Circuito de vía aérea, broncoscopia, angio-TC y embolización/cirugía. pasalo a verde",
+    "respiratory": "Selección de soporte respiratorio, criterios de fracaso y escalada a intubación/UCI. pasalo a verde",
+    "liver": "Evidencia vigente, uso de NAC y circuito de contacto/traslado a centro de trasplante. pasalo a verde",
+    "basis": "Explicit owner request after pathway review; no independent resource audit or specialist signatures"
+  },
+  "comparisons": {
+    "life-threatening-hemoptysis": {
+      "source": "SCII consensus2023; CIRSE BAE standards2022 (current official listing checked2026-11-13)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10289864/",
+      "comparison": "Airway-first if unstable, CTA after stabilization and source-specific intervention concordant; clarify non-bleeding lung protection and pulmonary arterial embolization option.",
+      "access": "Primary SCII full-text sections and CIRSE standards/catalog retrieved."
+    },
+    "acute-respiratory-failure": {
+      "source": "ATS NIRS guideline2026; ERS HFNC2022; ERS/ATS NIV2017",
+      "url": "https://doi.org/10.1093/ajrccm/aamag302",
+      "comparison": "Update support-selection strength/comparators and conditional mild-hypercapnia exception; preserve failure/escalation gates.",
+      "access": "Official ATS article recommendations indexed in publisher search; direct full fetch failed CDN redirect. ERS primary summary retrieved; no claim entire ATS article read."
+    },
+    "acute-liver-failure": {
+      "source": "ACG Acute Liver Failure2023; AASLD current educational review; historical AASLD position2011",
+      "url": "https://doi.org/10.14309/ajg.0000000000002340",
+      "comparison": "Update NAC reference for adult non-acetaminophen ALF; preserve immediate APAP treatment, INR restraint and early transplant contact.",
+      "access": "Original ACG guideline PDF hosted by professional society, official ACG listing and AASLD educational page. Do not label listing-access date as new2026 guideline."
+    }
+  },
+  "source_integrity": {
+    "life-threatening-hemoptysis": {
+      "before_sha256": "a4598b65ed460b1ac889844f584fb49368542c55d43e26b1f0b0c59dda4934da",
+      "after_sha256": "63d7205aac2c7241540d62c1915dbe778fbb010ee89d93c760160ba900509fd1"
+    },
+    "acute-respiratory-failure": {
+      "before_sha256": "fcf745c49a10236a11d0a2ee902bf2fce34974e3f0dd7714f63b865013c65fc4",
+      "after_sha256": "9d72def9a4a315540050d491d0caa839696930c165f1deec87200dea1b3833ac"
+    },
+    "acute-liver-failure": {
+      "before_sha256": "7890fba7186d4e82f61a800a1c7bc8f2478c3b337094d3830710bcd84e4a8ca7",
+      "after_sha256": "268acf071be97193ce42aaa6c55de969f3039e4ce1e3b7ad821d4c0272ee68db"
+    }
+  },
+  "registry_counts": {
+    "green": 51,
+    "yellow": 80,
+    "red": 0
+  },
+  "medication_contracts_or_calculators_changed": false,
+  "drug_doses_or_local_preparations_added": false,
+  "blocked_contracts_unlocked": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "technical_qa": {
+    "status": "PASS",
+    "report": "qa/THREE_CIRCUITS_QA_2026-11-13.json",
+    "focused_python": 419,
+    "guide_generation": 4
+  }
+}

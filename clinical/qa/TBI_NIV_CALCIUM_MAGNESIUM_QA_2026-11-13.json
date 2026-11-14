@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-13",
+  "automated_status": "PASS",
+  "checks": [
+    {
+      "name": "module-integrity",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "evidence-coverage",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "clinical-case-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "real-image-provenance",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "image-source-registry",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "blinded-image-template",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "name": "unit-regression-tests",
+      "passed": true,
+      "returncode": 0
+    }
+  ],
+  "tests": {
+    "python_regressions": "606/606 PASS",
+    "frontend": "434/434 PASS",
+    "guide_generation": "4/4 PASS",
+    "global_checks": "7/7 PASS",
+    "module_integrity": "131/131 PASS",
+    "evidence_audit_errors": [],
+    "source_catalog": "220 sources /131 modules, normalized",
+    "browser": "NOT RUN; automated UI tests are not a real-browser check",
+    "initial_run": "BLOCKED: four assertions/date failures; corrected without relaxing audit or blocked contracts, then full final run PASS",
+    "date_handling": "Review date follows Atlantic/Azores clinical project date; future-date guard preserved."
+  },
+  "registry_counts": {
+    "green": 54,
+    "yellow": 77,
+    "red": 0
+  },
+  "invariants": {
+    "only_requested_three_module_bodies_and_records_changed": true,
+    "shared_preambles_other_module_bodies_and_global_policy_preserved": true,
+    "canonical_contract_and_API_files_unchanged": true,
+    "blocked_contract_count": 19,
+    "blocked_contract_ids": [
+      "status-refractory",
+      "status-phenytoin-local",
+      "anaphylaxis-under6months",
+      "anaphylaxis-refractory",
+      "reversal-vka-pcc",
+      "reversal-superwarfarin",
+      "reversal-edoxaban",
+      "reversal-betrixaban",
+      "reversal-fondaparinux",
+      "reversal-other-lmwh",
+      "reversal-enoxaparin-over12",
+      "reversal-argatroban",
+      "reversal-bivalirudin",
+      "reversal-other-dti",
+      "reversal-danaparoid",
+      "reversal-fibrinolytics",
+      "reversal-antiplatelets",
+      "reversal-unknown",
+      "reversal-dabigatran-repeat"
+    ]
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "browser": "NOT RUN",
+  "source_report": "TBI_NIV_CALCIUM_MAGNESIUM_RECONCILIATION_2026-11-13.json"
+}

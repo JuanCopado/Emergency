@@ -1,0 +1,223 @@
+{
+  "date": "2026-11-14",
+  "authorization": "Actualiza valida y pasa a verde todos estos",
+  "status": "GREEN",
+  "scope": "Seven-point documentary reconciliation and owner-declared local acceptance; not prospective validation or unrestricted preparation/Y-site approval",
+  "points": [
+    {
+      "number": 1,
+      "name": "Hidromorfona",
+      "status": "GREEN",
+      "resolution": "Palladone2mg/mL, hidrocloruro;10mg+SF hasta50mL finales=0,2mg/mL. Jurnista excluido."
+    },
+    {
+      "number": 2,
+      "name": "Noradrenalina",
+      "status": "GREEN",
+      "resolution": "100µgBASE/mL aceptado localmente. Stock0,5mgBASE/mL:10mL+40mL=50mL o20mL+80mL=100mL. No se inventa estabilidad específica ni máximo universal."
+    },
+    {
+      "number": 3,
+      "name": "Empressin",
+      "status": "GREEN",
+      "resolution": "40UI(2mL)+38mL SF=40mL finales,1UI/mL;0,01/0,02/0,03UI/min=0,6/1,2/1,8mL/h. Decisión local; CIMA describe0,8UI/mL y uso inmediato."
+    },
+    {
+      "number": 4,
+      "name": "Compatibilidades en Y",
+      "status": "GREEN",
+      "resolution": "Matriz11parejas incorporada; solo compartir con condiciones documentadas aplicables. Sin respaldo coincidente: luz separada. Bicarbonato/noradrenalina incompatibles."
+    },
+    {
+      "number": 5,
+      "name": "Residual y lavado",
+      "status": "GREEN",
+      "resolution": "Procedimiento CVC/periférico incorporado; retirar residual antes de lavado CVC, volumen según dispositivo, no arrastre universal2–3mL. Continuidad del soporte y secuencia del conector obligatorias."
+    },
+    {
+      "number": 6,
+      "name": "Recambio",
+      "status": "GREEN",
+      "resolution": "Uso inmediato y techo local24h; prevalece cualquier plazo menor. Lipuro1%diluido6h; Lipuro1/2%sin diluir12h desde apertura, sin reinicio por trasvase."
+    },
+    {
+      "number": 7,
+      "name": "Documentación y bombas",
+      "status": "GREEN",
+      "resolution": "Índice17fármacos con fuentes de producto vinculado; revisión clínica/farmacéutica y bombas confirmadas por propietario, sin atribuir inspección o firmas independientes."
+    }
+  ],
+  "product_reference_index": [
+    {
+      "number": 1,
+      "drug": "norepinephrine",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/62002/FT_62002.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 2,
+      "drug": "epinephrine",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/68552/FT_68552.html",
+        "https://cima.aemps.es/cima/dochtml/ft/35403/FT_35403.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 3,
+      "drug": "vasopressin",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/83405/FT_83405.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 4,
+      "drug": "dopamine",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/55454/FT_55454.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 5,
+      "drug": "dobutamine",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/85914/FT_85914.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 6,
+      "drug": "milrinone",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/58849/FichaTecnica_58849.html",
+        "https://cima.aemps.es/cima/dochtml/ft/91153/FT_91153.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 7,
+      "drug": "levosimendan",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/64154/FichaTecnica_64154.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 8,
+      "drug": "phenylephrine",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/70638/FT_70638.html",
+        "https://cima.aemps.es/cima/dochtml/ft/84988/FT_84988.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 9,
+      "drug": "angiotensin-ii",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/1191384003/FT_1191384003.html",
+        "https://www.ema.europa.eu/en/documents/product-information/giapreza-epar-product-information_es.pdf"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 10,
+      "drug": "fentanyl",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/41764/FichaTecnica_41764.html",
+        "https://cima.aemps.es/cima/pdfs/es/ft/84102/84102_ft.pdf"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 11,
+      "drug": "remifentanil",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/73168/FichaTecnica_73168.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 12,
+      "drug": "morphine",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/42221/FichaTecnica",
+        "https://www.nice.org.uk/guidance/cg187/chapter/Recommendations"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 13,
+      "drug": "hydromorphone",
+      "sources": [
+        "https://www.medicines.org.uk/emc/product/4363/smpc"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 14,
+      "drug": "propofol",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/62953/FichaTecnica_62953.html",
+        "https://cima.aemps.es/cima/dochtml/ft/64868/FichaTecnica_64868.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 15,
+      "drug": "dexmedetomidine",
+      "sources": [
+        "https://www.ema.europa.eu/en/documents/product-information/dexdor-epar-product-information_en.pdf"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 16,
+      "drug": "midazolam",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/68898/FichaTecnica_68898.html",
+        "https://cima.aemps.es/cima/dochtml/ft/65796/FT_65796.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    },
+    {
+      "number": 17,
+      "drug": "ketamine",
+      "sources": [
+        "https://cima.aemps.es/cima/dochtml/ft/47034/FichaTecnica_47034.html"
+      ],
+      "scope": "Product reference, not certification of all proposed concentrations or local stock"
+    }
+  ],
+  "reviewers": {
+    "clinical": "Rui Susano",
+    "pharmacy": "Miguel S",
+    "provenance": "Owner-declared, dated2026-11-14; independently authenticated signatures not claimed"
+  },
+  "automatic_pump_release": false,
+  "blocked_contracts_preserved": 19,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "limitations": [
+    "Exact product stability at selected norepinephrine100µgBASE/mL and Empressin1UI/mL is not newly established by this closure.",
+    "Unsupported Y-site pairs require separate lumens.",
+    "Local pump calibration accepted as declared; not independently performed."
+  ],
+  "registry_counts": {
+    "green": 115,
+    "yellow": 16
+  },
+  "technical_qa": {
+    "global_checks": "7/7 PASS",
+    "python": "710/710 PASS",
+    "focused_infusions": "23/23 PASS",
+    "protected_files_unchanged": 313,
+    "blocked_contracts": 19,
+    "browser": "NOT RUN",
+    "frontend": "NOT RERUN: no frontend changes",
+    "report": "qa/INFUSION_SEVEN_POINT_CLOSURE_QA_2026-11-14.json"
+  }
+}

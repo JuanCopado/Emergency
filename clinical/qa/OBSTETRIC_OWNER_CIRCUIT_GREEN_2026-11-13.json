@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-13",
+  "module": "obstetric-emergencies",
+  "status": "green",
+  "owner_confirmation": {
+    "statement": "siguiente urgencias obstetricas pasa a verde circuito",
+    "reported_by": "Juan, propietario del proyecto",
+    "scope": "Aceptación del circuito obstétrico",
+    "independently_verified": false
+  },
+  "prior_evidence_review": "qa/NEXT_TEN_OVERDUE_REVIEW_2026-11-13.json",
+  "clinical_doses_changed": false,
+  "canonical_medication_contracts_changed": false,
+  "new_named_specialist_or_pharmacy_signature": false,
+  "registry_counts": {
+    "green": 46,
+    "yellow": 85,
+    "red": 0
+  },
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "global_technical_block": "Prior status-midazolam source-anchor mismatch remains open",
+  "technical_qa": {
+    "guides": "4/4 PASS",
+    "module_integrity": "131/131 PASS",
+    "evidence_audit_errors": [],
+    "registry_changes": "obstetric-emergencies only",
+    "global_qa": "Prior block remains; not rerun"
+  }
+}

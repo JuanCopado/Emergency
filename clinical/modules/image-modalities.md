@@ -23,6 +23,9 @@ review. Do not force a classification when required views or clinical data are a
 - For ankle images specifically: assess mortise congruity, medial clear space qualitatively,
   fibular fracture level, visible posterior/medial malleolus and syndesmotic concern. Do not
   declare stability or surgical indication from an unstressed single view.
+- A negative radiograph does not exclude an occult fracture when symptoms/examination remain suspicious. For suspected scaphoid fracture after thorough clinical examination, NICE NG38 advises considering first-line MRI. For suspected hip fracture despite adequate negative X-rays, NICE CG124 recommends MRI; consider CT if MRI is unavailable within 24 hours or contraindicated. Persistent suspicion after inconclusive imaging needs protection, reassessment and specialist-directed further imaging rather than unrestricted discharge.
+- Select an appropriate radiographic series and advanced imaging with the clinical question, age, examination and validated site-specific rules; do not apply an adult classification or one-view exclusion rule to a child's physis. Limb threat, open injury, dislocation, suspected septic joint or compartment syndrome requires immediate clinical/orthopedic assessment, not waiting for a complete image report. Route to `orthopedic-emergencies` and `acute-musculoskeletal-pain` for management and neurovascular reassessment.
+- Record supplied views, image limitations, provisional interpretation, uncertain classification and the next action; reconcile with the formal radiology report and assign ownership for discrepant or pending findings. A bibliographically reviewed reading framework does not establish diagnostic accuracy. No new patient images or independently adjudicated image cases were assessed in this review; do not report sensitivity, specificity or validated exclusion performance.
 
 ## chest-xray
 

@@ -14,7 +14,35 @@
       "access": null,
       "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.63; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 1,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "10mL=10mg bitartrate=5mg base;50mL=50mg bitartrate=25mg base",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 25,
+          "amount_unit": "mg_base",
+          "stock_volume_ml": 50,
+          "final_volume_ml": 250,
+          "concentration": 0.1,
+          "concentration_unit": "mg_base/mL",
+          "diluent_proposed": "Glucose5%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     },
     {
       "drug": "epinephrine",
@@ -27,7 +55,35 @@
       "access": null,
       "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.62; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 2,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "1mg/mL,1mL; Braun or Level suggested",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 5,
+          "amount_unit": "mg",
+          "stock_volume_ml": 5,
+          "final_volume_ml": 250,
+          "concentration": 0.02,
+          "concentration_unit": "mg/mL",
+          "diluent_proposed": "Glucose5%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     },
     {
       "drug": "vasopressin",
@@ -40,7 +96,86 @@
       "access": null,
       "source": "INFARMED hospital formulary text references vasopressin therapeutically but no shock-infusion product strength was confirmed in the public reference reviewed; local Horta/INFARMED product verification still required",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 3,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "Empressin20IU/mL,2mL",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 40,
+          "amount_unit": "IU",
+          "stock_volume_ml": 2,
+          "final_volume_ml": 50,
+          "concentration": 0.8,
+          "concentration_unit": "IU/mL",
+          "diluent_proposed": "NaCl0.9%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      },
+      "owner_local_standard_2026_11_14": {
+        "preparation": {
+          "id": "empressin-local-1iu-ml-20261114",
+          "product": "Empressin20IU/mL",
+          "drug_amount_IU": 40,
+          "stock_volume_ml": 2,
+          "diluent": "NaCl0.9%",
+          "diluent_volume_ml": 38,
+          "final_volume_ml": 40,
+          "concentration_IU_ml": 1,
+          "local_selection_date": "2026-11-14",
+          "basis": "Explicit owner selection; differs from CIMA83405 preparation0.8IU/mL",
+          "pump_table": [
+            {
+              "dose_IU_min": 0.01,
+              "dose_IU_h": 0.6,
+              "rate_ml_h": 0.6
+            },
+            {
+              "dose_IU_min": 0.02,
+              "dose_IU_h": 1.2,
+              "rate_ml_h": 1.2
+            },
+            {
+              "dose_IU_min": 0.03,
+              "dose_IU_h": 1.8,
+              "rate_ml_h": 1.8
+            }
+          ],
+          "titration_interval_minutes": [
+            15,
+            20
+          ],
+          "routine_label_dose_upper_IU_min": 0.03,
+          "higher_doses": "Emergency-only per Empressin label; do not transfer routine Vasostrict0.07IU/min maximum",
+          "automated_patient_prescription": false
+        },
+        "replacement_policy": {
+          "scope": "Non-propofol preparations in submitted PNT; explicitly reiterated for Empressin and Ketolar",
+          "source": "Owner instruction2026-11-14, local institutional policy declaration",
+          "start_immediately_after_opening_reconstitution_dilution": true,
+          "max_container_and_tubing_hours": 24,
+          "replace_earlier_if": "Product-specific shorter limit, completion/exhaustion, contamination or other applicable local/system limit",
+          "clock_start": "Preparation, including any earlier applicable first-opening/reconstitution clock; not reset on transfer or connection",
+          "delayed_storage_authorized": false,
+          "manufacturer_chemical_stability_certified_by_this_policy": false,
+          "interpretation": "Mandatory local replacement ceiling; does not establish chemical stability for every mixture or overrule a shorter product limit"
+        },
+        "source_status": "owner_local_selection_distinct_from_CIMA0.8",
+        "record": "qa/LOCAL_INFUSION_DECISIONS_2026-11-14.json"
+      }
     },
     {
       "drug": "dopamine",
@@ -53,7 +188,35 @@
       "access": null,
       "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.63; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 4,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "40mg/mL;200mg/5mL; Grifols or Basi suggested",
+        "role": "reference_alternative",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "reference_alternative",
+          "drug_amount": 200,
+          "amount_unit": "mg",
+          "stock_volume_ml": 5,
+          "final_volume_ml": 250,
+          "concentration": 0.8,
+          "concentration_unit": "mg/mL",
+          "diluent_proposed": "Glucose5% or NaCl0.9%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     },
     {
       "drug": "dobutamine",
@@ -66,7 +229,35 @@
       "access": null,
       "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, section 3.3 Simpaticomiméticos, p.63; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 5,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "12.5mg/mL;250mg/20mL",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 250,
+          "amount_unit": "mg",
+          "stock_volume_ml": 20,
+          "final_volume_ml": 250,
+          "concentration": 1.0,
+          "concentration_unit": "mg/mL",
+          "diluent_proposed": "Glucose5% or NaCl0.9%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     },
     {
       "drug": "amiodarone",
@@ -105,7 +296,61 @@
       "access": null,
       "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, general anaesthetics section, p.39; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 14,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "1%=10mg/mL or2%=20mg/mL, multiple products proposed",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 1000,
+          "amount_unit": "mg",
+          "stock_volume_ml": 50,
+          "final_volume_ml": 50,
+          "concentration": 20.0,
+          "concentration_unit": "mg/mL",
+          "diluent_proposed": "undiluted2%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      },
+      "owner_handling_clarification_2026_11_14": {
+        "policy": {
+          "product_scope": "Propofol Lipuro10mg/mL and20mg/mL only; do not extrapolate to other products/PFS",
+          "undiluted": {
+            "max_container_and_tubing_hours": 12,
+            "clock_start": "First opening/puncture, not a later syringe transfer",
+            "aseptic_immediate_extraction_and_administration_required": true,
+            "applies_to": "Original vial or aseptically and immediately filled sterile syringe, followed by immediate infusion"
+          },
+          "diluted_1percent": {
+            "max_hours_from_dilution": 6,
+            "prepare_immediately_before_use": true,
+            "max_propofol_parts": 1,
+            "max_diluent_parts": 4,
+            "minimum_concentration_mg_ml": 2,
+            "diluents": "CIMA-listed compatible fluids for Lipuro10mg/mL"
+          },
+          "prepared_syringe_for_deferred_storage": {
+            "authorized": false,
+            "use": "Immediate; no automatically inherited6h/12h storage allowance"
+          },
+          "two_percent_dilution_allowed": false,
+          "manufacturer_scope": "CIMA62953/64868; microbiological asepsis and clock limits remain distinct from local24h rule"
+        },
+        "record": "qa/LOCAL_INFUSION_DECISIONS_2026-11-14.json"
+      }
     },
     {
       "drug": "dexmedetomidine",
@@ -118,7 +363,35 @@
       "access": null,
       "source": "INFARMED Portuguese Dexdor documentation; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 15,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "100micrograms/mL;2/4/10mL; multiple brands proposed",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 400,
+          "amount_unit": "micrograms",
+          "stock_volume_ml": 4,
+          "final_volume_ml": 100,
+          "concentration": 4.0,
+          "concentration_unit": "micrograms/mL",
+          "diluent_proposed": "NaCl0.9%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     },
     {
       "drug": "midazolam",
@@ -131,7 +404,35 @@
       "access": null,
       "source": "INFARMED Formulário Hospitalar Nacional de Medicamentos, benzodiazepines section, p.47; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 16,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "1 or5mg/mL; Braun1mg/mL and Normon5mg/mL cited",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 100,
+          "amount_unit": "mg",
+          "stock_volume_ml": 20,
+          "final_volume_ml": 100,
+          "concentration": 1.0,
+          "concentration_unit": "mg/mL",
+          "diluent_proposed": "NaCl0.9%",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     },
     {
       "drug": "fentanyl",
@@ -144,7 +445,35 @@
       "access": null,
       "source": "INFARMED references to fentanyl were found, but the public material reviewed did not provide a sufficiently clear current IV ICU-infusion presentation/strength for local operational use; local Horta/Infomed product verification required",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 10,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "50micrograms/mL;10/3mL proposed; Fentanest/Ethypharm/Basi suggested",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 2500,
+          "amount_unit": "micrograms",
+          "stock_volume_ml": 50,
+          "final_volume_ml": 50,
+          "concentration": 50.0,
+          "concentration_unit": "micrograms/mL",
+          "diluent_proposed": "undiluted",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     },
     {
       "drug": "remifentanil",
@@ -157,7 +486,35 @@
       "access": null,
       "source": "INFARMED Portuguese generic-authorisation reference; local Horta stock/RCM not verified",
       "reviewed_by": null,
-      "reviewed_on": "2026-10-02"
+      "reviewed_on": "2026-10-02",
+      "owner_sheet_followup_2026_11_14": {
+        "sheet": 11,
+        "record": "qa/INFUSION_PRODUCT_RECONCILIATION_2026-11-14.json",
+        "reported_product": "Lyophilized1/2/5mg; several products proposed",
+        "role": "active",
+        "reviewers": {
+          "clinical_reviewer": "Rui Susano",
+          "pharmacy_reviewer": "Miguel S",
+          "date": "2026-11-14",
+          "provenance": "Names,date and same-reviewer instruction supplied by owner; record applies to submitted drafts; not independently authenticated signatures or confirmation of all corrected recipes"
+        },
+        "preparation_release": false,
+        "status": "partial_source_and_local_reconciliation",
+        "uploaded_protocol_proposal": {
+          "source": "Protocolo_Perfusiones_UCI.md",
+          "section_role_proposed": "active",
+          "drug_amount": 2,
+          "amount_unit": "mg",
+          "stock_volume_ml": 2,
+          "final_volume_ml": 40,
+          "concentration": 0.05,
+          "concentration_unit": "mg/mL",
+          "diluent_proposed": "NaCl0.9% after reconstitution",
+          "verification_scope": "arithmetic_checked_proposed_standard_not_operational_release",
+          "volume_note": "Final total volume controls concentration; explicitly adjust volume rather than assume nominal bag volume. Giapreza paragraph omits an explicit withdrawal step.",
+          "automatic_pump_release": false
+        }
+      }
     }
   ]
 }

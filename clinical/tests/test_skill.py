@@ -174,7 +174,7 @@ class ModularCoreTests(unittest.TestCase):
         heart_failure = ' '.join(load(ROOT, 'acute-heart-failure').split())
         valve = ' '.join(load(ROOT, 'critical-valvular-disease').split())
         self.assertIn('irregular broad-complex rhythm', arrhythmia)
-        self.assertIn('20--25% in the first hour', hypertension)
+        self.assertIn('SBP by no more than 25% within the first hour', hypertension)
         self.assertIn('Do not use inotropes routinely', heart_failure)
         self.assertIn('Do not apply one valve strategy to another', valve)
 
@@ -188,7 +188,7 @@ class ModularCoreTests(unittest.TestCase):
                           'Do not give automatic large fluid boluses',
                           'temporary mechanical circulatory support reflexively'):
             self.assertIn(invariant, shock)
-        for invariant in ('HR 60--80/min', 'SBP below 120 mm Hg',
+        for invariant in ('ESC 2024 anti-impulse targets: HR at most 60/min', 'SBP below 120 mm Hg',
                           '2 g to a final volume of 100 mL = 20 mg/mL',
                           'Never start a pure vasodilator before impulse control',
                           'immediate operative repair'):
@@ -205,7 +205,10 @@ class ModularCoreTests(unittest.TestCase):
         copd = ' '.join(load(ROOT, 'copd-exacerbation').split())
         hemoptysis = ' '.join(load(ROOT, 'life-threatening-hemoptysis').split())
         for invariant in ('normal or rising PaCO2',
-                          '4--10 puffs of 100 micrograms',
+                          'severe presentation, salbutamol 6--10 puffs of 100 micrograms',
+                          'for moderate presentation, 4--6 puffs or 2.5 mg',
+                          'SpO2 target 92--95%',
+                          '4 puffs of 20 micrograms via spacer or 0.25 mg nebulized',
                           'prednisolone/prednisone 40--50 mg',
                           'magnesium sulfate 2 g IV over 20 minutes',
                           'dynamic hyperinflation'):
@@ -220,7 +223,8 @@ class ModularCoreTests(unittest.TestCase):
                           'bleeding lung dependent',
                           'at least 8.0--8.5 mm internal diameter',
                           'Do not default to a double-lumen tube',
-                          'must never delay bronchoscopy, embolization or surgery'):
+                          'must never delay bronchoscopy, embolization or surgery',
+                          'not automatic surgery solely because of arterial origin'):
             self.assertIn(invariant, hemoptysis)
 
     def test_v120_neurovascular_and_spinal_emergency_gates(self):
@@ -256,7 +260,7 @@ class ModularCoreTests(unittest.TestCase):
                           '20 mg/100 mL or 40 mg/200 mL = 200 micrograms/mL'):
             self.assertIn(invariant, selection)
         self.assertIn('Nimodipine is not a substitute', ich)
-        for invariant in ('usual algorithm maximum 220 mg',
+        for invariant in ('maximum cumulative IV dose of 300 mg in 24 h',
                           'immediate-release nifedipine 10 mg PO',
                           'Never give nifedipine sublingually'):
             self.assertIn(invariant, obstetric)
@@ -391,7 +395,9 @@ class ModularCoreTests(unittest.TestCase):
                           'soluble insulin 10 units IV plus glucose 25 g',
                           '50 mL/h for 5 hours', 'Never IV-push potassium'):
             self.assertIn(invariant, potassium)
-        self.assertIn('magnesium sulfate 2 g IV over 10--15 minutes', calcium)
+        self.assertIn('8 mmol IV over 10 min', calcium)
+        self.assertIn('IV over 15 min', calcium)
+        self.assertIn('Do not merge the two schedules', calcium)
 
     def test_hypernatremia_requires_serum_and_urine_diagnostics(self):
         sodium = ' '.join(load(ROOT, 'sodium-emergencies').split())
@@ -455,6 +461,7 @@ class ModularCoreTests(unittest.TestCase):
             'albumin_g_dl': 2.0, 'glucose_mg_dl': 450,
             'bun_mg_dl': 28, 'beta_hydroxybutyrate_mmol_l': 5.0,
             'history_of_diabetes': True, 'weight_kg': 70,
+            'metabolic_acidosis_confirmed': True,
         })
         self.assertAlmostEqual(result['anion_gap_mmol_l'], 25)
         self.assertAlmostEqual(result['albumin_corrected_anion_gap_mmol_l'], 30)
@@ -562,10 +569,10 @@ class ModularCoreTests(unittest.TestCase):
                           'context-limited signals', 'below 2.85 at 2 hours',
                           'must never overrule', 'named escalation plan'):
             self.assertIn(invariant, hfno)
-        for invariant in ('pH at most 7.35', 'IPAP 10--15 and EPAP 4',
-                          'backup rate 12--16/min', '88--92%',
-                          'Repeat gas approximately 1 hour',
-                          'pH below 7.25', 'no single number'):
+        for invariant in ('pH <=7.35', 'IPAP 10--15 cmH2O and EPAP 4 cmH2O',
+                          'Set S/T backup rate individually', '88--92%',
+                          'Repeat blood gas at approximately **1 hour**',
+                          'pH <7.25 despite optimized NIV', 'no single number'):
             self.assertIn(invariant, niv)
 
     def test_unknown_allergy_is_not_a_negative_history(self):
@@ -878,7 +885,10 @@ class ModularCoreTests(unittest.TestCase):
         for invariant in (
             '2019 ESC/ERS acute PE guideline',
             '2025 ACVC Clinical Decision-Making Toolkit',
-            'routine full-dose systemic thrombolysis is not recommended',
+            'Do not give routine full-dose systemic thrombolysis',
+            '2026 AHA/ACC multisociety acute PE guideline',
+            'categories C1--E1',
+            'LMWH over UFH',
             'alteplase **100 mg IV over 2 h**',
             '0.6 mg/kg over 15 min (max 50 mg)',
             '80 IU/kg bolus then 18 IU/kg/h',
@@ -893,6 +903,9 @@ class ModularCoreTests(unittest.TestCase):
         rev = ' '.join(load(ROOT, 'anticoagulation-reversal').split())
         for invariant in (
             'anti-Xa calibrado específico',
+            'PCC de cuatro factores no activado',
+            'cualquier médico puede activar',
+            'No extender tranexámico de rutina a toda hemorragia digestiva por AOD',
             'idarucizumab 5 g IV',
             '400 mg IV',
             '4 mg/min durante 120 min',
@@ -927,7 +940,7 @@ class ModularCoreTests(unittest.TestCase):
             '>=5 minutes',
             '0.1 mg/kg IV (max 4 mg)',
             '0.15--0.2 mg/kg IV (max 10 mg)',
-            '0.2 mg/kg (max 10 mg when >40 kg)',
+            '10 mg when >40 kg or 5 mg at 13--40 kg',
             '60 mg/kg IV, max 4,500 mg',
             '20 mg PE/kg IV, max 1,500 mg PE',
             '40 mg/kg IV, max 3,000 mg',
@@ -967,6 +980,9 @@ class ModularCoreTests(unittest.TestCase):
         tox = ' '.join(load(ROOT, 'toxicology').split())
         for invariant in (
             'Carbón activado no rutinario',
+            'un vial sólo como dosis de adulto desde 17 años',
+            'No confundir con edetato disódico sin calcio',
+            'no intercambiables por vial o volumen',
             'sobre todo precozmente',
             'vía aérea segura',
             'soporte ventilatorio primero',
@@ -1000,8 +1016,13 @@ class ModularCoreTests(unittest.TestCase):
             '50--100 mL',
             '10 mL 10% calcium chloride ≈ 6.8 mmol Ca2+',
             '10 mL 10% calcium gluconate ≈ 2.26 mmol Ca2+',
-            'magnesium sulfate 2 g IV over 10--15 minutes',
-            '10--15 min',
+            '4.565 mmol',
+            '2.25 mmol total calcium per 10 mL',
+            '8 mmol IV over 10 min',
+            'IV over 15 min',
+            '13.33 mL',
+            'not routine treatment for every cardiac arrest',
+            'do not mix calcium with bicarbonate, phosphate or sulfate-containing solutions',
             'not routine calcium-lowering therapy',
             'compatibility/stability'
         ):
@@ -1041,7 +1062,11 @@ class ModularCoreTests(unittest.TestCase):
             'more CT-intensive',
             'SBP >=100 mmHg',
             '>=110 mmHg',
-            'ICP >22 mmHg'
+            'ICP >22 mmHg',
+            'SBP >=110 mmHg',
+            'SDH thickness >10 mm',
+            'EDH volume >30 cm3',
+            'not universal international minima'
         ):
             self.assertIn(invariant, tbi)
 
@@ -1051,14 +1076,16 @@ class ModularCoreTests(unittest.TestCase):
         niv = ' '.join(load(ROOT, 'noninvasive-ventilation').split())
         for invariant in (
             'oxygenation failure, ventilation failure, or both',
-            'conditionally favors HFNO over NIV',
+            'does not establish universal HFNO superiority over NIV/CPAP',
+            'only with close monitoring and prompt NIV escalation',
             'P/F ratio <=200 mmHg',
             'Do not use noninvasive support as a delaying maneuver'
         ):
             self.assertIn(invariant, arf)
         for invariant in (
             'pH <=7.35',
-            'conditionally favors HFNO over NIV',
+            'does not establish universal HFNO superiority over NIV/CPAP',
+            'never obstruct the exhalation route',
             'IPAP 10--15 cmH2O and EPAP 4 cmH2O',
             '5--10 cmH2O',
             '88--92%',
@@ -1168,7 +1195,9 @@ class ModularCoreTests(unittest.TestCase):
             '5 mL/kg',
             'no more than 20 mL/kg',
             '15--20 mg/kg IV, max 1 g over 10 min',
-            '2 mg/kg/h, max 1 g',
+            # ERC2025 caps the loading dose, not the maintenance infusion.
+            'then **2 mg/kg/h**',
+            '1 g maximum applies to the loading dose',
             '100 mL/kg/day for the first 10 kg',
             '50 mL/kg/day for the next 10 kg',
             '20 mL/kg/day for each kg above 20 kg',
@@ -1448,7 +1477,10 @@ class ModularCoreTests(unittest.TestCase):
         for invariant in (
             '4 or more puffs of 100 micrograms/puff',
             '2.5 mg nebulized',
-            '4--10 puffs',
+            # GINA2026 initial-care SABA dosing is separated by severity.
+            '4--6 puffs** for moderate attacks',
+            '6--10 puffs** for severe/life-threatening attacks',
+            '92--95% for children 6--11 years',
             '4 puffs of 20 micrograms',
             '250 micrograms nebulized',
             '1--2 mg/kg/day',
@@ -1584,7 +1616,9 @@ class ModularCoreTests(unittest.TestCase):
             'within 1 h of hospital arrival',
             'ceftriaxone **100 mg/kg IV every 24 h, max 4 g**',
             'cefotaxime **50 mg/kg IV every 6 h, max 2 g**',
-            'vancomycin **15 mg/kg IV every 6 h**',
+            '15 mg/kg IV every 6 h, max 750 mg per dose',
+            '>90 days with normal renal function',
+            'infants <=90 days require the infant-specific regimen',
             '0.15 mg/kg IV every 6 h, max 10 mg',
             '20 mg/kg IV every 8 h',
             '500 mg/m2 IV every 8 h'
@@ -1687,8 +1721,8 @@ class ModularCoreTests(unittest.TestCase):
             'GCS <=13',
             'observe for up to **4 h after injury**',
             '30-minutely neurological observations for the first 2 h',
-            'persistent **GCS <8**',
-            'fall of >2 GCS points',
+            'persistent **GCS <=8**',
+            'fall of >=2 GCS points',
             'returned to normal consciousness/behaviour for at least 1 h'
         ): self.assertIn(invariant, module)
 
@@ -1743,7 +1777,8 @@ class ModularCoreTests(unittest.TestCase):
         module = ' '.join(load(ROOT, 'pediatric-foreign-body-emergencies').split())
         for invariant in (
             'normal chest X-ray does **not** exclude aspiration',
-            '**CT is not routinely recommended**',
+            '**selected low-dose CT**',
+            '**not delay bronchoscopy when clinical suspicion is high**',
             'oesophageal button battery requires endoscopic removal within 2 h',
             '**honey 10 mL every 10 min up to 6 doses**',
             '**>1 year**',
@@ -3403,6 +3438,48 @@ class ModularCoreTests(unittest.TestCase):
         pos=calculate_hestia({**all_no,'creatinine_clearance_lt30':True})
         self.assertFalse(pos['hestia_negative'])
         self.assertEqual(pos['positive_count'],1)
+
+    def test_dvt_wells_two_level_boundary_and_alternative_diagnosis(self):
+        positive = (
+            'active_cancer', 'paralysis_paresis_or_recent_cast',
+            'bedridden_ge3d_or_major_surgery_12w', 'localized_deep_vein_tenderness',
+            'entire_leg_swollen', 'calf_swelling_ge3cm',
+            'pitting_edema_symptomatic_leg', 'collateral_superficial_nonvaricose_veins',
+            'previous_dvt')
+        base = {key: False for key in positive}
+        base['alternative_diagnosis_at_least_as_likely'] = False
+        for points, classification in [(0, 'dvt_unlikely'), (1, 'dvt_unlikely'),
+                                       (2, 'dvt_likely')]:
+            with self.subTest(points=points):
+                values = dict(base)
+                for key in positive[:points]:
+                    values[key] = True
+                actual = calculate_wells_dvt(values)
+                self.assertEqual(actual['total'], points)
+                self.assertEqual(actual['two_level_probability'], classification)
+        values = {**base, positive[0]: True, positive[1]: True,
+                  'alternative_diagnosis_at_least_as_likely': True}
+        self.assertEqual(calculate_wells_dvt(values)['total'], 0)
+        self.assertEqual(calculate_wells_dvt(values)['two_level_probability'], 'dvt_unlikely')
+        with self.assertRaises(ValueError):
+            calculate_wells_dvt({**base, 'active_cancer': 1})
+        del values['previous_dvt']
+        with self.assertRaises(ValueError):
+            calculate_wells_dvt(values)
+
+    def test_dvt_preserves_diagnostic_and_treatment_phase_boundaries(self):
+        text = ' '.join(load(ROOT, 'dvt').split())
+        for invariant in (
+            '>=2 likely; <=1 unlikely', '4 h', '24 h', '6--8 days',
+            'FEU and DDU are not interchangeable',
+            'negative two-point POCUS',
+            '10 mg orally every 12 h for 7 days, then 5 mg every 12 h',
+            '15 mg orally every 12 h for 21 days, then 20 mg once daily',
+            'with food', 'atrial-fibrillation dose-reduction criteria',
+            '2 weeks', 'at least **3 months**',
+            'Do not routinely add an IVC filter',
+            'not prospective diagnostic validation'):
+            self.assertIn(invariant, text)
 
     def test_v137_wells_dvt_source_encoded(self):
         low=calculate_wells_dvt({

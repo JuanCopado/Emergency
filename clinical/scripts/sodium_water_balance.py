@@ -11,7 +11,10 @@ def _number(name, value, required=False):
         return None
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{name} must be numeric")
-    value = float(value)
+    try:
+        value = float(value)
+    except OverflowError as exc:
+        raise ValueError(f"{name} must be finite and non-negative") from exc
     if not math.isfinite(value) or value < 0:
         raise ValueError(f"{name} must be finite and non-negative")
     return value
@@ -19,6 +22,8 @@ def _number(name, value, required=False):
 
 def calculate(data):
     sodium = _number("serum_na_mmol_l", data.get("serum_na_mmol_l"), True)
+    if sodium <= 0:
+        raise ValueError("serum_na_mmol_l must be positive")
     glucose = _number("glucose_mmol_l", data.get("glucose_mmol_l"))
     if glucose is None and data.get("glucose_mg_dl") is not None:
         glucose = _number("glucose_mg_dl", data.get("glucose_mg_dl")) / 18.0
