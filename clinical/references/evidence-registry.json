@@ -859,16 +859,16 @@
         "clinical_release_status": "CLINICALLY_PENDING",
         "recipe_rows": [
           {
-            "final_volume_ml": 100.0,
-            "withdraw_from_actual_base_ml": 11.0,
-            "base_0_9pct_remaining_ml": 89.0,
-            "stock_20pct_added_ml": 11.0,
+            "final_volume_ml": 100,
+            "withdraw_from_actual_base_ml": 11,
+            "base_0_9pct_remaining_ml": 89,
+            "stock_20pct_added_ml": 11,
             "nacl_total_g": 3.001,
             "calculated_final_percent": 3.001,
             "stock_ml_for_exact3pct": 10.99476439790576
           },
           {
-            "final_volume_ml": 250.0,
+            "final_volume_ml": 250,
             "withdraw_from_actual_base_ml": 27.5,
             "base_0_9pct_remaining_ml": 222.5,
             "stock_20pct_added_ml": 27.5,
@@ -877,10 +877,10 @@
             "stock_ml_for_exact3pct": 27.486910994764397
           },
           {
-            "final_volume_ml": 500.0,
-            "withdraw_from_actual_base_ml": 55.0,
-            "base_0_9pct_remaining_ml": 445.0,
-            "stock_20pct_added_ml": 55.0,
+            "final_volume_ml": 500,
+            "withdraw_from_actual_base_ml": 55,
+            "base_0_9pct_remaining_ml": 445,
+            "stock_20pct_added_ml": 55,
             "nacl_total_g": 15.005,
             "calculated_final_percent": 3.001,
             "stock_ml_for_exact3pct": 54.973821989528794
@@ -3704,7 +3704,7 @@
       "stored_version": "v1.39 final governance gate 2026-10-06",
       "last_checked": "2026-10-06",
       "status": "yellow",
-      "note": "Dynamic final-project review queue covers every evidence-registry module with status yellow. Current project state: 102 yellow modules remain intentionally pending human review. Automated QA and AI-assisted reviews cannot promote modules to green. Human clinical/pharmacy/privacy/operational review as applicable plus post-correction Clinical QA are required at project end."
+      "note": "Dynamic final-project review queue covers all current yellow entries in this registry. Checked2026-11-14:14yellow modules; do not use historical counts. Prior owner acceptances remain recorded. Automated QA alone does not establish prospective clinical validation; applicable clinical/pharmacy/privacy/operational release gates remain, with CLINICALLY_PENDING global."
     }
   },
   "ui_ux_implementation_review": {
