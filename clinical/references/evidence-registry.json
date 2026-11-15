@@ -349,6 +349,31 @@
           "19 BLOCKED",
           "I02 NO-GO"
         ]
+      },
+      "owner_technical_acceptance": {
+        "date": "2026-11-15",
+        "accepted_by": "Juan Copado",
+        "github_username": "JuanCopado",
+        "outcome": "TECHNICAL_CLOSURE_ACCEPTED",
+        "statement": "acepto el cierre tecnico",
+        "source": "Explicit personal response in the project chat; transcribed by assistant to PR comment at owner request",
+        "discussion_url": "https://github.com/JuanCopado/Emergency/pull/16#issuecomment-6898096587",
+        "accepted_evidence_commit": "f30cd9a2d545f044c5b7fe41ec973d2ebd982810",
+        "report": "qa/ARRHYTHMIA_ROUTER_OWNER_TECHNICAL_ACCEPTANCE_2026-11-15.json",
+        "scope": "Eight synthetic real-browser navigations in Windows using the isolated copy with the archived test-only patch; 8/8 PASS and three GitHub checks PASS",
+        "human_technical_acceptance": true,
+        "independent_human_review": false,
+        "formal_github_approval": false,
+        "clinical_validation": false,
+        "clinical_release_authorized": false,
+        "merge_authorized": false,
+        "module_status": "yellow",
+        "clinical_release_status": "CLINICALLY_PENDING",
+        "remaining_reservations": [
+          "4 P1",
+          "19 BLOCKED",
+          "I02 NO-GO"
+        ]
       }
     },
     "hypertensive-emergencies": {

@@ -1,3 +1,4 @@
+<!-- Owner technical acceptance recorded 2026-11-15; no clinical promotion or merge authorized; ../qa/ARRHYTHMIA_ROUTER_OWNER_TECHNICAL_ACCEPTANCE_2026-11-15.json; mappings unchanged. -->
 <!-- Independent agent technical review recorded 2026-11-15; no actionable findings; no human/clinical approval or status changes; ../qa/ARRHYTHMIA_ROUTER_INDEPENDENT_AGENT_REVIEW_2026-11-15.json; mappings unchanged. -->
 <!-- Derived catalogs synchronized 2026-11-15; registry statuses and all mappings unchanged; ../qa/ARRHYTHMIA_CATALOG_REFRESH_2026-11-15.json. -->
 <!-- Windows browser technical item CLOSED 2026-11-15: 8/8 PASS on isolated test-patched copy; module YELLOW, CLINICALLY_PENDING and all reservations retained; ../qa/ARRHYTHMIA_ROUTER_BROWSER_2026-11-15.json; mappings unchanged. -->
