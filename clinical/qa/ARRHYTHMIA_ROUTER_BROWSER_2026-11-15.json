@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-15T15:28:54.031Z",
+  "status": "PASS",
+  "technical_item_status": "CLOSED",
+  "stage": "real_browser_navigation",
+  "cases_planned": 8,
+  "cases_executed": 8,
+  "cases_passed": 8,
+  "results": [
+    {
+      "base": "/guides",
+      "target": "adult-arrhythmias",
+      "target_status": "green",
+      "result": "PASS"
+    },
+    {
+      "base": "/guides",
+      "target": "adult-cardiac-arrest",
+      "target_status": "green",
+      "result": "PASS"
+    },
+    {
+      "base": "/guides",
+      "target": "pediatric-arrhythmias",
+      "target_status": "green",
+      "result": "PASS"
+    },
+    {
+      "base": "/guides",
+      "target": "pediatric-cardiac-arrest",
+      "target_status": "green",
+      "result": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "adult-arrhythmias",
+      "target_status": "green",
+      "result": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "adult-cardiac-arrest",
+      "target_status": "green",
+      "result": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "pediatric-arrhythmias",
+      "target_status": "green",
+      "result": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "pediatric-cardiac-arrest",
+      "target_status": "green",
+      "result": "PASS"
+    }
+  ],
+  "page_errors": [],
+  "script_exit_code": 0,
+  "clinical_simulation": false,
+  "module_status": "yellow",
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "remaining_reservations": [
+    "4 P1",
+    "19 BLOCKED",
+    "I02 NO-GO"
+  ],
+  "owner_authorization": "User explicitly requested technical closure in an isolated branch without changing clinical status",
+  "source_commit": "761f42d9afc8a7b7202d18bb0fd506d721dd4e50",
+  "source_tree": "f834c6f8e77c7006082c909bc28f8bfaa8a72d61",
+  "test_path": "app/scripts/check-resuscitation-router.mjs",
+  "source_tree_patch_required": true,
+  "test_patch": "arrhythmia-browser-windows-2026-11-15/test-fix.patch",
+  "product_code_changed": false,
+  "provenance": {
+    "timestamp_utc": "2026-11-15T15:30:06.4195430Z",
+    "host": "JUAN-C",
+    "source_commit": "761f42d9afc8a7b7202d18bb0fd506d721dd4e50",
+    "git_tree": "f834c6f8e77c7006082c909bc28f8bfaa8a72d61",
+    "temporary_root": "C:\\Users\\juanc\\AppData\\Local\\Temp\\Emergency-Arrhythmia-Locked-20261115-142824\\Emergency-761f42d9afc8a7b7202d18bb0fd506d721dd4e50",
+    "source_validation": "1001 source files compared against preserved ZIP: only app/scripts/check-resuscitation-router.mjs changed",
+    "node": "24.15.0",
+    "npm": "11.12.1",
+    "browser": "Google Chrome/Chromium 157.0.8103.51",
+    "browser_executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "playwright_core": "1.63.0",
+    "vite": "5.4.21",
+    "dependency_command": "npm ci --offline --ignore-scripts --no-audit --no-fund",
+    "dependency_install_exit": 0,
+    "dependency_validation": "npm ls --all --json",
+    "dependency_validation_exit": 0,
+    "package_lock_unchanged": true,
+    "browser_downloads": false,
+    "normal_test_exit": 0,
+    "screenshot_test_exit": 0,
+    "screenshot_run_chromium_sandbox": true,
+    "normal_test_sandbox": "Unmodified Playwright launch default",
+    "CHROMIUM_PATH": "set per process to installed Chrome",
+    "BROWSER_PATH": "not used by preserved locator",
+    "clinical_status": "CLINICALLY_PENDING",
+    "module_status": "YELLOW",
+    "remaining_reservations": [
+      "4 P1",
+      "19 BLOCKED",
+      "I02 NO-GO"
+    ],
+    "main_modified": false,
+    "registry_modified": false
+  },
+  "artifacts_directory": "arrhythmia-browser-windows-2026-11-15",
+  "historical_attempt": {
+    "date": "2026-11-14",
+    "status": "BLOCKED",
+    "cases_executed": 0,
+    "report": "ARRHYTHMIA_ROUTER_BROWSER_2026-11-14.json",
+    "preserved": true,
+    "linux_environment_revalidated": false
+  },
+  "dom_navigation_tests": {
+    "passed": 8,
+    "total": 8,
+    "scope": "Historical simulated DOM; distinct from browser; not rerun"
+  },
+  "limitations": [
+    "Technical closure applies to Windows JUAN-C, preserved commit plus supplied test-only patch",
+    "The original unpatched script fails its case-sensitive status assertion",
+    "Patch remains evidence only in this branch; executable test and product source unchanged",
+    "No clinical production release, independent clinical validation or status promotion",
+    "Copied provenance/proposal artifacts describe the earlier preparation stage and remain immutable; this report records the current technical closure"
+  ]
+}

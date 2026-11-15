@@ -1,0 +1,12 @@
+{
+  "tracked_files_checked": 1001,
+  "modified_files": [
+    {
+      "path": "app/scripts/check-resuscitation-router.mjs",
+      "before_sha256": "2DA3C42890C2D2C1D8D398620EBE06A49E873D31E443EF5D2B92D66640795827",
+      "after_sha256": "515C9E5787A5F8D5A70631FCAE2940A6D2687DD6798776B287E61FB4D5638ED6"
+    }
+  ],
+  "extra_diagnostic_script": "app/scripts/capture-router-local.mjs",
+  "excluded": "node_modules and Vite runtime cache, untracked temporary outputs"
+}

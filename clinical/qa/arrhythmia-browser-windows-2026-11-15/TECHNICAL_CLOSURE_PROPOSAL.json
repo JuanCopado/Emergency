@@ -1,0 +1,18 @@
+{
+  "item": "Eight real-browser arrhythmia/cardiac-arrest router navigation checks",
+  "technical_evidence": "PASS",
+  "cases_executed": 8,
+  "cases_passed": 8,
+  "page_errors": 0,
+  "technical_closure_recommendation": "Ready for reviewer acceptance for Windows on the preserved commit plus the supplied test-only patch",
+  "scope": "Synthetic local browser verification; not clinical validation",
+  "source_commit": "761f42d9afc8a7b7202d18bb0fd506d721dd4e50",
+  "git_tree": "f834c6f8e77c7006082c909bc28f8bfaa8a72d61",
+  "test_patch": "test-fix.patch",
+  "results": "locked-eight-results.json",
+  "screenshots_results": "captured-eight-results.json",
+  "clinical_status_change_requested": false,
+  "registry_change_applied": false,
+  "linux_EPERM": "Not reproduced or validated in its original Linux environment",
+  "historical_DOM": "8/8 historical DOM checks remain separate evidence"
+}

@@ -288,7 +288,7 @@
       "last_checked": "2026-11-14",
       "status": "yellow",
       "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
-      "note": "Chromium socket creation denied;0/8 browser cases executed. Prior owner acceptance retained;four destinations nowGREEN. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "Windows JUAN-C: 8/8 real-browser cases PASS on 2026-11-15 with exact lockfile dependencies and the isolated test-only case-normalization patch. Technical browser-navigation item CLOSED for this Windows scope. Historical Linux socket EPERM attempt remains BLOCKED (0/8); not retested there. Module remains YELLOW; prior owner acceptance and four GREEN destinations retained. No prospective clinical validation or release inferred; CLINICALLY_PENDING, 4 P1, 19 BLOCKED contracts and I02 NO-GO preserved.",
       "focused_review": {
         "date": "2026-11-14",
         "outcome": "yellow",
@@ -296,11 +296,40 @@
         "reason": "Chromium socket creation denied;0/8 browser cases executed. Prior owner acceptance retained;four destinations nowGREEN."
       },
       "latest_functional_attempt": {
-        "date": "2026-11-14",
-        "report": "qa/ARRHYTHMIA_ROUTER_BROWSER_2026-11-14.json",
-        "browser": "BLOCKED: socket EPERM before navigation;0/8 executed",
-        "dom": "8/8 PASS",
-        "status": "yellow"
+        "date": "2026-11-15",
+        "report": "qa/ARRHYTHMIA_ROUTER_BROWSER_2026-11-15.json",
+        "browser": "PASS: Windows Chrome/Chromium;8/8 executed;8/8 PASS;exit 0;no page errors",
+        "dom": "Historical 8/8 PASS; separate simulated-DOM evidence, not rerun for this update",
+        "status": "yellow",
+        "technical_item_status": "CLOSED",
+        "clinical_release_status": "CLINICALLY_PENDING",
+        "source_commit": "761f42d9afc8a7b7202d18bb0fd506d721dd4e50",
+        "test_patch": "qa/arrhythmia-browser-windows-2026-11-15/test-fix.patch",
+        "scope": "Windows JUAN-C synthetic local navigation only; test-only patched copy, not unmodified upstream code or original Linux environment"
+      },
+      "functional_attempt_history": [
+        {
+          "date": "2026-11-14",
+          "report": "qa/ARRHYTHMIA_ROUTER_BROWSER_2026-11-14.json",
+          "browser": "BLOCKED: socket EPERM before navigation;0/8 executed",
+          "dom": "8/8 PASS",
+          "status": "yellow"
+        }
+      ],
+      "technical_browser_item": {
+        "status": "CLOSED",
+        "date": "2026-11-15",
+        "cases_executed": 8,
+        "cases_passed": 8,
+        "report": "qa/ARRHYTHMIA_ROUTER_BROWSER_2026-11-15.json",
+        "basis": "Owner requested recording technical closure with measured 8/8 PASS; no clinical promotion authorized",
+        "module_status": "yellow",
+        "clinical_release_status": "CLINICALLY_PENDING",
+        "remaining_reservations": [
+          "4 P1",
+          "19 BLOCKED",
+          "I02 NO-GO"
+        ]
       }
     },
     "hypertensive-emergencies": {
