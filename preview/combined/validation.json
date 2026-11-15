@@ -69,12 +69,16 @@
       "result": "PASS"
     },
     {
+      "name": "Self-hosted DM Sans loaded in both themes",
+      "result": "PASS"
+    },
+    {
       "name": "Keyboard theme switch and persistence",
       "result": "PASS"
     }
   ],
   "page_errors": [],
   "status": "PASS",
-  "timestamp": "2026-11-15T22:21:54.213Z",
+  "timestamp": "2026-11-15T22:41:43.534Z",
   "browser": "157.0.8103.51"
 }

@@ -35,7 +35,7 @@ export default function SelectorCombinedPreview() {
       <main className="selector-preview-main">
         <div className="selector-breadcrumb"><span>Biblioteca clínica</span><span aria-hidden="true">/</span><span>Cardiovascular</span></div>
         <section className="selector-hero" aria-labelledby="combined-selector-title">
-          <div><div className="selector-hero-eyebrow">CIRCUITOS DE REANIMACIÓN</div><h1 id="combined-selector-title">Arritmias y<br />parada cardíaca<span>.</span></h1><p>Todo a mano. Todo en su lugar.</p></div>
+          <div><div className="selector-hero-eyebrow">CIRCUITOS DE REANIMACIÓN</div><h1 id="combined-selector-title">Arritmias y<br />parada cardíaca<span>.</span></h1><p>Acceso a los cuatro circuitos de reanimación.</p></div>
           <aside className="selector-review-note"><span className="selector-master-status" data-status={guide?.status}>{guide?.status}</span><strong>Estado del selector</strong><p>El estado de revisión se conserva en cada circuito.</p></aside>
         </section>
         <div className="concept-workspace"><div className="concept-workspace-top"><span>Biblioteca de circuitos</span><span>Adulto + pediatría</span></div><ResuscitationCircuits base="/guides" /></div>

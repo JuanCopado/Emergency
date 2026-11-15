@@ -1,3 +1,8 @@
+@font-face { font-family: 'DM Sans Preview'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/dm-sans-400.ttf') format('truetype'); }
+@font-face { font-family: 'DM Sans Preview'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/dm-sans-500.ttf') format('truetype'); }
+@font-face { font-family: 'DM Sans Preview'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/dm-sans-600.ttf') format('truetype'); }
+@font-face { font-family: 'DM Sans Preview'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/dm-sans-700.ttf') format('truetype'); }
+
 /* Orbit geometry stays fixed; Noctis supplies the dark palette. */
 .combined-preview {
   --combined-ink: #222744;
@@ -112,4 +117,96 @@
   .combined-theme-control { margin: 0; }
   .combined-design-note { display: block; }
   .combined-design-note > a { display: inline-block; margin-top: 8px; }
+}
+/* Refinement: one type scale, shared alignment and measured density. */
+.combined-preview {
+  font-family: 'DM Sans Preview', 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.combined-preview .circuit-selector { font-family: inherit; }
+.combined-design-note { max-width: 1120px; padding: 20px 0 0; font-size: 11px; line-height: 1.5; }
+.combined-preview .selector-preview-topbar { max-width: 1120px; height: 76px; margin-top: 14px; padding: 0 24px; }
+.combined-preview .selector-preview-brand { font-size: 20px; font-weight: 700; letter-spacing: -.045em; gap: 10px; }
+.combined-preview .selector-brand-subtitle { font-size: 12px; line-height: 1.4; letter-spacing: 0; padding-left: 16px; }
+.combined-preview .selector-brand-mark { width: 34px; height: 34px; }
+.combined-theme-control { padding: 3px; border-radius: 10px; }
+.combined-theme-control button { min-height: 42px; min-width: 90px; font-size: 12px; font-weight: 500; }
+.combined-theme-control button[aria-pressed=true] { font-weight: 600; }
+.combined-preview .selector-preview-main { max-width: 1200px; padding: 24px 40px 26px; }
+.combined-preview .selector-breadcrumb { font-family: inherit; font-size: 12px; gap: 10px; line-height: 1.5; letter-spacing: 0; }
+.combined-preview .selector-hero { gap: 36px; padding: 28px 0 26px; align-items: center; }
+.combined-preview .selector-hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .14em; line-height: 1.5; }
+.combined-preview .selector-hero h1 { font-size: clamp(34px, 3.5vw, 46px); font-weight: 500; letter-spacing: -.055em; line-height: 1.12; margin: 12px 0 12px; }
+.combined-preview .selector-hero > div > p { font-size: 14px; line-height: 1.55; letter-spacing: 0; }
+.combined-preview .selector-review-note { max-width: 224px; padding: 16px 18px; border-radius: 12px; }
+.combined-preview .selector-master-status { font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 4px 7px; line-height: 1.5; }
+.combined-preview .selector-review-note strong { font-size: 12px; font-weight: 600; margin: 9px 0 5px; line-height: 1.4; }
+.combined-preview .selector-review-note p { font-size: 12px; line-height: 1.55; }
+.combined-preview .concept-workspace { border-radius: 18px; }
+.combined-preview .concept-workspace-top { padding: 13px 28px; font-size: 11px; line-height: 1.5; letter-spacing: 0; }
+.combined-preview .concept-workspace-top span:first-child { font-weight: 600; }
+.combined-preview .circuit-selector { padding: 26px 28px 28px; }
+.combined-preview .circuit-selector-heading { gap: 24px; }
+.combined-preview .circuit-selector h2 { font-size: 22px; font-weight: 600; letter-spacing: -.035em; line-height: 1.25; margin: 0; }
+.combined-preview .circuit-manual { font-size: 11px; padding: 6px 10px; line-height: 1.5; }
+.combined-preview .circuit-intro { max-width: 780px; margin: 10px 0 24px; font-size: 14px; line-height: 1.65; letter-spacing: -.005em; }
+.combined-preview .circuit-groups { gap: 22px; }
+.combined-preview .circuit-group-header { padding: 0 2px 12px; }
+.combined-preview .circuit-group-header h3 { font-size: 15px; line-height: 1.5; font-weight: 600; letter-spacing: -.015em; }
+.combined-preview .circuit-group-header > span { font-size: 11px; letter-spacing: .04em; }
+.combined-preview .circuit-links { gap: 10px; }
+.combined-preview .circuit-link { padding: 20px 18px; min-height: 104px; gap: 14px; border-radius: 12px; }
+.combined-preview .circuit-link-title { font-size: 16px; line-height: 1.35; font-weight: 500; letter-spacing: -.02em; }
+.combined-preview .circuit-symbol { width: 44px; height: 44px; border-radius: 12px; }
+.combined-preview .circuit-status { font-size: 10px; font-weight: 600; line-height: 1.4; margin-top: 7px; letter-spacing: .07em; }
+.combined-preview .circuit-arrow { width: 28px; height: 28px; flex-shrink: 0; }
+.combined-preview .selector-canonical-details { margin-top: 14px; padding: 0 2px 12px; font-size: 12px; line-height: 1.5; }
+.combined-preview .selector-canonical-details summary { min-height: 44px; }
+.combined-preview .selector-canonical-details .canonical-body { font-size: 14px; line-height: 1.75; }
+.combined-preview .selector-preview-footer { font-size: 10px; line-height: 1.6; margin-top: 16px; }
+@media (max-width: 1200px) {
+  .combined-design-note { margin: 0 40px; }
+  .combined-preview .selector-preview-topbar { margin-left: 40px; margin-right: 40px; }
+}
+@media (max-width: 740px) {
+  .combined-design-note { margin: 0 18px; padding-top: 14px; font-size: 10px; gap: 12px; }
+  .combined-design-note > span > span { margin: 0 4px; }
+  .combined-preview .selector-preview-topbar { height: auto; min-height: 74px; margin: 12px 16px 0; padding: 12px 14px; gap: 12px; }
+  .combined-preview .selector-preview-brand { font-size: 19px; gap: 8px; }
+  .combined-preview .selector-brand-mark { width: 32px; height: 32px; }
+  .combined-theme-control button { min-height: 42px; min-width: 70px; padding: 0 8px; font-size: 12px; gap: 6px; }
+  .combined-theme-control button svg { width: 15px; height: 15px; }
+  .combined-preview .selector-preview-main { padding: 22px 16px 22px; }
+  .combined-preview .selector-breadcrumb { font-size: 11px; gap: 8px; }
+  .combined-preview .selector-hero { padding: 24px 2px 22px; }
+  .combined-preview .selector-hero h1 { font-size: 36px; letter-spacing: -.05em; line-height: 1.12; margin: 10px 0 10px; }
+  .combined-preview .selector-hero > div > p { font-size: 13px; line-height: 1.55; }
+  .combined-preview .selector-review-note { margin-top: 18px; padding: 10px 12px; max-width: none; gap: 10px; }
+  .combined-preview .selector-review-note strong { margin: 0; font-size: 12px; font-weight: 500; }
+  .combined-preview .concept-workspace { border-radius: 14px; }
+  .combined-preview .concept-workspace-top { padding: 12px 16px; font-size: 10px; }
+  .combined-preview .circuit-selector { padding: 22px 16px 18px; }
+  .combined-preview .circuit-selector h2 { font-size: 21px; line-height: 1.25; max-width: 260px; letter-spacing: -.035em; }
+  .combined-preview .circuit-intro { font-size: 13px; line-height: 1.65; margin: 10px 0 22px; }
+  .combined-preview .circuit-groups { gap: 22px; }
+  .combined-preview .circuit-group-header { padding: 0 1px 10px; }
+  .combined-preview .circuit-group-header h3 { font-size: 14px; }
+  .combined-preview .circuit-link { min-height: 92px; padding: 16px 12px; gap: 11px; }
+  .combined-preview .circuit-link-title { font-size: 15px; line-height: 1.35; letter-spacing: -.025em; }
+  .combined-preview .circuit-symbol { width: 38px; height: 38px; border-radius: 10px; }
+  .combined-preview .circuit-symbol svg { width: 22px; height: 22px; }
+  .combined-preview .circuit-arrow { width: 25px; height: 25px; }
+  .combined-preview .circuit-status { margin-top: 6px; }
+  .combined-preview .selector-canonical-details { font-size: 12px; margin-top: 10px; padding-bottom: 10px; }
+  .combined-preview .selector-preview-footer { font-size: 10px; line-height: 1.65; gap: 20px; }
+}
+@media (max-width: 359px) {
+  .combined-preview .selector-preview-topbar { gap: 10px; }
+  .combined-preview .selector-hero h1 { font-size: 32px; }
+  .combined-preview .circuit-selector { padding-left: 12px; padding-right: 12px; }
+  .combined-preview .circuit-link { gap: 8px; padding-left: 10px; padding-right: 10px; }
+  .combined-preview .circuit-link-title { font-size: 14px; }
+  .combined-preview .circuit-symbol { width: 33px; height: 36px; }
 }
