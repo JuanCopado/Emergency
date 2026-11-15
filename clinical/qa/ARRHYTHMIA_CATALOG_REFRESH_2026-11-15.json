@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-15T15:45:04.1215756Z",
+  "based_on_commit": "47322c470accb847cb35eb089a21ec14113e484e",
+  "scope": "Regenerate stale derived catalogs and reconcile stale MODULES table with unchanged authoritative registry",
+  "generated_files": [
+    "clinical/references/evidence-sources.json",
+    "app/src/data/generatedClinicalGuides.json"
+  ],
+  "module_table_reconciled_to_existing_registry": [
+    "icu-sedation-analgesia-infusions",
+    "pediatric-outpatient-medications",
+    "vasoactive-inotrope-infusions",
+    "pocus"
+  ],
+  "canonical_registry_changed": false,
+  "canonical_module_statuses_changed": false,
+  "clinical_sources_changed": false,
+  "selector_status": "yellow",
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "reservations": [
+    "4 P1",
+    "19 BLOCKED",
+    "I02 NO-GO"
+  ],
+  "counts": {
+    "yellow": 14,
+    "green": 117,
+    "red": 0
+  },
+  "checks": {
+    "typecheck": "PASS",
+    "router": "8/8 PASS, exit 0, no page errors; temporary copy of archived fixed test",
+    "pediatric_catalog": "PASS",
+    "clinical_qa": "7/7 PASS",
+    "build": "PASS",
+    "frontend_tests": "434/434 PASS",
+    "canonical_artifact_and_evidence_writer_tests": "15/15 PASS",
+    "lint": "PASS",
+    "pediatric_browser": "4/4 PASS",
+    "browser_pdf": "4/4 PASS",
+    "provenance_graph": "397 nodes / 417 edges, no clinical inference",
+    "source_catalog": "PASS 254 sources / 131 modules"
+  },
+  "router_results": "arrhythmia-catalog-refresh-2026-11-15/router-regenerated-results.json",
+  "artifact_directory": "arrhythmia-catalog-refresh-2026-11-15",
+  "original_browser_evidence_preserved": true,
+  "github_ci": "To be checked after publishing this commit; local checks above do not imply remote CI success"
+}

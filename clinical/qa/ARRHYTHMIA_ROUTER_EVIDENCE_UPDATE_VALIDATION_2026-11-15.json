@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-15T15:32:49.0017787Z",
+  "registry_validator": "PASS exit 0",
+  "module_validator": "PASS 131 modules",
+  "historical_closure_safety_regressions": "6/6 PASS",
+  "evidence_hashes_verified": 48,
+  "module_counts": {
+    "green": 117,
+    "red": 0,
+    "yellow": 14
+  },
+  "all_module_statuses_unchanged": true,
+  "other_registry_entries_unchanged": true,
+  "historical_report_unchanged": true,
+  "clinical_content_and_product_sources_unchanged": true,
+  "main_touched": false,
+  "published": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "remaining_reservations": [
+    "4 P1",
+    "19 BLOCKED",
+    "I02 NO-GO"
+  ]
+}

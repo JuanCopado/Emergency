@@ -1,3 +1,15 @@
+## Aceptación humana del cierre técnico ·15/11/2026
+
+Juan Copado declara en el chat «acepto el cierre tecnico» y solicita incorporarlo al registro. Aceptación del alcance técnico Windows con el parche de test adjunto: 8/8 PASS y tres controles GitHub PASS sobre f30cd9a. No constituye revisión humana independiente del autor, aprobación formal de GitHub, validación clínica ni permiso de fusión. Evidencia: `qa/ARRHYTHMIA_ROUTER_OWNER_TECHNICAL_ACCEPTANCE_2026-11-15.json`. Selector YELLOW, CLINICALLY_PENDING, 4 P1, 19 BLOCKED e I02 NO-GO conservados; 117 GREEN/14 YELLOW/0 RED.
+
+## Revisión técnica de segundo agente ·15/11/2026
+
+Dictamen independiente entre agentes sobre el commit 6968a98: sin hallazgos técnicos accionables. Verificados los tres informes de navegación 8/8 PASS, el parche y la conservación de estados/fuentes; normalizador PASS y 4/4 pruebas de guías reejecutadas por el revisor. Registrado en `qa/ARRHYTHMIA_ROUTER_INDEPENDENT_AGENT_REVIEW_2026-11-15.json` y en el módulo del registro de evidencias. No equivale a aprobación humana o validación clínica. Se conservan selector YELLOW, CLINICALLY_PENDING, 4 P1, 19 BLOCKED e I02 NO-GO; 117 GREEN/14 YELLOW/0 RED. Sin fusión ni cambios clínicos.
+
+## Selector arritmias/parada — cierre técnico Windows ·15/11/2026
+
+Ocho pruebas reales de navegador: **8/8 PASS**, salida 0, sin errores de página; dependencias exactas del lockfile. Copia aislada del commit 761f42d con parche exclusivo del test para normalizar mayúsculas/minúsculas; parche adjunto como evidencia, sin aplicar al código ejecutable de esta rama. Ítem técnico cerrado sólo para Windows JUAN-C. Intento Linux del 14/11 BLOCKED 0/8 y DOM histórico 8/8 conservados como evidencias distintas. **YELLOW, CLINICALLY_PENDING, 4 P1, 19 BLOCKED e I02 NO-GO sin cambios**; registro 117 GREEN/14 YELLOW/0 RED. Informe: `qa/ARRHYTHMIA_ROUTER_BROWSER_2026-11-15.json`; capturas, logs y parche: `qa/arrhythmia-browser-windows-2026-11-15/`. Sin modificación de dosis, fórmulas, contratos o producto.
+
 ## Imágenes/vídeos — primer lote docente y protocoloV2 ·14/11/2026
 
 Incorporados5archivos (3imágenes,2vídeos),4casos de fuente;2radiografías son del mismo caso. Licencias/atribución ySHA-256por archivo. TCcon flechas corregida desde clasificación candidataPOCUS. Solo docencia/desarrollo;sin referencia independiente nueva,métricas diagnósticas,entrenamiento ni envío a proveedor. Proveedor visual no configurado aquí;vídeo nativo no validado. Validadoroffline nuevo y6regresiones PASS;716Python y7/7controles globales PASS. Prueba de exportación pediátrica conciliada con estado canónico;313archivos protegidos intactos. Registro117GREEN/14YELLOW,19bloqueos yCLINICALLY_PENDING conservados. Detalles:`qa/IMAGE_MEDIA_FIRST_INTAKE_2026-11-14.json` y `qa/IMAGE_VALIDATION_ROADMAP_2026-11-14.md`.
@@ -377,7 +389,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `potassium-emergencies` | `modules/renal-metabolic.md` | green |
 | `calcium-magnesium-emergencies` | `modules/renal-metabolic.md` | green |
 | `sedoanalgesia` | `modules/procedures-pharmacology.md` | green |
-| `icu-sedation-analgesia-infusions` | `modules/procedures-pharmacology.md` | yellow |
+| `icu-sedation-analgesia-infusions` | `modules/procedures-pharmacology.md` | green |
 | `empiric-antibiotics` | `modules/procedures-pharmacology.md` | green |
 | `anaphylaxis` | `modules/infection-respiratory.md` | green |
 | `toxicology` | `modules/renal-metabolic.md` | green |
@@ -399,7 +411,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `pediatric-toxicology` | `modules/special-populations.md` | green |
 | `pediatric-acute-asthma` | `modules/special-populations.md` | green |
 | `pediatric-emergency-medications` | `modules/special-populations.md` | green |
-| `pediatric-outpatient-medications` | `modules/special-populations.md` | yellow |
+| `pediatric-outpatient-medications` | `modules/special-populations.md` | green |
 | `pediatric-iv-fluid-therapy` | `modules/special-populations.md` | green |
 | `pediatric-electrolyte-emergencies` | `modules/special-populations.md` | green |
 | `pediatric-blood-transfusion-major-hemorrhage` | `modules/special-populations.md` | green |
@@ -470,7 +482,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `non-coronary-chest-pain` | `modules/cardiovascular.md` | green |
 | `acute-heart-failure` | `modules/cardiovascular.md` | green |
 | `cardiogenic-shock` | `modules/cardiovascular.md` | green |
-| `vasoactive-inotrope-infusions` | `modules/cardiovascular.md` | yellow |
+| `vasoactive-inotrope-infusions` | `modules/cardiovascular.md` | green |
 | `acute-aortic-syndrome` | `modules/cardiovascular.md` | green |
 | `cardiac-tamponade-pericardial-emergency` | `modules/cardiovascular.md` | green |
 | `critical-valvular-disease` | `modules/cardiovascular.md` | green |
@@ -478,7 +490,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `dvt` | `modules/cardiovascular.md` | green |
 | `device-complications` | `modules/cardiovascular.md` | green |
 | `ecg-pocus-integration` | `modules/disposition-crosscutting.md` | yellow |
-| `pocus` | `modules/disposition-crosscutting.md` | yellow |
+| `pocus` | `modules/disposition-crosscutting.md` | green |
 | `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | yellow |
 
 | `clinical-note-diagnostic-support` | `modules/documentation-governance.md` | yellow |
