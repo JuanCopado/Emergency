@@ -1,0 +1,61 @@
+{
+  "browser": "157.0.8103.51",
+  "cases": [
+    {
+      "base": "/guides",
+      "target": "adult-arrhythmias",
+      "result": "PASS",
+      "keyboard": "PASS"
+    },
+    {
+      "base": "/guides",
+      "target": "adult-cardiac-arrest",
+      "result": "PASS",
+      "keyboard": "PASS"
+    },
+    {
+      "base": "/guides",
+      "target": "pediatric-arrhythmias",
+      "result": "PASS",
+      "keyboard": "PASS"
+    },
+    {
+      "base": "/guides",
+      "target": "pediatric-cardiac-arrest",
+      "result": "PASS",
+      "keyboard": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "adult-arrhythmias",
+      "result": "PASS",
+      "keyboard": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "adult-cardiac-arrest",
+      "result": "PASS",
+      "keyboard": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "pediatric-arrhythmias",
+      "result": "PASS",
+      "keyboard": "PASS"
+    },
+    {
+      "base": "/clinical",
+      "target": "pediatric-cardiac-arrest",
+      "result": "PASS",
+      "keyboard": "PASS"
+    }
+  ],
+  "screenshots": [
+    "desktop.png",
+    "mobile-390.png",
+    "mobile-320.png"
+  ],
+  "page_errors": [],
+  "status": "PASS",
+  "timestamp": "2026-11-15T22:15:41.624Z"
+}

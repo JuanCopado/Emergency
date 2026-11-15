@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-11-15T23:09:49.484Z",
+  "base_commit": "f61df568945236ba0e8c6bd278c153205a6db0da",
+  "canonical_registry_and_clinical_tree_unchanged": true,
+  "generated_catalogs_unchanged": true,
+  "selector_status": "yellow",
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "reservations": [
+    "4 P1",
+    "19 BLOCKED",
+    "I02 NO-GO"
+  ],
+  "design_acceptance": "PROVISIONAL; further artistic refinement requested",
+  "checks": [
+    {
+      "exit_code": 0,
+      "task": "lint"
+    },
+    {
+      "exit_code": 0,
+      "task": "typecheck"
+    },
+    {
+      "exit_code": 0,
+      "task": "test"
+    },
+    {
+      "exit_code": 0,
+      "task": "build"
+    }
+  ],
+  "browser_results": "../combined/validation.json",
+  "pr16_modified": false,
+  "main_modified": false
+}

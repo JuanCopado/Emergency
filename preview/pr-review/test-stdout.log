@@ -1,0 +1,36 @@
+
+> emergency@0.1.0 test
+> vitest run
+
+
+ RUN  v2.1.9 C:/Users/juanc/OneDrive/Documentos/ChatGPT/PROYECTO EMERGENCY/ARRHYTHMIA_VISUAL_PROPOSAL_20261115/app
+
+ ✓ src/insulin/protocol.test.ts (45 tests) 12ms
+ ✓ src/lib/infusion.test.ts (97 tests) 18ms
+ ✓ src/test/insulin-uci.test.tsx (5 tests) 807ms
+   ✓ Selected local insulin protocol UI > uses the local +2 row, with no active RCCC attribution, and clears edits 336ms
+ ✓ src/test/acute-medications.test.tsx (6 tests) 1013ms
+   ✓ rejects malformed and nonfinite numbers before HTTP calculation 454ms
+ ✓ src/test/pediatric-outpatient.test.tsx (9 tests) 1267ms
+   ✓ exposes all 89 canonical regimens and 52 drug groups without age/weight filtering 537ms
+ ✓ src/test/clinical-scores.test.tsx (5 tests) 750ms
+   ✓ rejects nonfinite, malformed and out-of-range input before network calculation 424ms
+ ✓ src/test/clinical-guide-fidelity.test.tsx (8 tests) 558ms
+ ✓ src/test/procedure-catalog.test.ts (9 tests) 13ms
+ ✓ src/i18n/i18n.test.ts (14 tests) 61ms
+ ✓ src/test/resuscitation-circuits.test.tsx (8 tests) 873ms
+   ✓ /guides opens the correct existing circuit for Adulto · arritmia con pulso 366ms
+ ✓ src/test/pediatric-export.test.tsx (2 tests) 137ms
+ ✓ src/test/ui.test.tsx (26 tests) 6100ms
+   ✓ Calculator > norepinephrine 0.05 mcg/kg/min, 70 kg, 40 mcg/mL → 5.3 mL/h with arithmetic 395ms
+   ✓ i18n & settings > theme and micro symbol settings apply 317ms
+   ✓ Clinical note diagnostic workspace > creates an MCDT review card and blocks export while review is pending 1636ms
+   ✓ Clinical note diagnostic workspace > requires explicit MCDT acceptance and clinician/privacy sign-off before export 542ms
+   ✓ Clinical note diagnostic workspace > requires privacy review before binary vision interpretation and keeps the result pending 344ms
+   ✓ Clinical note diagnostic workspace > privacy STOP catches labelled direct identifiers and blocks export 433ms
+ ✓ src/test/procedure-pilot.test.tsx (200 tests) 6795ms
+
+ Test Files  13 passed (13)
+      Tests  434 passed (434)
+   Start at  22:09:05
+   Duration  11.99s (transform 1.62s, setup 5.23s, collect 5.62s, tests 18.41s, environment 28.15s, prepare 2.12s)

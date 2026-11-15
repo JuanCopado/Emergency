@@ -1,0 +1,479 @@
+/* Four isolated art directions. No clinical data or routing changes. */
+.concept-switcher{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:12px 28px;
+  background:#fff;
+  color:#66727f;
+  border-bottom:1px solid #e6eaf0;
+  font:11px 'Segoe UI',sans-serif}
+.concept-switcher nav{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap}
+.concept-switcher a{
+  padding:8px 16px;
+  border-radius:7px;
+  transition:background .18s}
+.concept-switcher a[aria-current=page]{
+  background:#172634;
+  color:#fff}
+.concept-switcher a:hover{
+  background:#e8eef5;
+  color:#142c42}
+.concept-rail{
+  display:none}
+.concept-workspace-top{
+  display:none}
+.selector-preview-footer{
+  font-size:10px}
+.selector-preview .circuit-status{
+  font-size:10px}
+.selector-preview .selector-master-status{
+  font-size:10px}
+.selector-preview .circuit-eyebrow{
+  font-size:10px}
+.selector-preview .circuit-link-title{
+  font-size:16px}
+.selector-preview .circuit-intro{
+  font-size:13px}
+.selector-preview .selector-hero h1{
+  font-weight:600}
+.selector-preview-topbar{
+  max-width:1360px}
+.selector-preview-main{
+  max-width:1240px}
+
+/* Horizon — light clinical workspace, cobalt identity and structured rail. */
+.concept-horizon{
+  background:#f2f5fb;
+  padding-left:72px;
+  color:#152b48}
+.concept-horizon .concept-switcher{
+  margin-left:-72px}
+.concept-horizon .concept-rail{
+  display:flex;
+  position:absolute;
+  top:62px;
+  left:0;
+  width:72px;
+  bottom:0;
+  min-height:900px;
+  align-items:center;
+  flex-direction:column;
+  padding-top:30px;
+  gap:32px;
+  background:#152b48;
+  color:#f0f6ff}
+.rail-monogram{
+  font-size:23px;
+  font-weight:650}
+.rail-line{
+  height:1px;
+  width:24px;
+  background:#5d7491}
+.rail-label{
+  writing-mode:vertical-rl;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:#a6b9d3}
+.rail-dot{
+  margin-top:340px;
+  height:6px;
+  width:6px;
+  background:#6ca6ff;
+  border-radius:50%}
+.concept-horizon .selector-preview-brand{
+  color:#152b48}
+.concept-horizon .selector-brand-mark{
+  background:#2d67d8}
+.concept-horizon .selector-hero-eyebrow,.concept-horizon .selector-hero h1>span{
+  color:#2d67d8}
+.concept-horizon .selector-hero h1{
+  letter-spacing:-.055em;
+  font-size:56px}
+.concept-horizon .circuit-selector{
+  --circuit-accent:#2d67d8;
+  --circuit-soft:#edf3ff;
+  border:0;
+  box-shadow:0 10px 38px #153d7010;
+  border-radius:20px}
+.concept-horizon .circuit-group{
+  background:#f5f7fc;
+  border:0}
+.concept-horizon .circuit-link{
+  border:1px solid #e9edf6;
+  box-shadow:none;
+  min-height:110px}
+.concept-horizon .selector-review-note{
+  border-color:#d6dfef}
+.concept-horizon .selector-preview-topbar{
+  border-color:#dbe3ee}
+.concept-horizon .circuit-arrow{
+  color:#2d67d8;
+  background:#eef3fc}
+.concept-horizon .selector-canonical-details{
+  border-color:#dbe3ee}
+
+/* Noctis — quiet graphite, mint highlights;
+   no glow or decorative gradients. */
+.concept-noctis{
+  background:#11191e;
+  color:#edf4f5}
+.concept-noctis .selector-preview-topbar{
+  border-color:#2a373f}
+.concept-noctis .selector-brand-mark{
+  background:#b0e3d7;
+  color:#163c36}
+.concept-noctis .selector-brand-subtitle,.concept-noctis .selector-preview-label,.concept-noctis .selector-breadcrumb,.concept-noctis .selector-hero>div>p,.concept-noctis .selector-review-note p,.concept-noctis .selector-preview-footer{
+  color:#9fb3bc}
+.concept-noctis .selector-breadcrumb span:last-child{
+  color:#d6e2e6}
+.concept-noctis .selector-hero-eyebrow,.concept-noctis .selector-hero h1>span{
+  color:#b0e3d7}
+.concept-noctis .selector-hero h1{
+  font-size:58px;
+  font-weight:500;
+  letter-spacing:-.045em}
+.concept-noctis .selector-review-note{
+  border-color:#33434a}
+.concept-noctis .selector-master-status{
+  background:#3b331e;
+  color:#f0d794}
+.concept-noctis .circuit-selector{
+  --c-bg:24 35 42;
+  --c-surface:29 42 49;
+  --c-fg:237 244 245;
+  --c-muted:163 185 196;
+  --c-border:57 76 86;
+  --circuit-accent:#b0e3d7;
+  --circuit-soft:#293e41;
+  background:transparent;
+  border:0;
+  padding:0;
+  box-shadow:none}
+.concept-noctis .circuit-selector-heading{
+  padding-top:5px}
+.concept-noctis .circuit-group{
+  padding:0;
+  border:0;
+  background:transparent}
+.concept-noctis .circuit-group-header{
+  padding:16px 0}
+.concept-noctis .circuit-links{
+  gap:13px}
+.concept-noctis .circuit-link{
+  border:1px solid #34464e;
+  min-height:123px;
+  box-shadow:none;
+  border-radius:14px}
+.concept-noctis .circuit-status[data-status=green]{
+  color:#a1dec4}
+.concept-noctis .circuit-arrow{
+  color:#c0dad9;
+  background:#34494f}
+.concept-noctis .selector-canonical-details{
+  color:#adc2ca;
+  border-color:#34434b;
+  margin-top:28px}
+.concept-noctis .selector-preview-footer>span:first-child{
+  color:#a4bec4}
+.concept-noctis .selector-preview-label>span{
+  border-color:#43555f}
+.concept-noctis .circuit-manual{
+  color:#b5c9cf}
+.concept-noctis .selector-hero{
+  padding-bottom:18px}
+.concept-noctis .selector-canonical-details:focus-within{
+  outline-color:#b0e3d7}
+
+/* Atlas — an editorial side panel, compact clinical list. */
+.concept-atlas{
+  background:#f4f2ed;
+  color:#2e3535}
+.concept-atlas .selector-preview-topbar{
+  border-color:#d9d8d1}
+.concept-atlas .selector-brand-mark{
+  background:#3e5050}
+.concept-atlas .selector-preview-main{
+  display:grid;
+  grid-template-columns:340px minmax(0,1fr);
+  column-gap:65px;
+  padding-top:40px}
+.concept-atlas .selector-breadcrumb{
+  grid-column:1/-1;
+  margin-bottom:22px}
+.concept-atlas .selector-hero{
+  display:block;
+  align-self:start;
+  padding-top:25px}
+.concept-atlas .selector-hero h1{
+  font-size:48px;
+  line-height:1.1;
+  letter-spacing:-.045em;
+  max-width:330px}
+.concept-atlas .selector-hero-eyebrow{
+  color:#6e6458;
+  font-size:9px}
+.concept-atlas .selector-hero h1>span{
+  color:#9a6846}
+.concept-atlas .selector-hero>div>p{
+  max-width:220px;
+  line-height:1.7;
+  color:#7c8079;
+  font-size:14px}
+.concept-atlas .selector-review-note{
+  border:0;
+  padding:0;
+  margin-top:42px;
+  max-width:240px}
+.concept-atlas .selector-review-note strong{
+  color:#424f4c}
+.concept-atlas .selector-review-note p{
+  color:#737d76}
+.concept-atlas .concept-workspace{
+  padding-top:22px}
+.concept-atlas .circuit-selector{
+  margin-top:0;
+  border-radius:16px;
+  box-shadow:none;
+  border:1px solid #dddeda;
+  padding:26px;
+  --circuit-accent:#516b65;
+  --circuit-soft:#edf2ed;
+  --c-bg:247 248 245}
+.concept-atlas .circuit-selector h2{
+  font-size:20px;
+  max-width:350px}
+.concept-atlas .circuit-eyebrow{
+  display:none}
+.concept-atlas .circuit-groups{
+  grid-template-columns:1fr;
+  gap:17px}
+.concept-atlas .circuit-intro{
+  font-size:12px;
+  margin:12px 0 18px}
+.concept-atlas .circuit-group{
+  border:0;
+  padding:0;
+  background:transparent}
+.concept-atlas .circuit-group-header{
+  padding:0 0 10px}
+.concept-atlas .circuit-links{
+  gap:0;
+  border:1px solid #e5e8e2;
+  border-radius:12px;
+  overflow:hidden}
+.concept-atlas .circuit-link{
+  border-radius:0;
+  box-shadow:none;
+  min-height:94px;
+  padding:14px}
+.concept-atlas .circuit-link+.circuit-link{
+  border-top:1px solid #e5e8e2}
+.concept-atlas .circuit-symbol{
+  background:transparent}
+.concept-atlas .circuit-link-title{
+  font-size:15px}
+.concept-atlas .circuit-status{
+  margin-top:7px;
+  font-size:9px}
+.concept-atlas .circuit-manual{
+  display:none}
+.concept-atlas .selector-canonical-details{
+  grid-column:2;
+  font-size:11px}
+.concept-atlas .selector-preview-footer{
+  grid-column:1/-1;
+  margin-top:30px}
+.concept-atlas .selector-preview-footer>span:first-child{
+  max-width:65%}
+
+/* Orbit — an application canvas with a visible context bar. */
+.concept-orbit{
+  background:#eeeff5;
+  color:#222744}
+.concept-orbit .selector-preview-topbar{
+  max-width:1240px;
+  margin-top:20px;
+  border:1px solid #dde0ed;
+  background:#f8f9fd;
+  border-radius:14px;
+  height:68px;
+  padding:0 28px}
+.concept-orbit .selector-brand-mark{
+  background:#5558a2;
+  border-radius:50%}
+.concept-orbit .selector-hero{
+  padding-top:26px;
+  padding-bottom:22px}
+.concept-orbit .selector-hero h1{
+  font-size:44px;
+  line-height:1.14;
+  letter-spacing:-.04em}
+.concept-orbit .selector-hero h1 br{
+  display:none}
+.concept-orbit .selector-hero-eyebrow{
+  color:#6266a5}
+.concept-orbit .selector-hero h1>span{
+  color:#7077c4}
+.concept-orbit .selector-review-note{
+  border:1px solid #d8dced;
+  border-radius:13px;
+  padding:18px 20px;
+  margin:0;
+  max-width:218px;
+  background:#f6f7fc}
+.concept-orbit .selector-review-note strong{
+  margin-top:10px}
+.concept-orbit .concept-workspace{
+  background:#fff;
+  border:1px solid #d9ddeb;
+  border-radius:17px;
+  box-shadow:0 12px 30px #30396209;
+  overflow:hidden}
+.concept-orbit .concept-workspace-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  background:#f8f9fd;
+  padding:16px 25px;
+  font-size:10px;
+  color:#737998;
+  border-bottom:1px solid #e4e6f0}
+.concept-orbit .concept-workspace-top span:first-child{
+  color:#3e466c;
+  font-weight:600}
+.concept-orbit .circuit-selector{
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  margin:0;
+  --circuit-accent:#5e62a5;
+  --circuit-soft:#f0f0fa;
+  --c-bg:247 248 252}
+.concept-orbit .circuit-group{
+  background:transparent;
+  border:0;
+  padding:0}
+.concept-orbit .circuit-group-header{
+  padding:0 2px 15px}
+.concept-orbit .circuit-links{
+  gap:12px}
+.concept-orbit .circuit-link{
+  border:1px solid #e2e5f0;
+  min-height:120px;
+  border-radius:12px;
+  box-shadow:none;
+  padding:20px}
+.concept-orbit .circuit-arrow{
+  background:#f1f2fa;
+  color:#666ba9}
+.concept-orbit .circuit-selector-heading h2{
+  font-size:20px}
+.concept-orbit .circuit-eyebrow{
+  display:none}
+.concept-orbit .circuit-manual{
+  font-size:10px}
+.concept-orbit .circuit-intro{
+  max-width:720px;
+  font-size:12px}
+.concept-orbit .selector-canonical-details{
+  border-color:#d5d9e7}
+.concept-orbit .selector-preview-main{
+  padding-top:26px}
+.concept-orbit .selector-breadcrumb{
+  font-family:Consolas,monospace;
+  font-size:10px}
+
+@media(max-width:900px){
+  .concept-atlas .selector-preview-main{
+  grid-template-columns:280px minmax(0,1fr);
+  gap:24px}
+.concept-atlas .selector-hero h1{
+  font-size:40px}
+.concept-atlas .circuit-selector{
+  padding:20px}
+.concept-atlas .circuit-link{
+  padding:12px;
+  gap:9px}
+.concept-atlas .circuit-symbol{
+  width:30px}
+.concept-atlas .circuit-link-title{
+  font-size:13px}
+}
+
+@media(max-width:740px){
+  .concept-switcher{
+  padding:10px 12px;
+  gap:10px;
+  justify-content:center}
+.concept-switcher>span{
+  display:none}
+.concept-switcher a{
+  padding:8px 13px;
+  font-size:11px}
+.concept-horizon{
+  padding-left:0}
+.concept-horizon .concept-switcher{
+  margin-left:0}
+.concept-horizon .concept-rail{
+  display:none}
+.concept-horizon .selector-hero h1,.concept-noctis .selector-hero h1{
+  font-size:41px}
+.concept-atlas .selector-preview-main{
+  display:block;
+  padding-top:25px}
+.concept-atlas .selector-breadcrumb{
+  margin-bottom:0}
+.concept-atlas .selector-hero h1{
+  font-size:43px;
+  max-width:none}
+.concept-atlas .selector-review-note{
+  display:flex;
+  margin-top:22px;
+  max-width:none}
+.concept-atlas .concept-workspace{
+  padding-top:8px}
+.concept-atlas .circuit-link-title{
+  font-size:15px}
+.concept-atlas .circuit-symbol{
+  width:38px}
+.concept-atlas .selector-hero>div>p{
+  max-width:none}
+.concept-atlas .selector-canonical-details{
+  margin-top:20px}
+.concept-orbit .selector-preview-topbar{
+  margin:14px 16px 0;
+  padding:0 18px}
+.concept-orbit .selector-preview-main{
+  padding:25px 20px}
+.concept-orbit .selector-hero h1{
+  font-size:38px;
+  line-height:1.1}
+.concept-orbit .selector-hero h1 br{
+  display:block}
+.concept-orbit .selector-review-note{
+  display:flex;
+  padding:10px 12px;
+  max-width:none;
+  margin-top:22px}
+.concept-orbit .selector-review-note strong{
+  margin:0}
+.concept-orbit .circuit-selector{
+  padding:22px 16px}
+.concept-orbit .concept-workspace-top{
+  padding:13px 16px;
+  font-size:9px}
+.concept-orbit .circuit-link{
+  padding:17px 12px;
+  min-height:100px}
+.concept-orbit .circuit-link-title{
+  font-size:14px}
+.concept-noctis .circuit-link{
+  min-height:108px}
+.concept-noctis .selector-hero{
+  padding-bottom:10px}
+}
