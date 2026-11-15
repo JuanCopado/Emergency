@@ -1,0 +1,8 @@
+
+> emergency@0.1.0 guides:print-check
+> node scripts/check-clinical-guide-print.mjs
+
+PASS /clinical/airway-rsi: canonical preamble and every body line extracted from browser PDF
+PASS /guides/airway-rsi: canonical preamble and every body line extracted from browser PDF
+PASS /guides/vf-pvt: canonical preamble and every body line extracted from browser PDF
+PASS /guides/clinical-scores-calculators: canonical preamble and every body line extracted from browser PDF

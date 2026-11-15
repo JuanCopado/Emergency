@@ -1,0 +1,10 @@
+[
+  {
+    "task": "guides:print-check",
+    "exit_code": 0
+  },
+  {
+    "task": "pediatrics:browser-check",
+    "exit_code": 0
+  }
+]

@@ -381,7 +381,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `potassium-emergencies` | `modules/renal-metabolic.md` | green |
 | `calcium-magnesium-emergencies` | `modules/renal-metabolic.md` | green |
 | `sedoanalgesia` | `modules/procedures-pharmacology.md` | green |
-| `icu-sedation-analgesia-infusions` | `modules/procedures-pharmacology.md` | yellow |
+| `icu-sedation-analgesia-infusions` | `modules/procedures-pharmacology.md` | green |
 | `empiric-antibiotics` | `modules/procedures-pharmacology.md` | green |
 | `anaphylaxis` | `modules/infection-respiratory.md` | green |
 | `toxicology` | `modules/renal-metabolic.md` | green |
@@ -403,7 +403,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `pediatric-toxicology` | `modules/special-populations.md` | green |
 | `pediatric-acute-asthma` | `modules/special-populations.md` | green |
 | `pediatric-emergency-medications` | `modules/special-populations.md` | green |
-| `pediatric-outpatient-medications` | `modules/special-populations.md` | yellow |
+| `pediatric-outpatient-medications` | `modules/special-populations.md` | green |
 | `pediatric-iv-fluid-therapy` | `modules/special-populations.md` | green |
 | `pediatric-electrolyte-emergencies` | `modules/special-populations.md` | green |
 | `pediatric-blood-transfusion-major-hemorrhage` | `modules/special-populations.md` | green |
@@ -474,7 +474,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `non-coronary-chest-pain` | `modules/cardiovascular.md` | green |
 | `acute-heart-failure` | `modules/cardiovascular.md` | green |
 | `cardiogenic-shock` | `modules/cardiovascular.md` | green |
-| `vasoactive-inotrope-infusions` | `modules/cardiovascular.md` | yellow |
+| `vasoactive-inotrope-infusions` | `modules/cardiovascular.md` | green |
 | `acute-aortic-syndrome` | `modules/cardiovascular.md` | green |
 | `cardiac-tamponade-pericardial-emergency` | `modules/cardiovascular.md` | green |
 | `critical-valvular-disease` | `modules/cardiovascular.md` | green |
@@ -482,7 +482,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `dvt` | `modules/cardiovascular.md` | green |
 | `device-complications` | `modules/cardiovascular.md` | green |
 | `ecg-pocus-integration` | `modules/disposition-crosscutting.md` | yellow |
-| `pocus` | `modules/disposition-crosscutting.md` | yellow |
+| `pocus` | `modules/disposition-crosscutting.md` | green |
 | `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | yellow |
 
 | `clinical-note-diagnostic-support` | `modules/documentation-governance.md` | yellow |

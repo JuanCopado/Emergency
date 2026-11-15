@@ -1,0 +1,8 @@
+
+> emergency@0.1.0 pediatrics:browser-check
+> node scripts/check-pediatric-outpatient.mjs
+
+PASS real API: missing home gate blocks paracetamol
+PASS real API: paracetamol ideal-weight dose and complete course
+PASS real API: dexamethasone croup single-dose volume
+PASS real API: unresolved 40 kg rizatriptan boundary remains blocked

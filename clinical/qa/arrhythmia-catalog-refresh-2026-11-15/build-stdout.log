@@ -1,0 +1,50 @@
+
+> emergency@0.1.0 build
+> npm run guides:build && npm run procedures:build && npm run pediatrics:build && tsc -b && vite build
+
+
+> emergency@0.1.0 guides:build
+> node scripts/build-clinical-guides.mjs
+
+Generated 131 canonical clinical guides
+
+> emergency@0.1.0 procedures:build
+> node scripts/build-procedures.mjs
+
+196 canonical procedures + 4 aliases; 16 families
+
+> emergency@0.1.0 pediatrics:build
+> python ../clinical/scripts/build_pediatric_catalog.py
+
+{'regimens': 89, 'source_drug_labels': 54, 'drug_groups': 52, 'named_active_ingredients': 52, 'unspecified_component_groups': ['electrolytes', 'low-osmolarity oral rehydration solution'], 'diagnoses': 88, 'drug_diagnosis_pairs': 89, 'documented_presentation_descriptions': 58, 'verified_liquid_products': 28, 'hidden_regimens': 0}
+vite v5.4.21 building for production...
+transforming...
+✓ 218 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/manifest.webmanifest                          0.62 kB
+dist/index.html                                    1.56 kB │ gzip:   0.71 kB
+dist/assets/index-Cn49z9HA.css                    34.10 kB │ gzip:   6.89 kB
+dist/assets/About-B3UtzGzA.js                      2.68 kB │ gzip:   0.87 kB
+dist/assets/Settings-9B7Vmfvh.js                   3.49 kB │ gzip:   1.10 kB
+dist/assets/workbox-window.prod.es5-BqEJf4Xk.js    5.71 kB │ gzip:   2.34 kB
+dist/assets/ClinicalScores-CehsE-gx.js             6.34 kB │ gzip:   2.63 kB
+dist/assets/ClinicalLibrary-CNMcP7fG.js            7.03 kB │ gzip:   2.81 kB
+dist/assets/AcuteMedications-BpC3pSTo.js           7.40 kB │ gzip:   3.08 kB
+dist/assets/ClinicalGuides-C9ucon9A.js            14.82 kB │ gzip:   5.00 kB
+dist/assets/InsulinUci-0HHfSTJH.js                15.16 kB │ gzip:   5.84 kB
+dist/assets/Calculator-CGwzlwx7.js                24.58 kB │ gzip:   7.11 kB
+dist/assets/ClinicalNote-TduVJPra.js              29.50 kB │ gzip:   8.75 kB
+dist/assets/procedures-BO2Fc7aF.js                51.26 kB │ gzip:   6.57 kB
+dist/assets/PediatricOutpatient-CZzI-Kom.js      142.96 kB │ gzip:  30.05 kB
+dist/assets/index-D5ilrru9.js                    429.87 kB │ gzip: 134.11 kB
+dist/assets/Procedures-DvIcKzlH.js               449.84 kB │ gzip: 106.18 kB
+dist/assets/ResuscitationCircuits-sI-TMbpg.js    547.60 kB │ gzip: 179.38 kB
+✓ built in 2.08s
+
+PWA v1.3.0
+mode      generateSW
+precache  28 entries (1773.54 KiB)
+files generated
+  dist/sw.js
+  dist/workbox-9c191d2f.js
