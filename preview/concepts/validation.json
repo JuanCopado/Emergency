@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "concept": "horizon",
+      "links": 4,
+      "selector": "YELLOW",
+      "responsive": "PASS"
+    },
+    {
+      "concept": "noctis",
+      "links": 4,
+      "selector": "YELLOW",
+      "responsive": "PASS"
+    },
+    {
+      "concept": "atlas",
+      "links": 4,
+      "selector": "YELLOW",
+      "responsive": "PASS"
+    },
+    {
+      "concept": "orbit",
+      "links": 4,
+      "selector": "YELLOW",
+      "responsive": "PASS"
+    }
+  ],
+  "page_errors": [],
+  "timestamp": "2026-11-15T22:16:15.500Z"
+}
