@@ -1,0 +1,115 @@
+/* Orbit geometry stays fixed; Noctis supplies the dark palette. */
+.combined-preview {
+  --combined-ink: #222744;
+  --combined-muted: #68718e;
+  --combined-line: #d9ddeb;
+  --combined-control: #edf0f8;
+  --combined-selected: #fff;
+  --combined-accent: #595fa3;
+}
+.combined-design-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1240px;
+  margin: auto;
+  padding: 18px 4px 0;
+  font-size: 10px;
+  color: var(--combined-muted);
+}
+.combined-design-note > span > span { margin: 0 9px; opacity: .6; }
+.combined-design-note a { text-decoration: none; }
+.combined-design-note a:hover { text-decoration: underline; }
+.combined-preview .selector-preview-topbar { margin-top: 16px; }
+.combined-theme-control {
+  display: flex;
+  padding: 4px;
+  gap: 3px;
+  border-radius: 10px;
+  background: var(--combined-control);
+  border: 1px solid var(--combined-line);
+}
+.combined-theme-control button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  min-width: 87px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--combined-muted);
+}
+.combined-theme-control button[aria-pressed=true] {
+  background: var(--combined-selected);
+  color: var(--combined-ink);
+  box-shadow: 0 1px 3px #00000009;
+  font-weight: 600;
+}
+.combined-theme-control button svg { width: 16px; height: 16px; }
+.combined-theme-control button:focus-visible { outline: 3px solid var(--combined-accent); outline-offset: 2px; }
+.combined-preview a:focus-visible, .combined-preview summary:focus-visible { outline: 3px solid var(--combined-accent); outline-offset: 3px; }
+.combined-preview .circuit-link:focus-visible { outline-color: var(--combined-accent); }
+.combined-preview .selector-preview-main { padding-top: 28px; }
+.combined-preview .selector-canonical-details summary { min-height: 44px; }
+.combined-preview.theme-noctis {
+  --combined-ink: #edf4f5;
+  --combined-muted: #adc2ca;
+  --combined-line: #34464f;
+  --combined-control: #16252d;
+  --combined-selected: #30464d;
+  --combined-accent: #b0e3d7;
+  background: #11191e;
+  color: #edf4f5;
+  color-scheme: dark;
+}
+.combined-preview.theme-orbit { color-scheme: light; }
+.combined-preview.theme-noctis .selector-preview-topbar { background: #17242b; border-color: #34434b; }
+.combined-preview.theme-noctis .selector-brand-mark { background: #b0e3d7; color: #173a35; }
+.combined-preview.theme-noctis .selector-brand-subtitle { color: #9fb3bc; border-color: #41525b; }
+.combined-preview.theme-noctis .selector-breadcrumb { color: #a0b4be; }
+.combined-preview.theme-noctis .selector-breadcrumb span:last-child { color: #dae6eb; }
+.combined-preview.theme-noctis .selector-hero-eyebrow,
+.combined-preview.theme-noctis .selector-hero h1 > span { color: #b0e3d7; }
+.combined-preview.theme-noctis .selector-hero > div > p { color: #adc2ca; }
+.combined-preview.theme-noctis .selector-review-note { background: #17242b; border-color: #34464f; }
+.combined-preview.theme-noctis .selector-review-note p { color: #adc2ca; }
+.combined-preview.theme-noctis .selector-master-status { background: #3c331f; color: #f0d794; }
+.combined-preview.theme-noctis .concept-workspace { background: #1d2a31; border-color: #34464f; box-shadow: none; }
+.combined-preview.theme-noctis .concept-workspace-top { background: #17242b; border-color: #34464f; color: #a0b4be; }
+.combined-preview.theme-noctis .concept-workspace-top span:first-child { color: #d0e2e6; }
+.combined-preview.theme-noctis .circuit-selector {
+  --c-bg: 23 36 43;
+  --c-surface: 29 42 49;
+  --c-fg: 237 244 245;
+  --c-muted: 163 185 196;
+  --c-border: 57 76 86;
+  --circuit-accent: #b0e3d7;
+  --circuit-soft: #2a4043;
+}
+.combined-preview.theme-noctis .circuit-link { background: #21323b; border-color: #3a4d58; }
+.combined-preview.theme-noctis .circuit-link:hover { background: #293d46; }
+.combined-preview.theme-noctis .circuit-arrow { background: #34494f; color: #c0dad9; }
+.combined-preview.theme-noctis .circuit-status[data-status=green] { color: #a1dec4; }
+.combined-preview.theme-noctis .circuit-status[data-status=yellow] { color: #f0d794; }
+.combined-preview.theme-noctis .circuit-status[data-status=red] { color: #f3a5a5; }
+.combined-preview.theme-noctis .selector-canonical-details { color: #adc2ca; border-color: #34464f; }
+.combined-preview.theme-noctis .selector-preview-footer,
+.combined-preview.theme-noctis .selector-preview-footer > span:first-child { color: #a6bdc6; }
+@media (max-width: 1300px) { .combined-design-note { margin: 0 28px; } }
+@media (max-width: 740px) {
+  .combined-design-note { font-size: 9px; margin: 0 20px; padding-top: 15px; }
+  .combined-design-note > span > span { margin: 0 4px; }
+  .combined-preview .selector-preview-topbar { height: auto; min-height: 82px; padding: 16px; flex-wrap: wrap; gap: 14px; }
+  .combined-theme-control { flex-shrink: 0; margin-left: auto; }
+  .combined-theme-control button { min-width: 72px; min-height: 40px; padding: 0 9px; font-size: 11px; }
+  .combined-preview .selector-preview-brand { font-size: 17px; gap: 8px; }
+  .combined-preview .selector-preview-main { padding-top: 25px; }
+}
+@media (max-width: 389px) {
+  .combined-preview .selector-preview-topbar { justify-content: center; }
+  .combined-theme-control { margin: 0; }
+  .combined-design-note { display: block; }
+  .combined-design-note > a { display: inline-block; margin-top: 8px; }
+}

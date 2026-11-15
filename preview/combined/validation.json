@@ -1,0 +1,80 @@
+{
+  "themes": [
+    {
+      "theme": "light",
+      "status": "PASS",
+      "selector": "YELLOW",
+      "destinations_green": 4,
+      "mobile_widths": [
+        390,
+        320
+      ]
+    },
+    {
+      "theme": "dark",
+      "status": "PASS",
+      "selector": "YELLOW",
+      "destinations_green": 4,
+      "mobile_widths": [
+        390,
+        320
+      ]
+    }
+  ],
+  "navigation": [
+    {
+      "theme": "light",
+      "target": "adult-arrhythmias",
+      "result": "PASS"
+    },
+    {
+      "theme": "light",
+      "target": "adult-cardiac-arrest",
+      "result": "PASS"
+    },
+    {
+      "theme": "light",
+      "target": "pediatric-arrhythmias",
+      "result": "PASS"
+    },
+    {
+      "theme": "light",
+      "target": "pediatric-cardiac-arrest",
+      "result": "PASS"
+    },
+    {
+      "theme": "dark",
+      "target": "adult-arrhythmias",
+      "result": "PASS"
+    },
+    {
+      "theme": "dark",
+      "target": "adult-cardiac-arrest",
+      "result": "PASS"
+    },
+    {
+      "theme": "dark",
+      "target": "pediatric-arrhythmias",
+      "result": "PASS"
+    },
+    {
+      "theme": "dark",
+      "target": "pediatric-cardiac-arrest",
+      "result": "PASS"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Same desktop layout in both themes",
+      "result": "PASS"
+    },
+    {
+      "name": "Keyboard theme switch and persistence",
+      "result": "PASS"
+    }
+  ],
+  "page_errors": [],
+  "status": "PASS",
+  "timestamp": "2026-11-15T22:21:54.213Z",
+  "browser": "157.0.8103.51"
+}
