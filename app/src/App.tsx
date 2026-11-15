@@ -6,6 +6,7 @@ import DrugList from './pages/DrugList';
 import DrugDetail from './pages/DrugDetail';
 import NotFound from './pages/NotFound';
 
+const SelectorDesignPreview = lazy(() => import('./pages/SelectorDesignPreview'));
 const Calculator = lazy(() => import('./pages/Calculator'));
 const Settings = lazy(() => import('./pages/Settings'));
 const About = lazy(() => import('./pages/About'));
@@ -21,7 +22,7 @@ const InsulinUci = lazy(() => import('./pages/InsulinUci'));
 export default function App() {
   return (
     <Suspense fallback={<div className="p-8 text-center text-muted">…</div>}>
-      <Routes>
+      <Routes><Route path="/design/arrhythmia-selector" element={<SelectorDesignPreview />} />
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="drugs" element={<DrugList />} />
