@@ -36,6 +36,13 @@ Un registro documental candidato deberá definir `country_code`, `topic_id`, `in
 
 **No añadir identificadores personales, historias clínicas, contraseñas ni material confidencial** al catálogo público.
 
+## Dos ejemplos reales adicionales a Octaplex (solo candidatos documentales)
+
+- **Andexanet alfa**: la FDA comunicó el 18/12/2025 una evaluación desfavorable del balance beneficio-riesgo de Andexxa y el fin de su comercialización estadounidense el 22/12/2025. En cambio, el EPAR de **Ondexxya** de la EMA mantiene registrada una autorización condicional centralizada en la UE. La situación regulatoria no equivale a disponibilidad efectiva ni recomendación clínica. Fuentes: [FDA](https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/update-safety-andexxa) y [EMA](https://www.ema.europa.eu/en/medicines/human/EPAR/ondexxya).
+- **Tenecteplasa para ictus isquémico agudo en adultos**: la ficha estadounidense **TNKase** consultada (revisión 02/2025) limita la ventana indicada a **3 horas** desde inicio de síntomas. El EPAR europeo **Metalyse** y la SmPC británica de la presentación de ictus incluyen **4,5 horas** desde última vez conocido bien. Una guía clínica como AHA/ASA 2026 puede contemplar otra ventana y debe quedar clasificada como **guía**, no como ampliación automática de ficha estadounidense. Fuentes: [DailyMed/FDA](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=e647640d-c395-4b4b-a0be-1162f9c21d84), [EMA](https://www.ema.europa.eu/en/medicines/human/EPAR/metalyse), [SmPC UK](https://www.medicines.org.uk/emc/product/15859/smpc) y [guía AHA/ASA 2026](https://www.ahajournals.org/doi/10.1161/STR.0000000000000513).
+
+Candidatos trazables en `clinical/references/international-crosscountry-evidence-candidates-2026-11-16.json`. **No se han aprobado sus pautas, productos, condiciones ni revisiones nacionales; no alimentan el calculador ni cambian las 896 ranuras pendientes.** Estas comparaciones acreditan por qué el selector debe distinguir jurisdicción, tipo de fuente, indicación, presentación, tiempo y estado regulatorio.
+
 ## Priorización de conciliación
 
 1. **P0 de seguridad**: 19 contratos farmacológicos bloqueados; empezar por los seis flujos agudos y Octaplex/PCC; después trombólisis, analgosedación pediátrica, antimicrobianos críticos y perfusiones.
