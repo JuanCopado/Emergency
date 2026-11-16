@@ -4,7 +4,9 @@
 
 Emergency es un proyecto internacional y ampliable de apoyo clínico, formación, investigación y coordinación en urgencias y cuidados agudos. Aplicar [docs/INTERNATIONAL_SCOPE.md](docs/INTERNATIONAL_SCOPE.md), directriz del propietario del 16/11/2026, a todas las tareas.
 
-Separar núcleo común, jurisdicción, organización/recursos y contexto del caso. No inferir país ni hospital del idioma, del propietario o de un ejemplo. Portugal/Azores/Horta son perfiles posibles; no condicionan el desarrollo de todo el producto. Preservar las fuentes y decisiones locales con su procedencia.
+Mantener un núcleo clínico global coherente y un mismo módulo/algoritmo canónico. El núcleo funciona sin seleccionar país ni hospital. No inferirlos del idioma, de la biografía del propietario o de un ejemplo. Portugal/Azores/Horta son contextos posibles; preservar sus decisiones con procedencia y alcance propios.
+
+Aplicar [la política de guías internacionales](clinical/references/international-guideline-policy.md): seleccionar guías de amplio reconocimiento internacional por calidad, vigencia, consenso y población/indicación. Contrastar fuentes primarias e incorporar únicamente diferencias materialmente justificadas de clínica, seguridad, regulación/producto o recursos, manteniendo pauta íntegra, procedencia, revisión clínica y estado real. El catálogo territorial permite contrastar excepciones; no impone prioridades geográficas ni protocolos completos por país. No universalizar NICE, AHA ni otra fuente por su origen.
 
 ## Entrada y trabajo
 

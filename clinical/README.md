@@ -2,6 +2,8 @@
 
 Aplicar [la directriz internacional](../docs/INTERNATIONAL_SCOPE.md), [el estado actual de la línea](../STATE.md) y [la hoja de ruta](../docs/INTERNATIONAL_ROADMAP.md). El núcleo se comparte entre países y organizaciones; cada contexto operativo conserva sus fuentes y recursos. Las cifras y afirmaciones de versiones anteriores que siguen son históricas. La interfaz multilingüe no acredita traducción clínica integral ni validación mundial.
 
+La [política de guías internacionales](references/international-guideline-policy.md) mantiene un núcleo global y un mismo módulo/algoritmo canónico sin hospital obligatorio. Selecciona guías reconocidas por calidad, vigencia, consenso y población/indicación; contrasta fuentes primarias y aplica solo diferencias materiales justificadas de clínica, seguridad, regulación/producto o recursos, conservando pauta íntegra, procedencia, revisión clínica y estado real. El catálogo territorial no impone protocolos completos por país. No inferir país del idioma o la biografía ni universalizar NICE/AHA.
+
 # Emergency Medicine v1.42 — instantánea histórica
 
 Consolidación técnica: 131 módulos, 196 procedimientos estructurados, 135 escalas, 45 fórmulas y 89 regímenes pediátricos. Inventario reproducible en `qa/V1.42_INVENTORY.json`; auditoría y límites en `qa/V1.42_FINAL_AUDIT.md`. QA local PASS; SP-002 resuelto, gate técnico sin P0/P1 abiertos; CLINICALLY_PENDING: no aprobado para uso clínico en producción. Visuales pausadas. No es una competencia instalada/publicada por este repositorio.

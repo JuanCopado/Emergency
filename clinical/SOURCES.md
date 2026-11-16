@@ -1,3 +1,7 @@
+## Guías internacionales y diferencias justificadas · 16/11/2026 · INT-02A
+
+Aplicar `references/international-guideline-policy.md`: selección de guías de amplio reconocimiento internacional por calidad, vigencia, consenso y aplicabilidad; un núcleo común con diferencias materiales justificadas. El directorio inicial identifica portales OMS/ILCOR, europeos, británicos y americanos, con límites de acceso explícitos. Esta consulta de portales no constituye revisión de todas sus recomendaciones, no renueva fechas de revisión clínica ni valida nuevas dosis. La procedencia nacional no determina una prioridad universal.
+
 ## Alcance de fuentes por jurisdicción · 16/11/2026
 
 Aplicar `references/international-context.md`: ninguna autoridad nacional se considera referencia universal por defecto. Conservar fuente, población, escenario y discrepancias; Portugal/Azores se utiliza cuando corresponda a ese perfil. Esta revisión del alcance no renueva fechas ni cambia el estado de las fuentes clínicas.

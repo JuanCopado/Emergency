@@ -4,9 +4,11 @@ This file defines the safe entry point for Codex work on this repository.
 
 ## Current owner directive: international scope (2026-11-16)
 
-Read `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` and `STATE.md` first. Emergency is an international, extensible acute-care platform. Separate the shared core from jurisdiction, organization/resources and case context; never infer Portugal/Horta from the owner's location or the interface language. Country-specific evidence and hospital experience retain their scope and provenance.
+Read `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` and `STATE.md` first. Emergency is an international, extensible acute-care platform with a coherent global clinical core and the same canonical module/algorithm across settings. The core works without a selected hospital; never infer country or hospital from biography or interface language. Context-specific evidence and hospital experience retain their scope and provenance.
 
-The owner requested the necessary scope and coordination changes. This task's isolated delivery branch is `codex/v144-international-scope-20261116`, based on verified commit `926649ac5b3168267839f987de77a62401b5e7da`. It is permitted for this directive, documentation, context-neutral wording and product presentation. Preserve clinical arithmetic, evidence states and existing blockers; this dispatch does not authorize merging protected branches or transferring clinical data to external services.
+The owner requested the necessary scope and coordination changes. The original scope delivery used the isolated branch `codex/v144-international-scope-20261116`, based on verified commit `926649ac5b3168267839f987de77a62401b5e7da`. It is permitted for this directive, documentation, context-neutral wording and product presentation. Preserve clinical arithmetic, evidence states and existing blockers; this dispatch does not authorize merging protected branches or transferring clinical data to external services.
+
+The INT-02A clarification continues on that branch from verified commit `285114a56ce2814b54b53d990474bb121876ef84`. Apply `clinical/references/international-guideline-policy.md`: choose broadly recognized international guidance by quality, currency, consensus and population/indication. Compare applicable primary sources and incorporate only materially justified clinical, safety, regulatory/product or resource exceptions, preserving the complete regimen, provenance, clinical review and actual status. The territorial catalog supports comparison, not automatic geographic priority or complete country protocols; do not universalize NICE/AHA.
 
 ## Repository and branch guard
 

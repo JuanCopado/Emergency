@@ -2,6 +2,8 @@
 
 Aplicar primero `../AGENTS.md` y `../docs/INTERNATIONAL_SCOPE.md` (directriz del propietario, 16/11/2026). Emergency tiene alcance internacional y ampliable. Portugal/Azores/Horta son perfiles de aplicación; no valores por defecto del núcleo. Leer `references/international-context.md` cuando país, producto, centro o recursos afecten a la tarea.
 
+Aplicar `references/international-guideline-policy.md`: núcleo clínico global coherente y mismo módulo/algoritmo canónico, sin hospital obligatorio. Elegir guías internacionales reconocidas por calidad, vigencia, consenso y población/indicación; contrastar fuentes primarias e incorporar solo excepciones materiales justificadas de clínica, seguridad, regulación/producto o recursos, con pauta íntegra, procedencia, revisión clínica y estado real. No inferir país de idioma/biografía ni universalizar NICE/AHA; el catálogo territorial no impone protocolos completos o prioridades geográficas.
+
 1. Leer `CURRENT_STATE.md` y `MODULES.md`; consultar `PROJECT.md` si hace falta.
 2. Abrir `SKILL.md`, índice, `CHANGELOG.md` y registro de evidencia de la
    **competencia real**. Los archivos de este paquete documentan una instantánea.

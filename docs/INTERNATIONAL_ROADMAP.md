@@ -23,7 +23,7 @@ P0 identifica fundamentos necesarios para aplicar el nuevo alcance. P1 identific
 | ID | Capacidad | Prioridad y estado | Responsable por función | Dependencias |
 |---|---|---|---|---|
 | INT-01 | Alcance, coordinación y perfiles | P0; gobernanza preparada en esta entrega; perfiles propuestos | Coordinación de producto y arquitectura | Directriz del propietario |
-| INT-02 | Evidencia clínica internacional | P0; ampliación propuesta | Dirección clínica y gestión de evidencia | INT-01 |
+| INT-02 | Evidencia clínica internacional | P0; política de coherencia internacional INT-02A preparada; diferencias módulo × jurisdicción pendientes de evaluación | Dirección clínica y gestión de evidencia | INT-01 |
 | INT-03 | Farmacología y presentaciones | P1; ampliación propuesta | Farmacia clínica e ingeniería clínica | INT-01, INT-02 |
 | INT-04 | Procedimientos y recursos | P1; ampliación propuesta | Responsables de procedimientos y experiencia de usuario | INT-01, INT-02 |
 | INT-05 | Entornos asistenciales | P1; ampliación propuesta | Responsables clínicos por entorno | INT-01, INT-02; INT-03/04 cuando apliquen |
@@ -41,13 +41,17 @@ P0 identifica fundamentos necesarios para aplicar el nuevo alcance. P1 identific
 
 **Base:** instrucciones de colaboradores, registros de decisiones y handoffs. Esta entrega establece la orientación internacional y su hoja de ruta.
 
-**Aceptación siguiente:** esquema y selector explícitos para jurisdicción, organización y entorno; modo de referencia sin centro elegido; dos perfiles sintéticos independientes. Idioma, país y disponibilidad de recursos no se infieren unos de otros. Cada entrega registra versión base, alcance, responsable y recepción de directrices. **El esquema y selector pertenecen a la fase 2 y aún no están implementados.**
+**Aceptación siguiente:** esquema explícito de contexto y controles opcionales para jurisdicción, organización y entorno; acceso al núcleo de referencia sin país ni centro elegidos; dos contextos sintéticos que reutilicen los mismos módulos canónicos. Idioma, país y disponibilidad de recursos no se infieren unos de otros. El contexto solo condiciona la función o diferencia que dependa de él. Cada entrega registra versión base, alcance, responsable y recepción de directrices. **El esquema y los controles de contexto pertenecen a la fase 2 y aún no están implementados.**
 
 ### INT-02 — Evidencia clínica internacional
 
 **Base:** módulos, fuentes, registro de evidencia y cola de actualizaciones.
 
-**Aceptación:** cada recomendación declara fuente, versión, población y ámbito de aplicación. Las discrepancias entre guías permanecen visibles, con decisión trazable; no se promedian pautas ni se convierte una aprobación organizativa en aprobación mundial. Incorporar una jurisdicción no duplica el módulo clínico.
+**Entrega INT-02A — política de coherencia internacional preparada:** [international-guideline-policy.md](../clinical/references/international-guideline-policy.md) establece un núcleo basado en guías internacionalmente reconocidas por calidad metodológica, vigencia, consenso y aplicabilidad. El catálogo de Europa por país, Reino Unido y su nación cuando proceda, Estados Unidos, Canadá y Latinoamérica/Caribe por país sirve para comprobar diferencias; no define una plataforma separada por territorio.
+
+**Aceptación siguiente:** documentar la selección de guía o algoritmo canónico por módulo y evaluar las diferencias materialmente relevantes. La matriz módulo × jurisdicción registra cobertura de revisión, no protocolos nuevos. Cada recomendación declara fuente, versión, población y ámbito de aplicación; cada diferencia justificada identifica un anexo o variante puntual, completo en el tramo que modifica, y sus limitaciones pendientes. Las discrepancias permanecen visibles, con decisión trazable; no se mezclan secuencias ni se promedian pautas. Se conserva un mismo módulo clínico y una aprobación organizativa no se convierte en aprobación mundial.
+
+**Límite de esta entrega:** la política está preparada; no se ha completado la evaluación de diferencias de todos los módulos. No se ha implementado un selector de jurisdicción ni se ha acreditado conformidad regional por publicar la política. Consultar el núcleo no exige un selector, país o centro. Los ámbitos aún no revisados se identifican como pendientes sin bloquear capacidades generales que no dependan de esa revisión, y sin crear protocolos superlocales.
 
 ### INT-03 — Farmacología y presentaciones
 
@@ -112,9 +116,11 @@ P0 identifica fundamentos necesarios para aplicar el nuevo alcance. P1 identific
 ## Secuencia de ejecución
 
 1. **Fase 1 — esta entrega:** alcance internacional, instrucciones comunes, hoja de ruta y clasificación de referencias locales como perfiles o antecedentes.
-2. **Fase 2 — propuesta:** esquema, resolución y selector de perfiles; contexto visible y pruebas sintéticas de independencia. No requiere inventar pautas clínicas.
+2. **Fase 2 — propuesta:** esquema, resolución y controles opcionales de contexto; núcleo accesible sin país o centro elegidos y pruebas sintéticas de variantes justificadas que reutilicen los mismos módulos. No requiere inventar pautas clínicas.
 3. **Fase 3 — propuesta:** paquetes paralelos de idiomas, entornos, documentación, educación, imagen y adaptadores de IA, cada uno con aceptación propia.
 4. **Fase 4 — pendiente:** evaluación multicentro y liberaciones con alcance declarado por capacidad, población y entorno.
+
+**Ampliación INT-02A:** la fase documental incluye ahora la política de coherencia internacional y diferencias justificadas. Su siguiente trabajo es registrar la selección canónica y comprobar diferencias materiales módulo × jurisdicción; el desarrollo de los controles opcionales de contexto conserva su estado propuesto en la fase 2.
 
 La amplitud del producto no elimina los controles clínicos. Se mantienen `CLINICALLY_PENDING`, trazabilidad y bloqueos aplicables hasta que cada criterio correspondiente esté acreditado.
 

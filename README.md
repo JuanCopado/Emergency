@@ -5,11 +5,12 @@ Proyecto internacional y ampliable de apoyo a urgencias, emergencias y cuidados 
 ## Entrada común
 
 - [Alcance internacional del propietario](docs/INTERNATIONAL_SCOPE.md).
+- [Política de guías internacionales y excepciones justificadas](clinical/references/international-guideline-policy.md).
 - [Estado de esta línea de trabajo](STATE.md) y [reglas para colaboradores](AGENTS.md).
 - [Capacidades existentes y hoja de ruta](docs/INTERNATIONAL_ROADMAP.md).
 - [Coordinación y difusión de la directriz](docs/COORDINATION_INTERNATIONAL_2026-11-16.md).
 
-El núcleo compartido se separa de la jurisdicción, la organización y los recursos disponibles. Portugal, Azores y Hospital da Horta son perfiles posibles de aplicación; el idioma no selecciona país ni hospital. Las funciones generales pueden desarrollarse sin un centro elegido; cada función clínica conserva sus requisitos y límites.
+El núcleo clínico global funciona sin seleccionar hospital y mantiene un mismo módulo/algoritmo canónico. Selecciona guías de amplio reconocimiento internacional por calidad, vigencia, consenso y población/indicación. Contrasta fuentes primarias y conserva pauta íntegra, procedencia, revisión y estado real; incorpora únicamente diferencias materiales justificadas de clínica, seguridad, regulación/producto o recursos. El catálogo territorial no fragmenta el producto en protocolos completos por país ni universaliza NICE/AHA. Portugal, Azores y Horta son contextos posibles; idioma y biografía no seleccionan país ni hospital.
 
 ## Componentes
 

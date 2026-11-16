@@ -1,3 +1,9 @@
+## Coherencia de guías internacionales · 16/11/2026 · INT-02A
+
+Aplicar `references/international-guideline-policy.md`: núcleo clínico común basado en guías de amplio reconocimiento internacional, seleccionadas por calidad, vigencia, consenso y aplicabilidad. Europa, UK y las Américas sirven para contrastar diferencias materiales; incorporar solo las justificadas en el núcleo o en una variante puntual del mismo módulo. La consulta del núcleo no exige país ni hospital y no se divide en protocolos locales completos.
+
+Esta entrega establece la política y un directorio inicial de fuentes, con difusión a colaboradores y revisiones programadas. La adaptación clínica por recomendación/contexto sigue requiriendo evidencia y revisión; no se declara completada para los 131 módulos. Dosis, fórmulas, estados y fechas de evidencia, 19 contratos bloqueados y CLINICALLY_PENDING se conservan. Alcance y comprobaciones: `../docs/REGIONAL_GUIDELINE_COORDINATION_2026-11-16.md`.
+
 ## Alcance internacional vigente · 16/11/2026
 
 Por instrucción del propietario, Emergency se define como proyecto internacional y ampliable. Aplicar `../docs/INTERNATIONAL_SCOPE.md` y `references/international-context.md`: núcleo común, jurisdicción, organización/recursos y contexto del caso separados; idioma no selecciona país. Portugal/Azores/Horta conservan su evidencia como perfiles de aplicación, sin limitar el producto.

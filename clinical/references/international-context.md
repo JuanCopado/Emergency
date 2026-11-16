@@ -6,6 +6,10 @@ Emergency has an international, extensible clinical core. Country, regional and 
 
 This reference governs how contributors and clinical workflows interpret context. It does not claim that a multi-country profile selector, regulatory service or every proposed capability is already implemented.
 
+## A coherent international reference
+
+Apply [international-guideline-policy.md](international-guideline-policy.md), the owner's INT-02A clarification of 2026-11-16. Start with a common clinical core based on internationally recognized guidance selected for quality, currency, consensus and applicability. Compare European, UK and American sources when relevant; country-specific information justifies only material clinical, safety, product or resource differences. Preserve one canonical module, with focused variants only when supported. Do not fragment the platform into complete national or hospital protocols or require a country/center for general reference. Incorporate supported differences into the core or the appropriate limited variant with source, rationale and review status; do not merely list them.
+
 ## Separate the relevant contexts
 
 | Context | What it determines |

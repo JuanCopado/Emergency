@@ -3,7 +3,7 @@
 Idioma: español. Respuestas breves, sin introducción ni resumen final.
 
 ## Arranque mínimo
-1. Leer `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` y `STATE.md` (estado vivo, ≤30 líneas). Emergency es internacional y ampliable; separar núcleo, jurisdicción, organización/recursos y caso. No inferir país ni hospital del idioma o del propietario. Leer CHANGELOG, VALIDATION o updates/ solo cuando la tarea lo requiera.
+1. Leer `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` y `STATE.md` (estado vivo, ≤30 líneas). Emergency mantiene un núcleo clínico global coherente, utilizable sin hospital seleccionado. No inferir país ni hospital del idioma o la biografía. Leer CHANGELOG, VALIDATION o updates/ solo cuando la tarea lo requiera.
 2. No abrir bundles enteros: localizar con `grep -n "^## <id>" clinical/modules/*.md` y leer solo esa sección (offset/limit).
 3. Índice de IDs: `grep -oE '^## [a-z0-9-]+' clinical/modules/*.md`.
 
@@ -25,6 +25,8 @@ Idioma: español. Respuestas breves, sin introducción ni resumen final.
 - RAG y modelos externos son contratos/candidatos; no declararlos implementados o validados.
 
 ## Seguridad clínica (no se recorta nunca)
+Aplicar `clinical/references/international-guideline-policy.md`: guías internacionales reconocidas seleccionadas por calidad, vigencia, consenso y población/indicación; mismo módulo canónico. Contrastar fuentes primarias y aplicar solo excepciones materiales justificadas de clínica, seguridad, regulación/producto o recursos, con pauta íntegra, procedencia, revisión y estado real. El catálogo territorial no genera protocolos completos por país ni prioridades automáticas; no universalizar NICE/AHA.
+
 Dosis, unidades, diluyente, concentración, aritmética, mL/h, máximos, contraindicaciones y avisos se mantienen íntegros. Mantener el estado de revisión de cada componente y CLINICALLY_PENDING global. Aplicar la información de producto y el protocolo verificados para el contexto seleccionado, conservando discrepancias y contraindicaciones; DGS/INFARMED corresponden al perfil portugués. Una aceptación local no certifica uso internacional. Leer `clinical/references/international-context.md` cuando la tarea dependa de jurisdicción o recursos.
 
 ## Verificar antes de cerrar (solo lo afectado)

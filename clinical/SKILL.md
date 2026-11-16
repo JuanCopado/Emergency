@@ -5,7 +5,7 @@ description: Emergency-care reasoning, stabilization, medication and infusion ca
 
 # Emergency Medicine — international scope (clinical review pending)
 
-Scope directive (2026-11-16): apply `references/international-context.md`; within the full repository also read the project charter `../docs/INTERNATIONAL_SCOPE.md`. Use the available current-state record (`../STATE.md` in the repository, `CURRENT_STATE.md` in a standalone package) and the evidence registry; never treat the historical snapshot below as the current branch or global clinical approval. A standalone package must preserve the international-context reference and must not claim synchronization with another installation.
+Scope directive (2026-11-16): apply `references/international-guideline-policy.md` and `references/international-context.md`; within the full repository also read the project charter `../docs/INTERNATIONAL_SCOPE.md`. Use the available current-state record (`../STATE.md` in the repository, `CURRENT_STATE.md` in a standalone package) and the evidence registry; never treat the historical snapshot below as the current branch or global clinical approval. A standalone package must include both references, including the international-guideline policy, and must not claim synchronization with another installation.
 
 Historical v1.42 snapshot (2026-10-11): 505 Python tests and 163 frontend tests passed locally; 131 modules (29 GREEN / 102 YELLOW), 196 structured YELLOW procedures. CLINICALLY_PENDING: SP-002 identity repaired from historical evidence; no open technical P0/P1 in that audited scope. Technical RC is not approval for clinical production. Automated QA is not prospective clinical validation; prospective clinical and diagnostic-accuracy validation pending. See `qa/V1.42_FINAL_AUDIT.md` and generated `qa/V1.42_INVENTORY.json`. The former 63-test statement belonged to the historical v1.35 snapshot.
 
@@ -115,7 +115,9 @@ For any clinical scale, score, decision rule or medical formula request, load `c
 
 ## Living Evidence system
 
-Read `references/international-context.md` when jurisdiction, product, organization or available resources affect the task. Do not infer a country from language or the owner's practice. Without a selected country/center, retain unknown context and provide supported general reference or educational content; limit only the dependent clinical calculation or operational claim. Do not silently substitute national recommendations, preparations or resources. Existing clinical and pharmaceutical safety gates remain in force.
+Apply `references/international-guideline-policy.md`: maintain a coherent global clinical core and the same canonical module/algorithm. Select broadly recognized international guidance by quality, currency, consensus and population/indication. Compare relevant primary sources; incorporate only materially justified clinical, safety, regulatory/product or resource exceptions, preserving the complete regimen, provenance, clinical review and actual status. The territorial catalog supports comparison rather than automatic geographic priority or complete protocols for each country; do not universalize NICE/AHA.
+
+Read `references/international-context.md` when product, organization or resources materially affect the task. The core works without selecting a hospital. Do not infer country from language or biography. Retain unknown context and limit only the calculation or operational claim that depends on it; do not silently substitute recommendations, preparations or resources. Existing clinical and pharmaceutical safety gates remain in force.
 
 For care in Portugal or requested Portuguese alignment, read
 `references/portugal-context.md`. Verify relevant DGS norms and Portuguese
