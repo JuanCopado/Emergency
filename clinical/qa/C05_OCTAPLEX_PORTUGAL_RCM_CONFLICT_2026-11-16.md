@@ -51,3 +51,35 @@ RCM portugués sección **4.2** para corrección urgente en tratamiento con AVK:
 5. Revisión humana independiente de la versión publicada, con SHA de código probado, antes de levantar `block_reason`.
 
 **Estado:** producto identificado por propietario, RCM portugués 08/2020 identificado, divergencia de jurisdicciones **ABIERTA**, motor clínico y 22+ pruebas negativas **NOT_RUN**, contrato 5 **BLOCKED**, `CLINICALLY_PENDING`. No se certifica validación clínica ni de Farmacia.
+
+
+## Adenda 16/11/2026 — presentaciones, dosis comunicadas y velocidad
+
+**Fuente local:** confirmación del responsable del proyecto, 16/11/2026. Sustituye la duda de presentación: declara disponibles **Octaplex 500 UI/20 mL y 1000 UI/40 mL**, ambas **25 UI de factor IX/mL**, según [RCM portugués de Octapharma (08/2020)](https://www.octapharma.pt/api/download/x/291a94e4c6/rcm-octaplex.pdf). La declaración no equivale a inventario/RCM vigente firmado por Farmacia.
+
+**Administración local:** iniciar **1 mL/min**; aumentar a **2–3 mL/min** si no hay incidencias. Coincide con sección 4.2 del RCM portugués. No importar velocidad UK de hasta 8 mL/min.
+
+### Comparación obligatoria: dato local y conversión literal del RCM portugués
+
+| INR inicial | Pauta local comunicada (UI factor IX/kg) | Tabla RCM Portugal (mL/kg) | Conversión aritmética exacta de RCM a 25 UI/mL | Decisión |
+|---|---|---|---|---|
+| 2–2,5 | **25–32,5** | **0,9–1,3** | **22,5–32,5** | **Discrepancia**: límite inferior 25 local, 22,5 de RCM |
+| 2,5–3 | **32,5–40** | **1,3–1,6** | **32,5–40** | Coincide |
+| 3–3,5 | **40–47,5** | **1,6–1,9** | **40–47,5** | Coincide |
+| >3,5 | **47,5–50** | **>1,9** | **>47,5**, sin techo UI/kg expreso en la fila | **Discrepancia**: 50 UI/kg local no es límite por kg transcrito del RCM |
+
+**Tope individual de RCM portugués revisado:** **3000 UI = 120 mL**. No aplicar el máximo 5000 UI de versiones británicas. No derivar número de viales ni redondear a presentaciones de 500/1000 UI sin aprobación.
+
+**INR exactos 2,5, 3,0 y 3,5:** los intervalos de la tabla se solapan formalmente. La asignación del extremo y el redondeo de laboratorio necesitan una regla clínica única definida y firmada. No elegir de oficio el tramo superior/inferior.
+
+**Intervalos, no dosis fijas:** el RCM pide individualización por INR previo, INR objetivo, localización, gravedad y evolución. La relación dimensional dosis = kg por UI/kg seleccionada y volumen = UI / 25 solo se admite en una herramienta de revisión teórica, no como prescripción ni como elección automática de límite inferior/medio/superior.
+
+**Separar vitamina K y HIC:** la pauta y formulación de vitamina K se verifican individualmente; el caso HIC con INR <2 requiere circuito distinto, no aplicación de la tabla genérica.
+
+### Puertas de seguridad tras esta incorporación
+
+- PRODUCTO: **Octaplex de 500 UI/20 mL y 1000 UI/40 mL declarados por propietario**; lotes, ficha vigente, reconstitución y stock verificable aún pendientes.
+- VELOCIDAD: **1 mL/min inicial y 2–3 mL/min posteriormente** como referencia local/RCM 2020, pendiente de aprobación técnica de administración.
+- DOSIS: cuatro **bandas locales declaradas** separadas de conversión literal del RCM; primer y último tramo **NO CONCILIADOS**.
+- DOSIS MÁXIMA: **3000 UI por administración** en el RCM portugués disponible; no sustituir por UK.
+- BLOQUEO: contrato 5 **BLOCKED / CLINICAL_REVIEW_REQUIRED**; QA integrada y revisión galénica no ejecutadas; mantener CLINICALLY_PENDING y main intacta.
