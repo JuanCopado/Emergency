@@ -19,3 +19,7 @@
 - Estado publicado, comunicado, leído e integrado se registra por separado; no asumir sincronización de otros chats o agentes.
 - Proteger main, v1.42-rc1 y v1.43; no auto-GREEN ni modificación de dosis para pasar QA.
 - El estado T01 de 26/10 y los cortes de v1.36/v1.42 permanecen como antecedentes en el historial Git y sus informes; no definen este alcance.
+
+## P3/P4 — candidato de entrada numérica e interfaz · 16/11/2026
+
+Rama aislada `codex/v144-p3-p4-locale-20261116`, desde `062d890b`. Entrada con punto sin agrupación; salida ES/PT con coma y EN/ZH con punto. Añadidas 278 traducciones estáticas de interfaz y controles de edad inválida. Pendiente de aceptación/integración; traducción clínica integral y documentos canónicos mantienen su alcance original. Informe y verificaciones: `docs/P3_P4_LOCALE_RECONCILIATION_2026-11-16.md` (desde clinical: `../docs/`). Sin cambio de dosis, fórmulas, fuentes ni estados de evidencia; 19 bloqueos conservados y CLINICALLY_PENDING.

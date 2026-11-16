@@ -1,3 +1,5 @@
+import { parseFiniteDecimal } from '../lib/format';
+
 /** Owner-selected local protocol, 13/11/2026. ADA 2026 is its guideline framework,
  * not the origin of this dose table. No canonical acute-medication gate is bypassed.
  */
@@ -27,8 +29,8 @@ function checked(n:number):number {
   return n;
 }
 export function parseNumber(raw:string|number|undefined,label:string,zero=false):number {
-  const text=String(raw??'').trim().replace(',','.');const n=Number(text);
-  if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(text)||!Number.isFinite(n)||n>Number.MAX_SAFE_INTEGER||(zero?n<0:n<=0)) {
+  const text=String(raw??'').trim();const n=parseFiniteDecimal(text);
+  if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(text)||n===null||n>Number.MAX_SAFE_INTEGER||(zero?n<0:n<=0)) {
     throw new Error(`${label}: introduce un número finito ${zero?'mayor o igual a cero':'mayor que cero'}.`);
   }
   return n;

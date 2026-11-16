@@ -4,6 +4,10 @@ import en from './locales/en.json';
 import es from './locales/es.json';
 import pt from './locales/pt.json';
 import zh from './locales/zh.json';
+import enClinical from './locales/en.clinical.json';
+import esClinical from './locales/es.clinical.json';
+import ptClinical from './locales/pt.clinical.json';
+import zhClinical from './locales/zh.clinical.json';
 import { readStorage } from '../lib/storage';
 
 export const LANGUAGES = [
@@ -24,7 +28,7 @@ export function intlLocale(code: string): string {
   return LANGUAGES.find((l) => l.code === code)?.intl ?? 'en-GB';
 }
 
-export const resources = { en: { translation: en }, es: { translation: es }, pt: { translation: pt }, zh: { translation: zh } } as const;
+export const resources = { en: { translation: en, clinicalUi: enClinical }, es: { translation: es, clinicalUi: esClinical }, pt: { translation: pt, clinicalUi: ptClinical }, zh: { translation: zh, clinicalUi: zhClinical } } as const;
 
 const stored = readStorage(LANG_STORAGE_KEY);
 void i18n.use(initReactI18next).init({

@@ -7,7 +7,7 @@ import { Icon } from '../components/Icon';
 import { NumberField } from '../components/NumberField';
 import { defaultPreparation, drugs, getDrug } from '../data';
 import { DOSE_UNITS, type AmountUnit, type DoseUnit, type Drug, type Preparation } from '../data/schema';
-import { parseDecimal } from '../lib/format';
+import { formatCanonicalNumber, parseDecimal } from '../lib/format';
 import {
   buildTitrationTable,
   computeBolus,
@@ -446,14 +446,14 @@ export default function Calculator() {
                       ? preparation.amount
                         ? `${f.num(preparation.amount.value)} ${f.unit(preparation.amount.unit)}`
                         : '—'
-                      : `${customAmount} ${f.unit(customAmountUnit)}`}
+                      : `${formatCanonicalNumber(parseDecimal(customAmount) ?? NaN, f.locale)} ${f.unit(customAmountUnit)}`}
                   </dd>
                 </div>
                 
                 <div className="rounded-xl bg-surface-2 p-3">
                   <dt className="text-xs text-muted">{t('prep.finalVolume')}</dt>
                   <dd className="num font-bold">
-                    {preparation ? (preparation.finalVolumeMl ? `${f.num(preparation.finalVolumeMl)} mL` : '—') : `${customVolume} mL`}
+                    {preparation ? (preparation.finalVolumeMl ? `${f.num(preparation.finalVolumeMl)} mL` : '—') : `${formatCanonicalNumber(parseDecimal(customVolume) ?? NaN, f.locale)} mL`}
                   </dd>
                 </div>
                 <div className="rounded-xl bg-surface-2 p-3">

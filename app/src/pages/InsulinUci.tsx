@@ -1,3 +1,5 @@
+import { useFormat } from '../lib/useFormat';
+import { useClinicalUi } from '../i18n/useClinicalUi';
 import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { MODES, PROTOCOL, simulate, type Mode, type Simulation, type Values } from '../insulin/protocol';
@@ -16,9 +18,10 @@ const fields:Record<Mode,Field[]>={
   {key:'prescribed',label:'Existe prescripción médica explícita',options:yesNo},{key:'bolusUnits',label:'Dosis de bolo prescrita (UI)'}],
 };
 const rows=[['<70','Suspender; glucosa IV 10–20 g; controles cada 15 min'],['70–100','Pausa; control en 30–60 min'],['101–139','Reducir 1 o 2 UI/h según prescripción explícita'],['140–180','Mantener ritmo'],['181–210','Aumentar 1 UI/h'],['211–240','Aumentar 2 UI/h'],['>240','Aumentar 3 UI/h; bolo sólo con prescripción']];
-const fmt=(n:number)=>new Intl.NumberFormat('es',{maximumFractionDigits:2}).format(n);
-const range=(r:[number,number])=>r[0]===r[1]?fmt(r[0]):`${fmt(r[0])}–${fmt(r[1])}`;
 export default function InsulinUci(){
+ const f=useFormat();const ui=useClinicalUi();
+ const fmt=(n:number)=>f.num(n,2);
+ const range=(r:[number,number])=>r[0]===r[1]?fmt(r[0]):`${fmt(r[0])}–${fmt(r[1])}`;
  const [mode,setMode]=useState<Mode>('iv-adjust');const [values,setValues]=useState<Values>({});
  const [synthetic,setSynthetic]=useState(false);const [result,setResult]=useState<Simulation>();const [error,setError]=useState('');
  function clear(){setResult(undefined);setError('');}
@@ -42,14 +45,14 @@ export default function InsulinUci(){
   <div className="grid items-start gap-5 lg:grid-cols-2">
    <form onSubmit={submit} className="card p-5 space-y-4" aria-label="Formulario de simulación">
     <h2 className="text-xl font-bold">{selected.title}</h2>
-    <p className="text-sm text-muted">Sólo datos ficticios. Coma o punto decimal. Cualquier edición borra el resultado anterior.</p>
+    <p className="text-sm text-muted">{ui("Entrada numérica: usa punto decimal (0.1), sin separadores de miles. La salida sigue el idioma seleccionado.")}</p>
     {mode==='iv-adjust'&&<p>Selecciona una reducción sólo cuando corresponda a la banda 101–139 mg/dL. El programa no decide entre 1 y 2 UI/h.</p>}
     {mode==='iv-start'&&<p>Se comprueban los criterios; no se inventa un ritmo inicial. El bolo se trata por separado.</p>}
     {mode==='iv-bolus'&&<p>Conversión de una dosis ya prescrita. Una glucemia elevada o el aporte calórico no generan por sí solos una orden de bolo.</p>}
     {fields[mode].map(f=><label className="block" key={f.key}><span className="block mb-1 font-semibold">{f.label}</span>
      {f.options?<select className="input" aria-label={f.label} value={values[f.key]??''} onChange={e=>{clear();setValues(old=>({...old,[f.key]:e.target.value}));}}>
       <option value="">Sin documentar</option>{f.options.map(([value,label])=><option key={value} value={value}>{label}</option>)}
-     </select>:<input className="input" aria-label={f.label} inputMode="decimal" autoComplete="off" value={values[f.key]??''} onChange={e=>{clear();setValues(old=>({...old,[f.key]:e.target.value}));}}/>}
+     </select>:<input className="input" aria-label={f.label} inputMode="decimal" lang="en" autoComplete="off" value={values[f.key]??''} onChange={e=>{clear();setValues(old=>({...old,[f.key]:e.target.value}));}}/>}
     </label>)}
     <label className="flex items-start gap-2"><input type="checkbox" checked={synthetic} className="mt-1" onChange={e=>{clear();setSynthetic(e.target.checked);}}/>
      <span>Usaré exclusivamente datos sintéticos para comprobar el programa; no genera una prescripción.</span></label>

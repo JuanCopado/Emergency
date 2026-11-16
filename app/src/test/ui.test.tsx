@@ -55,7 +55,7 @@ describe('Calculator', () => {
     const user = userEvent.setup();
     await renderAt('/calculator?drug=norepinephrine&weight=70', [{ path: '/calculator', element: <Calculator /> }]);
     await user.click(screen.getByRole('radio', { name: 'mL/h → dose' }));
-    fireEvent.change(screen.getByTestId('calc-rate'), { target: { value: '10,5' } });
+    fireEvent.change(screen.getByTestId('calc-rate'), { target: { value: '10.5' } });
     expect(await screen.findByTestId('dose-display')).toHaveTextContent('0.1');
   });
 
@@ -73,7 +73,7 @@ describe('Calculator', () => {
     await renderAt('/calculator?drug=milrinone&weight=70&dose=0.375', [{ path: '/calculator', element: <Calculator /> }]);
     const heading = await screen.findByRole('heading', { name: /Loading \/ bolus dose/ });
     const card = heading.closest('section') as HTMLElement;
-    expect(within(card).getByText('3,500 mcg')).toBeInTheDocument();
+    expect(within(card).getByText('3500 mcg')).toBeInTheDocument();
     expect(within(card).getByText('17.5 mL')).toBeInTheDocument();
     expect(within(card).getByText('10 min')).toBeInTheDocument();
     expect(within(card).queryByText(/\d mL\/h/)).not.toBeInTheDocument();
@@ -120,9 +120,9 @@ describe('i18n & settings', () => {
   it('language switcher changes UI and persists to localStorage', async () => {
     const user = userEvent.setup();
     await renderAt('/', [{ path: '/', element: <Home /> }], 'es');
-    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('Referencia de perfusiones');
+    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('Apoyo clínico para urgencias y cuidados agudos');
     await user.selectOptions(screen.getByTestId('language-switcher'), 'zh');
-    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('急诊与重症监护输注参考');
+    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent("急诊与急性医疗的临床支持");
     expect(localStorage.getItem('emergency.lang')).toBe('zh');
     expect(document.documentElement.lang).toBe('zh-Hans');
     await user.selectOptions(screen.getByTestId('language-switcher'), 'pt');
@@ -143,7 +143,7 @@ describe('i18n & settings', () => {
 
   it('about page shows the disclaimer', async () => {
     await renderAt('/about', [{ path: '/about', element: <About /> }]);
-    expect(await screen.findByTestId('disclaimer')).toHaveTextContent('Local protocols and the treating clinician');
+    expect(await screen.findByTestId('disclaimer')).toHaveTextContent('It does not replace clinical judgment, local protocols or the product information.');
   });
 });
 

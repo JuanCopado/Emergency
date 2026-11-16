@@ -1,3 +1,7 @@
+## P3/P4 — candidato de entrada numérica e interfaz · 16/11/2026
+
+Rama aislada `codex/v144-p3-p4-locale-20261116`, desde `062d890b`. Entrada con punto sin agrupación; salida ES/PT con coma y EN/ZH con punto. Añadidas 278 traducciones estáticas de interfaz y controles de edad inválida. Pendiente de aceptación/integración; traducción clínica integral y documentos canónicos mantienen su alcance original. Informe y verificaciones: `docs/P3_P4_LOCALE_RECONCILIATION_2026-11-16.md` (desde clinical: `../docs/`). Sin cambio de dosis, fórmulas, fuentes ni estados de evidencia; 19 bloqueos conservados y CLINICALLY_PENDING.
+
 ## Coherencia de guías internacionales · 16/11/2026 · INT-02A
 
 Aplicar `references/international-guideline-policy.md`: núcleo clínico común basado en guías de amplio reconocimiento internacional, seleccionadas por calidad, vigencia, consenso y aplicabilidad. Europa, UK y las Américas sirven para contrastar diferencias materiales; incorporar solo las justificadas en el núcleo o en una variante puntual del mismo módulo. La consulta del núcleo no exige país ni hospital y no se divide en protocolos locales completos.
