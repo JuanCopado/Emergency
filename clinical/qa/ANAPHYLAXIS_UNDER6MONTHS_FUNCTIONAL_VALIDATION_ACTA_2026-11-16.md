@@ -193,3 +193,36 @@ El propietario ha aportado una tabla de capacidades y graduaciones de jeringas, 
 **Estado de este anexo:** dispositivos candidatos identificados / **FAR-04, FAR-05, FAR-06 NOT_VERIFIED; ensayos físicos NOT_RUN**. No añadir por ello un mínimo de dosis, redondeos automáticos, sustituciones por escala U-100, órdenes de administración ni velocidades. **El contrato 3 continúa BLOCKED.**
 
 **Precaución sobre ámbito:** los nombres de marca son datos aportados por el propietario, no evidencia directa de SKU. Esta comparación bibliográfica no habilita físicamente la administración de adrenalina a través de una aguja de tuberculina ni valida la dosis entregada. La urgencia clínica nunca debe retrasarse por el bloqueo del software.
+
+
+## 11. FAR-04 / CLI-04 — Procedimiento local declarado de selección de agujas IM (16/11/2026)
+
+**Procedencia:** tabla y reglas operativas aportadas por el propietario como contenido del procedimiento local. Se incorpora como \`OWNER_REPORTED_LOCAL_PROTOCOL\`, no como firma o certificación independiente de Farmacia o Enfermería. **Solo las dos primeras filas son pertinentes al contrato 3 (<6 meses)**; escolares/adolescentes/adultos deben reconciliarse con los contratos correspondientes, sin activación automática en esta rama.
+
+### Tabla focalizada para el contrato 3
+
+| Población dentro de contrato 3 | Referencia anatómica/longitud | Calibre orientativo | Observaciones y excepción |
+|---|---|---|---|
+| Neonato ≤28 días, prematuro o lactante muy pequeño | **16 mm (5/8 in)** | **23–25 G** según dispositivo, con referencias CDC de 22–25 G para neonatos | Individualizar por edad gestacional, masa muscular, tejido subcutáneo y técnica; no fijar el peso <3 kg como único criterio ni garantizar ausencia de contacto óseo |
+| Lactante de **1 a <6 meses** con desarrollo habitual | **25 mm (1 in)** | **22–25 G** por referencia CDC; selección local propuesta 23–25 G | Punción IM en tercio medio anterolateral del muslo; adaptar profundidad tras evaluación anatómica. No afirmar que 25 mm siempre alcanza el músculo con seguridad |
+| Prematuro ≤2 meses o lactante particularmente pequeño aun después de 28 días | **16 mm** como excepción evaluable | **23–25 G** | Excepción descrita por Australian Immunisation Handbook/RCUK; evitar regla ciega de 25 mm al cumplir un mes |
+
+Para niños de 1–5 años, 6–18 años y adolescentes obesos, el material aportado por el propietario se conserva como **propuesta de futura revisión fuera del contrato 3**, no como una pauta automáticamente implementada en \`anaphylaxis-under6months\`. El color (naranja 25 G, azul 23 G, negro 22 G, verde 21 G) es una ayuda comercial frecuente, **no un sustituto de leer longitud, gauge y referencia en el envase**.
+
+### Reglas de aplicación y salvaguardas
+
+1. **Vía IM / sitio / técnica:** concentrado de adrenalina **1 mg/mL SIN diluir** exclusivamente por IM en el **tercio medio anterolateral del muslo**, inserción orientativa a **90°**; determinar la técnica de tensión cutánea y la profundidad según anatomía. No administrar en tejido subcutáneo/glúteo como sustituto del sitio IM.
+2. **Agujas SC fijas cortas:** según política local comunicada, **no utilizar agujas premontadas de insulina de 12,7 mm para este circuito IM**. Es una restricción institucional propuesta y conservadora; no afirmar que toda aguja de esa longitud sea universalmente inválida en cualquier paciente o indicación. La jeringa BD 305501 de aguja fija 12,7 mm **no queda aprobada** para el circuito local, aunque su volumen muerto sea bajo.
+3. **Calibre y ritmo:** 23–25 G se considera candidato local; no incorporar una duración de bolo **«1–2 segundos» como requisito universal**, ni suponer que el gauge demuestra poco espacio muerto. La rapidez de administración en anafilaxia se refiere a **no retrasar el tratamiento**, no a una velocidad fija de desplazamiento del émbolo.
+4. **Aspiración:** no se propone aspiración rutinaria; la evidencia directa más explícita disponible es para **vacunación IM** en localización anatómica similar (CDC). RCUK indica que no hay evidencia específica sobre una única técnica de inyección IM en anafilaxia; la técnica final se deja a validación clínica y de Enfermería. No retrasar la adrenalina IM de urgencia por comprobaciones administrativas.
+5. **FAR-04, FAR-05 y FAR-06 independientes:** verificar compatibilidad **jeringa+aguja** real (BD Plastipak, ZARYS dicoTUBER, Terumo), longitud/gauge, conector desmontable o fijo, espacio muerto y **volumen realmente entregado a microdosis**. La adecuación anatómica de la aguja **no sustituye** el ensayo de precisión de 0,025–0,076 mL; la baja retención tampoco demuestra que la aguja sea IM idónea.
+6. **Software fail-closed:** no seleccionar automáticamente aguja o administrar volumen por edad/peso sin referencia validada. Si el conjunto disponible es subcutáneo o la longitud no es adecuada según el protocolo aprobado, señalizar derivación a selección profesional; nunca recomendar usar una aguja corta solo para reducir volumen muerto.
+
+### Fuentes y alcance de evidencia
+
+- [RCUK, Emergency treatment of anaphylaxis, Appendix 2, mayo 2021, página 56](https://www.resus.org.uk/media/337/download): indica 25 mm como longitud habitual, **16 mm en prematuros/lactantes muy pequeños**, 38 mm en ciertos adultos y menciona la falta de evidencia específica de técnica IM en anafilaxia.
+- [CDC, Vaccine Administration: During Vaccination](https://www.cdc.gov/vaccines/hcp/administration/during.html): tabla IM neonatal **16 mm, 22–25 G** y lactantes de 1–12 meses **25 mm, 22–25 G**, 90° y criterio individual. **Alcance: vacunación, extrapolación anatómica**, no validación específica de adrenalina.
+- [Australian Immunisation Handbook, needle table](https://immunisationhandbook.health.gov.au/resources/tables/table-recommended-needle-size-length-and-angle-for-administering-vaccines): prematuros hasta 2 meses y/o muy pequeños **16 mm, 23–25 G**, resto referencia **25 mm, 22–25 G**, 90°. **Alcance: vacunación**.
+- [CDC, general best practices: vaccine administration](https://www.cdc.gov/vaccines/hcp/imz-best-practices/vaccine-administration.html): no aspiración rutinaria para vacunación, con límites de extrapolación a adrenalina IM.
+
+**Pendientes actuales:** revisar SKU y aguja IM real de cada dispositivo, aprobar selección neonatal y anatómica por Enfermería/Pediatría, completar estudio de dosis entregada/espacio muerto y redondeo con dispositivo real, documentar firmas, y ejecutar QA de integración. **No se eleva a PASS, no se levanta \`BLOCKED\`, y no se afirma validación clínica o física completa.** El resto de contratos farmacológicos, \`main\`, \`CLINICALLY_PENDING\` y P1 permanecen intactos.
