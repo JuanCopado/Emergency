@@ -22,3 +22,22 @@ A pure, standalone `clinical/scripts/status_phenytoin_local_preflight.py` assess
 
 ## Tests
 12 synthetic tests passed in an isolated authoring sandbox using `python -m unittest discover -s clinical/tests -p 'test_status_phenytoin_local_preflight.py'`. This is **not** full-project CI, on-repo execution, clinical validation or a release pass. The new module must remain disconnected from `acute_medication_api` and existing `block_reason` until all conditions are met.
+
+
+## Follow-up decision recorded 2026-11-16 (owner-reported Pharmacy approval)
+The project owner states that the local Pharmacy **authorizes/adopts the Galway adult phenytoin preparation**. Record as \`OWNER_REPORTED_PHARMACY_APPROVAL\` and retain its exact source and scope. This statement does not independently authenticate a signed, dated hospital formulary entry or product-specific Portuguese SmPC.
+
+The owner confirms **20 mg/kg adult initial loading, cap 2,000 mg**, reference **40 min** (prolong as needed to respect the individual rate limit), and requires a hard **minimum NaCl 0.9% volume** check rather than using the 10 mg/mL nominal ceiling alone. The source-specific Galway brackets are:
+- <500 mg: **50 mL** NaCl 0.9%.
+- 500–1,000 mg inclusive: **100 mL** NaCl 0.9%.
+- >1,000 mg: **250 mL** NaCl 0.9%.
+
+The updated standalone preflight rejects volumes below those brackets (including 500 mg in 50 mL despite nominal 10 mg/mL), and additionally rejects larger bags such as 500 mL **unless separately validated by Pharmacy**, because Galway's table is not evidence for that substitution. It rejects non-NaCl 0.9%, absent filter/line checks by required clinician confirmation, visible precipitate, unsafe individual rates, insufficient monitoring, and schedules that cannot complete within the 60-minute preparation window. The minimum duration is only a review calculation. If it conflicts with stability, the proposal is blocked; never accelerate to comply with expiry.
+
+The 250 mg/5 mL scope is the only Galway formulation automatically considered in this preflight. Owner-reported 100 mg/2 mL ampoules are documented but not covered by the Galway-specific source check. **No production prescription, dose administration or infusion pump calculation is released.**
+
+## Evidence / implementation limitations
+- Original module \`acute_medication_contracts.py\` still specifies \`block_reason\` for \`status-phenytoin-local\`; \`acute_medication_api.py\` still rejects it.
+- Tests added to \`clinical/tests/test_status_phenytoin_local_preflight.py\` cover 19 separate synthetic test methods, including exact dose/volume boundaries, slow-rate expiry collision, unsupported products and inadmissible inputs.
+- All 19 medication contracts remain BLOCKED; four historical P1 findings, project \`CLINICALLY_PENDING\`, I01 PARTIAL and I02 NO-GO remain.
+- Future unblocking requires source/product matching and independent technical/clinical sign-off tied to the exact release tree. The reported local authorization cannot be silently represented as an authenticated signature.
