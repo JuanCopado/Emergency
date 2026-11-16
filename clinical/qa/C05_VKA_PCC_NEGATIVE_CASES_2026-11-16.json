@@ -8,7 +8,7 @@
   "clinical_status": "CLINICALLY_PENDING",
   "contract_status": "BLOCKED",
   "execution_status": "NOT_RUN",
-  "warning": "Cases are specifications, not executed tests or release authorization. No real patients or clinical data used.",
+  "warning": "Owner-reported two presentations and local INR intervals, but first/last dose bands diverge from PT RCM 08/2020. Technical negative cases NOT_RUN. No runtime dose release.",
   "required_future_evidence": [
     "pharmacy Portuguese product/SmPC signoff",
     "Hematology/ED indication and ICH pathway review",
@@ -280,8 +280,8 @@
     {
       "id": "NEG-27",
       "category": "PRESENTATION_500_1000_UNKNOWN",
-      "scenario": "Prescription assumes hospital stocks 500UI or 1000UI vials without verification",
-      "expected_behavior": "HARD STOP on reconstitution and vial count; ask Pharmacy for local presentation/SKU/lot",
+      "scenario": "Both 500UI/20mL and 1000UI/40mL declared locally; test a version that falsely marks product/lot/RCM/transfer device as independently verified solely from owner confirmation",
+      "expected_behavior": "REJECT falsely certified stock/lot and final vials; exact batch and product-specific reconstitution are still required.",
       "execution_status": "NOT_RUN",
       "test_result": null,
       "qa_evidence": null,
@@ -296,14 +296,136 @@
       "test_result": null,
       "qa_evidence": null,
       "approval": null
+    },
+    {
+      "id": "NEG-29",
+      "category": "FIRST_BAND_SOURCE_MISMATCH",
+      "scenario": "INR 2.2: software represents local 25 IU/kg as if it were the Portuguese RCM lower bound",
+      "expected_behavior": "FAIL: Portuguese RCM 0.9mL/kg × 25 IU/mL = 22.5 IU/kg; retain both origins and require explicit approval for local floor",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-30",
+      "category": "TOP_BAND_UNSUPPORTED_UPPER",
+      "scenario": "INR 4.0: software attributes 50 IU/kg as maximum/kg of Portuguese RCM 08/2020",
+      "expected_behavior": "FAIL: RCM reads >1.9mL/kg = >47.5 IU/kg, without fixed upper per-kg in this row; local 50 is separately declared",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-31",
+      "category": "INR_EXACT_BORDERS",
+      "scenario": "INR exactly 2.5, 3.0 or 3.5; adjacent ranges overlap in text",
+      "expected_behavior": "FAIL CLOSED until signed unambiguous boundary convention and INR precision/rounding rule",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-32",
+      "category": "INFUSION_RATE_JURISDICTION",
+      "scenario": "Pump starts at 8mL/min by UK SmPC or advances to 2–3mL/min when an adverse event is documented",
+      "expected_behavior": "FAIL: match initial 1mL/min then 2–3mL/min only with no complication under reviewed PT RCM; do not treat this as tested pump control",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-33",
+      "category": "MAX_VOLUME_120ML",
+      "scenario": "Requested IV dose >3000 IU or nominal >120mL with Octaplex 25 IU/mL under Portuguese RCM 08/2020",
+      "expected_behavior": "HARD STOP: do not truncate or silently select highest allowable dose; require specialist adjustment and exact RCM product validation",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-34",
+      "category": "TWO_VIAL_SIZES_NO_AUTOROUND",
+      "scenario": "Calculator rounds patient-specific selected dose up to 500UI/1000UI vial multiples because both are reportedly stocked",
+      "expected_behavior": "FAIL: never auto-round to available vials, never administer remaining vial volume without reconciliation",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-35",
+      "category": "PCC_REPEAT_AUTOMATION",
+      "scenario": "Device automatically repeats 4F-PCC based on follow-up INR alone",
+      "expected_behavior": "FAIL: no automatic extra dose; evaluate bleeding, coagulation, product, thrombosis and vitamin K with expert",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
     }
   ],
   "product_selected_by_owner": "Octaplex",
-  "stock_presentations": "UNKNOWN_PENDING_CONFIRMATION",
+  "stock_presentations": "OWNER_REPORTED_500IU_20ML_AND_1000IU_40ML_NOT_INDEPENDENTLY_VALIDATED",
   "rcm_portugal_publisher": "Octapharma Portugal",
   "rcm_portugal_url": "https://www.octapharma.pt/api/download/x/291a94e4c6/rcm-octaplex.pdf",
   "rcm_portugal_revision": "2020-08",
   "rcm_vigente_confirmed_by_pharmacy": false,
   "critical_source_conflict": "Portuguese manufacturer RCM (08/2020) differs from UK 2024 SmPC for INR table, max single dose (3000 vs up to 5000 IU), and infusion rate (1 then 2-3 vs up to 8 mL/min). No auto-calculation.",
-  "reconciled_on": "2026-11-16"
+  "reconciled_on": "2026-11-16",
+  "owner_reported_presentations": [
+    {
+      "iu": 500,
+      "volume_ml": 20
+    },
+    {
+      "iu": 1000,
+      "volume_ml": 40
+    }
+  ],
+  "owner_reported_rate": {
+    "initial_ml_min": 1,
+    "may_increase_if_no_complications_ml_min": [
+      2,
+      3
+    ],
+    "rcm_pt_2020_consistent": true,
+    "independent_pharmacy_signoff": false
+  },
+  "owner_reported_inr_bands_iu_kg": [
+    {
+      "inr": "2–2.5",
+      "min": 25,
+      "max": 32.5,
+      "rcm_pt_min": 22.5,
+      "source_conflict": true
+    },
+    {
+      "inr": "2.5–3",
+      "min": 32.5,
+      "max": 40,
+      "rcm_pt_min": 32.5,
+      "source_conflict": false
+    },
+    {
+      "inr": "3–3.5",
+      "min": 40,
+      "max": 47.5,
+      "rcm_pt_min": 40,
+      "source_conflict": false
+    },
+    {
+      "inr": ">3.5",
+      "min": 47.5,
+      "max": 50,
+      "rcm_pt_min_open": 47.5,
+      "rcm_pt_max_specified": false,
+      "source_conflict": true
+    }
+  ],
+  "pt_2020_per_administration_max_iu": 3000,
+  "patient_specific_dosing_enabled": false
 }
