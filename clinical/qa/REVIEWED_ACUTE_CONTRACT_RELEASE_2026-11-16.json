@@ -496,11 +496,12 @@
   ],
   "findings": {
     "GMA-P2-004": {
-      "status": "IMPLEMENTED_AND_LOCAL_TESTS_PASSED",
-      "remaining_check": "Actual browser workflow in GitHub Actions; local Chromium cannot start."
+      "status": "RESOLVED_IN_REVIEWED_SCOPE",
+      "scope": "19 permanent blocks removed; owner acceptance recorded; 21 actual browser cases and case-specific safety gates verified.",
+      "remaining_check": null
     },
     "GMA-P2-001": {
-      "status": "FIXED_AND_REGRESSION_TESTED",
+      "status": "RESOLVED_IN_REVIEWED_SCOPE",
       "new_tests": 9,
       "scope": [
         "doseToRate",
@@ -525,7 +526,18 @@
     "manual_nominal_cases": "PASS",
     "local_browser": "BLOCKED_ENVIRONMENT",
     "local_browser_cases_executed": 0,
-    "remote_browser": "PENDING_CI"
+    "remote_browser": "PASS",
+    "remote_browser_cases": 21,
+    "remote_browser_contracts": 19,
+    "remote_browser_exports": [
+      "json",
+      "pdf",
+      "docx",
+      "print"
+    ],
+    "remote_clinical_qa": "PASS",
+    "remote_app_ui_qa": "PASS",
+    "remote_evidence_surveillance": "PASS"
   },
   "peer_review": {
     "status_phenytoin": "Focal independent technical and primary-source review passed; 4 independent boundary checks.",
@@ -547,15 +559,75 @@
     "new_promotions": 0
   },
   "publication": {
-    "status": "PREPARING",
+    "status": "PUBLISHED_AND_VERIFIED",
     "main_updated": false,
     "protected_lines_updated": false,
-    "deployment_claimed": false
+    "deployment_claimed": false,
+    "implementation_commit": "04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22",
+    "pull_request": "https://github.com/JuanCopado/Emergency/pull/20",
+    "integration_target": "codex/v144-international-scope-20261116",
+    "coordination_comment": "https://github.com/JuanCopado/Emergency/issues/18#issuecomment-6907999527"
   },
   "limitations": [
     "Patient-specific gates and exact product applicability remain required.",
     "Decision-only contracts do not generate an unsupported medication dose.",
     "Other P1/P2 findings are not closed by this release.",
     "No prospective validation, global stock certification or independent pharmacy signature is claimed."
+  ],
+  "remote_browser_evidence": {
+    "report": "REVIEWED_ACUTE_BROWSER_2026-11-16.json",
+    "report_sha256": "503102f69518847c6ee843bb9e2fa7c66a01752de6b930eec7c2c297a42b5ff1",
+    "local_attempt_report": "REVIEWED_ACUTE_BROWSER_LOCAL_2026-11-16.json",
+    "implementation_commit": "04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22",
+    "run_id": 43808946102,
+    "run_url": "https://github.com/JuanCopado/Emergency/actions/runs/43808946102",
+    "artifact_id": 14199736454,
+    "artifact_name": "reviewed-acute-browser-43808946102-1",
+    "artifact_zip_sha256": "6238c765bbf7aa1b25d7fb7ecdc4ccdffd2bffc486c1ecc29f171d32d8c8c901",
+    "full_report_preserved": true
+  },
+  "remote_workflows": [
+    {
+      "id": 43808946102,
+      "name": "App UI QA",
+      "event": "push",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/43808946102"
+    },
+    {
+      "id": 43808946106,
+      "name": "Clinical QA",
+      "event": "push",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/43808946106"
+    },
+    {
+      "id": 43808946091,
+      "name": "Evidence surveillance guardrails",
+      "event": "push",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/43808946091"
+    },
+    {
+      "id": 43809001957,
+      "name": "App UI QA",
+      "event": "pull_request",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/43809001957"
+    },
+    {
+      "id": 43809001992,
+      "name": "Clinical QA",
+      "event": "pull_request",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/43809001992"
+    },
+    {
+      "id": 43809001976,
+      "name": "Evidence surveillance guardrails",
+      "event": "pull_request",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/43809001976"
+    }
   ]
 }

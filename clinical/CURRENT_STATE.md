@@ -4,7 +4,7 @@ La instrucción expresa del propietario reconoce su validación previa y autoriz
 
 Se incorporan fenitoína, estatus refractario, anafilaxia y 15 rutas de reversión con fuentes primarias y diferencias materiales explícitas. Se armonizan la valoración de riesgos de adrenalina IM, el límite de administración de protamina y la frontera de 8 h de enoxaparina. GMA-P2-001 se corrige en el motor TypeScript para impedir resultados no finitos o nulos por aritmética extrema. Los informes anteriores que conservaban 19 bloqueos describen su corte histórico y quedan superados en este alcance. Estados generales de evidencia y `CLINICALLY_PENDING` conservados; no se cierran otros P1/P2 ni se acredita despliegue.
 
-Detalle por contrato y comprobaciones observadas: `qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y su registro JSON. La publicación efectiva se comunica en el hilo común del proyecto; no se presume sincronización del PC ni de otras ramas.
+Detalle por contrato: `qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y JSON asociado. Publicación verificada en [PR #20](https://github.com/JuanCopado/Emergency/pull/20), commit `04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22`: Clinical QA, App UI QA y vigilancia de evidencia PASS; 21/21 casos reales de navegador para los 19 contratos, incluidas exportaciones y controles negativos. GMA-P2-004 y GMA-P2-001 resueltos en su alcance. Comunicación registrada en el hilo común; no se presume instalación en el PC.
 
 ## Coherencia de guías internacionales · 16/11/2026 · INT-02A
 

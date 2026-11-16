@@ -4,7 +4,7 @@
 
 La instrucción expresa del propietario médico reconoce su validación previa y autoriza incorporar el trabajo terminado. Se sustituyen los **19 bloqueos permanentes de GMA-P2-004** por contratos utilizables: **6 permiten cálculo numérico dentro de su pauta verificada y 13 ofrecen apoyo de decisión con acciones concretas**. Las rutas con cálculo también pueden ofrecer orientación sin dosis cuando no se cumplen las condiciones de su pauta numérica revisada. Se conservan los 46 identificadores públicos; no quedan definiciones ejecutables duplicadas de los 19 bloqueos anteriores.
 
-La base verificada es `codex/v144-international-scope-20261116` en `062d890b4fc92369b83c87664bb4bb0205ccb33f`. La entrega se prepara en `codex/v144-reviewed-contracts-enable-20261116`. La publicación y las comprobaciones finales se registran al terminar; una rama publicada no acredita instalación en otro ordenador ni despliegue clínico.
+La base verificada es `codex/v144-international-scope-20261116` en `062d890b4fc92369b83c87664bb4bb0205ccb33f`. La implementación está publicada en el commit `04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22`, rama `codex/v144-reviewed-contracts-enable-20261116`, y en el [PR #20](https://github.com/JuanCopado/Emergency/pull/20), que registra la integración en la rama internacional. Las comprobaciones locales y remotas han pasado. La publicación no acredita instalación en otro ordenador ni despliegue clínico.
 
 La [aceptación del propietario](../references/acute-contract-owner-acceptance-2026-11-16.json) conserva su declaración y las aceptaciones previas de estatus, anafilaxia y reversión de 13/11/2026. No se vuelve a pedir esa conformidad. No se atribuye una nueva firma independiente a Farmacia ni una validación prospectiva inexistente. Los tres módulos ya estaban GREEN; se conserva su estado y la fecha de su revisión general, añadiendo una revisión de contratos con alcance y fecha propios. El estado global sigue siendo `CLINICALLY_PENDING` por límites ajenos a esta aceptación y al alcance de esta entrega.
 
@@ -63,6 +63,15 @@ Los resultados revisados incorporan `OWNER_VALIDATED_2026_11_16`, la aceptación
 **GMA-P2-001:** se corrigen las multiplicaciones/divisiones intermedias y el resultado redondeado en `doseToRate` y `rateToDose`. Entradas finitas extremas ya no pueden producir una salida `ok` con infinito o cero por desbordamiento/subdesbordamiento. Las fórmulas y unidades clínicas habituales se conservan. Nueve regresiones focales se añadieron al motor existente; su ejecución roja previa y verde posterior se observó durante la tarea.
 
 ## Validación observada y límites de entrega
+
+**GMA-P2-004 y GMA-P2-001 quedan resueltos dentro del alcance documentado.** El commit de implementación pasó Clinical QA, App UI QA y Evidence surveillance guardrails, tanto por push como por pull request.
+
+- Local: **812 pruebas Python**, **445 de frontend**, **7/7 controles globales**, 4 pruebas de guías y 9 de procedimientos; typecheck, lint, build, catálogo de fuentes y grafo PASS.
+- [Clinical QA remoto](https://github.com/JuanCopado/Emergency/actions/runs/43808946106): **812 pruebas Python y 7/7 controles PASS**.
+- [App UI QA remoto](https://github.com/JuanCopado/Emergency/actions/runs/43808946102): **21/21 casos sobre los 19 contratos PASS**, incluidos formularios condicionales, invalidación, controles negativos y fidelidad JSON/PDF/DOCX/impresión. También pasaron las verificaciones de PDF de guías y formulario pediátrico ya presentes.
+- La revisión de fuente observada por el navegador coincide exactamente con la revisión clínica/API: `453fbf0208d59704d649838a35a6b26deb41862ae53cc4a001c9a84daae807f9`.
+- El informe completo del artefacto remoto se conserva en `REVIEWED_ACUTE_BROWSER_2026-11-16.json`; su SHA-256, run, commit y artefacto están registrados en el JSON de entrega. El intento local previo permanece por separado en `REVIEWED_ACUTE_BROWSER_LOCAL_2026-11-16.json` como `BLOCKED_ENVIRONMENT`, con cero casos.
+- La publicación se comunicó en el [hilo común del proyecto](https://github.com/JuanCopado/Emergency/issues/18#issuecomment-6907999527).
 
 La matriz y los resultados finales de las comprobaciones se registran en `REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.json` y `REVIEWED_ACUTE_BROWSER_2026-11-16.json`. Los casos son sintéticos y sus expectativas se especifican manualmente a partir de las fuentes, sin obtenerlas del calculador que se prueba.
 

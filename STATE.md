@@ -17,7 +17,10 @@
 - QA local:812 pruebas Python y7/7 controles globales PASS;445 frontend,4 guías,9 procedimientos PASS.
 - Typecheck,lint,build,catálogo normalizado y grafo PASS;61 casos nominales/46 IDs PASS.
 - Navegador local:BLOCKED_ENVIRONMENT por socket EPERM antes de abrir página;0 casos, sin PASS ficticio.
-- Harness21 casos/19 contratos preparado para App UI QA en GitHub; el resultado remoto se registra en la entrega.
+- Navegador real en GitHub: 21/21 casos, 19/19 contratos, JSON/PDF/DOCX/impresión y controles negativos PASS.
+- Clinical QA, App UI QA y Evidence surveillance guardrails PASS en push y PR #20.
+- GMA-P2-004 y GMA-P2-001 resueltos dentro del alcance documentado; los demás hallazgos conservan su estado.
+- Publicación verificada: PR #20, commit de implementación `04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22`; integración trazada en https://github.com/JuanCopado/Emergency/pull/20.
 - Matriz/evidencia: `clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y JSON asociado.
 - Fuentes/evidencia/firma técnica diferenciadas; no se inventa firma independiente de Farmacia ni validación prospectiva.
 - CLINICALLY_PENDING global; no se declaran cerrados otros P1/P2, stock internacional ni instalación en el PC.
