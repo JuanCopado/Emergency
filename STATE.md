@@ -1,5 +1,6 @@
 # STATE — alcance internacional, 16/11/2026
 
+- Extensión candidata INT-02/03 en `codex/v144-country-context-matrix-20261116`: directorio de 14 países, 64 temas y 896 combinaciones de revisión documental; resolver de comparación no prescriptiva y 8 pruebas focales propuestas. Ninguna ficha individual ni país están clínicamente aprobados en la matriz (`country_topic_reviews` vacío); sin selector UI ni conexión con calculadoras.
 - Directriz vigente del propietario: `docs/INTERNATIONAL_SCOPE.md` (INT-01).
 - Emergency: proyecto internacional y ampliable de apoyo clínico, formación, investigación y coordinación en urgencias/cuidados agudos.
 - Separar núcleo, jurisdicción, organización/recursos y caso; idioma no selecciona país. Horta/Portugal son perfiles posibles.
