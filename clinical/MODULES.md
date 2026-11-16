@@ -1,3 +1,11 @@
+## Contratos revisados habilitados · 16/11/2026 · ACUTE-RELEASE
+
+La instrucción expresa del propietario reconoce su validación previa y autoriza incorporar lo ya revisado. En la rama `codex/v144-reviewed-contracts-enable-20261116`, basada en `062d890b4fc92369b83c87664bb4bb0205ccb33f`, los **19 bloqueos permanentes de GMA-P2-004 se sustituyen por 6 contratos capaces de cálculo y 13 de apoyo de decisión**. Se conservan los 46 IDs; los controles vigentes dependen del caso y del producto, sin hospital obligatorio. La aceptación se registra en `references/acute-contract-owner-acceptance-2026-11-16.json`; no debe volver a solicitarse ni confundirse con una firma farmacéutica independiente.
+
+Se incorporan fenitoína, estatus refractario, anafilaxia y 15 rutas de reversión con fuentes primarias y diferencias materiales explícitas. Se armonizan la valoración de riesgos de adrenalina IM, el límite de administración de protamina y la frontera de 8 h de enoxaparina. GMA-P2-001 se corrige en el motor TypeScript para impedir resultados no finitos o nulos por aritmética extrema. Los informes anteriores que conservaban 19 bloqueos describen su corte histórico y quedan superados en este alcance. La tabla y las etiquetas de cuatro módulos se sincronizan con su GREEN ya aceptado y registrado el14/11 (perfusiones vasoactivas, sedación UCI, medicación ambulatoria pediátrica y marco POCUS); no es una nueva promoción. Estados generales de evidencia y `CLINICALLY_PENDING` conservados; no se cierran otros P1/P2 ni se acredita despliegue.
+
+Detalle por contrato y comprobaciones observadas: `qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y su registro JSON. La publicación efectiva se comunica en el hilo común del proyecto; no se presume sincronización del PC ni de otras ramas.
+
 ## Coherencia de guías internacionales · 16/11/2026 · INT-02A
 
 Aplicar `references/international-guideline-policy.md`: núcleo clínico común basado en guías de amplio reconocimiento internacional, seleccionadas por calidad, vigencia, consenso y aplicabilidad. Europa, UK y las Américas sirven para contrastar diferencias materiales; incorporar solo las justificadas en el núcleo o en una variante puntual del mismo módulo. La consulta del núcleo no exige país ni hospital y no se divide en protocolos locales completos.
@@ -402,7 +410,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `potassium-emergencies` | `modules/renal-metabolic.md` | green |
 | `calcium-magnesium-emergencies` | `modules/renal-metabolic.md` | green |
 | `sedoanalgesia` | `modules/procedures-pharmacology.md` | green |
-| `icu-sedation-analgesia-infusions` | `modules/procedures-pharmacology.md` | yellow |
+| `icu-sedation-analgesia-infusions` | `modules/procedures-pharmacology.md` | green |
 | `empiric-antibiotics` | `modules/procedures-pharmacology.md` | green |
 | `anaphylaxis` | `modules/infection-respiratory.md` | green |
 | `toxicology` | `modules/renal-metabolic.md` | green |
@@ -424,7 +432,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `pediatric-toxicology` | `modules/special-populations.md` | green |
 | `pediatric-acute-asthma` | `modules/special-populations.md` | green |
 | `pediatric-emergency-medications` | `modules/special-populations.md` | green |
-| `pediatric-outpatient-medications` | `modules/special-populations.md` | yellow |
+| `pediatric-outpatient-medications` | `modules/special-populations.md` | green |
 | `pediatric-iv-fluid-therapy` | `modules/special-populations.md` | green |
 | `pediatric-electrolyte-emergencies` | `modules/special-populations.md` | green |
 | `pediatric-blood-transfusion-major-hemorrhage` | `modules/special-populations.md` | green |
@@ -495,7 +503,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `non-coronary-chest-pain` | `modules/cardiovascular.md` | green |
 | `acute-heart-failure` | `modules/cardiovascular.md` | green |
 | `cardiogenic-shock` | `modules/cardiovascular.md` | green |
-| `vasoactive-inotrope-infusions` | `modules/cardiovascular.md` | yellow |
+| `vasoactive-inotrope-infusions` | `modules/cardiovascular.md` | green |
 | `acute-aortic-syndrome` | `modules/cardiovascular.md` | green |
 | `cardiac-tamponade-pericardial-emergency` | `modules/cardiovascular.md` | green |
 | `critical-valvular-disease` | `modules/cardiovascular.md` | green |
@@ -503,7 +511,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci�
 | `dvt` | `modules/cardiovascular.md` | green |
 | `device-complications` | `modules/cardiovascular.md` | green |
 | `ecg-pocus-integration` | `modules/disposition-crosscutting.md` | yellow |
-| `pocus` | `modules/disposition-crosscutting.md` | yellow |
+| `pocus` | `modules/disposition-crosscutting.md` | green |
 | `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | yellow |
 
 | `clinical-note-diagnostic-support` | `modules/documentation-governance.md` | yellow |

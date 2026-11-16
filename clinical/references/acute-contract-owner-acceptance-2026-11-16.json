@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-16",
+  "reviewer": "Juan Copado",
+  "reviewer_role": "physician and project owner",
+  "acceptance_type": "explicit_owner_clinical_validation_and_implementation_authorization",
+  "declaration": "RESUELVELO DE LA FORMA MAS EFICAZ , usa todas las fuentes necesarias ya hablamos de fenitoina anafilaxia anticoagulantes estatus epileptico busca y haz tu trabajo ya te dije que esta validado por mi y que tiene que desbloquearse todo lo realizado ya",
+  "scope": "Incorporar revisiones previas y actuales en los 19 contratos agudos, eliminar bloqueos administrativos heredados y habilitar calculos respaldados o flujos de decision especializados segun el alcance real de cada contrato.",
+  "contract_ids": [
+    "status-refractory",
+    "status-phenytoin-local",
+    "anaphylaxis-under6months",
+    "anaphylaxis-refractory",
+    "reversal-vka-pcc",
+    "reversal-superwarfarin",
+    "reversal-edoxaban",
+    "reversal-betrixaban",
+    "reversal-fondaparinux",
+    "reversal-other-lmwh",
+    "reversal-enoxaparin-over12",
+    "reversal-argatroban",
+    "reversal-bivalirudin",
+    "reversal-other-dti",
+    "reversal-danaparoid",
+    "reversal-fibrinolytics",
+    "reversal-antiplatelets",
+    "reversal-unknown",
+    "reversal-dabigatran-repeat"
+  ],
+  "inherited_acceptance": [
+    "clinical/qa/STATUS_OWNER_ACCEPTANCE_AND_MIDAZOLAM_FIX_2026-11-13.json",
+    "clinical/qa/ANAPHYLAXIS_ANTIBIOTICS_ACCEPTANCE_2026-11-13.json",
+    "clinical/qa/REVERSAL_GENERIC_PCC_OWNER_ACCEPTANCE_2026-11-13.json"
+  ],
+  "base_commit": "062d890b4fc92369b83c87664bb4bb0205ccb33f",
+  "patient_specific_safety_gates_retained": true,
+  "independent_pharmacy_signature_claimed": false,
+  "prospective_validation_claimed": false,
+  "clinical_status": "CLINICALLY_PENDING",
+  "notes": [
+    "La aceptacion del propietario ya esta documentada; no se exige repetirla para el mismo alcance.",
+    "Los datos del paciente, el producto cuando modifica el calculo y los recursos necesarios se verifican en cada uso.",
+    "Un flujo de decision sin pauta numerica universal no se presenta como una dosis calculada.",
+    "La validacion tecnica y esta declaracion no se atribuyen a un revisor externo ni a una evaluacion prospectiva."
+  ]
+}

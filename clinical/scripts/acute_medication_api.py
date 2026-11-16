@@ -10,8 +10,16 @@ from pathlib import Path
 from acute_medication_contracts import regimens
 from clinical_note_exporter import export_sections_pdf, export_sections_docx
 from pediatric_numbers import finite_tree, finite_number, finite_result
+import acute_reviewed_status
+import acute_reviewed_anaphylaxis
+import acute_reviewed_reversal
 
 ROOT = Path(__file__).resolve().parents[1]
+REVIEWED_WORKFLOWS = {
+    'status': acute_reviewed_status,
+    'anaphylaxis': acute_reviewed_anaphylaxis,
+    'reversal': acute_reviewed_reversal,
+}
 
 
 def _section(bundle, module):
@@ -27,8 +35,25 @@ def _section(bundle, module):
 def catalog():
     evidence = json.loads((ROOT / 'references/evidence-registry.json').read_text(encoding='utf-8'))['modules']
     localization = json.loads((ROOT / 'qa/localization-portugal-azores.json').read_text(encoding='utf-8'))['items']
+    acceptance_path = ROOT / 'references/acute-contract-owner-acceptance-2026-11-16.json'
+    acceptance = json.loads(acceptance_path.read_text(encoding='utf-8'))
     rows = []
-    for row in regimens():
+    contracts = regimens()
+    reviewed_ids = {row['id'] for row in contracts if row.get('reviewed_workflow')}
+    if reviewed_ids != set(acceptance['contract_ids']):
+        raise ValueError('Reviewed release does not match the owner acceptance scope')
+    for row in contracts:
+        fields = {item['key']: item for item in row['fields']}
+        if len(fields) != len(row['fields']):
+            raise ValueError('Duplicate input field in contract: ' + row['id'])
+        for item in row['fields']:
+            condition = item.get('required_if')
+            if condition is not None:
+                driver = fields.get(condition.get('key')) if isinstance(condition, dict) else None
+                if (not driver or driver['kind'] != 'choice' or driver.get('required_if')
+                        or condition.get('equals') not in driver['options']
+                        or set(condition) != {'key', 'equals'}):
+                    raise ValueError('Invalid conditional input in contract: ' + row['id'])
         preamble, body = _section(row['bundle'], row['module'])
         for anchor in row['anchors']:
             if anchor not in body:
@@ -36,10 +61,36 @@ def catalog():
         local = next((x for x in localization if x['drug'] == row.get('localization_drug')), None)
         if row.get('product_anchor') and (local is None or row['product_anchor'] not in local['product_strength']):
             raise ValueError('Canonical product reference changed; reconcile contract: ' + row['id'])
-        rows.append({**row, 'source': {'module': row['module'], 'path': 'clinical/modules/' + row['bundle'],
-                                    'preamble': preamble, 'body': body, 'evidence': evidence[row['module']], 'localization': local}})
+        source = {'module': row['module'], 'path': 'clinical/modules/' + row['bundle'],
+                  'preamble': preamble, 'body': body, 'evidence': evidence[row['module']], 'localization': local}
+        if row.get('reviewed_workflow'):
+            if row['reviewed_workflow'] not in REVIEWED_WORKFLOWS:
+                raise ValueError('Unknown reviewed workflow')
+            if row['id'] not in acceptance['contract_ids'] or row.get('block_reason'):
+                raise ValueError('Reviewed contract acceptance or release mismatch')
+            reference = ROOT / row['review_reference']
+            if reference.resolve().parent != (ROOT / 'references').resolve():
+                raise ValueError('Review reference must be a canonical reference file')
+            source['contract_review'] = {
+                'path': 'clinical/' + row['review_reference'],
+                'body': reference.read_text(encoding='utf-8'),
+                'sha256': hashlib.sha256(reference.read_bytes()).hexdigest(),
+                'owner_acceptance': acceptance,
+            }
+        rows.append({**row, 'source': source})
     serialized = json.dumps(rows, ensure_ascii=False, sort_keys=True, allow_nan=False).encode('utf-8')
-    revision = hashlib.sha256(serialized + Path(__file__).read_bytes()).hexdigest()
+    # A change in an imported calculation must invalidate snapshots and exports too.
+    implementation = [Path(__file__), Path(__file__).with_name('acute_medication_contracts.py'),
+                      Path(__file__).with_name('acid_base_hyperglycemia.py'),
+                      Path(__file__).with_name('pediatric_numbers.py')]
+    implementation.extend(Path(module.__file__) for module in REVIEWED_WORKFLOWS.values())
+    for module in REVIEWED_WORKFLOWS.values():
+        implementation.extend(Path(p) for p in getattr(module, 'IMPLEMENTATION_FILES', []))
+    digest = hashlib.sha256(serialized)
+    for path in sorted(set(implementation)):
+        digest.update(path.name.encode('utf-8'))
+        digest.update(path.read_bytes())
+    revision = digest.hexdigest()
     return {'source_revision': revision, 'clinical_status': 'CLINICALLY_PENDING', 'regimens': rows}
 
 
@@ -55,6 +106,11 @@ def _is_finite(value):
     return True
 
 
+def _field_active(field, inputs):
+    condition = field.get('required_if')
+    return condition is None or inputs.get(condition['key']) == condition['equals']
+
+
 def _validate(row, inputs):
     if not isinstance(inputs, dict):
         raise ValueError('inputs must be an object')
@@ -65,6 +121,10 @@ def _validate(row, inputs):
     for f in row['fields']:
         key, kind = f['key'], f['kind']
         value = inputs.get(key)
+        if not _field_active(f, inputs):
+            if value is not None:
+                alerts.append(_alert(key, 'Dato no aplicable al modo seleccionado: ' + f['label'] + '. Retirar el valor anterior.'))
+            continue
         invalid = value is None
         if kind == 'boolean':
             invalid |= type(value) is not bool
@@ -90,6 +150,9 @@ def _validate(row, inputs):
             alerts.append(_alert('sodium_correction', 'Límite de corrección alcanzado: no calcular otro bolo; revisión urgente de trayectoria y plan de parada/relowering.'))
     if row.get('block_reason'):
         alerts.append(_alert('CLINICAL_REVIEW_REQUIRED', row['block_reason']))
+    if not alerts and row.get('reviewed_workflow'):
+        module = REVIEWED_WORKFLOWS[row['reviewed_workflow']]
+        alerts.extend(_alert(code, message) for code, message in module.validation_errors(row, inputs))
     if not alerts and row['model'] == 'adrenaline_im' and inputs['prior_im_doses'] == 1 and inputs['elapsed_min'] < 5:
         alerts.append(_alert('repeat_interval', 'Reevaluar; no se cumple el intervalo de 5 min de esta pauta IM.'))
     return alerts
@@ -97,6 +160,30 @@ def _validate(row, inputs):
 
 @finite_result
 def _calculate(row, inputs):
+    if row.get('reviewed_workflow'):
+        module = REVIEWED_WORKFLOWS[row['reviewed_workflow']]
+        values = module.calculate(row, inputs)
+        result = {
+            'indication': row['label'], 'drug': row['drug'], 'route': row['route'],
+            'dose': None, 'dose_unit': None, 'concentration': None, 'components': None,
+            'withdrawal_ml': None, 'administration_volume_ml': None, 'pump_ml_h': None,
+            'duration_min': None, 'amount_per_hour': None, 'amount_per_hour_unit': None,
+            'maximum': row.get('maximum'), 'preparation': row.get('preparation'),
+            'compatibility': row.get('compatibility'), 'stability': row.get('stability'),
+            'administration': row.get('administration'), 'limitations': row.get('limitations', []),
+            'result_kind': 'calculation', 'decision_support': None, 'next_actions': [],
+            **values,
+            'monitoring_and_warnings': row['source']['body'],
+            'clinical_status': 'CLINICALLY_PENDING',
+            'review_status': 'OWNER_VALIDATED_2026_11_16',
+            'source': row['source'],
+        }
+        if result['result_kind'] == 'decision_support':
+            if any(result.get(k) is not None for k in ('dose', 'dose_unit', 'withdrawal_ml', 'administration_volume_ml', 'pump_ml_h',
+                                                  'components', 'concentration', 'duration_min', 'amount_per_hour',
+                                                  'amount_per_hour_unit', 'maximum')):
+                raise ValueError('A decision-support-only flow cannot silently issue a medication calculation')
+        return result
     dose = row['dose']
     pump = None
     components = row.get('components')
@@ -112,7 +199,7 @@ def _calculate(row, inputs):
     if row['model'] == 'ufh':
         dose = min(inputs['recent_ufh_units'] / 100, row['maximum']['value'])
     if row['model'] == 'enoxaparin':
-        dose *= inputs['enoxaparin_mg']
+        dose = min(dose * inputs['enoxaparin_mg'], row['maximum']['value'])
     if row['model'] == 'insulin':
         reference = hyperglycemia_calculate({'weight_kg': inputs['weight_kg'],
             'insulin_concentration_units_ml': inputs['concentration']})['insulin_infusion_reference']
@@ -159,8 +246,10 @@ def calculate_request(payload):
     finite_tree(result)
     snapshot = {'clinical_status': 'CLINICALLY_PENDING', 'regimen_id': row['id'],
                 'source_revision': current['source_revision'], 'inputs': deepcopy(payload['inputs']), 'result': result}
+    heading = ('Farmacología aguda — apoyo de decisión' if result.get('result_kind') == 'decision_support'
+               else 'Farmacología aguda — cálculo condicionado')
     report = {'snapshot': snapshot, 'sections': [
-        ['Farmacología aguda — apoyo aritmético', []],
+        [heading, []],
         ['Estado y límites de validación', ['CLINICALLY_PENDING', 'Functional validation does not constitute prospective clinical validation.']],
         ['Datos y selección confirmados', _lines({'regimen_id': row['id'], 'inputs': payload['inputs']})],
         ['Resultado, preparación, límites, monitorización y evidencia', _lines(result)],

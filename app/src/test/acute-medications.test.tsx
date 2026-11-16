@@ -72,3 +72,35 @@ it('discards an export response after editing inputs',async () => {
   expect(anchor).not.toHaveBeenCalled();
   expect(screen.queryByRole('region',{name:'Resultado farmacológico'})).not.toBeInTheDocument();
 });
+
+it('presents a decision workflow with actions and no fictitious dose or pump fields',async () => {
+  const decision = {...result, result_kind:'decision_support', dose:null, dose_unit:null,
+    decision_support:'Identificar el anticoagulante antes de seleccionar la reversión.',
+    next_actions:['Obtener historia de medicación.','Solicitar pruebas según el agente identificado.']};
+  vi.spyOn(globalThis,'fetch').mockResolvedValueOnce(response(catalog)).mockResolvedValueOnce(response({...outcome,result:decision}));
+  await mount(); enter('70'); calculate();
+  await screen.findByRole('heading',{name:'Orientación clínica y siguientes pasos'});
+  expect(screen.getByText('Identificar el anticoagulante antes de seleccionar la reversión.')).toBeVisible();
+  expect(screen.getByText(/Obtener historia de medicación\./)).toBeVisible();
+  expect(document.querySelector('[data-result="dose"]')).toBeNull();
+  expect(document.querySelector('[data-result="pump_ml_h"]')).toBeNull();
+  expect(screen.getByRole('button',{name:'Exportar JSON'})).toBeDisabled();
+  fireEvent.click(screen.getByRole('checkbox'));
+  expect(screen.getByRole('button',{name:'Exportar JSON'})).toBeEnabled();
+});
+
+it('omits inactive preparation data after changing to a dose-only mode',async () => {
+  const conditional = {...catalog, regimens:[{...catalog.regimens[0],fields:[
+    {key:'scope',label:'Alcance del cálculo',kind:'choice',options:['dose_only','prepared']},
+    {key:'volume',label:'Volumen final',kind:'number',required_if:{key:'scope',equals:'prepared'}},
+  ]}]};
+  const fetcher=vi.spyOn(globalThis,'fetch').mockResolvedValueOnce(response(conditional)).mockResolvedValue(response(outcome));
+  await mount();
+  expect(screen.queryByLabelText('Volumen final')).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText('Alcance del cálculo'),{target:{value:'prepared'}});
+  fireEvent.change(screen.getByLabelText('Volumen final'),{target:{value:'100'}});
+  fireEvent.change(screen.getByLabelText('Alcance del cálculo'),{target:{value:'dose_only'}});
+  expect(screen.queryByLabelText('Volumen final')).not.toBeInTheDocument();
+  calculate(); await screen.findByRole('region',{name:'Resultado farmacológico'});
+  expect(JSON.parse(String(fetcher.mock.calls[1]?.[1]?.body)).inputs).toEqual({scope:'dose_only'});
+});

@@ -1,3 +1,7 @@
+## Fuentes de los contratos revisados · 16/11/2026
+
+Conciliación focal de fenitoína/estatus, anafilaxia y reversión a partir de fuentes primarias. Se registra alcance, fecha, discrepancias de producto y límites de acceso en `references/acute-status-reviewed-2026-11-16.md`, `references/acute-anaphylaxis-reviewed-2026-11-16.md` y `references/acute-reversal-reviewed-2026-11-16.md`. Incluye RCUK 2021 vigente como guía completa, ERC 2025/WAO 2020, NCS/SCCM 24/09/2026, AHA/ASA 2026 y fichas regulatorias/producto específicas. No se trata un manual hospitalario de preparación como pauta global ni se mezclan tablas de PCC. La revisión técnica independiente corrigió una identidad de fuente de protamina y preservó los límites de los regímenes de repetición. Las fechas globales previas no se renuevan por esta revisión focal.
+
 ## Guías internacionales y diferencias justificadas · 16/11/2026 · INT-02A
 
 Aplicar `references/international-guideline-policy.md`: selección de guías de amplio reconocimiento internacional por calidad, vigencia, consenso y aplicabilidad; un núcleo común con diferencias materiales justificadas. El directorio inicial identifica portales OMS/ILCOR, europeos, británicos y americanos, con límites de acceso explícitos. Esta consulta de portales no constituye revisión de todas sus recomendaciones, no renueva fechas de revisión clínica ni valida nuevas dosis. La procedencia nacional no determina una prioridad universal.

@@ -774,6 +774,25 @@
       ]
     },
     {
+      "source_id": "src-57035065",
+      "title": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine",
+      "organization": "ACEP",
+      "source_type": "guideline",
+      "url": "https://www.acep.org/siteassets/new-pdfs/policy-statements/ultrasound-guidelines--emergency-point-of-care-and-clinical-ultrasound-guidelines-in-medicine.pdf",
+      "persistent_id": null,
+      "version": "ACEP 2023",
+      "publication_date": null,
+      "last_verified": "2026-11-14",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "pocus"
+      ]
+    },
+    {
       "source_id": "src-5773d4cd",
       "title": "GOLD2026 v1.3, official current download and chapter4",
       "organization": null,
@@ -2222,25 +2241,6 @@
       "compound_identity": true,
       "modules": [
         "pediatric-acute-respiratory-support"
-      ]
-    },
-    {
-      "source_id": "src-b71730a1",
-      "title": "ACEP Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine",
-      "organization": "ACEP",
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "ACEP 2023",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "pocus"
       ]
     },
     {
@@ -5896,7 +5896,7 @@
     ],
     "pocus": [
       {
-        "source_id": "src-b71730a1",
+        "source_id": "src-57035065",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       }

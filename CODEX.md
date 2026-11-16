@@ -2,6 +2,10 @@
 
 This file defines the safe entry point for Codex work on this repository.
 
+## Current owner execution directive: reviewed contracts (2026-11-16)
+
+The later explicit physician-owner request accepts the completed clinical work and authorizes implementation and removal of the inherited permanent blocks. Read the current directive in `AGENTS.md`, `clinical/references/acute-contract-owner-acceptance-2026-11-16.json` and `clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md`. The authorized task branch is `codex/v144-reviewed-contracts-enable-20261116`, based on verified international HEAD `062d890b4fc92369b83c87664bb4bb0205ccb33f`. This supersedes older instructions to retain all19 permanent blocks for this reviewed scope. Do not request the already recorded owner acceptance again or infer another professional's signature. Preserve case-specific gates, source boundaries, protected branches and the overall release status. Implementation, relevant verification and task publication are authorized; a published branch is not an installed deployment.
+
 ## Current owner directive: international scope (2026-11-16)
 
 Read `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` and `STATE.md` first. Emergency is an international, extensible acute-care platform with a coherent global clinical core and the same canonical module/algorithm across settings. The core works without a selected hospital; never infer country or hospital from biography or interface language. Context-specific evidence and hospital experience retain their scope and provenance.

@@ -1,21 +1,25 @@
-# STATE — alcance internacional, 16/11/2026
+# STATE — contratos revisados habilitados, 16/11/2026
 
-- Directriz vigente del propietario: `docs/INTERNATIONAL_SCOPE.md` (INT-01).
-- Emergency: proyecto internacional y ampliable de apoyo clínico, formación, investigación y coordinación en urgencias/cuidados agudos.
-- Separar núcleo, jurisdicción, organización/recursos y caso; idioma no selecciona país. Horta/Portugal son perfiles posibles.
-- Base de INT-02A inspeccionada: `285114a56ce2814b54b53d990474bb121876ef84`, entrega internacional que conserva el candidato de ceftriaxona.
-- Rama de esta entrega: `codex/v144-international-scope-20261116`; no equivale a integración A/B/C/D ni al estado del PC local.
-- Evidencia en esta base: 131 módulos, 117 GREEN / 14 YELLOW / 0 RED; estados y fechas conservados. CLINICALLY_PENDING.
-- GMA-C-P1-001: conciliación de fuente/edad implementada en el candidato de ceftriaxona; aceptación/integración pendiente. Otros P1 y 19 contratos bloqueados conservados.
-- Cambios INT-01: directriz, entrada de colaboradores, handoff, marco de contexto y presentación multilingüe de producto.
-- INT-02A: `clinical/references/international-guideline-policy.md`; núcleo internacional coherente y diferencias materiales justificadas, sin protocolos completos por territorio ni hospital obligatorio.
-- INT-02A prepara política y directorio de fuentes; no acredita revisión mundial de los 131 módulos. Comparación y adaptación por recomendación/contexto pendientes de evaluación específica.
-- Interfaz con recursos es/en/pt/zh; traducción clínica integral y validación internacional no acreditadas.
-- Esquema/selector de perfiles jurisdiccionales, interoperabilidad operativa y despliegue multicentro: ampliaciones propuestas, no implementadas por INT-01.
-- Imagen/POCUS: componentes y evaluación propios; la ampliación del alcance no acredita precisión diagnóstica ni proveedor habilitado.
-- Hoja de ruta: `docs/INTERNATIONAL_ROADMAP.md`; roles propuestos, no asignaciones de personas confirmadas.
-- Coordinación y límites de entrega: `docs/COORDINATION_INTERNATIONAL_2026-11-16.md`.
-- Ampliación y difusión INT-02A: `docs/REGIONAL_GUIDELINE_COORDINATION_2026-11-16.md`.
-- Estado publicado, comunicado, leído e integrado se registra por separado; no asumir sincronización de otros chats o agentes.
-- Proteger main, v1.42-rc1 y v1.43; no auto-GREEN ni modificación de dosis para pasar QA.
-- El estado T01 de 26/10 y los cortes de v1.36/v1.42 permanecen como antecedentes en el historial Git y sus informes; no definen este alcance.
+- Directriz vigente: aceptación médica del propietario y ejecución de lo ya revisado; ver `AGENTS.md`.
+- Alcance: núcleo internacional coherente, guías reconocidas y diferencias materiales; sin hospital obligatorio.
+- Base inspeccionada: `062d890b4fc92369b83c87664bb4bb0205ccb33f`, rama internacional con ceftriaxona e INT-02A.
+- Rama de entrega: `codex/v144-reviewed-contracts-enable-20261116`.
+- GMA-P2-004: 19 bloqueos permanentes sustituidos por 6 contratos capaces de cálculo y 13 de apoyo de decisión.
+- Catálogo:46 IDs conservados,0 block_reason; controles reales de caso/producto permanecen.
+- Aceptación: `clinical/references/acute-contract-owner-acceptance-2026-11-16.json`; no volver a pedirla.
+- Estatus: carga inicial adulta de fenitoína con modos dosis/preparación; refractario con EEG, escalada y traslado.
+- Anafilaxia: IM ponderal <6 meses y perfusión refractaria; intervalos <5 min dan orientación sin dosis automática.
+- Reversión:15 rutas; productos/tablas y contextos de hemorragia diferenciados según fuentes primarias.
+- GMA-P2-001: corregido overflow/underflow en doseToRate/rateToDose;9 regresiones nuevas.
+- Correcciones relacionadas: riesgo IM sin contraindicación absoluta ficticia; enoxaparina≤8/>8 h y límite de cada administración lenta de protamina.
+- Cuatro etiquetas de guías sincronizadas con GREEN ya aceptado14/11:vasoactivos,sedación UCI,ambulatorio pediátrico,marco POCUS.
+- Registro de evidencia conservado:131 módulos,117 GREEN/14 YELLOW/0 RED; sin nueva promoción automática.
+- QA local:812 pruebas Python y7/7 controles globales PASS;445 frontend,4 guías,9 procedimientos PASS.
+- Typecheck,lint,build,catálogo normalizado y grafo PASS;61 casos nominales/46 IDs PASS.
+- Navegador local:BLOCKED_ENVIRONMENT por socket EPERM antes de abrir página;0 casos, sin PASS ficticio.
+- Harness21 casos/19 contratos preparado para App UI QA en GitHub; el resultado remoto se registra en la entrega.
+- Matriz/evidencia: `clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y JSON asociado.
+- Fuentes/evidencia/firma técnica diferenciadas; no se inventa firma independiente de Farmacia ni validación prospectiva.
+- CLINICALLY_PENDING global; no se declaran cerrados otros P1/P2, stock internacional ni instalación en el PC.
+- Proteger main y líneas cerradas RC1/v1.43; no afirmar integración por publicar una rama.
+- Los documentos anteriores que conservaban19 bloqueos describen sus cortes históricos y quedan superados en este alcance.

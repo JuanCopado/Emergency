@@ -1,3 +1,4 @@
+<!-- 2026-11-16 ACUTE-RELEASE:19 permanent acute blocks replaced by reviewed calculation/decision workflows;46IDs retained, owner acceptance recorded,3module-scoped reviews added;see../qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md. No global evidence promotion. -->
 <!-- 2026-11-16 INT-02A: apply international-guideline-policy.md; one coherent international core, justified material variants only, no full protocols per country. Module IDs, mappings and evidence states unchanged; no global jurisdiction coverage asserted. -->
 <!-- 2026-11-16: international scope applies through international-context.md; jurisdiction and organization are explicit context, not universal defaults. IDs and evidence states unchanged. -->
 <!-- 2026-11-16: pediatric-sepsis retains its existing ID; ceftriaxone component reconciliation is documented in ceftriaxone-sepsis-under16-safety.md. Module count and evidence states unchanged. -->

@@ -429,6 +429,22 @@
         "remaining_gate": "Local requirements accepted by owner; individual contraindication, product/preparation and EEG pathway checks remain at use.",
         "report": "qa/STATUS_OWNER_ACCEPTANCE_AND_MIDAZOLAM_FIX_2026-11-13.json",
         "limitations": "Official NICE/AES/ACEP documents and original ESETT primary text indexed; no new local professional signature, stock confirmation or prospective validation inferred."
+      },
+      "contract_release_review": {
+        "date": "2026-11-16",
+        "outcome": "owner_validated_contracts_enabled_with_case_specific_safety_gates",
+        "scope": [
+          "status-refractory",
+          "status-phenytoin-local"
+        ],
+        "source_review": "references/acute-status-reviewed-2026-11-16.md",
+        "owner_acceptance": "references/acute-contract-owner-acceptance-2026-11-16.json",
+        "release_report": "qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md",
+        "supersedes": "Historical permanent software blocks for the listed IDs only; earlier dated review statements remain historical.",
+        "international_scope": "One coherent clinical core; verified product-specific differences only. No hospital identity required.",
+        "review_method": "Primary-source reconciliation plus physician-owner acceptance already provided; no independent pharmacy signature invented.",
+        "clinical_release_status": "CLINICALLY_PENDING",
+        "limits": "Dose/preparation only within the verified indication, population and product. Specialist decision support is enabled where no universal numerical prescription exists. No prospective validation or deployment implied."
       }
     },
     "pediatric-emergencies": {
@@ -501,6 +517,35 @@
         "statement": "tenemos todos los antidotos a disposicion",
         "report": "qa/TOXICOLOGY_RARE_PRODUCTS_REVIEW_2026-11-13.json",
         "independently_audited": false
+      },
+      "contract_release_review": {
+        "date": "2026-11-16",
+        "outcome": "owner_validated_contracts_enabled_with_case_specific_safety_gates",
+        "scope": [
+          "reversal-vka-pcc",
+          "reversal-superwarfarin",
+          "reversal-edoxaban",
+          "reversal-betrixaban",
+          "reversal-fondaparinux",
+          "reversal-other-lmwh",
+          "reversal-enoxaparin-over12",
+          "reversal-argatroban",
+          "reversal-bivalirudin",
+          "reversal-other-dti",
+          "reversal-danaparoid",
+          "reversal-fibrinolytics",
+          "reversal-antiplatelets",
+          "reversal-unknown",
+          "reversal-dabigatran-repeat"
+        ],
+        "source_review": "references/acute-reversal-reviewed-2026-11-16.md",
+        "owner_acceptance": "references/acute-contract-owner-acceptance-2026-11-16.json",
+        "release_report": "qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md",
+        "supersedes": "Historical permanent software blocks for the listed IDs only; earlier dated review statements remain historical.",
+        "international_scope": "One coherent clinical core; verified product-specific differences only. No hospital identity required.",
+        "review_method": "Primary-source reconciliation plus physician-owner acceptance already provided; no independent pharmacy signature invented.",
+        "clinical_release_status": "CLINICALLY_PENDING",
+        "limits": "Dose/preparation only within the verified indication, population and product. Specialist decision support is enabled where no universal numerical prescription exists. No prospective validation or deployment implied."
       }
     },
     "empiric-antibiotics": {
@@ -618,6 +663,22 @@
         "remaining_gate": "No outstanding bibliographic gate in the stated reference scope. Patient-specific operational safeguards and global technical QA remain applicable.",
         "report": "qa/ANAPHYLAXIS_ANTIBIOTICS_ACCEPTANCE_2026-11-13.json",
         "limitations": "RCUK algorithm retrieved; NICE final NG258 PDF indexed recommendations verified, direct full fetch returned 403. No new signature or product-specific stability certification."
+      },
+      "contract_release_review": {
+        "date": "2026-11-16",
+        "outcome": "owner_validated_contracts_enabled_with_case_specific_safety_gates",
+        "scope": [
+          "anaphylaxis-under6months",
+          "anaphylaxis-refractory"
+        ],
+        "source_review": "references/acute-anaphylaxis-reviewed-2026-11-16.md",
+        "owner_acceptance": "references/acute-contract-owner-acceptance-2026-11-16.json",
+        "release_report": "qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md",
+        "supersedes": "Historical permanent software blocks for the listed IDs only; earlier dated review statements remain historical.",
+        "international_scope": "One coherent clinical core; verified product-specific differences only. No hospital identity required.",
+        "review_method": "Primary-source reconciliation plus physician-owner acceptance already provided; no independent pharmacy signature invented.",
+        "clinical_release_status": "CLINICALLY_PENDING",
+        "limits": "Dose/preparation only within the verified indication, population and product. Specialist decision support is enabled where no universal numerical prescription exists. No prospective validation or deployment implied."
       }
     },
     "urologic-emergencies": {

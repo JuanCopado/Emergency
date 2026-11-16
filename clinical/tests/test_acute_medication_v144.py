@@ -108,7 +108,7 @@ class SourceBoundFlowCases(unittest.TestCase):
         self.assertEqual(len(rows), len({r['id'] for r in rows}))
         self.assertEqual({r['group'] for r in rows}, {'amiodarone', 'insulin', 'sodium', 'status', 'anaphylaxis', 'reversal'})
 
-    def test_independent_nominal_and_blocked_cases(self):
+    def test_independent_nominal_cases_and_patient_safety_gates(self):
         import json
         bank = json.loads((Path(__file__).resolve().parents[1] / 'qa/V1.44_ACUTE_MEDICATION_CASES.json').read_text(encoding='utf-8'))
         current = catalog()
@@ -137,6 +137,9 @@ class SourceBoundFlowCases(unittest.TestCase):
                     self.assertTrue(rejected['blocked'], updates)
                     self.assertNotIn('result', rejected)
                 for f in row['fields']:
+                    condition = f.get('required_if')
+                    if condition and inputs.get(condition['key']) != condition['equals']:
+                        continue
                     for value in [None, {}, [], float('nan'), float('inf')]:
                         rejected = calculate_request({**payload, 'inputs': {**inputs, f['key']: value}})
                         self.assertTrue(rejected['blocked'], (case['id'], f['key'], value))

@@ -120,9 +120,9 @@ describe('i18n & settings', () => {
   it('language switcher changes UI and persists to localStorage', async () => {
     const user = userEvent.setup();
     await renderAt('/', [{ path: '/', element: <Home /> }], 'es');
-    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('Referencia de perfusiones');
+    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('Apoyo clínico para urgencias y cuidados agudos');
     await user.selectOptions(screen.getByTestId('language-switcher'), 'zh');
-    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('急诊与重症监护输注参考');
+    expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('急诊与急性医疗的临床支持');
     expect(localStorage.getItem('emergency.lang')).toBe('zh');
     expect(document.documentElement.lang).toBe('zh-Hans');
     await user.selectOptions(screen.getByTestId('language-switcher'), 'pt');
@@ -143,7 +143,7 @@ describe('i18n & settings', () => {
 
   it('about page shows the disclaimer', async () => {
     await renderAt('/about', [{ path: '/about', element: <About /> }]);
-    expect(await screen.findByTestId('disclaimer')).toHaveTextContent('Local protocols and the treating clinician');
+    expect(await screen.findByTestId('disclaimer')).toHaveTextContent('It does not replace clinical judgment, local protocols or the product information.');
   });
 });
 
