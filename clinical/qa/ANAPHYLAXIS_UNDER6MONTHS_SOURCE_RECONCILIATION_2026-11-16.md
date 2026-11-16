@@ -28,3 +28,28 @@ This entry is based on primary public clinical sources. The project owner's mess
 Current \`clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json\` lists \`anaphylaxis-under6months\` as \`BLOCKED\` due to the unresolved 100–150 microgram fixed-band vs individual selection. No production change, no altered canonical dose, no YELLOW→GREEN promotion. All 19 medication blocks, four historical P1 issues and \`CLINICALLY_PENDING\` remain in force.
 
 **Documentary evidence captured; clinical choice and approval remain pending.**
+
+
+## Addendum — 2026-11-16: owner-supplied clinical compendium reviewed
+
+**Supersedes the earlier statement in this file that no user attachment was available.** The owner subsequently provided `compendio_cl_nico_diagn_stico_manejo_de_emergencia_y_prevenci_n_de_la_anafilaxia.md`, SHA-256 **81de9bbc77e585d007e89424dd287a1edd6c10e29cf7d775a2cbd7d8d55e5895** (20,618 bytes). It describes a consolidation of an **ANAFILAXIA.pdf** covering 255 pages and multiple UpToDate topics; the infant chapter is listed as topic 5750 v26.0, last updated **2026-09-22**, and the emergency treatment chapter as topic 392 v74.0. Versions/dates are as supplied in the compendium, not independently authenticated against UpToDate. The compendium explicitly reports OCR/automatic-translation corrections, so do **not** import its wording without primary-source cross-checking. Its full proprietary medical text is **not copied into this repository**.
+
+### Evidence contributed, limited to contract 3
+
+- The compendium describes **IM epinephrine 0.01 mg/kg from a 1 mg/mL solution**, anterolateral thigh, with exact weight-based measurement where feasible. This agrees with [ERC 2025 paediatric life support](https://www.sciencedirect.com/science/article/abs/pii/S0300957225002795) and the treatment rationale of [Portugal DGS Norma 014/2012, amended 2014](https://www.dgs.pt/directrizes-da-dgs/normas-e-circulares-normativas/norma-n-0142012-de-16122012.aspx). DGS's source text explicitly states 0.01 mg/kg IM, max 0.5 mg, and may repeat after 5 minutes.
+- Its **infant chapter** describes repetition in **5–15 minutes** if necessary, while the emergency treatment overview and ERC recommend reassessment/repetition at **5 minutes if symptoms persist**. Preserve this chapter-level difference rather than merging it into an automatic schedule. There is no software-triggered repeat.
+- For an infant **below 10 kg**, the source emphasizes precise weight-based dosing in a clinical setting where it can be prepared rapidly and measured safely. Its alternative **0.1 or 0.15 mg autoinjector** discussion applies to availability and urgency in community/self-rescue settings; it is **not equivalent** to a default hospital dose for a small infant, nor proof such a device is authorized/stocked in Portugal.
+- The RCUK age-band alternative **100–150 micrograms for <6 months**, as recorded in the previous source dossier, remains **non-interchangeable** with 10 micrograms/kg in small infants. The prior RCUK July 2025 algorithm PDF link could not be re-fetched in this review; check the exact current primary algorithm before any decision on that pathway. No automated selection of fixed doses is allowed.
+- The compendium's general paediatric maximum of **0.3 mg in children <=30 kg** and the ERC/DGS general maximum of **0.5 mg** are **different scopes/caps**: neither should be silently propagated to neonatal code. The infant 0.01 mg/kg rule and population-specific ceiling must be reviewed explicitly.
+- The compendium documents clinically subtle infant presentations (sudden lethargy/hypotonia, altered activity, hoarse cry, drooling) and the danger of delaying IM epinephrine. This should inform **clinical alerts and diagnostic support**, not become a diagnostic gate requiring skin findings or measured hypotension.
+- IV boluses, IV infusions for refractory anaphylaxis, prehospital auto-injector selection, and discharge prescribing belong to **separate contracts**; this review does not authorize or implement them.
+
+### Operational acceptance conditions before any executable infant dose
+
+1. Explicit local paediatric/Pharmacy choice between a **weight-based 0.01 mg/kg IM** pathway and any fixed-band alternative, with documented neonatal/infant scope and repeat policy; do not use age-only interpolation.
+2. Identify the **exact locally stocked IM product** (1 mg/mL), its Portuguese label and a reliable **small-volume syringe/measurement technique**, including independent double-check and rounding limits. Do not infer reliable measurement from nominal concentration.
+3. Verify boundaries and negatives: 0 days, 1 day, 1/3/5 months, just before and at 6 months; extreme/missing weights; mg vs micrograms; mL rounding; wrong concentration; IV/IM route mix-up; duplicate administration and monitoring/escalation; no delays in real clinical care while software waits.
+4. Resolve source differences on observation policy (the historical DGS norm prescribes **8–24 hours**, while the supplied compendium discusses shorter observation in low-risk cases) in the **separate disposition module**, not by changing this IM medication gate.
+5. Obtain professional review of the final protocol + QA evidence tied to the exact code/tree version before removing `block_reason` from `anaphylaxis-under6months`.
+
+**Decision:** documentary evidence augmented; `anaphylaxis-under6months` stays **BLOCKED / CLINICAL_REVIEW_REQUIRED**; 19 medication blocks retained; no clinical dosage engine, source registry, `main`, protected branches or I02 modified.
