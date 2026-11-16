@@ -122,3 +122,47 @@ Los ejemplos son **valores nominales para pruebas de software**, no prescripcion
 
 ---
 **Protección:** No modificar `main`, no cambiar `CLINICALLY_PENDING`, los cuatro P1, los otros 18 bloqueos, ni iniciar I02. No promover GREEN ni retirar `BLOCKED` por una acta en blanco.
+
+## 9. Anexo FAR-04/FAR-05/FAR-06 — Selección de jeringa y espacio muerto (información aportada por el propietario)
+
+**Fecha de incorporación:** 16/11/2026. **Estado de todos los criterios: NO VALIDADO FÍSICAMENTE / NOT_RUN.**
+El propietario ha aportado una tabla de capacidades y graduaciones de jeringas, junto con una propuesta de manejo de agujas y espacio muerto. Se registra como **evidencia de diseño y propuesta operativa**, no como autorización farmacéutica ni como ensayo ejecutado. El ámbito de esta acta sigue siendo **adrenalina 1 mg/mL sin diluir por vía IM en menores de seis meses**, con dosis ponderal **0,01 mg/kg**.
+
+### FAR-04 — Dispositivos candidatos y excluidos del circuito 3
+
+| Dispositivo | Graduación declarada por el propietario | Decisión para este contrato | Evidencia por aportar |
+|---|---|---|---|
+| Jeringa de tuberculina de 1 mL, escala en **mL** | 0,01 mL por marca fina | **CANDIDATO PREFERENTE, NO VALIDADO**. La graduación visual no acredita que entregue exactamente 0,025–0,08 mL | Modelo, ficha técnica, error volumétrico en el intervalo de interés, técnica y aguja real |
+| Jeringa de insulina U-100 | Equivalencia nominal de marcas de volumen 100 unidades de insulina/mL; algunos modelos tienen doble escala | **EXCLUIR DEL FLUJO POR DEFECTO**. No presentar las marcas de unidades de insulina como unidades de dosis de adrenalina; el riesgo de confusión mg/mL/unidades y de aguja SC es crítico. Solo reconsiderar con autorización específica, documentación mL inequívoca y estudio de conjunto | Modelo, agujas intercambiables, etiquetado inequívoco, SOP y revisión independiente |
+| Jeringa estándar 2–3 mL | Habitualmente 0,1 mL, según modelo | **NO APTA para microvolúmenes del contrato 3** | No procede como dispositivo candidato |
+| Jeringa estándar 5 mL | Escala variable por fabricante, a menudo 0,2 mL | **NO APTA para microvolúmenes del contrato 3** | No extrapolar a decisiones de dosis adulta fuera de alcance |
+
+**No convertir marcas U-100 en unidades clínicas de adrenalina ni incorporarlas al software o a etiquetas.** La identidad dimensional básica de U-100 solo sería una propiedad de esa escala volumétrica y es fácil de malinterpretar como actividad farmacológica. [ISMP Guidelines for Optimizing Safe Subcutaneous Insulin Use](https://www.ismp.org/sites/default/files/attachments/2018-09/ISMP138D-Insulin%20Guideline-090718.pdf) documenta riesgos de confusión entre unidades de insulina y mL; no atribuirle una prohibición universal de jeringas de doble escala sin una fuente explícita.
+
+**El problema no se resuelve eligiendo 1 mL con rayas de 0,01 mL.** La investigación [Development of Guidelines for Accurate Measurement of Small Volume Parenteral Products Using Syringes](https://pmc.ncbi.nlm.nih.gov/articles/PMC8114303/) muestra diferencias relevantes de exactitud/reproducibilidad y riesgo superior de error cuando se mide menos del 20 % de la capacidad nominal de la jeringa. Los objetivos del contrato (p. ej., 0,025 / 0,032 / 0,05 / 0,076 mL) se encuentran por debajo de ese 20 % en una jeringa de 1 mL. Se requieren mediciones reales o alternativa formalmente validada; el ensayo citado no establece por sí solo una prohibición universal ni un error máximo farmacéutico específico.
+
+### FAR-05 — Aguja y volumen muerto
+
+- La propuesta de aguja IM de 16–25 mm / calibre 23–25 G se acepta **solo como rango de referencia a evaluar**, NO como indicación automática. Seleccionar según edad gestacional y cronológica, masa muscular, sitio y técnica. El [CDC](https://www.cdc.gov/vaccines/hcp/administration/during.html) ofrece, **para vacunación IM**, una referencia distinta para neonatos (16 mm, 22–25 G) y lactantes de 1–12 meses (25 mm, 22–25 G); **no debe transformarse mecánicamente en una orden de adrenalina**.
+- La cifra aportada de **0,05–0,08 mL de espacio muerto** es plausible en algunas combinaciones, pero **NO es un valor fijo para todas las jeringas y agujas**. Los datos sobre diseños y tolerancias en [ISO 7886-1:2017, revisión](https://pmc.ncbi.nlm.nih.gov/articles/PMC9750608/) revelan gran variación; puede ser proporcionalmente mayor que la dosis buscada. Se necesita caracterización del **conjunto real jeringa+aguja**.
+- No aprobar de modo universal «purgar hasta la punta antes de enrasar» ni otra técnica de cambio de aguja como si fuera clínicamente validada. Farmacia/Enfermería deben redactar y ensayar un **procedimiento estéril reproducible**, medir el **volumen entregado** y excluir retención/pérdida accidental. No compensar espacio muerto añadiendo una cantidad empírica de fármaco y no diluir la solución IM sin nueva conciliación.
+- La técnica y la capacitación se auditan **sin utilizar pacientes ni adrenalina real en el ensayo inicial**; emplear sustituto no farmacológico, dispositivo autorizado y medición trazable. Después corresponderá la aceptación farmacéutica de aplicabilidad al producto real.
+
+### FAR-06 — Prueba prospectiva de precisión y redondeo, todavía NO EJECUTADA
+
+**Preparación del ensayo:** obtener inventario del fabricante y modelo de jeringa, lote, escala, compatibilidad Luer/aguja IM, método de carga, aguja de extracción, presencia de aire, control de volumen muerto y equipamiento de medición calibrado.
+
+**Desafíos sintéticos representativos:** volúmenes teóricos 0,025; 0,032; 0,050; 0,076 mL y valores de frontera de la técnica. El valor de 0,025 mL redondeado matemáticamente a 0,03 mL produce **+20 %** de error, sin contar variabilidad del dispositivo. No inferir que 0,03 ni 0,08 mL estén aprobados para administración.
+
+**Datos a registrar para cada combinación:** volumen diana, volumen entregado medido, error absoluto/relativo por repetición, dispersión entre observadores, efectos de cambio de aguja, purga y cebado; registrar también casos que no se pueden medir. Definir **ANTES DEL ENSAYO** número de repeticiones, límites de error aceptables, criterios de STOP, incertidumbre instrumental y responsables aprobadores. No presentar resultados teóricos como observados.
+
+**Criterio de aceptación:** Farmacia y Enfermería aprueban un dispositivo y una técnica específicos con evidencia experimental, incluyendo manejo seguro de volúmenes que no alcancen precisión suficiente. Si no hay dispositivo verificado, el **motor de prescripción sigue bloqueado**; la actuación clínica urgente no debe retrasarse por la aplicación.
+
+### Decisión de calidad / responsable
+
+- Conformidad del propietario/clinico **Juan Copado** con la pauta teórica y la continuación de la revisión: **declarada por el propietario**, no firma inventada de Farmacia/Enfermería.
+- Microvolúmenes, espacio muerto y agujas: **FAR-04/FAR-05/FAR-06 PENDIENTES de ensayo físico**.
+- Las 20 pruebas de preflight son sintéticas (lógica no prescriptiva); **no equivalen a 16 pruebas integradas, estudio de precisión ni aprobación de producción**.
+- Estado del contrato: \`anaphylaxis-under6months\` **BLOCKED**; conservar \`CLINICALLY_PENDING\`, los otros 18 contratos, cuatro P1 e I02 NO-GO.
+
+**Anexo de fuentes:** también [Small-Volume Injections: Evaluation of Volume Administration Deviation](https://pubmed.ncbi.nlm.nih.gov/28338490/), ensayo ex vivo de medición/administración de pequeños volúmenes.
