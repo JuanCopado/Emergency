@@ -70,8 +70,8 @@
     {
       "id": "NEG-06",
       "category": "INR_BOUNDARIES",
-      "scenario": "Exact INR boundaries 3.9, 3.95, 4.0, 6.0 and >6.0",
-      "expected_behavior": "Use only manufacturer-supported INR intervals: Beriplex 2.0–3.9, 4.0–6.0, >6.0; Octaplex 2.0 to <4.0, 4.0–6.0, >6.0. Do NOT guess that Beriplex 3.95 belongs to a listed band without validated INR reporting/rounding rule; never overlap or extrapolate.",
+      "scenario": "INR boundary cases evaluated against the specific Portuguese RCM version selected; UK table must not be silently applied",
+      "expected_behavior": "Until current PT RCM confirmed, FAIL CLOSED. If Portuguese 08/2020 source adopted, INR 2–2.5 / 2.5–3 / 3–3.5 / >3.5 ranges require explicit individual dose selection and boundary rule, not 25/35/50 UI/kg auto-mapping.",
       "execution_status": "NOT_RUN",
       "test_result": null,
       "qa_evidence": null,
@@ -211,7 +211,7 @@
       "id": "NEG-20",
       "category": "RATE_EXCEEDED",
       "scenario": "Rate selected above product-specific maximum or without verified patient weight/label",
-      "expected_behavior": "Reject infusion programming; no implicit mL/min",
+      "expected_behavior": "Reject imported UK infusion rate of up to 8mL/min when PT manufacturer RCM 08/2020 specifies initial 1 then 2–3mL/min; require current product-specific approved local rate and pump config.",
       "execution_status": "NOT_RUN",
       "test_result": null,
       "qa_evidence": null,
@@ -236,6 +236,74 @@
       "test_result": null,
       "qa_evidence": null,
       "approval": null
+    },
+    {
+      "id": "NEG-23",
+      "category": "PT_UK_RCM_CONFLICT",
+      "scenario": "Calculator selects 25/35/50 UI/kg from UK 2024 while local candidate source is PT 08/2020",
+      "expected_behavior": "HARD STOP: unresolved conflict of regulatory version and indication, no order or fallback to invented formula",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-24",
+      "category": "PT_3000IU_MAX",
+      "scenario": "Generated single dose 4000 IU with PT 08/2020 RCM still selected",
+      "expected_behavior": "HARD STOP: PT manufacturer RCM specifies maximum 3000 IU; compare per-vial IU and documented local RCM version",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-25",
+      "category": "MISSING_RCM_VERSION",
+      "scenario": "Protocol lacks confirmed RCM revision and authorization for the selected Portuguese lot",
+      "expected_behavior": "HARD STOP: no calculated clinical dose, administration speed or order",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-26",
+      "category": "PT_VOLUME_RANGE_NO_SINGLE_POINT",
+      "scenario": "INR 2.4 with Portuguese RCM giving 0.9–1.3mL/kg; engine chooses a point arbitrarily",
+      "expected_behavior": "HARD STOP: clinician-approved selection policy is required; never choose midpoint or upper endpoint by default",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-27",
+      "category": "PRESENTATION_500_1000_UNKNOWN",
+      "scenario": "Prescription assumes hospital stocks 500UI or 1000UI vials without verification",
+      "expected_behavior": "HARD STOP on reconstitution and vial count; ask Pharmacy for local presentation/SKU/lot",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-28",
+      "category": "PHYSICOCHEMICAL_VS_MICROBIOLOGICAL",
+      "scenario": "An 8-hour chemical stability limit is displayed as 8 hours permitted routine storage",
+      "expected_behavior": "HARD STOP: microbiological immediate-use recommendation and product/local asepsis policy must prevail",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
     }
-  ]
+  ],
+  "product_selected_by_owner": "Octaplex",
+  "stock_presentations": "UNKNOWN_PENDING_CONFIRMATION",
+  "rcm_portugal_publisher": "Octapharma Portugal",
+  "rcm_portugal_url": "https://www.octapharma.pt/api/download/x/291a94e4c6/rcm-octaplex.pdf",
+  "rcm_portugal_revision": "2020-08",
+  "rcm_vigente_confirmed_by_pharmacy": false,
+  "critical_source_conflict": "Portuguese manufacturer RCM (08/2020) differs from UK 2024 SmPC for INR table, max single dose (3000 vs up to 5000 IU), and infusion rate (1 then 2-3 vs up to 8 mL/min). No auto-calculation.",
+  "reconciled_on": "2026-11-16"
 }
