@@ -1,3 +1,11 @@
+## Contratos revisados habilitados · 16/11/2026 · ACUTE-RELEASE
+
+La instrucción expresa del propietario reconoce su validación previa y autoriza incorporar lo ya revisado. En la rama `codex/v144-reviewed-contracts-enable-20261116`, basada en `062d890b4fc92369b83c87664bb4bb0205ccb33f`, los **19 bloqueos permanentes de GMA-P2-004 se sustituyen por 6 contratos capaces de cálculo y 13 de apoyo de decisión**. Se conservan los 46 IDs; los controles vigentes dependen del caso y del producto, sin hospital obligatorio. La aceptación se registra en `references/acute-contract-owner-acceptance-2026-11-16.json`; no debe volver a solicitarse ni confundirse con una firma farmacéutica independiente.
+
+Se incorporan fenitoína, estatus refractario, anafilaxia y 15 rutas de reversión con fuentes primarias y diferencias materiales explícitas. Se armonizan la valoración de riesgos de adrenalina IM, el límite de administración de protamina y la frontera de 8 h de enoxaparina. GMA-P2-001 se corrige en el motor TypeScript para impedir resultados no finitos o nulos por aritmética extrema. Los informes anteriores que conservaban 19 bloqueos describen su corte histórico y quedan superados en este alcance. Estados generales de evidencia y `CLINICALLY_PENDING` conservados; no se cierran otros P1/P2 ni se acredita despliegue.
+
+Detalle por contrato: `qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y JSON asociado. Publicación verificada en [PR #20](https://github.com/JuanCopado/Emergency/pull/20), commit `04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22`: Clinical QA, App UI QA y vigilancia de evidencia PASS; 21/21 casos reales de navegador para los 19 contratos, incluidas exportaciones y controles negativos. GMA-P2-004 y GMA-P2-001 resueltos en su alcance. Comunicación registrada en el hilo común; no se presume instalación en el PC.
+
 ## Coherencia de guías internacionales · 16/11/2026 · INT-02A
 
 Aplicar `references/international-guideline-policy.md`: núcleo clínico común basado en guías de amplio reconocimiento internacional, seleccionadas por calidad, vigencia, consenso y aplicabilidad. Europa, UK y las Américas sirven para contrastar diferencias materiales; incorporar solo las justificadas en el núcleo o en una variante puntual del mismo módulo. La consulta del núcleo no exige país ni hospital y no se divide en protocolos locales completos.

@@ -2,6 +2,23 @@
   "schema_version": "1.1",
   "pending_updates": [
     {
+      "module": "reviewed-acute-contract-release-20261116",
+      "scope": [
+        "status-epilepticus",
+        "anaphylaxis",
+        "anticoagulation-reversal"
+      ],
+      "identified_on": "2026-11-16",
+      "status": "owner_validated_implemented_published_all_scoped_checks_pass",
+      "owner_authorization": "Explicit physician-owner request to incorporate previously validated work and remove inherited permanent blocks.",
+      "report": "qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md",
+      "technical_qa_report": "qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.json",
+      "clinical_release_status": "CLINICALLY_PENDING",
+      "supersedes": "The 19 historical permanent blocks of GMA-P2-004 only; retains real case and product gates.",
+      "pull_request": "https://github.com/JuanCopado/Emergency/pull/20",
+      "browser_qa": "PASS:21 cases/19 contracts; source revision matched; JSON/PDF/DOCX/print verified"
+    },
+    {
       "module": "sodium-focused-closure-20261114",
       "scope": [
         "sodium-emergencies"

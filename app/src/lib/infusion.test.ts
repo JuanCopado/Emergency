@@ -34,6 +34,30 @@ describe('data file', () => {
   });
 });
 
+describe('GMA-P2-001: finite inputs cannot produce a successful nonfinite result', () => {
+  it.each([
+    {dose:1e308, doseUnit:'mg/kg/h' as const, concentration:{value:1,unit:'mg/mL' as const},weightKg:2},
+    {dose:1e308, doseUnit:'mcg/min' as const, concentration:{value:1,unit:'mcg/mL' as const}},
+    {dose:1, doseUnit:'mg/h' as const, concentration:{value:Number.MIN_VALUE,unit:'mg/mL' as const}},
+    {dose:Number.MIN_VALUE, doseUnit:'mcg/kg/h' as const, concentration:{value:1,unit:'mg/mL' as const},weightKg:1},
+  ])('rejects unrepresentable forward arithmetic: %j', input => {
+    expect(() => doseToRate(input)).toThrow(InfusionError);
+  });
+
+  it.each([
+    {mlPerHour:1e308,doseUnit:'mg/h' as const,concentration:{value:2,unit:'mg/mL' as const}},
+    {mlPerHour:1e308,doseUnit:'mcg/kg/h' as const,concentration:{value:1,unit:'mg/mL' as const},weightKg:1},
+    {mlPerHour:1,doseUnit:'mg/kg/h' as const,concentration:{value:1,unit:'mg/mL' as const},weightKg:Number.MIN_VALUE},
+    {mlPerHour:Number.MIN_VALUE,doseUnit:'mg/h' as const,concentration:{value:Number.MIN_VALUE,unit:'mg/mL' as const}},
+  ])('rejects unrepresentable reverse arithmetic: %j', input => {
+    expect(() => rateToDose(input)).toThrow(InfusionError);
+  });
+
+  it('does not return an infinite rounded display for a finite calculated rate', () => {
+    expect(() => doseToRate({dose:1e308,doseUnit:'mg/h',concentration:{value:1,unit:'mg/mL'}})).toThrow(InfusionError);
+  });
+});
+
 describe('worked 70 kg examples from the v1.35 modules', () => {
   const cases = drugs.flatMap((d) => d.workedExamples.map((w) => ({ drug: d, w })));
   it.each(cases.map((c) => [`${c.drug.id} ${c.w.dose} ${c.w.doseUnit} @ ${c.w.preparationId}`, c] as const))(

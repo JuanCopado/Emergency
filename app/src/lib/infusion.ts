@@ -94,6 +94,13 @@ export function isPositiveFinite(n: unknown): n is number {
   return typeof n === 'number' && Number.isFinite(n) && n > 0;
 }
 
+function checkedArithmetic(value:number, code:'invalid-rate'|'invalid-dose'):number {
+  if (!isPositiveFinite(value)) {
+    throw new InfusionError(code, 'Arithmetic result is outside the supported finite range; verify the inputs and units');
+  }
+  return value;
+}
+
 /** Round half away from zero with an epsilon guard (5.25 → 5.3, 2.625 → 2.6). */
 export function roundTo(value: number, decimals = 1): number {
   const f = 10 ** decimals;
@@ -159,14 +166,14 @@ export function doseToRate(input: ForwardInput): ForwardResult {
   let unitLabel = doseUnit as string;
   if (parsed.perKg) {
     const w = weightKg as number;
-    const result = value * w;
+    const result = checkedArithmetic(value * w, 'invalid-rate');
     const resultUnit = `${parsed.amount}/${parsed.time}`;
     steps.push({ kind: 'weight-multiply', dose: value, doseUnit, weightKg: w, result, resultUnit });
     value = result;
     unitLabel = resultUnit;
   }
   if (parsed.time === 'min') {
-    const result = value * 60;
+    const result = checkedArithmetic(value * 60, 'invalid-rate');
     const resultUnit = `${parsed.amount}/h`;
     steps.push({ kind: 'per-min-to-per-hour', value, valueUnit: unitLabel, result, resultUnit });
     value = result;
@@ -174,11 +181,15 @@ export function doseToRate(input: ForwardInput): ForwardResult {
   const concAmount = concentrationAmountUnit(concentration.unit);
   if (concAmount !== parsed.amount) {
     const factor = amountFactor(parsed.amount, concAmount);
-    const result = value * factor;
+    const result = checkedArithmetic(value * factor, 'invalid-rate');
     steps.push({ kind: 'convert-amount', value, from: parsed.amount, to: concAmount, factor, result });
     value = result;
   }
-  const mlPerHour = value / concentration.value;
+  const mlPerHour = checkedArithmetic(value / concentration.value, 'invalid-rate');
+  const mlPerHourDisplay = roundForDisplay(mlPerHour);
+  if (!Number.isFinite(mlPerHourDisplay)) {
+    throw new InfusionError('invalid-rate', 'Rounded rate is outside the supported finite range');
+  }
   steps.push({
     kind: 'divide-concentration',
     amountPerHour: value,
@@ -190,7 +201,7 @@ export function doseToRate(input: ForwardInput): ForwardResult {
   return {
     status: 'ok',
     mlPerHour,
-    mlPerHourDisplay: roundForDisplay(mlPerHour),
+    mlPerHourDisplay,
     amountPerHour: value,
     amountUnit: concAmount,
     steps,
@@ -223,11 +234,11 @@ export function rateToDose(input: ReverseInput): ReverseResult {
   }
   if (parsed.perKg && !isPositiveFinite(weightKg)) throw new InfusionError('invalid-weight', 'Weight must be > 0');
   const concAmount = concentrationAmountUnit(concentration.unit);
-  const amountPerHourConc = mlPerHour * concentration.value;
-  const amountPerHour = amountPerHourConc * amountFactor(concAmount, parsed.amount);
+  const amountPerHourConc = checkedArithmetic(mlPerHour * concentration.value, 'invalid-dose');
+  const amountPerHour = checkedArithmetic(amountPerHourConc * amountFactor(concAmount, parsed.amount), 'invalid-dose');
   let dose = amountPerHour;
-  if (parsed.time === 'min') dose /= 60;
-  if (parsed.perKg) dose /= weightKg as number;
+  if (parsed.time === 'min') dose = checkedArithmetic(dose / 60, 'invalid-dose');
+  if (parsed.perKg) dose = checkedArithmetic(dose / (weightKg as number), 'invalid-dose');
   return { status: 'ok', dose, doseUnit, amountPerHour: amountPerHourConc, amountUnit: concAmount };
 }
 

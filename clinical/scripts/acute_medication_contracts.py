@@ -13,7 +13,7 @@ def common(route='IV', population='adult'):
         field('allergy_contraindication_present', 'Alergia o contraindicación para esta opción', expected=False),
         field('interaction_reviewed', 'Interacciones, función renal/hepática y embarazo revisados', expected=True),
         field('monitoring_ready', 'Monitorización y medios de rescate disponibles', expected=True),
-        field('local_protocol_verified', 'Protocolo local y contexto de uso verificados', expected=True),
+        field('local_protocol_verified', 'Guía aplicable y contexto de uso verificados', expected=True),
     ]
 
 
@@ -60,7 +60,18 @@ def regimens():
                             'mL extraídos del producto no equivalen a mL de administración ni a mL/h de bomba.',
                             'No hay pauta independiente de FA estable ni de 600 mg/24 h en este contrato.'],
         })
-    return rows + insulin_regimens() + sodium_regimens() + status_regimens() + anaphylaxis_regimens() + reversal_regimens()
+    from acute_reviewed_status import reviewed_contracts as reviewed_status
+    from acute_reviewed_anaphylaxis import reviewed_contracts as reviewed_anaphylaxis
+    from acute_reviewed_reversal import reviewed_contracts as reviewed_reversal
+    # Each reviewed workflow is registered once. The former permanent blocks are
+    # retained in Git history, not as competing executable contract definitions.
+    rows += insulin_regimens() + sodium_regimens()
+    rows += status_regimens() + reviewed_status(contract, field)
+    rows += anaphylaxis_regimens() + reviewed_anaphylaxis(contract, field)
+    rows += reversal_regimens() + reviewed_reversal(contract, field)
+    if len({row['id'] for row in rows}) != len(rows):
+        raise ValueError('Duplicate acute medication contract ID')
+    return rows
 
 
 def contract(rid, label, group, group_label, drug, bundle, module, anchors, fields,
@@ -155,13 +166,6 @@ def status_regimens():
             limitations=['Presentación, dilución, velocidad, compatibilidad y estabilidad no especificadas: no se generan mL ni mL/h.',
                          'PE significa equivalentes de fenitoína; no convertir a mg de otra formulación.',
                          'Repetición/escalada requieren reevaluación clínica; no hay programación automática.']))
-    for key, label, reason in [
-        ('refractory', 'Refractario tras segunda línea — UCI/EEG', 'Escalar a UCI/neurología, vía aérea y EEG continuo; pauta anestésica requiere protocolo especializado.'),
-        ('phenytoin-local', 'Fenitoína cuando no hay fosfenitoína', 'La fuente exige carga local monitorizada; no hay pauta de producto/velocidad local verificada. No sustituir mg PE automáticamente.'),
-    ]:
-        rows.append(contract('status-' + key, label, 'status', 'Status epiléptico', label,
-            'neurologic.md', 'status-epilepticus', ['second-line'], [], block_reason=reason,
-            limitations=[reason], administration=reason))
     return rows
 
 
@@ -187,16 +191,14 @@ def anaphylaxis_regimens():
             administration='IM; reevaluar ABC y constantes. Repetir después de 5 min si persiste compromiso. Tras dos dosis adecuadas, activar vía refractaria experta.',
             limitations=['No sustituye la activación urgente ni la evaluación de respuesta.',
                          'Mayores de 12 años pequeños/prepuberales: fuente primaria incluye excepción no transcrita en el módulo; bloquear y revisar, sin introducir una pauta nueva.',
-                         'Menores de 6 meses: la fuente ofrece un intervalo sin regla individual de selección; usar rama de revisión.']))
-    for key, label, reason in [
-        ('under6months', 'Menor de 6 meses — revisión de selección', 'La fuente almacena 100–150 microgramos; falta regla individual verificada. Requiere decisión pediátrica, sin dosis automática.'),
-        ('refractory', 'Refractaria tras dos dosis IM adecuadas', 'Activar soporte experto, monitorización y protocolo de perfusión IV. No hay preparación/velocidad IV local verificada; evitar bolos IV no monitorizados.'),
-    ]:
-        rows.append(contract('anaphylaxis-' + key, label, 'anaphylaxis', 'Anafilaxia', 'Adrenalina',
-            'infection-respiratory.md', 'anaphylaxis', ['Refractory anaphylaxis'], [],
-            route='IM' if key == 'under6months' else 'IV',
-            population='pediatric' if key == 'under6months' else 'adult',
-            block_reason=reason, limitations=[reason], administration=reason))
+                         'Menores de 6 meses: utilizar la rama ponderal revisada con peso y volumen medible verificados.']))
+    # Adrenaline IM has no absolute contraindication in anaphylaxis. Assess
+    # product and interactions without delaying life-saving first-line care.
+    for row in rows:
+        row['fields'] = [f for f in row['fields'] if f['key'] != 'allergy_contraindication_present']
+        row['fields'].append(field('adrenaline_risk_assessment_completed',
+            'Riesgos, interacciones y producto valorados; no retrasar adrenalina IM por contraindicaciones relativas',
+            expected=True))
     return rows
 
 
@@ -236,35 +238,15 @@ def reversal_regimens():
         administration='Referencia aritmética de 1 mg por 100 U recientes, máximo habitual 50 mg; ajustar por tiempo transcurrido. IV lenta ≤5 mg/min; vigilar hipotensión/anafilaxia y aPTT/ACT.')
     next(f for f in rows[-1]['fields'] if f['key'] == 'last_dose_hours')['maximum'] = 3
     for suffix, label, coefficient, time_rules, extra in [
-        ('early', 'Menos de 8 horas', 1, {'exclusive_maximum': 8}, []),
-        ('late', 'De 8 a 12 horas', .5, {'minimum': 8, 'maximum': 12}, []),
+        ('early', 'Hasta 8 horas inclusive', 1, {'maximum': 8}, []),
+        ('late', 'Más de 8 y hasta 12 horas', .5, {'exclusive_minimum': 8, 'maximum': 12}, []),
         ('repeat', 'Segunda dosis condicionada', .5, {}, [field('prior_protamine_given', 'Primera dosis de protamina documentada', expected=True), field('persistent_activity', 'Persisten sangrado/actividad y se confirmó indicación especializada', expected=True)]),
     ]:
         add('enoxaparin-' + suffix, 'Enoxaparina — ' + label, 'Protamina', 'enoxaparin',
             ['1 mg protamina por 1 mg enoxaparina', '0.5 mg protamina por 1 mg enoxaparina'],
             [field('enoxaparin_mg', 'Dosis causal de enoxaparina (mg; no unidades anti-Xa)', 'number', positive=True)] + extra,
             model='enoxaparin', dose=coefficient, dose_unit='mg',
-            administration='Reversión parcial, no neutralización completa. Reevaluar sangrado, función renal y actividad anti-Xa; producto, máximo y velocidad según protocolo verificado.')
+            maximum={'value': 50, 'unit': 'mg', 'scope': 'esta administración IV lenta; no techo acumulado del tratamiento'},
+            administration='Reversión parcial, no neutralización completa. Esta administración se limita a 50 mg, IV muy lenta en al menos 10 min y respetando cualquier límite más restrictivo del producto. Reevaluar sangrado, función renal y actividad anti-Xa; sin repetición automática ni programación de bomba.')
         next(f for f in rows[-1]['fields'] if f['key'] == 'last_dose_hours').update(time_rules)
-    blocked = [
-        ('vka-pcc', 'VKA — vitamina K / 4F-PCC', 'Requiere INR, peso y tabla exacta del PCC local. No aplicar automáticamente a sangrado menor o INR aislado; no se ha verificado tabla de producto.'),
-        ('superwarfarin', 'Superwarfarinas', 'Vitamina K prolongada y seguimiento INR requieren toxicología/hematología; no hay pauta individual verificada.'),
-        ('edoxaban', 'Edoxabán', 'No extrapolar indicación EMA de andexanet; PCC inespecífico exige selección/dosis de protocolo experto.'),
-        ('betrixaban', 'Betrixabán', 'Verificar regulación y protocolo experto; no extrapolar andexanet.'),
-        ('fondaparinux', 'Fondaparinux', 'Sin antídoto específico aprobado en la fuente; protamina no neutraliza. Soporte/control de foco y consulta experta.'),
-        ('other-lmwh', 'Otras HBPM', 'Reversión parcial según ficha exacta; no convertir unidades entre HBPM.'),
-        ('enoxaparin-over12', 'Enoxaparina después de 12 horas', 'Necesidad individual según actividad persistente/función renal; no hay dosis universal.'),
-        ('argatroban', 'Argatrobán', 'Sin antídoto específico; suspender, soporte, control de foco y valoración de función hepática.'),
-        ('bivalirudin', 'Bivalirudina', 'Sin antídoto específico; suspender, soporte, control de foco y valoración renal.'),
-        ('other-dti', 'Otras trombinas directas parenterales', 'Sin pauta universal de antídoto; manejo experto por producto y función renal.'),
-        ('danaparoid', 'Danaparoide / heparinoides', 'No reversión fiable con protamina; soporte y hematología, sin pauta universal.'),
-        ('fibrinolytics', 'Trombolíticos / fibrinolíticos', 'Suspender; control urgente de fibrinógeno y coagulación, neuroimagen si ICH; crioprecipitado/fibrinógeno según protocolo.'),
-        ('antiplatelets', 'Antiagregantes', 'No hay antídoto universal; decisiones según sangrado/procedimiento. No transfusión plaquetaria automática.'),
-        ('unknown', 'Agente, dosis o tiempo desconocidos', 'Identificar agente, última dosis, pruebas y función orgánica. No elegir antídoto a ciegas.'),
-        ('dabigatran-repeat', 'Repetición de idarucizumab', 'No rutinaria: requiere criterios específicos del producto y hematología; no se automatiza.'),
-    ]
-    for key, label, reason in blocked:
-        rows.append(contract('reversal-' + key, label, 'reversal', 'Reversión / antídotos', label,
-            'procedures-pharmacology.md', 'anticoagulation-reversal', ['Identificar'], [],
-            block_reason=reason, limitations=[reason], administration=reason))
     return rows

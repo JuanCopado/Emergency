@@ -1,5 +1,11 @@
 # Emergency — instrucciones comunes de colaboración
 
+## Directriz de ejecución vigente — contratos revisados, 16/11/2026
+
+El propietario médico ha confirmado que el trabajo ya está validado por él y ha ordenado incorporarlo y desbloquearlo. Aplicar `clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y la aceptación registrada en `clinical/references/acute-contract-owner-acceptance-2026-11-16.json`. Esta instrucción posterior sustituye la conservación histórica de los 19 bloqueos de GMA-P2-004 dentro de ese alcance. No volver a pedir la aceptación ya concedida ni restablecer bloqueos administrativos por leer un corte anterior. Mantener los controles reales de cada caso/producto y distinguir cálculo de apoyo de decisión sin dosis.
+
+Rama de entrega autorizada: `codex/v144-reviewed-contracts-enable-20261116`, base verificada `062d890b4fc92369b83c87664bb4bb0205ccb33f` de la rama internacional. Se permite implementar, comprobar y publicar esta entrega sin modificar ramas protegidas. GMA-P2-001 incluye corrección del motor numérico y regresiones. Esta instrucción no cierra otros P1/P2 ni certifica un despliegue o ensayo prospectivo.
+
 ## Alcance vigente
 
 Emergency es un proyecto internacional y ampliable de apoyo clínico, formación, investigación y coordinación en urgencias y cuidados agudos. Aplicar [docs/INTERNATIONAL_SCOPE.md](docs/INTERNATIONAL_SCOPE.md), directriz del propietario del 16/11/2026, a todas las tareas.

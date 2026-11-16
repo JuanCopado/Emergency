@@ -2,8 +2,8 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 
-type Field = {key:string; label:string; kind:'number'|'boolean'|'choice'; options?:string[]};
-type Regimen = {id:string; label:string; group:string; group_label:string; drug:string; route:string; dose_unit:string; fields:Field[]; source:{body:string; preamble:string}; limitations:string[]};
+type Field = {key:string; label:string; kind:'number'|'boolean'|'choice'; options?:string[]; option_labels?:Record<string,string>; required_if?:{key:string; equals:string}};
+type Regimen = {id:string; label:string; group:string; group_label:string; drug:string; route:string|null; dose_unit:string|null; fields:Field[]; source:{body:string; preamble:string; contract_review?:{body:string}}; limitations:string[]};
 type Catalog = {source_revision:string; regimens:Regimen[]};
 type Result = Record<string, unknown>;
 type Report = {snapshot:Result; sections:[string,string[]][]};
@@ -15,7 +15,10 @@ async function post<T,>(path:string, body:unknown):Promise<T> {
   if (!response.ok) throw new Error(value.error || `Error ${response.status}`);
   return value as T;
 }
-const display = (v:unknown) => v == null ? 'No especificado en la fuente; requiere verificación profesional' : typeof v === 'object' ? JSON.stringify(v) : String(v);
+const display = (v:unknown) => v == null ? 'No especificado en la fuente; requiere verificación profesional' : Array.isArray(v) && v.every(item => typeof item === 'string') ? v.join('\n') : typeof v === 'object' ? JSON.stringify(v) : String(v);
+const calculationFields = {indication:'Indicación', drug:'Fármaco', route:'Vía', dose:'Dosis', dose_unit:'Unidad de dosis', components:'Componentes y secuencia (no intercambiables)', correction_ceiling_mmol_l:'Límite acumulado de corrección de Na (mmol/L; no objetivo)', concentration:'Concentración y función', withdrawal_ml:'Volumen extraído del producto (mL)', administration_volume_ml:'Volumen de administración (mL)', pump_ml_h:'Velocidad de bomba (mL/h)', duration_min:'Duración (min)', amount_per_hour:'Cantidad por hora', amount_per_hour_unit:'Unidad por hora', maximum:'Máximo', preparation:'Preparación / dilución', compatibility:'Compatibilidad', stability:'Estabilidad', administration:'Administración', limitations:'Datos ausentes / límites'};
+const decisionFields = {indication:'Situación evaluada', decision_support:'Orientación clínica', next_actions:'Siguientes pasos', limitations:'Alcance y límites'};
+const fieldActive = (field:Field, values:Record<string,string>) => !field.required_if || values[field.required_if.key] === field.required_if.equals;
 
 export default function AcuteMedications() {
   const [catalog, setCatalog] = useState<Catalog>();
@@ -42,6 +45,7 @@ export default function AcuteMedications() {
     try {
       const inputs:Record<string,unknown> = {};
       for (const f of regimen.fields) {
+        if (!fieldActive(f, values)) continue;
         const value = values[f.key]?.trim();
         if (!value) throw new Error(`${f.label}: dato obligatorio sin documentar.`);
         if (f.kind === 'number') {
@@ -72,23 +76,25 @@ export default function AcuteMedications() {
   const groups = [...new Map(catalog?.regimens.map(r => [r.group,r.group_label]) || []).entries()];
   const reportContent = outcome?.report?.sections.map(([heading,paragraphs],i) => <section key={i}><h3 className="font-bold mt-4">{heading}</h3>{paragraphs.map((text,j) => <p className="whitespace-pre-wrap break-words" key={j}>{text}</p>)}</section>);
   return <div className="space-y-5">
-    <header><h1 className="text-2xl font-bold">Farmacología aguda</h1><p>CLINICALLY_PENDING · Apoyo aritmético sujeto a revisión profesional y protocolo local. Selecciona una indicación y una opción; las alternativas no se administran juntas por defecto.</p></header>
+    <header><h1 className="text-2xl font-bold">Farmacología aguda</h1><p>CLINICALLY_PENDING · Cálculos y apoyo de decisión según la guía aplicable y los datos del caso. Selecciona una indicación y una opción; las alternativas no se administran juntas por defecto.</p></header>
     <Link className="btn-ghost" to="/insulin-uci">Insulinoterapia UCI · laboratorio de simulación</Link>
     <label className="block">Grupo farmacológico<select className="input" aria-label="Grupo farmacológico" value={group} onChange={e => {clear(); setGroup(e.target.value); setId(''); setValues({});}}><option value="">Selecciona grupo</option>{groups.map(([key,label]) => <option value={key} key={key}>{label}</option>)}</select></label>
     {group && <label className="block">Indicación y opción<select className="input" aria-label="Indicación y opción" value={id} onChange={e => {clear(); setId(e.target.value); setValues({});}}><option value="">Selecciona indicación y opción</option>{catalog?.regimens.filter(r => r.group === group).map(r => <option key={r.id} value={r.id}>{r.label} — {r.drug}</option>)}</select></label>}
     {regimen && <>
-      <section className="card p-4" aria-label="Fuente y precauciones"><h2 className="font-bold">{regimen.drug} · {regimen.route} · {regimen.dose_unit}</h2><ul>{regimen.limitations.map(t => <li key={t}>{t}</li>)}</ul><details><summary>Fuente canónica completa y advertencias</summary><p className="whitespace-pre-wrap">{regimen.source.preamble}</p><p className="whitespace-pre-wrap">{regimen.source.body}</p></details></section>
+      <section className="card p-4" aria-label="Fuente y precauciones"><h2 className="font-bold">{[regimen.drug, regimen.route, regimen.dose_unit].filter(Boolean).join(' · ')}</h2><ul>{regimen.limitations.map(t => <li key={t}>{t}</li>)}</ul><details><summary>Fuente canónica completa y advertencias</summary><p className="whitespace-pre-wrap">{regimen.source.preamble}</p><p className="whitespace-pre-wrap">{regimen.source.body}</p>{regimen.source.contract_review && <><h3 className="font-bold mt-4">Revisión de esta pauta y alcance de la aceptación</h3><p className="whitespace-pre-wrap">{regimen.source.contract_review.body}</p></>}</details></section>
       <form onSubmit={calculate} className="card p-4 space-y-3" aria-label="Datos farmacológicos">
-        {regimen.fields.map(f => <label className="block" key={f.key}>{f.label}{f.kind === 'number' ? <input className="input" aria-label={f.label} data-field={f.key} inputMode="decimal" value={values[f.key] || ''} onChange={e => {clear(); setValues(v => ({...v,[f.key]:e.target.value}));}} /> : <select className="input" aria-label={f.label} data-field={f.key} value={values[f.key] || ''} onChange={e => {clear(); setValues(v => ({...v,[f.key]:e.target.value}));}}><option value="">Sin documentar</option>{(f.kind === 'boolean' ? ['yes','no'] : f.options || []).map(v => <option key={v} value={v}>{v === 'yes' ? 'Sí' : v === 'no' ? 'No' : v}</option>)}</select>}</label>)}
+        {regimen.fields.filter(f => fieldActive(f, values)).map(f => <label className="block" key={f.key}>{f.label}{f.kind === 'number' ? <input className="input" aria-label={f.label} data-field={f.key} inputMode="decimal" value={values[f.key] || ''} onChange={e => {clear(); setValues(v => ({...v,[f.key]:e.target.value}));}} /> : <select className="input" aria-label={f.label} data-field={f.key} value={values[f.key] || ''} onChange={e => {clear(); setValues(v => ({...v,[f.key]:e.target.value}));}}><option value="">Sin documentar</option>{(f.kind === 'boolean' ? ['yes','no'] : f.options || []).map(v => <option key={v} value={v}>{v === 'yes' ? 'Sí' : v === 'no' ? 'No' : (f.option_labels?.[v] || v)}</option>)}</select>}</label>)}
         <button type="submit" className="btn-primary" disabled={busy}>Comprobar y calcular</button>
       </form>
     </>}
     {error && <p role="alert" className="text-danger">{error}</p>}
     {outcome && <section className="card p-4 space-y-3" aria-label="Resultado farmacológico">
-      <h2 className="text-xl font-bold">{outcome.blocked ? 'Cálculo bloqueado' : 'Resultado aritmético — requiere revisión clínica'}</h2>
+      <h2 className="text-xl font-bold">{outcome.blocked ? 'Cálculo bloqueado' : outcome.result?.result_kind === 'decision_support' ? 'Orientación clínica y siguientes pasos' : 'Resultado del cálculo'}</h2>
       {outcome.alerts.map(a => <p role="alert" key={a.code}>STOP: {a.message}</p>)}
       {outcome.result && <>
-        <dl className="grid gap-3 sm:grid-cols-2">{Object.entries({indication:'Indicación', drug:'Fármaco', route:'Vía', dose:'Dosis', dose_unit:'Unidad de dosis', components:'Componentes y secuencia (no intercambiables)', correction_ceiling_mmol_l:'Límite acumulado de corrección de Na (mmol/L; no objetivo)', concentration:'Concentración y función', withdrawal_ml:'Volumen extraído del producto (mL)', administration_volume_ml:'Volumen de administración (mL)', pump_ml_h:'Velocidad de bomba (mL/h)', duration_min:'Duración (min)', amount_per_hour:'Cantidad por hora', amount_per_hour_unit:'Unidad por hora', maximum:'Máximo', preparation:'Preparación / dilución', compatibility:'Compatibilidad', stability:'Estabilidad', administration:'Administración', limitations:'Datos ausentes / límites'}).map(([key,label]) => <div key={key}><dt className="font-bold">{label}</dt><dd data-result={key}>{display(outcome.result?.[key])}</dd></div>)}</dl>
+        {outcome.result.review_status === 'OWNER_VALIDATED_2026_11_16' && <p className="font-medium" data-testid="owner-validation">Validación del propietario registrada · 16/11/2026. Resultado condicionado a los datos y controles de este caso.</p>}
+        <dl className="grid gap-3 sm:grid-cols-2">{Object.entries(outcome.result.result_kind === 'decision_support' ? decisionFields : calculationFields).map(([key,label]) => <div key={key}><dt className="font-bold">{label}</dt><dd className="whitespace-pre-wrap" data-result={key}>{display(outcome.result?.[key])}</dd></div>)}</dl>
+        {outcome.result.result_kind !== 'decision_support' && Array.isArray(outcome.result.next_actions) && outcome.result.next_actions.length > 0 && <div><h3 className="font-bold">Siguientes pasos</h3><p className="whitespace-pre-wrap">{display(outcome.result.next_actions)}</p></div>}
         <p className="whitespace-pre-wrap" data-testid="acute-warnings">{display(outcome.result.monitoring_and_warnings)}</p>
         <label className="block"><input type="checkbox" checked={confirmed} onChange={e => {revision.current++; setConfirmed(e.target.checked); setBusy(false);}} /> Confirmo haber revisado el resultado completo, sus límites y advertencias</label>
         <div className="flex flex-wrap gap-2">{(['json','pdf','docx'] as const).map(f => <button key={f} className="btn-ghost" disabled={!confirmed || busy} onClick={() => download(f)}>Exportar {f.toUpperCase()}</button>)}<button className="btn-ghost" disabled={!confirmed} onClick={() => window.print()}>Imprimir resultado</button></div>
