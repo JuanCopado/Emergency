@@ -1,3 +1,7 @@
+## Matriz internacional país–tema INT-02/03 · 16/11/2026
+
+Rama candidata aislada con 14 países, 64 temas y 896 combinaciones **pendientes de revisión**, directorio de portales reguladores, comparación documental sin dosis y 11 pruebas unitarias definidas. Dos ejemplos documentales de divergencias por país/producto (andexanet y tenecteplasa), sin firma clínica ni habilitación de calculadoras. `country_topic_reviews` permanece vacío; ninguna aprobación clínica internacional declarada. Fuente: `../docs/INTERNATIONAL_COUNTRY_TOPIC_MATRIX_2026-11-16.md` y `references/international-crosscountry-evidence-candidates-2026-11-16.json`. Se mantienen 19 contratos bloqueados y `CLINICALLY_PENDING`; pruebas completas de esta rama aún pendientes de runner de repositorio.
+
 ## Alcance internacional vigente · 16/11/2026
 
 Por instrucción del propietario, Emergency se define como proyecto internacional y ampliable. Aplicar `../docs/INTERNATIONAL_SCOPE.md` y `references/international-context.md`: núcleo común, jurisdicción, organización/recursos y contexto del caso separados; idioma no selecciona país. Portugal/Azores/Horta conservan su evidencia como perfiles de aplicación, sin limitar el producto.
