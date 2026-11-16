@@ -53,3 +53,21 @@ Current \`clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json\` li
 5. Obtain professional review of the final protocol + QA evidence tied to the exact code/tree version before removing `block_reason` from `anaphylaxis-under6months`.
 
 **Decision:** documentary evidence augmented; `anaphylaxis-under6months` stays **BLOCKED / CLINICAL_REVIEW_REQUIRED**; 19 medication blocks retained; no clinical dosage engine, source registry, `main`, protected branches or I02 modified.
+
+
+## Addendum — 2026-11-16: owner-reported diluted adrenaline for small doses (NOT APPROVED FOR IM)
+
+**New local report:** the project owner describes "Adrenalina 1 mg, dilución en 10 mL de cloreto de sodio 0,9 % para dosis pequeñas." This is recorded verbatim as **OWNER_REPORTED_PREPARATION_NOT_YET_RECONCILED**, not an authenticated Pharmacy order or authorization to change the IM route.
+
+**Crucial volume ambiguity:**
+- 1 mg made up to a **FINAL total volume of 10 mL**: 0.1 mg/mL = 100 micrograms/mL.
+- 1 mg in 1 mL **added to** 10 mL NaCl 0.9%: approximate nominal total volume 11 mL and concentration 0.0909 mg/mL (about 90.9 micrograms/mL); actual preparation still requires validated manufacturing/measurement.
+- These formulations are **NOT interchangeable**. No automatic conversion is permitted without an explicitly written FINAL total volume, independent double-check and verified product.
+
+**Route conflict requiring specific clinical/Pharmacy sign-off:** The [ERC 2025 paediatric life support guidance](https://www.sciencedirect.com/science/article/abs/pii/S0300957225002795) and [Portugal DGS 014/2012](https://www.dgs.pt/directrizes-da-dgs/normas-e-circulares-normativas/norma-n-0142012-de-16122012.aspx) reference **1 mg/mL IM adrenaline** for anaphylaxis (dose 0.01 mg/kg). The [licensed SmPC for a prefilled adrenaline 1 mg/10 mL (0.1 mg/mL) product](https://www.medicines.org.uk/emc/product/2024/smpc) explicitly says it is *not recommended for IM use* in acute anaphylaxis and indicates 1 mg/mL for IM. This warning refers to that product, not automatically every hospital-prepared dilution, but it underscores a serious route/formulation confusion risk. A diluted hospital IM procedure would require its own signed, product-specific approval and demonstrated safe preparation/administration; do not infer it from IV resuscitation syringes.
+
+**Temporary software gate:** Keep \`anaphylaxis-under6months\` \`BLOCKED\`, return \`CLINICAL_REVIEW_REQUIRED\`, and do not compute/administer IM/IV volume from the proposed dilution. Do not auto-populate an age-fixed dose, generate a prefilled-syringe instruction or infer permission to use 0.1 mg/mL IM. The clinical emergency treatment must never be delayed by a software approval gate.
+
+**Single clarification needed from owner/Pharmacy:** Does "10 mL" mean **final prepared volume** or **10 mL of diluent added to a 1 mL ampoule**, and is that dilution explicitly approved for **IM use in infants <6 months**, as distinct from IV emergency use? Confirm the actual ampoule label, whether dilution is performed aseptically, final concentration, device/rounding, preparation age/expiry, reviewer's name/date, and nursing double-check. If no validated IM-specific approval exists, retain the guideline's 1 mg/mL IM pathway for professional review instead.
+
+**No executable medication-code changes, no dose calculation, no automatic unblock, no global status change.**
