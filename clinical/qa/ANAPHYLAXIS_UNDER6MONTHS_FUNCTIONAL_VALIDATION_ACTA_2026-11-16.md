@@ -166,3 +166,30 @@ El propietario ha aportado una tabla de capacidades y graduaciones de jeringas, 
 - Estado del contrato: \`anaphylaxis-under6months\` **BLOCKED**; conservar \`CLINICALLY_PENDING\`, los otros 18 contratos, cuatro P1 e I02 NO-GO.
 
 **Anexo de fuentes:** también [Small-Volume Injections: Evaluation of Volume Administration Deviation](https://pubmed.ncbi.nlm.nih.gov/28338490/), ensayo ex vivo de medición/administración de pequeños volúmenes.
+
+
+## 10. Registro de candidatos reales de jeringa, declaración del responsable (16/11/2026)
+
+**Fuente local:** el responsable informa que el hospital dispone de jeringas de tuberculina **1 mL con aguja**, comercializadas en cajas «100 Un.», de las marcas **BD Plastipak**, **dicoTUBER (ZARYS)** y **Terumo**. Es una declaración de marcas/familias de producto, **NO una confirmación de referencia SKU, aguja, lote, graduación física o exactitud de la jeringa utilizada en cada acto**. «100 Un.» describe presumiblemente **100 unidades por caja**, NO una escala U-100 de insulina; comprobar la etiqueta real.
+
+### Documentación técnico-comercial contrastada
+
+| Familia comunicada | Identificación documental orientativa, NO atribuida aún al stock | Graduación descrita | Riesgo pendiente |
+|---|---|---|---|
+| **BD Plastipak 1 mL Tuberculin** | Catálogo BD: ref. **303172** sin aguja, Luer slip 0,01 mL; **303175** y **303176** con agujas 25G/10 mm y 26G/10 mm respectivamente. Existen también tipos de aguja integrada. [BD product catalogue](https://www.bd.com/documents/international/catalogs/medication-delivery-solutions/MDS_Medication-Delivery-Solutions-Product-Catalogue_CT_EN.pdf) | **0,01 mL** | Determinar modelo en el hospital, aguja fija/intercambiable, longitud para IM, espacio muerto y reproducibilidad |
+| **ZARYS dicoTUBER** | Catálogo de fabricante **TU-U20-1-BL**, aguja independiente **26G × 13 mm**, conector Luer. [ZARYS 2026 catalogue](https://zarys.pl/wp-content/uploads/2026/01/2026_Sprzet-jednorazowy-PL-REV.-IV-01.2026.pdf) | **0,01 mL según fabricante** | Algunos distribuidores muestran 0,05 mL para aparentemente la misma familia; comprobar visualmente cada raya del modelo real. Longitud de aguja IM pendiente |
+| **Terumo 1 mL tuberculin** | Ficha del fabricante: **SS-01T** sin aguja; **SS-01T2516**, **SS-01T2609**, **SS-01T2713** con agujas extraíbles de 16, 9, 13 mm. Variantes portuguesas también pueden llevar códigos distintos (p. ej. MDSS01S2613E). [Terumo product sheet](https://www.terumotmp.com/content/dam/terumo-www/proprietary/terumo-tmp/en-us/product-assets/Terumo-Needle/Conventional-Needles-and-Syringes-sellsheet.pdf) | **0,01 mL** | Determinar referencia europea exacta, tipo de aguja y espacio muerto. Una ficha de distribuidor portugués para 26G/13 mm informa de espacio muerto <0,07 mL, **NO de volumen realmente entregado ni de precisión garantizada para 0,03 mL** |
+
+**Problema físico crítico:** algunas jeringas llevan aguja fija corta, por lo que «jeringa de tuberculina con aguja» no demuestra idoneidad para inyección **intramuscular** anterolateral del muslo en un lactante. Una graduación de 0,01 mL tampoco demuestra exactitud para 0,025–0,076 mL, ni compensa el espacio muerto. La aguja de carga, el cambio a una aguja IM de longitud indicada y la purga requieren un procedimiento validado para el **conjunto real**.
+
+### Procedimiento de ensayo de FAR-04/FAR-05/FAR-06: pendiente de ejecución
+
+1. Inventariar del hospital **código de referencia/SKU, fabricante, lote y modelo** de cada jeringa en uso y sus agujas, a partir del envase original. Registrar por separado aguja fija, desmontable y conector Luer.
+2. Obtener ficha técnica e instrucciones de uso de cada referencia, datos del volumen muerto/retención, graduación y tolerancias; documentar cualquier discordancia entre fabricante y distribuidor.
+3. Farmacia y Supervisión de Enfermería seleccionarán **ANTES de ensayar** el protocolo de medición, método de verificación gravimétrico o volumétrico calibrado, criterios de aceptación de error y precisión, límites por microvolumen y técnica de purga/aguja, sin utilizar pacientes ni fármaco en el ensayo inicial.
+4. Comparar resultados reales para dosis teóricas de 0,025, 0,032, 0,050, 0,076 mL con repetición/operadores predefinidos, contemplando ausencia de alternativa segura cuando el dispositivo no sea fiable. **No suponer que todas las marcas se comportan igual ni sustituir una validación por otra.**
+5. Registrar acta de ejecución, instrumentación, datos crudos, errores absolutos/relativos, desviación entre operadores, responsables, firmas, fecha, límites alcanzados y criterios de STOP.
+
+**Estado de este anexo:** dispositivos candidatos identificados / **FAR-04, FAR-05, FAR-06 NOT_VERIFIED; ensayos físicos NOT_RUN**. No añadir por ello un mínimo de dosis, redondeos automáticos, sustituciones por escala U-100, órdenes de administración ni velocidades. **El contrato 3 continúa BLOCKED.**
+
+**Precaución sobre ámbito:** los nombres de marca son datos aportados por el propietario, no evidencia directa de SKU. Esta comparación bibliográfica no habilita físicamente la administración de adrenalina a través de una aguja de tuberculina ni valida la dosis entregada. La urgencia clínica nunca debe retrasarse por el bloqueo del software.
