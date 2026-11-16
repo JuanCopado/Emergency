@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0",
+  "project": "Emergency",
+  "contract_id": "reversal-vka-pcc",
+  "registered_at": "2026-11-16",
+  "reference_snapshot": "761f42d9afc8a7b7202d18bb0fd506d721dd4e50",
+  "evidence_document": "clinical/qa/C05_VKA_PCC_CLINICAL_PHARMACY_RECONCILIATION_2026-11-16.md",
+  "clinical_status": "CLINICALLY_PENDING",
+  "contract_status": "BLOCKED",
+  "execution_status": "NOT_RUN",
+  "warning": "Cases are specifications, not executed tests or release authorization. No real patients or clinical data used.",
+  "required_future_evidence": [
+    "pharmacy Portuguese product/SmPC signoff",
+    "Hematology/ED indication and ICH pathway review",
+    "Nursing reconstitution protocol",
+    "versioned synthetic input fixtures and outputs",
+    "QA and release reviewer with exact commit SHA"
+  ],
+  "cases": [
+    {
+      "id": "NEG-01",
+      "category": "INAPPROPRIATE_INDICATION",
+      "scenario": "INR elevated but no major bleed, critical bleed or urgent invasive procedure",
+      "expected_behavior": "Reject PCC order; route to VKA adjustment/vitamin K assessment as appropriate",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-02",
+      "category": "WRONG_ANTICOAGULANT",
+      "scenario": "DOAC apixaban/rivaroxaban/dabigatran/edoxaban selected",
+      "expected_behavior": "Reject VKA-specific dose; route to exact anticoagulant contract",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-03",
+      "category": "MISSING_AGENT",
+      "scenario": "Anticoagulant identity unknown or only warfarin guessed",
+      "expected_behavior": "Reject drug-specific order; expert assessment of agent and last intake",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-04",
+      "category": "INR_MISSING",
+      "scenario": "No INR for a manufacturer INR-stratified recipe",
+      "expected_behavior": "Do not calculate an INR-bracket PCC dose; urgent clinical management outside software remains possible",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-05",
+      "category": "INR_UNSUPPORTED_LOW",
+      "scenario": "INR 1.3–1.9 input to manufacturer table for INR >=2",
+      "expected_behavior": "Reject source mismatch; direct ICH to separately reviewed expert pathway",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-06",
+      "category": "INR_BOUNDARIES",
+      "scenario": "At 3.999, 4.0, 6.0 and 6.0001",
+      "expected_behavior": "Confirm no gap/overlap: <4 =>25; 4–6=>35; >6=>50 IU/kg only after product selection",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-07",
+      "category": "WEIGHT_INVALID",
+      "scenario": "Weight missing, zero, negative, boolean, NaN, infinity or impossible",
+      "expected_behavior": "Reject math; no default weight or fake adult estimate",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-08",
+      "category": "WEIGHT_CAP",
+      "scenario": "Weight >100 kg entered",
+      "expected_behavior": "Manufacturer general table must use approved 100 kg cap and single-dose maxima; no weight extrapolation",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-09",
+      "category": "IU_ML_CONFUSION",
+      "scenario": "Prescriber input in mL, mmol or insulin IU instead of factor-IX IU",
+      "expected_behavior": "Reject dimensional mismatch; show product-independent units for review",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-10",
+      "category": "PRODUCT_MISMATCH",
+      "scenario": "Beriplex selected with Octaplex device, stability or dilution instructions",
+      "expected_behavior": "Reject cross-brand recipe and demand exact product authorization",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-11",
+      "category": "PRODUCT_UNKNOWN",
+      "scenario": "PCC actual brand/SKU/lot or RCM Portuguese not confirmed",
+      "expected_behavior": "Reject executable prescription/volume/rate",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-12",
+      "category": "HIT_CONTRAINDICATION",
+      "scenario": "Documented history of heparin-induced thrombocytopenia or relevant allergy",
+      "expected_behavior": "Block heparin-containing product pathway; urgent hematology alternative",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-13",
+      "category": "IGA_ANTIBODIES",
+      "scenario": "Known IgA deficiency with anti-IgA antibodies and Octaplex selected",
+      "expected_behavior": "Reject Octaplex under its current UK SmPC contraindication; independent product review",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-14",
+      "category": "THROMBOSIS_RISK",
+      "scenario": "Prothrombotic history not evaluated",
+      "expected_behavior": "No automated PCC order; clinical risk-benefit review and thrombosis monitoring",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-15",
+      "category": "VITAMIN_K_GENERALIZATION",
+      "scenario": "Automatic 10mg IV vitamin K for minor bleed or isolated INR",
+      "expected_behavior": "Reject universal vitamin-K order; indication-specific regimen only",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-16",
+      "category": "VITAMIN_K_PRODUCT",
+      "scenario": "Vitamin K product/route/diluent missing or assumed equivalent",
+      "expected_behavior": "Reject preparation and IV order; use exact local SmPC",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-17",
+      "category": "INR_ICH_ROUTE",
+      "scenario": "Use HIC INR1.3–1.9 expert 10IU/kg rule in non-ICH or routine manufacturer pathway",
+      "expected_behavior": "Reject protocol/indication mismatch; specialist decision required",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-18",
+      "category": "DILUENT_RECONSTITUTION",
+      "scenario": "Non-supplied solvent, extra saline dilution or inappropriate mixing with another injection",
+      "expected_behavior": "Reject preparation; only product-specific reconstitution and IV route",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-19",
+      "category": "STABILITY_MIXUP",
+      "scenario": "Apply 24h Beriplex physical stability to Octaplex, or to microbiological use-after-reconstitution",
+      "expected_behavior": "Reject assumed expiry; pharmacy-approved product-specific expiry",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-20",
+      "category": "RATE_EXCEEDED",
+      "scenario": "Rate selected above product-specific maximum or without verified patient weight/label",
+      "expected_behavior": "Reject infusion programming; no implicit mL/min",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-21",
+      "category": "REPEAT_PCC",
+      "scenario": "Second PCC dose generated automatically due to persistently abnormal INR alone",
+      "expected_behavior": "Reject automatic redosing; require hematology specialist and bleeding reassessment",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    },
+    {
+      "id": "NEG-22",
+      "category": "RELEASE_EXPORT_GUARDS",
+      "scenario": "Attempt to set runtime_enabled or GREEN or export dose while BLOCKED/CLINICALLY_PENDING",
+      "expected_behavior": "Reject release and patient-specific order; preserve other 18 blocked contracts and all P1",
+      "execution_status": "NOT_RUN",
+      "test_result": null,
+      "qa_evidence": null,
+      "approval": null
+    }
+  ]
+}
