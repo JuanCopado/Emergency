@@ -84,3 +84,19 @@ Current \`clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json\` li
 **Next required confirmation:** Does the owner's 1mg/10mL final preparation refer to **hospital IM injection in infants under 6 months** or only **IV emergency administration**? If IM: obtain Pharmacy-approved exact product and dilution/IM route SOP, syringe/measurement/recheck method, dating and monitoring; then conduct pediatric QA against the final authorized specification. If IV: it belongs to a separate IV-resuscitation protocol, not an IM anaphylaxis loading calculator, and this contract must retain a 1 mg/mL IM reference.
 
 **STATUS:** owner decision on weight-based dose and final volume **recorded**; clinical use of diluted preparation **not authorized by this dossier**; `anaphylaxis-under6months` remains **BLOCKED / CLINICAL_REVIEW_REQUIRED**. All other blocks and `CLINICALLY_PENDING` remain unchanged.
+
+
+## DEFINITIVE ROUTE RECONCILIATION — Owner confirmation 2026-11-16
+
+**This paragraph supersedes the earlier open IM-vs-IV questions in this document. Route and dilution ambiguity is RESOLVED by the owner's explicit clarification:**
+
+| Use | Route | Product/preparation | Clinical rule | Boundary |
+|---|---|---|---|---|
+| Infant acute anaphylaxis | **IM** | **UNDILUTED adrenaline 1 mg/mL** | **0.01 mg/kg = 10 micrograms/kg**, weight-based | This is the only preparation proposed for the **contract 3** IM pathway; exact product, dose-measurement process, clinical sign-off and tests remain pending |
+| Separately described hospital IV preparation | **IV ONLY** | **1 mg adrenaline made up to a FINAL total volume of 10 mL with NaCl 0.9%** = **0.1 mg/mL (100 micrograms/mL)** | **NO IV dose or infusion authorization derived from this statement** | Explicitly PROHIBITED for the contract 3 IM route; IV use requires its own approved indication, protocol and team, including separation from resuscitation/infusion rules |
+
+There is **NO local IM dilution**. Never transform the IM order into 0.1 mg/mL, or convert the hospital's IV dilution into IM syringes. Preserve distinct route/concentration identifiers. Any input claiming IM with 0.1 mg/mL or IV with the 1 mg/mL IM reference **must fail closed** in future software. Do not confuse this with an established or validated IV anaphylaxis protocol.
+
+The owner-selected weight-based dose takes precedence over the RCUK pragmatic fixed 100–150 microgram under-6-month band in the *proposed* contract, but the discrepancy remains recorded for professional review. **The emergency clinician should never delay immediate evidence-based treatment awaiting software approval.**
+
+**Open prerequisites for removing the BLOCKED software guard:** independently reconcile exact locally stocked IM 1 mg/mL medicine and its Portuguese product information, trained small-volume syringe/measurement and double-check procedure, age/weight/units/rounding and repeat-interval rules (including neonates), signed local paediatric and Pharmacy acceptance, source-hash-bound adverse/negative tests, and independent QA of the final integrated release. `anaphylaxis-under6months` stays **BLOCKED / CLINICAL_REVIEW_REQUIRED**. The separate IV/refractory pathway also stays blocked. `main`, all 19 blocked contracts, four P1, `CLINICALLY_PENDING`, and I02 NO-GO are untouched.
