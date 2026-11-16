@@ -70,8 +70,8 @@
     {
       "id": "NEG-06",
       "category": "INR_BOUNDARIES",
-      "scenario": "At 3.999, 4.0, 6.0 and 6.0001",
-      "expected_behavior": "Confirm no gap/overlap: <4 =>25; 4–6=>35; >6=>50 IU/kg only after product selection",
+      "scenario": "Exact INR boundaries 3.9, 3.95, 4.0, 6.0 and >6.0",
+      "expected_behavior": "Use only manufacturer-supported INR intervals: Beriplex 2.0–3.9, 4.0–6.0, >6.0; Octaplex 2.0 to <4.0, 4.0–6.0, >6.0. Do NOT guess that Beriplex 3.95 belongs to a listed band without validated INR reporting/rounding rule; never overlap or extrapolate.",
       "execution_status": "NOT_RUN",
       "test_result": null,
       "qa_evidence": null,
