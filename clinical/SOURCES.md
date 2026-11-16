@@ -1,3 +1,10 @@
+## Ceftriaxona — fuentes de conciliación · 16/11/2026
+
+NICE NG254 y fichas AEMPS de producto, corroboración del anexo histórico
+INFARMED. Alcance, secciones y limitaciones de acceso/localización en
+`references/ceftriaxone-sepsis-under16-safety.md`; comprobación focal de
+población y salvedades, sin renovar toda la evidencia de sepsis ni inferir stock.
+
 ## Fuentes del primer lote de imágenes/vídeos ·14/11/2026
 
 WikimediaCommons:licencia y autor verificados individualmente para5archivos;CC0/CCBY-SA3.0/4.0. No equivalen a referencia diagnóstica independiente ni permiso general para extraer otras webs. YouTubetérminos y avisoRadiopaedia2025 contrastados;actual páginaRadiopaedia/termsno recuperable. Registro:`qa/IMAGE_MEDIA_FIRST_INTAKE_2026-11-14.json`. ProtocoloSTARD-AI/FUTURE-AI y límites en hojaV2.

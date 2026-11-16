@@ -13,8 +13,155 @@
       "max_dose_unit": "mg",
       "route": "IV",
       "frequency": "once daily",
-      "source": "NICE NG254, updated 2025: 80 mg/kg once daily, max 4 g, excluding newborns under 28 days",
-      "status": "source_verified"
+      "source": "NICE NG254 (published 2025-11-19), recommendations 1.8.2 and 1.8.5-1.8.9: 80 mg/kg IV once daily, max 4 g/day, age >=28 days and <16 years; <3 months requires additional Listeria-active coverage. Product contraindications and the >=50 kg adult-regimen boundary apply.",
+      "status": "source_verified",
+      "dose_guard_policy": "ceftriaxone-sepsis-under16-v1",
+      "population": {
+        "minimum_age_days": 28,
+        "maximum_age_years_exclusive": 16,
+        "maximum_weight_kg_exclusive": 50
+      },
+      "dose_output_unit": "mg",
+      "clinical_status": "CLINICAL_REVIEW_REQUIRED",
+      "clinical_release_status": "CLINICALLY_PENDING",
+      "source_refs": [
+        {
+          "id": "nice-ng254-2025",
+          "title": "NICE NG254, suspected sepsis in under 16s",
+          "url": "https://www.nice.org.uk/guidance/ng254/chapter/Antibiotic-therapy-intravenous-fluid-and-oxygen",
+          "sections": [
+            "1.8.2",
+            "1.8.5-1.8.9"
+          ],
+          "published": "2025-11-19",
+          "checked_on": "2026-11-16"
+        },
+        {
+          "id": "aemps-ceftriaxone-64538",
+          "title": "AEMPS ceftriaxone Fresenius Kabi IV, SmPC 64538",
+          "url": "https://cima.aemps.es/cima/dochtml/ft/64538/FichaTecnica_64538.html",
+          "sections": [
+            "4.2",
+            "4.3",
+            "4.4",
+            "4.5"
+          ],
+          "checked_on": "2026-11-16"
+        },
+        {
+          "id": "aemps-ceftriaxone-64405",
+          "title": "AEMPS ceftriaxone Reig Jofre IM, SmPC 64405",
+          "url": "https://cima.aemps.es/cima/dochtml/ft/64405/FT_64405.html",
+          "sections": [
+            "4.2",
+            "6.6"
+          ],
+          "text_revision": "2024-04",
+          "checked_on": "2026-11-16"
+        },
+        {
+          "id": "aemps-ceftriaxone-83903",
+          "title": "AEMPS ceftriaxone Qilu, SmPC 83903",
+          "url": "https://cima.aemps.es/cima/dochtml/ft/83903/FT_83903.html",
+          "sections": [
+            "4.4",
+            "6.6"
+          ],
+          "text_revision": "2024-05",
+          "checked_on": "2026-11-16"
+        },
+        {
+          "id": "infarmed-rocephin-harmonisation",
+          "title": "INFARMED Rocephin harmonised annexes (historical regulatory document)",
+          "url": "https://www.infarmed.pt/documents/15786/1886316/Rocephin_Anexos.pdf/dc50fd4a-1bb9-4be8-8cea-577bdcb6e21f?version=1.0",
+          "sections": [
+            "4.2-4.5"
+          ],
+          "checked_on": "2026-11-16",
+          "limitation": "Harmonisation reference; not verification of the dispensed Portuguese product or hospital stock."
+        },
+        {
+          "id": "who-preterm-definition",
+          "title": "WHO: Preterm birth (10 May 2023)",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/preterm-birth/",
+          "sections": [
+            "Definition: birth before 37 completed weeks"
+          ],
+          "checked_on": "2026-11-16",
+          "scope": "Input consistency only; not a ceftriaxone dosing source"
+        }
+      ],
+      "safety_notes": [
+        {
+          "id": "scope",
+          "text": "This IV arithmetic applies to suspected community-acquired sepsis of unknown focus, age >=28 days and <16 years. A known focus, hospital-acquired infection or ceftriaxone resistance history requires the relevant local antimicrobial pathway. Age 16-17 is outside NG254; use NG253 and indication-specific selection.",
+          "source_ids": [
+            "nice-ng254-2025"
+          ]
+        },
+        {
+          "id": "listeria",
+          "text": "Below three calendar months, additional Listeria-active coverage is required by NG254 (for example ampicillin or amoxicillin). This calculator does not select or calculate that companion antibiotic.",
+          "source_ids": [
+            "nice-ng254-2025"
+          ]
+        },
+        {
+          "id": "weight",
+          "text": "At >=50 kg, select the adult regimen for the actual indication and product. A universal 2 g standard / 4 g critical rule is not supported. The automated pediatric calculation stops at 50 kg; no adult dose is inferred.",
+          "source_ids": [
+            "aemps-ceftriaxone-64538"
+          ]
+        },
+        {
+          "id": "neonatal",
+          "text": "The NICE lower age limit is 28 days, but the product calcium and bilirubin contraindications include day 28. Premature infants up to postmenstrual age 41 weeks and term neonates <=28 days with hyperbilirubinaemia, jaundice, hypoalbuminaemia or acidosis are contraindicated. Declared postmenstrual age must be consistent with chronological age and birth before 37 completed weeks; inconsistent data require review.",
+          "source_ids": [
+            "aemps-ceftriaxone-64538",
+            "infarmed-rocephin-harmonisation",
+            "who-preterm-definition"
+          ]
+        },
+        {
+          "id": "calcium",
+          "text": "Do not mix or reconstitute with calcium-containing solutions, including Ringer/Hartmann, calcium-containing parenteral nutrition or IV calcium salts. No simultaneous administration, including same-line/Y connections; different lines or sites alone do not remove the general prohibition. Neonates <=28 days needing or expected to need IV calcium are contraindicated even with separation. Above 28 days, sequential administration requires the specified separate/replaced/flushed lines. The label exception for continuous calcium-containing parenteral nutrition via different lines and different sites is expert-only and remains outside this automated module.",
+          "source_ids": [
+            "aemps-ceftriaxone-83903",
+            "infarmed-rocephin-harmonisation"
+          ]
+        },
+        {
+          "id": "route_and_lidocaine",
+          "text": "This sepsis entry is IV only. Ceftriaxone prepared with lidocaine must never be administered IV. For a separately indicated IM regimen, do not exceed 1 g per site; a 2 g IM dose requires separate sites. Reconstitution volume/concentration and lidocaine contraindications are product-specific. 3.5 mL can be the added solvent volume and is not a universal final-volume cap.",
+          "source_ids": [
+            "aemps-ceftriaxone-64405",
+            "aemps-ceftriaxone-83903",
+            "infarmed-rocephin-harmonisation"
+          ]
+        },
+        {
+          "id": "organ_function",
+          "text": "Isolated renal impairment with preserved hepatic function generally needs no routine reduction, but CrCl <10 mL/min carries a 2 g/day label ceiling and requires regimen review here. Mild/moderate isolated hepatic impairment with preserved renal function generally needs no adjustment; evidence is insufficient for severe hepatic impairment. Severe combined renal/hepatic impairment requires close monitoring and individual review, not an inferred universal 2 g rule.",
+          "source_ids": [
+            "aemps-ceftriaxone-64405"
+          ]
+        },
+        {
+          "id": "review_scope",
+          "text": "A returned number is source-linked arithmetic, not prescribing clearance. Allergy, exact product, local protocol, administration conditions and clinical response remain subject to clinician/pharmacy review. No product stock, compatibility for an unlisted mixture or prospective clinical validation is inferred.",
+          "source_ids": [
+            "aemps-ceftriaxone-64538"
+          ]
+        }
+      ],
+      "reconciliation": {
+        "finding_id": "GMA-C-P1-001",
+        "date": "2026-11-16",
+        "owner_request": "Update to under 16 years and incorporate verified pharmaceutical safeguards",
+        "status": "implemented_scoped_candidate_pending_acceptance",
+        "report": "qa/CEFTRIAXONE_UNDER16_RECONCILIATION_2026-11-16.md",
+        "no_global_p1_closure": true
+      }
     },
     {
       "id": "sepsis-newborn-community-ceftriaxone",

@@ -8,6 +8,7 @@ This tool performs arithmetic only and never substitutes a dose from another syn
 import json
 from pathlib import Path
 from pediatric_numbers import positive, finite_result
+from ceftriaxone_sepsis_safety import TARGET_ENTRY_ID, CeftriaxoneSafetyError, validate_context
 
 ROOT = Path(__file__).parents[1]
 DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-antibiotics.json"
@@ -17,13 +18,19 @@ def load_registry(path=DEFAULT_REGISTRY):
     return {x["id"]: x for x in data["entries"]}
 
 @finite_result
-def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
-    weight = positive("weight_kg", weight_kg)
+def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY, *, context=None):
+    try:
+        weight = positive("weight_kg", weight_kg)
+    except ValueError:
+        if entry_id == TARGET_ENTRY_ID:
+            raise CeftriaxoneSafetyError("INVALID_WEIGHT", "weight_kg must be a positive finite number.") from None
+        raise
     item = load_registry(path).get(entry_id)
     if not item:
         raise ValueError(f"unknown antibiotic entry: {entry_id}")
     if item.get("dose_automation") is False or item.get("status") in {"agent_verified_dose_external", "source_verified_selection_dose_external"}:
         raise ValueError(f"{entry_id}: agent is verified but pediatric dose remains delegated to an external dose source")
+    guarded_context = validate_context(item, weight, context) if entry_id == TARGET_ENTRY_ID else None
     result = {
         "id": entry_id,
         "syndrome": item.get("syndrome"),
@@ -32,12 +39,16 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
         "route": item.get("route"),
         "frequency": item.get("frequency"),
     }
+    if guarded_context is not None:
+        result.update(guarded_context)
+        result["dose_per_kg"] = item["dose_per_kg"]
+        result["dose_per_kg_unit"] = item["dose_unit"]
     if item.get("dose_per_kg") is not None:
         dose = positive("calculated dose", positive("dose_per_kg", item["dose_per_kg"]) * weight)
         if item.get("max_dose") is not None:
             dose = min(dose, positive("max_dose", item["max_dose"]))
         result["dose"] = dose
-        result["dose_unit"] = item.get("dose_unit")
+        result["dose_unit"] = "mg" if guarded_context is not None else item.get("dose_unit")
         conc = item.get("source_concentration_per_ml")
         if conc is not None:
             result["volume_ml"] = dose / positive("source_concentration_per_ml", conc)
@@ -60,5 +71,11 @@ if __name__ == "__main__":
     p.add_argument("entry_id")
     p.add_argument("weight_kg", type=float)
     p.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    p.add_argument("--context-json", type=Path, help="Path to an explicit clinical-context JSON object; no environment fallback")
     args=p.parse_args()
-    print(json.dumps(calculate(args.entry_id,args.weight_kg,args.registry), indent=2))
+    context = None
+    if args.context_json is not None:
+        context = json.loads(args.context_json.read_text(encoding="utf-8"))
+        if not isinstance(context, dict):
+            raise ValueError("INVALID_CONTEXT: --context-json must contain a JSON object")
+    print(json.dumps(calculate(args.entry_id,args.weight_kg,args.registry,context=context), indent=2))

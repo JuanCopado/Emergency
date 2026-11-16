@@ -3306,7 +3306,23 @@
           "No new local assay/product/transport/service certification",
           "DGS2018 targeted passages and index, not exhaustive national supersession audit"
         ]
-      }
+      },
+      "component_reviews": [
+        {
+          "date": "2026-11-16",
+          "component": "sepsis-community-ceftriaxone",
+          "finding_id": "GMA-C-P1-001",
+          "outcome": "scoped_source_and_guard_reconciliation",
+          "report": "qa/CEFTRIAXONE_UNDER16_RECONCILIATION_2026-11-16.md",
+          "reference": "references/ceftriaxone-sepsis-under16-safety.md",
+          "owner_request": "Explicit update to under16 and verified pharmaceutical safeguards",
+          "limitations": [
+            "Existing module status and last_checked retained; no global freshness promotion",
+            "No institutional/local-product qualification inferred",
+            "Source-linked arithmetic remains CLINICAL_REVIEW_REQUIRED; 19 acute blocks unchanged"
+          ]
+        }
+      ]
     },
     "pediatric-adrenal-crisis": {
       "priority": "high",

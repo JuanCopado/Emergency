@@ -1356,7 +1356,14 @@ class ModularCoreTests(unittest.TestCase):
 
 
     def test_v136_pediatric_antibiotic_syndrome_specific_calculations(self):
-        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 20)
+        context = {
+            'birth_date': '2018-11-15', 'assessment_date': '2026-11-15',
+            'community_acquired': True, 'known_infection_focus': False,
+            'ceftriaxone_resistance_history': False, 'calcium_iv_mode': 'none',
+            'premature': False, 'diluent_contains_lidocaine': False,
+            'diluent_contains_calcium': False, 'renal_hepatic_status': 'no_impairment',
+        }
+        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 20, context=context)
         self.assertAlmostEqual(sepsis['dose'], 1600.0)
         self.assertEqual(sepsis['frequency'], 'once daily')
         pyelo = pediatric_antibiotic_calculate('pyelonephritis-ceftriaxone', 20)
@@ -1369,8 +1376,15 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(cellulitis['dose_range'], [250.0, 500.0])
 
     def test_v136_pediatric_antibiotic_caps_and_boundaries(self):
-        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 80)
-        self.assertAlmostEqual(sepsis['dose'], 4000.0)
+        context = {
+            'birth_date': '2018-11-15', 'assessment_date': '2026-11-15',
+            'community_acquired': True, 'known_infection_focus': False,
+            'ceftriaxone_resistance_history': False, 'calcium_iv_mode': 'none',
+            'premature': False, 'diluent_contains_lidocaine': False,
+            'diluent_contains_calcium': False, 'renal_hepatic_status': 'no_impairment',
+        }
+        with self.assertRaisesRegex(ValueError, '^ADULT_INDICATION_REGIMEN_REQUIRED:'):
+            pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 80, context=context)
         uti = pediatric_antibiotic_calculate('lower-uti-trimethoprim', 80)
         self.assertAlmostEqual(uti['dose'], 200.0)
         meningitis = pediatric_antibiotic_calculate('meningitis-ceftriaxone-ge2mo', 20)
@@ -1882,7 +1896,14 @@ class ModularCoreTests(unittest.TestCase):
 
 
     def test_v136_pediatric_antibiotics_are_syndrome_specific_and_calculable(self):
-        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 20)
+        context = {
+            'birth_date': '2018-11-15', 'assessment_date': '2026-11-15',
+            'community_acquired': True, 'known_infection_focus': False,
+            'ceftriaxone_resistance_history': False, 'calcium_iv_mode': 'none',
+            'premature': False, 'diluent_contains_lidocaine': False,
+            'diluent_contains_calcium': False, 'renal_hepatic_status': 'no_impairment',
+        }
+        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 20, context=context)
         self.assertAlmostEqual(sepsis['dose'], 1600.0)
         cap = pediatric_antibiotic_calculate('cap-severe-coamoxiclav-iv-ge3mo', 20)
         self.assertAlmostEqual(cap['dose'], 600.0)
@@ -1894,8 +1915,15 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(cellulitis['dose_range'], [250.0, 500.0])
 
     def test_v136_pediatric_antibiotic_caps_and_external_dose_gate(self):
-        sepsis = pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 80)
-        self.assertAlmostEqual(sepsis['dose'], 4000.0)
+        context = {
+            'birth_date': '2018-11-15', 'assessment_date': '2026-11-15',
+            'community_acquired': True, 'known_infection_focus': False,
+            'ceftriaxone_resistance_history': False, 'calcium_iv_mode': 'none',
+            'premature': False, 'diluent_contains_lidocaine': False,
+            'diluent_contains_calcium': False, 'renal_hepatic_status': 'no_impairment',
+        }
+        with self.assertRaisesRegex(ValueError, '^ADULT_INDICATION_REGIMEN_REQUIRED:'):
+            pediatric_antibiotic_calculate('sepsis-community-ceftriaxone', 80, context=context)
         cap = pediatric_antibiotic_calculate('cap-severe-coamoxiclav-iv-ge3mo', 60)
         self.assertAlmostEqual(cap['dose'], 1200.0)
         men = pediatric_antibiotic_calculate('meningitis-ceftriaxone-ge2mo', 20)

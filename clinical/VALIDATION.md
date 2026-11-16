@@ -1,3 +1,14 @@
+## Ceftriaxona sepsis <16 — conciliación focal · 16/11/2026
+
+Actualizadas las dos entradas `sepsis-community-ceftriaxone` a NICE NG254,
+>=28 días y <16 años. Incorporados controles de contexto y salvedades
+farmacéuticas; >=50 kg requiere selección de pauta adulta por indicación.
+Conservados los 19 bloqueos de farmacología aguda, los estados de evidencia
+y CLINICALLY_PENDING. Corrección candidata del componente GMA-C-P1-001;
+sin cierre global de P1 ni validación clínica prospectiva.
+Fuentes y alcance: `references/ceftriaxone-sepsis-under16-safety.md`.
+Ejecuciones focales y límites: `qa/CEFTRIAXONE_UNDER16_RECONCILIATION_2026-11-16.md`.
+
 ## Sodio — GREEN de referencia y preparación local reconfirmada ·14/11/2026
 
 Revisado el algoritmo adulto de hipo/hipernatremia, corrección, monitorización y

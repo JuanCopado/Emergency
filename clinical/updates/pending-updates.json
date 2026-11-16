@@ -1900,6 +1900,17 @@
       "reviewed_on": "2026-09-29",
       "review_source_url": "https://www.ema.europa.eu/en/documents/product-information/dexdor-epar-product-information_en.pdf",
       "human_review_required": true
+    },
+    {
+      "module": "pediatric-sepsis",
+      "identified_on": "2026-11-16",
+      "source_url": "https://www.nice.org.uk/guidance/ng254",
+      "status": "scoped_implementation_pending_candidate_acceptance",
+      "finding_id": "GMA-C-P1-001",
+      "action": "Owner-authorized under16 reconciliation in two ceftriaxone sepsis catalogs, context/weight/calcium/route/organ-function guards and pharmaceutical notes. Current guideline and product caveats separated; no adult dose inferred and no automatic clinical closure. See qa/CEFTRIAXONE_UNDER16_RECONCILIATION_2026-11-16.md",
+      "reviewed_on": "2026-11-16",
+      "review_source_url": "https://cima.aemps.es/cima/dochtml/ft/64538/FichaTecnica_64538.html",
+      "human_review_required": true
     }
   ]
 }
