@@ -1,7 +1,13 @@
 # Emergency — arquitectura consolidada
 
 ## Objetivo
-Consolidar en un único repositorio la competencia clínica, la PWA, validación, recuperación de evidencia, grafo de conocimiento y futuras integraciones multimodales sin duplicar contenido clínico.
+Desarrollar una plataforma internacional y ampliable para urgencias y cuidados agudos, conforme a [INTERNATIONAL_SCOPE.md](INTERNATIONAL_SCOPE.md). Consolidar competencia clínica, PWA, validación, evidencia, grafo y ampliaciones multimodales sin duplicar contenido ni fijarlo a una organización.
+
+## Contexto independiente del núcleo
+
+Separar cuatro capas: núcleo compartido; jurisdicción; organización/recursos; y caso/preferencias. El idioma no selecciona país, guía ni hospital. Los perfiles son datos explícitos y versionados; nunca pueden sobrescribir silenciosamente una contraindicación o promover estados de validación. La interfaz de selección/resolución de perfiles pertenece a la fase 2 de INT-01 y todavía no está implementada.
+
+Una configuración regional pendiente limita su función dependiente; el núcleo de referencia, docencia y desarrollo puede continuar con contexto desconocido y límites explícitos. Preservar evidencia local sin extenderla a todos los destinos. Consultar [el marco clínico internacional](../clinical/references/international-context.md) y [la hoja de ruta](INTERNATIONAL_ROADMAP.md).
 
 ## Fuente maestra
 - `clinical/`: competencia emergency-medicine. El manifiesto autoritativo es `clinical/references/module-index.md`.
@@ -46,7 +52,7 @@ caso clínico
 - `docs/GRAPHIFY.md`: uso de Graphify sobre el repositorio.
 - `.github/workflows/clinical-qa.yml`: validación automática.
 
-## Estado real de T01
+## Estado histórico documentado de T01
 
 Base v1.44: 131 módulos canónicos. La normalización y el grafo son herramientas técnicas de procedencia; RAG, agentes y capas multimodales describen arquitectura o componentes sujetos a sus validaciones independientes. T01 no implementa retrieval semántico ni una API RAG. Los cuatro P1 farmacológicos permanecen abiertos y los 19 contratos agudos bloqueados permanecen bloqueados. CLINICALLY_PENDING.
 

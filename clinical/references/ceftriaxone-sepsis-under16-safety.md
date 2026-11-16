@@ -44,7 +44,7 @@ Los controles comprueban edad, peso, contexto infeccioso, prematuridad/riesgo ne
 2. [AEMPS, ceftriaxona Fresenius Kabi IV 64538](https://cima.aemps.es/cima/dochtml/ft/64538/FichaTecnica_64538.html), 4.2–4.5: población, indicación y seguridad.
 3. [AEMPS, ceftriaxona Reig Jofre IM 64405](https://cima.aemps.es/cima/dochtml/ft/64405/FT_64405.html), 4.2 y 6.6: órganos, límite por sitio y reconstitución. Texto revisado abril/2024.
 4. [AEMPS, ceftriaxona Qilu 83903](https://cima.aemps.es/cima/dochtml/ft/83903/FT_83903.html), 4.4 y 6.6: NPT y producto/volumen. Texto revisado mayo/2024.
-5. [INFARMED, anexos armonizados de Rocephin](https://www.infarmed.pt/documents/15786/1886316/Rocephin_Anexos.pdf/dc50fd4a-1bb9-4be8-8cea-577bdcb6e21f?version=1.0), 4.2–4.5. Documento regulatorio histórico de armonización; no identifica el RCM ni el stock realmente dispensado en Horta.
+5. [INFARMED, anexos armonizados de Rocephin](https://www.infarmed.pt/documents/15786/1886316/Rocephin_Anexos.pdf/dc50fd4a-1bb9-4be8-8cea-577bdcb6e21f?version=1.0), 4.2–4.5. Documento regulatorio histórico de armonización; no identifica por sí solo la ficha vigente ni la disponibilidad del producto en la jurisdicción y organización seleccionadas. Aplicar el marco de `international-context.md`.
 6. [OMS, nacimiento prematuro](https://www.who.int/news-room/fact-sheets/detail/preterm-birth/), 10/05/2023: definición de prematuridad antes de 37 semanas completas, utilizada solo para comprobar la coherencia de los datos de edad.
 
 No se afirma conformidad nacional exhaustiva ni se sustituye el protocolo local. La diferencia NICE/DGS ya documentada en pediatric-sepsis se conserva.

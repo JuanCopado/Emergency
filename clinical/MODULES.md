@@ -1,3 +1,11 @@
+## Alcance internacional vigente · 16/11/2026
+
+Por instrucción del propietario, Emergency se define como proyecto internacional y ampliable. Aplicar `../docs/INTERNATIONAL_SCOPE.md` y `references/international-context.md`: núcleo común, jurisdicción, organización/recursos y contexto del caso separados; idioma no selecciona país. Portugal/Azores/Horta conservan su evidencia como perfiles de aplicación, sin limitar el producto.
+
+La hoja de ruta `../docs/INTERNATIONAL_ROADMAP.md` distingue capacidades existentes y ampliaciones propuestas. Esta entrega cambia alcance, coordinación y presentación; no modifica dosis, fórmulas, estados de evidencia ni los 19 bloqueos. CLINICALLY_PENDING se conserva. Ver `../docs/COORDINATION_INTERNATIONAL_2026-11-16.md` para comprobaciones y límites.
+
+Los cortes anteriores, incluidos títulos antiguos como «estado actual» o «autoritativo», describen su fecha y ámbito. Las aprobaciones y requisitos locales conservan ese contexto; no se extrapolan a todas las jurisdicciones. El estado de la línea de trabajo se obtiene de `../STATE.md` y del commit inspeccionado.
+
 ## Ceftriaxona sepsis <16 — conciliación focal · 16/11/2026
 
 Actualizadas las dos entradas `sepsis-community-ceftriaxone` a NICE NG254,

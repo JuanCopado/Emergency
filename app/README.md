@@ -1,4 +1,8 @@
-# Emergency — frontend v1.42
+# Emergency — alcance internacional vigente
+
+Aplicar [la directriz internacional](../docs/INTERNATIONAL_SCOPE.md), [el estado actual de la línea](../STATE.md) y [la hoja de ruta](../docs/INTERNATIONAL_ROADMAP.md). El núcleo se comparte entre países y organizaciones; cada contexto operativo conserva sus fuentes y recursos. Las cifras y afirmaciones de versiones anteriores que siguen son históricas. La interfaz multilingüe no acredita traducción clínica integral ni validación mundial.
+
+# Emergency — frontend: instantánea histórica v1.42
 
 Estado actual: 131 guías, 196 procedimientos más cuatro alias y 89 regímenes pediátricos, además de 17 fármacos adultos. QA local PASS; SP-002 resuelto, sin aprobación de producción clínica. Ver [auditoría global](../clinical/qa/V1.42_FINAL_AUDIT.md). Las descripciones de Sprint 1 inferiores son históricas salvo actualización explícita.
 

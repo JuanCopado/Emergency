@@ -1,6 +1,24 @@
-# HANDOFF_PROMPT — v1.36 consolidation
+# HANDOFF_PROMPT — Emergency internacional
 
-Fecha de corte: 03/10/2026 — estado canónico.
+Directriz del propietario: 16/11/2026. Continuar desde una referencia comprobada, nunca desde una rama histórica por inercia.
+
+> Trabaja en **Emergency como proyecto internacional y ampliable** de apoyo clínico, formación, investigación y coordinación en urgencias y cuidados agudos. Lee primero `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` y `STATE.md`, y después las instrucciones del área afectada. Separa núcleo, jurisdicción, organización/recursos y caso; no deduzcas país u hospital del idioma ni del perfil del propietario. Portugal/Azores/Horta son contextos de aplicación y experiencia, no el alcance global.
+>
+> Verifica repositorio, rama, commit y modificaciones existentes. Esta entrega de alcance usa `codex/v144-international-scope-20261116`, con base inspeccionada `926649ac5b3168267839f987de77a62401b5e7da`; consulta su HEAD real al retomarla. No modificar main, v1.42-rc1 ni v1.43. No asumir que esta rama integra A/B/C/D o está instalada en el PC local.
+>
+> Consulta `docs/INTERNATIONAL_ROADMAP.md` para ampliaciones con responsabilidades por función, dependencias y aceptación. Identifica en cada tarea lo existente, lo candidato y lo propuesto. El selector de perfiles, los conectores asistenciales y la validación multicentro siguen siendo tareas de implementación/evaluación.
+>
+> Conserva evidencia, dosis, fórmulas, contraindicaciones y datos desconocidos. Consulta `clinical/references/international-context.md` para aplicar fuentes y recursos pertinentes; una falta de datos locales limita la función dependiente, no toda la plataforma. Mantén CLINICALLY_PENDING, los 19 bloqueos y los procesos de revisión. Las pruebas técnicas no equivalen a validación clínica.
+>
+> Comunica alcance, base, cambios, comprobaciones observadas, límites y siguiente acción. No declares lectura, aceptación o integración por otros colaboradores sin evidencia de esos hechos. Registra la recepción de la directriz en la coordinación común.
+
+## Archivo histórico
+
+El bloque siguiente se conserva por trazabilidad. Sus cifras, pendientes portugueses y rama v1.36 no sustituyen las instrucciones vigentes anteriores.
+
+# Histórico — handoff v1.36 (no ejecutar como instrucción vigente)
+
+Fecha de corte histórica: 03/10/2026. Las referencias siguientes describen ese corte, no la rama ni el alcance actuales.
 
 Pega este bloque en un chat nuevo:
 

@@ -1,6 +1,6 @@
 {
   "brand": {
-    "tagline": "Perfusiones de urgencias y UCI"
+    "tagline": "Apoyo clínico internacional"
   },
   "nav": {
     "home": "Inicio",
@@ -42,9 +42,9 @@
     "submit": "Buscar"
   },
   "home": {
-    "eyebrow": "Perfusiones continuas en adultos · referencia v1.35",
-    "title": "Referencia de perfusiones para urgencias y cuidados intensivos",
-    "subtitle": "Dosis, preparaciones estándar y ritmos de bomba en mL/h con la aritmética paso a paso.",
+    "eyebrow": "Proyecto internacional · referencia y herramientas clínicas",
+    "title": "Apoyo clínico para urgencias y cuidados agudos",
+    "subtitle": "Guías, procedimientos, pediatría, medicamentos, calculadoras y documentación clínica en un proyecto ampliable. Consulta el alcance y el estado de validación de cada herramienta.",
     "openCalculator": "Calculadora de perfusiones",
     "browseDrugs_one": "Ver {{count}} fármaco",
     "browseDrugs_many": "Ver {{count}} fármacos",
@@ -54,10 +54,18 @@
     "drugCount_many": "{{count}} fármacos",
     "drugCount_other": "{{count}} fármacos",
     "comingSoonTitle": "Otros grupos de módulos",
-    "comingSoonHint": "Del catálogo de 106 módulos",
+    "comingSoonHint": "Grupos del catálogo de referencia",
     "moduleCount_one": "{{count}} módulo",
     "moduleCount_many": "{{count}} módulos",
-    "moduleCount_other": "{{count}} módulos"
+    "moduleCount_other": "{{count}} módulos",
+    "clinicalShortcuts": "Accesos clínicos",
+    "procedures": "Procedimientos",
+    "pediatrics": "Pediatría",
+    "scores": "Escalas clínicas",
+    "guides": "Guías / PDF",
+    "conditions": "Patologías",
+    "outpatientPediatrics": "Pediatría ambulatoria",
+    "insulinSimulation": "Insulinoterapia UCI · simulación"
   },
   "groups": {
     "vasoactive": {
@@ -257,15 +265,18 @@
     "title": "Acerca de y aviso legal",
     "disclaimerTitle": "Importante — leer antes de usar",
     "d1": "Es una referencia de apoyo a la decisión clínica para profesionales sanitarios cualificados. No sustituye el juicio clínico, los protocolos locales ni la ficha técnica del producto.",
-    "d2": "Todo el contenido es un BORRADOR pendiente de validación clínica humana (UCI, cardiología, farmacia hospitalaria). Prevalecen siempre los protocolos locales y el juicio del clínico responsable.",
+    "d2": "El proyecto continúa pendiente de validación clínica para uso asistencial. Una comprobación técnica o la revisión de un componente no aprueba todas las funciones, poblaciones ni entornos.",
     "d3": "Las concentraciones estándar locales o de farmacia prevalecen sobre las preparaciones de ejemplo. Confirme siempre la concentración de la ampolla (base frente a sal), el diluyente, el volumen final y la concentración antes de calcular.",
-    "d4": "Los ejemplos resueltos (70 kg) son referencias aritméticas, no una prescripción. Las perfusiones pediátricas quedan fuera del alcance de esta versión.",
+    "d4": "Los ejemplos resueltos (70 kg) son referencias aritméticas, no prescripciones. No extrapole la herramienta de perfusión adulta a menores; las herramientas pediátricas tienen su propio alcance y requisitos de seguridad.",
     "d5": "Compruebe de forma independiente cada programación de la bomba y use una bomba inteligente con la biblioteca local de fármacos.",
     "provenanceTitle": "Procedencia de los datos",
-    "provenanceBody": "Los valores se transcribieron literalmente del paquete de referencia emergency-medicine v1.35 (módulos y registro de evidencia). Los campos ausentes en la fuente se muestran como «no indicado». La aritmética se contrasta con la calculadora del paquete en pruebas automatizadas.",
+    "provenanceBody": "Los módulos clínicos, procedimientos y catálogos pediátricos derivan de las fuentes canónicas del proyecto. Los datos de perfusión adulta conservan su referencia versionada. Consulte la fuente, fecha y estado de evidencia de cada componente; las comprobaciones aritméticas automatizadas no acreditan validación clínica.",
     "evidenceTitle": "Leyenda del estado de la evidencia",
     "privacyTitle": "Privacidad",
-    "privacyBody": "Sin cuenta, sin servidor y sin seguimiento. Todo se ejecuta en su navegador y funciona sin conexión; las preferencias se guardan solo en este dispositivo. No introduzca identificadores de pacientes."
+    "privacyBody": "Las preferencias se guardan en este dispositivo. Algunas funciones, como la nota clínica y los cálculos pediátricos, requieren un servicio configurado; la disponibilidad sin conexión depende de la herramienta. Consulte la política de tratamiento de datos del despliegue y no introduzca identificadores de pacientes.",
+    "scopeTitle": "Un proyecto internacional",
+    "scopeBody": "Emergency se diseña como una base común y ampliable de apoyo a urgencias y cuidados agudos, formación e investigación en distintos países y entornos asistenciales. Cada capacidad tiene su propio alcance y estado de validación.",
+    "scopeContext": "El idioma no determina el país ni la vía clínica aplicable. La información de producto, los recursos y los requisitos clínicos deben corresponder al entorno de uso; la experiencia de un hospital no supone aprobación en los demás."
   },
   "footer": {
     "content": "contenido {{version}}",

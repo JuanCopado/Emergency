@@ -2,6 +2,12 @@
 
 This file defines the safe entry point for Codex work on this repository.
 
+## Current owner directive: international scope (2026-11-16)
+
+Read `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` and `STATE.md` first. Emergency is an international, extensible acute-care platform. Separate the shared core from jurisdiction, organization/resources and case context; never infer Portugal/Horta from the owner's location or the interface language. Country-specific evidence and hospital experience retain their scope and provenance.
+
+The owner requested the necessary scope and coordination changes. This task's isolated delivery branch is `codex/v144-international-scope-20261116`, based on verified commit `926649ac5b3168267839f987de77a62401b5e7da`. It is permitted for this directive, documentation, context-neutral wording and product presentation. Preserve clinical arithmetic, evidence states and existing blockers; this dispatch does not authorize merging protected branches or transferring clinical data to external services.
+
 ## Repository and branch guard
 
 - Repository: `JuanCopado/Emergency`
@@ -21,12 +27,12 @@ git status --short
 ```
 
 The owner-authorized isolated L02 technical branch `codex/v144-hybrid-baseline` is also permitted for baseline preparation only; C01–C05 and publication remain unauthorized.
-For any other branch except `v1.44-clinical-functional-validation`, stop and diagnose unless an explicit owner dispatch names the exact task branch and execution SHA.
+The current international-scope dispatch above is an explicit task exception. For another branch, verify the applicable owner dispatch and base before editing; the historical L02 restriction is not a statement that later authorized task publications remain forbidden.
 If the working tree is unexpectedly dirty, stop and inspect the changes before editing.
 
 ## Mandatory reading order
 
-1. `CODEX.md`
+1. `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md`, `STATE.md`, then `CODEX.md`
 2. `clinical/AGENTS.md`
 3. `clinical/CURRENT_STATE.md`
 4. `clinical/qa/V1.41_FINAL_HANDOFF.md`
@@ -48,6 +54,7 @@ Treat older snapshots embedded in continuity files as historical unless the curr
 - For changing/high-risk clinical recommendations, verify current primary/authoritative sources before changing clinical content.
 - Keep deterministic arithmetic separate from clinical indication/selection.
 - For Portugal/Azores claims, distinguish verified DGS/INFARMED/local information from assumptions.
+- Apply the equivalent source and product checks to the jurisdiction actually selected. A missing hospital profile limits the dependent operational claim, not the international project's entire core. Use `clinical/references/international-context.md`.
 - Do not duplicate scores, formulas, modules, or procedures when a canonical implementation exists.
 
 ## Procedures and visuals

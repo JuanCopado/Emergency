@@ -6,7 +6,7 @@ export const BRAND = {
   name: 'Emergency',
   shortName: 'Emergency',
   /** English tagline (UI tagline is translated via i18n key `brand.tagline`). */
-  description: 'Emergency & ICU infusion reference and calculator (draft, pending clinical validation)',
+  description: 'International emergency and acute-care support: references, calculators, procedures and clinical documentation (clinical validation pending)',
   themeColor: '#0b1220',
   backgroundColor: '#0b1220',
   accentColor: '#e11d48',

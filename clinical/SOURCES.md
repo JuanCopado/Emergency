@@ -1,3 +1,7 @@
+## Alcance de fuentes por jurisdicción · 16/11/2026
+
+Aplicar `references/international-context.md`: ninguna autoridad nacional se considera referencia universal por defecto. Conservar fuente, población, escenario y discrepancias; Portugal/Azores se utiliza cuando corresponda a ese perfil. Esta revisión del alcance no renueva fechas ni cambia el estado de las fuentes clínicas.
+
 ## Ceftriaxona — fuentes de conciliación · 16/11/2026
 
 NICE NG254 y fichas AEMPS de producto, corroboración del anexo histórico

@@ -1,3 +1,4 @@
+<!-- 2026-11-16: international scope applies through international-context.md; jurisdiction and organization are explicit context, not universal defaults. IDs and evidence states unchanged. -->
 <!-- 2026-11-16: pediatric-sepsis retains its existing ID; ceftriaxone component reconciliation is documented in ceftriaxone-sepsis-under16-safety.md. Module count and evidence states unchanged. -->
 <!-- Sodium clinical referenceGREEN2026-11-14;owner preparation/fluids reconfirmed;113GREEN/18YELLOW; ../qa/SODIUM_CLINICAL_REFERENCE_CLOSURE_2026-11-14.json;mapping unchanged. -->
 <!-- Nine selected review2026-11-14:2GREEN/7YELLOW retained;112GREEN/19YELLOW; ../qa/NINE_SELECTED_MODULES_REVIEW_2026-11-14.json; mappings unchanged. -->

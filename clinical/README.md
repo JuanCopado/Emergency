@@ -1,4 +1,8 @@
-# Emergency Medicine v1.42 — estado actual
+# Emergency — alcance internacional vigente
+
+Aplicar [la directriz internacional](../docs/INTERNATIONAL_SCOPE.md), [el estado actual de la línea](../STATE.md) y [la hoja de ruta](../docs/INTERNATIONAL_ROADMAP.md). El núcleo se comparte entre países y organizaciones; cada contexto operativo conserva sus fuentes y recursos. Las cifras y afirmaciones de versiones anteriores que siguen son históricas. La interfaz multilingüe no acredita traducción clínica integral ni validación mundial.
+
+# Emergency Medicine v1.42 — instantánea histórica
 
 Consolidación técnica: 131 módulos, 196 procedimientos estructurados, 135 escalas, 45 fórmulas y 89 regímenes pediátricos. Inventario reproducible en `qa/V1.42_INVENTORY.json`; auditoría y límites en `qa/V1.42_FINAL_AUDIT.md`. QA local PASS; SP-002 resuelto, gate técnico sin P0/P1 abiertos; CLINICALLY_PENDING: no aprobado para uso clínico en producción. Visuales pausadas. No es una competencia instalada/publicada por este repositorio.
 

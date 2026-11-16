@@ -1,6 +1,10 @@
 # Portugal clinical and medication context
 
+This is an optional jurisdiction profile within the [international clinical context](international-context.md) and the [canonical project scope](../../docs/INTERNATIONAL_SCOPE.md). The Azores are a regional context; Hospital da Horta is an organizational context when explicitly selected. Neither defines the shared clinical core or a universal deployment requirement. Language alone does not select this profile.
+
 Use for care in Portugal, including the Azores, or when the user requests Portuguese alignment. Preserve the user's response language; use Portuguese generic/product terminology where it prevents confusion.
+
+Unresolved Portuguese or institutional operational checks limit only the dependent recommendation, action or profile-specific output. They do not block unrelated core development, general evidence review or education. Preserve clinical safety gates and label unverified operational facts explicitly.
 
 ## Sources to check
 - DGS clinical norms: https://normas.dgs.min-saude.pt/category/normas-clinicas/

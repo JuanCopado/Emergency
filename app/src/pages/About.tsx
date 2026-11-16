@@ -20,6 +20,12 @@ export default function About() {
         </div>
       </header>
 
+      <section className="card p-4 sm:p-6" aria-labelledby="scope-title">
+        <h2 id="scope-title" className="text-lg font-bold">{t('about.scopeTitle')}</h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">{t('about.scopeBody')}</p>
+        <p className="mt-2 text-sm leading-relaxed text-muted">{t('about.scopeContext')}</p>
+      </section>
+
       <section className="rounded-2xl border-2 border-danger/50 bg-surface p-4 sm:p-6" aria-labelledby="disc-title" data-testid="disclaimer">
         <h2 id="disc-title" className="flex items-center gap-2 text-lg font-extrabold text-danger">
           <Icon name="shield" /> {t('about.disclaimerTitle')}

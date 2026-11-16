@@ -1,6 +1,6 @@
 {
   "brand": {
-    "tagline": "Emergency & ICU infusions"
+    "tagline": "International acute-care support"
   },
   "nav": {
     "home": "Home",
@@ -42,9 +42,9 @@
     "submit": "Search"
   },
   "home": {
-    "eyebrow": "Adult continuous infusions · reference v1.35",
-    "title": "Infusion reference for emergency & intensive care",
-    "subtitle": "Doses, standard preparations and pump rates in mL/h with transparent step-by-step arithmetic.",
+    "eyebrow": "International project · clinical reference and tools",
+    "title": "Clinical support for emergency and acute care",
+    "subtitle": "Guidelines, procedures, pediatrics, medicines, calculators and clinical documentation in one extensible project. Check the scope and validation status of each tool.",
     "openCalculator": "Infusion calculator",
     "browseDrugs_one": "Browse {{count}} drug",
     "browseDrugs_other": "Browse {{count}} drugs",
@@ -52,9 +52,17 @@
     "drugCount_one": "{{count}} drug",
     "drugCount_other": "{{count}} drugs",
     "comingSoonTitle": "Other module groups",
-    "comingSoonHint": "From the 106-module catalogue",
+    "comingSoonHint": "Groups from the reference catalogue",
     "moduleCount_one": "{{count}} module",
-    "moduleCount_other": "{{count}} modules"
+    "moduleCount_other": "{{count}} modules",
+    "clinicalShortcuts": "Clinical shortcuts",
+    "procedures": "Procedures",
+    "pediatrics": "Pediatrics",
+    "scores": "Clinical scores",
+    "guides": "Guidelines / PDF",
+    "conditions": "Clinical conditions",
+    "outpatientPediatrics": "Outpatient pediatrics",
+    "insulinSimulation": "ICU insulin · simulation"
   },
   "groups": {
     "vasoactive": {
@@ -253,15 +261,18 @@
     "title": "About & disclaimer",
     "disclaimerTitle": "Important — read before use",
     "d1": "This is a clinical decision-support reference for qualified health professionals. It does not replace clinical judgment, local protocols or the product information.",
-    "d2": "All content is a DRAFT pending human clinical validation (ICU, cardiology, hospital pharmacy). Local protocols and the treating clinician's judgment always prevail.",
+    "d2": "The project remains pending clinical validation for operational use. A technical check or a review of one component does not approve every function, population or care setting.",
     "d3": "Local or pharmacy standard concentrations override the example preparations. Always confirm ampoule strength (base vs salt), diluent, final volume and concentration before calculating.",
-    "d4": "Worked examples (70 kg) are arithmetic references, not a prescription. Pediatric infusions are out of scope in this version.",
+    "d4": "Worked examples (70 kg) are arithmetic references, not prescriptions. Do not extrapolate the adult infusion tool to children; pediatric tools have their own scope and safety requirements.",
     "d5": "Double-check every pump setting independently and use a smart pump with the local drug library.",
     "provenanceTitle": "Data provenance",
-    "provenanceBody": "Values were transcribed verbatim from the emergency-medicine reference package v1.35 (modules and evidence registry). Fields absent in the source are shown as “not stated”. Arithmetic is cross-checked against the package's calculator in automated tests.",
+    "provenanceBody": "Clinical modules, procedures and pediatric catalogues derive from the canonical project sources. Adult infusion data retain their versioned reference baseline. Consult each component for source, date and evidence status; automated arithmetic checks do not establish clinical validation.",
     "evidenceTitle": "Evidence status legend",
     "privacyTitle": "Privacy",
-    "privacyBody": "No account, no server and no tracking. Everything runs in your browser and works offline; preferences are kept only in this device's storage. Do not enter patient identifiers."
+    "privacyBody": "Preferences are stored on this device. Some functions, including clinical notes and pediatric calculations, require a configured service; offline availability varies by tool. Check the data-handling policy of the deployment and do not enter patient identifiers.",
+    "scopeTitle": "An international project",
+    "scopeBody": "Emergency is designed as a shared, extensible foundation for emergency and acute-care support, education and research across countries and care settings. Each capability has its own supported scope and validation status.",
+    "scopeContext": "Language does not determine the applicable country or clinical pathway. Product information, organizational resources and clinical requirements must match the intended setting; experience in one hospital does not establish approval elsewhere."
   },
   "footer": {
     "content": "content {{version}}",

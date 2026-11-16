@@ -3,12 +3,14 @@ name: emergency-medicine
 description: Emergency-care reasoning, stabilization, medication and infusion calculations with bedside mL/h rates, ECG/POCUS and uploaded clinical image review with modality-specific quality checks, provisional differential diagnosis, reassessment and disposition. Clinician support, not autonomous image diagnosis.
 ---
 
-# Emergency Medicine Skill v1.42 — consolidation (clinical review pending)
+# Emergency Medicine — international scope (clinical review pending)
 
-Current status (2026-10-11): 505 Python tests and 163 frontend tests pass locally; 131 modules (29 GREEN / 102 YELLOW), 196 structured YELLOW procedures. CLINICALLY_PENDING: SP-002 identity repaired from historical evidence; no open technical P0/P1 in the audited scope. Technical RC is not approval for clinical production. Automated QA is not prospective clinical validation; prospective clinical and diagnostic-accuracy validation pending. See `qa/V1.42_FINAL_AUDIT.md` and generated `qa/V1.42_INVENTORY.json`. The former 63-test statement belonged to the historical v1.35 snapshot.
+Scope directive (2026-11-16): apply `references/international-context.md`; within the full repository also read the project charter `../docs/INTERNATIONAL_SCOPE.md`. Use the available current-state record (`../STATE.md` in the repository, `CURRENT_STATE.md` in a standalone package) and the evidence registry; never treat the historical snapshot below as the current branch or global clinical approval. A standalone package must preserve the international-context reference and must not claim synchronization with another installation.
+
+Historical v1.42 snapshot (2026-10-11): 505 Python tests and 163 frontend tests passed locally; 131 modules (29 GREEN / 102 YELLOW), 196 structured YELLOW procedures. CLINICALLY_PENDING: SP-002 identity repaired from historical evidence; no open technical P0/P1 in that audited scope. Technical RC is not approval for clinical production. Automated QA is not prospective clinical validation; prospective clinical and diagnostic-accuracy validation pending. See `qa/V1.42_FINAL_AUDIT.md` and generated `qa/V1.42_INVENTORY.json`. The former 63-test statement belonged to the historical v1.35 snapshot.
 
 ## Purpose
-Support acute-care reasoning and operational bedside responses while prioritizing patient safety, explicit uncertainty, verification of high-risk recommendations, and reproducible calculations.
+Support international acute-care reasoning, bedside workflows, education and extensible clinical tools while prioritizing patient safety, explicit uncertainty, verification of high-risk recommendations, and reproducible calculations. Reuse the common clinical core across jurisdictions and organizations; identify each function's supported population, environment and validation limits.
 
 ## Activation
 Use this skill when the request involves emergency medicine, urgent stabilization, acute deterioration, shock, chest pain, dyspnea, neurologic emergency, toxicology, trauma, obstetrics, pediatrics, procedures, ECG, POCUS, emergency pharmacology, or disposition from the emergency department.
@@ -112,6 +114,8 @@ authoritative guidance. Never imply that a missing module was loaded.
 For any clinical scale, score, decision rule or medical formula request, load `clinical-scores-calculators`. The canonical definitions live in `calculators/registry.json`; disease modules may reference a calculator ID but must not duplicate its scoring logic. Autofill only values explicitly known from the case/context; keep every input editable and fail closed on missing required data. Return the score/value or category, a brief statement of what it measures and what it is used for, plus a concise interpretation and input provenance. Use `scripts/clinical_calculator.py` for deterministic formulas when available. Do not convert criteria-based rules into invented numeric scores.
 
 ## Living Evidence system
+
+Read `references/international-context.md` when jurisdiction, product, organization or available resources affect the task. Do not infer a country from language or the owner's practice. Without a selected country/center, retain unknown context and provide supported general reference or educational content; limit only the dependent clinical calculation or operational claim. Do not silently substitute national recommendations, preparations or resources. Existing clinical and pharmaceutical safety gates remain in force.
 
 For care in Portugal or requested Portuguese alignment, read
 `references/portugal-context.md`. Verify relevant DGS norms and Portuguese

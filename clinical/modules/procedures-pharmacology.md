@@ -4,6 +4,8 @@ Shared gate: verify identity, indication, consent/capacity, monitoring, allergie
 weight, pregnancy, renal/hepatic function, anticoagulation, equipment, skilled help,
 rescue plan and post-intervention reassessment.
 
+Apply [international clinical context](../references/international-context.md): national and organizational requirements belong to the selected profile; a named hospital is not the scope of the shared module.
+
 - For oral liquid/drop formulations, always retain the dose in mg and calculate mL only from the exact verified concentration. If the exact marketed product is dispensed as drops, also display whole drops per dose only from a verified mg/drop or drops/mL factor; never assume a universal drop factor.
 
 ## airway-rsi
@@ -72,10 +74,10 @@ rescue plan and post-intervention reassessment.
 - **Anaerobes/antifungals:** do not add routine anaerobic coverage in sepsis without a plausible anaerobic source. Do not use routine empirical antifungal therapy in sepsis/septic shock; consider it only in selected patients with specific fungal-risk factors.
 - **Source control:** identify an anatomic source requiring drainage/debridement/device removal and pursue early source control; SSC 2026 suggests ideally within **6 hours** once such a source is diagnosed in sepsis/septic shock.
 - **Complicated UTI (IDSA 2025):** in sepsis attributed to cUTI/pyelonephritis, choose empirically among a **third- or fourth-generation cephalosporin, carbapenem, piperacillin-tazobactam, or fluoroquinolone** using a four-step assessment: severity, resistance risk, patient-specific factors, and—if septic—a current local antibiogram. If using an antibiogram, IDSA suggests aiming for approximately **>=90% susceptibility in septic shock** or **>=80% in sepsis without shock** for the relevant pathogens. Broader anti-Pseudomonas/MRSA/Enterococcus coverage is reserved for corresponding risk.
-- **Do not infer local doses from this module.** Exact loading dose, maintenance dose, prolonged/extended infusion strategy, renal/hepatic adjustment, allergy alternative and compatibility must come from the syndrome-specific guideline plus current local hospital/Portugal-Azores formulary.
+- **Do not infer local doses from this module.** Exact loading dose, maintenance dose, prolonged/extended infusion strategy, renal/hepatic adjustment, allergy alternative and compatibility must come from the syndrome-specific guideline and applicable product information; operational use also requires the formulary and administration standards of the selected organization and jurisdiction.
 - Review at 24--48 h (or earlier when cultures return): confirm infection, narrow/stop unnecessary agents, optimize route/dose, document duration and source-control status. Procalcitonin should not replace clinical assessment when deciding whether to start therapy.
 - **Empirical versus targeted therapy:** do not wait for the current patient's culture/susceptibility result to start time-critical empirical treatment. That result guides subsequent targeted adjustment; prior cultures and relevant local resistance data, when available, can already change the initial empirical choice. Lack of an uploaded local antibiogram does not block this general decision framework or justify delaying urgent antibiotics.
-- Before a specific regimen is presented as operational in Horta/Azores, verify formulary/stock, beta-lactam allergy pathway, renal-dose references, infusion standards and microbiology turnaround; use a current antibiogram (preferably <=12 months), local and relevant to the patient, when available. No local document or stock availability is inferred from this framework review.
+- Before a specific regimen is presented as operational in the selected organization and jurisdiction, verify formulary/stock, beta-lactam allergy pathway, renal-dose references, infusion standards and microbiology turnaround; use a current antibiogram (preferably <=12 months), local and relevant to the patient, when available. No local document or stock availability is inferred from this framework review.
 
 ## anticoagulation-reversal
 
