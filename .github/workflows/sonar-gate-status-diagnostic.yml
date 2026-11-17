@@ -73,7 +73,7 @@ jobs:
                       })
               issue_report={'total':issues.get('total'),'actionable':noteworthy[:80]}
           except Exception as ex:
-              issue_report={'error':type(ex).__name__, 'http_status':getattr(ex,'code',None)}
+              issue_report={'error':type(ex).__name__, 'http_status':getattr(ex,'code',None), 'reason':ex.read(240).decode('utf-8','replace')[:240] if hasattr(ex,'read') else ''}
           try:
               tree=load('measures/component_tree',{'component':project,'branch':branch,
                      'metricKeys':'new_coverage,coverage,lines_to_cover','qualifiers':'FIL',
