@@ -3,8 +3,12 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   server: {
+    // Vite 6 denies raw Markdown imported from outside app; grant only the
+    // canonical public module directory, and only while running Vitest.
+    // Normal development and production retain the default strict boundary.
+    fs: mode === 'test' ? { strict: true, allow: ['.', '../clinical/modules'] } : undefined,
     proxy: {
       '/api/clinical-note': 'http://127.0.0.1:8765',
       '/api/pediatric-outpatient': 'http://127.0.0.1:8765',
@@ -55,4 +59,4 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     css: false,
   },
-});
+}));
