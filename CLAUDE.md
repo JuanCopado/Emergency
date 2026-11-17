@@ -30,3 +30,9 @@ Dosis, unidades, diluyente, concentración, aritmética, mL/h, máximos, contrai
 - Grafo: `python3 clinical/scripts/build_project_graph.py --output /tmp/project-graph.json`
 - App: `cd app && npm test && npm run build`
 - Al terminar: actualizar `STATE.md` y una línea en `clinical/CHANGELOG.md`.
+
+## Optimización Automática de Tokens (RTK + Graphify + Ponytail)
+
+1. **Exploración con Graphify:** Antes de buscar o leer múltiples archivos en un proyecto, verifica si existe `graphify-out/GRAPH_REPORT.md`. Si existe, léelo primero. Si estás en un repositorio de código y `graphify-out/` no existe todavía, ejecuta `/graphify .` automáticamente al inicio para generar el mapa.
+2. **Minimalismo con Ponytail:** Aplica siempre por defecto las reglas de `/ponytail` en modo `lite` (escribe el cambio completo más pequeño posible, reutiliza código existente y evita explicaciones largas). Nunca pases a modo `ultra` ni elimines tests o validaciones salvo petición explícita.
+3. **Comandos con RTK:** Usa siempre comandos estándar de terminal para que los hooks de RTK compriman la salida automáticamente.
