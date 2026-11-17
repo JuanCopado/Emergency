@@ -58,7 +58,7 @@ Advisory databases intentionally update, while executable tools remain pinned.
 No patient records or private backup stores are inputs. Exclusions cover
 downloaded dependencies, build/cache/graph outputs, preservation/backups and
 binary documents/archives/medical images. The three generated clinical JSON
-catalogs are excluded only from Semgrep because they are data, not source code;
+catalogs are excluded from Semgrep and Sonar because they are data, not source code;
 they remain subject to their existing generators/QA. Synthetic rule fixtures
 are tested separately, not counted as product findings. No source directory or
 dependency manifest is excluded to hide vulnerabilities.
@@ -80,7 +80,7 @@ to this initial snapshot, not a full historical/git blame analysis. Owners are
 No exception is approved. Any future exception must record scope, justification,
 owner and review date, and must not be created solely to obtain a green check.
 
-## SonarQube Cloud - access restored, credential pending
+## SonarQube Cloud - Actions connected
 
 The authenticated local Chrome session was used on 17/11/2026. Emergency already
 exists, is public and is bound to JuanCopado/Emergency. No duplicate was imported.
@@ -99,12 +99,20 @@ under those Free-plan restrictions. No subscription, payment, visibility,
 default-branch or branch-protection change was made. Future plan errors must
 remain visible and must not be reported as code findings or a passing gate.
 
-The repository's Actions secrets page contains no SONAR_TOKEN. The Sonar
-onboarding screen exposed a token in a UI observation; it must not be used and
-requires revocation. A replacement scoped organization token can be restricted
-to Emergency with Browse (for gate status) and Execute analysis, without project
-administration or organization-wide access. Creation/credential handling awaits
-the required user intervention. No token is stored in the repository.
+SONAR_TOKEN is now stored as an encrypted repository Actions secret. The user
+approved creation of a scoped organization token restricted to Emergency with
+Browse (for gate status) and Execute analysis, without project administration or
+organization-wide access. It expires 17/12/2026. The onboarding token exposed in
+an earlier UI observation was not reused and was revoked; the personal-token
+table subsequently showed no tokens. No credential value is stored in repository
+files, commits or reports.
+
+The owner selected the remaining free Team trial, followed by Free. A review is
+scheduled for the morning of 29/11/2026 in Atlantic/Azores, before trial expiry.
+This schedules a review/action attempt, not an already completed downgrade.
+It must check the other private projects in the same organization before a
+plan-wide change. Scoped organization tokens require Team/Enterprise, so a
+Free-compatible authentication method must also be prepared during transition.
 
 `sonar-project.properties` classifies executable/configuration sources, Python
 tests, Vitest tests and browser checks explicitly. Scanner automatic configuration
@@ -116,6 +124,14 @@ are not excluded because of findings; synthetic security fixtures are test code.
 No coverage XML/LCOV report exists in this exact snapshot; no coverage percentage
 or coverage exclusion was invented.
 
+The authenticated Actions scan at revision `f982813830e7960f4914aa4849e52887f53cc18b`
+completed and uploaded its report. Its awaited quality gate FAILED: new-code
+security C instead of A, and reported coverage 0.0% instead of at least 80.0%.
+Two open path-traversal findings in `scripts/security/report.py` require trust-
+boundary triage; no coverage report was supplied to Sonar. Configuration is
+connected, but findings and coverage remain unresolved. No gate or rule was
+relaxed. See the detailed observed run and limitations in the setup report.
+
 SonarSource sonarqube-scan-action v8.5.0 is pinned to verified full commit
 `59202af334b4ba7b5db01b701b8e79f8b3bef0f4`; it retains the action's scanner
 signature verification and waits up to 600 seconds for the quality gate.
@@ -125,7 +141,7 @@ Fork and Dependabot events emit an explicit OMITTED warning/summary and never
 receive SONAR_TOKEN. Missing credentials fail as CONFIGURATION_ERROR; scanner
 or gate failure is not suppressed. No pull_request_target trigger is used.
 
-Observed results and the remaining credential step are recorded in
+Observed results and the plan transition are recorded in
 [SONAR_SETUP_2026-11-17.md](SONAR_SETUP_2026-11-17.md). Technical QA does not
 change clinical acceptance or CLINICALLY_PENDING.
 
