@@ -27,6 +27,9 @@ the workflow into the relevant branches/default branch.
 versions. The workflow invokes scanner images directly with Docker, instead of
 using trivy-action and its additional transitive actions. Source mounts are
 read-only; no persisted Git credentials or application secrets are supplied.
+Containers run with the runner UID/GID, so their writable report/cache mounts
+work with all Linux capabilities dropped. Semgrep configuration/cache uses `/tmp`;
+Trivy uses the explicit `/cache` mount rather than a root-owned home directory.
 Semgrep has no network during its execution; metrics and version checks are off.
 Trivy telemetry/version checks are off; it downloads public advisory/check data.
 Advisory databases intentionally update, while executable tools remain pinned.

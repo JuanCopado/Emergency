@@ -13,7 +13,9 @@ Base commit: `1d0652ebcef9b5990edd9e5745b0c06f8d6b8274`. Infrastructure only; cl
 - All initial vulnerable manifests were proven byte-identical to the base commit: PREEXISTING. No suppressions or risk exceptions.
 - SonarQube Cloud: BLOCKED_ACCESS (CloudFront 403 before login); no project, token or analysis configured.
 
-CLI scans ran locally because Docker is absent. GitHub container execution has not yet been observed in this initial report; PR/run links will be added after publication.
+CLI scans ran locally because Docker is absent. Published PR: https://github.com/JuanCopado/Emergency/pull/22.
+
+First GitHub container run: https://github.com/JuanCopado/Emergency/actions/runs/43993493281. Rule and report tests passed; scan output/cache writes failed because capability-dropped root did not own the mounted runner directories. This is an infrastructure failure, not a vulnerability-only failure. The workflow now runs containers with the host UID/GID, Semgrep writable configuration in `/tmp`, and Trivy cache at `/cache`. The corrected run must be observed separately; this first failed run is preserved.
 
 ## Blocking findings
 
