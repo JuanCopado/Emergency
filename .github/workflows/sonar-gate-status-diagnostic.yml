@@ -56,7 +56,7 @@ jobs:
           # Retrieve rule-level defects with source metadata, not raw scanner reports.
           try:
               issues=load('issues/search',{'componentKeys':project,'branch':branch,
-                                          'resolved':'false','ps':'500'})
+                                          'ps':'100'})
               noteworthy=[]
               for issue in issues.get('issues',[]):
                   impacts=issue.get('impacts',[])
@@ -73,7 +73,7 @@ jobs:
                       })
               issue_report={'total':issues.get('total'),'actionable':noteworthy[:80]}
           except Exception as ex:
-              issue_report={'error':type(ex).__name__}
+              issue_report={'error':type(ex).__name__, 'http_status':getattr(ex,'code',None)}
           try:
               tree=load('measures/component_tree',{'component':project,'branch':branch,
                      'metricKeys':'new_coverage,coverage,lines_to_cover','qualifiers':'FIL',
