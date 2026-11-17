@@ -55,7 +55,7 @@ jobs:
                   'conditions':conditions,'measures':measures}
           # Retrieve rule-level defects with source metadata, not raw scanner reports.
           try:
-              issues=load('issues/search',{'componentKeys':project,'branch':branch,
+              issues=load('issues/search',{'organization':'juancopado','componentKeys':project,'branch':branch,
                                           'ps':'100'})
               noteworthy=[]
               for issue in issues.get('issues',[]):
