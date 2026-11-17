@@ -53,6 +53,43 @@ jobs:
               measures={'status':'unavailable'}
           result={'qualityGate':q.get('projectStatus',{}).get('status','UNKNOWN'),
                   'conditions':conditions,'measures':measures}
+          # Retrieve rule-level defects with source metadata, not raw scanner reports.
+          try:
+              issues=load('issues/search',{'componentKeys':project,'branch':branch,
+                                          'resolved':'false','ps':'500'})
+              noteworthy=[]
+              for issue in issues.get('issues',[]):
+                  impacts=issue.get('impacts',[])
+                  if issue.get('type') in ('BUG','VULNERABILITY') or any(
+                      x.get('softwareQuality') in ('RELIABILITY','SECURITY')
+                      for x in impacts):
+                      noteworthy.append({
+                          'rule':issue.get('rule'),'type':issue.get('type'),
+                          'severity':issue.get('severity'),
+                          'isNew':issue.get('inNewCodePeriod'),
+                          'file':issue.get('component','').split(':')[-1],
+                          'line':issue.get('line'),
+                          'message':str(issue.get('message',''))[:220]
+                      })
+              issue_report={'total':issues.get('total'),'actionable':noteworthy[:80]}
+          except Exception as ex:
+              issue_report={'error':type(ex).__name__}
+          try:
+              tree=load('measures/component_tree',{'component':project,'branch':branch,
+                     'metricKeys':'new_coverage,coverage,lines_to_cover','qualifiers':'FIL',
+                     'ps':'500'})
+              cov=[]
+              for item in tree.get('components',[]):
+                  ms={z.get('metric'):z.get('value') for z in item.get('measures',[])}
+                  if 'new_coverage' in ms:
+                      cov.append({'file':item.get('path'),'new_coverage':ms.get('new_coverage'),
+                                  'coverage':ms.get('coverage')})
+              cov=sorted(cov,key=lambda x:float(x['new_coverage'] or 0))
+              file_coverage={'total':len(cov),'lowest':cov[:40]}
+          except Exception as ex:
+              file_coverage={'error':type(ex).__name__}
+          result['issues']=issue_report
+          result['fileCoverage']=file_coverage
           s=json.dumps(result,ensure_ascii=True,sort_keys=True)
           print(s)
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
