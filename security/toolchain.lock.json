@@ -1,0 +1,40 @@
+{
+  "verified_at_utc": "2026-11-17T01:06:54.900058+00:00",
+  "actions": [
+    {
+      "repo": "actions/checkout",
+      "tag": "v4.3.1",
+      "sha": "34e114876b0b11c390a56381ad16ebd13914f8d5"
+    },
+    {
+      "repo": "actions/upload-artifact",
+      "tag": "v4.6.2",
+      "sha": "ea165f8d65b6e75b540449e92b4886f43607fa02"
+    }
+  ],
+  "images": [
+    {
+      "image": "docker.io/semgrep/semgrep",
+      "version": "1.185.0",
+      "digest": "sha256:67518c174185a2043fdbed16c70631b79209499b3671178e7194379b48295a0d"
+    },
+    {
+      "image": "ghcr.io/aquasecurity/trivy",
+      "version": "0.76.2",
+      "digest": "sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb"
+    }
+  ],
+  "local_validators": [
+    {
+      "tool": "actionlint",
+      "version": "1.7.12",
+      "sha256": "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8",
+      "url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz"
+    }
+  ],
+  "rules": {
+    "source": "Emergency custom rules",
+    "version": 1,
+    "sha256": "90a0405c2d4ffb9d1c7621172bc4bac0ee0eebf1bad9bc97ab703bae203e9754"
+  }
+}

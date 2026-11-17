@@ -1,0 +1,109 @@
+name: Security and quality
+
+on:
+  pull_request:
+  push:
+    branches: [main, master, 'codex/**', 'v1.*']
+  workflow_dispatch:
+  schedule:
+    # GitHub executes schedules from the default branch only.
+    - cron: '23 7 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  # Share a group for a branch's push and PR; cancel obsolete duplicate work.
+  group: security-quality-${{ github.event.pull_request.head.repo.full_name || github.repository }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  semgrep:
+    name: semgrep
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Test report privacy and failure propagation
+        run: python3 -m unittest discover -s security/tests -p 'test_*.py'
+      - name: Test local security rules
+        env:
+          SEMGREP_IMAGE: docker.io/semgrep/semgrep@sha256:67518c174185a2043fdbed16c70631b79209499b3671178e7194379b48295a0d
+        run: |
+          docker run --rm --network=none --cap-drop=ALL --security-opt=no-new-privileges \
+            -e SEMGREP_SEND_METRICS=off -e SEMGREP_ENABLE_VERSION_CHECK=0 \
+            -v "$PWD:/src:ro" -w /src "$SEMGREP_IMAGE" \
+            semgrep --test --config security/rules security/tests --metrics off --disable-version-check
+      - name: Scan with Semgrep 1.185.0
+        id: scan
+        env:
+          SEMGREP_IMAGE: docker.io/semgrep/semgrep@sha256:67518c174185a2043fdbed16c70631b79209499b3671178e7194379b48295a0d
+        run: |
+          mkdir -p "$RUNNER_TEMP/security"
+          docker run --rm --network=none --cap-drop=ALL --security-opt=no-new-privileges \
+            -e SEMGREP_SEND_METRICS=off -e SEMGREP_ENABLE_VERSION_CHECK=0 \
+            -v "$PWD:/src:ro" -v "$RUNNER_TEMP/security:/reports" -w /src "$SEMGREP_IMAGE" \
+            semgrep scan --config security/rules --metrics off --disable-version-check \
+            --strict --error --quiet --json --output /reports/semgrep.raw.json .
+      - name: Classify and enforce Semgrep findings
+        if: always() && steps.scan.outcome != 'skipped'
+        run: >-
+          python3 scripts/security/report.py semgrep
+          "$RUNNER_TEMP/security/semgrep.raw.json"
+          "$RUNNER_TEMP/security/semgrep.summary.json" --check
+          --require-target app/src/main.tsx
+          --require-target clinical/scripts/clinical_note_api.py
+      - name: Publish metadata only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: semgrep-metadata-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/security/semgrep.summary.json
+          if-no-files-found: error
+          retention-days: 7
+
+  trivy:
+    name: trivy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Scan with Trivy 0.76.2
+        id: scan
+        env:
+          TRIVY_IMAGE: ghcr.io/aquasecurity/trivy@sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb
+        run: |
+          mkdir -p "$RUNNER_TEMP/security" "$RUNNER_TEMP/trivy-cache"
+          docker run --rm --cap-drop=ALL --security-opt=no-new-privileges \
+            -v "$PWD:/src:ro" -v "$RUNNER_TEMP/security:/reports" \
+            -v "$RUNNER_TEMP/trivy-cache:/root/.cache/trivy" -w /src "$TRIVY_IMAGE" \
+            fs --config security/trivy.yaml --scanners vuln,secret,misconfig \
+            --disable-telemetry --skip-version-check --ignore-unfixed=false --include-dev-deps \
+            --format json --output /reports/trivy.raw.json --exit-code 0 --timeout 12m .
+      - name: Classify and enforce Trivy findings
+        if: always() && steps.scan.outcome != 'skipped'
+        # Scan all severities for visibility; block HIGH/CRITICAL and every secret.
+        run: >-
+          python3 scripts/security/report.py trivy
+          "$RUNNER_TEMP/security/trivy.raw.json"
+          "$RUNNER_TEMP/security/trivy.summary.json" --check
+          --require-target app/package-lock.json
+          --require-target clinical/requirements.txt
+          --require-target clinical/requirements-test.txt
+      - name: Publish metadata only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: trivy-metadata-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/security/trivy.summary.json
+          if-no-files-found: error
+          retention-days: 7
+
+  # SonarQube Cloud is deliberately not represented by a skipped green job.
+  # Activation requires verified project keys, plan and SONAR_TOKEN; see security/README.md.

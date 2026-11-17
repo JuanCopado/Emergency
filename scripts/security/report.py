@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""Publish allowlisted scan metadata, never snippets, messages or secret values."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+
+
+def fingerprint(tool, path, rule, package="", version="", extra=""):
+    value = json.dumps([tool, path, rule, package, version, extra], ensure_ascii=True)
+    return hashlib.sha256(value.encode()).hexdigest()
+
+
+def collect(tool, data):
+    findings = []
+    if tool == "semgrep":
+        if data.get("errors"):
+            raise ValueError("Semgrep reported scan errors; inspect runner-local diagnostics")
+        for item in data["results"]:
+            extra = item.get("extra", {})
+            rule = item["check_id"]
+            path = item["path"].removeprefix("/src/")
+            # The scanner's fingerprint does not contain source text.
+            identity = extra.get("fingerprint") or str(item["start"]["line"])
+            findings.append({
+                "tool": tool, "rule": rule, "file": path,
+                "line": item["start"]["line"],
+                "severity": extra.get("severity", "UNKNOWN"),
+                "fingerprint": fingerprint(tool, path, rule, extra=identity),
+            })
+    else:
+        if data.get("SchemaVersion") != 2:
+            raise ValueError("Unsupported Trivy report schema")
+        for result in data.get("Results", []):
+            path = result["Target"].removeprefix("/src/")
+            for item in result.get("Vulnerabilities", []):
+                rule, package, version = item["VulnerabilityID"], item["PkgName"], item["InstalledVersion"]
+                findings.append({
+                    "tool": tool, "kind": "vulnerability", "rule": rule,
+                    "file": path, "package": package, "installed_version": version,
+                    "fixed_version": item.get("FixedVersion", ""),
+                    "severity": item.get("Severity", "UNKNOWN"),
+                    "fingerprint": fingerprint(tool, path, rule, package, version),
+                })
+            for key, kind in [("Secrets", "secret"), ("Misconfigurations", "misconfiguration")]:
+                for item in result.get(key, []):
+                    rule = item.get("RuleID") or item.get("ID") or "unknown"
+                    line = item.get("StartLine") or item.get("CauseMetadata", {}).get("StartLine", 0)
+                    findings.append({
+                        "tool": tool, "kind": kind, "rule": rule,
+                        "file": path, "line": line,
+                        "severity": item.get("Severity", "UNKNOWN"),
+                        "fingerprint": fingerprint(tool, path, rule, extra=str(line)),
+                    })
+    return findings
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("tool", choices=["semgrep", "trivy"])
+    parser.add_argument("raw", type=Path)
+    parser.add_argument("output", type=Path)
+    parser.add_argument("--baseline", type=Path, default=Path("security/baseline.json"))
+    parser.add_argument("--check", action="store_true")
+    parser.add_argument("--require-target", action="append", default=[])
+    args = parser.parse_args()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        data = json.loads(args.raw.read_text())
+        targets = data.get("paths", {}).get("scanned", []) if args.tool == "semgrep" else [r["Target"] for r in data.get("Results", [])]
+        normalized = {p.removeprefix("/src/") for p in targets}
+        if not set(args.require_target).issubset(normalized):
+            raise ValueError("Required scan targets missing")
+        findings = collect(args.tool, data)
+        baseline = json.loads(args.baseline.read_text()) if args.baseline.exists() else {"findings": []}
+        known = {item["fingerprint"] for item in baseline["findings"]}
+        for finding in findings:
+            finding["origin"] = "PREEXISTING" if finding["fingerprint"] in known else "NEW_OR_CHANGED"
+            finding["owner"] = "UNASSIGNED"
+            finding["priority"] = "P1" if finding.get("kind") == "secret" or finding["severity"] in {"HIGH", "CRITICAL", "ERROR"} else "P2"
+            finding["next_action"] = "Review trust boundary and remediate; do not suppress without a dated decision"
+        blockers = [f for f in findings if args.tool == "semgrep" or f.get("kind") == "secret"
+                    or f["severity"] in {"HIGH", "CRITICAL"}]
+        report = {"schema_version": 1, "tool": args.tool,
+                  "status": "FINDINGS" if blockers else "PASS",
+                  "scanned_targets": len(targets),
+                  "blocking_findings": len(blockers), "findings": findings}
+    except (OSError, ValueError, KeyError, TypeError):
+        report = {"schema_version": 1, "tool": args.tool, "status": "ERROR",
+                  "reason": "Missing, malformed or incomplete scanner report", "findings": []}
+    args.output.write_text(json.dumps(report, indent=2, ensure_ascii=True) + "\n")
+    if summary := os.environ.get("GITHUB_STEP_SUMMARY"):
+        with open(summary, "a") as stream:
+            stream.write(f"### {args.tool}\n\nStatus: **{report['status']}**. "
+                         f"Findings: {len(report['findings'])}. "
+                         "See the metadata-only artifact. Clinical status is unchanged.\n\n")
+    print(f"{args.tool}: {report['status']}; {len(report['findings'])} findings")
+    if args.check:
+        raise SystemExit(2 if report["status"] == "ERROR" else int(report["status"] == "FINDINGS"))
+
+
+if __name__ == "__main__":
+    main()
