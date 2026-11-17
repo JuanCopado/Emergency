@@ -108,5 +108,67 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  # SonarQube Cloud is deliberately not represented by a skipped green job.
-  # Activation requires verified project keys, plan and SONAR_TOKEN; see security/README.md.
+  sonarqube:
+    name: sonarqube
+    # No needs: a vulnerability-only Trivy failure must not cancel this analysis.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - name: Determine whether secrets may be used
+        id: trust
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          REPOSITORY: ${{ github.repository }}
+          ACTOR: ${{ github.actor }}
+          TRIGGERING_ACTOR: ${{ github.triggering_actor }}
+        run: |
+          if { [ "$EVENT_NAME" = pull_request ] && [ "$HEAD_REPOSITORY" != "$REPOSITORY" ]; } \
+            || [ "$ACTOR" = 'dependabot[bot]' ] || [ "$TRIGGERING_ACTOR" = 'dependabot[bot]' ]; then
+            echo 'eligible=false' >> "$GITHUB_OUTPUT"
+            echo '::warning::Sonar analysis OMITTED: fork or Dependabot event; no secret supplied.'
+            echo '### SonarQube: OMITTED (untrusted PR or Dependabot); no analysis or quality gate result.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'eligible=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Require configured Sonar credential
+        if: steps.trust.outputs.eligible == 'true'
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          if [ -z "$SONAR_TOKEN" ]; then
+            echo '::error::Sonar CONFIGURATION_ERROR: repository Actions secret SONAR_TOKEN is missing.'
+            echo '### SonarQube: CONFIGURATION_ERROR; SONAR_TOKEN missing. Scan and quality gate NOT EXECUTED.' >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+      - name: Checkout complete history
+        if: steps.trust.outputs.eligible == 'true'
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Scan and wait for quality gate
+        id: sonar
+        if: steps.trust.outputs.eligible == 'true'
+        uses: SonarSource/sonarqube-scan-action@59202af334b4ba7b5db01b701b8e79f8b3bef0f4 # v8.5.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >-
+            -Dsonar.scanner.autoconfig.enabled=false
+            -Dsonar.qualitygate.wait=true
+            -Dsonar.qualitygate.timeout=600
+      - name: Record observed scan outcome
+        if: always() && steps.trust.outputs.eligible == 'true'
+        env:
+          SCAN_OUTCOME: ${{ steps.sonar.outcome }}
+        run: |
+          {
+            echo '### SonarQube Cloud'
+            echo "Scanner step outcome: **$SCAN_OUTCOME**."
+            echo 'A failed step may indicate configuration, plan limits, scanner errors or a failed quality gate; inspect its logs.'
+            echo 'A skipped scan is NOT EXECUTED. Technical analysis does not change CLINICALLY_PENDING.'
+            echo 'https://sonarcloud.io/dashboard?id=JuanCopado_Emergency'
+          } >> "$GITHUB_STEP_SUMMARY"

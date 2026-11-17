@@ -11,7 +11,7 @@ Base commit: `1d0652ebcef9b5990edd9e5745b0c06f8d6b8274`. Infrastructure only; cl
 - Trivy 0.76.2: completed; gate FAIL with 50 advisory occurrences (49 unique IDs): 3 CRITICAL, 16 HIGH, 26 MEDIUM, 5 LOW. No secret or misconfiguration findings in this scan.
 - Three dependency targets verified: app/package-lock.json, clinical/requirements.txt and clinical/requirements-test.txt.
 - All initial vulnerable manifests were proven byte-identical to the base commit: PREEXISTING. No suppressions or risk exceptions.
-- SonarQube Cloud: BLOCKED_ACCESS (CloudFront 403 before login); no project, token or analysis configured.
+- SonarQube Cloud at this initial cut: BLOCKED_ACCESS (CloudFront 403 before login). This historical access blocker was resolved in the local session on 17/11/2026; see [SONAR_SETUP_2026-11-17.md](SONAR_SETUP_2026-11-17.md) for actual configuration and remaining credential status.
 
 CLI scans ran locally because Docker is absent. Published PR: https://github.com/JuanCopado/Emergency/pull/22.
 

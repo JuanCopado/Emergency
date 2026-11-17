@@ -8,7 +8,7 @@ are unchanged. Publishing this task does not integrate the local R2/E1 candidate
 
 ## Execution
 
-`.github/workflows/security-and-quality.yml` adds two independent jobs, without
+`.github/workflows/security-and-quality.yml` adds three independent jobs, without
 altering Clinical QA or App UI QA. It runs on PRs and pushes to `main`, `master`,
 `codex/**` and `v1.*`, plus manual dispatch and a weekly Monday 07:23 UTC schedule.
 Concurrency cancels superseded push/PR work on the same repository and head
@@ -26,7 +26,8 @@ the workflow into the relevant branches/default branch.
 `toolchain.lock.json` records official action SHAs, registry image digests and
 versions. The workflow invokes scanner images directly with Docker, instead of
 using trivy-action and its additional transitive actions. Source mounts are
-read-only; no persisted Git credentials or application secrets are supplied.
+read-only; no persisted Git credentials or application secrets are supplied to
+Semgrep or Trivy. Only the Sonar credential check and scan receive SONAR_TOKEN.
 Containers run with the runner UID/GID, so their writable report/cache mounts
 work with all Linux capabilities dropped. Semgrep configuration/cache uses `/tmp`;
 Trivy uses the explicit `/cache` mount rather than a root-owned home directory.
@@ -79,27 +80,54 @@ to this initial snapshot, not a full historical/git blame analysis. Owners are
 No exception is approved. Any future exception must record scope, justification,
 owner and review date, and must not be created solely to obtain a green check.
 
-## SonarQube Cloud — BLOCKED_ACCESS
+## SonarQube Cloud - access restored, credential pending
 
-The repository was verified public and the connected GitHub account has admin
-permission. The cloud browser received a CloudFront 403 `Request blocked` at
-`https://sonarcloud.io/`, including after one reload, before sign-in or project
-selection. Organization, plan, existing project keys and Sonar permissions could
-not be verified. No OAuth permission, import, token, GitHub secret, analysis-method
-change, billing change or Sonar analysis was performed. No credential was exposed.
+The authenticated local Chrome session was used on 17/11/2026. Emergency already
+exists, is public and is bound to JuanCopado/Emergency. No duplicate was imported.
+Its GitHub Actions onboarding page provided the actual keys
+`sonar.projectKey=JuanCopado_Emergency` and `sonar.organization=juancopado`.
+Project and organization administration controls are available to Juan Copado.
+Automatic Analysis was switched OFF only for Emergency; Actions is configured
+in this workflow. The previous CloudFront 403 is historical, not a current blocker.
 
-There is intentionally no fabricated `sonar-project.properties` and no skipped
-Sonar job presented as successful. Resume in an accessible authenticated session:
-verify organization/visibility/plan and actual project keys; import only Emergency;
-select Actions and disable automatic analysis for that project; create the
-least-privileged supported token directly in GitHub Actions secrets; configure
-explicit source/test/generated scopes; reuse real coverage if available; pin the
-official scan action and wait for the quality gate. Never purchase a plan or
-make this project public as a workaround. Do not pass its token to fork PRs.
+The organization is on an existing Team trial, with premium access ending
+30/11/2026. Team permits branch analysis and PR analysis against our international
+integration branch. After a downgrade to Free, ordinary branch analysis is
+limited to the project's main branch, and PR analysis to PRs targeting that branch.
+PR #22 targets `codex/v144-international-scope-20261116`, so it would not qualify
+under those Free-plan restrictions. No subscription, payment, visibility,
+default-branch or branch-protection change was made. Future plan errors must
+remain visible and must not be reported as code findings or a passing gate.
 
-The free plan documentation limits ordinary branch analysis to the main branch
-and PRs targeting it; account/project eligibility must be checked during resumption.
-No claim of compatibility with every Emergency integration branch is made.
+The repository's Actions secrets page contains no SONAR_TOKEN. The Sonar
+onboarding screen exposed a token in a UI observation; it must not be used and
+requires revocation. A replacement scoped organization token can be restricted
+to Emergency with Browse (for gate status) and Execute analysis, without project
+administration or organization-wide access. Creation/credential handling awaits
+the required user intervention. No token is stored in the repository.
+
+`sonar-project.properties` classifies executable/configuration sources, Python
+tests, Vitest tests and browser checks explicitly. Scanner automatic configuration
+is disabled so it cannot override those boundaries. Generated clinical JSON,
+dependencies, build/cache outputs, archives and preservation/backups are excluded
+because they are derived data or outside executable source scope. Clinical
+canonical documents/data and private backup stores are not scanned. Source files
+are not excluded because of findings; synthetic security fixtures are test code.
+No coverage XML/LCOV report exists in this exact snapshot; no coverage percentage
+or coverage exclusion was invented.
+
+SonarSource sonarqube-scan-action v8.5.0 is pinned to verified full commit
+`59202af334b4ba7b5db01b701b8e79f8b3bef0f4`; it retains the action's scanner
+signature verification and waits up to 600 seconds for the quality gate.
+Checkout fetches full history and does not persist credentials. Sonar has no
+dependency on Trivy and receives only read permission for GitHub contents.
+Fork and Dependabot events emit an explicit OMITTED warning/summary and never
+receive SONAR_TOKEN. Missing credentials fail as CONFIGURATION_ERROR; scanner
+or gate failure is not suppressed. No pull_request_target trigger is used.
+
+Observed results and the remaining credential step are recorded in
+[SONAR_SETUP_2026-11-17.md](SONAR_SETUP_2026-11-17.md). Technical QA does not
+change clinical acceptance or CLINICALLY_PENDING.
 
 ## Reproduction
 
