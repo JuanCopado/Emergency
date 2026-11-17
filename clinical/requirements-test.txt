@@ -1,6 +1,6 @@
 -r requirements.txt
 # Extract actual PDF text in regression tests; not a runtime dependency.
-pypdf==6.20.0
+pypdf==6.21.4
 # Parse GitHub Actions configuration in coverage regressions.
 PyYAML==6.0.3
 # Validate migrated procedure artifacts against JSON Schema 2020-12.

@@ -54,8 +54,7 @@ jobs:
         if: always() && steps.scan.outcome != 'skipped'
         run: >-
           python3 scripts/security/report.py semgrep
-          "$RUNNER_TEMP/security/semgrep.raw.json"
-          "$RUNNER_TEMP/security/semgrep.summary.json" --check
+          --check
           --require-target app/src/main.tsx
           --require-target clinical/scripts/clinical_note_api.py
       - name: Publish metadata only
@@ -94,8 +93,7 @@ jobs:
         # Scan all severities for visibility; block HIGH/CRITICAL and every secret.
         run: >-
           python3 scripts/security/report.py trivy
-          "$RUNNER_TEMP/security/trivy.raw.json"
-          "$RUNNER_TEMP/security/trivy.summary.json" --check
+          --check
           --require-target app/package-lock.json
           --require-target clinical/requirements.txt
           --require-target clinical/requirements-test.txt

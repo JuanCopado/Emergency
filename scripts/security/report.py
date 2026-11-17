@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import os
+import tempfile
 from pathlib import Path
 
 
@@ -56,24 +57,81 @@ def collect(tool, data):
     return findings
 
 
+
+# Input/output filenames are fixed by the tool, never supplied via CLI.
+# RUNNER_TEMP is a GitHub Actions runner-controlled directory; local test runs
+# must explicitly provide an isolated absolute RUNNER_TEMP.
+MAX_RAW_REPORT_BYTES = 32 * 1024 * 1024
+
+
+def _report_paths(tool):
+    runner_temp = os.environ.get("RUNNER_TEMP", "")
+    if not runner_temp or not os.path.isabs(runner_temp):
+        raise ValueError("RUNNER_TEMP must identify an absolute runner-owned directory")
+    root = Path(runner_temp)
+    if root.is_symlink() or not root.is_dir():
+        raise ValueError("RUNNER_TEMP must be a real directory")
+    report_dir = root / "security"
+    if report_dir.is_symlink() or (report_dir.exists() and not report_dir.is_dir()):
+        raise ValueError("Invalid report directory")
+    report_dir.mkdir(mode=0o700, exist_ok=True)
+    os.chmod(report_dir, 0o700)
+    raw = report_dir / f"{tool}.raw.json"
+    output = report_dir / f"{tool}.summary.json"
+    if raw.is_symlink() or output.is_symlink():
+        raise ValueError("Symlinked report files are not permitted")
+    return raw, output
+
+
+def _load_scan(path):
+    # O_NOFOLLOW protects against a symlink swap between validation and open.
+    nofollow = getattr(os, "O_NOFOLLOW", 0)
+    fd = os.open(path, os.O_RDONLY | nofollow)
+    with os.fdopen(fd, "rb") as stream:
+        content = stream.read(MAX_RAW_REPORT_BYTES + 1)
+    if len(content) > MAX_RAW_REPORT_BYTES:
+        raise ValueError("Scanner report exceeds size limit")
+    return json.loads(content)
+
+
+def _atomic_write(path, data):
+    if path.is_symlink():
+        raise ValueError("Refusing to replace symlinked report")
+    content = json.dumps(data, indent=2, ensure_ascii=True) + "\n"
+    fd, staging = tempfile.mkstemp(prefix=f".{path.stem}.", suffix=".tmp", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            os.fchmod(stream.fileno(), 0o600)
+            stream.write(content)
+        os.replace(staging, path)
+    finally:
+        if os.path.exists(staging):
+            os.unlink(staging)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("tool", choices=["semgrep", "trivy"])
-    parser.add_argument("raw", type=Path)
-    parser.add_argument("output", type=Path)
-    parser.add_argument("--baseline", type=Path, default=Path("security/baseline.json"))
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--require-target", action="append", default=[])
     args = parser.parse_args()
-    args.output.parent.mkdir(parents=True, exist_ok=True)
+
     try:
-        data = json.loads(args.raw.read_text())
+        raw, output = _report_paths(args.tool)
+    except (OSError, ValueError):
+        print(f"{args.tool}: ERROR; invalid runner report directory")
+        raise SystemExit(2)
+
+    try:
+        data = _load_scan(raw)
         targets = data.get("paths", {}).get("scanned", []) if args.tool == "semgrep" else [r["Target"] for r in data.get("Results", [])]
         normalized = {p.removeprefix("/src/") for p in targets}
         if not set(args.require_target).issubset(normalized):
             raise ValueError("Required scan targets missing")
         findings = collect(args.tool, data)
-        baseline = json.loads(args.baseline.read_text()) if args.baseline.exists() else {"findings": []}
+        # The baseline location is anchored to this checkout, not a CLI path.
+        baseline_file = Path(__file__).resolve().parents[2] / "security" / "baseline.json"
+        baseline = json.loads(baseline_file.read_text()) if baseline_file.exists() else {"findings": []}
         known = {item["fingerprint"] for item in baseline["findings"]}
         for finding in findings:
             finding["origin"] = "PREEXISTING" if finding["fingerprint"] in known else "NEW_OR_CHANGED"
@@ -86,10 +144,16 @@ def main():
                   "status": "FINDINGS" if blockers else "PASS",
                   "scanned_targets": len(targets),
                   "blocking_findings": len(blockers), "findings": findings}
-    except (OSError, ValueError, KeyError, TypeError):
+    except (OSError, ValueError, KeyError, TypeError, RecursionError, UnicodeError):
         report = {"schema_version": 1, "tool": args.tool, "status": "ERROR",
                   "reason": "Missing, malformed or incomplete scanner report", "findings": []}
-    args.output.write_text(json.dumps(report, indent=2, ensure_ascii=True) + "\n")
+
+    try:
+        _atomic_write(output, report)
+    except (OSError, ValueError):
+        print(f"{args.tool}: ERROR; unable to write safe summary")
+        raise SystemExit(2)
+
     if summary := os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(summary, "a") as stream:
             stream.write(f"### {args.tool}\n\nStatus: **{report['status']}**. "

@@ -1,6 +1,7 @@
 """Adversarial checks for public reports and failure propagation."""
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -45,10 +46,13 @@ class PublicReportTests(unittest.TestCase):
     @staticmethod
     def run_report(tool, data):
         with tempfile.TemporaryDirectory() as directory:
-            raw, output = Path(directory) / "raw.json", Path(directory) / "summary.json"
+            security = Path(directory) / "security"
+            security.mkdir()
+            raw = security / f"{tool}.raw.json"
             raw.write_text(json.dumps(data))
-            return subprocess.run([sys.executable, str(SCRIPT), tool, str(raw), str(output), "--check"],
-                                  capture_output=True, text=True, check=False)
+            environment = {**os.environ, "RUNNER_TEMP": directory}
+            return subprocess.run([sys.executable, str(SCRIPT), tool, "--check"],
+                                  capture_output=True, text=True, check=False, env=environment)
 
 
 if __name__ == "__main__":
