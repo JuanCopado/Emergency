@@ -1,0 +1,61 @@
+name: Diagnose exact Sonar quality gate on measured coverage branch
+on:
+  push:
+    branches:
+      - audit/sonar-gate-status-20261117
+    paths:
+      - .github/workflows/sonar-gate-status-diagnostic.yml
+permissions:
+  contents: read
+jobs:
+  query:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Fetch allowlisted Sonar quality gate conditions
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import base64
+          import json
+          import os
+          from urllib.request import Request, urlopen
+          from urllib.parse import urlencode
+          token=os.environ.get('SONAR_TOKEN','')
+          if not token:
+              raise SystemExit('SONAR_TOKEN not configured; no query executed')
+          base='https://sonarcloud.io/api/'
+          auth='Basic '+base64.b64encode((token+':').encode()).decode()
+          def load(endpoint, params):
+              req=Request(base+endpoint+'?'+urlencode(params),
+                          headers={'Authorization':auth, 'Accept':'application/json'})
+              with urlopen(req, timeout=30) as resp:
+                  return json.load(resp)
+          project='JuanCopado_Emergency'
+          branch='codex/security-sonar-coverage-20261117'
+          q=load('qualitygates/project_status',{'projectKey':project,'branch':branch})
+          allowed={'coverage','new_coverage','new_security_rating','security_rating',
+                   'new_reliability_rating','new_duplicated_lines_density',
+                   'new_maintainability_rating','new_security_hotspots_reviewed',
+                   'new_blocker_violations','new_critical_violations'}
+          conditions=[]
+          for item in q.get('projectStatus',{}).get('conditions',[]):
+              if item.get('metricKey') in allowed:
+                  conditions.append({key:item.get(key) for key in
+                    ('metricKey','status','actualValue','errorThreshold','comparator')})
+          try:
+              m=load('measures/component',{'component':project,'branch':branch,
+                'metricKeys':','.join(['coverage','new_coverage','security_rating',
+                'new_security_rating','ncloc'])})
+              measures={x.get('metric'):x.get('value') for x in m.get('component',{}).get('measures',[])}
+          except Exception:
+              measures={'status':'unavailable'}
+          result={'qualityGate':q.get('projectStatus',{}).get('status','UNKNOWN'),
+                  'conditions':conditions,'measures':measures}
+          s=json.dumps(result,ensure_ascii=True,sort_keys=True)
+          print(s)
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('### Sonar measured branch — exact gate conditions\n\n')
+              f.write('\\x60\\x60\\x60json\n'+s+'\n\\x60\\x60\\x60\n')
+          PY
