@@ -79,6 +79,10 @@ jobs:
         run: python -m pip install -r ../clinical/requirements-test.txt
       - name: Install
         run: npm ci
+      - name: Verify temporary picomatch guard
+        run: |
+          npm run security:picomatch:check
+          npm run security:picomatch:test
       - name: Check committed canonical artifacts
         run: |
           npm run guides:test

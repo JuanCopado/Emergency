@@ -1,0 +1,18 @@
+{
+  "status": "TEMPORARY_LOCAL_MITIGATION_NOT_OFFICIAL_FIX",
+  "advisory": "GHSA-fc5q-39xc-vjpf",
+  "anchor": "  const extglobOpen = (type, value) => {",
+  "guard_block": "\n    // EMERGENCY_TEMP_PICOMATCH_REPEATED_EXTGLOB_GUARD\n    if (type === 'plus' || type === 'star') {\n      const error = new SyntaxError('Temporary mitigation: repeated extglobs are disabled');\n      error.code = 'ERR_PICOMATCH_REPEATED_EXTGLOB';\n      throw error;\n    }\n",
+  "versions": {
+    "4.0.7": {
+      "version": "4.0.7",
+      "original_sha256": "4e1e05447668aa1e94366c5516a2bcd8f5fff800cc92b1d0cd7d77703b8618c4",
+      "patched_sha256": "d0d7a5c813b23f7b7ca422a0c0b8a568ca9b8521e0159e0a6365555d8230070c"
+    },
+    "2.3.2": {
+      "version": "2.3.2",
+      "original_sha256": "3a91656f440069aa8f8e15c9d695b9f6b2209df1eab2be8127c72cbcca45ff5f",
+      "patched_sha256": "7dc99bd00f86946e6f77122899d813086554d843471e649f080c52f9584675cc"
+    }
+  }
+}
