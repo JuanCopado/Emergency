@@ -5,7 +5,7 @@ Detects source changes and emits review proposals. It NEVER edits clinical
 modules or the evidence registry.
 """
 from __future__ import annotations
-import argparse, hashlib, json, pathlib, sys, urllib.request, urllib.parse
+import argparse, hashlib, ipaddress, json, pathlib, socket, sys, unicodedata, urllib.request, urllib.parse
 from datetime import datetime, timezone
 from evidence_content_extractor import clinical_fingerprint
 from evidence_change_classifier import classify
@@ -17,14 +17,75 @@ DEFAULT_SOURCES=ROOT/"references"/"evidence-surveillance-sources.json"
 def digest(data: bytes)->str:
     return hashlib.sha256(data).hexdigest()
 
-def fetch(url:str, timeout:int=30)->bytes:
-    req=urllib.request.Request(url, headers={"User-Agent":"Emergency-Evidence-Surveillance/1.0"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        if getattr(r,"status",200)!=200: raise RuntimeError(f"HTTP {r.status}")
-        requested=urllib.parse.urlparse(url).hostname
-        final=urllib.parse.urlparse(r.geturl()).hostname
-        if requested!=final: raise RuntimeError(f"redirected to different host: {final}")
-        return r.read(5_000_001)
+# Vetted discovery endpoints only. New sources require a reviewed code change.
+# These hostnames do not restrict the international clinical guideline core.
+APPROVED_EVIDENCE_HOSTS = frozenset({
+    "normas.dgs.min-saude.pt",
+    "www.ema.europa.eu",
+    "www.infarmed.pt",
+    "www.who.int",
+    "www.erc.edu",
+    "www.escardio.org",
+    "www.nice.org.uk",
+    "extranet.infarmed.pt",
+})
+MAX_EVIDENCE_RESPONSE_BYTES = 5_000_000
+
+
+class _RejectRedirects(urllib.request.HTTPRedirectHandler):
+    """Never contact a Location URL, including same-host or HTTPS redirects."""
+
+    def redirect_request(self, request, fp, code, msg, headers, newurl):
+        return None
+
+
+def _validated_source_host(url):
+    if not isinstance(url, str) or not url or len(url) > 4096:
+        raise ValueError("Unapproved evidence source URL")
+    if any(unicodedata.category(char) in {"Cc", "Cf", "Zl", "Zp"} for char in url):
+        raise ValueError("Unsafe characters in evidence source URL")
+    parts = urllib.parse.urlsplit(url)
+    if (parts.scheme != "https" or parts.hostname not in APPROVED_EVIDENCE_HOSTS
+            or parts.username is not None or parts.password is not None
+            or parts.port not in (None, 443) or parts.fragment):
+        raise ValueError("Unapproved evidence source destination")
+    return parts.hostname
+
+
+def _require_public_dns(host):
+    # Additional preflight against split DNS/private IPs. TLS validates host
+    # identity at connect time; DNS TOCTOU remains a deployment consideration.
+    try:
+        addresses = socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM)
+    except OSError:
+        raise ValueError("Cannot resolve approved evidence source") from None
+    if not addresses or any(
+        not ipaddress.ip_address(item[4][0].split("%", 1)[0]).is_global
+        for item in addresses
+    ):
+        raise ValueError("Evidence source resolved to a non-public address")
+
+
+def fetch(url: str, timeout: int = 30) -> bytes:
+    host = _validated_source_host(url)
+    _require_public_dns(host)
+    request = urllib.request.Request(
+        url, headers={"User-Agent": "Emergency-Evidence-Surveillance/1.0"},
+        method="GET",
+    )
+    # urllib's default handler follows redirects before application code can
+    # inspect the final host. Explicitly disable that behavior.
+    opener = urllib.request.build_opener(_RejectRedirects())
+    with opener.open(request, timeout=timeout) as response:
+        if getattr(response, "status", 200) != 200:
+            raise RuntimeError("Evidence source returned non-success HTTP status")
+        if _validated_source_host(response.geturl()) != host:
+            raise ValueError("Evidence source destination changed")
+        body = response.read(MAX_EVIDENCE_RESPONSE_BYTES + 1)
+        if len(body) > MAX_EVIDENCE_RESPONSE_BYTES:
+            raise ValueError("Evidence source response exceeds the size cap")
+        return body
+
 
 def run(source_path:pathlib.Path, previous:dict|None=None, cadence:str|None=None)->dict:
     cfg=json.loads(source_path.read_text(encoding="utf-8"))
@@ -52,7 +113,7 @@ def run(source_path:pathlib.Path, previous:dict|None=None, cadence:str|None=None
                     proposal["classification"]="source-review-signal"
                 out["review_queue"].append(proposal)
         except Exception as e:
-            item["error"]=f"{type(e).__name__}: {e}"
+            item["error"]=f"{type(e).__name__}: source unavailable or rejected"
         out["sources"][s["id"]]=item
     return out
 
