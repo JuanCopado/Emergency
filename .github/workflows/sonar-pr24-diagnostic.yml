@@ -1,0 +1,62 @@
+name: Temporary Sonar PR24 security issue diagnostic
+on:
+  push:
+    branches:
+      - audit/security-pr24-sonar-20261118
+    paths:
+      - .github/workflows/sonar-pr24-diagnostic.yml
+permissions:
+  contents: read
+jobs:
+  query-security:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Query issue metadata with scoped Sonar token
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import base64, json, os
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+          token=os.environ.get("SONAR_TOKEN","")
+          if not token: raise SystemExit("SONAR_TOKEN unavailable; no query")
+          auth="Basic "+base64.b64encode((token+":").encode()).decode()
+          host="https://sonarcloud.io/api/"
+          def query(endpoint, params):
+              req=Request(host+endpoint+"?"+urlencode(params),headers={
+                  "Authorization":auth,"Accept":"application/json"})
+              with urlopen(req,timeout=30) as response:
+                  return json.load(response)
+          project="JuanCopado_Emergency"
+          gate=query("qualitygates/project_status",{
+              "projectKey":project,"pullRequest":"24"})
+          result=query("issues/search",{
+              "organization":"juancopado",
+              "componentKeys":project,
+              "pullRequest":"24",
+              "ps":"100"})
+          issues=[]
+          for item in result.get("issues",[]):
+              impact=item.get("impacts") or []
+              security=(item.get("type")=="VULNERABILITY" or any(
+                  i.get("softwareQuality")=="SECURITY" for i in impact))
+              if not security: continue
+              issues.append({
+                  "rule":item.get("rule"),"type":item.get("type"),
+                  "status":item.get("status"),
+                  "new":item.get("inNewCodePeriod"),
+                  "severity":item.get("severity"),
+                  "path":(item.get("component") or "").split(":")[-1],
+                  "line":item.get("line"),
+                  "message":str(item.get("message",""))[:180],
+                  "impacts":impact,
+              })
+          conditions=[{k:i.get(k) for k in ("metricKey","status","actualValue","errorThreshold")}
+              for i in gate.get("projectStatus",{}).get("conditions",[])
+              if i.get("status")=="ERROR"]
+          print(json.dumps({"gate":gate.get("projectStatus",{}).get("status"),
+              "conditions":conditions,"total_issue_count":result.get("total"),
+              "security_issues":issues[:60]},sort_keys=True))
+          PY
