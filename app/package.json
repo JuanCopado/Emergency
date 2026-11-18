@@ -19,7 +19,32 @@
     "pediatrics:build": "python ../clinical/scripts/build_pediatric_catalog.py",
     "pediatrics:check": "python ../clinical/scripts/build_pediatric_catalog.py --check",
     "pediatrics:browser-check": "node scripts/check-pediatric-outpatient.mjs",
-    "insulin:browser-check": "node scripts/check-insulin-uci.mjs"
+    "insulin:browser-check": "node scripts/check-insulin-uci.mjs",
+    "test:coverage": "vitest run --coverage --maxWorkers=2",
+    "postinstall": "node scripts/picomatch-mitigation.mjs --apply",
+    "security:picomatch:apply": "node scripts/picomatch-mitigation.mjs --apply",
+    "security:picomatch:check": "node scripts/picomatch-mitigation.mjs --check",
+    "security:picomatch:revert": "node scripts/picomatch-mitigation.mjs --revert",
+    "security:picomatch:test": "node --test scripts/picomatch-mitigation.node-test.mjs",
+    "predev": "node scripts/picomatch-mitigation.mjs --check",
+    "prebuild": "node scripts/picomatch-mitigation.mjs --check",
+    "pretest": "node scripts/picomatch-mitigation.mjs --check",
+    "prelint": "node scripts/picomatch-mitigation.mjs --check",
+    "pretypecheck": "node scripts/picomatch-mitigation.mjs --check",
+    "prepreview": "node scripts/picomatch-mitigation.mjs --check",
+    "pretest:coverage": "node scripts/picomatch-mitigation.mjs --check",
+    "preicons": "node scripts/picomatch-mitigation.mjs --check",
+    "prescreenshots": "node scripts/picomatch-mitigation.mjs --check",
+    "preguides:build": "node scripts/picomatch-mitigation.mjs --check",
+    "preguides:test": "node scripts/picomatch-mitigation.mjs --check",
+    "preguides:print-check": "node scripts/picomatch-mitigation.mjs --check",
+    "preprocedures:build": "node scripts/picomatch-mitigation.mjs --check",
+    "preprocedures:test": "node scripts/picomatch-mitigation.mjs --check",
+    "prepediatrics:build": "node scripts/picomatch-mitigation.mjs --check",
+    "prepediatrics:check": "node scripts/picomatch-mitigation.mjs --check",
+    "prepediatrics:browser-check": "node scripts/picomatch-mitigation.mjs --check",
+    "preinsulin:browser-check": "node scripts/picomatch-mitigation.mjs --check",
+    "security:picomatch:installation-check": "node scripts/check-picomatch-installation.mjs"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +54,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^17.0.15",
-    "react-router-dom": "^6.30.6",
+    "react-router-dom": "7.18.5",
     "zod": "^4.6.5"
   },
   "devDependencies": {
@@ -50,11 +75,28 @@
     "postcss": "^8.5.28",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.71.0",
-    "vite": "^5.4.21",
+    "typescript-eslint": "8.73.0",
+    "vite": "6.4.6",
     "vite-plugin-pwa": "^1.3.0",
-    "vitest": "^2.1.9"
+    "vitest": "4.1.12",
+    "@vitest/coverage-v8": "4.1.12"
   },
   "private": true,
-  "type": "module"
+  "type": "module",
+  "overrides": {
+    "source-map-js": "1.2.2",
+    "undici": "8.12.2",
+    "fast-uri": "3.1.9",
+    "postcss-selector-parser": "6.1.5",
+    "serialize-javascript": "7.1.3",
+    "workbox-build": {
+      "glob": "14.0.2"
+    },
+    "glob": {
+      "minimatch": "11.0.9"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.9"
+    }
+  }
 }

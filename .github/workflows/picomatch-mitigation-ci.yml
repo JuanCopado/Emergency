@@ -1,0 +1,86 @@
+name: Picomatch clean installation
+
+on:
+  push:
+    branches: ['codex/picomatch-pm02-ci-*', 'codex/pm02-audit-fix-*']
+  pull_request:
+    paths:
+      - 'app/package*.json'
+      - 'app/scripts/*picomatch*'
+      - 'security/picomatch-mitigation.json'
+      - '.github/workflows/picomatch-mitigation-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: picomatch-install-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  clean-install:
+    name: ${{ matrix.os }} / ${{ matrix.install }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2025]
+        install: [project-hook, explicit-apply, automatic-full]
+    defaults:
+      run:
+        shell: bash
+        working-directory: app
+    steps:
+      - name: Checkout isolated proposal
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Set up Python for unchanged catalog builder
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Record toolchain versions
+        run: |
+          node --version
+          npm --version
+      - name: Clean dependency install for project postinstall path
+        if: matrix.install == 'project-hook'
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Run only the verified project postinstall
+        if: matrix.install == 'project-hook'
+        run: npm run postinstall --ignore-scripts
+      - name: Clean install with lifecycle scripts disabled
+        if: matrix.install != 'project-hook'
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Check installation and fail-closed behavior
+        run: npm run security:picomatch:installation-check -- --mode '${{ matrix.install }}' --output '${{ runner.temp }}/picomatch-installation.json'
+      - name: Run bounded mitigation regressions
+        run: npm run security:picomatch:test
+      - name: Run resource-bounded fuzz against installed parsers and Rollup public API
+        run: python ../security/tests/picomatch_fuzz.py --app . --out '${{ runner.temp }}/picomatch-fuzz.json'
+      - name: Check guard after private fixture tests
+        run: npm run security:picomatch:check
+      - name: Lint and application tests
+        run: |
+          npm run lint
+          npm test -- --maxWorkers=2
+      - name: Build and verify preserved clinical sources and policies
+        run: |
+          npm run build
+          git diff --exit-code -- ../clinical src package-lock.json ../security/trivy.yaml ../security/requirements-ci.txt
+      - name: Publish installation metadata
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: picomatch-install-${{ matrix.os }}-${{ matrix.install }}
+          path: |
+            ${{ runner.temp }}/picomatch-installation.json
+            ${{ runner.temp }}/picomatch-fuzz.json
+          if-no-files-found: error
+          retention-days: 7

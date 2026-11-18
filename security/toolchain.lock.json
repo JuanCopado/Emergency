@@ -1,0 +1,69 @@
+{
+  "verified_at_utc": "2026-11-17T01:06:54.900058+00:00",
+  "actions": [
+    {
+      "repo": "actions/checkout",
+      "tag": "v4.3.1",
+      "sha": "34e114876b0b11c390a56381ad16ebd13914f8d5"
+    },
+    {
+      "repo": "actions/upload-artifact",
+      "tag": "v4.6.2",
+      "sha": "ea165f8d65b6e75b540449e92b4886f43607fa02"
+    },
+    {
+      "repo": "SonarSource/sonarqube-scan-action",
+      "tag": "v8.5.0",
+      "sha": "59202af334b4ba7b5db01b701b8e79f8b3bef0f4",
+      "verified_at_utc": "2026-11-17",
+      "source": "https://api.github.com/repos/SonarSource/sonarqube-scan-action/git/ref/tags/v8.5.0",
+      "scanner_version": "8.4.0.16527"
+    },
+    {
+      "repo": "actions/setup-node",
+      "tag": "v4",
+      "sha": "49933ea5288caeca8642d1e84afbd3f7d6820020",
+      "verified_at_utc": "2026-11-18T10:33:41.469430+00:00",
+      "source": "https://api.github.com/repos/actions/setup-node/git/ref/tags/v4"
+    },
+    {
+      "repo": "actions/setup-python",
+      "tag": "v5",
+      "sha": "a26af69be951a213d495a4c3e4e4022e16d87065",
+      "verified_at_utc": "2026-11-18T10:33:41.469452+00:00",
+      "source": "https://api.github.com/repos/actions/setup-python/git/ref/tags/v5"
+    },
+    {
+      "repo": "actions/download-artifact",
+      "tag": "v4",
+      "sha": "d3f86a106a0bac45b974a628896c90dbdf5c8093",
+      "verified_at_utc": "2026-11-18T10:33:41.469455+00:00",
+      "source": "https://api.github.com/repos/actions/download-artifact/git/ref/tags/v4"
+    }
+  ],
+  "images": [
+    {
+      "image": "docker.io/semgrep/semgrep",
+      "version": "1.185.0",
+      "digest": "sha256:67518c174185a2043fdbed16c70631b79209499b3671178e7194379b48295a0d"
+    },
+    {
+      "image": "ghcr.io/aquasecurity/trivy",
+      "version": "0.76.2",
+      "digest": "sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb"
+    }
+  ],
+  "local_validators": [
+    {
+      "tool": "actionlint",
+      "version": "1.7.12",
+      "sha256": "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8",
+      "url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz"
+    }
+  ],
+  "rules": {
+    "source": "Emergency custom rules",
+    "version": 1,
+    "sha256": "90a0405c2d4ffb9d1c7621172bc4bac0ee0eebf1bad9bc97ab703bae203e9754"
+  }
+}

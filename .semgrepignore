@@ -1,0 +1,15 @@
+# Synthetic rule fixtures are tested separately with semgrep --test.
+security/tests/
+.git/
+node_modules/
+app/node_modules/
+app/dist/
+**/__pycache__/
+preservation/
+backups/
+graphify-out/
+knowledge-graph/generated/
+# Canonical generated catalogs contain data, not executable source.
+app/src/data/generatedClinicalGuides.json
+app/src/data/generatedProcedures.json
+app/src/data/generatedPediatricOutpatient.json

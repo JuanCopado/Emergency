@@ -1,0 +1,16 @@
+[run]
+branch = True
+relative_files = True
+parallel = True
+patch = subprocess
+source =
+    clinical/scripts
+    clinical/qa
+    clinical/agents
+    scripts
+
+[report]
+show_missing = True
+
+[xml]
+output = coverage.xml
