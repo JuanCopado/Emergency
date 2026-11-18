@@ -29,7 +29,12 @@ function run(label, argv, expected, requiredError) {
 const controller = path.join(app, 'scripts/picomatch-mitigation.mjs');
 if (mode === 'explicit-apply') {
   run('clean install without lifecycle scripts is unguarded', [controller, '--check'], 1, /Guard absent/);
-  run('prebuild refuses unguarded dependencies', [process.env.npm_execpath, 'run', 'prebuild'], 1, /Guard absent/);
+  const scripts = JSON.parse(fs.readFileSync(path.join(app, 'package.json'), 'utf8')).scripts;
+  for (const name of Object.keys(scripts).filter(name => !(name.startsWith('pre') && Object.hasOwn(scripts, name.slice(3))) && name !== 'postinstall' && !name.startsWith('security:'))) {
+    const hook = `pre${name}`;
+    assert.equal(scripts[hook], 'node scripts/picomatch-mitigation.mjs --check', `Missing guard for ${name}`);
+    run(`${hook} refuses unguarded dependencies`, [process.env.npm_execpath, 'run', hook], 1, /Guard absent/);
+  }
   run('explicit apply', [controller, '--apply'], 0);
 } else {
   if (mode === 'automatic-full') automaticLifecycle = JSON.parse(run('automatic full npm installation with reviewed dependency hooks', [path.join(app, 'scripts/check-picomatch-lifecycle.mjs')], 0).stdout);

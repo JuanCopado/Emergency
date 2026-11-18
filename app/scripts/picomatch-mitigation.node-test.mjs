@@ -137,3 +137,21 @@ test('automatic installation rejects unreviewed lifecycle hooks, including impli
   for (const event of ['preinstall', 'install', 'postinstall', 'prepare', 'preprepare', 'postprepare', 'prepublish']) assert.throws(() => validateHooks('', { [event]: 'node unexpected.js' }, {}), /Unreviewed lifecycle/);
   for (const event of ['preinstall', 'install', 'postinstall']) assert.throws(() => validateHooks('ordinary', { [event]: 'node unexpected.js' }, {}), /Unreviewed lifecycle/);
 });
+
+test('temporary corruption is rejected before replacing an existing dependency', () => fixture(root => {
+  runMode('--revert', root); const before = fs.readFileSync(target(root));
+  fault('fsyncSync', original => descriptor => { original(descriptor); fs.writeSync(descriptor, Buffer.from('!'), 0, 1, 0); }, () => assert.throws(() => runMode('--apply', root), /Temporary write verification failed/));
+  assert.deepEqual(fs.readFileSync(target(root)), before);
+  runMode('--apply', root); runMode('--check', root);
+}));
+test('an exclusive temporary-name collision never deletes a foreign file', () => fixture(root => {
+  runMode('--revert', root); let foreign;
+  fault('openSync', original => (filename, flags, ...args) => {
+    if (flags === 'wx' && String(filename).includes('.emergency-') && String(filename).endsWith('.tmp')) {
+      foreign = filename; fs.writeFileSync(filename, 'synthetic foreign owner');
+    }
+    return original(filename, flags, ...args);
+  }, () => assert.throws(() => runMode('--apply', root), /EEXIST/));
+  assert.equal(fs.readFileSync(foreign, 'utf8'), 'synthetic foreign owner');
+  fs.unlinkSync(foreign); runMode('--apply', root); runMode('--check', root);
+}));

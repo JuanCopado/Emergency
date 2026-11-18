@@ -99,16 +99,23 @@ function loadPlan(root, mode) {
 function atomicWrite(target, bytes) {
   const temp = `${target}.emergency-${randomUUID()}.tmp`;
   let descriptor;
+  let created = false;
   try {
     descriptor = fs.openSync(temp, 'wx', fs.statSync(target).mode);
+    created = true;
+    fs.fchmodSync(descriptor, fs.statSync(target).mode);
     fs.writeFileSync(descriptor, bytes);
     fs.fsyncSync(descriptor);
     fs.closeSync(descriptor); descriptor = undefined;
+    if (hash(fs.readFileSync(temp)) !== hash(bytes)) fail(`Temporary write verification failed: ${target}`);
     fs.renameSync(temp, target);
     if (hash(fs.readFileSync(target)) !== hash(bytes)) fail(`Write verification failed: ${target}`);
   } finally {
-    if (descriptor !== undefined) fs.closeSync(descriptor);
-    if (fs.existsSync(temp)) fs.unlinkSync(temp);
+    try {
+      if (descriptor !== undefined) fs.closeSync(descriptor);
+    } finally {
+      if (created && fs.existsSync(temp)) fs.unlinkSync(temp);
+    }
   }
 }
 function removeDeadOwner(lock) {

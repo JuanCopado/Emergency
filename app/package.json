@@ -1,7 +1,7 @@
 {
   "name": "emergency",
   "version": "0.1.0",
-  "description": "Emergency â€” clinical reference PWA for emergency/ICU infusions (Sprint 1, draft)",
+  "description": "Emergency — clinical reference PWA for emergency/ICU infusions (Sprint 1, draft)",
   "scripts": {
     "dev": "vite",
     "build": "npm run guides:build && npm run procedures:build && npm run pediatrics:build && tsc -b && vite build",
@@ -33,6 +33,17 @@
     "pretypecheck": "node scripts/picomatch-mitigation.mjs --check",
     "prepreview": "node scripts/picomatch-mitigation.mjs --check",
     "pretest:coverage": "node scripts/picomatch-mitigation.mjs --check",
+    "preicons": "node scripts/picomatch-mitigation.mjs --check",
+    "prescreenshots": "node scripts/picomatch-mitigation.mjs --check",
+    "preguides:build": "node scripts/picomatch-mitigation.mjs --check",
+    "preguides:test": "node scripts/picomatch-mitigation.mjs --check",
+    "preguides:print-check": "node scripts/picomatch-mitigation.mjs --check",
+    "preprocedures:build": "node scripts/picomatch-mitigation.mjs --check",
+    "preprocedures:test": "node scripts/picomatch-mitigation.mjs --check",
+    "prepediatrics:build": "node scripts/picomatch-mitigation.mjs --check",
+    "prepediatrics:check": "node scripts/picomatch-mitigation.mjs --check",
+    "prepediatrics:browser-check": "node scripts/picomatch-mitigation.mjs --check",
+    "preinsulin:browser-check": "node scripts/picomatch-mitigation.mjs --check",
     "security:picomatch:installation-check": "node scripts/check-picomatch-installation.mjs"
   },
   "keywords": [],
