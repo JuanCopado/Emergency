@@ -1,47 +1,47 @@
-# STATE â€” contratos revisados habilitados, 16/11/2026
+# STATE — contratos revisados habilitados, 16/11/2026
 
-- Directriz vigente: aceptaciÃ³n mÃ©dica del propietario y ejecuciÃ³n de lo ya revisado; ver `AGENTS.md`.
-- Alcance: nÃºcleo internacional coherente, guÃ­as reconocidas y diferencias materiales; sin hospital obligatorio.
+- Directriz vigente: aceptación médica del propietario y ejecución de lo ya revisado; ver `AGENTS.md`.
+- Alcance: núcleo internacional coherente, guías reconocidas y diferencias materiales; sin hospital obligatorio.
 - Base inspeccionada: `062d890b4fc92369b83c87664bb4bb0205ccb33f`, rama internacional con ceftriaxona e INT-02A.
 - Rama de entrega: `codex/v144-reviewed-contracts-enable-20261116`.
-- GMA-P2-004: 19 bloqueos permanentes sustituidos por 6 contratos capaces de cÃ¡lculo y 13 de apoyo de decisiÃ³n.
-- CatÃ¡logo:46 IDs conservados,0 block_reason; controles reales de caso/producto permanecen.
-- AceptaciÃ³n: `clinical/references/acute-contract-owner-acceptance-2026-11-16.json`; no volver a pedirla.
-- Estatus: carga inicial adulta de fenitoÃ­na con modos dosis/preparaciÃ³n; refractario con EEG, escalada y traslado.
-- Anafilaxia: IM ponderal <6 meses y perfusiÃ³n refractaria; intervalos <5 min dan orientaciÃ³n sin dosis automÃ¡tica.
-- ReversiÃ³n:15 rutas; productos/tablas y contextos de hemorragia diferenciados segÃºn fuentes primarias.
+- GMA-P2-004: 19 bloqueos permanentes sustituidos por 6 contratos capaces de cálculo y 13 de apoyo de decisión.
+- Catálogo:46 IDs conservados,0 block_reason; controles reales de caso/producto permanecen.
+- Aceptación: `clinical/references/acute-contract-owner-acceptance-2026-11-16.json`; no volver a pedirla.
+- Estatus: carga inicial adulta de fenitoína con modos dosis/preparación; refractario con EEG, escalada y traslado.
+- Anafilaxia: IM ponderal <6 meses y perfusión refractaria; intervalos <5 min dan orientación sin dosis automática.
+- Reversión:15 rutas; productos/tablas y contextos de hemorragia diferenciados según fuentes primarias.
 - GMA-P2-001: corregido overflow/underflow en doseToRate/rateToDose;9 regresiones nuevas.
-- Correcciones relacionadas: riesgo IM sin contraindicaciÃ³n absoluta ficticia; enoxaparinaâ‰¤8/>8 h y lÃ­mite de cada administraciÃ³n lenta de protamina.
-- Cuatro etiquetas de guÃ­as sincronizadas con GREEN ya aceptado14/11:vasoactivos,sedaciÃ³n UCI,ambulatorio pediÃ¡trico,marco POCUS.
-- Registro de evidencia conservado:131 mÃ³dulos,117 GREEN/14 YELLOW/0 RED; sin nueva promociÃ³n automÃ¡tica.
-- QA local:812 pruebas Python y7/7 controles globales PASS;445 frontend,4 guÃ­as,9 procedimientos PASS.
-- Typecheck,lint,build,catÃ¡logo normalizado y grafo PASS;61 casos nominales/46 IDs PASS.
-- Navegador local:BLOCKED_ENVIRONMENT por socket EPERM antes de abrir pÃ¡gina;0 casos, sin PASS ficticio.
-- Navegador real en GitHub: 21/21 casos, 19/19 contratos, JSON/PDF/DOCX/impresiÃ³n y controles negativos PASS.
+- Correcciones relacionadas: riesgo IM sin contraindicación absoluta ficticia; enoxaparina≤8/>8 h y límite de cada administración lenta de protamina.
+- Cuatro etiquetas de guías sincronizadas con GREEN ya aceptado14/11:vasoactivos,sedación UCI,ambulatorio pediátrico,marco POCUS.
+- Registro de evidencia conservado:131 módulos,117 GREEN/14 YELLOW/0 RED; sin nueva promoción automática.
+- QA local:812 pruebas Python y7/7 controles globales PASS;445 frontend,4 guías,9 procedimientos PASS.
+- Typecheck,lint,build,catálogo normalizado y grafo PASS;61 casos nominales/46 IDs PASS.
+- Navegador local:BLOCKED_ENVIRONMENT por socket EPERM antes de abrir página;0 casos, sin PASS ficticio.
+- Navegador real en GitHub: 21/21 casos, 19/19 contratos, JSON/PDF/DOCX/impresión y controles negativos PASS.
 - Clinical QA, App UI QA y Evidence surveillance guardrails PASS en push y PR #20.
-- GMA-P2-004 y GMA-P2-001 resueltos dentro del alcance documentado; los demÃ¡s hallazgos conservan su estado.
-- PublicaciÃ³n verificada: PR #20, commit de implementaciÃ³n `04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22`; integraciÃ³n trazada en https://github.com/JuanCopado/Emergency/pull/20.
+- GMA-P2-004 y GMA-P2-001 resueltos dentro del alcance documentado; los demás hallazgos conservan su estado.
+- Publicación verificada: PR #20, commit de implementación `04c52c91cb5c07c5cbcaadcf9b2f9e519b1b4e22`; integración trazada en https://github.com/JuanCopado/Emergency/pull/20.
 - Matriz/evidencia: `clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y JSON asociado.
-- Fuentes/evidencia/firma tÃ©cnica diferenciadas; no se inventa firma independiente de Farmacia ni validaciÃ³n prospectiva.
-- CLINICALLY_PENDING global; no se declaran cerrados otros P1/P2, stock internacional ni instalaciÃ³n en el PC.
-- Proteger main y lÃ­neas cerradas RC1/v1.43; no afirmar integraciÃ³n por publicar una rama.
-- Los documentos anteriores que conservaban19 bloqueos describen sus cortes histÃ³ricos y quedan superados en este alcance.
+- Fuentes/evidencia/firma técnica diferenciadas; no se inventa firma independiente de Farmacia ni validación prospectiva.
+- CLINICALLY_PENDING global; no se declaran cerrados otros P1/P2, stock internacional ni instalación en el PC.
+- Proteger main y líneas cerradas RC1/v1.43; no afirmar integración por publicar una rama.
+- Los documentos anteriores que conservaban19 bloqueos describen sus cortes históricos y quedan superados en este alcance.
 
-## ContinuaciÃ³n de seguridad PR22 â€” 17/11/2026, copia aislada
+## Continuación de seguridad PR22 — 17/11/2026, copia aislada
 
-- Propuesta completa de dependencias aplicada sobre793d674911b8bd1af7285b4fc45c37f95c2a2666 en una nueva copia local. No se incorporan deltas clÃ­nicos/UI/PDF de Q5 ni se cambia PR22 remoto.
-- Trivy0.76.2 real, misma base de vulnerabilidades: original50 registros/19 bloqueantes; copia integrada13 inferiores/0 bloqueantes, gate localPASS sin supresiÃ³n.
+- Propuesta completa de dependencias aplicada sobre793d674911b8bd1af7285b4fc45c37f95c2a2666 en una nueva copia local. No se incorporan deltas clínicos/UI/PDF de Q5 ni se cambia PR22 remoto.
+- Trivy0.76.2 real, misma base de vulnerabilidades: original50 registros/19 bloqueantes; copia integrada13 inferiores/0 bloqueantes, gate localPASS sin supresión.
 - npm audit:0 HIGH/CRITICAL,17 MODERATE y1 LOW pendientes.812 Python,445 frontend y4 pruebas del informePASS; build/typecheck/lint/pip checkPASS.
-- Sonar y Semgrep no ejecutados de nuevo sobre este Ã¡rbol; los gates remotos anteriores conservan su estado. Sin commit/push/merge/despliegue; original y ZIPs Q5 preservados.
-- Detalle de versiones, alcance y lÃ­mites: security/PR22_LOCAL_DEPENDENCY_INTEGRATION_2026-11-17.md. CLINICALLY_PENDING conservado, sin cambios de cÃ¡lculos o contenido clÃ­nico.
+- Sonar y Semgrep no ejecutados de nuevo sobre este árbol; los gates remotos anteriores conservan su estado. Sin commit/push/merge/despliegue; original y ZIPs Q5 preservados.
+- Detalle de versiones, alcance y límites: security/PR22_LOCAL_DEPENDENCY_INTEGRATION_2026-11-17.md. CLINICALLY_PENDING conservado, sin cambios de cálculos o contenido clínico.
 
-## ContinuaciÃ³n local seguridad â€” 18/11/2026
+## Continuación local seguridad — 18/11/2026
 
-- Nueva copia desde0858e29â€¦; correcciones dirigidas de avisos inferiores y rutas CLI del informe. CÃ³digo/cÃ¡lculos/contenido clÃ­nico intactos; CLINICALLY_PENDING.
-- Cobertura real XML/LCOV generada:812 Python,445 frontend y8 del informePASS; build/typecheck/lint/pip check/actionlintPASS. Python76,95% y frontend71,11% de lÃ­neas; no se declara gate Sonar80%PASS.
-- Con base Trivy actual, la copia anterior tiene2HIGH+13inferiores y la nueva2HIGH+0inferiores. Son dos registros del mismo picomatch/CVE-2026-112366 sin versiÃ³n oficial corregida. npm conserva25 paquetesHIGH por ese Ãºnico advisory;0moderados/bajos. Gate de dependenciasFAIL conservado.
-- Workflow preparado para cobertura medida antes de Sonar, acciones fijadas y clasificador por stdin/stdout sin rutas arbitrarias. No hay anÃ¡lisis remoto nuevo, supresiÃ³n, publicaciÃ³n o cambios a PR22 remoto.
-- Estado vigente y lÃ­mites: security/PR22_SECURITY_CONTINUATION_2026-11-18.md. Documentos del17/11 conservan su contexto histÃ³rico.
+- Nueva copia desde0858e29…; correcciones dirigidas de avisos inferiores y rutas CLI del informe. Código/cálculos/contenido clínico intactos; CLINICALLY_PENDING.
+- Cobertura real XML/LCOV generada:812 Python,445 frontend y8 del informePASS; build/typecheck/lint/pip check/actionlintPASS. Python76,95% y frontend71,11% de líneas; no se declara gate Sonar80%PASS.
+- Con base Trivy actual, la copia anterior tiene2HIGH+13inferiores y la nueva2HIGH+0inferiores. Son dos registros del mismo picomatch/CVE-2026-112366 sin versión oficial corregida. npm conserva25 paquetesHIGH por ese único advisory;0moderados/bajos. Gate de dependenciasFAIL conservado.
+- Workflow preparado para cobertura medida antes de Sonar, acciones fijadas y clasificador por stdin/stdout sin rutas arbitrarias. No hay análisis remoto nuevo, supresión, publicación o cambios a PR22 remoto.
+- Estado vigente y límites: security/PR22_SECURITY_CONTINUATION_2026-11-18.md. Documentos del17/11 conservan su contexto histórico.
 
 
 ## 18/11/2026 — evaluación local de mitigación temporal de picomatch
@@ -62,3 +62,7 @@ La primera matriz remota aprobó los cuatro casos y Trivy conservó dos HIGH. So
 ### PM-02 — instalación CI con scripts de dependencias desactivados
 
 La segunda matriz aprobó los cuatro casos y la cobertura nueva Sonar subió a 97,2%; fiabilidad y mantenibilidad A. Quedó un aviso de seguridad por permitir lifecycle scripts en npm ci. Se ajusta CI para instalar siempre con --ignore-scripts y, en el caso postinstall, ejecutar únicamente el hook conocido del proyecto mediante npm run postinstall --ignore-scripts. El autoenganche de npm ci ya se comprobó localmente y en las matrices anteriores; esta revisión no afirma ejecutarlo automáticamente en CI. El caso explícito mantiene su comprobación de ausencia y bloqueo previo. No se descarta el hallazgo: se elimina la ejecución amplia de scripts que lo originó. La nueva revisión queda pendiente de su resultado remoto. Trivy continúa bloqueando y no cambian fuentes clínicas, lock o cálculos.
+
+### PM-03 — corrección de auditoría, 18/11/2026
+
+Copia aislada desde `fba27dcc898b6b42893f46823efd3f8385a06432`. App UI instala sin scripts de terceros; reemplazo atómico de parsers con rollback individual; 18 comandos de producto protegidos; prueba de junction Windows sin omisión y mojibake histórico reparado. Controlador 11/11, frontend 445/445, clasificador 8/8, lint y build PASS locales. Matriz Windows/Linux 4/4, App UI/navegador/PDF, Clinical QA, Semgrep, cobertura y Sonar PASS sobre las implementaciones verificadas; Sonar 97,4% de cobertura nueva y cero issues. Límites de regex y picomatch embebido en Rollup documentados, sin entradas externas convertidas en patrones. GitHub retiró GHSA-fc5q-39xc-vjpf a las 15:38:56 UTC; npm audit devuelve 0 vulnerabilidades. Trivy con DB anterior bloqueó dos HIGH; se esperó a la publicación oficial de la DB de las 19:07:09 UTC y el escaneo completo devuelve PASS local, cero hallazgos y cuatro manifiestos. La CI que aún recibía el mirror antiguo pasa a consultar el origen oficial GHCR y publicar fecha/versión de DB. Política, manifiestos, clasificador y umbrales intactos; los resultados remotos finales se identifican en la entrega. Ver `security/PICOMATCH_PM03_SECURITY_2026-11-18.md`. Fuentes clínicas, app/src y lock preservados; `CLINICALLY_PENDING`, ramas protegidas intactas y sin despliegue.

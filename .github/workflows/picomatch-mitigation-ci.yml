@@ -2,7 +2,7 @@ name: Picomatch clean installation
 
 on:
   push:
-    branches: ['codex/picomatch-pm02-ci-*']
+    branches: ['codex/picomatch-pm02-ci-*', 'codex/picomatch-pm03-*']
   pull_request:
     paths:
       - 'app/package*.json'
