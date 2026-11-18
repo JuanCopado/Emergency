@@ -2,8 +2,12 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
+import { productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
+
+const auditBuild = process.env.EMERGENCY_SECURITY_AUDIT === '1';
 
 export default defineConfig(({ mode }) => ({
+  build: { sourcemap: auditBuild ? 'hidden' : false },
   server: {
     // Unit fidelity checks read the canonical Markdown without exposing it in dev mode.
     ...(mode === 'test' ? { fs: { allow: [
@@ -17,6 +21,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [
+    productionDependencyGuard(),
     react(),
     {
       name: 'brand-html',
@@ -49,6 +54,8 @@ export default defineConfig(({ mode }) => ({
         ],
       },
       workbox: {
+        // CI inspects the worker's separate generated module sources as well.
+        sourcemap: auditBuild,
         globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
         navigateFallback: '/index.html',
       },

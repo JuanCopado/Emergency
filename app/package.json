@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "npm run guides:build && npm run procedures:build && npm run pediatrics:build && tsc -b && vite build",
     "preview": "vite preview",
+    "build:security": "npm run build && node scripts/build-dependency-guard.mjs --check-service-worker",
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "lint": "eslint .",
