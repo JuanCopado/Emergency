@@ -8,6 +8,7 @@ const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const fail = message => { throw new Error(message); };
 const slash = value => value.split(path.sep).join('/');
+const alphabetic = (left, right) => left.localeCompare(right, 'en');
 function ordinary(target, directory = false) {
   const stat = fs.lstatSync(target);
   if (stat.isSymbolicLink() || (directory ? !stat.isDirectory() : !stat.isFile())) fail(`Expected ordinary path: ${target}`);
@@ -28,8 +29,8 @@ function readConfig(root) {
   ordinary(policy);
   if (hash(fs.readFileSync(policy, 'utf8').replaceAll('\r\n', '\n')) !== config.policy_sha256) fail('Unknown runtime policy bytes');
   const lock = JSON.parse(lockText);
-  const expectedPackages = Object.keys(lock.packages).filter(p => /\/picomatch$/.test(p) || p === 'node_modules/rollup').sort();
-  const reviewedPackages = [...new Set(config.targets.map(t => t.package))].sort();
+  const expectedPackages = Object.keys(lock.packages).filter(p => /\/picomatch$/.test(p) || p === 'node_modules/rollup').sort(alphabetic);
+  const reviewedPackages = [...new Set(config.targets.map(t => t.package))].sort(alphabetic);
   if (JSON.stringify(expectedPackages) !== JSON.stringify(reviewedPackages)) fail('Unreviewed locked package inventory');
   return { config, modules, expectedPackages };
 }
@@ -55,7 +56,7 @@ function scanInstalled(root, modules, known) {
     }
   }
   walk(modules);
-  return actualPackages.sort();
+  return actualPackages.sort(alphabetic);
 }
 function transformed(text, spec, reverse) {
   if (reverse) {

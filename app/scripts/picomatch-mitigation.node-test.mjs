@@ -76,6 +76,17 @@ test('atomic replacement failure leaves complete known files and blocks check un
   runMode('--apply', root); runMode('--check', root); assert.ok(!fs.existsSync(marker(root)));
   assert.ok(!fs.readdirSync(path.dirname(target(root))).some(name => name.endsWith('.tmp')));
 }));
+test('a real terminated fixture process leaves a blocked transaction that recovers forward', () => fixture(root => {
+  runMode('--revert', root);
+  const controllerURL = new URL('./picomatch-mitigation.mjs', import.meta.url).href;
+  const code = `import fs from 'node:fs';import {runMode} from ${JSON.stringify(controllerURL)};const original=fs.renameSync;let count=0;fs.renameSync=(...args)=>{original(...args);if(++count===3)process.kill(process.pid,'SIGKILL');};runMode('--apply',${JSON.stringify(root)});`;
+  const child = spawnSync(process.execPath, ['--max-old-space-size=96', '--input-type=module', '-e', code], { timeout: 15000, encoding: 'utf8' });
+  assert.ifError(child.error); assert.notEqual(child.status, 0);
+  assert.ok(fs.existsSync(marker(root))); assert.ok(fs.existsSync(locker(root)));
+  assert.throws(() => runMode('--check', root), /Pending/);
+  runMode('--apply', root); runMode('--check', root);
+  assert.ok(!fs.existsSync(marker(root))); assert.ok(!fs.existsSync(locker(root)));
+}));
 test('write verification and unknown pending transactions fail closed', () => {
   fixture(root => {
     runMode('--revert', root);

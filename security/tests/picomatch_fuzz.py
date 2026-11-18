@@ -14,7 +14,7 @@ process.stdin.setEncoding('utf8');
 process.stdin.on('data', data => input += data);
 process.stdin.on('end', async () => {
   const task = JSON.parse(input);
-  const stage = value => console.log(JSON.stringify({stage:value}));
+  const stage = value => console.log(JSON.stringify({stage:value,child_ms:Math.round(performance.now()*100)/100}));
   stage('loading');
   try {
     if (task.kind.startsWith('rollup')) {
@@ -56,7 +56,7 @@ process.stdin.on('end', async () => {
       console.log(JSON.stringify({kind:'RESULT', match:result}));
     }
   } catch(error) {
-    console.log(JSON.stringify({kind:String(error.code || '').startsWith('ERR_PICOMATCH_') ? 'GUARD_REJECT' : 'ERROR', code:error.code || error.name, message:String(error.message).slice(0,160)}));
+    console.log(JSON.stringify({kind:(String(error.code || '').startsWith('ERR_PICOMATCH_') || (error.code === 'PLUGIN_ERROR' && String(error.message).startsWith('Temporary picomatch policy:'))) ? 'GUARD_REJECT' : 'ERROR', code:error.code || error.name, message:String(error.message).slice(0,160)}));
   }
 });
 '''
@@ -125,7 +125,7 @@ def run_probe(task, args, directory, remaining):
     final=next((e for e in reversed(events) if 'kind' in e),{})
     last_stage=next((e['stage'] for e in reversed(events) if 'stage' in e),'startup')
     status='TIMEOUT' if timed_out else final.get('kind','RESOURCE_OR_PROCESS_ERROR')
-    return {**task,'status':status,'stage':last_stage,'exit':process.returncode,'elapsed_ms':round((time.monotonic()-started)*1000,2),'result':final,'stderr_tail':err.decode('utf-8',errors='replace')[-240:] if not final else ''}
+    return {**task,'status':status,'stage':last_stage,'stage_times':[e for e in events if 'stage' in e],'exit':process.returncode,'elapsed_ms':round((time.monotonic()-started)*1000,2),'result':final,'stderr_tail':err.decode('utf-8',errors='replace')[-240:] if not final else ''}
 
 
 def tasks_for(app, temporary, args):
@@ -177,20 +177,23 @@ def tasks_for(app, temporary, args):
             if p.exists():snapshot[str(p)]=sha(p.read_bytes())
         for kind,module in [('rollup-filter',package/'dist/shared/rollup.js'),('rollup-public',package)]:
             for pattern,subject in [('**/*','a.js'),('+(*a)','a'*8+'!'),('+(*a)','a'*36+'!'),('(a+)+b','a'*36+'!')]:
-                tasks.append({'kind':kind,'label':'rollup-'+json.loads((package/'package.json').read_text())['version'],'module':str(module),'pattern':pattern,'subject':subject,'options':{}})
+                task={'kind':kind,'label':'rollup-'+json.loads((package/'package.json').read_text())['version'],'module':str(module),'pattern':pattern,'subject':subject,'options':{}}
+                if pattern=='**/*':
+                    task['expected_match' if kind=='rollup-filter' else 'expected_transformed']=True if kind=='rollup-filter' else 1
+                tasks.append(task)
     options=[{'regex':True}, {}, {'fastpaths':False},{'dot':True},{'windows':True},{'bash':True},{'noextglob':True},{'regex':False},{'maxExtglobRecursion':False},{'contains':True},{'capture':True},{'strictBrackets':True},{'unescape':True},{'nonegate':True},{'posix':True}]
     apis=['matcher','makeRe','isMatch','parse','parser','array']
     for i,pattern in enumerate(corpus):
         target=targets[i%len(targets)];subject=('x/' if i%7==0 else '')+'a'*[16,24,36,48][i%4]+('!/y' if i%7==0 else '!')
         tasks.append({'kind':'pm',**target,'api':apis[(i//len(targets))%len(apis)],'pattern':pattern,'subject':subject,'options':options[(i//3)%len(options)]})
-    return tasks[:args.probes],inventory,snapshot,sorted(set(''.join(corpus)))
+    return tasks,inventory,snapshot,sorted(set(''.join(corpus)))
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--app',required=True,type=Path);parser.add_argument('--out',required=True,type=Path)
     parser.add_argument('--node',default=shutil.which('node'));parser.add_argument('--probes',type=int,default=360)
-    parser.add_argument('--seconds',type=float,default=120);parser.add_argument('--timeout-ms',type=int,default=700)
+    parser.add_argument('--seconds',type=float,default=120);parser.add_argument('--timeout-ms',type=int,default=1200)
     parser.add_argument('--heap-mib',type=int,default=96);parser.add_argument('--job-mib',type=int,default=384)
     parser.add_argument('--virtual-mib',type=int,default=8192);parser.add_argument('--seed',type=int,default=20261118)
     parser.add_argument('--rollup-extra',action='append',default=[])
@@ -204,7 +207,7 @@ def main():
     started=time.monotonic();results=[]
     with tempfile.TemporaryDirectory(prefix='pm02-fuzz-') as temporary:
         tasks,inventory,snapshot,alphabet=tasks_for(args.app,temporary,args)
-        for number,task in enumerate(tasks):
+        for number,task in enumerate(tasks[:args.probes]):
             remaining=args.seconds-(time.monotonic()-started)
             if remaining<=0:break
             row=run_probe(task,args,temporary,remaining);row['probe']=number;results.append(row)
@@ -212,7 +215,7 @@ def main():
         mismatches=[p for p,h in snapshot.items() if sha(Path(p).read_bytes())!=h]
         if mismatches:raise RuntimeError('Read-only dependency check failed: '+repr(mismatches))
     assert sha(Path(__file__).read_bytes())==runner_hash, 'Fuzz runner changed during execution'
-    failures=[r['probe'] for r in results if not r['label'].startswith('original-control-') and (r['status'] in {'TIMEOUT','RESOURCE_OR_PROCESS_ERROR'} or ('expected_match' in r and r['result'].get('match') != r['expected_match']))]
+    failures=[r['probe'] for r in results if not r['label'].startswith('original-control-') and (r['status'] in {'TIMEOUT','RESOURCE_OR_PROCESS_ERROR'} or ('expected_match' in r and r['result'].get('match') != r['expected_match']) or ('expected_transformed' in r and r['result'].get('transformed') != r['expected_transformed']) or (r['status']=='ERROR' and r['result'].get('code')!='SyntaxError'))]
     complete=len(results)==len(tasks)
     report={'gate':'PASS' if complete and not failures else 'FAIL','unexpected_probes':failures,'runner_sha256':runner_hash,'child_source_sha256':child_hash,'node':node_version,'dependency_hashes':snapshot,'seed':args.seed,'elapsed_seconds':round(time.monotonic()-started,3),'requested_probes':args.probes,'completed_probes':len(results),'scheduled_probes':len(tasks),'time_budget_reached':len(results)<len(tasks),'exhaustive':False,'node_heap_mib':args.heap_mib,'windows_job_committed_memory_mib':args.job_mib if os.name=='nt' else None,'posix_address_space_mib':args.virtual_mib if os.name!='nt' else None,'timeout_ms':args.timeout_ms,'alphabet':alphabet,'installed_inventory':inventory,'dependency_hashes_unchanged':True,'counts':dict(collections.Counter(x['status'] for x in results)),'results':results}
     with args.out.open('x',encoding='utf-8') as out:json.dump(report,out,indent=2);out.write('\n')

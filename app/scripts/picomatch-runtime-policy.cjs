@@ -58,8 +58,9 @@ function consumeToken(pattern, index, state) {
 }
 function complexity(pattern) {
   const state = { variable: 0, choices: 1, bracket: false, quoted: false };
-  for (let i = 0; i < pattern.length; i++) {
-    i = consumeToken(pattern, i, state);
+  let i = 0;
+  while (i < pattern.length) {
+    i = consumeToken(pattern, i, state) + 1;
     if (state.choices > LIMITS.work) refuse('branch budget');
   }
   return { variable: state.variable, choices: state.choices };

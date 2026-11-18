@@ -52,7 +52,7 @@ try {
   const previous = fs.readFileSync(lcovPath, 'utf8');
   const records = previous.split(/(?<=end_of_record\n)/);
   const kept = records.filter(record => !targets.includes(record.match(/^SF:(.+)$/m)?.[1]?.replaceAll('\\', '/')));
-  assert.equal(records.filter(record => record.includes('SF:app/scripts/picomatch-mitigation.mjs\n')).length, 1, 'Existing controller coverage record required');
+  assert.equal(records.filter(record => record.match(/^SF:(.+)$/m)?.[1]?.replaceAll('\\', '/') === 'app/scripts/picomatch-mitigation.mjs').length, 1, 'Existing controller coverage record required');
   fs.writeFileSync(lcovPath, kept.join('') + native);
   const stats = map.getCoverageSummary().toJSON();
   const provenance = { nonce, startedUTC: started.toISOString(), completedUTC: new Date().toISOString(), sourceHashes: before, captures: captureFiles.map(name => ({ name, sha256: digest(path.join(directory, name)) })), source: 'Fresh successful bounded fixture tests; unchanged source hashes before/after; unique private capture directory', stats, otherLcovRecordsUnchanged: true };
