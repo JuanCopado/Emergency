@@ -2,9 +2,7 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
-import { productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
-
-const auditBuild = process.env.EMERGENCY_SECURITY_AUDIT === '1';
+import { auditBuild, productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
 
 export default defineConfig(({ mode }) => ({
   build: { sourcemap: auditBuild ? 'hidden' : false },

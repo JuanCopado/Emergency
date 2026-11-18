@@ -1,5 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 
+export const auditBuild = process.env.EMERGENCY_SECURITY_AUDIT === '1';
+
 function isMatcher(id) {
   const path = id.replaceAll('\\', '/').replaceAll('\0', '');
   return /(?:^|\/)node_modules\/picomatch(?:\/|\?|$)/.test(path)
