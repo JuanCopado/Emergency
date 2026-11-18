@@ -11,7 +11,14 @@ from cli_paths import input_file, output_file
 def urgent_items(report:dict)->list[dict]:
     return [dict(x, requires_human_review=True, auto_apply=False) for x in report.get("review_queue",[]) if x.get("classification")=="urgent-safety"]
 def main():
-    p=argparse.ArgumentParser();p.add_argument("report", type=input_file);p.add_argument("--output", type=output_file,required=True);a=p.parse_args()
-    r=json.loads(a.report.read_text()); out={"production_changes_applied":False,"urgent_review_queue":urgent_items(r)}
-    a.output.write_text(json.dumps(out,indent=2)+"\n")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("report", type=input_file)
+    parser.add_argument("--output", type=output_file, required=True)
+    args = parser.parse_args()
+    destination: pathlib.Path = output_file(args.output)
+    report = json.loads(args.report.read_text())
+    result = {"production_changes_applied": False,
+              "urgent_review_queue": urgent_items(report)}
+    destination.write_text(data=json.dumps(result, indent=2) + "\n", encoding="utf-8")
+
 if __name__=="__main__":main()

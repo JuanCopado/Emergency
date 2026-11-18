@@ -171,14 +171,22 @@ def run(source_path:pathlib.Path, previous:dict|None=None, cadence:str|None=None
         out["sources"][s["id"]]=item
     return out
 
-def main()->int:
-    p=argparse.ArgumentParser();p.add_argument("--sources", type=input_file,default=DEFAULT_SOURCES);p.add_argument("--previous", type=input_file);p.add_argument("--cadence",choices=["weekly","urgent"]);p.add_argument("--output", type=output_file,required=True)
-    a=p.parse_args()
-    previous=json.loads(a.previous.read_text(encoding="utf-8")) if a.previous and a.previous.exists() else None
-    report=run(a.sources,previous,a.cadence)
-    a.output.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-    failures=[k for k,v in report["sources"].items() if v["status"]!="ok"]
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--sources", type=input_file, default=DEFAULT_SOURCES)
+    parser.add_argument("--previous", type=input_file)
+    parser.add_argument("--cadence", choices=["weekly", "urgent"])
+    parser.add_argument("--output", type=output_file, required=True)
+    args = parser.parse_args()
+    destination: pathlib.Path = output_file(args.output)
+    previous = json.loads(args.previous.read_text(encoding="utf-8")) if args.previous else None
+    report = run(args.sources, previous, args.cadence)
+    destination.write_text(data=json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    failures = [key for key, value in report["sources"].items() if value["status"] != "ok"]
     if failures:
-        print("SURVEILLANCE INCOMPLETE; failed sources: "+", ".join(failures),file=sys.stderr);return 2
-    print(f"Evidence surveillance completed; pending review: {len(report['review_queue'])}");return 0
+        print("SURVEILLANCE INCOMPLETE; failed sources: " + ", ".join(failures), file=sys.stderr)
+        return 2
+    print(f"Evidence surveillance completed; pending review: {len(report['review_queue'])}")
+    return 0
+
 if __name__=="__main__": raise SystemExit(main())

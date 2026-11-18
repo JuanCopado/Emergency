@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 
-def _bounded_path(value, access):
+def _bounded_path(value, access) -> Path:
     raw = os.fspath(value)
     if not isinstance(raw, str) or not raw or any(ord(c) < 32 for c in raw):
         raise argparse.ArgumentTypeError("invalid CLI path")
@@ -44,28 +44,28 @@ def _bounded_path(value, access):
     return target
 
 
-def input_file(value):
+def input_file(value) -> Path:
     target = _bounded_path(value, "INPUT")
     if not target.is_file():
         raise argparse.ArgumentTypeError("CLI input must be a regular file")
     return target
 
 
-def input_directory(value):
+def input_directory(value) -> Path:
     target = _bounded_path(value, "INPUT")
     if not target.is_dir():
         raise argparse.ArgumentTypeError("CLI input must be a directory")
     return target
 
 
-def output_file(value):
+def output_file(value) -> Path:
     target = _bounded_path(value, "OUTPUT")
     if target.exists() and not target.is_file():
         raise argparse.ArgumentTypeError("CLI output must be a regular file")
     return target
 
 
-def output_directory(value):
+def output_directory(value) -> Path:
     target = _bounded_path(value, "OUTPUT")
     if target.exists() and not target.is_dir():
         raise argparse.ArgumentTypeError("CLI output must be a directory")

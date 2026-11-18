@@ -109,7 +109,7 @@ def _image_in_artifact_root(root_dir, image_file):
     if not isinstance(image_file, str) or not image_file or any(ord(c) < 32 for c in image_file):
         raise ValueError("invalid image_file")
     relative = Path(image_file)
-    if relative.is_absolute() or relative.drive:
+    if relative.is_absolute() or relative.drive or relative.root:
         raise ValueError("image_file must be relative to the artifact root")
     root = Path(root_dir).resolve(strict=True)
     target = (root / relative).resolve()

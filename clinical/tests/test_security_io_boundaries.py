@@ -1,5 +1,6 @@
 """Offline regressions of launcher capabilities, transport and export adapters."""
 import argparse
+import contextlib
 import io
 import json
 import os
@@ -184,6 +185,66 @@ class SyntheticFixtureIntegrityTests(unittest.TestCase):
         self.assertEqual(len(result['output']['cases']), 1061)
 
 
+class SurveillanceCliBoundaryTests(unittest.TestCase):
+    def test_surveillance_writes_only_explicit_destination_and_preserves_report_data(self):
+        with tempfile.TemporaryDirectory() as td:
+            base = pathlib.Path(td); read_root = base/'read'; write_root = base/'write'
+            read_root.mkdir(); write_root.mkdir()
+            source = read_root/'sources.json'; source.write_text('{}')
+            previous = read_root/'previous.json'; previous.write_text('{"synthetic_previous":true}')
+            report = {'sources': {'synthetic': {'status': 'ok'}}, 'review_queue': [],
+                      'synthetic_data': '../outside.json <>&', 'production_changes_applied': False}
+            argv = ['surveillance', '--sources', str(source), '--previous', str(previous),
+                    '--cadence', 'weekly', '--output', 'report.json']
+            with patch.dict(os.environ, {'EMERGENCY_CLI_INPUT_ROOT': str(read_root),
+                                        'EMERGENCY_CLI_OUTPUT_ROOT': str(write_root)}), \
+                 patch.object(sys, 'argv', argv), patch.object(surveillance, 'run', return_value=report) as run, \
+                 redirect_stdout(io.StringIO()):
+                self.assertEqual(surveillance.main(), 0)
+            self.assertEqual(json.loads((write_root/'report.json').read_text()), report)
+            run.assert_called_once_with(source.resolve(), {'synthetic_previous': True}, 'weekly')
+            self.assertFalse((base/'outside.json').exists())
+
+    def test_surveillance_failure_stays_nonzero_and_does_not_modify_source(self):
+        with tempfile.TemporaryDirectory() as td, patch.dict(os.environ, {'EMERGENCY_CLI_OUTPUT_ROOT': td}), \
+             patch.object(sys, 'argv', ['surveillance', '--output', 'report.json']), \
+             patch.object(surveillance, 'run', return_value={'sources': {'synthetic': {'status': 'error'}}, 'review_queue': []}), \
+             redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(surveillance.main(), 2)
+            self.assertEqual(json.loads((pathlib.Path(td)/'report.json').read_text())['sources']['synthetic']['status'], 'error')
+
+    def test_surveillance_rejects_external_destination_before_running(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = pathlib.Path(td)/'allowed'; root.mkdir()
+            with patch.dict(os.environ, {'EMERGENCY_CLI_OUTPUT_ROOT': str(root)}), \
+                 patch.object(sys, 'argv', ['surveillance', '--output', '../outside.json']), \
+                 patch.object(surveillance, 'run') as run, contextlib.redirect_stderr(io.StringIO()):
+                with self.assertRaises(SystemExit): surveillance.main()
+                run.assert_not_called()
+            self.assertFalse((root.parent/'outside.json').exists())
+
+    def test_urgent_cli_keeps_review_required_and_never_auto_applies(self):
+        import urgent_safety_triage as urgent
+        with tempfile.TemporaryDirectory() as td:
+            root = pathlib.Path(td)
+            report = {'review_queue': [
+                {'id': 'synthetic-urgent', 'classification': 'urgent-safety', 'auto_apply': True,
+                 'requires_human_review': False, 'synthetic_data': '../outside.json <>&'},
+                {'id': 'synthetic-other', 'classification': 'other'}]}
+            original = json.dumps(report)
+            (root/'input.json').write_text(original, encoding='utf-8')
+            with patch.dict(os.environ, {'EMERGENCY_CLI_INPUT_ROOT': td, 'EMERGENCY_CLI_OUTPUT_ROOT': td}), \
+                 patch.object(sys, 'argv', ['urgent', 'input.json', '--output', 'review.json']):
+                urgent.main()
+            output = json.loads((root/'review.json').read_text())
+            self.assertFalse(output['production_changes_applied'])
+            self.assertEqual(len(output['urgent_review_queue']), 1)
+            item = output['urgent_review_queue'][0]
+            self.assertFalse(item['auto_apply']); self.assertTrue(item['requires_human_review'])
+            self.assertEqual(item['synthetic_data'], '../outside.json <>&')
+            self.assertEqual((root/'input.json').read_text(), original)
+
+
 class UnifiedQaSubprocessTests(unittest.TestCase):
     def test_real_child_uses_repository_root_and_preserves_failure_status(self):
         runner = runpy.run_path(str(ROOT/'clinical/qa/qa_runner.py'))
@@ -220,6 +281,9 @@ class DerivedManifestPathTests(unittest.TestCase):
             self.assertEqual(result['predictions'], [{'id': 'blinded-001', 'class': 'nondiagnostic',
                              'prediction_frozen_at': '2026-01-01T00:00:00Z'}])
             self.assertEqual(result['target_condition'], 'synthetic')
+            if os.name == 'nt':
+                rooted = str((root/'safe.png').resolve()).removeprefix(root.drive)
+                with self.assertRaises(ValueError): predictor._image_in_artifact_root(root, rooted)
 
 
 class CanonicalParserPreservationTests(unittest.TestCase):
