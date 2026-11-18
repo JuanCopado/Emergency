@@ -26,3 +26,19 @@
 - CLINICALLY_PENDING global; no se declaran cerrados otros P1/P2, stock internacional ni instalación en el PC.
 - Proteger main y líneas cerradas RC1/v1.43; no afirmar integración por publicar una rama.
 - Los documentos anteriores que conservaban19 bloqueos describen sus cortes históricos y quedan superados en este alcance.
+
+## Continuación de seguridad PR22 — 17/11/2026, copia aislada
+
+- Propuesta completa de dependencias aplicada sobre793d674911b8bd1af7285b4fc45c37f95c2a2666 en una nueva copia local. No se incorporan deltas clínicos/UI/PDF de Q5 ni se cambia PR22 remoto.
+- Trivy0.76.2 real, misma base de vulnerabilidades: original50 registros/19 bloqueantes; copia integrada13 inferiores/0 bloqueantes, gate localPASS sin supresión.
+- npm audit:0 HIGH/CRITICAL,17 MODERATE y1 LOW pendientes.812 Python,445 frontend y4 pruebas del informePASS; build/typecheck/lint/pip checkPASS.
+- Sonar y Semgrep no ejecutados de nuevo sobre este árbol; los gates remotos anteriores conservan su estado. Sin commit/push/merge/despliegue; original y ZIPs Q5 preservados.
+- Detalle de versiones, alcance y límites: security/PR22_LOCAL_DEPENDENCY_INTEGRATION_2026-11-17.md. CLINICALLY_PENDING conservado, sin cambios de cálculos o contenido clínico.
+
+## Continuación local seguridad — 18/11/2026
+
+- Nueva copia desde0858e29…; correcciones dirigidas de avisos inferiores y rutas CLI del informe. Código/cálculos/contenido clínico intactos; CLINICALLY_PENDING.
+- Cobertura real XML/LCOV generada:812 Python,445 frontend y8 del informePASS; build/typecheck/lint/pip check/actionlintPASS. Python76,95% y frontend71,11% de líneas; no se declara gate Sonar80%PASS.
+- Con base Trivy actual, la copia anterior tiene2HIGH+13inferiores y la nueva2HIGH+0inferiores. Son dos registros del mismo picomatch/CVE-2026-112366 sin versión oficial corregida. npm conserva25 paquetesHIGH por ese único advisory;0moderados/bajos. Gate de dependenciasFAIL conservado.
+- Workflow preparado para cobertura medida antes de Sonar, acciones fijadas y clasificador por stdin/stdout sin rutas arbitrarias. No hay análisis remoto nuevo, supresión, publicación o cambios a PR22 remoto.
+- Estado vigente y límites: security/PR22_SECURITY_CONTINUATION_2026-11-18.md. Documentos del17/11 conservan su contexto histórico.

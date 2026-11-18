@@ -42,13 +42,42 @@ class PublicReportTests(unittest.TestCase):
         data["Results"][0]["Vulnerabilities"][0]["Severity"] = "HIGH"
         self.assertEqual(self.run_report("trivy", data).returncode, 1)
 
+    def test_all_required_targets_must_exist(self):
+        result = subprocess.run([sys.executable, str(SCRIPT), "trivy", "--check", "--require-target", "missing"],
+                                input=json.dumps({"SchemaVersion": 2, "Results": []}), capture_output=True, text=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertEqual(json.loads(result.stdout)["status"], "ERROR")
+
+    def test_invalid_json_does_not_echo_input(self):
+        result = subprocess.run([sys.executable, str(SCRIPT), "trivy", "--check"],
+                                input="{PRIVATE_SENTINEL", capture_output=True, text=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertNotIn("PRIVATE_SENTINEL", result.stdout + result.stderr)
+
+    def test_paths_and_baseline_override_are_not_cli_capabilities(self):
+        with tempfile.TemporaryDirectory() as directory:
+            outside = Path(directory) / "must-remain-untouched.json"
+            outside.write_text("PRIVATE_SENTINEL")
+            for args in [[str(outside), str(outside)], ["--baseline", str(outside)],
+                         ["../escape.json", "../escape.json"], ["C:\\outside.json", "C:\\outside.json"]]:
+                with self.subTest(args=args):
+                    result = subprocess.run([sys.executable, str(SCRIPT), "trivy", *args],
+                                            input="{}", capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 2)
+                    self.assertEqual(result.stdout, "")
+                    self.assertEqual(outside.read_text(), "PRIVATE_SENTINEL")
+
+    def test_stdout_is_only_valid_allowlisted_json(self):
+        result = self.run_report("trivy", {"SchemaVersion": 2, "Results": []})
+        self.assertEqual(result.returncode, 0)
+        self.assertEqual(json.loads(result.stdout)["findings"], [])
+        self.assertIn("trivy: PASS", result.stderr)
+
     @staticmethod
     def run_report(tool, data):
-        with tempfile.TemporaryDirectory() as directory:
-            raw, output = Path(directory) / "raw.json", Path(directory) / "summary.json"
-            raw.write_text(json.dumps(data))
-            return subprocess.run([sys.executable, str(SCRIPT), tool, str(raw), str(output), "--check"],
-                                  capture_output=True, text=True, check=False)
+        return subprocess.run([sys.executable, str(SCRIPT), tool, "--check"],
+                              input=json.dumps(data), capture_output=True, text=True, check=False)
+
 
 
 if __name__ == "__main__":

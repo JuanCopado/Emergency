@@ -3,8 +3,13 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   server: {
+    // Unit fidelity checks read the canonical Markdown without exposing it in dev mode.
+    ...(mode === 'test' ? { fs: { allow: [
+      '.',
+      '../clinical/modules',
+    ] } } : {}),
     proxy: {
       '/api/clinical-note': 'http://127.0.0.1:8765',
       '/api/pediatric-outpatient': 'http://127.0.0.1:8765',
@@ -54,5 +59,11 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     css: false,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', ['lcov', { projectRoot: '..' }], 'json-summary'],
+      include: ['src/**/*.{ts,tsx}', 'scripts/**/*.mjs', 'vite.config.ts'],
+      exclude: ['src/test/**', '**/*.test.*', 'scripts/check-*.mjs', 'scripts/**/*.node-test.mjs'],
+    },
   },
-});
+}));

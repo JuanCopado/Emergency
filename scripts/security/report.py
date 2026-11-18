@@ -3,7 +3,7 @@
 import argparse
 import hashlib
 import json
-import os
+import sys
 from pathlib import Path
 
 
@@ -59,21 +59,18 @@ def collect(tool, data):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("tool", choices=["semgrep", "trivy"])
-    parser.add_argument("raw", type=Path)
-    parser.add_argument("output", type=Path)
-    parser.add_argument("--baseline", type=Path, default=Path("security/baseline.json"))
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--require-target", action="append", default=[])
     args = parser.parse_args()
-    args.output.parent.mkdir(parents=True, exist_ok=True)
     try:
-        data = json.loads(args.raw.read_text())
+        data = json.load(sys.stdin)
         targets = data.get("paths", {}).get("scanned", []) if args.tool == "semgrep" else [r["Target"] for r in data.get("Results", [])]
         normalized = {p.removeprefix("/src/") for p in targets}
         if not set(args.require_target).issubset(normalized):
             raise ValueError("Required scan targets missing")
         findings = collect(args.tool, data)
-        baseline = json.loads(args.baseline.read_text()) if args.baseline.exists() else {"findings": []}
+        baseline_path = Path(__file__).resolve().parents[2] / "security" / "baseline.json"
+        baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
         known = {item["fingerprint"] for item in baseline["findings"]}
         for finding in findings:
             finding["origin"] = "PREEXISTING" if finding["fingerprint"] in known else "NEW_OR_CHANGED"
@@ -89,13 +86,11 @@ def main():
     except (OSError, ValueError, KeyError, TypeError):
         report = {"schema_version": 1, "tool": args.tool, "status": "ERROR",
                   "reason": "Missing, malformed or incomplete scanner report", "findings": []}
-    args.output.write_text(json.dumps(report, indent=2, ensure_ascii=True) + "\n")
-    if summary := os.environ.get("GITHUB_STEP_SUMMARY"):
-        with open(summary, "a") as stream:
-            stream.write(f"### {args.tool}\n\nStatus: **{report['status']}**. "
-                         f"Findings: {len(report['findings'])}. "
-                         "See the metadata-only artifact. Clinical status is unchanged.\n\n")
-    print(f"{args.tool}: {report['status']}; {len(report['findings'])} findings")
+    # The classifier never accepts filesystem paths from CLI input. Raw data is
+    # read from stdin; metadata is emitted to stdout for runner-owned redirection.
+    json.dump(report, sys.stdout, indent=2, ensure_ascii=True)
+    sys.stdout.write("\n")
+    print(f"{args.tool}: {report['status']}; {len(report['findings'])} findings", file=sys.stderr)
     if args.check:
         raise SystemExit(2 if report["status"] == "ERROR" else int(report["status"] == "FINDINGS"))
 

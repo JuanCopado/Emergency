@@ -1,5 +1,7 @@
 # Security and quality
 
+Current isolated continuation (18/11/2026): see [PR22_SECURITY_CONTINUATION_2026-11-18.md](PR22_SECURITY_CONTINUATION_2026-11-18.md). The classifier now uses stdin/stdout, real XML/LCOV coverage is generated, and the current scan retains the unfixed picomatch advisory. Earlier dated scan results below describe their original snapshots.
+
 Task date: 16/11/2026. Base: `1d0652ebcef9b5990edd9e5745b0c06f8d6b8274`
 on `codex/v144-international-scope-20261116`. This is infrastructure for the
 international core, independent of language, hospital or jurisdiction.
@@ -121,8 +123,9 @@ dependencies, build/cache outputs, archives and preservation/backups are exclude
 because they are derived data or outside executable source scope. Clinical
 canonical documents/data and private backup stores are not scanned. Source files
 are not excluded because of findings; synthetic security fixtures are test code.
-No coverage XML/LCOV report exists in this exact snapshot; no coverage percentage
-or coverage exclusion was invented.
+The original remote snapshot had no coverage report. The local continuation now
+produces measured coverage.xml and app/coverage/lcov.info before Sonar; no executable
+source is excluded from coverage to change the gate. Remote import remains unverified.
 
 The authenticated Actions scan at revision `f982813830e7960f4914aa4849e52887f53cc18b`
 completed and uploaded its report. Its awaited quality gate FAILED: new-code
@@ -156,8 +159,8 @@ python3 -m unittest discover -s security/tests -p 'test_*.py'
 semgrep --test --config security/rules security/tests --metrics off --disable-version-check
 semgrep scan --config security/rules --metrics off --disable-version-check --strict --error --json --output /tmp/semgrep.raw.json .
 trivy fs --config security/trivy.yaml --scanners vuln,secret,misconfig --disable-telemetry --skip-version-check --include-dev-deps --ignore-unfixed=false --format json --output /tmp/trivy.raw.json .
-python3 scripts/security/report.py semgrep /tmp/semgrep.raw.json /tmp/semgrep.summary.json --check --require-target app/src/main.tsx --require-target clinical/scripts/clinical_note_api.py
-python3 scripts/security/report.py trivy /tmp/trivy.raw.json /tmp/trivy.summary.json --check --require-target app/package-lock.json --require-target clinical/requirements.txt --require-target clinical/requirements-test.txt
+python3 scripts/security/report.py semgrep --check --require-target app/src/main.tsx --require-target clinical/scripts/clinical_note_api.py < /tmp/semgrep.raw.json > /tmp/semgrep.summary.json
+python3 scripts/security/report.py trivy --check --require-target app/package-lock.json --require-target clinical/requirements.txt --require-target clinical/requirements-test.txt < /tmp/trivy.raw.json > /tmp/trivy.summary.json
 ```
 
 The initial local environment had no Docker runtime; the verified pinned CLI

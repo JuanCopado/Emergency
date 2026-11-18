@@ -10,3 +10,9 @@ app/screenshots/*-full.png
 knowledge-graph/generated/
 graphify-out/
 .graphify/
+
+# Runtime coverage artifacts, not source or published raw scan data
+.coverage*
+!.coveragerc
+coverage.xml
+coverage/

@@ -18,6 +18,27 @@
       "verified_at_utc": "2026-11-17",
       "source": "https://api.github.com/repos/SonarSource/sonarqube-scan-action/git/ref/tags/v8.5.0",
       "scanner_version": "8.4.0.16527"
+    },
+    {
+      "repo": "actions/setup-node",
+      "tag": "v4",
+      "sha": "49933ea5288caeca8642d1e84afbd3f7d6820020",
+      "verified_at_utc": "2026-11-18T10:33:41.469430+00:00",
+      "source": "https://api.github.com/repos/actions/setup-node/git/ref/tags/v4"
+    },
+    {
+      "repo": "actions/setup-python",
+      "tag": "v5",
+      "sha": "a26af69be951a213d495a4c3e4e4022e16d87065",
+      "verified_at_utc": "2026-11-18T10:33:41.469452+00:00",
+      "source": "https://api.github.com/repos/actions/setup-python/git/ref/tags/v5"
+    },
+    {
+      "repo": "actions/download-artifact",
+      "tag": "v4",
+      "sha": "d3f86a106a0bac45b974a628896c90dbdf5c8093",
+      "verified_at_utc": "2026-11-18T10:33:41.469455+00:00",
+      "source": "https://api.github.com/repos/actions/download-artifact/git/ref/tags/v4"
     }
   ],
   "images": [

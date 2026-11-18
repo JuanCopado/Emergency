@@ -54,8 +54,9 @@ jobs:
         if: always() && steps.scan.outcome != 'skipped'
         run: >-
           python3 scripts/security/report.py semgrep
-          "$RUNNER_TEMP/security/semgrep.raw.json"
-          "$RUNNER_TEMP/security/semgrep.summary.json" --check
+          --check
+          < "$RUNNER_TEMP/security/semgrep.raw.json"
+          > "$RUNNER_TEMP/security/semgrep.summary.json"
           --require-target app/src/main.tsx
           --require-target clinical/scripts/clinical_note_api.py
       - name: Publish metadata only
@@ -94,8 +95,9 @@ jobs:
         # Scan all severities for visibility; block HIGH/CRITICAL and every secret.
         run: >-
           python3 scripts/security/report.py trivy
-          "$RUNNER_TEMP/security/trivy.raw.json"
-          "$RUNNER_TEMP/security/trivy.summary.json" --check
+          --check
+          < "$RUNNER_TEMP/security/trivy.raw.json"
+          > "$RUNNER_TEMP/security/trivy.summary.json"
           --require-target app/package-lock.json
           --require-target clinical/requirements.txt
           --require-target clinical/requirements-test.txt
@@ -108,9 +110,52 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  coverage:
+    name: real-test-coverage
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install locked dependencies
+        run: |
+          python -m pip install -r clinical/requirements-test.txt
+          npm ci --ignore-scripts --no-audit --no-fund --prefix app
+      - name: Run Python tests with measured coverage
+        run: |
+          python -m coverage run -m unittest discover -s clinical/tests -p 'test_*.py'
+          python -m coverage run -m unittest discover -s security/tests -p 'test_*.py'
+          python -m coverage combine
+          python -m coverage xml
+      - name: Run frontend tests with measured coverage
+        working-directory: app
+        run: |
+          npm run test:coverage
+          python -c "from pathlib import Path; import re; p=Path('coverage/lcov.info'); p.write_text(re.sub(r'^SF:(.*)$', lambda m: 'SF:'+m[1].replace(chr(92), '/'), p.read_text(encoding='utf-8'), flags=re.M), encoding='utf-8')"
+      - name: Publish coverage only after tests pass
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: test-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            coverage.xml
+            app/coverage/lcov.info
+          if-no-files-found: error
+          retention-days: 7
+
   sonarqube:
+    needs: coverage
     name: sonarqube
-    # No needs: a vulnerability-only Trivy failure must not cancel this analysis.
+    # Only coverage is required; a Trivy finding must not cancel Sonar analysis.
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     permissions:
@@ -149,6 +194,12 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Download measured test coverage
+        if: steps.trust.outputs.eligible == 'true'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: test-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .
       - name: Scan and wait for quality gate
         id: sonar
         if: steps.trust.outputs.eligible == 'true'
