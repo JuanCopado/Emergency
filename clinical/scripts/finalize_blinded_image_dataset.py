@@ -20,6 +20,8 @@ from pathlib import Path
 
 ALLOWED_PREDICTIONS = {"positive", "negative", "abstain", "nondiagnostic"}
 
+from cli_paths import input_file, output_file
+
 def _parse_iso(value, field, case_id):
     if not value:
         raise ValueError(f"{case_id}: {field} required")
@@ -140,10 +142,10 @@ def finalize(blinded, predictions, sealed_reference, reference_revealed_at=None)
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("blinded_manifest", type=Path)
-    p.add_argument("predictions", type=Path)
-    p.add_argument("sealed_reference", type=Path)
-    p.add_argument("output", type=Path)
+    p.add_argument("blinded_manifest", type=input_file)
+    p.add_argument("predictions", type=input_file)
+    p.add_argument("sealed_reference", type=input_file)
+    p.add_argument("output", type=output_file)
     p.add_argument("--reference-revealed-at")
     args = p.parse_args()
 

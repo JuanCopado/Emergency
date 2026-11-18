@@ -25,6 +25,8 @@ class MedicationSafetyStop(ValueError):
         messages=" | ".join(a["message"] for a in alert_result.get("alerts",[]) if a.get("severity")=="STOP")
         super().__init__("medication safety STOP: "+messages)
 
+from cli_paths import input_file
+
 def preflight(regimen_id, patient, active_medications=None, product=None, registry=None):
     registry=registry or load_registry()
     return evaluate_alerts(regimen_id,patient,active_medications=active_medications,product=product,registry=registry)
@@ -441,10 +443,10 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
 if __name__=="__main__":
     import argparse
     p=argparse.ArgumentParser()
-    p.add_argument("regimen_id"); p.add_argument("patient_json"); p.add_argument("--product-json")
-    p.add_argument("--dose-per-kg",type=float); p.add_argument("--duration-days",type=int); p.add_argument("--volume-ml",type=float); p.add_argument("--active-medications-json")
+    p.add_argument("regimen_id"); p.add_argument("patient_json", type=input_file); p.add_argument("--product-json", type=input_file)
+    p.add_argument("--dose-per-kg",type=float); p.add_argument("--duration-days",type=int); p.add_argument("--volume-ml",type=float); p.add_argument("--active-medications-json", type=input_file)
     a=p.parse_args()
-    patient=json.loads(Path(a.patient_json).read_text())
-    product=json.loads(Path(a.product_json).read_text()) if a.product_json else None
-    active=json.loads(Path(a.active_medications_json).read_text()) if a.active_medications_json else None
+    patient=json.loads(a.patient_json.read_text())
+    product=json.loads(a.product_json.read_text()) if a.product_json else None
+    active=json.loads(a.active_medications_json.read_text()) if a.active_medications_json else None
     print(json.dumps(calculate(a.regimen_id,patient,product,a.dose_per_kg,a.duration_days,a.volume_ml,active_medications=active),indent=2,ensure_ascii=False))

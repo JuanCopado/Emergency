@@ -277,11 +277,11 @@ class CeftriaxoneSepsisSafetyTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "context.json"
             path.write_text(json.dumps(synthetic_context()), encoding="utf-8")
-            result = subprocess.run(command + ["--context-json", str(path)], capture_output=True, text=True, check=False)
+            result = subprocess.run(command + ["--context-json", str(path)], cwd=tmp, capture_output=True, text=True, check=False)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(json.loads(result.stdout)["dose_unit"], "mg")
             path.write_text("[]", encoding="utf-8")
-            bad = subprocess.run(command + ["--context-json", str(path)], capture_output=True, text=True, check=False)
+            bad = subprocess.run(command + ["--context-json", str(path)], cwd=tmp, capture_output=True, text=True, check=False)
             self.assertNotEqual(bad.returncode, 0)
             self.assertEqual(bad.stdout, "")
             self.assertIn("INVALID_CONTEXT", bad.stderr)

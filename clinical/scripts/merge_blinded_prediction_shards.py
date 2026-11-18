@@ -7,6 +7,8 @@ from pathlib import Path
 
 ALLOWED = {"positive", "negative", "abstain", "nondiagnostic"}
 
+from cli_paths import input_file, output_file
+
 def merge(prediction_files):
     predictions = {}
     shard_indices = set()
@@ -54,8 +56,8 @@ def merge(prediction_files):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("prediction_files", nargs="+", type=Path)
-    p.add_argument("--output", required=True, type=Path)
+    p.add_argument("prediction_files", nargs="+", type=input_file)
+    p.add_argument("--output", required=True, type=output_file)
     args = p.parse_args()
     result = merge(args.prediction_files)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

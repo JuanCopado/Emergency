@@ -20,6 +20,8 @@ from pathlib import Path
 WINDOW_WIDTH = 80.0
 WINDOW_LEVEL = 40.0
 
+from cli_paths import input_directory, output_directory
+
 def window_hu_scalar(hu, center=WINDOW_LEVEL, width=WINDOW_WIDTH):
     if width <= 0:
         raise ValueError("window width must be >0")
@@ -141,8 +143,8 @@ def render_exam(dicom_files, output_dir, case_id):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("dicom_dir", type=Path)
-    p.add_argument("output_dir", type=Path)
+    p.add_argument("dicom_dir", type=input_directory)
+    p.add_argument("output_dir", type=output_directory)
     p.add_argument("case_id")
     args = p.parse_args()
     files = sorted(x for x in args.dicom_dir.rglob("*") if x.is_file())

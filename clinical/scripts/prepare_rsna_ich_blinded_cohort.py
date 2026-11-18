@@ -20,6 +20,8 @@ ACCEPTED_REFERENCE_TYPES = {
     "senior_neuroradiologist_adjudication",
 }
 
+from cli_paths import input_file, output_directory
+
 def _hash(value, salt):
     return hashlib.sha256(f"{salt}:{value}".encode("utf-8")).hexdigest()
 
@@ -148,9 +150,9 @@ def prepare(images_csv, references_csv, salt):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("images_csv", type=Path)
-    p.add_argument("references_csv", type=Path)
-    p.add_argument("output_dir", type=Path)
+    p.add_argument("images_csv", type=input_file)
+    p.add_argument("references_csv", type=input_file)
+    p.add_argument("output_dir", type=output_directory)
     p.add_argument("--salt", required=True)
     args = p.parse_args()
     blinded, sealed = prepare(args.images_csv, args.references_csv, args.salt)

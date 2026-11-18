@@ -14,7 +14,7 @@ def ingredients(label):
     label = label.replace('epinephrine/adrenaline auto-injector', 'epinephrine')
     parts = []
     for part in label.split(' + '):
-        part = re.sub(r'\s+\d+(?:\.\d+)?\s*(?:%|mg|g\b|micrograms?\b).*$', '', part)
+        part = re.sub(r'(?<!\s)\s++\d++(?:\.\d++)?\s*+(?:%|mg|g\b|micrograms?\b).*$', '', part)
         parts.extend(part.replace(' paediatric sachet', '').strip().split('/'))
     return parts
 

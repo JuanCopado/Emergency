@@ -25,6 +25,8 @@ ALLOWED_TARGETS = {
     "Pleural Effusion",
 }
 
+from cli_paths import input_file, output_directory
+
 def _hash(value, salt):
     return hashlib.sha256(f"{salt}:{value}".encode("utf-8")).hexdigest()
 
@@ -146,10 +148,10 @@ def prepare(images_csv, groundtruth_csv, target, salt):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("images_csv", type=Path)
-    p.add_argument("groundtruth_csv", type=Path)
+    p.add_argument("images_csv", type=input_file)
+    p.add_argument("groundtruth_csv", type=input_file)
     p.add_argument("target")
-    p.add_argument("output_dir", type=Path)
+    p.add_argument("output_dir", type=output_directory)
     p.add_argument("--salt", required=True)
     args = p.parse_args()
     blind, ref = prepare(args.images_csv, args.groundtruth_csv, args.target, args.salt)

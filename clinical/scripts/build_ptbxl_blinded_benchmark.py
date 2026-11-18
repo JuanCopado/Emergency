@@ -31,6 +31,8 @@ BASE_URLS = (
 )
 LEADS = ["I","II","III","aVR","aVL","aVF","V1","V2","V3","V4","V5","V6"]
 
+from cli_paths import input_file, output_directory
+
 def _hash(value, salt):
     return hashlib.sha256(f"{salt}:{value}".encode("utf-8")).hexdigest()
 
@@ -306,9 +308,9 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("database_csv", type=Path)
+    p.add_argument("database_csv", type=input_file)
     p.add_argument("target_code")
-    p.add_argument("output_dir", type=Path)
+    p.add_argument("output_dir", type=output_directory)
     p.add_argument("--salt", required=True)
     p.add_argument("--fold", type=int, default=10)
     p.add_argument("--max-cases", type=int, default=0)

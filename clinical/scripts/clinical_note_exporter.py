@@ -116,9 +116,9 @@ def note_to_sections(note):
         "baseline": "Situación basal" if es else "Estado basal",
         "surgery": "Antecedentes quirúrgicos" if es else "Antecedentes cirúrgicos",
         "reconciliation": "Conciliación / discrepancias de medicación" if es else "Conciliação / discrepâncias de medicação",
-        "social": "Contexto social / fonte" if es else "Contexto social / fonte",
+        "social": "Contexto social / fonte",
         "vitals": "Constantes seriadas" if es else "Sinais vitais seriados",
-        "laboratory": "Analítica" if es else "Analítica",
+        "laboratory": "Analítica",
         "blood_gas": "Gasometría" if es else "Gasometria",
         "ecg": "ECG",
         "xray": "Radiografía (Rx)" if es else "Radiografia (Rx)",
@@ -146,8 +146,8 @@ def note_to_sections(note):
     context_fields = (
         ("origin", "Origen" if es else "Origem"),
         ("transfer_status", "Transferencia" if es else "Transferência"),
-        ("functional_status", "Estado funcional" if es else "Estado funcional"),
-        ("cognitive_status", "Estado cognitivo" if es else "Estado cognitivo"),
+        ("functional_status", "Estado funcional"),
+        ("cognitive_status", "Estado cognitivo"),
         ("living_context", "Contexto domiciliario" if es else "Contexto domiciliário"),
     )
     for key, label in context_fields:

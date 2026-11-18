@@ -15,6 +15,8 @@ from clinical_note_support import diagnostic_support_contract
 ROOT=Path(__file__).parents[1]
 RULES_PATH=ROOT/"qa"/"clinical-note-diagnostic-rules.json"
 
+from cli_paths import input_file
+
 def load_rules(path=RULES_PATH):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
@@ -369,7 +371,7 @@ def analyze(note, rules=None, apply_to_note=False):
 if __name__=="__main__":
     import argparse
     p=argparse.ArgumentParser()
-    p.add_argument("note_json"); p.add_argument("--apply",action="store_true")
+    p.add_argument("note_json", type=input_file); p.add_argument("--apply",action="store_true")
     a=p.parse_args()
-    note=json.loads(Path(a.note_json).read_text(encoding="utf-8"))
+    note=json.loads(a.note_json.read_text(encoding="utf-8"))
     print(json.dumps(analyze(note,apply_to_note=a.apply),indent=2,ensure_ascii=False))

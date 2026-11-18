@@ -14,6 +14,8 @@ ALLOWED_MODALITIES = {
     "skin_wound", "ct_mri", "ophthalmology", "other"
 }
 
+from cli_paths import output_file
+
 def build(modality, target_condition, target_question, reference_type="independent_expert_reference"):
     if modality not in ALLOWED_MODALITIES:
         raise ValueError(f"unsupported modality: {modality}")
@@ -43,7 +45,7 @@ if __name__ == "__main__":
     p.add_argument("modality", choices=sorted(ALLOWED_MODALITIES))
     p.add_argument("target_condition")
     p.add_argument("target_question")
-    p.add_argument("output", type=Path)
+    p.add_argument("output", type=output_file)
     p.add_argument("--reference-type", default="independent_expert_reference")
     args = p.parse_args()
     data = build(args.modality, args.target_condition, args.target_question, args.reference_type)

@@ -12,6 +12,7 @@ Safety properties:
 - exports use the central privacy-gated exporter.
 """
 
+import ssl
 import argparse
 import base64
 import binascii
@@ -415,14 +416,14 @@ def export_note_bytes(note, fmt):
     suffix = {"docx": ".docx", "pdf": ".pdf", "json": ".json"}.get(fmt)
     if not suffix:
         raise ValueError("format must be docx, pdf or json")
+    if fmt == "json":
+        return (json.dumps(note, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     with tempfile.TemporaryDirectory() as directory:
-        out = Path(directory) / ("clinical-note" + suffix)
+        out = Path(directory) / {"docx": "clinical-note.docx", "pdf": "clinical-note.pdf"}[fmt]
         if fmt == "docx":
             export_docx(note, out)
         elif fmt == "pdf":
             export_pdf(note, out)
-        else:
-            export_json(note, out)
         return out.read_bytes()
 
 
@@ -512,11 +513,15 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
     server_version = "EmergencyClinicalNoteAPI/1.0"
 
     def _send(self, status, body):
-        raw = json.dumps(body, ensure_ascii=False).encode("utf-8")
+        raw = (json.dumps(body, ensure_ascii=False)
+               .replace("&", "\\u0026").replace("<", "\\u003c").replace(">", "\\u003e")
+               .encode("utf-8"))
         self.send_response(int(status))
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Content-Security-Policy", "default-src 'none'; frame-ancestors 'none'")
+        self.send_header("Referrer-Policy", "no-referrer")
         self.send_header("Content-Length", str(len(raw)))
         self.end_headers()
         self.wfile.write(raw)
@@ -533,21 +538,30 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
             if size <= 0 or size > (MAX_UPLOAD_BYTES * 2 + 1_000_000):
                 raise ValueError("invalid request size")
             payload = json.loads(self.rfile.read(size).decode("utf-8"))
+            if not isinstance(payload, dict):
+                raise ValueError("request body must be a JSON object")
             status, body = dispatch(self.path, payload)
             self._send(status, body)
-        except ValueError as exc:
-            self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": str(exc)})
         except json.JSONDecodeError:
             self._send(HTTPStatus.BAD_REQUEST, {"error": "invalid JSON"})
-        except Exception as exc:
+        except ValueError as exc:
+            # Return only audited, static messages for known safety boundaries.
+            # Never echo arbitrary exception text, which could contain PHI.
+            public_error = "invalid clinical request"
+            if (self.path == "/api/pediatric-outpatient/calculate"
+                    and exc.args == ("no matching age/weight band for regimen",)):
+                public_error = "no matching age/weight band for regimen"
+            self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": public_error})
+        except Exception:
+            # Preserve the HTTP contract without echoing exception text or PHI.
             self._send(HTTPStatus.INTERNAL_SERVER_ERROR, {
                 "error": "clinical-note backend failure",
-                "detail": str(exc),
             })
 
     def log_message(self, fmt, *args):
-        # Do not log request bodies or clinical payloads.
-        super().log_message(fmt, *args)
+        # BaseHTTPRequestHandler logs the request-line, including any query string.
+        # Do not emit potentially identifying URLs or clinical input to stderr.
+        return
 
 
 def main():
@@ -555,11 +569,25 @@ def main():
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--allow-network", action="store_true")
+    parser.add_argument("--tls-cert")
+    parser.add_argument("--tls-key")
     args = parser.parse_args()
-    if args.host not in {"127.0.0.1", "localhost", "::1"} and not args.allow_network:
+    loopback = args.host in {"127.0.0.1", "localhost", "::1"}
+    if not loopback and not args.allow_network:
         raise SystemExit("Refusing non-loopback bind without --allow-network")
+    if bool(args.tls_cert) != bool(args.tls_key):
+        raise SystemExit("TLS requires both --tls-cert and --tls-key")
+    if not loopback and not args.tls_cert:
+        raise SystemExit("Network binding requires TLS certificate and key")
+    context = None
+    if args.tls_cert:
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.minimum_version = ssl.TLSVersion.TLSv1_2
+        context.load_cert_chain(args.tls_cert, args.tls_key)
     server = ThreadingHTTPServer((args.host, args.port), ClinicalNoteHandler)
-    print(f"Clinical-note API listening on http://{args.host}:{args.port}")
+    if context is not None:
+        server.socket = context.wrap_socket(server.socket, server_side=True)
+    print(f"Clinical-note API listening on {'HTTPS' if context else 'loopback HTTP'} port {args.port}")
     server.serve_forever()
 
 

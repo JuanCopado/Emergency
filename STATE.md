@@ -71,3 +71,7 @@ Copia aislada desde `fba27dcc898b6b42893f46823efd3f8385a06432`. App UI instala s
 ## 18/11/2026 — incorporación autorizada de las correcciones de seguridad
 
 El propietario pide incorporar el arreglo al proyecto tras la resolución real del bloqueo. La revisión recibida de PR25, `fc1c0cf87e45ee8d5ecf193b571f6f864955613e`, tiene matriz, App UI, Clinical QA, Trivy y Sonar PASS. Se combina con PR26 para conservar también la defensa de Rollup, el fuzz acotado y la procedencia de cobertura, manteniendo los 18 hooks y el origen oficial de la DB. Detalle y secuencia: `security/INTEGRACION_SEGURIDAD_2026-11-18.md`. Los resultados e identidad de la incorporación se acreditan con el SHA y los runs de las PR25/26. Los informes de bloqueos anteriores conservan su fecha histórica. Sin cambios de cálculos, contenido o validación clínica; CLINICALLY_PENDING. Main y las líneas cerradas permanecen protegidas; esto no declara un despliegue.
+
+## Reparación Sonar con revisión Gemini — 18/11/2026, en curso
+
+Copia aislada desde99b9a71; se corrigen fronteras HTTP/CLI/red, errores de QA, parsers y suministro CI. Auditoría Gemini real del código público, incluida corrección de una ruta derivada de manifiesto. Trivy local0 hallazgos/5 manifiestos tras actualizar Pillow13.0.0; Sonar/CI finales pendientes. No declarar integración ni cierre de gate por el PASS de PR25. Sin cambios de aritmética, contenido clínico o estados; CLINICALLY_PENDING. Detalle y limitaciones: security/SONAR_GEMINI_REPAIR_2026-11-18.md.

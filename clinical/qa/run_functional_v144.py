@@ -19,6 +19,8 @@ from pediatric_outpatient_calculator import calculate
 from pediatric_catalog import build_catalog
 
 
+from cli_paths import output_file
+
 def expect_assessment(case, assessment):
     assert case['expected_likely'] in [x['diagnosis'] for x in assessment['likely_diagnoses']]
     modules = {m for x in assessment['likely_diagnoses'] for m in x['source_modules']}
@@ -102,7 +104,8 @@ def run(pilot=False):
         try:
             source, source_id = entry['provenance'].split('#')
             original = next(c for c in json.loads((QA / source).read_text(encoding='utf-8'))['cases'] if c['id'] == source_id)
-            assert original == entry['input'], 'fixture silently diverged from source'
+            if original != entry['input']:
+                raise ValueError('fixture silently diverged from source')
             row.update(check_note(original) if entry['layer'] == 'note' else check_pediatrics(original))
             row['status'] = 'PASS'
         except Exception as exc:
@@ -114,7 +117,7 @@ def run(pilot=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--pilot', action='store_true')
-    parser.add_argument('--output', type=Path)
+    parser.add_argument('--output', type=output_file)
     args = parser.parse_args()
     report = run(args.pilot)
     serialized = json.dumps(report, ensure_ascii=False, indent=2) + '\n'

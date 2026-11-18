@@ -25,7 +25,8 @@ CHECKS = [
 ]
 
 def run_check(name, cmd):
-    proc = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True)
+    # Keep a canonical repository cwd for subprocess coverage and CLI grants.
+    proc = subprocess.run(cmd, cwd=ROOT.parent, text=True, capture_output=True)
     return {
         "name": name,
         "passed": proc.returncode == 0,

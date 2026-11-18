@@ -13,6 +13,8 @@ import hashlib
 import json
 from pathlib import Path
 
+from cli_paths import input_file, output_file
+
 def _hash(value, salt):
     return hashlib.sha256(f"{salt}:{value}".encode("utf-8")).hexdigest()
 
@@ -101,10 +103,10 @@ def prepare(database_csv, target_code, salt, fold=10):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("database_csv", type=Path)
+    p.add_argument("database_csv", type=input_file)
     p.add_argument("target_code")
-    p.add_argument("cohort_output", type=Path)
-    p.add_argument("reference_output", type=Path)
+    p.add_argument("cohort_output", type=output_file)
+    p.add_argument("reference_output", type=output_file)
     p.add_argument("--salt", required=True, help=">=16 chars; keep outside repository")
     p.add_argument("--fold", type=int, default=10)
     args = p.parse_args()

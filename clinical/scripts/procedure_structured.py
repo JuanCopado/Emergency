@@ -47,7 +47,7 @@ def canonical(root=ROOT):
         group = re.match(r'^# \d+\. (.+)$', line)
         if group:
             family = group[1].strip()
-        row = re.match(r'^\d+\. \*\*(PROC-[A-Z]+-\d{3}) — (.+?)\*\* — (.+?)\s*$', line)
+        row = re.match(r'^\d+\. \*\*(PROC-[A-Z]+-\d{3}) — (.+?)\*\* — (.+)$', line.rstrip())
         if not row:
             continue
         pid, name, level = row.groups()

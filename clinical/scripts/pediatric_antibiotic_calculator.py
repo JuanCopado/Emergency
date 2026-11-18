@@ -13,6 +13,8 @@ from ceftriaxone_sepsis_safety import TARGET_ENTRY_ID, CeftriaxoneSafetyError, v
 ROOT = Path(__file__).parents[1]
 DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-antibiotics.json"
 
+from cli_paths import input_file
+
 def load_registry(path=DEFAULT_REGISTRY):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     return {x["id"]: x for x in data["entries"]}
@@ -70,8 +72,8 @@ if __name__ == "__main__":
     p=argparse.ArgumentParser()
     p.add_argument("entry_id")
     p.add_argument("weight_kg", type=float)
-    p.add_argument("--registry", default=str(DEFAULT_REGISTRY))
-    p.add_argument("--context-json", type=Path, help="Path to an explicit clinical-context JSON object; no environment fallback")
+    p.add_argument("--registry", type=input_file, default=DEFAULT_REGISTRY)
+    p.add_argument("--context-json", type=input_file, help="Path to an explicit clinical-context JSON object; no environment fallback")
     args=p.parse_args()
     context = None
     if args.context_json is not None:

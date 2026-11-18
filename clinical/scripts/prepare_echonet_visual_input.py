@@ -5,6 +5,8 @@ import argparse
 import json
 from pathlib import Path
 
+from cli_paths import input_file, output_directory
+
 def frame_indices(total_frames, n=32):
     if total_frames < n:
         raise ValueError(f"video has {total_frames} frames; need >={n}")
@@ -37,6 +39,6 @@ def extract(video_path, output_dir, n=32):
     return meta
 
 if __name__=="__main__":
-    p=argparse.ArgumentParser(); p.add_argument("video",type=Path); p.add_argument("output_dir",type=Path)
+    p=argparse.ArgumentParser(); p.add_argument("video",type=input_file); p.add_argument("output_dir",type=output_directory)
     p.add_argument("--frames",type=int,default=32)
     a=p.parse_args(); print(json.dumps(extract(a.video,a.output_dir,a.frames)))

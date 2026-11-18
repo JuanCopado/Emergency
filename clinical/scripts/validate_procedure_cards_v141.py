@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROC_DIR = ROOT / "modules" / "procedures"
-HEADER = re.compile(r"^##\s+(PROC-[A-Z]+-\d{3})\s+—\s+(.+?)(?:\s+—\s+([A-Z/]+))?$", re.M)
+HEADER = re.compile(r"^##[ \t]{1,32}(PROC-[A-Z]+-\d{3})[ \t]{1,32}—[ \t]{1,32}(.+?)(?:[ \t]{1,32}—[ \t]{1,32}([A-Z/]+))?$", re.M)
 MIN_BODY = 90
 
 def validate():

@@ -7,6 +7,8 @@ from pathlib import Path
 
 ALLOWED = ["positive", "negative", "abstain", "nondiagnostic"]
 
+from cli_paths import input_file, output_file
+
 def build(shard):
     cases = shard.get("cases", [])
     if not cases:
@@ -33,8 +35,8 @@ def build(shard):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("shard", type=Path)
-    p.add_argument("output", type=Path)
+    p.add_argument("shard", type=input_file)
+    p.add_argument("output", type=output_file)
     args = p.parse_args()
     data = build(json.loads(args.shard.read_text(encoding="utf-8")))
     args.output.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

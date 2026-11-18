@@ -49,7 +49,7 @@ export default function ClinicalScores() {
           if(!option)throw new Error(`${f.label}: valor no permitido`);
           inputs[f.key]=option.value;
         } else {
-          if(!/^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i.test(raw))throw new Error(`${f.label}: número no válido`);
+          if(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(raw))throw new Error(`${f.label}: número no válido`);
           const n=Number(raw);
           if(!Number.isFinite(n)||(f.integer&&!Number.isInteger(n))||(f.minimum!=null&&n<f.minimum)||(f.maximum!=null&&n>f.maximum))throw new Error(`${f.label}: número fuera de rango`);
           inputs[f.key]=n;

@@ -82,11 +82,14 @@ def main():
             old = '../../clinical/qa/' + basename
             new = '../../clinical/qa/product-reconciliation-v144/' + basename
             text = source.read_text(encoding='utf-8')
-            assert text.count(old) == 1, driver
+            if text.count(old) != 1:
+                raise ValueError(f'Expected one evidence destination: {driver}')
             redirected = text.replace(old, new)
-            assert redirected.replace(new, old) == text, driver
+            if redirected.replace(new, old) != text:
+                raise ValueError(f'Unexpected browser driver transformation: {driver}')
             copy = source.with_name('check-reconciliation-' + driver.removeprefix('check-'))
-            assert not copy.exists(), f'Refusing to overwrite {copy}'
+            if copy.exists():
+                raise FileExistsError(f'Refusing to overwrite {copy}')
             try:
                 copy.write_text(redirected, encoding='utf-8', newline='\n')
                 report['browser_driver_copies'].append({'original': str(source.relative_to(ROOT)),

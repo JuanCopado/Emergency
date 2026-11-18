@@ -25,6 +25,8 @@ ALLOWED_TARGETS = {
     "Support Devices","No Finding",
 }
 
+from cli_paths import input_file, output_directory
+
 def _hash(v,s): return hashlib.sha256(f"{s}:{v}".encode("utf-8")).hexdigest()
 
 def _label(v):
@@ -98,9 +100,9 @@ def prepare(images_csv, labels_csv, target, salt):
     }
 
 if __name__=="__main__":
-    p=argparse.ArgumentParser(); p.add_argument("images_csv",type=Path)
-    p.add_argument("labels_csv",type=Path); p.add_argument("target")
-    p.add_argument("output_dir",type=Path); p.add_argument("--salt",required=True)
+    p=argparse.ArgumentParser(); p.add_argument("images_csv",type=input_file)
+    p.add_argument("labels_csv",type=input_file); p.add_argument("target")
+    p.add_argument("output_dir",type=output_directory); p.add_argument("--salt",required=True)
     a=p.parse_args(); b,r=prepare(a.images_csv,a.labels_csv,a.target,a.salt)
     a.output_dir.mkdir(parents=True,exist_ok=True)
     (a.output_dir/"blinded_manifest.json").write_text(json.dumps(b,indent=2)+"\n")

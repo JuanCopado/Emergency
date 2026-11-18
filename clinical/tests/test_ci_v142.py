@@ -88,7 +88,7 @@ class WorkflowCoverageTests(unittest.TestCase):
     def test_python_requirements_installed_before_qa(self):
         for name, job_name in [('clinical-qa.yml', 'qa'), ('app-ui-qa.yml', 'ui')]:
             steps = workflow(name)['jobs'][job_name]['steps']
-            installs = [i for i, step in enumerate(steps) if 'pip install -r' in step.get('run', '') and 'requirements-test.txt' in step['run']]
+            installs = [i for i, step in enumerate(steps) if 'pip install' in step.get('run', '') and '--require-hashes' in step['run'] and '--only-binary=:all:' in step['run'] and 'security/requirements-ci.txt' in step['run']]
             self.assertEqual(len(installs), 1, name)
             setup = next(step for step in steps if step.get('uses', '').startswith('actions/setup-python@'))
             self.assertEqual(setup['with']['cache'], 'pip')

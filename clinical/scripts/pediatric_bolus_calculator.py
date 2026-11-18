@@ -11,6 +11,8 @@ from pediatric_numbers import positive, finite_result
 ROOT = Path(__file__).parents[1]
 DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-bolus-medications.json"
 
+from cli_paths import input_file
+
 def load_registry(path=DEFAULT_REGISTRY):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     return {x["id"]: x for x in data["entries"]}
@@ -87,6 +89,6 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("entry_id")
     p.add_argument("weight_kg", type=float)
-    p.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    p.add_argument("--registry", type=input_file, default=DEFAULT_REGISTRY)
     args = p.parse_args()
     print(json.dumps(calculate(args.entry_id, args.weight_kg, args.registry), indent=2))
