@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-24.04, windows-2025]
-        install: [project-hook, explicit-apply, automatic-fixture]
+        install: [project-hook, explicit-apply, automatic-full]
     defaults:
       run:
         shell: bash

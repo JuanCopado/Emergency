@@ -8,6 +8,7 @@ import { spawnSync } from 'node:child_process';
 import { test, after } from 'node:test';
 import { runMode, hash } from './picomatch-mitigation.mjs';
 import policy from './picomatch-runtime-policy.cjs';
+import { validateHooks } from './check-picomatch-lifecycle.mjs';
 
 const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const config = JSON.parse(fs.readFileSync(path.join(app, '../security/picomatch-mitigation.json'), 'utf8'));
@@ -128,4 +129,11 @@ test('runtime budget rejects polynomial workloads before execution and preserves
   assert.throws(() => regex.exec('x'.repeat(8193)), /length/); assert.throws(() => regex.exec(123), /non-string/);
   assert.throws(() => policy.assertWork('*a'.repeat(9) + '*b', 'a'.repeat(36) + '!', { variable: 10, choices: 1 }), /work budget/);
   assert.throws(() => policy.complexity('?('.repeat(30)), /branch budget/);
+});
+
+test('automatic installation rejects unreviewed lifecycle hooks, including implicit preparation events', () => {
+  validateHooks('known', { postinstall: 'node trusted.js', test: 'ignored' }, { known: { postinstall: 'node trusted.js' } });
+  validateHooks('ordinary', { test: 'ignored' }, {});
+  for (const event of ['preinstall', 'install', 'postinstall', 'prepare', 'preprepare', 'postprepare', 'prepublish']) assert.throws(() => validateHooks('', { [event]: 'node unexpected.js' }, {}), /Unreviewed lifecycle/);
+  for (const event of ['preinstall', 'install', 'postinstall']) assert.throws(() => validateHooks('ordinary', { [event]: 'node unexpected.js' }, {}), /Unreviewed lifecycle/);
 });
