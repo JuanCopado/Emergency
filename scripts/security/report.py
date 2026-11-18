@@ -12,6 +12,13 @@ def fingerprint(tool, path, rule, package="", version="", extra=""):
     return hashlib.sha256(value.encode()).hexdigest()
 
 
+def trivy_severity(item):
+    severity = item["Severity"]
+    if severity not in {"UNKNOWN", "LOW", "MEDIUM", "HIGH", "CRITICAL"}:
+        raise ValueError("Invalid Trivy severity")
+    return severity
+
+
 def collect(tool, data):
     findings = []
     if tool == "semgrep":
@@ -40,7 +47,7 @@ def collect(tool, data):
                     "tool": tool, "kind": "vulnerability", "rule": rule,
                     "file": path, "package": package, "installed_version": version,
                     "fixed_version": item.get("FixedVersion", ""),
-                    "severity": item.get("Severity", "UNKNOWN"),
+                    "severity": trivy_severity(item),
                     "fingerprint": fingerprint(tool, path, rule, package, version),
                 })
             for key, kind in [("Secrets", "secret"), ("Misconfigurations", "misconfiguration")]:
@@ -50,7 +57,7 @@ def collect(tool, data):
                     findings.append({
                         "tool": tool, "kind": kind, "rule": rule,
                         "file": path, "line": line,
-                        "severity": item.get("Severity", "UNKNOWN"),
+                        "severity": trivy_severity(item),
                         "fingerprint": fingerprint(tool, path, rule, extra=str(line)),
                     })
     return findings

@@ -2,282 +2,156 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
-import { spawnSync } from 'node:child_process';
-import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import { test, after, before } from 'node:test';
+import { createRequire } from 'node:module';
+import { spawnSync } from 'node:child_process';
+import { test, after } from 'node:test';
+import { runMode, hash } from './picomatch-mitigation.mjs';
+import policy from './picomatch-runtime-policy.cjs';
+import { validateHooks } from './check-picomatch-lifecycle.mjs';
 
 const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const require = createRequire(import.meta.url);
 const config = JSON.parse(fs.readFileSync(path.join(app, '../security/picomatch-mitigation.json'), 'utf8'));
-const lock = JSON.parse(fs.readFileSync(path.join(app, 'package-lock.json'), 'utf8'));
-const copies = Object.keys(lock.packages).filter(p => p.endsWith('/picomatch')).map(p => path.join(app, p));
-const digest = bytes => createHash('sha256').update(bytes).digest('hex');
-const control = mode => spawnSync(process.execPath, [path.join(app, 'scripts/picomatch-mitigation.mjs'), mode], { encoding: 'utf8', timeout: 20000 });
-const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'emergency-picomatch-test-'));
-const originals = new Map();
-const report = { baseline: [], guardedCopies: copies.length, benignComparisons: 0, rejectedCompilations: 0 };
-after(() => {
-  fs.rmSync(temp, { recursive: true, force: true });
-  console.log('PICOMATCH_TEST_EVIDENCE ' + JSON.stringify(report));
+const live = config.targets.map(t => [path.join(app, t.path), hash(fs.readFileSync(path.join(app, t.path)))]);
+const require = createRequire(import.meta.url);
+after(() => { for (const [file, digest] of live) assert.equal(hash(fs.readFileSync(file)), digest, 'Live dependencies changed during fixture tests'); });
+function fixture(callback) {
+  const container = fs.mkdtempSync(path.join(os.tmpdir(), 'emergency-picomatch-test-'));
+  const root = path.join(container, 'emergency-picomatch-test-app');
+  const copy = (from, to) => { fs.mkdirSync(path.dirname(to), { recursive: true }); fs.copyFileSync(from, to); };
+  for (const target of config.targets) {
+    for (const relative of [target.path, `${target.package}/package.json`]) copy(path.join(app, relative), path.join(root, relative));
+  }
+  for (const relative of ['package-lock.json', 'scripts/picomatch-runtime-policy.cjs', '../security/picomatch-mitigation.json']) copy(path.join(app, relative), path.resolve(root, relative));
+  fs.writeFileSync(path.join(root, '.picomatch-test-fixture'), 'synthetic test fixture');
+  try { return callback(root); }
+  finally {
+    assert.equal(path.dirname(container), os.tmpdir());
+    assert.ok(path.basename(container).startsWith('emergency-picomatch-test-'));
+    fs.rmSync(container, { recursive: true, force: true });
+  }
+}
+const target = root => path.join(root, config.targets[0].path);
+const marker = root => path.join(root, 'node_modules/.emergency-picomatch-journal.json');
+const locker = root => path.join(root, 'node_modules/.emergency-picomatch.lock');
+function fault(method, substitute, callback) {
+  const original = fs[method]; fs[method] = substitute(original);
+  try { callback(); } finally { fs[method] = original; }
+}
+
+test('all reviewed standalone and embedded sources are guarded; tests preserve live bytes', () => {
+  assert.equal(config.targets.length, 14);
+  assert.equal(config.targets.filter(t => t.package === 'node_modules/rollup').reduce((sum, t) => sum + t.parsers, 0), 6);
+  for (const [file, digest] of live) assert.equal(digest, config.targets.find(t => path.join(app, t.path) === file).patched_sha256);
+});
+test('fixture apply, check, idempotence and fixture-only revert', () => fixture(root => {
+  assert.equal(runMode('--check', root).copies.length, config.targets.length);
+  runMode('--revert', root); assert.throws(() => runMode('--check', root), /Guard absent/);
+  assert.equal(hash(fs.readFileSync(target(root))), config.targets[0].original_sha256);
+  runMode('--apply', root); runMode('--apply', root); runMode('--check', root);
+  assert.throws(() => runMode('unexpected', root), /Use/);
+}));
+test('live revert and unknown source or policy bytes fail closed before mutation', () => {
+  assert.throws(() => runMode('--revert', app), /private test fixtures/);
+  fixture(root => { fs.appendFileSync(target(root), '// unknown'); assert.throws(() => runMode('--apply', root), /Unknown dependency bytes/); });
+  fixture(root => { fs.appendFileSync(path.join(root, 'scripts/picomatch-runtime-policy.cjs'), '// unknown'); assert.throws(() => runMode('--apply', root), /Unknown runtime policy/); });
+});
+test('locked identity, package version, missing copies and unexpected embedded sources fail closed', () => {
+  fixture(root => { fs.appendFileSync(path.join(root, 'package-lock.json'), ' '); assert.throws(() => runMode('--apply', root), /Unreviewed package-lock/); });
+  fixture(root => { const file = path.join(root, config.targets[0].package, 'package.json'); const data = JSON.parse(fs.readFileSync(file)); data.version = '999.0.0'; fs.writeFileSync(file, JSON.stringify(data)); assert.throws(() => runMode('--apply', root), /Unreviewed package version/); });
+  fixture(root => { fs.renameSync(path.join(root, 'node_modules/picomatch'), path.join(root, 'node_modules/moved')); assert.throws(() => runMode('--apply', root), /inventory differs|Unreviewed embedded parser/); });
+  fixture(root => { fs.writeFileSync(path.join(root, 'node_modules/unknown.js'), 'const extglobOpen = (type, value) => {};'); assert.throws(() => runMode('--apply', root), /Unreviewed embedded parser/); });
+});
+test('links are rejected without following them', () => fixture(root => {
+  const destination = path.join(root, 'node_modules/linked');
+  fs.symlinkSync(path.join(root, 'node_modules/picomatch'), destination, process.platform === 'win32' ? 'junction' : 'dir');
+  assert.throws(() => runMode('--apply', root), /Linked dependency/);
+}));
+test('atomic replacement failure leaves complete known files and blocks check until forward recovery', () => fixture(root => {
+  runMode('--revert', root); let count = 0;
+  fault('renameSync', original => (...args) => { if (++count === 3) throw new Error('synthetic interrupted replacement'); return original(...args); }, () => assert.throws(() => runMode('--apply', root), /synthetic interrupted/));
+  assert.ok(fs.existsSync(marker(root)));
+  for (const spec of config.targets) assert.ok([spec.original_sha256, spec.patched_sha256].includes(hash(fs.readFileSync(path.join(root, spec.path)))));
+  assert.throws(() => runMode('--check', root), /Pending/);
+  assert.throws(() => runMode('--revert', root), /forward recovery/);
+  runMode('--apply', root); runMode('--check', root); assert.ok(!fs.existsSync(marker(root)));
+  assert.ok(!fs.readdirSync(path.dirname(target(root))).some(name => name.endsWith('.tmp')));
+}));
+test('a real terminated fixture process leaves a blocked transaction that recovers forward', () => fixture(root => {
+  runMode('--revert', root);
+  const controllerURL = new URL('./picomatch-mitigation.mjs', import.meta.url).href;
+  const code = `import fs from 'node:fs';import {runMode} from ${JSON.stringify(controllerURL)};const original=fs.renameSync;let count=0;fs.renameSync=(...args)=>{original(...args);if(++count===3)process.kill(process.pid,'SIGKILL');};runMode('--apply',${JSON.stringify(root)});`;
+  const child = spawnSync(process.execPath, ['--max-old-space-size=96', '--input-type=module', '-e', code], { timeout: 15000, encoding: 'utf8' });
+  assert.ifError(child.error); assert.notEqual(child.status, 0);
+  assert.ok(fs.existsSync(marker(root))); assert.ok(fs.existsSync(locker(root)));
+  assert.throws(() => runMode('--check', root), /Pending/);
+  runMode('--apply', root); runMode('--check', root);
+  assert.ok(!fs.existsSync(marker(root))); assert.ok(!fs.existsSync(locker(root)));
+}));
+test('write verification and unknown pending transactions fail closed', () => {
+  fixture(root => {
+    runMode('--revert', root);
+    fault('renameSync', original => (...args) => { original(...args); fs.appendFileSync(args[1], '// synthetic corruption'); }, () => assert.throws(() => runMode('--apply', root), /verification failed/));
+    assert.throws(() => runMode('--check', root), /Pending/);
+    assert.throws(() => runMode('--apply', root), /Unknown dependency bytes/);
+  });
+  fixture(root => { fs.writeFileSync(marker(root), '{}'); assert.throws(() => runMode('--apply', root), /Unknown pending transaction/); });
+});
+test('exclusive lock refuses a live owner and recovers a dead owner', () => fixture(root => {
+  fs.writeFileSync(locker(root), JSON.stringify({ pid: process.pid, token: 'synthetic' }));
+  assert.throws(() => runMode('--apply', root), /Another installer/); assert.throws(() => runMode('--check', root), /Pending/);
+  fs.writeFileSync(locker(root), '{}'); assert.throws(() => runMode('--apply', root), /Invalid installer lock/);
+  const child = spawnSync(process.execPath, ['-e', 'process.exit(0)'], { timeout: 3000 }); assert.equal(child.status, 0);
+  // Node's completed child PID is known dead; no guessed system PID is signalled.
+  fs.writeFileSync(locker(root), JSON.stringify({ pid: child.pid, token: 'dead-synthetic' }));
+  runMode('--apply', root); runMode('--check', root);
+}));
+test('safe repeated literals/classes/prefix-free alternatives retain their semantics', () => {
+  const patterns = [['a+(b)', 'abbb'], ['*([0-9]).txt', '123.txt'], ['+([a-z]).js', 'abc.js'], ['x/*(a)/y', 'x/aaa/y'], ['+(ab|ac)', 'abac']];
+  for (const relative of [...new Set(config.targets.filter(t => t.package.endsWith('/picomatch')).map(t => t.package))]) {
+    const pm = require(path.join(app, relative));
+    for (const [pattern, input] of patterns) assert.equal(pm(pattern)(input), true, `${relative} ${pattern}`);
+  }
+  policy.assertRepeated('+(a|b)', 0); policy.assertRepeated('+(a|A)', 0);
+  assert.throws(() => policy.assertRepeated('+(a|A)', 0, { nocase: true }), /prefix-free/);
+  assert.throws(() => policy.assertRepeated('+(a|A)', 0, { flags: 'i' }), /prefix-free/);
+});
+test('policy rejects ambiguous, nested and unreviewed repetitions without running a regex', () => {
+  for (const pattern of ['+(*a)', '*(*)', '+(a|aa)', '+()', '+(a\\b)', '+("a")', '+((a))', '+([[a]])', '+(a']) assert.throws(() => policy.assertRepeated(pattern, 0), /Temporary picomatch/);
+  for (const options of [{ prepend: '(a+)+b' }, { expandRange() {} }]) assert.throws(() => policy.validatePatternOptions('a', options), /regex injection/);
+  assert.throws(() => policy.validatePatternOptions('a'.repeat(1025)), /length/);
+  assert.throws(() => policy.validatePatternOptions(null), /type/);
+  assert.equal(policy.validatePatternOptions('a', { regex: true }).regex, false);
+});
+test('runtime budget rejects polynomial workloads before execution and preserves ordinary RegExp behavior', () => {
+  assert.deepEqual(policy.complexity('"*"\\*[*]**/?(a|b),!(x)+([ab])'), { variable: 3, choices: 4 });
+  const regex = policy.guardRegex(/^a$/, 'a'); assert.ok(regex instanceof RegExp); assert.equal(regex.test('a'), true); assert.equal(regex.exec('b'), null);
+  assert.throws(() => regex.exec('x'.repeat(8193)), /length/); assert.throws(() => regex.exec(123), /non-string/);
+  assert.throws(() => policy.assertWork('*a'.repeat(9) + '*b', 'a'.repeat(36) + '!', { variable: 10, choices: 1 }), /work budget/);
+  assert.throws(() => policy.complexity('?('.repeat(30)), /branch budget/);
 });
 
-before(() => {
-  for (const directory of copies) {
-    const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
-    const target = path.join(directory, 'lib/parse.js');
-    assert.equal(digest(fs.readFileSync(target)), config.versions[version].patched_sha256);
-    if (!originals.has(version)) {
-      const clone = path.join(temp, version);
-      fs.cpSync(directory, clone, { recursive: true });
-      const clean = Buffer.from(fs.readFileSync(path.join(clone, 'lib/parse.js'), 'utf8').replace(config.guard_block, ''));
-      assert.equal(digest(clean), config.versions[version].original_sha256);
-      fs.writeFileSync(path.join(clone, 'lib/parse.js'), clean);
-      originals.set(version, require(clone));
+test('automatic installation rejects unreviewed lifecycle hooks, including implicit preparation events', () => {
+  validateHooks('known', { postinstall: 'node trusted.js', test: 'ignored' }, { known: { postinstall: 'node trusted.js' } });
+  validateHooks('ordinary', { test: 'ignored' }, {});
+  for (const event of ['preinstall', 'install', 'postinstall', 'prepare', 'preprepare', 'postprepare', 'prepublish']) assert.throws(() => validateHooks('', { [event]: 'node unexpected.js' }, {}), /Unreviewed lifecycle/);
+  for (const event of ['preinstall', 'install', 'postinstall']) assert.throws(() => validateHooks('ordinary', { [event]: 'node unexpected.js' }, {}), /Unreviewed lifecycle/);
+});
+
+test('temporary corruption is rejected before replacing an existing dependency', () => fixture(root => {
+  runMode('--revert', root); const before = fs.readFileSync(target(root));
+  fault('fsyncSync', original => descriptor => { original(descriptor); fs.writeSync(descriptor, Buffer.from('!'), 0, 1, 0); }, () => assert.throws(() => runMode('--apply', root), /Temporary write verification failed/));
+  assert.deepEqual(fs.readFileSync(target(root)), before);
+  runMode('--apply', root); runMode('--check', root);
+}));
+test('an exclusive temporary-name collision never deletes a foreign file', () => fixture(root => {
+  runMode('--revert', root); let foreign;
+  fault('openSync', original => (filename, flags, ...args) => {
+    if (flags === 'wx' && String(filename).includes('.emergency-') && String(filename).endsWith('.tmp')) {
+      foreign = filename; fs.writeFileSync(filename, 'synthetic foreign owner');
     }
-  }
-});
-
-test('original versions reproduce bounded ReDoS probes in killable child processes', () => {
-  for (const version of originals.keys()) {
-    for (const pattern of ['+(*a)', '+(*)z', '*(*)z']) {
-      const start = performance.now();
-      const child = spawnSync(process.execPath, ['--max-old-space-size=128', '-e', "const pm=require(process.argv[1]);const re=pm.makeRe(process.argv[2]);console.log('compiled');console.log(re.test('a'.repeat(36)+'!'));", path.join(temp, version), pattern], { encoding: 'utf8', timeout: 1500, killSignal: 'SIGKILL' });
-      assert.equal(child.error?.code, 'ETIMEDOUT', `${version} ${pattern}: expected bounded timeout`);
-      assert.match(child.stdout, /compiled/);
-      report.baseline.push({ version, pattern, timeoutMs: 1500, observedMs: Math.round(performance.now() - start), result: 'COMPILED_THEN_TIMEOUT_CHILD_KILLED' });
-    }
-  }
-});
-
-test('every installed copy rejects repeated extglobs across public APIs and fast paths', () => {
-  const patterns = ['+(*)', '+(*a)', '+(*)z', '*(*)z', '*(a|*)z', '+(a|b)', 'src/+(*)/x', '**/+(*)', './*(*)z', '@(x|+(a))', '!(+(a))', '?(x|*(a))'];
-  for (const directory of copies) {
-    const pm = require(directory);
-    const parser = require(path.join(directory, 'lib/parse.js'));
-    for (const pattern of patterns) {
-      for (const options of [{}, { fastpaths: false }, { dot: true }, { windows: true }, { bash: true }]) {
-        for (const invoke of [() => pm(pattern, options), () => pm.isMatch('aaaa!', pattern, options), () => pm.makeRe(pattern, options), () => pm.parse(pattern, options), () => parser(pattern, options), () => pm(['*.js', pattern], options)]) {
-          assert.throws(invoke, error => error instanceof SyntaxError && error.code === 'ERR_PICOMATCH_REPEATED_EXTGLOB', `${directory}: ${pattern} ${JSON.stringify(options)}`);
-          report.rejectedCompilations++;
-        }
-      }
-    }
-  }
-});
-
-test('ordinary patterns and non-repeated extglobs preserve both versions matching behavior', () => {
-  const patterns = ['*', '**', '**/*', '*.js', '**/*.{js,ts}', 'src/**/test?.[jt]s', '**/node_modules/**', '!**/*.test.ts', '**/*.{html,js,css,svg,png,woff2}', '**/*.map', 'assets/*-[a-z0-9]*.js', 'a{1..3}.txt', '{src,public}/**', '[ab]*', '[!ab]*', '.config/*', '?(*.js)', '@(a|b).ts', '!(*.test).js', 'foo/?(bar).js', '\\+(a)', '[+](a)', '"+(a)"', '\\*(a)', '[*](a)'];
-  const samples = ['a', 'b', 'aaaa!', 'a.js', 'b.ts', 'a.test.js', 'a1.txt', 'a2.txt', 'a4.txt', 'src/a.js', 'src/x/test1.ts', 'public/index.html', '.config/a', '.hidden', 'assets/main-a3.js', 'foo/.dot.js', 'foo/bar.js', 'foo/.js', 'node_modules/a/x.js', 'x.map', '+(a)', '*(a)', 'a/b/c.js', ''];
-  for (const directory of copies) {
-    const pm = require(directory);
-    const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
-    const before = originals.get(version);
-    for (const options of [{}, { dot: true }, { nocase: true }, { fastpaths: false }, { windows: true }, { noextglob: true }]) {
-      for (const pattern of patterns) {
-        const cleanMatcher = before(pattern, options);
-        const guardedMatcher = pm(pattern, options);
-        assert.equal(pm.makeRe(pattern, options).source, before.makeRe(pattern, options).source);
-        for (const sample of samples) {
-          assert.equal(guardedMatcher(sample), cleanMatcher(sample), `${version}: ${pattern} ${sample}`);
-          report.benignComparisons++;
-        }
-      }
-    }
-    // Disabled extglob parsing does not create the vulnerable repeated expression.
-    for (const pattern of ['+(*)', '*(*)z', '+(a|b)']) assert.equal(pm.makeRe(pattern, { noextglob: true }).source, before.makeRe(pattern, { noextglob: true }).source);
-  }
-});
-
-test('apply is idempotent, revert restores exact upstream bytes, check blocks unguarded installs', () => {
-  assert.equal(control('--check').status, 0);
-  assert.equal(control('--apply').status, 0);
-  try {
-    assert.equal(control('--revert').status, 0);
-    for (const directory of copies) {
-      const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
-      assert.equal(digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))), config.versions[version].original_sha256);
-    }
-    const absent = control('--check');
-    assert.equal(absent.status, 1);
-    assert.match(absent.stderr, /Guard absent/);
-  } finally { assert.equal(control('--apply').status, 0); }
-  assert.equal(control('--check').status, 0);
-});
-
-test('unknown bytes or versions prevent all writes and are never overwritten', () => {
-  const snapshot = copies.map(p => ({ file: path.join(p, 'lib/parse.js'), bytes: fs.readFileSync(path.join(p, 'lib/parse.js')) }));
-  const parser = snapshot.at(-1).file;
-  const metadata = path.join(copies.at(-1), 'package.json');
-  const metadataBytes = fs.readFileSync(metadata);
-  try {
-    // Earlier copies would need writing: a later integrity error must leave them untouched.
-    const firstClean = Buffer.from(snapshot[0].bytes.toString('utf8').replace(config.guard_block, ''));
-    fs.writeFileSync(snapshot[0].file, firstClean);
-    const changed = Buffer.concat([snapshot.at(-1).bytes, Buffer.from('\n// deliberate isolated integrity probe\n')]);
-    fs.writeFileSync(parser, changed);
-    const refused = control('--apply');
-    assert.equal(refused.status, 1);
-    assert.match(refused.stderr, /Unknown parser bytes/);
-    assert.deepEqual(fs.readFileSync(parser), changed);
-    assert.deepEqual(fs.readFileSync(snapshot[0].file), firstClean);
-    for (const item of snapshot.slice(1, -1)) assert.deepEqual(fs.readFileSync(item.file), item.bytes);
-    fs.writeFileSync(snapshot[0].file, snapshot[0].bytes);
-    fs.writeFileSync(parser, snapshot.at(-1).bytes);
-    const modified = JSON.parse(metadataBytes.toString()); modified.version = '999.0.0';
-    fs.writeFileSync(metadata, JSON.stringify(modified));
-    const unknown = control('--apply');
-    assert.equal(unknown.status, 1);
-    assert.match(unknown.stderr, /Unreviewed picomatch version/);
-    for (const item of snapshot) assert.deepEqual(fs.readFileSync(item.file), item.bytes);
-  } finally {
-    fs.writeFileSync(snapshot[0].file, snapshot[0].bytes);
-    fs.writeFileSync(parser, snapshot.at(-1).bytes);
-    fs.writeFileSync(metadata, metadataBytes);
-  }
-  assert.equal(control('--check').status, 0);
-});
-
-test('links outside the isolated dependency tree fail closed without writing their target', () => {
-  // Keep the junction on the workspace volume, outside node_modules, for restricted Windows hosts.
-  const outside = fs.mkdtempSync(path.join(app, '.picomatch-external-test-'));
-  const sentinel = path.join(outside, 'sentinel.txt'); fs.writeFileSync(sentinel, 'unchanged');
-  const link = path.join(app, 'node_modules/emergency-mitigation-link-probe');
-  try {
-    fs.symlinkSync(outside, link, process.platform === 'win32' ? 'junction' : 'dir');
-    const refused = control('--apply');
-    assert.equal(refused.status, 1);
-    assert.match(refused.stderr, /Expected ordinary directory/);
-    assert.equal(fs.readFileSync(sentinel, 'utf8'), 'unchanged');
-  } finally {
-    if (fs.existsSync(link)) fs.unlinkSync(link);
-    fs.rmSync(outside, { recursive: true, force: true });
-  }
-  assert.equal(control('--check').status, 0);
-});
-
-test('invalid controller arguments are rejected without changing installed parsers', () => {
-  const rejected = control('--unexpected');
-  assert.equal(rejected.status, 1);
-  assert.match(rejected.stderr, /Use --apply, --check or --revert/);
-  assert.equal(control('--check').status, 0);
-});
-
-test('a lock inventory mismatch prevents patching any copy', () => {
-  const lockFile = path.join(app, 'package-lock.json');
-  const before = fs.readFileSync(lockFile);
-  const snapshot = copies.map(directory => fs.readFileSync(path.join(directory, 'lib/parse.js')));
-  try {
-    const changed = JSON.parse(before.toString());
-    delete changed.packages[Object.keys(changed.packages).filter(p => p.endsWith('/picomatch')).at(-1)];
-    fs.writeFileSync(lockFile, JSON.stringify(changed));
-    const rejected = control('--apply');
-    assert.equal(rejected.status, 1);
-    assert.match(rejected.stderr, /inventory differs from package-lock/);
-    copies.forEach((directory, index) => assert.deepEqual(fs.readFileSync(path.join(directory, 'lib/parse.js')), snapshot[index]));
-  } finally { fs.writeFileSync(lockFile, before); }
-  assert.equal(control('--check').status, 0);
-});
-
-test('write, fsync, corruption and rename failures preserve complete parsers and roll back earlier replacements', () => {
-  for (const fault of ['write', 'corrupt', 'fsync', 'rename']) {
-    const preload = path.join(temp, `write-fault-${fault}.cjs`);
-    fs.writeFileSync(preload, `const fs = require('node:fs');
-const write = fs.writeFileSync, open = fs.openSync, sync = fs.fsyncSync, rename = fs.renameSync;
-const descriptors = new Set();
-let writes = 0;
-let syncs = 0;
-let renames = 0;
-fs.openSync = (filename, ...options) => {
-  const descriptor = open(filename, ...options);
-  if (/parse\\.js\\.[^/\\\\]+\\.tmp$/.test(String(filename))) descriptors.add(descriptor);
-  return descriptor;
-};
-fs.writeFileSync = (filename, bytes, ...options) => {
-  if (descriptors.has(filename) && ++writes === 2) {
-    if (${JSON.stringify(fault)} === 'write') throw new Error('simulated isolated write failure');
-    if (${JSON.stringify(fault)} === 'corrupt') return write(filename, Buffer.concat([Buffer.from(bytes), Buffer.from('\\n// simulated read-back mismatch\\n')]), ...options);
-  }
-  return write(filename, bytes, ...options);
-};
-fs.fsyncSync = descriptor => {
-  if (descriptors.has(descriptor) && ++syncs === 2 && ${JSON.stringify(fault)} === 'fsync') throw new Error('simulated fsync failure');
-  return sync(descriptor);
-};
-fs.renameSync = (source, target) => {
-  if (++renames === 2 && ${JSON.stringify(fault)} === 'rename') throw new Error('simulated rename failure');
-  return rename(source, target);
-};\n`);
-    try {
-      assert.equal(control('--revert').status, 0);
-      const result = spawnSync(process.execPath, ['--require', preload, path.join(app, 'scripts/picomatch-mitigation.mjs'), '--apply'], { encoding: 'utf8', timeout: 20000 });
-      assert.ifError(result.error);
-      assert.equal(result.status, 1);
-      const expected = { write: /simulated isolated write failure/, corrupt: /Temporary write verification failed/, fsync: /simulated fsync failure/, rename: /simulated rename failure/ };
-      assert.match(result.stderr, expected[fault]);
-      for (const directory of copies) {
-        const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
-        assert.equal(digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))), config.versions[version].original_sha256);
-        assert.deepEqual(fs.readdirSync(path.join(directory, 'lib')).filter(name => /^parse\.js\..+\.tmp$/.test(name)), []);
-      }
-    } finally { assert.equal(control('--apply').status, 0); }
-    assert.equal(control('--check').status, 0);
-  }
-});
-
-test('an exclusive temporary-file collision preserves the existing file and rolls back earlier replacements', () => {
-  const preload = path.join(temp, 'collision-fault.cjs');
-  fs.writeFileSync(preload, `const crypto = require('node:crypto');
-crypto.randomUUID = () => 'collision-probe';
-require('node:module').syncBuiltinESMExports();\n`);
-  const collisionDirectory = [...copies].sort((left, right) => left.localeCompare(right, 'en')).at(-1);
-  const collision = `${path.join(collisionDirectory, 'lib/parse.js')}.collision-probe.tmp`;
-  const sentinel = Buffer.from('pre-existing temporary file must remain unchanged');
-  let created = false;
-  try {
-    assert.equal(control('--revert').status, 0);
-    fs.writeFileSync(collision, sentinel, { flag: 'wx' });
-    created = true;
-    const result = spawnSync(process.execPath, ['--require', preload, path.join(app, 'scripts/picomatch-mitigation.mjs'), '--apply'], { encoding: 'utf8', timeout: 20000 });
-    assert.ifError(result.error);
-    assert.equal(result.status, 1);
-    assert.match(result.stderr, /EEXIST/);
-    assert.deepEqual(fs.readFileSync(collision), sentinel);
-    for (const directory of copies) {
-      const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
-      assert.equal(digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))), config.versions[version].original_sha256);
-    }
-  } finally {
-    if (created) fs.unlinkSync(collision);
-    assert.equal(control('--apply').status, 0);
-  }
-  assert.equal(control('--check').status, 0);
-});
-
-test('rollback continues after one rollback fails and reports the incomplete transaction', () => {
-  const preload = path.join(temp, 'rollback-fault.cjs');
-  fs.writeFileSync(preload, `const fs = require('node:fs');
-const rename = fs.renameSync;
-let renames = 0;
-fs.renameSync = (source, target) => {
-  renames++;
-  if (renames === 4) throw new Error('simulated fourth replacement failure');
-  if (renames === 5) throw new Error('simulated rollback failure');
-  return rename(source, target);
-};\n`);
-  try {
-    assert.equal(control('--revert').status, 0);
-    const result = spawnSync(process.execPath, ['--require', preload, path.join(app, 'scripts/picomatch-mitigation.mjs'), '--apply'], { encoding: 'utf8', timeout: 20000 });
-    assert.ifError(result.error);
-    assert.equal(result.status, 1);
-    assert.match(result.stderr, /simulated fourth replacement failure; rollback incomplete: .*simulated rollback failure/);
-    const versions = copies.map(directory => JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version);
-    const parsers = copies.map(directory => digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))));
-    assert.equal(parsers.filter((value, index) => value === config.versions[versions[index]].patched_sha256).length, 1);
-    assert.equal(parsers.filter((value, index) => value === config.versions[versions[index]].original_sha256).length, copies.length - 1);
-    assert.equal(control('--check').status, 1, 'A partially rolled-back tree must fail closed');
-    for (const directory of copies) assert.deepEqual(fs.readdirSync(path.join(directory, 'lib')).filter(name => /^parse\.js\..+\.tmp$/.test(name)), []);
-  } finally { assert.equal(control('--apply').status, 0); }
-  assert.equal(control('--check').status, 0);
-});
+    return original(filename, flags, ...args);
+  }, () => assert.throws(() => runMode('--apply', root), /EEXIST/));
+  assert.equal(fs.readFileSync(foreign, 'utf8'), 'synthetic foreign owner');
+  fs.unlinkSync(foreign); runMode('--apply', root); runMode('--check', root);
+}));

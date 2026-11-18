@@ -73,6 +73,21 @@ class PublicReportTests(unittest.TestCase):
         self.assertEqual(json.loads(result.stdout)["findings"], [])
         self.assertIn("trivy: PASS", result.stderr)
 
+    def test_trivy_severity_is_required_and_valid_for_every_finding_kind(self):
+        for key, item in [("Vulnerabilities", {"VulnerabilityID": "CVE-TEST", "PkgName": "synthetic", "InstalledVersion": "0"}),
+                          ("Secrets", {"RuleID": "synthetic"}),
+                          ("Misconfigurations", {"ID": "synthetic"})]:
+            for severity in [None, "", "high", "TYPO", 42, []]:
+                with self.subTest(kind=key, severity=severity):
+                    finding = dict(item)
+                    if severity is not None:
+                        finding["Severity"] = severity
+                    data = {"SchemaVersion": 2, "Results": [{"Target": "synthetic", key: [finding]}]}
+                    self.assertEqual(self.run_report("trivy", data).returncode, 2)
+        explicit_unknown = {"SchemaVersion": 2, "Results": [{"Target": "synthetic", "Vulnerabilities": [{
+            "VulnerabilityID": "CVE-TEST", "PkgName": "synthetic", "InstalledVersion": "0", "Severity": "UNKNOWN"}]}]}
+        self.assertEqual(self.run_report("trivy", explicit_unknown).returncode, 0)
+
     @staticmethod
     def run_report(tool, data):
         return subprocess.run([sys.executable, str(SCRIPT), tool, "--check"],

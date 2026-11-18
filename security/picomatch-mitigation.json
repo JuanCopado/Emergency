@@ -1,18 +1,348 @@
 {
   "status": "TEMPORARY_LOCAL_MITIGATION_NOT_OFFICIAL_FIX",
   "advisory": "GHSA-fc5q-39xc-vjpf",
-  "anchor": "  const extglobOpen = (type, value) => {",
-  "guard_block": "\n    // EMERGENCY_TEMP_PICOMATCH_REPEATED_EXTGLOB_GUARD\n    if (type === 'plus' || type === 'star') {\n      const error = new SyntaxError('Temporary mitigation: repeated extglobs are disabled');\n      error.code = 'ERR_PICOMATCH_REPEATED_EXTGLOB';\n      throw error;\n    }\n",
-  "versions": {
-    "4.0.7": {
+  "lock_sha256": "46cc8c9c143a581ed894f20d5fa085f94850c75dbd8574cf7a3081c1db003474",
+  "policy_sha256": "86ffe4062dedbb98639c8673ba4a4c697592f062b850704d88a9915a2e1a1166",
+  "targets": [
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/parse.js",
+      "package": "node_modules/@rollup/pluginutils/node_modules/picomatch",
       "version": "4.0.7",
       "original_sha256": "4e1e05447668aa1e94366c5516a2bcd8f5fff800cc92b1d0cd7d77703b8618c4",
-      "patched_sha256": "d0d7a5c813b23f7b7ca422a0c0b8a568ca9b8521e0159e0a6365555d8230070c"
+      "patched_sha256": "7be6d696047bab2e2318feee3addba1943670dee406966a1e3b014f404595b96",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          2
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          1
+        ]
+      ],
+      "parsers": 1
     },
-    "2.3.2": {
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/picomatch.js",
+      "package": "node_modules/@rollup/pluginutils/node_modules/picomatch",
+      "version": "4.0.7",
+      "original_sha256": "fdd249d7ffff853f3bb1c77eafc8baa1a437bea85a94c35877b83c6a40d9ca94",
+      "patched_sha256": "a909d86fd8f99750fca195367f1b6017c25125ae7ec7125ca2cdd9469432102c",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          1
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          1
+        ]
+      ],
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/picomatch/lib/parse.js",
+      "package": "node_modules/picomatch",
       "version": "2.3.2",
       "original_sha256": "3a91656f440069aa8f8e15c9d695b9f6b2209df1eab2be8127c72cbcca45ff5f",
-      "patched_sha256": "7dc99bd00f86946e6f77122899d813086554d843471e649f080c52f9584675cc"
+      "patched_sha256": "87b6cd850fe792f2e921ad9c128aea4006e678531931ba23c762afd0d99aec45",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          2
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          1
+        ]
+      ],
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/picomatch/lib/picomatch.js",
+      "package": "node_modules/picomatch",
+      "version": "2.3.2",
+      "original_sha256": "2cb169cbe17d356036c5f62a377318b85e30817877e59797842aec9d8b15f54b",
+      "patched_sha256": "a30cef73e3c3014c69da25be2db9b57d2c9f728b40d1b708875d1945ec224b2e",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          1
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          1
+        ]
+      ],
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/rollup.js",
+      "package": "node_modules/rollup",
+      "version": "4.63.5",
+      "original_sha256": "7a10e8f1b94c7e168661b0036e0dc26aac427d1a901becd594a949b77a552643",
+      "patched_sha256": "d4a191682e2e25c94e8aed12159bcbf9e1147e7d3c2348d3a01b93b44499aa0c",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          2
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          1
+        ],
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          1
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          1
+        ]
+      ],
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/index.js",
+      "package": "node_modules/rollup",
+      "version": "4.63.5",
+      "original_sha256": "a7bf273eef634571af963277ec97f7739f0028eee47cde7c51472bf437f6e17f",
+      "patched_sha256": "4c67319d61ba0e4b710fc15e80bbabd5e70f8d59fa39674acbec2c7e5bf2c7eb",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          4
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          2
+        ],
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          2
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          2
+        ]
+      ],
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/node-entry.js",
+      "package": "node_modules/rollup",
+      "version": "4.63.5",
+      "original_sha256": "6ba3f0908c98317c1478dec22a51aae83a95857e3ced73541b977e7b279b67ad",
+      "patched_sha256": "8e648de86e4933a640afe526dbc07ef6d90580a43f0c2fe3fad7934a3e636a12",
+      "header": "import __emergencyPicomatchPolicy from \"../../../../../scripts/picomatch-runtime-policy.cjs\";\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          2
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          1
+        ],
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          1
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          1
+        ]
+      ],
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/watch.js",
+      "package": "node_modules/rollup",
+      "version": "4.63.5",
+      "original_sha256": "5b683bd7b28c6b23a3d792239cad85562740c45d1596f28a3b5e8f94f8b63e8e",
+      "patched_sha256": "16ed4256659ccb8f4049735cc1406229b6f1369e699cb4eb08fd3072e8662086",
+      "header": "import __emergencyPicomatchPolicy from \"../../../../../scripts/picomatch-runtime-policy.cjs\";\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          4
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          2
+        ],
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          2
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          2
+        ]
+      ],
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "package": "node_modules/tinyglobby/node_modules/picomatch",
+      "version": "4.0.7",
+      "original_sha256": "4e1e05447668aa1e94366c5516a2bcd8f5fff800cc92b1d0cd7d77703b8618c4",
+      "patched_sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          2
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          1
+        ]
+      ],
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "package": "node_modules/tinyglobby/node_modules/picomatch",
+      "version": "4.0.7",
+      "original_sha256": "fdd249d7ffff853f3bb1c77eafc8baa1a437bea85a94c35877b83c6a40d9ca94",
+      "patched_sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          1
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          1
+        ]
+      ],
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/parse.js",
+      "package": "node_modules/vite/node_modules/picomatch",
+      "version": "4.0.7",
+      "original_sha256": "4e1e05447668aa1e94366c5516a2bcd8f5fff800cc92b1d0cd7d77703b8618c4",
+      "patched_sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          2
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          1
+        ]
+      ],
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/picomatch.js",
+      "package": "node_modules/vite/node_modules/picomatch",
+      "version": "4.0.7",
+      "original_sha256": "fdd249d7ffff853f3bb1c77eafc8baa1a437bea85a94c35877b83c6a40d9ca94",
+      "patched_sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          1
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          1
+        ]
+      ],
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "package": "node_modules/vitest/node_modules/picomatch",
+      "version": "4.0.7",
+      "original_sha256": "4e1e05447668aa1e94366c5516a2bcd8f5fff800cc92b1d0cd7d77703b8618c4",
+      "patched_sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const opts = { ...options };",
+          "const opts = __emergencyPicomatchPolicy.validatePatternOptions(input, options);",
+          2
+        ],
+        [
+          "const extglobOpen = (type, value) => {",
+          "const extglobOpen = (type, value) => {\n    if (type === 'plus' || type === 'star') __emergencyPicomatchPolicy.assertRepeated(input, state.index, opts);",
+          1
+        ]
+      ],
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "package": "node_modules/vitest/node_modules/picomatch",
+      "version": "4.0.7",
+      "original_sha256": "fdd249d7ffff853f3bb1c77eafc8baa1a437bea85a94c35877b83c6a40d9ca94",
+      "patched_sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "header": "const __emergencyPicomatchPolicy = require(\"../../../../../scripts/picomatch-runtime-policy.cjs\");\n",
+      "replacements": [
+        [
+          "const regex = picomatch.toRegex(source, options);",
+          "const regex = __emergencyPicomatchPolicy.guardRegex(picomatch.toRegex(source, options), state.input, options);",
+          1
+        ],
+        [
+          "let parsed = { negated: false, fastpaths: true };",
+          "let parsed = { input, negated: false, fastpaths: true };",
+          1
+        ]
+      ],
+      "parsers": 0
+    }
+  ],
+  "lifecycle": {
+    "esbuild": {
+      "version": "0.25.12",
+      "install_sha256": "10f6fa3644d8d23d066ff67b0ae449074e75884503546a9fedb667f1dcb9ade2"
     }
   }
 }
