@@ -42,3 +42,13 @@
 - Con base Trivy actual, la copia anterior tiene2HIGH+13inferiores y la nueva2HIGH+0inferiores. Son dos registros del mismo picomatch/CVE-2026-112366 sin versión oficial corregida. npm conserva25 paquetesHIGH por ese único advisory;0moderados/bajos. Gate de dependenciasFAIL conservado.
 - Workflow preparado para cobertura medida antes de Sonar, acciones fijadas y clasificador por stdin/stdout sin rutas arbitrarias. No hay análisis remoto nuevo, supresión, publicación o cambios a PR22 remoto.
 - Estado vigente y límites: security/PR22_SECURITY_CONTINUATION_2026-11-18.md. Documentos del17/11 conservan su contexto histórico.
+
+## Contención de picomatch verificada — 18/11/2026
+
+- Mitigación aceptada por el propietario y añadida a PR24 sobre ce808a63; código final comprobado010f12c01fde4a4058d2e856b5033373752db536.
+- El build exige picomatch dev-only y rechaza su inclusión en la aplicación; CI también revisa el service worker y Workbox mediante mapas generados.
+- Resultado:119 módulos de aplicación y44 entradas de fuente en2 mapas, sin picomatch. App UI QA, lint/typecheck/build, navegación/exportaciones,469 pruebas Vitest y827 PythonPASS;22 controles locales comparten casos con la nueva suite, no se suman como pruebas únicas.
+- Semgrep y SonarPASS. Trivy termina el análisis y conservaFAIL con2 registros de la vulnerabilidad upstream, sin excepción, supresión ni cambio de umbral.
+- Checkout de App UI QA fijado y sin credenciales persistidas; npm sin lifecycle scripts. Runner efímero, con red disponible; no se afirma aislamiento de red.
+- Dependencias bloqueadas, clínica, fórmulas, contratos y estados conservados respecto a la base de esta tarea. CLINICALLY_PENDING; sin merge, despliegue ni cierre del advisory.
+- Evidencia y límites: security/PICOMATCH_CONTAINMENT_2026-11-18.md y ejecuciones44318600953/44318600927/44318600973. Las últimas modificaciones posteriores al código comprobado son solo documentales.

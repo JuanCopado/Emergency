@@ -1,5 +1,7 @@
 # Picomatch containment — 18/11/2026
 
+**CI containment verified. Package advisory OPEN; Trivy gate remains FAIL.**
+
 Scope: technical build containment for the international core. Owner accepted the
 containment approach in this session. Base: PR24 at
 `ce808a63f3f68c8750fd48c425d4d95bbe3f4de3`, exact source tree
@@ -52,8 +54,36 @@ Local Windows/Node24:22 containment checks PASS,8 existing report privacy/failur
 tests PASS, actionlint1.7.12 PASS for the affected workflow (shellcheck absent),
 and git diff --check PASS. The same test cases run under Vitest for measured
 coverage, with two additional real Vite build fixtures (clean and contaminated).
-Full Node22/Linux build, worker-map inspection and remote QA remain pending at
-this implementation cut; their results must be observed separately.
+Remote verification of the final executable code, commit
+`010f12c01fde4a4058d2e856b5033373752db536`:
+
+| Control | Observed result |
+|---|---|
+| App UI QA, Node22/Linux | PASS:469 Vitest checks (445 existing +24 containment), lint, typecheck, build, browser contracts and exports |
+| Production application graph | PASS:119 emitted modules, picomatch absent |
+| Service worker / Workbox | PASS:2 generated maps,44 source entries, picomatch absent |
+| Clinical QA | PASS:827 Python checks and global QA; technical, not prospective clinical validation |
+| Measured coverage job | PASS:827 Python +8 report checks and469 Vitest checks; repeated runs are not additional unique tests |
+| Semgrep / Sonar | PASS / PASS; gates and coverage exclusions unchanged |
+| Trivy | Scan completes; gate FAIL,2 findings retained |
+
+Evidence:
+- https://github.com/JuanCopado/Emergency/actions/runs/44318600953
+- https://github.com/JuanCopado/Emergency/actions/runs/44318600927
+- https://github.com/JuanCopado/Emergency/actions/runs/44318600973
+- https://github.com/JuanCopado/Emergency/actions/runs/44318600880
+
+The initial CI attempts exposed a missing Node type in configuration and a
+browser-only test setup used by the new build-tool fixtures. These were fixed by
+reading the environment flag in the JavaScript helper, selecting Node for the
+build-tool tests and applying the existing scroll shim only when window exists.
+No clinical test/assertion was removed. Earlier failed runs remain historical.
+The local Node collector measured97.33% line and97.92% branch coverage of the
+helper; these are not the Sonar new-code percentages.
+
+The subsequent evidence/state update changes documentation only. Executable code,
+dependency lock, clinical tree, baseline and scanner gates are identical to the
+tested commit. The delivery remains in PR24, without merge or deployment.
 
 Close the package findings only after a verified fixed dependency/approved
 replacement and a fresh scanner result. Preserve the distinction between
