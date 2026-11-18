@@ -41,10 +41,15 @@ function preflight(root, config) {
   return { reviewedRootHook: reviewed[''], reviewedDependencyHook: reviewed['node_modules/esbuild'], installerSha256: config.lifecycle.esbuild.install_sha256 };
 }
 function cleanEnvironment(directory) {
+  const queried = spawnSync(process.execPath, [process.env.npm_execpath, 'config', 'get', 'cache', '--ignore-scripts'], { cwd: app, encoding: 'utf8', timeout: 10000 });
+  assert.ifError(queried.error); assert.equal(queried.status, 0, 'Cannot identify the cache populated by the first installation');
+  const cache = queried.stdout.trim();
+  assert.ok(path.isAbsolute(cache) && !/[\r\n]/.test(cache), 'Expected one absolute npm cache path');
+  assert.ok(fs.statSync(cache).isDirectory(), 'Expected an existing reviewed npm cache');
   const allowed = new Set(['PATH', 'SYSTEMROOT', 'WINDIR', 'TEMP', 'TMP', 'COMSPEC', 'HOME', 'USERPROFILE', 'LOCALAPPDATA', 'APPDATA']);
   const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => allowed.has(key.toUpperCase())));
   const empty = path.join(directory, 'empty.npmrc'); fs.writeFileSync(empty, '');
-  return { ...env, npm_config_userconfig: empty, npm_config_globalconfig: path.join(directory, 'empty-global.npmrc'), npm_config_registry: 'https://registry.npmjs.org/', npm_config_offline: 'true', npm_config_audit: 'false', npm_config_fund: 'false' };
+  return { ...env, npm_config_cache: cache, npm_config_userconfig: empty, npm_config_globalconfig: path.join(directory, 'empty-global.npmrc'), npm_config_registry: 'https://registry.npmjs.org/', npm_config_offline: 'true', npm_config_audit: 'false', npm_config_fund: 'false' };
 }
 function fullAutomaticLifecycle() {
   assert.ok(process.env.npm_execpath, 'Run through npm');
