@@ -2,7 +2,7 @@ name: Picomatch clean installation
 
 on:
   push:
-    branches: ['codex/picomatch-pm02-ci-*']
+    branches: ['codex/picomatch-pm02-ci-*', 'codex/pm02-audit-fix-*']
   pull_request:
     paths:
       - 'app/package*.json'
@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-24.04, windows-2025]
-        install: [postinstall, ignore-scripts]
+        install: [project-hook, explicit-apply, automatic-fixture]
     defaults:
       run:
         shell: bash
@@ -50,19 +50,21 @@ jobs:
           node --version
           npm --version
       - name: Clean dependency install for project postinstall path
-        if: matrix.install == 'postinstall'
+        if: matrix.install == 'project-hook'
         run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Run only the verified project postinstall
-        if: matrix.install == 'postinstall'
+        if: matrix.install == 'project-hook'
         run: npm run postinstall --ignore-scripts
       - name: Clean install with lifecycle scripts disabled
-        if: matrix.install == 'ignore-scripts'
+        if: matrix.install != 'project-hook'
         run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Check installation and fail-closed behavior
         run: npm run security:picomatch:installation-check -- --mode '${{ matrix.install }}' --output '${{ runner.temp }}/picomatch-installation.json'
       - name: Run bounded mitigation regressions
         run: npm run security:picomatch:test
-      - name: Check guard after reversible tests
+      - name: Run resource-bounded fuzz against installed parsers and Rollup public API
+        run: python ../security/tests/picomatch_fuzz.py --app . --out '${{ runner.temp }}/picomatch-fuzz.json'
+      - name: Check guard after private fixture tests
         run: npm run security:picomatch:check
       - name: Lint and application tests
         run: |
@@ -77,6 +79,8 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: picomatch-install-${{ matrix.os }}-${{ matrix.install }}
-          path: ${{ runner.temp }}/picomatch-installation.json
+          path: |
+            ${{ runner.temp }}/picomatch-installation.json
+            ${{ runner.temp }}/picomatch-fuzz.json
           if-no-files-found: error
           retention-days: 7
