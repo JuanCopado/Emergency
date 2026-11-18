@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 
 const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const modules = path.join(app, 'node_modules');
@@ -45,6 +45,43 @@ function inventory() {
   return found;
 }
 
+function replaceAtomic(target, bytes) {
+  const temporary = `${target}.${randomUUID()}.tmp`;
+  let descriptor;
+  let created = false;
+  try {
+    const mode = fs.statSync(target).mode;
+    descriptor = fs.openSync(temporary, 'wx', mode);
+    created = true;
+    fs.fchmodSync(descriptor, mode);
+    fs.writeFileSync(descriptor, bytes);
+    fs.fsyncSync(descriptor);
+    fs.closeSync(descriptor);
+    descriptor = undefined;
+    if (hash(fs.readFileSync(temporary)) !== hash(bytes)) fail(`Temporary write verification failed: ${target}`);
+    fs.renameSync(temporary, target);
+  } finally {
+    try {
+      if (descriptor !== undefined) fs.closeSync(descriptor);
+    } finally {
+      if (created && fs.existsSync(temporary)) fs.unlinkSync(temporary);
+    }
+  }
+}
+
+function rollback(written) {
+  const errors = [];
+  for (const plan of written.reverse()) {
+    try {
+      replaceAtomic(plan.target, plan.before);
+      if (hash(fs.readFileSync(plan.target)) !== hash(plan.before)) fail('Rollback verification failed');
+    } catch (error) {
+      errors.push(`${plan.target}: ${error.message}`);
+    }
+  }
+  return errors;
+}
+
 function main() {
   const mode = process.argv[2] || '--check';
   if (!['--apply', '--check', '--revert'].includes(mode) || process.argv.length > 3) fail('Use --apply, --check or --revert.');
@@ -77,15 +114,16 @@ function main() {
   try {
     for (const plan of plans) {
       if (!plan.before.equals(plan.after)) {
+        replaceAtomic(plan.target, plan.after);
         written.push(plan);
-        fs.writeFileSync(plan.target, plan.after);
         if (hash(fs.readFileSync(plan.target)) !== hash(plan.after)) fail(`Write verification failed: ${plan.target}`);
       }
     }
   } catch (error) {
-    for (const plan of written.reverse()) fs.writeFileSync(plan.target, plan.before);
+    const rollbackErrors = rollback(written);
+    if (rollbackErrors.length) fail(`${error.message}; rollback incomplete: ${rollbackErrors.join('; ')}`);
     throw error;
   }
-  console.log(JSON.stringify({ mode, status: 'PASS', copies: plans.map(p => ({ path: path.relative(app, p.target).split(path.sep).join('/'), version: p.version, sha256: hash(p.after) })), warning: 'Temporary syntax restriction only. Trivy advisory remains applicable; this is not an official fix.' }, null, 2));
+  console.log(JSON.stringify({ mode, status: 'PASS', copies: plans.map(p => ({ path: path.relative(app, p.target).split(path.sep).join('/'), version: p.version, sha256: hash(p.after) })), warning: 'Temporary syntax restriction only; not an upstream parser fix. Run Trivy with its current official database and unchanged blocking policy.' }, null, 2));
 }
 try { main(); } catch (error) { console.error(`PICOMATCH_MITIGATION_ERROR: ${error.message}`); process.exitCode = 1; }

@@ -140,7 +140,8 @@ test('unknown bytes or versions prevent all writes and are never overwritten', (
 });
 
 test('links outside the isolated dependency tree fail closed without writing their target', () => {
-  const outside = path.join(temp, 'external-package'); fs.mkdirSync(outside);
+  // Keep the junction on the workspace volume, outside node_modules, for restricted Windows hosts.
+  const outside = fs.mkdtempSync(path.join(app, '.picomatch-external-test-'));
   const sentinel = path.join(outside, 'sentinel.txt'); fs.writeFileSync(sentinel, 'unchanged');
   const link = path.join(app, 'node_modules/emergency-mitigation-link-probe');
   try {
@@ -149,7 +150,10 @@ test('links outside the isolated dependency tree fail closed without writing the
     assert.equal(refused.status, 1);
     assert.match(refused.stderr, /Expected ordinary directory/);
     assert.equal(fs.readFileSync(sentinel, 'utf8'), 'unchanged');
-  } finally { if (fs.existsSync(link)) fs.unlinkSync(link); }
+  } finally {
+    if (fs.existsSync(link)) fs.unlinkSync(link);
+    fs.rmSync(outside, { recursive: true, force: true });
+  }
   assert.equal(control('--check').status, 0);
 });
 
@@ -176,30 +180,104 @@ test('a lock inventory mismatch prevents patching any copy', () => {
   assert.equal(control('--check').status, 0);
 });
 
-test('a failed or corrupted write rolls every affected parser back to its original bytes', () => {
-  for (const fault of ['throw', 'corrupt']) {
+test('write, fsync, corruption and rename failures preserve complete parsers and roll back earlier replacements', () => {
+  for (const fault of ['write', 'corrupt', 'fsync', 'rename']) {
     const preload = path.join(temp, `write-fault-${fault}.cjs`);
     fs.writeFileSync(preload, `const fs = require('node:fs');
-const write = fs.writeFileSync;
+const write = fs.writeFileSync, open = fs.openSync, sync = fs.fsyncSync, rename = fs.renameSync;
+const descriptors = new Set();
 let writes = 0;
+let syncs = 0;
+let renames = 0;
+fs.openSync = (filename, ...options) => {
+  const descriptor = open(filename, ...options);
+  if (/parse\\.js\\.[^/\\\\]+\\.tmp$/.test(String(filename))) descriptors.add(descriptor);
+  return descriptor;
+};
 fs.writeFileSync = (filename, bytes, ...options) => {
-  if (String(filename).endsWith('parse.js') && ++writes === 2) {
-    if (${JSON.stringify(fault)} === 'throw') throw new Error('simulated isolated write failure');
-    return write(filename, Buffer.concat([Buffer.from(bytes), Buffer.from('\\n// simulated read-back mismatch\\n')]), ...options);
+  if (descriptors.has(filename) && ++writes === 2) {
+    if (${JSON.stringify(fault)} === 'write') throw new Error('simulated isolated write failure');
+    if (${JSON.stringify(fault)} === 'corrupt') return write(filename, Buffer.concat([Buffer.from(bytes), Buffer.from('\\n// simulated read-back mismatch\\n')]), ...options);
   }
   return write(filename, bytes, ...options);
+};
+fs.fsyncSync = descriptor => {
+  if (descriptors.has(descriptor) && ++syncs === 2 && ${JSON.stringify(fault)} === 'fsync') throw new Error('simulated fsync failure');
+  return sync(descriptor);
+};
+fs.renameSync = (source, target) => {
+  if (++renames === 2 && ${JSON.stringify(fault)} === 'rename') throw new Error('simulated rename failure');
+  return rename(source, target);
 };\n`);
     try {
       assert.equal(control('--revert').status, 0);
       const result = spawnSync(process.execPath, ['--require', preload, path.join(app, 'scripts/picomatch-mitigation.mjs'), '--apply'], { encoding: 'utf8', timeout: 20000 });
       assert.ifError(result.error);
       assert.equal(result.status, 1);
-      assert.match(result.stderr, fault === 'throw' ? /simulated isolated write failure/ : /Write verification failed/);
+      const expected = { write: /simulated isolated write failure/, corrupt: /Temporary write verification failed/, fsync: /simulated fsync failure/, rename: /simulated rename failure/ };
+      assert.match(result.stderr, expected[fault]);
       for (const directory of copies) {
         const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
         assert.equal(digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))), config.versions[version].original_sha256);
+        assert.deepEqual(fs.readdirSync(path.join(directory, 'lib')).filter(name => /^parse\.js\..+\.tmp$/.test(name)), []);
       }
     } finally { assert.equal(control('--apply').status, 0); }
     assert.equal(control('--check').status, 0);
   }
+});
+
+test('an exclusive temporary-file collision preserves the existing file and rolls back earlier replacements', () => {
+  const preload = path.join(temp, 'collision-fault.cjs');
+  fs.writeFileSync(preload, `const crypto = require('node:crypto');
+crypto.randomUUID = () => 'collision-probe';
+require('node:module').syncBuiltinESMExports();\n`);
+  const collisionDirectory = [...copies].sort((left, right) => left.localeCompare(right, 'en')).at(-1);
+  const collision = `${path.join(collisionDirectory, 'lib/parse.js')}.collision-probe.tmp`;
+  const sentinel = Buffer.from('pre-existing temporary file must remain unchanged');
+  let created = false;
+  try {
+    assert.equal(control('--revert').status, 0);
+    fs.writeFileSync(collision, sentinel, { flag: 'wx' });
+    created = true;
+    const result = spawnSync(process.execPath, ['--require', preload, path.join(app, 'scripts/picomatch-mitigation.mjs'), '--apply'], { encoding: 'utf8', timeout: 20000 });
+    assert.ifError(result.error);
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /EEXIST/);
+    assert.deepEqual(fs.readFileSync(collision), sentinel);
+    for (const directory of copies) {
+      const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
+      assert.equal(digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))), config.versions[version].original_sha256);
+    }
+  } finally {
+    if (created) fs.unlinkSync(collision);
+    assert.equal(control('--apply').status, 0);
+  }
+  assert.equal(control('--check').status, 0);
+});
+
+test('rollback continues after one rollback fails and reports the incomplete transaction', () => {
+  const preload = path.join(temp, 'rollback-fault.cjs');
+  fs.writeFileSync(preload, `const fs = require('node:fs');
+const rename = fs.renameSync;
+let renames = 0;
+fs.renameSync = (source, target) => {
+  renames++;
+  if (renames === 4) throw new Error('simulated fourth replacement failure');
+  if (renames === 5) throw new Error('simulated rollback failure');
+  return rename(source, target);
+};\n`);
+  try {
+    assert.equal(control('--revert').status, 0);
+    const result = spawnSync(process.execPath, ['--require', preload, path.join(app, 'scripts/picomatch-mitigation.mjs'), '--apply'], { encoding: 'utf8', timeout: 20000 });
+    assert.ifError(result.error);
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /simulated fourth replacement failure; rollback incomplete: .*simulated rollback failure/);
+    const versions = copies.map(directory => JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version);
+    const parsers = copies.map(directory => digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))));
+    assert.equal(parsers.filter((value, index) => value === config.versions[versions[index]].patched_sha256).length, 1);
+    assert.equal(parsers.filter((value, index) => value === config.versions[versions[index]].original_sha256).length, copies.length - 1);
+    assert.equal(control('--check').status, 1, 'A partially rolled-back tree must fail closed');
+    for (const directory of copies) assert.deepEqual(fs.readdirSync(path.join(directory, 'lib')).filter(name => /^parse\.js\..+\.tmp$/.test(name)), []);
+  } finally { assert.equal(control('--apply').status, 0); }
+  assert.equal(control('--check').status, 0);
 });

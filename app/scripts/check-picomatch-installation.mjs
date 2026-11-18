@@ -28,7 +28,12 @@ function run(label, argv, expected, requiredError) {
 const controller = path.join(app, 'scripts/picomatch-mitigation.mjs');
 if (mode === 'ignore-scripts') {
   run('clean install without lifecycle scripts is unguarded', [controller, '--check'], 1, /Guard absent/);
-  run('prebuild refuses unguarded dependencies', [process.env.npm_execpath, 'run', 'prebuild'], 1, /Guard absent/);
+  const scripts = JSON.parse(fs.readFileSync(path.join(app, 'package.json'), 'utf8')).scripts;
+  for (const name of Object.keys(scripts).filter(name => !(name.startsWith('pre') && Object.hasOwn(scripts, name.slice(3))) && name !== 'postinstall' && !name.startsWith('security:'))) {
+    const hook = `pre${name}`;
+    assert.equal(scripts[hook], 'node scripts/picomatch-mitigation.mjs --check', `Missing guard for ${name}`);
+    run(`${hook} refuses unguarded dependencies`, [process.env.npm_execpath, 'run', hook], 1, /Guard absent/);
+  }
   run('explicit apply', [controller, '--apply'], 0);
 } else run('project postinstall applied the guard', [controller, '--check'], 0);
 run('application is idempotent', [controller, '--apply'], 0);
@@ -36,6 +41,6 @@ const final = run('all installed copies are guarded', [controller, '--check'], 0
 const state = JSON.parse(final.stdout);
 assert.equal(state.copies.length, 5, 'Expected all five locked picomatch copies');
 assert.equal(hash(fs.readFileSync(lockPath)), lockHash, 'package-lock changed');
-const report = { observedUTC: new Date().toISOString(), status: 'PASS', mode, platform: process.platform, arch: process.arch, node: process.version, lockSha256: lockHash, packageLockUnchanged: true, steps, guardedCopies: state.copies, trivyPolicy: 'Unchanged: advisory and blocking gate remain applicable.' };
+const report = { observedUTC: new Date().toISOString(), status: 'PASS', mode, platform: process.platform, arch: process.arch, node: process.version, lockSha256: lockHash, packageLockUnchanged: true, steps, guardedCopies: state.copies, trivyPolicy: 'Unchanged: all development dependencies are scanned; HIGH/CRITICAL findings remain blocking.' };
 if (output) fs.writeFileSync(path.resolve(output), JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
 console.log(JSON.stringify(report, null, 2));
