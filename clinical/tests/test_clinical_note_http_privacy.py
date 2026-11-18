@@ -73,6 +73,23 @@ class ClinicalNoteHttpPrivacyTests(unittest.TestCase):
         self.assertIn("default-src 'none'", h.sent_headers["Content-Security-Policy"])
         self.assertEqual("no-referrer", h.sent_headers["Referrer-Policy"])
 
+    def test_audited_pediatric_band_stop_keeps_safe_explanation(self):
+        h = make_handler(path="/api/pediatric-outpatient/calculate")
+        with patch.object(api, "dispatch",
+                          side_effect=ValueError("no matching age/weight band for regimen")):
+            h.do_POST()
+        self.assertEqual(422, h.sent_status[-1])
+        self.assertEqual({"error": "no matching age/weight band for regimen"},
+                         json.loads(h.wfile.getvalue()))
+
+    def test_pediatric_error_message_not_exposed_on_other_endpoints(self):
+        h = make_handler(path="/api/clinical-note/analyze")
+        with patch.object(api, "dispatch",
+                          side_effect=ValueError("no matching age/weight band for regimen")):
+            h.do_POST()
+        self.assertEqual({"error": "invalid clinical request"},
+                         json.loads(h.wfile.getvalue()))
+
     def test_access_log_never_echoes_path_or_identifiers(self):
         h = make_handler()
         with patch("sys.stderr", new_callable=io.StringIO) as stderr:

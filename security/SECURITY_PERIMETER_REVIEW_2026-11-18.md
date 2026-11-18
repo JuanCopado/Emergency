@@ -9,6 +9,7 @@ Task branch: codex/security-perimeter-hardening-20261118.
 - DNS preflight + default TLS validation are defense-in-depth, **not** a complete DNS-rebinding guarantee. Reverse proxy and egress firewalls remain deployment controls. An organization with a proxy-only network may have to provide a reviewed networking adapter; do not bypass the policy silently.
 - Surveillance failures are explicit and never auto-update clinical recommendations. Exception strings are not echoed into audit reports.
 - Clinical note HTTP adapter returns generic client error messages (422/500), correct 400 for malformed JSON, JSON-only responses with nosniff/CSP/no-referrer, and no request-line logging. No patient text or raw exception details reach error responses.
+- The pediatric age/weight boundary returns one audited, static warning (`no matching age/weight band for regimen`) so the existing UI safety STOP remains visible. All other ValueError content remains redacted; synthetic regression tests cover both branches.
 - Existing clinical diagnostic logic, calculator contracts, export formats, dose formulas, evidence registry and CLINICALLY_PENDING are unchanged.
 
 ## Verification requirements

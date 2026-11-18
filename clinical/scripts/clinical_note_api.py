@@ -541,9 +541,14 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
             self._send(status, body)
         except json.JSONDecodeError:
             self._send(HTTPStatus.BAD_REQUEST, {"error": "invalid JSON"})
-        except ValueError:
-            # Exception messages may include submitted clinical fields or identifiers.
-            self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": "invalid clinical request"})
+        except ValueError as exc:
+            # Return only audited, static messages for known safety boundaries.
+            # Never echo arbitrary exception text, which could contain PHI.
+            public_error = "invalid clinical request"
+            if (self.path == "/api/pediatric-outpatient/calculate"
+                    and exc.args == ("no matching age/weight band for regimen",)):
+                public_error = "no matching age/weight band for regimen"
+            self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": public_error})
         except Exception:
             # Preserve the HTTP contract without echoing exception text or PHI.
             self._send(HTTPStatus.INTERNAL_SERVER_ERROR, {
