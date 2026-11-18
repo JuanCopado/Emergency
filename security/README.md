@@ -1,5 +1,9 @@
 # Security and quality
 
+Picomatch containment: [PICOMATCH_CONTAINMENT_2026-11-18.md](PICOMATCH_CONTAINMENT_2026-11-18.md).
+Build controls reject its inclusion in application/runtime-worker code; the
+dependency advisory and Trivy gate remain open pending actual remediation.
+
 Current isolated continuation (18/11/2026): see [PR22_SECURITY_CONTINUATION_2026-11-18.md](PR22_SECURITY_CONTINUATION_2026-11-18.md). The classifier now uses stdin/stdout, real XML/LCOV coverage is generated, and the current scan retains the unfixed picomatch advisory. Earlier dated scan results below describe their original snapshots.
 
 Task date: 16/11/2026. Base: `1d0652ebcef9b5990edd9e5745b0c06f8d6b8274`

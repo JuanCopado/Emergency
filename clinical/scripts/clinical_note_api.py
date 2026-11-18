@@ -517,6 +517,8 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Content-Security-Policy", "default-src 'none'; frame-ancestors 'none'")
+        self.send_header("Referrer-Policy", "no-referrer")
         self.send_header("Content-Length", str(len(raw)))
         self.end_headers()
         self.wfile.write(raw)
@@ -533,21 +535,30 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
             if size <= 0 or size > (MAX_UPLOAD_BYTES * 2 + 1_000_000):
                 raise ValueError("invalid request size")
             payload = json.loads(self.rfile.read(size).decode("utf-8"))
+            if not isinstance(payload, dict):
+                raise ValueError("request body must be a JSON object")
             status, body = dispatch(self.path, payload)
             self._send(status, body)
-        except ValueError as exc:
-            self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": str(exc)})
         except json.JSONDecodeError:
             self._send(HTTPStatus.BAD_REQUEST, {"error": "invalid JSON"})
-        except Exception as exc:
+        except ValueError as exc:
+            # Return only audited, static messages for known safety boundaries.
+            # Never echo arbitrary exception text, which could contain PHI.
+            public_error = "invalid clinical request"
+            if (self.path == "/api/pediatric-outpatient/calculate"
+                    and exc.args == ("no matching age/weight band for regimen",)):
+                public_error = "no matching age/weight band for regimen"
+            self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": public_error})
+        except Exception:
+            # Preserve the HTTP contract without echoing exception text or PHI.
             self._send(HTTPStatus.INTERNAL_SERVER_ERROR, {
                 "error": "clinical-note backend failure",
-                "detail": str(exc),
             })
 
     def log_message(self, fmt, *args):
-        # Do not log request bodies or clinical payloads.
-        super().log_message(fmt, *args)
+        # BaseHTTPRequestHandler logs the request-line, including any query string.
+        # Do not emit potentially identifying URLs or clinical input to stderr.
+        return
 
 
 def main():
