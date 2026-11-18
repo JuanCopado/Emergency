@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import { test, after } from 'node:test';
+import { test, after, before } from 'node:test';
 
 const app = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
@@ -23,19 +23,21 @@ after(() => {
   console.log('PICOMATCH_TEST_EVIDENCE ' + JSON.stringify(report));
 });
 
-for (const directory of copies) {
-  const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
-  const target = path.join(directory, 'lib/parse.js');
-  assert.equal(digest(fs.readFileSync(target)), config.versions[version].patched_sha256);
-  if (!originals.has(version)) {
-    const clone = path.join(temp, version);
-    fs.cpSync(directory, clone, { recursive: true });
-    const clean = Buffer.from(fs.readFileSync(path.join(clone, 'lib/parse.js'), 'utf8').replace(config.guard_block, ''));
-    assert.equal(digest(clean), config.versions[version].original_sha256);
-    fs.writeFileSync(path.join(clone, 'lib/parse.js'), clean);
-    originals.set(version, require(clone));
+before(() => {
+  for (const directory of copies) {
+    const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
+    const target = path.join(directory, 'lib/parse.js');
+    assert.equal(digest(fs.readFileSync(target)), config.versions[version].patched_sha256);
+    if (!originals.has(version)) {
+      const clone = path.join(temp, version);
+      fs.cpSync(directory, clone, { recursive: true });
+      const clean = Buffer.from(fs.readFileSync(path.join(clone, 'lib/parse.js'), 'utf8').replace(config.guard_block, ''));
+      assert.equal(digest(clean), config.versions[version].original_sha256);
+      fs.writeFileSync(path.join(clone, 'lib/parse.js'), clean);
+      originals.set(version, require(clone));
+    }
   }
-}
+});
 
 test('original versions reproduce bounded ReDoS probes in killable child processes', () => {
   for (const version of originals.keys()) {
@@ -149,4 +151,55 @@ test('links outside the isolated dependency tree fail closed without writing the
     assert.equal(fs.readFileSync(sentinel, 'utf8'), 'unchanged');
   } finally { if (fs.existsSync(link)) fs.unlinkSync(link); }
   assert.equal(control('--check').status, 0);
+});
+
+test('invalid controller arguments are rejected without changing installed parsers', () => {
+  const rejected = control('--unexpected');
+  assert.equal(rejected.status, 1);
+  assert.match(rejected.stderr, /Use --apply, --check or --revert/);
+  assert.equal(control('--check').status, 0);
+});
+
+test('a lock inventory mismatch prevents patching any copy', () => {
+  const lockFile = path.join(app, 'package-lock.json');
+  const before = fs.readFileSync(lockFile);
+  const snapshot = copies.map(directory => fs.readFileSync(path.join(directory, 'lib/parse.js')));
+  try {
+    const changed = JSON.parse(before.toString());
+    delete changed.packages[Object.keys(changed.packages).filter(p => p.endsWith('/picomatch')).at(-1)];
+    fs.writeFileSync(lockFile, JSON.stringify(changed));
+    const rejected = control('--apply');
+    assert.equal(rejected.status, 1);
+    assert.match(rejected.stderr, /inventory differs from package-lock/);
+    copies.forEach((directory, index) => assert.deepEqual(fs.readFileSync(path.join(directory, 'lib/parse.js')), snapshot[index]));
+  } finally { fs.writeFileSync(lockFile, before); }
+  assert.equal(control('--check').status, 0);
+});
+
+test('a failed or corrupted write rolls every affected parser back to its original bytes', () => {
+  for (const fault of ['throw', 'corrupt']) {
+    const preload = path.join(temp, `write-fault-${fault}.cjs`);
+    fs.writeFileSync(preload, `const fs = require('node:fs');
+const write = fs.writeFileSync;
+let writes = 0;
+fs.writeFileSync = (filename, bytes, ...options) => {
+  if (String(filename).endsWith('parse.js') && ++writes === 2) {
+    if (${JSON.stringify(fault)} === 'throw') throw new Error('simulated isolated write failure');
+    return write(filename, Buffer.concat([Buffer.from(bytes), Buffer.from('\\n// simulated read-back mismatch\\n')]), ...options);
+  }
+  return write(filename, bytes, ...options);
+};\n`);
+    try {
+      assert.equal(control('--revert').status, 0);
+      const result = spawnSync(process.execPath, ['--require', preload, path.join(app, 'scripts/picomatch-mitigation.mjs'), '--apply'], { encoding: 'utf8', timeout: 20000 });
+      assert.ifError(result.error);
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, fault === 'throw' ? /simulated isolated write failure/ : /Write verification failed/);
+      for (const directory of copies) {
+        const version = JSON.parse(fs.readFileSync(path.join(directory, 'package.json'), 'utf8')).version;
+        assert.equal(digest(fs.readFileSync(path.join(directory, 'lib/parse.js'))), config.versions[version].original_sha256);
+      }
+    } finally { assert.equal(control('--apply').status, 0); }
+    assert.equal(control('--check').status, 0);
+  }
 });

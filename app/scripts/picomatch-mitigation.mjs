@@ -22,12 +22,12 @@ function inventory() {
   const found = [];
   function visitModules(directory) {
     plain(directory);
-    for (const entry of fs.readdirSync(directory).sort()) {
+    for (const entry of fs.readdirSync(directory).sort((left, right) => left.localeCompare(right, 'en'))) {
       if (entry.startsWith('.')) continue;
       const target = path.join(directory, entry);
       plain(target);
       if (entry.startsWith('@')) {
-        for (const child of fs.readdirSync(target).sort()) visitPackage(path.join(target, child));
+        for (const child of fs.readdirSync(target).sort((left, right) => left.localeCompare(right, 'en'))) visitPackage(path.join(target, child));
       } else visitPackage(target);
     }
   }
@@ -39,8 +39,8 @@ function inventory() {
   }
   visitModules(modules);
   const lock = JSON.parse(fs.readFileSync(path.join(app, 'package-lock.json'), 'utf8'));
-  const expected = Object.keys(lock.packages).filter(p => p.endsWith('/picomatch')).sort();
-  const actual = found.map(p => path.relative(app, p).split(path.sep).join('/')).sort();
+  const expected = Object.keys(lock.packages).filter(p => p.endsWith('/picomatch')).sort((left, right) => left.localeCompare(right, 'en'));
+  const actual = found.map(p => path.relative(app, p).split(path.sep).join('/')).sort((left, right) => left.localeCompare(right, 'en'));
   if (JSON.stringify(expected) !== JSON.stringify(actual) || actual.length === 0) fail('Installed picomatch inventory differs from package-lock; use npm ci, then apply the guard.');
   return found;
 }
