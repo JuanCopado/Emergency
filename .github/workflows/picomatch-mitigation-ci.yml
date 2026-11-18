@@ -49,9 +49,12 @@ jobs:
         run: |
           node --version
           npm --version
-      - name: Clean install with automatic postinstall
+      - name: Clean dependency install for project postinstall path
         if: matrix.install == 'postinstall'
-        run: npm ci --no-audit --no-fund
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Run only the verified project postinstall
+        if: matrix.install == 'postinstall'
+        run: npm run postinstall --ignore-scripts
       - name: Clean install with lifecycle scripts disabled
         if: matrix.install == 'ignore-scripts'
         run: npm ci --ignore-scripts --no-audit --no-fund

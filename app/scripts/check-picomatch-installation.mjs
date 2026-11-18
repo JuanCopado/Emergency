@@ -30,7 +30,7 @@ if (mode === 'ignore-scripts') {
   run('clean install without lifecycle scripts is unguarded', [controller, '--check'], 1, /Guard absent/);
   run('prebuild refuses unguarded dependencies', [process.env.npm_execpath, 'run', 'prebuild'], 1, /Guard absent/);
   run('explicit apply', [controller, '--apply'], 0);
-} else run('postinstall applied the guard automatically', [controller, '--check'], 0);
+} else run('project postinstall applied the guard', [controller, '--check'], 0);
 run('application is idempotent', [controller, '--apply'], 0);
 const final = run('all installed copies are guarded', [controller, '--check'], 0);
 const state = JSON.parse(final.stdout);
