@@ -120,6 +120,8 @@ jobs:
 
   coverage:
     name: real-test-coverage
+    env:
+      EMERGENCY_REQUIRE_BENCHMARK_TESTS: "1"
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -137,7 +139,7 @@ jobs:
           python-version: '3.12'
       - name: Install locked dependencies
         run: |
-          python -m pip install --only-binary=:all: --require-hashes -r security/requirements-ci.txt
+          python -m pip install --only-binary=:all: --require-hashes -r security/requirements-ci.txt -r security/requirements-ptbxl-ci.txt
           npm ci --ignore-scripts --no-audit --no-fund --prefix app
           npm run security:picomatch:apply --prefix app
           npm run security:picomatch:check --prefix app

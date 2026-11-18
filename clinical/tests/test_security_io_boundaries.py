@@ -168,7 +168,17 @@ class SyntheticFixtureIntegrityTests(unittest.TestCase):
         with patch.object(pathlib.Path, 'write_text', capture), redirect_stdout(io.StringIO()):
             result = runpy.run_path(str(ROOT/'clinical/qa/build_pediatric_browser_cases_v144.py'))
         self.assertEqual(len(writes), 1)
-        self.assertEqual(json.loads(writes[0]), json.loads(original))
+        import hashlib
+        rebuilt = json.loads(writes[0])
+        committed = json.loads(original)
+        registry = (ROOT/'clinical/qa/pediatric-outpatient-medications.json').read_bytes()
+        canonical = registry.replace(b'\r\n', b'\n')
+        representations = {hashlib.sha256(canonical).hexdigest(),
+                           hashlib.sha256(canonical.replace(b'\n', b'\r\n')).hexdigest()}
+        self.assertEqual(rebuilt['source_sha256'], hashlib.sha256(registry).hexdigest())
+        self.assertIn(committed['source_sha256'], representations)
+        # Only the provenance byte hash can vary across Git LF/CRLF checkouts.
+        self.assertEqual({**rebuilt, 'source_sha256': committed['source_sha256']}, committed)
         self.assertEqual(destination.read_bytes(), original)
         self.assertEqual(result['output']['status'], 'CLINICALLY_PENDING')
         self.assertEqual(len(result['output']['cases']), 1061)

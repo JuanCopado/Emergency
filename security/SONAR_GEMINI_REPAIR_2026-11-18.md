@@ -30,8 +30,12 @@ Gemini revisó estáticamente, no ejecutó tests. Su primera lectura contenía e
 
 ## Evidencia y estado
 
-Resultados parciales observados:453 frontend PASS,9 procedimientos PASS,4 guías PASS,15 pruebas de la mitigación PASS y fuzz acotado230/230 sondas PASS; actionlint/lint/typecheck/build PASS. QA unificado:7/7 controles PASS y847 Python PASS con1SKIP de creación de symlinks Windows. Se repite la captura del QA tras fijar cwd a la raíz del repositorio, para que los subprocesos generen rutas de cobertura coherentes sin aliases/exclusiones. Las pruebas nuevas verifican fronteras de red/E/S, nombres Windows,200 fichas, regeneración sin escritura y el banco público de1061 escenarios sintéticos con expectativas independientes.
+Resultados parciales observados:453 frontend PASS,9 procedimientos PASS,4 guías PASS,15 pruebas de la mitigación PASS y fuzz acotado230/230 sondas PASS; actionlint/lint/typecheck/build PASS. QA unificado:7/7 controles PASS y848 Python PASS con1SKIP de creación de symlinks Windows. Se repite la captura del QA tras fijar cwd a la raíz del repositorio, para que los subprocesos generen rutas de cobertura coherentes sin aliases/exclusiones. Las pruebas nuevas verifican fronteras de red/E/S, nombres Windows,200 fichas, regeneración sin escritura y el banco público de1061 escenarios sintéticos con expectativas independientes.
 
 Trivy local tras corregir Pillow: PASS,0 hallazgos,5 manifiestos. Se conservan las salidas FAIL previas. Sonar/CI del nuevo commit todavía pendientes: NO se declara resuelto el gate ni se integra hasta comprobarlo. No hay excepción de Trivy ni cambio de umbral de Sonar.
 
 CLINICALLY_PENDING permanece. QA técnico y auditoría de IA no son revisión clínica independiente ni validación prospectiva.
+
+### Primera CI de PR29 y repetición
+
+En a5cf990: App UI QA, Trivy y Semgrep PASS; Clinical QA y cobertura fallaron en la prueba nueva por el SHA del registro al cambiar LF/CRLF. Se verifica ahora el hash real de la regeneración y que el histórico corresponde exactamente a LF o CRLF del mismo contenido; todos los demás campos se comparan íntegros. No se modifica el banco ni el registro. Se añaden pruebas offline de selección/hash/separación de etiquetas y render de una señal fabricada para el pipeline PTB-XL; sus wheels bloqueados son obligatorios en la captura Linux. Los hosts locales sin extras omiten esa clase expresamente; la CI falla si faltan los extras. Sonar todavía no ejecutado sobre el parche: no declarar PASS.
