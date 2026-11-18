@@ -19,16 +19,21 @@ def digest(data: bytes)->str:
 
 # Vetted discovery endpoints only. New sources require a reviewed code change.
 # These hostnames do not restrict the international clinical guideline core.
-APPROVED_EVIDENCE_HOSTS = frozenset({
-    "normas.dgs.min-saude.pt",
-    "www.ema.europa.eu",
-    "www.infarmed.pt",
-    "www.who.int",
-    "www.erc.edu",
-    "www.escardio.org",
-    "www.nice.org.uk",
-    "extranet.infarmed.pt",
-})
+# A catalog row may identify a source, but may not choose a network URL.
+# All request destinations originate from these exact reviewed code literals.
+APPROVED_EVIDENCE_URLS = {
+    "dgs-portugal": "https://normas.dgs.min-saude.pt/category/normas-clinicas/",
+    "ema-prac-safety-signals": "https://www.ema.europa.eu/en/human-regulatory-overview/post-authorisation/pharmacovigilance-post-authorisation/signal-management/prac-recommendations-safety-signals",
+    "infarmed": "https://www.infarmed.pt/web/infarmed/alertas-de-seguranca",
+    "who-guidelines": "https://www.who.int/publications/who-guidelines",
+    "erc": "https://www.erc.edu/science-research/guidelines/guidelines-2025/",
+    "esc-guidelines": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines",
+    "nice-guidance": "https://www.nice.org.uk/guidance/published?ndt=Guidance&ngt=Clinical+guidelines&ps=9999",
+    "infarmed-fnm": "https://extranet.infarmed.pt/fnm-fo/",
+}
+APPROVED_EVIDENCE_HOSTS = frozenset(
+    urllib.parse.urlsplit(value).hostname for value in APPROVED_EVIDENCE_URLS.values()
+)
 MAX_EVIDENCE_RESPONSE_BYTES = 5_000_000
 
 
@@ -66,11 +71,16 @@ def _require_public_dns(host):
         raise ValueError("Evidence source resolved to a non-public address")
 
 
-def fetch(url: str, timeout: int = 30) -> bytes:
-    host = _validated_source_host(url)
+def fetch(source_id: str, configured_url: str, timeout: int = 30) -> bytes:
+    # The untrusted catalog URL is only compared for provenance consistency;
+    # it is never passed into urllib's request constructor.
+    canonical_url = APPROVED_EVIDENCE_URLS.get(source_id)
+    if canonical_url is None or configured_url != canonical_url:
+        raise ValueError("Unapproved evidence source identity or URL")
+    host = _validated_source_host(canonical_url)
     _require_public_dns(host)
     request = urllib.request.Request(
-        url, headers={"User-Agent": "Emergency-Evidence-Surveillance/1.0"},
+        canonical_url, headers={"User-Agent": "Emergency-Evidence-Surveillance/1.0"},
         method="GET",
     )
     # urllib's default handler follows redirects before application code can
@@ -100,7 +110,7 @@ def run(source_path:pathlib.Path, previous:dict|None=None, cadence:str|None=None
             out["sources"][s["id"]]=item
             continue
         try:
-            body=fetch(s["url"])
+            body=fetch(s["id"], s["url"])
             if len(body)>5_000_000: raise RuntimeError("response exceeds 5 MB safety cap")
             fp=clinical_fingerprint(body); h=fp["sha256"]
             old=prev.get(s["id"],{}).get("clinical_sha256") or prev.get(s["id"],{}).get("sha256")

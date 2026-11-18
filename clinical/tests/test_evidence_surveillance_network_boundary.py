@@ -43,6 +43,8 @@ class SurveillanceNetworkBoundaryTests(unittest.TestCase):
         hosts = {urllib.parse.urlsplit(row["url"]).hostname for row in data["sources"]}
         self.assertTrue(hosts)
         self.assertTrue(hosts.issubset(es.APPROVED_EVIDENCE_HOSTS))
+        self.assertEqual({row["id"]: row["url"] for row in data["sources"]},
+                         es.APPROVED_EVIDENCE_URLS)
 
     def test_unapproved_urls_rejected_before_dns_or_network(self):
         malicious = (
@@ -67,7 +69,22 @@ class SurveillanceNetworkBoundaryTests(unittest.TestCase):
                           side_effect=AssertionError("HTTP must not run")):
             for url in malicious:
                 with self.subTest(url=url), self.assertRaises(ValueError):
-                    es.fetch(url)
+                    es.fetch("who-guidelines", url)
+
+    def test_unknown_identity_and_mutated_official_path_blocked(self):
+        approved = es.APPROVED_EVIDENCE_URLS["who-guidelines"]
+        with patch.object(es.socket, "getaddrinfo",
+                          side_effect=AssertionError("DNS must not run")), \
+             patch.object(es.urllib.request, "build_opener",
+                          side_effect=AssertionError("HTTP must not run")):
+            for source, url in (
+                ("unknown", approved),
+                ("who-guidelines", "https://www.who.int/other-guidance"),
+                ("who-guidelines", approved + "?token=PRIVATE_SYNTHETIC_IDENTIFIER"),
+                ("erc", approved),
+            ):
+                with self.subTest(source=source, url=url), self.assertRaises(ValueError):
+                    es.fetch(source, url)
 
     def test_reject_private_or_mixed_dns_addresses_before_http(self):
         private = [
@@ -80,7 +97,7 @@ class SurveillanceNetworkBoundaryTests(unittest.TestCase):
                 with self.subTest(addresses=addresses), \
                      patch.object(es.socket, "getaddrinfo", return_value=addresses), \
                      self.assertRaises(ValueError):
-                    es.fetch("https://www.who.int/publications/who-guidelines")
+                    es.fetch("who-guidelines", "https://www.who.int/publications/who-guidelines")
 
     def test_public_source_fetch_uses_reject_redirect_handler(self):
         url = "https://www.who.int/publications/who-guidelines"
@@ -90,7 +107,7 @@ class SurveillanceNetworkBoundaryTests(unittest.TestCase):
                           return_value=self.PUBLIC_DNS), \
              patch.object(es.urllib.request, "build_opener",
                           return_value=opener) as factory:
-            self.assertEqual(b"synthetic", es.fetch(url))
+            self.assertEqual(b"synthetic", es.fetch("who-guidelines", url))
         self.assertTrue(any(isinstance(h, es._RejectRedirects)
                             for h in factory.call_args.args))
         handler = es._RejectRedirects()
@@ -105,10 +122,10 @@ class SurveillanceNetworkBoundaryTests(unittest.TestCase):
              patch.object(es.urllib.request, "build_opener", return_value=opener):
             opener.open.return_value = _Response(original, b"x" * 5_000_001)
             with self.assertRaisesRegex(ValueError, "size cap"):
-                es.fetch(original)
+                es.fetch("who-guidelines", original)
             opener.open.return_value = _Response("https://evil.example/", b"x")
             with self.assertRaises(ValueError):
-                es.fetch(original)
+                es.fetch("who-guidelines", original)
 
     def test_failure_report_does_not_echo_exception_details(self):
         with tempfile.TemporaryDirectory() as td:

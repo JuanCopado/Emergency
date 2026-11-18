@@ -4,7 +4,7 @@ Base: PR #23 isolated Sonar candidate at af87ff815665884103689c771ac0807b751a588
 Task branch: codex/security-perimeter-hardening-20261118.
 
 ## Scope
-- Fixed allowlist for 8 vetted official evidence surveillance hosts. The shared international clinical core is unchanged; adding future official sources requires explicit source/host review.
+- Eight canonical source IDs are bound to exact official URLs in code. A catalog edit cannot change scheme, host, path, port or query sent to the network. New sources require an explicit reviewed code update; the international clinical core is unchanged.
 - HTTPS only, port 443, no URL credentials/fragments/control characters; reject private/reserved/loopback DNS results before opening the URL; no automatic HTTP redirects; bound the response to 5 MB.
 - DNS preflight + default TLS validation are defense-in-depth, **not** a complete DNS-rebinding guarantee. Reverse proxy and egress firewalls remain deployment controls. An organization with a proxy-only network may have to provide a reviewed networking adapter; do not bypass the policy silently.
 - Surveillance failures are explicit and never auto-update clinical recommendations. Exception strings are not echoed into audit reports.
