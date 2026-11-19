@@ -424,13 +424,14 @@ try {
         const activeCandidate = Object.fromEntries(Object.entries(candidate).filter(([key]) => active(row.fields.find(field => field.key === key), candidate)));
         if (has(updates, 'weight_kg') && alerts.some(alert => alert.code === 'weight_kg')) {
           await assertWeightRejectedInForm(page, () => browserCalculations);
+          rejectedInputs.push({updates, layer: 'UI weight validation and direct API gate', alerts});
         } else {
           const blocked = await submit(page, fixture.id, activeCandidate);
           assert.equal(blocked.blocked, true, `${fixture.id}: negative UI fixture accepted ${JSON.stringify(updates)}`);
           assert.equal(blocked.result, undefined);
           await assertBlockedUI(page);
+          rejectedInputs.push({updates, layer: 'UI and API gates', alerts: blocked.alerts});
         }
-        rejectedInputs.push({updates, layer: 'UI and API gates', alerts: blocked.alerts});
         for (const field of row.fields) {
           if (has(updates, field.key) && active(field, inputs)) await setControl(page, field, inputs[field.key]);
         }
