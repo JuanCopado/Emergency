@@ -1,3 +1,7 @@
+# 2026-11-19 - R3+PR30 Sonar follow-up (technical)
+
+Two presentation-only NaN aliases and explicit shared-test registration; same values and tests, no clinical calculation/content/status changes.
+
 ## Conciliación técnica R3 y PR30 · 19/11/2026
 
 Se conserva el contenido clínico de R3 y se añade el transporte HTTP de PR30 mediante comparación de tres versiones; solo se resuelve este changelog, sin alterar aritmética, dosis ni validación clínica.

@@ -446,14 +446,14 @@ export default function Calculator() {
                       ? preparation.amount
                         ? `${f.num(preparation.amount.value)} ${f.unit(preparation.amount.unit)}`
                         : '—'
-                      : `${formatCanonicalNumber(parseDecimal(customAmount) ?? NaN, f.locale)} ${f.unit(customAmountUnit)}`}
+                      : `${formatCanonicalNumber(parseDecimal(customAmount) ?? Number.NaN, f.locale)} ${f.unit(customAmountUnit)}`}
                   </dd>
                 </div>
                 
                 <div className="rounded-xl bg-surface-2 p-3">
                   <dt className="text-xs text-muted">{t('prep.finalVolume')}</dt>
                   <dd className="num font-bold">
-                    {preparation ? (preparation.finalVolumeMl ? `${f.num(preparation.finalVolumeMl)} mL` : '—') : `${formatCanonicalNumber(parseDecimal(customVolume) ?? NaN, f.locale)} mL`}
+                    {preparation ? (preparation.finalVolumeMl ? `${f.num(preparation.finalVolumeMl)} mL` : '—') : `${formatCanonicalNumber(parseDecimal(customVolume) ?? Number.NaN, f.locale)} mL`}
                   </dd>
                 </div>
                 <div className="rounded-xl bg-surface-2 p-3">
