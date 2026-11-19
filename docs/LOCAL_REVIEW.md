@@ -68,6 +68,8 @@ La aceptación de navegador utiliza un perfil nuevo, sin un service worker previ
 
 `Local review integration` ejecuta T05 nativo en Windows y T06 nativo en Linux. Los scripts `scripts/check_local_review.py` y `app/scripts/check-*-local-review.mjs` comprueban la aplicación compuesta, sus proxies, los recibos del backend y el cierre del launcher. No sustituyen el transporte por mocks.
 
+`Security and quality` invoca esos jobs como workflow reutilizable y combina sus mediciones Python con las pruebas portables antes de Sonar. La combinación comprueba commit, árbol, versión y configuración; recoge también el arranque, la preparación del modelo y los subprocesos Windows. Solo publica cobertura nativa tras completar sus pruebas. La configuración conserva los datos al cierre por SIGTERM en Linux. El código de T06 bajo `tools/` permanece fuera de `sonar.sources`; sus pruebas HTTP/TLS y de navegador se informan por separado.
+
 Las pruebas portables de T05 también se ejecutan en Clinical QA con OCR local. Las tres pruebas que requieren Windows se omiten explícitamente en Linux y se ejecutan en el job Windows. Los resultados de otra rama o de los paquetes históricos no se atribuyen a esta composición.
 
 Procedencia: [T05](BLOOD_GAS_LOCAL.md), [T06](../tools/t06-localhost-lab/README.md) y [registro de integración](../clinical/qa/T05_T06_INTEGRATION_20261119.md).

@@ -28,6 +28,10 @@ El nuevo middleware Vite necesita tipos Node: se añaden únicamente `@types/nod
 
 Las pruebas nuevas se ejecutan sobre la composición, conservando las regresiones de PR32. Los resultados locales y los enlaces a CI se registran en el informe de entrega de este encargo. El workflow `Local review integration` exige extracción real T05 en Windows y circuito real T06 en Linux, con navegador y recibos propios; no se atribuye aquí un PASS futuro.
 
+La primera CI detectó dos defectos del verificador T05: lectura del cuerpo desde una caché CDP que ya lo había expulsado y un selector de metadatos que también coincidía con una sección. Se comprueban ahora las dos muestras y el resultado mostrado por la aplicación, y se restringe el selector al control correspondiente. Se conservan los HTTP y las aserciones de cálculo, corrección y revocación.
+
+Sonar detectó cobertura nueva de 73,4 % y seguridad E. El diagnóstico de solo lectura recoge metadatos del análisis fallido sin exportar credenciales ni código fuente. La captura combina las ejecuciones portables y nativas reales del mismo árbol antes del análisis, incluidos modelo, launcher y worker Windows. No cambia umbrales, baseline, exclusiones ni el resultado original de un gate fallido; su cierre requiere observar la CI del candidato final. T06 bajo `tools/` no está incluido en el alcance Sonar vigente y dispone de evidencia nativa propia.
+
 El worker T05 requiere Windows Job Objects. El transporte B1 T06 requiere Linux/POSIX. No se ha portado ninguno ni eliminado su contención; no existe una plataforma única que ejecute ambos adaptadores nativos entregados. Un HTTP200 de sesión no se considera prueba de extracción. Una ejecución de navegador no acredita aislamiento de red del SO ni validación clínica.
 
 El registro de evidencia y sus fechas clínicas se conservan sin promoción. Los 19 contratos aceptados y 46 IDs se mantienen; no se restablecen bloqueos históricos. No se modifica `main`, las referencias congeladas ni v1.43. Uso y comandos: `docs/LOCAL_REVIEW.md`.

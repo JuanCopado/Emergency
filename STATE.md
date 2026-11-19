@@ -1,7 +1,7 @@
 # STATE · integración T05/T06 · 19/11/2026
 
 - Encargo vigente: integrar T05/gasometría y T06, autorizado por el propietario.
-- Rama: `codex/integrate-t05-t06-20261119`.
+- Entrega: [PR #33](https://github.com/JuanCopado/Emergency/pull/33), destino `codex/v144-international-scope-20261116`.
 - Base: PR32 `abdeae442a151ce1b1fe0786725991a7d35bc558`, posterior a PR31 integrado.
 - Estado clínico: **CLINICALLY_PENDING**; no GO_RELEASE ni autorización asistencial.
 - T05: revisión local de gasometrías, muestras/metadatos, FiO₂ 21–100 % o fracción 0,21–1.

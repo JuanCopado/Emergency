@@ -90,6 +90,7 @@ class SonarDiagnosticsTests(unittest.TestCase):
                 code, data, requests, _ = self.run_helper([response])
                 self.assertEqual(code, 2)
                 self.assertEqual(data["diagnostic_status"], "UNAVAILABLE")
+                self.assertEqual(data["failure"], {"stage": "gate", "code": "HTTP_STATUS", "http_status": status})
                 self.assertEqual(len(requests), 1)
                 self.assertEqual(requests[0].host, "sonarcloud.io")
 
@@ -139,12 +140,22 @@ class SonarDiagnosticsTests(unittest.TestCase):
                   HTTPError("https://sonarcloud.io/?" + TOKEN, 403, TOKEN, Message(), io.BytesIO(b"SOURCE_SENTINEL")),
                   (200, {"Content-Type": "application/json"}, ("{ " + TOKEN).encode()),
                   (200, {"Content-Type": "text/html"}, b"SOURCE_SENTINEL")]
-        for error in errors:
+        for error, expected_code in zip(errors, ("TRANSPORT_ERROR", "HTTP_STATUS", "JSON_INVALID", "CONTENT_TYPE")):
             with self.subTest(kind=type(error).__name__):
                 code, data, _, _ = self.run_helper([error])
                 self.assertEqual(code, 2)
-                self.assertEqual(data, {"diagnostic_status": "UNAVAILABLE", "context": {"pullRequest": "33"},
-                                        "conditions": [], "issues": []})
+                self.assertEqual(data["diagnostic_status"], "UNAVAILABLE")
+                self.assertEqual(data["failure"]["stage"], "gate")
+                self.assertEqual(data["failure"]["code"], expected_code)
+                self.assertEqual(data["conditions"], [])
+                self.assertEqual(data["issues"], [])
+
+    def test_issue_http_failure_is_distinguished_without_server_text(self):
+        error = HTTPError("https://sonarcloud.io/?" + TOKEN, 403, TOKEN, Message(), io.BytesIO(b"SOURCE_SENTINEL"))
+        code, data, requests, _ = self.run_helper([GATE, error])
+        self.assertEqual(code, 2)
+        self.assertEqual(len(requests), 2)
+        self.assertEqual(data["failure"], {"stage": "issues", "code": "HTTP_STATUS", "http_status": 403})
 
     def test_response_limits_and_ambiguous_json_rejected(self):
         bodies = [b" " * (DIAGNOSTICS.MAX_BYTES + 1), b'{"projectStatus":{},"projectStatus":{}}',

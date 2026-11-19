@@ -10,6 +10,7 @@ import re
 import ssl
 import sys
 from urllib.parse import urlencode
+from urllib.error import HTTPError
 from urllib.request import (HTTPSHandler, HTTPRedirectHandler, ProxyHandler,
                             Request, build_opener)
 
@@ -75,19 +76,37 @@ def reject_constant(_value):
     raise DiagnosticError()
 
 
-def request_json(opener, endpoint, parameters, token):
+def request_json(opener, endpoint, parameters, token, progress=None):
     if endpoint not in ENDPOINTS:
         raise DiagnosticError()
+    progress = {} if progress is None else progress
+    progress.clear()
+    progress.update(stage="gate" if endpoint.endswith("project_status") else "issues",
+                    code="TRANSPORT_ERROR")
     request = Request(ORIGIN + endpoint + "?" + urlencode(parameters), method="GET",
                       headers={"Authorization": "Bearer " + token,
                                "Accept": "application/json"})
-    with opener.open(request, timeout=TIMEOUT) as response:
-        if (response.status != 200 or response.headers.get_content_type() != "application/json"
-                or response.headers.get("Content-Encoding", "identity").lower() != "identity"):
-            raise DiagnosticError()
-        body = response.read(MAX_BYTES + 1)
+    try:
+        with opener.open(request, timeout=TIMEOUT) as response:
+            progress.update(code="HTTP_STATUS", http_status=response.status)
+            if response.status != 200:
+                raise DiagnosticError()
+            progress["code"] = "CONTENT_TYPE"
+            if response.headers.get_content_type() != "application/json":
+                raise DiagnosticError()
+            progress["code"] = "CONTENT_ENCODING"
+            if response.headers.get("Content-Encoding", "identity").lower() != "identity":
+                raise DiagnosticError()
+            progress["code"] = "RESPONSE_READ"
+            body = response.read(MAX_BYTES + 1)
+    except HTTPError as error:
+        progress.update(code="HTTP_STATUS", http_status=error.code)
+        error.close()
+        raise DiagnosticError() from None
+    progress["code"] = "BODY_LIMIT"
     if len(body) > MAX_BYTES:
         raise DiagnosticError()
+    progress["code"] = "JSON_INVALID"
     value = json.loads(body.decode("utf-8"), object_pairs_hook=unique_object,
                        parse_constant=reject_constant)
     if not isinstance(value, dict):
@@ -116,7 +135,7 @@ def public_fields(value, fields, token):
     return result
 
 
-def collect(environment):
+def collect(environment, progress):
     token = environment.get("SONAR_TOKEN", "")
     if not token or len(token) > 4096 or any(not 33 <= ord(char) <= 126 for char in token):
         raise DiagnosticError()
@@ -126,7 +145,8 @@ def collect(environment):
     opener = build_opener(ProxyHandler({}),
                           HTTPSHandler(context=ssl.create_default_context()), NoRedirects())
     gate = request_json(opener, "/api/qualitygates/project_status",
-                        {"projectKey": PROJECT, **selected}, token)
+                        {"projectKey": PROJECT, **selected}, token, progress)
+    progress["code"] = "GATE_SCHEMA"
     conditions = gate["projectStatus"]["conditions"]
     if not isinstance(conditions, list) or len(conditions) > 50:
         raise DiagnosticError()
@@ -135,7 +155,8 @@ def collect(environment):
               "issues": []}
     data = request_json(opener, "/api/issues/search", {
         "componentKeys": PROJECT, **selected, "types": "VULNERABILITY",
-        "resolved": "false", "ps": str(PAGE_SIZE), "p": "1"}, token)
+        "resolved": "false", "ps": str(PAGE_SIZE), "p": "1"}, token, progress)
+    progress["code"] = "ISSUE_SCHEMA"
     count = data.get("total", data.get("paging", {}).get("total"))
     issues = data.get("issues")
     if (type(count) is not int or count < 0 or not isinstance(issues, list)
@@ -152,19 +173,22 @@ def collect(environment):
 
 def main(argv=None):
     context = {}
+    progress = {"stage": "configuration", "code": "INVALID_CONFIGURATION"}
     try:
         if (sys.argv[1:] if argv is None else argv):
             raise DiagnosticError()
         context = public_context(os.environ)
-        result = collect(os.environ)
+        result = collect(os.environ, progress)
         result["context"] = context
+        progress.clear()
+        progress.update(stage="output", code="OUTPUT_INVALID")
         encoded = json.dumps(result, ensure_ascii=True, allow_nan=False)
         if os.environ["SONAR_TOKEN"] in encoded:
             raise DiagnosticError()
     except Exception:
         # Never print exceptions: transport errors can contain credentials or bodies.
         print(json.dumps({"diagnostic_status": "UNAVAILABLE", "context": context,
-                          "conditions": [], "issues": []}, ensure_ascii=True))
+                          "failure": progress, "conditions": [], "issues": []}, ensure_ascii=True))
         print("Sonar diagnostics unavailable; no raw response or credential was exported.", file=sys.stderr)
         return 2
     print(encoded)
