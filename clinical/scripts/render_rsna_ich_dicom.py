@@ -15,6 +15,7 @@ pure geometry/window helpers remain unit-testable in Clinical QA.
 import argparse
 import json
 import math
+import re
 from pathlib import Path
 
 WINDOW_WIDTH = 80.0
@@ -60,7 +61,24 @@ def _window_array(hu):
     high = WINDOW_LEVEL + WINDOW_WIDTH / 2.0
     return np.clip((hu - low) / (high - low) * 255.0, 0, 255).astype(np.uint8)
 
+def _case_output_directory(output_dir, case_id):
+    # IDs are one portable artifact component, never a caller-supplied path.
+    if not isinstance(case_id, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,127}", case_id):
+        raise ValueError("case_id must be one portable artifact identifier")
+    reserved = {"CON", "PRN", "AUX", "NUL"}
+    reserved.update(f"{prefix}{n}" for prefix in ("COM", "LPT") for n in range(10))
+    if case_id.upper() in reserved:
+        raise ValueError("case_id must not be a reserved device identifier")
+    base = Path(output_dir).resolve()
+    target = (base / case_id).resolve()
+    try:
+        relative = target.relative_to(base)
+    except ValueError:
+        raise ValueError("case output escapes its artifact directory") from None
+    return base / relative
+
 def render_exam(dicom_files, output_dir, case_id):
+    out = _case_output_directory(output_dir, case_id)
     import numpy as np
     import pydicom
     from PIL import Image
@@ -118,7 +136,6 @@ def render_exam(dicom_files, output_dir, case_id):
     if any(b <= a for a, b in zip(positions, positions[1:])):
         raise ValueError("slice positions must be unique and strictly ordered")
 
-    out = Path(output_dir) / case_id
     out.mkdir(parents=True, exist_ok=True)
     slices = []
     for index, (pos, _, arr) in enumerate(records):

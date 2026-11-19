@@ -302,7 +302,7 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
         json.dumps(cohort, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     (output_dir / "SEALED_REFERENCE_DO_NOT_REVEAL.json").write_text(
-        json.dumps(sealed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        data=json.dumps(sealed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     return cohort, sealed
 
