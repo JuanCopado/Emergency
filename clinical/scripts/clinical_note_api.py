@@ -537,6 +537,10 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
         # BaseHTTPRequestHandler can otherwise reflect a private request-line in
         # an HTML parser error. Ignore both supplied messages and URL fragments.
         self.close_connection = True
+        if self.request_version == "HTTP/0.9":
+            # Python 3.12 retains this fallback on malformed request versions;
+            # errors still need an HTTP status line and the security headers.
+            self.request_version = "HTTP/1.0"
         self._send(code, {"error": "invalid HTTP request"}, head_only=self.command == "HEAD")
 
     def do_GET(self):
