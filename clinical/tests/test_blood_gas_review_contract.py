@@ -28,8 +28,8 @@ class InMemoryReview(Handler):
             self.headers[key] = value
         self.response = None
 
-    def reply(self, status, data, mime):
-        self.response = (status, json.loads(data))
+    def reply_json(self, status, body):
+        self.response = (status, body)
 
     def send_error(self, code, *args):
         self.response = (code, {})
@@ -43,6 +43,7 @@ class ReviewContract(unittest.TestCase):
         segment.update(source_page=1, sample_label='synthetic-A', region=[0, 0, 580, 220])
         self.page = segment
         self.server = SimpleNamespace(address='127.0.0.1:12345', token='test-token',
+                                      allowed_origins={'http://127.0.0.1:12345'},
                                       ticket='test-ticket', pages=[segment])
         self.request = dict(ticket='test-ticket', page=0, oneSample=True,
                             medicalConfirmed=True, areaConfirmed=True, sample='venosa',

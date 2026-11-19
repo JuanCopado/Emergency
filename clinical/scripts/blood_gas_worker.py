@@ -8,6 +8,8 @@ import subprocess
 import sys
 import tempfile
 
+from cli_paths import input_file
+
 MEMORY = 768 * 1024 * 1024
 OUTPUT = 40 * 1024 * 1024
 
@@ -62,12 +64,16 @@ def safe_extract(data, regions=None):
         source = Path(directory, "source.bin")
         options = Path(directory, "regions.json")
         output = Path(directory, "output.json")
-        source.write_bytes(data)
-        options.write_text(json.dumps(regions, allow_nan=False), encoding="utf8")
+        with source.open("xb") as stream:
+            stream.write(data)
+        with options.open("x", encoding="utf8") as stream:
+            json.dump(regions, stream, allow_nan=False)
+        # Only the parent-generated private directory grants child read access.
+        environment = dict(os.environ, EMERGENCY_CLI_INPUT_ROOT=directory)
         with output.open("wb") as stream:
             process = subprocess.Popen(
                 [sys.executable, str(Path(__file__).resolve()), "--worker", str(source), str(options)],
-                stdout=stream, stderr=subprocess.DEVNULL)
+                stdout=stream, stderr=subprocess.DEVNULL, env=environment)
             try:
                 code = process.wait(timeout=120)
             except subprocess.TimeoutExpired:
@@ -81,11 +87,13 @@ def safe_extract(data, regions=None):
 if __name__ == "__main__":
     if len(sys.argv) != 4 or sys.argv[1] != "--worker":
         raise SystemExit(2)
+    source = input_file(sys.argv[2])
+    options = input_file(sys.argv[3])
     job_handle = restrict_worker()
     from blood_gas_review import extract, LIMIT
-    with Path(sys.argv[2]).open("rb") as stream:
+    with source.open("rb") as stream:
         data = stream.read(LIMIT + 1)
-    regions = json.loads(Path(sys.argv[3]).read_text(encoding="utf8"))
+    regions = json.loads(options.read_text(encoding="utf8"))
     payload = json.dumps(extract(data, regions), ensure_ascii=True, allow_nan=False)
     if len(payload) > OUTPUT:
         raise SystemExit(3)

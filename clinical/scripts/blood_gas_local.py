@@ -3,6 +3,7 @@
 CSP limits this application's requests. It is NOT browser/OS network isolation.
 """
 import argparse
+import html
 import json
 import math
 import mimetypes
@@ -113,10 +114,10 @@ class Handler(DeadlineRequestHandler):
     def log_message(self, *args):
         pass
 
-    def reply(self, status, data, mime):
+    def reply_headers(self, status, length, mime):
         self.send_response(status)
         self.send_header('Content-Type', mime)
-        self.send_header('Content-Length', str(len(data)))
+        self.send_header('Content-Length', str(length))
         self.send_header('Connection', 'close')
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
@@ -124,6 +125,19 @@ class Handler(DeadlineRequestHandler):
         self.send_header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
         self.send_header('Content-Security-Policy', "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'")
         self.end_headers()
+
+    def reply_json(self, status, body):
+        # Use the clinical API's reversible JSON markup boundary. Keep the
+        # existing ASCII encoding so every accepted JSON string stays lossless.
+        escaped = html.escape(json.dumps(body, allow_nan=False), quote=False)
+        data = (escaped.replace('&lt;', '\\u003c').replace('&gt;', '\\u003e')
+                .replace('&amp;', '\\u0026').encode('utf-8'))
+        self.reply_headers(status, len(data), 'application/json')
+        if self.command != 'HEAD':
+            self.wfile.write(data)
+
+    def reply_asset(self, status, data, mime):
+        self.reply_headers(status, len(data), mime)
         if self.command != 'HEAD':
             self.wfile.write(data)
 
@@ -133,13 +147,13 @@ class Handler(DeadlineRequestHandler):
         self.close_connection = True
         if self.request_version == 'HTTP/0.9':
             self.request_version = 'HTTP/1.0'
-        self.reply(code, b'{"error":"Solicitud HTTP no admisible"}', 'application/json')
+        self.reply_json(code, {'error': 'Solicitud HTTP no admisible'})
 
     def trusted_browser_request(self, require_origin=False):
         origins = self.headers.get_all('Origin', [])
-        allowed = getattr(self.server, 'allowed_origins', {'http://' + self.server.address})
+        allowed = getattr(self.server, 'allowed_origins', None)
         sites = self.headers.get_all('Sec-Fetch-Site', [])
-        return (self.headers.get_all('Host', []) == [self.server.address]
+        return (bool(allowed) and self.headers.get_all('Host', []) == [self.server.address]
                 and (origins == [] and not require_origin or
                      len(origins) == 1 and origins[0] in allowed)
                 and len(sites) <= 1
@@ -150,21 +164,21 @@ class Handler(DeadlineRequestHandler):
             return self.send_error(403)
         route = urlsplit(self.path).path
         if route == '/api/blood-gas/session':
-            return self.reply(200, json.dumps(dict(token=self.server.token, synthetic_only=True,
-                                                  extraction_available=os.name == 'nt', required_platform='win32')).encode(), 'application/json')
+            return self.reply_json(200, dict(token=self.server.token, synthetic_only=True,
+                                             extraction_available=os.name == 'nt', required_platform='win32'))
         if route.startswith('/assets/') or route in ('/favicon.svg', '/manifest.webmanifest'):
             target = (DIST / route.lstrip('/')).resolve()
             if not target.is_relative_to(DIST.resolve()) or not target.is_file():
                 return self.send_error(404)
-            return self.reply(200, target.read_bytes(), mimetypes.guess_type(target.name)[0] or 'application/octet-stream')
+            return self.reply_asset(200, target.read_bytes(), mimetypes.guess_type(target.name)[0] or 'application/octet-stream')
         if route not in ('/', '/blood-gas', '/clinical-note'):
             return self.send_error(404)
         index = DIST / 'index.html'
         if not index.is_file():
-            return self.reply(503, b'Build Emergency app/ before starting the local review.', 'text/plain')
+            return self.reply_asset(503, b'Build Emergency app/ before starting the local review.', 'text/plain')
         # Tell the existing entry point not to register a service worker for this ephemeral session.
-        html = index.read_text(encoding='utf8').replace('<head>', '<head><meta name="blood-gas-local" content="synthetic-only">')
-        self.reply(200, html.encode(), 'text/html; charset=utf-8')
+        page = index.read_text(encoding='utf8').replace('<head>', '<head><meta name="blood-gas-local" content="synthetic-only">')
+        self.reply_asset(200, page.encode(), 'text/html; charset=utf-8')
 
     def do_POST(self):
         # Browsers open speculative connections. Serve them independently but
@@ -335,7 +349,7 @@ class Handler(DeadlineRequestHandler):
                             for row, original in zip(rows, page['fields'])])
             else:
                 return self.send_error(404)
-            self.reply(200, json.dumps(output, allow_nan=False).encode(), 'application/json')
+            self.reply_json(200, output)
         except Exception as error:
             if route in ('/extract', '/regions'):
                 self.server.ticket = None
@@ -344,7 +358,7 @@ class Handler(DeadlineRequestHandler):
                 self.server.document_context = []
                 self.server.sample_sources = []
             status = error.status if isinstance(error, RequestRejection) else 422
-            self.reply(status, b'{"error":"Documento o revision no admisible; revise muestra, campos, unidades y confirmaciones"}', 'application/json')
+            self.reply_json(status, {'error': 'Documento o revision no admisible; revise muestra, campos, unidades y confirmaciones'})
 
 
 def make_server(port=0, ui_port=None):
@@ -354,7 +368,7 @@ def make_server(port=0, ui_port=None):
         raise ValueError('UI port must be an integer in [1, 65535]')
     server = HTTPServer(('127.0.0.1', port), Handler, request_timeout=10.0)
     server.address = '127.0.0.1:' + str(server.server_port)
-    server.allowed_origins = {'http://' + server.address}
+    server.allowed_origins = {'http://127.0.0.1:' + str(server.server_port)}
     if ui_port is not None:
         server.allowed_origins.add('http://127.0.0.1:' + str(ui_port))
     server.ticket = None
@@ -372,7 +386,7 @@ if __name__ == '__main__':
     parser.add_argument('--ui-port', type=int, help='Additional local frontend port on 127.0.0.1')
     args = parser.parse_args()
     server = make_server(args.port, args.ui_port)
-    print('http://' + server.address + '/blood-gas', flush=True)
+    print('http://127.0.0.1:' + str(server.server_port) + '/blood-gas', flush=True)
     try:
         server.serve_forever()
     finally:

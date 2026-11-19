@@ -2,7 +2,7 @@
 
 SONAR_TOKEN is read only from the environment. Set SONAR_PULL_REQUEST for a PR;
 otherwise GITHUB_REF_NAME must identify the exact GitHub branch being analysed.
-Only allowlisted issue metadata is emitted, never source, response bodies or tokens.
+Only allowlisted metadata is emitted, never source, raw response bodies or tokens.
 """
 import json
 import os
@@ -17,8 +17,12 @@ from urllib.request import (HTTPSHandler, HTTPRedirectHandler, ProxyHandler,
 
 ORIGIN = "https://sonarcloud.io"
 PROJECT = "JuanCopado_Emergency"
+ORGANIZATION = "juancopado"
 TIMEOUT = 15
 MAX_BYTES = 1_000_000
+MAX_ERROR_BYTES = 16_384
+MAX_ERROR_MESSAGES = 3
+MAX_ERROR_MESSAGE_CHARS = 512
 PAGE_SIZE = 100
 ENDPOINTS = {"/api/qualitygates/project_status", "/api/issues/search"}
 CONDITION_FIELDS = ("status", "metricKey", "comparator", "errorThreshold", "actualValue")
@@ -76,6 +80,44 @@ def reject_constant(_value):
     raise DiagnosticError()
 
 
+def validation_messages(error, token):
+    """Keep only bounded, redacted validation messages from a JSON HTTP 400."""
+    try:
+        if (error.code != 400 or error.headers.get_content_type() != "application/json"
+                or error.headers.get("Content-Encoding", "identity").lower() != "identity"):
+            return []
+        body = error.read(MAX_ERROR_BYTES + 1)
+        if len(body) > MAX_ERROR_BYTES:
+            return []
+        data = json.loads(body.decode("utf-8"), object_pairs_hook=unique_object,
+                          parse_constant=reject_constant)
+        errors = data.get("errors") if isinstance(data, dict) else None
+        if not isinstance(errors, list):
+            return []
+        messages = []
+        remaining = MAX_ERROR_MESSAGE_CHARS
+        for item in errors[:MAX_ERROR_MESSAGES]:
+            if not isinstance(item, dict) or not isinstance(item.get("msg"), str):
+                continue
+            message = item["msg"].replace(token, "[REDACTED]")
+            message = re.sub(r"(?i)\b(?:bearer|basic)\s+\S+", "[REDACTED]", message)
+            message = re.sub(r"(?i)(?:\b[a-z][a-z0-9+.-]*:|(?<!\w)//|\bwww\.)[^\s<>'\"]+",
+                             "[REDACTED]", message)
+            message = re.sub(r"\b(?:sq[a-z]_|gh[pousr]_|github_pat_|sk-)[A-Za-z0-9_-]+\b",
+                             "[REDACTED]", message)
+            message = re.sub(r"\b[A-Za-z0-9_.~+/=-]{24,}\b", "[REDACTED]", message)
+            message = " ".join(message.split())[:remaining]
+            if message:
+                messages.append(message)
+                remaining -= len(message)
+            if not remaining:
+                break
+        return messages
+    except Exception:
+        # Even malformed validation responses must never expose raw transport data.
+        return []
+
+
 def request_json(opener, endpoint, parameters, token, progress=None):
     if endpoint not in ENDPOINTS:
         raise DiagnosticError()
@@ -101,6 +143,9 @@ def request_json(opener, endpoint, parameters, token, progress=None):
             body = response.read(MAX_BYTES + 1)
     except HTTPError as error:
         progress.update(code="HTTP_STATUS", http_status=error.code)
+        messages = validation_messages(error, token)
+        if messages:
+            progress["validation_messages"] = messages
         error.close()
         raise DiagnosticError() from None
     progress["code"] = "BODY_LIMIT"
@@ -142,8 +187,11 @@ def collect(environment, progress):
     selected = selector(environment)
     if any(token in value for value in selected.values()):
         raise DiagnosticError()
+    tls_context = ssl.create_default_context()
+    tls_context.verify_mode = ssl.CERT_REQUIRED
+    tls_context.check_hostname = True
     opener = build_opener(ProxyHandler({}),
-                          HTTPSHandler(context=ssl.create_default_context()), NoRedirects())
+                          HTTPSHandler(context=tls_context, check_hostname=True), NoRedirects())
     gate = request_json(opener, "/api/qualitygates/project_status",
                         {"projectKey": PROJECT, **selected}, token, progress)
     progress["code"] = "GATE_SCHEMA"
@@ -154,7 +202,7 @@ def collect(environment, progress):
               "conditions": [public_fields(item, CONDITION_FIELDS, token) for item in conditions],
               "issues": []}
     data = request_json(opener, "/api/issues/search", {
-        "componentKeys": PROJECT, **selected, "types": "VULNERABILITY",
+        "organization": ORGANIZATION, "componentKeys": PROJECT, **selected, "types": "VULNERABILITY",
         "resolved": "false", "ps": str(PAGE_SIZE), "p": "1"}, token, progress)
     progress["code"] = "ISSUE_SCHEMA"
     count = data.get("total", data.get("paging", {}).get("total"))

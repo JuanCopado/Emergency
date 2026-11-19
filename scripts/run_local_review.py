@@ -7,6 +7,7 @@ audit hook must never be imported into the clinical-note process.
 import argparse
 from datetime import datetime, timezone
 import hashlib
+from http.client import HTTPConnection, HTTPException
 import json
 import os
 from pathlib import Path
@@ -16,7 +17,6 @@ import socket
 import subprocess
 import sys
 import time
-from urllib.request import ProxyHandler, Request, build_opener
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +33,29 @@ def port_number(value):
 
 def check_python(interpreter, code):
     return json.loads(subprocess.check_output([str(interpreter), '-c', code], text=True))
+
+
+def service_ready(name, ui_port):
+    """Probe one fixed loopback service; redirects and ambient proxies are unused."""
+    if type(ui_port) is not int or not 1024 <= ui_port <= 65535 or ui_port in BACKEND_PORTS:
+        raise ValueError('Invalid local UI port')
+    endpoints = {'clinical': (8765, '/api/clinical-note/health'),
+                 'blood-gas': (8767, '/api/blood-gas/session'),
+                 't06': (8766, '/api/lab-status'), 'app': (ui_port, '/')}
+    if name not in endpoints:
+        raise ValueError('Unknown local service')
+    port, path = endpoints[name]
+    connection = HTTPConnection('127.0.0.1', port, timeout=1)
+    try:
+        connection.request('GET', path, headers={
+            'Origin': f'http://127.0.0.1:{ui_port}',
+            'X-Emergency-T06-Lab': 'synthetic-loopback'})
+        with connection.getresponse() as response:
+            return response.status == 200
+    except (OSError, HTTPException):
+        return False
+    finally:
+        connection.close()
 
 
 def stop_process(process):
@@ -131,11 +154,7 @@ def main():
                            '--python', str(t06_python), '--port', '8766', '--ui-port', str(args.ui_port),
                            '--evidence-dir', str(evidence / 't06')]
     processes, logs = {}, []
-    opener = build_opener(ProxyHandler({}))
     origin = f'http://127.0.0.1:{args.ui_port}'
-    endpoints = {'clinical': 'http://127.0.0.1:8765/api/clinical-note/health',
-                 'blood-gas': 'http://127.0.0.1:8767/api/blood-gas/session',
-                 't06': 'http://127.0.0.1:8766/api/lab-status', 'app': origin}
     started = datetime.now(timezone.utc).isoformat()
     try:
         for name, command in commands.items():
@@ -150,13 +169,8 @@ def main():
                 if process.poll() is not None:
                     raise RuntimeError(f'{name} exited during startup; inspect {evidence / (name + ".log")}')
             for name in list(pending):
-                request = Request(endpoints[name], headers={'Origin': origin, 'X-Emergency-T06-Lab': 'synthetic-loopback'})
-                try:
-                    with opener.open(request, timeout=1) as response:
-                        if response.status == 200:
-                            pending.remove(name)
-                except OSError:
-                    pass
+                if service_ready(name, args.ui_port):
+                    pending.remove(name)
             if time.monotonic() >= deadline:
                 raise RuntimeError('Local startup did not complete: ' + ', '.join(sorted(pending)))
             time.sleep(0.1)

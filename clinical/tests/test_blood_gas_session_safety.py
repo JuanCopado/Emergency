@@ -88,10 +88,10 @@ class SessionSafety(unittest.TestCase):
 
     def test_failed_delivery_revokes_new_document(self):
         class Disconnected(InMemoryReview):
-            def reply(self, status, data, mime):
+            def reply_json(self, status, body):
                 if status == 200:
                     raise ConnectionError('synthetic client disconnected')
-                super().reply(status, data, mime)
+                super().reply_json(status, body)
         handler = Disconnected(self.server, b'synthetic new document', '/extract')
         with patch('blood_gas_local.safe_extract', return_value=self.server.pages):
             handler.handle_post()
