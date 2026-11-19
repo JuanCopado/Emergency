@@ -13,7 +13,16 @@ const modulesText = await readCanonical(resolve(clinicalRoot, 'MODULES.md'));
 
 const entries = indexText
   .split('\n')
-  .map((line) => line.match(/^\|\s*`?([^|`]+?)`?\s*\|\s*`([^`]+)`\s*\|$/))
+  .map((line) => {
+    const cells = line.split('|');
+    if (cells.length !== 4 || cells[0] !== '' || cells[3] !== '') return null;
+    const id = cells[1].trim();
+    const bundle = cells[2].trim();
+    if (!id || !/^`[^`]+`$/.test(bundle)) return null;
+    const unquotedId = id.replace(/^`/, '').replace(/`$/, '');
+    if (!unquotedId || unquotedId.includes('`')) return null;
+    return [line, unquotedId, bundle.slice(1, -1)];
+  })
   .filter(Boolean)
   .map((match) => ({ id: match[1].trim(), bundle: match[2].trim() }))
   .filter((entry) => entry.id !== 'Module ID');
@@ -78,5 +87,11 @@ for (const entry of entries) {
 }
 
 const out = resolve(appRoot, 'src/data/generatedClinicalGuides.json');
-await writeFile(out, JSON.stringify(guides, null, 2) + '\n', 'utf8');
-console.log('Generated ' + guides.length + ' canonical clinical guides');
+const serialized = JSON.stringify(guides, null, 2) + '\n';
+if (process.argv.includes('--check')) {
+  if ((await readCanonical(out)) !== serialized) throw new Error('Clinical guide projection is stale');
+  console.log('Checked ' + guides.length + ' canonical clinical guides');
+} else {
+  await writeFile(out, serialized, 'utf8');
+  console.log('Generated ' + guides.length + ' canonical clinical guides');
+}

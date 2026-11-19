@@ -16,6 +16,8 @@ DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-infusion-localization.json"
 
 ALLOWED_STATUSES = {"source_verified", "source_verified_with_restriction"}
 
+from cli_paths import input_file
+
 def load_registry(path=DEFAULT_REGISTRY):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     return {item["drug"]: item for item in data["drugs"]}
@@ -93,6 +95,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("drug")
     parser.add_argument("weight_kg", type=float)
-    parser.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    parser.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
     args = parser.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        if args.registry is DEFAULT_REGISTRY:
+            args.registry = DEFAULT_REGISTRY
+        else:
+            args.registry = input_file(args.registry)
+    except argparse.ArgumentTypeError as error:
+        parser.error(str(error))
     print(json.dumps(pump_table(args.drug, args.weight_kg, args.registry), indent=2))

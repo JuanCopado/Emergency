@@ -13,7 +13,7 @@ export async function buildProcedureCatalog(root = defaultRoot) {
   for (const line of index.split('\n')) {
     const group = line.match(/^# \d+\. (.+)$/);
     if (group) family = group[1].trim();
-    const row = line.match(/^\d+\. \*\*(PROC-[A-Z]+-\d{3}) — (.+?)\*\* — (.+?)\s*$/);
+    const row = line.trimEnd().match(/^\d+\. \*\*(PROC-[A-Z]+-\d{3}) — (.+?)\*\* — (.+)$/);
     if (!row) continue;
     const [, id, name, descriptor] = row;
     if (!family || entries.has(id)) throw new Error(`Missing family or duplicate index ID: ${id}`);
@@ -50,7 +50,7 @@ export async function buildProcedureCatalog(root = defaultRoot) {
     }
     catalog.push({ id: entry.id, name: entry.name, level: entry.level, family: entry.family,
       sourcePath: card.sourcePath, sourceHeading: card.sourceHeading,
-      aliases: [...entries.values()].filter((other) => other.target === entry.id).map((other) => other.id).sort(),
+      aliases: [...entries.values()].filter((other) => other.target === entry.id).map((other) => other.id).sort((a, b) => a < b ? -1 : a > b ? 1 : 0),
     });
   }
   return catalog.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);

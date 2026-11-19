@@ -51,7 +51,8 @@ jobs:
             clinical/requirements.txt
             clinical/requirements-test.txt
       - name: Install clinical runtime and test requirements
-        run: python -m pip install -r clinical/requirements-test.txt
+        run: >-
+          python -m pip install --only-binary=:all: --require-hashes -r security/requirements-ci.txt
       - name: Verify normalized evidence source catalog
         run: python3 clinical/scripts/normalize_evidence_sources.py --check
       - name: Build deterministic provenance graph

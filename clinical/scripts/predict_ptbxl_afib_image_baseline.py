@@ -25,6 +25,8 @@ NEG_RMSSD = 0.12
 NEG_MAD = 0.05
 MIN_QRS = 5
 
+from cli_paths import input_directory, input_file, output_file
+
 def classify_features(npeaks, cv, rmssd, mad):
     if npeaks is None or npeaks < MIN_QRS:
         return "nondiagnostic"
@@ -103,6 +105,19 @@ def extract_features(image_path):
 
     return {"npeaks": int(len(peaks)), "cv": cv, "rmssd": rmssd, "mad": mad}
 
+def _image_in_artifact_root(root_dir, image_file):
+    if not isinstance(image_file, str) or not image_file or any(ord(c) < 32 for c in image_file):
+        raise ValueError("invalid image_file")
+    relative = Path(image_file)
+    if relative.is_absolute() or relative.drive or relative.root:
+        raise ValueError("image_file must be relative to the artifact root")
+    root = Path(root_dir).resolve(strict=True)
+    target = (root / relative).resolve()
+    if not target.is_relative_to(root) or not target.is_file():
+        raise ValueError("image_file must be a regular file inside the artifact root")
+    return target
+
+
 def predict(blinded_manifest, root_dir, frozen_at=None):
     frozen_at = frozen_at or datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     predictions = []
@@ -111,7 +126,7 @@ def predict(blinded_manifest, root_dir, frozen_at=None):
         image_file = case.get("image_file")
         if not image_file:
             raise ValueError(f"{case.get('id')}: image_file required")
-        features = extract_features(Path(root_dir) / image_file)
+        features = extract_features(_image_in_artifact_root(root_dir, image_file))
         pred_class = classify_features(
             features.get("npeaks"), features.get("cv"),
             features.get("rmssd"), features.get("mad")
@@ -142,6 +157,13 @@ if __name__ == "__main__":
     p.add_argument("artifact_root", type=Path)
     p.add_argument("output", type=Path)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.blinded_manifest = input_file(args.blinded_manifest)
+        args.artifact_root = input_directory(args.artifact_root)
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     manifest = json.loads(args.blinded_manifest.read_text(encoding="utf-8"))
     result = predict(manifest, args.artifact_root)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

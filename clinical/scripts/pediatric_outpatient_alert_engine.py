@@ -12,6 +12,8 @@ REGISTRY=ROOT/"qa"/"pediatric-outpatient-medications.json"
 
 SEVERITY_ORDER={"STOP":4,"ALERT":3,"CAUTION":2,"INFO":1}
 
+from cli_paths import input_file
+
 def _load(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
@@ -316,9 +318,18 @@ def evaluate(regimen_id, patient, active_medications=None, product=None, registr
 if __name__=="__main__":
     import argparse
     p=argparse.ArgumentParser()
-    p.add_argument("regimen_id"); p.add_argument("patient_json"); p.add_argument("--active-medications-json"); p.add_argument("--product-json")
+    p.add_argument("regimen_id"); p.add_argument("patient_json", type=Path); p.add_argument("--active-medications-json", type=Path); p.add_argument("--product-json", type=Path)
     a=p.parse_args()
-    patient=json.loads(Path(a.patient_json).read_text())
-    active=json.loads(Path(a.active_medications_json).read_text()) if a.active_medications_json else None
-    product=json.loads(Path(a.product_json).read_text()) if a.product_json else None
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        a.patient_json = input_file(a.patient_json)
+        if a.active_medications_json is not None:
+            a.active_medications_json = input_file(a.active_medications_json)
+        if a.product_json is not None:
+            a.product_json = input_file(a.product_json)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
+    patient=json.loads(a.patient_json.read_text())
+    active=json.loads(a.active_medications_json.read_text()) if a.active_medications_json else None
+    product=json.loads(a.product_json.read_text()) if a.product_json else None
     print(json.dumps(evaluate(a.regimen_id,patient,active,product=product),indent=2,ensure_ascii=False))

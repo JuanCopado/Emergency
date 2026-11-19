@@ -9,12 +9,26 @@ REGISTRY = ROOT / 'qa/pediatric-outpatient-medications.json'
 RULES = ROOT / 'qa/pediatric-outpatient-alert-rules.json'
 
 
+_STRENGTH = re.compile(r'\d++(?:\.\d++)?\s*+(?:%|mg|g\b|micrograms?\b)')
+
+
+def _strip_strength(part):
+    # Visit whitespace runs once; match the numeric token only at their end.
+    # Avoid restarting an unanchored numeric/whitespace search at every byte.
+    last_break = part.rfind("\n", 0, len(part) - int(part.endswith("\n")))
+    for gap in re.finditer(r'\s+', part):
+        match = _STRENGTH.match(part, gap.end())
+        if match and match.end() > last_break:
+            return part[:gap.start()]
+    return part
+
+
 def ingredients(label):
     # The registry spells the adrenaline synonym with a slash; it is one agent.
     label = label.replace('epinephrine/adrenaline auto-injector', 'epinephrine')
     parts = []
     for part in label.split(' + '):
-        part = re.sub(r'\s+\d+(?:\.\d+)?\s*(?:%|mg|g\b|micrograms?\b).*$', '', part)
+        part = _strip_strength(part)
         parts.extend(part.replace(' paediatric sachet', '').strip().split('/'))
     return parts
 

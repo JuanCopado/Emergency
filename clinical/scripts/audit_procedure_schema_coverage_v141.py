@@ -16,7 +16,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 PROC_DIR = ROOT / "modules" / "procedures"
 OUT = ROOT / "qa" / "procedure-schema-coverage-v1.41.json"
 
-HEADER = re.compile(r"^##\s+(PROC-[A-Z]+-\d{3})\s+—\s+(.+?)(?:\s+—\s+([A-Z/]+))?$", re.M)
+HEADER = re.compile(r"^##[ \t]{1,32}(PROC-[A-Z]+-\d{3})[ \t]{1,32}—[ \t]{1,32}(.+?)(?:[ \t]{1,32}—[ \t]{1,32}([A-Z/]+))?$", re.M)
 
 FIELD_PATTERNS = {
     "objective": [r"\*\*Objetivo:\*\*", r"\*\*Uso:\*\*"],

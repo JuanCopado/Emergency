@@ -60,8 +60,10 @@ def export_request(payload):
         data = (json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False)+'\n').encode('utf-8')
     else:
         with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory)/('pediatric-result.'+fmt)
-            (export_sections_pdf if fmt == 'pdf' else export_sections_docx)(report['sections'], path)
+            filename, exporter = {'pdf': ('pediatric-result.pdf', export_sections_pdf),
+                                  'docx': ('pediatric-result.docx', export_sections_docx)}[fmt]
+            path = Path(directory) / filename
+            exporter(report['sections'], path)
             data = path.read_bytes()
     mime = {'json': 'application/json', 'pdf': 'application/pdf', 'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}[fmt]
-    return {'filename': 'pediatric-result.'+fmt, 'mime_type': mime, 'content_base64': base64.b64encode(data).decode('ascii')}
+    return {'filename': {'json': 'pediatric-result.json', 'pdf': 'pediatric-result.pdf', 'docx': 'pediatric-result.docx'}[fmt], 'mime_type': mime, 'content_base64': base64.b64encode(data).decode('ascii')}

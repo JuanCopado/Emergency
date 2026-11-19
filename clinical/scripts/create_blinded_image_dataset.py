@@ -14,6 +14,8 @@ ALLOWED_MODALITIES = {
     "skin_wound", "ct_mri", "ophthalmology", "other"
 }
 
+from cli_paths import output_file
+
 def build(modality, target_condition, target_question, reference_type="independent_expert_reference"):
     if modality not in ALLOWED_MODALITIES:
         raise ValueError(f"unsupported modality: {modality}")
@@ -46,6 +48,11 @@ if __name__ == "__main__":
     p.add_argument("output", type=Path)
     p.add_argument("--reference-type", default="independent_expert_reference")
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     data = build(args.modality, args.target_condition, args.target_question, args.reference_type)
     args.output.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(args.output)

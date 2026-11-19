@@ -31,6 +31,8 @@ BASE_URLS = (
 )
 LEADS = ["I","II","III","aVR","aVL","aVF","V1","V2","V3","V4","V5","V6"]
 
+from cli_paths import input_file, output_directory
+
 def _hash(value, salt):
     return hashlib.sha256(f"{salt}:{value}".encode("utf-8")).hexdigest()
 
@@ -300,7 +302,7 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
         json.dumps(cohort, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     (output_dir / "SEALED_REFERENCE_DO_NOT_REVEAL.json").write_text(
-        json.dumps(sealed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        data=json.dumps(sealed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     return cohort, sealed
 
@@ -315,6 +317,12 @@ if __name__ == "__main__":
     p.add_argument("--pilot-per-class", type=int, default=0)
     p.add_argument("--natural-limit", type=int, default=0)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.database_csv = input_file(args.database_csv)
+        args.output_dir = output_directory(args.output_dir)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     cohort, sealed = build(
         args.database_csv, args.target_code, args.salt, args.output_dir,
         fold=args.fold, max_cases=args.max_cases, pilot_per_class=args.pilot_per_class,

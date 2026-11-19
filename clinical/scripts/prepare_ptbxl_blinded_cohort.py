@@ -13,6 +13,8 @@ import hashlib
 import json
 from pathlib import Path
 
+from cli_paths import input_file, output_file
+
 def _hash(value, salt):
     return hashlib.sha256(f"{salt}:{value}".encode("utf-8")).hexdigest()
 
@@ -108,9 +110,16 @@ if __name__ == "__main__":
     p.add_argument("--salt", required=True, help=">=16 chars; keep outside repository")
     p.add_argument("--fold", type=int, default=10)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.database_csv = input_file(args.database_csv)
+        cohort_path: Path = output_file(args.cohort_output)
+        reference_path: Path = output_file(args.reference_output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     cohort, reference = prepare(args.database_csv, args.target_code, args.salt, args.fold)
-    args.cohort_output.write_text(json.dumps(cohort, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    args.reference_output.write_text(json.dumps(reference, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    cohort_path.write_text(data=json.dumps(cohort, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    reference_path.write_text(data=json.dumps(reference, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({
         "cohort": str(args.cohort_output),
         "sealed_reference": str(args.reference_output),

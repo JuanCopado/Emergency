@@ -7,6 +7,8 @@ from pathlib import Path
 
 ALLOWED = {"positive", "negative", "abstain", "nondiagnostic"}
 
+from cli_paths import input_file, output_file
+
 def merge(prediction_files):
     predictions = {}
     shard_indices = set()
@@ -57,6 +59,12 @@ if __name__ == "__main__":
     p.add_argument("prediction_files", nargs="+", type=Path)
     p.add_argument("--output", required=True, type=Path)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.prediction_files = [input_file(path) for path in args.prediction_files]
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     result = merge(args.prediction_files)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"prediction_count": len(result["predictions"]), "shard_count": result["shard_count"]}))

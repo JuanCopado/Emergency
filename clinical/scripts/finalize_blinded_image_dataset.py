@@ -20,6 +20,8 @@ from pathlib import Path
 
 ALLOWED_PREDICTIONS = {"positive", "negative", "abstain", "nondiagnostic"}
 
+from cli_paths import input_file, output_file
+
 def _parse_iso(value, field, case_id):
     if not value:
         raise ValueError(f"{case_id}: {field} required")
@@ -146,6 +148,14 @@ if __name__ == "__main__":
     p.add_argument("output", type=Path)
     p.add_argument("--reference-revealed-at")
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.blinded_manifest = input_file(args.blinded_manifest)
+        args.predictions = input_file(args.predictions)
+        args.sealed_reference = input_file(args.sealed_reference)
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
 
     result = finalize(
         json.loads(args.blinded_manifest.read_text(encoding="utf-8")),

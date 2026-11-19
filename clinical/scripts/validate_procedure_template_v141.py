@@ -26,7 +26,7 @@ REQUIRED=[
  "preparación","técnica paso a paso","stop","confirmación","complicaciones",
  "después","documentación","fuentes","qa"
 ]
-HEAD=re.compile(r"^##\s+(PROC-[A-Z]+-\d{3})\s+—\s+(.+)$",re.M)
+HEAD=re.compile(r"^##[ \t]{1,32}(PROC-[A-Z]+-\d{3})[ \t]{1,32}—[ \t]{1,32}(.+)$",re.M)
 
 def validate():
  errors=[];total=0
