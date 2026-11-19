@@ -10,6 +10,7 @@ Safety boundary:
 import json
 import math
 from pathlib import Path
+from pediatric_numbers import positive, nonnegative, finite_tree
 
 from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
 from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
@@ -190,24 +191,34 @@ def calculate(fid, d):
         require(d,"weight_kg","TBSA_percent")
         return (4*d["weight_kg"]*d["TBSA_percent"],"mL/24h starting estimate")
     if fid=="mgkg-dose":
-        require(d,"mg_per_kg","weight_kg"); return (d["mg_per_kg"]*d["weight_kg"],"mg")
+        require(d,"mg_per_kg","weight_kg")
+        dose=nonnegative("mg_per_kg",d["mg_per_kg"])
+        weight=positive("weight_kg",d["weight_kg"])
+        return (positive("calculated result", dose*weight) if dose > 0 else finite_tree(dose*weight),"mg")
     if fid=="final-concentration":
         require(d,"drug_amount","final_volume_mL")
-        volume=_positive(d["final_volume_mL"],"final_volume_mL")
+        volume=positive("final_volume_mL",d["final_volume_mL"])
+        amount=nonnegative("drug_amount",d["drug_amount"])
         unit=str(d.get("amount_unit","amount")).strip() or "amount"
-        return (d["drug_amount"]/volume,f"{unit}/mL")
+        return (positive("calculated result", amount/volume) if amount > 0 else finite_tree(amount/volume),f"{unit}/mL")
     if fid=="mcgkgmin-to-mlh":
         require(d,"dose_mcg_kg_min","weight_kg","concentration_mcg_mL")
-        concentration=_positive(d["concentration_mcg_mL"],"concentration_mcg_mL")
-        return (d["dose_mcg_kg_min"]*d["weight_kg"]*60/concentration,"mL/h")
+        concentration=positive("concentration_mcg_mL",d["concentration_mcg_mL"])
+        dose=nonnegative("dose_mcg_kg_min",d["dose_mcg_kg_min"])
+        weight=positive("weight_kg",d["weight_kg"])
+        return (positive("calculated result", dose*weight*60/concentration) if dose > 0 else finite_tree(dose*weight*60/concentration),"mL/h")
     if fid=="mgkgh-to-mlh":
         require(d,"dose_mg_kg_h","weight_kg","concentration_mg_mL")
-        concentration=_positive(d["concentration_mg_mL"],"concentration_mg_mL")
-        return (d["dose_mg_kg_h"]*d["weight_kg"]/concentration,"mL/h")
+        concentration=positive("concentration_mg_mL",d["concentration_mg_mL"])
+        dose=nonnegative("dose_mg_kg_h",d["dose_mg_kg_h"])
+        weight=positive("weight_kg",d["weight_kg"])
+        return (positive("calculated result", dose*weight/concentration) if dose > 0 else finite_tree(dose*weight/concentration),"mL/h")
     if fid=="unitskgh-to-mlh":
         require(d,"dose_units_kg_h","weight_kg","concentration_units_mL")
-        concentration=_positive(d["concentration_units_mL"],"concentration_units_mL")
-        return (d["dose_units_kg_h"]*d["weight_kg"]/concentration,"mL/h")
+        concentration=positive("concentration_units_mL",d["concentration_units_mL"])
+        dose=nonnegative("dose_units_kg_h",d["dose_units_kg_h"])
+        weight=positive("weight_kg",d["weight_kg"])
+        return (positive("calculated result", dose*weight/concentration) if dose > 0 else finite_tree(dose*weight/concentration),"mL/h")
     if fid=="qtc-bazett":
         require(d,"QT_s","RR_s")
         return (d["QT_s"]/math.sqrt(_positive(d["RR_s"],"RR_s")),"s")

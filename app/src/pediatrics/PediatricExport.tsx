@@ -1,9 +1,11 @@
+import { useClinicalUi } from '../i18n/useClinicalUi';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { pediatricCatalog, type Fields } from './catalog';
 
 export type PediatricReport = {snapshot: Fields; sections: [string, string[]][]};
 export default function PediatricExport({report, calculation, result}: {report:PediatricReport; calculation:Fields; result:Fields}) {
+  const ui = useClinicalUi();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const mounted = useRef(false);
@@ -24,11 +26,12 @@ export default function PediatricExport({report, calculation, result}: {report:P
     finally {if(mounted.current)setBusy(false);}
   }
   const content=<>{report.sections.map(([heading,paragraphs],i)=><section key={i}><h3 className="font-bold mt-4">{heading}</h3>{paragraphs.map((p,j)=><p className="whitespace-pre-wrap break-words" key={j}>{p}</p>)}</section>)}</>;
-  return <div className="space-y-3 border-t border-border pt-3" aria-label="Exportación pediátrica">
-    <p>Exportación del resultado y sus alertas · YELLOW · CLINICALLY_PENDING</p>
-    <div className="flex flex-wrap gap-2">{(['json','pdf','docx'] as const).map(f=><button key={f} className="btn-ghost" disabled={busy} onClick={()=>void download(f)}>Exportar {f.toUpperCase()}</button>)}<button className="btn-ghost" onClick={()=>window.print()}>Imprimir resultado</button></div>
+  return <div className="space-y-3 border-t border-border pt-3" aria-label={ui("Exportación pediátrica")}>
+    <p className="text-sm text-muted">{ui("Contenido clínico y exportaciones canónicas en el idioma de la fuente; traducción clínica integral pendiente.")}</p>
+    <p>{ui("Exportación del resultado y sus alertas · YELLOW · CLINICALLY_PENDING")}</p>
+    <div className="flex flex-wrap gap-2">{(['json','pdf','docx'] as const).map(f=><button key={f} className="btn-ghost" disabled={busy} onClick={()=>void download(f)}>{ui("Exportar")} {f.toUpperCase()}</button>)}<button className="btn-ghost" onClick={()=>window.print()}>{ui("Imprimir resultado")}</button></div>
     {error&&<p role="alert">{error}</p>}
-    <details><summary className="cursor-pointer underline">Ver contenido íntegro de la exportación</summary><div data-testid="pediatric-export-content">{content}</div></details>
+    <details><summary className="cursor-pointer underline">{ui("Ver contenido íntegro de la exportación")}</summary><div data-testid="pediatric-export-content">{content}</div></details>
     {createPortal(<article className="pediatric-print-sheet" aria-hidden="true">{content}</article>,document.body)}
   </div>;
 }

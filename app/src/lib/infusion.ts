@@ -11,6 +11,7 @@
  *   fixed per hour:          mL/h = dose (x/h)                ÷ concentration (x/mL)
  */
 import type { AmountUnit, ConcentrationUnit, DoseUnit } from '../data/schema';
+import { isPatientWeight } from './patientWeight';
 
 export type MassUnit = 'ng' | 'mcg' | 'mg';
 export type TimeBase = 'min' | 'h';
@@ -159,7 +160,7 @@ export function doseToRate(input: ForwardInput): ForwardResult {
   }
   const parsed = parseDoseUnit(doseUnit);
   if (parsed.perKg && (weightKg === undefined || weightKg === null)) return { status: 'needs-weight', formula };
-  if (parsed.perKg && !isPositiveFinite(weightKg)) throw new InfusionError('invalid-weight', 'Weight must be > 0');
+  if (parsed.perKg && !isPatientWeight(weightKg)) throw new InfusionError('invalid-weight', 'Weight must be between 1 and 180 kg inclusive');
 
   const steps: CalcStep[] = [];
   let value = dose;
@@ -232,7 +233,7 @@ export function rateToDose(input: ReverseInput): ReverseResult {
   if (parsed.perKg && (weightKg === undefined || weightKg === null)) {
     return { status: 'needs-weight', formula: `dose (${doseUnit}) = mL/h × concentration ÷ weight (kg)${parsed.time === 'min' ? ' ÷ 60' : ''}` };
   }
-  if (parsed.perKg && !isPositiveFinite(weightKg)) throw new InfusionError('invalid-weight', 'Weight must be > 0');
+  if (parsed.perKg && !isPatientWeight(weightKg)) throw new InfusionError('invalid-weight', 'Weight must be between 1 and 180 kg inclusive');
   const concAmount = concentrationAmountUnit(concentration.unit);
   const amountPerHourConc = checkedArithmetic(mlPerHour * concentration.value, 'invalid-dose');
   const amountPerHour = checkedArithmetic(amountPerHourConc * amountFactor(concAmount, parsed.amount), 'invalid-dose');
@@ -250,7 +251,7 @@ export function convertDose(value: number, from: DoseUnit, to: DoseUnit, weightK
   if (a.time === 'min' && b.time === 'h') v *= 60;
   if (a.time === 'h' && b.time === 'min') v /= 60;
   if (a.perKg !== b.perKg) {
-    if (!isPositiveFinite(weightKg)) throw new InfusionError('invalid-weight', 'Weight required to convert');
+    if (!isPatientWeight(weightKg)) throw new InfusionError('invalid-weight', 'Weight between 1 and 180 kg required to convert');
     v = a.perKg ? v * weightKg : v / weightKg;
   }
   return v;
@@ -273,7 +274,7 @@ export function buildTitrationTable(opts: {
 }): TitrationRow[] | null {
   const { from, to, step, doseUnit, concentration, weightKg } = opts;
   if (!isPositiveFinite(from) || !isPositiveFinite(to) || !isPositiveFinite(step) || to < from) return [];
-  if (isWeightBasedUnit(doseUnit) && !isPositiveFinite(weightKg)) return null;
+  if (isWeightBasedUnit(doseUnit) && !isPatientWeight(weightKg)) return null;
   const rows: TitrationRow[] = [];
   const n = Math.min(60, Math.floor((to - from) / step + 1e-9));
   for (let i = 0; i <= n; i++) {
@@ -304,7 +305,7 @@ export function computeBolus(opts: {
 }): BolusResult {
   const { dosePerKg, unit, weightKg, concentration, durationMin } = opts;
   if (!isPositiveFinite(dosePerKg)) throw new InfusionError('invalid-dose', 'Dose must be > 0');
-  if (!isPositiveFinite(weightKg)) throw new InfusionError('invalid-weight', 'Weight must be > 0');
+  if (!isPatientWeight(weightKg)) throw new InfusionError('invalid-weight', 'Weight must be between 1 and 180 kg inclusive');
   const amountUnit = unit.split('/')[0] as MassUnit;
   const amount = dosePerKg * weightKg;
   let volumeMl: number | null = null;

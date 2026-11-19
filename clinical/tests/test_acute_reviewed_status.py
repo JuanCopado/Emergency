@@ -110,10 +110,11 @@ class ReviewedStatusContracts(unittest.TestCase):
         self.assertAlmostEqual(result['stability']['completion_including_drug_delivery_flush_min'], 42.87769784172662)
 
     def test_dose_cap_and_exact_adult_boundary(self):
-        for weight, expected in [(99.99, 1999.8), (100, 2000), (160, 2000), (1e308, 2000)]:
+        for weight, expected in [(99.99, 1999.8), (100, 2000), (160, 2000), (180, 2000)]:
             with self.subTest(weight=weight):
                 result = self.result({**PHENYTOIN_DOSE_ONLY_INPUTS, 'age_years': 18, 'weight_kg': weight})
                 self.assertAlmostEqual(result['dose'], expected)
+        self.blocked({**PHENYTOIN_DOSE_ONLY_INPUTS, 'weight_kg': 1e308}, code='weight_kg')
         self.blocked({**PHENYTOIN_DOSE_ONLY_INPUTS, 'age_years': 17.999}, code='age_years')
         self.blocked({**PHENYTOIN_DOSE_ONLY_INPUTS, 'population': 'pediatric'}, code='population')
 

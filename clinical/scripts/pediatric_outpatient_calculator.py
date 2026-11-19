@@ -14,9 +14,10 @@ import json
 import math
 from pathlib import Path
 from pediatric_outpatient_alert_engine import evaluate as evaluate_alerts
-from pediatric_numbers import finite_number, positive, outpatient_inputs, finite_tree, finite_result
+from pediatric_numbers import finite_number, positive, patient_weight, outpatient_inputs, finite_tree, finite_result
 
 REGISTRY = Path(__file__).parents[1] / "qa" / "pediatric-outpatient-medications.json"
+ZERO_ROUNDED_VOLUME_ERROR = "Positive dose volume rounds to 0.0 mL at 0.1 mL precision"
 
 class MedicationSafetyStop(ValueError):
     """Raised when the central alert engine detects a STOP-level medication conflict."""
@@ -46,11 +47,11 @@ def _entry(registry, regimen_id):
 def _weight(entry, patient):
     basis=entry.get("weight_basis")
     if basis=="actual":
-        return positive("actual_weight_kg",patient.get("actual_weight_kg"))
+        return patient_weight("actual_weight_kg",patient.get("actual_weight_kg"))
     if basis=="ideal":
-        return positive("ideal_weight_kg",patient.get("ideal_weight_kg"))
+        return patient_weight("ideal_weight_kg",patient.get("ideal_weight_kg"))
     if basis=="adjusted":
-        return positive("adjusted_weight_kg",patient.get("adjusted_weight_kg"))
+        return patient_weight("adjusted_weight_kg",patient.get("adjusted_weight_kg"))
     if basis in {"fixed_age_band","fixed_weight_band","device","topical","not_weight_based"}:
         return None
     raise ValueError("unsupported or missing weight_basis")
@@ -85,6 +86,12 @@ def _apply_max(dose, entry):
     cap=entry.get("max_mg_per_dose")
     return min(dose,positive("max_mg_per_dose", cap)) if cap is not None else dose
 
+def _rounded_volume_ml(exact_ml):
+    rounded = round(exact_ml + 1e-12, 1)
+    if exact_ml > 0 and rounded == 0:
+        raise ValueError(ZERO_ROUNDED_VOLUME_ERROR)
+    return rounded
+
 def _volume(dose_mg, concentration_mg_per_ml, entry, verified_external=False):
     conc=_num(concentration_mg_per_ml,"concentration_mg_per_ml")
     if conc<=0: raise ValueError("concentration_mg_per_ml must be >0")
@@ -92,7 +99,7 @@ def _volume(dose_mg, concentration_mg_per_ml, entry, verified_external=False):
     if allowed and not any(abs(conc-x)<1e-9 for x in allowed) and not verified_external:
         raise ValueError("concentration is not in registry; set external_concentration_verified=true only after checking the exact product/SmPC")
     exact=positive("calculated volume", dose_mg/conc)
-    return {"exact_ml":exact,"rounded_0_1_ml":round(exact+1e-12,1),"concentration_mg_per_ml":conc}
+    return {"exact_ml":exact,"rounded_0_1_ml":_rounded_volume_ml(exact),"concentration_mg_per_ml":conc}
 
 def _matched_verified_concentration(entry, concentration_mg_per_ml):
     conc=_num(concentration_mg_per_ml,"concentration_mg_per_ml")
@@ -269,7 +276,7 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         band=_fixed_band(e,patient)
         dose=band.get("dose_mg")
         if dose is None and band.get("dose_mg_per_kg") is not None:
-            w=positive("actual_weight_kg",patient.get("actual_weight_kg"))
+            w=patient_weight("actual_weight_kg",patient.get("actual_weight_kg"))
             dose=_apply_max(_num(band["dose_mg_per_kg"],"dose_mg_per_kg")*w,{**e,"max_mg_per_dose":band.get("max_mg_per_dose",e.get("max_mg_per_dose"))})
             result["dosing_weight_kg"]=w
             result["dose_mg_per_kg"]=band["dose_mg_per_kg"]
@@ -374,10 +381,10 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         doses_per_day=band.get("doses_per_day",doses_per_day)
         duration=band.get("duration_days",duration)
         result["matched_band"]=band
-        result["volume_per_dose"]={"exact_ml":volume_ml,"rounded_0_1_ml":round(volume_ml+1e-12,1),"concentration_mg_per_ml":None}
+        result["volume_per_dose"]={"exact_ml":volume_ml,"rounded_0_1_ml":_rounded_volume_ml(volume_ml),"concentration_mg_per_ml":None}
         result["dose_unit"]="mL"
     elif model=="volume_ml_per_kg_course":
-        w=positive("actual_weight_kg",patient.get("actual_weight_kg"))
+        w=patient_weight("actual_weight_kg",patient.get("actual_weight_kg"))
         perkg=positive("volume_ml_per_kg",e["volume_ml_per_kg"])
         total_volume=w*perkg
         hours=positive("administration_hours",e["administration_hours"])

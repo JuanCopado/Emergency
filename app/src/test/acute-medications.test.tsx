@@ -9,7 +9,7 @@ const result = {dose:7,dose_unit:'mg',clinical_status:'CLINICALLY_PENDING',monit
 const outcome = {blocked:false,alerts:[],result,report:{snapshot:result,sections:[['Estado',['CLINICALLY_PENDING']],['Advertencias',['Advertencia canónica íntegra']]]}};
 const response = (value:unknown, ok=true) => ({ok,json:async () => value}) as Response;
 async function mount() {
-  renderAt('/acute-medications',[{path:'/acute-medications',element:<AcuteMedications/>}]);
+  renderAt('/acute-medications',[{path:'/acute-medications',element:<AcuteMedications/>}], 'es');
   await screen.findByRole('option',{name:'Grupo de prueba'});
   fireEvent.change(screen.getByLabelText('Grupo farmacológico'),{target:{value:'fixture'}});
   fireEvent.change(screen.getByLabelText('Indicación y opción'),{target:{value:'fixture'}});

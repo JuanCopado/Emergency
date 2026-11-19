@@ -188,8 +188,12 @@ main section[id], main form[id] { scroll-margin-top: 6rem; }
 }
 .acute-print-sheet { display: none; }
 @media print {
+  @page acute-report { size: A4 portrait; }
+  html:has(.acute-print-sheet), body:has(.acute-print-sheet), .acute-print-sheet { page: acute-report; }
   body:has(.acute-print-sheet) > * { display: none !important; }
   .acute-print-sheet, .acute-print-sheet * { visibility: visible; }
-  body:has(.acute-print-sheet) > .acute-print-sheet { display: block !important; color: #000; background: #fff; padding: 10mm; font-size: 10pt; }
+  body:has(.acute-print-sheet) > .acute-print-sheet { display: block !important; color: #000; background: #fff; padding: 10mm 8mm; font-size: 10pt; }
   .acute-print-sheet p { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .acute-print-sheet h3 { break-after: avoid; }
+  .acute-print-sheet .acute-print-measure { break-inside: avoid; page-break-inside: avoid; }
 }

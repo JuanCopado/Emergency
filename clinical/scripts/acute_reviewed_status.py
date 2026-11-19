@@ -6,6 +6,8 @@ mode. The refractory workflow never returns an anaesthetic prescription.
 """
 from math import isclose
 
+from pediatric_numbers import positive
+
 
 REVIEW_REFERENCE = 'references/acute-status-reviewed-2026-11-16.md'
 PHENYTOIN_ID = 'status-phenytoin-local'  # Stable compatibility ID, not a location gate.
@@ -173,7 +175,7 @@ def calculate(row, inputs):
     duration = inputs['duration_min']
     result = {
         'result_kind': 'calculation', 'dose': dose, 'dose_unit': 'mg',
-        'duration_min': duration, 'infusion_rate_mg_min': dose / duration,
+        'duration_min': duration, 'infusion_rate_mg_min': positive('infusion_rate_mg_min', dose / duration),
         'amount_per_hour': dose * 60 / duration, 'amount_per_hour_unit': 'mg/h',
         'concentration': None, 'withdrawal_ml': None,
         'administration_volume_ml': None, 'pump_ml_h': None,

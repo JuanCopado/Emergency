@@ -252,10 +252,11 @@ class CeftriaxoneSepsisSafetyTests(unittest.TestCase):
                     path.write_text(json.dumps(changed), encoding="utf-8")
                     self.reject("DOSE_GUARD_POLICY_MISMATCH", synthetic_context(), registry=path)
 
-    def test_other_entries_keep_their_existing_interface_and_result(self):
+    def test_other_entries_keep_arithmetic_and_ignore_unrelated_context(self):
         before = calculate("lower-uti-trimethoprim", 20)
         self.assertEqual(before["dose"], 80)
-        self.assertEqual(before["dose_unit"], "mg/kg")
+        self.assertEqual(before["dose_unit"], "mg")
+        self.assertEqual(before["dose_per_kg_unit"], "mg/kg")
         self.assertNotIn("clinical_status", before)
         self.assertEqual(before, calculate("lower-uti-trimethoprim", 20, context={"unrelated": True}))
         self.assertEqual(calculate("pyelonephritis-ceftriaxone", 20)["dose_range"], [1000, 1600])

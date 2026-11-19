@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "id": "INT-02-COMPARATIVE-SOURCE-CANDIDATES",
+  "as_of": "2026-11-16",
+  "clinical_status": "CLINICALLY_PENDING",
+  "review_state": "SOURCE_CANDIDATES_ONLY",
+  "usage": "NOT_FOR_PRESCRIBING_OR_AUTOMATED_CALCULATION",
+  "description": "Ejemplos documentales verificables por producto, indicación y contexto; no validación farmacéutica ni aprobación asistencial. Mantener separado el texto regulatorio de las guías clínicas y de la disponibilidad local.",
+  "comparisons": [
+    {
+      "id": "andexanet-us-eu-2026",
+      "topic_id": "medication.andexanet",
+      "active_substance": "andexanet alfa",
+      "comparison_dimension": "REGULATORY_SAFETY_AND_MARKETING_STATUS",
+      "clinical_use_permitted": false,
+      "jurisdiction_evidence": [
+        {
+          "code": "US",
+          "product": "Andexxa",
+          "scope": "FDA safety announcement, December 18 2025",
+          "documentary_finding": "FDA señaló riesgo tromboembólico y balance beneficio-riesgo desfavorable, comunicó solicitud de retirada de autorización por el titular y fin de ventas comerciales en EE.UU. a partir del 22/12/2025. No inferir ninguna disponibilidad clínica.",
+          "source_type": "regulatory_safety_communication",
+          "source_url": "https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/update-safety-andexxa"
+        },
+        {
+          "code": "EU",
+          "product": "Ondexxya",
+          "scope": "EMA centrally authorised product, conditional authorisation",
+          "documentary_finding": "EMA presenta Ondexxya con autorización condicional centralizada en la UE. No inferir suministro en país concreto ni prescribir por la simple existencia de autorización.",
+          "source_type": "regulatory_product_epar",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/ondexxya"
+        }
+      ],
+      "reconciliation_required": [
+        "revisar cambios regulatorios posteriores",
+        "indicación/población/contraindicaciones",
+        "disponibilidad nacional y hospitalaria",
+        "beneficios-riesgos y protocolos de reversión",
+        "firma clínica y de Farmacia"
+      ],
+      "calculation_enabled": false
+    },
+    {
+      "id": "tenecteplase-ais-us-eu-gb-2026",
+      "topic_id": "medication.tenecteplasa",
+      "active_substance": "tenecteplasa",
+      "comparison_dimension": "PRODUCT_LABEL_TIME_WINDOW_VS_CLINICAL_GUIDELINE",
+      "clinical_use_permitted": false,
+      "jurisdiction_evidence": [
+        {
+          "code": "US",
+          "product": "TNKase",
+          "scope": "Ficha estadounidense, revisión 02/2025, indicación ictus isquémico agudo adulto",
+          "documentary_finding": "Ficha DailyMed/FDA: tratamiento iniciado dentro de las 3 horas desde el comienzo de síntomas. Es una ventana de la ficha, no el conjunto de opciones de guías estadounidenses.",
+          "source_type": "regulatory_product_label",
+          "source_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=e647640d-c395-4b4b-a0be-1162f9c21d84"
+        },
+        {
+          "code": "EU",
+          "product": "Metalyse",
+          "scope": "Información de producto EMA, indicación ictus isquémico agudo adulto",
+          "documentary_finding": "Información EMA del producto Metalyse: ventana de 4,5 horas desde última vez conocido bien. Requiere revisión de la ficha vigente exacta y de los criterios de elegibilidad.",
+          "source_type": "regulatory_product_epar",
+          "source_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/metalyse"
+        },
+        {
+          "code": "GB",
+          "product": "Metalyse 5 000 U",
+          "scope": "SmPC del Reino Unido publicada por emc, revisión 2026",
+          "documentary_finding": "SmPC para presentación de ictus isquémico agudo adulto: dentro de 4,5 horas desde última vez conocido bien. No asumir otras presentaciones ni inferir disponibilidad regional.",
+          "source_type": "product_smpc",
+          "source_url": "https://www.medicines.org.uk/emc/product/15859/smpc"
+        },
+        {
+          "code": "US",
+          "product": "tenecteplasa (guía, no ficha)",
+          "scope": "AHA/ASA 2026 — recomendación clínica para candidatos a trombólisis intravenosa",
+          "documentary_finding": "Guía AHA/ASA discute trombólisis con tenecteplasa en candidatos dentro de 4,5 horas; la guía se registra aparte y no modifica la ventana autorizada en la ficha estadounidense.",
+          "source_type": "professional_clinical_guideline",
+          "source_url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513"
+        }
+      ],
+      "reconciliation_required": [
+        "criterios clínicos y de imagen por país y protocolo",
+        "presentación exacta para ictus vs IAM",
+        "fecha y vigencia de ficha de producto",
+        "comparación de guías y uso fuera de ficha cuando corresponda",
+        "firma clínica y de Farmacia"
+      ],
+      "calculation_enabled": false
+    }
+  ]
+}

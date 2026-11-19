@@ -208,7 +208,7 @@
       "belowRange": "Abaixo do intervalo/início de referência (limite inferior {{value}} {{unit}})."
     },
     "errors": {
-      "weight": "Introduza um peso entre 0 e 400 kg.",
+      "weight": "Introduza um peso entre 1 e 180 kg, inclusive.",
       "dose": "Introduza um número positivo.",
       "rate": "Introduza um débito positivo.",
       "concentration": "A quantidade e o volume devem ser positivos."
@@ -304,5 +304,42 @@
     "dexmedetomidine": "Dexmedetomidina",
     "midazolam": "Midazolam",
     "ketamine": "Cetamina"
+  },
+  "referenceContext": {
+    "title": "Contexto de referência opcional",
+    "help": "O núcleo internacional está disponível sem país ou hospital. Estas preferências descrevem apenas contexto. A cobertura de países é parcial; as organizações de exemplo são sintéticas.",
+    "mode": "Modo de referência",
+    "international": "Referência internacional",
+    "declared": "Contexto declarado",
+    "country": "País (opcional)",
+    "organization": "Organização",
+    "environment": "Contexto assistencial",
+    "unspecified": "Não especificado",
+    "recovered": "Contexto guardado inválido. Referência internacional reposta.",
+    "status": "Estado do contexto",
+    "limits": "As preferências não selecionam guias, alteram cálculos, confirmam recursos ou ativam contratos bloqueados.",
+    "organizations": {
+      "unspecified": "Não especificado",
+      "synthetic-a": "Organização sintética A",
+      "synthetic-b": "Organização sintética B"
+    },
+    "environments": {
+      "unspecified": "Não especificado",
+      "hospital": "Hospitalar",
+      "prehospital": "Pré-hospitalar",
+      "transport": "Transporte",
+      "remote": "Rural / remoto",
+      "limited-resources": "Recursos limitados"
+    },
+    "resources": {
+      "ultrasound": "Ecografia",
+      "laboratory": "Laboratório",
+      "criticalCare": "Cuidados intensivos"
+    },
+    "resourceStates": {
+      "unknown": "Desconhecido",
+      "declared-present": "Declarado disponível (não verificado)",
+      "declared-unavailable": "Declarado indisponível (não verificado)"
+    }
   }
 }

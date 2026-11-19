@@ -7,7 +7,8 @@ import { Icon } from '../components/Icon';
 import { NumberField } from '../components/NumberField';
 import { defaultPreparation, drugs, getDrug } from '../data';
 import { DOSE_UNITS, type AmountUnit, type DoseUnit, type Drug, type Preparation } from '../data/schema';
-import { parseDecimal } from '../lib/format';
+import { formatCanonicalNumber, parseDecimal } from '../lib/format';
+import { parsePatientWeight } from '../lib/patientWeight';
 import {
   buildTitrationTable,
   computeBolus,
@@ -105,8 +106,8 @@ export default function Calculator() {
   const unitOptions = conc ? compatibleDoseUnits(drug, conc) : [drug.doseUnit];
   const effectiveDoseUnit = unitOptions.includes(doseUnit) ? doseUnit : drug.doseUnit;
 
-  const weightNum = parseDecimal(weight);
-  const weightError = weight && (weightNum === null || weightNum <= 0 || weightNum > 400) ? t('calc.errors.weight') : null;
+  const weightNum = parsePatientWeight(weight);
+  const weightError = weight && weightNum === null ? t('calc.errors.weight') : null;
   const weightKg = weightNum !== null && !weightError ? weightNum : null;
   const needsWeight = isWeightBasedUnit(effectiveDoseUnit);
 
@@ -446,14 +447,14 @@ export default function Calculator() {
                       ? preparation.amount
                         ? `${f.num(preparation.amount.value)} ${f.unit(preparation.amount.unit)}`
                         : '—'
-                      : `${customAmount} ${f.unit(customAmountUnit)}`}
+                      : `${formatCanonicalNumber(parseDecimal(customAmount) ?? Number.NaN, f.locale)} ${f.unit(customAmountUnit)}`}
                   </dd>
                 </div>
                 
                 <div className="rounded-xl bg-surface-2 p-3">
                   <dt className="text-xs text-muted">{t('prep.finalVolume')}</dt>
                   <dd className="num font-bold">
-                    {preparation ? (preparation.finalVolumeMl ? `${f.num(preparation.finalVolumeMl)} mL` : '—') : `${customVolume} mL`}
+                    {preparation ? (preparation.finalVolumeMl ? `${f.num(preparation.finalVolumeMl)} mL` : '—') : `${formatCanonicalNumber(parseDecimal(customVolume) ?? Number.NaN, f.locale)} mL`}
                   </dd>
                 </div>
                 <div className="rounded-xl bg-surface-2 p-3">

@@ -2,8 +2,10 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
+import { auditBuild, productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
 
 export default defineConfig(({ mode }) => ({
+  build: { sourcemap: auditBuild ? 'hidden' : false },
   server: {
     // Unit fidelity checks read the canonical Markdown without exposing it in dev mode.
     ...(mode === 'test' ? { fs: { allow: [
@@ -14,9 +16,11 @@ export default defineConfig(({ mode }) => ({
       '/api/clinical-note': 'http://127.0.0.1:8765',
       '/api/pediatric-outpatient': 'http://127.0.0.1:8765',
       '/api/clinical-scores': 'http://127.0.0.1:8765',
+      '/api/acute-medications': 'http://127.0.0.1:8765',
     },
   },
   plugins: [
+    productionDependencyGuard(),
     react(),
     {
       name: 'brand-html',
@@ -49,6 +53,7 @@ export default defineConfig(({ mode }) => ({
         ],
       },
       workbox: {
+        sourcemap: auditBuild,
         globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
         navigateFallback: '/index.html',
       },

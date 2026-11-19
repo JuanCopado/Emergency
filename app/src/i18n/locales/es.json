@@ -208,7 +208,7 @@
       "belowRange": "Por debajo del rango/inicio de referencia (límite inferior {{value}} {{unit}})."
     },
     "errors": {
-      "weight": "Introduzca un peso entre 0 y 400 kg.",
+      "weight": "Introduzca un peso entre 1 y 180 kg, ambos incluidos.",
       "dose": "Introduzca un número positivo.",
       "rate": "Introduzca un ritmo positivo.",
       "concentration": "La cantidad y el volumen deben ser positivos."
@@ -304,5 +304,42 @@
     "dexmedetomidine": "Dexmedetomidina",
     "midazolam": "Midazolam",
     "ketamine": "Ketamina"
+  },
+  "referenceContext": {
+    "title": "Contexto de referencia opcional",
+    "help": "El núcleo internacional está disponible sin país ni hospital. Estas preferencias solo describen contexto. La cobertura de países es parcial; las organizaciones de ejemplo son sintéticas.",
+    "mode": "Modo de referencia",
+    "international": "Referencia internacional",
+    "declared": "Contexto declarado",
+    "country": "País (opcional)",
+    "organization": "Organización",
+    "environment": "Entorno asistencial",
+    "unspecified": "Sin especificar",
+    "recovered": "Contexto guardado inválido. Restablecida la referencia internacional.",
+    "status": "Estado del contexto",
+    "limits": "Las preferencias no seleccionan guías, cambian cálculos, confirman recursos ni habilitan contratos bloqueados.",
+    "organizations": {
+      "unspecified": "Sin especificar",
+      "synthetic-a": "Organización sintética A",
+      "synthetic-b": "Organización sintética B"
+    },
+    "environments": {
+      "unspecified": "Sin especificar",
+      "hospital": "Hospitalario",
+      "prehospital": "Prehospitalario",
+      "transport": "Transporte",
+      "remote": "Rural / remoto",
+      "limited-resources": "Recursos limitados"
+    },
+    "resources": {
+      "ultrasound": "Ecografía",
+      "laboratory": "Laboratorio",
+      "criticalCare": "Cuidados críticos"
+    },
+    "resourceStates": {
+      "unknown": "Desconocido",
+      "declared-present": "Declarado disponible (sin verificar)",
+      "declared-unavailable": "Declarado no disponible (sin verificar)"
+    }
   }
 }

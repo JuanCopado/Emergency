@@ -162,7 +162,7 @@ class StatusMidazolamSourceRegression(unittest.TestCase):
     def test_aes_adult_im_dose_is_fixed_above_40kg(self):
         # AES initial IM dose is 10 mg above40 kg, including patients below50 kg.
         # A 0.2 mg/kg cap would silently underdose41 and49 kg.
-        for weight in (40.0001, 41, 49, 50, 70, 200):
+        for weight in (40.0001, 41, 49, 50, 70, 180):
             with self.subTest(weight=weight):
                 data = calculate_request(self.payload(weight_kg=weight, prior_bzd_doses=0))
                 self.assertFalse(data['blocked'])
@@ -172,7 +172,7 @@ class StatusMidazolamSourceRegression(unittest.TestCase):
                 self.assertIsNone(data['result']['pump_ml_h'])
 
     def test_no_pediatric_fallback_or_automatic_initial_im_repeat(self):
-        for change in ({'weight_kg':40}, {'weight_kg':13}, {'population':'pediatric'},
+        for change in ({'weight_kg':40}, {'weight_kg':13}, {'weight_kg':200}, {'population':'pediatric'},
                        {'prior_bzd_doses':1}, {'no_iv_access':False}, {'route':'IV'}):
             with self.subTest(change=change):
                 data = calculate_request(self.payload(**change))

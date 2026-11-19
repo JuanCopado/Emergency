@@ -37,8 +37,8 @@ describe('Selected local ICU protocol replaces RCCC',()=>{
   });
   it('zero infusion does not become an initial dose',()=>expect(adjust(220,{rate:0}).blockedReason).toMatch(/inicial/));
   it.each(['',' ','Infinity','NaN','-1','1e309','100mg','0x10'])('rejects %j',v=>expect(()=>parseNumber(v,'Dato')).toThrow());
-  it('accepts comma decimals',()=>{
-    expect(parseNumber('0,7','Ritmo')).toBe(0.7);expect(adjust(144,{rate:'0,7'}).candidateRate).toBe(0.7);
+  it('accepts canonical point decimals',()=>{
+    expect(parseNumber('0.7','Ritmo')).toBe(0.7);expect(adjust(144,{rate:'0.7'}).candidateRate).toBe(0.7);
   });
   it('does not infer starting dose or bolus',()=>{
     const r=simulate('iv-start',{glucose:250,persistent:'yes'});expect(r.candidateRate).toBeUndefined();expect(r.blockedReason).toMatch(/inicial/);expect(r.notes.join(' ')).toMatch(/bolo/);
