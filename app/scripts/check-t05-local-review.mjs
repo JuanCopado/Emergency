@@ -55,9 +55,21 @@ try {
   await page.getByLabel('Documento sintético', { exact: true }).setInputFiles(pdf);
   const extractedResponse = await extraction;
   assert.equal(extractedResponse.status(), 200, 'The actual Windows extraction must succeed');
-  const extracted = await extractedResponse.json();
-  assert.equal(extracted.pages.length, 2);
+  const samples = page.getByLabel('Página y muestra', { exact: true });
+  await samples.waitFor();
+  assert.equal(await samples.locator('option').count(), 2);
   checks.push('real_windows_worker_upload_through_app_proxy');
+
+  async function renderedResult() {
+    // Read the real application's result, avoiding Chromium inspector-cache
+    // eviction of a response body that the page has already consumed.
+    const region = page.getByRole('region', { name: 'Resultado revisable', exact: true });
+    await region.waitFor();
+    await region.locator('summary').click();
+    const result = region.locator('pre');
+    await result.waitFor();
+    return JSON.parse(await result.innerText());
+  }
 
   async function confirmFields() {
     for (const locator of await page.locator('[aria-label^="Transcripción manual de"]').all()) await locator.check();
@@ -78,7 +90,7 @@ try {
   await calculate.click();
   let reviewed = await review;
   assert.equal(reviewed.status(), 200);
-  nominal = await reviewed.json();
+  nominal = await renderedResult();
   assert.equal(nominal.pao2_fio2_ratio_mm_hg, 200);
   assert.equal(nominal.fio2_trace.used_fraction, 0.4);
   checks.push('confirmed_percent_converted_once');
@@ -97,7 +109,7 @@ try {
   await calculate.click();
   reviewed = await review;
   assert.equal(reviewed.status(), 200);
-  const corrected = await reviewed.json();
+  const corrected = await renderedResult();
   assert.equal(corrected.pao2_fio2_ratio_mm_hg, 200);
   assert.equal(corrected.fio2_trace.used_fraction, 0.4);
   assert.equal(corrected.fio2_trace.corrected, true);
@@ -128,6 +140,7 @@ try {
   assert.ok(requests.every((item) => new URL(item.url).origin === origin), 'Observed application requests must stay on its own origin');
   writeFileSync(resolve(output, 'RESULT.json'), JSON.stringify({
     status: 'PASS', platform: process.platform, browser: browser.version(), native_worker: true,
+    result_observation: 'application_rendered_json',
     origin, checks, requests, page_errors: errors, nominal_fio2_trace: nominal.fio2_trace,
     scope: 'Synthetic native Windows worker and real browser through the composed app; not OS-wide network capture or clinical validation',
   }, null, 2) + '\n');
