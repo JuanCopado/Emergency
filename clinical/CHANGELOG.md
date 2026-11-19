@@ -1,3 +1,7 @@
+## Seguridad técnica HTTP · 18/11/2026
+
+Transporte con plazo absoluto, TLS por worker, concurrencia limitada y framing JSON estricto; regresiones sintéticas de sockets, sin cambios clínicos. Ver `../security/HTTP_TRANSPORT_HARDENING_2026-11-18.md`.
+
 ## Contratos revisados habilitados · 16/11/2026 · ACUTE-RELEASE
 
 La instrucción expresa del propietario reconoce su validación previa y autoriza incorporar lo ya revisado. En la rama `codex/v144-reviewed-contracts-enable-20261116`, basada en `062d890b4fc92369b83c87664bb4bb0205ccb33f`, los **19 bloqueos permanentes de GMA-P2-004 se sustituyen por 6 contratos capaces de cálculo y 13 de apoyo de decisión**. Se conservan los 46 IDs; los controles vigentes dependen del caso y del producto, sin hospital obligatorio. La aceptación se registra en `references/acute-contract-owner-acceptance-2026-11-16.json`; no debe volver a solicitarse ni confundirse con una firma farmacéutica independiente.

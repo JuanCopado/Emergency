@@ -95,22 +95,23 @@ class HttpTransportTests(unittest.TestCase):
                      ['api', '--host', '0.0.0.0', '--allow-network'],
                      ['api', '--tls-cert', 'cert.pem']):
             with self.subTest(argv=argv), patch.object(sys, 'argv', argv), \
-                 patch.object(api, 'ThreadingHTTPServer') as server:
+                 patch.object(api, 'BoundedHTTPServer') as server:
                 with self.assertRaises(SystemExit): api.main()
                 server.assert_not_called()
 
-    def test_tls_server_loads_explicit_certificate_and_wraps_socket(self):
+    def test_tls_server_passes_explicit_context_to_bounded_transport(self):
         with patch.object(sys, 'argv', ['api', '--host', '0.0.0.0', '--allow-network',
                                       '--tls-cert', 'synthetic-cert', '--tls-key', 'synthetic-key']), \
              patch.object(api.ssl, 'SSLContext') as context, \
-             patch.object(api, 'ThreadingHTTPServer') as factory, redirect_stdout(io.StringIO()):
+             patch.object(api, 'BoundedHTTPServer') as factory, redirect_stdout(io.StringIO()):
             api.main()
             context.return_value.load_cert_chain.assert_called_once_with('synthetic-cert', 'synthetic-key')
-            context.return_value.wrap_socket.assert_called_once()
+            context.return_value.wrap_socket.assert_not_called()
+            self.assertIs(factory.call_args.kwargs['tls_context'], context.return_value)
             factory.return_value.serve_forever.assert_called_once()
 
     def test_local_development_binding_remains_loopback(self):
-        with patch.object(sys, 'argv', ['api']), patch.object(api, 'ThreadingHTTPServer') as factory, \
+        with patch.object(sys, 'argv', ['api']), patch.object(api, 'BoundedHTTPServer') as factory, \
              patch.object(api.ssl, 'SSLContext') as context, redirect_stdout(io.StringIO()):
             api.main()
             self.assertEqual(factory.call_args.args[0], ('127.0.0.1', 8765))

@@ -122,6 +122,7 @@ jobs:
     name: real-test-coverage
     env:
       EMERGENCY_REQUIRE_BENCHMARK_TESTS: "1"
+      EMERGENCY_REQUIRE_TLS_TESTS: "1"
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:

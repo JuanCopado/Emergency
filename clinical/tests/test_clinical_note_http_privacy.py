@@ -4,8 +4,9 @@ import json
 import pathlib
 import sys
 import unittest
+from email.message import Message
 from http import HTTPStatus
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -15,7 +16,10 @@ import clinical_note_api as api
 def make_handler(payload=b"{}", path="/api/clinical-note/analyze"):
     handler = object.__new__(api.ClinicalNoteHandler)
     handler.path = path
-    handler.headers = {"Content-Length": str(len(payload))}
+    handler.headers = Message()
+    handler.headers["Content-Length"] = str(len(payload))
+    handler.headers["Content-Type"] = "application/json"
+    handler.connection = Mock()
     handler.rfile = io.BytesIO(payload)
     handler.wfile = io.BytesIO()
     handler.sent_status = []
