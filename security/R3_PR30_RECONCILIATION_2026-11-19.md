@@ -25,6 +25,21 @@ La entrega identifica el nuevo árbol/commit y contiene matriz de conciliación,
 
 La impresión nativa Q5 se coordina con el responsable de su tarea separada, sin UI concurrente. Su resultado solo se incorpora como evidencia nueva si identifica exactamente el árbol/código probado; en caso contrario se mantiene como evidencia anterior con su alcance.
 
+## Cierre técnico Q5 en la PR31
+
+El candidato `f3b08fd3008ce8f259e23499edc25a29f8c5f8c6` superó la prueba nativa de dosis y unidad en Edge con tres casos sintéticos, 31 páginas y 449 párrafos. En el caso A, el título «Procedencia» quedó en la página 9 y su campo pasó a la 10. Su evidencia está en `EMERGENCY_Q5_PR31_CIERRE_20261119.zip`, SHA-256 `83020a4895baaa7fd0ce17bcc6fe2c48cb2471591faaf385638c721e020c752d`.
+
+El commit de paginación `7c106cae6c0b331e0521bb600478403f05ca8551` incorpora el CSS de `c3f1ab9851e5fedfb4e0989c67b9ead9fc091f9d` sobre la cabecera `c6b6d909bcddd542a952de6a5ba09e951167cbc6`. La prueba usó la aplicación compilada de ese commit y el diálogo «Imprimir resultado» de Edge 157.0.4341.60 en Windows, con A4 vertical, escala 100 % y márgenes predeterminados. Los resultados de cálculo y los párrafos esperados proceden de las mismas cuatro fichas ejecutadas sobre la cabecera previa al parche.
+
+| Caso sintético | Páginas | Párrafos en orden | Página de dosis y unidad | Página de «Procedencia» y su campo | SHA-256 del PDF nativo |
+|---|---:|---:|---:|---:|---|
+| A · Solo dosis | 9 | 130 | 1 | 9 | `422cd29909844c0ffc39f70e1a7408c19e67bbd8efb93a4077a7ccd770baa20b` |
+| B · Preparación | 10 | 165 | 1 | 10 | `2a62b38bb9362d6c68200667fcfd44ea5a368c44af8f13e673e4834822b24d7d` |
+| C · Dosis decimal | 11 | 154 | 2 | 11 | `e627d1d44ce640086f948c3dd125a0a308f1c9aec24fc6a6733b8408b42c68ba` |
+| D · Reversión | 17 | 139 | 1 | 17 | `caca1dba225800858d13a7a73e7804e8ca1f2471d2d6a99afeaf891217a5440c` |
+
+**Q5 aprobado para la impresión nativa a PDF.** Se conservaron los 588 párrafos de las 47 páginas. Cada título de sección comparte página con el inicio de su contenido. La dosis y la unidad ocupan líneas consecutivas en los cuatro casos, incluidas las dos últimas líneas de la primera hoja de B y las dos primeras de la segunda hoja de C. El resultado se limita a los casos, el navegador y el destino de impresión probados. El estado clínico sigue siendo `CLINICALLY_PENDING`.
+
 ## Estado clínico y límites
 
 CLINICALLY_PENDING y NO_GO_RELEASE clínico permanecen hasta sus procesos de aceptación. Conservar el candidato/ZIP originales y los resultados de fallos, sin presentar auditorías, certificados o revisiones no ejecutados. No se cambian main, líneas cerradas, cálculos o contenido clínico. Las limitaciones de transporte/CLI y PM03 conservadas en PR30 siguen documentadas.

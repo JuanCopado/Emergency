@@ -149,3 +149,7 @@ Por petición expresa del propietario, se reconstruye R3 desde su ZIP SHA256 `9b
 La identidad y resultados de este compuesto se acreditan en la entrega y en su CI por SHA: no se hereda el Sonar de PR30 ni la impresión nativa de otros árboles. La tarea Q5 nativa tiene un responsable separado y no cambia esta copia. CLINICALLY_PENDING y los pendientes clínicos de R3 permanecen; no se declara release, despliegue ni aprobación clínica. Ver `security/R3_PR30_RECONCILIATION_2026-11-19.md`.
 
 Technical follow-up: Sonar on R3+PR30 passed its gates and found three maintainability warnings. The isolated copy uses Number.NaN in two presentation fallbacks and an explicit Vitest registration callback; clinical calculations/content/status remain unchanged. Exact-tree CI is repeated; see the reconciliation report.
+
+### Cierre técnico Q5 en la PR31
+
+El candidato original superó la prueba nativa de dosis y unidad en tres casos. El arreglo de paginación se incorporó sobre `c6b6d90` en el commit de producto `7c106ca`. En Edge para Windows se comprobaron 47 páginas y 588 párrafos de cuatro casos sintéticos. La dosis y la unidad quedaron en líneas consecutivas y «Procedencia» comparte la página 9 con su campo en el caso A. La validación clínica sigue en `CLINICALLY_PENDING`. [Resultados y huellas de los PDF en la conciliación de R3](security/R3_PR30_RECONCILIATION_2026-11-19.md#cierre-técnico-q5-en-la-pr31).
