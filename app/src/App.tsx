@@ -17,6 +17,8 @@ const Procedures = lazy(() => import('./pages/Procedures'));
 const ClinicalScores = lazy(() => import('./pages/ClinicalScores'));
 const AcuteMedications = lazy(() => import('./pages/AcuteMedications'));
 const InsulinUci = lazy(() => import('./pages/InsulinUci'));
+const BloodGas = lazy(() => import('./pages/BloodGas'));
+const T06Lab = lazy(() => import('./t06/T06Lab'));
 
 export default function App() {
   return (
@@ -34,6 +36,8 @@ export default function App() {
           <Route path="procedures" element={<Procedures />} />
           <Route path="procedures/:id" element={<Procedures />} />
           <Route path="clinical-note" element={<ClinicalNote />} />
+          <Route path="blood-gas" element={<BloodGas />} />
+          <Route path="t06-lab" element={<T06Lab />} />
           <Route path="clinical" element={<ClinicalLibrary />} />
           <Route path="clinical/:id" element={<ClinicalLibrary />} />
           <Route path="guides" element={<ClinicalGuides />} />

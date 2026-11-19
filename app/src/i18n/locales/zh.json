@@ -59,7 +59,9 @@
     "guides": "指南 / PDF",
     "conditions": "临床疾病",
     "outpatientPediatrics": "儿科门诊",
-    "insulinSimulation": "ICU 胰岛素治疗 · 模拟"
+    "insulinSimulation": "ICU 胰岛素治疗 · 模拟",
+    "bloodGasReview": "血气 · 本地复核",
+    "t06Lab": "T06 实验室 · 合成数据"
   },
   "groups": {
     "vasoactive": {

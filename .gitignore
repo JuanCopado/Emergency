@@ -16,3 +16,8 @@ graphify-out/
 !.coveragerc
 coverage.xml
 coverage/
+
+# Synthetic local review runtime and session receipts (never patient records)
+.local-review/
+.venv-local-review/
+.venv-t06/

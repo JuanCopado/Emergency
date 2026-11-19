@@ -65,7 +65,9 @@
     "guides": "Orientações / PDF",
     "conditions": "Patologias",
     "outpatientPediatrics": "Pediatria de ambulatório",
-    "insulinSimulation": "Insulinoterapia UCI · simulação"
+    "insulinSimulation": "Insulinoterapia UCI · simulação",
+    "bloodGasReview": "Gasometria · revisão local",
+    "t06Lab": "Laboratório T06 · dados sintéticos"
   },
   "groups": {
     "vasoactive": {

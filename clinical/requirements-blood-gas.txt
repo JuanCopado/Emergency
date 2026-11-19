@@ -1,0 +1,6 @@
+# T05 extraction and synthetic OCR/PDF checks; compatible with PR32 clinical pins.
+# Install before use; these dependencies are not fetched by the runtime worker.
+Pillow==13.0.0
+pypdf==6.21.4
+pypdfium2==5.13.0
+reportlab==5.0.1

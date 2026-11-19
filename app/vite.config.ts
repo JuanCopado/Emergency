@@ -1,12 +1,32 @@
 import { defineConfig } from 'vitest/config';
+import type { ViteDevServer } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
 import { auditBuild, productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
 
+const localReview = process.env.EMERGENCY_LOCAL_REVIEW === '1';
+const reviewPort = Number(process.env.EMERGENCY_LOCAL_REVIEW_PORT ?? '5173');
+if (localReview && (!Number.isInteger(reviewPort) || reviewPort < 1024 || reviewPort > 65535)) {
+  throw new Error('Invalid local review port');
+}
+
 export default defineConfig(({ mode }) => ({
   build: { sourcemap: auditBuild ? 'hidden' : false },
   server: {
+    ...(localReview ? {
+      host: '127.0.0.1',
+      port: reviewPort,
+      strictPort: true,
+      headers: {
+        'Cache-Control': 'no-store',
+        'Referrer-Policy': 'no-referrer',
+        'X-Content-Type-Options': 'nosniff',
+        // Vite uses inline refresh/style scripts and its own loopback websocket.
+        // This bounds requests from the application; it is not OS isolation.
+        'Content-Security-Policy': `default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' ws://127.0.0.1:${reviewPort}; manifest-src 'self'; worker-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'`,
+      },
+    } : {}),
     // Unit fidelity checks read the canonical Markdown without exposing it in dev mode.
     ...(mode === 'test' ? { fs: { allow: [
       '.',
@@ -17,6 +37,15 @@ export default defineConfig(({ mode }) => ({
       '/api/pediatric-outpatient': 'http://127.0.0.1:8765',
       '/api/clinical-scores': 'http://127.0.0.1:8765',
       '/api/acute-medications': 'http://127.0.0.1:8765',
+      ...(localReview ? { '/api/blood-gas': {
+        target: 'http://127.0.0.1:8767',
+        changeOrigin: true,
+      },
+      '/api/t06-lab': {
+        target: 'http://127.0.0.1:8766',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/t06-lab/, '/api'),
+      } } : {}),
     },
   },
   plugins: [
@@ -30,6 +59,25 @@ export default defineConfig(({ mode }) => ({
           .replace(/%BRAND_DESCRIPTION%/g, BRAND.description)
           .replace(/%THEME_COLOR%/g, BRAND.themeColor),
     },
+    ...(localReview ? [{
+      name: 'local-review-session',
+      configureServer(server: ViteDevServer) {
+        server.middlewares.use((request, response, next) => {
+          if (request.headers.host !== `127.0.0.1:${reviewPort}` ||
+              !['127.0.0.1', '::ffff:127.0.0.1', '::1'].includes(request.socket.remoteAddress ?? '')) {
+            response.writeHead(403, { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' });
+            response.end('Local review requires its exact loopback origin.');
+            return;
+          }
+          next();
+        });
+      },
+      transformIndexHtml: () => [{
+        tag: 'meta', attrs: { name: 'emergency-local-review', content: 'synthetic-only' }, injectTo: 'head' as const,
+      }, {
+        tag: 'meta', attrs: { name: 'emergency-local-platform', content: process.platform }, injectTo: 'head' as const,
+      }],
+    }] : []),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],

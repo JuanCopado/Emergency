@@ -41,6 +41,25 @@ it.each(regimens)('%s rejects absent/outside literal weight and clears earlier e
   expect(screen.queryByRole('button',{name:'Exportar JSON'})).not.toBeInTheDocument();
 });
 
+it('keeps fractional counts that round to integers out of the request and confirmed export', async () => {
+  const id = 'status-lorazepam';
+  const fetcher = vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(response(makeCatalog(id,
+    {key:'prior_bzd_doses', label:'Dosis previas', kind:'number', integer:true}))).mockResolvedValue(response(result));
+  await mountAcute(id);
+  const count = screen.getByLabelText('Dosis previas');
+  fireEvent.change(count, {target:{value:'10e-1'}});
+  calculate();
+  fireEvent.click(await screen.findByRole('checkbox'));
+  expect(screen.getByRole('button',{name:'Exportar JSON'})).toBeEnabled();
+  for (const value of ['1e-400', '-1e-400', '0.99999999999999999999', '1.00000000000000000001']) {
+    fireEvent.change(count, {target:{value}});
+    calculate();
+    await screen.findByRole('alert');
+    expect(screen.queryByRole('button',{name:'Exportar JSON'})).not.toBeInTheDocument();
+  }
+  expect(fetcher).toHaveBeenCalledTimes(2);
+});
+
 it('retains the stricter midazolam weight condition', async () => {
   const fetcher=vi.spyOn(globalThis,'fetch').mockResolvedValueOnce(response(makeCatalog('status-midazolam',
     {key:'weight_kg',label:'Peso verificado (kg)',kind:'number',minimum:1,maximum:180,exclusive_minimum:40}))).mockResolvedValue(response(result));

@@ -62,7 +62,9 @@
     "guides": "Guidelines / PDF",
     "conditions": "Clinical conditions",
     "outpatientPediatrics": "Outpatient pediatrics",
-    "insulinSimulation": "ICU insulin · simulation"
+    "insulinSimulation": "ICU insulin · simulation",
+    "bloodGasReview": "Blood gas · local review",
+    "t06Lab": "T06 laboratory · synthetic data"
   },
   "groups": {
     "vasoactive": {

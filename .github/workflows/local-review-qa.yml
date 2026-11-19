@@ -1,0 +1,101 @@
+name: Local review integration
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: local-review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  local-review:
+    name: ${{ matrix.module }} native (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            module: t06
+          - os: windows-latest
+            module: t05
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    env:
+      BG_OCR_MODEL: ${{ github.workspace }}/tools/blood-gas-ocr/models/eng.traineddata
+      BG_TEST_FONT: ${{ github.workspace }}/clinical/assets/fonts/DejaVuSans.ttf
+      NODE_PATH: ${{ github.workspace }}/tools/blood-gas-ocr/node_modules
+      COVERAGE_RCFILE: ${{ github.workspace }}/.coveragerc
+      COVERAGE_FILE: ${{ github.workspace }}/.local-review/coverage/${{ matrix.module }}/.coverage
+      NATIVE_MODULE: ${{ matrix.module }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Install exact application and OCR dependencies
+        run: |
+          python -m pip install --only-binary=:all: --require-hashes -r security/requirements-ci.txt -r security/requirements-blood-gas-ci.txt
+          npm ci --ignore-scripts --no-audit --no-fund --prefix app
+          npm run security:picomatch:apply --prefix app
+          npm ci --ignore-scripts --no-audit --no-fund --prefix tools/blood-gas-ocr
+          python -c "import os; from pathlib import Path; Path(os.environ['COVERAGE_FILE']).parent.mkdir(parents=True, exist_ok=True)"
+          python -m coverage run scripts/prepare_blood_gas_model.py
+      - name: Exercise T05 including native Windows Job Objects
+        if: matrix.module == 't05'
+        run: python -m coverage run -m unittest discover -s clinical/tests -p "test_blood_gas_*.py" -v
+      - name: Check T05 in the composed app with real Windows extraction
+        id: native_t05_browser
+        if: matrix.module == 't05'
+        run: python -m coverage run scripts/check_local_review.py t05 --ocr-model tools/blood-gas-ocr/models/eng.traineddata --output .local-review/ci-t05
+      - name: Prepare isolated T06 pins and test actual local TLS
+        if: matrix.module == 't06'
+        run: |
+          python -m venv .venv-t06
+          .venv-t06/bin/python -m pip install --only-binary=:all: -r tools/t06-localhost-lab/recovered/b1/requirements.lock
+          .venv-t06/bin/python -m unittest discover -s tools/t06-localhost-lab -p test_integration.py -v
+      - name: Check T06 in the composed app with real Linux transport
+        id: native_t06_browser
+        if: matrix.module == 't06'
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: python -m coverage run scripts/check_local_review.py t06 --t06-python .venv-t06/bin/python --output .local-review/ci-t06
+      - name: Record measured native coverage provenance
+        if: success() && (steps.native_t05_browser.outcome == 'success' || steps.native_t06_browser.outcome == 'success')
+        run: >-
+          python -c "import coverage, hashlib, json, os, subprocess, sys; from pathlib import Path;
+          directory = Path(os.environ['COVERAGE_FILE']).parent;
+          files = sorted(directory.glob('.coverage.*'));
+          None if files and all(p.stat().st_size > 0 for p in files) else sys.exit('No measured native coverage files');
+          git = lambda arg: subprocess.check_output(['git', 'rev-parse', arg], text=True).strip();
+          metadata = {'commit': git('HEAD'), 'tree': git('HEAD^{tree}'), 'module': os.environ['NATIVE_MODULE'], 'coverage_version': coverage.__version__, 'config_sha256': hashlib.sha256(Path(os.environ['COVERAGE_RCFILE']).read_text(encoding='utf8').encode('utf8')).hexdigest(), 'data_files': [p.name for p in files], 'scope': 'Existing native tests and composed launcher; isolated T06 runtime remains outside sonar.sources'};
+          (directory / 'manifest.json').write_text(json.dumps(metadata, indent=2) + chr(10), encoding='utf8')"
+      - name: Publish measured native coverage after successful execution
+        if: success() && (steps.native_t05_browser.outcome == 'success' || steps.native_t06_browser.outcome == 'success')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: native-python-coverage-${{ matrix.module }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .local-review/coverage/${{ matrix.module }}/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - name: Publish evidence from this composition
+        if: always() && (steps.native_t05_browser.outcome == 'success' || steps.native_t05_browser.outcome == 'failure' || steps.native_t06_browser.outcome == 'success' || steps.native_t06_browser.outcome == 'failure')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: local-review-${{ matrix.module }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .local-review/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7

@@ -7,7 +7,8 @@ import './index.css';
 import App from './App';
 import { SettingsProvider } from './state/settings';
 
-registerSW({ immediate: true });
+const localReview = document.querySelector('meta[name="blood-gas-local"], meta[name="emergency-local-review"]');
+if (!localReview) registerSW({ immediate: true });
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>

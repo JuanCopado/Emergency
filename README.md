@@ -19,3 +19,7 @@ El núcleo clínico global funciona sin seleccionar hospital y mantiene un mismo
 - [Arquitectura](docs/ARCHITECTURE.md), [procedencia](knowledge-graph/README.md) y [RAG](rag/README.md): sus documentos distinguen herramientas existentes de contratos de diseño o ampliaciones pendientes.
 
 El proyecto mantiene `CLINICALLY_PENDING`. Una revisión técnica o aceptación de un centro no establece aprobación asistencial internacional. Las tareas nuevas deben registrar qué está implementado, qué se ha comprobado y qué falta para el escenario de uso.
+
+## Revisión local T05 y T06
+
+Gasometría y laboratorio T06 se abren desde Inicio. Preparación, arranque y capacidades Windows/Linux: [docs/LOCAL_REVIEW.md](docs/LOCAL_REVIEW.md). Se mantiene CLINICALLY_PENDING y uso de datos sintéticos.

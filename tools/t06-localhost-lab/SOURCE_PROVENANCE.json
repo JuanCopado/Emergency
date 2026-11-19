@@ -1,0 +1,147 @@
+{
+  "source_package": "EMERGENCY_PAR02_T06_LOCALHOST_20261119.zip",
+  "source_sha256": "bc5dda63770a5240695bfd7bef98bc9ad86bf1cdef13c445f73ee8eff04083f1",
+  "base_commit": "abdeae442a151ce1b1fe0786725991a7d35bc558",
+  "q4_historical_tree": "c22b755a93fbb1b4dd28dbb88a59dcc67818f9be",
+  "r2_historical_tree": "5a6eb009742673a2a4ecca743c8b0301146dad87",
+  "clinical_status": "CLINICALLY_PENDING",
+  "scope": "Real R6/B1/Q4 components in a synthetic loopback-only integration. G05/public APIs not enabled.",
+  "files": [
+    {
+      "source": "lab/backend/server.py",
+      "destination": "tools/t06-localhost-lab/lab/backend/server.py",
+      "source_sha256": "9fef6a5a1e99ff179113f6cfcfd5132a474806eeb6efcaecba1af7dc687277f9",
+      "identity_preserved": false
+    },
+    {
+      "source": "lab/backend/loopback_worker.py",
+      "destination": "tools/t06-localhost-lab/lab/backend/loopback_worker.py",
+      "source_sha256": "6decc9b270406386e8b998d28c4ebf52561bbb55a7878606480bbbb2aef2957e",
+      "identity_preserved": false,
+      "adaptation": "Only the surplus terminal blank line is removed; code unchanged."
+    },
+    {
+      "source": "recovered/b1/requirements.lock",
+      "destination": "tools/t06-localhost-lab/recovered/b1/requirements.lock",
+      "source_sha256": "7bee0e5c7ec32f548cb076cfad0a86fbccf69fd023d20b5cb068b0b6c179f05d",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/THIRD_PARTY_LICENSES.md",
+      "destination": "tools/t06-localhost-lab/recovered/b1/THIRD_PARTY_LICENSES.md",
+      "source_sha256": "d75305cdb5ae043c742fa5aaa279573d76e0848437ac49c8c7faf430b7bc3258",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/tests/lab.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/tests/lab.py",
+      "source_sha256": "242dc8f0b0e3e78628682253632b651a4749ed231fdc4c5495f24bdaf61c5598",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/tests/lab_worker.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/tests/lab_worker.py",
+      "source_sha256": "fdd6aab6c8df9aed3e7b7ef8d3d2b4bb3b36ed97562ed7915d984187c10dceaf",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/g01_https_transport/_worker.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/g01_https_transport/_worker.py",
+      "source_sha256": "99a121c58a99726caca95c5cec2ccff9cb5667c64746f7e66ba787e68d3e4f41",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/g01_https_transport/__init__.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/g01_https_transport/__init__.py",
+      "source_sha256": "c973e4a579e26e32ddfed18dbeac414ae3c111f77470519d7d2d0c8b7ad50de8",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/g01_https_transport/transport.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/g01_https_transport/transport.py",
+      "source_sha256": "ab270ae3f08817de005c5e93c33fda4d3e7aeb1b55de512b198ace933a0633ac",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/g01_https_transport/_policy.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/g01_https_transport/_policy.py",
+      "source_sha256": "4a7e0c767cb59a489b35025dd9c7dabdebe1e9c3fc60d910fd8a0c7137138d44",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/frozen_r6/emergency_apis/__init__.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/frozen_r6/emergency_apis/__init__.py",
+      "source_sha256": "baa54852683257f79f14fe309e0e7135cc1386ceb6644b78653374d6db4fc960",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/frozen_r6/emergency_apis/safe_consumers.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/frozen_r6/emergency_apis/safe_consumers.py",
+      "source_sha256": "ffd1e487eed46f464f92fcf4bb2ff1bc6e6920d768fe2c77512e51b00c002b10",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/frozen_r6/emergency_apis/clients.py",
+      "destination": "tools/t06-localhost-lab/recovered/b1/frozen_r6/emergency_apis/clients.py",
+      "source_sha256": "3eede8e27fc8f15aebf3ed1cbfc8fc39c9b77ee9f2af15625c6daf40d7eafdfe",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/frozen_r6/fixtures/europe_pmc_search.json",
+      "destination": "tools/t06-localhost-lab/recovered/b1/frozen_r6/fixtures/europe_pmc_search.json",
+      "source_sha256": "501626343bd7dc32dcaf271956ae5acab7e1e84c4b38f7f09a20296f60f15fd1",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/frozen_r6/fixtures/nvd_cves.json",
+      "destination": "tools/t06-localhost-lab/recovered/b1/frozen_r6/fixtures/nvd_cves.json",
+      "source_sha256": "9aa5e78ba7f87f611fa66bc9d84d7a34909a223ee9a5b8a75a35f83e1e05a690",
+      "identity_preserved": true
+    },
+    {
+      "source": "recovered/b1/frozen_r6/fixtures/pubmed_esearch.json",
+      "destination": "tools/t06-localhost-lab/recovered/b1/frozen_r6/fixtures/pubmed_esearch.json",
+      "source_sha256": "1d2b49bdb745d0ee443fafd2310520c5394fcbe0620bd7319aa160b20c841ffa",
+      "identity_preserved": true
+    },
+    {
+      "source": "lab/frontend/recovered/t06/viewModel.test.ts",
+      "destination": "app/src/t06/viewModel.test.ts",
+      "source_sha256": "ba17ff4a6823253ff06615db9381f3e013410528151af31b6e854f4f5e79d6da",
+      "identity_preserved": true
+    },
+    {
+      "source": "lab/frontend/recovered/t06/fixtures.ts",
+      "destination": "app/src/t06/fixtures.ts",
+      "source_sha256": "dcbd36ed91d9fed4f6d00f0bbf46fc68d11a8dc79064d8ae47eecf1d1cb3a01a",
+      "identity_preserved": true
+    },
+    {
+      "source": "lab/frontend/recovered/t06/T06Metadata.tsx",
+      "destination": "app/src/t06/T06Metadata.tsx",
+      "source_sha256": "3b3633398f1402c3ae33e23cb54b8821760b255f7dd87276c5938dd4655e3b31",
+      "identity_preserved": true
+    },
+    {
+      "source": "lab/frontend/recovered/t06/T06Metadata.test.tsx",
+      "destination": "app/src/t06/T06Metadata.test.tsx",
+      "source_sha256": "5a0975c4f9d55b41f8f94b8a16bec6d25b16567092b8e71f0704bdac0e4c498e",
+      "identity_preserved": true
+    },
+    {
+      "source": "lab/frontend/recovered/t06/viewModel.ts",
+      "destination": "app/src/t06/viewModel.ts",
+      "source_sha256": "e71bcb70ad07d0200e596f820cf88ca4acaf42c8d90d2d7fdd8414d1d546882e",
+      "identity_preserved": true
+    }
+  ],
+  "adapter_changes": [
+    "shared deadline reader and global bounded HTTP server",
+    "exact Host/Origin/fetch-site/request-header guards",
+    "GET body/framing rejection",
+    "fixed JSON parser errors with security headers; HEAD has no body",
+    "remove surplus terminal blank line from loopback wrapper; original R6/B1/Q4 bytes unchanged",
+    "explicit Linux guard also on direct server entry point before binding"
+  ],
+  "new_ui": "T06Lab.tsx derives from packaged lab/frontend/main.tsx; namespaced endpoint, unmount cancellation, scoped styling."
+}
