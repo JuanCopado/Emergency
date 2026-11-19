@@ -133,15 +133,11 @@ class Validation(unittest.TestCase):
 
     @unittest.skipUnless(os.name == 'nt', 'Requires Windows Job Object containment; exercised by Windows OCR CI')
     def test_http_confirmation_and_revocation(self):
-        import secrets
         import threading
         import urllib.request
         from urllib.error import HTTPError
-        from blood_gas_local import Handler,HTTPServer
-        server=HTTPServer(("127.0.0.1",0),Handler)
-        server.address="127.0.0.1:"+str(server.server_port)
-        server.token=secrets.token_hex(32)
-        server.ticket=None
+        from blood_gas_local import make_server
+        server=make_server()
         thread=threading.Thread(target=server.serve_forever)
         thread.start()
         def request(route, body):
