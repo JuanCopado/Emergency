@@ -157,6 +157,39 @@ class SonarDiagnosticsTests(unittest.TestCase):
         self.assertEqual(len(requests), 2)
         self.assertEqual(data["failure"], {"stage": "issues", "code": "HTTP_STATUS", "http_status": 403})
 
+    def test_http_400_exports_only_redacted_validation_messages(self):
+        payload = {"errors": [
+            {"msg": "The 'organization' parameter is missing.", "source": "SOURCE_SENTINEL"},
+            {"msg": "Reflected " + TOKEN + " at https://untrusted.invalid/" + TOKEN},
+            {"msg": "Credentials Bearer synthetic-other-secret and squ_shortsecret "
+                    "and abcdef0123456789abcdef0123456789"}], "source": "SOURCE_SENTINEL"}
+        response = (400, {"Content-Type": "application/json"}, json.dumps(payload).encode())
+        code, data, requests, _ = self.run_helper([GATE, response])
+        self.assertEqual(code, 2)
+        self.assertEqual(len(requests), 2)
+        self.assertEqual(data["failure"], {
+            "stage": "issues", "code": "HTTP_STATUS", "http_status": 400,
+            "validation_messages": ["The 'organization' parameter is missing.",
+                                    "Reflected [REDACTED] at [REDACTED]",
+                                    "Credentials [REDACTED] and [REDACTED] and [REDACTED]"]})
+
+    def test_validation_messages_have_body_count_and_combined_character_limits(self):
+        short = {"errors": [{"msg": str(index)} for index in range(4)]}
+        _, data, _, _ = self.run_helper([(400, {"Content-Type": "application/json"},
+                                         json.dumps(short).encode())])
+        self.assertEqual(data["failure"]["validation_messages"], ["0", "1", "2"])
+        payload = {"errors": [{"msg": "Validation message. " * 20}] * 4}
+        response = (400, {"Content-Type": "application/json"}, json.dumps(payload).encode())
+        _, data, _, _ = self.run_helper([response])
+        messages = data["failure"]["validation_messages"]
+        self.assertLessEqual(len(messages), 3)
+        self.assertEqual(sum(map(len, messages)), 512)
+        for body in (b" " * (DIAGNOSTICS.MAX_ERROR_BYTES + 1), b"SOURCE_SENTINEL",
+                     b'{"errors":[],"errors":[{"msg":"SOURCE_SENTINEL"}]}'):
+            with self.subTest(length=len(body)):
+                _, data, _, _ = self.run_helper([(400, {"Content-Type": "application/json"}, body)])
+                self.assertNotIn("validation_messages", data["failure"])
+
     def test_response_limits_and_ambiguous_json_rejected(self):
         bodies = [b" " * (DIAGNOSTICS.MAX_BYTES + 1), b'{"projectStatus":{},"projectStatus":{}}',
                   b'{"projectStatus":{"conditions":[NaN]}}', b'[]', b'\xff']

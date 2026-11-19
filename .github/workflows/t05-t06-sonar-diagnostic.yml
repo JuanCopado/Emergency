@@ -2,7 +2,7 @@ name: T05 T06 Sonar diagnostic metadata
 
 on:
   push:
-    branches: ['codex/integrate-t05-t06-20261119']
+    branches: ['diagnostic/t05-t06-sonar-20261119']
     paths: ['scripts/security/sonar_diagnostics.py', '.github/workflows/t05-t06-sonar-diagnostic.yml']
 
 permissions:
