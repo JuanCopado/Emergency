@@ -2,6 +2,8 @@ import { useClinicalUi } from '../i18n/useClinicalUi';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
 import { useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   acceptClinicalUpload,
   analyzeClinicalNote,
@@ -55,6 +57,7 @@ const numberOrNull=(value:string)=>{
 };
 
 export default function ClinicalNote(){
+  const { t } = useTranslation();
   const ui = useClinicalUi();
   const f = useFormat();
  const [tab,setTab]=useState<Tab>('history');
@@ -387,6 +390,7 @@ export default function ClinicalNote(){
       <span className="chip">{clinicianReviewed?ui("Revisto pelo médico"):ui("Revisão pendente")}</span>
       <span className="chip">{assessment&&!diagnosticStale?ui("Apoio atualizado"):ui("Apoio pendente")}</span>
     </div>
+    <Link to="/blood-gas" className="btn-ghost mt-3">{t('home.bloodGasReview')}</Link>
     <p id="note-number-policy" className="mt-3 text-sm text-muted">{ui("Entrada numérica: usa punto decimal (0.1), sin separadores de miles. La salida sigue el idioma seleccionado.")}</p>
     <p className="text-sm text-muted">{ui("Contenido clínico y exportaciones canónicas en el idioma de la fuente; traducción clínica integral pendiente.")}</p>
     <div className="mt-4 grid gap-3 sm:grid-cols-3">

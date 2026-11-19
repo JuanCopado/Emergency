@@ -1,0 +1,10 @@
+{
+  "name": "emergency-blood-gas-ocr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Locally provisioned, pinned OCR dependencies for synthetic T05 review",
+  "dependencies": {
+    "tesseract.js": "7.0.0",
+    "tesseract.js-core": "7.0.0"
+  }
+}

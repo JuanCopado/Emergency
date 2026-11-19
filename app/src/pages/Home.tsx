@@ -70,6 +70,8 @@ export default function Home() {
             </Link>
             <Link to="/pediatrics" className="btn-ghost">{t('home.outpatientPediatrics')}</Link>
             <Link to="/insulin-uci" className="btn-ghost">{t('home.insulinSimulation')}</Link>
+            <Link to="/blood-gas" className="btn-ghost">{t('home.bloodGasReview')}</Link>
+            <Link to="/t06-lab" className="btn-ghost">{t('home.t06Lab')}</Link>
           </div>
         </div>
       </section>

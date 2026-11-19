@@ -118,3 +118,7 @@ Reglas de extracción: los valores se transcribieron **literalmente**; lo que no
 ## Marca
 
 El nombre provisional es «Emergency». Para cambiarlo basta con editar `src/config/brand.ts` (nombre, colores, descripción del manifest) y, si se quiere, `public/favicon.svg` + `npm run icons`. El logotipo es un símbolo SVG original (cruz y trazo de ECG), sin logotipos de terceros.
+
+## Revisión local T05 y T06
+
+Gasometría y laboratorio T06 se abren desde Inicio. Preparación, arranque y capacidades Windows/Linux: [../docs/LOCAL_REVIEW.md](../docs/LOCAL_REVIEW.md). Se mantiene CLINICALLY_PENDING y uso de datos sintéticos.

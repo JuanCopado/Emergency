@@ -1,3 +1,7 @@
+## T05/gasometría y T06 · integración técnica · 19/11/2026
+
+Se incorporan las rutas de revisión local de gasometrías y laboratorio T06 a la aplicación común, con sus implementaciones recuperadas y procesos separados. T05 conserva revisión visual, trazabilidad de FiO₂ y extracción protegida solo en Windows; T06 conserva R6/B1/Q4 para escenarios TLS sintéticos solo en Linux. JSON ambiguo y pérdida numérica a cero se rechazan en la frontera T05. No se modifican fórmulas, recomendaciones, aceptaciones ni estados/fechas clínicas. `CLINICALLY_PENDING`. Uso: `../docs/LOCAL_REVIEW.md`; procedencia y alcance: `qa/T05_T06_INTEGRATION_20261119.md`. Los apartados siguientes conservan antecedentes históricos.
+
 ## 2026-11-19 · PR31 · Cálculo y exportación en nueve regímenes
 
 Se incorpora la corrección ampliada de R3-CLAUDE-001 para seis regímenes dependientes del peso y tres regímenes de reversión. Una prueba con datos sintéticos en los endpoints HTTP cubrió los nueve casos y sus exportaciones JSON, PDF y DOCX. Para las entradas válidas se comprobó el contenido de los 27 archivos. Las entradas que antes producían cero recibieron HTTP 422 tanto al calcular como al exportar.

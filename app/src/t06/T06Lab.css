@@ -1,0 +1,38 @@
+.t06-lab { max-width: 1180px; margin: 0 auto; padding: 24px; color: #163047; line-height: 1.55; }
+.t06-lab header { border-bottom: 2px solid #d5e2ed; padding-bottom: 20px; }
+.t06-lab h1 { font-size: 28px; font-weight: 700; margin: 8px 0; }
+.t06-lab h2 { font-size: 20px; font-weight: 650; margin: 0 0 12px; }
+.t06-lab .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+.t06-lab .badge { display: inline-block; padding: 5px 12px; border-radius: 5px; background: #fff1ca; color: #684a00; font-size: 12px; font-weight: 700; }
+.t06-lab .scope { margin: 20px 0; padding: 12px 17px; border-left: 4px solid #39789b; background: #e8f1f7; }
+.t06-lab .layout { display: grid; grid-template-columns: 320px 1fr; gap: 23px; }
+.t06-lab .controls, .t06-lab .output { min-width: 0; padding: 24px; border: 1px solid #dae3eb; border-radius: 8px; background: #fff; }
+.t06-lab label { display: block; margin: 18px 0 8px; font-size: 14px; font-weight: 650; }
+.t06-lab select { width: 100%; padding: 10px; border: 1px solid #9bb0c0; border-radius: 5px; background: #fff; color: #163047; font: inherit; }
+.t06-lab .controls > p { margin: 12px 0; font-size: 14px; }
+.t06-lab button { padding: 11px 16px; border: 0; border-radius: 5px; background: #126381; color: #fff; font: inherit; font-weight: 650; cursor: pointer; }
+.t06-lab button:disabled { background: #7897a3; cursor: wait; }
+.t06-lab .secondary { margin-left: 8px; background: #e5ebf0; color: #24465a; }
+.t06-lab button:focus-visible, .t06-lab select:focus-visible { outline: 3px solid #dc850d; outline-offset: 3px; }
+.t06-lab .parameters { margin-top: 23px; padding-top: 16px; border-top: 1px solid #e4ebf1; font-size: 13px; }
+.t06-lab dt { font-weight: 650; }
+.t06-lab dd { margin: 0 0 12px; overflow-wrap: anywhere; }
+.t06-lab .state { padding: 9px 12px; border-radius: 4px; background: #edf2f7; font-size: 14px; font-weight: 650; }
+.t06-lab .state-success { background: #e4f3ea; color: #17643d; }
+.t06-lab .state-error, .t06-lab .state-rejected, .t06-lab .state-timeout { background: #fbe9e7; color: #85332d; }
+.t06-lab [role=alert] { padding: 12px; border-left: 3px solid #b54e37; background: #fff4ee; }
+.t06-lab .output section { margin-top: 20px; font-size: 14px; }
+.t06-lab .output section h2 { margin-top: 20px; font-size: 18px; }
+.t06-lab .output ul { padding-left: 20px; }
+.t06-lab .output li { padding-top: 16px; border-top: 1px solid #e8edf2; }
+.t06-lab .output dl > div { display: grid; grid-template-columns: 145px 1fr; gap: 12px; }
+.t06-lab details { margin-top: 23px; padding-top: 16px; border-top: 1px solid #dbe5ed; font-size: 13px; }
+.t06-lab summary { cursor: pointer; font-weight: 650; }
+.t06-lab pre { padding: 15px; border-radius: 5px; background: #f4f7fa; color: #3a5366; white-space: pre-wrap; overflow-wrap: anywhere; }
+.t06-lab footer { padding-top: 20px; font-size: 12px; }
+.t06-lab a { color: #075e92; text-decoration: underline; }
+@media (max-width: 800px) {
+  .t06-lab { padding: 20px 14px; }
+  .t06-lab .layout { grid-template-columns: 1fr; }
+  .t06-lab .output dl > div { grid-template-columns: 1fr; gap: 0; }
+}
