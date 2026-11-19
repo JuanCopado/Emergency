@@ -515,7 +515,7 @@ def dispatch(path, payload):
 class ClinicalNoteHandler(DeadlineRequestHandler):
     server_version = "EmergencyClinicalNoteAPI/1.0"
 
-    def _send(self, status, body):
+    def _send(self, status, body, *, head_only=False):
         # Neutralize markup, then encode those entities as JSON Unicode escapes.
         # Quotes stay JSON syntax; decoded strings retain their exact content.
         escaped = html.escape(json.dumps(body, ensure_ascii=False), quote=False)
@@ -530,7 +530,14 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
         self.send_header("Content-Length", str(len(raw)))
         self.send_header("Connection", "close")
         self.end_headers()
-        self.wfile.write(raw)
+        if not head_only:
+            self.wfile.write(raw)
+
+    def send_error(self, code, message=None, explain=None):
+        # BaseHTTPRequestHandler can otherwise reflect a private request-line in
+        # an HTML parser error. Ignore both supplied messages and URL fragments.
+        self.close_connection = True
+        self._send(code, {"error": "invalid HTTP request"}, head_only=self.command == "HEAD")
 
     def do_GET(self):
         if self.path == "/api/clinical-note/health":

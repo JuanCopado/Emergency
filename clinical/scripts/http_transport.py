@@ -3,6 +3,7 @@ import io
 import logging
 import math
 import ssl
+import sys
 import threading
 import time
 from http import HTTPStatus
@@ -35,7 +36,8 @@ def json_request_size(headers, maximum):
     types = headers.get_all("Content-Type", [])
     if len(types) != 1 or types[0].partition(";")[0].strip().lower() != "application/json":
         raise RequestRejection(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "application/json is required")
-    if headers.get("Content-Encoding", "identity").strip().lower() != "identity":
+    encodings = headers.get_all("Content-Encoding", [])
+    if len(encodings) > 1 or (encodings and encodings[0].strip().lower() != "identity"):
         raise RequestRejection(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "content encoding is not supported")
     if headers.get("Sec-Fetch-Site", "").strip().lower() == "cross-site":
         raise RequestRejection(HTTPStatus.FORBIDDEN, "cross-site requests are not permitted")
@@ -122,4 +124,5 @@ class BoundedHTTPServer(ThreadingHTTPServer):
                 self._slots.release()
 
     def handle_error(self, request, client_address):
-        logging.getLogger(__name__).warning("HTTP request failed; connection closed")
+        error_type = type(sys.exception()).__name__
+        logging.getLogger(__name__).warning("HTTP request failed (%s); connection closed", error_type)

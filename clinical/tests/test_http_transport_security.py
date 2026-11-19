@@ -89,6 +89,8 @@ class HttpFramingSecurityTests(unittest.TestCase):
                  (["Content-Type: multipart/form-data; boundary=synthetic"], 415),
                  (["Content-Type: application/json", "Content-Type: text/plain"], 415),
                  (["Content-Type: application/json", "Content-Encoding: gzip"], 415),
+                 (["Content-Type: application/json", "Content-Encoding: identity", "Content-Encoding: gzip"], 415),
+                 (["Content-Type: application/json", "Content-Encoding: identity", "Content-Encoding: identity"], 415),
                  (["Content-Type: application/json", "Sec-Fetch-Site: cross-site"], 403)]
         with running_server() as server, patch.object(api, "dispatch") as dispatch:
             for headers, expected in cases:
@@ -119,6 +121,89 @@ class HttpFramingSecurityTests(unittest.TestCase):
 
 
 class HttpAvailabilityTests(unittest.TestCase):
+    def test_parser_errors_do_not_reflect_private_request_lines(self):
+        with running_server() as server:
+            for request in (b"SYNTHETIC_PRIVATE /api HTTP/1.0\r\n\r\n",
+                            b"GET /?note=SYNTHETIC_PRIVATE INVALID\r\n\r\n"):
+                with self.subTest(request=request), socket.create_connection(server.server_address, timeout=2) as client:
+                    client.sendall(request)
+                    response = http.client.HTTPResponse(client)
+                    response.begin()
+                    raw = response.read()
+                    self.assertIn(response.status, (400, 501))
+                    self.assertEqual(json.loads(raw), {"error": "invalid HTTP request"})
+                    self.assertNotIn(b"SYNTHETIC_PRIVATE", raw)
+                    self.assertEqual(response.getheader("X-Content-Type-Options"), "nosniff")
+
+    def test_head_parser_error_has_headers_without_response_body(self):
+        with running_server() as server, socket.create_connection(server.server_address, timeout=2) as client:
+            client.sendall(b"HEAD /api/clinical-note/health HTTP/1.0\r\n\r\n")
+            wire = bytearray()
+            while chunk := client.recv(4096):
+                wire.extend(chunk)
+            headers, body = bytes(wire).split(b"\r\n\r\n", 1)
+            self.assertIn(b"501", headers)
+            self.assertIn(b"application/json", headers)
+            self.assertEqual(body, b"")
+
+    def test_thread_creation_failure_closes_peer_and_recovers_capacity(self):
+        from http.server import ThreadingHTTPServer
+        original = ThreadingHTTPServer.process_request
+        calls = 0
+        def fail_once(server, request, address):
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                raise RuntimeError("SYNTHETIC_PRIVATE cannot start thread")
+            return original(server, request, address)
+        with running_server(max_workers=1) as server, \
+             patch.object(ThreadingHTTPServer, "process_request", fail_once), \
+             self.assertLogs("http_transport", level="WARNING") as logs:
+            with socket.create_connection(server.server_address, timeout=2) as client:
+                self.assertEqual(client.recv(1024), b"")
+            self.assertEqual(health(server)[0], 200)
+        self.assertIn("RuntimeError", "".join(logs.output))
+        self.assertNotIn("SYNTHETIC_PRIVATE", "".join(logs.output))
+
+    def test_trickled_response_reader_cannot_retain_the_only_worker(self):
+        started = threading.Event()
+        class SmallSendBuffer(api.ClinicalNoteHandler):
+            def setup(self):
+                super().setup()
+                self.connection.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 4096)
+            def _send(self, status, body, **kwargs):
+                if "synthetic" in body:
+                    started.set()
+                super()._send(status, body, **kwargs)
+        with running_server(handler=SmallSendBuffer, max_workers=1) as server, \
+             socket.create_connection(server.server_address, timeout=2) as client, \
+             patch.object(api, "dispatch", return_value=(200, {"synthetic": "x" * (2 * 1024 * 1024)})):
+            client.sendall(b"POST /api/clinical-note/analyze HTTP/1.0\r\nContent-Length: 2\r\nContent-Type: application/json\r\n\r\n{}")
+            self.assertTrue(started.wait(2))
+            stop = threading.Event()
+            def consume_slowly():
+                while not stop.wait(.04):
+                    try:
+                        if not client.recv(1):
+                            return
+                    except OSError:
+                        return
+            reader = threading.Thread(target=consume_slowly, daemon=True)
+            reader.start()
+            deadline = time.monotonic() + 2
+            try:
+                while True:
+                    try:
+                        self.assertEqual(health(server)[0], 200)
+                        break
+                    except (ConnectionError, http.client.RemoteDisconnected):
+                        if time.monotonic() >= deadline:
+                            raise
+                        time.sleep(.02)
+            finally:
+                stop.set()
+                reader.join(2)
+
     def test_partial_body_times_out_without_dispatch(self):
         with running_server() as server, patch.object(api, "dispatch") as dispatch:
             with socket.create_connection(server.server_address, timeout=2) as client:
@@ -221,6 +306,37 @@ class TlsAvailabilityTests(unittest.TestCase):
                     self.assertEqual(bad.recv(1024), b"")
                 except ConnectionResetError:
                     pass  # OpenSSL/OS may abort instead of sending EOF.
+            self.assertEqual(health(server, self.client_context)[0], 200)
+
+    def test_valid_client_hello_trickle_cannot_reset_handshake_timeout(self):
+        incoming, outgoing = ssl.MemoryBIO(), ssl.MemoryBIO()
+        client_tls = self.client_context.wrap_bio(incoming, outgoing, server_hostname="127.0.0.1")
+        with self.assertRaises(ssl.SSLWantReadError):
+            client_tls.do_handshake()
+        hello = outgoing.read()
+        self.assertGreater(len(hello), 100)
+        with running_server(tls_context=self.server_context, max_workers=1) as server, \
+             socket.create_connection(server.server_address, timeout=2) as client:
+            stop = threading.Event()
+            client.sendall(hello[:1])
+            def trickle_hello():
+                for value in hello[1:]:
+                    if stop.wait(.04):
+                        return
+                    try:
+                        client.sendall(bytes([value]))
+                    except OSError:
+                        return
+            sender = threading.Thread(target=trickle_hello, daemon=True)
+            sender.start()
+            try:
+                try:
+                    self.assertEqual(client.recv(1024), b"")
+                except ConnectionResetError:
+                    pass
+            finally:
+                stop.set()
+                sender.join(2)
             self.assertEqual(health(server, self.client_context)[0], 200)
 
 
