@@ -6,6 +6,8 @@ No workflow fabricates a universal dose for an unidentified product or anticoagu
 """
 from math import isfinite
 
+from pediatric_numbers import positive
+
 
 REVIEW_REFERENCE = 'references/acute-reversal-reviewed-2026-11-16.md'
 PROTAMINE_LABEL_URL = ('https://www.dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm'
@@ -318,14 +320,15 @@ def _lmwh(inputs):
     if inputs['immediate_resources_available'] is False:
         return _support('protamine_resources_escalation', 'Protamina requiere monitorización y capacidad de tratar anafilaxia/hipotensión.', actions, sources=['PROTAMINE_LABEL'])
     units = inputs['dalteparin_dose_to_neutralize_anti_xa_iu']
-    dose = min(units / 100, 50)
+    uncapped_dose = positive('protamine_dose_mg', units / 100)
+    dose = min(uncapped_dose, 50)
     return {
         'result_kind': 'calculation', 'drug': 'Protamina para dalteparina/Fragmin',
         'dose': dose, 'dose_unit': 'mg', 'route': 'IV', 'pump_ml_h': None,
         'components': {'dalteparin_anti_xa_iu': units, 'protamine_mg_per_100_anti_xa_iu': 1,
                        'single_dose_cap_mg': 50},
         'maximum': {'value': 50, 'unit': 'mg por administración inicial lenta de al menos 10 minutos'},
-        'arithmetic': f'{units:g} UI anti-Xa / 100 = {units / 100:g} mg; límite de esta dosis = 50 mg; resultado = {dose:g} mg.',
+        'arithmetic': f'{units:g} UI anti-Xa / 100 = {uncapped_dose:g} mg; límite de esta dosis = 50 mg; resultado = {dose:g} mg.',
         'administration': 'Protamina IV lenta durante al menos 10 minutos; no más de 50 mg en 10 minutos. Respetar un límite más lento si lo exige la ficha real. Este techo no es la dosis acumulada máxima de todo el tratamiento. La concentración, volumen y preparación dependen del producto verificado; no se inventan mL.',
         'next_actions': ['Neutralización de anti-Xa de dalteparina incompleta (aproximadamente 25–50%); vigilar sangrado y coagulación.',
                          'No repetir ni superar el techo automáticamente; reevaluar actividad, función renal y dosis previa con experiencia en hemostasia.',

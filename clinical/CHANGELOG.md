@@ -1,3 +1,7 @@
+## 2026-11-19 · Correcciones numéricas de PR #31
+
+R3-CLAUDE-001 y componente numérico de R3-CLAUDE-002: validación de magnitudes positivas tras el cálculo y bloqueo del volumen pediátrico que redondea a cero. Las regresiones cubren cálculo y exportación. El recorrido de exportaciones en navegador admite ejecución independiente de la impresión con --exports-only. Q5 y T05 tienen seguimiento independiente.
+
 # 2026-11-19 - R3+PR30 Sonar follow-up (technical)
 
 Two presentation-only NaN aliases and explicit shared-test registration; same values and tests, no clinical calculation/content/status changes.

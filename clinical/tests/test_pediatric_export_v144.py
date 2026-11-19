@@ -13,6 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from pediatric_catalog import build_catalog
 from pediatric_outpatient_api import calculate_request
+from pediatric_outpatient_calculator import ZERO_ROUNDED_VOLUME_ERROR
 from pediatric_result_exporter import export_request
 
 CASES=json.loads((ROOT/'qa/V1.44_PEDIATRIC_EXPORT_CASES.json').read_text(encoding='utf-8'))['cases']
@@ -23,6 +24,26 @@ def request(case):
 def norm(s): return ''.join(s.split())
 
 class PediatricExportTests(unittest.TestCase):
+    def test_positive_volume_rounding_to_zero_blocks_calculation_and_all_exports(self):
+        body = request(next(case for case in CASES if case['id'] == 'paracetamol'))
+        last_result = calculate_request(body)['result']
+        for weight in (0.01, 0.003, 5e-324):
+            body['patient']['ideal_weight_kg'] = weight
+            with self.subTest(weight=weight):
+                with self.assertRaises(ValueError) as caught:
+                    calculate_request(body)
+                self.assertEqual(str(caught.exception), ZERO_ROUNDED_VOLUME_ERROR)
+            for fmt in ('json', 'pdf', 'docx'):
+                with self.subTest(weight=weight, fmt=fmt):
+                    with self.assertRaises(ValueError) as caught:
+                        export_request({'format': fmt, 'calculation': body, 'expected_result': last_result})
+                    self.assertEqual(str(caught.exception), ZERO_ROUNDED_VOLUME_ERROR)
+
+        body['patient']['ideal_weight_kg'] = 0.1
+        volume = calculate_request(body)['result']['volume_per_dose']
+        self.assertEqual(volume['exact_ml'], 0.0625)
+        self.assertEqual(volume['rounded_0_1_ml'], 0.1)
+
     def test_all_three_formats_preserve_all_canonical_fields_and_alerts(self):
         for case in CASES:
             with self.subTest(case=case['id']):

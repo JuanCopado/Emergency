@@ -7,6 +7,8 @@ No hospital profile, automatic redosing, pump programming or titration is assume
 from decimal import Decimal, InvalidOperation
 from math import isfinite
 
+from pediatric_numbers import positive
+
 
 REVIEW_REFERENCE = 'references/acute-anaphylaxis-reviewed-2026-11-16.md'
 IM_ID = 'anaphylaxis-under6months'
@@ -304,15 +306,18 @@ def calculate(row, inputs):
     rate = Decimal('0.5') if inputs['initial_severity'] == 'moderate' else Decimal('1')
     pump = weight * rate
     per_hour = pump * 10
-    per_min = per_hour / 60
+    # Keep the dose arithmetic decimal; validate the actual JSON numbers.
+    per_min = positive('dose_micrograms_min', float(per_hour / 60))
+    per_hour = positive('dose_micrograms_h', float(per_hour))
+    pump = positive('pump_ml_h', float(pump))
     return {
-        'dose': float(per_min), 'dose_unit': 'micrograms/min',
+        'dose': per_min, 'dose_unit': 'micrograms/min',
         'concentration': {'value': 10, 'unit': 'micrograms/mL', 'role': 'final'},
-        'withdrawal_ml': 1, 'administration_volume_ml': None, 'pump_ml_h': float(pump),
-        'duration_min': None, 'amount_per_hour': float(per_hour), 'amount_per_hour_unit': 'micrograms/h',
+        'withdrawal_ml': 1, 'administration_volume_ml': None, 'pump_ml_h': pump,
+        'duration_min': None, 'amount_per_hour': per_hour, 'amount_per_hour_unit': 'micrograms/h',
         'components': {'weight_kg': float(weight), 'initial_rate_ml_kg_h': float(rate),
-                       'dose_micrograms_kg_min': float(rate * 10 / 60), 'dose_micrograms_min': float(per_min),
-                       'dose_micrograms_h': float(per_hour), 'drug_amount_mg': 1, 'final_volume_ml': 100,
+                       'dose_micrograms_kg_min': float(rate * 10 / 60), 'dose_micrograms_min': per_min,
+                       'dose_micrograms_h': per_hour, 'drug_amount_mg': 1, 'final_volume_ml': 100,
                        'stock_withdrawal_ml': 1, 'diluent': 'NaCl 0.9%',
                        'remaining_verified_use_min': float(_decimal(inputs['verified_use_limit_min']) - _decimal(inputs['preparation_age_min']))},
         'next_actions': [

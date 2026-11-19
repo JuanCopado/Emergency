@@ -16,6 +16,7 @@ const acceptance = JSON.parse(acceptanceBytes);
 const acceptedIDs = new Set(acceptance.contract_ids);
 const scope = process.env.ACUTE_SCOPE || 'reviewed';
 const group = process.env.FLOW_FILTER || 'all';
+const exportsOnly = process.argv.includes('--exports-only');
 const legacyOutput = process.env.ACUTE_LEGACY_OUTPUT === '1';
 assert.ok(['reviewed', 'all'].includes(scope), 'ACUTE_SCOPE must be reviewed or all');
 assert.ok(group === 'all' || bank.cases.some(item => item.group === group), 'Unknown FLOW_FILTER');
@@ -24,7 +25,8 @@ const reviewedCases = bank.cases.filter(item => acceptedIDs.has(item.id));
 const scopeCases = scope === 'all' ? bank.cases : reviewedCases;
 const cases = scopeCases.filter(item => group === 'all' || item.group === group);
 const expectedIDs = [...new Set(cases.map(item => item.id))].sort();
-const suffix = group === 'all' ? '' : `_${group.toUpperCase()}`;
+const suffix = (group === 'all' ? '' : `_${group.toUpperCase()}`) + (exportsOnly ? '_EXPORTS_ONLY' : '');
+assert.ok(!legacyOutput || !exportsOnly, 'Legacy evidence includes the browser print simulation');
 const filename = legacyOutput ? `V1.44_ACUTE_${group.toUpperCase()}_BROWSER_RESULTS.json`
   : `${scope === 'all' ? 'ALL' : 'REVIEWED'}_ACUTE_BROWSER_2026-11-16${suffix}.json`;
 const target = process.env.ACUTE_EVIDENCE_PATH || new URL(`../../clinical/qa/${filename}`, import.meta.url);
@@ -35,7 +37,8 @@ const has = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 const record = {
   started_at: new Date().toISOString(), clinical_status: 'CLINICALLY_PENDING',
   scope: scope === 'all' ? 'Acute contracts selected from the complete manual fixture bank' : 'Owner-accepted acute contracts, including explicit additional fixture modes',
-  selection_mode: scope, group, legacy_output: legacyOutput,
+  selection_mode: scope, group, legacy_output: legacyOutput, native_print_q5: 'EXCLUDED',
+  browser_print_simulation: exportsOnly ? 'EXCLUDED' : 'IN_SCOPE',
   fixture_oracle: bank.oracle, fixtures_sha256: digest(bankBytes),
   acceptance_sha256: digest(acceptanceBytes), accepted_contract_ids: [...acceptedIDs].sort(), expected_contract_ids: expectedIDs,
   execution_context: {
@@ -43,7 +46,7 @@ const record = {
     github_run_id: process.env.GITHUB_RUN_ID || null, github_run_attempt: process.env.GITHUB_RUN_ATTEMPT || null,
     configured_browser: process.env.CHROMIUM_PATH || null,
   },
-  attempted_case_count: 0, cases: [], errors: [],
+  attempted_case_count: 0, cases: [], errors: [], underflow_rejections: [],
 };
 
 function fixtureInputs(row, fixture) {
@@ -195,7 +198,7 @@ async function verifyExports(page, calculated) {
   for (const format of ['JSON', 'PDF', 'DOCX']) {
     assert.equal(await page.getByRole('button', {name: `Exportar ${format}`, exact: true}).isDisabled(), true);
   }
-  assert.equal(await page.getByRole('button', {name: 'Imprimir resultado', exact: true}).isDisabled(), true);
+  if (!exportsOnly) assert.equal(await page.getByRole('button', {name: 'Imprimir resultado', exact: true}).isDisabled(), true);
   await page.getByLabel('Confirmo haber revisado').check();
   const files = {};
   for (const format of ['json', 'pdf', 'docx']) {
@@ -209,11 +212,15 @@ async function verifyExports(page, calculated) {
     files[format] = readFileSync(await file.path());
   }
   assert.deepEqual(JSON.parse(files.json), calculated.report);
-  await page.evaluate(() => {globalThis.__reviewedAcutePrinted = false; globalThis.print = () => {globalThis.__reviewedAcutePrinted = true;};});
-  await page.getByRole('button', {name: 'Imprimir resultado', exact: true}).click();
-  assert.equal(await page.evaluate(() => globalThis.__reviewedAcutePrinted), true);
-  assert.equal(await page.locator('.acute-print-sheet').count(), 1);
-  files.print = await page.pdf({format: 'A4', printBackground: true});
+  const documents = ['pdf', 'docx'];
+  if (!exportsOnly) {
+    await page.evaluate(() => {globalThis.__reviewedAcutePrinted = false; globalThis.print = () => {globalThis.__reviewedAcutePrinted = true;};});
+    await page.getByRole('button', {name: 'Imprimir resultado', exact: true}).click();
+    assert.equal(await page.evaluate(() => globalThis.__reviewedAcutePrinted), true);
+    assert.equal(await page.locator('.acute-print-sheet').count(), 1);
+    files.print = await page.pdf({format: 'A4', printBackground: true});
+    documents.push('print');
+  }
   const check = spawnSync(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-c', `
 import io,json,base64,zipfile,sys
 from pypdf import PdfReader
@@ -232,9 +239,38 @@ for fmt,b64 in data['files'].items():
   for expected in [heading]+paragraphs:
    assert norm(expected) in norm(text),(fmt,expected)
 print(json.dumps(pages))
-`], {input: JSON.stringify({sections: calculated.report.sections, files: Object.fromEntries(['pdf', 'docx', 'print'].map(key => [key, files[key].toString('base64')]))}), encoding: 'utf8', windowsHide: true, maxBuffer: 4 * 1024 * 1024});
+`], {input: JSON.stringify({sections: calculated.report.sections, files: Object.fromEntries(documents.map(key => [key, files[key].toString('base64')]))}), encoding: 'utf8', windowsHide: true, maxBuffer: 4 * 1024 * 1024});
   assert.equal(check.status, 0, check.stderr || check.error?.message);
-  return {formats: ['json', 'pdf', 'docx', 'print'], pages: JSON.parse(check.stdout), sha256: Object.fromEntries(Object.entries(files).map(([key, value]) => [key, digest(value)])), all_report_sections_preserved: true};
+  return {formats: Object.keys(files), pages: JSON.parse(check.stdout), sha256: Object.fromEntries(Object.entries(files).map(([key, value]) => [key, digest(value)])), all_report_sections_preserved: true};
+}
+
+const underflowInputs = new Map([
+  ['anaphylaxis-refractory-reviewed-3', 'weight_kg'],
+  ['reversal-other-lmwh', 'dalteparin_dose_to_neutralize_anti_xa_iu'],
+  ['status-phenytoin-dose-only', 'weight_kg'],
+]);
+
+async function verifyUnderflow(page, fixture, row, inputs) {
+  const id = fixture.case_id || fixture.id;
+  const fieldKey = underflowInputs.get(id);
+  if (!fieldKey) return;
+  const field = row.fields.find(item => item.key === fieldKey);
+  await setControl(page, field, Number.MIN_VALUE);
+  await assertInvalidated(page);
+  const pending = page.waitForResponse(response => response.url().endsWith('/api/acute-medications/calculate'));
+  await page.getByRole('button', {name: 'Comprobar y calcular', exact: true}).click();
+  const response = await pending;
+  const value = await response.json();
+  assert.equal(response.request().postDataJSON().inputs[fieldKey], Number.MIN_VALUE);
+  assert.equal(response.status() === 422 || (response.status() === 200 && value.blocked === true), true, id);
+  assert.equal(value.result, undefined);
+  await page.getByRole('alert').first().waitFor();
+  assert.equal(await page.locator('[data-result]').count(), 0);
+  assert.equal(await page.getByRole('button', {name: /^Exportar /}).count(), 0);
+  record.underflow_rejections.push({id, field: fieldKey, http_status: response.status()});
+  await setControl(page, field, inputs[fieldKey]);
+  const restored = await submit(page, row.id, inputs);
+  await verifyResultUI(page, fixture, restored);
 }
 
 async function apiReject(context, base, revision, row, inputs, updates, omitted) {
@@ -296,6 +332,7 @@ try {
       assert.equal(calculated.blocked, false, JSON.stringify(calculated));
       const presentation = await verifyResultUI(page, fixture, calculated);
       const exports = await verifyExports(page, calculated);
+      await verifyUnderflow(page, fixture, row, inputs);
 
       // When the bank supplies another independently specified mode of this ID,
       // switch in the same live form. Hidden state must not reach the API/export.

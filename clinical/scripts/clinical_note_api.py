@@ -31,6 +31,7 @@ from pathlib import Path
 from http_transport import (
     BoundedHTTPServer, DeadlineRequestHandler, RequestRejection, json_request_size,
 )
+from pediatric_outpatient_calculator import ZERO_ROUNDED_VOLUME_ERROR
 
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import export_docx, export_json, export_pdf
@@ -576,6 +577,9 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
             if (self.path == "/api/pediatric-outpatient/calculate"
                     and exc.args == ("no matching age/weight band for regimen",)):
                 public_error = "no matching age/weight band for regimen"
+            elif (self.path in ("/api/pediatric-outpatient/calculate", "/api/pediatric-outpatient/export")
+                    and exc.args == (ZERO_ROUNDED_VOLUME_ERROR,)):
+                public_error = ZERO_ROUNDED_VOLUME_ERROR
             self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": public_error})
         except Exception:
             # Preserve the HTTP contract without echoing exception text or PHI.

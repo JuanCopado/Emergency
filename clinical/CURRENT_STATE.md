@@ -1,3 +1,7 @@
+## 2026-11-19 · Correcciones numéricas de PR #31
+
+Las guardas de los contratos agudos de anafilaxia, reversión y estatus rechazan los resultados dosificadores positivos que se pierden al convertirlos en cero. En pediatría ambulatoria se bloquea el volumen positivo que redondea a 0,0 mL. La plausibilidad del peso ideal queda pendiente de decisión médica y farmacéutica. Se mantiene la confirmación médica obligatoria y CLINICALLY_PENDING.
+
 ## R2 · corrección focal CLI tras primera auditoría · 17/11/2026
 
 La primera revisión independiente del árbol `0f419c01c2d4366a0b4b2fba8d973f8be1722d84` detectó `R2-CLI-UNDERFLOW`: `argparse type=float` convertía una mantisa no nula (también negativa) en cero antes de las guardas. Se añade una frontera léxica en el CLI de perfusión, reutilizando `finite_number`, sin modificar fórmulas ni coeficientes: rechaza ese underflow y formatos ajenos al contrato de punto decimal sin agrupación, conservando ceros explícitos y valores representables. Regresión RED→GREEN mediante subprocess real para ambos signos, ceros y entradas válidas/inválidas. Se conserva el corte previo y se vuelve a ejecutar la QA sobre un árbol final único; la revisión del último delta permanece separada. Detalle: `docs/coordination/EMERGENCY_INTG_R2_20261116/R2_CLI_UNDERFLOW.md`. Sin commit/publicación ni cambios clínicos.

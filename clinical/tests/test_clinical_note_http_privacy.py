@@ -94,6 +94,19 @@ class ClinicalNoteHttpPrivacyTests(unittest.TestCase):
         self.assertEqual({"error": "invalid clinical request"},
                          json.loads(h.wfile.getvalue()))
 
+    def test_pediatric_rounding_error_is_public_only_on_calculation_and_export(self):
+        for path, expected in [
+            ("/api/pediatric-outpatient/calculate", api.ZERO_ROUNDED_VOLUME_ERROR),
+            ("/api/pediatric-outpatient/export", api.ZERO_ROUNDED_VOLUME_ERROR),
+            ("/api/clinical-note/analyze", "invalid clinical request"),
+        ]:
+            with self.subTest(path=path):
+                h = make_handler(path=path)
+                with patch.object(api, "dispatch", side_effect=ValueError(api.ZERO_ROUNDED_VOLUME_ERROR)):
+                    h.do_POST()
+                self.assertEqual(422, h.sent_status[-1])
+                self.assertEqual({"error": expected}, json.loads(h.wfile.getvalue()))
+
     def test_access_log_never_echoes_path_or_identifiers(self):
         h = make_handler()
         with patch("sys.stderr", new_callable=io.StringIO) as stderr:

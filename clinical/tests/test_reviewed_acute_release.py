@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import acute_medication_api as api
 from test_acute_reviewed_anaphylaxis import IM_INITIAL_INPUTS, IM_REPEAT_INPUTS, INFUSION_INITIAL_INPUTS
 from test_acute_reviewed_reversal import EXAMPLE_CASES
+from test_acute_reviewed_status import PHENYTOIN_DOSE_ONLY_INPUTS
 
 
 EXPECTED_REVIEWED_IDS = {
@@ -41,6 +42,26 @@ def request(regimen_id, inputs, current=None):
 
 
 class ReviewedAcuteReleaseTests(unittest.TestCase):
+    def test_positive_dosing_outputs_must_survive_float_conversion_and_export_recalculation(self):
+        cases = (
+            ('anaphylaxis-refractory', INFUSION_INITIAL_INPUTS, 'weight_kg', 'dose'),
+            ('reversal-other-lmwh', EXAMPLES['reversal-other-lmwh']['inputs'],
+             'dalteparin_dose_to_neutralize_anti_xa_iu', 'dose'),
+            ('status-phenytoin-local', PHENYTOIN_DOSE_ONLY_INPUTS, 'weight_kg', 'infusion_rate_mg_min'),
+        )
+        for regimen, inputs, field, output in cases:
+            with self.subTest(regimen=regimen):
+                payload = request(regimen, {**inputs, field: 1e-320})
+                prior = api.calculate_request(payload)['result']
+                self.assertGreater(prior[output], 0)
+                payload['inputs'][field] = 5e-324
+                with self.assertRaises(ValueError):
+                    api.calculate_request(payload)
+                for fmt in ('json', 'pdf', 'docx'):
+                    with self.subTest(format=fmt), self.assertRaises(ValueError):
+                        api.export_request({'format': fmt, 'confirmed': True,
+                                            'calculation': payload, 'expected_result': prior})
+
     def test_exact_nineteen_acceptances_and_source_provenance(self):
         current = api.catalog()
         rows = current['regimens']

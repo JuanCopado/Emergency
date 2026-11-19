@@ -61,6 +61,15 @@ try {
     }
   }
   console.log('PASS real API: paracetamol ideal-weight dose and complete course');
+  await page.getByLabel('Peso ideal (kg)', {exact: true}).fill('0.01');
+  assert.equal(await result().count(), 0);
+  const roundedZero = page.waitForResponse(response => response.url().endsWith('/api/pediatric-outpatient/calculate'));
+  await calculate();
+  assert.equal((await roundedZero).status(), 422);
+  await page.getByRole('alert').filter({hasText: 'Positive dose volume rounds to 0.0 mL at 0.1 mL precision'}).waitFor();
+  assert.equal(await result().count(), 0);
+  assert.equal(await page.getByRole('button', {name: /^Exportar /}).count(), 0);
+  console.log('PASS real API: a positive dose rounded to zero removes the previous pediatric result and export actions');
   await choose('dexamethasone-croup-mild-moderate');
   await page.getByLabel('Edad (meses)', { exact: true }).fill('48');
   await page.getByLabel('Peso real (kg)', { exact: true }).fill('18');
