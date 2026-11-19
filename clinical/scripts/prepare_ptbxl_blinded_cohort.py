@@ -103,13 +103,20 @@ def prepare(database_csv, target_code, salt, fold=10):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("database_csv", type=input_file)
+    p.add_argument("database_csv", type=Path)
     p.add_argument("target_code")
-    p.add_argument("cohort_output", type=output_file)
-    p.add_argument("reference_output", type=output_file)
+    p.add_argument("cohort_output", type=Path)
+    p.add_argument("reference_output", type=Path)
     p.add_argument("--salt", required=True, help=">=16 chars; keep outside repository")
     p.add_argument("--fold", type=int, default=10)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.database_csv = input_file(args.database_csv)
+        args.cohort_output = output_file(args.cohort_output)
+        args.reference_output = output_file(args.reference_output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     cohort, reference = prepare(args.database_csv, args.target_code, args.salt, args.fold)
     args.cohort_output.write_text(json.dumps(cohort, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     args.reference_output.write_text(json.dumps(reference, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

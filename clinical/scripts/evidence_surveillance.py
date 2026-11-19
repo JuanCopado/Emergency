@@ -173,11 +173,22 @@ def run(source_path:pathlib.Path, previous:dict|None=None, cadence:str|None=None
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--sources", type=input_file, default=DEFAULT_SOURCES)
-    parser.add_argument("--previous", type=input_file)
+    parser.add_argument("--sources", type=pathlib.Path, default=DEFAULT_SOURCES)
+    parser.add_argument("--previous", type=pathlib.Path)
     parser.add_argument("--cadence", choices=["weekly", "urgent"])
-    parser.add_argument("--output", type=output_file, required=True)
+    parser.add_argument("--output", type=pathlib.Path, required=True)
     args = parser.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        if args.sources is DEFAULT_SOURCES:
+            args.sources = DEFAULT_SOURCES
+        else:
+            args.sources = input_file(args.sources)
+        if args.previous is not None:
+            args.previous = input_file(args.previous)
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        parser.error(str(error))
     destination: pathlib.Path = output_file(args.output)
     previous = json.loads(args.previous.read_text(encoding="utf-8")) if args.previous else None
     report = run(args.sources, previous, args.cadence)

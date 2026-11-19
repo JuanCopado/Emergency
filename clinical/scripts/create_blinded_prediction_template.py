@@ -35,8 +35,14 @@ def build(shard):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("shard", type=input_file)
-    p.add_argument("output", type=output_file)
+    p.add_argument("shard", type=Path)
+    p.add_argument("output", type=Path)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.shard = input_file(args.shard)
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     data = build(json.loads(args.shard.read_text(encoding="utf-8")))
     args.output.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

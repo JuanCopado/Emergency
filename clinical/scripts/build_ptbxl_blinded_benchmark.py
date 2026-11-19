@@ -308,15 +308,21 @@ def build(database_csv, target_code, salt, output_dir, fold=10, max_cases=0, pil
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("database_csv", type=input_file)
+    p.add_argument("database_csv", type=Path)
     p.add_argument("target_code")
-    p.add_argument("output_dir", type=output_directory)
+    p.add_argument("output_dir", type=Path)
     p.add_argument("--salt", required=True)
     p.add_argument("--fold", type=int, default=10)
     p.add_argument("--max-cases", type=int, default=0)
     p.add_argument("--pilot-per-class", type=int, default=0)
     p.add_argument("--natural-limit", type=int, default=0)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.database_csv = input_file(args.database_csv)
+        args.output_dir = output_directory(args.output_dir)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     cohort, sealed = build(
         args.database_csv, args.target_code, args.salt, args.output_dir,
         fold=args.fold, max_cases=args.max_cases, pilot_per_class=args.pilot_per_class,

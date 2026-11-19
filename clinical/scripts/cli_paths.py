@@ -39,9 +39,11 @@ def _bounded_path(value, access) -> Path:
            for part in parts):
         raise argparse.ArgumentTypeError("reserved or ambiguous filename")
     target = (base / candidate).resolve()
-    if not target.is_relative_to(base):
-        raise argparse.ArgumentTypeError("CLI path escapes the launcher workspace")
-    return target
+    try:
+        relative = target.relative_to(base)
+    except ValueError:
+        raise argparse.ArgumentTypeError("CLI path escapes the launcher workspace") from None
+    return base / relative
 
 
 def input_file(value) -> Path:

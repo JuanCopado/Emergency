@@ -72,9 +72,19 @@ if __name__ == "__main__":
     p=argparse.ArgumentParser()
     p.add_argument("entry_id")
     p.add_argument("weight_kg", type=float)
-    p.add_argument("--registry", type=input_file, default=DEFAULT_REGISTRY)
-    p.add_argument("--context-json", type=input_file, help="Path to an explicit clinical-context JSON object; no environment fallback")
+    p.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
+    p.add_argument("--context-json", type=Path, help="Path to an explicit clinical-context JSON object; no environment fallback")
     args=p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        if args.registry is DEFAULT_REGISTRY:
+            args.registry = DEFAULT_REGISTRY
+        else:
+            args.registry = input_file(args.registry)
+        if args.context_json is not None:
+            args.context_json = input_file(args.context_json)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     context = None
     if args.context_json is not None:
         context = json.loads(args.context_json.read_text(encoding="utf-8"))

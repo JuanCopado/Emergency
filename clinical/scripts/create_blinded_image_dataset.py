@@ -45,9 +45,14 @@ if __name__ == "__main__":
     p.add_argument("modality", choices=sorted(ALLOWED_MODALITIES))
     p.add_argument("target_condition")
     p.add_argument("target_question")
-    p.add_argument("output", type=output_file)
+    p.add_argument("output", type=Path)
     p.add_argument("--reference-type", default="independent_expert_reference")
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     data = build(args.modality, args.target_condition, args.target_question, args.reference_type)
     args.output.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(args.output)

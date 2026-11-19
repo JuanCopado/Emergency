@@ -39,6 +39,13 @@ def extract(video_path, output_dir, n=32):
     return meta
 
 if __name__=="__main__":
-    p=argparse.ArgumentParser(); p.add_argument("video",type=input_file); p.add_argument("output_dir",type=output_directory)
+    p=argparse.ArgumentParser(); p.add_argument("video",type=Path); p.add_argument("output_dir",type=Path)
     p.add_argument("--frames",type=int,default=32)
-    a=p.parse_args(); print(json.dumps(extract(a.video,a.output_dir,a.frames)))
+    a=p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        a.video = input_file(a.video)
+        a.output_dir = output_directory(a.output_dir)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
+    print(json.dumps(extract(a.video,a.output_dir,a.frames)))

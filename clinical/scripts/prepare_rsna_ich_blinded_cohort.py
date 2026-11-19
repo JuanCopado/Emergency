@@ -150,11 +150,18 @@ def prepare(images_csv, references_csv, salt):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("images_csv", type=input_file)
-    p.add_argument("references_csv", type=input_file)
-    p.add_argument("output_dir", type=output_directory)
+    p.add_argument("images_csv", type=Path)
+    p.add_argument("references_csv", type=Path)
+    p.add_argument("output_dir", type=Path)
     p.add_argument("--salt", required=True)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.images_csv = input_file(args.images_csv)
+        args.references_csv = input_file(args.references_csv)
+        args.output_dir = output_directory(args.output_dir)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     blinded, sealed = prepare(args.images_csv, args.references_csv, args.salt)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     (args.output_dir / "blinded_manifest.json").write_text(

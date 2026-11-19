@@ -371,7 +371,12 @@ def analyze(note, rules=None, apply_to_note=False):
 if __name__=="__main__":
     import argparse
     p=argparse.ArgumentParser()
-    p.add_argument("note_json", type=input_file); p.add_argument("--apply",action="store_true")
+    p.add_argument("note_json", type=Path); p.add_argument("--apply",action="store_true")
     a=p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        a.note_json = input_file(a.note_json)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     note=json.loads(a.note_json.read_text(encoding="utf-8"))
     print(json.dumps(analyze(note,apply_to_note=a.apply),indent=2,ensure_ascii=False))

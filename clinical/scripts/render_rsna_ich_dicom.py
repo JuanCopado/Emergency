@@ -143,10 +143,16 @@ def render_exam(dicom_files, output_dir, case_id):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("dicom_dir", type=input_directory)
-    p.add_argument("output_dir", type=output_directory)
+    p.add_argument("dicom_dir", type=Path)
+    p.add_argument("output_dir", type=Path)
     p.add_argument("case_id")
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.dicom_dir = input_directory(args.dicom_dir)
+        args.output_dir = output_directory(args.output_dir)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     files = sorted(x for x in args.dicom_dir.rglob("*") if x.is_file())
     result = render_exam(files, args.output_dir, args.case_id)
     print(json.dumps({"case_id": result["case_id"], "slice_count": result["slice_count"]}))

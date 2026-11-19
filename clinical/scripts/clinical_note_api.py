@@ -13,6 +13,7 @@ Safety properties:
 """
 
 import ssl
+import html
 import argparse
 import base64
 import binascii
@@ -513,9 +514,11 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
     server_version = "EmergencyClinicalNoteAPI/1.0"
 
     def _send(self, status, body):
-        raw = (json.dumps(body, ensure_ascii=False)
-               .replace("&", "\\u0026").replace("<", "\\u003c").replace(">", "\\u003e")
-               .encode("utf-8"))
+        # Neutralize markup, then encode those entities as JSON Unicode escapes.
+        # Quotes stay JSON syntax; decoded strings retain their exact content.
+        escaped = html.escape(json.dumps(body, ensure_ascii=False), quote=False)
+        raw = (escaped.replace("&lt;", "\\u003c").replace("&gt;", "\\u003e")
+               .replace("&amp;", "\\u0026").encode("utf-8"))
         self.send_response(int(status))
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Cache-Control", "no-store")

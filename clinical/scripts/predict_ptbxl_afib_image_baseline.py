@@ -153,10 +153,17 @@ def predict(blinded_manifest, root_dir, frozen_at=None):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("blinded_manifest", type=input_file)
-    p.add_argument("artifact_root", type=input_directory)
-    p.add_argument("output", type=output_file)
+    p.add_argument("blinded_manifest", type=Path)
+    p.add_argument("artifact_root", type=Path)
+    p.add_argument("output", type=Path)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        args.blinded_manifest = input_file(args.blinded_manifest)
+        args.artifact_root = input_directory(args.artifact_root)
+        args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     manifest = json.loads(args.blinded_manifest.read_text(encoding="utf-8"))
     result = predict(manifest, args.artifact_root)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

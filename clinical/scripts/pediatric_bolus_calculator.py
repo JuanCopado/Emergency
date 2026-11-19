@@ -89,6 +89,14 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("entry_id")
     p.add_argument("weight_kg", type=float)
-    p.add_argument("--registry", type=input_file, default=DEFAULT_REGISTRY)
+    p.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
     args = p.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        if args.registry is DEFAULT_REGISTRY:
+            args.registry = DEFAULT_REGISTRY
+        else:
+            args.registry = input_file(args.registry)
+    except argparse.ArgumentTypeError as error:
+        p.error(str(error))
     print(json.dumps(calculate(args.entry_id, args.weight_kg, args.registry), indent=2))

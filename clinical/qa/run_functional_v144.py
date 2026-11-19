@@ -117,8 +117,14 @@ def run(pilot=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--pilot', action='store_true')
-    parser.add_argument('--output', type=output_file)
+    parser.add_argument('--output', type=Path)
     args = parser.parse_args()
+    # Validate every supplied path before business processing. The launcher grants the roots.
+    try:
+        if args.output is not None:
+            args.output = output_file(args.output)
+    except argparse.ArgumentTypeError as error:
+        parser.error(str(error))
     report = run(args.pilot)
     serialized = json.dumps(report, ensure_ascii=False, indent=2) + '\n'
     if args.output:

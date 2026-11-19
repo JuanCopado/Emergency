@@ -79,7 +79,9 @@ class LauncherCapabilityTests(unittest.TestCase):
 
 class HttpTransportTests(unittest.TestCase):
     def test_json_roundtrip_retains_unicode_and_markup_as_data(self):
-        body = {'synthetic': '<script>&value</script>', 'label': 'μg • ñ'}
+        body = {'synthetic': '<script>&value</script>', 'label': 'μg • ñ',
+                'literal_entities': '&lt; &gt; &amp; &amp;lt;',
+                'literal_escape': r'\u003c', 'nested': ['"<&>"', {'text': '<&>'}]}
         handler = make_handler()
         handler._send(200, body)
         raw = handler.wfile.getvalue()

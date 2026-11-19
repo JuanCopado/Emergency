@@ -47,10 +47,14 @@ def canonical(root=ROOT):
         group = re.match(r'^# \d+\. (.+)$', line)
         if group:
             family = group[1].strip()
-        row = re.match(r'^\d+\. \*\*(PROC-[A-Z]+-\d{3}) — (.+?)\*\* — (.+)$', line.rstrip())
+        row = re.match(r'^\d+\. \*\*(PROC-[A-Z]+-\d{3}) — ', line)
         if not row:
             continue
-        pid, name, level = row.groups()
+        name, separator, level = line[row.end():].partition('** — ')
+        level = level.rstrip()
+        if not separator or not name or not level:
+            continue
+        pid = row[1]
         if pid in entries or not family:
             raise ValueError(f'duplicate/unscoped index ID: {pid}')
         alias = re.fullmatch(r'referencia cruzada a (?:PROC-)?([A-Z]+-\d{3})', level)
