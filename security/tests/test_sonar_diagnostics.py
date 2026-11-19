@@ -81,6 +81,7 @@ class SonarDiagnosticsTests(unittest.TestCase):
             self.assertNotIn(TOKEN, request.full_url)
         self.assertTrue(all(context.verify_mode == ssl.CERT_REQUIRED and context.check_hostname
                             for context in contexts))
+        self.assertEqual(parse_qs(urlsplit(requests[1].full_url).query)["organization"], ["juancopado"])
 
     def test_redirect_never_forwards_authorization(self):
         for status in (301, 302, 303, 307, 308):
@@ -96,12 +97,14 @@ class SonarDiagnosticsTests(unittest.TestCase):
 
     def test_ambient_proxy_and_host_overrides_are_not_used(self):
         env = {**ENV, "HTTPS_PROXY": "http://untrusted.invalid:8080", "NO_PROXY": "",
-               "SONAR_HOST_URL": "https://untrusted.invalid", "SONAR_PROJECT_KEY": "untrusted"}
+               "SONAR_HOST_URL": "https://untrusted.invalid", "SONAR_PROJECT_KEY": "untrusted",
+               "SONAR_ORGANIZATION": "untrusted"}
         code, _, requests, _ = self.run_helper([GATE, {"total": 0, "issues": []}], env)
         self.assertEqual(code, 0)
         self.assertTrue(all(request.host == "sonarcloud.io" for request in requests))
         self.assertEqual(parse_qs(urlsplit(requests[0].full_url).query)["projectKey"],
                          [DIAGNOSTICS.PROJECT])
+        self.assertEqual(parse_qs(urlsplit(requests[1].full_url).query)["organization"], ["juancopado"])
 
     def test_invalid_selection_and_header_credentials_make_no_request(self):
         invalid = [{**ENV, "SONAR_PULL_REQUEST": value} for value in ("-1", "33&branch=other", "３３", "33.0", "")]

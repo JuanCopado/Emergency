@@ -17,6 +17,7 @@ from urllib.request import (HTTPSHandler, HTTPRedirectHandler, ProxyHandler,
 
 ORIGIN = "https://sonarcloud.io"
 PROJECT = "JuanCopado_Emergency"
+ORGANIZATION = "juancopado"
 TIMEOUT = 15
 MAX_BYTES = 1_000_000
 MAX_ERROR_BYTES = 16_384
@@ -198,7 +199,7 @@ def collect(environment, progress):
               "conditions": [public_fields(item, CONDITION_FIELDS, token) for item in conditions],
               "issues": []}
     data = request_json(opener, "/api/issues/search", {
-        "componentKeys": PROJECT, **selected, "types": "VULNERABILITY",
+        "organization": ORGANIZATION, "componentKeys": PROJECT, **selected, "types": "VULNERABILITY",
         "resolved": "false", "ps": str(PAGE_SIZE), "p": "1"}, token, progress)
     progress["code"] = "ISSUE_SCHEMA"
     count = data.get("total", data.get("paging", {}).get("total"))
