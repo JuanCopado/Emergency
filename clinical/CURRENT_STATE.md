@@ -1,3 +1,7 @@
+## 2026-11-19 · PR31 · Integridad de las peticiones de medicación
+
+Las rutas de cálculo y exportación de agudos y pediatría ambulatoria rechazan objetos JSON con claves repetidas. La entrada decimal conserva la distinción entre cero y un valor no nulo que se perdería al convertirlo. En agudos, la API y el formulario comprueban que el redondeo no convierta una entrada en un entero admitido por el contrato. Se mantiene `CLINICALLY_PENDING`.
+
 ## 2026-11-19 · PR31 · Nueve regímenes de farmacología aguda
 
 La entrada explícita de peso se valida contra el intervalo aprobado de 1 a 180 kg, incluidos ambos extremos, y se respetan los límites más estrictos de cada régimen. En los tres regímenes de reversión afectados se rechaza una dosis positiva que se convierte en cero por subdesbordamiento. La exportación confirmada vuelve a comprobar la entrada y el cálculo. El estado de validación permanece en `CLINICALLY_PENDING`.

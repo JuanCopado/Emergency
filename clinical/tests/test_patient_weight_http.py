@@ -23,6 +23,75 @@ def post_literal(path, payload):
             client.close()
 
 
+class MedicationJsonIntegrityHttp(unittest.TestCase):
+    def test_duplicate_members_rejected_before_dispatch_on_all_medication_routes(self):
+        for api_name, container, field in (
+                ('acute-medications', 'inputs', 'weight_kg'),
+                ('pediatric-outpatient', 'patient', 'actual_weight_kg')):
+            for first, second in ((70, 80), (181, 70), (70, 181), (70, 70)):
+                members = f'"{field}":{first},"{field}":{second}'
+                for calculation in ('{"' + container + '":{' + members + '}}',
+                                    '{"' + container + '":{},"' + container + '":{}}'):
+                    for action, raw in [('calculate', calculation),
+                                        ('export', '{"calculation":' + calculation + '}')]:
+                        with self.subTest(api=api_name, action=action, raw=raw), patch.object(api, 'dispatch') as dispatch:
+                            self.assertEqual(post_literal(f'/api/{api_name}/{action}', raw),
+                                             (422, {'error': 'invalid clinical request'}))
+                            dispatch.assert_not_called()
+
+    def test_real_calculation_and_confirmed_exports_require_unambiguous_exact_inputs(self):
+        from test_acute_weight_range import calculation
+
+        for regimen, field, valid, invalid in (
+                ('insulin-dka', 'weight_kg', '70', ['181,"weight_kg":70', '80,"weight_kg":70']),
+                ('status-lorazepam', 'prior_bzd_doses', '0e-400',
+                 ['1e-400', '-1e-400', '1.000000000000000001', '0.999999999999999999'])):
+            payload = calculation(regimen)
+            payload['inputs'][field] = 'LITERAL'
+            encoded = json.dumps(payload)
+            calc_path = '/api/acute-medications/calculate'
+            export_path = '/api/acute-medications/export'
+            status, nominal = post_literal(calc_path, encoded.replace('"LITERAL"', valid))
+            self.assertEqual(status, 200)
+            self.assertFalse(nominal['blocked'])
+            for fmt in ('json', 'pdf', 'docx'):
+                envelope = json.dumps({'format': fmt, 'calculation': payload, 'confirmed': True,
+                                       'expected_result': nominal['result']})
+                status, artifact = post_literal(export_path, envelope.replace('"LITERAL"', valid))
+                self.assertEqual(status, 200)
+                self.assertTrue(artifact['content_base64'])
+                for literal in invalid:
+                    with self.subTest(regimen=regimen, fmt=fmt, literal=literal):
+                        self.assertEqual(post_literal(export_path, envelope.replace('"LITERAL"', literal)),
+                                         (422, {'error': 'invalid clinical request'}))
+            for literal in invalid:
+                with self.subTest(regimen=regimen, literal=literal):
+                    self.assertEqual(post_literal(calc_path, encoded.replace('"LITERAL"', literal)),
+                                     (422, {'error': 'invalid clinical request'}))
+
+    def test_decimal_count_rounding_and_preservation(self):
+        path = '/api/acute-medications/calculate'
+        def parse_count(literal):
+            return parse_medication_request(
+                '{"regimen_id":"status-lorazepam","inputs":{"prior_bzd_doses":' + literal + '}}', path
+            )['inputs']['prior_bzd_doses']
+
+        for literal in ('0', '-0.0', '0e-400', '10e-1', '1.0', '100e-2'):
+            self.assertEqual(parse_count(literal), float(literal))
+        for literal in ('1e-400', '-1e-400', '0.99999999999999999999', '1.00000000000000000001'):
+            with self.subTest(literal=literal), self.assertRaises(ValueError):
+                parse_count(literal)
+        # Ordinary fractional counts still reach the existing clinical STOP.
+        self.assertEqual(parse_count('0.25'), 0.25)
+        with self.assertRaises(ValueError):
+            parse_medication_request(
+                '{"regimen_id":"amiodarone-arrest-third","inputs":{"shock_count":3.0000000000000001}}', path)
+        with self.assertRaises(ValueError):
+            parse_medication_request('{"patient":{"age_months":1e-400}}', '/api/pediatric-outpatient/calculate')
+        raw = '{"inputs":{"weight_kg":70},"other":{"weight_kg":80}}'
+        self.assertEqual(parse_medication_request(raw, path), json.loads(raw))
+
+
 class PatientWeightHttp(unittest.TestCase):
     def paths(self, literal):
         return (
