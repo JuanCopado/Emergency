@@ -79,7 +79,7 @@ try {
   }
   async function confirmMetadata() {
     for (const locator of await page.locator('[aria-label^="Ámbito de metadato"]').all()) await locator.selectOption('yes');
-    for (const locator of await page.locator('[aria-label^="Revisión de metadato"]').all()) await locator.selectOption('confirmed');
+    for (const locator of await page.locator('select[aria-label^="Revisión de metadato"]').all()) await locator.selectOption('confirmed');
   }
   const calculate = page.getByRole('button', { name: 'Interpretar valores confirmados', exact: true });
   await page.getByLabel('Tipo de muestra', { exact: true }).selectOption('arterial');

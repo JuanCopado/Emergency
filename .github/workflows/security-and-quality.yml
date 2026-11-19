@@ -253,3 +253,18 @@ jobs:
             echo 'A skipped scan is NOT EXECUTED. Technical analysis does not change CLINICALLY_PENDING.'
             echo 'https://sonarcloud.io/dashboard?id=JuanCopado_Emergency'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Collect metadata for a failed quality gate
+        id: sonar_diagnostics
+        if: always() && steps.trust.outputs.eligible == 'true' && steps.sonar.outcome == 'failure'
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PULL_REQUEST: ${{ github.event.pull_request.number || '' }}
+        run: python scripts/security/sonar_diagnostics.py > "$RUNNER_TEMP/sonar-diagnostics.json"
+      - name: Publish quality gate diagnostic metadata
+        if: always() && (steps.sonar_diagnostics.outcome == 'success' || steps.sonar_diagnostics.outcome == 'failure')
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sonar-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/sonar-diagnostics.json
+          if-no-files-found: error
+          retention-days: 7
