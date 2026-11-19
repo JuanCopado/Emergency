@@ -250,18 +250,36 @@ const underflowInputs = new Map([
   ['status-phenytoin-dose-only', 'weight_kg'],
 ]);
 
-async function verifyUnderflow(page, fixture, row, inputs) {
+async function assertWeightRejectedInForm(page, calculationCount) {
+  const before = calculationCount();
+  await page.getByRole('button', {name: 'Comprobar y calcular', exact: true}).click();
+  await page.getByRole('alert').filter({hasText: /El peso (debe estar entre|no cumple los límites)/}).waitFor();
+  assert.equal(calculationCount(), before, 'An invalid weight must be rejected before sending a calculation');
+  await assertInvalidated(page);
+}
+
+async function verifyUnderflow(page, fixture, row, inputs, revision, calculationCount) {
   const id = fixture.case_id || fixture.id;
   const fieldKey = underflowInputs.get(id);
   if (!fieldKey) return;
   const field = row.fields.find(item => item.key === fieldKey);
   await setControl(page, field, Number.MIN_VALUE);
   await assertInvalidated(page);
-  const pending = page.waitForResponse(response => response.url().endsWith('/api/acute-medications/calculate'));
-  await page.getByRole('button', {name: 'Comprobar y calcular', exact: true}).click();
-  const response = await pending;
+  let response;
+  if (fieldKey === 'weight_kg') {
+    await assertWeightRejectedInForm(page, calculationCount);
+    const url = new URL('/api/acute-medications/calculate', page.url()).href;
+    response = await page.request.post(url, {data: {
+      regimen_id: row.id, source_revision: revision, inputs: {...inputs, [fieldKey]: Number.MIN_VALUE},
+    }});
+    assert.equal(response.status(), 422);
+  } else {
+    const pending = page.waitForResponse(r => r.url().endsWith('/api/acute-medications/calculate'));
+    await page.getByRole('button', {name: 'Comprobar y calcular', exact: true}).click();
+    response = await pending;
+    assert.equal(response.request().postDataJSON().inputs[fieldKey], Number.MIN_VALUE);
+  }
   const value = await response.json();
-  assert.equal(response.request().postDataJSON().inputs[fieldKey], Number.MIN_VALUE);
   assert.equal(response.status() === 422 || (response.status() === 200 && value.blocked === true), true, id);
   assert.equal(value.result, undefined);
   await page.getByRole('alert').first().waitFor();
@@ -332,7 +350,7 @@ try {
       assert.equal(calculated.blocked, false, JSON.stringify(calculated));
       const presentation = await verifyResultUI(page, fixture, calculated);
       const exports = await verifyExports(page, calculated);
-      await verifyUnderflow(page, fixture, row, inputs);
+      await verifyUnderflow(page, fixture, row, inputs, catalog.source_revision, () => browserCalculations);
 
       // When the bank supplies another independently specified mode of this ID,
       // switch in the same live form. Hidden state must not reach the API/export.
@@ -404,10 +422,14 @@ try {
         }
         await assertInvalidated(page);
         const activeCandidate = Object.fromEntries(Object.entries(candidate).filter(([key]) => active(row.fields.find(field => field.key === key), candidate)));
-        const blocked = await submit(page, fixture.id, activeCandidate);
-        assert.equal(blocked.blocked, true, `${fixture.id}: negative UI fixture accepted ${JSON.stringify(updates)}`);
-        assert.equal(blocked.result, undefined);
-        await assertBlockedUI(page);
+        if (has(updates, 'weight_kg') && alerts.some(alert => alert.code === 'weight_kg')) {
+          await assertWeightRejectedInForm(page, () => browserCalculations);
+        } else {
+          const blocked = await submit(page, fixture.id, activeCandidate);
+          assert.equal(blocked.blocked, true, `${fixture.id}: negative UI fixture accepted ${JSON.stringify(updates)}`);
+          assert.equal(blocked.result, undefined);
+          await assertBlockedUI(page);
+        }
         rejectedInputs.push({updates, layer: 'UI and API gates', alerts: blocked.alerts});
         for (const field of row.fields) {
           if (has(updates, field.key) && active(field, inputs)) await setControl(page, field, inputs[field.key]);

@@ -61,7 +61,10 @@ try {
     }
   }
   console.log('PASS real API: paracetamol ideal-weight dose and complete course');
-  await page.getByLabel('Peso ideal (kg)', {exact: true}).fill('0.01');
+  // Use a valid synthetic weight so the request reaches the volume-rounding guard.
+  await page.getByLabel('Peso ideal (kg)', {exact: true}).fill('1');
+  await page.getByLabel('Concentración verificada (mg/mL)', {exact: true}).fill('1500');
+  await page.getByLabel('Presentación externa al registro: ficha técnica comprobada', {exact: true}).check();
   assert.equal(await result().count(), 0);
   const roundedZero = page.waitForResponse(response => response.url().endsWith('/api/pediatric-outpatient/calculate'));
   await calculate();
