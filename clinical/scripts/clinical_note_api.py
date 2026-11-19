@@ -27,8 +27,10 @@ import tempfile
 import uuid
 from copy import deepcopy
 from http import HTTPStatus
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from http_transport import (
+    BoundedHTTPServer, DeadlineRequestHandler, RequestRejection, json_request_size,
+)
 
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import export_docx, export_json, export_pdf
@@ -510,7 +512,7 @@ def dispatch(path, payload):
     return HTTPStatus.NOT_FOUND, {"error": "unknown endpoint"}
 
 
-class ClinicalNoteHandler(BaseHTTPRequestHandler):
+class ClinicalNoteHandler(DeadlineRequestHandler):
     server_version = "EmergencyClinicalNoteAPI/1.0"
 
     def _send(self, status, body):
@@ -526,6 +528,7 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Security-Policy", "default-src 'none'; frame-ancestors 'none'")
         self.send_header("Referrer-Policy", "no-referrer")
         self.send_header("Content-Length", str(len(raw)))
+        self.send_header("Connection", "close")
         self.end_headers()
         self.wfile.write(raw)
 
@@ -536,16 +539,24 @@ class ClinicalNoteHandler(BaseHTTPRequestHandler):
             self._send(HTTPStatus.NOT_FOUND, {"error": "not found"})
 
     def do_POST(self):
+        self.close_connection = True
         try:
-            size = int(self.headers.get("Content-Length", "0"))
-            if size <= 0 or size > (MAX_UPLOAD_BYTES * 2 + 1_000_000):
-                raise ValueError("invalid request size")
-            payload = json.loads(self.rfile.read(size).decode("utf-8"))
+            size = json_request_size(self.headers, MAX_UPLOAD_BYTES * 2 + 1_000_000)
+            raw = self.rfile.read(size)
+            if len(raw) != size:
+                self._send(HTTPStatus.BAD_REQUEST, {"error": "incomplete request body"})
+                return
+            self.connection.settimeout(self.timeout)
+            payload = json.loads(raw.decode("utf-8"))
             if not isinstance(payload, dict):
                 raise ValueError("request body must be a JSON object")
             status, body = dispatch(self.path, payload)
             self._send(status, body)
-        except json.JSONDecodeError:
+        except RequestRejection as exc:
+            self._send(exc.status, {"error": str(exc)})
+        except (TimeoutError, ConnectionError):
+            return  # Close a timed-out/disconnected transport without dispatch.
+        except (json.JSONDecodeError, UnicodeDecodeError):
             self._send(HTTPStatus.BAD_REQUEST, {"error": "invalid JSON"})
         except ValueError as exc:
             # Return only audited, static messages for known safety boundaries.
@@ -587,9 +598,7 @@ def main():
         context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
         context.minimum_version = ssl.TLSVersion.TLSv1_2
         context.load_cert_chain(args.tls_cert, args.tls_key)
-    server = ThreadingHTTPServer((args.host, args.port), ClinicalNoteHandler)
-    if context is not None:
-        server.socket = context.wrap_socket(server.socket, server_side=True)
+    server = BoundedHTTPServer((args.host, args.port), ClinicalNoteHandler, tls_context=context)
     print(f"Clinical-note API listening on {'HTTPS' if context else 'loopback HTTP'} port {args.port}")
     server.serve_forever()
 
