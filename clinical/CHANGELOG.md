@@ -1,6 +1,24 @@
+## Conciliación técnica R3 y PR30 · 19/11/2026
+
+Se conserva el contenido clínico de R3 y se añade el transporte HTTP de PR30 mediante comparación de tres versiones; solo se resuelve este changelog, sin alterar aritmética, dosis ni validación clínica.
+
 ## Seguridad técnica HTTP · 18/11/2026
 
 Transporte con plazo absoluto, TLS por worker, concurrencia limitada y framing JSON estricto; regresiones sintéticas de sockets, sin cambios clínicos. Ver `../security/HTTP_TRANSPORT_HARDENING_2026-11-18.md`.
+
+## R2 · corrección focal CLI tras primera auditoría · 17/11/2026
+
+La primera revisión independiente del árbol `0f419c01c2d4366a0b4b2fba8d973f8be1722d84` detectó `R2-CLI-UNDERFLOW`: `argparse type=float` convertía una mantisa no nula (también negativa) en cero antes de las guardas. Se añade una frontera léxica en el CLI de perfusión, reutilizando `finite_number`, sin modificar fórmulas ni coeficientes: rechaza ese underflow y formatos ajenos al contrato de punto decimal sin agrupación, conservando ceros explícitos y valores representables. Regresión RED→GREEN mediante subprocess real para ambos signos, ceros y entradas válidas/inválidas. Se conserva el corte previo y se vuelve a ejecutar la QA sobre un árbol final único; la revisión del último delta permanece separada. Detalle: `docs/coordination/EMERGENCY_INTG_R2_20261116/R2_CLI_UNDERFLOW.md`. Sin commit/publicación ni cambios clínicos.
+
+## Integración técnica R2 E1 · 16/11/2026
+
+Candidato local en `codex/work-emergency-intg-20261116-e1-r2`, base PR20 `1d0652ebcef9b5990edd9e5745b0c06f8d6b8274`; sin commit ni publicación autorizados. Composición selectiva P3/P4 (`b92eb9dc`), guardas/unidades T03 (`8d972d83`) y único contexto opcional T01 accesible (`96228d95`). Se preservan 46 IDs y la aceptación de 19 contratos: 6 cálculos condicionados y 13 orientaciones sin dosis automática; las frases históricas de 19 bloqueos no son el estado vigente.
+
+Entrada con punto decimal sin agrupación; salida ES/PT con coma, EN/ZH con punto, sin localizar el JSON ni cambiar la aritmética. Recursos estáticos de interfaz separados de fuentes, alertas y exportaciones clínicas originales. Se añaden rechazos focales de underflow positivo a cero, conservando cero explícito. T03 separa unidad total y ponderal sin cambiar cantidades, máximos o frecuencia. Contexto T01 opcional y solo declarativo: idioma no selecciona país, guía, pauta, producto ni recursos.
+
+No se incorporan maestros históricos ni se reabren decisiones de protamina/ceftriaxona posteriores a T03. GMA-P1-001/002 tienen correcciones técnicas focales, sin cierre global. GMA-P1-003 conserva las correcciones PR20; GMA-C-P1-001 conserva sus guardas actuales. `CLINICALLY_PENDING`, evidencia 117 GREEN / 14 YELLOW, T06 online excluido y R6/B1 congelados. Traducción clínica integral y revisión lingüística profesional pendientes.
+
+La evidencia del árbol exacto, comandos y resultados propios se entrega en `r2-e1/output/CODEX_RESULT.md` y manifiestos asociados del despacho Work; las cifras anteriores no se atribuyen a este candidato. Auditoría independiente y navegador real se distinguen de pruebas DOM; ningún fallo de arranque puede contarse como PASS.
 
 ## Contratos revisados habilitados · 16/11/2026 · ACUTE-RELEASE
 

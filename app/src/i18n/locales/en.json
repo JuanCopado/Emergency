@@ -300,5 +300,42 @@
     "dexmedetomidine": "Dexmedetomidine",
     "midazolam": "Midazolam",
     "ketamine": "Ketamine"
+  },
+  "referenceContext": {
+    "title": "Optional reference context",
+    "help": "The international core is available without a country or hospital. These preferences describe context only. Country coverage is partial; example organizations are synthetic.",
+    "mode": "Reference mode",
+    "international": "International reference",
+    "declared": "Declared context",
+    "country": "Country (optional)",
+    "organization": "Organization",
+    "environment": "Care setting",
+    "unspecified": "Unspecified",
+    "recovered": "Invalid saved context. International reference restored.",
+    "status": "Context status",
+    "limits": "Preferences do not select guidelines, change calculations, confirm resources or enable blocked contracts.",
+    "organizations": {
+      "unspecified": "Unspecified",
+      "synthetic-a": "Synthetic organization A",
+      "synthetic-b": "Synthetic organization B"
+    },
+    "environments": {
+      "unspecified": "Unspecified",
+      "hospital": "Hospital",
+      "prehospital": "Prehospital",
+      "transport": "Transport",
+      "remote": "Rural / remote",
+      "limited-resources": "Limited resources"
+    },
+    "resources": {
+      "ultrasound": "Ultrasound",
+      "laboratory": "Laboratory",
+      "criticalCare": "Critical care"
+    },
+    "resourceStates": {
+      "unknown": "Unknown",
+      "declared-present": "Declared present (unverified)",
+      "declared-unavailable": "Declared unavailable (unverified)"
+    }
   }
 }

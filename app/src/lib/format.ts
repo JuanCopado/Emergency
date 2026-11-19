@@ -1,24 +1,39 @@
-/** Locale-aware number formatting that never hides clinically relevant decimals. */
+/** Presentation only: never add grouping separators to clinical values. */
 export function formatNumber(value: number, locale: string, maxDecimals = 3): string {
   if (!Number.isFinite(value)) return '—';
-  return new Intl.NumberFormat(locale, { maximumFractionDigits: maxDecimals, minimumFractionDigits: 0 }).format(value);
+  return new Intl.NumberFormat(locale, { useGrouping: false, maximumFractionDigits: maxDecimals, minimumFractionDigits: 0 }).format(value);
 }
 
-/** Fixed 1-decimal mL/h display (pump setting). */
+/** Fixed 1-decimal mL/h display (pump setting); arithmetic precision is unchanged. */
 export function formatRate(value: number, locale: string): string {
-  return new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value);
+  if (!Number.isFinite(value)) return '—';
+  return new Intl.NumberFormat(locale, { useGrouping: false, minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value);
 }
 
-/** Replace "mcg" with "µg" when the user prefers the SI symbol. */
+/** Localize a canonical numeric result without rounding or reparsing its display. */
+export function formatCanonicalNumber(value: number, locale: string): string {
+  if (!Number.isFinite(value)) return '—';
+  const decimal = new Intl.NumberFormat(locale).formatToParts(1.1).find(p => p.type === 'decimal')?.value ?? '.';
+  return String(value).replace('.', decimal);
+}
+
 export function unitLabel(unit: string, micro: 'mcg' | 'µg'): string {
   return micro === 'µg' ? unit.replace(/mcg/g, 'µg') : unit;
 }
 
-/** Parse user-entered decimal accepting comma or dot. Returns null on empty/invalid. */
+/** Canonical finite input: decimal point, optional sign/exponent, no grouping. */
+export function parseFiniteDecimal(input: string): number | null {
+  const text = input.trim();
+  if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(text)) return null;
+  const value = Number(text);
+  // A nonzero mantissa may underflow to zero before case-specific validation.
+  if (value === 0 && /[1-9]/.test(text.split(/e/i)[0] ?? '')) return null;
+  return Number.isFinite(value) ? value : null;
+}
+
+/** Non-negative infusion input. A comma is rejected, never silently reinterpreted. */
 export function parseDecimal(input: string): number | null {
-  const s = input.trim().replace(/\s/g, '').replace(',', '.');
-  if (!s) return null;
-  if (!/^\d*\.?\d+$|^\d+\.$/.test(s)) return null;
-  const n = Number(s);
-  return Number.isFinite(n) ? n : null;
+  const text = input.trim();
+  if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(text)) return null;
+  return parseFiniteDecimal(text);
 }

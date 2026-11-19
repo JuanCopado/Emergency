@@ -27,7 +27,7 @@ const expectedIDs = [...new Set(cases.map(item => item.id))].sort();
 const suffix = group === 'all' ? '' : `_${group.toUpperCase()}`;
 const filename = legacyOutput ? `V1.44_ACUTE_${group.toUpperCase()}_BROWSER_RESULTS.json`
   : `${scope === 'all' ? 'ALL' : 'REVIEWED'}_ACUTE_BROWSER_2026-11-16${suffix}.json`;
-const target = new URL(`../../clinical/qa/${filename}`, import.meta.url);
+const target = process.env.ACUTE_EVIDENCE_PATH || new URL(`../../clinical/qa/${filename}`, import.meta.url);
 const digest = value => createHash('sha256').update(value).digest('hex');
 const norm = value => String(value).replace(/\s+/g, '');
 const active = (field, inputs) => !field.required_if || inputs[field.required_if.key] === field.required_if.equals;
@@ -120,10 +120,30 @@ async function submit(page, regimenID, expectedInputs) {
   return value;
 }
 
-function expectedDisplay(value) {
-  if (value == null) return null;
-  if (Array.isArray(value) && value.every(item => typeof item === 'string')) return value.join('\n');
-  return typeof value === 'object' ? JSON.stringify(value) : String(value);
+function expectedDisplay(value, nested = false) {
+  if (value == null) return {kind: 'scalar', text: norm(nested ? 'No registrado' : 'No especificado en la fuente; requiere verificación profesional')};
+  if (Array.isArray(value)) return {kind: 'array', items: value.map(item => expectedDisplay(item, true))};
+  if (typeof value === 'object') return {kind: 'object', entries: Object.entries(value).map(([key, item]) => ({key: key.replaceAll('_', ' '), value: expectedDisplay(item, true)}))};
+  const text = typeof value === 'number' ? Number.isFinite(value) ? String(value).replace('.', ',') : '—'
+    : typeof value === 'boolean' ? value ? 'Sí' : 'No' : String(value);
+  return {kind: 'scalar', text: norm(text)};
+}
+
+async function structuredDisplay(cell) {
+  return cell.evaluate(container => {
+    function read(parent) {
+      const root = parent.firstElementChild;
+      if (root?.tagName === 'UL') return {kind: 'array', items: [...root.children].map(read)};
+      if (root?.tagName === 'DL') return {kind: 'object', entries: [...root.children].map(entry => {
+        const key = entry.querySelector(':scope > dt');
+        const value = entry.querySelector(':scope > dd');
+        if (!key || !value) throw new Error('Incomplete structured clinical value');
+        return {key: key.textContent, value: read(value)};
+      })};
+      return {kind: 'scalar', text: parent.textContent.replace(/\s+/g, '')};
+    }
+    return read(container);
+  });
 }
 
 async function verifyResultUI(page, fixture, calculated) {
@@ -164,7 +184,7 @@ async function verifyResultUI(page, fixture, calculated) {
   for (const key of shownKeys) {
     const shown = await page.locator(`[data-result="${key}"]`).innerText();
     const expected = expectedDisplay(result[key]);
-    assert.ok(expected === null ? shown.includes('No especificado') : norm(shown) === norm(expected), `${fixture.id}: readable/factual display ${key}`);
+    assert.deepEqual(await structuredDisplay(page.locator(`[data-result="${key}"]`)), expected, `${fixture.id}: complete structured/localized display ${key}`);
     assert.ok(!shown.includes('[object Object]'), `${fixture.id}: unrendered structured result ${key}`);
   }
   assert.equal(norm(await page.getByTestId('acute-warnings').innerText()), norm(result.monitoring_and_warnings));

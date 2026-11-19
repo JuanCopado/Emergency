@@ -27,6 +27,7 @@ try {
     proxy: { '/api/pediatric-outpatient': `http://127.0.0.1:${port}` } }, logLevel: 'error' });
   browser = await chromium.launch({ executablePath: chromiumPath(), headless: true });
   const page = await browser.newPage({ serviceWorkers: 'block' });
+  await page.addInitScript(() => localStorage.setItem('emergency.lang','es'));
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('http://127.0.0.1:4174/pediatrics');
@@ -49,7 +50,7 @@ try {
   await page.getByLabel('He verificado la concentración del producto exacto', { exact: true }).check();
   await calculate(); await result().waitFor();
   const text = await result().innerText();
-  assert.match(text, /525/); assert.match(text, /21\.9/); assert.match(text, /175/);
+  assert.match(text, /525/); assert.match(text, /21,9/); assert.match(text, /175/);
   assert.equal(await result().evaluate(el => el === el.ownerDocument.activeElement), true);
   if (process.env.UI_QA_SCREENSHOTS) {
     mkdirSync(process.env.UI_QA_SCREENSHOTS, { recursive: true });
@@ -67,7 +68,7 @@ try {
   await page.getByLabel('Concentración verificada (mg/mL)', { exact: true }).fill('0.4');
   await page.getByLabel('He verificado la concentración del producto exacto', { exact: true }).check();
   await calculate(); await result().waitFor();
-  assert.match(await result().innerText(), /6\.7[45]/);
+  assert.match(await result().innerText(), /6,7[45]/);
   console.log('PASS real API: dexamethasone croup single-dose volume');
   await choose('rizatriptan-migraine-rch');
   await page.getByLabel('Edad (meses)', { exact: true }).fill('120');

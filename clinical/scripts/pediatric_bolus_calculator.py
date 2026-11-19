@@ -7,6 +7,7 @@ It never selects the indication. It computes dose/volume only from a registry en
 import json
 from pathlib import Path
 from pediatric_numbers import positive, finite_result
+from pediatric_dose_units import total_dose_unit
 
 ROOT = Path(__file__).parents[1]
 DEFAULT_REGISTRY = ROOT / "qa" / "pediatric-bolus-medications.json"
@@ -37,7 +38,8 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
         if max_dose is not None:
             dose = min(dose, positive("max_dose", max_dose))
         result["dose"] = dose
-        result["dose_unit"] = item["dose_unit"]
+        result["dose_unit"] = total_dose_unit(item["dose_unit"])
+        result["dose_per_kg_unit"] = item["dose_unit"]
 
         if item["dose_unit"] == "mL/kg":
             result["volume_ml"] = dose
@@ -45,7 +47,7 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
 
         concentration = item.get("source_concentration_per_ml")
         if concentration is not None:
-            result["volume_ml"] = dose / positive("source_concentration_per_ml", concentration)
+            result["volume_ml"] = positive("calculated volume", dose / positive("source_concentration_per_ml", concentration))
             result["concentration_per_ml"] = positive("source_concentration_per_ml", concentration)
             result["concentration_unit"] = item.get("concentration_unit")
         return result
@@ -58,10 +60,11 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY):
             low = min(low, positive("max_dose", max_dose))
             high = min(high, positive("max_dose", max_dose))
         result["dose_range"] = [low, high]
-        result["dose_unit"] = item["dose_unit"]
+        result["dose_unit"] = total_dose_unit(item["dose_unit"])
+        result["dose_per_kg_unit"] = item["dose_unit"]
         concentration = item.get("source_concentration_per_ml")
         if concentration is not None:
-            result["volume_range_ml"] = [low / positive("source_concentration_per_ml", concentration), high / positive("source_concentration_per_ml", concentration)]
+            result["volume_range_ml"] = [positive("calculated volume", low / positive("source_concentration_per_ml", concentration)), positive("calculated volume", high / positive("source_concentration_per_ml", concentration))]
         return result
 
     raise ValueError(f"{entry_id}: unsupported registry shape")
@@ -81,7 +84,7 @@ def calculate_with_selected_concentration(entry_id, weight_kg, concentration_per
         raise ValueError(f"{entry_id}: a single numeric dose is required for mL conversion")
     result = dict(result)
     result["selected_concentration_per_ml"] = concentration
-    result["volume_ml"] = float(result["dose"]) / concentration
+    result["volume_ml"] = positive("calculated volume", float(result["dose"]) / concentration)
     return result
 
 if __name__ == "__main__":

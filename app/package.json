@@ -44,7 +44,11 @@
     "prepediatrics:check": "node scripts/picomatch-mitigation.mjs --check",
     "prepediatrics:browser-check": "node scripts/picomatch-mitigation.mjs --check",
     "preinsulin:browser-check": "node scripts/picomatch-mitigation.mjs --check",
-    "security:picomatch:installation-check": "node scripts/check-picomatch-installation.mjs"
+    "security:picomatch:installation-check": "node scripts/check-picomatch-installation.mjs",
+    "i18n:browser-check": "node scripts/check-locale-safety.mjs",
+    "prei18n:browser-check": "node scripts/picomatch-mitigation.mjs --check",
+    "build:security": "npm run build && node scripts/build-dependency-guard.mjs --check-service-worker",
+    "prebuild:security": "node scripts/picomatch-mitigation.mjs --check"
   },
   "keywords": [],
   "author": "",

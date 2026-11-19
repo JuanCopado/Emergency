@@ -102,7 +102,9 @@ jobs:
       - name: Test
         run: npm test
       - name: Build
-        run: npm run build
+        env:
+          EMERGENCY_SECURITY_AUDIT: '1'
+        run: npm run build:security
       - name: Ensure build did not change committed catalogs
         run: git diff --exit-code -- src/data/generatedClinicalGuides.json src/data/generatedProcedures.json src/data/generatedPediatricOutpatient.json
       - name: Verify reviewed acute contracts in Chromium

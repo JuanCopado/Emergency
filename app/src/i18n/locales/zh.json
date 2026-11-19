@@ -296,5 +296,42 @@
     "dexmedetomidine": "右美托咪定",
     "midazolam": "咪达唑仑",
     "ketamine": "氯胺酮"
+  },
+  "referenceContext": {
+    "title": "可选参考情境",
+    "help": "无需选择国家或医院即可查阅国际核心内容。这些偏好仅描述情境。国家覆盖范围有限；示例机构为虚构机构。",
+    "mode": "参考模式",
+    "international": "国际参考",
+    "declared": "已声明情境",
+    "country": "国家（可选）",
+    "organization": "机构",
+    "environment": "诊疗环境",
+    "unspecified": "未指定",
+    "recovered": "保存的情境无效，已恢复国际参考模式。",
+    "status": "情境状态",
+    "limits": "这些偏好不会选择指南、改变计算、确认资源或启用被锁定的方案。",
+    "organizations": {
+      "unspecified": "未指定",
+      "synthetic-a": "虚构机构 A",
+      "synthetic-b": "虚构机构 B"
+    },
+    "environments": {
+      "unspecified": "未指定",
+      "hospital": "医院",
+      "prehospital": "院前",
+      "transport": "转运",
+      "remote": "农村或偏远地区",
+      "limited-resources": "资源有限"
+    },
+    "resources": {
+      "ultrasound": "超声",
+      "laboratory": "实验室",
+      "criticalCare": "重症监护"
+    },
+    "resourceStates": {
+      "unknown": "未知",
+      "declared-present": "声明可用（未验证）",
+      "declared-unavailable": "声明不可用（未验证）"
+    }
   }
 }

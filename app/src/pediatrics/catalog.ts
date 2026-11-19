@@ -1,3 +1,5 @@
+import i18n from '../i18n';
+import { parseFiniteDecimal } from '../lib/format';
 import type { PediatricReport } from './PediatricExport';
 import generated from '../data/generatedPediatricOutpatient.json';
 
@@ -34,9 +36,9 @@ export async function calculatePediatric(body: Fields): Promise<Calculation> {
 }
 
 export function numericInput(text: string, label: string, allowZero = false): number {
-  const n = Number(text);
-  if (!text.trim() || !Number.isFinite(n) || (allowZero ? n < 0 : n <= 0)) {
-    throw new Error(`${label}: introduce un número finito ${allowZero ? 'mayor o igual que cero' : 'mayor que cero'}`);
+  const n = parseFiniteDecimal(text);
+  if (n === null || (allowZero ? n < 0 : n <= 0)) {
+    throw new Error(i18n.t(allowZero ? '{{label}}: introduce un número finito mayor o igual que cero.' : '{{label}}: introduce un número finito mayor que cero.', {ns:'clinicalUi',keySeparator:false,nsSeparator:false,label}));
   }
   return n;
 }

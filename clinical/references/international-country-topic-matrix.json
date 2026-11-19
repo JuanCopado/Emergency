@@ -1,0 +1,522 @@
+{
+  "schema_version": "1.0.0",
+  "id": "INT-02-INT-03-country-topic-matrix",
+  "generated_on": "2026-11-16",
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "directory_status": "regulatory_portal_directory_only",
+  "country_review_default": "PENDING_JURISDICTION_RECONCILIATION",
+  "note": "Directorio y matriz de trabajo, NO ficha técnica por producto ni validación de dosis, autorización, comercialización, stock o protocolos. No autoriza cálculo ni prescripción.",
+  "countries": [
+    {
+      "code": "ES",
+      "name_es": "España",
+      "region": "EU",
+      "authority": "AEMPS · CIMA",
+      "registry_url": "https://cima.aemps.es/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "PT",
+      "name_es": "Portugal",
+      "region": "EU",
+      "authority": "INFARMED · Infomed",
+      "registry_url": "https://www.infarmed.pt/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "FR",
+      "name_es": "Francia",
+      "region": "EU",
+      "authority": "ANSM · Base de Données Publique",
+      "registry_url": "https://base-donnees-publique.medicaments.gouv.fr/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "DE",
+      "name_es": "Alemania",
+      "region": "EU",
+      "authority": "BfArM · AMIce",
+      "registry_url": "https://www.bfarm.de/DE/Arzneimittel/Arzneimittelinformationen/Arzneimittel-recherchieren/AMIce/_node.html",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "IT",
+      "name_es": "Italia",
+      "region": "EU",
+      "authority": "AIFA",
+      "registry_url": "https://www.aifa.gov.it/it/liste-dei-farmaci",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "GB",
+      "name_es": "Reino Unido",
+      "region": "UK",
+      "authority": "MHRA · Products",
+      "registry_url": "https://products.mhra.gov.uk/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "US",
+      "name_es": "Estados Unidos",
+      "region": "NA",
+      "authority": "FDA · Drugs@FDA",
+      "registry_url": "https://www.accessdata.fda.gov/scripts/cder/daf/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "CA",
+      "name_es": "Canadá",
+      "region": "NA",
+      "authority": "Health Canada · Drug Product Database",
+      "registry_url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database.html",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "MX",
+      "name_es": "México",
+      "region": "NA",
+      "authority": "COFEPRIS",
+      "registry_url": "https://www.gob.mx/cofepris/es/documentos/registros-sanitarios-medicamentos",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "BR",
+      "name_es": "Brasil",
+      "region": "SA",
+      "authority": "ANVISA · Consultas/Bulário",
+      "registry_url": "https://consultas.anvisa.gov.br/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "CO",
+      "name_es": "Colombia",
+      "region": "SA",
+      "authority": "INVIMA",
+      "registry_url": "https://www.invima.gov.co/consulta-registros-sanitarios",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "AR",
+      "name_es": "Argentina",
+      "region": "SA",
+      "authority": "ANMAT · Vademécum Nacional",
+      "registry_url": "https://www.anmat.gob.ar/Medicamentos/basedat.asp",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "CL",
+      "name_es": "Chile",
+      "region": "SA",
+      "authority": "ISP · ANAMED",
+      "registry_url": "https://www.ispch.cl/anamed/medicamentos/registro-sanitario-de-productos-farmaceuticos/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    },
+    {
+      "code": "PE",
+      "name_es": "Perú",
+      "region": "SA",
+      "authority": "DIGEMID",
+      "registry_url": "https://www.digemid.minsa.gob.pe/webDigemid/registro-sanitario/productos-farmaceuticos/",
+      "product_review_status": "NOT_PRODUCT_VERIFIED"
+    }
+  ],
+  "shared_sources": [
+    {
+      "id": "EMA",
+      "scope": "Autorizaciones centralizadas UE cuando corresponda; no sustituye registros nacionales",
+      "url": "https://www.ema.europa.eu/en/about-us/what-we-do/authorisation-medicines"
+    },
+    {
+      "id": "WHO",
+      "scope": "Referencia internacional; no autoriza por sí misma comercialización ni uso local",
+      "url": "https://www.who.int/"
+    }
+  ],
+  "topics": [
+    {
+      "id": "medication.amiodarona",
+      "kind": "medication",
+      "name_es": "Amiodarona",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.insulina-cad-adulta",
+      "kind": "medication",
+      "name_es": "Insulina en cetoacidosis diabética adulta",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.insulina-cad-pediatrica",
+      "kind": "medication",
+      "name_es": "Insulina en cetoacidosis diabética pediátrica",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.salina-hipertonica",
+      "kind": "medication",
+      "name_es": "Solución salina hipertónica",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.benzodiacepinas-status",
+      "kind": "medication",
+      "name_es": "Benzodiacepinas en estatus epiléptico",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.segunda-linea-status",
+      "kind": "medication",
+      "name_es": "Segunda línea del estatus epiléptico",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.adrenalina-anafilaxia",
+      "kind": "medication",
+      "name_es": "Adrenalina en anafilaxia",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.adrenalina-parada",
+      "kind": "medication",
+      "name_es": "Adrenalina en parada cardíaca",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.octaplex-pcc",
+      "kind": "medication",
+      "name_es": "Complejo protrombínico de cuatro factores / Octaplex",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.andexanet",
+      "kind": "medication",
+      "name_es": "Andexanet alfa",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.idarucizumab",
+      "kind": "medication",
+      "name_es": "Idarucizumab",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.protamina",
+      "kind": "medication",
+      "name_es": "Protamina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.vitamina-k",
+      "kind": "medication",
+      "name_es": "Vitamina K",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.naloxona",
+      "kind": "medication",
+      "name_es": "Naloxona",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.noradrenalina",
+      "kind": "medication",
+      "name_es": "Noradrenalina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.dopamina",
+      "kind": "medication",
+      "name_es": "Dopamina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.vasopresina",
+      "kind": "medication",
+      "name_es": "Vasopresina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.dobutamina",
+      "kind": "medication",
+      "name_es": "Dobutamina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.milrinona",
+      "kind": "medication",
+      "name_es": "Milrinona",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.propofol",
+      "kind": "medication",
+      "name_es": "Propofol",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.ketamina",
+      "kind": "medication",
+      "name_es": "Ketamina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.midazolam",
+      "kind": "medication",
+      "name_es": "Midazolam",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.fentanilo",
+      "kind": "medication",
+      "name_es": "Fentanilo",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.morfina",
+      "kind": "medication",
+      "name_es": "Morfina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.labetalol",
+      "kind": "medication",
+      "name_es": "Labetalol",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.tranexamico",
+      "kind": "medication",
+      "name_es": "Ácido tranexámico",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.alteplasa",
+      "kind": "medication",
+      "name_es": "Alteplasa",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.tenecteplasa",
+      "kind": "medication",
+      "name_es": "Tenecteplasa",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.ceftriaxona",
+      "kind": "medication",
+      "name_es": "Ceftriaxona",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.vancomicina",
+      "kind": "medication",
+      "name_es": "Vancomicina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.aciclovir",
+      "kind": "medication",
+      "name_es": "Aciclovir",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.levetiracetam",
+      "kind": "medication",
+      "name_es": "Levetiracetam",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.adenosina",
+      "kind": "medication",
+      "name_es": "Adenosina",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.magnesio",
+      "kind": "medication",
+      "name_es": "Magnesio intravenoso",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.calcio",
+      "kind": "medication",
+      "name_es": "Sales de calcio intravenoso",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.potasio",
+      "kind": "medication",
+      "name_es": "Reposición de potasio",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.antibioticos-pediatricos",
+      "kind": "medication",
+      "name_es": "Antibióticos pediátricos",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.analgesia-pediatrica",
+      "kind": "medication",
+      "name_es": "Analgesia pediátrica",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.sedacion-pediatrica",
+      "kind": "medication",
+      "name_es": "Sedación farmacológica pediátrica",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.medicacion-ambulatoria-pediatrica",
+      "kind": "medication",
+      "name_es": "Medicación ambulatoria pediátrica",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "medication.compatibilidad-perfusiones",
+      "kind": "medication",
+      "name_es": "Preparación, compatibilidad y estabilidad de perfusiones",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.resucitacion-adulta",
+      "kind": "protocol",
+      "name_es": "Resucitación adulta",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.resucitacion-pediatrica",
+      "kind": "protocol",
+      "name_es": "Resucitación pediátrica",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.ictus",
+      "kind": "protocol",
+      "name_es": "Código ictus y reperfusión",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.sindrome-coronario",
+      "kind": "protocol",
+      "name_es": "Síndrome coronario agudo",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.sepsis",
+      "kind": "protocol",
+      "name_es": "Sepsis y shock séptico",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.embolia-pulmonar",
+      "kind": "protocol",
+      "name_es": "Tromboembolismo pulmonar",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.trauma",
+      "kind": "protocol",
+      "name_es": "Trauma mayor",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.via-aerea",
+      "kind": "protocol",
+      "name_es": "Vía aérea difícil",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.diabetes-cad",
+      "kind": "protocol",
+      "name_es": "Cetoacidosis diabética",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.anticoagulacion-reversion",
+      "kind": "protocol",
+      "name_es": "Reversión de anticoagulación",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.crisis-epilepticas",
+      "kind": "protocol",
+      "name_es": "Crisis epilépticas",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "protocol.sepsis-pediatrica",
+      "kind": "protocol",
+      "name_es": "Sepsis pediátrica",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "procedure.acceso-venoso-central",
+      "kind": "procedure",
+      "name_es": "Acceso venoso central",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "procedure.toracocentesis",
+      "kind": "procedure",
+      "name_es": "Toracocentesis",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "procedure.drenaje-pleural",
+      "kind": "procedure",
+      "name_es": "Drenaje pleural",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "procedure.cardioversion",
+      "kind": "procedure",
+      "name_es": "Cardioversión",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "procedure.intubacion",
+      "kind": "procedure",
+      "name_es": "Intubación",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "procedure.pocus",
+      "kind": "procedure",
+      "name_es": "Ecografía POCUS",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "diagnostic.ecg",
+      "kind": "diagnostic",
+      "name_es": "ECG",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "diagnostic.radiografia-torax",
+      "kind": "diagnostic",
+      "name_es": "Radiografía de tórax",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "diagnostic.tc-rm",
+      "kind": "diagnostic",
+      "name_es": "TC/RM",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "diagnostic.gasometria",
+      "kind": "diagnostic",
+      "name_es": "Gasometría",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    },
+    {
+      "id": "operational.derivacion",
+      "kind": "operational",
+      "name_es": "Derivación, transporte y recursos",
+      "clinical_review_status": "PENDING_COUNTRY_REVIEW"
+    }
+  ],
+  "country_topic_reviews": []
+}

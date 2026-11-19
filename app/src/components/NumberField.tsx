@@ -1,3 +1,4 @@
+import { useClinicalUi } from '../i18n/useClinicalUi';
 import { useId, type ReactNode } from 'react';
 
 interface Props {
@@ -14,6 +15,8 @@ interface Props {
 }
 
 export function NumberField({ label, value, onChange, suffix, hint, error, id, testId, placeholder, large }: Props) {
+  const ui = useClinicalUi();
+  hint = hint ?? ui("Entrada numérica: usa punto decimal (0.1), sin separadores de miles. La salida sigue el idioma seleccionado.");
   const autoId = useId();
   const inputId = id ?? autoId;
   const hintId = `${inputId}-hint`;
@@ -29,6 +32,7 @@ export function NumberField({ label, value, onChange, suffix, hint, error, id, t
           id={inputId}
           type="text"
           inputMode="decimal"
+          lang="en"
           autoComplete="off"
           spellCheck={false}
           value={value}

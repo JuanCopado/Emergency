@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BRAND } from '../config/brand';
 import { db } from '../data';
 import { LANGUAGES } from '../i18n';
+import ReferenceContextSelector from '../components/ReferenceContextSelector';
 import { useSettings, type MicroSymbol, type ThemePref } from '../state/settings';
 
 function Radio<T extends string>({ name, value, current, onChange, children }: { name: string; value: T; current: T; onChange: (v: T) => void; children: React.ReactNode }) {
@@ -24,6 +25,8 @@ export default function Settings() {
         <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">{t('settings.title')}</h1>
         <p className="mt-1 text-muted">{t('settings.subtitle')}</p>
       </header>
+
+      <ReferenceContextSelector />
 
       <fieldset className="card p-4 sm:p-5">
         <legend className="sr-only">{t('settings.language')}</legend>

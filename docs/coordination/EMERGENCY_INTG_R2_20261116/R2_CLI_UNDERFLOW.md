@@ -1,0 +1,9 @@
+# R2-CLI-UNDERFLOW · corrección focal autorizada
+
+Primera auditoría independiente: árbol `0f419c01c2d4366a0b4b2fba8d973f8be1722d84`. Hallazgo importante: el parser `type=float` perdía la mantisa no nula de `1e-4000`, `+1e-4000` y `--dose-mcg-kg-min=-1e-4000`; las guardas posteriores solo recibían cero o menos cero. Reproducción sintética en la evidencia externa del auditor, sin datos reales.
+
+Corrección: `infusion_calculator.cli_decimal` comprueba el contrato léxico punto/sin agrupación, reutiliza `pediatric_numbers.finite_number` y rechaza una mantisa no nula que colapse a cero. Los cuatro argumentos del CLI utilizan la misma frontera. El valor float representable se devuelve sin modificación. `0`, `0e-4000`, `+0e-4000`, `-0e-4000` y ceros decimales explícitos permanecen válidos en la dosis; peso, volumen y cantidad conservan sus controles positivos posteriores. No cambian las expresiones de cálculo, constantes, unidades, fuentes o decisiones clínicas.
+
+Regresión focal: tres nuevos métodos invocan el CLI real con subprocess. RED: cinco subcasos fallan (cuatro underflow y agrupación1_000). GREEN: seis métodos, incluidos tres anteriores, con21invocaciones CLI (4underflow,9válidas,8inválidas). Los logs se preservan como `cli-underflow-red.log`/`cli-underflow-green.log`; no se sustituyen por pruebas internas del parser. El cero explícito no se usa para aceptar una mantisa no nula perdida.
+
+La QA y las exportaciones se vuelven a ejecutar en el nuevo árbol final. Identidad de árbol, comandos, códigos, hashes y resultados se entregan en OUTPUT_DIRECTORY. Los resultados del corte0f419c01 permanecen archivados por separado y no se atribuyen al árbol corregido. El auditor verificará el último delta; este documento no se atribuye su conclusión. Navegador real mantiene su estado observado por ejecución, sin bypass ni PASS de casos no ejecutados. CLINICALLY_PENDING, PR20,46IDs,6cálculos/13orientaciones de19aceptados y fuentes protegidas conservados.

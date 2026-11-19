@@ -8,6 +8,7 @@ This tool performs arithmetic only and never substitutes a dose from another syn
 import json
 from pathlib import Path
 from pediatric_numbers import positive, finite_result
+from pediatric_dose_units import total_dose_unit
 from ceftriaxone_sepsis_safety import TARGET_ENTRY_ID, CeftriaxoneSafetyError, validate_context
 
 ROOT = Path(__file__).parents[1]
@@ -50,10 +51,11 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY, *, context=None):
         if item.get("max_dose") is not None:
             dose = min(dose, positive("max_dose", item["max_dose"]))
         result["dose"] = dose
-        result["dose_unit"] = "mg" if guarded_context is not None else item.get("dose_unit")
+        result["dose_unit"] = total_dose_unit(item.get("dose_unit"))
+        result["dose_per_kg_unit"] = item.get("dose_unit")
         conc = item.get("source_concentration_per_ml")
         if conc is not None:
-            result["volume_ml"] = dose / positive("source_concentration_per_ml", conc)
+            result["volume_ml"] = positive("calculated volume", dose / positive("source_concentration_per_ml", conc))
         return result
     if item.get("dose_per_kg_min") is not None and item.get("dose_per_kg_max") is not None:
         low = positive("calculated dose", positive("dose_per_kg_min", item["dose_per_kg_min"]) * weight)
@@ -63,7 +65,8 @@ def calculate(entry_id, weight_kg, path=DEFAULT_REGISTRY, *, context=None):
             low = min(low, cap)
             high = min(high, cap)
         result["dose_range"] = [low, high]
-        result["dose_unit"] = item.get("dose_unit")
+        result["dose_unit"] = total_dose_unit(item.get("dose_unit"))
+        result["dose_per_kg_unit"] = item.get("dose_unit")
         return result
     raise ValueError(f"{entry_id}: no arithmetic dose stored")
 
