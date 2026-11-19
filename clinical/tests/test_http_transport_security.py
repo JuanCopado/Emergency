@@ -112,11 +112,19 @@ class HttpFramingSecurityTests(unittest.TestCase):
             dispatch.assert_not_called()
 
     def test_dispatch_failures_recover_capacity_without_private_details(self):
+        completed = queue.Queue()
         with running_server(max_workers=1) as server, patch.object(api, "dispatch", side_effect=RuntimeError("SYNTHETIC_PRIVATE")):
-            for _ in range(4):
-                status, response = raw_request(server, ["Content-Length: 2", "Content-Type: application/json"])
-                self.assertEqual(status, 500)
-                self.assertNotIn("SYNTHETIC_PRIVATE", json.dumps(response))
+            process_request_thread = server.process_request_thread
+            def notify_completed_request(request, address):
+                process_request_thread(request, address)
+                completed.put(True)
+            with patch.object(server, "process_request_thread", notify_completed_request):
+                for _ in range(4):
+                    status, response = raw_request(server, ["Content-Length: 2", "Content-Type: application/json"])
+                    self.assertEqual(status, 500)
+                    self.assertNotIn("SYNTHETIC_PRIVATE", json.dumps(response))
+                    # Reading Content-Length can finish before the worker releases its slot.
+                    self.assertTrue(completed.get(timeout=2))
         self.assertEqual(response, {"error": "clinical-note backend failure"})
 
 
