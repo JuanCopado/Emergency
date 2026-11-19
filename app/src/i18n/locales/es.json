@@ -208,7 +208,7 @@
       "belowRange": "Por debajo del rango/inicio de referencia (límite inferior {{value}} {{unit}})."
     },
     "errors": {
-      "weight": "Introduzca un peso entre 0 y 400 kg.",
+      "weight": "Introduzca un peso entre 1 y 180 kg, ambos incluidos.",
       "dose": "Introduzca un número positivo.",
       "rate": "Introduzca un ritmo positivo.",
       "concentration": "La cantidad y el volumen deben ser positivos."

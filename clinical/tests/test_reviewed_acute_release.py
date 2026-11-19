@@ -51,12 +51,22 @@ class ReviewedAcuteReleaseTests(unittest.TestCase):
         )
         for regimen, inputs, field, output in cases:
             with self.subTest(regimen=regimen):
-                payload = request(regimen, {**inputs, field: 1e-320})
+                payload = request(regimen, {**inputs, field: 1 if field == 'weight_kg' else 1e-320})
                 prior = api.calculate_request(payload)['result']
                 self.assertGreater(prior[output], 0)
                 payload['inputs'][field] = 5e-324
-                with self.assertRaises(ValueError):
-                    api.calculate_request(payload)
+                if field == 'weight_kg':
+                    blocked = api.calculate_request(payload)
+                    self.assertTrue(blocked['blocked'])
+                    self.assertNotIn('result', blocked)
+                    # The public weight boundary now rejects this earlier; keep
+                    # the independent arithmetic-underflow protection checked.
+                    row = next(r for r in api.catalog()['regimens'] if r['id'] == regimen)
+                    with self.assertRaises(ValueError):
+                        api._calculate(row, payload['inputs'])
+                else:
+                    with self.assertRaises(ValueError):
+                        api.calculate_request(payload)
                 for fmt in ('json', 'pdf', 'docx'):
                     with self.subTest(format=fmt), self.assertRaises(ValueError):
                         api.export_request({'format': fmt, 'confirmed': True,

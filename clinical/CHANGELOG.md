@@ -1,3 +1,7 @@
+## 2026-11-19 · PR31 · Cálculo y exportación en nueve regímenes
+
+Se incorpora la corrección ampliada de R3-CLAUDE-001 para seis regímenes dependientes del peso y tres regímenes de reversión. Una prueba con datos sintéticos en los endpoints HTTP cubrió los nueve casos y sus exportaciones JSON, PDF y DOCX. Para las entradas válidas se comprobó el contenido de los 27 archivos. Las entradas que antes producían cero recibieron HTTP 422 tanto al calcular como al exportar.
+
 ## 2026-11-19 · Correcciones numéricas de PR #31
 
 R3-CLAUDE-001 y componente numérico de R3-CLAUDE-002: validación de magnitudes positivas tras el cálculo y bloqueo del volumen pediátrico que redondea a cero. Las regresiones cubren cálculo y exportación. El recorrido de exportaciones en navegador admite ejecución independiente de la impresión con --exports-only. Q5 y T05 tienen seguimiento independiente.

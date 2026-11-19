@@ -1,11 +1,12 @@
 import { useClinicalUi } from '../i18n/useClinicalUi';
 import ClinicalValue from '../components/ClinicalValue';
 import { parseFiniteDecimal } from '../lib/format';
+import { parsePatientWeight } from '../lib/patientWeight';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 
-type Field = {key:string; label:string; kind:'number'|'boolean'|'choice'; options?:string[]; option_labels?:Record<string,string>; required_if?:{key:string; equals:string}};
+type Field = {key:string; label:string; kind:'number'|'boolean'|'choice'; options?:string[]; option_labels?:Record<string,string>; required_if?:{key:string; equals:string}; minimum?:number; maximum?:number; exclusive_minimum?:number; exclusive_maximum?:number};
 type Regimen = {id:string; label:string; group:string; group_label:string; drug:string; route:string|null; dose_unit:string|null; fields:Field[]; source:{body:string; preamble:string; contract_review?:{body:string}}; limitations:string[]};
 type Catalog = {source_revision:string; regimens:Regimen[]};
 type Result = Record<string, unknown>;
@@ -54,7 +55,15 @@ export default function AcuteMedications() {
         const value = values[f.key]?.trim();
         if (!value) throw new Error(ui("{{label}}: dato obligatorio sin documentar.", {label:f.label}));
         if (f.kind === 'number') {
-          const number = parseFiniteDecimal(value);
+          const number = f.key === 'weight_kg' ? parsePatientWeight(value) : parseFiniteDecimal(value);
+          if (f.key === 'weight_kg') {
+            if (number === null) throw new Error(ui("El peso debe estar entre 1 y 180 kg, ambos incluidos."));
+            if ((f.minimum !== undefined && number < f.minimum) || (f.maximum !== undefined && number > f.maximum)
+                || (f.exclusive_minimum !== undefined && number <= f.exclusive_minimum)
+                || (f.exclusive_maximum !== undefined && number >= f.exclusive_maximum)) {
+              throw new Error(ui("El peso no cumple los límites específicos de esta pauta."));
+            }
+          }
           if (number === null) throw new Error(ui("{{label}}: introduce un número finito con punto decimal.", {label:f.label}));
           inputs[f.key] = number;
         } else inputs[f.key] = f.kind === 'boolean' ? value === 'yes' : value;

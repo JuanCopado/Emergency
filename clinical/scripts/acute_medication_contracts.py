@@ -1,7 +1,11 @@
 """Reviewed, source-bound acute medication contracts. No frontend dosing rules."""
+from pediatric_numbers import MIN_PATIENT_WEIGHT_KG, MAX_PATIENT_WEIGHT_KG
 
 
 def field(key, label, kind='boolean', **rules):
+    if key == 'weight_kg' and kind == 'number':
+        rules['minimum'] = max(MIN_PATIENT_WEIGHT_KG, rules.get('minimum', MIN_PATIENT_WEIGHT_KG))
+        rules['maximum'] = min(MAX_PATIENT_WEIGHT_KG, rules.get('maximum', MAX_PATIENT_WEIGHT_KG))
     return {'key': key, 'label': label, 'kind': kind, **rules}
 
 

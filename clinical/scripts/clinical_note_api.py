@@ -32,6 +32,7 @@ from http_transport import (
     BoundedHTTPServer, DeadlineRequestHandler, RequestRejection, json_request_size,
 )
 from pediatric_outpatient_calculator import ZERO_ROUNDED_VOLUME_ERROR
+from patient_weight_request import parse_medication_request
 
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import export_docx, export_json, export_pdf
@@ -559,7 +560,7 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
                 self._send(HTTPStatus.BAD_REQUEST, {"error": "incomplete request body"})
                 return
             self.connection.settimeout(self.timeout)
-            payload = json.loads(raw.decode("utf-8"))
+            payload = parse_medication_request(raw.decode("utf-8"), self.path)
             if not isinstance(payload, dict):
                 raise ValueError("request body must be a JSON object")
             status, body = dispatch(self.path, payload)

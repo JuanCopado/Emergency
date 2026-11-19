@@ -8,6 +8,7 @@ import { NumberField } from '../components/NumberField';
 import { defaultPreparation, drugs, getDrug } from '../data';
 import { DOSE_UNITS, type AmountUnit, type DoseUnit, type Drug, type Preparation } from '../data/schema';
 import { formatCanonicalNumber, parseDecimal } from '../lib/format';
+import { parsePatientWeight } from '../lib/patientWeight';
 import {
   buildTitrationTable,
   computeBolus,
@@ -105,8 +106,8 @@ export default function Calculator() {
   const unitOptions = conc ? compatibleDoseUnits(drug, conc) : [drug.doseUnit];
   const effectiveDoseUnit = unitOptions.includes(doseUnit) ? doseUnit : drug.doseUnit;
 
-  const weightNum = parseDecimal(weight);
-  const weightError = weight && (weightNum === null || weightNum <= 0 || weightNum > 400) ? t('calc.errors.weight') : null;
+  const weightNum = parsePatientWeight(weight);
+  const weightError = weight && weightNum === null ? t('calc.errors.weight') : null;
   const weightKg = weightNum !== null && !weightError ? weightNum : null;
   const needsWeight = isWeightBasedUnit(effectiveDoseUnit);
 

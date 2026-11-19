@@ -200,6 +200,8 @@ def _calculate(row, inputs):
         dose = min(inputs['recent_ufh_units'] / 100, row['maximum']['value'])
     if row['model'] == 'enoxaparin':
         dose = min(dose * inputs['enoxaparin_mg'], row['maximum']['value'])
+    if row['model'] in ('ufh', 'enoxaparin') and dose <= 0:
+        raise ValueError('calculated protamine dose must remain positive')
     if row['model'] == 'insulin':
         reference = hyperglycemia_calculate({'weight_kg': inputs['weight_kg'],
             'insulin_concentration_units_ml': inputs['concentration']})['insulin_infusion_reference']

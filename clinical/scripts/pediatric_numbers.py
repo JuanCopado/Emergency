@@ -2,6 +2,9 @@
 import math
 from functools import wraps
 
+MIN_PATIENT_WEIGHT_KG = 1.0
+MAX_PATIENT_WEIGHT_KG = 180.0
+
 
 def finite_number(name, value):
     if isinstance(value, bool) or not isinstance(value, (int, float)):
@@ -19,6 +22,14 @@ def positive(name, value):
     value = finite_number(name, value)
     if value <= 0:
         raise ValueError(f"{name} must be > 0")
+    return value
+
+
+def patient_weight(name, value):
+    """Validate an entered patient weight without changing its value."""
+    value = finite_number(name, value)
+    if not MIN_PATIENT_WEIGHT_KG <= value <= MAX_PATIENT_WEIGHT_KG:
+        raise ValueError(f"{name} must be between 1 and 180 kg inclusive")
     return value
 
 
@@ -58,7 +69,7 @@ def outpatient_inputs(patient, product=None, entry=None):
         raise ValueError("product must be an object")
     for field in ('actual_weight_kg', 'ideal_weight_kg', 'adjusted_weight_kg'):
         if field in patient:
-            positive(field, patient[field])
+            patient_weight(field, patient[field])
     for field in ('age_months', 'egfr_mL_min'):
         if field in patient:
             nonnegative(field, patient[field])

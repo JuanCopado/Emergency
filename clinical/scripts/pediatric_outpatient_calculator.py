@@ -14,7 +14,7 @@ import json
 import math
 from pathlib import Path
 from pediatric_outpatient_alert_engine import evaluate as evaluate_alerts
-from pediatric_numbers import finite_number, positive, outpatient_inputs, finite_tree, finite_result
+from pediatric_numbers import finite_number, positive, patient_weight, outpatient_inputs, finite_tree, finite_result
 
 REGISTRY = Path(__file__).parents[1] / "qa" / "pediatric-outpatient-medications.json"
 ZERO_ROUNDED_VOLUME_ERROR = "Positive dose volume rounds to 0.0 mL at 0.1 mL precision"
@@ -47,11 +47,11 @@ def _entry(registry, regimen_id):
 def _weight(entry, patient):
     basis=entry.get("weight_basis")
     if basis=="actual":
-        return positive("actual_weight_kg",patient.get("actual_weight_kg"))
+        return patient_weight("actual_weight_kg",patient.get("actual_weight_kg"))
     if basis=="ideal":
-        return positive("ideal_weight_kg",patient.get("ideal_weight_kg"))
+        return patient_weight("ideal_weight_kg",patient.get("ideal_weight_kg"))
     if basis=="adjusted":
-        return positive("adjusted_weight_kg",patient.get("adjusted_weight_kg"))
+        return patient_weight("adjusted_weight_kg",patient.get("adjusted_weight_kg"))
     if basis in {"fixed_age_band","fixed_weight_band","device","topical","not_weight_based"}:
         return None
     raise ValueError("unsupported or missing weight_basis")
@@ -276,7 +276,7 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         band=_fixed_band(e,patient)
         dose=band.get("dose_mg")
         if dose is None and band.get("dose_mg_per_kg") is not None:
-            w=positive("actual_weight_kg",patient.get("actual_weight_kg"))
+            w=patient_weight("actual_weight_kg",patient.get("actual_weight_kg"))
             dose=_apply_max(_num(band["dose_mg_per_kg"],"dose_mg_per_kg")*w,{**e,"max_mg_per_dose":band.get("max_mg_per_dose",e.get("max_mg_per_dose"))})
             result["dosing_weight_kg"]=w
             result["dose_mg_per_kg"]=band["dose_mg_per_kg"]
@@ -384,7 +384,7 @@ def calculate(regimen_id, patient, product=None, selected_dose_per_kg=None, sele
         result["volume_per_dose"]={"exact_ml":volume_ml,"rounded_0_1_ml":_rounded_volume_ml(volume_ml),"concentration_mg_per_ml":None}
         result["dose_unit"]="mL"
     elif model=="volume_ml_per_kg_course":
-        w=positive("actual_weight_kg",patient.get("actual_weight_kg"))
+        w=patient_weight("actual_weight_kg",patient.get("actual_weight_kg"))
         perkg=positive("volume_ml_per_kg",e["volume_ml_per_kg"])
         total_volume=w*perkg
         hours=positive("administration_hours",e["administration_hours"])

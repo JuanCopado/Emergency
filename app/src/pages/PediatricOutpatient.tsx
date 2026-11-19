@@ -1,6 +1,7 @@
 import { useClinicalUi } from '../i18n/useClinicalUi';
 import { useFormat } from '../lib/useFormat';
 import { formatCanonicalNumber } from '../lib/format';
+import { MAX_PATIENT_WEIGHT_KG, MIN_PATIENT_WEIGHT_KG, parsePatientWeight } from '../lib/patientWeight';
 import PediatricExport from '../pediatrics/PediatricExport';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -28,6 +29,7 @@ const labels: Record<string, string> = {
   known_renal_impairment: 'Insuficiencia renal conocida', known_hepatic_impairment: 'Insuficiencia hepática conocida',
 };
 const label = (key: string) => labels[key] || key.replaceAll('_', ' ');
+const patientWeightFields = new Set(['actual_weight_kg', 'ideal_weight_kg', 'adjusted_weight_kg']);
 const omitted = new Set(['id', 'drug_id', 'drug', 'diagnosis', 'dose_model', 'liquid_capable', 'source_url',
   'medication_safety', 'prescription_status', 'status', 'regimen_id']);
 
@@ -97,7 +99,15 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
     setResponse(undefined); setError('');
     try {
       const patient: Fields = {};
-      for (const field of numericFields) if (values[field]?.trim()) patient[field] = numericInput(values[field], ui(label(field)), !field.includes('weight'));
+      for (const field of numericFields) if (values[field]?.trim()) {
+        if (patientWeightFields.has(field)) {
+          const weight = parsePatientWeight(values[field]);
+          if (weight === null) throw new Error(ui("{{label}}: introduce un peso finito entre {{minimum}} y {{maximum}} kg, ambos incluidos.", {
+            label: ui(label(field)), minimum: MIN_PATIENT_WEIGHT_KG, maximum: MAX_PATIENT_WEIGHT_KG,
+          }));
+          patient[field] = weight;
+        } else patient[field] = numericInput(values[field], ui(label(field)), !field.includes('weight'));
+      }
       for (const gate of flags) if (values[gate.field]) patient[gate.field] = values[gate.field] === 'yes';
       if (values.hepatic_severity) patient.hepatic_severity = values.hepatic_severity;
       for (const field of ['allergies', 'active_medications']) {
@@ -136,6 +146,9 @@ function RegimenForm({ regimen }: { regimen: Regimen }) {
     <form id="pediatric-input" onSubmit={submit} className="card p-4 space-y-4" aria-label={ui("Cálculo pediátrico")}>
       <h2 className="text-lg font-bold">{ui("Datos para la pauta seleccionada")}</h2>
       <p id="pediatric-number-policy" className="text-sm text-muted">{ui("Entrada numérica: usa punto decimal (0.1), sin separadores de miles. La salida sigue el idioma seleccionado.")}</p>
+      <p className="text-sm text-muted">{ui("Peso introducido: de {{minimum}} a {{maximum}} kg, ambos incluidos; se conservan los límites propios de cada pauta.", {
+        minimum: MIN_PATIENT_WEIGHT_KG, maximum: MAX_PATIENT_WEIGHT_KG,
+      })}</p>
       <p>{ui("Introduce datos verificados. Una dosis calculable no confirma indicación ni criterios de alta. Los campos vacíos no se interpretan como negativos.")}</p>
       <div className="grid gap-3 sm:grid-cols-2">{numericFields.map((f) => input(f, ui(label(f))))}</div>
       <fieldset className="space-y-3"><legend className="font-bold">{ui("Valoración clínica y contraindicaciones")}</legend>

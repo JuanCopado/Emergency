@@ -248,7 +248,7 @@ class ReviewedAnaphylaxisTests(unittest.TestCase):
     def test_infusion_rejects_arrest_io_and_numeric_overflow(self):
         self.assert_rejected(INFUSION_ID, {**INFUSION_INITIAL_INPUTS, 'clinical_situation': 'cardiac_arrest'}, 'clinical_situation')
         self.assert_rejected(INFUSION_ID, {**INFUSION_INITIAL_INPUTS, 'route': 'IO'}, 'route')
-        self.assert_rejected(INFUSION_ID, {**INFUSION_INITIAL_INPUTS, 'weight_kg': 1e308}, 'numeric_range')
+        self.assert_rejected(INFUSION_ID, {**INFUSION_INITIAL_INPUTS, 'weight_kg': 1e308}, 'weight_kg')
 
     def test_unknown_contract_and_inputs(self):
         self.assertIn('unsupported_contract', dict(validation_errors({'id': 'other'}, IM_INITIAL_INPUTS)))

@@ -27,19 +27,23 @@ class PediatricExportTests(unittest.TestCase):
     def test_positive_volume_rounding_to_zero_blocks_calculation_and_all_exports(self):
         body = request(next(case for case in CASES if case['id'] == 'paracetamol'))
         last_result = calculate_request(body)['result']
-        for weight in (0.01, 0.003, 5e-324):
-            body['patient']['ideal_weight_kg'] = weight
-            with self.subTest(weight=weight):
+        # Keep the entered weight in the accepted domain. Synthetic external
+        # concentrations exercise the rounding guard independently of that gate.
+        body['patient']['ideal_weight_kg'] = 1
+        body['product']['external_concentration_verified'] = True
+        for concentration in (1500, 5000, 1e300):
+            body['product']['concentration_mg_per_ml'] = concentration
+            with self.subTest(concentration=concentration):
                 with self.assertRaises(ValueError) as caught:
                     calculate_request(body)
                 self.assertEqual(str(caught.exception), ZERO_ROUNDED_VOLUME_ERROR)
             for fmt in ('json', 'pdf', 'docx'):
-                with self.subTest(weight=weight, fmt=fmt):
+                with self.subTest(concentration=concentration, fmt=fmt):
                     with self.assertRaises(ValueError) as caught:
                         export_request({'format': fmt, 'calculation': body, 'expected_result': last_result})
                     self.assertEqual(str(caught.exception), ZERO_ROUNDED_VOLUME_ERROR)
 
-        body['patient']['ideal_weight_kg'] = 0.1
+        body['product']['concentration_mg_per_ml'] = 240
         volume = calculate_request(body)['result']['volume_per_dose']
         self.assertEqual(volume['exact_ml'], 0.0625)
         self.assertEqual(volume['rounded_0_1_ml'], 0.1)

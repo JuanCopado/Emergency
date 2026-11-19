@@ -204,7 +204,7 @@
       "belowRange": "Below the reference range/start (lower {{value}} {{unit}})."
     },
     "errors": {
-      "weight": "Enter a weight between 0 and 400 kg.",
+      "weight": "Enter a weight between 1 and 180 kg, inclusive.",
       "dose": "Enter a positive number.",
       "rate": "Enter a positive rate.",
       "concentration": "Amount and volume must be positive."

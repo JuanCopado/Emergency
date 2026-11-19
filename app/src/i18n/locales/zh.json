@@ -200,7 +200,7 @@
       "belowRange": "低于参考范围/起始剂量（下限 {{value}} {{unit}}）。"
     },
     "errors": {
-      "weight": "请输入 0 至 400 kg 之间的体重。",
+      "weight": "请输入 1 至 180 kg 之间的体重（包括两个端点）。",
       "dose": "请输入正数。",
       "rate": "请输入正的泵速。",
       "concentration": "药量和体积必须为正数。"

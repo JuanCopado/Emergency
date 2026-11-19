@@ -128,7 +128,7 @@ class PediatricFiniteNumbers(unittest.TestCase):
         for value in BAD + [0, -1]:
             with self.subTest(duration=value), self.assertRaises(ValueError):
                 calculate('paracetamol-pain-fever-home', patient, selected_duration_days=value)
-        with self.assertRaisesRegex(ValueError, 'finite'):
+        with self.assertRaisesRegex(ValueError, 'between 1 and 180'):
             calculate('paracetamol-pain-fever-home', {**patient, 'ideal_weight_kg': 1e308}, selected_duration_days=1)
         with self.assertRaises(ValueError):
             calculate('paracetamol-pain-fever-home', patient,
