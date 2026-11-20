@@ -17,3 +17,12 @@ it('keeps identified sample sections separate',()=>{
   expect(candidates([urea],blocks[1]!.lines)[urea.key]?.[0]?.value).toBe('8');
 });
 
+
+it('accepts explicit clinical choices and rejects contradictory or fractional counts',()=>{
+  expect(candidates([confusion],['Confusión: Sí']).confusion?.[0]?.value).toBe('true');
+  expect(candidates([confusion],['Confusión: quizás'])).toEqual({});
+  const age:Field={key:'age',label:'Edad',type:'number',unit:'años',minimum:0,maximum:120,integer:true,optional:false};
+  expect(candidates([age],['Edad: -1 años','Edad: 121 años','Edad: 2,5 años'])).toEqual({});
+  const count:Field={key:'count',label:'Recuento',type:'number',optional:true};
+  expect(candidates([count],['Recuento=2']).count?.[0]?.value).toBe('2');
+});

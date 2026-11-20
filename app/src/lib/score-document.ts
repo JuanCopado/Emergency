@@ -23,11 +23,11 @@ export function candidates(fields:Field[], lines:string[]) {
         if (!option) continue;
         value = JSON.stringify(option.value);
       } else {
-        const match = /^(-?\d+(?:[.,]\d+)?)\s*(.*)$/.exec(raw);
-        if (!match || !canonicalMicro(source).trimEnd().endsWith(canonicalMicro(field.unit ?? '')) || match[2] !== fold(field.unit ?? '')) continue;
+        const match = /^-?\d+(?:[.,]\d+)?/.exec(raw);
+        if (!match || !canonicalMicro(source).trimEnd().endsWith(canonicalMicro(field.unit ?? '')) || raw.slice(match[0].length).trim() !== fold(field.unit ?? '')) continue;
         // A single separator followed by three digits can be decimal or thousands.
-        if (/^[1-9]\d*[.,]\d{3}$/.test(match[1]!)) continue;
-        value = match[1]!.replace(',', '.');
+        if (/^[1-9]\d*[.,]\d{3}$/.test(match[0])) continue;
+        value = match[0].replace(',', '.');
         const n = Number(value);
         if (!Number.isFinite(n) || (field.integer && !Number.isInteger(n)) ||
             (field.minimum != null && n < field.minimum) || (field.maximum != null && n > field.maximum)) continue;

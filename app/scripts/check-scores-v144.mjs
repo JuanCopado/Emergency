@@ -1,4 +1,4 @@
-import { checkDocument } from './score-document-check.mjs';
+import { checkDocument } from './check-score-document.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { withClinicalApp } from './functional-harness.mjs';
