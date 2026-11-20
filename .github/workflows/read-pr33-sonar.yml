@@ -5,6 +5,7 @@ on:
     paths: ['.github/workflows/read-pr33-sonar.yml']
 permissions:
   checks: read
+  contents: read
 jobs:
   findings:
     runs-on: ubuntu-24.04
@@ -16,3 +17,17 @@ jobs:
         run: |
           gh api --paginate repos/JuanCopado/Emergency/check-runs/135632894003/annotations \
             --jq '.[] | {path, start_line, end_line, title, message, annotation_level} | @json'
+      - name: Locate clinical sign-off instructions on the integration revision
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: a02d50578424d509cd25747efa001bcd7a2d4823
+          persist-credentials: false
+      - name: List references to pharmacy review
+        run: |
+          git grep -ilE 'farmacia|pharma(cy|cist)|farmac[eé]utic' -- '*.md' '*.json' '*.ts' '*.tsx' '*.py' | sort
+      - name: Read Sonar classification of the recorded issues
+        run: |
+          curl --fail --silent --show-error --get https://sonarcloud.io/api/issues/search \
+            --data-urlencode 'organization=juancopado' --data-urlencode 'componentKeys=JuanCopado_Emergency' \
+            --data-urlencode 'pullRequest=33' --data-urlencode 'resolved=false' \
+            | jq -ce '{total, issues: [.issues[] | {key,rule,severity,type,line}]}'
