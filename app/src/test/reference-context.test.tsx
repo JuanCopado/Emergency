@@ -93,3 +93,16 @@ it('shows the adult stroke label and its jurisdiction-specific time origin', asy
   expect(screen.queryByText(/4,5 horas desde/)).toBeNull();
   expect(screen.getByText('National review pending for this selection.')).toBeVisible();
 });
+
+it('shows only the selected national source alongside the EMA label', async () => {
+  await renderAt('/', [{ path: '/', element: <CountryReferences primary="US" moduleId="acute-ischemic-stroke" /> }]);
+  const compare = screen.getByLabelText('Compare with another country');
+  fireEvent.change(compare, { target: { value: 'PT' } });
+  expect(screen.getByRole('link', { name: /INFARMED · informe de financiación/ })).toBeVisible();
+  expect(screen.getByText(/registro 5878277/)).toBeVisible();
+  expect(screen.queryByRole('link', { name: /AEMPS\/CIMA/ })).toBeNull();
+  fireEvent.change(compare, { target: { value: 'ES' } });
+  expect(screen.getByRole('link', { name: /AEMPS\/CIMA · ficha técnica/ })).toBeVisible();
+  expect(screen.getByRole('link', { name: /EMA · Metalyse/ })).toBeVisible();
+  expect(screen.queryByRole('link', { name: /INFARMED/ })).toBeNull();
+});

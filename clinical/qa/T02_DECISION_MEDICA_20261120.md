@@ -35,3 +35,10 @@ ID `tenecteplase-ais-us-eu-gb-2026`. El 20/11/2026, el Dr. Juan Copado Ceballos 
 - US · Ictus isquémico agudo en adultos. La ficha de TNKase establece el inicio del tratamiento dentro de las 3 horas desde el comienzo de los síntomas. [FDA · TNKase §2.1](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/103909s5197lbl.pdf)
 - EU · Ictus isquémico agudo en adultos. La ficha de Metalyse establece una ventana de 4,5 horas desde la última vez que se sabía que el paciente estaba sin síntomas, tras excluir hemorragia intracraneal. [EMA · Metalyse 25 mg §§4.1–4.2](https://www.ema.europa.eu/en/documents/product-information/metalyse-epar-product-information_en.pdf)
 - GB · Ictus isquémico agudo en adultos. La ficha de Metalyse establece una ventana de 4,5 horas desde la última vez que se sabía que el paciente estaba sin síntomas, tras excluir hemorragia intracraneal. [SmPC británica · Metalyse 25 mg §§4.1–4.2](https://www.medicines.org.uk/emc/product/15859/smpc)
+
+### Referencias nacionales de España y Portugal
+
+El 20/11/2026, el Dr. Juan Copado Ceballos respondió **SÍ** a incorporar las dos referencias nacionales a la misma anotación, con alcance documental.
+
+- ES · La ficha española de Metalyse 5.000 U (25 mg) recoge el ictus isquémico agudo en adultos dentro de las 4,5 horas siguientes al último momento conocido en que el paciente se encontraba bien, tras excluir hemorragia intracraneal. [AEMPS/CIMA · ficha técnica de Metalyse 25 mg §§4.1–4.2](https://cima.aemps.es/cima/dochtml/ft/1000169007/FT_1000169007.html)
+- PT · La decisión de financiación pública de 30/06/2025 incluye Metalyse 5.000 U, registro 5878277, para ictus isquémico agudo en adultos en las 4,5 horas siguientes al último momento conocido en que el paciente se encontraba bien, tras excluir hemorragia intracraneal. Las existencias hospitalarias requieren confirmación local. [INFARMED · informe de financiación pública de Metalyse (07/07/2025)](https://www.infarmed.pt/documents/15786/3368817/Relat%C3%B3rio%2Bde%2Bavalia%C3%A7%C3%A3o%2Bde%2Bfinanciamento%2Bp%C3%BAblico%2Bde%2BMetalyse%2B%28Tenecteplase%29/da36e6c1-d5e5-c2dc-9dd5-5e504eddd719)
