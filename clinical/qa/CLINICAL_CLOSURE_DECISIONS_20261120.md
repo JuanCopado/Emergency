@@ -1,6 +1,8 @@
-# Cierre técnico y decisiones clínicas preparadas · 20/11/2026
+# Cierre técnico y aceptación de referencias · 20/11/2026
 
-**Estado global: CLINICALLY_PENDING. Sin GO_RELEASE.**
+**Estado global: CLINICALLY_PENDING. Sin GO_RELEASE. Registro: 129 GREEN / 2 YELLOW / 0 RED.**
+
+El propietario respondió **«si claro que si»** a las nueve fichas v1 enumeradas, incluida POCUS-MODE-20261120 v1. La [aceptación](IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md) y su [registro](IMAGE_REFERENCE_OWNER_APPROVAL_20261120.json) conservan el alcance exacto presentado en PR50. El reintento 2 de Sonar sobre la base integrada PR50 ya devolvió QUALITY GATE: PASSED (run 44805197675, job 136538151239, 20:09:13Z); la configuración no se deduce de la respuesta médica. La entrega de aceptación se verifica también en sus propios checks.
 
 Este expediente coordina el trabajo solicitado tras resolver la entrega de
 cobertura a Sonar. Las matrices enlazadas contienen el cotejo completo de las
@@ -18,19 +20,18 @@ como revisión clínica ni se equipara QA automática con rendimiento diagnósti
 | Referencia de `final-human-review-gate` | Cotejo completo contra la norma y el código aceptados en PR35, sin cambios materiales. Se reutiliza aquella aceptación y se registra GREEN exclusivamente para esta referencia. [GATE-REF v1](CLINICAL_GATE_REFERENCE_REVIEW_20261120.md). |
 | Notas actuales con bloqueos obsoletos | Conciliadas las de ácido-base, ortopedia y apoyo de nota con los 19 contratos ya aceptados el 16/11; sus fechas clínicas no se renuevan. Los documentos históricos siguen identificando sus propios cortes. |
 
-La última acción de referencia lleva el registro de **119 GREEN / 12 YELLOW**
-a **120 GREEN / 11 YELLOW / 0 RED**, siempre sobre 131 módulos. Las nueve
-fichas de imagen siguientes aún no cambian su estado o fecha; los dos módulos
-padre pendientes tampoco. La fuente primaria del gate es la directriz del
-propietario ya aceptada, no una firma nueva atribuida a este expediente.
+PR50 cerró la referencia del gate y dejó **120 GREEN / 11 YELLOW**. La aceptación
+posterior de las nueve fichas siguientes y la aplicación del párrafo POCUS llevan
+el registro a **129 GREEN / 2 YELLOW / 0 RED**, sobre los mismos 131 módulos.
+Solo se renuevan los nueve estados/fechas de referencia aceptados. Los módulos
+padre de imagen y nota conservan sus estados y fechas. La aceptación PR35 del
+gate se conserva, sin atribuir una nueva firma a ese alcance.
 
-## 2. Nueve decisiones de referencia listas para el propietario
+## 2. Nueve decisiones de referencia aceptadas
 
-Todas las fichas son **versión 1**, con fecha **20/11/2026**. En las primeras
-ocho se conserva el texto clínico actual. La novena incluye una única
-aclaración textual, definida y preparada como parche inactivo.
+Todas las fichas son **versión 1**, con fecha **20/11/2026**, aceptadas mediante la respuesta literal registrada. En las primeras ocho se conserva el texto clínico. La novena incluye una única aclaración textual, aplicada desde el parche exacto presentado.
 
-| Ficha | Módulo | Alcance exacto de un SÍ |
+| Ficha | Módulo | Alcance aceptado |
 |---|---|---|
 | `GAS-REF-20261120` | `blood-gas-image` | Marco de transcripción verificada, muestra/metadatos, límites de oxigenación y remisión al motor canónico; ocho párrafos. No exactitud OCR. |
 | `CT-REF-20261120` | `ct-mri-screenshot` | Seguridad, límites de capturas/series y derivación; nueve párrafos. No capacidad para excluir patología de un estudio completo. |
@@ -48,39 +49,20 @@ Expedientes completos:
 - [Tórax, piel/herida y otras imágenes](IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md).
 - [ECG, POCUS e integración](IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md).
 
-**Efecto propuesto de cada SÍ:** registrar literal, fecha, ficha, versión y
-módulo; enlazar la revisión y sus fuentes; actualizar solo la evidencia de
-referencia aceptada a GREEN. Un SÍ a las nueve fichas, con la corrección POCUS
-aplicada y comprobada, permitiría **129 GREEN / 2 YELLOW**. Esa cifra es
-condicional y no es el estado actual. Un NO mantiene el alcance correspondiente
-pendiente sin afectar las aceptaciones anteriores.
+**Efecto de la aceptación:** se registra literal, fecha, ficha, versión y módulo; se enlazan la revisión y sus fuentes y se actualiza exclusivamente el marco de referencia aceptado a GREEN. Los tres expedientes originales conservan las preguntas y sus hashes como antecedentes de la decisión; no se reinterpretan como nuevas solicitudes pendientes.
 
-La decisión se solicita porque [`AGENTS.md`](../../AGENTS.md) y la
-[política de revisión final](final-human-review-policy.json) reservan al
-Dr. Juan Copado Ceballos la aceptación clínica explícita del módulo y expediente.
-Se puede responder a todos los IDs enumerados o seleccionar IDs concretos; no
-se interpreta una instrucción genérica de continuar como una respuesta a una
-versión todavía no presentada. No se vuelve a preguntar por PR35, ECG-PT,
-el marco POCUS general, los 19 contratos agudos ni las escalas ya aceptadas.
+[`AGENTS.md`](../../AGENTS.md) y la [política de revisión final](final-human-review-policy.json) reservan al Dr. Juan Copado Ceballos la aceptación clínica explícita. Su respuesta completa ahora este requisito para las nueve fichas. Se conservan PR35, ECG-PT, el marco POCUS general, los 19 contratos agudos y las escalas ya aceptadas.
 
-## 3. Único cambio clínico de texto propuesto: POCUS-MODE v1
+## 3. Único cambio clínico de texto aplicado: POCUS-MODE v1
 
-La palabra general «still» de la guía actual no distingue un único fotograma
+La palabra general «still» del texto anterior no distingue un único fotograma
 B-mode de una captura de un trazado M-mode que sí contiene tiempo. La
 aclaración propuesta conserva el alcance focal y evita atribuir la revisión
 de una secuencia completa a partir de una sola línea temporal. El contraste
 está en ACEP Sonoguide, Lung, 08/03/2021, apartado Lung Sliding, figura 8,
 y en las fuentes físicas/documentales del dossier ECG/POCUS.
 
-El [parche inactivo](proposals/POCUS_MODE_20261120_v1.patch) contiene únicamente
-el tercer párrafo canónico y su ficha generada. El
-[recibo](proposals/POCUS_MODE_20261120_v1.receipt.json) registra los hashes,
-el generador, la comprobación y la invariancia de los otros módulos y estados.
-Su aplicabilidad se comprobó también sobre la entrega clínica actual. No está
-aplicado al producto ni contiene una respuesta del propietario.
-
-La pregunta `POCUS-REF-20261120 v1` incluye este cambio exacto. No se formula
-otra pregunta duplicada sobre MODE cuando se decide la ficha completa.
+El [parche presentado](proposals/POCUS_MODE_20261120_v1.patch) contiene únicamente el tercer párrafo canónico y su proyección. Su [recibo de preparación](proposals/POCUS_MODE_20261120_v1.receipt.json) se conserva como antecedente inactivo de PR50; no se reescribe esa historia. La aplicación posterior queda en el [recibo de aceptación/aplicación](IMAGE_REFERENCE_OWNER_APPROVAL_20261120.json), con la huella del parche y del párrafo aceptado. La decisión POCUS-REF-20261120 v1 incluye este cambio exacto; no requiere otra aprobación duplicada de MODE.
 
 ## 4. Validación que sigue realmente pendiente
 

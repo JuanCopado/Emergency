@@ -390,14 +390,14 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 |---|---|---|
 | `clinical-image-interpretation` | `modules/clinical-images.md` | yellow |
 | `musculoskeletal-xray` | `modules/image-modalities.md` | green |
-| `chest-xray` | `modules/image-modalities.md` | yellow |
-| `pocus-image` | `modules/image-modalities.md` | yellow |
-| `ecg-image` | `modules/image-modalities.md` | yellow |
-| `blood-gas-image` | `modules/image-modalities.md` | yellow |
-| `skin-wound-image` | `modules/image-modalities.md` | yellow |
-| `ct-mri-screenshot` | `modules/image-modalities.md` | yellow |
-| `ophthalmology-image` | `modules/image-modalities.md` | yellow |
-| `other-clinical-image` | `modules/image-modalities.md` | yellow |
+| `chest-xray` | `modules/image-modalities.md` | green |
+| `pocus-image` | `modules/image-modalities.md` | green |
+| `ecg-image` | `modules/image-modalities.md` | green |
+| `blood-gas-image` | `modules/image-modalities.md` | green |
+| `skin-wound-image` | `modules/image-modalities.md` | green |
+| `ct-mri-screenshot` | `modules/image-modalities.md` | green |
+| `ophthalmology-image` | `modules/image-modalities.md` | green |
+| `other-clinical-image` | `modules/image-modalities.md` | green |
 | `acute-ischemic-stroke` | `modules/neurologic.md` | green |
 | `spontaneous-intracerebral-hemorrhage` | `modules/neurologic.md` | green |
 | `acute-coronary-syndrome` | `modules/cardiovascular.md` | green |
@@ -514,7 +514,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `infective-endocarditis` | `modules/cardiovascular.md` | green |
 | `dvt` | `modules/cardiovascular.md` | green |
 | `device-complications` | `modules/cardiovascular.md` | green |
-| `ecg-pocus-integration` | `modules/disposition-crosscutting.md` | yellow |
+| `ecg-pocus-integration` | `modules/disposition-crosscutting.md` | green |
 | `pocus` | `modules/disposition-crosscutting.md` | green |
 | `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | green |
 

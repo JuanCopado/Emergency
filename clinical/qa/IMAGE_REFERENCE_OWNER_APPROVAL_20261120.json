@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "IMAGE-REF-OWNER-20261120",
+  "version": 1,
+  "date": "2026-11-20",
+  "timezone": "Atlantic/Azores",
+  "recorded_at_utc": "2026-11-20T20:06:31Z",
+  "recorded_at_note": "Time of recording; no exact message timestamp was supplied.",
+  "owner": "Dr. Juan Copado Ceballos",
+  "owner_response": "SI",
+  "owner_response_literal": "si claro que si",
+  "question_context": "Immediately preceding assistant message enumerated these nine v1 dossiers and expressly included POCUS-MODE-20261120 v1.",
+  "base_commit": "49bd2dee35c678f9f9184803c1a4e95e588e98a5",
+  "base_tree": "45a9d58186f82a5868e6e084950c76fe3b8c96f4",
+  "decision_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+  "decisions": [
+    {
+      "review_id": "GAS-REF-20261120",
+      "version": 1,
+      "module": "blood-gas-image",
+      "scope": "Transcription safeguards, specimen/metadata, oxygenation limits and routing; eight current paragraphs.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md",
+      "source_dossier_sha256": "91f718dd17a9defec98e2c679de7103a9bdc5b0a2412c521f86d830e46346115",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "CT-REF-20261120",
+      "version": 1,
+      "module": "ct-mri-screenshot",
+      "scope": "Safety, limits of supplied series and escalation; nine current paragraphs.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md",
+      "source_dossier_sha256": "91f718dd17a9defec98e2c679de7103a9bdc5b0a2412c521f86d830e46346115",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "EYE-REF-20261120",
+      "version": 1,
+      "module": "ophthalmology-image",
+      "scope": "Description, safe examination and urgent alerts; three current paragraphs.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md",
+      "source_dossier_sha256": "91f718dd17a9defec98e2c679de7103a9bdc5b0a2412c521f86d830e46346115",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "IMG-REF-CXR-20261120",
+      "version": 1,
+      "module": "chest-xray",
+      "scope": "Descriptive chest-radiograph and safety framework; five current paragraphs.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md",
+      "source_dossier_sha256": "f4134ae38adb8b3bb91f015bf62578d6ba4c23666c508696d52f289fbcc40d85",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "IMG-REF-SKIN-20261120",
+      "version": 1,
+      "module": "skin-wound-image",
+      "scope": "Description, photographic limits and escalation; four current paragraphs.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md",
+      "source_dossier_sha256": "f4134ae38adb8b3bb91f015bf62578d6ba4c23666c508696d52f289fbcc40d85",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "IMG-REF-OTHER-20261120",
+      "version": 1,
+      "module": "other-clinical-image",
+      "scope": "Limits, abstention and specialist referral only; two current paragraphs.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md",
+      "source_dossier_sha256": "f4134ae38adb8b3bb91f015bf62578d6ba4c23666c508696d52f289fbcc40d85",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "ECG-REF-20261120",
+      "version": 1,
+      "module": "ecg-image",
+      "scope": "Complete current ECG reference; prior ECG-PT acceptance preserved.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md",
+      "source_dossier_sha256": "09e5e208baff73150b168eaf778cf4ba128943ca327dcb5d1183837a78357af8",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "ECG-POCUS-REF-20261120",
+      "version": 1,
+      "module": "ecg-pocus-integration",
+      "scope": "Context, discordance, reassessment and limits of focal studies.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md",
+      "source_dossier_sha256": "09e5e208baff73150b168eaf778cf4ba128943ca327dcb5d1183837a78357af8",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": false
+    },
+    {
+      "review_id": "POCUS-REF-20261120",
+      "version": 1,
+      "module": "pocus-image",
+      "scope": "Complete POCUS reference including explicit POCUS-MODE-20261120 v1 paragraph replacement.",
+      "source_dossier": "qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md",
+      "source_dossier_sha256": "09e5e208baff73150b168eaf778cf4ba128943ca327dcb5d1183837a78357af8",
+      "reference_status_after": "green",
+      "reference_review_date": "2026-11-20",
+      "clinical_text_changed": true
+    }
+  ],
+  "pocus_application": {
+    "proposal_id": "POCUS-MODE-20261120 v1",
+    "patch_path": "clinical/qa/proposals/POCUS_MODE_20261120_v1.patch",
+    "patch_sha256": "f7c01481303505274fb4af89837efb9de1d7f82894645a8712a367c31b9a4fc1",
+    "canonical_bullet_after_sha256": "4d639ecbdafdfde69893cc4cbe2aa1c3ff6dd9eee24f652dd4df4929b246f9f9",
+    "application_observed": true,
+    "scope": "Exact third pocus-image paragraph and generated sectionBody; other eight clinical texts unchanged."
+  },
+  "reference_status_counts": {
+    "green": 129,
+    "yellow": 2,
+    "red": 0
+  },
+  "remaining_yellow": [
+    "clinical-image-interpretation",
+    "clinical-note-diagnostic-support"
+  ],
+  "technical_qa_status": "focused_verification_passed",
+  "sonar_configuration_change_confirmed": false,
+  "clinical_release_status": "CLINICALLY_PENDING",
+  "go_release": false,
+  "diagnostic_performance_validated": false,
+  "prior_acceptances_preserved": [
+    "PR35 governance",
+    "ECG-PT-20261120 v1",
+    "POCUS general framework 2026-11-14",
+    "19 acute contracts and 46 regimen IDs",
+    "SCORE-REF-20261120",
+    "ARR-SELECTOR-20261120",
+    "T02 decisions"
+  ],
+  "technical_qa": {
+    "module_validation": {
+      "resolved": 131,
+      "result": "PASS"
+    },
+    "evidence_audit": {
+      "sources": 254,
+      "modules": 131,
+      "errors": 0,
+      "warnings": 1,
+      "overdue_module": "clinical-image-interpretation",
+      "compound_sources_pending_split": 102
+    },
+    "guide_projection_tests": {
+      "passed": 12,
+      "failed": 0
+    },
+    "evidence_normalization_tests": {
+      "passed": 4,
+      "failed": 0
+    },
+    "human_review_gate_tests": {
+      "passed": 2,
+      "failed": 0
+    },
+    "exact_delta_verified": {
+      "changed_statuses_and_dates": 9,
+      "unchanged_generated_guide_texts": 130,
+      "pocus_exact_accepted_bullet": true,
+      "parent_records_unchanged": true,
+      "original_source_dossiers_unchanged": true,
+      "other_queue_entries_unchanged": true
+    },
+    "independent_delta_review": {
+      "result": "PASS",
+      "scope": "Nine states/dates only; parents unchanged; exact POCUS paragraph; unchanged original dossiers; generated source catalog and queue consistent; minor documentary comments reconciled."
+    }
+  },
+  "sonar_configuration_note": "Configuration UI was not observed; the actual CI retry below now succeeds. The owner response is not treated as proof of a settings change.",
+  "sonar_base_commit_verification": {
+    "commit": "49bd2dee35c678f9f9184803c1a4e95e588e98a5",
+    "run_id": 44805197675,
+    "attempt": 2,
+    "job_id": 136538151239,
+    "conclusion": "success",
+    "quality_gate": "PASSED",
+    "observed_gate_timestamp_utc": "2026-11-20T20:09:13Z",
+    "downloaded_artifact_ids": [
+      14662802790,
+      14662283369,
+      14662811742
+    ],
+    "combined_artifact_id": 14664890392,
+    "reports_parsed": [
+      "coverage.xml",
+      "app/coverage/lcov.info"
+    ],
+    "scope": "The accepted-material base commit; later acceptance publication requires its own checks."
+  }
+}

@@ -131,7 +131,8 @@ test('ECG-PT-20261120 v1 remains consistent in canonical and generated guide', a
   const expected = 'Peñaloza–Tranchesi sign (historical, indirect finding):** low-amplitude QRS in V1 with a marked amplitude increase in V2';
   assert.ok(canonical.includes(expected));
   assert.ok(ecg?.sectionBody.includes(expected));
-  assert.equal(ecg?.status, 'yellow');
+  // ECG-REF-20261120 v1 was explicitly accepted after the scoped ECG-PT correction.
+  assert.equal(ecg?.status, 'green');
   assert.ok(!canonical.includes('Peñaloza–Tranchesi sign (historical eponym)'));
   assert.ok(!ecg?.sectionBody.includes('Peñaloza–Tranchesi sign (historical eponym)'));
 });
