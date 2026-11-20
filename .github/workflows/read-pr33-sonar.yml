@@ -14,9 +14,6 @@ jobs:
         run: |
           set -euo pipefail
           branch='codex/v144-international-scope-20261116'
-          curl --fail --silent --show-error --get https://sonarcloud.io/api/project_analyses/search \
-            --data-urlencode 'project=JuanCopado_Emergency' --data-urlencode "branch=$branch" --data-urlencode 'ps=1' \
-            | jq -ce '{analysis: (.analyses[0] | {key,date,revision})}'
           curl --fail --silent --show-error --get https://sonarcloud.io/api/issues/search \
             --data-urlencode 'organization=juancopado' --data-urlencode 'componentKeys=JuanCopado_Emergency' \
             --data-urlencode "branch=$branch" --data-urlencode 'resolved=false' --data-urlencode 'ps=100' \
