@@ -603,25 +603,6 @@
       ]
     },
     {
-      "source_id": "src-4c4f1846",
-      "title": "Project physician-owner validation directive (PR35, 2026-11-20)",
-      "organization": null,
-      "source_type": "other",
-      "url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md",
-      "persistent_id": null,
-      "version": "PR35 owner-led governance; final-human-review-policy schema 1.1; clinical review date retained",
-      "publication_date": null,
-      "last_verified": "2026-10-06",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "final-human-review-gate"
-      ]
-    },
-    {
       "source_id": "src-4cf61426",
       "title": "GINA2026 Strategy, acute-care Box9-6 p186 and treatmentpp185-188",
       "organization": null,
@@ -2718,6 +2699,25 @@
       "compound_identity": true,
       "modules": [
         "acute-abdomen"
+      ]
+    },
+    {
+      "source_id": "src-d552c922",
+      "title": "Project physician-owner validation directive (PR35, 2026-11-20)",
+      "organization": null,
+      "source_type": "other",
+      "url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md",
+      "persistent_id": null,
+      "version": "PR35 owner-led governance; final-human-review-policy schema 1.1; governance reference reverified 2026-11-20",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "final-human-review-gate"
       ]
     },
     {
@@ -6559,7 +6559,7 @@
     ],
     "final-human-review-gate": [
       {
-        "source_id": "src-4c4f1846",
+        "source_id": "src-d552c922",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       }

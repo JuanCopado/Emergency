@@ -225,7 +225,7 @@ def _candidate(rule,score,evidence,confidence,relation_note=None):
         "evidence_for":evidence,
         "evidence_against":[],
         "missing_discriminating_data":missing,
-        "source_modules":[rule["id"]]
+        "source_modules":list(rule.get("source_modules", [rule["id"]]))
     }
 
 def _dedupe_suggestions(items):

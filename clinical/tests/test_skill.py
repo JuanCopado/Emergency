@@ -6057,7 +6057,8 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(queued,yellow)
         self.assertEqual(queue['yellow_count'],len(yellow))
         self.assertIn('clinical-note-diagnostic-support',queued)
-        self.assertIn('final-human-review-gate',queued)
+        # The gate's own reference may be current while other modules need review.
+        # Exact equality above must still include every yellow module.
 
     def test_v139_synthetic_clinical_note_regression_bank(self):
         result=run_clinical_note_synthetic_cases()
@@ -6088,7 +6089,7 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(result['status'],'PASS',result)
         self.assertEqual(result['module_count'],131)
         self.assertEqual(result['diagnostic_rule_count'],92)
-        self.assertEqual(result['covered_or_routed_count'],115)
+        self.assertEqual(result['covered_or_routed_count'],116)
         self.assertEqual(result['allowed_non_diagnostic_count'],16)
         self.assertEqual(result['unexpected_uncovered'],[])
         self.assertEqual(result['stale_allowed'],[])
@@ -6105,7 +6106,7 @@ class ModularCoreTests(unittest.TestCase):
         audit=json.loads((ROOT/'qa'/'clinical-note-diagnostic-coverage-audit.json').read_text(encoding='utf-8'))
         routed=set()
         for rule in rules['syndromes']:
-            routed.add(rule['id'])
+            routed.update(rule.get('source_modules',[rule['id']]))
             for group in ('suggested_tests','treatment'):
                 for item in rule.get(group,[]):
                     routed.update(item.get('source_modules',[]))
@@ -6114,7 +6115,9 @@ class ModularCoreTests(unittest.TestCase):
         exempt=set(audit['exempt_non_diagnostic_modules'])
         missing=set(module_ids)-routed-exempt
         self.assertEqual(missing,set(),sorted(missing))
-        self.assertEqual(set(module_ids)-routed,exempt)
+        # The October snapshot predates correction of the vasoactive source ID.
+        self.assertIn('vasoactive-inotrope-infusions',routed)
+        self.assertEqual(set(module_ids)-routed,exempt-{'vasoactive-inotrope-infusions'})
 
     def test_v142_privacy_scans_direct_string_once(self):
         note = self._clean_note_for_export()

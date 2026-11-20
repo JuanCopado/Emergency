@@ -19,7 +19,7 @@ Se elimina la atribución anterior a S profundas en V5–V6 y sobrecarga ventric
 ## Resultado y límites
 
 - Decisión puntual: **SÍ**, con fecha e ID registrados en `clinical/updates/pending-updates.json`.
-- Implementación: guía canónica y ficha generada sincronizadas en una rama de trabajo; completar CI y fusionar únicamente a la rama internacional cuando los controles pasen.
+- Implementación integrada mediante [PR47](https://github.com/JuanCopado/Emergency/pull/47), merge `e1d05196dc85b1e112a5e7f90dd92cf68ab7bec5`, árbol `1d65939220de33161f4c06e9a5e013359995c757`, en la rama internacional. Verificación posterior al merge observada el 20/11: Evidence `44784529250`, Clinical QA `44784529339`, UI `44784529236` y Security `44784529314`, los cuatro PASS. La cola canónica queda conciliada con ese cierre técnico.
 - El módulo `ecg-image` continúa **YELLOW**, con `last_checked=2026-09-27`; sin promoción ni renovación general.
 - **CLINICALLY_PENDING**; ni este cambio ni las pruebas técnicas conceden GO_RELEASE o validación de diagnóstico automático desde imágenes.
 - No se han aceptado modificaciones adicionales ni dado por finalizadas las revisiones integrales de evidencia de imagen.
