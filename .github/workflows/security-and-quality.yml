@@ -157,6 +157,14 @@ jobs:
           npm run security:picomatch:test --prefix app
           npm ci --ignore-scripts --no-audit --no-fund --prefix tools/blood-gas-ocr
           python scripts/prepare_blood_gas_model.py
+      - name: Prepare native FFmpeg for synthetic video coverage
+        run: |
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version
+          ffprobe -version
       - name: Run Python tests with measured coverage
         run: |
           python -m coverage run clinical/qa/qa_runner.py

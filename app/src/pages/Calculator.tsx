@@ -319,16 +319,13 @@ export default function Calculator() {
             <div className="label">{t('calc.direction')}</div>
             <div role="radiogroup" aria-label={t('calc.direction')} className="grid grid-cols-2 gap-1 rounded-xl bg-surface-2 p-1">
               {(['forward', 'reverse'] as const).map((d) => (
-                <button
+                <label
                   key={d}
-                  type="button"
-                  role="radio"
-                  aria-checked={direction === d}
-                  onClick={() => setDirection(d)}
-                  className={`min-h-[40px] rounded-lg px-3 text-sm font-semibold transition ${direction === d ? 'bg-surface text-fg shadow-card' : 'text-muted hover:text-fg'}`}
+                  className={`flex min-h-[40px] cursor-pointer items-center justify-center rounded-lg px-3 text-sm font-semibold transition focus-within:outline focus-within:outline-2 focus-within:outline-primary ${direction === d ? 'bg-surface text-fg shadow-card' : 'text-muted hover:text-fg'}`}
                 >
+                  <input type="radio" name="calc-direction" value={d} checked={direction === d} onChange={() => setDirection(d)} className="sr-only" />
                   {t(`calc.${d}`)}
-                </button>
+                </label>
               ))}
             </div>
           </div>

@@ -21,7 +21,7 @@ test('module table and every frontend status match authoritative evidence', asyn
   }
 });
 
-async function buildFixture(t, index, bundles) {
+async function runFixture(t, index, bundles, metadata = {}) {
   const root = await mkdtemp(resolve(tmpdir(), 'emergency-guides-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   for (const dir of ['app/scripts', 'app/src/data', 'clinical/references', 'clinical/modules']) {
@@ -29,9 +29,17 @@ async function buildFixture(t, index, bundles) {
   }
   await copyFile(resolve(repo, 'app/scripts/build-clinical-guides.mjs'), resolve(root, 'app/scripts/build-clinical-guides.mjs'));
   await writeFile(resolve(root, 'clinical/references/module-index.md'), index);
-  await writeFile(resolve(root, 'clinical/MODULES.md'), await readFile(resolve(repo, 'clinical/MODULES.md')));
+  await writeFile(resolve(root, 'clinical/MODULES.md'), metadata.table ?? await readFile(resolve(repo, 'clinical/MODULES.md')));
+  await writeFile(resolve(root, 'clinical/references/evidence-registry.json'), metadata.registry === undefined
+    ? await readFile(resolve(repo, 'clinical/references/evidence-registry.json'))
+    : JSON.stringify({ modules: metadata.registry }));
   for (const [path, text] of Object.entries(bundles)) await writeFile(resolve(root, 'clinical', path), text);
   const result = spawnSync(process.execPath, [resolve(root, 'app/scripts/build-clinical-guides.mjs')], { encoding: 'utf8' });
+  return { root, result };
+}
+
+async function buildFixture(t, index, bundles, metadata) {
+  const { root, result } = await runFixture(t, index, bundles, metadata);
   assert.equal(result.status, 0, result.stderr);
   return JSON.parse(await readFile(resolve(root, 'app/src/data/generatedClinicalGuides.json'), 'utf8'));
 }
@@ -41,7 +49,7 @@ test('shared safety preamble and exact section body survive once, including CRLF
   const section = '### Scope\n\nSpecific body ≥ threshold.';
   const guides = await buildFixture(t, '| example | `modules/example.md` |\n', {
     'modules/example.md': `${preamble}\n\n## example-long\nWrong section.\n\n## example\n\n${section}\n\n## next\nOther.`.replaceAll('\n', '\r\n'),
-  });
+  }, { registry: { example: { status: 'yellow' } }, table: '| `example` | Example | yellow |\n' });
   assert.equal(guides[0].sharedPreamble, preamble);
   assert.equal(guides[0].sectionBody, section);
   const text = [guides[0].sharedPreamble, guides[0].sectionBody].filter(Boolean).join('\n\n');
@@ -53,9 +61,47 @@ test('shared safety preamble and exact section body survive once, including CRLF
 test('a section without shared preamble still retains its full body', async (t) => {
   const guides = await buildFixture(t, '| alone | `modules/alone.md` |\n', {
     'modules/alone.md': '## alone\n\nBody without preamble.\n',
-  });
+  }, { registry: { alone: { status: 'yellow' } }, table: '| `alone` | Alone | yellow |\n' });
   assert.equal(guides[0].sharedPreamble, '');
   assert.equal(guides[0].sectionBody, 'Body without preamble.');
+});
+
+test('projection refuses missing, invalid, conflicting or duplicate clinical status metadata', async (t) => {
+  const index = '| example | `modules/example.md` |\n';
+  const bundles = { 'modules/example.md': '## example\n\nSynthetic body.\n' };
+  const validTable = '| `example` | Example | yellow |\n';
+  for (const metadata of [
+    { registry: {}, table: validTable },
+    { registry: { example: { status: 'unknown' } }, table: validTable },
+    { registry: { example: { status: 'green' } }, table: validTable },
+    { registry: { example: { status: 'yellow' } }, table: '' },
+    { registry: { example: { status: 'yellow' } }, table: validTable + validTable },
+    { registry: { example: { status: 'yellow' } }, table: '| `example` | Example | unknown |\n' },
+  ]) {
+    const { result } = await runFixture(t, index, bundles, metadata);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /status/);
+  }
+});
+
+test('projection refuses duplicate index IDs and unequal module inventories before writing', async (t) => {
+  const index = '| example | `modules/example.md` |\n';
+  const table = '| `example` | Example | yellow |\n';
+  const registry = { example: { status: 'yellow' } };
+  const bundles = { 'modules/example.md': '## example\n\nSynthetic body.\n' };
+  const cases = [
+    { name: 'duplicate index ID', index: index + index, table, registry, error: /Duplicate module index ID: example/ },
+    { name: 'duplicate index ID with another bundle', index: index + '| example | `modules/other.md` |\n', table, registry, error: /Duplicate module index ID: example/ },
+    { name: 'module omitted from index', index, table: table + '| `other` | Other | green |\n', registry: { ...registry, other: { status: 'green' } }, error: /Evidence module absent from index: other/ },
+    { name: 'evidence-only module', index, table, registry: { ...registry, other: { status: 'yellow' } }, error: /Evidence module absent from index: other/ },
+    { name: 'table-only module', index, table: table + '| `other` | Other | yellow |\n', registry, error: /Module table entry absent from index: other/ },
+  ];
+  for (const entry of cases) await t.test(entry.name, async subtest => {
+    const { root, result } = await runFixture(subtest, entry.index, bundles, { table: entry.table, registry: entry.registry });
+    assert.notEqual(result.status, 0, 'invalid inventories must fail');
+    assert.match(result.stderr, entry.error);
+    await assert.rejects(readFile(resolve(root, 'app/src/data/generatedClinicalGuides.json')), { code: 'ENOENT' });
+  });
 });
 
 test('all committed guides match canonical preamble and section, without stale artifacts', async (t) => {

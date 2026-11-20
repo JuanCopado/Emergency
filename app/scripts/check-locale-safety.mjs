@@ -8,11 +8,21 @@ const server=await preview({preview:{host:'127.0.0.1',port:0},logLevel:'error'})
 let browser;
 let checks=0;
 const passed=()=>{checks++;};
+async function assertDescriptions(field, expected) {
+ const inputId=await field.getAttribute('id');
+ assert.ok(inputId);
+ const actual=await field.evaluate(input=>(input.getAttribute('aria-describedby')??'').split(/\s+/).filter(Boolean)
+  .map(id=>({id,text:input.ownerDocument.getElementById(id)?.textContent??null})));
+ assert.deepEqual(actual,expected.map(([suffix,text])=>({id:`${inputId}-${suffix}`,text})));passed();
+}
 try {
  browser=await chromium.launch({executablePath:chromiumPath(),headless:true,args:['--no-sandbox']});
  const url=server.resolvedUrls.local[0];
  for(const [lang,decimal,rate,stop] of [['es',',','5,3','STOP de privacidad'],['pt',',','5,3','STOP privacidade'],['en','.','5.3','Privacy STOP'],['zh','.','5.3','隐私 STOP']]) {
   const labels=JSON.parse(readFileSync(new URL(`../src/i18n/locales/${lang}.clinical.json`,import.meta.url)));
+  const ui=JSON.parse(readFileSync(new URL(`../src/i18n/locales/${lang}.json`,import.meta.url)));
+  const numericHint=labels['Entrada numérica: usa punto decimal (0.1), sin separadores de miles. La salida sigue el idioma seleccionado.'];
+  assert.equal(typeof numericHint,'string');
   const context=await browser.newContext({serviceWorkers:'block'});
   await context.addInitScript(code=>localStorage.setItem('emergency.lang',code),lang);
   const page=await context.newPage();const errors=[];
@@ -21,12 +31,26 @@ try {
   await page.getByTestId('rate-display').waitFor();
   assert.equal(await page.getByTestId('rate-display').innerText(),rate);passed();
   assert.equal(await page.getByTestId('calc-dose').inputValue(),'0.05');passed();
+  await assertDescriptions(page.getByTestId('calc-dose'),[['hint',numericHint]]);
+  await assertDescriptions(page.getByTestId('calc-weight'),[['unit','kg'],['hint',ui.calc.weightRequired]]);
+  const forward=page.locator('input[name="calc-direction"][value="forward"]');
+  const reverse=page.locator('input[name="calc-direction"][value="reverse"]');
+  await forward.focus();await forward.press('ArrowRight');
+  assert.equal(await reverse.isChecked(),true);
+  assert.equal(await reverse.evaluate(input=>input.ownerDocument.activeElement===input),true);passed();
+  await page.getByTestId('calc-rate').fill('10.5');
+  await assertDescriptions(page.getByTestId('calc-rate'),[['unit','mL/h'],['hint',numericHint]]);
+  assert.equal(await page.getByTestId('dose-display').innerText(),`0${decimal}1`);passed();
+  await reverse.focus();await reverse.press('ArrowLeft');
+  assert.equal(await forward.isChecked(),true);
+  assert.equal(await page.getByTestId('rate-display').innerText(),rate);passed();
   await page.getByTestId('language-switcher').selectOption(lang==='en'?'es':'en');
   assert.equal(await page.getByTestId('rate-display').innerText(),lang==='en'?'5,3':'5.3');
   assert.equal(await page.getByTestId('calc-dose').inputValue(),'0.05');passed();
   await page.getByTestId('language-switcher').selectOption(lang);
   await page.getByTestId('calc-dose').fill('1,000');
   assert.equal(await page.getByTestId('rate-display').count(),0);assert.equal(await page.getByTestId('calc-dose').getAttribute('aria-invalid'),'true');passed();
+  await assertDescriptions(page.getByTestId('calc-dose'),[['err',ui.calc.errors.dose]]);
   await page.goto(`${url}clinical-note`);
   await page.getByTestId('note-origin').fill('Name: Synthetic fixture');
   assert.ok((await page.getByRole('alert').innerText()).includes('STOP'));
@@ -57,6 +81,9 @@ try {
   await page.getByRole('heading',{name:labels['Cálculo bloqueado'],exact:true}).waitFor();
   assert.ok((await page.getByRole('alert').innerText()).includes('Canonical STOP'));
   assert.equal(await page.getByTestId('acute-export').count(),0);passed();
+  await page.goto(`${url}procedures`);
+  await page.getByRole('heading',{level:1,name:'Procedimientos',exact:true}).waitFor();
+  assert.equal(await page.getByRole('heading',{level:1,name:'Procedimientos',exact:true}).evaluate(node=>node.closest('[lang]')?.lang),'es');passed();
   assert.deepEqual(errors,[]);passed();
   await context.close();console.log(`PASS ${lang}: canonical input, localized output, live language switch, privacy, age, acute result and export guards`);
  }
