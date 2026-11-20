@@ -201,7 +201,9 @@ jobs:
       - name: Publish coverage only after tests pass
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: test-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          # A partial rerun reuses successful producers from earlier attempts.
+          name: test-coverage-${{ github.run_id }}
+          overwrite: true
           path: |
             coverage.xml
             .coverage.portable
@@ -264,7 +266,7 @@ jobs:
         if: steps.trust.outputs.eligible == 'true'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
-          name: test-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          name: test-coverage-${{ github.run_id }}
           path: .
       - name: Set up Python for combining measured coverage
         if: steps.trust.outputs.eligible == 'true'
@@ -275,13 +277,13 @@ jobs:
         if: steps.trust.outputs.eligible == 'true'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
-          name: native-python-coverage-t05-${{ github.run_id }}-${{ github.run_attempt }}
+          name: native-python-coverage-t05-${{ github.run_id }}
           path: .local-review/coverage-input/t05
       - name: Download measured Linux coverage
         if: steps.trust.outputs.eligible == 'true'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
-          name: native-python-coverage-t06-${{ github.run_id }}-${{ github.run_attempt }}
+          name: native-python-coverage-t06-${{ github.run_id }}
           path: .local-review/coverage-input/t06
       - name: Verify identities and combine actual Python measurements
         if: steps.trust.outputs.eligible == 'true'
