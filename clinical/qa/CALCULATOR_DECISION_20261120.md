@@ -1,6 +1,6 @@
-# Módulo 12 · decisión médica pendiente
+# Módulo 12 · decisión médica aprobada
 
-**ID SCORE-REF-20261120.** El Dr. Juan Copado Ceballos decide sobre el registro internacional de escalas y fórmulas como ayuda manual. Estado actual YELLOW. Las decisiones terapéuticas corresponden al profesional.
+**SCORE-REF-20261120 · GREEN.** El 20/11/2026 el Dr. Juan Copado Ceballos respondió «sí» a la pregunta final. Entrada manual o importación revisada de PDF con texto, TXT o analítica pegada en los 13 formularios interactivos. El médico selecciona la muestra, completa los campos y solicita el cálculo. GRACE conserva su derivación oficial. Los PDF escaneados requieren transcripción. La precisión en informes reales por centro sigue sin cuantificar. El alcance excluye la validación clínica prospectiva.
 
 **135 escalas.** Se ensayó cada identificador por el motor canónico con una entrada sintética, incluida la derivación al instrumento oficial cuando procede. Hay 13 formularios interactivos de escalas y 122 entradas sin formulario en esa interfaz. **45 fórmulas.** Cada una tiene un enlace de referencia y una prueba con entradas, resultado esperado y unidad. La matriz documenta la opinión independiente de Gemini y los cotejos posteriores.
 

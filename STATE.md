@@ -1,7 +1,10 @@
 # STATE · continuidad T05/T06 y evidencia · 20/11/2026
 
-Estado global: **CLINICALLY_PENDING**. Registro: 118 GREEN / 13 YELLOW / 0 RED.
+Estado global: **CLINICALLY_PENDING**. Registro: 119 GREEN / 12 YELLOW / 0 RED.
 Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, conforme a PR35.
+
+20/11/2026 · SCORE-REF-20261120. El Dr. Juan Copado Ceballos aprueba el módulo 12 en los 13 formularios con entrada manual o importación revisada. Registro: 119 GREEN, 12 YELLOW. Estado global CLINICALLY_PENDING.
+
 
 - T05/T06 integrados en la rama internacional mediante PR33; cinco incidencias Sonar cerradas en PR34.
 - Corte técnico comprobado: `cdca8e34013bba891a1c49f5ea859f933fcbea63`; Clinical QA, App UI QA y Security PASS; Sonar 0 nuevas / 0 aceptadas.
