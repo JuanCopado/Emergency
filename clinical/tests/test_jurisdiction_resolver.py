@@ -84,6 +84,9 @@ class MultiCountrySafety(unittest.TestCase):
         row = compare_topic(record['topic_id'], ['ES'], matrix)['country_comparison'][0]
         self.assertEqual(row['source_review_status'], REFERENCE)
         self.assertFalse(row['clinical_use_permitted'])
+        matrix['country_topic_reviews'][1]['product'] = ' a '
+        row = compare_topic(record['topic_id'], ['ES'], matrix)['country_comparison'][0]
+        self.assertEqual(row['source_review_status'], CONFLICT)
 
     def test_unknown_topic_rejected(self):
         with self.assertRaises(ValueError):

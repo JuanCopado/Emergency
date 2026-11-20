@@ -67,9 +67,10 @@ def compare_topic(topic_id, countries, matrix=None, *, language=None):
         matches = [r for r in matrix.get('country_topic_reviews', [])
                    if r.get('country_code') == code and r.get('topic_id') == topic_id]
         # Separate presentations and indications can coexist in one country.
-        scopes = [(r.get('product'), r.get('presentation'), r.get('indication'),
-                   r.get('population'), r.get('setting')) for r in matches]
-        conflict = len(scopes) != len(set(tuple(str(v) for v in scope) for scope in scopes))
+        scope_fields = ('product', 'presentation', 'indication', 'population', 'setting')
+        scopes = [tuple(str(r.get(field, '')).strip().casefold() for field in scope_fields)
+                  for r in matches]
+        conflict = len(scopes) != len(set(scopes))
         reviewed = bool(matches) and all(
             r.get('review_status') == 'DOCUMENTARY_REVIEWED'
             and all(isinstance(r.get(key), str) and r[key].strip() for key in REQUIRED_REVIEW)
