@@ -78,3 +78,18 @@ it('limits a drug detail to the documented product family', async () => {
   expect(screen.getByText(/DailyMed, reenvasado Henry Schein/)).toBeVisible();
   expect(screen.queryByText(/AUVI-Q. La presentación/)).toBeNull();
 });
+
+it('shows the adult stroke label and its jurisdiction-specific time origin', async () => {
+  await renderAt('/', [{ path: '/', element: <CountryReferences primary="US" moduleId="acute-ischemic-stroke" /> }]);
+  const compare = screen.getByLabelText('Compare with another country');
+  expect(screen.getByText(/3 horas desde el comienzo de los síntomas/)).toBeVisible();
+  expect(screen.queryByText(/4,5 horas desde/)).toBeNull();
+  for (const code of ['PT', 'GB']) {
+    fireEvent.change(compare, { target: { value: code } });
+    expect(screen.getByText(/4,5 horas desde la última vez/)).toBeVisible();
+    expect(screen.getByText(/3 horas desde el comienzo/)).toBeVisible();
+  }
+  fireEvent.change(compare, { target: { value: 'BR' } });
+  expect(screen.queryByText(/4,5 horas desde/)).toBeNull();
+  expect(screen.getByText('National review pending for this selection.')).toBeVisible();
+});

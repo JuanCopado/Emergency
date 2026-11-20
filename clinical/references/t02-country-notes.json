@@ -223,6 +223,30 @@
           "note": "El acta PRAC identifica el procedimiento PSUSA/00010764/202510. El informe íntegro no se localizó en la revisión."
         }
       ]
+    },
+    {
+      "id": "tenecteplase-ais-us-eu-gb-2026",
+      "topic": "Tenecteplasa",
+      "sources": [
+        {
+          "scope": "US",
+          "label": "FDA · TNKase §2.1",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/103909s5197lbl.pdf",
+          "note": "Ictus isquémico agudo en adultos. La ficha de TNKase establece el inicio del tratamiento dentro de las 3 horas desde el comienzo de los síntomas."
+        },
+        {
+          "scope": "EU",
+          "label": "EMA · Metalyse 25 mg §§4.1–4.2",
+          "url": "https://www.ema.europa.eu/en/documents/product-information/metalyse-epar-product-information_en.pdf",
+          "note": "Ictus isquémico agudo en adultos. La ficha de Metalyse establece una ventana de 4,5 horas desde la última vez que se sabía que el paciente estaba sin síntomas, tras excluir hemorragia intracraneal."
+        },
+        {
+          "scope": "GB",
+          "label": "SmPC británica · Metalyse 25 mg §§4.1–4.2",
+          "url": "https://www.medicines.org.uk/emc/product/15859/smpc",
+          "note": "Ictus isquémico agudo en adultos. La ficha de Metalyse establece una ventana de 4,5 horas desde la última vez que se sabía que el paciente estaba sin síntomas, tras excluir hemorragia intracraneal."
+        }
+      ]
     }
   ],
   "whole_topic_reviews": []

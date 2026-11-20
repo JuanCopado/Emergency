@@ -27,3 +27,11 @@ Cada pregunta concierne al registro de una anotación documental en T02\. La con
 El Dr. Juan Copado Ceballos confirmó «todo si» en esta conversación el 20 de noviembre de 2026 (Atlantic/Azores). Se registran **11 respuestas SÍ de 11**, una por cada ID de este expediente.
 
 El alcance de la conformidad se limita a las anotaciones documentales indicadas en la tabla. El estado del proyecto sigue siendo `CLINICALLY_PENDING`. La disponibilidad local, la compatibilidad y la estabilidad para una presentación concreta requieren evidencia propia cuando la propuesta dependa de ellas.
+
+## Adenda · Tenecteplasa en ictus isquémico agudo del adulto
+
+ID `tenecteplase-ais-us-eu-gb-2026`. El 20/11/2026, el Dr. Juan Copado Ceballos respondió **SÍ** a mostrar en el comparador las ventanas y los puntos de inicio de las fichas técnicas. Esta decisión documental adicional se registra por separado de las once del expediente original. El alcance se limita a la indicación adulta citada. La decisión sobre elegibilidad individual y el cálculo de dosis quedan fuera del alcance aprobado.
+
+- US · Ictus isquémico agudo en adultos. La ficha de TNKase establece el inicio del tratamiento dentro de las 3 horas desde el comienzo de los síntomas. [FDA · TNKase §2.1](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/103909s5197lbl.pdf)
+- EU · Ictus isquémico agudo en adultos. La ficha de Metalyse establece una ventana de 4,5 horas desde la última vez que se sabía que el paciente estaba sin síntomas, tras excluir hemorragia intracraneal. [EMA · Metalyse 25 mg §§4.1–4.2](https://www.ema.europa.eu/en/documents/product-information/metalyse-epar-product-information_en.pdf)
+- GB · Ictus isquémico agudo en adultos. La ficha de Metalyse establece una ventana de 4,5 horas desde la última vez que se sabía que el paciente estaba sin síntomas, tras excluir hemorragia intracraneal. [SmPC británica · Metalyse 25 mg §§4.1–4.2](https://www.medicines.org.uk/emc/product/15859/smpc)

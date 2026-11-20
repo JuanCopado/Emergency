@@ -6,6 +6,7 @@ import { countries, loadContext } from '../context/reference-context';
 
 const euCountries = new Set(['DE', 'ES', 'FR', 'IT', 'PT']);
 const moduleTopics: Record<string, string[]> = {
+  'acute-ischemic-stroke': ['Tenecteplasa'],
   'anticoagulation-reversal': ['PCC', 'Idarucizumab', 'Andexanet alfa'],
   'status-epilepticus': ['Fenitoína', 'Fosfenitoína', 'Midazolam'],
   'pediatric-status-epilepticus': ['Fenitoína', 'Fosfenitoína', 'Midazolam'],
@@ -15,6 +16,7 @@ const moduleTopics: Record<string, string[]> = {
   'PROC-THX-002': ['Descompresión torácica'],
 };
 const drugTopics: Record<string, string> = {
+  tenecteplase: 'Tenecteplasa', tnkase: 'Tenecteplasa', metalyse: 'Tenecteplasa',
   epinephrine: 'Adrenalina', epinefrina: 'Adrenalina', adrenaline: 'Adrenalina',
   phenytoin: 'Fenitoína', fosphenytoin: 'Fosfenitoína', andexanet: 'Andexanet alfa',
   octaplex: 'PCC', kcentra: 'PCC', balfaxar: 'PCC',
