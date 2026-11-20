@@ -134,9 +134,9 @@ Project-wide end-stage review gate for all modules that remain yellow. This modu
 
 ### Final review workflow
 For every yellow module:
-1. Identify required specialty reviewer(s).
-2. Clinical review.
-3. Pharmacy review where medication/dose/concentration is involved.
+1. Prepare a versioned dossier with current primary sources, exact locations, applicable population and product, discrepancies, uncertainties and the proposed change.
+2. Present one scoped YES/NO question to the project physician-owner, Dr. Juan Copado Ceballos, who makes the final clinical decision.
+3. Obtain product-specific information when needed. Pharmacy advice is optional for project sign-off.
 4. Nursing/operational review where bedside workflow is involved.
 5. Legal/privacy/information-governance review where personal health data are handled.
 6. Portugal/local implementation review only where the module depends on local product/protocol/system details.

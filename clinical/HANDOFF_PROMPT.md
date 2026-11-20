@@ -1,5 +1,7 @@
 # HANDOFF_PROMPT — Emergency internacional
 
+La validación clínica del proyecto corresponde al Dr. Juan Copado Ceballos. Preparar la evidencia y presentar una pregunta SÍ/NO por decisión según `AGENTS.md`. Farmacia es consultiva.
+
 Directriz del propietario: 16/11/2026. Continuar desde una referencia comprobada, nunca desde una rama histórica por inercia.
 
 > Trabaja en **Emergency como proyecto internacional y ampliable** de apoyo clínico, formación, investigación y coordinación en urgencias y cuidados agudos. Lee primero `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` y `STATE.md`, y después las instrucciones del área afectada. Mantén un núcleo clínico global coherente y un mismo módulo/algoritmo canónico, operativo como referencia sin hospital seleccionado. No deduzcas país u hospital del idioma ni de la biografía. Portugal/Azores/Horta son contextos de aplicación y experiencia, no el alcance global.

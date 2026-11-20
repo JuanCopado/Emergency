@@ -51,8 +51,7 @@ class MultiCountrySafety(unittest.TestCase):
             'source_url': 'https://example.invalid/synthetic-fixture',
             'source_title': 'Synthetic fixture, not clinical evidence',
             'source_version': 'test', 'source_date': '2026-01-01',
-            'verified_at': '2026-11-16', 'reviewer_clinical': 'synthetic',
-            'reviewer_pharmacy': 'synthetic'
+            'verified_at': '2026-11-16', 'reviewer_clinical': 'synthetic'
         }]
         rows = compare_topic('medication.octaplex-pcc', ['ES', 'PT'], matrix)['country_comparison']
         self.assertEqual(rows[0]['source_review_status'], REFERENCE)

@@ -1,5 +1,11 @@
 # Emergency — instrucciones comunes de colaboración
 
+## Decisión clínica del propietario · 20/11/2026
+
+La decisión clínica final del proyecto corresponde exclusivamente al Dr. Juan Copado Ceballos. Investiga a fondo cada propuesta antes de presentarla. Entrega el cambio concreto y su alcance, fuentes primarias vigentes con versión y localizador, discrepancias, incertidumbre e impacto. Formula una pregunta que Juan pueda responder SÍ o NO. Farmacia puede aportar información técnica sobre el producto cuando sea pertinente. Su firma no es requisito de validación del proyecto. Solo una respuesta explícita de Juan acepta el alcance presentado. Si falta evidencia sustantiva, continúa investigando o documenta el límite antes de pedir decisión.
+
+Registrar ID, versión, alcance, respuesta y fecha. Un NO mantiene la propuesta sin aprobar. Conservar las aceptaciones previas en su alcance. Las comprobaciones del producto, la seguridad, la privacidad, los procedimientos locales y la QA siguen aplicándose según el caso. Plantilla común: `clinical/qa/HUMAN_REVIEW_TEMPLATE.md`.
+
 ## Directriz de ejecución vigente — contratos revisados, 16/11/2026
 
 El propietario médico ha confirmado que el trabajo ya está validado por él y ha ordenado incorporarlo y desbloquearlo. Aplicar `clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md` y la aceptación registrada en `clinical/references/acute-contract-owner-acceptance-2026-11-16.json`. Esta instrucción posterior sustituye la conservación histórica de los 19 bloqueos de GMA-P2-004 dentro de ese alcance. No volver a pedir la aceptación ya concedida ni restablecer bloqueos administrativos por leer un corte anterior. Mantener los controles reales de cada caso/producto y distinguir cálculo de apoyo de decisión sin dosis.

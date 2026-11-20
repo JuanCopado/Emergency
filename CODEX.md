@@ -1,5 +1,7 @@
 # Codex bootstrap — Emergency v1.44 functional validation
 
+La validación clínica del proyecto corresponde al Dr. Juan Copado Ceballos. Preparar la evidencia y presentar una pregunta SÍ/NO por decisión según `AGENTS.md`. Farmacia es consultiva.
+
 This file defines the safe entry point for Codex work on this repository.
 
 ## Current owner execution directive: reviewed contracts (2026-11-16)

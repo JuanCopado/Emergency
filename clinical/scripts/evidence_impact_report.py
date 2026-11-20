@@ -7,6 +7,7 @@ def build_impact(source, diff, candidate_modules):
   "priority":diff["priority"],"change_categories":sorted(diff["categories"]),
   "candidate_module_ids":sorted(set(candidate_modules)),
   "clinical_change_authorized":False,"requires_clinician_review":True,
-  "requires_pharmacist_review":bool({"dose_change","contraindication_change","safety_change","withdrawal_change"} & set(diff["categories"])),
+  "requires_pharmacist_review":False,
+  "requires_medication_evidence_review":bool({"dose_change","contraindication_change","safety_change","withdrawal_change"} & set(diff["categories"])),
   "qa_required":True,"status":"pending_review",
  }
