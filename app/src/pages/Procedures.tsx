@@ -1,3 +1,4 @@
+import CountryReferences from '../components/CountryReferences';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { canonicalProcedures, getCanonicalProcedure } from '../clinical-guides/procedures';
@@ -25,6 +26,7 @@ export default function Procedures() {
         <p className="inline-flex rounded-lg bg-warn-bg p-2 font-semibold text-warn">⚠ YELLOW · revisión clínica pendiente</p>
         {procedure.aliases.length > 0 && <p className="text-sm">Alias: {procedure.aliases.join(', ')}</p>}
       </header>
+      <CountryReferences key={procedure.id} moduleId={procedure.id} />
       {sheet ? <>
         <nav className="flex flex-wrap gap-2" aria-label="Secciones del procedimiento">
           {['STOP', 'Confirmación', 'Técnica paso a paso', 'Complicaciones', 'Fuentes'].map(title => <a key={title} href={`#${sectionId(title)}`} className="btn-ghost">{title}</a>)}

@@ -1,3 +1,4 @@
+import CountryReferences from '../components/CountryReferences';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 import { CategoryBadge, EvidenceBadge } from '../components/Badges';
@@ -85,6 +86,7 @@ function DrugDetailView({ drug }: { drug: Drug }) {
         )}
       </header>
 
+      <CountryReferences key={drug.id} drug={drug.name} />
       <Section id="sec-cautions" title={t('drug.cautions')}>
         {drug.contraindications.length > 0 && (
           <>

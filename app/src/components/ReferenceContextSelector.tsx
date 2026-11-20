@@ -1,3 +1,4 @@
+import CountryReferences from './CountryReferences';
 import { useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { contextSchema, contextStorageKey, countries, defaultContext, environments, loadContext, organizations, resourceNames, resourceStates, type ReferenceContext } from '../context/reference-context';
@@ -51,6 +52,7 @@ export default function ReferenceContextSelector() {
         </label>)}
       </div>
       <p id={`${id}-status`} role="status" aria-label={t('referenceContext.status')} className="text-sm text-warn">CLINICALLY_PENDING · {t('referenceContext.limits')}</p>
+      <CountryReferences key={context.countryCode} primary={context.countryCode} />
     </fieldset>
   );
 }

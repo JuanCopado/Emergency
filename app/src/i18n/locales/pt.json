@@ -343,5 +343,15 @@
       "declared-present": "Declarado disponível (não verificado)",
       "declared-unavailable": "Declarado indisponível (não verificado)"
     }
+  },
+  "countryNotes": {
+    "noDifference": "Revisto · sem diferenças materiais",
+    "title": "Referências por país",
+    "scope": "Notas documentais T02 · revisão médica",
+    "pending": "Revisão nacional pendente para esta consulta.",
+    "topic": "Tema",
+    "all": "Todos os temas",
+    "compare": "Comparar com outro país",
+    "off": "Sem comparação"
   }
 }

@@ -335,5 +335,15 @@
       "declared-present": "声明可用（未验证）",
       "declared-unavailable": "声明不可用（未验证）"
     }
+  },
+  "countryNotes": {
+    "noDifference": "已审核 · 无实质差异",
+    "title": "国家参考资料",
+    "scope": "T02 文献注释 · 医学审核",
+    "pending": "此项查询的国家级审核尚未完成。",
+    "topic": "主题",
+    "all": "所有主题",
+    "compare": "与其他国家比较",
+    "off": "不比较"
   }
 }

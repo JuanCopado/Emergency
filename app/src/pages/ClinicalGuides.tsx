@@ -1,3 +1,4 @@
+import CountryReferences from '../components/CountryReferences';
 import { useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { clinicalGuides, getClinicalGuide } from '../clinical-guides/guides';
@@ -226,6 +227,7 @@ export default function ClinicalGuides() {
           </>
         ) : null}
 
+        <CountryReferences key={id} moduleId={id ?? ''} />
         {canonicalGuide ? <CanonicalBody guide={canonicalGuide} /> : null}
         {canonicalGuide?.id === 'arrhythmias-cardiac-arrest' ? <ResuscitationCircuits base="/guides" /> : null}
 

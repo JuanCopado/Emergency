@@ -66,11 +66,16 @@ def compare_topic(topic_id, countries, matrix=None, *, language=None):
     for code in countries:
         matches = [r for r in matrix.get('country_topic_reviews', [])
                    if r.get('country_code') == code and r.get('topic_id') == topic_id]
-        reviewed = (len(matches) == 1 and matches[0].get('review_status') == 'DOCUMENTARY_REVIEWED'
-                    and all(isinstance(matches[0].get(key), str) and matches[0][key].strip()
-                            for key in REQUIRED_REVIEW)
-                    and matches[0]['source_url'].startswith('https://'))
-        status = CONFLICT if len(matches) > 1 else REFERENCE if reviewed else PENDING
+        # Separate presentations and indications can coexist in one country.
+        scope_fields = ('product', 'presentation', 'indication', 'population', 'setting')
+        scopes = [tuple(str(r.get(field, '')).strip().casefold() for field in scope_fields)
+                  for r in matches]
+        conflict = len(scopes) != len(set(scopes))
+        reviewed = bool(matches) and all(
+            r.get('review_status') == 'DOCUMENTARY_REVIEWED'
+            and all(isinstance(r.get(key), str) and r[key].strip() for key in REQUIRED_REVIEW)
+            and r['source_url'].startswith('https://') for r in matches)
+        status = CONFLICT if conflict else REFERENCE if reviewed else PENDING
         country = catalog_countries[code]
         result.append({
             'country_code': code,
