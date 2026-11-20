@@ -1,3 +1,7 @@
+## 20/11/2026 · ECG-PT-20261120 v1 — aprobación puntual
+
+El médico propietario confirmó «Si acepto el cambio» para la definición de Peñaloza–Tranchesi descrita en `qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md`. Se corrige la guía canónica y su proyección; `ecg-image` sigue YELLOW, la fecha de evidencia no cambia y el proyecto continúa CLINICALLY_PENDING. Registro: `qa/ECG_PT_OWNER_APPROVAL_20261120.md`. La nota anterior de propuesta pendiente queda conservada como antecedente.
+
 ## Continuidad T05/T06 y evidencia · 20/11/2026
 
 Cierre documental de PR33 y de las cinco correcciones Sonar integradas en PR34. Se preparan expedientes focales de los ocho registros vencidos y la errata ECG-PT-20261120 v1, pendiente de decisión médica y todavía no activada. Metadatos del gate final conciliados con PR35 ya aceptada; fechas y estados clínicos preservados: 118 GREEN / 13 YELLOW / 0 RED, CLINICALLY_PENDING. Detalle: `qa/EVIDENCE_FOLLOWUP_20261120.md`.

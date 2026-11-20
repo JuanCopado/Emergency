@@ -1,5 +1,7 @@
 # Continuidad T05/T06 y evidencia pendiente · 20/11/2026
 
+**Actualización posterior (20/11/2026):** la corrección puntual ECG-PT-20261120 v1 fue aprobada expresamente y aplicada a la rama de desarrollo internacional. Ver [ECG_PT_OWNER_APPROVAL_20261120.md](ECG_PT_OWNER_APPROVAL_20261120.md). El estado previo de propuesta pendiente descrito abajo se conserva como antecedente; las ocho revisiones integrales no se consideran completadas.
+
 ## Resultado y alcance
 
 La revisión parte del HEAD internacional `cdca8e34013bba891a1c49f5ea859f933fcbea63`, árbol `977ec9cd9443bf0e7a284de13e00f242ea80ef92`. Se comprueba primero el trabajo ya integrado para no duplicarlo. PR33 incorporó T05/T06; PR34 resolvió las cinco incidencias Sonar que quedaban identificadas en el cierre anterior. PR35 estableció al Dr. Juan Copado Ceballos como único validador clínico final. Las entregas posteriores PR36–44 conservan su alcance y sus propias decisiones.

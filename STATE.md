@@ -10,7 +10,7 @@ Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, conform
 - Corte técnico comprobado: `cdca8e34013bba891a1c49f5ea859f933fcbea63`; Clinical QA, App UI QA y Security PASS; Sonar 0 nuevas / 0 aceptadas.
 - Cierre y evidencias por commit: `clinical/qa/T05_T06_INTEGRATION_20261119.md`.
 - Seguimiento de los ocho registros vencidos: `clinical/qa/EVIDENCE_FOLLOWUP_20261120.md`; contraste focal, sin renovar `last_checked` ni promover estados.
-- ECG-PT-20261120 v1: errata confirmada y parche de dos consumidores preparado; respuesta médica pendiente, corrección clínica todavía no activada.
+- ECG-PT-20261120 v1: aprobación médica expresa recibida; guía y ficha corregidas, módulo YELLOW, sin nueva fecha de evidencia ni GO_RELEASE.
 - Gobernanza del registro reconciliada con PR35; cola dinámica, sin cifra histórica fija ni segunda firma farmacéutica obligatoria.
 - T05: revisión visual y trazabilidad de FiO₂; extracción protegida solo Windows, bloqueo explícito en Linux.
 - T06: R6/B1/Q4 TLS sintético local solo Linux/POSIX; sin proveedores públicos, consultas libres, RAG ni cierre G05.
