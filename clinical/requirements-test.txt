@@ -1,4 +1,5 @@
 -r requirements.txt
+-r requirements-multimodal.txt
 # Extract actual PDF text in regression tests; not a runtime dependency.
 pypdf==6.21.4
 # Parse GitHub Actions configuration in coverage regressions.

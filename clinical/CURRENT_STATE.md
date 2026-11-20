@@ -1,4 +1,8 @@
-## Continuidad T05/T06 y evidencia · 20/11/2026
+## Continuidad v1.44 · 20/11/2026
+
+El registro vigente tras PR46 contiene 131 módulos: 119 GREEN, 12 YELLOW y 0 RED. El estado global es `CLINICALLY_PENDING`. La aprobación SCORE-REF-20261120 abarca los 13 formularios, con entrada manual o importación revisada y cálculo a petición del médico.
+
+## Continuidad T05/T06 y evidencia · corte PR45 · 20/11/2026
 
 Cierre documental de PR33 y de las cinco correcciones Sonar integradas en PR34. Se preparan expedientes focales de los ocho registros vencidos y la errata ECG-PT-20261120 v1, pendiente de decisión médica y todavía no activada. Metadatos del gate final conciliados con PR35 ya aceptada; fechas y estados clínicos preservados: 118 GREEN / 13 YELLOW / 0 RED, CLINICALLY_PENDING. Detalle: `qa/EVIDENCE_FOLLOWUP_20261120.md`.
 
@@ -6,7 +10,7 @@ Cierre documental de PR33 y de las cinco correcciones Sonar integradas en PR34. 
 
 20/11/2026 · SCORE-REF-20261120. El Dr. Juan Copado Ceballos aprueba el módulo 12 en los 13 formularios con entrada manual o importación revisada. Registro: 119 GREEN, 12 YELLOW. Estado global CLINICALLY_PENDING.
 
-20/11/2026 · ARR-SELECTOR-20261120. El Dr. Juan Copado Ceballos aprueba el selector manual de cuatro circuitos en las dos vistas. Ocho navegaciones verificadas en Chromium. Registro vigente: 118 GREEN, 13 YELLOW. Estado global CLINICALLY_PENDING.
+20/11/2026 · ARR-SELECTOR-20261120. El Dr. Juan Copado Ceballos aprueba el selector manual de cuatro circuitos en las dos vistas. Ocho navegaciones verificadas en Chromium. En el corte de esa decisión el registro contenía 118 GREEN y 13 YELLOW. Estado global CLINICALLY_PENDING.
 
 Se incorporan las rutas de revisión local de gasometrías y laboratorio T06 a la aplicación común, con sus implementaciones recuperadas y procesos separados. T05 conserva revisión visual, trazabilidad de FiO₂ y extracción protegida solo en Windows; T06 conserva R6/B1/Q4 para escenarios TLS sintéticos solo en Linux. JSON ambiguo y pérdida numérica a cero se rechazan en la frontera T05. No se modifican fórmulas, recomendaciones, aceptaciones ni estados/fechas clínicas. `CLINICALLY_PENDING`. Uso: `../docs/LOCAL_REVIEW.md`; procedencia y alcance: `qa/T05_T06_INTEGRATION_20261119.md`. Los apartados siguientes conservan antecedentes históricos.
 

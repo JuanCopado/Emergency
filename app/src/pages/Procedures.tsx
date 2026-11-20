@@ -1,5 +1,6 @@
 import CountryReferences from '../components/CountryReferences';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 import { canonicalProcedures, getCanonicalProcedure } from '../clinical-guides/procedures';
 import { getProcedureSheet } from '../clinical-guides/procedureSheets';
@@ -10,13 +11,14 @@ const fold = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g,
 const sectionId = (title: string) => `procedure-${fold(title).replace(/[^a-z0-9]+/g, '-')}`;
 
 export default function Procedures() {
+  const { i18n } = useTranslation();
   const { id } = useParams();
   const [query, setQuery] = useState('');
   const [family, setFamily] = useState('');
   const [level, setLevel] = useState('');
   const procedure = id ? getCanonicalProcedure(id.toUpperCase()) : undefined;
   const sheet = procedure && getProcedureSheet(procedure.id);
-  if (id) return <div className="space-y-4">
+  if (id) return <div lang="es" className="space-y-4">
     <Link className="btn-ghost" to="/procedures">← Procedimientos</Link>
     {!procedure ? <h1 className="text-2xl font-bold">Procedimiento no encontrado</h1> : <article className="space-y-4">
       <header className="card p-5 space-y-2">
@@ -26,7 +28,9 @@ export default function Procedures() {
         <p className="inline-flex rounded-lg bg-warn-bg p-2 font-semibold text-warn">⚠ YELLOW · revisión clínica pendiente</p>
         {procedure.aliases.length > 0 && <p className="text-sm">Alias: {procedure.aliases.join(', ')}</p>}
       </header>
-      <CountryReferences key={procedure.id} moduleId={procedure.id} />
+      <div lang={i18n.resolvedLanguage ?? i18n.language ?? 'en'}>
+        <CountryReferences key={procedure.id} moduleId={procedure.id} />
+      </div>
       {sheet ? <>
         <nav className="flex flex-wrap gap-2" aria-label="Secciones del procedimiento">
           {['STOP', 'Confirmación', 'Técnica paso a paso', 'Complicaciones', 'Fuentes'].map(title => <a key={title} href={`#${sectionId(title)}`} className="btn-ghost">{title}</a>)}
@@ -58,7 +62,7 @@ export default function Procedures() {
   </div>;
 
   const matches = canonicalProcedures.filter(p => (!family || p.family === family) && (!level || p.level === level) && fold([p.id, p.name, getProcedureSheet(p.id)?.name || '', ...p.aliases].join(' ')).includes(fold(query.trim())));
-  return <div className="space-y-5">
+  return <div lang="es" className="space-y-5">
     <header><h1 className="text-3xl font-extrabold">Procedimientos</h1><p className="mt-2">196 canónicos · 4 alias · 16 familias · YELLOW: revisión clínica pendiente.</p><p className="text-sm text-muted">196 fichas completas desde la fuente canónica; imágenes sujetas a revisión separada.</p></header>
     <div className="grid gap-3 sm:grid-cols-3">
       <label>Nombre o PROC-ID<input className="input mt-1" type="search" value={query} onChange={e => setQuery(e.target.value)} /></label>

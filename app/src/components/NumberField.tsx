@@ -21,7 +21,8 @@ export function NumberField({ label, value, onChange, suffix, hint, error, id, t
   const inputId = id ?? autoId;
   const hintId = `${inputId}-hint`;
   const errId = `${inputId}-err`;
-  const describedBy = [hint ? hintId : null, error ? errId : null].filter(Boolean).join(' ') || undefined;
+  const suffixId = `${inputId}-unit`;
+  const describedBy = [suffix ? suffixId : null, hint && !error ? hintId : null, error ? errId : null].filter(Boolean).join(' ') || undefined;
   return (
     <div>
       <label htmlFor={inputId} className="label">
@@ -44,7 +45,7 @@ export function NumberField({ label, value, onChange, suffix, hint, error, id, t
           className={`input num ${suffix ? 'rounded-r-none' : ''} ${large ? 'text-lg font-semibold' : ''} ${error ? 'border-danger focus:border-danger focus:ring-danger/30' : ''}`}
         />
         {suffix && (
-          <span className="inline-flex shrink-0 items-center rounded-r-xl border border-l-0 border-border bg-surface-2 px-3 text-sm font-semibold text-muted">
+          <span id={suffixId} className="inline-flex shrink-0 items-center rounded-r-xl border border-l-0 border-border bg-surface-2 px-3 text-sm font-semibold text-muted">
             {suffix}
           </span>
         )}

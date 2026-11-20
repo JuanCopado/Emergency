@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Emergency local multimodal case bank — engineering prototype",
+  "type": "object",
+  "required": ["schema_version", "cases"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "cases": {"type": "array", "minItems": 1, "maxItems": 10000, "items": {"$ref": "#/$defs/case"}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "asset": {
+      "type": "object",
+      "required": ["id", "path", "size_bytes", "sha256", "derivative"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "path": {"type": "string", "minLength": 1},
+        "size_bytes": {"type": "integer", "minimum": 1, "maximum": 67108864},
+        "sha256": {"$ref": "#/$defs/digest"},
+        "derivative": {"type": "boolean"},
+        "parent_sha256": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "case": {
+      "type": "object",
+      "required": ["id", "patient_group_id", "study_group_id", "source_group_id", "split", "data_kind", "source_known", "annotated", "modality", "task_id", "assets", "rights", "privacy"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "patient_group_id": {"$ref": "#/$defs/id"},
+        "study_group_id": {"$ref": "#/$defs/id"},
+        "source_group_id": {"$ref": "#/$defs/id"},
+        "lineage_group_id": {"$ref": "#/$defs/id"},
+        "split": {"enum": ["teaching", "development", "blind_test"]},
+        "data_kind": {"enum": ["synthetic", "authorized_deidentified"]},
+        "source_known": {"type": "boolean"},
+        "annotated": {"type": "boolean"},
+        "modality": {"enum": ["ecg", "pocus", "chest_xray", "musculoskeletal_xray", "ct_mri"]},
+        "task_id": {"enum": ["ecg_still", "pocus_still", "pocus_video_navigation", "radiograph_still", "msk_radiograph_still", "ct_mri_screenshot", "ct_mri_video_navigation"]},
+        "context": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "speed_mm_s": {"enum": [25, 50]}, "gain_mm_mv": {"enum": [5, 10, 20]},
+            "view": {"enum": ["unknown", "AP", "PA", "lateral", "long_axis", "short_axis"]},
+            "laterality": {"enum": ["unknown", "left", "right", "bilateral"]}
+          }
+        },
+        "assets": {"type": "array", "minItems": 1, "maxItems": 100, "items": {"$ref": "#/$defs/asset"}},
+        "rights": {
+          "type": "object", "required": ["authorized", "authorization_ref", "allowed_uses"],
+          "properties": {
+            "authorized": {"const": true}, "authorization_ref": {"$ref": "#/$defs/id"},
+            "allowed_uses": {"type": "array", "items": {"enum": ["teaching", "development", "blind_test"]}}
+          }
+        },
+        "privacy": {
+          "type": "object", "required": ["metadata_reviewed", "pixels_reviewed", "reviewer_id", "reviewed_sha256"],
+          "properties": {
+            "metadata_reviewed": {"const": true}, "pixels_reviewed": {"const": true},
+            "full_video_reviewed": {"type": "boolean"}, "reviewer_id": {"$ref": "#/$defs/id"},
+            "reviewed_sha256": {"type": "array", "items": {"$ref": "#/$defs/digest"}}
+          }
+        }
+      }
+    }
+  },
+  "$comment": "Structural schema only. Python validates cross-split identity, intended uses, exact reviewed hashes, neutral blind IDs and real bytes. A JSON flag does not prove an authorization or review occurred."
+}

@@ -1,0 +1,2 @@
+# Local engineering prototype: codec executables ffmpeg/ffprobe are separate.
+Pillow==13.0.0

@@ -143,7 +143,11 @@ describe('i18n & settings', () => {
 
   it('about page shows the disclaimer', async () => {
     await renderAt('/about', [{ path: '/about', element: <About /> }]);
-    expect(await screen.findByTestId('disclaimer')).toHaveTextContent('It does not replace clinical judgment, local protocols or the product information.');
+    const disclaimer = await screen.findByTestId('disclaimer');
+    expect(disclaimer).toHaveTextContent('It does not replace clinical judgment, local protocols or the product information.');
+    expect(disclaimer).toHaveTextContent('pending clinical validation for operational use');
+    expect(disclaimer).toHaveTextContent('Do not extrapolate the adult infusion tool to children');
+    expect(disclaimer).toHaveTextContent('Double-check every pump setting independently');
   });
 });
 

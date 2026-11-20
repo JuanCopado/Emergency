@@ -10,6 +10,7 @@ const clinicalRoot = resolve(repoRoot, 'clinical');
 const readCanonical = async (path) => (await readFile(path, 'utf8')).replace(/\r\n?/g, '\n');
 const indexText = await readCanonical(resolve(clinicalRoot, 'references/module-index.md'));
 const modulesText = await readCanonical(resolve(clinicalRoot, 'MODULES.md'));
+const evidence = JSON.parse(await readCanonical(resolve(clinicalRoot, 'references/evidence-registry.json'))).modules;
 
 const entries = indexText
   .split('\n')
@@ -33,7 +34,25 @@ for (const line of modulesText.split('\n')) {
   if (parts.length < 5) continue;
   const idMatch = parts[1]?.match(/^`([^`]+)`$/);
   const status = parts[3]?.toLowerCase();
-  if (idMatch && ['green', 'yellow', 'red'].includes(status)) statusMap.set(idMatch[1], status);
+  if (idMatch) {
+    if (statusMap.has(idMatch[1])) throw new Error('Duplicate module status: ' + idMatch[1]);
+    if (!['green', 'yellow', 'red'].includes(status)) throw new Error('Invalid module status: ' + idMatch[1]);
+    statusMap.set(idMatch[1], status);
+  }
+}
+
+// The index is a complete projection, not a selectable subset of the registry.
+// Validate all three inventories before reading bundles or writing any output.
+const indexIds = new Set();
+for (const { id } of entries) {
+  if (indexIds.has(id)) throw new Error('Duplicate module index ID: ' + id);
+  indexIds.add(id);
+}
+for (const id of Object.keys(evidence ?? {})) {
+  if (!indexIds.has(id)) throw new Error('Evidence module absent from index: ' + id);
+}
+for (const id of statusMap.keys()) {
+  if (!indexIds.has(id)) throw new Error('Module table entry absent from index: ' + id);
 }
 
 const cache = new Map();
@@ -63,6 +82,11 @@ function classifyFormat(id) {
 const guides = [];
 
 for (const entry of entries) {
+  // Project the authoritative status; absent or conflicting metadata must not
+  // silently become a new clinical state in a generated catalog.
+  const status = evidence?.[entry.id]?.status;
+  if (!['green', 'yellow', 'red'].includes(status)) throw new Error('Missing or invalid evidence status: ' + entry.id);
+  if (statusMap.get(entry.id) !== status) throw new Error('Module/evidence status mismatch: ' + entry.id);
   const content = await getBundle(entry.bundle);
   const headings = [...content.matchAll(/^## (.+)$/gm)];
   const matches = headings.filter((heading) => heading[1].trim() === entry.id);
@@ -79,7 +103,7 @@ for (const entry of entries) {
     title: titleize(entry.id),
     bundle: entry.bundle,
     sourcePath: 'clinical/' + entry.bundle,
-    status: statusMap.get(entry.id) ?? 'yellow',
+    status,
     format: classifyFormat(entry.id),
     sharedPreamble,
     sectionBody,
