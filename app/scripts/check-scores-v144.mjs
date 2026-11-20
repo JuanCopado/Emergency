@@ -1,3 +1,4 @@
+import { checkDocument } from './check-score-document.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { withClinicalApp } from './functional-harness.mjs';
@@ -37,6 +38,8 @@ await withClinicalApp(async({page,base,browser})=>{
         assert(visible.includes(expected), `UI omitted ${expected}`);
       }
       check(body.result);
+      if (variant === 'normal') await checkDocument({page,browser,inputs,expected:body.result,
+        button:page.getByRole('button',{name:c.id==='grace-2'?'Validar y abrir GRACE oficial':'Calcular',exact:true})});
       await page.getByRole('button',{name:'Reiniciar',exact:true}).click();
       assert.equal(await result.count(),0);
       assert(await page.locator('[data-field]').evaluateAll(fields=>fields.every(f=>f.value==='')));
@@ -44,7 +47,7 @@ await withClinicalApp(async({page,base,browser})=>{
     await page.getByRole('button',{name:c.id==='grace-2'?'Validar y abrir GRACE oficial':'Calcular',exact:true}).click();
     await page.getByRole('alert').filter({hasText:'requerido'}).waitFor();
     assert.equal(await page.getByRole('region',{name:'Resultado del score'}).count(),0);
-    report.cases.push({id:c.id,normal:'PASS',boundary:'PASS',missing_input:'PASS',reset:'PASS',canonical_output_visible:'PASS'});
+    report.cases.push({id:c.id,normal:'PASS',pdf_equivalence:'PASS',boundary:'PASS',missing_input:'PASS',reset:'PASS',canonical_output_visible:'PASS'});
     console.log(`PASS ${c.id}: normal, boundary, missing, reset, canonical output`);
   }
   assert.deepEqual(report.errors,[]);
