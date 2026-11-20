@@ -25,7 +25,17 @@ await withClinicalApp(async({page,base,browser})=>{
       const result=page.getByRole('region',{name:'Resultado del score'});await result.waitFor();
       // Every scalar returned by the canonical engine is rendered, including warnings and units.
       const visible=await result.innerText();
-      const check=value=>{if(value==null)return;if(typeof value==='object')return Object.values(value).forEach(check);assert(visible.includes(typeof value==='boolean'?(value?'Sí':'No'):String(value)),`UI omitted ${value}`);};
+      function check(value) {
+        if (value == null) return;
+        if (typeof value === 'object') {
+          Object.values(value).forEach(check);
+          return;
+        }
+        let expected = String(value);
+        if (typeof value === 'number') expected = expected.replace('.', ',');
+        if (typeof value === 'boolean') expected = value ? 'Sí' : 'No';
+        assert(visible.includes(expected), `UI omitted ${expected}`);
+      }
       check(body.result);
       await page.getByRole('button',{name:'Reiniciar',exact:true}).click();
       assert.equal(await result.count(),0);

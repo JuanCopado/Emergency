@@ -416,13 +416,16 @@
     },
     {
       "id": "avpu",
-      "version": "AVPU/ABCDE",
-      "source_url": "https://www.resus.org.uk/library/abcde-approach",
+      "version": "WHO/ICRC Basic Emergency Care, ABCDE disability assessment / AVPU",
+      "source_url": "https://hlh.who.int/docs/librariesprovider4/clinical-care/who-icrc-basic-emergency-care.pdf",
       "implementation": "dedicated_source_encoded_v1",
       "gemini_verdict": "supported_within_scope",
       "gemini_locator": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538431/",
       "gemini_limitation": "Herramienta de evaluación rápida; no proporciona la granularidad de la Escala de Coma de Glasgow.",
-      "editor_review": null
+      "editor_review": [
+        "https://hlh.who.int/docs/librariesprovider4/clinical-care/who-icrc-basic-emergency-care.pdf",
+        "Instrumento AVPU de cuatro categorías, distinto de la variante ACVPU. Fuente armonizada con el código."
+      ]
     },
     {
       "id": "ich-score",

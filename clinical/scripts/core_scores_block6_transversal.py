@@ -16,8 +16,8 @@ def calculate_avpu(data):
       "id":"avpu","status":"complete","state":key,"ordinal":AVPU_ORDER[key],
       "warning":"AVPU is a rapid consciousness assessment. Any depressed level requires clinical evaluation; use GCS or another structured neurologic assessment when greater detail is needed.",
       "source":{
-        "authority":"Resuscitation Council UK",
-        "url":"https://www.resus.org.uk/library/abcde-approach",
-        "version":"ABCDE/AVPU",
+        "authority":"WHO / ICRC",
+        "url":"https://hlh.who.int/docs/librariesprovider4/clinical-care/who-icrc-basic-emergency-care.pdf",
+        "version":"Basic Emergency Care, ABCDE disability assessment / AVPU",
       },
     }
