@@ -1,7 +1,7 @@
 {
   "status": "TEMPORARY_LOCAL_MITIGATION_NOT_OFFICIAL_FIX",
   "advisory": "GHSA-fc5q-39xc-vjpf",
-  "lock_sha256": "902f89eb70b96e535fb2e2870aa74c2e426ce983c8ce856f59a106a1d5c39af7",
+  "lock_sha256": "46793e4e73b98964eeacb704b0f2da1cc72b76c3b7cda9ab7620091634f29467",
   "policy_sha256": "86ffe4062dedbb98639c8673ba4a4c697592f062b850704d88a9915a2e1a1166",
   "targets": [
     {

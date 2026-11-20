@@ -3,6 +3,7 @@
     {
       "id": "news2",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -11,6 +12,7 @@
     {
       "id": "sofa",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -19,6 +21,7 @@
     {
       "id": "sofa-2",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -27,6 +30,7 @@
     {
       "id": "heart",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -35,6 +39,7 @@
     {
       "id": "grace-2",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -43,6 +48,7 @@
     {
       "id": "wells-pe",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -51,6 +57,7 @@
     {
       "id": "wells-dvt",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -59,6 +66,7 @@
     {
       "id": "years-pe",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -67,6 +75,7 @@
     {
       "id": "glasgow-blatchford",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -75,6 +84,7 @@
     {
       "id": "curb65",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -83,6 +93,7 @@
     {
       "id": "glasgow-coma",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -91,6 +102,7 @@
     {
       "id": "perc",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -99,6 +111,7 @@
     {
       "id": "nihss",
       "normal": "PASS",
+      "pdf_equivalence": "PASS",
       "boundary": "PASS",
       "missing_input": "PASS",
       "reset": "PASS",
@@ -106,5 +119,5 @@
     }
   ],
   "errors": [],
-  "browser": "155.0.4283.45"
+  "browser": "157.0.8103.80"
 }

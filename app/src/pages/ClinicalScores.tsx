@@ -2,7 +2,9 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import ClinicalValue from '../components/ClinicalValue';
 
-type Field = {key:string;label:string;type:'number'|'choice';unit?:string;minimum?:number|null;maximum?:number|null;integer?:boolean;optional:boolean;options?:{value:string|number|boolean;label:string}[]};
+import ScoreDocumentInput from '../components/ScoreDocumentInput';
+import type { Field } from '../lib/score-document';
+
 type Score = {id:string;name:string;use:string;measures:string;version:string;execution_note?:string;source_url:string;fields:Field[]};
 type Catalog = {revision:string;scores:Score[];total_scales:number;total_formulas:number;evidence:{status:string}};
 type Response = {score_id:string;revision:string;result:Record<string,unknown>;clinical_status:string};
@@ -21,11 +23,13 @@ export default function ClinicalScores() {
   const [result,setResult] = useState<Response>();
   const [error,setError] = useState('');
   const [busy,setBusy] = useState(false);
+  const [mode,setMode] = useState<'manual'|'document'>('manual');
+  const [resetId,setResetId] = useState(0);
   const serial = useRef(0);
   const resultRef = useRef<HTMLElement>(null);
   const id = params.get('score') || 'news2';
   const score = catalog?.scores.find(s=>s.id===id);
-  const clear = () => { serial.current++; setValues({}); setResult(undefined); setError(''); setBusy(false); };
+  const clear = () => { setResetId(n=>n+1); serial.current++; setValues({}); setResult(undefined); setError(''); setBusy(false); };
   useEffect(()=>{
     const generation = serial;
     const controller = new AbortController();
@@ -34,6 +38,11 @@ export default function ClinicalScores() {
   },[]);
   useEffect(()=>{serial.current++;setValues({});setResult(undefined);setError('');setBusy(false);},[id]);
   useEffect(()=>{if(result)resultRef.current?.focus();},[result]);
+  function edit(key:string,value:string) {
+    serial.current++;
+    setValues(v=>({...v,[key]:value}));
+    setResult(undefined);setError('');setBusy(false);
+  }
   async function calculate(event:FormEvent) {
     event.preventDefault();
     if (!catalog || !score) return;
@@ -42,7 +51,8 @@ export default function ClinicalScores() {
     try {
       const inputs:Record<string,string|number|boolean> = {};
       for (const f of score.fields) {
-        const raw = values[f.key]?.trim() || '';
+        const entry = values[f.key]?.trim() || '';
+        const raw = f.type === 'number' ? entry.replace(',', '.') : entry;
         if (!raw) { if(f.optional)continue;throw new Error(`${f.label}: campo requerido`); }
         if (f.type==='choice') {
           const option=f.options?.find(o=>JSON.stringify(o.value)===raw);
@@ -74,10 +84,14 @@ export default function ClinicalScores() {
       <label className="block">Score<select className="input mt-1" value={id} onChange={e=>{clear();setParams({score:e.target.value});}}>{catalog.scores.map(s=><option key={s.id} value={s.id}>{s.name}</option>)}</select></label>
       {!score?<p role="alert">Score no disponible en este formulario.</p>:<>
         <section className="card p-4 space-y-2"><h2 className="text-xl font-bold">{score.name}</h2><p>{score.measures}</p><p>{score.use}</p><p>{score.version}</p>{score.execution_note&&<p className="text-warn">{score.execution_note}</p>}<a className="underline" href={score.source_url} target="_blank" rel="noreferrer">Fuente canónica</a></section>
+        <fieldset className="card p-4"><legend>Entrada de datos</legend>
+          {(['manual','document'] as const).map(m=><label key={m} className="mr-4"><input type="radio" name="entry" checked={mode===m} onChange={()=>{clear();setMode(m);}}/> {m==='manual'?'Introducir a mano':'Importar PDF o analítica'}</label>)}
+        </fieldset>
+        {mode==='document'&&<ScoreDocumentInput key={id+resetId} fields={score.fields} onPick={edit} onValues={v=>{serial.current++;setValues(v);setResult(undefined);setError('');setBusy(false);}}/>}
         <form noValidate onSubmit={e=>void calculate(e)} className="card p-4 space-y-4">
           <p>Complete los datos observados. Sin selección significa no registrado; no se asume normalidad.</p>
           <div className="grid gap-4 md:grid-cols-2">{score.fields.map(f=><label key={f.key} className="min-w-0"><span className="label">{f.label}{f.unit?` (${f.unit})`:''}</span>
-            {f.type==='choice'?<select data-field={f.key} className="input" value={values[f.key]||''} onChange={e=>{serial.current++;setValues(v=>({...v,[f.key]:e.target.value}));setResult(undefined);setError('');setBusy(false);}}><option value="">Sin registrar</option>{f.options?.map((o,i)=><option key={i} value={JSON.stringify(o.value)}>{o.label}</option>)}</select>:<input data-field={f.key} className="input" inputMode="decimal" value={values[f.key]||''} onChange={e=>{serial.current++;setValues(v=>({...v,[f.key]:e.target.value}));setResult(undefined);setError('');setBusy(false);}}/>}
+            {f.type==='choice'?<select data-field={f.key} className="input" value={values[f.key]||''} onChange={e=>edit(f.key,e.target.value)}><option value="">Sin registrar</option>{f.options?.map((o,i)=><option key={i} value={JSON.stringify(o.value)}>{o.label}</option>)}</select>:<input data-field={f.key} className="input" inputMode="decimal" value={values[f.key]||''} onChange={e=>edit(f.key,e.target.value)}/>}
             <span className="text-xs text-muted">{f.optional?'Opcional':'Requerido'}{f.type==='number'?` · ${f.integer?'Entero':'Número finito'}${f.minimum!=null?` ≥ ${f.minimum}`:''}${f.maximum!=null?` ≤ ${f.maximum}`:''}`:''}</span>
           </label>)}</div>
           <div className="flex gap-2"><button className="btn-primary" disabled={busy} type="submit">{busy?'Calculando…':id==='grace-2'?'Validar y abrir GRACE oficial':'Calcular'}</button><button className="btn-ghost" type="button" onClick={clear}>Reiniciar</button></div>
