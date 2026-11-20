@@ -405,7 +405,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `sepsis-shock` | `modules/infection-respiratory.md` | green |
 | `airway-rsi` | `modules/procedures-pharmacology.md` | green |
 | `pediatric-airway-rsi` | `modules/procedures-pharmacology.md` | green |
-| `arrhythmias-cardiac-arrest` | `modules/cardiovascular.md` | yellow |
+| `arrhythmias-cardiac-arrest` | `modules/cardiovascular.md` | green |
 | `adult-arrhythmias` | `modules/cardiovascular.md` | green |
 | `adult-cardiac-arrest` | `modules/cardiovascular.md` | green |
 | `undifferentiated-shock` | `modules/cardiovascular.md` | green |
