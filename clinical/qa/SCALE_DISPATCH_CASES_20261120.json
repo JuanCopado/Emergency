@@ -1,0 +1,1662 @@
+[
+  {
+    "id": "nihss",
+    "input": {
+      "items": {
+        "1a_loc": 0,
+        "1b_loc_questions": 0,
+        "1c_loc_commands": 0,
+        "2_best_gaze": 0,
+        "3_visual": 0,
+        "4_facial_palsy": 0,
+        "5a_left_arm": 0,
+        "5b_right_arm": 0,
+        "6a_left_leg": 0,
+        "6b_right_leg": 0,
+        "7_limb_ataxia": 0,
+        "8_sensory": 0,
+        "9_best_language": 0,
+        "10_dysarthria": 0,
+        "11_extinction_inattention": 0
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "abcd2",
+    "input": {
+      "age": 50,
+      "systolic_bp_mmHg": 120,
+      "diastolic_bp_mmHg": 70,
+      "clinical_feature": "other",
+      "duration_minutes": 5,
+      "diabetes": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "canadian-tia-score",
+    "input": {
+      "first_tia": false,
+      "symptoms_ge_10_min": false,
+      "history_carotid_stenosis": false,
+      "on_antiplatelet": false,
+      "gait_disturbance": false,
+      "unilateral_weakness": false,
+      "vertigo": true,
+      "diastolic_bp_mmHg": 80,
+      "dysarthria_or_aphasia": false,
+      "af_on_ecg": false,
+      "infarct_on_ct": false,
+      "platelets_10e9_L": 200,
+      "glucose_mmol_L": 5
+    },
+    "status": "complete"
+  },
+  {
+    "id": "aspects",
+    "input": {
+      "early_ischemic_change": {
+        "caudate": false,
+        "lentiform": false,
+        "internal_capsule": false,
+        "insula": false,
+        "m1": false,
+        "m2": false,
+        "m3": false,
+        "m4": false,
+        "m5": false,
+        "m6": false
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pc-aspects",
+    "input": {
+      "left_thalamus": false,
+      "right_thalamus": false,
+      "left_cerebellum": false,
+      "right_cerebellum": false,
+      "left_pca_territory": false,
+      "right_pca_territory": false,
+      "midbrain": false,
+      "pons": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "modified-rankin",
+    "input": {
+      "score": 3
+    },
+    "status": "complete"
+  },
+  {
+    "id": "glasgow-coma",
+    "input": {
+      "eye": "spontaneous",
+      "verbal": "oriented",
+      "motor": "obeys_commands"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pediatric-gcs",
+    "input": {
+      "age_years": 1,
+      "eye": "spontaneous",
+      "verbal": "alert_babbles_coos_words_usual",
+      "motor": "obeys_or_normal_spontaneous"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "four-score",
+    "input": {
+      "eye": "tracking_or_blinking_command",
+      "motor": "thumbs_fist_peace",
+      "brainstem": "pupil_and_corneal_present",
+      "respiration": "regular_not_intubated"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "avpu",
+    "input": {
+      "state": "A"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "ich-score",
+    "input": {
+      "gcs": 15,
+      "age": 60,
+      "ich_volume_cm3": 10,
+      "intraventricular_hemorrhage": false,
+      "infratentorial_origin": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "modified-fisher",
+    "input": {
+      "sah_thickness": "none",
+      "ivh": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "hunt-hess",
+    "input": {
+      "clinical_category": "drowsy_confused_or_mild_focal_deficit"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "wfns-sah",
+    "input": {
+      "gcs": 15,
+      "focal_motor_deficit": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "stess",
+    "input": {
+      "age": 70,
+      "previous_seizures": false,
+      "consciousness": "comatose",
+      "worst_seizure_type": "ncse_in_coma"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "bacterial-meningitis-score",
+    "input": {
+      "positive_csf_gram_stain": true,
+      "csf_anc_per_uL": 1000,
+      "csf_protein_mg_dL": 80,
+      "peripheral_anc_per_uL": 10000,
+      "seizure_with_illness": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cincinnati-stroke",
+    "input": {
+      "facial_droop": true,
+      "arm_drift": false,
+      "abnormal_speech": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "race-stroke",
+    "input": {
+      "facial_palsy": 2,
+      "arm_motor": 2,
+      "leg_motor": 2,
+      "head_gaze_deviation": 1,
+      "cortical_item": 2
+    },
+    "status": "complete"
+  },
+  {
+    "id": "fast-ed",
+    "input": {
+      "nihss_facial_palsy": 3,
+      "nihss_arm_motor": 4,
+      "nihss_language": 3,
+      "nihss_gaze": 2,
+      "nihss_neglect": 2
+    },
+    "status": "complete"
+  },
+  {
+    "id": "heart",
+    "input": {
+      "history": "slightly_suspicious",
+      "ecg": "normal",
+      "age": 40,
+      "risk_factor_count": 0,
+      "known_atherosclerotic_disease": false,
+      "troponin_multiple_uln": 1.0
+    },
+    "status": "complete"
+  },
+  {
+    "id": "grace-2",
+    "input": {
+      "age": 68,
+      "heart_rate_bpm": 95,
+      "systolic_bp_mmHg": 110,
+      "creatinine_mg_dL": 1.3,
+      "killip_class": 2,
+      "cardiac_arrest_at_admission": false,
+      "st_segment_deviation": true,
+      "elevated_cardiac_biomarkers": true
+    },
+    "status": "official_external_calculator_required"
+  },
+  {
+    "id": "timi-ua-nstemi",
+    "input": {
+      "age": 70,
+      "cad_risk_factor_count": 3,
+      "known_coronary_stenosis_ge50": true,
+      "st_deviation": true,
+      "severe_angina_ge2_episodes_24h": true,
+      "aspirin_last_7d": true,
+      "elevated_cardiac_markers": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "edacs",
+    "input": {
+      "age": 86,
+      "sex": "male",
+      "known_cad_or_age18_50_ge3_risk_factors": true,
+      "diaphoresis": true,
+      "radiation": true,
+      "pleuritic": false,
+      "palpation_reproduces": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cha2ds2-vasc",
+    "input": {
+      "age": 76,
+      "heart_failure_or_lvd": true,
+      "hypertension": true,
+      "diabetes": true,
+      "prior_stroke_tia_thromboembolism": true,
+      "vascular_disease": true,
+      "sex": "female"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cha2ds2-va",
+    "input": {
+      "age": 50,
+      "heart_failure_or_lvd": false,
+      "hypertension": true,
+      "diabetes": false,
+      "prior_stroke_tia_thromboembolism": false,
+      "vascular_disease": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "has-bled",
+    "input": {
+      "hypertension": false,
+      "abnormal_renal_function": false,
+      "abnormal_liver_function": false,
+      "stroke_history": false,
+      "bleeding_history_or_predisposition": false,
+      "labile_inr": false,
+      "age_over_65": false,
+      "drugs_predisposing_bleeding": false,
+      "alcohol_use": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "orbit-bleeding",
+    "input": {
+      "age": 80,
+      "sex": "male",
+      "hemoglobin_g_dL": 10,
+      "bleeding_history": true,
+      "egfr_mL_min_1_73m2": 40,
+      "antiplatelet": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "canadian-syncope",
+    "input": {
+      "predisposition_vasovagal": true,
+      "history_heart_disease": false,
+      "any_sbp_below90_or_above180": false,
+      "troponin_above_99pct": false,
+      "qrs_axis_deg": 0,
+      "qrs_duration_ms": 100,
+      "qtc_ms": 430,
+      "ed_diagnosis": "vasovagal"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "scai-shock",
+    "input": {
+      "at_risk_condition": true,
+      "hemodynamic_instability": false,
+      "hypoperfusion": false,
+      "initial_support_started": false,
+      "initial_support_failed": false,
+      "circulatory_collapse_or_extremis": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "killip-kimball",
+    "input": {
+      "state": "no_heart_failure"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "duke-iscvid",
+    "input": {
+      "pathologic_definite": false,
+      "major_count": 2,
+      "minor_count": 0,
+      "firm_alternative_diagnosis": false
+    },
+    "status": "complete_from_adjudicated_criteria"
+  },
+  {
+    "id": "tisdale-qt",
+    "input": {
+      "age": 70,
+      "female": true,
+      "loop_diuretic": true,
+      "potassium_mmol_L": 3.2,
+      "baseline_qtc_ms": 470,
+      "acute_mi": true,
+      "qt_prolonging_drug_count": 2,
+      "heart_failure": true,
+      "sepsis": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "wells-pe",
+    "input": {
+      "clinical_signs_dvt": false,
+      "pe_more_likely_than_alternative": false,
+      "heart_rate_bpm": 80,
+      "immobilization_ge3d_or_surgery_4w": false,
+      "previous_dvt_pe": false,
+      "hemoptysis": false,
+      "active_cancer": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "revised-geneva",
+    "input": {
+      "age": 50,
+      "previous_dvt_pe": false,
+      "surgery_ga_or_lower_limb_fracture_1mo": false,
+      "active_cancer": false,
+      "unilateral_lower_limb_pain": false,
+      "hemoptysis": false,
+      "heart_rate_bpm": 70,
+      "deep_vein_palpation_pain_and_unilateral_edema": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "perc",
+    "input": {
+      "low_pretest_probability": true,
+      "age": 40,
+      "heart_rate_bpm": 90,
+      "spo2_percent": 98,
+      "hemoptysis": false,
+      "estrogen_use": false,
+      "previous_dvt_pe": false,
+      "unilateral_leg_swelling": false,
+      "recent_surgery_or_trauma_requiring_hospitalization_4w": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "years-pe",
+    "input": {
+      "clinical_signs_dvt": false,
+      "hemoptysis": false,
+      "pe_most_likely": false,
+      "d_dimer_ng_mL_feu": 400
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pesi",
+    "input": {
+      "age": 50,
+      "sex": "female",
+      "cancer": false,
+      "heart_failure": false,
+      "chronic_lung_disease": false,
+      "heart_rate_bpm": 80,
+      "systolic_bp_mmHg": 120,
+      "respiratory_rate": 20,
+      "temperature_c": 37,
+      "altered_mental_status": false,
+      "spo2_percent": 95
+    },
+    "status": "complete"
+  },
+  {
+    "id": "spesi",
+    "input": {
+      "age": 50,
+      "cancer": false,
+      "chronic_cardiopulmonary_disease": false,
+      "heart_rate_bpm": 80,
+      "systolic_bp_mmHg": 120,
+      "spo2_percent": 95
+    },
+    "status": "complete"
+  },
+  {
+    "id": "hestia",
+    "input": {
+      "hemodynamically_unstable": false,
+      "thrombolysis_or_embolectomy_needed": false,
+      "active_bleeding_or_high_bleeding_risk": false,
+      "oxygen_gt24h_to_keep_spo2_gt90": false,
+      "pe_diagnosed_during_anticoagulation": false,
+      "iv_pain_medication_gt24h": false,
+      "medical_or_social_reason_hospital_gt24h": false,
+      "creatinine_clearance_lt30": false,
+      "severe_liver_impairment": false,
+      "pregnant": false,
+      "history_heparin_induced_thrombocytopenia": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "bova",
+    "input": {
+      "systolic_bp_mmHg": 95,
+      "troponin_elevated": true,
+      "rv_dysfunction": true,
+      "heart_rate_bpm": 120
+    },
+    "status": "complete"
+  },
+  {
+    "id": "wells-dvt",
+    "input": {
+      "active_cancer": false,
+      "paralysis_paresis_or_recent_cast": false,
+      "bedridden_ge3d_or_major_surgery_12w": false,
+      "localized_deep_vein_tenderness": false,
+      "entire_leg_swollen": false,
+      "calf_swelling_ge3cm": false,
+      "pitting_edema_symptomatic_leg": false,
+      "collateral_superficial_nonvaricose_veins": false,
+      "previous_dvt": false,
+      "alternative_diagnosis_at_least_as_likely": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "isth-dic",
+    "input": {
+      "dic_associated_disorder": true,
+      "platelets_10e9_L": 40,
+      "fibrin_marker_multiple_uln": 6,
+      "pt_prolongation_seconds": 7,
+      "fibrinogen_mg_dL": 80
+    },
+    "status": "complete"
+  },
+  {
+    "id": "sic",
+    "input": {
+      "platelets_10e9_L": 80,
+      "pt_inr": 1.5,
+      "sofa_four_system_score": 2
+    },
+    "status": "complete"
+  },
+  {
+    "id": "sofa",
+    "input": {
+      "pao2_fio2_mmHg": 450,
+      "respiratory_support": false,
+      "platelets_10e3_uL": 200,
+      "bilirubin_mg_dL": 0.8,
+      "map_mmHg": 80,
+      "vasoactive_mcg_kg_min": {
+        "dopamine": 0,
+        "epinephrine": 0,
+        "norepinephrine": 0,
+        "dobutamine_any_dose": false
+      },
+      "gcs": 15,
+      "creatinine_mg_dL": 0.9,
+      "urine_output_mL_day": 1200,
+      "baseline_sofa": 0
+    },
+    "status": "complete"
+  },
+  {
+    "id": "sofa-2",
+    "input": {
+      "gcs": 15,
+      "delirium_drug_required": true,
+      "pao2_fio2_mmHg": 140,
+      "advanced_ventilatory_support": true,
+      "ecmo": false,
+      "map_mmHg": 75,
+      "norepinephrine_mcg_kg_min": 0.15,
+      "epinephrine_mcg_kg_min": 0,
+      "other_vasopressor_or_inotrope": true,
+      "mechanical_circulatory_support": false,
+      "bilirubin_mg_dL": 2.0,
+      "creatinine_mg_dL": 2.5,
+      "urine_lt_0_5_ml_kg_h_6_12h": false,
+      "urine_lt_0_5_ml_kg_h_ge12h": true,
+      "urine_lt_0_3_ml_kg_h_ge24h": false,
+      "anuria_ge12h": false,
+      "receiving_or_meets_rrt_criteria": false,
+      "platelets_10e3_uL": 90
+    },
+    "status": "complete"
+  },
+  {
+    "id": "qsofa",
+    "input": {
+      "respiratory_rate": 22,
+      "systolic_bp_mmHg": 100,
+      "altered_mentation": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "news2",
+    "input": {
+      "respiratory_rate": 16,
+      "spo2_percent": 98,
+      "supplemental_oxygen": false,
+      "systolic_bp_mmHg": 120,
+      "pulse_bpm": 70,
+      "consciousness": "alert",
+      "temperature_c": 37.0
+    },
+    "status": "complete"
+  },
+  {
+    "id": "mews",
+    "input": {
+      "systolic_bp_mmHg": 65,
+      "heart_rate_bpm": 135,
+      "respiratory_rate": 35,
+      "temperature_c": 34,
+      "avpu": "U"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "sirs",
+    "input": {
+      "temperature_c": 39,
+      "heart_rate_bpm": 100,
+      "respiratory_rate": 25,
+      "paco2_mmHg": 40,
+      "wbc_per_uL": 13000,
+      "bands_percent": 0
+    },
+    "status": "complete"
+  },
+  {
+    "id": "apache2",
+    "input": {
+      "temperature_c_core": 37,
+      "map_mmHg": 80,
+      "heart_rate_bpm": 80,
+      "respiratory_rate": 16,
+      "fio2_fraction": 0.21,
+      "pao2_mmHg": 90,
+      "arterial_ph": 7.4,
+      "sodium_mmol_L": 140,
+      "potassium_mmol_L": 4,
+      "creatinine_mg_dL": 1,
+      "acute_renal_failure": false,
+      "hematocrit_percent": 40,
+      "wbc_10e3_uL": 8,
+      "gcs": 15,
+      "age": 40,
+      "severe_chronic_health": false,
+      "admission_type": "nonoperative_or_emergency_postop"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "saps3",
+    "input": {
+      "saps3_score": 50
+    },
+    "status": "validated_score_wrapper"
+  },
+  {
+    "id": "shock-index",
+    "input": {
+      "HR": 120,
+      "SBP": 100
+    },
+    "status": "complete"
+  },
+  {
+    "id": "modified-shock-index",
+    "input": {
+      "HR": 120,
+      "MAP": 80
+    },
+    "status": "complete"
+  },
+  {
+    "id": "age-shock-index",
+    "input": {
+      "age": 70,
+      "heart_rate_bpm": 100,
+      "systolic_bp_mmHg": 100
+    },
+    "status": "complete"
+  },
+  {
+    "id": "curb65",
+    "input": {
+      "confusion": false,
+      "urea_mmol_L": 7,
+      "respiratory_rate": 20,
+      "systolic_bp_mmHg": 120,
+      "diastolic_bp_mmHg": 70,
+      "age": 64
+    },
+    "status": "complete"
+  },
+  {
+    "id": "crb65",
+    "input": {
+      "confusion": false,
+      "respiratory_rate": 20,
+      "systolic_bp_mmHg": 120,
+      "diastolic_bp_mmHg": 70,
+      "age": 64
+    },
+    "status": "complete"
+  },
+  {
+    "id": "psi-port",
+    "input": {
+      "age": 45,
+      "sex": "male",
+      "nursing_home": false,
+      "neoplastic_disease": false,
+      "liver_disease": false,
+      "heart_failure": false,
+      "cerebrovascular_disease": false,
+      "renal_disease": false,
+      "altered_mental_status": false,
+      "respiratory_rate": 20,
+      "systolic_bp_mmHg": 120,
+      "temperature_c": 37,
+      "heart_rate_bpm": 80
+    },
+    "status": "complete"
+  },
+  {
+    "id": "smart-cop",
+    "input": {
+      "age": 40,
+      "systolic_bp_mmHg": 80,
+      "multilobar_infiltrates": true,
+      "albumin_g_L": 30,
+      "respiratory_rate": 30,
+      "heart_rate_bpm": 130,
+      "confusion": true,
+      "arterial_ph": 7.2,
+      "spo2_percent": 90
+    },
+    "status": "complete"
+  },
+  {
+    "id": "decaf",
+    "input": {
+      "emrcd_category": "below_5a",
+      "eosinophils_10e9_L": 0.1,
+      "consolidation": false,
+      "arterial_ph": 7.4,
+      "atrial_fibrillation": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "mmrc",
+    "input": {
+      "grade": 4
+    },
+    "status": "complete"
+  },
+  {
+    "id": "rox-index",
+    "input": {
+      "SpO2_percent": 95,
+      "FiO2_fraction": 0.5,
+      "RR": 20
+    },
+    "status": "complete"
+  },
+  {
+    "id": "hacor",
+    "input": {
+      "heart_rate_bpm": 130,
+      "arterial_ph": 7.2,
+      "gcs": 8,
+      "pao2_fio2": 80,
+      "respiratory_rate": 50
+    },
+    "status": "complete"
+  },
+  {
+    "id": "berlin-ards",
+    "input": {
+      "within_1_week": true,
+      "bilateral_opacities_not_explained_by_effusions_collapse_nodules": true,
+      "respiratory_failure_not_fully_explained_by_cardiac_failure_or_fluid_overload": true,
+      "pao2_fio2_mmHg": 250,
+      "peep_or_cpap_cmH2O": 5
+    },
+    "status": "complete"
+  },
+  {
+    "id": "rts",
+    "input": {
+      "gcs": 15,
+      "systolic_bp_mmHg": 120,
+      "respiratory_rate": 18
+    },
+    "status": "complete"
+  },
+  {
+    "id": "iss",
+    "input": {
+      "highest_ais_by_region": {
+        "head_neck": 0,
+        "face": 0,
+        "chest": 0,
+        "abdomen_pelvic_contents": 0,
+        "extremities_pelvic_girdle": 0,
+        "external": 0
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "niss",
+    "input": {
+      "ais_injury_scores": [
+        5,
+        4,
+        3,
+        2
+      ]
+    },
+    "status": "complete"
+  },
+  {
+    "id": "triss",
+    "input": {
+      "rts": 7.84,
+      "iss": 10,
+      "age": 30,
+      "trauma_type": "blunt"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "abc-massive-transfusion",
+    "input": {
+      "penetrating_mechanism": false,
+      "positive_fast": false,
+      "systolic_bp_mmHg": 110,
+      "heart_rate_bpm": 90
+    },
+    "status": "complete"
+  },
+  {
+    "id": "canadian-ct-head",
+    "input": {
+      "eligible_minor_head_injury": true,
+      "age": 70,
+      "gcs_at_2h": 15,
+      "suspected_open_or_depressed_skull_fracture": false,
+      "basal_skull_fracture_sign": false,
+      "vomiting_episodes": 0,
+      "retrograde_amnesia_minutes": 0,
+      "dangerous_mechanism": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "nexus-head-ct",
+    "input": {
+      "skull_fracture": false,
+      "scalp_hematoma": false,
+      "neurologic_deficit": false,
+      "abnormal_alertness": false,
+      "abnormal_behavior": false,
+      "persistent_vomiting": false,
+      "coagulopathy": false,
+      "age": 40
+    },
+    "status": "complete"
+  },
+  {
+    "id": "canadian-cspine",
+    "input": {
+      "eligible_alert_stable_gcs15": true,
+      "age": 30,
+      "dangerous_mechanism": false,
+      "paresthesias_extremities": false,
+      "simple_rear_end_mvc": true,
+      "sitting_position_ed": true,
+      "ambulatory_any_time": true,
+      "delayed_neck_pain": true,
+      "midline_cspine_tenderness": false,
+      "can_rotate_45_left_and_right": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "nexus-cspine",
+    "input": {
+      "eligible_blunt_cspine_assessment": true,
+      "midline_cervical_tenderness": false,
+      "focal_neurologic_deficit": false,
+      "normal_alertness": true,
+      "intoxication": false,
+      "painful_distracting_injury": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "glasgow-blatchford",
+    "input": {
+      "urea_mmol_L": 5.0,
+      "hemoglobin_g_dL": 14,
+      "sex": "male",
+      "systolic_bp_mmHg": 120,
+      "pulse_bpm": 80,
+      "melena": false,
+      "syncope": false,
+      "hepatic_disease": false,
+      "heart_failure": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "rockall",
+    "input": {
+      "age": 85,
+      "heart_rate_bpm": 120,
+      "systolic_bp_mmHg": 80,
+      "comorbidity": "liver_failure",
+      "endoscopic_diagnosis": "upper_gi_malignancy",
+      "stigmata": "blood_clot_visible_or_spurting_vessel"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "aims65",
+    "input": {
+      "albumin_g_dL": 3.5,
+      "inr": 1.0,
+      "altered_mental_status": false,
+      "systolic_bp_mmHg": 120,
+      "age": 60
+    },
+    "status": "complete"
+  },
+  {
+    "id": "oakland",
+    "input": {
+      "age": 30,
+      "sex": "female",
+      "previous_lgib_admission": false,
+      "dre_blood": false,
+      "heart_rate_bpm": 60,
+      "systolic_bp_mmHg": 170,
+      "hemoglobin_g_dL": 16
+    },
+    "status": "complete"
+  },
+  {
+    "id": "bisap",
+    "input": {
+      "bun_mg_dL": 20,
+      "impaired_mental_status": false,
+      "sirs": false,
+      "age": 50,
+      "pleural_effusion": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "ranson",
+    "input": {
+      "etiology": "non_gallstone",
+      "age": 60,
+      "wbc_per_uL": 17000,
+      "glucose_mg_dL": 210,
+      "ast_IU_L": 300,
+      "ldh_IU_L": 400,
+      "calcium_mg_dL_48h": 7,
+      "hematocrit_fall_percent_48h": 11,
+      "bun_rise_mg_dL_48h": 6,
+      "base_deficit_mEq_L_48h": 5,
+      "fluid_sequestration_L_48h": 7,
+      "pao2_mmHg_48h": 50
+    },
+    "status": "complete"
+  },
+  {
+    "id": "alvarado",
+    "input": {
+      "migration_rlq": true,
+      "anorexia": true,
+      "nausea_or_vomiting": true,
+      "rlq_tenderness": true,
+      "rebound_or_percussion_tenderness": true,
+      "temperature_c": 38,
+      "wbc_10e9_L": 12,
+      "neutrophil_left_shift": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "air-appendicitis",
+    "input": {
+      "vomiting": true,
+      "right_iliac_fossa_pain": true,
+      "guarding_rebound_severity": "strong",
+      "temperature_c": 39,
+      "wbc_10e9_L": 16,
+      "neutrophils_percent": 90,
+      "crp_mg_L": 60
+    },
+    "status": "complete"
+  },
+  {
+    "id": "tokyo-biliary",
+    "input": {
+      "condition": "acute_cholangitis",
+      "organ_dysfunction": {
+        "cardiovascular": true
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "child-pugh",
+    "input": {
+      "bilirubin_mg_dL": 1.0,
+      "albumin_g_dL": 4.0,
+      "inr": 1.2,
+      "ascites": "none",
+      "encephalopathy_grade": 0
+    },
+    "status": "complete"
+  },
+  {
+    "id": "meld-na",
+    "input": {
+      "bilirubin_mg_dL": 1,
+      "creatinine_mg_dL": 1,
+      "sodium_mmol_L": 125,
+      "legacy_meld_na_acknowledged": true,
+      "INR": 1
+    },
+    "status": "complete"
+  },
+  {
+    "id": "meld-3",
+    "input": {
+      "female": true,
+      "bilirubin_mg_dL": 3,
+      "inr": 2,
+      "creatinine_mg_dL": 1.5,
+      "sodium_mmol_L": 130,
+      "albumin_g_dL": 2.5
+    },
+    "status": "complete"
+  },
+  {
+    "id": "maddrey",
+    "input": {
+      "PT_patient": 20,
+      "PT_control": 12,
+      "bilirubin_mg_dL": 10
+    },
+    "status": "complete"
+  },
+  {
+    "id": "lille",
+    "input": {
+      "age": 50,
+      "albumin_day0_g_L": 30,
+      "bilirubin_day0_umol_L": 200,
+      "bilirubin_day7_umol_L": 150,
+      "pt_seconds": 20,
+      "renal_insufficiency": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "kings-college",
+    "input": {
+      "paracetamol_related": true,
+      "arterial_ph_after_resuscitation": 7.25,
+      "hours_since_ingestion": 30,
+      "lactate_mmol_L_after_resuscitation": 2.0,
+      "encephalopathy_grade": 2,
+      "creatinine_umol_L": 150,
+      "inr": 2.0
+    },
+    "status": "complete"
+  },
+  {
+    "id": "kdigo-aki",
+    "input": {
+      "current_creatinine_mg_dL": 1.0,
+      "baseline_creatinine_mg_dL": 1.0,
+      "creatinine_increase_mg_dL_48h": 0,
+      "urine_ml_kg_h": 1.0,
+      "urine_duration_h": 6,
+      "rrt_started": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "mcmahon-rhabdo",
+    "input": {
+      "age": 40,
+      "sex": "male",
+      "creatinine_mg_dL": 1.0,
+      "calcium_mg_dL": 9,
+      "ck_u_L": 10000,
+      "etiology_low_risk_group": true,
+      "phosphate_mg_dL": 3,
+      "bicarbonate_mEq_L": 24
+    },
+    "status": "complete"
+  },
+  {
+    "id": "rumack-matthew",
+    "input": {
+      "single_acute_ingestion_known_time": true,
+      "hours_since_ingestion": 4,
+      "acetaminophen_mcg_mL": 150,
+      "extended_release_or_delayed_absorption": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "poisoning-severity",
+    "input": {
+      "grade": 3
+    },
+    "status": "explicit_official_grade"
+  },
+  {
+    "id": "hunter-serotonin",
+    "input": {
+      "serotonergic_exposure": true,
+      "spontaneous_clonus": true,
+      "inducible_clonus": false,
+      "ocular_clonus": false,
+      "agitation": false,
+      "diaphoresis": false,
+      "tremor": false,
+      "hyperreflexia": false,
+      "hypertonia": false,
+      "temperature_c": 37
+    },
+    "status": "complete"
+  },
+  {
+    "id": "ciwa-ar",
+    "input": {
+      "items": {
+        "nausea_vomiting": 0,
+        "tremor": 0,
+        "paroxysmal_sweats": 0,
+        "anxiety": 0,
+        "agitation": 0,
+        "tactile_disturbances": 0,
+        "auditory_disturbances": 0,
+        "visual_disturbances": 0,
+        "headache_fullness": 0,
+        "orientation": 0
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pawss",
+    "input": {
+      "threshold_recent_alcohol_or_positive_bal": true,
+      "previous_withdrawal": true,
+      "withdrawal_seizures": true,
+      "delirium_tremens": false,
+      "rehab_treatment": false,
+      "blackouts": false,
+      "downers_last_90d": false,
+      "other_substances_last_90d": false,
+      "bal_over_200": false,
+      "autonomic_hyperactivity": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cows",
+    "input": {
+      "items": {
+        "resting_pulse": 0,
+        "sweating": 0,
+        "restlessness": 0,
+        "pupil_size": 0,
+        "bone_joint_aches": 0,
+        "runny_nose_tearing": 0,
+        "gi_upset": 0,
+        "tremor": 0,
+        "yawning": 0,
+        "anxiety_irritability": 0,
+        "gooseflesh": 0
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cssrs",
+    "input": {},
+    "status": "official_instrument_required"
+  },
+  {
+    "id": "phq9",
+    "input": {
+      "item_scores": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "status": "complete"
+  },
+  {
+    "id": "gad7",
+    "input": {
+      "item_scores": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "status": "complete"
+  },
+  {
+    "id": "four-at",
+    "input": {
+      "alertness": "normal",
+      "amt4_mistakes": 0,
+      "attention_months_backward": 12,
+      "acute_change_or_fluctuation": false
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cam",
+    "input": {
+      "acute_onset_or_fluctuating_course": true,
+      "inattention": true,
+      "disorganized_thinking": true,
+      "altered_level_of_consciousness": false
+    },
+    "status": "complete_from_adjudicated_features"
+  },
+  {
+    "id": "cam-icu",
+    "input": {
+      "acute_onset_or_fluctuating_course": true,
+      "inattention": true,
+      "disorganized_thinking": true,
+      "altered_level_of_consciousness": false
+    },
+    "status": "complete_from_adjudicated_features"
+  },
+  {
+    "id": "rass",
+    "input": {
+      "score": 0
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cpot",
+    "input": {
+      "items": {
+        "facial_expression": 0,
+        "body_movements": 0,
+        "muscle_tension": 0,
+        "ventilator_compliance_or_vocalization": 0
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "bps",
+    "input": {
+      "facial": "grimacing",
+      "upper_limbs": "permanently_retracted",
+      "ventilation": "unable_to_control_ventilation"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "mascc",
+    "input": {
+      "burden": "none_mild",
+      "systolic_bp_mmHg": 110,
+      "copd": false,
+      "solid_tumor_or_heme_no_prior_fungal": true,
+      "dehydration_requires_iv": false,
+      "outpatient_at_fever_onset": true,
+      "age": 45
+    },
+    "status": "complete"
+  },
+  {
+    "id": "cisne",
+    "input": {
+      "ecog_ge2": true,
+      "stress_hyperglycemia": true,
+      "copd": true,
+      "cardiovascular_disease": true,
+      "mucositis_grade_ge2": true,
+      "monocytes_per_uL": 100,
+      "clinically_stable": true,
+      "solid_tumor": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "lrinec",
+    "input": {
+      "crp_mg_L": 200,
+      "wbc_10e3_uL": 30,
+      "hemoglobin_g_dL": 10,
+      "sodium_mmol_L": 130,
+      "creatinine_mg_dL": 2,
+      "glucose_mg_dL": 200
+    },
+    "status": "complete"
+  },
+  {
+    "id": "bishop",
+    "input": {
+      "dilation_cm": 0,
+      "effacement_band": "0_30",
+      "station": -3,
+      "consistency": "firm",
+      "position": "posterior"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "meows",
+    "input": {
+      "temperature_c": 36.8,
+      "systolic_bp_mmHg": 120,
+      "diastolic_bp_mmHg": 70,
+      "pulse_bpm": 80,
+      "respiratory_rate": 16,
+      "spo2_percent": 98,
+      "avpu": "A",
+      "urine_output_mL_h": 50
+    },
+    "status": "complete"
+  },
+  {
+    "id": "obstetric-shock-index",
+    "input": {
+      "heart_rate_bpm": 120,
+      "systolic_bp_mmHg": 100
+    },
+    "status": "complete"
+  },
+  {
+    "id": "puqe",
+    "input": {
+      "nausea_hours": 7,
+      "vomiting_count": 7,
+      "retching_count": 7
+    },
+    "status": "complete"
+  },
+  {
+    "id": "fullpiers",
+    "input": {
+      "gestational_age_weeks": 32,
+      "chest_pain_or_dyspnea": true,
+      "creatinine_umol_L": 100,
+      "platelets_10e9_L": 100,
+      "ast_IU_L": 100,
+      "spo2_percent": 94
+    },
+    "status": "complete"
+  },
+  {
+    "id": "rule-of-nines",
+    "input": {
+      "fractions": {
+        "head_neck": 1,
+        "left_upper_limb": 1,
+        "right_upper_limb": 1,
+        "anterior_trunk": 1,
+        "posterior_trunk": 1,
+        "left_lower_limb": 1,
+        "right_lower_limb": 1,
+        "perineum": 1
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "lund-browder",
+    "input": {
+      "age_years": 0.5,
+      "fractions": {}
+    },
+    "status": "complete"
+  },
+  {
+    "id": "revised-baux",
+    "input": {
+      "age": 50,
+      "tbsa_percent": 30,
+      "inhalation_injury": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pews",
+    "input": {
+      "age_months": 24,
+      "heart_rate_bpm": 100,
+      "systolic_bp_mmHg": 100,
+      "capillary_refill_seconds": 2,
+      "respiratory_rate": 30,
+      "respiratory_effort": "normal",
+      "spo2_percent": 98,
+      "oxygen_support_level": "room_air"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "phoenix-sepsis",
+    "input": {
+      "suspected_or_confirmed_infection": true,
+      "age_months": 24,
+      "pao2_fio2": 450,
+      "any_respiratory_support": false,
+      "invasive_mechanical_ventilation": false,
+      "vasoactive_medication_count": 0,
+      "lactate_mmol_L": 2,
+      "map_mmHg": 60,
+      "platelets_10e3_uL": 150,
+      "inr": 1.0,
+      "d_dimer_mg_L_feu": 1,
+      "fibrinogen_mg_dL": 200,
+      "gcs": 15,
+      "fixed_pupils_bilateral": false
+    },
+    "status": "complete_with_available_variables"
+  },
+  {
+    "id": "psofa",
+    "input": {
+      "age_months": 24,
+      "respiratory_support": false,
+      "pao2_fio2": 450,
+      "platelets_10e3_uL": 200,
+      "bilirubin_mg_dL": 0.8,
+      "map_mmHg": 80,
+      "dopamine_mcg_kg_min": 0,
+      "epinephrine_mcg_kg_min": 0,
+      "norepinephrine_mcg_kg_min": 0,
+      "dobutamine_any_dose": false,
+      "gcs": 15,
+      "creatinine_mg_dL": 0.5
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pelod2",
+    "input": {
+      "age_months": 24,
+      "gcs": 15,
+      "both_pupils_fixed": false,
+      "lactate_mmol_L": 2,
+      "map_mmHg": 70,
+      "creatinine_umol_L": 40,
+      "pao2_fio2": 100,
+      "paco2_mmHg": 40,
+      "invasive_ventilation": false,
+      "wbc_10e9_L": 5,
+      "platelets_10e9_L": 200
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pediatric-trauma-score",
+    "input": {
+      "weight_kg": 25,
+      "airway": "normal",
+      "systolic_bp_mmHg": 100,
+      "cns": "awake",
+      "open_wound": "none",
+      "skeletal": "none"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "sipa",
+    "input": {
+      "age_years": 5,
+      "heart_rate_bpm": 123,
+      "systolic_bp_mmHg": 100
+    },
+    "status": "complete"
+  },
+  {
+    "id": "flacc",
+    "input": {
+      "face": "frequent_frown_clenched_jaw",
+      "legs": "kicking_or_drawn_up",
+      "activity": "arched_rigid_jerking",
+      "cry": "steady_cry_screams_sobs",
+      "consolability": "difficult_to_console"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "wong-baker",
+    "input": {
+      "authorized_official_scale_used": false
+    },
+    "status": "official_licensed_scale_required"
+  },
+  {
+    "id": "pram",
+    "input": {
+      "spo2_percent": 90,
+      "suprasternal_retraction": true,
+      "scalene_contraction": true,
+      "air_entry": "minimal_or_absent",
+      "wheezing": "audible_or_silent_chest"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "westley-croup",
+    "input": {
+      "stridor": "at_rest",
+      "retractions": "severe",
+      "air_entry": "markedly_decreased",
+      "cyanosis": "at_rest",
+      "consciousness": "disoriented"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "clinical-dehydration",
+    "input": {
+      "general_appearance": "drowsy_limp_cold_sweaty_comatose",
+      "eyes": "very_sunken",
+      "mucous_membranes": "dry",
+      "tears": "absent"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pediatric-appendicitis",
+    "input": {
+      "migration_pain": true,
+      "anorexia": true,
+      "nausea_vomiting": true,
+      "fever": true,
+      "rlq_tenderness": true,
+      "cough_percussion_hopping_tenderness": true,
+      "leukocytosis": true,
+      "neutrophilia": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "parc",
+    "input": {
+      "age_years": 15,
+      "sex": "female",
+      "pain_duration_hours": 10,
+      "pain_with_walking_hopping_coughing": false,
+      "migration_to_rlq": false,
+      "maximal_rlq_tenderness": false,
+      "guarding": false,
+      "anc_10e3_uL": 1
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pecarn-head-injury",
+    "input": {
+      "age_years": 1,
+      "altered_mental_status": false,
+      "gcs": 15,
+      "severe_mechanism": false,
+      "palpable_skull_fracture": false,
+      "nonfrontal_scalp_hematoma": false,
+      "loc_seconds": 0,
+      "acting_normally_parent": true
+    },
+    "status": "complete"
+  },
+  {
+    "id": "pecarn-febrile-infant",
+    "input": {
+      "age_days": 45,
+      "well_appearing": true,
+      "urinalysis_negative": true,
+      "anc_per_uL": 4090,
+      "procalcitonin_ng_mL": 1.71
+    },
+    "status": "complete"
+  },
+  {
+    "id": "step-by-step-infant",
+    "input": {
+      "age_days": 30,
+      "well_appearing": true,
+      "leukocyturia": false,
+      "procalcitonin_ng_mL": 0.49,
+      "crp_mg_L": 20,
+      "anc_per_uL": 10000
+    },
+    "status": "complete"
+  },
+  {
+    "id": "apgar",
+    "input": {
+      "time_minutes": 1,
+      "heart_rate_bpm": 0,
+      "respiratory_effort": "absent",
+      "muscle_tone": "flaccid",
+      "reflex_irritability": "no_response",
+      "color": "blue_or_pale"
+    },
+    "status": "complete"
+  },
+  {
+    "id": "clinical-frailty",
+    "input": {
+      "permission_or_authorized_use_confirmed": true,
+      "explicit_official_score": 3
+    },
+    "status": "explicit_official_result"
+  },
+  {
+    "id": "charlson",
+    "input": {
+      "conditions": {
+        "cerebrovascular_disease": true,
+        "hemiplegia_or_paraplegia": true,
+        "diabetes_uncomplicated": true,
+        "diabetes_with_end_organ_damage": true,
+        "mild_liver_disease": true,
+        "moderate_severe_liver_disease": true,
+        "malignancy_nonmetastatic": true,
+        "metastatic_solid_tumor": true
+      }
+    },
+    "status": "complete"
+  },
+  {
+    "id": "barthel",
+    "input": {
+      "item_points": {
+        "feeding": 10,
+        "bathing": 5,
+        "grooming": 5,
+        "dressing": 10,
+        "bowels": 10,
+        "bladder": 10,
+        "toilet": 10,
+        "transfers": 15,
+        "mobility": 15,
+        "stairs": 10
+      }
+    },
+    "status": "complete_from_authorized_item_scores"
+  }
+]

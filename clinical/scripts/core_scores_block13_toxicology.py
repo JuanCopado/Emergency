@@ -20,19 +20,20 @@ def evaluate_rumack_matthew(data):
     _bool(data["extended_release_or_delayed_absorption"],"extended_release_or_delayed_absorption")
     h=_num(data["hours_since_ingestion"],"hours_since_ingestion")
     level=_num(data["acetaminophen_mcg_mL"],"acetaminophen_mcg_mL")
+    if level < 0: raise ValueError("acetaminophen concentration cannot be negative")
     if h<4 or h>24: raise ValueError("Rumack-Matthew single-level interpretation is restricted to 4-24 hours")
     treatment_line=150.0*(0.5**((h-4.0)/4.0))
     above=level>=treatment_line
-    if data["extended_release_or_delayed_absorption"]:
-        status="serial_level_required"
-        interpretation="single_point_not_sufficient"
+    if data["extended_release_or_delayed_absorption"] and not above:
+        status="delayed_absorption_protocol_review"
+        interpretation="below_150_treatment_line_review_formulation_timing_and_repeat_criteria"
     else:
         status="complete"
         interpretation="at_or_above_150_treatment_line" if above else "below_150_treatment_line"
     return {"id":"rumack-matthew","status":status,"hours":h,"level_mcg_mL":level,
             "treatment_line_mcg_mL":treatment_line,"at_or_above_treatment_line":above,
             "interpretation":interpretation,
-            "warning":"Nomogram applies only to a single acute ingestion with a reliable time. Extended-release/delayed absorption requires repeat levels; unknown-time or repeated supratherapeutic ingestion follows a different pathway.",
+            "warning":"Nomogram applies only to a single acute ingestion with a reliable time. An at-or-above-line result requires immediate clinical assessment even with delayed absorption. For below-line delayed absorption, assess the need for repeat levels under the applicable protocol; unknown-time or repeated supratherapeutic ingestion follows a different pathway.",
             "source":{"url":"https://www.merckmanuals.com/professional/injuries-poisoning/poisoning/acetaminophen-poisoning","version":"Rumack-Matthew 150-line"}}
 
 def evaluate_hunter_serotonin(data):

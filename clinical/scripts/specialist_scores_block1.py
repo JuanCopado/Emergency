@@ -202,6 +202,6 @@ def calculate_bacterial_meningitis_score(data):
     return {
       "id":"bacterial-meningitis-score","status":"complete","components":components,
       "total":total,"range":[0,6],"very_low_risk_if_zero":total==0,
-      "warning":"BMS applies to selected children with CSF pleocytosis and important exclusion criteria; a score of 0 does not override clinical instability, immunosuppression, CNS devices/recent neurosurgery or another bacterial focus.",
+      "warning":"seizure_with_illness denotes a seizure at or before presentation. BMS applies to selected children with CSF pleocytosis and important exclusion criteria; a score of 0 does not override clinical instability, immunosuppression, CNS devices/recent neurosurgery or another bacterial focus.",
       "source":SOURCES["bacterial-meningitis-score"],
     }

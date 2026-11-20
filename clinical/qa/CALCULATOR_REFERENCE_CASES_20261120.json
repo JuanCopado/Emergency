@@ -1,0 +1,425 @@
+[
+  {
+    "id": "map",
+    "inputs": {
+      "SBP": 120.0,
+      "DBP": 60.0
+    },
+    "expected": 80.0,
+    "unit": "mmHg"
+  },
+  {
+    "id": "shock-index-formula",
+    "inputs": {
+      "HR": 80.0,
+      "SBP": 100.0
+    },
+    "expected": 0.8,
+    "unit": "ratio"
+  },
+  {
+    "id": "modified-shock-index-formula",
+    "inputs": {
+      "HR": 90.0,
+      "MAP": 75.0
+    },
+    "expected": 1.2,
+    "unit": "ratio"
+  },
+  {
+    "id": "anion-gap",
+    "inputs": {
+      "Na": 140.0,
+      "Cl": 100.0,
+      "HCO3": 20.0
+    },
+    "expected": 20.0,
+    "unit": "mmol/L"
+  },
+  {
+    "id": "albumin-corrected-anion-gap",
+    "inputs": {
+      "AG": 20.0,
+      "albumin_g_dL": 2.0
+    },
+    "expected": 25.0,
+    "unit": "mmol/L"
+  },
+  {
+    "id": "delta-ratio",
+    "inputs": {
+      "AGcorr": 24.0,
+      "HCO3": 18.0
+    },
+    "expected": 2.0,
+    "unit": "ratio"
+  },
+  {
+    "id": "winter-pco2",
+    "inputs": {
+      "HCO3": 16.0
+    },
+    "expected": 32.0,
+    "unit": "mmHg (expected ±2)"
+  },
+  {
+    "id": "corrected-sodium-glucose",
+    "inputs": {
+      "Na": 130.0,
+      "glucose_mg_dL": 300.0
+    },
+    "expected": 133.2,
+    "unit": "mmol/L"
+  },
+  {
+    "id": "calculated-osmolality",
+    "inputs": {
+      "Na": 140.0,
+      "glucose_mg_dL": 90.0,
+      "BUN_mg_dL": 14.0
+    },
+    "expected": 290.0,
+    "unit": "mOsm/kg"
+  },
+  {
+    "id": "effective-osmolality",
+    "inputs": {
+      "Na": 140.0,
+      "glucose_mg_dL": 90.0
+    },
+    "expected": 285.0,
+    "unit": "mOsm/kg"
+  },
+  {
+    "id": "free-water-deficit",
+    "inputs": {
+      "TBW_L": 42.0,
+      "Na": 150.0
+    },
+    "expected": 3.0,
+    "unit": "L"
+  },
+  {
+    "id": "corrected-calcium",
+    "inputs": {
+      "Ca_mg_dL": 8.0,
+      "albumin_g_dL": 3.0
+    },
+    "expected": 8.8,
+    "unit": "mg/dL"
+  },
+  {
+    "id": "cockcroft-gault",
+    "inputs": {
+      "age": 68.0,
+      "weight_kg": 72.0,
+      "Scr_mg_dL": 1.0,
+      "sex": "male"
+    },
+    "expected": 72.0,
+    "unit": "mL/min"
+  },
+  {
+    "id": "ckd-epi-2021",
+    "inputs": {
+      "age": 50.0,
+      "Scr_mg_dL": 1.0,
+      "sex": "male"
+    },
+    "expected": 91.6914786,
+    "unit": "mL/min/1.73m2"
+  },
+  {
+    "id": "bedside-schwartz",
+    "inputs": {
+      "height_cm": 120.0,
+      "Scr_mg_dL": 1.0
+    },
+    "expected": 49.56,
+    "unit": "mL/min/1.73m2"
+  },
+  {
+    "id": "fena",
+    "inputs": {
+      "UNa": 70.0,
+      "PCr": 2.0,
+      "PNa": 140.0,
+      "UCr": 100.0
+    },
+    "expected": 1.0,
+    "unit": "percent"
+  },
+  {
+    "id": "feurea",
+    "inputs": {
+      "UUrea": 350.0,
+      "PCr": 2.0,
+      "PUrea": 20.0,
+      "UCr": 100.0
+    },
+    "expected": 35.0,
+    "unit": "percent"
+  },
+  {
+    "id": "pao2-fio2",
+    "inputs": {
+      "PaO2_mmHg": 90.0,
+      "FiO2_fraction": 0.5
+    },
+    "expected": 180.0,
+    "unit": "mmHg"
+  },
+  {
+    "id": "spo2-fio2",
+    "inputs": {
+      "SpO2_percent": 95.0,
+      "FiO2_fraction": 0.5
+    },
+    "expected": 190.0,
+    "unit": "ratio"
+  },
+  {
+    "id": "rox",
+    "inputs": {
+      "SpO2_percent": 95.0,
+      "FiO2_fraction": 0.5,
+      "RR": 20.0
+    },
+    "expected": 9.5,
+    "unit": "ratio"
+  },
+  {
+    "id": "aa-gradient",
+    "inputs": {
+      "PAO2_mmHg": 100.0,
+      "PaO2_mmHg": 80.0
+    },
+    "expected": 20.0,
+    "unit": "mmHg"
+  },
+  {
+    "id": "alveolar-o2",
+    "inputs": {
+      "FiO2_fraction": 0.21,
+      "PaCO2_mmHg": 40.0
+    },
+    "expected": 99.73,
+    "unit": "mmHg"
+  },
+  {
+    "id": "static-compliance",
+    "inputs": {
+      "VT_mL": 500.0,
+      "Pplat": 25.0,
+      "PEEP": 5.0
+    },
+    "expected": 25.0,
+    "unit": "mL/cmH2O"
+  },
+  {
+    "id": "driving-pressure",
+    "inputs": {
+      "Pplat": 25.0,
+      "PEEP": 5.0
+    },
+    "expected": 20.0,
+    "unit": "cmH2O"
+  },
+  {
+    "id": "minute-ventilation",
+    "inputs": {
+      "VT_L": 0.5,
+      "RR": 16.0
+    },
+    "expected": 8.0,
+    "unit": "L/min"
+  },
+  {
+    "id": "ibw-devine",
+    "inputs": {
+      "height_cm": 152.4,
+      "sex": "female"
+    },
+    "expected": 45.5,
+    "unit": "kg"
+  },
+  {
+    "id": "bsa-mosteller",
+    "inputs": {
+      "height_cm": 180.0,
+      "weight_kg": 80.0
+    },
+    "expected": 2.0,
+    "unit": "m2"
+  },
+  {
+    "id": "bmi",
+    "inputs": {
+      "height_m": 2.0,
+      "weight_kg": 80.0
+    },
+    "expected": 20.0,
+    "unit": "kg/m2"
+  },
+  {
+    "id": "holliday-segar",
+    "inputs": {
+      "weight_kg": 25.0
+    },
+    "expected": 1600.0,
+    "unit": "mL/day"
+  },
+  {
+    "id": "four-two-one",
+    "inputs": {
+      "weight_kg": 25.0
+    },
+    "expected": 65.0,
+    "unit": "mL/h"
+  },
+  {
+    "id": "dehydration-deficit",
+    "inputs": {
+      "weight_kg": 20.0,
+      "dehydration_fraction": 0.05
+    },
+    "expected": 1000.0,
+    "unit": "mL"
+  },
+  {
+    "id": "parkland",
+    "inputs": {
+      "weight_kg": 60.0,
+      "TBSA_percent": 20.0
+    },
+    "expected": 4800.0,
+    "unit": "mL/24h starting estimate"
+  },
+  {
+    "id": "mgkg-dose",
+    "inputs": {
+      "weight_kg": 20.0,
+      "mg_per_kg": 0.5
+    },
+    "expected": 10.0,
+    "unit": "mg"
+  },
+  {
+    "id": "mcgkgmin-to-mlh",
+    "inputs": {
+      "weight_kg": 60.0,
+      "dose_mcg_kg_min": 0.1,
+      "concentration_mcg_mL": 30.0
+    },
+    "expected": 12.0,
+    "unit": "mL/h"
+  },
+  {
+    "id": "mgkgh-to-mlh",
+    "inputs": {
+      "weight_kg": 60.0,
+      "dose_mg_kg_h": 0.2,
+      "concentration_mg_mL": 2.0
+    },
+    "expected": 6.0,
+    "unit": "mL/h"
+  },
+  {
+    "id": "unitskgh-to-mlh",
+    "inputs": {
+      "weight_kg": 60.0,
+      "dose_units_kg_h": 0.1,
+      "concentration_units_mL": 2.0
+    },
+    "expected": 3.0,
+    "unit": "mL/h"
+  },
+  {
+    "id": "final-concentration",
+    "inputs": {
+      "drug_amount": 20.0,
+      "final_volume_mL": 100.0,
+      "amount_unit": "mg"
+    },
+    "expected": 0.2,
+    "unit": "mg/mL"
+  },
+  {
+    "id": "qtc-bazett",
+    "inputs": {
+      "QT_s": 0.36,
+      "RR_s": 0.81
+    },
+    "expected": 0.4,
+    "unit": "s"
+  },
+  {
+    "id": "qtc-fridericia",
+    "inputs": {
+      "QT_s": 0.36,
+      "RR_s": 0.729
+    },
+    "expected": 0.4,
+    "unit": "s"
+  },
+  {
+    "id": "cao2",
+    "inputs": {
+      "Hb": 10.0,
+      "SaO2_fraction": 1.0,
+      "PaO2": 100.0
+    },
+    "expected": 13.71,
+    "unit": "mL O2/dL"
+  },
+  {
+    "id": "do2",
+    "inputs": {
+      "CO_L_min": 5.0,
+      "CaO2_mL_dL": 20.0
+    },
+    "expected": 1000.0,
+    "unit": "mL O2/min"
+  },
+  {
+    "id": "cardiac-index",
+    "inputs": {
+      "CO_L_min": 5.0,
+      "BSA_m2": 2.0
+    },
+    "expected": 2.5,
+    "unit": "L/min/m2"
+  },
+  {
+    "id": "svr",
+    "inputs": {
+      "MAP": 85.0,
+      "CVP": 5.0,
+      "CO_L_min": 5.0
+    },
+    "expected": 1280.0,
+    "unit": "dyn*s/cm5"
+  },
+  {
+    "id": "meld-na-formula",
+    "inputs": {
+      "bilirubin_mg_dL": 1.0,
+      "INR": 1.0,
+      "creatinine_mg_dL": 1.0,
+      "sodium_mmol_L": 125.0,
+      "legacy_meld_na_acknowledged": true
+    },
+    "expected": 6.0,
+    "unit": "points (legacy MELD-Na; not current OPTN MELD 3.0)"
+  },
+  {
+    "id": "maddrey-formula",
+    "inputs": {
+      "PT_patient": 18.0,
+      "PT_control": 12.0,
+      "bilirubin_mg_dL": 5.0
+    },
+    "expected": 32.6,
+    "unit": "points"
+  }
+]

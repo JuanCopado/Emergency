@@ -3,6 +3,7 @@
 
 EYE={"spontaneous":4,"to_voice":3,"to_pain":2,"none":1}
 MOTOR={"obeys_or_normal_spontaneous":6,"localizes_pain":5,"withdraws_pain":4,"abnormal_flexion":3,"extension":2,"none":1}
+MOTOR_UNDER4={**MOTOR,"withdraws_to_touch":5}
 VERBAL_4_PLUS={"oriented":5,"confused":4,"inappropriate_words":3,"incomprehensible_sounds":2,"none":1}
 VERBAL_UNDER4={"alert_babbles_coos_words_usual":5,"less_than_usual_words_or_irritable_cry":4,"cries_only_to_pain":3,"moans_to_pain":2,"none":1}
 
@@ -29,7 +30,7 @@ def calculate_pediatric_gcs(data):
     for k in ("eye","verbal","motor"):
         if data.get(k) is None: raise ValueError(f"missing pediatric GCS component: {k}")
     eye=_cat(data["eye"],EYE,"eye")
-    motor=_cat(data["motor"],MOTOR,"motor")
+    motor=_cat(data["motor"],MOTOR_UNDER4 if age<4 else MOTOR,"motor")
     verbal_map=VERBAL_UNDER4 if age<4 else VERBAL_4_PLUS
     verbal=_cat(data["verbal"],verbal_map,"verbal")
     components={"E":eye,"V":verbal,"M":motor}

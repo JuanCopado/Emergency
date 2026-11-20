@@ -4296,7 +4296,7 @@ class ModularCoreTests(unittest.TestCase):
             'age':86,'sex':'male','known_cad_or_age18_50_ge3_risk_factors':True,
             'diaphoresis':True,'radiation':True,'pleuritic':False,'palpation_reproduces':False
         })
-        self.assertEqual(edacs['total'],38)
+        self.assertEqual(edacs['total'],34)  # EDACS CAD/risk-factor points apply only at ages 18–50.
         orbit=calculate_orbit({
             'age':80,'sex':'male','hemoglobin_g_dL':10,'bleeding_history':True,
             'egfr_mL_min_1_73m2':40,'antiplatelet':True
