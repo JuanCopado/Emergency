@@ -286,21 +286,24 @@
       "primary_source": "ERC/RCUK2025 adult ALS and age-specific router",
       "stored_version": "ERC/RCUK2025 adult ALS and age-specific router",
       "last_checked": "2026-11-14",
-      "status": "yellow",
+      "status": "green",
       "primary_source_url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines",
-      "note": "Chromium socket creation denied;0/8 browser cases executed. Prior owner acceptance retained;four destinations nowGREEN. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "Owner-approved manual navigation only: four destinations across two surfaces. Individual treatment guides retain their own scope.",
       "focused_review": {
-        "date": "2026-11-14",
-        "outcome": "yellow",
-        "report": "qa/NINE_SELECTED_MODULES_REVIEW_2026-11-14.json",
-        "reason": "Chromium socket creation denied;0/8 browser cases executed. Prior owner acceptance retained;four destinations nowGREEN."
+        "date": "2026-11-20",
+        "outcome": "green_for_manual_selector",
+        "owner": "Dr. Juan Copado Ceballos",
+        "decision": "SÍ",
+        "decision_id": "ARR-SELECTOR-20261120",
+        "scope": "Manual clinician selection of one of four existing circuits",
+        "tested_commit": "9e3c09591bcbfd8dddf4c0130d247ec9c56cf3cc",
+        "technical_evidence": "https://github.com/JuanCopado/Emergency/actions/runs/44708374483/job/136193539656"
       },
       "latest_functional_attempt": {
-        "date": "2026-11-14",
-        "report": "qa/ARRHYTHMIA_ROUTER_BROWSER_2026-11-14.json",
-        "browser": "BLOCKED: socket EPERM before navigation;0/8 executed",
-        "dom": "8/8 PASS",
-        "status": "yellow"
+        "date": "2026-11-20",
+        "status": "PASS",
+        "browser": "8/8 Chromium navigations",
+        "report": "https://github.com/JuanCopado/Emergency/actions/runs/44708374483/job/136193539656"
       }
     },
     "hypertensive-emergencies": {
