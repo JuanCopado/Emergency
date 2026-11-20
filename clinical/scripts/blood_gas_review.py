@@ -36,9 +36,9 @@ HEADER = re.compile(r"^\s*(?:muestra|sample|gasometr[ií]a)(?:\s*[:#]\s*|\s+(?=\
 
 # Specimen IDs (Sample: A, Muestra #2) remain structural boundaries.
 # A text declaration after a colon can be both a boundary and a specimen type.
-SHORT_HEADER = re.compile(r"^\s*(Sample|Muestra)\s*:\s*(.*?)\s*$", re.I)
+SHORT_LABEL = re.compile(r"Sample|Muestra", re.I)
 IDENTIFIER = re.compile(r"(?:\d+|[A-Za-z]+[-_]\d+)")
-METADATA = re.compile(r"\s*(Sample type|Tipo de muestra|Date|Fecha|Time|Hora|Device|Dispositivo|Flags|Avisos)\s*:\s*(.*)", re.I)
+METADATA_LABEL = re.compile(r"Sample type|Tipo de muestra|Date|Fecha|Time|Hora|Device|Dispositivo|Flags|Avisos", re.I)
 SAMPLE_TYPES = {
     'arterial': 'arterial', 'arterial blood': 'arterial', 'sangre arterial': 'arterial',
     'venosa': 'venosa', 'venoso': 'venosa', 'venous': 'venosa',
@@ -63,10 +63,21 @@ def sample_type(value):
     return SAMPLE_TYPES.get(' '.join(value.casefold().split()))
 
 
+def heading(line, labels):
+    label, separator, value = line.partition(":")
+    label = label.strip()
+    if separator and labels.fullmatch(label):
+        return label, value.lstrip()
+    return None
+
+
 def type_heading(line):
-    match = SHORT_HEADER.fullmatch(line)
-    if match and not IDENTIFIER.fullmatch(match[2]):
-        return match
+    match = heading(line, SHORT_LABEL)
+    if match:
+        label, value = match
+        value = value.rstrip()
+        if not IDENTIFIER.fullmatch(value):
+            return label, value
     return None
 
 
@@ -111,10 +122,10 @@ def parse(text, page):
     for row, raw in enumerate(text.splitlines(), 1):
         line = raw.translate(str.maketrans("₂₃","23"))
         origin = "unknown"
-        marker = re.search(r"\s+\[(measured|calculated)\]\s*$", line, re.I)
+        marker = re.search(r"(?<=\s)\[(measured|calculated)\]$", line.rstrip(), re.I)
         if marker:
             origin = marker[1].lower()
-            line = line[:marker.start()]
+            line = line[:marker.start()].rstrip()
         match = re.fullmatch(r"\s*([\w₂₃]+)\s*[:=]?\s+("+NUMBER+r")\s*([^\s]*)\s*",line)
         if not match:
             # Retain ambiguous multi-token FiO2 units for explicit transcription.
@@ -137,8 +148,8 @@ def samples(text, page):
     for index, line in enumerate(text.splitlines()):
         header = HEADER.fullmatch(line)
         declaration = type_heading(line)
-        full = METADATA.fullmatch(line)
-        long_type = full is not None and full[1].casefold() in ('sample type', 'tipo de muestra')
+        full = heading(line, METADATA_LABEL)
+        long_type = full is not None and full[0].casefold() in ('sample type', 'tipo de muestra')
         if declaration and label is not None and not has_fields:
             # Consecutive labels before any analyte describe the same candidate.
             lines.append(line)
@@ -164,12 +175,13 @@ def samples(text, page):
             field["line"] += offset
         metadata = []
         for index, line in enumerate(content.splitlines(), 1):
-            match = METADATA.fullmatch(line) or type_heading(line)
+            match = heading(line, METADATA_LABEL) or type_heading(line)
             if match:
-                item = dict(label=match[1], raw=line, value=match[2], page=page,
+                metadata_label, value = match
+                item = dict(label=metadata_label, raw=line, value=value, page=page,
                             line=index+offset, review="pending", source_sample_label=label)
-                if match[1].casefold() in ('sample type', 'tipo de muestra', 'sample', 'muestra'):
-                    item.update(kind='sample_type', normalized_sample_type=sample_type(match[2]))
+                if metadata_label.casefold() in ('sample type', 'tipo de muestra', 'sample', 'muestra'):
+                    item.update(kind='sample_type', normalized_sample_type=sample_type(value))
                 metadata.append(item)
         if not fields:
             unassigned.extend(dict(m, scope='unassigned') for m in metadata)

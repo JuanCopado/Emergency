@@ -27,7 +27,9 @@ function decimalMagnitude(text: string): string {
   const [mantissa = '', exponent = '0'] = text.toLowerCase().split('e');
   const [whole = '', fraction = ''] = mantissa.replace(/^[+-]/, '').split('.');
   const digits = (whole + fraction).replace(/^0+/, '');
-  return digits.replace(/0+$/, '') + 'e' + (digits.length - fraction.length + Number(exponent));
+  let end = digits.length;
+  while (end > 0 && digits[end - 1] === '0') end--;
+  return digits.slice(0, end) + 'e' + (digits.length - fraction.length + Number(exponent));
 }
 
 /** Canonical finite input: decimal point, optional sign/exponent, no grouping. */

@@ -7,6 +7,15 @@ from blood_gas_review import samples
 
 
 class MetadataScope(unittest.TestCase):
+    def test_heading_spacing_literal_metadata_and_origin(self):
+        padding = " " * 2048
+        text = f"Muestra:\tVenosa  \nDate:  12:45  \npH 7.28{padding}[MeAsUrEd]  "
+        group = samples(text, 1)[0]
+        self.assertEqual([m["value"] for m in group["metadata"]], ["Venosa", "12:45  "])
+        self.assertEqual(group["fields"][0]["origin"], "measured")
+        self.assertEqual(group["fields"][0]["raw"], text.splitlines()[-1])
+        self.assertEqual(samples("pH 7.28[measured]", 1)[0]["fields"][0]["origin"], "unknown")
+
     def prepare(self):
         case = fixture.ReviewContract()
         case.setUp()
