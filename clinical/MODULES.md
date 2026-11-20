@@ -516,7 +516,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraci√
 | `device-complications` | `modules/cardiovascular.md` | green |
 | `ecg-pocus-integration` | `modules/disposition-crosscutting.md` | yellow |
 | `pocus` | `modules/disposition-crosscutting.md` | green |
-| `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | yellow |
+| `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | green |
 
 | `clinical-note-diagnostic-support` | `modules/documentation-governance.md` | yellow |
 | `final-human-review-gate` | `modules/documentation-governance.md` | yellow |

@@ -3685,13 +3685,18 @@
       "primary_source_url": "https://www.rcp.ac.uk/resources/national-early-warning-score-news-2/",
       "stored_version": "Central registry v1.0 created 2026-10-03",
       "last_checked": "2026-11-14",
-      "status": "yellow",
-      "note": "135+45 metadata complete; source/version/population revalidation and45 formula-to-source traceability not closed by inventory. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "status": "green",
+      "note": "Entrada manual o importación revisada de PDF con texto, TXT o analítica pegada en los 13 formularios interactivos. El médico selecciona la muestra, completa los campos y solicita el cálculo. GRACE conserva su derivación oficial. Los PDF escaneados requieren transcripción. La precisión en informes reales por centro sigue sin cuantificar. El alcance excluye la validación clínica prospectiva.",
       "focused_review": {
-        "date": "2026-11-14",
-        "outcome": "yellow",
-        "report": "qa/NINE_SELECTED_MODULES_REVIEW_2026-11-14.json",
-        "reason": "135+45 metadata complete; source/version/population revalidation and45 formula-to-source traceability not closed by inventory."
+        "date": "2026-11-20",
+        "owner": "Dr. Juan Copado Ceballos",
+        "decision": "SI",
+        "decision_id": "SCORE-REF-20261120",
+        "outcome": "green_for_reviewed_score_forms",
+        "scope": "Entrada manual o importación revisada de PDF con texto, TXT o analítica pegada en los 13 formularios interactivos. El médico selecciona la muestra, completa los campos y solicita el cálculo. GRACE conserva su derivación oficial.",
+        "limits": "Los PDF escaneados requieren transcripción. La precisión en informes reales por centro sigue sin cuantificar. El alcance excluye la validación clínica prospectiva.",
+        "report": "qa/CALCULATOR_DECISION_20261120.md",
+        "technical_evidence": "https://github.com/JuanCopado/Emergency/pull/44"
       }
     },
     "pediatric-outpatient-medications": {

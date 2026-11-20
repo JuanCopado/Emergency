@@ -1,5 +1,7 @@
 # STATE · integración T05/T06 · 19/11/2026
 
+20/11/2026 · SCORE-REF-20261120. El Dr. Juan Copado Ceballos aprueba el módulo 12 en los 13 formularios con entrada manual o importación revisada. Registro: 119 GREEN, 12 YELLOW. Estado global CLINICALLY_PENDING.
+
 20/11/2026 · ARR-SELECTOR-20261120. El Dr. Juan Copado Ceballos aprueba el selector manual de cuatro circuitos en las dos vistas. Ocho navegaciones verificadas en Chromium. Registro vigente: 118 GREEN, 13 YELLOW. Estado global CLINICALLY_PENDING.
 
 La validación clínica del proyecto corresponde al Dr. Juan Copado Ceballos. Preparar la evidencia y presentar una pregunta SÍ/NO por decisión según `AGENTS.md`. Farmacia es consultiva.
