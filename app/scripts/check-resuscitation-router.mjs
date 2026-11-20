@@ -16,7 +16,7 @@ try {
   const nav=page.getByRole('navigation',{name:'Circuitos de reanimación'});await nav.waitFor();assert.equal(await nav.getByRole('link').count(),4);
   const body=await page.locator('.canonical-body').innerText();assert.ok(body.includes('even if a pulse remains detectable'));assert.ok(body.includes('transition at birth'));
   const guide=guides.find(x=>x.id===id);assert.ok(guide);
-  const link=nav.locator(`a[href="${base}/${id}"]`);assert.ok((await link.innerText()).includes(guide.status));await link.click();
+  const link=nav.locator(`a[href="${base}/${id}"]`);assert.equal((await link.locator('span').last().innerText()).trim().toLowerCase(),guide.status.toLowerCase());await link.click();
   await page.waitForURL(`**${base}/${id}`);await page.getByRole('heading',{level:1,name:guide.title,exact:true}).waitFor();assert.equal(await page.getByRole('navigation',{name:'Circuitos de reanimación'}).count(),0);
   results.push({base,target:id,target_status:guide.status,result:'PASS'});
  }
