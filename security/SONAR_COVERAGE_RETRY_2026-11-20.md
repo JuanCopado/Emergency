@@ -95,3 +95,13 @@ quality gate, todos PASS. No se aumentó el timeout ni se eludieron pruebas.
 `f45b6286fa97ddb03be57005c5a90f916e9042e5`, árbol
 `b49ea28981e84f234a90aa2095ac5bbebb4ef92d`, idéntico al comprobado. Se verificó
 la identidad del merge; main/RC1/v1.43 permanecen fuera del destino.
+
+## Cierre posterior al merge de PR50 · 20/11/2026
+
+Sobre `49bd2dee35c678f9f9184803c1a4e95e588e98a5`, el intento 1 del run 44805197675 descargó/verificó/combinó correctamente la cobertura, pero Sonar rechazó CI porque Automatic Analysis estaba habilitado. No fue un quality gate evaluado y rechazado. La web de configuración devolvió 403 en el navegador disponible; no se registró un cambio de ajuste observado.
+
+Tras la respuesta posterior del propietario se reintentó exclusivamente el job Sonar, sin suponer que su respuesta demostrase el ajuste. El intento 2, job 136538151239, terminó SUCCESS con **QUALITY GATE STATUS: PASSED** a las 20:09:13Z. Descargó los mismos artefactos portátiles/T05/T06: 14662802790, 14662283369 y 14662811742. El manifiesto de identidad y la combinación pasaron; se publicó combinado 14664890392. El scanner procesó `coverage.xml` y `app/coverage/lcov.info`. El run completo finalizó SUCCESS a las 20:09:19Z. No se alteraron reglas, umbrales, exclusiones ni credenciales para obtener este resultado.
+
+El log también emitió un mensaje de deserialización Protobuf/UTF-8; el análisis continuó hasta su finalización y el quality gate real pasó. Se conserva ese mensaje en el log original, sin describir la ejecución como libre de avisos internos.
+
+Fuentes: [run 44805197675](https://github.com/JuanCopado/Emergency/actions/runs/44805197675), [job 136538151239](https://github.com/JuanCopado/Emergency/actions/runs/44805197675/job/136538151239). Este cierre corresponde a la base PR50; los commits posteriores conservan sus propios checks.

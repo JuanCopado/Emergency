@@ -1,6 +1,6 @@
 ## 20/11/2026 · Cotejo completo de referencias de imagen y gobernanza
 
-Las nueve fichas de imagen están preparadas, con fuentes, localizadores, versiones, límites de acceso y decisiones concretas, en `qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md`, `qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md` y `qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md`. La aclaración POCUS-MODE v1 sigue candidata; las nueve aceptaciones de referencia permanecen pendientes. La referencia del gate se revisó íntegramente y se cierra con PR35 ya aceptada (`qa/CLINICAL_GATE_REFERENCE_REVIEW_20261120.md`), sin GO_RELEASE. Registro: 120 GREEN / 11 YELLOW / 0 RED.
+Las nueve fichas v1 de imagen fueron aceptadas expresamente por el propietario el 20/11/2026 («si claro que si»), incluida POCUS-MODE v1, ahora aplicada. Las matrices completas y sus límites de acceso permanecen en `qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md`, `qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md` y `qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md`; aceptación: `qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md`. Se sustituyen las identidades genéricas por fuentes concretas delimitadas y se renueva la fecha solo de esos nueve módulos. GREEN acredita referencia aceptada; rendimiento diagnóstico y despliegue no establecidos. Gate PR35 preservado. Registro: 129 GREEN / 2 YELLOW / 0 RED; CLINICALLY_PENDING.
 
 ## Antecedente focal del 20/11/2026 · ocho registros entonces vencidos
 

@@ -1,7 +1,9 @@
 # Diez módulos de imagen: cierres de referencia y validación pendiente
 
 **Fecha:** 20/11/2026. **Expediente:** `IMG-CLOSURE-20261120`, versión 1.
-**Estado:** preparación documental para decisión; `CLINICALLY_PENDING`.
+**Estado vigente:** nueve referencias aceptadas por el propietario el 20/11/2026; `CLINICALLY_PENDING`.
+
+**Actualización posterior a PR50:** respuesta «si claro que si», nueve fichas v1 aceptadas y POCUS-MODE v1 aplicado. Registro: **129 GREEN / 2 YELLOW**. El módulo padre de imagen conserva su condición de evaluación y sigue YELLOW, junto al apoyo diagnóstico de nota. Ver [aceptación](IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md). El inventario siguiente se conserva como **mapa previo a la decisión**: sus expresiones de tareas/aceptaciones pendientes describen aquel corte, no el estado vigente.
 
 Contenido clínico examinado: `21defd4efc4f1b6d15ddb28c655772ca3e4b8a0c`,
 árbol `d4b2eba6048fe8b8731bb991ad126c8058a9755a`, tras PR47 y PR48.
