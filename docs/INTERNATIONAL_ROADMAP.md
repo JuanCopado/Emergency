@@ -8,7 +8,7 @@ Este plan desarrolla [INTERNATIONAL_SCOPE.md](INTERNATIONAL_SCOPE.md). Un hospit
 
 La documentación del candidato registra 131 módulos, 196 procedimientos canónicos y cuatro alias, 89 pautas pediátricas, escalas, nota clínica estructurada, exportaciones y circuitos de imagen. Estos antecedentes no equivalen a una nueva ejecución de sus pruebas ni a validación internacional. Los colores se consultan en el registro de evidencia vigente; algunas tablas y cifras de los documentos maestros son históricas.
 
-La interfaz ya registra **español, inglés, portugués y chino simplificado** en `app/src/i18n/index.ts`, con archivos de traducción. `Settings.tsx` permite elegir idioma, tema y representación de microgramos; no contiene un selector de jurisdicción. La existencia de cuatro idiomas de interfaz no acredita traducción clínica integral validada.
+La interfaz ya registra **español, inglés, portugués y chino simplificado** en `app/src/i18n/index.ts`, con archivos de traducción. `Settings.tsx` permite elegir idioma, tema y representación de microgramos; incorpora el selector opcional de contexto de referencia en la rama internacional. La existencia de cuatro idiomas de interfaz no acredita traducción clínica integral validada.
 
 Estados de este plan:
 
@@ -22,7 +22,7 @@ P0 identifica fundamentos necesarios para aplicar el nuevo alcance. P1 identific
 
 | ID | Capacidad | Prioridad y estado | Responsable por función | Dependencias |
 |---|---|---|---|---|
-| INT-01 | Alcance, coordinación y perfiles | P0; gobernanza preparada en esta entrega; perfiles propuestos | Coordinación de producto y arquitectura | Directriz del propietario |
+| INT-01 | Alcance, coordinación y perfiles | P0; gobernanza y selector de contexto implementados en la rama internacional | Coordinación de producto y arquitectura | Directriz del propietario |
 | INT-02 | Evidencia clínica internacional | P0; política de coherencia internacional INT-02A preparada; diferencias módulo × jurisdicción pendientes de evaluación | Dirección clínica y gestión de evidencia | INT-01 |
 | INT-03 | Farmacología y presentaciones | P1; ampliación propuesta | Farmacia clínica e ingeniería clínica | INT-01, INT-02 |
 | INT-04 | Procedimientos y recursos | P1; ampliación propuesta | Responsables de procedimientos y experiencia de usuario | INT-01, INT-02 |
@@ -41,7 +41,7 @@ P0 identifica fundamentos necesarios para aplicar el nuevo alcance. P1 identific
 
 **Base:** instrucciones de colaboradores, registros de decisiones y handoffs. Esta entrega establece la orientación internacional y su hoja de ruta.
 
-**Aceptación siguiente:** esquema explícito de contexto y controles opcionales para jurisdicción, organización y entorno; acceso al núcleo de referencia sin país ni centro elegidos; dos contextos sintéticos que reutilicen los mismos módulos canónicos. Idioma, país y disponibilidad de recursos no se infieren unos de otros. El contexto solo condiciona la función o diferencia que dependa de él. Cada entrega registra versión base, alcance, responsable y recepción de directrices. **El esquema y los controles de contexto pertenecen a la fase 2 y aún no están implementados.**
+**Implementado y probado en la rama internacional:** esquema explícito de contexto y controles opcionales para jurisdicción, organización y entorno; acceso al núcleo de referencia sin país ni centro elegidos; dos contextos sintéticos que reutilicen los mismos módulos canónicos. Idioma, país y disponibilidad de recursos no se infieren unos de otros. El contexto solo condiciona la función o diferencia que dependa de él. Cada entrega registra versión base, alcance, responsable y recepción de directrices. El esquema y el selector de Ajustes se verifican con las [pruebas de contexto](../app/src/context/reference-context.test.ts) y las [pruebas de interfaz](../app/src/test/reference-context.test.tsx). Los perfiles describen recursos declarados.
 
 ### INT-02 — Evidencia clínica internacional
 
@@ -116,11 +116,11 @@ P0 identifica fundamentos necesarios para aplicar el nuevo alcance. P1 identific
 ## Secuencia de ejecución
 
 1. **Fase 1 — esta entrega:** alcance internacional, instrucciones comunes, hoja de ruta y clasificación de referencias locales como perfiles o antecedentes.
-2. **Fase 2 — propuesta:** esquema, resolución y controles opcionales de contexto; núcleo accesible sin país o centro elegidos y pruebas sintéticas de variantes justificadas que reutilicen los mismos módulos. No requiere inventar pautas clínicas.
+2. **Fase 2 — controles de contexto implementados:** esquema, resolución y controles opcionales de contexto; núcleo accesible sin país o centro elegidos y pruebas sintéticas de dos contextos independientes. El selector conserva los módulos clínicos comunes.
 3. **Fase 3 — propuesta:** paquetes paralelos de idiomas, entornos, documentación, educación, imagen y adaptadores de IA, cada uno con aceptación propia.
 4. **Fase 4 — pendiente:** evaluación multicentro y liberaciones con alcance declarado por capacidad, población y entorno.
 
-**Ampliación INT-02A:** la fase documental incluye ahora la política de coherencia internacional y diferencias justificadas. Su siguiente trabajo es registrar la selección canónica y comprobar diferencias materiales módulo × jurisdicción; el desarrollo de los controles opcionales de contexto conserva su estado propuesto en la fase 2.
+**Ampliación INT-02A:** la fase documental incluye ahora la política de coherencia internacional y diferencias justificadas. Su siguiente trabajo es registrar la selección canónica y comprobar diferencias materiales módulo × jurisdicción; la fase 2 ya incorpora los controles opcionales de contexto. Las excepciones clínicas requieren su propia evidencia y decisión médica.
 
 La amplitud del producto no elimina los controles clínicos. Se mantienen `CLINICALLY_PENDING`, trazabilidad y bloqueos aplicables hasta que cada criterio correspondiente esté acreditado.
 

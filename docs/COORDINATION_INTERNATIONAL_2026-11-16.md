@@ -65,4 +65,4 @@ No se ejecutaron la suite global, el build de frontend ni una inspección visual
 
 El registro conserva **131 módulos: 117 GREEN y 14 YELLOW**, sus fechas, los **19 contratos bloqueados** y `CLINICALLY_PENDING`. Ampliar el alcance del producto no cambia estos estados.
 
-La fase de alcance y coordinación queda implementada en esta rama. La siguiente ampliación técnica definida es el esquema, resolución y selector explícitos de perfiles, con referencia sin centro elegido y dos contextos sintéticos independientes. Todavía no hay un selector de país/organización implementado por esta entrega, interoperabilidad asistencial nueva ni validación multicentro acreditada.
+La fase de alcance y coordinación queda implementada en esta rama. En la rama internacional ya se integraron el esquema y el selector de contexto en Ajustes. El modo de referencia funciona sin elegir centro. Las pruebas cubren dos organizaciones sintéticas, el entorno y los recursos independientes. La interoperabilidad asistencial y la validación multicentro conservan sus requisitos propios.
