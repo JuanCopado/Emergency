@@ -1,0 +1,18 @@
+name: Read PR33 Sonar findings
+on:
+  push:
+    branches: ['diagnostic/sonar-pr33-findings-20261120']
+    paths: ['.github/workflows/read-pr33-sonar.yml']
+permissions:
+  checks: read
+jobs:
+  findings:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Read annotations for the verified PR33 Sonar check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate repos/JuanCopado/Emergency/check-runs/135632894003/annotations \
+            --jq '.[] | {path, start_line, end_line, title, message, annotation_level} | @json'
