@@ -15,7 +15,7 @@ export function reviewedWithoutDifference(code: string, topics: string[], review
   const matching = reviews.filter(review => review.country === code && review.topic === topics[0]);
   if (matching.length !== 1) return undefined;
   const review = matching[0];
-  if (review.outcome === 'NO_MATERIAL_DIFFERENCE' && review.decision.trim() &&
+  if (review?.outcome === 'NO_MATERIAL_DIFFERENCE' && review.decision.trim() &&
       review.reviewedOn && review.source.startsWith('https://')) return review;
   return undefined;
 }
