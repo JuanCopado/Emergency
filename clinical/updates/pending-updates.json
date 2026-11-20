@@ -2,6 +2,72 @@
   "schema_version": "1.1",
   "pending_updates": [
     {
+      "module": "ecg-image",
+      "decision_id": "ECG-PT-20261120",
+      "proposal_version": "v1",
+      "identified_on": "2026-11-20",
+      "status": "awaiting_physician_owner_decision_candidate_not_activated",
+      "impact": "MODERATE: correct attribution and chamber association of an ECG eponym; no dose or treatment pathway change",
+      "base_commit": "cdca8e34013bba891a1c49f5ea859f933fcbea63",
+      "report": "qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md",
+      "candidate_patch": "updates/candidates/ECG_PT_20261120.patch",
+      "candidate_patch_check": "git apply --check --unidiff-zero clinical/updates/candidates/ECG_PT_20261120.patch",
+      "affected_paths": [
+        "clinical/modules/image-modalities.md#ecg-image",
+        "app/src/data/generatedClinicalGuides.json (ecg-image sectionBody only)"
+      ],
+      "primary_sources": [
+        {
+          "doi": "10.36660/abc.20220623",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9563889/",
+          "locator": "6.1.2; comparison with 6.1.5.2",
+          "access": "full text, scoped sections inspected",
+          "consulted_on": "2026-11-20"
+        },
+        {
+          "doi": "10.1016/j.jelectrocard.2017.07.009",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28807354/",
+          "locator": "abstract",
+          "access": "abstract only; no diagnostic accuracy claim",
+          "consulted_on": "2026-11-20"
+        }
+      ],
+      "owner_response": null,
+      "owner_response_date": null,
+      "clinical_content_activated": false,
+      "evidence_status": "yellow",
+      "clinical_release_status": "CLINICALLY_PENDING",
+      "technical_qa": {
+        "guide_projection_tests": {
+          "passed": 4,
+          "failed": 0
+        },
+        "other_guides_unchanged": 130,
+        "all_module_statuses_unchanged": true,
+        "diagnostic_performance_validated": false
+      }
+    },
+    {
+      "module": "image-evidence-followup-20261120",
+      "scope": [
+        "clinical-image-interpretation",
+        "blood-gas-image",
+        "ct-mri-screenshot",
+        "ecg-image",
+        "ecg-pocus-integration",
+        "ophthalmology-image",
+        "pocus-image",
+        "final-human-review-gate"
+      ],
+      "identified_on": "2026-11-20",
+      "status": "focal_source_dossiers_prepared_not_full_clinical_review",
+      "report": "qa/EVIDENCE_FOLLOWUP_20261120.md",
+      "clinical_review_dates_changed": false,
+      "evidence_statuses_changed": false,
+      "governance_metadata_reconciled_to": "PR35 physician-owner directive already accepted",
+      "clinical_release_status": "CLINICALLY_PENDING"
+    },
+    {
       "module": "reviewed-acute-contract-release-20261116",
       "scope": [
         "status-epilepticus",

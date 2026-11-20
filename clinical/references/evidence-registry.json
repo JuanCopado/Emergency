@@ -1719,7 +1719,8 @@
       "primary_source": "AHA/ACC/ESC ECG standards plus image-review safety workflow",
       "stored_version": "workflow v1.17; diagnostic performance not established",
       "last_checked": "2026-09-27",
-      "status": "yellow"
+      "status": "yellow",
+      "note": "Focal primary-source review 2026-11-20 identified the Peñaloza–Tranchesi definition erratum ECG-PT-20261120. A scoped correction and application projection are prepared, pending the physician-owner response; neither is activated. See qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md. Historical last_checked and yellow status retained; diagnostic image performance is not established."
     },
     "ecg-pocus-integration": {
       "priority": "high",
@@ -3780,11 +3781,12 @@
     },
     "final-human-review-gate": {
       "priority": "high",
-      "primary_source": "Project governance rule: all yellow modules require appropriate human specialist review plus post-correction Clinical QA before green promotion",
-      "stored_version": "v1.39 final governance gate 2026-10-06",
+      "primary_source": "Project physician-owner validation directive (PR35, 2026-11-20)",
+      "stored_version": "PR35 owner-led governance; final-human-review-policy schema 1.1; clinical review date retained",
       "last_checked": "2026-10-06",
       "status": "yellow",
-      "note": "Dynamic final-project review queue covers all current yellow entries in this registry. Checked2026-11-14:14yellow modules; do not use historical counts. Prior owner acceptances remain recorded. Automated QA alone does not establish prospective clinical validation; applicable clinical/pharmacy/privacy/operational release gates remain, with CLINICALLY_PENDING global."
+      "note": "Governance metadata reconciled 2026-11-20 to the accepted PR35 directive. Dr. Juan Copado Ceballos is the sole final clinical validator; Pharmacy advice is consultative. The dynamic queue covers the current yellow entries without a fixed historical count. Prior owner acceptances remain valid within scope. Product, privacy, operational and post-correction QA requirements remain applicable. The unchanged last_checked records the prior clinical review, not a new evidence or release approval. CLINICALLY_PENDING. Follow-up: qa/EVIDENCE_FOLLOWUP_20261120.md.",
+      "primary_source_url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md"
     }
   },
   "ui_ux_implementation_review": {

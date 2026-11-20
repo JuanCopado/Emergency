@@ -1,3 +1,7 @@
+## 20/11/2026 · Seguimiento T05/T06 y evidencia
+
+Documentado el cierre técnico PR33/PR34, preparados ocho expedientes focales y el parche inactivo ECG-PT-20261120 v1; conciliados metadatos de gobernanza con PR35. Sin cambios en contenido clínico activo, estados ni fechas de revisión. Detalle: `qa/EVIDENCE_FOLLOWUP_20261120.md`.
+
 ## T05/gasometría y T06 · integración técnica · 19/11/2026
 
 Se incorporan las rutas de revisión local de gasometrías y laboratorio T06 a la aplicación común, con sus implementaciones recuperadas y procesos separados. T05 conserva revisión visual, trazabilidad de FiO₂ y extracción protegida solo en Windows; T06 conserva R6/B1/Q4 para escenarios TLS sintéticos solo en Linux. JSON ambiguo y pérdida numérica a cero se rechazan en la frontera T05. No se modifican fórmulas, recomendaciones, aceptaciones ni estados/fechas clínicas. `CLINICALLY_PENDING`. Uso: `../docs/LOCAL_REVIEW.md`; procedencia y alcance: `qa/T05_T06_INTEGRATION_20261119.md`. Los apartados siguientes conservan antecedentes históricos.
