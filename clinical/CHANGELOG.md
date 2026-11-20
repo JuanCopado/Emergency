@@ -1,3 +1,7 @@
+## 20/11/2026 · ECG-PT-20261120 v1 — decisión médica aceptada
+
+El propietario médico aprobó la corrección puntual del signo Peñaloza–Tranchesi; se actualizan `ecg-image` y su ficha generada, con prueba de regresión y trazabilidad en `qa/ECG_PT_OWNER_APPROVAL_20261120.md`. Se preservan 130 módulos restantes, YELLOW, `last_checked` y CLINICALLY_PENDING; el cambio no autoriza diagnóstico automático ni GO_RELEASE.
+
 ## 20/11/2026 · Seguimiento T05/T06 y evidencia
 
 Documentado el cierre técnico PR33/PR34, preparados ocho expedientes focales y el parche inactivo ECG-PT-20261120 v1; conciliados metadatos de gobernanza con PR35. Sin cambios en contenido clínico activo, estados ni fechas de revisión. Detalle: `qa/EVIDENCE_FOLLOWUP_20261120.md`.

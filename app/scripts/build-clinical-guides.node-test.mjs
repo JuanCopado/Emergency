@@ -76,3 +76,16 @@ test('all committed guides match canonical preamble and section, without stale a
   const committed = JSON.parse(await readFile(resolve(repo, 'app/src/data/generatedClinicalGuides.json'), 'utf8'));
   assert.deepEqual(committed, generated, 'Run guides:build after any canonical source change');
 });
+
+
+test('ECG-PT-20261120 v1 remains consistent in canonical and generated guide', async () => {
+  const canonical = await readFile(resolve(repo, 'clinical/modules/image-modalities.md'), 'utf8');
+  const guides = JSON.parse(await readFile(resolve(repo, 'app/src/data/generatedClinicalGuides.json'), 'utf8'));
+  const ecg = guides.find((guide) => guide.id === 'ecg-image');
+  const expected = 'Peñaloza–Tranchesi sign (historical, indirect finding):** low-amplitude QRS in V1 with a marked amplitude increase in V2';
+  assert.ok(canonical.includes(expected));
+  assert.ok(ecg?.sectionBody.includes(expected));
+  assert.equal(ecg?.status, 'yellow');
+  assert.ok(!canonical.includes('Peñaloza–Tranchesi sign (historical eponym)'));
+  assert.ok(!ecg?.sectionBody.includes('Peñaloza–Tranchesi sign (historical eponym)'));
+});
