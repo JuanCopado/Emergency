@@ -2366,7 +2366,7 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_url": "https://www.rch.org.au/uploadedFiles/Main/Content/clinicalguide/IVFLUIDCHART.pdf"
+      "source_url": "https://anesthesia.utoronto.ca/sites/default/files/assets/files/anesthesia-medical-students-handbook4rd-edition01sept.pdf"
     },
     {
       "id": "dehydration-deficit",
@@ -2419,7 +2419,7 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf"
+      "source_url": "https://www.sort.nhs.uk/Media/Guidelines/Infusion-calculations.pdf"
     },
     {
       "id": "mgkgh-to-mlh",
@@ -2497,7 +2497,7 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html"
+      "source_url": "https://www.uptodate.com/contents/oxygen-delivery-and-consumption"
     },
     {
       "id": "do2",

@@ -209,7 +209,7 @@
     },
     {
       "id": "four-two-one",
-      "source_url": "https://www.rch.org.au/uploadedFiles/Main/Content/clinicalguide/IVFLUIDCHART.pdf",
+      "source_url": "https://anesthesia.utoronto.ca/sites/default/files/assets/files/anesthesia-medical-students-handbook4rd-edition01sept.pdf",
       "scope": "Calcular mL/h pediátricos",
       "gemini_status": "candidate",
       "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
@@ -237,7 +237,7 @@
     },
     {
       "id": "mcgkgmin-to-mlh",
-      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf",
+      "source_url": "https://www.sort.nhs.uk/Media/Guidelines/Infusion-calculations.pdf",
       "scope": "Convertir dosis prescrita a mL/h",
       "gemini_status": "candidate",
       "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
@@ -279,7 +279,7 @@
     },
     {
       "id": "cao2",
-      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html",
+      "source_url": "https://www.uptodate.com/contents/oxygen-delivery-and-consumption",
       "scope": "Entrega de oxígeno",
       "gemini_status": "candidate",
       "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
@@ -399,7 +399,10 @@
       "gemini_verdict": "supported_within_scope",
       "gemini_locator": "Royal Children's Hospital Melbourne",
       "gemini_limitation": "La escala verbal difiere según la edad (<4 años vs >=4 años).",
-      "editor_review": null
+      "editor_review": [
+        "https://www.rch.org.au/clinicalguide/guideline_index/Altered_conscious_state/",
+        "Se admite retirada al tacto como respuesta motora 5 en menores de 4 años. La retirada al dolor conserva 4."
+      ]
     },
     {
       "id": "four-score",
@@ -479,7 +482,10 @@
       "gemini_verdict": "supported_within_scope",
       "gemini_locator": "https://pubmed.ncbi.nlm.nih.gov/17200475/",
       "gemini_limitation": "Solo aplicable a niños con pleocitosis LCR; no sustituye el juicio clínico en pacientes inmunocomprometidos o con dispositivos CNS.",
-      "editor_review": null
+      "editor_review": [
+        "https://pubmed.ncbi.nlm.nih.gov/12359784/",
+        "Se documenta que el ítem de convulsión se refiere al momento de presentación o antes."
+      ]
     },
     {
       "id": "cincinnati-stroke",
@@ -549,7 +555,10 @@
       "gemini_verdict": "supported_within_scope",
       "gemini_locator": "EDACS score ≥16, new ischemic ECG, positive troponin (>99th percentile) or presence of crescendo angina.",
       "gemini_limitation": "La puntuación EDACS es solo una parte del protocolo diagnóstico acelerado (EDACS-ADP).",
-      "editor_review": null
+      "editor_review": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8174350/",
+        "La puntuación por enfermedad coronaria/factores solo corresponde a edades 18–50; corregido el caso de 86 años, 38 → 34."
+      ]
     },
     {
       "id": "cha2ds2-vasc",
@@ -822,7 +831,10 @@
       "gemini_verdict": "supported_within_scope",
       "gemini_locator": "https://www.msdmanuals.com/professional/multimedia/table/acute-physiologic-assessment-and-chronic-health-evaluation-apache-ii-scoring-system",
       "gemini_limitation": "Requiere calibración por categoría diagnóstica para estimaciones de mortalidad.",
-      "editor_review": null
+      "editor_review": [
+        "https://www.msdmanuals.com/professional/multimedia/table/acute-physiologic-assessment-and-chronic-health-evaluation-apache-ii-scoring-system",
+        "Corregidos intervalos de sodio y leucocitos. La tabla da dos puntos a 20–39,9 mil leucocitos/µL; la propuesta de Gemini de tres era incorrecta."
+      ]
     },
     {
       "id": "saps3",
@@ -1228,7 +1240,10 @@
       "gemini_verdict": "supported_within_scope",
       "gemini_locator": "Rumack-Matthew Nomogram treatment line",
       "gemini_limitation": "El nomograma es exclusivo para ingestas agudas únicas con tiempo conocido; no es aplicable a ingestas crónicas, desconocidas o de liberación prolongada sin niveles seriados.",
-      "editor_review": null
+      "editor_review": [
+        "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2808062",
+        "El resultado a nivel o por encima de la línea 150 no se oculta al marcar absorción retardada; valorar el protocolo territorial."
+      ]
     },
     {
       "id": "poisoning-severity",
@@ -1689,5 +1704,15 @@
       "gemini_limitation": "Requires authorized instrument definitions.",
       "editor_review": null
     }
-  ]
+  ],
+  "alcance_interfaz": {
+    "formularios": 13,
+    "catalogadas_sin_formulario": 122,
+    "valoracion": "El acceso mediante el motor canónico y la presencia de un formulario interactivo se verifican por separado."
+  },
+  "comprobaciones": {
+    "formulas": "45 casos sintéticos con valor esperado, unidad y comprobación de la identidad en el catálogo",
+    "escalas": "135 casos sintéticos por calculate_scale, con identificación y estado, incluidos los instrumentos oficiales. No se interpreta un estado como certificación del valor clínico.",
+    "interfaz": "13 formularios por la API: casos normales, frontera, entrada ausente e inválida. 122 entradas del catálogo carecen de formulario en esta interfaz."
+  }
 }

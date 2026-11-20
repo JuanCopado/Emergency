@@ -43,7 +43,9 @@ REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
 
 _POSITIVE_MEASUREMENTS = {"height_cm", "height_m", "weight_kg", "Scr_mg_dL", "INR", "creatinine_mg_dL"}
-_FRACTION_LIMITS = {"dehydration_fraction": 1, "SaO2_fraction": 1, "SpO2_percent": 100, "TBSA_percent": 100}
+_NONNEGATIVE_MEASUREMENTS = {"age", "HR", "RR", "VT_L", "VT_mL", "TBW_L", "Hb", "PaO2", "PaO2_mmHg",
+                             "PaCO2_mmHg", "glucose_mg_dL", "bilirubin_mg_dL", "albumin_g_dL"}
+_BOUNDED_MEASUREMENTS = {"dehydration_fraction": 1, "SaO2_fraction": 1, "SpO2_percent": 100, "TBSA_percent": 100}
 
 def require(d, *keys):
     missing=[k for k in keys if d.get(k) is None]
@@ -55,8 +57,10 @@ def require(d, *keys):
         value = finite_number(key, d[key])
         if key in _POSITIVE_MEASUREMENTS and value <= 0:
             raise ValueError(f"{key} must be positive")
-        if key in _FRACTION_LIMITS and not 0 <= value <= _FRACTION_LIMITS[key]:
-            raise ValueError(f"{key} must be between 0 and {_FRACTION_LIMITS[key]}")
+        if key in _NONNEGATIVE_MEASUREMENTS and value < 0:
+            raise ValueError(f"{key} must not be negative")
+        if key in _BOUNDED_MEASUREMENTS and not 0 <= value <= _BOUNDED_MEASUREMENTS[key]:
+            raise ValueError(f"{key} must be between 0 and {_BOUNDED_MEASUREMENTS[key]}")
 
 
 def _positive(value, name):

@@ -42,7 +42,7 @@ def calculate_edacs(d):
     c={
       "age":age_pts,
       "male":6 if sex in {"male","m"} else 0,
-      "cad_or_risk_factors":4 if d["known_cad_or_age18_50_ge3_risk_factors"] else 0,
+      "cad_or_risk_factors":4 if age <= 50 and d["known_cad_or_age18_50_ge3_risk_factors"] else 0,
       "diaphoresis":3 if d["diaphoresis"] else 0,
       "radiation":5 if d["radiation"] else 0,
       "pleuritic":-4 if d["pleuritic"] else 0,

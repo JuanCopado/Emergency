@@ -34,13 +34,13 @@ def _apache_rr(x):
 def _apache_ph(x):
     return 4 if x>=7.7 or x<7.15 else 3 if 7.6<=x<7.7 or 7.15<=x<7.25 else 2 if 7.25<=x<7.33 else 1 if 7.5<=x<7.6 else 0
 def _apache_na(x):
-    return 4 if x>=180 or x<=110 else 3 if 160<=x<=179 or 111<=x<=119 else 2 if 120<=x<=129 else 1 if 155<=x<=159 else 0
+    return 4 if x>=180 or x<=110 else 3 if 160<=x<180 or 110<x<120 else 2 if 120<=x<130 or 155<=x<160 else 1 if 150<=x<155 else 0
 def _apache_k(x):
     return 4 if x>=7 or x<2.5 else 3 if 6<=x<7 else 2 if 2.5<=x<3 else 1 if 5.5<=x<6 or 3<=x<3.5 else 0
 def _apache_hct(x):
     return 4 if x>=60 or x<20 else 2 if 50<=x<60 or 20<=x<30 else 1 if 46<=x<50 else 0
 def _apache_wbc(x):
-    return 4 if x>=40 or x<1 else 2 if 1<=x<3 else 1 if 15<=x<40 else 0
+    return 4 if x>=40 or x<1 else 2 if 1<=x<3 or 20<=x<40 else 1 if 15<=x<20 else 0
 
 def calculate_apache2(d):
     req=("temperature_c_core","map_mmHg","heart_rate_bpm","respiratory_rate","fio2_fraction",
@@ -51,6 +51,8 @@ def calculate_apache2(d):
     vals={k:_num(d[k],k) for k in ("temperature_c_core","map_mmHg","heart_rate_bpm","respiratory_rate","fio2_fraction","arterial_ph","sodium_mmol_L","potassium_mmol_L","creatinine_mg_dL","hematocrit_percent","wbc_10e3_uL","gcs","age")}
     _bool(d["acute_renal_failure"],"acute_renal_failure"); _bool(d["severe_chronic_health"],"severe_chronic_health")
     fio2=vals["fio2_fraction"]
+    if not 0 < fio2 <= 1:
+        raise ValueError("APACHE II requires FiO2 as a fraction")
     if fio2>=0.5:
         if d.get("aa_gradient_mmHg") is None: raise ValueError("aa_gradient_mmHg required when FiO2 >=0.5")
         aa=_num(d["aa_gradient_mmHg"],"aa_gradient_mmHg")
@@ -63,7 +65,7 @@ def calculate_apache2(d):
     crpts=4 if cr>=3.5 else 3 if cr>=2 else 2 if cr>=1.5 else 0 if cr>=0.6 else 2
     if d["acute_renal_failure"] and cr>=1.5: crpts*=2
     g=int(vals["gcs"])
-    if g<3 or g>15: raise ValueError("gcs must be 3-15")
+    if g!=vals["gcs"] or g<3 or g>15: raise ValueError("gcs must be 3-15")
     aps={
       "temperature":_apache_temp(vals["temperature_c_core"]),"map":_apache_map(vals["map_mmHg"]),
       "heart_rate":_apache_hr(vals["heart_rate_bpm"]),"respiratory_rate":_apache_rr(vals["respiratory_rate"]),
