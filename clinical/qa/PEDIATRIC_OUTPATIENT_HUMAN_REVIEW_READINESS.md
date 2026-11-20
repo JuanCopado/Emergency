@@ -3,15 +3,14 @@
 Date: 2026-10-04
 Branch: `v1.38-pediatric-outpatient-medications`
 Module: `pediatric-outpatient-medications`
-Current status: **yellow**
+Historical status at this document’s date: **yellow**. See `PEDIATRIC_OUTPATIENT_OWNER_ACCEPTANCE_2026-11-14.json` for the later recorded acceptance.
 
 ## Purpose
-Prepare the 89-regimen outpatient registry for independent pediatric and pharmacy review.
+Prepare the 89-regimen outpatient registry for evidence-based review by the project physician-owner.
 Automated QA cannot promote this module to green.
 
-## Required reviewers
-- Pediatric clinician.
-- Pharmacist with pediatric medication experience.
+## Project clinical decision
+The physician-owner answers YES or NO after receiving the evidence dossier. Product or specialist input can inform the dossier.
 
 ## Review dimensions for every regimen
 1. Diagnosis/indication is exact and not broader than the cited source.
@@ -62,8 +61,7 @@ The reviewer must explicitly inspect at minimum:
 
 ## Promotion rule
 Promotion from yellow to green requires:
-- pediatric review complete;
-- pharmacy review complete;
+- scoped decision of the physician-owner recorded against the evidence dossier;
 - all critical findings corrected;
 - Clinical QA passing after corrections;
 - no unresolved red/high-risk medication error;

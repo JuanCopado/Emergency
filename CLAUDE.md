@@ -1,5 +1,7 @@
 # Emergency — reglas de sesión
 
+La validación clínica del proyecto corresponde al Dr. Juan Copado Ceballos. Preparar la evidencia y presentar una pregunta SÍ/NO por decisión según `AGENTS.md`. Farmacia es consultiva.
+
 Idioma: español. Respuestas breves, sin introducción ni resumen final.
 
 ## Arranque mínimo

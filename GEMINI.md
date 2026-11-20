@@ -1,5 +1,7 @@
 # Emergency — entrada para Gemini y auditoría independiente
 
+La validación clínica del proyecto corresponde al Dr. Juan Copado Ceballos. Preparar la evidencia y presentar una pregunta SÍ/NO por decisión según `AGENTS.md`. Farmacia es consultiva.
+
 Leer `AGENTS.md`, `docs/INTERNATIONAL_SCOPE.md` y `STATE.md`. La directriz vigente del propietario define Emergency como proyecto internacional y ampliable; no presuponer Hospital da Horta ni Portugal como ámbito del producto.
 
 Para cada revisión, identificar la rama/commit y el paquete autorizado realmente accesibles. Evaluar la coherencia del núcleo clínico global y la justificación de las excepciones materiales. El núcleo funciona sin hospital seleccionado. No deducir jurisdicción del idioma o la biografía ni convertir una aprobación de un centro en validación internacional.

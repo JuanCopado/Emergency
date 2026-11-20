@@ -16,10 +16,10 @@ Para cada módulo high-risk pediátrico:
 4. confirmar que bolos y perfusiones no heredan concentraciones adultas;
 5. confirmar que una concentración comercial no se convierte a mL sin seleccionar el producto/concentración real;
 6. revisar límites de función renal/hepática, alergias, QT, interacciones y contraindicaciones cuando apliquen;
-7. registrar decisión: approve / approve with limitations / reject.
+7. presentar alcance y límites al médico propietario para decisión SÍ/NO.
 
 ## Estado
 - QA automático: completado; no sustituye revisión humana.
 - Cobertura de evidencia: completada para los 127 módulos.
 - Pediatría: Horta-local no es requisito general de liberación; producto/SmPC sí debe respetarse cuando determine concentración o restricción.
-- Gate pendiente de Fase 4: revisión humana pediatría/farmacia.
+- Consultar el estado vigente de cada módulo y sus aceptaciones posteriores. Para propuestas nuevas, preparar la ficha y solicitar decisión al médico propietario.

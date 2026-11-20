@@ -15,7 +15,7 @@ CONFLICT = 'CONFLICTING_REVIEW_RECORDS'
 REQUIRED_REVIEW = (
     'country_code', 'topic_id', 'indication', 'population', 'setting',
     'source_url', 'source_title', 'source_version', 'source_date',
-    'verified_at', 'reviewer_clinical', 'reviewer_pharmacy',
+    'verified_at', 'reviewer_clinical',
 )
 
 

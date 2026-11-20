@@ -8,7 +8,8 @@ class PipelineE2E(unittest.TestCase):
   r=evaluate_change(src,"Recommended dose 5 mg daily","Safety warning: recommended dose 2.5 mg daily",mods)
   self.assertEqual("critical",r["diff"]["priority"])
   self.assertIn("medication-selection-safety",r["impact"]["candidate_module_ids"])
-  self.assertTrue(r["impact"]["requires_pharmacist_review"])
+  self.assertTrue(r["impact"]["requires_medication_evidence_review"])
+  self.assertFalse(r["impact"]["requires_pharmacist_review"])
   self.assertFalse(r["impact"]["clinical_change_authorized"])
   self.assertFalse(r["invariants"]["production_mutation"])
  def test_nonclinical_text_never_authorizes_change(self):

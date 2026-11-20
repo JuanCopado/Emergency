@@ -1,5 +1,7 @@
 # STATE · integración T05/T06 · 19/11/2026
 
+La validación clínica del proyecto corresponde al Dr. Juan Copado Ceballos. Preparar la evidencia y presentar una pregunta SÍ/NO por decisión según `AGENTS.md`. Farmacia es consultiva.
+
 - Encargo vigente: integrar T05/gasometría y T06, autorizado por el propietario.
 - Entrega: [PR #33](https://github.com/JuanCopado/Emergency/pull/33), destino `codex/v144-international-scope-20261116`.
 - Base: PR32 `abdeae442a151ce1b1fe0786725991a7d35bc558`, posterior a PR31 integrado.

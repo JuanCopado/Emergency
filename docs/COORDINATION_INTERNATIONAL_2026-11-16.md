@@ -1,5 +1,7 @@
 # INT-01 — coordinación del alcance internacional
 
+La validación clínica del proyecto corresponde al Dr. Juan Copado Ceballos. Preparar la evidencia y presentar una pregunta SÍ/NO por decisión según `AGENTS.md`. Farmacia es consultiva.
+
 Fecha: 16/11/2026. Decisión del propietario: Juan Copado solicita que todos los colaboradores conozcan el carácter internacional de Emergency, que el proyecto tenga el mayor alcance útil posible y que se corrija su presentación como una solución de un hospital concreto.
 
 ## Directriz y entrega

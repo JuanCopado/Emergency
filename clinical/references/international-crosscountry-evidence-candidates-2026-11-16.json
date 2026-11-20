@@ -36,7 +36,7 @@
         "indicación/población/contraindicaciones",
         "disponibilidad nacional y hospitalaria",
         "beneficios-riesgos y protocolos de reversión",
-        "firma clínica y de Farmacia"
+        "decisión del médico propietario tras contrastar la evidencia"
       ],
       "calculation_enabled": false
     },
@@ -85,7 +85,7 @@
         "presentación exacta para ictus vs IAM",
         "fecha y vigencia de ficha de producto",
         "comparación de guías y uso fuera de ficha cuando corresponda",
-        "firma clínica y de Farmacia"
+        "decisión del médico propietario tras contrastar la evidencia"
       ],
       "calculation_enabled": false
     }

@@ -1,14 +1,15 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "scope": "ALL_YELLOW_MODULES",
   "default_review_status": "NOT_REVIEWED",
   "project_decision": "Defer yellow-to-green human sign-off until the final project review phase.",
   "required_before_green": [
-    "module-specific human clinical review",
-    "pharmacy review when medication/dose/concentration is material",
+    "module-specific evidence dossier with primary sources, versions, applicability, discrepancies and limitations",
+    "explicit affirmative decision of the physician-owner for that dossier and module",
     "privacy/information-governance review when health data or images are processed",
     "all critical findings corrected",
     "Clinical QA PASS after corrections"
   ],
-  "automation_rule": "Automated QA, AI-assisted review and synthetic cases cannot independently promote a yellow module to green."
+  "automation_rule": "Automated QA, AI-assisted review and synthetic cases cannot independently promote a yellow module to green.",
+  "clinical_decision_owner": "Dr. Juan Copado Ceballos"
 }
