@@ -1,3 +1,7 @@
+## Continuidad T05/T06 y evidencia · 20/11/2026
+
+Cierre documental de PR33 y de las cinco correcciones Sonar integradas en PR34. Se preparan expedientes focales de los ocho registros vencidos y la errata ECG-PT-20261120 v1, pendiente de decisión médica y todavía no activada. Metadatos del gate final conciliados con PR35 ya aceptada; fechas y estados clínicos preservados: 118 GREEN / 13 YELLOW / 0 RED, CLINICALLY_PENDING. Detalle: `qa/EVIDENCE_FOLLOWUP_20261120.md`.
+
 ## T05/gasometría y T06 · integración técnica · 19/11/2026
 
 20/11/2026 · SCORE-REF-20261120. El Dr. Juan Copado Ceballos aprueba el módulo 12 en los 13 formularios con entrada manual o importación revisada. Registro: 119 GREEN, 12 YELLOW. Estado global CLINICALLY_PENDING.
