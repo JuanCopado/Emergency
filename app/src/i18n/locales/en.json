@@ -341,6 +341,7 @@
     }
   },
   "countryNotes": {
+    "noDifference": "Reviewed · no material difference",
     "title": "Country references",
     "scope": "T02 documentary notes · medical review",
     "pending": "National review pending for this selection.",

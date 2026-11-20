@@ -1,5 +1,6 @@
 import { act, fireEvent, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it } from 'vitest';
+import CountryReferences from '../components/CountryReferences';
 import Settings from '../pages/Settings';
 import i18n from '../i18n';
 import { renderAt } from './render';
@@ -62,4 +63,18 @@ it('compares a second country temporarily and distinguishes EU notes from nation
   fireEvent.change(compare, { target: { value: '' } });
   expect(screen.queryByText(/Praxbind. Revisar las secciones/)).toBeNull();
   expect(primary).toHaveValue('PT');
+});
+
+it('limits a clinical module to its topic and separates the shared ERC reference', async () => {
+  await renderAt('/', [{ path: '/', element: <CountryReferences primary="GB" moduleId="tension-pneumothorax" /> }]);
+  expect(screen.getByText(/NICE NG39 distingue/)).toBeVisible();
+  expect(screen.getByText(/ERC 2025 trata/)).toBeVisible();
+  expect(screen.queryByText(/Balfaxar tiene/)).toBeNull();
+  expect(screen.queryByLabelText('Topic')).toBeNull();
+});
+
+it('limits a drug detail to the documented product family', async () => {
+  await renderAt('/', [{ path: '/', element: <CountryReferences primary="US" drug="phenytoin" /> }]);
+  expect(screen.getByText(/DailyMed, reenvasado Henry Schein/)).toBeVisible();
+  expect(screen.queryByText(/AUVI-Q. La presentación/)).toBeNull();
 });

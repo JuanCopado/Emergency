@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { reviewedWithoutDifference, topicReviews } from '../context/country-notes';
 import dossier from '../../../clinical/references/t02-country-notes.json';
 import { countries, loadContext } from '../context/reference-context';
 
@@ -29,9 +30,12 @@ function CountryColumn({ code, topics }: { code: string; topics: string[] }) {
     sources: record.sources.filter(source => source.scope === code ||
       (source.scope === 'EU' && euCountries.has(code))),
   })).filter(record => record.sources.length > 0);
+  const hasNationalNote = sections.some(record => record.sources.some(source => source.scope === code));
+  const reviewed = reviewedWithoutDifference(code, topics, topicReviews);
   return <section className="min-w-0 space-y-2">
     <h3 className="font-bold">{names.of(code)}</h3>
-    {!sections.some(record => record.sources.some(source => source.scope === code)) && <p>{t('countryNotes.pending')}</p>}
+    {reviewed && <a className="underline" href={reviewed.source}>{t('countryNotes.noDifference')} · {reviewed.reviewedOn}</a>}
+    {!reviewed && !hasNationalNote && <p>{t('countryNotes.pending')}</p>}
     {sections.map(record => <div key={record.id} className="rounded-lg border border-border p-3">
       <h4 lang="es" className="font-semibold">{record.topic} · {record.id}</h4>
       <ul className="space-y-2">{record.sources.map(source => <li key={source.url}>

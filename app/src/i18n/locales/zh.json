@@ -337,6 +337,7 @@
     }
   },
   "countryNotes": {
+    "noDifference": "已审核 · 无实质差异",
     "title": "国家参考资料",
     "scope": "T02 文献注释 · 医学审核",
     "pending": "此项查询的国家级审核尚未完成。",
