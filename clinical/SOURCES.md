@@ -1,3 +1,7 @@
+## 20/11/2026 · Fuentes focales de los ocho registros vencidos
+
+Los expedientes `qa/IMAGE_EVIDENCE_FOLLOWUP_20261120.md`, `qa/BLOOD_GAS_EVIDENCE_FOLLOWUP_20261120.md` y `qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md` identifican versiones, localizadores y límites de acceso de las fuentes realmente consultadas. Distinguen texto recuperado, contenido indexado y mera identidad bibliográfica. Se prepara ECG-PT-20261120; la consulta focal no renueva la fecha de revisión integral ni demuestra exactitud diagnóstica.
+
 ## Fuentes de los contratos revisados · 16/11/2026
 
 Conciliación focal de fenitoína/estatus, anafilaxia y reversión a partir de fuentes primarias. Se registra alcance, fecha, discrepancias de producto y límites de acceso en `references/acute-status-reviewed-2026-11-16.md`, `references/acute-anaphylaxis-reviewed-2026-11-16.md` y `references/acute-reversal-reviewed-2026-11-16.md`. Incluye RCUK 2021 vigente como guía completa, ERC 2025/WAO 2020, NCS/SCCM 24/09/2026, AHA/ASA 2026 y fichas regulatorias/producto específicas. No se trata un manual hospitalario de preparación como pauta global ni se mezclan tablas de PCC. La revisión técnica independiente corrigió una identidad de fuente de protamina y preservó los límites de los regímenes de repetición. Las fechas globales previas no se renuevan por esta revisión focal.

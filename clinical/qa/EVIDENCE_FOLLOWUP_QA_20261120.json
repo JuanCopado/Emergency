@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "review_date": "2026-11-20",
+  "scope": "Documentation, evidence metadata and an inactive clinical correction candidate",
+  "base_commit": "cdca8e34013bba891a1c49f5ea859f933fcbea63",
+  "base_tree": "977ec9cd9443bf0e7a284de13e00f242ea80ef92",
+  "module_count": 131,
+  "all_statuses_and_last_checked_preserved": true,
+  "changed_registry_records": [
+    "ecg-image",
+    "final-human-review-gate"
+  ],
+  "changed_source_mappings": [
+    "final-human-review-gate"
+  ],
+  "unchanged_active_code_and_clinical_content": true,
+  "candidate_patch_sha256": "f7cfa9ec1d34560c20a2d9445319d5f99b19cac203481ca7edc09a8b0ed6b3cd",
+  "candidate_patch_bytes": 4937,
+  "state_lines": 20,
+  "input_sha256": {
+    "clinical/references/evidence-registry.json": "4a0936362a8c4f74c26faa5fdf987a748c8e96b93ac4de75c196334e65d6c098",
+    "clinical/references/evidence-sources.json": "9b84d2aa85480043a688fe78de5038198a9c0febc40735b88cd127428d0ef5e0",
+    "clinical/updates/pending-updates.json": "6ef089e5ecced48625eaefb8fbdf8c761d57f4c77d95be317e1ef241c78f0e00"
+  },
+  "checks": [
+    {
+      "command": "python3 clinical/scripts/validate_modules.py",
+      "exit_code": 0,
+      "result": "MODULE VALIDATION PASSED: 131 modules resolved"
+    },
+    {
+      "command": "python3 clinical/scripts/normalize_evidence_sources.py --check",
+      "exit_code": 0,
+      "result": "EVIDENCE SOURCE CATALOG OK: 254 sources / 131 modules"
+    },
+    {
+      "command": "python3 -m unittest discover -s clinical/tests -p test_evidence_normalization_t01.py",
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "command": "node app/scripts/build-clinical-guides.mjs --check",
+      "exit_code": 0,
+      "result": "Checked 131 canonical clinical guides"
+    },
+    {
+      "command": "git apply --check --unidiff-zero clinical/updates/candidates/ECG_PT_20261120.patch",
+      "exit_code": 0,
+      "patch_activated": false
+    }
+  ],
+  "evidence_audit": {
+    "audit_date": "2026-11-20",
+    "total_modules": 131,
+    "registered": 131,
+    "normalized_sources": 254,
+    "compound_sources_pending_split": 108,
+    "unregistered": 0,
+    "status_counts": {
+      "green": 118,
+      "yellow": 13,
+      "red": 0
+    },
+    "errors": [],
+    "warnings": [
+      "clinical-image-interpretation: evidence review overdue (64 days; limit 30; status yellow)",
+      "blood-gas-image: evidence review overdue (54 days; limit 30; status yellow)",
+      "ct-mri-screenshot: evidence review overdue (54 days; limit 30; status yellow)",
+      "ecg-image: evidence review overdue (54 days; limit 30; status yellow)",
+      "ecg-pocus-integration: evidence review overdue (54 days; limit 30; status yellow)",
+      "ophthalmology-image: evidence review overdue (54 days; limit 30; status yellow)",
+      "pocus-image: evidence review overdue (54 days; limit 30; status yellow)",
+      "final-human-review-gate: evidence review overdue (45 days; limit 30; status yellow)"
+    ]
+  },
+  "candidate_checks": {
+    "location": "isolated worktree based on cdca8e34013bba891a1c49f5ea859f933fcbea63",
+    "command": "node --test app/scripts/build-clinical-guides.node-test.mjs",
+    "passed": 4,
+    "failed": 0,
+    "change_scope": "One canonical ECG bullet and ecg-image.sectionBody in the generated application catalog",
+    "other_guides_unchanged": 130,
+    "statuses_unchanged": true,
+    "physician_response": null,
+    "activation_in_delivery": false,
+    "independent_ai_review": "No blocking issue within the eponym correction scope; editorial distinction of 2017 case report from original description incorporated"
+  },
+  "base_ci_reference": {
+    "head_sha": "cdca8e34013bba891a1c49f5ea859f933fcbea63",
+    "security_run": "https://github.com/JuanCopado/Emergency/actions/runs/44733479342",
+    "conclusion": "success",
+    "attribution": "Observed prior CI; not a newly executed test of this documentation commit",
+    "details": "clinical/qa/T05_T06_INTEGRATION_20261119.md"
+  },
+  "constraints": {
+    "clinical_release_status": "CLINICALLY_PENDING",
+    "diagnostic_accuracy_validated": false,
+    "full_local_suites_rerun": false,
+    "new_patient_images_processed": false,
+    "t05_platform": "Windows Job Objects",
+    "t06_platform": "Linux/POSIX, synthetic localhost lab",
+    "g05_closed": false,
+    "main_ref_unchanged_when_checked": "4f37263f581c41874fd3253147e6679b0b0685d8"
+  },
+  "local_link_verification": {
+    "documents": 5,
+    "relative_links_checked": 28,
+    "missing": []
+  },
+  "document_sha256": {
+    "clinical/qa/EVIDENCE_FOLLOWUP_20261120.md": "68122200ba73fa176f1521f75cd41a8280fd809e31e4f03eb17f7b6571cb5088",
+    "clinical/qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md": "3db32ce57746e096cd59c690d9138da416093f8c3c8edc9a7fa4d09bafb5c51d",
+    "clinical/qa/IMAGE_EVIDENCE_FOLLOWUP_20261120.md": "ef9195804822b52b064858fa6650b94ee21df9cd07639a155ba202d7357d9d68",
+    "clinical/qa/BLOOD_GAS_EVIDENCE_FOLLOWUP_20261120.md": "e68317b633eb74e17394ce590bba2b076fbc57b680ae0914a50f71ab80f557d7",
+    "clinical/qa/T05_T06_INTEGRATION_20261119.md": "612264227f8b9bfa52c75488f34767f37337b751ed53515557f02e674df3632a"
+  }
+}
