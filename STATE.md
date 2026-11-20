@@ -1,4 +1,4 @@
-# STATE · continuidad T05/T06 y evidencia · 20/11/2026
+# STATE · cobertura Sonar y continuidad clínica · 20/11/2026
 
 Estado global: **CLINICALLY_PENDING**. Registro: 119 GREEN / 12 YELLOW / 0 RED.
 
@@ -7,9 +7,10 @@ Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, conform
 20/11/2026 · SCORE-REF-20261120. El Dr. Juan Copado Ceballos aprueba el módulo 12 en los 13 formularios con entrada manual o importación revisada. Registro: 119 GREEN, 12 YELLOW. Estado global CLINICALLY_PENDING.
 
 
-- Candidato técnico sobre PR47: accesibilidad del cálculo y catálogo, más prototipo multimodal aislado. Alcance y procedencia en `docs/coordination/EMERGENCY_V144_CLOSE_20261120.md`.
+- PR48 integrada en `21defd4`: accesibilidad y prototipo multimodal sintético; alcance en `docs/coordination/EMERGENCY_V144_CLOSE_20261120.md`.
 - T05/T06 integrados en la rama internacional mediante PR33; cinco incidencias Sonar cerradas en PR34.
-- Corte técnico comprobado: `cdca8e34013bba891a1c49f5ea859f933fcbea63`; Clinical QA, App UI QA y Security PASS; Sonar 0 nuevas / 0 aceptadas.
+- PR47: cuatro flujos posteriores a la fusión PASS. PR48: Clinical QA/UI PASS; Sonar del intento 2 no ejecutado por cobertura ausente.
+- Corrección de entrega de cobertura por ejecución y módulo preparada; resultado remoto por commit en los checks. Detalle: `security/SONAR_COVERAGE_RETRY_2026-11-20.md`.
 - Cierre y evidencias por commit: `clinical/qa/T05_T06_INTEGRATION_20261119.md`.
 - Seguimiento de los ocho registros vencidos: `clinical/qa/EVIDENCE_FOLLOWUP_20261120.md`; contraste focal, sin renovar `last_checked` ni promover estados.
 - ECG-PT-20261120 v1: aprobación médica expresa recibida; guía y ficha corregidas, módulo YELLOW, sin nueva fecha de evidencia ni GO_RELEASE.
