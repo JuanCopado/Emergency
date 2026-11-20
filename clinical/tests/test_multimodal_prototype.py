@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -142,15 +143,64 @@ class MultimodalTests(unittest.TestCase):
         target.mkdir()
         commands = [(target, None, 'demo_destination_must_be_new'),
                     (self.root / 'new-demo', {'PATH': ''}, 'demo_requires_ffmpeg_and_ffprobe')]
-        import os
         for destination, overrides, expected in commands:
-            env = {**os.environ, **(overrides or {})}
+            env = {**os.environ, 'EMERGENCY_CLI_OUTPUT_ROOT': str(self.root), **(overrides or {})}
             proc = subprocess.run([sys.executable, str(Path(cli.__file__)), 'demo', str(destination)],
                                   env=env, capture_output=True, text=True, timeout=10)
             self.assertEqual(proc.returncode, 1)
             self.assertEqual(json.loads(proc.stdout)['errors'], [expected])
             self.assertNotIn(str(destination), proc.stdout + proc.stderr)
         self.assertFalse((self.root / 'new-demo').exists())
+
+    def test_cli_uses_explicit_input_and_output_workspaces(self):
+        allowed = self.root / 'approved'
+        allowed.mkdir()
+        bank = json.dumps(self.bank)
+        (allowed / 'bank.json').write_text(bank, encoding='utf-8')
+        outside = self.root / 'outside.json'
+        outside.write_text(bank, encoding='utf-8')
+        env = {**os.environ, 'EMERGENCY_CLI_INPUT_ROOT': str(allowed),
+               'EMERGENCY_CLI_OUTPUT_ROOT': str(allowed)}
+
+        def invoke(*args):
+            return subprocess.run([sys.executable, str(Path(cli.__file__)), *args],
+                                  cwd=self.root, env=env, capture_output=True, text=True, timeout=10)
+
+        valid = invoke('validate-bank', str(allowed / 'bank.json'))
+        self.assertEqual(valid.returncode, 0, valid.stderr)
+        self.assertEqual(json.loads(valid.stdout)['errors'], [])
+        for args in (('validate-bank', str(outside)),
+                     ('evaluate', str(allowed / 'bank.json'), str(outside), '--freeze-sha256', '0' * 64),
+                     ('demo', str(self.root))):
+            with self.subTest(command=args[0]):
+                rejected = invoke(*args)
+                self.assertEqual(rejected.returncode, 1)
+                self.assertEqual(json.loads(rejected.stdout)['errors'], ['operation_blocked'])
+                self.assertNotIn(str(self.root), rejected.stdout + rejected.stderr)
+
+    @unittest.skipUnless(shutil.which('ffmpeg') and shutil.which('ffprobe'), 'local media tools required')
+    def test_cli_demo_lifecycle_with_real_synthetic_media(self):
+        env = {**os.environ, 'EMERGENCY_CLI_INPUT_ROOT': str(self.root),
+               'EMERGENCY_CLI_OUTPUT_ROOT': str(self.root)}
+
+        def invoke(*args, expected_exit=0):
+            proc = subprocess.run([sys.executable, str(Path(cli.__file__)), *args],
+                                  cwd=self.root, env=env, capture_output=True, text=True, timeout=60)
+            self.assertEqual(proc.returncode, expected_exit, proc.stdout + proc.stderr)
+            return json.loads(proc.stdout)
+
+        report = invoke('demo', 'demo')
+        self.assertEqual(report['admitted_counts'], {'teaching': 2, 'development': 3, 'blind_test': 0})
+        self.assertEqual(report['diagnostic_cases_evaluated'], 0)
+        self.assertEqual(len(report['navigation']['frames']), 3)
+        bank = 'demo/bank.private.json'
+        self.assertEqual(invoke('validate-bank', bank)['case_count'], 5)
+        self.assertEqual(invoke('admit', bank, '--split', 'development')['inputs'], report['inputs']['development'])
+        self.assertEqual(invoke('export-blind', bank)['inputs'], [])
+        (self.root / 'dataset.json').write_text('{"dataset_class":"workflow_only"}', encoding='utf-8')
+        evaluation = invoke('evaluate', bank, 'dataset.json', '--freeze-sha256', '0' * 64, expected_exit=1)
+        self.assertEqual(evaluation['errors'], ['real_blinded_dataset_required'])
+        self.assertIsNone(evaluation['metrics'])
 
     def test_patient_study_source_hash_and_lineage_cannot_cross_splits(self):
         Image.new('RGB', (32, 24), (100, 50, 20)).save(self.root / 'asset-002.png')
@@ -247,12 +297,17 @@ class MultimodalTests(unittest.TestCase):
         self.assertEqual(result['errors'], [])
         self.assertAlmostEqual(result['duration_seconds'], 1, places=1)
         self.assertEqual(result['decoded_frames'], 5)
-        self.assertTrue(inspect_media(self.root, asset, max_duration=0.5)['errors'])
+        self.assertEqual(inspect_media(self.root, asset, max_duration=0.5)['errors'], ['duration_limit_exceeded'])
+        self.assertEqual(inspect_media(self.root, asset, max_pixels=64)['errors'], ['pixel_limit_exceeded'])
         frames = extract_navigation_frames(self.root, asset, self.root / 'frames', count=3)
         self.assertEqual(len(frames['frames']), 3)
         self.assertEqual([x['sequence_index'] for x in frames['frames']], [0, 1, 2])
         self.assertEqual([x['source_frame_index'] for x in frames['frames']], [0, 2, 4])
         self.assertFalse(frames['temporal_interpretation_validated'])
+        with self.assertRaisesRegex(ValueError, '^frame_destination_must_be_new$'):
+            extract_navigation_frames(self.root, asset, self.root / 'frames', count=3)
+        with self.assertRaisesRegex(ValueError, '^insufficient_video_frames$'):
+            extract_navigation_frames(self.root, asset, self.root / 'too-many-frames', count=6)
         self.case.update(assets=[asset], modality='pocus', task_id='pocus_video_navigation')
         self.case['privacy']['reviewed_sha256'] = [asset['sha256']]
         self.assertTrue(blinded_inputs(self.bank, self.root) == [])
@@ -284,6 +339,7 @@ class MultimodalTests(unittest.TestCase):
                 cli._read(path)
         path.write_text('{"SYNTHETIC-NO-ECHO":NaN}', encoding='utf-8')
         proc = subprocess.run([sys.executable, str(Path(cli.__file__)), 'validate-bank', str(path)],
+                              env={**os.environ, 'EMERGENCY_CLI_INPUT_ROOT': str(self.root)},
                               capture_output=True, text=True, timeout=10)
         self.assertEqual(proc.returncode, 1)
         self.assertEqual(json.loads(proc.stdout)['errors'], ['operation_blocked'])

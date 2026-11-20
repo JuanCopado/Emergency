@@ -2,8 +2,8 @@
 """Local media engineering CLI. No network, clinical inference or training."""
 import argparse
 import json
-from pathlib import Path
 
+from cli_paths import input_file, output_directory
 from multimodal.bank import validate_bank, admitted_inputs, blinded_inputs
 from multimodal.demo import create_demo
 from multimodal.evaluation import evaluate
@@ -18,29 +18,31 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
     demo = commands.add_parser('demo')
-    demo.add_argument('destination', type=Path)
+    demo.add_argument('destination')
     for command in ('validate-bank', 'admit', 'export-blind', 'evaluate'):
         sub = commands.add_parser(command)
-        sub.add_argument('bank', type=Path)
+        sub.add_argument('bank')
         if command == 'admit':
             sub.add_argument('--split', choices=['teaching', 'development', 'blind_test'], required=True)
         if command == 'evaluate':
-            sub.add_argument('dataset', type=Path)
+            sub.add_argument('dataset')
             sub.add_argument('--freeze-sha256', required=True)
     args = parser.parse_args()
     try:
         if args.command == 'demo':
-            result = create_demo(args.destination)
+            result = create_demo(output_directory(args.destination))
         else:
-            bank = _read(args.bank)
+            bank_path = input_file(args.bank)
+            dataset_path = input_file(args.dataset) if args.command == 'evaluate' else None
+            bank = _read(bank_path)
             if args.command == 'validate-bank':
                 result = validate_bank(bank)
             elif args.command == 'admit':
-                result = dict(errors=[], inputs=admitted_inputs(bank, args.bank.parent, args.split))
+                result = dict(errors=[], inputs=admitted_inputs(bank, bank_path.parent, args.split))
             elif args.command == 'export-blind':
-                result = dict(errors=[], inputs=blinded_inputs(bank, args.bank.parent))
+                result = dict(errors=[], inputs=blinded_inputs(bank, bank_path.parent))
             else:
-                result = evaluate(bank, _read(args.dataset), args.bank.parent, freeze_sha256=args.freeze_sha256)
+                result = evaluate(bank, _read(dataset_path), bank_path.parent, freeze_sha256=args.freeze_sha256)
         print(json.dumps(result, indent=2, ensure_ascii=False))
         return bool(result.get('errors'))
     except Exception as exc:

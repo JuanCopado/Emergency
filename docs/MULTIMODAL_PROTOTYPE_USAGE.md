@@ -6,14 +6,22 @@ para vídeos. La demo usa el codificador `mpeg4`; no instala herramientas.
 
 ```powershell
 $env:PYTHONUTF8 = '1'
-python clinical/scripts/multimodal_prototype.py demo C:/workspace/emergency-multimodal-demo
-python clinical/scripts/multimodal_prototype.py validate-bank C:/workspace/emergency-multimodal-demo/bank.private.json
-python clinical/scripts/multimodal_prototype.py admit C:/workspace/emergency-multimodal-demo/bank.private.json --split development
-python clinical/scripts/multimodal_prototype.py export-blind C:/workspace/emergency-multimodal-demo/bank.private.json
+$env:EMERGENCY_CLI_ROOT = 'C:/workspace'
+python clinical/scripts/multimodal_prototype.py demo emergency-multimodal-demo
+python clinical/scripts/multimodal_prototype.py validate-bank emergency-multimodal-demo/bank.private.json
+python clinical/scripts/multimodal_prototype.py admit emergency-multimodal-demo/bank.private.json --split development
+python clinical/scripts/multimodal_prototype.py export-blind emergency-multimodal-demo/bank.private.json
 python -m unittest discover -s clinical/tests -p test_multimodal_prototype.py -v
 ```
 
-La carpeta de demo debe ser nueva y quedar fuera del repositorio. No se incluye
+El operador elige una raíz existente y acotada antes de ejecutar la CLI. Las rutas
+de entrada y de salida deben quedar dentro de esa raíz, o de las raíces separadas
+`EMERGENCY_CLI_INPUT_ROOT` y `EMERGENCY_CLI_OUTPUT_ROOT` si el operador las define.
+Sin variables, se usa el directorio de trabajo; las rutas relativas se resuelven
+desde la raíz aplicable. El banco y el dataset de evaluación deben estar dentro
+de la raíz de entrada. Los medios se resuelven desde la carpeta del banco con
+sus propias comprobaciones. La carpeta de demo debe ser nueva y quedar fuera
+del repositorio. No se incluye
 ningún banco ni medio guardado: el comando `demo`, si se ejecuta expresamente,
 genera cuatro imágenes geométricas y un vídeo de patrón de prueba; **cero casos diagnósticos**. El export
 ciego devuelve una lista vacía porque ningún caso sintético es admisible al examen.
@@ -128,7 +136,7 @@ seguridad de dependencias. No se configura proveedor, entrenamiento ni red.
 ## Evaluación cuando existan casos válidos
 
 ```powershell
-python clinical/scripts/multimodal_prototype.py evaluate bank.private.json finalized-evaluation.private.json --freeze-sha256 SHA256_CUSTODIADO_ANTES_DEL_REVELADO
+python clinical/scripts/multimodal_prototype.py evaluate examen/bank.private.json examen/finalized-evaluation.private.json --freeze-sha256 SHA256_CUSTODIADO_ANTES_DEL_REVELADO
 ```
 
 Usar el flujo canónico de preparación/congelación/revelado existente. El puente
