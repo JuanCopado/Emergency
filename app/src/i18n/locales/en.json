@@ -339,5 +339,14 @@
       "declared-present": "Declared present (unverified)",
       "declared-unavailable": "Declared unavailable (unverified)"
     }
+  },
+  "countryNotes": {
+    "title": "Country references",
+    "scope": "T02 documentary notes · medical review",
+    "pending": "National review pending for this selection.",
+    "topic": "Topic",
+    "all": "All topics",
+    "compare": "Compare with another country",
+    "off": "No comparison"
   }
 }

@@ -1,3 +1,4 @@
+import CountryReferences from '../components/CountryReferences';
 import { useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
@@ -98,6 +99,7 @@ export default function ClinicalLibrary() {
           </div>
         </header>
 
+        <CountryReferences key={guide.id} moduleId={guide.id} />
         <div className="mt-5"><CanonicalContent guide={guide} /></div>
         {guide.id === 'arrhythmias-cardiac-arrest' ? <ResuscitationCircuits base="/clinical" /> : null}
 

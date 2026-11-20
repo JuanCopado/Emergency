@@ -73,6 +73,18 @@ class MultiCountrySafety(unittest.TestCase):
         result = compare_topic('medication.amiodarona', ['ES'], matrix)
         self.assertEqual(result['country_comparison'][0]['source_review_status'], CONFLICT)
 
+    def test_two_products_with_complete_evidence_can_coexist(self):
+        matrix = copy.deepcopy(self.matrix)
+        record = dict(country_code='ES', topic_id='medication.octaplex-pcc',
+                      review_status='DOCUMENTARY_REVIEWED', indication='fixture',
+                      population='fixture', setting='fixture', reviewer_clinical='fixture',
+                      source_url='https://example.invalid/test', source_title='test',
+                      source_version='1', source_date='2026-11-20', verified_at='2026-11-20')
+        matrix['country_topic_reviews'] = [dict(record, product=p) for p in ['A', 'B']]
+        row = compare_topic(record['topic_id'], ['ES'], matrix)['country_comparison'][0]
+        self.assertEqual(row['source_review_status'], REFERENCE)
+        self.assertFalse(row['clinical_use_permitted'])
+
     def test_unknown_topic_rejected(self):
         with self.assertRaises(ValueError):
             compare_topic('medication.invalid', ['ES'], self.matrix)

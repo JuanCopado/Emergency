@@ -1,0 +1,228 @@
+{
+  "decision_date": "2026-11-20",
+  "decision_file": "clinical/qa/T02_DECISION_MEDICA_20261120.md",
+  "records": [
+    {
+      "id": "REV-REG-01",
+      "topic": "PCC",
+      "sources": [
+        {
+          "scope": "US",
+          "label": "FDA Kcentra",
+          "url": "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/kcentra",
+          "note": "Kcentra tiene una indicación propia en su ficha FDA."
+        },
+        {
+          "scope": "US",
+          "label": "FDA Balfaxar",
+          "url": "https://www.fda.gov/vaccines-blood-biologics/balfaxar",
+          "note": "La ficha FDA de Balfaxar define su indicación por separado."
+        },
+        {
+          "scope": "GB",
+          "label": "Octaplex",
+          "url": "https://www.medicines.org.uk/emc/product/6566/smpc",
+          "note": "La ficha británica de Octaplex delimita sus indicaciones en §4.1."
+        }
+      ]
+    },
+    {
+      "id": "REV-REG-02",
+      "topic": "PCC",
+      "sources": [
+        {
+          "scope": "US",
+          "label": "Kcentra, §2",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eee1afb8-324c-42e4-8bf0-f0c9da5e6d42",
+          "note": "Consultar la potencia de la presentación de Kcentra."
+        },
+        {
+          "scope": "US",
+          "label": "Balfaxar, §2.2",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=68fa4f90-8b01-6498-4140-e0be5247c3fe",
+          "note": "La ficha de Balfaxar remite a la potencia indicada en el vial."
+        },
+        {
+          "scope": "GB",
+          "label": "Octaplex, §2",
+          "url": "https://www.medicines.org.uk/emc/product/6566/smpc",
+          "note": "Octaplex expresa una concentración nominal tras reconstitución."
+        }
+      ]
+    },
+    {
+      "id": "REV-REG-03",
+      "topic": "Idarucizumab",
+      "sources": [
+        {
+          "scope": "EU",
+          "label": "EMA, indicación",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/praxbind",
+          "note": "Praxbind. Anotación limitada a reversión de dabigatrán en adultos según la información europea."
+        },
+        {
+          "scope": "US",
+          "label": "EE. UU., §§1 y 8.4",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c7400f8a-dcf4-a6df-6d07-983081b1bf34",
+          "note": "Praxbind. Revisar las secciones 1 y 8.4 de la ficha estadounidense. La anotación aceptada se limita a adultos."
+        }
+      ]
+    },
+    {
+      "id": "REV-REG-04",
+      "topic": "Idarucizumab",
+      "sources": [
+        {
+          "scope": "GB",
+          "label": "SmPC, §4.2",
+          "url": "https://www.medicines.org.uk/emc/product/5073/smpc",
+          "note": "La ficha británica especifica cuándo considerar una nueva administración. Requiere decisión individual."
+        },
+        {
+          "scope": "US",
+          "label": "EE. UU., §§2.1 y 5.2",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c7400f8a-dcf4-a6df-6d07-983081b1bf34",
+          "note": "La ficha estadounidense describe circunstancias para plantear otra administración y señala limitación de datos."
+        }
+      ]
+    },
+    {
+      "id": "URG-01",
+      "topic": "Fenitoína",
+      "sources": [
+        {
+          "scope": "GB",
+          "label": "SmPC, §4.1",
+          "url": "https://www.medicines.org.uk/emc/product/3794/smpc",
+          "note": "La ficha británica de fenitoína inyectable incluye el estatus epiléptico."
+        },
+        {
+          "scope": "US",
+          "label": "DailyMed, Highlights y Labeling Archives",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb",
+          "note": "DailyMed, reenvasado Henry Schein, versión 3 publicada el 18/11/2026. La cabecera conserva revisiones de 12/2022 y 11/2026."
+        }
+      ]
+    },
+    {
+      "id": "URG-02",
+      "topic": "Fosfenitoína",
+      "sources": [
+        {
+          "scope": "GB",
+          "label": "Pro-Epanutin, §§4.1–4.2",
+          "url": "https://www.medicines.org.uk/emc/product/2260/smpc",
+          "note": "Comprobar la edad cubierta por Pro-Epanutin y su unidad de equivalentes de fenitoína."
+        },
+        {
+          "scope": "US",
+          "label": "Cerebyx, §§2 y 8.4",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de5a6711-4abb-4c3d-a18b-266b094ace11",
+          "note": "Comprobar la edad cubierta por Cerebyx y su unidad de equivalentes de fenitoína."
+        }
+      ]
+    },
+    {
+      "id": "URG-03",
+      "topic": "Midazolam",
+      "sources": [
+        {
+          "scope": "GB",
+          "label": "Midazolam UK, §4.1",
+          "url": "https://www.medicines.org.uk/emc/product/6420/smpc",
+          "note": "La ficha británica revisada recoge sedación en cuidados críticos. El uso en estatus refractario requiere consultar la guía aplicable."
+        },
+        {
+          "scope": "US",
+          "label": "Midazolam EE. UU., §1",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f051776f-94c5-4e34-80ed-f45b9c36881e",
+          "note": "La presentación estadounidense revisada recoge sedación en cuidados críticos. El uso en estatus refractario requiere consultar la guía aplicable."
+        }
+      ]
+    },
+    {
+      "id": "URG-04",
+      "topic": "Adrenalina",
+      "sources": [
+        {
+          "scope": "GB",
+          "label": "EpiPen Jr, §4.2",
+          "url": "https://www.medicines.org.uk/emc/product/4290/smpc",
+          "note": "EpiPen Jr. Consultar el criterio de peso y las excepciones de este dispositivo."
+        },
+        {
+          "scope": "US",
+          "label": "AUVI-Q, §§1, 2 y 8.4",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5f40988b-8365-4f7b-84d1-b88e053725cf",
+          "note": "AUVI-Q. La presentación y su intervalo de peso son específicos del dispositivo."
+        }
+      ]
+    },
+    {
+      "id": "URG-05",
+      "topic": "Adrenalina",
+      "sources": [
+        {
+          "scope": "GB",
+          "label": "UK, §§4.1–4.2",
+          "url": "https://www.medicines.org.uk/emc/product/3675/smpc",
+          "note": "La adrenalina diluida británica tiene indicaciones y condiciones de administración propias."
+        },
+        {
+          "scope": "US",
+          "label": "EE. UU., §§1.1 y 2.2",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f2b5f15b-8541-466a-a27a-ee57bc4aac67",
+          "note": "La jeringa estudiada especifica hipotensión asociada a shock séptico en adultos. La concentración por sí sola no establece intercambiabilidad."
+        }
+      ]
+    },
+    {
+      "id": "URG-06",
+      "topic": "Descompresión torácica",
+      "sources": [
+        {
+          "scope": "GB",
+          "label": "NICE, recomendaciones 1.3.4–1.3.6 y 1.4.1–1.4.2",
+          "url": "https://www.nice.org.uk/guidance/ng39/resources/major-trauma-assessment-and-initial-management-pdf-1837400761285",
+          "note": "NICE NG39 distingue atención prehospitalaria y hospitalaria y cuándo descomprimir antes de obtener imágenes."
+        },
+        {
+          "scope": "INT",
+          "label": "ERC 2025, circunstancias especiales",
+          "url": "https://www.erc.edu/media/wwufbysp/gl2025-06-spec-circ-e.pdf",
+          "note": "ERC 2025 trata las toracostomías bilaterales en el escenario de parada traumática."
+        }
+      ]
+    },
+    {
+      "id": "REG-FOLLOWUP-01",
+      "topic": "Andexanet alfa",
+      "sources": [
+        {
+          "scope": "US",
+          "label": "FDA",
+          "url": "https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/update-safety-andexxa",
+          "note": "FDA comunicó una evaluación desfavorable de seguridad y el fin de las ventas estadounidenses."
+        },
+        {
+          "scope": "US",
+          "label": "FDA, registro de retiradas",
+          "url": "https://www.fda.gov/drugs/accelerated-approval-program/withdrawn-non-malignant-hematological-neurological-and-other-disorder-indications-accelerated",
+          "note": "El registro FDA documenta el estado regulatorio estadounidense."
+        },
+        {
+          "scope": "EU",
+          "label": "EMA",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/ondexxya",
+          "note": "El EPAR de Ondexxya recoge la información regulatoria europea. Las existencias locales requieren confirmación."
+        },
+        {
+          "scope": "EU",
+          "label": "PRAC, pág. 59",
+          "url": "https://www.ema.europa.eu/en/documents/minutes/minutes-prac-meeting-8-11-june-2026_en.pdf",
+          "note": "El acta PRAC identifica el procedimiento PSUSA/00010764/202510. El informe íntegro no se localizó en la revisión."
+        }
+      ]
+    }
+  ]
+}

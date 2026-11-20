@@ -46,3 +46,20 @@ describe('reference context controls', () => {
     expect(screen.getByLabelText('Ultrasound')).toHaveValue('unknown');
   });
 });
+
+it('compares a second country temporarily and distinguishes EU notes from national review', async () => {
+  await renderAt('/settings', [{ path: '/settings', element: <Settings /> }]);
+  fireEvent.change(screen.getByLabelText('Reference mode'), { target: { value: 'declared' } });
+  const primary = screen.getByLabelText('Country (optional)');
+  fireEvent.change(primary, { target: { value: 'PT' } });
+  fireEvent.change(screen.getByLabelText('Topic'), { target: { value: 'Idarucizumab' } });
+  expect(screen.getByText('National review pending for this selection.')).toBeVisible();
+  expect(screen.getByText(/Praxbind. Anotación limitada/)).toBeVisible();
+  const compare = screen.getByLabelText('Compare with another country');
+  fireEvent.change(compare, { target: { value: 'US' } });
+  expect(screen.getByText(/Praxbind. Revisar las secciones/)).toBeVisible();
+  expect(primary).toHaveValue('PT');
+  fireEvent.change(compare, { target: { value: '' } });
+  expect(screen.queryByText(/Praxbind. Revisar las secciones/)).toBeNull();
+  expect(primary).toHaveValue('PT');
+});
