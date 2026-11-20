@@ -1,0 +1,1693 @@
+{
+  "fecha": "2026-11-20",
+  "base": "4d2bb3eb0e51325723adc2c86635b7745092e6db",
+  "auditor": "Gemini 3.1 Flash-Lite",
+  "metodo": "17 lotes de código y catálogo; segunda auditoría de 135 escalas con extractos bibliográficos. Las conclusiones de Gemini son opiniones de auditoría, no validación independiente de cada celda de las tablas ni medida prospectiva del rendimiento. Se revisaron aparte seis objeciones y se añadieron casos aritméticos para 45 fórmulas.",
+  "formulas": [
+    {
+      "id": "map",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17351365/",
+      "scope": "Valorar perfusión",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "shock-index-formula",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25215048/",
+      "scope": "Compromiso hemodinámico",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "modified-shock-index-formula",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25215048/",
+      "scope": "Compromiso hemodinámico",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "anion-gap",
+      "source_url": "https://aspenjournals.onlinelibrary.wiley.com/doi/full/10.1002/ncp.11328",
+      "scope": "Clasificar acidosis metabólica",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "albumin-corrected-anion-gap",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/9824071/",
+      "scope": "Detectar AG elevado con hipoalbuminemia",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "delta-ratio",
+      "source_url": "https://aspenjournals.onlinelibrary.wiley.com/doi/full/10.1002/ncp.11328",
+      "scope": "Detectar trastornos metabólicos mixtos",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "winter-pco2",
+      "source_url": "https://aspenjournals.onlinelibrary.wiley.com/doi/full/10.1002/ncp.11328",
+      "scope": "Detectar trastorno respiratorio añadido",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "corrected-sodium-glucose",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10225241/",
+      "scope": "Convención predeterminada 1,6; Hillier observó una media de 2,4. Documentar el factor.",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "calculated-osmolality",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38907161/",
+      "scope": "HHS/toxicología/disnatremias",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "effective-osmolality",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38907161/",
+      "scope": "HHS/disnatremias",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "free-water-deficit",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10175862/",
+      "scope": "Usa agua corporal total explícita y sodio objetivo 140. No determina velocidad de corrección.",
+      "gemini_status": "concern",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "corrected-calcium",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11751745/",
+      "scope": "Estimación con albúmina. Puede clasificar mal el calcio ionizado, especialmente en hipoalbuminemia.",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "cockcroft-gault",
+      "source_url": "https://www.drugtnt.com/ref/RenalDosing/Cockcroft_1976.pdf",
+      "scope": "Aclaramiento estimado en mL/min; documentar el peso utilizado, especialmente en obesidad.",
+      "gemini_status": "concern",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "ckd-epi-2021",
+      "source_url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults",
+      "scope": "Creatinina estandarizada en mg/dL; adultos, resultado indexado a 1,73 m².",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "bedside-schwartz",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19158356/",
+      "scope": "Ecuación pediátrica histórica, cohorte CKiD de 1 a 16 años; talla en cm.",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "fena",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/947239/",
+      "scope": "Contexto de AKI; interpretar con diuréticos/CKD",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "feurea",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12427149/",
+      "scope": "Contexto de AKI, especialmente si diuréticos",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "pao2-fio2",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17573487/",
+      "scope": "ARDS/insuficiencia respiratoria",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "spo2-fio2",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17573487/",
+      "scope": "Seguimiento cuando no hay PaO2",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "rox",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30576221/",
+      "scope": "Validación en neumonía con oxigenoterapia nasal de alto flujo.",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "aa-gradient",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482268/",
+      "scope": "Caracterizar hipoxemia",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "alveolar-o2",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482268/",
+      "scope": "Calcular gradiente A-a",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "static-compliance",
+      "source_url": "https://jts.health.mil/assets/docs/cpgs/Mechnical_Ventilation_Basics_09_Apr_2025_ID92_v1.1.pdf",
+      "scope": "Ventilación mecánica",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "driving-pressure",
+      "source_url": "https://jts.health.mil/assets/docs/cpgs/Mechnical_Ventilation_Basics_09_Apr_2025_ID92_v1.1.pdf",
+      "scope": "Ventilación protectora",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "minute-ventilation",
+      "source_url": "https://jts.health.mil/assets/docs/cpgs/Mechnical_Ventilation_Basics_09_Apr_2025_ID92_v1.1.pdf",
+      "scope": "Ajuste ventilatorio",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "ibw-devine",
+      "source_url": "https://www.accessdata.fda.gov/cdrh_docs/pdf16/P160013c.pdf",
+      "scope": "Dosis/ventilación cuando corresponde",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "bsa-mosteller",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3657876/",
+      "scope": "Dosis/oncología/hemodinámica",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "bmi",
+      "source_url": "https://cdn.who.int/media/docs/default-source/cardiovascular-diseases/booklet-know-your-cardiovascular-disease-risk-take-action.pdf",
+      "scope": "Clasificación antropométrica",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "holliday-segar",
+      "source_url": "https://doi.org/10.1542/peds.19.5.823",
+      "scope": "Calcular volumen diario",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "four-two-one",
+      "source_url": "https://www.rch.org.au/uploadedFiles/Main/Content/clinicalguide/IVFLUIDCHART.pdf",
+      "scope": "Calcular mL/h pediátricos",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "dehydration-deficit",
+      "source_url": "https://www.rch.org.au/uploadedFiles/Main/Content/educationhub/180270-ViCTOR-Fluid-Chart-Paeds-web-WM.pdf",
+      "scope": "Planificar reposición",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "parkland",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38051821/",
+      "scope": "Parkland clásico, 4 mL/kg/%SCQ. La guía ABA de 2024 para adultos con quemaduras ≥20% recomienda iniciar a 2 mL/kg/%SCQ. No extrapolar el cálculo histórico a una prescripción.",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "mgkg-dose",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf",
+      "scope": "Aritmética de dosis validada",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "mcgkgmin-to-mlh",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf",
+      "scope": "Convertir dosis prescrita a mL/h",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "mgkgh-to-mlh",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf",
+      "scope": "Convertir dosis prescrita a mL/h",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "unitskgh-to-mlh",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf",
+      "scope": "Convertir unidades prescritas a mL/h",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "final-concentration",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf",
+      "scope": "Preparar perfusión de forma reproducible",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "qtc-bazett",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2008.12.014",
+      "scope": "Evaluar QT; sobrecorrige a frecuencias altas",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "qtc-fridericia",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2008.12.014",
+      "scope": "Evaluar QT con menor sesgo de frecuencia que Bazett",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "cao2",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html",
+      "scope": "Entrega de oxígeno",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "do2",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html",
+      "scope": "Fisiología de shock",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "cardiac-index",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html",
+      "scope": "Valorar función circulatoria",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "svr",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html",
+      "scope": "Caracterizar shock",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "meld-na-formula",
+      "source_url": "https://www.hrsa.gov/sites/default/files/hrsa/optn/optn_policy_notice_07-24-2014.pdf",
+      "scope": "OPTN histórico 9.1.D. Ajuste de sodio solo si el MELD inicial redondeado supera 11.",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    },
+    {
+      "id": "maddrey-formula",
+      "source_url": "https://www.aasld.org/liver-fellow-network/core-series/why-series/why-do-we-use-steroids-maddreys-discriminant-function",
+      "scope": "Pronóstico/decisión terapéutica",
+      "gemini_status": "candidate",
+      "case_file": "CALCULATOR_REFERENCE_CASES_20261120.json"
+    }
+  ],
+  "escalas": [
+    {
+      "id": "nihss",
+      "version": "NINDS NIH Stroke Scale updated Feb 2024",
+      "source_url": "https://www.ninds.nih.gov/sites/default/files/documents/NIH-Stroke-Scale_updatedFeb2024_508.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "NIH Stroke Scale updated Feb 2024",
+      "gemini_limitation": "Requiere la puntuación explícita de los 15 ítems; no se permite la inferencia de totales a partir de descripciones clínicas.",
+      "editor_review": null
+    },
+    {
+      "id": "abcd2",
+      "version": "ABCD2 2007",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17258668/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Johnston et al., Lancet 2007",
+      "gemini_limitation": "La estratificación de riesgo es para AIT; no debe usarse para excluir ictus establecido.",
+      "editor_review": null
+    },
+    {
+      "id": "canadian-tia-score",
+      "version": "Canadian TIA Score -3 to 23",
+      "source_url": "https://www.bmj.com/content/372/bmj.n49",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Perry et al., BMJ 2021",
+      "gemini_limitation": "Requiere variables clínicas y de laboratorio específicas; no debe reemplazar la evaluación vascular urgente.",
+      "editor_review": null
+    },
+    {
+      "id": "aspects",
+      "version": "ASPECTS 2000",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10905241/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Barber et al., Lancet 2000",
+      "gemini_limitation": "El motor de cálculo solo resta regiones marcadas como anormales; no realiza interpretación de imagen radiológica.",
+      "editor_review": null
+    },
+    {
+      "id": "pc-aspects",
+      "version": "pc-ASPECTS 0-10",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7051302/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Puetz et al., 2021",
+      "gemini_limitation": "La evaluación es difícil en TC sin contraste debido a artefactos; se recomienda el uso de imágenes de origen de angio-TC.",
+      "editor_review": null
+    },
+    {
+      "id": "modified-rankin",
+      "version": "mRS 0-6",
+      "source_url": "https://manual.jointcommission.org/releases/TJC2026B/DataElem0569.html",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "TJC Data Element 0569",
+      "gemini_limitation": "Requiere una puntuación estructurada; no se debe inferir el grado a partir de texto libre.",
+      "editor_review": null
+    },
+    {
+      "id": "glasgow-coma",
+      "version": "Structured Glasgow Coma Scale",
+      "source_url": "https://www.glasgowcomascale.org/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Glasgow Coma Scale FAQ",
+      "gemini_limitation": "No se debe fabricar un total si algún componente (E, V, M) no es testable.",
+      "editor_review": null
+    },
+    {
+      "id": "pediatric-gcs",
+      "version": "Paediatric GCS >=4 years / <4 years",
+      "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Altered_conscious_state/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Royal Children's Hospital Melbourne",
+      "gemini_limitation": "La escala verbal difiere según la edad (<4 años vs >=4 años).",
+      "editor_review": null
+    },
+    {
+      "id": "four-score",
+      "version": "FOUR Score 0-16",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16178024/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pubmed.ncbi.nlm.nih.gov/16178024/",
+      "gemini_limitation": "La validación se centra en la fiabilidad interobservador y la utilidad en UCI; no sustituye la evaluación clínica integral.",
+      "editor_review": null
+    },
+    {
+      "id": "avpu",
+      "version": "AVPU/ABCDE",
+      "source_url": "https://www.resus.org.uk/library/abcde-approach",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://www.ncbi.nlm.nih.gov/sites/books/NBK538431/",
+      "gemini_limitation": "Herramienta de evaluación rápida; no proporciona la granularidad de la Escala de Coma de Glasgow.",
+      "editor_review": null
+    },
+    {
+      "id": "ich-score",
+      "version": "ICH Score 2001",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11283388/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pubmed.ncbi.nlm.nih.gov/11283388/",
+      "gemini_limitation": "Escala de estratificación de riesgo; no debe usarse para limitar el tratamiento de forma aislada.",
+      "editor_review": null
+    },
+    {
+      "id": "modified-fisher",
+      "version": "Modified Fisher 0-4",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16823296/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://cde.nlm.nih.gov/deView?tinyId=gW7qob7oFeA",
+      "gemini_limitation": "Requiere interpretación radiológica de la carga de sangre; no es una regla de manejo de vasoespasmo por sí sola.",
+      "editor_review": null
+    },
+    {
+      "id": "hunt-hess",
+      "version": "Hunt-Hess I-V",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6404699/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://manual.jointcommission.org/releases/TJC2027A/DataElem0555.html",
+      "gemini_limitation": "Clasificación clínica subjetiva; la variabilidad interobservador es una limitación conocida.",
+      "editor_review": null
+    },
+    {
+      "id": "wfns-sah",
+      "version": "WFNS SAH I-V",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4794735/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10904840/",
+      "gemini_limitation": "Depende de la precisión de la GCS y la evaluación de déficits motores.",
+      "editor_review": null
+    },
+    {
+      "id": "stess",
+      "version": "STESS 0-6",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10839336/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13053593/",
+      "gemini_limitation": "Prognóstico de mortalidad hospitalaria; no debe usarse para decisiones de limitación de esfuerzo terapéutico.",
+      "editor_review": null
+    },
+    {
+      "id": "bacterial-meningitis-score",
+      "version": "Bacterial Meningitis Score 0-6",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4543184/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pubmed.ncbi.nlm.nih.gov/17200475/",
+      "gemini_limitation": "Solo aplicable a niños con pleocitosis LCR; no sustituye el juicio clínico en pacientes inmunocomprometidos o con dispositivos CNS.",
+      "editor_review": null
+    },
+    {
+      "id": "cincinnati-stroke",
+      "version": "CPSS",
+      "source_url": "https://www.stroke.org/en/professionals/stroke-resource-library/pre-hospitalems",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "CPSS Exam Domain | Scoring Method | Possible Score",
+      "gemini_limitation": "La escala es una herramienta de cribado prehospitalario y no sustituye la evaluación neurológica completa ni la confirmación diagnóstica.",
+      "editor_review": null
+    },
+    {
+      "id": "race-stroke",
+      "version": "RACE",
+      "source_url": "https://racescale.org/how-to-use/table/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "The RACE scale score range is 0–9 points",
+      "gemini_limitation": "El componente cortical (afasia o agnosia/negligencia) requiere una interpretación clínica precisa según el lado de la hemiparesia.",
+      "editor_review": null
+    },
+    {
+      "id": "fast-ed",
+      "version": "FAST-ED",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961538/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "A total score of ≥4 is considered positive for LVO.",
+      "gemini_limitation": "Los puntos se derivan de ítems específicos de la escala NIHSS; no se debe usar una puntuación NIHSS total para calcular FAST-ED.",
+      "editor_review": null
+    },
+    {
+      "id": "heart",
+      "version": "HEART 0-10 normalized to local troponin ULN",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6005932/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Patients with a troponin value less than 0.04 ng/ml received a score of 0.",
+      "gemini_limitation": "La normalización de la troponina al límite superior de referencia (ULN) local es obligatoria para la validez del score.",
+      "editor_review": null
+    },
+    {
+      "id": "grace-2",
+      "version": "GRACE 2.0",
+      "source_url": "https://www.gracescore.org/website.html",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "The final model included eight classic variables... age, heart rate, SBP, serum creatinine concentration, Killip class, ST segment deviation, cardiac arrest at admission, elevated troponin.",
+      "gemini_limitation": "No se debe aproximar el riesgo localmente; el motor debe redirigir o integrar el wrapper oficial para los cálculos no lineales.",
+      "editor_review": null
+    },
+    {
+      "id": "timi-ua-nstemi",
+      "version": "TIMI UA/NSTEMI",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10938172/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "APPENDIX IV: TIMI RISK SCORE FOR UA/NSTEMI",
+      "gemini_limitation": "El score es una herramienta de pronóstico y no debe utilizarse como criterio único para descartar SCA.",
+      "editor_review": null
+    },
+    {
+      "id": "edacs",
+      "version": "EDACS",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10691881/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "EDACS score ≥16, new ischemic ECG, positive troponin (>99th percentile) or presence of crescendo angina.",
+      "gemini_limitation": "La puntuación EDACS es solo una parte del protocolo diagnóstico acelerado (EDACS-ADP).",
+      "editor_review": null
+    },
+    {
+      "id": "cha2ds2-vasc",
+      "version": "CHA2DS2-VASc",
+      "source_url": "https://www.escardio.org/static-file/Escardio/Guidelines/ehw128_Addenda.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Risk Factor Definitions for CHA2DS2-VASc Score as in the Original Article",
+      "gemini_limitation": "No mezclar umbrales de tratamiento con la versión CHA2DS2-VA (2024).",
+      "editor_review": null
+    },
+    {
+      "id": "cha2ds2-va",
+      "version": "CHA2DS2-VA / ESC 2024",
+      "source_url": "https://www.escardio.org/static-file/Escardio/Guidelines/Products/Essential%20Messages/2024%20EM/Essential%20Messages_2024_AFib.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Essential Messages 2024 AFib, CHA2DS2-VA section",
+      "gemini_limitation": "La puntuación requiere evaluación clínica de elegibilidad para anticoagulación y contraindicaciones.",
+      "editor_review": null
+    },
+    {
+      "id": "has-bled",
+      "version": "HAS-BLED",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21111555/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "HAS-BLED original validation score clinical variables",
+      "gemini_limitation": "No infiere disfunción renal/hepática o INR lábil a partir de texto libre; requiere booleanos pre-adjudicados.",
+      "editor_review": null
+    },
+    {
+      "id": "orbit-bleeding",
+      "version": "ORBIT 0-7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4670965/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "The ORBIT bleeding score: a simple bedside score to assess bleeding risk in atrial fibrillation",
+      "gemini_limitation": "Requiere valores exactos de hemoglobina y eGFR para el cálculo de puntos.",
+      "editor_review": null
+    },
+    {
+      "id": "canadian-syncope",
+      "version": "Canadian Syncope Risk Score",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27378464/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Multicenter Emergency Department Validation of the Canadian Syncope Risk Score",
+      "gemini_limitation": "No reemplaza el juicio clínico para causas peligrosas inmediatas.",
+      "editor_review": null
+    },
+    {
+      "id": "scai-shock",
+      "version": "SCAI SHOCK 2022",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2022.01.018",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "SCAI SHOCK 2022 Bedside Checklist",
+      "gemini_limitation": "La clasificación es dinámica; requiere reevaluación ante cambios en el soporte hemodinámico.",
+      "editor_review": null
+    },
+    {
+      "id": "killip-kimball",
+      "version": "Killip-Kimball I-IV",
+      "source_url": "https://academic.oup.com/eurheartj/article/26/4/384/2888056",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Validation of the Killip-Kimball Classification",
+      "gemini_limitation": "No infiere el estado clínico a partir de texto libre; requiere estado pre-adjudicado.",
+      "editor_review": null
+    },
+    {
+      "id": "duke-iscvid",
+      "version": "2023 Duke-ISCVID",
+      "source_url": "https://academic.oup.com/cid/article/77/4/518/7151107",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "2023 Duke-ISCVID Criteria for Infective Endocarditis",
+      "gemini_limitation": "Requiere criterios mayores y menores ya adjudicados; no infiere criterios de microbiología/imagen.",
+      "editor_review": null
+    },
+    {
+      "id": "tisdale-qt",
+      "version": "Tisdale QT Risk Score 0-21",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11765673/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Development and validation of a risk score to predict QT interval prolongation",
+      "gemini_limitation": "Requiere conteo preciso de fármacos que prolongan el QT.",
+      "editor_review": null
+    },
+    {
+      "id": "wells-pe",
+      "version": "Wells PE standard + modified interpretation",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "2026 AHA/ACC/ACCP/ACEP/CHEST/SCAI/SHM/SIR/SVM/SVN Guideline",
+      "gemini_limitation": "La interpretación subjetiva 'PE more likely' requiere juicio clínico externo; el umbral de probabilidad baja (<=1.5 vs <=4.0) debe ser consistente con la implementación local.",
+      "editor_review": null
+    },
+    {
+      "id": "revised-geneva",
+      "version": "Revised Geneva",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Supplementary Table 2 Revised Geneva Rules",
+      "gemini_limitation": "Ninguna, los pesos de las variables y los umbrales de riesgo están definidos explícitamente.",
+      "editor_review": null
+    },
+    {
+      "id": "perc",
+      "version": "PERC 8-item",
+      "source_url": "https://www.ahajournals.org/doi/pdf/10.1161/CIR.0000000000001415",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "2026 AHA/ACC/ACCP/ACEP/CHEST Guideline",
+      "gemini_limitation": "El uso de PERC está restringido a pacientes con probabilidad pretest baja confirmada; no debe aplicarse a pacientes de riesgo intermedio o alto.",
+      "editor_review": null
+    },
+    {
+      "id": "years-pe",
+      "version": "YEARS 2017",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/28549662/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "YEARS 2017 original validation",
+      "gemini_limitation": "Los umbrales de Dímero-D (1000/500 ng/mL FEU) son específicos para el ensayo FEU; no se admite conversión automática de DDU.",
+      "editor_review": null
+    },
+    {
+      "id": "pesi",
+      "version": "PESI",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 9, Pulmonary Embolism Severity Index (PESI) Score",
+      "gemini_limitation": "Requiere datos completos de 11 variables; la ausencia de cualquier dato invalida el cálculo.",
+      "editor_review": null
+    },
+    {
+      "id": "spesi",
+      "version": "sPESI",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "sPESI derivation and validation",
+      "gemini_limitation": "El sPESI es una herramienta pronóstica, no diagnóstica; su uso es para estratificación de riesgo en TEP confirmado.",
+      "editor_review": null
+    },
+    {
+      "id": "hestia",
+      "version": "Hestia 11 criteria",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 2, Summary of Hestia criteria",
+      "gemini_limitation": "La elegibilidad para tratamiento ambulatorio depende de la ausencia de los 11 criterios; el juicio clínico sobre 'razones sociales' es subjetivo.",
+      "editor_review": null
+    },
+    {
+      "id": "bova",
+      "version": "Bova 0-7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6421363/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "insufficient_source_detail",
+      "gemini_locator": "Bova risk staging (Table 2)",
+      "gemini_limitation": "La definición de 'disfunción ventricular derecha' (ecocardiograma vs TC) varía en la literatura; la fuente no especifica el umbral exacto para la variable.",
+      "editor_review": [
+        "https://pubmed.ncbi.nlm.nih.gov/24696111/",
+        "Cuatro predictores de TEP normotenso. Troponina y disfunción de VD son entradas explícitas."
+      ]
+    },
+    {
+      "id": "wells-dvt",
+      "version": "2-level DVT Wells",
+      "source_url": "https://www.nice.org.uk/guidance/ng158/chapter/Recommendations",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "6.2 Appendix 2 – Two level DVT Wells score",
+      "gemini_limitation": "La exactitud diagnóstica depende de la población (ambulatoria vs. hospitalizada) y la extensión de la TVP.",
+      "editor_review": null
+    },
+    {
+      "id": "isth-dic",
+      "version": "ISTH overt DIC",
+      "source_url": "https://www.isth.org/resource/resmgr/Workshops/Chinthammitr_DIC.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "ARIA Guide Supportive Care: Disseminated Intravascular Coagulation",
+      "gemini_limitation": "Requiere la presencia de un trastorno subyacente asociado a CID; el umbral ≥5 indica CID manifiesta.",
+      "editor_review": null
+    },
+    {
+      "id": "sic",
+      "version": "ISTH SIC",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11415329/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Diagnosis of sepsis‐induced disseminated intravascular coagulation and coagulopathy",
+      "gemini_limitation": "Excluye pacientes con trastornos de coagulación preexistentes o trombocitopenia grave pre-UCI.",
+      "editor_review": null
+    },
+    {
+      "id": "sofa",
+      "version": "SOFA-1 / Sepsis-3 classic 2016",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2492881",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Assessment of Clinical Criteria for Sepsis: For the Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3)",
+      "gemini_limitation": "No mezclar con SOFA-2 (2025); el SOFA-1 asume una línea base de cero a menos que exista disfunción previa.",
+      "editor_review": null
+    },
+    {
+      "id": "sofa-2",
+      "version": "SOFA-2 2025",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2840822",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Development and Validation of the Sequential Organ Failure Assessment (SOFA)-2 Score",
+      "gemini_limitation": "Requiere autorización clínica para nuevos criterios (delirium, RRT, soportes contemporáneos).",
+      "editor_review": null
+    },
+    {
+      "id": "qsofa",
+      "version": "qSOFA / Sepsis-3",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/2492881",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3)",
+      "gemini_limitation": "No debe usarse como único cribado de sepsis; su validez predictiva es inferior al SOFA completo en UCI.",
+      "editor_review": null
+    },
+    {
+      "id": "news2",
+      "version": "NEWS2 2017",
+      "source_url": "https://www.rcp.ac.uk/resources/national-early-warning-score-news-2/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "NEWS2 Additional implementation guidance",
+      "gemini_limitation": "La escala 2 de SpO2 requiere autorización explícita para insuficiencia respiratoria hipercápnica.",
+      "editor_review": null
+    },
+    {
+      "id": "mews",
+      "version": "Classic MEWS",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK543670/table/ch10.Tab1/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Supplementary Table 3. MEWS Calculation Table",
+      "gemini_limitation": "La adaptación de la escala AVPU debe ser consistente con la fuente original.",
+      "editor_review": null
+    },
+    {
+      "id": "sirs",
+      "version": "SIRS 4 criteria",
+      "source_url": "https://www.clevelandclinicmeded.com/medicalpubs/pharmacy/janfeb2002/table1.htm",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://www.clevelandclinicmeded.com/medicalpubs/pharmacy/janfeb2002/table1.htm",
+      "gemini_limitation": "No es una definición moderna aislada de sepsis; uso limitado a contexto fisiológico/investigación.",
+      "editor_review": null
+    },
+    {
+      "id": "apache2",
+      "version": "APACHE II",
+      "source_url": "https://www.msdmanuals.com/professional/multimedia/table/acute-physiologic-assessment-and-chronic-health-evaluation-apache-ii-scoring-system",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://www.msdmanuals.com/professional/multimedia/table/acute-physiologic-assessment-and-chronic-health-evaluation-apache-ii-scoring-system",
+      "gemini_limitation": "Requiere calibración por categoría diagnóstica para estimaciones de mortalidad.",
+      "editor_review": null
+    },
+    {
+      "id": "saps3",
+      "version": "SAPS 3 score wrapper",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16450055/",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pubmed.ncbi.nlm.nih.gov/16450055/",
+      "gemini_limitation": "La probabilidad de mortalidad depende de la calibración regional.",
+      "editor_review": null
+    },
+    {
+      "id": "shock-index",
+      "version": "Shock Index HR/SBP",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "implementation": "central_formula_alias",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "gemini_limitation": "Umbral de 1.0 es una simplificación para triaje; no sustituye evaluación clínica completa.",
+      "editor_review": null
+    },
+    {
+      "id": "modified-shock-index",
+      "version": "Modified Shock Index HR/MAP",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "implementation": "central_formula_alias",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "gemini_limitation": "Requiere cálculo preciso de PAM.",
+      "editor_review": null
+    },
+    {
+      "id": "age-shock-index",
+      "version": "Age Shock Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "gemini_limitation": "Validado específicamente para trauma geriátrico.",
+      "editor_review": null
+    },
+    {
+      "id": "curb65",
+      "version": "CURB-65",
+      "source_url": "https://thorax.bmj.com/content/58/5/377",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://thorax.bmj.com/content/58/5/377",
+      "gemini_limitation": "No considera oxigenación ni factores sociales.",
+      "editor_review": null
+    },
+    {
+      "id": "crb65",
+      "version": "CRB-65",
+      "source_url": "https://thorax.bmj.com/content/58/5/377",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://thorax.bmj.com/content/58/5/377",
+      "gemini_limitation": "Menos sensible que CURB-65 al omitir urea.",
+      "editor_review": null
+    },
+    {
+      "id": "psi-port",
+      "version": "PSI/PORT Fine 1997",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7135093/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "PSI/PORT Fine 1997 original validation score clinical variables threshold psi-port",
+      "gemini_limitation": "La estratificación de riesgo PSI/PORT es una herramienta de apoyo para la disposición hospitalaria y no sustituye el juicio clínico ni la evaluación de factores sociales o complicaciones agudas.",
+      "editor_review": null
+    },
+    {
+      "id": "smart-cop",
+      "version": "SMART-COP 0-11",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7147127/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "SMART-COP 0-11 original validation score clinical variables threshold smart-cop",
+      "gemini_limitation": "El sistema SMART-COP utiliza umbrales de edad (50 años) para definir la elevación de la frecuencia respiratoria y la hipoxemia; la aplicación fuera de estos rangos requiere validación.",
+      "editor_review": null
+    },
+    {
+      "id": "decaf",
+      "version": "DECAF",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22895999/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "DECAF original validation score clinical variables threshold decaf",
+      "gemini_limitation": "El puntaje DECAF está diseñado específicamente para exacerbaciones agudas de EPOC hospitalizadas; no debe extrapolarse a pacientes ambulatorios.",
+      "editor_review": null
+    },
+    {
+      "id": "mmrc",
+      "version": "mMRC 0-4",
+      "source_url": "https://goldcopd.org/",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "mMRC 0-4 original validation score clinical variables threshold mmrc",
+      "gemini_limitation": "La escala mMRC es una medida subjetiva de la disnea; la correlación con la limitación funcional real puede variar según la comorbilidad del paciente.",
+      "editor_review": null
+    },
+    {
+      "id": "rox-index",
+      "version": "ROX validation, Roca et al., AJRCCM 2019",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30576221/",
+      "implementation": "central_formula_alias",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "ROX Index original validation score clinical variables threshold rox-index",
+      "gemini_limitation": "El valor predictivo positivo puede variar según la prevalencia de neumonía viral en la cohorte; no debe usarse como criterio único para intubación.",
+      "editor_review": null
+    },
+    {
+      "id": "hacor",
+      "version": "HACOR 0-25",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9225644/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "HACOR 0-25 original validation score clinical variables threshold hacor",
+      "gemini_limitation": "El puntaje HACOR requiere reevaluación tras una hora de ventilación no invasiva (VNI); no es válido para la decisión inicial de intubación sin prueba de VNI.",
+      "editor_review": null
+    },
+    {
+      "id": "berlin-ards",
+      "version": "Berlin ARDS 2012",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/22797452/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Berlin ARDS 2012 original validation score clinical variables threshold berlin-ards",
+      "gemini_limitation": "Esta definición es la de 2012; no debe confundirse con la definición global de ARDS más reciente que incluye criterios para pacientes no intubados.",
+      "editor_review": null
+    },
+    {
+      "id": "rts",
+      "version": "Revised Trauma Score",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5496419/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Revised Trauma Score original validation score clinical variables threshold rts",
+      "gemini_limitation": "El umbral RTS < 4 es una guía para el triaje a centros de trauma, pero puede ser demasiado bajo en ciertos contextos clínicos.",
+      "editor_review": null
+    },
+    {
+      "id": "iss",
+      "version": "Injury Severity Score",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2568949/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "scripts/core_scores_block10_trauma.py",
+      "gemini_limitation": "Requiere codificación AIS manual previa; no infiere gravedad anatómica de texto clínico no estructurado.",
+      "editor_review": null
+    },
+    {
+      "id": "niss",
+      "version": "NISS 0-75",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8858478/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "scripts/specialist_scores_block3.py",
+      "gemini_limitation": "El cálculo depende de la precisión de los códigos AIS de entrada; el valor 75 es automático para AIS 6.",
+      "editor_review": null
+    },
+    {
+      "id": "triss",
+      "version": "TRISS legacy MTOS",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3106646/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "insufficient_source_detail",
+      "gemini_locator": "scripts/specialist_scores_block3.py",
+      "gemini_limitation": "Los coeficientes MTOS son históricos (1986); no se recomienda como pronóstico individual contemporáneo sin recalibración.",
+      "editor_review": [
+        "https://www.monash.edu/__data/assets/pdf_file/0006/2204295/VSTR_VOTOR_DataDictionary_V6.0.pdf",
+        "Tabla TRISS MTOS 1995: coeficientes para trauma cerrado/penetrante, RTS, ISS y edad. Calibración histórica."
+      ]
+    },
+    {
+      "id": "abc-massive-transfusion",
+      "version": "Assessment of Blood Consumption",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19204506/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "scripts/core_scores_block10_trauma.py",
+      "gemini_limitation": "El valor predictivo positivo es limitado (~48-58%); no sustituye el juicio clínico ni el protocolo de transfusión masiva local.",
+      "editor_review": null
+    },
+    {
+      "id": "canadian-ct-head",
+      "version": "Canadian CT Head Rule",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11356436/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "scripts/core_scores_block10_trauma.py",
+      "gemini_limitation": "Requiere población explícita de TCE menor (GCS 13-15) y edad >=16 años.",
+      "editor_review": null
+    },
+    {
+      "id": "nexus-head-ct",
+      "version": "NEXUS Head CT",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5507397/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "scripts/specialist_scores_block3.py",
+      "gemini_limitation": "La sensibilidad depende de la correcta evaluación de los 7 criterios clínicos.",
+      "editor_review": null
+    },
+    {
+      "id": "canadian-cspine",
+      "version": "Canadian C-Spine Rule",
+      "source_url": "https://jamanetwork.com/journals/jama/fullarticle/194296",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "scripts/core_scores_block10_trauma.py",
+      "gemini_limitation": "Requiere población alerta, estable y GCS 15.",
+      "editor_review": null
+    },
+    {
+      "id": "nexus-cspine",
+      "version": "NEXUS C-Spine",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5994619/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "scripts/core_scores_block10_trauma.py",
+      "gemini_limitation": "Datos limitados en niños <8 años; requiere evaluación de trauma cerrado.",
+      "editor_review": null
+    },
+    {
+      "id": "glasgow-blatchford",
+      "version": "Glasgow-Blatchford Score",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11073021/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 1: Clinical parameter thresholds for urea, hemoglobin, systolic BP, and pulse/comorbidities.",
+      "gemini_limitation": "La puntuación es una herramienta de triaje pre-endoscópico; no sustituye la evaluación clínica de la inestabilidad hemodinámica activa ni la necesidad de endoscopia urgente.",
+      "editor_review": null
+    },
+    {
+      "id": "rockall",
+      "version": "Complete Rockall 0-11",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2660506/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 7: Complete Rockall score parameters including age, shock, comorbidities, diagnosis, and stigmata.",
+      "gemini_limitation": "El puntaje Rockall completo requiere hallazgos endoscópicos; no debe utilizarse como herramienta de triaje inicial pre-endoscópico.",
+      "editor_review": null
+    },
+    {
+      "id": "aims65",
+      "version": "AIMS65",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21907980/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Variables: age, albumin, INR, mental status, systolic BP.",
+      "gemini_limitation": "AIMS65 es un predictor de mortalidad y riesgo de hospitalización, no una guía para la toma de decisiones sobre la urgencia de la endoscopia.",
+      "editor_review": null
+    },
+    {
+      "id": "oakland",
+      "version": "Oakland Score original 7-variable form",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7341175/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 1: Oakland Score variables (age, sex, previous admission, DRE, HR, SBP, Hb).",
+      "gemini_limitation": "El umbral de bajo riesgo (<=8) es para el alta segura en HDB; no aplica a pacientes con inestabilidad hemodinámica o sospecha de HDA.",
+      "editor_review": null
+    },
+    {
+      "id": "bisap",
+      "version": "BISAP",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18519429/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Variables: BUN, impaired mental status, SIRS, age, pleural effusion.",
+      "gemini_limitation": "BISAP es una herramienta de estratificación de riesgo de mortalidad temprana en pancreatitis aguda; no sustituye la evaluación de falla orgánica.",
+      "editor_review": null
+    },
+    {
+      "id": "ranson",
+      "version": "Ranson non-gallstone and gallstone-modified",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482345/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table I: Modified Ranson score criteria (non-gallstone and gallstone-modified).",
+      "gemini_limitation": "Requiere evaluación a las 48 horas; no es útil para la estratificación inmediata al ingreso.",
+      "editor_review": null
+    },
+    {
+      "id": "alvarado",
+      "version": "Alvarado",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3963537/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Variables: migration, anorexia, nausea/vomiting, RLQ tenderness, rebound, temperature, WBC, left shift.",
+      "gemini_limitation": "La sensibilidad es limitada en poblaciones pediátricas y geriátricas; no debe retrasar la imagenología si la sospecha es alta.",
+      "editor_review": null
+    },
+    {
+      "id": "air-appendicitis",
+      "version": "AIR",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8154764/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 2: AIR score parameters (vomiting, pain, guarding, temp, WBC, neutrophils, CRP).",
+      "gemini_limitation": "El puntaje AIR es superior al Alvarado en la estratificación, pero requiere CRP, lo cual puede no estar disponible en todos los entornos de urgencias.",
+      "editor_review": null
+    },
+    {
+      "id": "tokyo-biliary",
+      "version": "Tokyo biliary severity",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3429782/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 3 TG18/TG13 severity assessment criteria",
+      "gemini_limitation": "La clasificación requiere un diagnóstico previo de colangitis o colecistitis aguda; no es una herramienta de diagnóstico.",
+      "editor_review": null
+    },
+    {
+      "id": "child-pugh",
+      "version": "Child-Turcotte-Pugh",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK598240/table/table4/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table: Child-Turcotte-Pugh Scoring System",
+      "gemini_limitation": "La gradación de ascitis y encefalopatía es subjetiva; requiere evaluación clínica estandarizada.",
+      "editor_review": null
+    },
+    {
+      "id": "meld-na",
+      "version": "Legacy MELD-Na",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6448637/",
+      "implementation": "central_formula_alias",
+      "gemini_verdict": "insufficient_source_detail",
+      "gemini_locator": "Letter to the Editor: MELD calibration",
+      "gemini_limitation": "El documento fuente discute la calibración pero no proporciona la fórmula completa ni los umbrales de validación actuales.",
+      "editor_review": [
+        "https://www.hrsa.gov/sites/default/files/hrsa/optn/optn_policy_notice_07-24-2014.pdf",
+        "OPTN histórico 9.1.D. Ajuste de sodio solo si el MELD inicial redondeado supera 11."
+      ]
+    },
+    {
+      "id": "meld-3",
+      "version": "MELD 3.0",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8608337/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "MELD 3.0: The Model for End-stage Liver Disease Updated for the Modern Era",
+      "gemini_limitation": "Requiere variables específicas (sexo, albúmina) y términos de interacción no presentes en versiones anteriores.",
+      "editor_review": null
+    },
+    {
+      "id": "maddrey",
+      "version": "Maddrey Discriminant Function",
+      "source_url": "https://www.aasld.org/liver-fellow-network/core-series/why-series/why-do-we-use-steroids-maddreys-discriminant-function",
+      "implementation": "central_formula_alias",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Maddrey's discriminant function (MDF or DF) score calculation",
+      "gemini_limitation": "El umbral de pronóstico pobre puede variar según la literatura; requiere estandarización de PT control.",
+      "editor_review": null
+    },
+    {
+      "id": "lille",
+      "version": "Lille model day 7",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6448617/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "The Lille model: a new tool for therapeutic strategy",
+      "gemini_limitation": "Requiere datos del día 7; no es aplicable al ingreso inicial.",
+      "editor_review": null
+    },
+    {
+      "id": "kings-college",
+      "version": "King's College ALF criteria",
+      "source_url": "https://easl.eu/wp-content/uploads/2018/10/LiverFailure-English-report.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "King's College ALF criteria",
+      "gemini_limitation": "Diferentes criterios para paracetamol vs. otras etiologías; no sustituye la evaluación de trasplante urgente.",
+      "editor_review": null
+    },
+    {
+      "id": "kdigo-aki",
+      "version": "KDIGO AKI 2012",
+      "source_url": "https://kdigo.org/wp-content/uploads/2016/10/KDIGO-2012-AKI-Guideline-English.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 3: Comparison of RIFLE and AKIN criteria",
+      "gemini_limitation": "No utilizar borradores de 2026; mantener la versión 2012 publicada.",
+      "editor_review": null
+    },
+    {
+      "id": "mcmahon-rhabdo",
+      "version": "McMahon rhabdomyolysis",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8804685/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 1 McMahon Score",
+      "gemini_limitation": "La puntuación McMahon es una herramienta de estratificación de riesgo para IRA/RRT/muerte y no sustituye el manejo clínico de la rabdomiólisis.",
+      "editor_review": null
+    },
+    {
+      "id": "rumack-matthew",
+      "version": "Rumack-Matthew 150 treatment line",
+      "source_url": "https://www.merckmanuals.com/professional/injuries-poisoning/poisoning/acetaminophen-poisoning",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Rumack-Matthew Nomogram treatment line",
+      "gemini_limitation": "El nomograma es exclusivo para ingestas agudas únicas con tiempo conocido; no es aplicable a ingestas crónicas, desconocidas o de liberación prolongada sin niveles seriados.",
+      "editor_review": null
+    },
+    {
+      "id": "poisoning-severity",
+      "version": "WHO/IPCS Poisoning Severity Score 0-4",
+      "source_url": "https://www.who.int/publications/m/item/poisoning-severity-score",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Poisoning Severity Score classification chart",
+      "gemini_limitation": "La puntuación es una escala de gravedad global basada en la sintomatología más severa; no debe inferirse automáticamente de datos de laboratorio aislados.",
+      "editor_review": null
+    },
+    {
+      "id": "hunter-serotonin",
+      "version": "Hunter criteria",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12925718/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 2. Original and modified Hunter Serotonin Toxicity Criteria",
+      "gemini_limitation": "Los criterios requieren una exposición serotoninérgica confirmada; no deben usarse para diagnosticar síndrome serotoninérgico en ausencia de dicha exposición.",
+      "editor_review": null
+    },
+    {
+      "id": "ciwa-ar",
+      "version": "CIWA-Ar",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/2597811/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Clinical Institute Withdrawal Assessment for Alcohol (CIWA-Ar)",
+      "gemini_limitation": "Requiere un paciente comunicativo; no es fiable en pacientes con delirio o deterioro cognitivo severo.",
+      "editor_review": null
+    },
+    {
+      "id": "pawss",
+      "version": "PAWSS 0-10",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6905615/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "PAWSS Scoring Part A, B, and C",
+      "gemini_limitation": "El umbral de riesgo (≥4) es para abstinencia complicada; no sustituye la evaluación clínica continua.",
+      "editor_review": null
+    },
+    {
+      "id": "cows",
+      "version": "COWS",
+      "source_url": "https://nida.nih.gov/sites/default/files/ClinicalOpiateWithdrawalScale.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Clinical Opiate Withdrawal Scale (COWS) items",
+      "gemini_limitation": "La escala es administrada por el clínico; no debe usarse para autoevaluación del paciente.",
+      "editor_review": null
+    },
+    {
+      "id": "cssrs",
+      "version": "C-SSRS official instrument",
+      "source_url": "https://cssrs.columbia.edu/documents/screening/",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "insufficient_source_detail",
+      "gemini_locator": "Columbia Suicide Severity Rating Scale (C-SSRS) official instrument",
+      "gemini_limitation": "El instrumento tiene derechos de autor y requiere el uso de la versión oficial; no existe una puntuación numérica única estandarizada para toda la escala.",
+      "editor_review": [
+        "https://cssrs.columbia.edu/documents/screening/",
+        "Enlace al instrumento oficial; no se infiere una puntuación."
+      ]
+    },
+    {
+      "id": "phq9",
+      "version": "PHQ-9 0-27",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/11556941/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://www.psychiatry.org/File%20Library/Psychiatrists/Practice/DSM/DSM-5-TR/APA-DSM5TR-SeverityMeasureForDepressionAdult.pdf",
+      "gemini_limitation": "La herramienta es de cribado/severidad y no constituye un diagnóstico aislado; requiere juicio clínico.",
+      "editor_review": null
+    },
+    {
+      "id": "gad7",
+      "version": "GAD-7 0-21",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/16717171/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://www.nationwidechildrens.org/-/media/nch/for-medical-professionals/practice-tools-new/prescribing-guidelines-for-anxiety-disorders-and-depression.ashx",
+      "gemini_limitation": "Requiere verificación clínica y diagnóstico basado en criterios DSM; no es un diagnóstico automático.",
+      "editor_review": null
+    },
+    {
+      "id": "four-at",
+      "version": "4AT",
+      "source_url": "https://www.the4at.com/userguide",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4066613/",
+      "gemini_limitation": "No diseñado para monitoreo diario repetido debido a efectos de práctica; requiere evaluación clínica.",
+      "editor_review": null
+    },
+    {
+      "id": "cam",
+      "version": "CAM",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://deliriumnetwork.org/wp-content/uploads/2018/05/CAM.pdf",
+      "gemini_limitation": "La lógica solo aplica el algoritmo de características; no infiere la presencia de delirium sin evaluación clínica previa.",
+      "editor_review": null
+    },
+    {
+      "id": "cam-icu",
+      "version": "CAM-ICU",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pubmed.ncbi.nlm.nih.gov/11445689/",
+      "gemini_limitation": "Requiere evaluación de nivel de sedación (RASS) previa; no es válido sin ella.",
+      "editor_review": null
+    },
+    {
+      "id": "rass",
+      "version": "RASS",
+      "source_url": "https://www.icudelirium.org/medical-professionals/downloads/resources-by-category",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://jts.health.mil/assets/docs/cpgs/Pain_Anxiety_Delirium_26_Apr_2021_ID29.pdf",
+      "gemini_limitation": "Es una escala de observación clínica; no debe usarse sin la secuencia de estimulación validada.",
+      "editor_review": null
+    },
+    {
+      "id": "cpot",
+      "version": "CPOT",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9222682/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9732740/",
+      "gemini_limitation": "Solo para pacientes no comunicativos; el autoinforme es preferible si es posible.",
+      "editor_review": null
+    },
+    {
+      "id": "bps",
+      "version": "Behavioral Pain Scale 3-12",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2391268/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "https://bmjopen.bmj.com/content/bmjopen/6/6/e011505/DC1/embed/inline-supplementary-material-1.pdf",
+      "gemini_limitation": "Validado específicamente para pacientes ventilados mecánicamente.",
+      "editor_review": null
+    },
+    {
+      "id": "mascc",
+      "version": "MASCC Risk Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4500479/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 1: MASCC Risk Index Score",
+      "gemini_limitation": "El índice MASCC identifica pacientes de bajo riesgo; no sustituye el juicio clínico ante inestabilidad hemodinámica, disfunción orgánica o infección no controlada.",
+      "editor_review": null
+    },
+    {
+      "id": "cisne",
+      "version": "CISNE 0-8",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6404710/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Validation of the CISNE model in febrile neutropenia to guide emergency physicians",
+      "gemini_limitation": "Validado específicamente para pacientes con tumores sólidos aparentemente estables; no aplicable a pacientes inestables o con neoplasias hematológicas.",
+      "editor_review": null
+    },
+    {
+      "id": "lrinec",
+      "version": "LRINEC 0-13",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5449710/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Predictive Models for Necrotizing Soft Tissue Infections: Are the Available Scores Trustable?",
+      "gemini_limitation": "Sensibilidad insuficiente para descartar fascitis necrotizante; una puntuación baja no debe retrasar la evaluación quirúrgica si la sospecha clínica es alta.",
+      "editor_review": null
+    },
+    {
+      "id": "bishop",
+      "version": "Traditional Bishop Score",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK615337/table/ch10.tab8/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Bishop score – Traditional",
+      "gemini_limitation": "Requiere datos explícitos de borramiento (effacement) para evitar la invención de puntos en rangos no listados.",
+      "editor_review": null
+    },
+    {
+      "id": "meows",
+      "version": "NNUH MEOWS v7",
+      "source_url": "https://www.nnuh.nhs.uk/publication/download/modified-early-obstetric-warning-score-meows-mid33-ao13-v7/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Appendix 1: MEOWS adapted for use at the NNUH",
+      "gemini_limitation": "Los umbrales de NNUH son específicos; las políticas locales de maternidad pueden diferir y deben prevalecer.",
+      "editor_review": null
+    },
+    {
+      "id": "obstetric-shock-index",
+      "version": "Obstetric Shock Index HR/SBP",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31345740/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "insufficient_source_detail",
+      "gemini_locator": "Shock index thresholds to predict adverse outcomes in maternal hemorrhage and sepsis",
+      "gemini_limitation": "No existe un umbral universal validado prospectivamente para la práctica clínica; el índice es un marcador hemodinámico, no una regla de tratamiento.",
+      "editor_review": [
+        "https://pubmed.ncbi.nlm.nih.gov/31345740/",
+        "Razón FC/TAS; el motor no aplica umbral universal de intervención."
+      ]
+    },
+    {
+      "id": "puqe",
+      "version": "PUQE-24 3-15",
+      "source_url": "https://www.rcog.org.uk/media/5quba1n4/nvpandhyperemesisvpeer_review.pdf",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Table 1. Pregnancy Unique Quantification of Emesis (PUQE-24) scale",
+      "gemini_limitation": "La clasificación de severidad (leve/moderada/severa) debe seguir los rangos validados (3-15).",
+      "editor_review": null
+    },
+    {
+      "id": "fullpiers",
+      "version": "Original fullPIERS 48-h model",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7643272/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Implications for clinical practice",
+      "gemini_limitation": "El modelo requiere validación en el contexto clínico local; el umbral de ≥30% es una guía para estratificación, no una regla de decisión autónoma.",
+      "editor_review": null
+    },
+    {
+      "id": "rule-of-nines",
+      "version": "Wallace Rule of Nines — adults",
+      "source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK609553/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Wallace Rule of Nines — adults",
+      "gemini_limitation": "Rapid estimate only; does not account for age-related surface area changes in children.",
+      "editor_review": null
+    },
+    {
+      "id": "lund-browder",
+      "version": "Lund-Browder age-adjusted",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8690712/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Lund-Browder age-adjusted",
+      "gemini_limitation": "Requiere mapeo preciso de regiones corporales; no es una estimación rápida.",
+      "editor_review": null
+    },
+    {
+      "id": "revised-baux",
+      "version": "Revised Baux",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/20038856/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Revised Baux Score",
+      "gemini_limitation": "Es una herramienta de pronóstico poblacional, no una guía de decisión clínica individual para limitación de esfuerzo terapéutico.",
+      "editor_review": null
+    },
+    {
+      "id": "pews",
+      "version": "Bedside PEWS 7-item / 0-26",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3387627/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Bedside PEWS 7-item / 0-26",
+      "gemini_limitation": "No debe mezclarse con variantes institucionales locales que modifiquen los umbrales de frecuencia cardíaca o respiratoria.",
+      "editor_review": null
+    },
+    {
+      "id": "phoenix-sepsis",
+      "version": "Phoenix Sepsis Score 2024",
+      "source_url": "https://doi.org/10.1001/jama.2024.0196",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Phoenix Sepsis Score 2024",
+      "gemini_limitation": "Requiere sospecha o confirmación de infección; las variables no medidas no deben asumirse como normales.",
+      "editor_review": null
+    },
+    {
+      "id": "psofa",
+      "version": "pSOFA 0-24",
+      "source_url": "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2646857",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "pSOFA 0-24",
+      "gemini_limitation": "No es equivalente al SOFA de adultos ni a los criterios Phoenix.",
+      "editor_review": null
+    },
+    {
+      "id": "pelod2",
+      "version": "PELOD-2 0-33",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11554295/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "PELOD-2 0-33",
+      "gemini_limitation": "La probabilidad de mortalidad es específica de la población de desarrollo y depende de la disponibilidad de recursos.",
+      "editor_review": null
+    },
+    {
+      "id": "pediatric-trauma-score",
+      "version": "Pediatric Trauma Score -6 to +12",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11065969/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Pediatric Trauma Score -6 to +12",
+      "gemini_limitation": "La precisión disminuye con la severidad extrema; no reemplaza el juicio clínico en el triaje.",
+      "editor_review": null
+    },
+    {
+      "id": "sipa",
+      "version": "SIPA age 4-16 years",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27814956/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "SIPA (maximum heart rate/minimum systolic blood pressure) thresholds of > 1.22, > 1.0, and > 0.9 in the emergency department were used for 4–6, 7–12 and 13–16 year-olds, respectively.",
+      "gemini_limitation": "La validación se limita a pacientes de 4 a 16 años con traumatismo contuso hepático o esplénico; no debe usarse como diagnóstico único de shock.",
+      "editor_review": null
+    },
+    {
+      "id": "flacc",
+      "version": "FLACC 0-10",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9689143/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Each of the five categories (F) Face, (A) Activity; (C) Cry; (C) Consolability is scored from 0-2, which results in a total score between zero and ten.",
+      "gemini_limitation": "La calidad de la evidencia es baja a moderada; se basa en estudios de centro único y análisis retrospectivos.",
+      "editor_review": null
+    },
+    {
+      "id": "wong-baker",
+      "version": "Official Wong-Baker FACES 0-10",
+      "source_url": "https://wongbakerfaces.org/",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "The FACES Scale is widely used with people ages three and older... This self-assessment tool must be understood by the patient.",
+      "gemini_limitation": "Requiere capacidad de autorreporte del paciente; no es una escala de observación clínica.",
+      "editor_review": null
+    },
+    {
+      "id": "pram",
+      "version": "PRAM 0-12",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/18346499/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "PRAM score: (max. 12) | Score | 0–3 | 4–7 | 8–12 | Severity | Mild | Moderate | Severe |",
+      "gemini_limitation": "La interpretación de la severidad depende de la suma de componentes específicos (SpO2, retracciones, entrada de aire, sibilancias).",
+      "editor_review": null
+    },
+    {
+      "id": "westley-croup",
+      "version": "Westley Croup Score 0-17",
+      "source_url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK431070/table/article-20142.table1/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Allocate the appropriate WCS (0–17) by determining the accumulative score associated with each criterion (level of consciousness, cyanosis, stridor, air entry, chest wall retractions).",
+      "gemini_limitation": "No se requiere confirmación por laboratorio; la escala es puramente clínica.",
+      "editor_review": null
+    },
+    {
+      "id": "clinical-dehydration",
+      "version": "Clinical Dehydration Scale 0-8",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15289767/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "A score of 0 represents no dehydration; a score of 1-4, some dehydration; and a score of 5-8, moderate or severe dehydration.",
+      "gemini_limitation": "Validado principalmente en niños de 1 a 36 meses con gastroenteritis aguda.",
+      "editor_review": null
+    },
+    {
+      "id": "pediatric-appendicitis",
+      "version": "Pediatric Appendicitis Score 0-10",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12037754/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "The PAS ranges from 0 to 10, and it includes components from history, physical examination, and laboratory results.",
+      "gemini_limitation": "El puntaje es un apoyo diagnóstico; no reemplaza el juicio clínico ni la necesidad de imágenes en casos dudosos.",
+      "editor_review": null
+    },
+    {
+      "id": "parc",
+      "version": "pARC 2018 continuous probability",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5869337/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "insufficient_source_detail",
+      "gemini_locator": "N/A",
+      "gemini_limitation": "La fuente describe un modelo de predicción logística complejo; no se proporcionan los coeficientes exactos para la implementación algorítmica en el extracto.",
+      "editor_review": [
+        "https://www.pedser.org/uploads/3/4/3/1/34314219/parc_score_original_paper.pdf",
+        "Tabla 3: intercepto, términos edad/sexo, exploración, duración y ANC cotejados con calculate_parc."
+      ]
+    },
+    {
+      "id": "pecarn-head-injury",
+      "version": "PECARN ciTBI rule <2 y / >=2 y",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19758692/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "PECARN ciTBI rule <2 y / >=2 y",
+      "gemini_limitation": "Requires GCS 14-15; does not replace clinical judgment for unstable patients.",
+      "editor_review": null
+    },
+    {
+      "id": "pecarn-febrile-infant",
+      "version": "PECARN 2019 febrile infant <=60 d",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30776077/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "PECARN 2019 febrile infant <=60 d",
+      "gemini_limitation": "Requires well-appearing status; does not replace clinical assessment for LP/antibiotics.",
+      "editor_review": null
+    },
+    {
+      "id": "step-by-step-infant",
+      "version": "Step-by-Step <=90 d",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/27382134/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Step-by-Step <=90 d",
+      "gemini_limitation": "Sequential risk tool; requires local access to PCT and cultures.",
+      "editor_review": null
+    },
+    {
+      "id": "apgar",
+      "version": "AAP/ACOG APGAR 0-10",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2015/10/the-apgar-score",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "AAP/ACOG APGAR 0-10",
+      "gemini_limitation": "Does not predict individual neurologic outcome; do not delay resuscitation.",
+      "editor_review": null
+    },
+    {
+      "id": "clinical-frailty",
+      "version": "CFS v2.0",
+      "source_url": "https://www.dal.ca/sites/gmr/our-tools/clinical-frailty-scale.html",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "CFS v2.0",
+      "gemini_limitation": "Requires authorized use; not a stand-alone diagnostic tool.",
+      "editor_review": null
+    },
+    {
+      "id": "charlson",
+      "version": "Original Charlson Comorbidity Index",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3677715/",
+      "implementation": "dedicated_source_encoded_v1",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Original Charlson Comorbidity Index",
+      "gemini_limitation": "Original index only; does not include age-adjustment or updated weights.",
+      "editor_review": null
+    },
+    {
+      "id": "barthel",
+      "version": "Barthel Index 0-100",
+      "source_url": "https://www.sralab.org/rehabilitation-measures/barthel-index",
+      "implementation": "validated_official_external_wrapper",
+      "gemini_verdict": "supported_within_scope",
+      "gemini_locator": "Barthel Index 0-100",
+      "gemini_limitation": "Requires authorized instrument definitions.",
+      "editor_review": null
+    }
+  ]
+}

@@ -10,7 +10,7 @@ Safety boundary:
 import json
 import math
 from pathlib import Path
-from pediatric_numbers import positive, nonnegative, finite_tree
+from pediatric_numbers import positive, nonnegative, finite_tree, finite_result, finite_number
 
 from core_scores_block1 import calculate_gcs, calculate_nihss, calculate_news2, calculate_sofa1
 from core_scores_block2 import calculate_heart, prepare_grace2, calculate_cha2ds2_vasc, calculate_cha2ds2_va
@@ -42,10 +42,21 @@ from core_scores_block14_adult_remaining import classify_duke_iscvid, classify_t
 REGISTRY_PATH = Path(__file__).parents[1] / "calculators" / "registry.json"
 
 
+_POSITIVE_MEASUREMENTS = {"height_cm", "height_m", "weight_kg", "Scr_mg_dL", "INR", "creatinine_mg_dL"}
+_FRACTION_LIMITS = {"dehydration_fraction": 1, "SaO2_fraction": 1, "SpO2_percent": 100, "TBSA_percent": 100}
+
 def require(d, *keys):
     missing=[k for k in keys if d.get(k) is None]
     if missing:
         raise ValueError("missing: "+", ".join(missing))
+    for key in keys:
+        if key == "sex":
+            continue
+        value = finite_number(key, d[key])
+        if key in _POSITIVE_MEASUREMENTS and value <= 0:
+            raise ValueError(f"{key} must be positive")
+        if key in _FRACTION_LIMITS and not 0 <= value <= _FRACTION_LIMITS[key]:
+            raise ValueError(f"{key} must be between 0 and {_FRACTION_LIMITS[key]}")
 
 
 def _positive(value, name):
@@ -68,6 +79,7 @@ def _sex(value):
     raise ValueError("sex must be male/female")
 
 
+@finite_result
 def calculate(fid, d):
     if fid=="map":
         require(d,"SBP","DBP"); return ((d["SBP"]+2*d["DBP"])/3,"mmHg")
@@ -97,7 +109,7 @@ def calculate(fid, d):
         require(d,"Ca_mg_dL","albumin_g_dL"); return (d["Ca_mg_dL"]+0.8*(4-d["albumin_g_dL"]),"mg/dL")
     if fid=="corrected-sodium-glucose":
         require(d,"Na","glucose_mg_dL")
-        factor=d.get("factor",1.6)
+        factor=positive("factor", d.get("factor",1.6))
         return (d["Na"]+factor*((d["glucose_mg_dL"]-100)/100),"mmol/L")
     if fid=="cockcroft-gault":
         require(d,"age","weight_kg","Scr_mg_dL","sex")
@@ -144,14 +156,14 @@ def calculate(fid, d):
         require(d,"FiO2_fraction","PaCO2_mmHg")
         fio2=_fraction(d["FiO2_fraction"],"FiO2_fraction")
         patm=_positive(d.get("Patm_mmHg",760),"Patm_mmHg")
-        ph2o=float(d.get("PH2O_mmHg",47))
+        ph2o=nonnegative("PH2O_mmHg",d.get("PH2O_mmHg",47))
         rq=_positive(d.get("RQ",0.8),"RQ")
         if ph2o >= patm: raise ValueError("PH2O_mmHg must be below Patm_mmHg")
         return (fio2*(patm-ph2o)-d["PaCO2_mmHg"]/rq,"mmHg")
     if fid=="aa-gradient":
         require(d,"PaO2_mmHg")
         if d.get("PAO2_mmHg") is not None:
-            pao2=float(d["PAO2_mmHg"])
+            pao2=nonnegative("PAO2_mmHg",d["PAO2_mmHg"])
         else:
             pao2,_=calculate("alveolar-o2",d)
         return (pao2-d["PaO2_mmHg"],"mmHg")
@@ -252,9 +264,12 @@ def calculate(fid, d):
         creatinine=min(creatinine,4.0)
         sodium=min(max(float(d["sodium_mmol_L"]),125.0),137.0)
         meld_i=3.78*math.log(bilirubin)+11.2*math.log(inr)+9.57*math.log(creatinine)+6.43
-        meld_i=min(max(meld_i,6.0),40.0)
-        score=meld_i+1.32*(137-sodium)-0.033*meld_i*(137-sodium)
-        return (min(max(round(score),6),40),"points (legacy MELD-Na; not current OPTN MELD 3.0)")
+        # Historical OPTN 9.1.D applies sodium only above the rounded initial score of 11.
+        meld_i=min(max(math.floor(meld_i + 0.5), 6), 40)
+        score=meld_i
+        if meld_i > 11:
+            score=meld_i+1.32*(137-sodium)-0.033*meld_i*(137-sodium)
+        return (min(max(math.floor(score + 0.5),6),40),"points (legacy MELD-Na; not current OPTN MELD 3.0)")
     raise ValueError("formula not implemented: "+fid)
 
 

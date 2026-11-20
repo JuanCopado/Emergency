@@ -892,8 +892,8 @@
       "editable": true,
       "implementation_status": "central_formula_alias",
       "engine": "scripts/clinical_calculator.py",
-      "version": "ROX Index",
-      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6698590/",
+      "version": "ROX validation, Roca et al., AJRCCM 2019",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30576221/",
       "execution_note": "Delegates to central formula id rox; no duplicate arithmetic."
     },
     {
@@ -1978,7 +1978,8 @@
       "unit": "mmHg",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17351365/"
     },
     {
       "id": "shock-index-formula",
@@ -1990,7 +1991,8 @@
       "unit": "ratio",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25215048/"
     },
     {
       "id": "modified-shock-index-formula",
@@ -2002,7 +2004,8 @@
       "unit": "ratio",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/25215048/"
     },
     {
       "id": "anion-gap",
@@ -2014,7 +2017,8 @@
       "unit": "mmol/L",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://aspenjournals.onlinelibrary.wiley.com/doi/full/10.1002/ncp.11328"
     },
     {
       "id": "albumin-corrected-anion-gap",
@@ -2026,7 +2030,8 @@
       "unit": "mmol/L",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/9824071/"
     },
     {
       "id": "delta-ratio",
@@ -2038,7 +2043,8 @@
       "unit": "ratio",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://aspenjournals.onlinelibrary.wiley.com/doi/full/10.1002/ncp.11328"
     },
     {
       "id": "winter-pco2",
@@ -2050,7 +2056,8 @@
       "unit": "mmHg",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://aspenjournals.onlinelibrary.wiley.com/doi/full/10.1002/ncp.11328"
     },
     {
       "id": "corrected-sodium-glucose",
@@ -2062,7 +2069,9 @@
       "unit": "mmol/L",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/10225241/",
+      "source_note": "Convención predeterminada 1,6; Hillier observó una media de 2,4. Documentar el factor."
     },
     {
       "id": "calculated-osmolality",
@@ -2074,7 +2083,8 @@
       "unit": "mOsm/kg",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38907161/"
     },
     {
       "id": "effective-osmolality",
@@ -2086,7 +2096,8 @@
       "unit": "mOsm/kg",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38907161/"
     },
     {
       "id": "free-water-deficit",
@@ -2098,7 +2109,9 @@
       "unit": "L",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10175862/",
+      "source_note": "Usa agua corporal total explícita y sodio objetivo 140. No determina velocidad de corrección."
     },
     {
       "id": "corrected-calcium",
@@ -2110,7 +2123,9 @@
       "unit": "mg/dL",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11751745/",
+      "source_note": "Estimación con albúmina. Puede clasificar mal el calcio ionizado, especialmente en hipoalbuminemia."
     },
     {
       "id": "cockcroft-gault",
@@ -2122,7 +2137,9 @@
       "unit": "mL/min",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.drugtnt.com/ref/RenalDosing/Cockcroft_1976.pdf",
+      "source_note": "Aclaramiento estimado en mL/min; documentar el peso utilizado, especialmente en obesidad."
     },
     {
       "id": "ckd-epi-2021",
@@ -2135,7 +2152,8 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_note": "NIDDK 2021 race-free CKD-EPI creatinine equation; adults >=18."
+      "source_note": "NIDDK 2021 race-free CKD-EPI creatinine equation; adults >=18. Creatinina estandarizada en mg/dL; adultos, resultado indexado a 1,73 m².",
+      "source_url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/glomerular-filtration-rate-equations/adults"
     },
     {
       "id": "bedside-schwartz",
@@ -2147,7 +2165,9 @@
       "unit": "mL/min/1.73m2",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19158356/",
+      "source_note": "Ecuación pediátrica histórica, cohorte CKiD de 1 a 16 años; talla en cm."
     },
     {
       "id": "fena",
@@ -2159,7 +2179,8 @@
       "unit": "%",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/947239/"
     },
     {
       "id": "feurea",
@@ -2171,7 +2192,8 @@
       "unit": "%",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12427149/"
     },
     {
       "id": "pao2-fio2",
@@ -2183,7 +2205,8 @@
       "unit": "mmHg",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17573487/"
     },
     {
       "id": "spo2-fio2",
@@ -2195,7 +2218,8 @@
       "unit": "ratio",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/17573487/"
     },
     {
       "id": "rox",
@@ -2207,7 +2231,9 @@
       "unit": "ratio",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30576221/",
+      "source_note": "Validación en neumonía con oxigenoterapia nasal de alto flujo."
     },
     {
       "id": "aa-gradient",
@@ -2220,7 +2246,8 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_note": "Alveolar gas equation with FiO2 fraction, barometric pressure, water vapor pressure and respiratory quotient; A-a = PAO2 - PaO2."
+      "source_note": "Alveolar gas equation with FiO2 fraction, barometric pressure, water vapor pressure and respiratory quotient; A-a = PAO2 - PaO2.",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482268/"
     },
     {
       "id": "alveolar-o2",
@@ -2233,7 +2260,8 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_note": "Alveolar gas equation with FiO2 fraction, barometric pressure, water vapor pressure and respiratory quotient; A-a = PAO2 - PaO2."
+      "source_note": "Alveolar gas equation with FiO2 fraction, barometric pressure, water vapor pressure and respiratory quotient; A-a = PAO2 - PaO2.",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK482268/"
     },
     {
       "id": "static-compliance",
@@ -2245,7 +2273,8 @@
       "unit": "mL/cmH2O",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://jts.health.mil/assets/docs/cpgs/Mechnical_Ventilation_Basics_09_Apr_2025_ID92_v1.1.pdf"
     },
     {
       "id": "driving-pressure",
@@ -2257,7 +2286,8 @@
       "unit": "cmH2O",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://jts.health.mil/assets/docs/cpgs/Mechnical_Ventilation_Basics_09_Apr_2025_ID92_v1.1.pdf"
     },
     {
       "id": "minute-ventilation",
@@ -2269,7 +2299,8 @@
       "unit": "L/min",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://jts.health.mil/assets/docs/cpgs/Mechnical_Ventilation_Basics_09_Apr_2025_ID92_v1.1.pdf"
     },
     {
       "id": "ibw-devine",
@@ -2282,7 +2313,8 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_note": "Devine 1974 historical reference-weight equation; not a personalized healthy-weight target."
+      "source_note": "Devine 1974 historical reference-weight equation; not a personalized healthy-weight target.",
+      "source_url": "https://www.accessdata.fda.gov/cdrh_docs/pdf16/P160013c.pdf"
     },
     {
       "id": "bsa-mosteller",
@@ -2294,7 +2326,8 @@
       "unit": "m2",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3657876/"
     },
     {
       "id": "bmi",
@@ -2306,7 +2339,8 @@
       "unit": "kg/m2",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://cdn.who.int/media/docs/default-source/cardiovascular-diseases/booklet-know-your-cardiovascular-disease-risk-take-action.pdf"
     },
     {
       "id": "holliday-segar",
@@ -2318,7 +2352,8 @@
       "unit": "mL/day",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://doi.org/10.1542/peds.19.5.823"
     },
     {
       "id": "four-two-one",
@@ -2330,7 +2365,8 @@
       "unit": "mL/h",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.rch.org.au/uploadedFiles/Main/Content/clinicalguide/IVFLUIDCHART.pdf"
     },
     {
       "id": "dehydration-deficit",
@@ -2342,19 +2378,22 @@
       "unit": "mL",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.rch.org.au/uploadedFiles/Main/Content/educationhub/180270-ViCTOR-Fluid-Chart-Paeds-web-WM.pdf"
     },
     {
       "id": "parkland",
       "name": "Parkland Burn Formula",
       "group": "Quemados",
       "measures": "Volumen inicial de reanimación",
-      "use": "Grandes quemados seleccionados; titular a respuesta",
+      "use": "Parkland clásico, 4 mL/kg/%SCQ. La guía ABA de 2024 para adultos con quemaduras ≥20% recomienda iniciar a 2 mL/kg/%SCQ. No extrapolar el cálculo histórico a una prescripción.",
       "formula": "4*weight_kg*TBSA_percent",
       "unit": "mL/24h",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38051821/",
+      "source_note": "Parkland clásico, 4 mL/kg/%SCQ. La guía ABA de 2024 para adultos con quemaduras ≥20% recomienda iniciar a 2 mL/kg/%SCQ. No extrapolar el cálculo histórico a una prescripción."
     },
     {
       "id": "mgkg-dose",
@@ -2366,7 +2405,8 @@
       "unit": "mg",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf"
     },
     {
       "id": "mcgkgmin-to-mlh",
@@ -2378,7 +2418,8 @@
       "unit": "mL/h",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf"
     },
     {
       "id": "mgkgh-to-mlh",
@@ -2390,7 +2431,8 @@
       "unit": "mL/h",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf"
     },
     {
       "id": "unitskgh-to-mlh",
@@ -2402,7 +2444,8 @@
       "unit": "mL/h",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf"
     },
     {
       "id": "final-concentration",
@@ -2414,7 +2457,8 @@
       "unit": "amount_per_mL",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.ismp.org/system/files/resources/2020-10/ISMP176C-Smart%20Infusion%20Pumps-100620.pdf"
     },
     {
       "id": "qtc-bazett",
@@ -2426,7 +2470,8 @@
       "unit": "s",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2008.12.014"
     },
     {
       "id": "qtc-fridericia",
@@ -2438,7 +2483,8 @@
       "unit": "s",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.jacc.org/doi/10.1016/j.jacc.2008.12.014"
     },
     {
       "id": "cao2",
@@ -2450,7 +2496,8 @@
       "unit": "mL O2/dL",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html"
     },
     {
       "id": "do2",
@@ -2462,7 +2509,8 @@
       "unit": "mL O2/min",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html"
     },
     {
       "id": "cardiac-index",
@@ -2474,7 +2522,8 @@
       "unit": "L/min/m2",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html"
     },
     {
       "id": "svr",
@@ -2486,7 +2535,8 @@
       "unit": "dyn*s/cm5",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.glowm.com/resources/glowm/cd/pages/v3/v3c079.html"
     },
     {
       "id": "meld-na-formula",
@@ -2499,7 +2549,8 @@
       "editable": true,
       "autofill": true,
       "implementation_status": "deterministic_engine",
-      "source_note": "Fail-closed unless legacy_meld_na_acknowledged=true; do not present as current OPTN MELD 3.0."
+      "source_note": "Fail-closed unless legacy_meld_na_acknowledged=true; do not present as current OPTN MELD 3.0. OPTN histórico 9.1.D. Ajuste de sodio solo si el MELD inicial redondeado supera 11.",
+      "source_url": "https://www.hrsa.gov/sites/default/files/hrsa/optn/optn_policy_notice_07-24-2014.pdf"
     },
     {
       "id": "maddrey-formula",
@@ -2511,7 +2562,8 @@
       "unit": "points",
       "editable": true,
       "autofill": true,
-      "implementation_status": "deterministic_engine"
+      "implementation_status": "deterministic_engine",
+      "source_url": "https://www.aasld.org/liver-fellow-network/core-series/why-series/why-do-we-use-steroids-maddreys-discriminant-function"
     }
   ]
 }
