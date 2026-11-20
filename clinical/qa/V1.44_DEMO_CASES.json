@@ -137,7 +137,7 @@
         },
         "expected_likely": "Trauma major / politrauma",
         "expected_modules": [
-          "major-trauma"
+          "trauma-major-hemorrhage"
         ],
         "expected_immediate_treatment_module": "trauma-major-hemorrhage"
       },

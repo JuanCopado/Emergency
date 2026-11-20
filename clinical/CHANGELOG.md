@@ -1,3 +1,9 @@
+## 20/11/2026 · Procedencia de nota y cierre de referencia de gobernanza
+
+Corregidos los enlaces canónicos de 18 síndromes y una referencia vasoactiva; se conserva la identidad de las reglas. Los 60 casos existentes mantienen todos los resultados ajenos a `source_modules`; 31 cambian únicamente su procedencia. La auditoría detecta fuentes no registradas. Detalle: `qa/NOTE_PROVENANCE_CLOSURE_20261120.md`.
+
+Revisión completa de `final-human-review-gate` cerrada reutilizando PR35, sin nueva firma ni modificación de la norma. Registro: 120 GREEN / 11 YELLOW / 0 RED, CLINICALLY_PENDING. Nueve revisiones completas de referencia de imagen preparadas y en cola para decisión concreta; la aclaración POCUS-MODE v1 sigue inactiva. Nota diagnóstica y módulo padre de imagen conservan su validación pendiente. Conciliados el cierre CI de ECG-PT y tres notas actuales que arrastraban los 19 bloqueos ya retirados.
+
 ## 20/11/2026 · Cobertura Sonar en reintentos parciales
 
 Se corrige la entrega de las tres mediciones de cobertura entre intentos de una misma ejecución, conservando sus comprobaciones de identidad y los controles de Sonar. Sin cambios clínicos, de evidencia ni de aprobación. Detalle: `../security/SONAR_COVERAGE_RETRY_2026-11-20.md`.

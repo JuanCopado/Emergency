@@ -1,4 +1,10 @@
-## Continuidad v1.44 · 20/11/2026
+## Cobertura y cierre de referencias · 20/11/2026
+
+Registro vigente de esta entrega: **131 módulos, 120 GREEN / 11 YELLOW / 0 RED**, `CLINICALLY_PENDING`. Se cierra únicamente la referencia de `final-human-review-gate` tras cotejo completo con PR35 ya aceptada. La nota clínica corrige procedencia canónica y conserva los resultados clínicos de los 60 casos existentes. Nueve fichas completas de imagen esperan decisión por alcance; POCUS incluye un parche textual inactivo y comprobado. El padre de imagen y el apoyo diagnóstico de nota conservan su validación real pendiente. Estado y decisiones: `qa/CLINICAL_CLOSURE_DECISIONS_20261120.md`.
+
+Sonar de PR49 pasó inicialmente y en reintento exclusivo con la cobertura original; el recibo del workflow de rama y de integración se registra en `../security/SONAR_COVERAGE_RETRY_2026-11-20.md`. El seguimiento de ECG-PT refleja los cuatro flujos PASS posteriores al merge de PR47. Se conservan las aceptaciones previas y las condiciones aplicables de producto, privacidad y operación; sin GO_RELEASE.
+
+## Continuidad anterior v1.44 · corte PR46 · 20/11/2026
 
 El registro vigente tras PR46 contiene 131 módulos: 119 GREEN, 12 YELLOW y 0 RED. El estado global es `CLINICALLY_PENDING`. La aprobación SCORE-REF-20261120 abarca los 13 formularios, con entrada manual o importación revisada y cálculo a petición del médico.
 

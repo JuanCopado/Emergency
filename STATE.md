@@ -1,26 +1,24 @@
-# STATE · cobertura Sonar y continuidad clínica · 20/11/2026
+# STATE · cobertura y cierre de referencias · 20/11/2026
 
-Estado global: **CLINICALLY_PENDING**. Registro: 119 GREEN / 12 YELLOW / 0 RED.
+Estado global: **CLINICALLY_PENDING**. Registro: **120 GREEN / 11 YELLOW / 0 RED**, 131 módulos.
+Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según PR35.
 
-Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, conforme a PR35.
-
-20/11/2026 · SCORE-REF-20261120. El Dr. Juan Copado Ceballos aprueba el módulo 12 en los 13 formularios con entrada manual o importación revisada. Registro: 119 GREEN, 12 YELLOW. Estado global CLINICALLY_PENDING.
-
-
-- PR48 integrada en `21defd4`: accesibilidad y prototipo multimodal sintético; alcance en `docs/coordination/EMERGENCY_V144_CLOSE_20261120.md`.
-- T05/T06 integrados en la rama internacional mediante PR33; cinco incidencias Sonar cerradas en PR34.
-- PR47: cuatro flujos posteriores a la fusión PASS. PR48: Clinical QA/UI PASS; Sonar del intento 2 no ejecutado por cobertura ausente.
-- Corrección de entrega de cobertura por ejecución y módulo preparada; resultado remoto por commit en los checks. Detalle: `security/SONAR_COVERAGE_RETRY_2026-11-20.md`.
-- Cierre y evidencias por commit: `clinical/qa/T05_T06_INTEGRATION_20261119.md`.
-- Seguimiento de los ocho registros vencidos: `clinical/qa/EVIDENCE_FOLLOWUP_20261120.md`; contraste focal, sin renovar `last_checked` ni promover estados.
-- ECG-PT-20261120 v1: aprobación médica expresa recibida; guía y ficha corregidas, módulo YELLOW, sin nueva fecha de evidencia ni GO_RELEASE.
-- Gobernanza del registro reconciliada con PR35; cola dinámica, sin cifra histórica fija ni segunda firma farmacéutica obligatoria.
-- T05: revisión visual y trazabilidad de FiO₂; extracción protegida solo Windows, bloqueo explícito en Linux.
-- T06: R6/B1/Q4 TLS sintético local solo Linux/POSIX; sin proveedores públicos, consultas libres, RAG ni cierre G05.
-- Aplicación y launcher comunes; procesos y límites de plataforma separados. Uso: `docs/LOCAL_REVIEW.md`.
+- PR49 integrada en `f45b628`: Sonar PASS inicial, reintento exclusivo y rama. Recibo: `security/SONAR_COVERAGE_RETRY_2026-11-20.md`.
+- T05/T06 integrados mediante PR33; correcciones previas Sonar en PR34. Alcance: `clinical/qa/T05_T06_INTEGRATION_20261119.md`.
+- PR48: accesibilidad y prototipo multimodal sintético E1; sin inferencia ciega ni validación diagnóstica.
+- Gate de referencia revisado íntegramente y GREEN con la aceptación PR35 ya existente; no es autorización asistencial.
+- Nota: corregidas fuentes de 18 síndromes y una referencia vasoactiva; 60 casos sin cambios fuera de procedencia.
+- Nota: siguen pendientes rendimiento clínico y límites del razonamiento descritos en `clinical/qa/NOTE_PROVENANCE_CLOSURE_20261120.md`.
+- Nueve fichas completas de referencia de imagen listas para decisión explícita, todas v1; no se han promovido.
+- POCUS-MODE v1: aclaración de B-mode/M-mode en parche inactivo, con proyección comprobada; incluida en POCUS-REF v1.
+- Decisiones y cierre: `clinical/qa/CLINICAL_CLOSURE_DECISIONS_20261120.md`; los padres de imagen y nota siguen YELLOW.
+- ECG-PT v1 ya aceptado e integrado en PR47; cuatro flujos posteriores al merge PASS. Cola técnica conciliada.
+- T05: revisión visual y trazabilidad FiO₂; extracción protegida solo Windows, bloqueo explícito en Linux.
+- T06: R6/B1/Q4 TLS sintético local solo Linux/POSIX; sin cierre G05, proveedores públicos, consultas libres ni RAG.
+- Aplicación/launcher comunes; procesos y límites separados. Uso: `docs/LOCAL_REVIEW.md`.
 - JSON estricto, protección no nulo→cero y fronteras HTTP/Host/Origin conservadas.
-- ARR-SELECTOR-20261120: cuatro circuitos manuales aceptados, ocho navegaciones Chromium verificadas en dos vistas.
-- T02: once anotaciones documentales aceptadas; `clinical/qa/T02_DECISION_MEDICA_20261120.md`.
-- Escalas, fórmulas y entrada de PDF/analítica: entregas PR41/44, con alcance en `clinical/qa/CALCULATOR_DECISION_20261120.md`.
-- Preservar los 19 contratos agudos aceptados y sus 46 IDs; no reiterar la aceptación ni restablecer bloqueos históricos.
-- `main`, RC1 y v1.43 protegidos. Sin GO_RELEASE ni validación diagnóstica prospectiva por estas pruebas.
+- SCORE-REF-20261120: 13 formularios aceptados, entrada manual o importación revisada y cálculo a petición médica.
+- ARR-SELECTOR-20261120: cuatro circuitos manuales aceptados; ocho recorridos Chromium verificados en dos vistas.
+- T02: once anotaciones aceptadas; escalas/fórmulas/PDF en PR41/44. Se conservan sus alcances y decisiones.
+- Preservar los 19 contratos agudos aceptados y sus 46 IDs; no restablecer bloqueos históricos ni repetir aceptación.
+- `main`, RC1 y v1.43 protegidos. Sin GO_RELEASE ni exactitud prospectiva inferida de pruebas técnicas.

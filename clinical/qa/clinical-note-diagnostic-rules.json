@@ -2670,6 +2670,9 @@
     },
     {
       "id": "major-trauma",
+      "source_modules": [
+        "trauma-major-hemorrhage"
+      ],
       "diagnosis": "Trauma major / politrauma",
       "category": "trauma",
       "triggers": [
@@ -2746,6 +2749,9 @@
     },
     {
       "id": "traumatic-head-injury",
+      "source_modules": [
+        "traumatic-intracranial-mass-effect"
+      ],
       "diagnosis": "Traumatismo cranioencefálico com risco intracraniano",
       "category": "trauma_neuro",
       "triggers": [
@@ -2957,6 +2963,9 @@
     },
     {
       "id": "ectopic-pregnancy",
+      "source_modules": [
+        "obstetric-emergencies"
+      ],
       "diagnosis": "Gravidez ectópica / gravidez de localização desconhecida de alto risco",
       "category": "obstetric",
       "triggers": [
@@ -3038,6 +3047,9 @@
     },
     {
       "id": "preeclampsia-eclampsia",
+      "source_modules": [
+        "obstetric-emergencies"
+      ],
       "diagnosis": "Pré-eclâmpsia grave / eclâmpsia",
       "category": "obstetric",
       "triggers": [
@@ -3116,6 +3128,9 @@
     },
     {
       "id": "postpartum-hemorrhage",
+      "source_modules": [
+        "obstetric-emergencies"
+      ],
       "diagnosis": "Hemorragia pós-parto",
       "category": "obstetric",
       "triggers": [
@@ -3520,6 +3535,9 @@
     },
     {
       "id": "neutropenic-sepsis",
+      "source_modules": [
+        "hematology-oncology"
+      ],
       "diagnosis": "Sépsis neutropénica",
       "category": "hematology_oncology",
       "triggers": [
@@ -3594,6 +3612,9 @@
     },
     {
       "id": "sickle-cell-acute-emergency",
+      "source_modules": [
+        "hematology-oncology"
+      ],
       "diagnosis": "Crise falciforme dolorosa / complicação aguda",
       "category": "hematology",
       "triggers": [
@@ -3666,6 +3687,9 @@
     },
     {
       "id": "testicular-torsion",
+      "source_modules": [
+        "urologic-emergencies"
+      ],
       "diagnosis": "Torção testicular",
       "category": "urologic",
       "triggers": [
@@ -3722,6 +3746,9 @@
     },
     {
       "id": "acute-angle-closure-glaucoma",
+      "source_modules": [
+        "ophthalmology-emergencies"
+      ],
       "diagnosis": "Glaucoma agudo de ângulo fechado",
       "category": "ophthalmology",
       "triggers": [
@@ -3791,6 +3818,9 @@
     },
     {
       "id": "ent-airway-emergency",
+      "source_modules": [
+        "ent-emergencies"
+      ],
       "diagnosis": "Urgência ORL com risco de via aérea",
       "category": "ent",
       "triggers": [
@@ -3855,6 +3885,9 @@
     },
     {
       "id": "septic-arthritis-orthopedic",
+      "source_modules": [
+        "orthopedic-emergencies"
+      ],
       "diagnosis": "Artrite séptica / infeção osteoarticular grave",
       "category": "orthopedic_infectious",
       "triggers": [
@@ -3925,6 +3958,9 @@
     },
     {
       "id": "self-harm-suicide-risk",
+      "source_modules": [
+        "suicide-risk"
+      ],
       "diagnosis": "Autoagressão / risco suicidário agudo",
       "category": "psychiatric",
       "triggers": [
@@ -3993,6 +4029,9 @@
     },
     {
       "id": "acute-agitation-psychosis",
+      "source_modules": [
+        "psychiatric-emergencies"
+      ],
       "diagnosis": "Agitação grave / psicose aguda",
       "category": "psychiatric",
       "triggers": [
@@ -4268,7 +4307,7 @@
           "rationale": "tratamento depende de hemodinâmica e etiologia",
           "source_modules": [
             "cardiogenic-shock",
-            "vasoactive-inotrope-therapy"
+            "vasoactive-inotrope-infusions"
           ]
         }
       ]
@@ -4619,6 +4658,9 @@
     },
     {
       "id": "environmental-hypothermia",
+      "source_modules": [
+        "environmental-emergencies"
+      ],
       "diagnosis": "Hipotermia acidental",
       "category": "environmental",
       "triggers": [
@@ -4682,6 +4724,9 @@
     },
     {
       "id": "environmental-heat-illness",
+      "source_modules": [
+        "environmental-emergencies"
+      ],
       "diagnosis": "Golpe de calor / doença relacionada com calor",
       "category": "environmental",
       "triggers": [
@@ -4744,6 +4789,9 @@
     },
     {
       "id": "drowning-emergency",
+      "source_modules": [
+        "environmental-emergencies"
+      ],
       "diagnosis": "Afogamento / lesão por submersão",
       "category": "environmental_respiratory",
       "triggers": [
@@ -4806,6 +4854,9 @@
     },
     {
       "id": "pyelonephritis-urologic-emergency",
+      "source_modules": [
+        "urologic-emergencies"
+      ],
       "diagnosis": "Pielonefrite complicada / infeção urinária alta",
       "category": "urologic_infectious",
       "triggers": [
@@ -5129,6 +5180,9 @@
     },
     {
       "id": "geriatric-delirium-emergency",
+      "source_modules": [
+        "geriatric-emergencies"
+      ],
       "diagnosis": "Delirium agudo no idoso",
       "category": "geriatric",
       "triggers": [

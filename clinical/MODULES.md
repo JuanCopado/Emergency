@@ -519,7 +519,7 @@ El estado green/yellow corresponde al registro de evidencia, no a una declaraciÃ
 | `clinical-scores-calculators` | `modules/clinical-scores-calculators.md` | green |
 
 | `clinical-note-diagnostic-support` | `modules/documentation-governance.md` | yellow |
-| `final-human-review-gate` | `modules/documentation-governance.md` | yellow |
+| `final-human-review-gate` | `modules/documentation-governance.md` | green |
 
 ## Referencia interactiva de insulinoterapia â€” 13/11/2026
 

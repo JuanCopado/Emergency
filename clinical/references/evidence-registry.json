@@ -1133,7 +1133,7 @@
       "stored_version": "Unit/convention and conditional-inference reconciliation2026-11-13; SRLF/SFMU2019, ATS/MSD physiology, NIST, BICARICU-2",
       "last_checked": "2026-11-14",
       "status": "green",
-      "note": "GREEN physiological/manual unit-aware reference;local analyzer profile remains unverified and separate. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "GREEN physiological/manual unit-aware reference;local analyzer profile remains unverified and separate. Owner-authorized review;GREEN is reference review only,not prospective clinical validation. Governance metadata reconciled 2026-11-20: the 19 acute contracts were accepted and enabled within their recorded scope on 2026-11-16; case-specific controls remain active. Evidence review date unchanged.",
       "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6695455/",
       "focused_review": {
         "date": "2026-11-14",
@@ -2326,7 +2326,7 @@
       "stored_version": "NICE NG37/NG38 current online review 2026",
       "last_checked": "2026-11-14",
       "status": "green",
-      "note": "GREEN NICE NG37/NG38 reference reconciliation. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "GREEN NICE NG37/NG38 reference reconciliation. Owner-authorized review;GREEN is reference review only,not prospective clinical validation. Governance metadata reconciled 2026-11-20: the 19 acute contracts were accepted and enabled within their recorded scope on 2026-11-16; case-specific controls remain active. Evidence review date unchanged.",
       "focused_review": {
         "date": "2026-11-14",
         "outcome": "green",
@@ -3776,7 +3776,7 @@
         "human_review_required": true
       },
       "status": "yellow",
-      "note": "92 rules/60 synthetic cases do not establish prospective performance;deployment-specific clinical/privacy governance review pending. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "92 rules/60 synthetic cases do not establish prospective performance;deployment-specific clinical/privacy governance review pending. Owner-authorized review;GREEN is reference review only,not prospective clinical validation. Governance metadata reconciled 2026-11-20: the 19 acute contracts were accepted and enabled within their recorded scope on 2026-11-16; case-specific controls remain active. Evidence review date unchanged.",
       "focused_review": {
         "date": "2026-11-14",
         "outcome": "yellow",
@@ -3787,11 +3787,20 @@
     "final-human-review-gate": {
       "priority": "high",
       "primary_source": "Project physician-owner validation directive (PR35, 2026-11-20)",
-      "stored_version": "PR35 owner-led governance; final-human-review-policy schema 1.1; clinical review date retained",
-      "last_checked": "2026-10-06",
-      "status": "yellow",
-      "note": "Governance metadata reconciled 2026-11-20 to the accepted PR35 directive. Dr. Juan Copado Ceballos is the sole final clinical validator; Pharmacy advice is consultative. The dynamic queue covers the current yellow entries without a fixed historical count. Prior owner acceptances remain valid within scope. Product, privacy, operational and post-correction QA requirements remain applicable. The unchanged last_checked records the prior clinical review, not a new evidence or release approval. CLINICALLY_PENDING. Follow-up: qa/EVIDENCE_FOLLOWUP_20261120.md.",
-      "primary_source_url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md"
+      "stored_version": "PR35 owner-led governance; final-human-review-policy schema 1.1; governance reference reverified 2026-11-20",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "note": "Governance reference fully compared with the already accepted PR35 directive on 2026-11-20. Canonical section, policy schema 1.1, helper and tests are unchanged from that accepted scope; two gate regressions PASS. Prior owner acceptance is reused; no new physician signature is invented. GREEN applies only to this governance reference. Per-module clinical decisions and applicable privacy, product, operational and post-correction QA requirements remain. The helper does not authenticate decisions or promote records automatically. Other pending modules are not validated; CLINICALLY_PENDING, no GO_RELEASE.",
+      "primary_source_url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_governance_reference",
+        "report": "qa/CLINICAL_GATE_REFERENCE_REVIEW_20261120.md",
+        "acceptance_basis": "Previously accepted PR35 physician-owner directive; exact content and implementation unchanged.",
+        "new_owner_response_recorded": false,
+        "technical_qa": "2/2 final-human-review-gate regression tests PASS",
+        "limitations": "Reference currency only; no global clinical validation, deployment approval or independent verification of each future decision."
+      }
     }
   },
   "ui_ux_implementation_review": {

@@ -437,7 +437,7 @@
       },
       "expected_likely": "Trauma major / politrauma",
       "expected_modules": [
-        "major-trauma"
+        "trauma-major-hemorrhage"
       ],
       "expected_immediate_treatment_module": "trauma-major-hemorrhage"
     },
@@ -458,7 +458,7 @@
       },
       "expected_likely": "Gravidez ectópica / gravidez de localização desconhecida de alto risco",
       "expected_modules": [
-        "ectopic-pregnancy"
+        "obstetric-emergencies"
       ],
       "expected_test_contains": "hCG"
     },
@@ -479,7 +479,7 @@
       },
       "expected_likely": "Pré-eclâmpsia grave / eclâmpsia",
       "expected_modules": [
-        "preeclampsia-eclampsia"
+        "obstetric-emergencies"
       ],
       "expected_test_contains": "plaquetas"
     },
@@ -535,7 +535,7 @@
       },
       "expected_likely": "Sépsis neutropénica",
       "expected_modules": [
-        "neutropenic-sepsis"
+        "hematology-oncology"
       ],
       "expected_test_contains": "Hemograma"
     },
@@ -556,7 +556,7 @@
       },
       "expected_likely": "Crise falciforme dolorosa / complicação aguda",
       "expected_modules": [
-        "sickle-cell-acute-emergency"
+        "hematology-oncology"
       ],
       "expected_test_contains": "SpO2"
     },
@@ -568,7 +568,7 @@
       "hpi": "Dor intensa há 2 horas com testículo elevado.",
       "expected_likely": "Torção testicular",
       "expected_modules": [
-        "testicular-torsion"
+        "urologic-emergencies"
       ],
       "expected_immediate_treatment_module": "urologic-emergencies"
     },
@@ -580,7 +580,7 @@
       "hpi": "Dor ocular intensa com halos, náuseas e pupila média fixa.",
       "expected_likely": "Glaucoma agudo de ângulo fechado",
       "expected_modules": [
-        "acute-angle-closure-glaucoma"
+        "ophthalmology-emergencies"
       ],
       "expected_test_contains": "acuidade visual"
     },
@@ -601,7 +601,7 @@
       },
       "expected_likely": "Artrite séptica / infeção osteoarticular grave",
       "expected_modules": [
-        "septic-arthritis-orthopedic"
+        "orthopedic-emergencies"
       ],
       "expected_test_contains": "aspiração"
     },
@@ -613,7 +613,7 @@
       "hpi": "Autoagressão com ideação suicida e plano suicida ativo.",
       "expected_likely": "Autoagressão / risco suicidário agudo",
       "expected_modules": [
-        "self-harm-suicide-risk"
+        "suicide-risk"
       ],
       "expected_test_contains": "avaliação psicossocial"
     },
