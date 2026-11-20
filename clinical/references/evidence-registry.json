@@ -1720,7 +1720,7 @@
       "stored_version": "workflow v1.17; diagnostic performance not established",
       "last_checked": "2026-09-27",
       "status": "yellow",
-      "note": "Focal primary-source review 2026-11-20 identified the Peñaloza–Tranchesi definition erratum ECG-PT-20261120. A scoped correction and application projection are prepared, pending the physician-owner response; neither is activated. See qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md. Historical last_checked and yellow status retained; diagnostic image performance is not established."
+      "note": "ECG-PT-20261120 v1: physician-owner explicitly accepted the scoped correction on 2026-11-20; canonical eponym definition and generated application guide updated in international development. Sources: SBC 2022 DOI 10.36660/abc.20220623 §§6.1.2/6.1.5.2; Santos et al. 2017 DOI 10.1016/j.jelectrocard.2017.07.009 (abstract). Historical last_checked retained; status YELLOW. Diagnostic accuracy and full image review remain unvalidated; CLINICALLY_PENDING. See qa/ECG_PT_OWNER_APPROVAL_20261120.md."
     },
     "ecg-pocus-integration": {
       "priority": "high",
