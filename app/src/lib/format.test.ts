@@ -21,3 +21,9 @@ it.each(['es-ES','pt-PT','en-GB','zh-CN'])('retains exact canonical decimals in 
 it.each(['0,1','1,000','1 000','0x10','0b10','NaN','Infinity'])('rejects noncanonical %s in pediatric, insulin and shared input', raw => {
   expect(parseFiniteDecimal(raw)).toBeNull();expect(()=>numericInput(raw,'Fixture')).toThrow();expect(()=>parseInsulinNumber(raw,'Fixture')).toThrow();
 });
+
+it('preserves the integer gate across trailing decimal zeros', () => {
+  const zeros = '0'.repeat(2048);
+  expect(parseFiniteDecimal(`120.${zeros}`, true)).toBe(120);
+  expect(parseFiniteDecimal(`120.${zeros}1`, true)).toBeNull();
+});

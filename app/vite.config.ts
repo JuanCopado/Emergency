@@ -5,6 +5,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
 import { auditBuild, productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
 
+const loopbackHost = '127.0.0.1';
+const localPeers = new Set([loopbackHost, `::ffff:${loopbackHost}`, '::1']);
 const localReview = process.env.EMERGENCY_LOCAL_REVIEW === '1';
 const reviewPort = Number(process.env.EMERGENCY_LOCAL_REVIEW_PORT ?? '5173');
 if (localReview && (!Number.isInteger(reviewPort) || reviewPort < 1024 || reviewPort > 65535)) {
@@ -15,7 +17,7 @@ export default defineConfig(({ mode }) => ({
   build: { sourcemap: auditBuild ? 'hidden' : false },
   server: {
     ...(localReview ? {
-      host: '127.0.0.1',
+      host: loopbackHost,
       port: reviewPort,
       strictPort: true,
       headers: {
@@ -63,8 +65,8 @@ export default defineConfig(({ mode }) => ({
       name: 'local-review-session',
       configureServer(server: ViteDevServer) {
         server.middlewares.use((request, response, next) => {
-          if (request.headers.host !== `127.0.0.1:${reviewPort}` ||
-              !['127.0.0.1', '::ffff:127.0.0.1', '::1'].includes(request.socket.remoteAddress ?? '')) {
+          if (request.headers.host !== `${loopbackHost}:${reviewPort}` ||
+              !localPeers.has(request.socket.remoteAddress ?? '')) {
             response.writeHead(403, { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' });
             response.end('Local review requires its exact loopback origin.');
             return;
