@@ -32,15 +32,15 @@ const tabs:[Tab,string][]=[
  ['history','História'],['exam','Exame'],['mcdt','MCDT'],['problems','Problemas'],
  ['diagnostic','Apoio diagnóstico'],['plan','Plano'],['export','Exportar'],
 ];
-const mcdtKinds=['Analítica','Gasometria','ECG','Rx','TC/RM','Ecografia/POCUS','Microbiologia','Outro'];
+const mcdtKinds=['Analítica','Gasometria','ECG','Rx','TC/RM','Ecografia/POCUS','Microbiologia','Pele/ferida','Outro'];
 const directId=/\b(nome|name|sns|nif|morada|endereço|address|telefone|telemóvel|phone|mrn)\b\s*[:-]/i;
 const kindMap:Record<string,string>={
   'Analítica':'laboratory_report','Gasometria':'blood_gas','ECG':'ecg','Rx':'xray',
-  'TC/RM':'ct','Ecografia/POCUS':'pocus','Microbiologia':'microbiology','Outro':'other_image',
+  'TC/RM':'ct','Ecografia/POCUS':'pocus','Microbiologia':'microbiology','Pele/ferida':'skin_wound','Outro':'other_image',
 };
 const sectionForKind:Record<string,keyof ClinicalNotePayload['complementary_tests']>={
   laboratory_report:'laboratory',blood_gas:'blood_gas',ecg:'ecg',xray:'imaging',ct:'imaging',
-  pocus:'imaging',microbiology:'microbiology',other_image:'other',pdf_document:'other',
+  pocus:'imaging',microbiology:'microbiology',skin_wound:'imaging',other_image:'other',pdf_document:'other',
 };
 const emptyAssessment:ClinicalAssessment={
   problem_representation:null,active_problems:[],likely_diagnoses:[],differential_diagnoses:[],
@@ -174,6 +174,7 @@ export default function ClinicalNote(){
    if(/ecg|ekg/.test(n)) return 'ECG';
    if(/gas|gaso|abg|vbg/.test(n)) return 'Gasometria';
    if(/rx|xray|x-ray|radiogr/.test(n)) return 'Rx';
+   if(/pele|piel|skin|ferida|herida|wound|les[aã]o|lesion|[uú]lcera|ulcer|queimadura|quemadura|burn|rash|celulit/.test(n)) return 'Pele/ferida';
    if(/ct|tc|mri|rm|tac/.test(n)) return 'TC/RM';
    if(/eco|pocus|ultra/.test(n)) return 'Ecografia/POCUS';
    if(/micro|culture|cultivo/.test(n)) return 'Microbiologia';
@@ -348,7 +349,8 @@ export default function ClinicalNote(){
       {x.prepared?.privacy.manual_file_privacy_review_required&&<label className="mt-3 flex items-center gap-2 text-sm"><input type="checkbox" checked={x.privacyChecked} onChange={e=>editCard(x.id,{privacyChecked:e.target.checked})}/>{ui("Metadados/identificadores do ficheiro revistos.")}</label>}
       {x.prepared?.privacy.burned_in_identifier_review_required&&<label className="mt-2 flex items-center gap-2 text-sm"><input type="checkbox" checked={x.burnedChecked} onChange={e=>editCard(x.id,{burnedChecked:e.target.checked})}/>{ui("Identificadores visíveis/burned-in revistos.")}</label>}
       {x.prepared?.privacy.status==='STOP'&&<p className="mt-2 text-sm font-semibold text-danger">{ui("STOP: o backend detetou possível identificador direto no conteúdo.")}</p>}
-      {x.prepared?.processing.status==='vision_interpreted'&&<div className="mt-2 rounded-xl border border-warn p-3 text-sm"><strong>{ui("Interpretação IA proposta — requer revisão médica.")}</strong><p className="mt-1 text-xs text-muted">{ui("Provider:")} {x.prepared.processing.provider||'—'}{ui("· Modelo:")} {x.prepared.processing.model||'—'}{ui("· Confiança:")} {x.prepared.processing.confidence||'—'}</p>{x.prepared.processing.impression&&<p className="mt-2">{ui("Impressão:")} {x.prepared.processing.impression}</p>}{x.prepared.processing.limitations?.length?<p className="mt-1 text-xs text-muted">{ui("Limitações:")} {x.prepared.processing.limitations.join(' · ')}</p>:null}</div>}
+      {x.prepared?.processing.status==='vision_abstained'&&<div role="alert" className="mt-2 rounded-xl border border-warn p-3 text-sm"><strong>{ui("Sem interpretação IA — obter nova imagem ou examinar presencialmente.")}</strong>{x.prepared.processing.limitations?.length?<p className="mt-1 text-xs text-muted">{ui("Limitações:")} {x.prepared.processing.limitations.join(' · ')}</p>:null}</div>}
+      {x.prepared?.processing.status==='vision_interpreted'&&<div className="mt-2 rounded-xl border border-warn p-3 text-sm"><strong>{ui("Interpretação IA proposta — requer revisão médica.")}</strong><p className="mt-1 text-xs text-muted">{ui("Provider:")} {x.prepared.processing.provider||'—'}{ui("· Modelo:")} {x.prepared.processing.model||'—'}{ui("· Confiança:")} {x.prepared.processing.confidence||'—'}</p>{x.prepared.processing.impression&&<p className="mt-2">{ui("Impressão:")} {x.prepared.processing.impression}</p>}{x.prepared.processing.limitations?.length?<p className="mt-1 text-xs text-muted">{ui("Limitações:")} {x.prepared.processing.limitations.join(' · ')}</p>:null}{x.prepared.processing.safety_flags?.length?<p role="alert" className="mt-1 text-xs">{ui("Alertas de segurança:")} {x.prepared.processing.safety_flags.join(' · ')}</p>:null}</div>}
       <div className="mt-3 flex flex-wrap gap-2">{x.prepared?.processing.status==='routed_external'&&<button className="btn-ghost" disabled={busy||x.prepared.privacy.status==='STOP'||(x.prepared.privacy.manual_file_privacy_review_required&&!x.privacyChecked)||(x.prepared.privacy.burned_in_identifier_review_required&&!x.burnedChecked)} onClick={()=>void interpretCard(x.id)}>{ui("Interpretar com módulo IA")}</button>}<button className="btn-primary" disabled={busy||numericStop||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>{ui("Aceitar")}</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>{ui("Editar")}</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>{ui("Rejeitar")}</button></div></article>)}
    </section>}
 

@@ -1,0 +1,328 @@
+{
+  "task": "M10-IMAGE-VALIDATION-20261120",
+  "module": "skin-wound-image",
+  "generated_utc": "2026-11-20T19:47:40+00:00",
+  "base_sha": "21defd4efc4f1b6d15ddb28c655772ca3e4b8a0c",
+  "base_tree": "d4b2eba6048fe8b8731bb991ad126c8058a9755a",
+  "branch": "claude/m10-image-validation-20261120",
+  "python": "3.14.7",
+  "command": "cd clinical && python scripts/run_m10_image_audit.py",
+  "data": "synthetic only; PNG decodable, JPEG/WebP structural containers",
+  "totals": {
+    "run": 48,
+    "failures": 0,
+    "errors": 0
+  },
+  "groups": {
+    "T1InvalidOrCorruptImages": {
+      "pass": 14,
+      "fail": 0
+    },
+    "T2InsufficientQuality": {
+      "pass": 2,
+      "fail": 0
+    },
+    "T3NoUsefulVisualContent": {
+      "pass": 3,
+      "fail": 0
+    },
+    "T4AmbiguousInputs": {
+      "pass": 4,
+      "fail": 0
+    },
+    "T5ErrorAndAbstentionResponses": {
+      "pass": 7,
+      "fail": 0
+    },
+    "T6UnsupportedClinicalClaims": {
+      "pass": 7,
+      "fail": 0
+    },
+    "T7IntegrityAndPrivacy": {
+      "pass": 11,
+      "fail": 0
+    }
+  },
+  "tests": [
+    {
+      "id": "T1InvalidOrCorruptImages.test_empty_and_bad_base64",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_executable_renamed_as_image",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_extension_content_mismatch",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_jpeg_cut_inside_header",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_jpeg_without_eoi",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_mime_content_mismatch",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_pixel_bomb_dimensions",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_png_crc_damaged",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_png_signature_only",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_text_renamed_as_image",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_truncated_png",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_unknown_binary_is_not_forwarded",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_webp_truncated",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T1InvalidOrCorruptImages.test_zero_dimensions",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T2InsufficientQuality.test_low_resolution_is_flagged_not_hidden",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T2InsufficientQuality.test_tiny_image_abstains_without_provider_call",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T3NoUsefulVisualContent.test_documented_ceiling_jpeg_blankness_not_assessed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T3NoUsefulVisualContent.test_textured_image_is_not_flagged_blank",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T3NoUsefulVisualContent.test_uniform_image_abstains",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T4AmbiguousInputs.test_precedence_is_documented_not_clinical",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T4AmbiguousInputs.test_skin_filenames_route_to_skin_wound",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T4AmbiguousInputs.test_skin_wound_routes_to_its_module",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T4AmbiguousInputs.test_unlabelled_photo_is_other_image_not_skin",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T5ErrorAndAbstentionResponses.test_abstention_carrying_clinical_text_is_rejected",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T5ErrorAndAbstentionResponses.test_abstention_without_reason_is_rejected",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T5ErrorAndAbstentionResponses.test_accepting_an_abstention_requires_clinician_text",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T5ErrorAndAbstentionResponses.test_empty_ok_response_is_error_not_silent_pass",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T5ErrorAndAbstentionResponses.test_malformed_provider_responses_fail_closed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T5ErrorAndAbstentionResponses.test_privacy_and_review_gates_precede_provider",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T5ErrorAndAbstentionResponses.test_provider_abstention_is_accepted_with_reason",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T6UnsupportedClinicalClaims.test_confidence_is_withheld_for_skin_wound",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T6UnsupportedClinicalClaims.test_descriptive_text_is_not_flagged",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T6UnsupportedClinicalClaims.test_fixed_limitations_always_present",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T6UnsupportedClinicalClaims.test_guard_not_applied_to_other_kinds",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T6UnsupportedClinicalClaims.test_module_text_still_carries_required_limitations",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T6UnsupportedClinicalClaims.test_official_report_label_rejected_for_images",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T6UnsupportedClinicalClaims.test_reassurance_wording_is_flagged_and_surfaced",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_adversarial_text_inside_provider_output_is_data_not_instruction",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_content_swap_after_prepare_is_rejected",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_exif_gps_detected",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_jpeg_orientation_is_preserved_after_strip",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_media_verdict_is_integrity_protected",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_original_is_not_retained_and_hash_recorded",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_png_text_and_exif_chunks_removed",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_provider_must_use_https_and_no_redirect",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_provider_never_receives_exif_gps_comment_or_trailing_data",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_provider_request_does_not_leak_filename_or_client_mime",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "id": "T7IntegrityAndPrivacy.test_webp_exif_xmp_removed",
+      "status": "PASS",
+      "detail": null
+    }
+  ],
+  "files_sha256": {
+    "clinical/scripts/image_upload_guard.py": "836e9e11887a3df0ebb0f9d5c434383cbc01b1b25fcb86001ffd12b4ff00acd0",
+    "clinical/scripts/clinical_note_api.py": "17cc2c3ee5eae3c5a0845d7dc47fada33d518c585987ac2e84fcb57e895800d3",
+    "clinical/scripts/clinical_note_vision_adapter.py": "42d190ae9431f54458e969024b7aa63be910dffad92c2cc6ea927f728c6c1bfe",
+    "clinical/tests/synthetic_images.py": "5041e38c2335a2ce090062cbf69cfa7ef5a2c076a2065f03ec598622003c2ff8",
+    "clinical/tests/test_m10_skin_wound_image_audit.py": "c29fef25c15262bf3cfbe6ae77f3bc9a766f14274b099aee289fee0031b7c5c2",
+    "app/src/pages/ClinicalNote.tsx": "7b56894b69b9a40430f02288580d92ab917b6e3ef63c43bfcf475a53d454c148"
+  },
+  "not_measured": [
+    "sensitivity",
+    "specificity",
+    "diagnostic accuracy",
+    "skin-tone performance",
+    "real provider behaviour",
+    "pixel-level blankness for JPEG/WebP",
+    "visual prompt-injection resistance of any real vision model"
+  ],
+  "validation_status": "TECHNICAL_QA_ONLY; M10 remains YELLOW; project CLINICALLY_PENDING",
+  "reproduction_against_base_code": {
+    "method": "git stash of clinical_note_api.py and clinical_note_vision_adapter.py, same 48 tests",
+    "result": "39 of 48 fail on base code (24 failures + 15 errors); 48 of 48 pass with fixes"
+  },
+  "regression_check": {
+    "suite": "python -m unittest discover -s tests (venv with requirements-test.txt)",
+    "before": "1067 run; failures=9 errors=40 skipped=10",
+    "after": "1115 run; failures=9 errors=40 skipped=10",
+    "failing_set": "identical (49, pre-existing, Windows/environment); +48 new passing tests",
+    "app": "tsc -b --noEmit clean; vitest run 36 files / 847 tests pass; eslint clean on ClinicalNote.tsx and types.ts"
+  },
+  "validators": {
+    "validate_modules.py": "PASSED 131 modules",
+    "audit_evidence_coverage.py": "unchanged by this branch; final-human-review-gate overdue (pre-existing)"
+  },
+  "commands": [
+    "git worktree add -b claude/m10-image-validation-20261120 ../Emergency-m10 origin/codex/v144-international-scope-20261116",
+    "cd clinical && python scripts/run_m10_image_audit.py",
+    "cd clinical && python -m unittest discover -s tests",
+    "cd clinical && python scripts/validate_modules.py",
+    "cd app && npx tsc -b --noEmit && npx vitest run && npx eslint src/pages/ClinicalNote.tsx src/clinical-note/types.ts"
+  ]
+}

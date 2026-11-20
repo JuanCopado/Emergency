@@ -10,6 +10,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "tests"))
+import synthetic_images
 
 from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry, preflight as pediatric_outpatient_preflight, MedicationSafetyStop
 from pediatric_outpatient_alert_engine import evaluate as evaluate_pediatric_alerts
@@ -5724,7 +5726,7 @@ class ModularCoreTests(unittest.TestCase):
 
     def test_v139_prepared_upload_integrity_blocks_client_tampering(self):
         note = new_clinical_note(age_years=50, sex='male')
-        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=1)).decode('ascii')
         prepared = prepare_clinical_upload(
             'ecg.png', 'image/png', payload, explicit_kind='ecg'
         )
@@ -5743,7 +5745,7 @@ class ModularCoreTests(unittest.TestCase):
 
     def test_v139_api_binary_upload_is_fail_closed_until_manual_privacy_review(self):
         note = new_clinical_note(age_years=42, sex='male')
-        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=1)).decode('ascii')
         prepared = prepare_clinical_upload(
             'rx_torax.png', 'image/png', payload, explicit_kind='xray'
         )
@@ -5771,7 +5773,7 @@ class ModularCoreTests(unittest.TestCase):
         )
 
     def test_v139_binary_vision_adapter_requires_privacy_review_before_provider(self):
-        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=1)).decode('ascii')
         prepared = prepare_clinical_upload(
             'ecg.png', 'image/png', payload, explicit_kind='ecg'
         )
@@ -5795,11 +5797,11 @@ class ModularCoreTests(unittest.TestCase):
         self.assertFalse(called['value'])
 
     def test_v139_binary_vision_adapter_verifies_prepared_sha256(self):
-        payload = base64.b64encode(b'\x89PNG\r\n\x1a\noriginal').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=2)).decode('ascii')
         prepared = prepare_clinical_upload(
             'rx_torax.png', 'image/png', payload, explicit_kind='xray'
         )
-        altered = base64.b64encode(b'\x89PNG\r\n\x1a\nchanged').decode('ascii')
+        altered = base64.b64encode(synthetic_images.png(seed=3)).decode('ascii')
         with self.assertRaises(ValueError):
             interpret_clinical_upload(
                 prepared, altered,
@@ -5811,7 +5813,7 @@ class ModularCoreTests(unittest.TestCase):
 
     def test_v139_binary_vision_adapter_proposal_requires_clinician_acceptance(self):
         note = new_clinical_note(age_years=64, sex='female')
-        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=1)).decode('ascii')
         prepared = prepare_clinical_upload(
             'rx_torax.png', 'image/png', payload, explicit_kind='xray'
         )
@@ -5868,7 +5870,7 @@ class ModularCoreTests(unittest.TestCase):
         )
 
     def test_v139_binary_vision_adapter_does_not_accept_ai_text_as_official_image_report(self):
-        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=1)).decode('ascii')
         prepared = prepare_clinical_upload(
             'ecg.png', 'image/png', payload, explicit_kind='ecg'
         )
@@ -5891,7 +5893,7 @@ class ModularCoreTests(unittest.TestCase):
             )
 
     def test_v139_binary_vision_adapter_blocks_identifier_leak_in_provider_output(self):
-        payload = base64.b64encode(b'\x89PNG\r\n\x1a\nnot-a-real-image').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=1)).decode('ascii')
         prepared = prepare_clinical_upload(
             'ecg.png', 'image/png', payload, explicit_kind='ecg'
         )
@@ -6257,7 +6259,7 @@ class ModularCoreTests(unittest.TestCase):
 
     def test_v142_contract_upload_flags_are_strict_before_provider_call(self):
         from unittest.mock import patch
-        payload = base64.b64encode(b'synthetic binary').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=4)).decode('ascii')
         prepared = prepare_clinical_upload('ecg.png', 'image/png', payload, explicit_kind='ecg')
         for field in ('privacy_checked', 'burned_in_identifiers_checked'):
             for value in ('true', 'false', 1, 0, None):
@@ -6284,7 +6286,7 @@ class ModularCoreTests(unittest.TestCase):
                                     official_report='Synthetic report', privacy_checked=value)
 
     def _v142_signed_interpretation(self, **overrides):
-        payload = base64.b64encode(b'synthetic binary').decode('ascii')
+        payload = base64.b64encode(synthetic_images.png(seed=4)).decode('ascii')
         prepared = prepare_clinical_upload('ecg.png', 'image/png', payload, explicit_kind='ecg')
         response = {
             'contract_version': '1.0', 'status': 'ok', 'provider': 'synthetic-provider',

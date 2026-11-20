@@ -37,6 +37,7 @@ from patient_weight_request import parse_medication_request
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import export_docx, export_json, export_pdf
 from clinical_note_vision_adapter import invoke as invoke_clinical_vision, is_configured as clinical_vision_is_configured
+import image_upload_guard
 from clinical_note_support import (
     add_report,
     new_note,
@@ -58,6 +59,12 @@ MAX_UPLOAD_BYTES = 12 * 1024 * 1024
 MAX_TEXT_CHARS = 120_000
 TEXT_EXTENSIONS = {".txt", ".csv", ".json", ".xml", ".md", ".log", ".tsv"}
 PREPARED_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_PREPARED_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
+# M10: filename hints (es/pt/en) so skin/wound photos reach `skin-wound-image` guard-rails.
+SKIN_WOUND_NAME_HINTS = (
+    "piel", "pele", "skin", "wound", "herida", "ferida", "lesion", "lesao", "lesão",
+    "ulcer", "úlcera", "quemadura", "queimadura", "burn", "dermat", "rash", "celulit",
+    "cellulit", "absces", "abscess", "mordedura", "mordedur",
+)
 TEXT_MIME_TYPES = {
     "text/plain", "text/csv", "application/json", "application/xml",
     "text/xml", "text/markdown", "text/tab-separated-values",
@@ -117,6 +124,8 @@ def infer_attachment_kind(filename, mime_type=None, explicit_kind=None):
         return "ct"
     if any(x in name for x in ("xray", "x-ray", "radiogr", "_rx", "rx_")):
         return "xray"
+    if any(x in name for x in SKIN_WOUND_NAME_HINTS):
+        return "skin_wound"
     if name.endswith(".dcm") or "dicom" in mime:
         return "other_image"
     if name.endswith(".pdf") or mime == "application/pdf":
@@ -175,10 +184,13 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
     privacy_findings = _privacy_for_text(privacy_probe_text)
     privacy_stop = any(x.get("severity") == "STOP" for x in privacy_findings)
     binary_requires_review = extracted_text is None
-    burned_in_required = binary_requires_review and kind in {
-        "ecg", "xray", "chest_xray", "musculoskeletal_xray", "ct", "mri",
-        "pocus", "ultrasound", "other_image", "pdf_document",
-    }
+    media = None
+    if binary_requires_review:
+        # M10-F02/F03: content must match its declared type and be structurally sound.
+        media = image_upload_guard.inspect_media(raw, filename, mime_type)
+    # M10-F04: every binary (photos of skin/wounds, ophthalmology, blood-gas screens...)
+    # may carry faces, tattoos, wristbands or screen identifiers.
+    burned_in_required = binary_requires_review
     if privacy_stop:
         privacy_status = "STOP"
     elif binary_requires_review:
@@ -190,7 +202,8 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
         "api_version": API_VERSION,
         "upload_id": str(uuid.uuid4()),
         "filename": filename,
-        "mime_type": mime_type or mimetypes.guess_type(filename)[0] or "application/octet-stream",
+        "mime_type": (media or {}).get("mime_type") or mime_type or mimetypes.guess_type(filename)[0] or "application/octet-stream",
+        "media": media,
         "size_bytes": len(raw),
         "sha256": digest,
         "kind": kind,
@@ -233,9 +246,20 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
     if int(prepared.get("size_bytes") or 0) != len(raw):
         raise ValueError("upload content size no longer matches the prepared upload")
 
+    media = prepared.get("media") or {}
+    if media.get("status") == "unsuitable":
+        # M10-F07: fail closed with an explicit abstention; the provider is never called.
+        return _abstained_upload(prepared, media)
+    provider_b64 = content_base64
+    stripped = False
+    if media.get("format") in image_upload_guard.IMAGE_FORMATS:
+        clean = image_upload_guard.strip_metadata(raw, media["format"])
+        if clean is not None:
+            provider_b64 = base64.b64encode(clean).decode("ascii")
+            stripped = True
     result = invoke_clinical_vision(
         prepared,
-        content_base64,
+        provider_b64,
         privacy_checked=privacy_checked,
         burned_in_identifiers_checked=burned_in_identifiers_checked,
         env=vision_env,
@@ -247,13 +271,15 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
         raise ValueError("vision interpretation output contains possible direct identifiers")
 
     updated = deepcopy(prepared)
+    if updated.get("media"):
+        updated["media"]["metadata_stripped_for_provider"] = stripped
     updated["extracted"] = {
         "official_report": proposal.get("official_report"),
         "ai_interpretation": proposal.get("ai_interpretation"),
     }
     updated["processing"] = {
         **(updated.get("processing") or {}),
-        "status": "vision_interpreted",
+        "status": "vision_abstained" if proposal.get("abstained") else "vision_interpreted",
         "message": "Binary source interpreted by configured provider; clinician review and explicit acceptance remain required.",
         "provider": proposal.get("provider"),
         "model": proposal.get("model"),
@@ -261,6 +287,8 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
         "findings": proposal.get("findings"),
         "impression": proposal.get("impression"),
         "limitations": proposal.get("limitations") or [],
+        "safety_flags": proposal.get("safety_flags") or [],
+        "provider_confidence": proposal.get("provider_confidence"),
     }
     updated["privacy"] = {
         **(updated.get("privacy") or {}),
@@ -276,6 +304,23 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
         "persisted": False,
         "routed_modules": result.get("routed_modules") or [],
     }
+
+
+def _abstained_upload(prepared, media):
+    updated = deepcopy(prepared)
+    flags = list(media.get("quality_flags") or [])
+    updated["processing"] = {
+        **(updated.get("processing") or {}),
+        "status": "vision_abstained",
+        "message": "Image unsuitable for interpretation (" + ", ".join(flags) + "); no provider call was made. Obtain a new image or examine in person.",
+        "provider": None, "model": None, "confidence": None,
+        "findings": None, "impression": None,
+        "limitations": ["abstained: " + ", ".join(flags)],
+        "safety_flags": ["abstained_before_provider"],
+    }
+    updated["extracted"] = {"official_report": None, "ai_interpretation": None}
+    return {"prepared": _sign_prepared(updated), "review_required": True,
+            "persisted": False, "routed_modules": prepared.get("processing", {}).get("modules") or []}
 
 
 def _accepted_provenance(prepared, ai_interpretation):

@@ -36,6 +36,7 @@ No response is accepted into the medical record by this module itself.
 
 import json
 import os
+import re
 import ssl
 import urllib.error
 import urllib.request
@@ -56,6 +57,50 @@ BINARY_KINDS = {
 
 class VisionAdapterError(ValueError):
     pass
+
+
+# M10: rules already stated in modules/image-modalities.md#skin-wound-image, enforced on output.
+SKIN_WOUND_FIXED_LIMITATIONS = (
+    "Photograph only: warmth, tenderness, fluctuance, crepitus, depth and pain out of "
+    "proportion are not assessable.",
+    "Lighting, white balance and skin tone alter apparent colour; diagnostic performance of "
+    "this workflow is not established (module YELLOW). Does not exclude necrotizing infection, "
+    "malignancy or any other diagnosis; examine in person when concerned.",
+)
+_REASSURANCE = re.compile(
+    r"\b(benign|benigno|benigna|ruled out|excluded|reassuring|tranquilizador|descarta\w*|"
+    r"exclu[ií]d[oa]|no (?:signs? of |evidence of )?(?:infection|necrosis|malignan\w*)|"
+    r"sin (?:signos de )?(?:infecci[oó]n|necrosis|malignidad)|"
+    r"sem (?:sinais de )?(?:infe[cç][aã]o|necrose|malignidade)|"
+    r"not (?:an? )?(?:infected|necrotizing|malignant)|normal skin|piel normal|pele normal|"
+    r"safe to (?:observe|discharge)|no urgent|sin riesgo|sem risco)\b", re.IGNORECASE)
+
+
+def _skin_wound_guard(normalized):
+    """Fail-safe post-processing for skin_wound output (no clinical judgement added).
+
+    - reassurance wording is flagged and surfaced in limitations (regex ceiling: also
+      matches negated forms such as 'cannot be excluded'; over-flagging is intended);
+    - provider confidence is withheld: no diagnostic performance has been established.
+    """
+    text = " ".join(str(normalized.get(k) or "") for k in
+                    ("ai_interpretation", "findings", "impression"))
+    flags = list(normalized.get("safety_flags") or [])
+    limitations = list(normalized.get("limitations") or [])
+    if _REASSURANCE.search(text):
+        flags.append("reassurance_language")
+        limitations.append("Flagged: output contains reassurance/exclusion wording that a "
+                           "photograph cannot support. Disregard it and examine in person.")
+    if normalized.get("confidence") is not None:
+        normalized["provider_confidence"] = normalized["confidence"]
+        normalized["confidence"] = None
+        flags.append("confidence_withheld")
+    for fixed in SKIN_WOUND_FIXED_LIMITATIONS:
+        if fixed not in limitations:
+            limitations.append(fixed)
+    normalized["limitations"] = limitations
+    normalized["safety_flags"] = flags
+    return normalized
 
 
 def provider_config(env=None):
@@ -112,10 +157,26 @@ def build_request(prepared, content_base64):
 def _normalize_response(payload):
     if not isinstance(payload, dict):
         raise VisionAdapterError("vision provider returned a non-object response")
-    if payload.get("status") != "ok":
-        raise VisionAdapterError("vision provider did not return status=ok")
     if payload.get("contract_version") != CONTRACT_VERSION:
         raise VisionAdapterError("vision provider contract version mismatch")
+    if payload.get("status") == "abstain":
+        # M10-F05: an explicit abstention (e.g. non-diagnostic image) is a valid outcome,
+        # distinct from a provider failure. A reason is mandatory; no clinical text allowed.
+        reasons = payload.get("limitations")
+        if (not isinstance(reasons, list) or not reasons
+                or any(not isinstance(x, str) or not x.strip() for x in reasons)):
+            raise VisionAdapterError("vision provider abstention requires a limitations reason")
+        if any((payload.get(k) or "").strip() for k in
+               ("ai_interpretation", "findings", "impression", "official_report")
+               if isinstance(payload.get(k), str)):
+            raise VisionAdapterError("vision provider abstention must not carry clinical content")
+        return {"provider": str(payload.get("provider") or "configured-provider"),
+                "model": str(payload.get("model") or "unspecified"),
+                "official_report": None, "ai_interpretation": None, "findings": None,
+                "impression": None, "limitations": reasons, "confidence": None,
+                "abstained": True, "safety_flags": ["provider_abstained"]}
+    if payload.get("status") != "ok":
+        raise VisionAdapterError("vision provider did not return status=ok")
     confidence = payload.get("confidence")
     if (confidence is not None and not isinstance(confidence, str)) or confidence not in ALLOWED_CONFIDENCE:
         raise VisionAdapterError("vision provider confidence must be high/moderate/low or null")
@@ -189,6 +250,8 @@ def invoke(prepared, content_base64, *, privacy_checked=False,
             raise VisionAdapterError("clinical vision provider returned invalid JSON") from exc
 
     normalized = _normalize_response(response_payload)
+    if request_payload["kind"] == "skin_wound" and not normalized.get("abstained"):
+        normalized = _skin_wound_guard(normalized)
     if request_payload["kind"] != "pdf_document" and normalized.get("official_report"):
         raise VisionAdapterError(
             "vision provider must not label generated image interpretation as an official report"
