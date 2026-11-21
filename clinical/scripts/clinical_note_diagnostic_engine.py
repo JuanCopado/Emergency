@@ -221,6 +221,16 @@ class RuleObservation(NamedTuple):
     weighted_uncertainty: list
 
 
+def _trigger_mentions(trigger, text, historical_text):
+    allow_historical = trigger.get("allow_historical") is True
+    source = historical_text if allow_historical and historical_text is not None else text
+    mentions = {"present": [], "uncertain": [], "unconfirmed_match": [], "denied": []}
+    for term in trigger.get("terms", []):
+        for state in _term_states(term, source, allow_historical):
+            mentions[state].append(term)
+    return mentions
+
+
 def _rule_score(rule,text,signals,historical_text=None):
     score=0; evidence=[]; denied=[]; uncertain=[]; weighted_uncertainty=[]
     signal_names={x[0] for x in signals}
@@ -228,27 +238,17 @@ def _rule_score(rule,text,signals,historical_text=None):
     for trig in rule.get("triggers",[]):
         t=trig.get("type")
         if t=="text_any":
-            allow_historical = trig.get("allow_historical") is True
-            source_text = historical_text if allow_historical and historical_text is not None else text
-            present = False
-            unconfirmed_matches = []
-            for term in trig.get("terms", []):
-                states = _term_states(term, source_text, allow_historical)
-                present |= "present" in states
-                if "unconfirmed_match" in states:
-                    unconfirmed_matches.append(term)
-                if "uncertain" in states:
-                    uncertain.append(term)
-                if "denied" in states:
-                    denied.append("Negado: " + term)
+            mentions = _trigger_mentions(trig, text, historical_text)
+            denied.extend("Negado: " + term for term in mentions["denied"])
+            uncertain.extend(mentions["uncertain"])
             # Keep the established weighting of mixed notes until adjudication.
             # An uncertain mention is never printed as observed evidence.
-            if present or unconfirmed_matches:
+            if mentions["present"] or mentions["unconfirmed_match"]:
                 score += int(trig.get("weight",1))
-            if present:
+            if mentions["present"]:
                 evidence.append(trig.get("label") or "hallazgo textual")
             else:
-                weighted_uncertainty.extend(unconfirmed_matches)
+                weighted_uncertainty.extend(mentions["unconfirmed_match"])
         elif t=="signal":
             if trig.get("signal") in signal_names:
                 score += int(trig.get("weight",1))
@@ -389,13 +389,15 @@ def analyze(note, rules=None, apply_to_note=False):
         rr=_resolve_rule(rules,rid)
         if rr is None:
             limitations.append(f"Relação prioritária sem regra avaliável: {rid}. Requer revisão médica.")
-        elif rid in observations and len(must) < 5:
+        elif rid not in observations:
+            limitations.append(f"Relação prioritária fora dos limites etários da regra: {rid}.")
+        elif len(must) >= 5:
+            limitations.append(f"Relação prioritária adicional além das cinco apresentadas: {rid}.")
+        else:
             obs = observations[rid]
             must.append(_candidate(rr,obs.score,obs.evidence,_confidence(max(obs.score,1),rules["qualitative_confidence"]),
                                    "Hipótese tempo-dependente relacionada com o síndrome principal",
                                    observation=obs,documented=documented))
-        else:
-            limitations.append(f"Relação prioritária não apresentada para este contexto: {rid}.")
 
     source_rules=[]
     for score,rule,evidence in scored[:5]:

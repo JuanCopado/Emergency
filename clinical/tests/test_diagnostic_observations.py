@@ -7,6 +7,7 @@ from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import note_to_sections
 from clinical_note_support import validate_contract
 from run_clinical_note_diagnostic_cases import build
+from test_clinical_note_provenance import corpus
 
 
 def result(text, **fields):
@@ -107,3 +108,14 @@ class DiagnosticObservations(unittest.TestCase):
         self.assertNotIn("idade", infant[missing])
         asthma = candidate(result("Wheezing.", vitals={"rr": 22}), "acute-severe-asthma")
         self.assertNotIn("frequência respiratória", asthma[missing])
+
+    def test_priority_overflow_and_age_filtered_relations_stay_visible(self):
+        notes = dict(corpus())
+        for case_id, notice, relation in (
+            ("mesenteric-ischemia", "além das cinco apresentadas", "pulmonary-embolism"),
+            ("peds-drowning", "fora dos limites etários", "adult-cardiac-arrest"),
+            ("peds-drowning", "fora dos limites etários", "adult-arrhythmias"),
+        ):
+            with self.subTest(case_id=case_id, relation=relation):
+                assessment = analyze(notes[case_id])["assessment"]
+                self.assertTrue(any(notice in line and relation in line for line in assessment["limitations"]))

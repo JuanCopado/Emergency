@@ -24,7 +24,19 @@ Se ensayó por separado suprimir todo el peso de términos especulativos. El exp
 
 ## Comprobación
 
-Se conservan las 60 expectativas y casos sin edición. Pasaron los tres runners, las ocho pruebas nuevas, las siete de procedencia de PR50, las diez pruebas existentes de contexto y el auditor de cobertura de fuentes. Se comparó el delta con el borrador histórico PR15, `1fd4e5c7733e752a780a69f0a603c8466bd23a3a`. Se recuperó la presentación de observaciones y limitaciones para la interfaz internacional vigente. Los cambios de exportación, seguridad y autorización ajenos de PR15 quedan fuera de esta rama.
+En las mismas 60 notas, la comparación base/candidato de las salidas reales mostró idéntico orden de probables y las mismas pruebas y tratamientos sugeridos. Cinco notas cambiaron en otras salidas. La tabla registra todos los cambios de pertenencia a las listas observados.
+
+| Caso congelado | Efecto en el candidato respecto a la base | Motivo y visibilidad |
+|---|---|---|
+| Isquemia mesentérica | Añade neumotórax hipertensivo a las tarjetas prioritarias. | La relación sin regla de arritmias ya no consume tarjeta. La embolia pulmonar supera las cinco y figura por ID en las limitaciones. |
+| Trauma mayor | Añade shock indiferenciado a las tarjetas prioritarias. | La relación de efecto masa traumático sin regla se comunica por ID y deja libre una tarjeta. |
+| Abdomen agudo pediátrico | Añade parada cardiorrespiratoria pediátrica a las tarjetas prioritarias. | La relación de electrolitos pediátricos sin regla se comunica por ID y deja libre una tarjeta. |
+| Ahogamiento pediátrico | Retira de las tarjetas la parada cardíaca adulta y las arritmias adultas. | Se aplican los límites de edad ya configurados. Ambos ID siguen visibles con el motivo de exclusión. Se conserva la parada pediátrica. |
+| Taponamiento | Deja de mostrar shock cardiogénico como diferencial bajo (1 punto en la base). | El único término de esa regla era «JVP elevada» después de «suspeita de taponamento cardíaco e». La coordinación resulta ambigua para el analizador. Esta pérdida de un diferencial previo requiere adjudicación y revisión médica. |
+
+No se observó pérdida de una tarjeta prioritaria por el cupo en estos 60 casos. La comprobación de desbordamiento usa el caso de isquemia mesentérica y comprueba la presencia del ID en las limitaciones. La interpretación clínica de las diferencias sigue pendiente.
+
+Se conservan las 60 expectativas y casos sin edición. Pasaron los tres runners, las nueve pruebas nuevas, las siete de procedencia de PR50, las diez pruebas existentes de contexto y el auditor de cobertura de fuentes. Se comparó el delta con el borrador histórico PR15, `1fd4e5c7733e752a780a69f0a603c8466bd23a3a`. Se recuperó la presentación de observaciones y limitaciones para la interfaz internacional vigente. Los cambios de exportación, seguridad y autorización ajenos de PR15 quedan fuera de esta rama.
 
 ```sh
 python -B -m unittest discover -s clinical/tests -p test_diagnostic_observations.py
