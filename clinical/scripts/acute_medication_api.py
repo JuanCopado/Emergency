@@ -2,6 +2,7 @@
 import base64
 import hashlib
 import json
+import re
 import tempfile
 from acid_base_hyperglycemia import calculate as hyperglycemia_calculate
 from copy import deepcopy
@@ -224,11 +225,36 @@ def _calculate(row, inputs):
             'review_status': 'CLINICAL_REVIEW_REQUIRED', 'source': row['source']}
 
 
+_SOURCE_PROSE = {'monitoring_and_warnings', 'source.body', 'source.preamble', 'source.contract_review.body'}
+_STRONG = re.compile(r'(?<![\w*])\*\*(?=\S)([^*\r\n]+?)(?<!\s)\*\*(?![\w*])')
+
+
+def _report_prose(source):
+    """Render the source's simple prose syntax; keep unsupported markup verbatim."""
+    lines = []
+    fence = ''
+    for line in source.splitlines(keepends=True):
+        marker = re.match(r'^ {0,3}(`{3,}|~{3,})(.*)$', line)
+        if fence:
+            if marker and marker[1].startswith(fence) and not marker[2].strip():
+                fence = ''
+        elif marker:
+            fence = marker[1]
+        elif not line.startswith(('    ', '\t', '>')) and not any(c in line for c in ('`', '\\', '[', '|', '***')):
+            line = re.sub(r'^( {0,3})#{1,6}[ \t]+', r'\1', line)
+            line = re.sub(r'^( {0,3})[-*][ \t]+(?=\S)', r'\1• ', line)
+            line = _STRONG.sub(r'\1', line)
+        lines.append(line)
+    return ''.join(lines)
+
+
 def _lines(value, prefix=''):
     if isinstance(value, dict) and value:
         return [line for k, v in value.items() for line in _lines(v, f'{prefix}.{k}' if prefix else k)]
     if isinstance(value, list) and value:
         return [line for i, v in enumerate(value) for line in _lines(v, f'{prefix}[{i}]')]
+    if prefix in _SOURCE_PROSE and isinstance(value, str):
+        value = _report_prose(value)
     return [prefix + ': ' + (value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, allow_nan=False))]
 
 

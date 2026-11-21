@@ -25,3 +25,5 @@ Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según 
 - T02: once anotaciones aceptadas; escalas/fórmulas/PDF en PR41/44. Se conservan sus alcances y decisiones.
 - Preservar los 19 contratos agudos aceptados y sus 46 IDs; no restablecer bloqueos históricos ni repetir aceptación.
 - `main`, RC1 y v1.43 protegidos. Sin GO_RELEASE ni exactitud prospectiva inferida de pruebas técnicas.
+
+R4 · 21/11/2026 · Se verificó la presentación compartida de la fuente de farmacología aguda en ambos PDF. [Ensayo sintético de impresión](clinical/qa/R4_ACUTE_PRINT_MARKUP_20261121.md).
