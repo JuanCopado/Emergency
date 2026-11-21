@@ -1,3 +1,5 @@
+R8 · 21/11/2026 · M10 R5-1 (solo transparencia): la tarjeta de revisión muestra la categoría efectiva y su origen (elegida, inferida del nombre, inferida del contenedor o sin categoría), sin verificar la modalidad real. Encaminamiento, filtros, abstenciones, confianza y proveedor sin cambios. CLINICALLY_PENDING.
+
 R7 · 21/11/2026 · M10 R5-2 (solo codificación): el filtro de tranquilización normaliza NFKC y elimina caracteres invisibles antes de aplicar el mismo léxico; sin expresiones nuevas ni cambio de ámbito. R5-1 y las paráfrasis quedan reproducidos en [la ficha](qa/R7_M10_R5_RESIDUAL_FICHA_20261121.md) para decisión médica. CLINICALLY_PENDING.
 
 R6 · 21/11/2026 · M10 N4/N1b: la enumeración de segmentos JPEG (≤512) y fragmentos WebP (≤256) se acota antes de decodificar (medido: 12 MiB sintéticos ocupaban ~430 MB en JPEG y ~273 MB en WebP); la tarjeta de revisión muestra avisos categóricos de metadatos de localización y datos tras la imagen, sin valores. Sin cambios en umbrales, cálculos ni reglas clínicas. CLINICALLY_PENDING.

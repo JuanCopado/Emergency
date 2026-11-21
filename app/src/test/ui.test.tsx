@@ -365,6 +365,7 @@ describe('Clinical note diagnostic workspace', () => {
         issues: ['gps_metadata_present', 'synthetic-private-issue'], metadata_present: true,
         metadata: { gps_value: '41.1234,-8.5678' } },
       kind: 'xray',
+      kind_source: 'inferred_from_filename',
       route: { kind: 'xray', target_section: 'imaging', modules: ['clinical-image-interpretation','chest-xray','musculoskeletal-xray'] },
       privacy: {
         status: 'REVIEW_REQUIRED',
@@ -430,6 +431,8 @@ describe('Clinical note diagnostic workspace', () => {
     expect(within(reviewCard).getByRole('status')).toHaveTextContent('Resolução limitada.');
     expect(reviewCard).not.toHaveTextContent('synthetic-private-id');
     expect(within(reviewCard).getByRole('status')).toHaveTextContent('metadados de localização');
+    expect(reviewCard).toHaveTextContent('Categoria efetiva:');
+    expect(reviewCard).toHaveTextContent('inferida do nome do ficheiro; não verifica a modalidade real da imagem.');
     expect(reviewCard).not.toHaveTextContent('synthetic-private-issue');
     expect(reviewCard).not.toHaveTextContent('41.1234');
     expect(globalThis.fetch).toHaveBeenCalledTimes(1);

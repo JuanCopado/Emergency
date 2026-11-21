@@ -152,6 +152,7 @@ export type PreparedUpload = {
   sha256: string;
   integrity_token: string;
   kind: string;
+  kind_source?: 'explicit' | 'inferred_from_filename' | 'inferred_from_container' | 'default_unclassified';
   route: { kind: string; target_section: keyof ClinicalNotePayload['complementary_tests']; modules: string[] };
   privacy: {
     status: 'PASS' | 'REVIEW_REQUIRED' | 'STOP';

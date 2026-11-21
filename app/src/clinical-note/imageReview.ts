@@ -13,6 +13,10 @@ const labels: Record<string, string> = {
   gps_metadata_present: 'O ficheiro original contém metadados de localização. Não são enviados ao serviço.',
   trailing_data_after_image: 'O ficheiro original contém dados adicionais após a imagem. Não são enviados ao serviço.',
   metadata_present: 'O ficheiro original contém metadados. São removidos antes do envio ao serviço.',
+  explicit: 'escolhida por si.',
+  inferred_from_filename: 'inferida do nome do ficheiro; não verifica a modalidade real da imagem.',
+  inferred_from_container: 'inferida do tipo de contentor; não verifica a modalidade real do conteúdo.',
+  default_unclassified: 'nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada.',
 };
 
 export function reviewMessage(value: string, ui: (key: string) => string): string {
@@ -37,6 +41,12 @@ export function mediaPrivacyMessages(issues: unknown, metadataPresent: unknown, 
     : [];
   if (codes.length === 0 && metadataPresent === true) codes.push('metadata_present');
   return codes.map(code => reviewMessage(code, ui));
+}
+
+// Transparency only: reports where the effective category came from; it never verifies the modality.
+export function kindSourceMessage(source: unknown, ui: (key: string) => string): string | null {
+  const known = ['explicit', 'inferred_from_filename', 'inferred_from_container', 'default_unclassified'];
+  return typeof source === 'string' && known.includes(source) ? reviewMessage(source, ui) : null;
 }
 
 export function excludedContainer(prepared?: PreparedUpload) {
