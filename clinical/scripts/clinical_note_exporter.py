@@ -10,6 +10,7 @@ from functools import lru_cache, partial
 from datetime import datetime, timezone
 
 from clinical_note_support import validate_for_export
+from clinical_note_export_labels import export_label
 
 LABELS = {
  "pt-PT":{
@@ -42,7 +43,13 @@ LABELS = {
 }
 
 def _labels(note):
-    return LABELS.get(note.get("language"), LABELS["pt-PT"])
+    language = note.get("language")
+    labels = LABELS.get(language, LABELS["pt-PT"])
+    translated = {key: export_label(language, value) for key, value in labels.items()}
+    translated.update({key: export_label(language, value) for key, value in (
+        ("evidence_for", "a favor"), ("evidence_against", "contra"), ("missing", "falta discriminar"),
+    )})
+    return translated
 
 def _txt(value):
     if value is None: return ""
@@ -65,9 +72,9 @@ def _candidate_lines(items, labels):
             line += " | " + labels["points"].format(**basis)
         if x.get("weighted_uncertainty"):
             line += f" | {labels['uncertain_weight']}: " + "; ".join(x["weighted_uncertainty"])
-        if evf: line += f" | a favor: {evf}"
-        if eva: line += f" | contra: {eva}"
-        if miss: line += f" | falta discriminar: {miss}"
+        if evf: line += f" | {labels.get('evidence_for', 'a favor')}: {evf}"
+        if eva: line += f" | {labels.get('evidence_against', 'contra')}: {eva}"
+        if miss: line += f" | {labels.get('missing', 'falta discriminar')}: {miss}"
         out.append(line)
     return out
 
@@ -90,6 +97,7 @@ def _report_lines(reports, language):
         "limitations": "Limitações" if not es else "Limitaciones",
         "modules": "Módulos fonte" if not es else "Módulos fuente",
     }
+    labels = {key: export_label(language, value) for key, value in labels.items()}
     out = []
     for index, report in enumerate(reports or [], 1):
         kind = report.get("kind") or "MCDT"
@@ -144,6 +152,8 @@ def note_to_sections(note):
         "validation": "Validación médica y privacidad" if es else "Validação médica e privacidade",
     }
 
+    X = {key: export_label(language, value) for key, value in X.items()}
+
     age = e.get("age", {})
     if age.get("years") is not None:
         age_text = f"{age['years']} años" if es else f"{age['years']} anos"
@@ -152,11 +162,25 @@ def note_to_sections(note):
     else:
         age_text = "no documentada" if es else "não documentada"
 
+    if language in {"en", "zh"}:
+        if age.get("years") is not None:
+            age_text = f"{age['years']} {export_label(language, 'anos')}"
+        elif age.get("months") is not None:
+            age_text = f"{age['months']} {export_label(language, 'meses')}"
+        else:
+            age_text = export_label(language, "não documentada")
+
     context = [
         f"ID seudónimo del episodio: {e.get('encounter_id','')}" if es else f"ID pseudónimo do episódio: {e.get('encounter_id','')}",
         f"Edad: {age_text}" if es else f"Idade: {age_text}",
         f"Sexo: {e.get('sex','')}",
     ]
+    if language in {"en", "zh"}:
+        context = [
+            f"{export_label(language, 'ID pseudónimo do episódio')}: {e.get('encounter_id', '')}",
+            f"{export_label(language, 'Idade')}: {age_text}",
+            f"{export_label(language, 'Sexo')}: {e.get('sex', '')}",
+        ]
     context_fields = (
         ("origin", "Origen" if es else "Origem"),
         ("transfer_status", "Transferencia" if es else "Transferência"),
@@ -166,7 +190,7 @@ def note_to_sections(note):
     )
     for key, label in context_fields:
         if e.get(key):
-            context.append(f"{label}: {e[key]}")
+            context.append(f"{export_label(language, label)}: {e[key]}")
 
     sections = [(L["title"], []), (L["encounter"], context)]
 
@@ -190,7 +214,7 @@ def note_to_sections(note):
     if not allergy_lines:
         allergy_lines = [
             "Alergias no documentadas; confirmar revisión." if es
-            else "Alergias não documentadas; confirmar revisão."
+            else export_label(language, "Alergias não documentadas; confirmar revisão.")
         ]
     sections.append((L["allergies"], allergy_lines))
 
@@ -224,7 +248,7 @@ def note_to_sections(note):
     }
     for key, label in exam_labels.items():
         if ex.get(key):
-            exam_lines.append(f"{label}: {ex[key]}")
+            exam_lines.append(f"{export_label(language, label)}: {ex[key]}")
     if exam_lines:
         sections.append((L["exam"], exam_lines))
 
@@ -292,6 +316,14 @@ def note_to_sections(note):
             "Os ficheiros clínicos originais não são incorporados no documento exportado por defeito."
         ),
     ]
+    if language in {"en", "zh"}:
+        validation_lines = [
+            export_label(language, "Modo de privacidade") + ": " + str(p.get("mode")),
+            export_label(language, "Revisão clínica") + ": " + export_label(language, "sim" if cv.get("reviewed") else "não"),
+            export_label(language, "Função do revisor") + ": " + str(cv.get("reviewer_role") or export_label(language, "não registado")),
+            export_label(language, "Validado em") + ": " + str(cv.get("reviewed_at") or export_label(language, "não registado")),
+            export_label(language, "Os ficheiros clínicos originais não são incorporados no documento exportado por defeito."),
+        ]
     sections.append((X["validation"], validation_lines))
 
     return [(heading, [p for p in paragraphs if p]) for heading, paragraphs in sections if heading and (paragraphs or heading == L["title"])]
