@@ -24,7 +24,7 @@ Se ensayó por separado suprimir todo el peso de términos especulativos. El exp
 
 ## Comprobación
 
-Se conservan las 60 expectativas y casos sin edición. Pasaron los tres runners, las siete pruebas nuevas, las siete de procedencia de PR50, las diez pruebas existentes de contexto y el auditor de cobertura de fuentes. Se comparó el delta con el borrador histórico PR15, `1fd4e5c7733e752a780a69f0a603c8466bd23a3a`. Se recuperó la presentación de observaciones y limitaciones para la interfaz internacional vigente. Los cambios de exportación, seguridad y autorización ajenos de PR15 quedan fuera de esta rama.
+Se conservan las 60 expectativas y casos sin edición. Pasaron los tres runners, las ocho pruebas nuevas, las siete de procedencia de PR50, las diez pruebas existentes de contexto y el auditor de cobertura de fuentes. Se comparó el delta con el borrador histórico PR15, `1fd4e5c7733e752a780a69f0a603c8466bd23a3a`. Se recuperó la presentación de observaciones y limitaciones para la interfaz internacional vigente. Los cambios de exportación, seguridad y autorización ajenos de PR15 quedan fuera de esta rama.
 
 ```sh
 python -B -m unittest discover -s clinical/tests -p test_diagnostic_observations.py

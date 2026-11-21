@@ -21,7 +21,8 @@ LABELS = {
   "differential":"Diagnóstico diferencial","must":"Diagnósticos a não perder",
   "more_tests":"Exames complementares sugeridos","treatment":"Tratamento sugerido",
   "disposition":"Destino / reavaliação","clarify":"Dados a esclarecer / contradições",
-  "limitations":"Limitações","privacy":"Privacidade e validação"
+  "limitations":"Limitações","privacy":"Privacidade e validação",
+  "uncertain_weight":"Classificação inclui menções não confirmadas"
  },
  "es-ES":{
   "title":"Nota clínica de apoyo al diagnóstico","encounter":"Contexto clínico",
@@ -31,7 +32,8 @@ LABELS = {
   "synthesis":"Síntesis clínica","likely":"Diagnósticos probables","differential":"Diagnóstico diferencial",
   "must":"Diagnósticos que no se deben omitir","more_tests":"Pruebas complementarias sugeridas",
   "treatment":"Tratamiento sugerido","disposition":"Destino / reevaluación",
-  "clarify":"Datos a aclarar / contradicciones","limitations":"Limitaciones","privacy":"Privacidad y validación"
+  "clarify":"Datos a aclarar / contradicciones","limitations":"Limitaciones","privacy":"Privacidad y validación",
+  "uncertain_weight":"La clasificación incluye menciones sin confirmar"
  }
 }
 
@@ -44,7 +46,7 @@ def _txt(value):
     if isinstance(value, dict): return ", ".join(f"{k}: {_txt(v)}" for k,v in value.items() if v not in (None,"",[],{}))
     return str(value)
 
-def _candidate_lines(items):
+def _candidate_lines(items, labels):
     out=[]
     for i,x in enumerate(items or [],1):
         evf="; ".join(x.get("evidence_for",[]))
@@ -52,7 +54,7 @@ def _candidate_lines(items):
         miss="; ".join(x.get("missing_discriminating_data",[]))
         line=f"{i}. {x.get('diagnosis','')} [{x.get('confidence','')}]"
         if x.get("weighted_uncertainty"):
-            line += " | Classificação inclui menções não confirmadas: " + "; ".join(x["weighted_uncertainty"])
+            line += f" | {labels['uncertain_weight']}: " + "; ".join(x["weighted_uncertainty"])
         if evf: line += f" | a favor: {evf}"
         if eva: line += f" | contra: {eva}"
         if miss: line += f" | falta discriminar: {miss}"
@@ -249,11 +251,11 @@ def note_to_sections(note):
     if a.get("problem_representation"):
         sections.append((L["synthesis"], [a["problem_representation"]]))
     if a.get("likely_diagnoses"):
-        sections.append((L["likely"], _candidate_lines(a["likely_diagnoses"])))
+        sections.append((L["likely"], _candidate_lines(a["likely_diagnoses"], L)))
     if a.get("differential_diagnoses"):
-        sections.append((L["differential"], _candidate_lines(a["differential_diagnoses"])))
+        sections.append((L["differential"], _candidate_lines(a["differential_diagnoses"], L)))
     if a.get("must_not_miss"):
-        sections.append((L["must"], _candidate_lines(a["must_not_miss"])))
+        sections.append((L["must"], _candidate_lines(a["must_not_miss"], L)))
     if a.get("suggested_tests"):
         sections.append((L["more_tests"], _suggestion_lines(a["suggested_tests"])))
     if a.get("treatment_suggestions"):

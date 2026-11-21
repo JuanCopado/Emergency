@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from clinical_note_diagnostic_engine import analyze
-from clinical_note_exporter import _candidate_lines
+from clinical_note_exporter import note_to_sections
 from clinical_note_support import validate_contract
 from run_clinical_note_diagnostic_cases import build
 
@@ -64,8 +64,13 @@ class DiagnosticObservations(unittest.TestCase):
         item = candidate(response, "acute-coronary-syndrome")
         self.assertEqual(item["weighted_uncertainty"], ["st elevation"])
         self.assertEqual(item["evidence_for"], ["síntomas autonómicos"])
-        self.assertIn("Classificação inclui menções não confirmadas: st elevation", _candidate_lines([item])[0])
-        self.assertEqual(validate_contract(response["note"]), [])
+        note = response["note"]
+        self.assertEqual(validate_contract(note), [])
+        for language, warning in (("pt-PT", "Classificação inclui menções não confirmadas"),
+                                  ("es-ES", "La clasificación incluye menciones sin confirmar")):
+            note["language"] = language
+            lines = [line for _, section in note_to_sections(note) for line in section]
+            self.assertTrue(any(warning + ": st elevation" in line for line in lines))
         affirmed = candidate(result("ST elevation. Possible STEMI."), "acute-coronary-syndrome")
         self.assertNotIn("weighted_uncertainty", affirmed)
 
@@ -79,8 +84,26 @@ class DiagnosticObservations(unittest.TestCase):
         self.assertIn("dor/analgesia prévia", missing(vitals={"spo2": 96}))
 
     def test_unresolved_relation_visible_without_fabricated_candidate(self):
-        response = result("Sickle cell.")
-        assessment = response["assessment"]
-        self.assertTrue(any("acute-chest-syndrome" in line for line in assessment["limitations"]))
-        self.assertFalse(any(x["diagnosis"] == "acute-chest-syndrome" for x in assessment["must_not_miss"]))
-        self.assertEqual(assessment, response["note"]["assessment"])
+        for text, age, relation in (
+            ("Sickle cell.", 40, "acute-chest-syndrome"),
+            ("Politrauma.", 40, "traumatic-intracranial-mass-effect"),
+            ("Intoxicação.", 40, "arrhythmias-cardiac-arrest"),
+            ("CAD pediátrica.", 10, "pediatric-electrolyte-emergencies"),
+        ):
+            with self.subTest(relation=relation):
+                response = result(text, age_years=age)
+                assessment = response["assessment"]
+                self.assertTrue(any(relation in line for line in assessment["limitations"]))
+                self.assertFalse(any(x["diagnosis"] == relation for x in assessment["must_not_miss"]))
+                self.assertEqual(assessment, response["note"]["assessment"])
+
+    def test_simple_fields_do_not_satisfy_compound_requests(self):
+        missing = "missing_discriminating_data"
+        trauma = candidate(result("Politrauma.", vitals={"gcs": "15"}), "trauma-major-hemorrhage")
+        self.assertNotIn("GCS", trauma[missing])
+        head = candidate(result("Traumatismo craniano.", vitals={"gcs": "15"}), "traumatic-intracranial-mass-effect")
+        self.assertIn("GCS e componentes", head[missing])
+        infant = candidate(result("Bronchiolitis.", age_years=1), "bronchiolitis")
+        self.assertNotIn("idade", infant[missing])
+        asthma = candidate(result("Wheezing.", vitals={"rr": 22}), "acute-severe-asthma")
+        self.assertNotIn("frequência respiratória", asthma[missing])
