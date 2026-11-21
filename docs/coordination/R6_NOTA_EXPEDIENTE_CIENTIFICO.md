@@ -56,4 +56,4 @@ Antes de abrir datos reales, el propietario delimita la pregunta, población y d
 
 ## Evidencia independiente
 
-Se reutilizó la auditoría R5, sus verificaciones primarias y su respuesta original. El contraste R6 de Gemini y los detalles de sesión constan en [recibo del frente C](EVIDENCIA_GEMINI_R6.md). [Auditoría original consolidada R5](https://github.com/JuanCopado/Emergency/blob/aae5242b61badbcca924cb0c13f44d2ab3c80d56/docs/coordination/R5_NOTA_AUDITORIA_CIENTIFICA.md)
+Se reutilizó la auditoría R5, sus verificaciones primarias y su respuesta original. El contraste R6 de Gemini y los detalles de sesión constan en [recibo del frente C](R6_CIENCIA_PROCEDENCIA_20261121.md). [Auditoría original consolidada R5](https://github.com/JuanCopado/Emergency/blob/aae5242b61badbcca924cb0c13f44d2ab3c80d56/docs/coordination/R5_NOTA_AUDITORIA_CIENTIFICA.md)
