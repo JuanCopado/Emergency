@@ -18,6 +18,10 @@ MIN_SHORT_SIDE_UNSUITABLE = 64    # below this no visual finding can be carried
 MIN_SHORT_SIDE_LIMITED = 224      # below this: flagged as limited resolution (technical floor)
 MAX_DECODE_BYTES = 50_000_000
 MAX_TRANSFER_BYTES = 12 * 1024 * 1024
+# Header segments / top-level chunks are listed in memory before pixel decoding. Real JPEG
+# headers and WebP files carry a few dozen; the cap bounds the list (not image size or quality).
+MAX_JPEG_HEADER_SEGMENTS = 512
+MAX_WEBP_CHUNKS = 256
 
 PNG_SIG = b"\x89PNG\r\n\x1a\n"
 PNG_META_CHUNKS = {b"eXIf", b"tEXt", b"zTXt", b"iTXt", b"tIME"}
@@ -163,6 +167,8 @@ def _jpeg_segments(raw):
         length = struct.unpack(">H", raw[pos:pos + 2])[0]
         if length < 2 or pos + length > len(raw):
             raise MediaRejected("truncated")
+        if len(segs) >= MAX_JPEG_HEADER_SEGMENTS:
+            raise MediaRejected("too_many_segments")
         segs.append((marker, pos - 2, pos + length))
         pos += length
         if marker == 0xDA:
@@ -216,6 +222,8 @@ def _webp_chunks(raw):
         end = pos + 8 + size
         if end > riff + 8:
             raise MediaRejected("truncated")
+        if len(chunks) >= MAX_WEBP_CHUNKS:
+            raise MediaRejected("too_many_segments")
         chunks.append((tag, pos, end + (size & 1)))
         pos = end + (size & 1)
     return chunks, riff

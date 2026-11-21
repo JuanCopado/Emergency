@@ -39,3 +39,5 @@ R5 · 21/11/2026 · [Consolidación técnica y límites](docs/coordination/R5_IN
 R6 · 21/11/2026 · [Consolidación y límites](docs/coordination/R6_INTEGRACION_20261121.md): avisos de calidad previos a interpretar, auditoría Claude Code, instrumento externo con 153 registros conservados y expedientes Gemini inactivos. [G05](docs/coordination/R6_G05_20261121.md) global BLOCKED. CLINICALLY_PENDING; 129 GREEN / 2 YELLOW / 0 RED. CI e integración final se registran por SHA en recibo separado.
 
 R6 · 21/11/2026 · M10 N3/N2 técnico: errores del proveedor distinguidos (503/502/422) y procedencia manual tras abstención. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
+
+R6 · 21/11/2026 · M10 N4/N1b técnico: cota de segmentos JPEG/WebP y avisos categóricos de metadatos. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
