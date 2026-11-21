@@ -71,3 +71,7 @@ Daneshjou y colaboradores comprobaron limitaciones de modelos dermatológicos en
 ## Procedencia y alcance del contraste
 
 Búsqueda dirigida el 21/11/2026 de guías de reporte originales y estudios primarios de variabilidad externa y por subgrupos. Se contrastó el diseño con las referencias M10 aceptadas, la política del padre y las condiciones implementadas en el calculador ciego. La versión v1.0 es el protocolo metodológico propuesto por Work/Codex. Gemini CLI devolvió error de autenticación 41 y en Gemini web quedó un borrador sin respuesta verificable. Este informe no atribuye evaluación, aceptación ni autoría clínica a Gemini.
+
+## Adenda de revisión metodológica del 21/11/2026
+
+Tras los primeros intentos, se recibió una respuesta de Gemini 3.8 Flash High mediante Antigravity 1.5.14 a una consulta sintética común a ambos informes. La búsqueda y el cotejo de las publicaciones primarias corresponden a los autores del informe. Gemini destacó el sesgo de verificación si los casos ambiguos quedan sin referencia y la necesidad de contabilizar abstenciones. El protocolo requiere referencia ciega y adjudicada, denominadores por etapa y resultados por subgrupo. La magnitud y dirección de los errores del producto siguen pendientes de medición. La respuesta original de esta consulta tiene SHA-256 `6b933426f3324854ad5986bb16d712550819b43ef1e22df595a5fedc88499d1f`.
