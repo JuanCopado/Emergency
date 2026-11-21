@@ -1,0 +1,503 @@
+{
+  "clinical_status": "CLINICALLY_PENDING",
+  "checked_at_utc": "2026-11-21T18:52:58.253943+00:00",
+  "existing_evidence": {
+    "COTEJO_ACUSTICO.md": true,
+    "CURB65-Narrador-toma2.wav": true,
+    "CURB65-Narrador.wav": true,
+    "CURB65-pantalla.png": true,
+    "Narrador-CURB65.png": true,
+    "PDF-cuatro-paginas.png": true,
+    "PR61-amiodarona-Edge.pdf": true,
+    "recibo.json": true,
+    "transcripcion-es.txt": true,
+    "transcripcion-pt.txt": true,
+    "01-urea.wav": true,
+    "02-frecuencia-respiratoria.wav": true,
+    "03-presion-sistolica.wav": true,
+    "04-presion-diastolica.wav": true,
+    "05-edad.wav": true
+  },
+  "archives": [
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\CLAUDE_EMERGENCY_BATCH_FINAL_AUDIT_EVIDENCE.zip",
+      "sha256": "a724e4e5cc01c5a2072aed4ed1ac0da557b810ccab79410636beef4d53a090f2",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\CLAUDE_EMERGENCY_CONTINUOUS_R2_FINAL_AUDIT_EVIDENCE.zip",
+      "sha256": "5bbdb04fcca9bc29e9b6f4f6585687a03ffe3e2a6312fec863fc829c0e22cd37",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119 (1).zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119 (2).zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119 (3).zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119 (4).zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119 (5).zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119 (6).zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119 (7).zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_AUDITORIA_CODIGO_PR31_20261119.zip",
+      "sha256": "299257ab2c6b7d06d395ba2e757cf120a4c6a5ed5fba896e6e1cec8b172d2498",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency_Auditoria_Integral_2026-11-05.zip",
+      "sha256": "382e74deb10d47ff4ae47209b7aee829a8a4803624c891db818587e731d19bfa",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_BLOOD_GAS_CONTINUATION.zip",
+      "sha256": "ed9ac1c759660258f539e8c9d5b20f0a5f9a2bc4a69bf2b55b0e5ed09e42e394",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CLAUDE_40_BRANCHES.zip",
+      "sha256": "d097be1fb68947a1c20801d769b85d14dc3f1becb3d38bd7583721dc342edd07",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency_Claude_Archivos (1).zip",
+      "sha256": "0259d804ac29a237992a4644a93bafc29369b31476adf4f1c52741dfddc1d39c",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency_Claude_Archivos.zip",
+      "sha256": "0259d804ac29a237992a4644a93bafc29369b31476adf4f1c52741dfddc1d39c",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CODEX_AUDITORIA_PR31_20261119 (1).zip",
+      "sha256": "8d8b18ea57e8bd1f6238c84bd35c1d41bd9f572865ce9ac22902fb0041313c24",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CODEX_AUDITORIA_PR31_20261119.zip",
+      "sha256": "8d8b18ea57e8bd1f6238c84bd35c1d41bd9f572865ce9ac22902fb0041313c24",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CODEX_PARALLEL_C1_C4_FINAL.zip",
+      "sha256": "6b2c6e41bf0ff389de78f7eaff2e12160b7469f645a7c3444d5acb30056169b6",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CODEX_PARALLEL_C1_C4.zip",
+      "sha256": "fa603e4865fb57d777b4f236f7b9dccd54a7b539e3cd9a1ea34df0172da5a59f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency_Conciliacion_B1_2026-11-05.zip",
+      "sha256": "a46d882d19c30c698b6034a22794b7cfdaefe28586e11bcff07ab6c5d4f63c9f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CONTINUOUS_DEVELOPMENT_MASTER_BATCH (1).zip",
+      "sha256": "1ac0bf0291915cfe9fed34d8a69437ad17c90b1ed6faa9cb350683489b9369f9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CONTINUOUS_DEVELOPMENT_MASTER_BATCH (2).zip",
+      "sha256": "1ac0bf0291915cfe9fed34d8a69437ad17c90b1ed6faa9cb350683489b9369f9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CONTINUOUS_DEVELOPMENT_MASTER_BATCH (3).zip",
+      "sha256": "1ac0bf0291915cfe9fed34d8a69437ad17c90b1ed6faa9cb350683489b9369f9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CONTINUOUS_DEVELOPMENT_MASTER_BATCH (4).zip",
+      "sha256": "1ac0bf0291915cfe9fed34d8a69437ad17c90b1ed6faa9cb350683489b9369f9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CONTINUOUS_DEVELOPMENT_MASTER_BATCH (5).zip",
+      "sha256": "1ac0bf0291915cfe9fed34d8a69437ad17c90b1ed6faa9cb350683489b9369f9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CONTINUOUS_DEVELOPMENT_MASTER_BATCH (6).zip",
+      "sha256": "1ac0bf0291915cfe9fed34d8a69437ad17c90b1ed6faa9cb350683489b9369f9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_CONTINUOUS_DEVELOPMENT_MASTER_BATCH.zip",
+      "sha256": "1ac0bf0291915cfe9fed34d8a69437ad17c90b1ed6faa9cb350683489b9369f9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_DEFENSIVE_STATUS_20261101.zip",
+      "sha256": "98cf2acb5d95164d9c17f8f8d272e310283f585df16568a280cfb12c7ac4739d",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_ENG_T16_PATH_CLAUDE_REVIEW.zip",
+      "sha256": "74729023279ba0e9352a438ab9747887b094f300aaab5fe0238f323e95d08106",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_HUMAN_REVIEW_WORKBENCH_01.zip",
+      "sha256": "35815fdbd85b3fb07814c53720c7dbd7f8762534f27b0a38702e5b4ff67c2aa2",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_I00_PRIMARY_EVIDENCE_REVIEW.zip",
+      "sha256": "0b5962c59ee6fcdf18af370e472587f52294de868a100df5ee6b5e69f3fad359",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_I01_AUDIT_EVIDENCE.zip",
+      "sha256": "6d629d15c147b01efddef572ea5f7cfd407482084257d026be634a1a5bc3524a",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_IND_PKG_01_COMPLETO.zip",
+      "sha256": "634da57ce14d52935a80cce23ba065b14b60c97043f1e9a540de67b15e27c233",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_IND_PKG_01_R1_ORACLE_FIX.zip",
+      "sha256": "588722eb77faf0dd3834bc69eb7ca9948470b9451bd1b063f22763fe6d78b2a9",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_IND_PKG_01_R1_VALIDATED.zip",
+      "sha256": "395f985a8c00aec2c30c4fd77fbfecd422c0ff260b82bcb681d7afd1066e015a",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_INTG_R3_PARTIAL_SECURITY_20261118(2).zip",
+      "sha256": "95d12a881df3a059f2d7de8388c37660f3f8e6912bcd2339cf070827824db022",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_MULTIAGENTE_A1_REEDICION_2026-10-29 (1).zip",
+      "sha256": "2b3195e136c283a7da8c892a88e6193901b56d8ed546763df4bc74c9a80d015f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_MULTIAGENTE_A1_REEDICION_2026-10-29 (2).zip",
+      "sha256": "2b3195e136c283a7da8c892a88e6193901b56d8ed546763df4bc74c9a80d015f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_MULTIAGENTE_A1_REEDICION_2026-10-29 (3).zip",
+      "sha256": "2b3195e136c283a7da8c892a88e6193901b56d8ed546763df4bc74c9a80d015f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_MULTIAGENTE_A1_REEDICION_2026-10-29 (4).zip",
+      "sha256": "2b3195e136c283a7da8c892a88e6193901b56d8ed546763df4bc74c9a80d015f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_MULTIAGENTE_A1_REEDICION_2026-10-29 (5).zip",
+      "sha256": "2b3195e136c283a7da8c892a88e6193901b56d8ed546763df4bc74c9a80d015f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_MULTIAGENTE_A1_REEDICION_2026-10-29.zip",
+      "sha256": "2b3195e136c283a7da8c892a88e6193901b56d8ed546763df4bc74c9a80d015f",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAQUETE_AUDITORIA_CLAUDE_REEDICION_2026-10-29 (1).zip",
+      "sha256": "7321e8e9876f09ee0728881da93b7454f78871db3c91d938075c10feea65c044",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAQUETE_AUDITORIA_CLAUDE_REEDICION_2026-10-29 (2).zip",
+      "sha256": "7321e8e9876f09ee0728881da93b7454f78871db3c91d938075c10feea65c044",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAQUETE_AUDITORIA_CLAUDE_REEDICION_2026-10-29 (3).zip",
+      "sha256": "7321e8e9876f09ee0728881da93b7454f78871db3c91d938075c10feea65c044",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAQUETE_AUDITORIA_CLAUDE_REEDICION_2026-10-29 (4).zip",
+      "sha256": "7321e8e9876f09ee0728881da93b7454f78871db3c91d938075c10feea65c044",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAQUETE_AUDITORIA_CLAUDE_REEDICION_2026-10-29 (5).zip",
+      "sha256": "7321e8e9876f09ee0728881da93b7454f78871db3c91d938075c10feea65c044",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAQUETE_AUDITORIA_CLAUDE_REEDICION_2026-10-29.zip",
+      "sha256": "7321e8e9876f09ee0728881da93b7454f78871db3c91d938075c10feea65c044",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAR01_GASOMETRIA_T05_20261119.zip",
+      "sha256": "cb6a8da3989b421866828d3a49c7ba59f30e67cd8e0bd043dcdb900937bcd907",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PAR02_T06_LOCALHOST_20261119.zip",
+      "sha256": "bc5dda63770a5240695bfd7bef98bc9ad86bf1cdef13c445f73ee8eff04083f1",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PESO_FIO2_CORRECCION_NUMERICA_20261119.zip",
+      "sha256": "95d5a28b04131e5d8d90a8aff0ea009ee27768ad0e41af17d406f2cd87eb483e",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_PR31_ACTIONS_SONAR_FINAL_20261119.zip",
+      "sha256": "54c142c051a6bb57f6316f4c06d4f1be972dfc562fc3e7a8fececd35eebb125c",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_Q5_PR31_CIERRE_20261119.zip",
+      "sha256": "83020a4895baaa7fd0ce17bcc6fe2c48cb2471591faaf385638c721e020c752d",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_Q5_PR31_EDGE_20261119.zip",
+      "sha256": "8b579e7782c5d6bffa5c9bcbad476273ffa4ef39d3c9a0c99f5f0397afa0491b",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R1_WORK_ADJUNTO.zip",
+      "sha256": "f1cb6294a1fcb0ef847b16eb277ac9d7766f5aceacc7650b20a2e17b37a8d3ce",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R2_E1_REVISION.zip",
+      "sha256": "9218f6a5e22d76709fc24b50b28bcd8f6a510da1db7f46046a1e8223cbb5cc0d",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R3_CORRECCION_P2_CLAUDE_20261119(1).zip",
+      "sha256": "d38c3f88820cf00fda29e65a0ff145e4987de76941920a3ca9e816fb63ed378e",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R3_FINAL_20261118.zip",
+      "sha256": "9b41c96c162fac753ccbedd51d11015d340b5d7a4c6371c8bdf417adb0377e68",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R3_PR30_CONCILIADO_20261119.zip",
+      "sha256": "f3e4f51f244f96c51ea460b28ff64dca90c910b28b6164ad9c2267d14132a940",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R3_Q5_PRINT_CLOSURE_20261119.zip",
+      "sha256": "81efedc4c71b28123f1f3b4881cce4e970fb02cd7d030249cad64c53688f18bd",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R3_REPRODUCIBLE_HANDOFF_20261118 (1).zip",
+      "sha256": "98cac332ae9c635d8864498fd588711c829cb1b875eb179690fb7a7bcae78805",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R3_REPRODUCIBLE_HANDOFF_20261118 (2).zip",
+      "sha256": "98cac332ae9c635d8864498fd588711c829cb1b875eb179690fb7a7bcae78805",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_R3_REPRODUCIBLE_HANDOFF_20261118.zip",
+      "sha256": "98cac332ae9c635d8864498fd588711c829cb1b875eb179690fb7a7bcae78805",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_SUPPLY_CHAIN_AUDIT_CODE_REVIEW.zip",
+      "sha256": "0b32e3b1dbd97c0a01fdfbc59341839599d086912413ad964a38f8bc55957faf",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T05_BLOOD_GAS_R3_20261118.zip",
+      "sha256": "b052c80db18033ee5c2310809af286ec016130d39691e15441aa37ab4e8c0ec1",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T05_GASOMETRIAS_CODEX_TRASLADO_20261118 (1).zip",
+      "sha256": "214167cb3cee77b7b7597172df3d3857ebe94aec206512cc5f095dc83afb6fb3",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T05_GASOMETRIAS_CODEX_TRASLADO_20261118.zip",
+      "sha256": "214167cb3cee77b7b7597172df3d3857ebe94aec206512cc5f095dc83afb6fb3",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T05_JPEG_AUDIT_20261117_04.zip",
+      "sha256": "00192d2d9f4ee5b7ff36c781111cc33e1601053b38a7bc34343fa05e79bc2f2e",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T06_API_PILOTO_2026-11-16 (1) (1).zip",
+      "sha256": "0402c4f6e81a38d5b63cb8609d8e05f9e287e320afce5c1b0847ec1c5de7f208",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T06_API_PILOTO_2026-11-16 (1).zip",
+      "sha256": "0402c4f6e81a38d5b63cb8609d8e05f9e287e320afce5c1b0847ec1c5de7f208",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T06_API_PILOTO_2026-11-16 (2).zip",
+      "sha256": "0402c4f6e81a38d5b63cb8609d8e05f9e287e320afce5c1b0847ec1c5de7f208",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T06_API_PILOTO_2026-11-16 (3).zip",
+      "sha256": "0402c4f6e81a38d5b63cb8609d8e05f9e287e320afce5c1b0847ec1c5de7f208",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_T06_API_PILOTO_2026-11-16.zip",
+      "sha256": "0402c4f6e81a38d5b63cb8609d8e05f9e287e320afce5c1b0847ec1c5de7f208",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_UX_A11Y_ISOLATED_01.zip",
+      "sha256": "98946c3bb6ffd118cda98a14af51a1c1a4cb116d2ad10ff3f4ac32d3b1dde715",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_UX_CONSOLIDATION_REVIEW.zip",
+      "sha256": "c5d8cec86b0877263153576e1ee376896127a6924518106341db952ca17c238a",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_UX_CORRECTED_REVIEW.zip",
+      "sha256": "b5ac7507658a17673c40407dbf5926d98eb4991c493250d2a6bd3bb5c68ab0a5",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_UX_DESKTOP_PREVIEW_RESULTS_REVIEW.zip",
+      "sha256": "ce7e24238701697a195d6fe6deb2dee9937dd4c9c78a6558d8686949316d5609",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_WORK_AUTONOMOUS_BATCH_REVIEW (1).zip",
+      "sha256": "d5be115bd417ffac9c90ca1a96138f434f461c001368489f6bd93f36ffe89ee6",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_WORK_AUTONOMOUS_BATCH_REVIEW.zip",
+      "sha256": "d5be115bd417ffac9c90ca1a96138f434f461c001368489f6bd93f36ffe89ee6",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\EMERGENCY_WORK_CODEX_CONSOLIDATED_REVIEW.zip",
+      "sha256": "e5ecbefded410097688e2728c60c39ed7e68fb9a0a271256c8676dd1a2014c53",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-codex-security-quality-20261116.zip",
+      "sha256": "60d5f7d170add4a443151b136a26363446d3f3f16fd7db60bedd81ce240ddc92",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-PDF-corregido-20261117.zip",
+      "sha256": "70da3c3cb537c37deff392ab17ed333ebb54950347e5f81f664df9b998ca3265",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-PDF-texto-seleccionable-20261117.zip",
+      "sha256": "395ae24afa497ebc8e9ddcc0b03eae2f09ebd0a1ff73a8cdfe74a9689fca4187",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-Picomatch-comprobacion-20261118.zip",
+      "sha256": "4c4df167a4c05304c13d1005c999110a0c063ac8f1794c9ae1747bf59afed978",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-Picomatch-mitigacion-temporal-20261118.zip",
+      "sha256": "ee7b359913d7bbfcd3324c15551b2edb77252073487b93517ee53361827a213a",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-picomatch-PM02-CI-20261118_AUDITORIA.zip",
+      "sha256": "1dc8f89988c61e249472215fb16ce5f75ea41a954cfd548d9b47f5bae2e50d3a",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-PM02-seguridad-CI-verificada-20261118.zip",
+      "sha256": "8a0b8e4a84a2f3fd128f2fbcb0c94e1ea124f832e63364e7beb7b2bfb8399b13",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-PM03-auditoria-corregida-20261118.zip",
+      "sha256": "d07f637195360a7503dbc76dd210bcbd8032cdc28f2be60f56ede9c3ee554f32",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-PR22-seguridad-continuacion-20261118.zip",
+      "sha256": "57f03060f08d0cb20a5686a9ade7b0dca3742b9e3c4de7b93a3794210b51d0c8",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-PR22-seguridad-integrada-20261117.zip",
+      "sha256": "d79a21915a29a66a22ae38edce2691f99c4a1f35236a8822ad91222a543f4607",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-PR22-Sonar-real-20261118.zip",
+      "sha256": "86d5d3df6c252333d188ec7615e3c9beba628bafd87645e44bb352f1738be8eb",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-Q5-cierre-tecnico-20261117.zip",
+      "sha256": "558a9d808b8813071c11c8e75ce4f99a226fdf71d87a8724f5cc6bbeb66127fd",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-Q5-copia-corregida-completa-20261118.zip",
+      "sha256": "27e7270708ce84535e6a9e69fac5f765531c8e9eed9b5650a80cd54cb03475d4",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\Emergency-Q5-PRINT-CLOSE-20261118.zip",
+      "sha256": "f409dcb4a6360e3d7cb3ca68673770514eb3669b5a50b74715941fd6fdd8dbd7",
+      "unchanged": true
+    },
+    {
+      "file": "C:\\Users\\juanc\\Downloads\\X08_EMERGENCY_CODEX_TRANSFER.zip",
+      "sha256": "f3f662fbc43bcab6b8ea7a020c45253dbb6c756622460bedfdf7e5fb6217a846",
+      "unchanged": true
+    }
+  ],
+  "export_file": "C:\\Users\\juanc\\Downloads\\PR61-cotejo-CURB65-2026-11-21T18-51-18-893Z.json",
+  "export_sha256": "39dfa71235317cee2640f52eee534eb08b2eff8dba8177925e169be6fb93f746",
+  "report_sha256": "372ed7b8775472ade5cf6b1298059127a8c735f6b450a685f345de2d72b52feb",
+  "observations_sha256": "2b01f653d537118f26dd95b7c599ee3753cf1173eb75269dec751bfdef3cf524",
+  "page_screenshot_sha256": "353617ec045efa6fe18a934f94b24bd5884d4566bcfc5b50d4221e6ce2dc3edf"
+}

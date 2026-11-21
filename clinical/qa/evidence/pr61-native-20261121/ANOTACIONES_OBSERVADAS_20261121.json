@@ -1,0 +1,63 @@
+{
+  "captured_at": "2026-11-21T18:52:25.779Z",
+  "url": "http://127.0.0.1:5195/fragmentos-CURB65/",
+  "clinical_status": "CLINICALLY_PENDING",
+  "fields": [
+    {
+      "annotations": {
+        "notes": "",
+        "result": "pending",
+        "sign": "",
+        "unit": "",
+        "value": ""
+      },
+      "campo": "Urea",
+      "file": "01-urea.wav"
+    },
+    {
+      "annotations": {
+        "notes": "",
+        "result": "pending",
+        "sign": "",
+        "unit": "",
+        "value": ""
+      },
+      "campo": "Frecuencia respiratoria",
+      "file": "02-frecuencia-respiratoria.wav"
+    },
+    {
+      "annotations": {
+        "notes": "",
+        "result": "pending",
+        "sign": "",
+        "unit": "",
+        "value": ""
+      },
+      "campo": "Presión sistólica",
+      "file": "03-presion-sistolica.wav"
+    },
+    {
+      "annotations": {
+        "notes": "",
+        "result": "pending",
+        "sign": "",
+        "unit": "",
+        "value": ""
+      },
+      "campo": "Presión diastólica",
+      "file": "04-presion-diastolica.wav"
+    },
+    {
+      "annotations": {
+        "notes": "",
+        "result": "pending",
+        "sign": "",
+        "unit": "",
+        "value": ""
+      },
+      "campo": "Edad",
+      "file": "05-edad.wav"
+    }
+  ],
+  "reviewer": ""
+}

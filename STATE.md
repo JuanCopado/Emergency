@@ -3,6 +3,8 @@
 Estado global: **CLINICALLY_PENDING**. Registro: **129 GREEN / 2 YELLOW / 0 RED**, 131 módulos.
 Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según PR35.
 
+Seguimiento de PR61, 21/11. [QA de PDF nativo y Narrador](clinical/qa/PR61_NATIVE_PDF_NARRATOR_QA_20261121.md) incorpora el informe R2 y el cotejo aportado por el usuario, con sus límites literales y evidencias verificadas. CLINICALLY_PENDING.
+
 **R4, 21/11.** El [resumen de la nota, imágenes, impresión y G05](docs/coordination/R4_INTEGRACION_20261121.md) recoge los ensayos posteriores al corte PR54 y las limitaciones clínicas pendientes.
 
 - [PR53 · nota](https://github.com/JuanCopado/Emergency/pull/53) integrada en `fc8d5da2`. [PR51 · piel y heridas](https://github.com/JuanCopado/Emergency/pull/51) integrada en `bbd53d42`, árbol `46e7a8ceb69758be0ec3d9423f365722083c723c`.

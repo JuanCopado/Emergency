@@ -1,0 +1,87 @@
+{
+  "pr": 61,
+  "commit": "b5918ffa42cced3befa5674e40af43adc197acd2",
+  "clinical_status": "CLINICALLY_PENDING",
+  "pdf": {
+    "file": "PR61-amiodarona-Edge.pdf",
+    "bytes": 75330,
+    "sha256": "3ab0cdb8cecb8e7b17ed7f425988a4fb1f275ba3a3bdd578579346ae54df4dee",
+    "pages": [
+      {
+        "page": 1,
+        "body_lines": 47,
+        "outside_page": 0,
+        "dose_and_unit": true
+      },
+      {
+        "page": 2,
+        "body_lines": 51,
+        "outside_page": 0,
+        "dose_and_unit": false
+      },
+      {
+        "page": 3,
+        "body_lines": 49,
+        "outside_page": 0,
+        "dose_and_unit": false
+      },
+      {
+        "page": 4,
+        "body_lines": 16,
+        "outside_page": 0,
+        "dose_and_unit": false
+      }
+    ],
+    "full_report_equal_excluding_whitespace_and_edge_header_footer": true,
+    "compared_nonwhitespace_characters": 10037,
+    "inputs_and_result_equal_to_R4": true,
+    "extractor": "pypdf",
+    "pdfium_crosscheck": "PDFium devolvió U+0002 para dos guiones de una URL partida entre líneas. Ambos guiones son visibles en la página 3 y pypdf extrae los caracteres originales.",
+    "producer": "Skia/PDF m158"
+  },
+  "edge": "158.0.4370.33",
+  "narrator": {
+    "method": "Windows Narrator Speech Recap (Recapitulação de voz)",
+    "screen": "CURB65-pantalla.png",
+    "recap": "Narrador-CURB65.png",
+    "observed": [
+      [
+        "Urea",
+        "mmol/L",
+        "6"
+      ],
+      [
+        "Frecuencia respiratoria",
+        "/min",
+        "18"
+      ],
+      [
+        "Presión sistólica",
+        "mmHg",
+        "120"
+      ],
+      [
+        "Presión diastólica",
+        "mmHg",
+        "75"
+      ],
+      [
+        "Edad",
+        "años",
+        "55"
+      ]
+    ],
+    "scope": "Cotejo literal de cinco campos numéricos mediante el historial nativo. La pronunciación acústica no se evaluó."
+  },
+  "preserved_archives": {
+    "baseline": "R5-zips-preservation.json",
+    "sha256_matched": 95,
+    "total": 95
+  },
+  "artifacts_sha256": {
+    "CURB65-pantalla.png": "b7fbc50722bf213d632fc635aefab631aa745728e342c3a9efa1d68144d0dd15",
+    "Narrador-CURB65.png": "c83cd141a2f9486236d3213532142c5d5c4d1f93a1df0943dcae5379148e0047",
+    "PDF-cuatro-paginas.png": "110b45cc2ade8ccddcd97f47a71e985c6fa737576ef34a484f169a96e694fa45",
+    "PR61-amiodarona-Edge.pdf": "3ab0cdb8cecb8e7b17ed7f425988a4fb1f275ba3a3bdd578579346ae54df4dee"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "pr": 61,
+  "tested_commit": "b5918ffa42cced3befa5674e40af43adc197acd2",
+  "record_base": "aae5242b61badbcca924cb0c13f44d2ab3c80d56",
+  "clinical_status": "CLINICALLY_PENDING",
+  "files": [
+    {
+      "file": "INFORME_FINAL_COTEJO_PR61_20261121_R2.md",
+      "bytes": 2846,
+      "sha256": "63f5a3db33f136d521ec63ebe8e288020fbdafc1a47f726293042b050103d1c0"
+    },
+    {
+      "file": "PR61-amiodarona-Edge.pdf",
+      "bytes": 75330,
+      "sha256": "3ab0cdb8cecb8e7b17ed7f425988a4fb1f275ba3a3bdd578579346ae54df4dee"
+    },
+    {
+      "file": "PR61-cotejo-CURB65-2026-11-21T18-58-59-392Z.json",
+      "bytes": 1211,
+      "sha256": "cb7ebba8de34d8248420e8ed17df0d43fdaaca9e75be3a18341f9070a3b393cd"
+    },
+    {
+      "file": "CURB65-Narrador-toma2.wav",
+      "bytes": 2688078,
+      "sha256": "aab02bd4a8bca18b3c2f664d0c205c7c500b75015c2070c95915c1897bbed509"
+    },
+    {
+      "file": "CURB65-Narrador.wav",
+      "bytes": 1488078,
+      "sha256": "808f882b2e013517cd1342a10025ff68174cd832b0ae0274cfe629a30435f3a7"
+    },
+    {
+      "file": "CURB65-pantalla.png",
+      "bytes": 55188,
+      "sha256": "b7fbc50722bf213d632fc635aefab631aa745728e342c3a9efa1d68144d0dd15"
+    },
+    {
+      "file": "Narrador-CURB65.png",
+      "bytes": 103696,
+      "sha256": "c83cd141a2f9486236d3213532142c5d5c4d1f93a1df0943dcae5379148e0047"
+    },
+    {
+      "file": "PDF-cuatro-paginas.png",
+      "bytes": 501063,
+      "sha256": "110b45cc2ade8ccddcd97f47a71e985c6fa737576ef34a484f169a96e694fa45"
+    },
+    {
+      "file": "INFORME_FINAL_COTEJO_PR61_20261121.md",
+      "bytes": 2877,
+      "sha256": "372ed7b8775472ade5cf6b1298059127a8c735f6b450a685f345de2d72b52feb"
+    },
+    {
+      "file": "COTEJO_ACUSTICO.md",
+      "bytes": 1491,
+      "sha256": "659095340ab5b0dace5c1db7f886d7bb19a8abe4a88aec2003a6010ce37aadba"
+    },
+    {
+      "file": "recibo.json",
+      "bytes": 2515,
+      "sha256": "3e9f2d43135566cfddfc11a9b308c723a0b7ff16975b08297a2ff561abb6caa6"
+    },
+    {
+      "file": "transcripcion-es.txt",
+      "bytes": 793,
+      "sha256": "e080292d34084d38e44f44ac2e7df1f3d42726fd3f90752e9e1c91424782c848"
+    },
+    {
+      "file": "transcripcion-pt.txt",
+      "bytes": 933,
+      "sha256": "7153f70d3e16dd174e8a892c6828234d00ef0c6de88e9be5b57b153c3e30849b"
+    },
+    {
+      "file": "PRESERVACION_COTEJO_R2_20261121.json",
+      "bytes": 1213,
+      "sha256": "f16b7c8f26abf6c59a59869ca32204c8bbff36e6e802c383c3bbd0e6e76cca76"
+    },
+    {
+      "file": "PRESERVACION_COTEJO_FINAL_20261121.json",
+      "bytes": 21864,
+      "sha256": "30ffe7ead55b820f7bf14448df47e1cea866f3178f3bfa6e19fa8299bff0ccf6"
+    },
+    {
+      "file": "ANOTACIONES_OBSERVADAS_20261121.json",
+      "bytes": 1305,
+      "sha256": "2b01f653d537118f26dd95b7c599ee3753cf1173eb75269dec751bfdef3cf524"
+    },
+    {
+      "file": "ANOTACIONES_PAGINA_20261121.png",
+      "bytes": 52280,
+      "sha256": "353617ec045efa6fe18a934f94b24bd5884d4566bcfc5b50d4221e6ce2dc3edf"
+    },
+    {
+      "file": "fragmentos-CURB65/01-urea.wav",
+      "bytes": 288044,
+      "sha256": "252e79f596c8f15200c3e1e9ee46fd7f5a5e7a612d36e7b574ac9964d7059ef4"
+    },
+    {
+      "file": "fragmentos-CURB65/02-frecuencia-respiratoria.wav",
+      "bytes": 377644,
+      "sha256": "8378a75235917a0bc8332332aea7347eeb570581be032d016eca87d3a72de14d"
+    },
+    {
+      "file": "fragmentos-CURB65/03-presion-sistolica.wav",
+      "bytes": 409644,
+      "sha256": "99b8f4e9961fa628076fda7fc32ff16a646c00c14dd467753e6a30ecc378e4f8"
+    },
+    {
+      "file": "fragmentos-CURB65/04-presion-diastolica.wav",
+      "bytes": 428844,
+      "sha256": "9d9e0bb78ddf31d8d361e23d5e108734550799441738e4d78e75d1282659748f"
+    },
+    {
+      "file": "fragmentos-CURB65/05-edad.wav",
+      "bytes": 419244,
+      "sha256": "c4c06a0ac158b013682e3d341eac97455e6f22078056e9df99f5ecfb119ffb14"
+    },
+    {
+      "file": "fragmentos-CURB65/ESCUCHA.md",
+      "bytes": 1690,
+      "sha256": "686d1edd4eab6f08da464684676462ad04e4b6829c2a3930213613223e13f8d2"
+    },
+    {
+      "file": "fragmentos-CURB65/manifest.json",
+      "bytes": 3199,
+      "sha256": "a24122af05cf4db8101a15e0099ea82b785546cd9e0cc56c3327140475824e9e"
+    }
+  ],
+  "preserved_zip_count": 95,
+  "zip_sha256_match": true
+}
