@@ -303,6 +303,45 @@ class T6UnsupportedClinicalClaims(unittest.TestCase):
                 adapter._normalize_response({"contract_version": "1.0", "status": "abstain",
                                              "limitations": ["Insufficient detail"], key: value})
 
+    def test_skin_limitations_cannot_convey_unsupported_reassurance(self):
+        from clinical_note_support import new_note
+        wording = "No further evaluation is needed."
+        safe_reason = "Poor lighting."
+        responses = (
+            ok_response(limitations=[safe_reason, wording]),
+            {"contract_version": "1.0", "status": "abstain", "limitations": [safe_reason, wording]},
+            {"contract_version": "1.0", "status": "abstain", "limitations": [wording]},
+        )
+        for response in responses:
+            with self.subTest(status=response["status"], reasons=response["limitations"]):
+                out, _ = interpret(si.png(), response=response)
+                prepared = out["prepared"]
+                processing = prepared["processing"]
+                self.assertEqual(processing["status"], "vision_abstained")
+                self.assertIn("reassurance_language", processing["safety_flags"])
+                if safe_reason in response["limitations"]:
+                    self.assertIn(safe_reason, processing["limitations"])
+                self.assertTrue(any("Flagged" in reason for reason in processing["limitations"]))
+                self.assertNotIn(wording, json.dumps(out))
+                self.assertIsNone(prepared["extracted"]["ai_interpretation"])
+                self.assertIsNone(processing["findings"])
+                self.assertIsNone(processing["impression"])
+                self.assertTrue(out["review_required"])
+                self.assertFalse(out["persisted"])
+                with self.assertRaisesRegex(ValueError, "reviewed"):
+                    accept_prepared_upload(new_note(), prepared, privacy_checked=True,
+                                           burned_in_identifiers_checked=True)
+
+    def test_safe_provider_abstention_keeps_its_reasons(self):
+        reasons = ["Poor lighting.", "Image out of focus."]
+        out, _ = interpret(si.png(), response={
+            "contract_version": "1.0", "status": "abstain", "limitations": reasons,
+        })
+        processing = out["prepared"]["processing"]
+        self.assertEqual(processing["status"], "vision_abstained")
+        self.assertEqual(processing["limitations"], reasons)
+        self.assertEqual(processing["safety_flags"], ["provider_abstained"])
+
     def test_containers_excluded_from_facade_and_direct_adapter(self):
         for fmt, mime, raw in (("pdf", "application/pdf", b"%PDF-1.4\n%%EOF"),
                                ("dcm", "application/dicom", bytes(128) + b"DICM")):
