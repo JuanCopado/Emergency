@@ -1,3 +1,7 @@
+## 21/11/2026 · Observaciones de la nota clínica
+
+Negaciones explícitas, discriminantes y contribuciones inciertas visibles en la nota. Permanece el riesgo de sobreclasificación en entradas mixtas. [Pruebas y límites](qa/NOTE_OBSERVATIONS_20261121.md).
+
 ## 21/11/2026 · PR51 M10
 
 Corregida la preparación de imágenes para proveedor y la salida de abstención. Alcance verificable en `qa/M10_TECHNICAL_FOLLOWUP_20261121.md`. Se preservan la aceptación de PR52 y CLINICALLY_PENDING.

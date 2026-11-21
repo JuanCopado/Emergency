@@ -702,6 +702,12 @@
             "type": "string"
           }
         },
+        "weighted_uncertainty": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "missing_discriminating_data": {
           "type": "array",
           "items": {

@@ -447,7 +447,11 @@ describe('Clinical note diagnostic workspace', () => {
           assessment: {
             problem_representation: 'Doente hipotenso.',
             active_problems: ['Hipotensão'],
-            likely_diagnoses: [],
+            likely_diagnoses: [{
+              diagnosis: 'Hipótese sintética', confidence: 'low', evidence_for: [],
+              weighted_uncertainty: ['st elevation'],
+              evidence_against: ['Negado: hemoptise'], missing_discriminating_data: [], source_modules: [],
+            }],
             differential_diagnoses: [],
             must_not_miss: [],
             suggested_tests: [],
@@ -455,7 +459,7 @@ describe('Clinical note diagnostic workspace', () => {
             disposition: [],
             reassessment: [],
             contradictions_to_clarify: [],
-            limitations: [],
+            limitations: ['Relação prioritária sem regra avaliável.'],
           },
           note: null,
           medication_safety_gate: {
@@ -475,6 +479,9 @@ describe('Clinical note diagnostic workspace', () => {
     expect(await screen.findByText('Alertas / red flags')).toBeInTheDocument();
     expect(screen.getByText(/RED_FLAG · hypotension/)).toBeInTheDocument();
     expect(screen.getByText('PAS <90 mmHg')).toBeInTheDocument();
+    expect(screen.getByText(/Achados negados:.*Negado: hemoptise/)).toBeInTheDocument();
+    expect(screen.getByText(/Classificação inclui menções não confirmadas:.*st elevation/)).toBeInTheDocument();
+    expect(screen.getByText('Relação prioritária sem regra avaliável.')).toBeInTheDocument();
     expect(screen.getByText('Reavaliar após intervenção.')).toBeInTheDocument();
   });
 
