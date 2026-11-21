@@ -12,4 +12,15 @@
 
 La [conciliación de la nota](R4_NOTA_CONCILIACION_CIENTIFICA.md) contrasta las alternativas para los hallazgos inciertos, incluida su supresión, que produjo regresiones en dos casos históricos. El [protocolo de imágenes](R4_PROTOCOLO_PADRE_IMAGEN.md) acota tareas, modalidades, exclusiones, referencia, denominadores y fallos graves. Ambos módulos padre siguen YELLOW. El 21/11/2026 el médico propietario eligió la opción 1, «Sí, evaluar en modo silencioso». Aprobó estudiar exclusivamente en sospecha de síndrome coronario agudo una marca de revisión prioritaria por hallazgo no confirmado, manteniendo orden y alertas. El estudio debe medir omisiones y falsas prioridades frente a revisión médica independiente. La cohorte autorizada y la referencia adjudicada siguen pendientes. Cualquier cambio asistencial requiere su decisión y evidencia posterior.
 
+## Decisión médica registrada y ensayo sintético
+
+**R4-SCA-SILENT-20261121, v1 · 21/11/2026.** El propietario respondió «1», correspondiente a «Sí, evaluar en modo silencioso». El alcance se limita al estudio de una marca de revisión prioritaria por hallazgo no confirmado en la regla de síndrome coronario agudo. La marca se calculó fuera de la aplicación. Se conservaron el orden, las alertas y el criterio asistencial anterior.
+
+| Muestra sintética | Total | Regla coronaria activa | Categoría HIGH | Cumplió el criterio de marca |
+|---|---:|---:|---:|---:|
+| Banco histórico | 60 | 5 | 1 | 0 |
+| Controles construidos para comprobar el comportamiento | 12 | 11 | 7 | 4 |
+
+Las 72 salidas completas coincidieron antes y después de observarlas. Los cuatro controles marcados incluían tres que dependían de una mención incierta de ST y uno que dependía de náuseas posibles con ST afirmado. Taponamiento y endocarditis conservaron su posición histórica. Dos ejecuciones del observador produjeron el mismo JSON, SHA-256 `228d272655067dab3373ec38f172cda682d94cb2133358658db0417c17d3c3d3`. Estas frecuencias describen los casos sintéticos seleccionados. La medición de omisiones, falsas prioridades y utilidad clínica requiere una cohorte independiente y revisión médica adjudicada.
+
 Las verificaciones por versión están disponibles en [CI de la rama internacional](https://github.com/JuanCopado/Emergency/actions?query=branch%3Acodex%2Fv144-international-scope-20261116). Las aceptaciones previas y su alcance se conservan en [el estado clínico](../../clinical/CURRENT_STATE.md).
