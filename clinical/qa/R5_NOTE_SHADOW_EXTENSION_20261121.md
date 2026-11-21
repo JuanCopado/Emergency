@@ -6,10 +6,12 @@ Estado: **CLINICALLY_PENDING**. Ensayo offline, exclusivamente sintético. No ac
 
 Producto examinado: `95c5f25f755e27628baf8e5f69f60df2b308ea92`; árbol `8dae69dad71b0b917a2caa35b81a286e4bbf5c74` (internacional tras PR60). El script extrae ese árbol mediante `git archive` a una carpeta temporal; no importa el árbol de trabajo, no instala dependencias y escribe exclusivamente en una nueva carpeta externa. Rechaza identidad de árbol distinta y directorio de salida existente.
 
-Reproducción, desde un clon que conserve ese commit, con Python 3.9 o posterior:
+El script se entrega como artefacto externo de investigación en `Emergency-R5-20261121/evidencias/run_r5_note_shadow_study.py`, conservado también en el commit de investigación `322ab75bc7abdf64461bcb8180a864f1e03b8024` del clon aislado `r5-note`. No se incorpora como ejecutable del producto. La versión ordinaria reproduce el banco completo; su invocación adicional bajo cobertura agotó 90 segundos en CI y 240 segundos en Windows. Esos fallos se conservan y no se declaran resueltos. Se retiran del candidato la integración del ejecutable y su nueva prueba instrumentada, sin modificar la cobertura ni las pruebas previas del producto.
+
+Reproducción ordinaria desde un clon que conserve ese commit, con Python 3.9 o posterior, usando la ruta del artefacto entregado:
 
 ```powershell
-python clinical/scripts/run_r5_note_shadow_study.py --repo . --output ../R5-note-study-new
+python C:/Users/juanc/Downloads/Emergency-R5-20261121/evidencias/run_r5_note_shadow_study.py --repo . --output ../R5-note-study-new
 python -m unittest discover -s clinical/tests -p test_diagnostic_observations.py
 python clinical/scripts/run_clinical_note_diagnostic_cases.py
 python clinical/scripts/run_clinical_note_diagnostic_closure_cases.py
