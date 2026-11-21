@@ -1,3 +1,5 @@
+R8 · 21/11/2026 · M10 R5-1/R5-2, solo especificación inactiva: contrato futuro de categoría y esquema de Fase 1 (cinco observaciones, cláusula fija, Fase 2 bloqueada) y corpus sintético congelado es-ES/pt-PT/pt-BR/en con línea base del filtro (FN 27/52, FP 6/24; etiquetas sin adjudicar). Nada conectado al producto. [Documento](qa/R8_M10_R5_CONTRATOS_PROPUESTOS_20261121.md). CLINICALLY_PENDING.
+
 R8 · 21/11/2026 · M10 R5-1 (solo transparencia): la tarjeta de revisión muestra la categoría efectiva y su origen (elegida, inferida del nombre, inferida del contenedor o sin categoría), sin verificar la modalidad real. Encaminamiento, filtros, abstenciones, confianza y proveedor sin cambios. CLINICALLY_PENDING.
 
 R7 · 21/11/2026 · M10 R5-2 (solo codificación): el filtro de tranquilización normaliza NFKC y elimina caracteres invisibles antes de aplicar el mismo léxico; sin expresiones nuevas ni cambio de ámbito. R5-1 y las paráfrasis quedan reproducidos en [la ficha](qa/R7_M10_R5_RESIDUAL_FICHA_20261121.md) para decisión médica. CLINICALLY_PENDING.

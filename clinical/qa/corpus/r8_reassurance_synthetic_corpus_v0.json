@@ -1,0 +1,671 @@
+{
+ "cases": [
+  {
+   "class": "explicit_reassurance",
+   "id": "C001",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Lesi\u00f3n benigna, sin signos de infecci\u00f3n."
+  },
+  {
+   "class": "explicit_reassurance",
+   "id": "C002",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Infecci\u00f3n descartada."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C003",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Sin evidencia de infecci\u00f3n."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C004",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "No hay signos de infecci\u00f3n."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C005",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Aspecto limpio y favorable; evoluci\u00f3n habitual esperada."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C006",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Puede vigilarse en domicilio sin inconvenientes."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C007",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Bajo riesgo de complicaciones."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C008",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Hallazgos irrelevantes."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C009",
+   "label": "warning_negated",
+   "lang": "es-ES",
+   "note": "",
+   "text": "No se puede descartar infecci\u00f3n profunda."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C010",
+   "label": "warning_negated",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Sin datos que descarten necrosis."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C011",
+   "label": "warning_negated",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Esta imagen no descarta infecci\u00f3n ni confirma que sea benigna."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C012",
+   "label": "neutral",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Eritema de 3 cm con \u00falcera central y bordes mal definidos."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C013",
+   "label": "neutral",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Exudado superficial amarillento en el lecho de la herida."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C014",
+   "label": "neutral",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Costra oscura adherida en el borde inferior."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C015",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "cero ancho",
+   "text": "Lesi\u00f3n be\u200bnigna."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C016",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "guion blando",
+   "text": "Lesi\u00f3n be\u00adnigna."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C017",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "ancho completo",
+   "text": "Lesi\u00f3n \uff42\uff45\uff4e\uff49\uff47\uff4e\uff41."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C018",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "NFD",
+   "text": "Infeccio\u0301n exclui\u0301da."
+  },
+  {
+   "class": "homoglyph",
+   "id": "C019",
+   "label": "reassure",
+   "lang": "es-ES",
+   "note": "letra latina sustituida por homoglifo",
+   "text": "Lesi\u00f3n b\u0435nigna."
+  },
+  {
+   "class": "contradiction",
+   "id": "C020",
+   "label": "ambiguous",
+   "lang": "es-ES",
+   "note": "",
+   "text": "Escara negra en el tal\u00f3n; evoluci\u00f3n favorable."
+  },
+  {
+   "class": "explicit_reassurance",
+   "id": "C021",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Les\u00e3o benigna, sem sinais de infe\u00e7\u00e3o."
+  },
+  {
+   "class": "explicit_reassurance",
+   "id": "C022",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Infe\u00e7\u00e3o exclu\u00edda."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C023",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Sem evid\u00eancia de infe\u00e7\u00e3o."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C024",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Aspeto limpo e boa evolu\u00e7\u00e3o esperada."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C025",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Sem altera\u00e7\u00f5es de relevo."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C026",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Cuidados habituais em casa."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C027",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Baixo risco de complica\u00e7\u00f5es."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C028",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Achados sem relev\u00e2ncia."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C029",
+   "label": "warning_negated",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "N\u00e3o \u00e9 poss\u00edvel excluir infe\u00e7\u00e3o profunda."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C030",
+   "label": "warning_negated",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Sem dados que excluam necrose."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C031",
+   "label": "warning_negated",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Esta imagem n\u00e3o exclui infe\u00e7\u00e3o nem confirma que seja benigna."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C032",
+   "label": "neutral",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Eritema de 3 cm com \u00falcera central e bordos mal definidos."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C033",
+   "label": "neutral",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Exsudado superficial amarelado no leito da ferida."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C034",
+   "label": "neutral",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Crosta escura aderente no bordo inferior."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C035",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "cero ancho",
+   "text": "Les\u00e3o be\u200bnigna."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C036",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "guion blando",
+   "text": "Les\u00e3o be\u00adnigna."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C037",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "ancho completo",
+   "text": "Les\u00e3o \uff42\uff45\uff4e\uff49\uff47\uff4e\uff41."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C038",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "NFD",
+   "text": "Infe\u00e7\u00e3o exclui\u0301da."
+  },
+  {
+   "class": "homoglyph",
+   "id": "C039",
+   "label": "reassure",
+   "lang": "pt-PT",
+   "note": "letra latina sustituida por homoglifo",
+   "text": "Les\u00e3o b\u0435nigna."
+  },
+  {
+   "class": "contradiction",
+   "id": "C040",
+   "label": "ambiguous",
+   "lang": "pt-PT",
+   "note": "",
+   "text": "Escara negra no calcanhar; evolu\u00e7\u00e3o favor\u00e1vel."
+  },
+  {
+   "class": "explicit_reassurance",
+   "id": "C041",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Les\u00e3o benigna, sem sinais de infec\u00e7\u00e3o."
+  },
+  {
+   "class": "explicit_reassurance",
+   "id": "C042",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Infec\u00e7\u00e3o exclu\u00edda."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C043",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Sem evid\u00eancia de infec\u00e7\u00e3o."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C044",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Aspecto limpo e boa evolu\u00e7\u00e3o esperada."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C045",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Sem altera\u00e7\u00f5es relevantes."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C046",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Curativos simples em casa."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C047",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Baixo risco de complica\u00e7\u00f5es."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C048",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Achados irrelevantes."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C049",
+   "label": "warning_negated",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "N\u00e3o \u00e9 poss\u00edvel excluir infec\u00e7\u00e3o profunda."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C050",
+   "label": "warning_negated",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Sem dados que excluam necrose."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C051",
+   "label": "warning_negated",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Esta imagem n\u00e3o exclui infec\u00e7\u00e3o nem confirma que seja benigna."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C052",
+   "label": "neutral",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Eritema de 3 cm com \u00falcera central e bordas mal definidas."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C053",
+   "label": "neutral",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Secre\u00e7\u00e3o amarelada superficial no leito da ferida."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C054",
+   "label": "neutral",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Crosta escura aderida na borda inferior."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C055",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "cero ancho",
+   "text": "Les\u00e3o be\u200bnigna."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C056",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "guion blando",
+   "text": "Les\u00e3o be\u00adnigna."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C057",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "ancho completo",
+   "text": "Les\u00e3o \uff42\uff45\uff4e\uff49\uff47\uff4e\uff41."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C058",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "NFD",
+   "text": "Infec\u00e7\u00e3o exclui\u0301da."
+  },
+  {
+   "class": "homoglyph",
+   "id": "C059",
+   "label": "reassure",
+   "lang": "pt-BR",
+   "note": "letra latina sustituida por homoglifo",
+   "text": "Les\u00e3o b\u0435nigna."
+  },
+  {
+   "class": "contradiction",
+   "id": "C060",
+   "label": "ambiguous",
+   "lang": "pt-BR",
+   "note": "",
+   "text": "Escara preta no calcanhar; evolu\u00e7\u00e3o favor\u00e1vel."
+  },
+  {
+   "class": "explicit_reassurance",
+   "id": "C061",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "Benign lesion, no signs of infection."
+  },
+  {
+   "class": "explicit_reassurance",
+   "id": "C062",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "Necrotizing infection ruled out."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C063",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "Low risk lesion."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C064",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "Unremarkable skin appearance."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C065",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "No concerning features identified."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C066",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "Healing nicely."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C067",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "Benign-appearing wound."
+  },
+  {
+   "class": "implicit_paraphrase",
+   "id": "C068",
+   "label": "reassure",
+   "lang": "en",
+   "note": "",
+   "text": "Routine home care is sufficient."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C069",
+   "label": "warning_negated",
+   "lang": "en",
+   "note": "",
+   "text": "Necrotizing infection cannot be excluded."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C070",
+   "label": "warning_negated",
+   "lang": "en",
+   "note": "",
+   "text": "Cannot rule out deep infection."
+  },
+  {
+   "class": "negated_warning",
+   "id": "C071",
+   "label": "warning_negated",
+   "lang": "en",
+   "note": "",
+   "text": "This image does not exclude infection nor confirm the lesion is benign."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C072",
+   "label": "neutral",
+   "lang": "en",
+   "note": "",
+   "text": "Erythema 3 cm with central ulcer and ill-defined borders."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C073",
+   "label": "neutral",
+   "lang": "en",
+   "note": "",
+   "text": "Yellowish superficial material in the wound bed."
+  },
+  {
+   "class": "neutral_descriptive",
+   "id": "C074",
+   "label": "neutral",
+   "lang": "en",
+   "note": "",
+   "text": "Dark adherent crust on the lower border."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C075",
+   "label": "reassure",
+   "lang": "en",
+   "note": "cero ancho",
+   "text": "Be\u200bnign lesion."
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C076",
+   "label": "reassure",
+   "lang": "en",
+   "note": "guion blando",
+   "text": "be\u00adnign lesion"
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C077",
+   "label": "reassure",
+   "lang": "en",
+   "note": "ancho completo",
+   "text": "\uff42\uff45\uff4e\uff49\uff47\uff4e lesion"
+  },
+  {
+   "class": "unicode_variant",
+   "id": "C078",
+   "label": "reassure",
+   "lang": "en",
+   "note": "NFD en palabra no inglesa: control de normalizaci\u00f3n",
+   "text": "Infectio\u0301n ruled out."
+  },
+  {
+   "class": "homoglyph",
+   "id": "C079",
+   "label": "reassure",
+   "lang": "en",
+   "note": "letra latina sustituida por homoglifo",
+   "text": "B\u0435nign lesion."
+  },
+  {
+   "class": "contradiction",
+   "id": "C080",
+   "label": "ambiguous",
+   "lang": "en",
+   "note": "",
+   "text": "Black eschar on the heel; favourable evolution."
+  }
+ ],
+ "classes": [
+  "explicit_reassurance",
+  "implicit_paraphrase",
+  "negated_warning",
+  "neutral_descriptive",
+  "unicode_variant",
+  "homoglyph",
+  "contradiction"
+ ],
+ "clinical_status": "CLINICALLY_PENDING",
+ "corpus_id": "R8-REASSURANCE-SYNTHETIC-CORPUS",
+ "frozen": true,
+ "labels": {
+  "ambiguous": "requiere revisi\u00f3n humana; fuera de FN/FP",
+  "neutral": "descripci\u00f3n neutra; no deber\u00eda interceptarse",
+  "reassure": "deber\u00eda interceptarse",
+  "warning_negated": "advertencia leg\u00edtima; no deber\u00eda interceptarse"
+ },
+ "languages": [
+  "es-ES",
+  "pt-PT",
+  "pt-BR",
+  "en"
+ ],
+ "notice": "Texto 100 % sint\u00e9tico escrito por ingenier\u00eda. Las etiquetas son de construcci\u00f3n, NO adjudicaci\u00f3n m\u00e9dica; no estiman sensibilidad ni especificidad cl\u00ednica. Sirve para medir regresiones t\u00e9cnicas del filtro vigente y como base para una adjudicaci\u00f3n ciega futura.",
+ "status": "UNADJUDICATED_ENGINEERING_DRAFT",
+ "version": "v0"
+}

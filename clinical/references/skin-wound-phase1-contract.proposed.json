@@ -1,0 +1,442 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "emergency:skin-wound-phase1-contract:proposed-0.1",
+ "title": "Skin/wound photograph · Phase 1 descriptive output (PROPOSED, INACTIVE)",
+ "x-status": "PROPOSED_INACTIVE",
+ "x-notice": "Borrador técnico derivado de la propuesta Gemini v1.3. No está conectado al producto, no sustituye la salida libre actual y no tiene aprobación médica (DEC-CLIN-R7-03 y DEC-CLIN-R7-06 pendientes). CLINICALLY_PENDING.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "contract_version",
+  "modality",
+  "observations",
+  "abstention",
+  "provenance",
+  "human_review_reasons"
+ ],
+ "properties": {
+  "contract_version": {
+   "const": "phase1-0.1-proposed"
+  },
+  "modality": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "kind_effective",
+    "kind_source",
+    "modality_verification",
+    "kind_discordance"
+   ],
+   "properties": {
+    "kind_explicit": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Categoría enviada por el cliente, si la hay."
+    },
+    "kind_inferred": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Categoría inferida (nombre o contenedor), si la hay."
+    },
+    "kind_effective": {
+     "type": "string"
+    },
+    "kind_source": {
+     "enum": [
+      "explicit",
+      "inferred_from_filename",
+      "inferred_from_container",
+      "default_unclassified"
+     ]
+    },
+    "modality_verification": {
+     "enum": [
+      "not_verified",
+      "metadata_consistent",
+      "classifier_verified"
+     ],
+     "description": "not_verified es el único valor alcanzable hoy; classifier_verified exige un sistema adicional no existente."
+    },
+    "kind_discordance": {
+     "enum": [
+      "none",
+      "explicit_vs_inferred",
+      "name_hint_conflicts_with_effective",
+      "unknown"
+     ]
+    }
+   }
+  },
+  "observations": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "chromatic_alteration",
+    "exudate_compatible_surface_material",
+    "necrotic_appearing_tissue",
+    "visible_edge_separation",
+    "apparent_deep_structure_exposure"
+   ],
+   "properties": {
+    "chromatic_alteration": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "state"
+     ],
+     "description": "Cambio visible de coloración perilesional.",
+     "properties": {
+      "state": {
+       "enum": [
+        "observable",
+        "not_observable",
+        "uncertain",
+        "not_assessable"
+       ]
+      },
+      "uncertainty_causes": {
+       "type": "array",
+       "uniqueItems": true,
+       "items": {
+        "enum": [
+         "no_physical_scale",
+         "lighting_tint",
+         "shadow",
+         "prior_pigmentation",
+         "topical_product",
+         "dressing_residue",
+         "blood_clot",
+         "overexposure",
+         "oblique_angle",
+         "occlusion",
+         "other"
+        ]
+       }
+      }
+     },
+     "allOf": [
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "uncertain"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "uncertainty_causes"
+        ],
+        "properties": {
+         "uncertainty_causes": {
+          "minItems": 1
+         }
+        }
+       }
+      }
+     ]
+    },
+    "exudate_compatible_surface_material": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "state"
+     ],
+     "description": "Material superficial visualmente compatible con exudado.",
+     "properties": {
+      "state": {
+       "enum": [
+        "observable",
+        "not_observable",
+        "uncertain",
+        "not_assessable"
+       ]
+      },
+      "uncertainty_causes": {
+       "type": "array",
+       "uniqueItems": true,
+       "items": {
+        "enum": [
+         "no_physical_scale",
+         "lighting_tint",
+         "shadow",
+         "prior_pigmentation",
+         "topical_product",
+         "dressing_residue",
+         "blood_clot",
+         "overexposure",
+         "oblique_angle",
+         "occlusion",
+         "other"
+        ]
+       }
+      }
+     },
+     "allOf": [
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "uncertain"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "uncertainty_causes"
+        ],
+        "properties": {
+         "uncertainty_causes": {
+          "minItems": 1
+         }
+        }
+       }
+      }
+     ]
+    },
+    "necrotic_appearing_tissue": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "state"
+     ],
+     "description": "Área superficial de aspecto necrótico.",
+     "properties": {
+      "state": {
+       "enum": [
+        "observable",
+        "not_observable",
+        "uncertain",
+        "not_assessable"
+       ]
+      },
+      "uncertainty_causes": {
+       "type": "array",
+       "uniqueItems": true,
+       "items": {
+        "enum": [
+         "no_physical_scale",
+         "lighting_tint",
+         "shadow",
+         "prior_pigmentation",
+         "topical_product",
+         "dressing_residue",
+         "blood_clot",
+         "overexposure",
+         "oblique_angle",
+         "occlusion",
+         "other"
+        ]
+       }
+      }
+     },
+     "allOf": [
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "uncertain"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "uncertainty_causes"
+        ],
+        "properties": {
+         "uncertainty_causes": {
+          "minItems": 1
+         }
+        }
+       }
+      }
+     ]
+    },
+    "visible_edge_separation": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "state"
+     ],
+     "description": "Separación visible de bordes en herida con indicios de cierre previo.",
+     "properties": {
+      "state": {
+       "enum": [
+        "observable",
+        "not_observable",
+        "uncertain",
+        "not_assessable"
+       ]
+      },
+      "uncertainty_causes": {
+       "type": "array",
+       "uniqueItems": true,
+       "items": {
+        "enum": [
+         "no_physical_scale",
+         "lighting_tint",
+         "shadow",
+         "prior_pigmentation",
+         "topical_product",
+         "dressing_residue",
+         "blood_clot",
+         "overexposure",
+         "oblique_angle",
+         "occlusion",
+         "other"
+        ]
+       }
+      }
+     },
+     "allOf": [
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "uncertain"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "uncertainty_causes"
+        ],
+        "properties": {
+         "uncertainty_causes": {
+          "minItems": 1
+         }
+        }
+       }
+      }
+     ]
+    },
+    "apparent_deep_structure_exposure": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "state"
+     ],
+     "description": "Exposición aparente de estructuras profundas.",
+     "properties": {
+      "state": {
+       "enum": [
+        "observable",
+        "not_observable",
+        "uncertain",
+        "not_assessable"
+       ]
+      },
+      "uncertainty_causes": {
+       "type": "array",
+       "uniqueItems": true,
+       "items": {
+        "enum": [
+         "no_physical_scale",
+         "lighting_tint",
+         "shadow",
+         "prior_pigmentation",
+         "topical_product",
+         "dressing_residue",
+         "blood_clot",
+         "overexposure",
+         "oblique_angle",
+         "occlusion",
+         "other"
+        ]
+       }
+      }
+     },
+     "allOf": [
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "uncertain"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "uncertainty_causes"
+        ],
+        "properties": {
+         "uncertainty_causes": {
+          "minItems": 1
+         }
+        }
+       }
+      }
+     ]
+    }
+   }
+  },
+  "abstention": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "decision",
+    "reason_codes"
+   ],
+   "properties": {
+    "decision": {
+     "enum": [
+      "none",
+      "abstain_modality_doubt",
+      "abstain_quality",
+      "abstain_provider",
+      "abstain_contradiction"
+     ]
+    },
+    "reason_codes": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "provenance": {
+   "enum": [
+    "provider_structured",
+    "clinician_entry"
+   ]
+  },
+  "human_review_reasons": {
+   "type": "array",
+   "uniqueItems": true,
+   "items": {
+    "enum": [
+     "modality_not_verified",
+     "category_inferred",
+     "category_discordant",
+     "quality_limited",
+     "provider_abstained",
+     "contradiction_detected",
+     "phase1_clause_required"
+    ]
+   }
+  },
+  "fixed_clause_id": {
+   "const": "phase1-anti-exclusion-v0",
+   "description": "Identificador del texto fijo que aplica la interfaz; el texto nunca lo genera el modelo."
+  }
+ },
+ "x-fixed-clause": {
+  "id": "phase1-anti-exclusion-v0",
+  "status": "DRAFT_PENDING_MEDICAL_WORDING",
+  "applied_by": "interface",
+  "es": "No se describen los signos superficiales preespecificados en esta fotografía; una imagen aislada no descarta infección profunda, isquemia, lesión de estructuras internas ni sustituye la exploración médica presencial.",
+  "pt-PT": null,
+  "pt-BR": null,
+  "en": null,
+  "note": "El texto en español es la redacción propuesta en R7-CONCILIACION-METODOLOGICA v1.2 (Gemini), sin aprobar. Las demás lenguas requieren redacción médica nativa; no se traducen automáticamente."
+ },
+ "x-phase2": {
+  "status": "BLOCKED",
+  "note": "La clasificación de signos de alarma o priorización no forma parte de este contrato. additionalProperties=false impide añadirla."
+ }
+}
