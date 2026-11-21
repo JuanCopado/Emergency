@@ -1,0 +1,31 @@
+{
+  "family": "Emergency CJK",
+  "source_family": "Noto Sans SC",
+  "upstream_release": "Sans2.004",
+  "upstream_commit": "523d033d6cb47f4a80c58a35753646f5c3608a78",
+  "source_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/523d033d6cb47f4a80c58a35753646f5c3608a78/Sans/Variable/TTF/Subset/NotoSansSC-VF.ttf",
+  "source_git_blob": "5371a543be5fc670c7cdee9760c03554ee3e9b8e",
+  "source_sha256": "d68bafcb48a2707749396aa12bbbd833cb70401f3a9a689fd2902c7e0d295964",
+  "license_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/523d033d6cb47f4a80c58a35753646f5c3608a78/LICENSE",
+  "license_git_blob": "d952d62c065f3f35fb83a173496e90b21525aef3",
+  "license_sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+  "preparation": {
+    "fonttools": "4.68.0",
+    "fonttools_wheel_sha256": "d76f8fdcb6936f5e1045a0c9dd721a4bf11112e60d1e243bfa1d39f06a8b3104",
+    "script": "build_noto_instances.py",
+    "recalculate_timestamp": false,
+    "renamed_family": true
+  },
+  "files": {
+    "EmergencyCJK-Regular.ttf": {
+      "weight": 400,
+      "sha256": "5535df93c9006d7323c36d85cf02f64f92c7be38f24642a8337b006990f58853",
+      "bytes": 10596268
+    },
+    "EmergencyCJK-Bold.ttf": {
+      "weight": 700,
+      "sha256": "764af923d9761aa47acaea5089743278e3ceab7c4f284f9ebddca541e0afcd60",
+      "bytes": 10585784
+    }
+  }
+}

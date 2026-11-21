@@ -1,6 +1,8 @@
 """Localization of presentation copy preserves clinical output and entered text."""
 from copy import deepcopy
 import sys
+import json
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
@@ -9,7 +11,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / 'scripts'), str(ROOT / 'tests')]
 from clinical_note_diagnostic_engine import analyze
-from clinical_note_exporter import note_to_sections, export_docx, export_pdf
+from clinical_note_exporter import note_to_sections, export_docx, export_pdf, export_sections_pdf
 from run_clinical_note_diagnostic_cases import build
 
 LANGUAGES = {
@@ -61,13 +63,33 @@ class NoteLanguage(unittest.TestCase):
                 self.assertIn(sections[0][0], xml)
                 self.assertIn('QA synthetic &lt;unchanged&gt; 7.4 mg', xml)
                 pdf = Path(tmp) / 'note.pdf'
-                if language == 'zh':
-                    with self.assertRaisesRegex(ValueError, 'PDF font does not support Unicode'):
-                        export_pdf(note, pdf)
-                    self.assertFalse(pdf.exists())
-                else:
-                    export_pdf(note, pdf)
-                    self.assertTrue(pdf.read_bytes().startswith(b'%PDF-'))
+                export_pdf(note, pdf)
+                self.assertTrue(pdf.read_bytes().startswith(b'%PDF-'))
+
+
+    def test_cjk_pdf_preserves_text_and_embeds_both_fonts(self):
+        from pypdf import PdfReader
+        text = '患者记录：恶心，血压 120/80 mmHg；剂量 300 mg；FiO₂ 0.21。'
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / 'cjk.pdf'
+            export_sections_pdf([('临床记录', [text])], target)
+            reader = PdfReader(target)
+            extracted = ''.join(page.extract_text() for page in reader.pages)
+            self.assertIn(text, extracted)
+            fonts = [font.get_object() for page in reader.pages
+                     for font in page['/Resources']['/Font'].get_object().values()]
+            embedded = [font for font in fonts if font.get('/FontDescriptor')
+                        and font['/FontDescriptor'].get_object().get('/FontFile2')]
+            self.assertGreaterEqual(len(embedded), 2)
+            with self.assertRaisesRegex(ValueError, r'U\+10FFFF'):
+                export_sections_pdf([('Unsupported', ['\U0010ffff'])], Path(tmp) / 'bad.pdf')
+            self.assertFalse((Path(tmp) / 'bad.pdf').exists())
+
+    def test_cjk_font_assets_match_provenance_manifest(self):
+        root = ROOT / 'assets' / 'fonts'
+        manifest = json.loads((root / 'noto-cjk-manifest.json').read_text(encoding='utf-8'))
+        for name, metadata in manifest['files'].items():
+            self.assertEqual(hashlib.sha256((root / name).read_bytes()).hexdigest(), metadata['sha256'])
 
 
 if __name__ == '__main__':

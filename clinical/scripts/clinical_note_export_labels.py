@@ -84,4 +84,3 @@ EXPORT_TRANSLATIONS = {
 
 def export_label(language, text):
     return EXPORT_TRANSLATIONS.get(text, {}).get(language, text)
-

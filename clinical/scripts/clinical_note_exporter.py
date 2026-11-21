@@ -5,6 +5,7 @@ import html
 import io
 import json
 import zipfile
+from itertools import groupby
 from pathlib import Path
 from functools import lru_cache, partial
 from datetime import datetime, timezone
@@ -363,14 +364,18 @@ def export_sections_docx(sections, out_path):
         z.writestr("docProps/core.xml",core); z.writestr("docProps/app.xml",app)
     return str(out)
 
-@lru_cache(maxsize=1)
-def _pdf_fonts():
+@lru_cache(maxsize=2)
+def _pdf_fonts(cjk=False):
     from reportlab.pdfbase import pdfmetrics
     from reportlab.pdfbase.ttfonts import TTFont
     root = Path(__file__).parents[1] / "assets" / "fonts"
     fonts = {}
-    for name, filename in (("EmergencySans", "DejaVuSans.ttf"),
-                           ("EmergencySansBold", "DejaVuSans-Bold.ttf")):
+    entries = (("EmergencySans", "DejaVuSans.ttf"),
+               ("EmergencySansBold", "DejaVuSans-Bold.ttf"))
+    if cjk:
+        entries = (("EmergencyCJK", "EmergencyCJK-Regular.ttf"),
+                   ("EmergencyCJKBold", "EmergencyCJK-Bold.ttf"))
+    for name, filename in entries:
         font = TTFont(name, str(root / filename))
         pdfmetrics.registerFont(font)
         fonts[name] = font
@@ -383,6 +388,18 @@ def export_pdf(note, out_path):
         raise ValueError("export blocked: " + " | ".join(
             x["message"] for x in gate["findings"] if x["severity"] == "STOP"))
     return export_sections_pdf(note_to_sections(note), out_path)
+
+
+
+def _pdf_mixed_text(text, primary_glyphs, fallback):
+    runs = []
+    for supported, characters in groupby(text, key=lambda ch: bool(primary_glyphs.get(ord(ch)))):
+        escaped = html.escape("".join(characters))
+        if supported:
+            runs.append(escaped)
+        else:
+            runs.append(f'<font name="{fallback}">{escaped}</font>')
+    return "".join(runs)
 
 
 def export_sections_pdf(sections, out_path):
@@ -405,13 +422,24 @@ def export_sections_pdf(sections, out_path):
             style = styles[kind]
             glyphs = fonts[style.fontName].face.charToGlyph
             missing = sorted({ord(ch) for ch in text if ch not in "\n\r\t" and not glyphs.get(ord(ch))})
+            fallback = None
+            primary_glyphs = glyphs
             if missing:
-                codes = ", ".join(f"U+{cp:04X}" for cp in missing)
-                raise ValueError("PDF font does not support Unicode code points: " + codes)
+                fallback = "EmergencyCJKBold" if kind in {"title", "heading"} else "EmergencyCJK"
+                glyphs = _pdf_fonts(cjk=True)[fallback].face.charToGlyph
+                missing = [code for code in missing if not glyphs.get(code)]
+                if missing:
+                    codes = ", ".join(f"U+{cp:04X}" for cp in missing)
+                    raise ValueError("PDF font does not support Unicode code points: " + codes)
+                style = ParagraphStyle(style.name + "CJK", parent=style, wordWrap="CJK")
             # Escape user text before ReportLab's paragraph markup; never reinterpret it.
             for line in text.splitlines() or [""]:
                 if line:
-                    story.append(Paragraph(html.escape(line.replace("\t", "    ")), style))
+                    line = line.replace("\t", "    ")
+                    markup = html.escape(line)
+                    if fallback:
+                        markup = _pdf_mixed_text(line, primary_glyphs, fallback)
+                    story.append(Paragraph(markup, style))
                 else:
                     story.append(Spacer(1, style.leading))
     buffer = io.BytesIO()
