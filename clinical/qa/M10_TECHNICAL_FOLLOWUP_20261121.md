@@ -15,7 +15,7 @@ La PR51 original (c040a172) divergía de la integración (4aa2d397) con ancestro
 
 Una respuesta simulada de fotografía de piel podía incluir una frase de tranquilidad en las limitaciones. En la vía «ok» el adaptador mantenía la interpretación. En la abstención también se mostraba la frase. El filtro ahora revisa cada limitación del proveedor en ambos estados, elimina los elementos reconocidos y presenta el aviso local de abstención. Los motivos seguros independientes se conservan. Una abstención con todos sus motivos seguros conserva exactamente los motivos y las banderas originales. Las pruebas cubren también el intento de aceptar la propuesta sin revisión. La regla lingüística mantiene su cobertura parcial y puede marcar expresiones de precaución. La prueba utiliza un PNG sintético y un proveedor simulado. Estado global `CLINICALLY_PENDING`.
 
-Las 59 pruebas focales de M10 pasaron en Windows, incluidas las dos regresiones añadidas.
+La primera revisión pasó 59 pruebas focales en Windows. Claude Code observó que las etiquetas de procedencia y las frases que ocupan varios motivos también llegan a la tarjeta de revisión. El adaptador sustituye una etiqueta reconocida por su valor técnico genérico, se abstiene y conserva la otra etiqueta cuando es válida. Revisa asimismo el texto conjunto de los motivos y retira sólo los elementos afectados. Las 62 pruebas focales de la segunda revisión pasaron en Windows. Se conservan el límite de 128 caracteres y el requisito de etiquetas imprimibles.
 
 ## Verificación anterior
 

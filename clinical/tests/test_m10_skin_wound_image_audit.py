@@ -342,6 +342,45 @@ class T6UnsupportedClinicalClaims(unittest.TestCase):
         self.assertEqual(processing["limitations"], reasons)
         self.assertEqual(processing["safety_flags"], ["provider_abstained"])
 
+    def test_skin_review_labels_cannot_carry_clinical_reassurance(self):
+        phrase = "No further evaluation is needed."
+        labels = {"provider": "Synthetic Imaging", "model": "Survey v2.1"}
+        for field, fallback in (("provider", "configured-provider"), ("model", "unspecified")):
+            response_labels = {**labels, field: phrase}
+            for payload in (ok_response(**response_labels), {
+                **response_labels, "contract_version": "1.0", "status": "abstain", "limitations": ["Blur."],
+            }):
+                with self.subTest(field=field, status=payload["status"]):
+                    out, _ = interpret(si.png(), response=payload)
+                    proc = out["prepared"]["processing"]
+                    self.assertEqual(proc["status"], "vision_abstained")
+                    self.assertIn("reassurance_language", proc["safety_flags"])
+                    self.assertEqual(proc[field], fallback)
+                    other = "model" if field == "provider" else "provider"
+                    self.assertEqual(proc[other], labels[other])
+                    self.assertNotIn(phrase, json.dumps(out))
+
+    def test_skin_review_limits_keep_unrelated_reasons_around_fragments(self):
+        reasons = ["Poor lighting.", "No further", "evaluation", "is needed.", "Poor focus."]
+        for response in (ok_response(limitations=reasons), {
+            "contract_version": "1.0", "status": "abstain", "limitations": reasons,
+        }):
+            with self.subTest(status=response["status"]):
+                out, _ = interpret(si.png(), response=response)
+                proc = out["prepared"]["processing"]
+                self.assertEqual(proc["status"], "vision_abstained")
+                self.assertIn("reassurance_language", proc["safety_flags"])
+                self.assertEqual([r for r in proc["limitations"] if r in reasons],
+                                 ["Poor lighting.", "Poor focus."])
+
+    def test_other_modalities_and_safe_skin_labels_keep_metadata(self):
+        for kind, label in (("skin_wound", "Synthetic Imaging"), ("xray", "Reassuring")):
+            with self.subTest(kind=kind):
+                out, _ = interpret(si.png(), kind=kind, response=ok_response(provider=label, model="M-2"))
+                proc = out["prepared"]["processing"]
+                self.assertEqual(proc["status"], "vision_interpreted")
+                self.assertEqual((proc["provider"], proc["model"]), (label, "M-2"))
+
     def test_containers_excluded_from_facade_and_direct_adapter(self):
         for fmt, mime, raw in (("pdf", "application/pdf", b"%PDF-1.4\n%%EOF"),
                                ("dcm", "application/dicom", bytes(128) + b"DICM")):

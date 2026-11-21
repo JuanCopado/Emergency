@@ -85,6 +85,23 @@ _REASSURANCE = re.compile(
     r"n[aã]o (?:necessita de |precisa de |requer )(?:mais |nova )?avalia[cç][aã]o)\b", re.IGNORECASE)
 
 
+def _safe_skin_wound_reasons(reasons):
+    """Remove only provider entries overlapping recognized wording, including across entries."""
+    parts = [(index, " ".join(reason.split())) for index, reason in enumerate(reasons) if reason.strip()]
+    matches = iter(_REASSURANCE.finditer(" ".join(text for _, text in parts)))
+    match = next(matches, None)
+    flagged = set()
+    start = 0
+    for index, part in parts:
+        end = start + len(part)
+        while match and match.end() <= start:
+            match = next(matches, None)
+        if match and match.start() < end:
+            flagged.add(index)
+        start = end + 1
+    return [reason for index, reason in enumerate(reasons) if index not in flagged]
+
+
 def _skin_wound_guard(normalized):
     """Fail-safe post-processing for skin_wound output (no clinical judgement added).
 
@@ -96,8 +113,12 @@ def _skin_wound_guard(normalized):
                     ("ai_interpretation", "findings", "impression"))
     flags = list(normalized.get("safety_flags") or [])
     provider_limitations = normalized["limitations"]
-    limitations = [reason for reason in provider_limitations if not _REASSURANCE.search(reason)]
+    limitations = _safe_skin_wound_reasons(provider_limitations)
     removed_reassurance = len(limitations) != len(provider_limitations)
+    for label, fallback in (("provider", "configured-provider"), ("model", "unspecified")):
+        if _REASSURANCE.search(" ".join(normalized[label].split())):
+            normalized[label] = fallback
+            removed_reassurance = True
     if normalized.get("abstained") and not removed_reassurance:
         return normalized
     if removed_reassurance or _REASSURANCE.search(text):
