@@ -35,3 +35,7 @@ Computer Use detectó entrada humana y bloqueó el control. La revisión automá
 Publicar el candidato compuesto en PR de desarrollo, verificar su CI, Sonar, Semgrep y Trivy, incorporar únicamente los deltas técnicos aptos y comprobar de nuevo el commit resultante. El recibo final debe identificar por separado el HEAD de PR y el merge. Las salidas y hashes de las ejecuciones se conservan en el expediente externo R5 y los checks de GitHub.
 
 Los módulos padre de nota e imagen permanecen YELLOW. La autorización silenciosa SCA v1 continúa vigente en su alcance original. G05 global abierto y ausencia de evidencia clínica independiente impiden un dictamen de liberación asistencial.
+
+## Seguimiento de QA de PR61
+
+El [registro de QA nativa](../../clinical/qa/PR61_NATIVE_PDF_NARRATOR_QA_20261121.md) incorpora PDF Edge de cuatro páginas y cotejo de Narrador aportado por el usuario sobre b5918ffa. Incluye R2, JSON original, audio, capturas y huellas. Permanecen los límites literales de unidades/comparador y la revisión gráfica pendiente fuera de esos casos. CLINICALLY_PENDING.

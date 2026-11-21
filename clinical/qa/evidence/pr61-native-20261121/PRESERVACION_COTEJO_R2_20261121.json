@@ -1,0 +1,33 @@
+{
+  "clinical_status": "CLINICALLY_PENDING",
+  "source": "C:\\Users\\juanc\\Downloads\\PR61-cotejo-CURB65-2026-11-21T18-58-59-392Z.json",
+  "source_sha256": "cb7ebba8de34d8248420e8ed17df0d43fdaaca9e75be3a18341f9070a3b393cd",
+  "copy_sha256": "cb7ebba8de34d8248420e8ed17df0d43fdaaca9e75be3a18341f9070a3b393cd",
+  "report_sha256": "63f5a3db33f136d521ec63ebe8e288020fbdafc1a47f726293042b050103d1c0",
+  "prior_evidence": {
+    "COTEJO_ACUSTICO.md": true,
+    "CURB65-Narrador-toma2.wav": true,
+    "CURB65-Narrador.wav": true,
+    "CURB65-pantalla.png": true,
+    "Narrador-CURB65.png": true,
+    "PDF-cuatro-paginas.png": true,
+    "PR61-amiodarona-Edge.pdf": true,
+    "recibo.json": true,
+    "transcripcion-es.txt": true,
+    "transcripcion-pt.txt": true,
+    "01-urea.wav": true,
+    "02-frecuencia-respiratoria.wav": true,
+    "03-presion-sistolica.wav": true,
+    "04-presion-diastolica.wav": true,
+    "05-edad.wav": true
+  },
+  "archives_matched": 95,
+  "user_results_match": 5,
+  "numeric_values_match": 5,
+  "literal_units_notes": [
+    "mm/l frente a mmol/L",
+    "min frente a /min",
+    "mmhg frente a mmHg"
+  ],
+  "checked_at_utc": "2026-11-21T18:59:55.099259+00:00"
+}

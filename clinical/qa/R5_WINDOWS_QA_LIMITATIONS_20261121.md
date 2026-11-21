@@ -33,3 +33,7 @@ Las filas R4 no son nuevas ejecuciones en R5. Se compararon objetos Git del cand
 | Narrador | Actividad sonora del proceso medida anteriormente, sin transcribir. | BLOCKED: falta capturar y comparar palabras y unidades literalmente con la pantalla en una sesión aislada; nombres accesibles y niveles de audio no prueban lectura literal. |
 
 Capturas y logs previos: C:/Users/juanc/AppData/Local/Emergency-R4-Work-20261121-1795268517047/qa/r4-final y C:/Users/juanc/Downloads/Emergency-R4-formato-idioma-20261121. No hubo pruebas gráficas nuevas de producto ni grabación R5 durante esta tarea. El usuario utilizaba Edge y Computer Use detectó su entrada; interfaz liberada para coordinación. No se emplearon datos de pacientes.
+
+## Seguimiento posterior del HEAD de PR61
+
+El [registro de PDF nativo y Narrador](PR61_NATIVE_PDF_NARRATOR_QA_20261121.md) incorpora una nueva ejecución en b5918ffa, el informe R2 y cinco coincidencias declaradas por el usuario. Documenta la precisión literal pendiente de las unidades y del comparador. Las limitaciones anteriores describen el corte original. CLINICALLY_PENDING.

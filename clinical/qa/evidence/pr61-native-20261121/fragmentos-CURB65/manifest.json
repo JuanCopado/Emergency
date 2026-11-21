@@ -1,0 +1,79 @@
+{
+  "pr": 61,
+  "commit": "b5918ffa42cced3befa5674e40af43adc197acd2",
+  "clinical_status": "CLINICALLY_PENDING",
+  "original": "CURB65-Narrador-toma2.wav",
+  "original_sha256": "aab02bd4a8bca18b3c2f664d0c205c7c500b75015c2070c95915c1897bbed509",
+  "fragmentos": [
+    {
+      "file": "01-urea.wav",
+      "campo": "Urea",
+      "unidad": "mmol/L",
+      "valor": "6",
+      "desde_segundos": 3.3,
+      "hasta_segundos": 12.3,
+      "duracion_segundos": 9.0,
+      "sha256": "252e79f596c8f15200c3e1e9ee46fd7f5a5e7a612d36e7b574ac9964d7059ef4",
+      "pcm_copiado_sin_modificar": true
+    },
+    {
+      "file": "02-frecuencia-respiratoria.wav",
+      "campo": "Frecuencia respiratoria",
+      "unidad": "/min",
+      "valor": "18",
+      "desde_segundos": 22.7,
+      "hasta_segundos": 34.5,
+      "duracion_segundos": 11.8,
+      "sha256": "8378a75235917a0bc8332332aea7347eeb570581be032d016eca87d3a72de14d",
+      "pcm_copiado_sin_modificar": true
+    },
+    {
+      "file": "03-presion-sistolica.wav",
+      "campo": "Presión sistólica",
+      "unidad": "mmHg",
+      "valor": "120",
+      "desde_segundos": 38.7,
+      "hasta_segundos": 51.5,
+      "duracion_segundos": 12.8,
+      "sha256": "99b8f4e9961fa628076fda7fc32ff16a646c00c14dd467753e6a30ecc378e4f8",
+      "pcm_copiado_sin_modificar": true
+    },
+    {
+      "file": "04-presion-diastolica.wav",
+      "campo": "Presión diastólica",
+      "unidad": "mmHg",
+      "valor": "75",
+      "desde_segundos": 54.8,
+      "hasta_segundos": 68.2,
+      "duracion_segundos": 13.4,
+      "sha256": "9d9e0bb78ddf31d8d361e23d5e108734550799441738e4d78e75d1282659748f",
+      "pcm_copiado_sin_modificar": true
+    },
+    {
+      "file": "05-edad.wav",
+      "campo": "Edad",
+      "unidad": "años",
+      "valor": "55",
+      "desde_segundos": 70.9,
+      "hasta_segundos": 84.0,
+      "duracion_segundos": 13.1,
+      "sha256": "c4c06a0ac158b013682e3d341eac97455e6f22078056e9df99f5ecfb119ffb14",
+      "pcm_copiado_sin_modificar": true
+    }
+  ],
+  "archivos_previos_sha256": {
+    "COTEJO_ACUSTICO.md": "659095340ab5b0dace5c1db7f886d7bb19a8abe4a88aec2003a6010ce37aadba",
+    "CURB65-Narrador-toma2.wav": "aab02bd4a8bca18b3c2f664d0c205c7c500b75015c2070c95915c1897bbed509",
+    "CURB65-Narrador.wav": "808f882b2e013517cd1342a10025ff68174cd832b0ae0274cfe629a30435f3a7",
+    "CURB65-pantalla.png": "b7fbc50722bf213d632fc635aefab631aa745728e342c3a9efa1d68144d0dd15",
+    "Narrador-CURB65.png": "c83cd141a2f9486236d3213532142c5d5c4d1f93a1df0943dcae5379148e0047",
+    "PDF-cuatro-paginas.png": "110b45cc2ade8ccddcd97f47a71e985c6fa737576ef34a484f169a96e694fa45",
+    "PR61-amiodarona-Edge.pdf": "3ab0cdb8cecb8e7b17ed7f425988a4fb1f275ba3a3bdd578579346ae54df4dee",
+    "recibo.json": "3e9f2d43135566cfddfc11a9b308c723a0b7ff16975b08297a2ff561abb6caa6",
+    "transcripcion-es.txt": "e080292d34084d38e44f44ac2e7df1f3d42726fd3f90752e9e1c91424782c848",
+    "transcripcion-pt.txt": "7153f70d3e16dd174e8a892c6828234d00ef0c6de88e9be5b57b153c3e30849b"
+  },
+  "zips_verificados": 95,
+  "criterio_pantalla": "Requerido · Número finito ≥ 0",
+  "resultado_cotejo_humano": "PENDIENTE"
+}
