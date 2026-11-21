@@ -219,6 +219,7 @@ class RuleObservation(NamedTuple):
     denied: list
     uncertain: list
     weighted_uncertainty: list
+    unconfirmed_points: int
 
 
 def _trigger_mentions(trigger, text, historical_text):
@@ -233,6 +234,7 @@ def _trigger_mentions(trigger, text, historical_text):
 
 def _rule_score(rule,text,signals,historical_text=None):
     score=0; evidence=[]; denied=[]; uncertain=[]; weighted_uncertainty=[]
+    unconfirmed_points = 0
     signal_names={x[0] for x in signals}
     signal_labels={x[0]:x[2] for x in signals}
     for trig in rule.get("triggers",[]):
@@ -247,8 +249,9 @@ def _rule_score(rule,text,signals,historical_text=None):
                 score += int(trig.get("weight",1))
             if mentions["present"]:
                 evidence.append(trig.get("label") or "hallazgo textual")
-            else:
+            elif mentions["unconfirmed_match"]:
                 weighted_uncertainty.extend(mentions["unconfirmed_match"])
+                unconfirmed_points += int(trig.get("weight", 1))
         elif t=="signal":
             if trig.get("signal") in signal_names:
                 score += int(trig.get("weight",1))
@@ -264,12 +267,26 @@ def _rule_score(rule,text,signals,historical_text=None):
         name="fever" if "fever" in signal_names else "hypothermia"
         score+=1; evidence.append(signal_labels[name])
     return RuleObservation(score if evidence else 0, list(dict.fromkeys(evidence)), list(dict.fromkeys(denied)),
-                           list(dict.fromkeys(uncertain)), list(dict.fromkeys(weighted_uncertainty)) if evidence else [])
+                           list(dict.fromkeys(uncertain)), list(dict.fromkeys(weighted_uncertainty)) if evidence else [],
+                           unconfirmed_points if evidence else 0)
 
 def _confidence(score, thresholds):
     if score>=thresholds["high"]["minimum_score"]: return "high"
     if score>=thresholds["moderate"]["minimum_score"]: return "moderate"
     return "low"
+
+def _score_attribution(observation, thresholds):
+    if not observation.weighted_uncertainty:
+        return {}
+    remaining = observation.score - observation.unconfirmed_points
+    return {
+        "weighted_uncertainty": observation.weighted_uncertainty,
+        "score_basis": {
+            "remaining_points": remaining,
+            "unconfirmed_points": observation.unconfirmed_points,
+            "category_depends_on_unconfirmed": _confidence(remaining, thresholds) != _confidence(observation.score, thresholds),
+        },
+    }
 
 def _resolve_rule(rules,rule_id):
     for r in rules["syndromes"]:
@@ -294,7 +311,7 @@ def _documented_discriminants(note):
         documented["ECG"] = "ECG: relatório oficial registado; verificar conteúdo e adequação."
     return documented
 
-def _candidate(rule,score,evidence,confidence,relation_note=None,*,observation=None,documented=None):
+def _candidate(rule,score,evidence,confidence,relation_note=None,*,observation=None,documented=None,attribution=None):
     documented = documented or {}
     missing = [documented.get(item, item) for item in rule.get("missing_if_absent", [])]
     missing = [item for item in missing if item is not None]
@@ -305,8 +322,7 @@ def _candidate(rule,score,evidence,confidence,relation_note=None,*,observation=N
         "confidence":confidence,
         "evidence_for":evidence,
         "evidence_against":list(observation.denied) if observation else [],
-        **({"weighted_uncertainty":list(observation.weighted_uncertainty)}
-           if observation and observation.weighted_uncertainty else {}),
+        **(attribution or {}),
         "missing_discriminating_data":missing,
         "source_modules":list(rule.get("source_modules", [rule["id"]]))
     }
@@ -350,6 +366,7 @@ def analyze(note, rules=None, apply_to_note=False):
     signals=_structured_signals(note)
     scored=[]
     observations = {}
+    attributions = {}
     documented = _documented_discriminants(note)
     age_years=_age_years(note)
     for rule in rules["syndromes"]:
@@ -360,13 +377,15 @@ def analyze(note, rules=None, apply_to_note=False):
                 continue
         observation = _rule_score(rule,text,signals,historical_text)
         observations[rule["id"]] = observation
+        attributions[rule["id"]] = _score_attribution(observation, rules["qualitative_confidence"])
         if observation.score > 0:
             scored.append((observation.score,rule,observation.evidence))
     scored.sort(key=lambda x:(-x[0],x[1]["id"]))
     likely=[]; differential=[]
     for score,rule,evidence in scored:
         conf=_confidence(score,rules["qualitative_confidence"])
-        cand=_candidate(rule,score,evidence,conf,observation=observations[rule["id"]],documented=documented)
+        cand=_candidate(rule,score,evidence,conf,observation=observations[rule["id"]],documented=documented,
+                        attribution=attributions[rule["id"]])
         if score>=rules["qualitative_confidence"]["moderate"]["minimum_score"]:
             likely.append(cand)
         else:
@@ -397,7 +416,7 @@ def analyze(note, rules=None, apply_to_note=False):
             obs = observations[rid]
             must.append(_candidate(rr,obs.score,obs.evidence,_confidence(max(obs.score,1),rules["qualitative_confidence"]),
                                    "Hipótese tempo-dependente relacionada com o síndrome principal",
-                                   observation=obs,documented=documented))
+                                   observation=obs,documented=documented,attribution=attributions[rid]))
 
     source_rules=[]
     for score,rule,evidence in scored[:5]:
@@ -458,7 +477,7 @@ def analyze(note, rules=None, apply_to_note=False):
         "blocked":False,
         "issues":contract.get("issues",[]),
         "signals":[{"code":a,"weight":b,"label":c} for a,b,c in signals],
-        "rule_hits":[{"module":r["id"],"score":s,"evidence":e} for s,r,e in scored],
+        "rule_hits":[{"module":r["id"],"score":s,"evidence":e,**attributions[r["id"]]} for s,r,e in scored],
         "assessment":assessment,
         "note":out_note
     }

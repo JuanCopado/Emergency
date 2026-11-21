@@ -502,8 +502,9 @@ describe('Clinical note diagnostic workspace', () => {
             problem_representation: 'Doente hipotenso.',
             active_problems: ['Hipotensão'],
             likely_diagnoses: [{
-              diagnosis: 'Hipótese sintética', confidence: 'low', evidence_for: [],
+              diagnosis: 'Hipótese sintética', confidence: 'high', evidence_for: [],
               weighted_uncertainty: ['st elevation'],
+              score_basis: { remaining_points: 1, unconfirmed_points: 5, category_depends_on_unconfirmed: true },
               evidence_against: ['Negado: hemoptise'], missing_discriminating_data: [], source_modules: [],
             }],
             differential_diagnoses: [],
@@ -535,6 +536,8 @@ describe('Clinical note diagnostic workspace', () => {
     expect(screen.getByText('PAS <90 mmHg')).toBeInTheDocument();
     expect(screen.getByText(/Achados negados:.*Negado: hemoptise/)).toBeInTheDocument();
     expect(screen.getByText(/Classificação inclui menções não confirmadas:.*st elevation/)).toBeInTheDocument();
+    expect(screen.getByText('high · nível dependente de confirmação')).toBeInTheDocument();
+    expect(screen.getByText('Pontos da regra: 5 de menções por confirmar e 1 dos restantes achados.')).toBeInTheDocument();
     expect(screen.getByText('Relação prioritária sem regra avaliável.')).toBeInTheDocument();
     expect(screen.getByText('Reavaliar após intervenção.')).toBeInTheDocument();
   });

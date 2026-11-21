@@ -708,6 +708,16 @@
             "type": "string"
           }
         },
+        "score_basis": {
+          "type": "object",
+          "required": ["remaining_points", "unconfirmed_points", "category_depends_on_unconfirmed"],
+          "properties": {
+            "remaining_points": {"type": "integer", "minimum": 0},
+            "unconfirmed_points": {"type": "integer", "minimum": 1},
+            "category_depends_on_unconfirmed": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        },
         "missing_discriminating_data": {
           "type": "array",
           "items": {

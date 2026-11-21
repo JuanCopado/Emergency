@@ -16,11 +16,28 @@ import {
 } from '../clinical-note/api';
 import type {
   ClinicalAssessment,
+  DiagnosticCandidate,
   ClinicalNotePayload,
   PreparedUpload,
   ReportItem,
   ReviewState,
 } from '../clinical-note/types';
+
+function CandidateHeading({ candidate }: { candidate: DiagnosticCandidate }) {
+  const ui = useClinicalUi();
+  const basis = candidate.score_basis;
+  const qualifier = basis?.category_depends_on_unconfirmed
+    ? ui('nível dependente de confirmação')
+    : ui('inclui menções por confirmar');
+  return <>
+    <div className="flex items-center gap-2"><strong>{candidate.diagnosis}</strong>
+      <span className="chip ml-auto">{candidate.confidence}{candidate.weighted_uncertainty?.length ? ' · ' + qualifier : ''}</span>
+    </div>
+    {basis && <p className="mt-1 text-sm">{ui('Pontos da regra: {{uncertain}} de menções por confirmar e {{remaining}} dos restantes achados.', {
+      uncertain: basis.unconfirmed_points, remaining: basis.remaining_points,
+    })}</p>}
+  </>;
+}
 
 type Tab='history'|'exam'|'mcdt'|'problems'|'diagnostic'|'plan'|'export';
 type McdtCard={
@@ -380,7 +397,7 @@ export default function ClinicalNote(){
       ] as const).map(([h,items])=><div className={card} key={h}>
         <h2 className="font-bold">{h}</h2>
         {items.length ? <div className="mt-3 space-y-3">{items.map((d,i)=><div key={i} className="rounded-xl border border-border p-3">
-          <div className="flex items-center gap-2"><strong>{d.diagnosis}</strong><span className="chip ml-auto">{d.confidence}</span></div>
+          <CandidateHeading candidate={d}/>
           {d.weighted_uncertainty?.length ? <p className="mt-1 font-semibold text-warn">{ui("Classificação inclui menções não confirmadas:")} {d.weighted_uncertainty.join(' · ')}</p> : null}
           {d.evidence_for.length>0&&<p className="mt-2 text-sm">{ui("A favor:")} {d.evidence_for.join(' · ')}</p>}
           {d.evidence_against?.length>0&&<p className="mt-1 text-sm">{ui("Achados negados:")} {d.evidence_against.join(' · ')}</p>}
