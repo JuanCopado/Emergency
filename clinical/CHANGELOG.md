@@ -1,3 +1,7 @@
+## 21/11/2026 · Observaciones de la nota clínica
+
+Negaciones explícitas, discriminantes y contribuciones inciertas visibles en la nota. Permanece el riesgo de sobreclasificación en entradas mixtas. [Pruebas y límites](qa/NOTE_OBSERVATIONS_20261121.md).
+
 ## 20/11/2026 · Nueve referencias de imagen aceptadas
 
 El propietario acepta explícitamente las nueve fichas v1 enumeradas («si claro que si»), incluida POCUS-MODE-20261120 v1. Se aplica exactamente el párrafo POCUS y su proyección; los otros ocho textos se conservan. Se registran respuesta/alcance/fuentes, se actualizan únicamente nueve estados y fechas, y se reconcilia la referencia cruzada del marco POCUS sin renovar su aceptación ni su fecha. Registro: 129 GREEN / 2 YELLOW / 0 RED. Los padres de imagen y nota siguen YELLOW, con rendimiento clínico pendiente; CLINICALLY_PENDING, sin GO_RELEASE. Recibo: `qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md` y JSON. El reintento de Sonar no se confunde con la aceptación clínica.

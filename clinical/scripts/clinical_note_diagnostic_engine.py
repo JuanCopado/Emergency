@@ -9,6 +9,7 @@ import json
 import re
 from copy import deepcopy
 from pathlib import Path
+from typing import NamedTuple
 
 from clinical_note_support import diagnostic_support_contract
 
@@ -94,7 +95,10 @@ def _structured_signals(note):
 # Bounded, inspectable context rules, not a general clinical NLP parser.
 # Boundaries keep one symptom/field's context from suppressing another clause.
 _CONTEXT_BOUNDARY = re.compile(
-    r"[.;!?|\n]|\b(?:pero|mas|but|however|porem|contudo|sin embargo|no entanto)\b"
+    r"[.;!?|\n]|\b(?:pero|mas|but|however|porem|contudo|sin embargo|no entanto)\b|"
+    r",\s*(?=(?:now|currently|ahora|agora|actualmente|atualmente|"
+    r"(?:the )?patient (?:has|reports|denies)|(?:el |o )?paciente (?:tiene|tem|refiere|refere)|"
+    r"(?:ecg|ekg) (?:shows|demonstrates|muestra|mostra))\b)"
 )
 _NEGATION = re.compile(
     r"\b(?:no|nao|not|niega|nega|denies|denied|sin|sem|without|"
@@ -118,6 +122,18 @@ _TIME_AGO = re.compile(
     r"(?:dias?|anos?|semanas?|meses)\b|\b\d+\s+(?:days?|years?|weeks?|months?)\s+ago\b"
 )
 _RESOLVED = re.compile(r"^\s*(?:,\s*)?(?:(?:is|esta|was|ya|ja|already)\s+)*(?:resuelt[oa]|resolvid[oa]|resolved)\b")
+_UNCERTAIN = re.compile(
+    r"\b(?:possib(?:le|ly)|posible|possivel|suspected|suspeita de|sospecha de|"
+    r"cannot (?:exclude|rule out)|can(?:not|'t) rule out|rule out|"
+    r"no se (?:puede descartar|descarta)|nao se pode (?:excluir|descartar)|"
+    r"nao se exclui|pendiente de confirmar|pendente de confirmar|a descartar|a excluir)\b"
+)
+_OTHER_SUBJECT = re.compile(
+    r"\b(?:family history|antecedentes familiares|historia familiar|"
+    r"(?:mother|father|sister|brother) (?:has|had|with|denies)|"
+    r"(?:madre|padre|herman[oa]|mae|pai|irmao|irma) (?:con|com|tem|tiene|apresenta|presenta))\b"
+)
+_DIRECT_DENIAL = re.compile(r"\b(?:denies|denied|niega|nega|sin|sem|without|no|not|ausencia de|absence of)\s*$")
 
 
 def _mention_context(before, after):
@@ -158,37 +174,81 @@ def _mention_context(before, after):
                 and len(re.findall(r"\b\w+\b", local_suffix[:cue.start()])) <= 6):
             historical = True
     historical = historical or bool(_RESOLVED.match(suffix))
-    return negated, historical
+    # Attribute only direct denials to the patient. A broad negation scope
+    # can suppress a trigger without supplying evidence against it.
+    direct_denial = bool(_DIRECT_DENIAL.search(prefix) or _POST_NEGATION.match(suffix))
+    speculative = bool(
+        _UNCERTAIN.search(prefix)
+        or re.match(r"^\s*\?", after)
+        or re.match(r"^\s*(?:is\s+)?(?:possible|suspected|por confirmar|a confirmar)\b", suffix)
+    )
+    return negated, historical, direct_denial, speculative, bool(_OTHER_SUBJECT.search(prefix))
 
 
-def _term_present(term, text, allow_historical=False):
+def _term_states(term, text, allow_historical=False):
+    """Classify all occurrences in already normalized text."""
     t=_norm(term)
     if not t:
-        return False
-    text = _norm(text.replace("\n", " | "))
+        return set()
     # Short standalone acronyms/tokens (e.g. TEN, VF, PEA, AKI, DT) must
     # not match inside ordinary words such as "extremidades" or "paciente".
     pattern = re.escape(t)
     if re.fullmatch(r"[a-z0-9]+",t) and len(t)<=4:
         pattern = r"(?<![a-z0-9])" + pattern + r"(?![a-z0-9])"
+    states = set()
     for match in re.finditer(pattern, text):
-        negated, historical = _mention_context(text[:match.start()], text[match.end():])
-        if not negated and (allow_historical or not historical):
-            return True
-    return False
+        negated, historical, direct, speculative, other_subject = _mention_context(text[:match.start()], text[match.end():])
+        if other_subject or (historical and not allow_historical):
+            continue
+        if speculative:
+            states.add("uncertain")
+        if not negated and speculative:
+            states.add("unconfirmed_match")
+        elif not negated:
+            states.add("present")
+        elif direct and not historical and not speculative:
+            states.add("denied")
+    return states
+
+def _term_present(term, text, allow_historical=False):
+    return "present" in _term_states(term, _norm(text.replace("\n", " | ")), allow_historical)
+
+class RuleObservation(NamedTuple):
+    score: int
+    evidence: list
+    denied: list
+    uncertain: list
+    weighted_uncertainty: list
+
+
+def _trigger_mentions(trigger, text, historical_text):
+    allow_historical = trigger.get("allow_historical") is True
+    source = historical_text if allow_historical and historical_text is not None else text
+    mentions = {"present": [], "uncertain": [], "unconfirmed_match": [], "denied": []}
+    for term in trigger.get("terms", []):
+        for state in _term_states(term, source, allow_historical):
+            mentions[state].append(term)
+    return mentions
+
 
 def _rule_score(rule,text,signals,historical_text=None):
-    score=0; evidence=[]
+    score=0; evidence=[]; denied=[]; uncertain=[]; weighted_uncertainty=[]
     signal_names={x[0] for x in signals}
     signal_labels={x[0]:x[2] for x in signals}
     for trig in rule.get("triggers",[]):
         t=trig.get("type")
         if t=="text_any":
-            allow_historical = trig.get("allow_historical") is True
-            source_text = historical_text if allow_historical and historical_text is not None else text
-            if any(_term_present(term,source_text,allow_historical) for term in trig.get("terms",[])):
+            mentions = _trigger_mentions(trig, text, historical_text)
+            denied.extend("Negado: " + term for term in mentions["denied"])
+            uncertain.extend(mentions["uncertain"])
+            # Keep the established weighting of mixed notes until adjudication.
+            # An uncertain mention is never printed as observed evidence.
+            if mentions["present"] or mentions["unconfirmed_match"]:
                 score += int(trig.get("weight",1))
+            if mentions["present"]:
                 evidence.append(trig.get("label") or "hallazgo textual")
+            else:
+                weighted_uncertainty.extend(mentions["unconfirmed_match"])
         elif t=="signal":
             if trig.get("signal") in signal_names:
                 score += int(trig.get("weight",1))
@@ -203,7 +263,8 @@ def _rule_score(rule,text,signals,historical_text=None):
     if sid=="sepsis-shock" and ("fever" in signal_names or "hypothermia" in signal_names):
         name="fever" if "fever" in signal_names else "hypothermia"
         score+=1; evidence.append(signal_labels[name])
-    return score,list(dict.fromkeys(evidence))
+    return RuleObservation(score if evidence else 0, list(dict.fromkeys(evidence)), list(dict.fromkeys(denied)),
+                           list(dict.fromkeys(uncertain)), list(dict.fromkeys(weighted_uncertainty)) if evidence else [])
 
 def _confidence(score, thresholds):
     if score>=thresholds["high"]["minimum_score"]: return "high"
@@ -215,15 +276,37 @@ def _resolve_rule(rules,rule_id):
         if r["id"]==rule_id:return r
     return None
 
-def _candidate(rule,score,evidence,confidence,relation_note=None):
-    missing=list(rule.get("missing_if_absent",[]))
+def _documented_discriminants(note):
+    """Match only typed, unequivocal individual fields, never a compound request."""
+    vitals = _latest_vitals(note)
+    documented = {}
+    if _age_years(note) is not None:
+        documented["idade"] = None
+    if vitals.get("spo2") is not None and 0 <= vitals["spo2"] <= 100:
+        documented["SpO2"] = None
+    if vitals.get("rr") is not None and vitals["rr"] >= 0:
+        documented["frequência respiratória"] = None
+    if re.fullmatch(r"(?:[3-9]|1[0-5])", str(vitals.get("gcs", "")).strip()):
+        documented["GCS"] = None
+    if any(report.get("provenance") == "official_report"
+           and (report.get("official_report") or "").strip()
+           for report in note.get("complementary_tests", {}).get("ecg", [])):
+        documented["ECG"] = "ECG: relatório oficial registado; verificar conteúdo e adequação."
+    return documented
+
+def _candidate(rule,score,evidence,confidence,relation_note=None,*,observation=None,documented=None):
+    documented = documented or {}
+    missing = [documented.get(item, item) for item in rule.get("missing_if_absent", [])]
+    missing = [item for item in missing if item is not None]
     if relation_note and relation_note not in missing:
         missing.insert(0,relation_note)
     return {
         "diagnosis":rule.get("diagnosis",rule["id"]),
         "confidence":confidence,
         "evidence_for":evidence,
-        "evidence_against":[],
+        "evidence_against":list(observation.denied) if observation else [],
+        **({"weighted_uncertainty":list(observation.weighted_uncertainty)}
+           if observation and observation.weighted_uncertainty else {}),
         "missing_discriminating_data":missing,
         "source_modules":list(rule.get("source_modules", [rule["id"]]))
     }
@@ -266,6 +349,8 @@ def analyze(note, rules=None, apply_to_note=False):
     historical_text=_collect_text(note, include_history=True)
     signals=_structured_signals(note)
     scored=[]
+    observations = {}
+    documented = _documented_discriminants(note)
     age_years=_age_years(note)
     for rule in rules["syndromes"]:
         if age_years is not None:
@@ -273,14 +358,15 @@ def analyze(note, rules=None, apply_to_note=False):
                 continue
             if rule.get("max_age_years") is not None and age_years > float(rule["max_age_years"]):
                 continue
-        score,evidence=_rule_score(rule,text,signals,historical_text)
-        if score>0:
-            scored.append((score,rule,evidence))
+        observation = _rule_score(rule,text,signals,historical_text)
+        observations[rule["id"]] = observation
+        if observation.score > 0:
+            scored.append((observation.score,rule,observation.evidence))
     scored.sort(key=lambda x:(-x[0],x[1]["id"]))
     likely=[]; differential=[]
     for score,rule,evidence in scored:
         conf=_confidence(score,rules["qualitative_confidence"])
-        cand=_candidate(rule,score,evidence,conf)
+        cand=_candidate(rule,score,evidence,conf,observation=observations[rule["id"]],documented=documented)
         if score>=rules["qualitative_confidence"]["moderate"]["minimum_score"]:
             likely.append(cand)
         else:
@@ -294,14 +380,24 @@ def analyze(note, rules=None, apply_to_note=False):
     for score,rule,evidence in scored[:5]:
         for rid in rule.get("must_not_miss",[]):
             if rid not in must_ids: must_ids.append(rid)
-    for rid in must_ids[:5]:
+    limitations=[]
+    uncertain_terms = list(dict.fromkeys(term for obs in observations.values() for term in obs.uncertain))
+    if uncertain_terms:
+        limitations.append("Menções incertas que o motor pode pontuar: " + ", ".join(uncertain_terms)
+                           + ". Não estão confirmadas e exigem revisão médica.")
+    for rid in must_ids:
         rr=_resolve_rule(rules,rid)
-        if rr:
-            existing=next((x for s,x,e in scored if x["id"]==rid),None)
-            ev=next((e for s,x,e in scored if x["id"]==rid),[])
-            sc=next((s for s,x,e in scored if x["id"]==rid),0)
-            must.append(_candidate(rr,sc,ev,_confidence(max(sc,1),rules["qualitative_confidence"]),
-                                   "Hipótese tempo-dependente relacionada com o síndrome principal"))
+        if rr is None:
+            limitations.append(f"Relação prioritária sem regra avaliável: {rid}. Requer revisão médica.")
+        elif rid not in observations:
+            limitations.append(f"Relação prioritária fora dos limites etários da regra: {rid}.")
+        elif len(must) >= 5:
+            limitations.append(f"Relação prioritária adicional além das cinco apresentadas: {rid}.")
+        else:
+            obs = observations[rid]
+            must.append(_candidate(rr,obs.score,obs.evidence,_confidence(max(obs.score,1),rules["qualitative_confidence"]),
+                                   "Hipótese tempo-dependente relacionada com o síndrome principal",
+                                   observation=obs,documented=documented))
 
     source_rules=[]
     for score,rule,evidence in scored[:5]:
@@ -318,7 +414,6 @@ def analyze(note, rules=None, apply_to_note=False):
             "source_modules":["undifferentiated-shock","oxygen-therapy-emergency","airway-rsi"]
         })
 
-    limitations=[]
     if not scored:
         limitations.append("Os dados atuais não ativam nenhuma regra sindrómica com suporte suficiente.")
     limitations.append("Motor determinista baseado em regras transparentes; não é um modelo diagnóstico calibrado e não substitui revisão clínica.")
