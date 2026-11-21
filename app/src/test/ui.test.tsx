@@ -352,7 +352,7 @@ describe('Clinical note diagnostic workspace', () => {
     expect(globalThis.fetch).toHaveBeenCalledTimes(2);
   });
 
-  it('requires privacy review before binary vision interpretation and keeps the result pending', async () => {
+  it('shows limited resolution before privacy review and keeps requested interpretation pending', async () => {
     const user = userEvent.setup();
     const prepared = {
       api_version: '1.0',
@@ -361,6 +361,7 @@ describe('Clinical note diagnostic workspace', () => {
       mime_type: 'image/png',
       size_bytes: 12,
       sha256: 'image-sha',
+      media: { format: 'png', status: 'limited', quality_flags: ['low_resolution', 'synthetic-private-id'] },
       kind: 'xray',
       route: { kind: 'xray', target_section: 'imaging', modules: ['clinical-image-interpretation','chest-xray','musculoskeletal-xray'] },
       privacy: {
@@ -424,6 +425,9 @@ describe('Clinical note diagnostic workspace', () => {
     const upload = screen.getByLabelText('Upload clínico') as HTMLInputElement;
     await user.upload(upload, new File(['fake-image'], 'rx_torax.png', { type: 'image/png' }));
     const reviewCard = await screen.findByTestId('mcdt-review-card');
+    expect(within(reviewCard).getByRole('status')).toHaveTextContent('Resolução limitada.');
+    expect(reviewCard).not.toHaveTextContent('synthetic-private-id');
+    expect(globalThis.fetch).toHaveBeenCalledTimes(1);
     const interpretButton = within(reviewCard).getByRole('button', { name: 'Interpretar com módulo IA' });
     expect(interpretButton).toBeDisabled();
 
@@ -431,8 +435,10 @@ describe('Clinical note diagnostic workspace', () => {
     expect(checks).toHaveLength(2);
     if (!checks[0] || !checks[1]) throw new Error('binary privacy checklist missing');
     await user.click(checks[0]);
+    expect(interpretButton).toBeDisabled();
     await user.click(checks[1]);
     expect(interpretButton).toBeEnabled();
+    expect(globalThis.fetch).toHaveBeenCalledTimes(1);
     await user.click(interpretButton);
 
     expect(await within(reviewCard).findByText('Interpretação IA proposta — requer revisão médica.')).toBeInTheDocument();
