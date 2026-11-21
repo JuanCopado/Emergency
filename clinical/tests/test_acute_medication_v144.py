@@ -144,6 +144,18 @@ class SourceBoundFlowCases(unittest.TestCase):
                   '[source](../refs/(part)/**name**.md) https://example.test/(part)/**name**/path\n')
         self.assertEqual(_lines(source, 'source.body'), ['source.body: ' + expected])
 
+    def test_source_fence_delimiters_preserve_literal_blocks(self):
+        # Ordinary source fragments: short/mixed/suffixed fences must not close
+        # the block, while a longer matching fence with whitespace does.
+        for opening, nonclosers, closing in (
+                ('```python', ['``', '~~~', '```suffix'], '````  '),
+                ('   ~~~~text', ['~~~', '````', '~~~~suffix'], '   ~~~~~\t')):
+            with self.subTest(opening=opening):
+                literal = '\r\n'.join([opening, '- **inside**', *nonclosers,
+                                         '- **still literal**', closing]) + '\r\n'
+                self.assertEqual(_lines(literal + '- **Outside**\n', 'source.body'),
+                                 ['source.body: ' + literal + '• Outside\n'])
+
     def test_catalog_reports_have_no_residual_emphasis(self):
         import re
         for row in catalog()['regimens']:
