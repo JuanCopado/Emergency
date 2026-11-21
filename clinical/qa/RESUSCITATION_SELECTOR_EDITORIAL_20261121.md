@@ -1,0 +1,7 @@
+# Manual resuscitation selector · editorial check · 21 November 2026
+
+The guide displayed the 14 November interrupted browser run as the current state of the selector. Its canonical review paragraph and the generated guide now identify the existing decision ARR-SELECTOR-20261120. The physician approved manual navigation to four existing circuits on 20 November. Each destination retains its own clinical review status. The project remains `CLINICALLY_PENDING`. [Decision and original eight successful navigations](../references/evidence-registry.json) · [Original CI evidence](https://github.com/JuanCopado/Emergency/actions/runs/44708374483/job/136193539656) · [Interrupted historical run](ARRHYTHMIA_ROUTER_BROWSER_2026-11-14.json).
+
+The Windows check opened both `/clinical/arrhythmias-cardiac-arrest` and `/guides/arrhythmias-cardiac-arrest` in Microsoft Edge 158.0.4370.33. Both displayed the decision ID. The previous warning about a blocked navigation attempt was absent. In each view, keyboard focus moved through the four named circuit links. Opening each link reached its expected URL and displayed the matching destination heading. All eight navigations passed. The focused React test passed eight cases, and the canonical projection tests passed twelve.
+
+The change updates publication traceability. It adds no automatic selection and makes no change to treatment, calculations, triage rules or the status of any module.
