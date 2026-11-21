@@ -235,9 +235,9 @@ def _report_prose(source):
     lines = []
     fence = ''
     for line in source.splitlines(keepends=True):
-        marker = re.match(r'^ {0,3}(`{3,}|~{3,})(.*)$', line)
+        marker = re.match(r'^ {0,3}(`{3,}|~{3,})', line)
         if fence:
-            if marker and marker[1].startswith(fence) and not marker[2].strip():
+            if marker and marker[1].startswith(fence) and not line[marker.end():].strip():
                 fence = ''
         elif marker:
             fence = marker[1]
