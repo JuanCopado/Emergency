@@ -1092,3 +1092,5 @@ Known production boundary:
 - Evidence state unchanged: **131/131 modules, 29 green / 102 yellow / 0 red**; no auto-promotion.
 - Canonical implementation note: `qa/V1.39_VISION_ADAPTER_STATE.md`.
 - Remaining deployment boundary: bind `CLINICAL_VISION_PROVIDER_URL`/credentials to the chosen trusted medical image/document service and run authorized modality-specific E2E validation. The repository intentionally does not invent or bundle a clinical vision model.
+
+R5 · 21/11/2026 · Estudio offline de 153 casos, corrección técnica de cercas Markdown y auditorías independientes. [Conciliación y límites](../docs/coordination/R5_INTEGRACION_20261121.md). Se conservan 131 módulos, 129 GREEN / 2 YELLOW / 0 RED y CLINICALLY_PENDING. G05 global y QA nueva permanecen pendientes.

@@ -31,3 +31,5 @@ Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según 
 R4 · 21/11/2026 · Se verificó la presentación compartida de la fuente de farmacología aguda en ambos PDF. [Ensayo sintético de impresión](clinical/qa/R4_ACUTE_PRINT_MARKUP_20261121.md).
 
 R4 · Seguimiento de formato e idioma en copia aislada. El conversor de farmacología reconoce el énfasis en prosa mixta y conserva los literales de código. La nota transmite el idioma de interfaz y localiza sus avisos automáticos. Los cálculos y estados de evidencia se conservan. Las comprobaciones del PDF nativo y de la entrega se registran en el expediente de seguimiento.
+
+R5 · 21/11/2026 · [Consolidación técnica y límites](docs/coordination/R5_INTEGRACION_20261121.md). Estudio offline de 153 casos sin cambio clínico, corrección focal de presentación S8786 y auditorías reales Claude Code/Gemini. G05 global y QA gráfica nueva pendientes según expediente. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
