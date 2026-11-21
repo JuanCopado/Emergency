@@ -1,3 +1,5 @@
+R4 · 21/11/2026 · Seguimiento de presentación. Se corrige el énfasis residual en prosa mixta de los informes de farmacología y la selección de idioma de la nota. Se conservan datos, cálculos y estados clínicos. CLINICALLY_PENDING.
+
 ## 21/11/2026 · Observaciones de la nota clínica
 
 Negaciones explícitas, discriminantes y contribuciones inciertas visibles en la nota. Permanece el riesgo de sobreclasificación en entradas mixtas. [Pruebas y límites](qa/NOTE_OBSERVATIONS_20261121.md).

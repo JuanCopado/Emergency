@@ -226,7 +226,8 @@ def _calculate(row, inputs):
 
 
 _SOURCE_PROSE = {'monitoring_and_warnings', 'source.body', 'source.preamble', 'source.contract_review.body'}
-_STRONG = re.compile(r'(?<![\w*])\*\*(?=\S)([^*\r\n]+?)(?<!\s)\*\*(?![\w*])')
+_STRONG = re.compile(r'(?<![\w*])\*\*(?=\S)([^*\r\n]+?)(?<!\s)\*\*(?!\*)')
+_INLINE_LITERAL = re.compile(r'(`[^`\r\n]*`|\\.|(?<=\]\()[^)\r\n]+(?=\))|https?://[^\s)>]+)')
 
 
 def _report_prose(source):
@@ -240,10 +241,13 @@ def _report_prose(source):
                 fence = ''
         elif marker:
             fence = marker[1]
-        elif not line.startswith(('    ', '\t', '>')) and not any(c in line for c in ('`', '\\', '[', '|', '***')):
+        elif not line.startswith(('    ', '\t', '>')) and '***' not in line:
             line = re.sub(r'^( {0,3})#{1,6}[ \t]+', r'\1', line)
             line = re.sub(r'^( {0,3})[-*][ \t]+(?=\S)', r'\1• ', line)
-            line = _STRONG.sub(r'\1', line)
+            # Code, escapes and reference targets retain their source spelling.
+            parts = _INLINE_LITERAL.split(line)
+            line = ''.join(part if index % 2 else _STRONG.sub(r'\1', part)
+                           for index, part in enumerate(parts))
         lines.append(line)
     return ''.join(lines)
 

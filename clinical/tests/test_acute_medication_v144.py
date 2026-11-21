@@ -116,10 +116,42 @@ class SourceBoundFlowCases(unittest.TestCase):
                      '    - **indented**\n- `code **inside**`\n[title](url)\n'
                      '| **table** | text |\n\\**escaped**\n***nested***\n2**3**4\n**unpaired')
         literal = source + protected
-        displayed = 'Source\n• Dose: ≤ 0.5 mg/kg/min; never double.\n' + protected
+        displayed = ('Source\n• Dose: ≤ 0.5 mg/kg/min; never double.\n'
+                     + protected.replace('- `code **inside**`', '• `code **inside**`')
+                     .replace('| **table** |', '| table |'))
         for field in ('source.body', 'source.preamble', 'source.contract_review.body', 'monitoring_and_warnings'):
             self.assertEqual(_lines(literal, field), [field + ': ' + displayed])
         self.assertEqual(_lines(literal, 'inputs.note'), ['inputs.note: ' + literal])
+
+    def test_source_emphasis_next_to_numbers_and_mixed_literals(self):
+        source = ('- **Bolus:**150mL over20min.\n'
+                  '- **Preparation:** `V20 = Vfinal x (3 - 0.9) / (20 - 0.9)`; **3.001% w/v**.\n'
+                  '- **Evidence:** [source](https://example.test/path); `2**3**4`.\n'
+                  '| Drug | **5 g IV = 2 × 2.5 g** |\n')
+        expected = ('• Bolus:150mL over20min.\n'
+                    '• Preparation: `V20 = Vfinal x (3 - 0.9) / (20 - 0.9)`; 3.001% w/v.\n'
+                    '• Evidence: [source](https://example.test/path); `2**3**4`.\n'
+                    '| Drug | 5 g IV = 2 × 2.5 g |\n')
+        self.assertEqual(_lines(source, 'source.body'), ['source.body: ' + expected])
+        self.assertEqual(_lines(source, 'inputs.note'), ['inputs.note: ' + source])
+
+    def test_source_reference_targets_are_literal(self):
+        source = ('- **Evidence:** [**trial**](https://example.test/**name**/path)\n'
+                  '[source](../references/**literal**.md) https://example.test/**raw**\n')
+        expected = ('• Evidence: [trial](https://example.test/**name**/path)\n'
+                    '[source](../references/**literal**.md) https://example.test/**raw**\n')
+        self.assertEqual(_lines(source, 'source.body'), ['source.body: ' + expected])
+
+    def test_catalog_reports_have_no_residual_emphasis(self):
+        import re
+        for row in catalog()['regimens']:
+            sources = [row['source'].get('body', ''), row['source'].get('preamble', ''),
+                       row['source'].get('contract_review', {}).get('body', '')]
+            for source in sources:
+                displayed = _lines(source, 'source.body')[0]
+                # Preserve mathematical/code literals while checking the visible prose.
+                prose = re.sub(r'`[^`]*`', '', displayed)
+                self.assertNotIn('**', prose, row['id'])
 
     def test_every_contract_has_an_independent_browser_fixture(self):
         import json
