@@ -160,7 +160,7 @@ export type PreparedUpload = {
     burned_in_identifier_review_required: boolean;
   };
   extracted: { official_report: string | null; ai_interpretation: string | null };
-  media?: {format?: string; status?: string; quality_flags?: string[]} | null;
+  media?: {format?: string; status?: string; quality_flags?: string[]; issues?: string[]; metadata_present?: boolean} | null;
   processing: {
     status: 'text_extracted' | 'routed_external' | 'vision_interpreted' | 'vision_abstained';
     message: string;

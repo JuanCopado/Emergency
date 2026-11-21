@@ -10,6 +10,9 @@ const labels: Record<string, string> = {
   low_resolution: 'Resolução limitada.',
   no_visual_content_suspected: 'Não foi possível confirmar conteúdo visual utilizável.',
   unsupported_external_format: 'Formato excluído da interpretação externa.',
+  gps_metadata_present: 'O ficheiro original contém metadados de localização. Não são enviados ao serviço.',
+  trailing_data_after_image: 'O ficheiro original contém dados adicionais após a imagem. Não são enviados ao serviço.',
+  metadata_present: 'O ficheiro original contém metadados. São removidos antes do envio ao serviço.',
 };
 
 export function reviewMessage(value: string, ui: (key: string) => string): string {
@@ -25,6 +28,15 @@ export function mediaQualityMessages(flags: unknown, ui: (key: string) => string
   return ['insufficient_resolution', 'low_resolution', 'no_visual_content_suspected']
     .filter(code => flags.includes(code))
     .map(code => reviewMessage(code, ui));
+}
+
+// Categorical notices only: codes are allow-listed and no metadata value is ever rendered.
+export function mediaPrivacyMessages(issues: unknown, metadataPresent: unknown, ui: (key: string) => string): string[] {
+  const codes = Array.isArray(issues)
+    ? ['gps_metadata_present', 'trailing_data_after_image'].filter(code => issues.includes(code))
+    : [];
+  if (codes.length === 0 && metadataPresent === true) codes.push('metadata_present');
+  return codes.map(code => reviewMessage(code, ui));
 }
 
 export function excludedContainer(prepared?: PreparedUpload) {

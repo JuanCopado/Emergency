@@ -3,7 +3,7 @@ import { useClinicalUi } from '../i18n/useClinicalUi';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { excludedContainer, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
+import { excludedContainer, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -378,7 +378,10 @@ export default function ClinicalNote(){
       <input aria-label={ui("Nome do exame")} className="input" value={draftName} onChange={e=>setDraftName(e.target.value)} placeholder={ui("Entrada manual, ex.: TC crânio 18:20")}/><label><span className="label">{ui("Informe oficial / dados extraídos")}</span><textarea className="input min-h-24" value={draftOfficial} onChange={e=>setDraftOfficial(e.target.value)}/></label><label><span className="label">{ui("Interpretação IA proposta")}</span><textarea className="input min-h-24" value={draftAi} onChange={e=>setDraftAi(e.target.value)} placeholder={ui("Mantida separada do informe oficial")}/></label><button className="btn-primary justify-self-start" onClick={addManualMcdt}>{ui("Criar cartão para revisão")}</button></div>
     </div>
     {mcdt.map(x=>{
-      const qualityMessages = mediaQualityMessages(x.prepared?.media?.quality_flags, ui);
+      const qualityMessages = [
+        ...mediaQualityMessages(x.prepared?.media?.quality_flags, ui),
+        ...mediaPrivacyMessages(x.prepared?.media?.issues, x.prepared?.media?.metadata_present, ui),
+      ];
       return <article key={x.id} tabIndex={-1} aria-label={ui(x.kind)+' · '+x.name} ref={element=>{
       if(element) reviewElements.current.set(x.id,element); else reviewElements.current.delete(x.id);
     }} className={card} data-testid="mcdt-review-card"><div className="flex flex-wrap items-center gap-2"><strong>{ui(x.kind)} · {x.name}</strong><span className="chip ml-auto">{x.state==='pending'?ui("Pendente"):x.state==='accepted'?ui("Aceite"):ui("Rejeitado")}</span></div>

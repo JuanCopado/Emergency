@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
+import { mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 
 const literal = (text: string) => text;
 
@@ -38,6 +38,21 @@ describe('image intake messages', () => {
       'UI: Resolução limitada.',
       'UI: Não foi possível confirmar conteúdo visual utilizável.',
     ]);
+  });
+
+  it('shows categorical metadata notices only, never values or unknown codes', () => {
+    const ui = (key: string) => `UI: ${key}`;
+    expect(mediaPrivacyMessages(['trailing_data_after_image', 'gps_metadata_present', 'gps_metadata_present',
+      '41.1234,-8.5678', { code: 'gps_metadata_present' }, null, 7], true, ui)).toEqual([
+      'UI: O ficheiro original contém metadados de localização. Não são enviados ao serviço.',
+      'UI: O ficheiro original contém dados adicionais após a imagem. Não são enviados ao serviço.',
+    ]);
+    expect(mediaPrivacyMessages(['unknown'], true, ui))
+      .toEqual(['UI: O ficheiro original contém metadados. São removidos antes do envio ao serviço.']);
+    for (const issues of [undefined, null, 'gps_metadata_present', { 0: 'gps_metadata_present', length: 1 }]) {
+      expect(mediaPrivacyMessages(issues, false, ui)).toEqual([]);
+      expect(mediaPrivacyMessages(issues, 'true', ui)).toEqual([]);
+    }
   });
 
   it.each([undefined, null, 'low_resolution', { 0: 'low_resolution', length: 1 }])(

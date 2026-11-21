@@ -361,7 +361,9 @@ describe('Clinical note diagnostic workspace', () => {
       mime_type: 'image/png',
       size_bytes: 12,
       sha256: 'image-sha',
-      media: { format: 'png', status: 'limited', quality_flags: ['low_resolution', 'synthetic-private-id'] },
+      media: { format: 'png', status: 'limited', quality_flags: ['low_resolution', 'synthetic-private-id'],
+        issues: ['gps_metadata_present', 'synthetic-private-issue'], metadata_present: true,
+        metadata: { gps_value: '41.1234,-8.5678' } },
       kind: 'xray',
       route: { kind: 'xray', target_section: 'imaging', modules: ['clinical-image-interpretation','chest-xray','musculoskeletal-xray'] },
       privacy: {
@@ -427,6 +429,9 @@ describe('Clinical note diagnostic workspace', () => {
     const reviewCard = await screen.findByTestId('mcdt-review-card');
     expect(within(reviewCard).getByRole('status')).toHaveTextContent('Resolução limitada.');
     expect(reviewCard).not.toHaveTextContent('synthetic-private-id');
+    expect(within(reviewCard).getByRole('status')).toHaveTextContent('metadados de localização');
+    expect(reviewCard).not.toHaveTextContent('synthetic-private-issue');
+    expect(reviewCard).not.toHaveTextContent('41.1234');
     expect(globalThis.fetch).toHaveBeenCalledTimes(1);
     const interpretButton = within(reviewCard).getByRole('button', { name: 'Interpretar com módulo IA' });
     expect(interpretButton).toBeDisabled();
