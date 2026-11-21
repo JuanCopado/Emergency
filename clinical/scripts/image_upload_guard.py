@@ -51,11 +51,31 @@ def sniff(raw):
     return None
 
 
+def clean_filename(filename):
+    if filename is None or filename == "":
+        return "upload"
+    if not isinstance(filename, str) or not filename.isprintable():
+        raise MediaRejected("invalid_filename")
+    # Browser uploads and historical clients may use either path separator.
+    name = filename.replace("\\", "/").rsplit("/", 1)[-1].strip()
+    if not name or len(name) > 255 or name.endswith("."):
+        raise MediaRejected("invalid_filename")
+    return name
+
+
 def _declared_family(filename, mime_type):
-    name = str(filename or "").lower()
+    name = clean_filename(filename).lower()
     ext = name[name.rfind("."):] if "." in name else ""
-    mime = str(mime_type or "").split(";", 1)[0].strip().lower()
-    return EXT_FAMILY.get(ext), MIME_FAMILY.get(mime), mime
+    if mime_type is not None and (not isinstance(mime_type, str) or
+                                  (mime_type and not mime_type.isprintable())):
+        raise MediaRejected("invalid_declared_type")
+    mime = (mime_type or "").split(";", 1)[0].strip().lower()
+    return ext, mime
+
+
+def declares_media(filename, mime_type):
+    ext, mime = _declared_family(filename, mime_type)
+    return ext in EXT_FAMILY or mime in MIME_FAMILY
 
 
 # ---------------------------------------------------------------- PNG
@@ -233,7 +253,10 @@ def inspect_media(raw, filename, mime_type):
     status: ok | limited (flags) | unsuitable (no visual content can be interpreted).
     """
     sniffed = sniff(raw)
-    by_ext, by_mime, mime = _declared_family(filename, mime_type)
+    ext, mime = _declared_family(filename, mime_type)
+    by_ext, by_mime = EXT_FAMILY.get(ext), MIME_FAMILY.get(mime)
+    if ext and not by_ext:
+        raise MediaRejected("unsupported_declared_extension")
     declared = {x for x in (by_ext, by_mime) if x}
     if sniffed is None:
         raise MediaRejected("unrecognized_type")
@@ -309,7 +332,10 @@ def _decoded_pixels(raw, fmt):
             pixels = oriented if oriented.mode in {"RGB", "L"} else oriented.convert("RGB")
             pixels.info.clear()
             return pixels
-    except (OSError, SyntaxError, OverflowError, Image.DecompressionBombError) as exc:
+    except MediaRejected:
+        raise
+    except (OSError, SyntaxError, ValueError, TypeError, IndexError, KeyError, struct.error,
+            OverflowError, Image.DecompressionBombError) as exc:
         raise MediaRejected("corrupt_pixel_data") from exc
 
 

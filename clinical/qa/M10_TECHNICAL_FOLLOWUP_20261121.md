@@ -14,3 +14,7 @@ La PR51 original (c040a172) divergía de la integración (4aa2d397) con ancestro
 ## Verificación
 
 En Windows, 52 pruebas del módulo aprobaron con Pillow 13.0.0. El auditor independiente ejecutó además nueve contratos del flujo y seis casos raster estándar, con píxeles uniformes y bicolores y marcas sintéticas de metadatos. La revisión final se vincula a la identidad del candidato en la matriz de integración. Los resultados de estas pruebas no estiman sensibilidad ni especificidad clínica. No hay cohorte prospectiva ni aprobación para despliegue.
+
+## Reverificación de Claude Code sobre 24353afb
+
+El gate Sonar de ese commit pasó con 86,0 % de cobertura nueva y ninguna incidencia nueva. En revisión independiente posterior, Claude encontró límites adicionales en metadatos EXIF, nombres declarados, identificadores del proveedor y presentación de resultados. El backend convierte errores de decodificación en una respuesta pública 422 y las respuestas de proveedor malformadas en un fallo explícito 502 sin datos de la propuesta. Se comprueba la extensión cuando existe y se rechazan caracteres de control en nombres o etiquetas de proveedor/modelo. Estas etiquetas admiten hasta 128 caracteres imprimibles. Las omisiones de anotaciones y la selección de categoría en pantalla se verifican por separado. El límite de 12 MiB se comprueba también al normalizar y la comprobación de color y transparencia ocurre antes del envío. La aplicación conserva la revisión manual para los formatos fuera del alcance.

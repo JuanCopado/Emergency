@@ -36,7 +36,9 @@ from patient_weight_request import parse_medication_request
 
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import export_docx, export_json, export_pdf
-from clinical_note_vision_adapter import invoke as invoke_clinical_vision, is_configured as clinical_vision_is_configured
+from clinical_note_vision_adapter import (
+    VisionProviderResponseError, invoke as invoke_clinical_vision, is_configured as clinical_vision_is_configured,
+)
 import image_upload_guard
 from clinical_note_support import (
     add_report,
@@ -100,15 +102,10 @@ def _verify_prepared(prepared):
 
 
 
-def _clean_filename(filename):
-    name = Path(str(filename or "upload")).name.strip()
-    return name or "upload"
-
-
 def infer_attachment_kind(filename, mime_type=None, explicit_kind=None):
     if explicit_kind:
         return str(explicit_kind).strip().lower()
-    name = _clean_filename(filename).lower()
+    name = image_upload_guard.clean_filename(filename).lower()
     mime = str(mime_type or "").lower()
     if any(x in name for x in ("ecg", "ekg", "electrocard")):
         return "ecg"
@@ -174,11 +171,12 @@ def _privacy_for_text(text):
 
 
 def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
-    filename = _clean_filename(filename)
+    filename = image_upload_guard.clean_filename(filename)
     raw = _decode_upload(content_base64)
     kind = infer_attachment_kind(filename, mime_type, explicit_kind)
     route = route_attachment(kind)
-    extracted_text = _extract_text(raw, filename, mime_type)
+    is_media = image_upload_guard.sniff(raw) is not None or image_upload_guard.declares_media(filename, mime_type)
+    extracted_text = None if is_media else _extract_text(raw, filename, mime_type)
     digest = hashlib.sha256(raw).hexdigest()
     privacy_probe_text = filename + ("\n" + extracted_text if extracted_text else "")
     privacy_findings = _privacy_for_text(privacy_probe_text)
@@ -612,6 +610,10 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
             return  # Close a timed-out/disconnected transport without dispatch.
         except (json.JSONDecodeError, UnicodeDecodeError):
             self._send(HTTPStatus.BAD_REQUEST, {"error": "invalid JSON"})
+        except VisionProviderResponseError:
+            self._send(HTTPStatus.BAD_GATEWAY, {"error": "clinical vision provider returned an invalid response"})
+        except image_upload_guard.MediaRejected:
+            self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": "invalid or unsupported clinical image or filename"})
         except ValueError as exc:
             # Return only audited, static messages for known safety boundaries.
             # Never echo arbitrary exception text, which could contain PHI.
