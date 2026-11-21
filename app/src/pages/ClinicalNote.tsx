@@ -1,7 +1,8 @@
 import { useClinicalUi } from '../i18n/useClinicalUi';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { excludedContainer, reviewMessage, uploadError } from '../clinical-note/imageReview';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -25,22 +26,22 @@ type Tab='history'|'exam'|'mcdt'|'problems'|'diagnostic'|'plan'|'export';
 type McdtCard={
   id:string;kind:string;name:string;official:string;ai:string;state:ReviewState;
   provenance:string;prepared?:PreparedUpload;sourceFile?:File;privacyChecked:boolean;burnedChecked:boolean;
-  sourceReference:string;
+  sourceReference:string;findings?:string;impression?:string;
 };
 
 const tabs:[Tab,string][]=[
  ['history','História'],['exam','Exame'],['mcdt','MCDT'],['problems','Problemas'],
  ['diagnostic','Apoio diagnóstico'],['plan','Plano'],['export','Exportar'],
 ];
-const mcdtKinds=['Analítica','Gasometria','ECG','Rx','TC/RM','Ecografia/POCUS','Microbiologia','Outro'];
+const mcdtKinds=['Analítica','Gasometria','ECG','Rx','TC/RM','Ecografia/POCUS','Microbiologia','Pele/ferida','Outro'];
 const directId=/\b(nome|name|sns|nif|morada|endereço|address|telefone|telemóvel|phone|mrn)\b\s*[:-]/i;
 const kindMap:Record<string,string>={
   'Analítica':'laboratory_report','Gasometria':'blood_gas','ECG':'ecg','Rx':'xray',
-  'TC/RM':'ct','Ecografia/POCUS':'pocus','Microbiologia':'microbiology','Outro':'other_image',
+  'TC/RM':'ct','Ecografia/POCUS':'pocus','Microbiologia':'microbiology','Pele/ferida':'skin_wound','Outro':'other_image',
 };
 const sectionForKind:Record<string,keyof ClinicalNotePayload['complementary_tests']>={
   laboratory_report:'laboratory',blood_gas:'blood_gas',ecg:'ecg',xray:'imaging',ct:'imaging',
-  pocus:'imaging',microbiology:'microbiology',other_image:'other',pdf_document:'other',
+  pocus:'imaging',microbiology:'microbiology',skin_wound:'imaging',other_image:'other',pdf_document:'other',
 };
 const emptyAssessment:ClinicalAssessment={
   problem_representation:null,active_problems:[],likely_diagnoses:[],differential_diagnoses:[],
@@ -82,11 +83,20 @@ export default function ClinicalNote(){
  const [draftOfficial,setDraftOfficial]=useState(''); const [draftAi,setDraftAi]=useState('');
  const [uploadName,setUploadName]=useState(''); const [apiBusy,setApiBusy]=useState(false);
  const [apiError,setApiError]=useState('');
+ const [reviewFocus,setReviewFocus]=useState<{id:string}|null>(null);
+ const reviewElements=useRef(new Map<string,HTMLElement>());
+ const errorElement=useRef<HTMLDivElement>(null);
+ useEffect(()=>{
+   if (!reviewFocus || tab!=='mcdt') return;
+   const target=reviewFocus.id==='error' ? errorElement.current : reviewElements.current.get(reviewFocus.id);
+   target?.focus();
+   setReviewFocus(null);
+ },[reviewFocus,tab]);
  const encounter=useMemo(()=>crypto.randomUUID?.() ?? `enc-${Date.now()}`,[]);
  const allAccepted=Object.values(reports).flat();
  const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,problems,plan,
    ...allAccepted.flatMap(x=>[x.official_report||'',x.ai_interpretation||'',x.findings||'',x.impression||'']),
-   ...mcdt.flatMap(x=>[x.official,x.ai])].join('\n');
+   ...mcdt.flatMap(x=>[x.official,x.ai,x.findings,x.impression])].join('\n');
  const privacyStop=directId.test(freeText);
  const pending=mcdt.filter(x=>x.state==='pending').length;
  const busy=apiBusy||diagnosticBusy;
@@ -169,35 +179,23 @@ export default function ClinicalNote(){
      return next;
    });
  }
- function inferKind(name:string){
-   const n=name.toLowerCase();
-   if(/ecg|ekg/.test(n)) return 'ECG';
-   if(/gas|gaso|abg|vbg/.test(n)) return 'Gasometria';
-   if(/rx|xray|x-ray|radiogr/.test(n)) return 'Rx';
-   if(/ct|tc|mri|rm|tac/.test(n)) return 'TC/RM';
-   if(/eco|pocus|ultra/.test(n)) return 'Ecografia/POCUS';
-   if(/micro|culture|cultivo/.test(n)) return 'Microbiologia';
-   if(/lab|anal|hemogram|bioq/.test(n)) return 'Analítica';
-   return 'Outro';
- }
  async function onUpload(file?:File){
    if(!file) return;
    setUploadName(file.name); setDraftName(file.name);
-   const inferred=inferKind(file.name);
-   const selected=inferred==='Outro'?draftKind:inferred;
-   setDraftKind(selected); setApiError(''); setApiBusy(true);
+   setApiError(''); setApiBusy(true);
    try{
-     const explicitKind=(inferred==='Outro'&&selected==='Outro')?undefined:kindMap[selected];
+     const explicitKind=draftKind==='Outro'?undefined:kindMap[draftKind];
      const prepared=await prepareClinicalUpload(file,explicitKind);
+     const selected=Object.keys(kindMap).find(label=>kindMap[label]===prepared.kind)??'Outro';
      const id=prepared.upload_id;
      setMcdt(v=>[...v,{
-       id,kind:inferred,name:file.name,official:prepared.extracted.official_report||'',ai:'',state:'pending',
+       id,kind:selected,name:file.name,official:prepared.extracted.official_report||'',ai:'',state:'pending',
        provenance:`${prepared.processing.modules.join(' · ')} · ${prepared.processing.status}`,prepared,sourceFile:file,
        privacyChecked:prepared.privacy.status==='PASS',burnedChecked:!prepared.privacy.burned_in_identifier_review_required,
        sourceReference:`sha256:${prepared.sha256}`,
      }]);
-     setDraftOfficial('');setDraftAi('');touch();
-   }catch(e){setApiError(e instanceof Error?e.message:ui("Falha ao preparar upload clínico."));}
+     setDraftOfficial('');setDraftAi('');touch();setReviewFocus({id});
+   }catch(e){setApiError(uploadError(e,"Falha ao preparar upload clínico.",ui));setReviewFocus({id:'error'});}
    finally{setApiBusy(false);}
  }
  async function interpretCard(id:string){
@@ -225,14 +223,16 @@ export default function ClinicalNote(){
        ...x,
        prepared,
        official:prepared.extracted.official_report||x.official,
-       ai:prepared.extracted.ai_interpretation||x.ai,
+       ai:prepared.processing.status==='vision_abstained'?'':prepared.extracted.ai_interpretation||x.ai,
        provenance:`${prepared.processing.modules.join(' · ')} · ${prepared.processing.status} · ${prepared.processing.provider||'provider'} / ${prepared.processing.model||'model'}`,
+       findings:prepared.processing.status==='vision_interpreted' ? prepared.processing.findings ?? '' : '',
+       impression:prepared.processing.status==='vision_interpreted' ? prepared.processing.impression ?? '' : '',
        privacyChecked:true,
        burnedChecked:true,
        state:'pending',
      }:x));
-     touch();
-   }catch(e){setApiError(e instanceof Error?e.message:ui("Falha na interpretação clínica configurada."));}
+     touch();setReviewFocus({id});
+   }catch(e){setApiError(uploadError(e,"Falha na interpretação clínica configurada.",ui));setReviewFocus({id:'error'});}
    finally{setApiBusy(false);}
  }
  function addManualMcdt(){
@@ -251,13 +251,14 @@ export default function ClinicalNote(){
      setApiBusy(true);
      try{
        const result=await acceptClinicalUpload(buildNote(),card.prepared,
-         {official_report:card.official||null,ai_interpretation:card.ai||null},
+         {official_report:card.official||null,ai_interpretation:card.ai||null,
+          ...(card.prepared.processing.status==='vision_interpreted' ? {findings:card.findings||null,impression:card.impression||null} : {})},
          card.privacyChecked,card.burnedChecked);
        setReports(result.note.complementary_tests);
        setTimeline(result.note.timeline);
        setMcdt(v=>v.map(x=>x.id===id?{...x,state:'accepted'}:x));
-       touch();
-     }catch(e){setApiError(e instanceof Error?e.message:ui("Não foi possível aceitar o MCDT."));}
+       touch();setReviewFocus({id});
+     }catch(e){setApiError(uploadError(e,"Não foi possível aceitar o MCDT.",ui));setReviewFocus({id:'error'});}
      finally{setApiBusy(false);}
      return;
    }
@@ -336,20 +337,33 @@ export default function ClinicalNote(){
    </section>}
 
    {tab==='mcdt'&&<section className="space-y-4">
-    <div className={card}><h2 className="text-lg font-bold">{ui("Adicionar MCDT")}</h2><div className="mt-3 flex flex-wrap gap-2">{mcdtKinds.map(k=><button key={k} className={`btn ${draftKind===k?'btn-primary':'btn-ghost'}`} onClick={()=>setDraftKind(k)}>+ {ui(k)}</button>)}</div>
+    <div className={card}><h2 className="text-lg font-bold">{ui("Adicionar MCDT")}</h2><div className="mt-3 flex flex-wrap gap-2">{mcdtKinds.map(k=><button key={k} aria-pressed={draftKind===k} className={`btn ${draftKind===k?'btn-primary':'btn-ghost'}`} onClick={()=>setDraftKind(k)}>+ {ui(k)}</button>)}</div>
       <div className="mt-4 grid gap-3">
-      <label className="rounded-xl border border-dashed border-border p-4"><span className="label">{ui("Upload clínico")}</span><input aria-label={ui("Upload clínico")} type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm" onChange={e=>void onUpload(e.target.files?.[0])}/><span className="mt-2 block text-xs text-muted">{uploadName?ui("Ficheiro selecionado: ")+uploadName:ui("O original não é guardado nem incorporado no relatório por defeito.")}</span></label>
+      <label className="rounded-xl border border-dashed border-border p-4"><span className="label">{ui("Upload clínico")}</span><input aria-label={ui("Upload clínico")} type="file" disabled={busy} accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm" onChange={e=>void onUpload(e.target.files?.[0])}/><span className="mt-2 block text-xs text-muted">{uploadName?ui("Ficheiro selecionado: ")+uploadName:ui("O original não é guardado nem incorporado no relatório por defeito.")}</span></label>
       <input aria-label={ui("Nome do exame")} className="input" value={draftName} onChange={e=>setDraftName(e.target.value)} placeholder={ui("Entrada manual, ex.: TC crânio 18:20")}/><label><span className="label">{ui("Informe oficial / dados extraídos")}</span><textarea className="input min-h-24" value={draftOfficial} onChange={e=>setDraftOfficial(e.target.value)}/></label><label><span className="label">{ui("Interpretação IA proposta")}</span><textarea className="input min-h-24" value={draftAi} onChange={e=>setDraftAi(e.target.value)} placeholder={ui("Mantida separada do informe oficial")}/></label><button className="btn-primary justify-self-start" onClick={addManualMcdt}>{ui("Criar cartão para revisão")}</button></div>
     </div>
-    {mcdt.map(x=><article key={x.id} className={card} data-testid="mcdt-review-card"><div className="flex flex-wrap items-center gap-2"><strong>{ui(x.kind)} · {x.name}</strong><span className="chip ml-auto">{x.state==='pending'?ui("Pendente"):x.state==='accepted'?ui("Aceite"):ui("Rejeitado")}</span></div>
+    {mcdt.map(x=><article key={x.id} tabIndex={-1} aria-label={ui(x.kind)+' · '+x.name} ref={element=>{
+      if(element) reviewElements.current.set(x.id,element); else reviewElements.current.delete(x.id);
+    }} className={card} data-testid="mcdt-review-card"><div className="flex flex-wrap items-center gap-2"><strong>{ui(x.kind)} · {x.name}</strong><span className="chip ml-auto">{x.state==='pending'?ui("Pendente"):x.state==='accepted'?ui("Aceite"):ui("Rejeitado")}</span></div>
       {x.prepared&&<div className="mt-2 flex flex-wrap gap-2 text-xs"><span className="chip">{ui("Privacidade:")} {x.prepared.privacy.status}</span><span className="chip">{ui("Rota:")} {x.prepared.processing.modules.join(' · ')}</span><span className="chip">{ui("Original não retido")}</span></div>}
       <p className="mt-3 text-xs font-semibold uppercase text-muted">{ui("Informe oficial / extraído")}</p><textarea aria-label={`${ui("Informe oficial / extraído")} ${x.name}`} className="input mt-1 min-h-20" value={x.official} onChange={e=>editCard(x.id,{official:e.target.value})}/>
       <p className="mt-3 text-xs font-semibold uppercase text-primary">{ui("Interpretação IA")}</p><textarea aria-label={`${ui("Interpretação IA")} ${x.name}`} className="input mt-1 min-h-20" value={x.ai} onChange={e=>editCard(x.id,{ai:e.target.value})}/><p className="mt-2 text-xs text-muted">{ui("Proveniência:")} {x.provenance}</p>
       {x.prepared?.privacy.manual_file_privacy_review_required&&<label className="mt-3 flex items-center gap-2 text-sm"><input type="checkbox" checked={x.privacyChecked} onChange={e=>editCard(x.id,{privacyChecked:e.target.checked})}/>{ui("Metadados/identificadores do ficheiro revistos.")}</label>}
       {x.prepared?.privacy.burned_in_identifier_review_required&&<label className="mt-2 flex items-center gap-2 text-sm"><input type="checkbox" checked={x.burnedChecked} onChange={e=>editCard(x.id,{burnedChecked:e.target.checked})}/>{ui("Identificadores visíveis/burned-in revistos.")}</label>}
       {x.prepared?.privacy.status==='STOP'&&<p className="mt-2 text-sm font-semibold text-danger">{ui("STOP: o backend detetou possível identificador direto no conteúdo.")}</p>}
-      {x.prepared?.processing.status==='vision_interpreted'&&<div className="mt-2 rounded-xl border border-warn p-3 text-sm"><strong>{ui("Interpretação IA proposta — requer revisão médica.")}</strong><p className="mt-1 text-xs text-muted">{ui("Provider:")} {x.prepared.processing.provider||'—'}{ui("· Modelo:")} {x.prepared.processing.model||'—'}{ui("· Confiança:")} {x.prepared.processing.confidence||'—'}</p>{x.prepared.processing.impression&&<p className="mt-2">{ui("Impressão:")} {x.prepared.processing.impression}</p>}{x.prepared.processing.limitations?.length?<p className="mt-1 text-xs text-muted">{ui("Limitações:")} {x.prepared.processing.limitations.join(' · ')}</p>:null}</div>}
-      <div className="mt-3 flex flex-wrap gap-2">{x.prepared?.processing.status==='routed_external'&&<button className="btn-ghost" disabled={busy||x.prepared.privacy.status==='STOP'||(x.prepared.privacy.manual_file_privacy_review_required&&!x.privacyChecked)||(x.prepared.privacy.burned_in_identifier_review_required&&!x.burnedChecked)} onClick={()=>void interpretCard(x.id)}>{ui("Interpretar com módulo IA")}</button>}<button className="btn-primary" disabled={busy||numericStop||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>{ui("Aceitar")}</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>{ui("Editar")}</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>{ui("Rejeitar")}</button></div></article>)}
+      {excludedContainer(x.prepared)&&<p className="mt-2 rounded-xl border border-warn p-3 text-sm">{ui("PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente.")}</p>}
+      {x.prepared?.processing.status==='vision_abstained'&&!excludedContainer(x.prepared)&&<div role="alert" className="mt-2 rounded-xl border border-warn p-3 text-sm">
+        <strong>{ui("Sem interpretação IA — obter nova imagem ou examinar presencialmente.")}</strong>
+      </div>}
+      {x.prepared?.processing.status==='vision_interpreted'&&<div className="mt-2 rounded-xl border border-warn p-3 text-sm">
+        <strong>{ui("Interpretação IA proposta — requer revisão médica.")}</strong>
+        <p className="mt-1 text-xs text-muted">{ui("Provider:")} {x.prepared.processing.provider||'—'}{ui("· Modelo:")} {x.prepared.processing.model||'—'}{ui("· Confiança:")} {x.prepared.processing.confidence||'—'}</p>
+        <label className="mt-2 block">{ui("Achados da proposta")}<textarea className="input mt-1" value={x.findings??''} onChange={e=>editCard(x.id,{findings:e.target.value})}/></label>
+        <label className="mt-2 block">{ui("Impressão:")}<textarea className="input mt-1" value={x.impression??''} onChange={e=>editCard(x.id,{impression:e.target.value})}/></label>
+      </div>}
+      {x.prepared?.processing.limitations?.length ? <p className="mt-1 text-xs text-muted">{ui("Limitações:")} {x.prepared.processing.limitations.map(value=>reviewMessage(value,ui)).join(' · ')}</p> : null}
+      {x.prepared?.processing.safety_flags?.length ? <p role="alert" className="mt-1 text-xs">{ui("Alertas de segurança:")} {x.prepared.processing.safety_flags.map(value=>reviewMessage(value,ui)).join(' · ')}</p> : null}
+      <div className="mt-3 flex flex-wrap gap-2">{x.prepared?.processing.status==='routed_external'&&!excludedContainer(x.prepared)&&<button className="btn-ghost" disabled={busy||x.prepared.privacy.status==='STOP'||(x.prepared.privacy.manual_file_privacy_review_required&&!x.privacyChecked)||(x.prepared.privacy.burned_in_identifier_review_required&&!x.burnedChecked)} onClick={()=>void interpretCard(x.id)}>{ui("Interpretar com módulo IA")}</button>}<button className="btn-primary" disabled={busy||numericStop||x.prepared?.privacy.status==='STOP'} onClick={()=>void acceptCard(x.id)}>{ui("Aceitar")}</button><button className="btn-ghost" onClick={()=>editCard(x.id,{})}>{ui("Editar")}</button><button className="btn-ghost text-danger" onClick={()=>rejectCard(x.id)}>{ui("Rejeitar")}</button></div></article>)}
    </section>}
 
    {tab==='problems'&&<section className={card}><h2 className="text-lg font-bold">{ui("Problemas")}</h2><p className="mt-1 text-sm text-muted">{ui("Lista numerada editável: ativo · a melhorar · resolvido · por esclarecer.")}</p><textarea className="input mt-4 min-h-56" aria-label={ui("Problemas")} value={problems} onChange={e=>{setProblems(e.target.value);touch()}} placeholder={ui("1. [ativo] …\n2. [por esclarecer] …")}/>{assessment?.active_problems.length? <div className="mt-4 rounded-xl border border-border p-3"><p className="text-xs font-bold uppercase text-muted">{ui("Problemas sugeridos pelo motor · requer revisão")}</p><ul className="mt-2 space-y-1 text-sm">{assessment.active_problems.map((x,i)=><li key={i}>• {x}</li>)}</ul></div>:null}</section>}
@@ -413,7 +427,7 @@ export default function ClinicalNote(){
 
    {numericStop&&<p role="alert" className="text-danger">{ui('{{label}}: introduce un número finito con punto decimal.', {label:ui('Idade')})}</p>}
    {privacyStop&&<div role="alert" className="rounded-xl border border-danger bg-surface p-4 text-sm font-semibold text-danger">{ui("STOP: possível identificador direto no texto. Remova-o antes de análise/exportação.")}</div>}
-   {apiError&&<div role="alert" className="rounded-xl border border-danger bg-surface p-4 text-sm text-danger">{apiError}</div>}
+   {apiError&&<div ref={errorElement} tabIndex={-1} role="alert" className="rounded-xl border border-danger bg-surface p-4 text-sm text-danger">{apiError}</div>}
 
    <nav className="overflow-x-auto" aria-label={ui("Secções da nota")}><div className="flex min-w-max gap-1 rounded-xl border border-border bg-surface p-1">
     {tabs.map(([id,label])=><button key={id} data-testid={`note-tab-${id}`} onClick={()=>setTab(id)} className={`min-h-[44px] rounded-lg px-3 py-2 text-sm font-semibold ${tab===id?'bg-primary text-primary-fg':'text-muted hover:bg-surface-2'}`} aria-current={tab===id?'page':undefined}>{ui(label)}{id==='mcdt'&&pending>0?` (${pending})`:''}</button>)}

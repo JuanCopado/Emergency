@@ -1,2 +1,4 @@
 # PDF Unicode runtime; DOCX/JSON continue to use the standard library.
 reportlab==5.0.1
+# Decode and normalize image-upload pixels before external review.
+Pillow==13.0.0

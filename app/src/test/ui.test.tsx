@@ -392,13 +392,16 @@ describe('Clinical note diagnostic workspace', () => {
         message: 'Interpreted; review required.',
         provider: 'test-provider',
         model: 'mock-cxr-v1',
-        confidence: 'moderate',
+        confidence: null,
+        safety_flags: ['confidence_withheld'],
+        findings: 'Achado sintético para rever.',
         impression: 'Sem achado torácico agudo evidente.',
         limitations: ['Imagem única.'],
       },
     };
 
-    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+    let acceptedEdit: unknown;
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input,init) => {
       const url = String(input);
       if (url.endsWith('/api/clinical-note/upload/prepare')) {
         return new Response(JSON.stringify(prepared), { status: 200, headers: { 'Content-Type': 'application/json' } });
@@ -407,6 +410,11 @@ describe('Clinical note diagnostic workspace', () => {
         return new Response(JSON.stringify({ prepared: interpreted, review_required: true, persisted: false }), {
           status: 200, headers: { 'Content-Type': 'application/json' },
         });
+      }
+      if (url.endsWith('/api/clinical-note/upload/accept')) {
+        const body = JSON.parse(String(init?.body));
+        acceptedEdit = body.clinician_edit;
+        return Response.json({note: body.note});
       }
       return new Response(JSON.stringify({ error: 'unexpected endpoint' }), { status: 404 });
     });
@@ -432,6 +440,52 @@ describe('Clinical note diagnostic workspace', () => {
     expect(reviewCard).toHaveTextContent('mock-cxr-v1');
     expect(reviewCard).toHaveTextContent('Sem pneumotórax evidente.');
     expect(reviewCard).toHaveTextContent('Pendente');
+    expect(reviewCard).toHaveFocus();
+    expect(reviewCard).toHaveTextContent('Confiança omitida porque o desempenho diagnóstico não foi validado.');
+    const findings = within(reviewCard).getByLabelText('Achados da proposta');
+    expect(findings).toHaveValue('Achado sintético para rever.');
+    await user.clear(findings);
+    await user.type(findings, 'Observação corrigida.');
+    await user.clear(within(reviewCard).getByLabelText('Impressão:'));
+    await user.click(within(reviewCard).getByRole('button',{name:'Aceitar'}));
+    await waitFor(()=>expect(acceptedEdit).toMatchObject({findings:'Observação corrigida.',impression:null}));
+    expect(reviewCard).toHaveTextContent('Aceite');
+  });
+
+  it.each([['pdf','application/pdf'],['dicom','application/dicom']])('keeps %s in manual review', async (format,mime) => {
+    const user = userEvent.setup();
+    const fetch = vi.spyOn(globalThis,'fetch').mockResolvedValue(Response.json({
+      upload_id:'document-card',kind:'skin_wound',sha256:'synthetic',media:{format,status:'limited'},
+      privacy:{status:'REVIEW_REQUIRED',manual_file_privacy_review_required:true,burned_in_identifier_review_required:true},
+      extracted:{official_report:null,ai_interpretation:null},processing:{status:'routed_external',modules:['skin-wound-image']},
+    }));
+    await renderAt('/clinical-note', [{path:'/clinical-note',element:<ClinicalNote />}], 'pt');
+    await user.click(screen.getByRole('button',{name:'MCDT'}));
+    const category = screen.getByRole('button',{name:/Pele\/ferida/});
+    await user.click(category);
+    expect(category).toHaveAttribute('aria-pressed','true');
+    await user.upload(screen.getByLabelText('Upload clínico'),new File(['synthetic'],format==='pdf'?'sample.pdf':'sample.dcm',{type:mime}));
+    const card = await screen.findByTestId('mcdt-review-card');
+    expect(card).toHaveFocus();
+    expect(card).toHaveTextContent('PDF e DICOM ficam excluídos');
+    expect(within(card).queryByRole('button',{name:'Interpretar com módulo IA'})).toBeNull();
+    expect(within(card).getByLabelText(/Informe oficial/)).toBeEnabled();
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    ['invalid image upload: signature_mismatch','El contenido del archivo no coincide con el formato declarado.'],
+    ['invalid or unsupported clinical image or filename','El archivo se rechazó al verificar su nombre, formato o integridad.'],
+  ])('focuses a readable error when the file is rejected (%s)', async (message, translation) => {
+    const user = userEvent.setup();
+    vi.spyOn(globalThis,'fetch').mockResolvedValue(Response.json({error:message},{status:422}));
+    await renderAt('/clinical-note',[{path:'/clinical-note',element:<ClinicalNote />}],'es');
+    await user.click(screen.getByRole('button',{name:'Pruebas complementarias'}));
+    await user.upload(screen.getByLabelText('Carga clínica'),new File(['bad'],'sample.png',{type:'image/png'}));
+    const error = await screen.findByRole('alert');
+    expect(error).toHaveTextContent(translation);
+    expect(error).toHaveFocus();
+    expect(screen.queryByTestId('mcdt-review-card')).toBeNull();
   });
 
   it('shows objective diagnostic red flags returned by the trusted engine', async () => {

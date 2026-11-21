@@ -157,8 +157,9 @@ export type PreparedUpload = {
     burned_in_identifier_review_required: boolean;
   };
   extracted: { official_report: string | null; ai_interpretation: string | null };
+  media?: {format?: string; status?: string} | null;
   processing: {
-    status: 'text_extracted' | 'routed_external' | 'vision_interpreted';
+    status: 'text_extracted' | 'routed_external' | 'vision_interpreted' | 'vision_abstained';
     message: string;
     modules: string[];
     provider?: string | null;
@@ -167,6 +168,7 @@ export type PreparedUpload = {
     findings?: string | null;
     impression?: string | null;
     limitations?: string[];
+    safety_flags?: string[];
   };
   original_retained: false;
 };

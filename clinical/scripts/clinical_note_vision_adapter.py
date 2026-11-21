@@ -34,13 +34,17 @@ Expected response:
 No response is accepted into the medical record by this module itself.
 """
 
+import base64
+import binascii
 import json
 import os
+import re
 import ssl
 import urllib.error
 import urllib.request
 import uuid
-from pathlib import Path
+from clinical_note_support import scan_privacy
+import image_upload_guard
 
 CONTRACT_VERSION = "1.0"
 DEFAULT_TIMEOUT_SECONDS = 45
@@ -50,12 +54,65 @@ BINARY_KINDS = {
     "ecg", "xray", "chest_xray", "xray_chest", "musculoskeletal_xray",
     "ct", "ct_head", "ct_body", "mri", "pocus", "ultrasound",
     "blood_gas_image", "skin_wound", "ophthalmology", "other_image",
-    "pdf_document",
 }
 
 
 class VisionAdapterError(ValueError):
     pass
+
+
+class VisionProviderResponseError(VisionAdapterError):
+    """The configured provider returned an unusable answer; the note is untouched."""
+
+
+# M10: rules already stated in modules/image-modalities.md#skin-wound-image, enforced on output.
+SKIN_WOUND_FIXED_LIMITATIONS = (
+    "Photograph only: warmth, tenderness, fluctuance, crepitus, depth and pain out of "
+    "proportion are not assessable.",
+    "Lighting, white balance and skin tone alter apparent colour; diagnostic performance of "
+    "this workflow is not established. Does not exclude necrotizing infection, "
+    "malignancy or any other diagnosis; examine in person when concerned.",
+)
+_REASSURANCE = re.compile(
+    r"\b(benign|benigno|benigna|ruled out|excluded|reassuring|tranquilizador|descarta\w*|"
+    r"exclu[ií]d[oa]|no (?:signs? of |evidence of )?(?:infection|necrosis|malignan\w*)|"
+    r"sin (?:signos de )?(?:infecci[oó]n|necrosis|malignidad)|"
+    r"sem (?:sinais de )?(?:infe[cç][aã]o|necrose|malignidade)|"
+    r"not (?:an? )?(?:infected|necrotizing|malignant)|normal skin|piel normal|pele normal|"
+    r"safe to (?:observe|discharge)|no urgent|sin riesgo|sem risco|"
+    r"no further (?:assessment|evaluation|review) (?:is )?(?:needed|required)|"
+    r"no (?:requiere|necesita) (?:m[aá]s |otra )?(?:valoraci[oó]n|evaluaci[oó]n)|"
+    r"n[aã]o (?:necessita de |precisa de |requer )(?:mais |nova )?avalia[cç][aã]o)\b", re.IGNORECASE)
+
+
+def _skin_wound_guard(normalized):
+    """Fail-safe post-processing for skin_wound output (no clinical judgement added).
+
+    - reassurance wording is flagged and surfaced in limitations (regex ceiling: also
+      matches negated forms such as 'cannot be excluded'; over-flagging is intended);
+    - provider confidence is withheld: no diagnostic performance has been established.
+    """
+    text = " ".join(str(normalized.get(k) or "") for k in
+                    ("ai_interpretation", "findings", "impression"))
+    flags = list(normalized.get("safety_flags") or [])
+    limitations = list(normalized.get("limitations") or [])
+    if _REASSURANCE.search(text):
+        flags.append("reassurance_language")
+        normalized["abstained"] = True
+        for field in ("ai_interpretation", "findings", "impression"):
+            normalized[field] = None
+        limitations.append("Flagged: output contains reassurance/exclusion wording that a "
+                           "photograph cannot support. Disregard it and examine in person.")
+    if normalized.get("confidence") is not None:
+        normalized["provider_confidence"] = normalized["confidence"]
+        normalized["confidence"] = None
+        flags.append("confidence_withheld")
+    for fixed in SKIN_WOUND_FIXED_LIMITATIONS:
+        if fixed not in limitations:
+            limitations.append(fixed)
+    normalized["limitations"] = limitations
+    normalized["safety_flags"] = flags
+    return normalized
 
 
 def provider_config(env=None):
@@ -96,42 +153,74 @@ def build_request(prepared, content_base64):
         raise VisionAdapterError("privacy STOP must be resolved before interpretation")
     if not isinstance(content_base64, str) or not content_base64:
         raise VisionAdapterError("content_base64 is required")
-    suffix = Path(str(prepared.get("filename") or "")).suffix.lower()
-    safe_suffix = suffix if 0 < len(suffix) <= 10 and suffix.replace(".", "").isalnum() else ""
+    if len(content_base64) > 4 * ((image_upload_guard.MAX_TRANSFER_BYTES + 2) // 3):
+        raise VisionAdapterError("vision raster exceeds transport limit")
+    try:
+        raw = base64.b64decode(content_base64, validate=True)
+    except (binascii.Error, ValueError) as exc:
+        raise VisionAdapterError("invalid raster encoding") from exc
+    media = image_upload_guard.inspect_media(raw, prepared.get("filename"), prepared.get("mime_type"))
+    if media["format"] not in image_upload_guard.IMAGE_FORMATS or media["status"] == "unsuitable":
+        raise VisionAdapterError("only inspected, reviewable still rasters are eligible for transport")
+    clean = image_upload_guard.strip_metadata(raw, media["format"])
+    if len(clean) > image_upload_guard.MAX_TRANSFER_BYTES:
+        raise VisionAdapterError("normalized raster exceeds transport limit")
     return {
         "contract_version": CONTRACT_VERSION,
         "request_id": str(uuid.uuid4()),
         "kind": kind,
-        "mime_type": prepared.get("mime_type") or "application/octet-stream",
-        "filename": "clinical-source" + safe_suffix,
+        "mime_type": "image/png",
+        "filename": "clinical-source.png",
         "routed_modules": list(prepared.get("processing", {}).get("modules") or []),
-        "content_base64": content_base64,
+        "content_base64": base64.b64encode(clean).decode("ascii"),
     }
 
 
 def _normalize_response(payload):
     if not isinstance(payload, dict):
-        raise VisionAdapterError("vision provider returned a non-object response")
-    if payload.get("status") != "ok":
-        raise VisionAdapterError("vision provider did not return status=ok")
+        raise VisionProviderResponseError("vision provider returned a non-object response")
     if payload.get("contract_version") != CONTRACT_VERSION:
-        raise VisionAdapterError("vision provider contract version mismatch")
-    confidence = payload.get("confidence")
-    if (confidence is not None and not isinstance(confidence, str)) or confidence not in ALLOWED_CONFIDENCE:
-        raise VisionAdapterError("vision provider confidence must be high/moderate/low or null")
+        raise VisionProviderResponseError("vision provider contract version mismatch")
     for field in ("ai_interpretation", "findings", "impression", "official_report", "provider", "model"):
         value = payload.get(field)
         if value is not None and not isinstance(value, str):
-            raise VisionAdapterError(f"vision provider {field} must be a string or null")
+            raise VisionProviderResponseError(f"vision provider {field} must be a string or null")
+    for field in ("provider", "model"):
+        label = payload.get(field)
+        if label is not None and (not label.strip() or len(label) > 128 or not label.isprintable()):
+            raise VisionProviderResponseError(f"vision provider {field} must be a short printable label")
+    if payload.get("status") == "abstain":
+        # M10-F05: an explicit abstention (e.g. non-diagnostic image) is a valid outcome,
+        # distinct from a provider failure. A reason is mandatory; no clinical text allowed.
+        if payload.get("confidence") is not None:
+            raise VisionProviderResponseError("vision provider abstention must not carry confidence")
+        reasons = payload.get("limitations")
+        if (not isinstance(reasons, list) or not reasons
+                or any(not isinstance(x, str) or not x.strip() for x in reasons)):
+            raise VisionProviderResponseError("vision provider abstention requires a limitations reason")
+        if any((payload.get(k) or "").strip() for k in
+               ("ai_interpretation", "findings", "impression", "official_report")
+               if isinstance(payload.get(k), str)):
+            raise VisionProviderResponseError("vision provider abstention must not carry clinical content")
+        return {"provider": str(payload.get("provider") or "configured-provider"),
+                "model": str(payload.get("model") or "unspecified"),
+                "official_report": None, "ai_interpretation": None, "findings": None,
+                "impression": None, "limitations": reasons, "confidence": None,
+                "abstained": True, "safety_flags": ["provider_abstained"]}
+    if payload.get("status") != "ok":
+        raise VisionProviderResponseError("vision provider did not return status=ok")
+    confidence = payload.get("confidence")
+    if (confidence is not None and not isinstance(confidence, str)) or confidence not in ALLOWED_CONFIDENCE:
+        raise VisionProviderResponseError("vision provider confidence must be high/moderate/low or null")
     ai_text = (payload.get("ai_interpretation") or "").strip()
     findings = (payload.get("findings") or "").strip()
     impression = (payload.get("impression") or "").strip()
     official = (payload.get("official_report") or "").strip()
     if not any((ai_text, findings, impression, official)):
-        raise VisionAdapterError("vision provider returned no reviewable clinical content")
+        raise VisionProviderResponseError("vision provider returned no reviewable clinical content")
     limitations = payload.get("limitations", [])
     if not isinstance(limitations, list) or any(not isinstance(x, str) for x in limitations):
-        raise VisionAdapterError("vision provider limitations must be a string array")
+        raise VisionProviderResponseError("vision provider limitations must be a string array")
     return {
         "provider": str(payload.get("provider") or "configured-provider"),
         "model": str(payload.get("model") or "unspecified"),
@@ -182,15 +271,19 @@ def invoke(prepared, content_base64, *, privacy_checked=False,
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             raise VisionAdapterError("clinical vision provider request failed") from exc
         if len(raw) > MAX_PROVIDER_RESPONSE_BYTES:
-            raise VisionAdapterError("clinical vision provider response exceeds limit")
+            raise VisionProviderResponseError("clinical vision provider response exceeds limit")
         try:
             response_payload = json.loads(raw.decode("utf-8"))
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
-            raise VisionAdapterError("clinical vision provider returned invalid JSON") from exc
+            raise VisionProviderResponseError("clinical vision provider returned invalid JSON") from exc
 
     normalized = _normalize_response(response_payload)
-    if request_payload["kind"] != "pdf_document" and normalized.get("official_report"):
-        raise VisionAdapterError(
+    if any(item.get("severity") == "STOP" for item in scan_privacy(normalized)):
+        raise VisionProviderResponseError("vision interpretation output contains possible direct identifiers")
+    if request_payload["kind"] == "skin_wound" and not normalized.get("abstained"):
+        normalized = _skin_wound_guard(normalized)
+    if normalized.get("official_report"):
+        raise VisionProviderResponseError(
             "vision provider must not label generated image interpretation as an official report"
         )
     return {

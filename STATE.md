@@ -9,6 +9,7 @@ Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según 
 - Gate de referencia revisado íntegramente y GREEN con la aceptación PR35 ya existente; no es autorización asistencial.
 - Nota: corregidas fuentes de 18 síndromes y una referencia vasoactiva; 60 casos sin cambios fuera de procedencia.
 - Nota: 60 casos conservados; negaciones, discriminantes y relaciones visibles. P1 de puntuación en notas mixtas y rendimiento clínico pendientes. Alcance: `clinical/qa/NOTE_OBSERVATIONS_20261121.md`.
+- PR51/M10: normalización técnica de rasters, abstención y exclusión externa de PDF/DICOM. Alcance y controles en `clinical/qa/M10_TECHNICAL_FOLLOWUP_20261121.md`.
 - Nueve fichas de imagen v1 aceptadas: «si claro que si», 20/11; GREEN de referencia con alcance y fuentes registrados.
 - POCUS-MODE v1 aplicado exactamente; 12 pruebas de proyección, 4 de normalización y 2 del gate PASS; QA remota: checks del commit entregado.
 - Aceptación: `clinical/qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md`; padres de imagen y nota YELLOW, rendimiento pendiente.
