@@ -68,14 +68,10 @@ def measure(corpus):
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--out")
-    args = parser.parse_args()
+    argparse.ArgumentParser(description=__doc__).parse_args()
     corpus, digest = load()
     result = {"corpus_sha256": digest, "scope": "regression baseline; not clinical performance", **measure(corpus)}
     text = json.dumps(result, ensure_ascii=False, indent=1)
-    if args.out:
-        Path(args.out).write_text(text + "\n", encoding="utf-8")
     print(text)
 
 
