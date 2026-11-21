@@ -318,25 +318,6 @@
       ]
     },
     {
-      "source_id": "src-2c870f82",
-      "title": "Clinical image-review safety workflow and syndrome-specific guidance",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "workflow v1.17; diagnostic performance not established",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "other-clinical-image"
-      ]
-    },
-    {
       "source_id": "src-2e6e2326",
       "title": "UKKA Management of Hyperkalaemia July2026, recommendations16-17 and Appendix7",
       "organization": null,
@@ -413,25 +394,6 @@
       ]
     },
     {
-      "source_id": "src-33fe8c99",
-      "title": "ACEP ultrasound guidance plus image-review safety workflow",
-      "organization": "ACEP",
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "ACEP 2023; workflow v1.17; diagnostic performance not established",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "pocus-image"
-      ]
-    },
-    {
       "source_id": "src-3a8c4498",
       "title": "Society for Endocrinology adrenal crisis guidance; JBDS-IP hospital hypoglycemia in adults with diabetes; Society for Endocrinology emergency pituitary apoplexy guidance; European Journal of Endocrinology pituitary apoplexy update",
       "organization": "Society for Endocrinology",
@@ -489,6 +451,25 @@
       ]
     },
     {
+      "source_id": "src-3cec9c66",
+      "title": "Australasian College of Dermatologists: Practice Guidelines for Teledermatology in Australia, 2025 Update",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://doi.org/10.1111/ajd.14599",
+      "persistent_id": "doi:10.1111/ajd.14599",
+      "version": "2025-09-12; technical sections 7.1.2-7.1.5 and companion sources scoped in IMG-REF-SKIN-20261120 v1",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "skin-wound-image"
+      ]
+    },
+    {
       "source_id": "src-3ea60a15",
       "title": "GINA Strategy Report 2026",
       "organization": null,
@@ -508,22 +489,22 @@
       ]
     },
     {
-      "source_id": "src-404c6c98",
-      "title": "Clinical image-review workflow plus diagnosis-specific wound/dermatology guidance",
+      "source_id": "src-40eb0cd3",
+      "title": "SBC Guideline on the Analysis and Issuance of Electrocardiographic Reports",
       "organization": null,
       "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "workflow v1.17; diagnostic performance not established",
+      "url": "https://doi.org/10.36660/abc.20220623",
+      "persistent_id": "doi:10.36660/abc.20220623",
+      "version": "2022; selected ACC/AHA/RCUK and primary ECG sources scoped in ECG-REF-20261120 v1; ECG-PT acceptance preserved",
       "publication_date": null,
-      "last_verified": "2026-09-27",
+      "last_verified": "2026-11-20",
       "language": null,
       "jurisdiction": null,
       "license_status": "unknown",
       "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
+      "compound_identity": false,
       "modules": [
-        "skin-wound-image"
+        "ecg-image"
       ]
     },
     {
@@ -600,25 +581,6 @@
       "compound_identity": true,
       "modules": [
         "pediatric-dehydration-shock"
-      ]
-    },
-    {
-      "source_id": "src-4c4f1846",
-      "title": "Project physician-owner validation directive (PR35, 2026-11-20)",
-      "organization": null,
-      "source_type": "other",
-      "url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md",
-      "persistent_id": null,
-      "version": "PR35 owner-led governance; final-human-review-policy schema 1.1; clinical review date retained",
-      "publication_date": null,
-      "last_verified": "2026-10-06",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "final-human-review-gate"
       ]
     },
     {
@@ -714,25 +676,6 @@
       "compound_identity": false,
       "modules": [
         "abdominal-aortic-aneurysm"
-      ]
-    },
-    {
-      "source_id": "src-54d2e525",
-      "title": "ACEP ultrasound guidance plus syndrome-specific ECG guidance",
-      "organization": "ACEP",
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "ACEP 2023; current syndrome guidance reviewed 2026",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "ecg-pocus-integration"
       ]
     },
     {
@@ -850,6 +793,25 @@
       ]
     },
     {
+      "source_id": "src-5d90bed6",
+      "title": "AARC Clinical Practice Guideline: Blood Gas Analysis and Hemoximetry",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://doi.org/10.4187/respcare.02786",
+      "persistent_id": "doi:10.4187/respcare.02786",
+      "version": "2013; AARC capillary sampling 2022, ANZSRS 2024 and Global ARDS 2024 scoped in GAS-REF-20261120 v1",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "blood-gas-image"
+      ]
+    },
+    {
       "source_id": "src-5d95c486",
       "title": "European trauma sixth edition2023; DGS011/2013 updated2017",
       "organization": null,
@@ -907,6 +869,25 @@
       ]
     },
     {
+      "source_id": "src-646c2ba0",
+      "title": "ACS Best Practices Guidelines: Management of Traumatic Brain Injury",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://www.facs.org/media/vgfgjpfk/best-practices-guidelines-traumatic-brain-injury.pdf",
+      "persistent_id": null,
+      "version": "2024, Imaging pp. 12-14; ACR head CT 2025 and DICOM PS3.3 2026d scoped in CT-REF-20261120 v1",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "ct-mri-screenshot"
+      ]
+    },
+    {
       "source_id": "src-6c7c8360",
       "title": "AHA2025; EMA/CAPQ/EXTRIP; 17 product references (rare antidotes, chelators, antitoxins, antivenoms); WHO lead2021",
       "organization": "EMA",
@@ -945,22 +926,22 @@
       ]
     },
     {
-      "source_id": "src-6f0c0d80",
-      "title": "ACR Appropriateness Criteria plus image-review safety workflow",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
+      "source_id": "src-6f58c3a6",
+      "title": "ACEP Sonoguide: Lung",
+      "organization": "ACEP",
+      "source_type": "other",
+      "url": "https://www.acep.org/sonoguide/basic/lung",
       "persistent_id": null,
-      "version": "current online criteria; workflow v1.17",
+      "version": "2021-03-08, Lung Sliding and figure 8; acquisition/documentation sources scoped in POCUS-REF-20261120 v1 including POCUS-MODE-20261120 v1",
       "publication_date": null,
-      "last_verified": "2026-09-27",
+      "last_verified": "2026-11-20",
       "language": null,
       "jurisdiction": null,
       "license_status": "unknown",
       "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
+      "compound_identity": false,
       "modules": [
-        "ct-mri-screenshot"
+        "pocus-image"
       ]
     },
     {
@@ -999,25 +980,6 @@
       "compound_identity": false,
       "modules": [
         "tension-pneumothorax"
-      ]
-    },
-    {
-      "source_id": "src-7164c947",
-      "title": "AHA/ACC/ESC ECG standards plus image-review safety workflow",
-      "organization": "ESC",
-      "source_type": "literature",
-      "url": null,
-      "persistent_id": null,
-      "version": "workflow v1.17; diagnostic performance not established",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "ecg-image"
       ]
     },
     {
@@ -1382,44 +1344,6 @@
       ]
     },
     {
-      "source_id": "src-94c7d22c",
-      "title": "ACR Appropriateness Criteria and modality-specific radiographic quality standards",
-      "organization": null,
-      "source_type": "guideline",
-      "url": null,
-      "persistent_id": null,
-      "version": "current online criteria reviewed 2026",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "chest-xray"
-      ]
-    },
-    {
-      "source_id": "src-962d2734",
-      "title": "Clinical image workflow with independent value verification",
-      "organization": null,
-      "source_type": "internal_workflow",
-      "url": null,
-      "persistent_id": null,
-      "version": "workflow v1.13; oxygenation calculations; diagnostic performance not established",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": false,
-      "modules": [
-        "blood-gas-image"
-      ]
-    },
-    {
       "source_id": "src-9662a47e",
       "title": "ESO/EANS guideline on spontaneous intracerebral haemorrhage plus AHA/ASA spontaneous ICH guideline",
       "organization": "AHA/ASA",
@@ -1683,6 +1607,25 @@
       "compound_identity": true,
       "modules": [
         "orthopedic-emergencies"
+      ]
+    },
+    {
+      "source_id": "src-ac57f720",
+      "title": "ACC/AHA Guideline for the Diagnosis and Management of Aortic Disease",
+      "organization": null,
+      "source_type": "guideline",
+      "url": "https://doi.org/10.1161/CIR.0000000000001106",
+      "persistent_id": "doi:10.1161/CIR.0000000000001106",
+      "version": "2022 section 7.2; acute PE 2026 and ESC myopericarditis 2025 scoped in ECG-POCUS-REF-20261120 v1",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "ecg-pocus-integration"
       ]
     },
     {
@@ -2206,6 +2149,25 @@
       ]
     },
     {
+      "source_id": "src-b5453afa",
+      "title": "IMDRF Good Machine Learning Practice for Medical Device Development: Guiding Principles",
+      "organization": null,
+      "source_type": "other",
+      "url": "https://www.imdrf.org/sites/default/files/2025-02/IMDRF_AIML%20WG_GMLP_N88%20Final.pdf",
+      "persistent_id": null,
+      "version": "AIML WG/N88 FINAL:2025; methodological limits and internal safety controls scoped in IMG-REF-OTHER-20261120 v1",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "other-clinical-image"
+      ]
+    },
+    {
       "source_id": "src-b5e20534",
       "title": "Modality-specific professional guidance plus independent local reference diagnosis",
       "organization": null,
@@ -2510,6 +2472,25 @@
       ]
     },
     {
+      "source_id": "src-ca24a892",
+      "title": "ACR-SPR-STR Practice Parameter for the Performance of Chest Radiography",
+      "organization": null,
+      "source_type": "other",
+      "url": "https://gravitas.acr.org/PPTS/DownloadPreviewDocument?DocId=129&ReleaseId=2",
+      "persistent_id": null,
+      "version": "Revision 2022, resolution 11; indexed passages and companion sources scoped in IMG-REF-CXR-20261120 v1",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "chest-xray"
+      ]
+    },
+    {
       "source_id": "src-cbim-evaluation-2026",
       "title": "CBI-M CENTER-TBI/TRACK-TBI evaluation",
       "organization": "Pisica et al.",
@@ -2721,6 +2702,25 @@
       ]
     },
     {
+      "source_id": "src-d552c922",
+      "title": "Project physician-owner validation directive (PR35, 2026-11-20)",
+      "organization": null,
+      "source_type": "other",
+      "url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md",
+      "persistent_id": null,
+      "version": "PR35 owner-led governance; final-human-review-policy schema 1.1; governance reference reverified 2026-11-20",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "final-human-review-gate"
+      ]
+    },
+    {
       "source_id": "src-d68066ee",
       "title": "ESVS mesenteric/renal arteries and veins2025; WSES2022",
       "organization": "ESVS",
@@ -2870,6 +2870,25 @@
       "compound_identity": false,
       "modules": [
         "vasoactive-inotrope-infusions"
+      ]
+    },
+    {
+      "source_id": "src-e1c74e04",
+      "title": "College of Optometrists: Annex 4, Urgency of Referrals Table",
+      "organization": null,
+      "source_type": "other",
+      "url": "https://www.college-optometrists.org/clinical-guidance/guidance/guidance-annexes/annex-4-urgency-of-referrals-table",
+      "persistent_id": null,
+      "version": "Online table consulted 2026-11-20; selected 2020-2026 AAO/AHA/College sources scoped in EYE-REF-20261120 v1",
+      "publication_date": null,
+      "last_verified": "2026-11-20",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": false,
+      "modules": [
+        "ophthalmology-image"
       ]
     },
     {
@@ -3447,25 +3466,6 @@
       "compound_identity": false,
       "modules": [
         "rhabdomyolysis"
-      ]
-    },
-    {
-      "source_id": "src-fc28192f",
-      "title": "AAO Preferred Practice Patterns plus image-review safety workflow",
-      "organization": null,
-      "source_type": "literature",
-      "url": null,
-      "persistent_id": null,
-      "version": "current PPP collection; workflow v1.17",
-      "publication_date": null,
-      "last_verified": "2026-09-27",
-      "language": null,
-      "jurisdiction": null,
-      "license_status": "unknown",
-      "provenance": "legacy_evidence_registry",
-      "compound_identity": true,
-      "modules": [
-        "ophthalmology-image"
       ]
     },
     {
@@ -5476,7 +5476,7 @@
     ],
     "blood-gas-image": [
       {
-        "source_id": "src-962d2734",
+        "source_id": "src-5d90bed6",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       }
@@ -5627,7 +5627,7 @@
     ],
     "chest-xray": [
       {
-        "source_id": "src-94c7d22c",
+        "source_id": "src-ca24a892",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       }
@@ -5651,7 +5651,7 @@
     ],
     "ct-mri-screenshot": [
       {
-        "source_id": "src-6f0c0d80",
+        "source_id": "src-646c2ba0",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       },
@@ -5701,7 +5701,7 @@
     ],
     "ecg-image": [
       {
-        "source_id": "src-7164c947",
+        "source_id": "src-40eb0cd3",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       },
@@ -5718,7 +5718,7 @@
     ],
     "ecg-pocus-integration": [
       {
-        "source_id": "src-54d2e525",
+        "source_id": "src-ac57f720",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       },
@@ -5843,7 +5843,7 @@
     ],
     "ophthalmology-image": [
       {
-        "source_id": "src-fc28192f",
+        "source_id": "src-e1c74e04",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       },
@@ -5882,7 +5882,7 @@
     ],
     "other-clinical-image": [
       {
-        "source_id": "src-2c870f82",
+        "source_id": "src-b5453afa",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       }
@@ -5903,7 +5903,7 @@
     ],
     "pocus-image": [
       {
-        "source_id": "src-33fe8c99",
+        "source_id": "src-6f58c3a6",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       },
@@ -5934,7 +5934,7 @@
     ],
     "skin-wound-image": [
       {
-        "source_id": "src-404c6c98",
+        "source_id": "src-3cec9c66",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       }
@@ -6559,7 +6559,7 @@
     ],
     "final-human-review-gate": [
       {
-        "source_id": "src-4c4f1846",
+        "source_id": "src-d552c922",
         "role": "canonical_registry_identity",
         "claim_scope": "module-level"
       }

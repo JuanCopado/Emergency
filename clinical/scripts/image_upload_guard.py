@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stdlib-only structural guard for clinical image uploads (M10 audit, 2026-11-20).
+"""Raster integrity and privacy guard for clinical image uploads (M10 audit, 2026-11-20).
 
 Scope: technical integrity and privacy of the bytes only. It does NOT assess clinical
 content, diagnostic quality or lesion findings. Findings are heuristics with the
@@ -9,6 +9,7 @@ Public API
   inspect_media(raw, filename, mime_type) -> dict   (raises MediaRejected if invalid)
   strip_metadata(raw, fmt)                -> bytes | None  (None = format unsupported)
 """
+import io
 import struct
 import zlib
 
@@ -16,6 +17,7 @@ MAX_PIXELS = 100_000_000          # decompression-bomb ceiling (technical, not c
 MIN_SHORT_SIDE_UNSUITABLE = 64    # below this no visual finding can be carried
 MIN_SHORT_SIDE_LIMITED = 224      # below this: flagged as limited resolution (technical floor)
 MAX_DECODE_BYTES = 50_000_000
+MAX_TRANSFER_BYTES = 12 * 1024 * 1024
 
 PNG_SIG = b"\x89PNG\r\n\x1a\n"
 PNG_META_CHUNKS = {b"eXIf", b"tEXt", b"zTXt", b"iTXt", b"tIME"}
@@ -92,24 +94,6 @@ def _parse_png(raw):
     return ihdr, b"".join(idat), meta
 
 
-def _png_uniform(ihdr, idat):
-    """Heuristic ceiling: only 8-bit non-interlaced PNG; flags near-constant pixel data."""
-    w, h, depth, ctype, _, _, interlace = ihdr
-    channels = {0: 1, 2: 3, 4: 2, 6: 4}.get(ctype)
-    if channels is None or depth != 8 or interlace != 0 or w * h < 64:
-        return None
-    expected = (w * channels + 1) * h
-    if expected > MAX_DECODE_BYTES:
-        return None
-    try:
-        data = zlib.decompressobj().decompress(idat, expected + 1)
-    except zlib.error:
-        raise MediaRejected("corrupt_pixel_data")
-    if len(data) != expected:
-        raise MediaRejected("truncated")
-    return len(set(data)) <= 8
-
-
 # --------------------------------------------------------------- JPEG
 def _exif_flags(body):
     """body = APP1 payload after b'Exif\\0\\0'. Returns (has_gps, orientation|None)."""
@@ -146,6 +130,8 @@ def _jpeg_segments(raw):
             raise MediaRejected("bad_marker")
         while pos < len(raw) and raw[pos] == 0xFF:
             pos += 1
+        if pos >= len(raw):
+            raise MediaRejected("truncated")
         marker = raw[pos]
         pos += 1
         if marker == 0xD9:
@@ -251,6 +237,8 @@ def inspect_media(raw, filename, mime_type):
     declared = {x for x in (by_ext, by_mime) if x}
     if sniffed is None:
         raise MediaRejected("unrecognized_type")
+    if mime and mime != "application/octet-stream" and not by_mime:
+        raise MediaRejected("unsupported_declared_type")
     if declared and sniffed not in declared:
         raise MediaRejected("signature_mismatch")
     if len(declared) > 1:
@@ -263,11 +251,9 @@ def inspect_media(raw, filename, mime_type):
         record["quality_flags"].append("structure_not_verified")
         record["issues"].append("container_metadata_not_inspected")
         return record
-    uniform = None
     if sniffed == "png":
-        ihdr, idat, meta = _parse_png(raw)
+        ihdr, _, meta = _parse_png(raw)
         dims = (ihdr[0], ihdr[1])
-        uniform = _png_uniform(ihdr, idat) if dims[0] * dims[1] <= MAX_PIXELS else None
     elif sniffed == "jpeg":
         dims, meta = _parse_jpeg(raw)[:2]
     else:
@@ -286,6 +272,10 @@ def inspect_media(raw, filename, mime_type):
     elif short < MIN_SHORT_SIDE_LIMITED:
         record["status"] = "limited"
         record["quality_flags"].append("low_resolution")
+    with _decoded_pixels(raw, sniffed) as pixels:
+        extrema = pixels.getextrema()
+        bands = extrema if pixels.mode == "RGB" else [extrema]
+        uniform = all(low == high for low, high in bands)
     if uniform:
         record["status"] = "unsuitable"
         record["quality_flags"].append("no_visual_content_suspected")
@@ -296,53 +286,37 @@ def inspect_media(raw, filename, mime_type):
     return record
 
 
-def _minimal_exif(orientation):
-    ifd = struct.pack("<HHHIHH", 1, 0x0112, 3, 1, orientation, 0) + b"\x00\x00\x00\x00"
-    tiff = b"II*\x00" + struct.pack("<I", 8) + ifd
-    payload = b"Exif\x00\x00" + tiff
-    return b"\xff\xe1" + struct.pack(">H", len(payload) + 2) + payload
+def _decoded_pixels(raw, fmt):
+    """Bound the allocation before loading. Admit only a single, opaque display raster."""
+    try:
+        from PIL import Image, ImageOps
+    except ImportError as exc:
+        raise MediaRejected("image_decoder_unavailable") from exc
+    try:
+        with Image.open(io.BytesIO(raw), formats=[fmt.upper()]) as source:
+            if source.width * source.height * 4 > MAX_DECODE_BYTES:
+                raise MediaRejected("decoded_raster_too_large")
+            if getattr(source, "n_frames", 1) != 1:
+                raise MediaRejected("multiframe_unsupported")
+            if source.info.get("icc_profile") or source.info.get("transparency") is not None:
+                raise MediaRejected("color_profile_or_transparency_unsupported")
+            if source.mode not in {"L", "RGB", "P", "RGBA"}:
+                raise MediaRejected("unsupported_pixel_mode")
+            source.load()
+            if source.mode == "RGBA" and source.getchannel("A").getextrema() != (255, 255):
+                raise MediaRejected("transparency_unsupported")
+            oriented = ImageOps.exif_transpose(source)
+            pixels = oriented if oriented.mode in {"RGB", "L"} else oriented.convert("RGB")
+            pixels.info.clear()
+            return pixels
+    except (OSError, SyntaxError, OverflowError, Image.DecompressionBombError) as exc:
+        raise MediaRejected("corrupt_pixel_data") from exc
 
 
 def strip_metadata(raw, fmt):
-    """Remove EXIF/GPS/XMP/IPTC/comments/text chunks/trailing data. Orientation is kept
-    (JPEG) so the image is not displayed rotated. Returns None if fmt unsupported."""
-    if fmt == "png":
-        ihdr, idat, _ = _parse_png(raw)
-        out, pos = [PNG_SIG], 8
-        while pos < len(raw):
-            length = struct.unpack(">I", raw[pos:pos + 4])[0]
-            ctype = raw[pos + 4:pos + 8]
-            end = pos + 12 + length
-            if ctype not in PNG_META_CHUNKS:
-                out.append(raw[pos:end])
-            pos = end
-            if ctype == b"IEND":
-                break
-        return b"".join(out)
-    if fmt == "jpeg":
-        _, _, orientation, segs, scan_start, end = _parse_jpeg(raw)
-        out = [b"\xff\xd8"]
-        if orientation in range(1, 9):
-            out.append(_minimal_exif(orientation))
-        for marker, s, e in segs:
-            body = raw[s + 4:e]
-            if marker in (0xED, 0xFE):
-                continue
-            if marker == 0xE1 and (body.startswith(b"Exif\x00\x00") or body.startswith(b"http://ns.adobe.com/xap")):
-                continue
-            out.append(raw[s:e])
-        out.append(raw[scan_start:end])
-        return b"".join(out)
-    if fmt == "webp":
-        chunks, riff = _webp_chunks(raw)
-        body = []
-        for tag, s, e in chunks:
-            if tag in (b"EXIF", b"XMP "):
-                continue
-            piece = bytearray(raw[s:e])
-            if tag == b"VP8X":
-                piece[8] &= ~0x0C & 0xFF      # clear EXIF and XMP flags
-            body.append(bytes(piece))
-        payload = b"WEBP" + b"".join(body)
-        return b"RIFF" + struct.pack("<I", len(payload)) + payload
-    return None
+    """Return freshly encoded, lossless PNG pixels; exclude all original metadata."""
+    if fmt not in IMAGE_FORMATS:
+        return None
+    with _decoded_pixels(raw, fmt) as pixels, io.BytesIO() as encoded:
+        pixels.save(encoded, format="PNG")
+        return encoded.getvalue()

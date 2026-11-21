@@ -1133,7 +1133,7 @@
       "stored_version": "Unit/convention and conditional-inference reconciliation2026-11-13; SRLF/SFMU2019, ATS/MSD physiology, NIST, BICARICU-2",
       "last_checked": "2026-11-14",
       "status": "green",
-      "note": "GREEN physiological/manual unit-aware reference;local analyzer profile remains unverified and separate. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "GREEN physiological/manual unit-aware reference;local analyzer profile remains unverified and separate. Owner-authorized review;GREEN is reference review only,not prospective clinical validation. Governance metadata reconciled 2026-11-20: the 19 acute contracts were accepted and enabled within their recorded scope on 2026-11-16; case-specific controls remain active. Evidence review date unchanged.",
       "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6695455/",
       "focused_review": {
         "date": "2026-11-14",
@@ -1144,11 +1144,34 @@
     },
     "blood-gas-image": {
       "priority": "high",
-      "primary_source": "Clinical image workflow with independent value verification",
-      "stored_version": "workflow v1.13; oxygenation calculations; diagnostic performance not established",
-      "last_checked": "2026-09-27",
-      "status": "yellow",
-      "note": "No OCR accuracy claim. Every value, decimal and unit must be visually verified; unlabeled specimens cannot be treated as arterial. P/F and A-a gradient quantify impairment but do not alone establish ARDS."
+      "primary_source": "AARC Clinical Practice Guideline: Blood Gas Analysis and Hemoximetry",
+      "stored_version": "2013; AARC capillary sampling 2022, ANZSRS 2024 and Global ARDS 2024 scoped in GAS-REF-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "note": "No OCR accuracy claim. Every value, decimal and unit must be visually verified; unlabeled specimens cannot be treated as arterial. P/F and A-a gradient quantify impairment but do not alone establish ARDS. GAS-REF-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "primary_source_url": "https://doi.org/10.4187/respcare.02786",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "GAS-REF-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md",
+        "source_keys_in_report": [
+          "G1",
+          "G2",
+          "G3",
+          "G4",
+          "G5"
+        ],
+        "scope": "Transcription safeguards, specimen/metadata, oxygenation limits and routing; eight current paragraphs.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "acute-respiratory-failure": {
       "priority": "high",
@@ -1483,11 +1506,36 @@
     },
     "chest-xray": {
       "priority": "standard",
-      "primary_source": "ACR Appropriateness Criteria and modality-specific radiographic quality standards",
-      "stored_version": "current online criteria reviewed 2026",
-      "last_checked": "2026-09-27",
-      "status": "yellow",
-      "note": "Image workflow guidance does not establish diagnostic accuracy."
+      "primary_source": "ACR-SPR-STR Practice Parameter for the Performance of Chest Radiography",
+      "stored_version": "Revision 2022, resolution 11; indexed passages and companion sources scoped in IMG-REF-CXR-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "note": "Image workflow guidance does not establish diagnostic accuracy. IMG-REF-CXR-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "primary_source_url": "https://gravitas.acr.org/PPTS/DownloadPreviewDocument?DocId=129&ReleaseId=2",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "IMG-REF-CXR-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md",
+        "source_keys_in_report": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7"
+        ],
+        "scope": "Descriptive chest-radiograph and safety framework; five current paragraphs.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "cns-infection": {
       "priority": "high",
@@ -1506,11 +1554,32 @@
     },
     "ct-mri-screenshot": {
       "priority": "high",
-      "primary_source": "ACR Appropriateness Criteria plus image-review safety workflow",
-      "stored_version": "current online criteria; workflow v1.17",
-      "last_checked": "2026-09-27",
-      "status": "yellow",
-      "note": "A screenshot or incomplete series cannot exclude whole-study pathology; diagnostic performance is not established."
+      "primary_source": "ACS Best Practices Guidelines: Management of Traumatic Brain Injury",
+      "stored_version": "2024, Imaging pp. 12-14; ACR head CT 2025 and DICOM PS3.3 2026d scoped in CT-REF-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "note": "A screenshot or incomplete series cannot exclude whole-study pathology; diagnostic performance is not established. CT-REF-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "primary_source_url": "https://www.facs.org/media/vgfgjpfk/best-practices-guidelines-traumatic-brain-injury.pdf",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "CT-REF-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md",
+        "source_keys_in_report": [
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "scope": "Safety, limits of supplied series and escalation; nine current paragraphs.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "delirium": {
       "priority": "standard",
@@ -1716,18 +1785,68 @@
     },
     "ecg-image": {
       "priority": "high",
-      "primary_source": "AHA/ACC/ESC ECG standards plus image-review safety workflow",
-      "stored_version": "workflow v1.17; diagnostic performance not established",
-      "last_checked": "2026-09-27",
-      "status": "yellow",
-      "note": "ECG-PT-20261120 v1: physician-owner explicitly accepted the scoped correction on 2026-11-20; canonical eponym definition and generated application guide updated in international development. Sources: SBC 2022 DOI 10.36660/abc.20220623 §§6.1.2/6.1.5.2; Santos et al. 2017 DOI 10.1016/j.jelectrocard.2017.07.009 (abstract). Historical last_checked retained; status YELLOW. Diagnostic accuracy and full image review remain unvalidated; CLINICALLY_PENDING. See qa/ECG_PT_OWNER_APPROVAL_20261120.md."
+      "primary_source": "SBC Guideline on the Analysis and Issuance of Electrocardiographic Reports",
+      "stored_version": "2022; selected ACC/AHA/RCUK and primary ECG sources scoped in ECG-REF-20261120 v1; ECG-PT acceptance preserved",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "note": "ECG-PT-20261120 v1: physician-owner explicitly accepted the scoped correction on 2026-11-20; canonical eponym definition and generated application guide updated in international development. Sources: SBC 2022 DOI 10.36660/abc.20220623 §§6.1.2/6.1.5.2; Santos et al. 2017 DOI 10.1016/j.jelectrocard.2017.07.009 (abstract). ECG-PT initially preserved the historical evidence date and YELLOW status; the later ECG-REF acceptance below closes only the full reference scope. Diagnostic accuracy and full image review remain unvalidated; CLINICALLY_PENDING. See qa/ECG_PT_OWNER_APPROVAL_20261120.md. ECG-REF-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "primary_source_url": "https://doi.org/10.36660/abc.20220623",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "ECG-REF-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md",
+        "source_keys_in_report": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8",
+          "E9",
+          "E10"
+        ],
+        "scope": "Complete current ECG reference; prior ECG-PT acceptance preserved.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "ecg-pocus-integration": {
       "priority": "high",
-      "primary_source": "ACEP ultrasound guidance plus syndrome-specific ECG guidance",
-      "stored_version": "ACEP 2023; current syndrome guidance reviewed 2026",
-      "last_checked": "2026-09-27",
-      "status": "yellow"
+      "primary_source": "ACC/AHA Guideline for the Diagnosis and Management of Aortic Disease",
+      "stored_version": "2022 section 7.2; acute PE 2026 and ESC myopericarditis 2025 scoped in ECG-POCUS-REF-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "primary_source_url": "https://doi.org/10.1161/CIR.0000000000001106",
+      "note": "ECG-POCUS-REF-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "ECG-POCUS-REF-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md",
+        "source_keys_in_report": [
+          "I1",
+          "I2",
+          "I3"
+        ],
+        "scope": "Context, discordance, reassessment and limits of focal studies.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "electrolytes": {
       "priority": "high",
@@ -2314,10 +2433,35 @@
     },
     "ophthalmology-image": {
       "priority": "high",
-      "primary_source": "AAO Preferred Practice Patterns plus image-review safety workflow",
-      "stored_version": "current PPP collection; workflow v1.17",
-      "last_checked": "2026-09-27",
-      "status": "yellow"
+      "primary_source": "College of Optometrists: Annex 4, Urgency of Referrals Table",
+      "stored_version": "Online table consulted 2026-11-20; selected 2020-2026 AAO/AHA/College sources scoped in EYE-REF-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "primary_source_url": "https://www.college-optometrists.org/clinical-guidance/guidance/guidance-annexes/annex-4-urgency-of-referrals-table",
+      "note": "EYE-REF-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "EYE-REF-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md",
+        "source_keys_in_report": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6"
+        ],
+        "scope": "Description, safe examination and urgent alerts; three current paragraphs.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "orthopedic-emergencies": {
       "priority": "high",
@@ -2326,7 +2470,7 @@
       "stored_version": "NICE NG37/NG38 current online review 2026",
       "last_checked": "2026-11-14",
       "status": "green",
-      "note": "GREEN NICE NG37/NG38 reference reconciliation. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "GREEN NICE NG37/NG38 reference reconciliation. Owner-authorized review;GREEN is reference review only,not prospective clinical validation. Governance metadata reconciled 2026-11-20: the 19 acute contracts were accepted and enabled within their recorded scope on 2026-11-16; case-specific controls remain active. Evidence review date unchanged.",
       "focused_review": {
         "date": "2026-11-14",
         "outcome": "green",
@@ -2336,10 +2480,30 @@
     },
     "other-clinical-image": {
       "priority": "standard",
-      "primary_source": "Clinical image-review safety workflow and syndrome-specific guidance",
-      "stored_version": "workflow v1.17; diagnostic performance not established",
-      "last_checked": "2026-09-27",
-      "status": "yellow"
+      "primary_source": "IMDRF Good Machine Learning Practice for Medical Device Development: Guiding Principles",
+      "stored_version": "AIML WG/N88 FINAL:2025; methodological limits and internal safety controls scoped in IMG-REF-OTHER-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "primary_source_url": "https://www.imdrf.org/sites/default/files/2025-02/IMDRF_AIML%20WG_GMLP_N88%20Final.pdf",
+      "note": "IMG-REF-OTHER-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "IMG-REF-OTHER-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md",
+        "source_keys_in_report": [
+          "O1"
+        ],
+        "scope": "Limits, abstention and specialist referral only; two current paragraphs.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "pancreatitis": {
       "priority": "standard",
@@ -2355,7 +2519,7 @@
       "stored_version": "ACEP 2023",
       "last_checked": "2026-11-14",
       "status": "green",
-      "note": "General frameworkGREEN with explicit owner acceptance; image/clip interpretation performance remains unvalidated in separateYELLOW pocus-image module. Future case bank planned, no automatic learning claimed.",
+      "note": "General framework GREEN with the explicit owner acceptance of 2026-11-14 preserved. The separate pocus-image reference was accepted on 2026-11-20 in POCUS-REF-20261120 v1; image/clip interpretation performance remains unvalidated and the clinical-image-interpretation parent remains YELLOW. Future case bank planned, no automatic learning claimed.",
       "primary_source_url": "https://www.acep.org/siteassets/new-pdfs/policy-statements/ultrasound-guidelines--emergency-point-of-care-and-clinical-ultrasound-guidelines-in-medicine.pdf",
       "focused_review": {
         "date": "2026-11-14",
@@ -2366,10 +2530,38 @@
     },
     "pocus-image": {
       "priority": "high",
-      "primary_source": "ACEP ultrasound guidance plus image-review safety workflow",
-      "stored_version": "ACEP 2023; workflow v1.17; diagnostic performance not established",
-      "last_checked": "2026-09-27",
-      "status": "yellow"
+      "primary_source": "ACEP Sonoguide: Lung",
+      "stored_version": "2021-03-08, Lung Sliding and figure 8; acquisition/documentation sources scoped in POCUS-REF-20261120 v1 including POCUS-MODE-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "primary_source_url": "https://www.acep.org/sonoguide/basic/lung",
+      "note": "POCUS-REF-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "POCUS-REF-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md",
+        "source_keys_in_report": [
+          "U1",
+          "U2",
+          "U3",
+          "U4",
+          "U5",
+          "U6",
+          "I1",
+          "I2",
+          "I3"
+        ],
+        "scope": "Complete POCUS reference including explicit POCUS-MODE-20261120 v1 paragraph replacement.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": true,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "psychiatric-emergencies": {
       "priority": "high",
@@ -2447,10 +2639,35 @@
     },
     "skin-wound-image": {
       "priority": "standard",
-      "primary_source": "Clinical image-review workflow plus diagnosis-specific wound/dermatology guidance",
-      "stored_version": "workflow v1.17; diagnostic performance not established",
-      "last_checked": "2026-09-27",
-      "status": "yellow"
+      "primary_source": "Australasian College of Dermatologists: Practice Guidelines for Teledermatology in Australia, 2025 Update",
+      "stored_version": "2025-09-12; technical sections 7.1.2-7.1.5 and companion sources scoped in IMG-REF-SKIN-20261120 v1",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "primary_source_url": "https://doi.org/10.1111/ajd.14599",
+      "note": "IMG-REF-SKIN-20261120 v1 explicitly accepted by Dr. Juan Copado Ceballos on 2026-11-20. GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline. See qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md.",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_reference_only",
+        "review_id": "IMG-REF-SKIN-20261120",
+        "version": 1,
+        "report": "qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md",
+        "source_keys_in_report": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "scope": "Description, photographic limits and escalation; four current paragraphs.",
+        "acceptance_record": "qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md",
+        "owner_response": "SI",
+        "owner_response_literal": "si claro que si",
+        "owner_response_date": "2026-11-20",
+        "diagnostic_performance_validated": false,
+        "clinical_content_changed": false,
+        "limitations": "GREEN is the accepted reference and safety framework only. Diagnostic performance, automatic visual measurement, prospective validation and clinical deployment are not established by this decision. Parent image and note modules remain YELLOW; CLINICALLY_PENDING, no GO_RELEASE. Source versions, locators and access limits are retained in the cited dossier; no claim of full review of every cited guideline."
+      }
     },
     "suicide-risk": {
       "priority": "high",
@@ -3776,7 +3993,7 @@
         "human_review_required": true
       },
       "status": "yellow",
-      "note": "92 rules/60 synthetic cases do not establish prospective performance;deployment-specific clinical/privacy governance review pending. Owner-authorized review;GREEN is reference review only,not prospective clinical validation.19 blocked contracts preserved.",
+      "note": "92 rules/60 synthetic cases do not establish prospective performance;deployment-specific clinical/privacy governance review pending. Owner-authorized review;GREEN is reference review only,not prospective clinical validation. Governance metadata reconciled 2026-11-20: the 19 acute contracts were accepted and enabled within their recorded scope on 2026-11-16; case-specific controls remain active. Evidence review date unchanged.",
       "focused_review": {
         "date": "2026-11-14",
         "outcome": "yellow",
@@ -3787,11 +4004,20 @@
     "final-human-review-gate": {
       "priority": "high",
       "primary_source": "Project physician-owner validation directive (PR35, 2026-11-20)",
-      "stored_version": "PR35 owner-led governance; final-human-review-policy schema 1.1; clinical review date retained",
-      "last_checked": "2026-10-06",
-      "status": "yellow",
-      "note": "Governance metadata reconciled 2026-11-20 to the accepted PR35 directive. Dr. Juan Copado Ceballos is the sole final clinical validator; Pharmacy advice is consultative. The dynamic queue covers the current yellow entries without a fixed historical count. Prior owner acceptances remain valid within scope. Product, privacy, operational and post-correction QA requirements remain applicable. The unchanged last_checked records the prior clinical review, not a new evidence or release approval. CLINICALLY_PENDING. Follow-up: qa/EVIDENCE_FOLLOWUP_20261120.md.",
-      "primary_source_url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md"
+      "stored_version": "PR35 owner-led governance; final-human-review-policy schema 1.1; governance reference reverified 2026-11-20",
+      "last_checked": "2026-11-20",
+      "status": "green",
+      "note": "Governance reference fully compared with the already accepted PR35 directive on 2026-11-20. Canonical section, policy schema 1.1, helper and tests are unchanged from that accepted scope; two gate regressions PASS. Prior owner acceptance is reused; no new physician signature is invented. GREEN applies only to this governance reference. Per-module clinical decisions and applicable privacy, product, operational and post-correction QA requirements remain. The helper does not authenticate decisions or promote records automatically. Other pending modules are not validated; CLINICALLY_PENDING, no GO_RELEASE.",
+      "primary_source_url": "https://github.com/JuanCopado/Emergency/blob/0d0fd3119bdd9a5cf75407849282d759353402c1/AGENTS.md",
+      "focused_review": {
+        "date": "2026-11-20",
+        "outcome": "green_governance_reference",
+        "report": "qa/CLINICAL_GATE_REFERENCE_REVIEW_20261120.md",
+        "acceptance_basis": "Previously accepted PR35 physician-owner directive; exact content and implementation unchanged.",
+        "new_owner_response_recorded": false,
+        "technical_qa": "2/2 final-human-review-gate regression tests PASS",
+        "limitations": "Reference currency only; no global clinical validation, deployment approval or independent verification of each future decision."
+      }
     }
   },
   "ui_ux_implementation_review": {

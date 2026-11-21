@@ -1,3 +1,21 @@
+## 21/11/2026 · PR51 M10
+
+Corregida la preparación de imágenes para proveedor y la salida de abstención. Alcance verificable en `qa/M10_TECHNICAL_FOLLOWUP_20261121.md`. Se preservan la aceptación de PR52 y CLINICALLY_PENDING.
+
+## 20/11/2026 · Nueve referencias de imagen aceptadas
+
+El propietario acepta explícitamente las nueve fichas v1 enumeradas («si claro que si»), incluida POCUS-MODE-20261120 v1. Se aplica exactamente el párrafo POCUS y su proyección; los otros ocho textos se conservan. Se registran respuesta/alcance/fuentes, se actualizan únicamente nueve estados y fechas, y se reconcilia la referencia cruzada del marco POCUS sin renovar su aceptación ni su fecha. Registro: 129 GREEN / 2 YELLOW / 0 RED. Los padres de imagen y nota siguen YELLOW, con rendimiento clínico pendiente; CLINICALLY_PENDING, sin GO_RELEASE. Recibo: `qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md` y JSON. El reintento de Sonar no se confunde con la aceptación clínica.
+
+## 20/11/2026 · Procedencia de nota y cierre de referencia de gobernanza
+
+Corregidos los enlaces canónicos de 18 síndromes y una referencia vasoactiva; se conserva la identidad de las reglas. Los 60 casos existentes mantienen todos los resultados ajenos a `source_modules`; 31 cambian únicamente su procedencia. La auditoría detecta fuentes no registradas. Detalle: `qa/NOTE_PROVENANCE_CLOSURE_20261120.md`.
+
+Revisión completa de `final-human-review-gate` cerrada reutilizando PR35, sin nueva firma ni modificación de la norma. Registro: 120 GREEN / 11 YELLOW / 0 RED, CLINICALLY_PENDING. Nueve revisiones completas de referencia de imagen preparadas y en cola para decisión concreta; la aclaración POCUS-MODE v1 sigue inactiva. Nota diagnóstica y módulo padre de imagen conservan su validación pendiente. Conciliados el cierre CI de ECG-PT y tres notas actuales que arrastraban los 19 bloqueos ya retirados.
+
+## 20/11/2026 · Cobertura Sonar en reintentos parciales
+
+Se corrige la entrega de las tres mediciones de cobertura entre intentos de una misma ejecución, conservando sus comprobaciones de identidad y los controles de Sonar. Sin cambios clínicos, de evidencia ni de aprobación. Detalle: `../security/SONAR_COVERAGE_RETRY_2026-11-20.md`.
+
 ## 20/11/2026 · ECG-PT-20261120 v1 — decisión médica aceptada
 
 El propietario médico aprobó la corrección puntual del signo Peñaloza–Tranchesi; se actualizan `ecg-image` y su ficha generada, con prueba de regresión y trazabilidad en `qa/ECG_PT_OWNER_APPROVAL_20261120.md`. Se preservan 130 módulos restantes, YELLOW, `last_checked` y CLINICALLY_PENDING; el cambio no autoriza diagnóstico automático ni GO_RELEASE.

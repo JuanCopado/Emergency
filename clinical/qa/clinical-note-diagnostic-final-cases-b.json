@@ -52,7 +52,7 @@
       },
       "expected_likely": "Golpe de calor / doença relacionada com calor",
       "expected_modules": [
-        "environmental-heat-illness"
+        "environmental-emergencies"
       ],
       "expected_test_contains": "CK"
     },
@@ -73,7 +73,7 @@
       },
       "expected_likely": "Pielonefrite complicada / infeção urinária alta",
       "expected_modules": [
-        "pyelonephritis-urologic-emergency"
+        "urologic-emergencies"
       ],
       "expected_test_contains": "cultura"
     },
@@ -106,7 +106,7 @@
       "hpi": "Síndrome confusional agudo com flutuação e inatenção.",
       "expected_likely": "Delirium agudo no idoso",
       "expected_modules": [
-        "geriatric-delirium-emergency"
+        "geriatric-emergencies"
       ],
       "expected_test_contains": "baseline"
     }

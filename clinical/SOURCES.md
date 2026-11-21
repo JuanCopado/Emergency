@@ -1,6 +1,10 @@
-## 20/11/2026 · Fuentes focales de los ocho registros vencidos
+## 20/11/2026 · Cotejo completo de referencias de imagen y gobernanza
 
-Los expedientes `qa/IMAGE_EVIDENCE_FOLLOWUP_20261120.md`, `qa/BLOOD_GAS_EVIDENCE_FOLLOWUP_20261120.md` y `qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md` identifican versiones, localizadores y límites de acceso de las fuentes realmente consultadas. Distinguen texto recuperado, contenido indexado y mera identidad bibliográfica. Se prepara ECG-PT-20261120; la consulta focal no renueva la fecha de revisión integral ni demuestra exactitud diagnóstica.
+Las nueve fichas v1 de imagen fueron aceptadas expresamente por el propietario el 20/11/2026 («si claro que si»), incluida POCUS-MODE v1, ahora aplicada. Las matrices completas y sus límites de acceso permanecen en `qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md`, `qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md` y `qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md`; aceptación: `qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md`. Se sustituyen las identidades genéricas por fuentes concretas delimitadas y se renueva la fecha solo de esos nueve módulos. GREEN acredita referencia aceptada; rendimiento diagnóstico y despliegue no establecidos. Gate PR35 preservado. Registro: 129 GREEN / 2 YELLOW / 0 RED; CLINICALLY_PENDING.
+
+## Antecedente focal del 20/11/2026 · ocho registros entonces vencidos
+
+Los expedientes `qa/IMAGE_EVIDENCE_FOLLOWUP_20261120.md`, `qa/BLOOD_GAS_EVIDENCE_FOLLOWUP_20261120.md` y `qa/ECG_POCUS_EVIDENCE_FOLLOWUP_20261120.md` identifican versiones, localizadores y límites de acceso de las fuentes realmente consultadas. Distinguen texto recuperado, contenido indexado y mera identidad bibliográfica. ECG-PT-20261120 fue aceptado e integrado en PR47; su cierre está en `qa/ECG_PT_OWNER_APPROVAL_20261120.md`. La consulta focal inicial no renovó por sí sola las revisiones integrales ni demostró exactitud diagnóstica.
 
 ## Fuentes de los contratos revisados · 16/11/2026
 

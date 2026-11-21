@@ -1,0 +1,32 @@
+diff --git a/app/src/data/generatedClinicalGuides.json b/app/src/data/generatedClinicalGuides.json
+index 9256e2a..be7c0f6 100644
+--- a/app/src/data/generatedClinicalGuides.json
++++ b/app/src/data/generatedClinicalGuides.json
+@@ -37,7 +37,7 @@
+     "status": "yellow",
+     "format": "guide",
+     "sharedPreamble": "# Modality-specific clinical image modules\n\nShared gate: load `clinical-image-interpretation` first. Inspect the actual pixels,\napply `references/image-intake.md`, distinguish observed/inferred/not assessable,\nand use `references/image-output-schema.json`. These are focused decision-support\nchecklists, not replacements for original DICOM/series, formal reporting or specialist\nreview. Do not force a classification when required views or clinical data are absent.",
+-    "sectionBody": "- Identify organ, plane, probe/setting when known, orientation marker, depth, gain, focus,\n  Doppler settings and whether the input is a still, cine or compression sequence.\n- Describe visible echogenicity, borders, fluid, artifacts, shadowing/enhancement and calipers.\n- A still cannot prove lung sliding, compressibility, respiratory variation, valve motion,\n  ejection fraction or dynamic response. One color-Doppler frame cannot establish absent flow.\n- For a binary focused question, list the minimum required views/dynamic manoeuvre and say\n  whether they were supplied. A technically limited POCUS does not exclude a high-risk syndrome.\n- Preserve saved images/clips and seek expert or comprehensive imaging when the decision exceeds\n  focused ultrasound scope."
++    "sectionBody": "- Identify organ, plane, probe/setting when known, orientation marker, depth, gain, focus,\n  Doppler settings and whether the input is a still, cine or compression sequence.\n- Describe visible echogenicity, borders, fluid, artifacts, shadowing/enhancement and calipers.\n- A single static B-mode frame cannot establish lung sliding, compressibility, respiratory\n  variation, valve motion, ejection fraction or dynamic response. An M-mode tracing of the\n  pleural line contains temporal information along the sampled line; assess only the\n  acquisition, location and recorded interval actually shown, with an identifiable time\n  axis. It does not establish that a complete cine or compression sequence has been\n  reviewed. One color-Doppler frame cannot establish absent flow.\n- For a binary focused question, list the minimum required views/dynamic manoeuvre and say\n  whether they were supplied. A technically limited POCUS does not exclude a high-risk syndrome.\n- Preserve saved images/clips and seek expert or comprehensive imaging when the decision exceeds\n  focused ultrasound scope."
+   },
+   {
+     "id": "ecg-image",
+diff --git a/clinical/modules/image-modalities.md b/clinical/modules/image-modalities.md
+index 0429ca1..d4a5d27 100644
+--- a/clinical/modules/image-modalities.md
++++ b/clinical/modules/image-modalities.md
+@@ -43,8 +43,12 @@ review. Do not force a classification when required views or clinical data are a
+ - Identify organ, plane, probe/setting when known, orientation marker, depth, gain, focus,
+   Doppler settings and whether the input is a still, cine or compression sequence.
+ - Describe visible echogenicity, borders, fluid, artifacts, shadowing/enhancement and calipers.
+-- A still cannot prove lung sliding, compressibility, respiratory variation, valve motion,
+-  ejection fraction or dynamic response. One color-Doppler frame cannot establish absent flow.
++- A single static B-mode frame cannot establish lung sliding, compressibility, respiratory
++  variation, valve motion, ejection fraction or dynamic response. An M-mode tracing of the
++  pleural line contains temporal information along the sampled line; assess only the
++  acquisition, location and recorded interval actually shown, with an identifiable time
++  axis. It does not establish that a complete cine or compression sequence has been
++  reviewed. One color-Doppler frame cannot establish absent flow.
+ - For a binary focused question, list the minimum required views/dynamic manoeuvre and say
+   whether they were supplied. A technically limited POCUS does not exclude a high-risk syndrome.
+ - Preserve saved images/clips and seek expert or comprehensive imaging when the decision exceeds

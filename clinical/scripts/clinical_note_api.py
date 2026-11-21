@@ -55,7 +55,7 @@ except Exception:
     pediatric_medication_alerts = None
 
 API_VERSION = "1.0"
-MAX_UPLOAD_BYTES = 12 * 1024 * 1024
+MAX_UPLOAD_BYTES = image_upload_guard.MAX_TRANSFER_BYTES
 MAX_TEXT_CHARS = 120_000
 TEXT_EXTENSIONS = {".txt", ".csv", ".json", ".xml", ".md", ".log", ".tsv"}
 PREPARED_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_PREPARED_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
@@ -250,16 +250,11 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
     if media.get("status") == "unsuitable":
         # M10-F07: fail closed with an explicit abstention; the provider is never called.
         return _abstained_upload(prepared, media)
-    provider_b64 = content_base64
-    stripped = False
-    if media.get("format") in image_upload_guard.IMAGE_FORMATS:
-        clean = image_upload_guard.strip_metadata(raw, media["format"])
-        if clean is not None:
-            provider_b64 = base64.b64encode(clean).decode("ascii")
-            stripped = True
+    if media.get("format") not in image_upload_guard.IMAGE_FORMATS:
+        return _abstained_upload(prepared, {"quality_flags": ["unsupported_external_format"]})
     result = invoke_clinical_vision(
         prepared,
-        provider_b64,
+        content_base64,
         privacy_checked=privacy_checked,
         burned_in_identifiers_checked=burned_in_identifiers_checked,
         env=vision_env,
@@ -272,7 +267,7 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
 
     updated = deepcopy(prepared)
     if updated.get("media"):
-        updated["media"]["metadata_stripped_for_provider"] = stripped
+        updated["media"]["metadata_stripped_for_provider"] = True
     updated["extracted"] = {
         "official_report": proposal.get("official_report"),
         "ai_interpretation": proposal.get("ai_interpretation"),
@@ -280,7 +275,8 @@ def interpret_prepared_upload(prepared, content_base64, privacy_checked=False,
     updated["processing"] = {
         **(updated.get("processing") or {}),
         "status": "vision_abstained" if proposal.get("abstained") else "vision_interpreted",
-        "message": "Binary source interpreted by configured provider; clinician review and explicit acceptance remain required.",
+        "message": ("Provider abstained; no interpretation available." if proposal.get("abstained")
+                    else "Provider interpretation requires clinician review and explicit acceptance."),
         "provider": proposal.get("provider"),
         "model": proposal.get("model"),
         "confidence": proposal.get("confidence"),

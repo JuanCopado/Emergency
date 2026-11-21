@@ -169,30 +169,17 @@ export default function ClinicalNote(){
      return next;
    });
  }
- function inferKind(name:string){
-   const n=name.toLowerCase();
-   if(/ecg|ekg/.test(n)) return 'ECG';
-   if(/gas|gaso|abg|vbg/.test(n)) return 'Gasometria';
-   if(/rx|xray|x-ray|radiogr/.test(n)) return 'Rx';
-   if(/pele|piel|skin|ferida|herida|wound|les[aã]o|lesion|[uú]lcera|ulcer|queimadura|quemadura|burn|rash|celulit/.test(n)) return 'Pele/ferida';
-   if(/ct|tc|mri|rm|tac/.test(n)) return 'TC/RM';
-   if(/eco|pocus|ultra/.test(n)) return 'Ecografia/POCUS';
-   if(/micro|culture|cultivo/.test(n)) return 'Microbiologia';
-   if(/lab|anal|hemogram|bioq/.test(n)) return 'Analítica';
-   return 'Outro';
- }
  async function onUpload(file?:File){
    if(!file) return;
    setUploadName(file.name); setDraftName(file.name);
-   const inferred=inferKind(file.name);
-   const selected=inferred==='Outro'?draftKind:inferred;
-   setDraftKind(selected); setApiError(''); setApiBusy(true);
+   setApiError(''); setApiBusy(true);
    try{
-     const explicitKind=(inferred==='Outro'&&selected==='Outro')?undefined:kindMap[selected];
+     const explicitKind=draftKind==='Outro'?undefined:kindMap[draftKind];
      const prepared=await prepareClinicalUpload(file,explicitKind);
+     const selected=Object.keys(kindMap).find(label=>kindMap[label]===prepared.kind)??'Outro';
      const id=prepared.upload_id;
      setMcdt(v=>[...v,{
-       id,kind:inferred,name:file.name,official:prepared.extracted.official_report||'',ai:'',state:'pending',
+       id,kind:selected,name:file.name,official:prepared.extracted.official_report||'',ai:'',state:'pending',
        provenance:`${prepared.processing.modules.join(' · ')} · ${prepared.processing.status}`,prepared,sourceFile:file,
        privacyChecked:prepared.privacy.status==='PASS',burnedChecked:!prepared.privacy.burned_in_identifier_review_required,
        sourceReference:`sha256:${prepared.sha256}`,
@@ -226,7 +213,7 @@ export default function ClinicalNote(){
        ...x,
        prepared,
        official:prepared.extracted.official_report||x.official,
-       ai:prepared.extracted.ai_interpretation||x.ai,
+       ai:prepared.processing.status==='vision_abstained'?'':prepared.extracted.ai_interpretation||x.ai,
        provenance:`${prepared.processing.modules.join(' · ')} · ${prepared.processing.status} · ${prepared.processing.provider||'provider'} / ${prepared.processing.model||'model'}`,
        privacyChecked:true,
        burnedChecked:true,

@@ -1,9 +1,8 @@
 """Deterministic synthetic image bytes (no patient data, no real clinical content).
 
-PNG fixtures are decodable. JPEG/WebP fixtures are structurally valid containers only
-(headers, segments, markers); they are not decodable pictures and must not be used to
-claim anything about visual interpretation.
+Ordinary fixtures encode actual two-colour pictures. Dimension-only rejection cases use headers.
 """
+import io
 import struct
 import zlib
 
@@ -36,36 +35,50 @@ def png(width=256, height=256, seed=1, uniform=False, extra_chunks=(), trailing=
 def exif_app1(gps=True, orientation=6):
     entries = [(0x0112, 3, 1, orientation)]
     if gps:
-        entries.append((0x8825, 4, 1, 0))
+        entries.append((0x8825, 4, 1, 38))
     ifd = struct.pack("<H", len(entries))
     for tag, typ, cnt, val in entries:
         ifd += struct.pack("<HHI", tag, typ, cnt) + (struct.pack("<HH", val, 0) if typ == 3
                                                        else struct.pack("<I", val))
     ifd += b"\x00\x00\x00\x00"
+    if gps:
+        ifd += b"\x00" * 6  # Empty GPS IFD, no location.
     payload = b"Exif\x00\x00" + b"II*\x00" + struct.pack("<I", 8) + ifd
     return b"\xff\xe1" + struct.pack(">H", len(payload) + 2) + payload
 
 
+def _picture_bytes(fmt, width, height):
+    from PIL import Image
+    with Image.new("RGB", (width, height), "white") as picture, io.BytesIO() as stream:
+        picture.paste("blue", box=(0, 0, width // 2, height))
+        picture.save(stream, format=fmt)
+        return stream.getvalue()
+
+
 def jpeg(width=256, height=256, exif=False, gps=True, comment=None, trailing=b"", eoi=True):
-    out = b"\xff\xd8" + b"\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00"
-    if exif:
-        out += exif_app1(gps=gps)
+    if min(width, height) < 1 or max(width, height) > 2048:
+        # Dimension-only rejection case. Never allocate an oversized test raster.
+        header = b"\xff\xc0\x00\x0b\x08" + struct.pack(">HH", height, width) + b"\x01\x01\x11\x00"
+        return b"\xff\xd8" + header + b"\xff\xda\x00\x08\x01\x01\x00\x00\x3f\x00\xff\xd9"
+    pixels = _picture_bytes("JPEG", width, height)
+    metadata = exif_app1(gps=gps) if exif else b""
     if comment is not None:
-        out += b"\xff\xfe" + struct.pack(">H", len(comment) + 2) + comment
-    out += b"\xff\xc0\x00\x0b\x08" + struct.pack(">HH", height, width) + b"\x01\x01\x11\x00"
-    out += b"\xff\xda\x00\x08\x01\x01\x00\x00\x3f\x00" + bytes(range(1, 200))
-    return out + (b"\xff\xd9" if eoi else b"") + trailing
+        metadata += b"\xff\xfe" + struct.pack(">H", len(comment) + 2) + comment
+    return pixels[:2] + metadata + (pixels[2:] if eoi else pixels[2:-2]) + trailing
 
 
 def webp(width=256, height=256, exif=False, xmp=False):
-    chunks = b""
+    encoded = _picture_bytes("WEBP", width, height)
+    if not (exif or xmp):
+        return encoded
     flags = (0x08 if exif else 0) | (0x04 if xmp else 0)
     vp8x = bytes([flags, 0, 0, 0]) + (width - 1).to_bytes(3, "little") + (height - 1).to_bytes(3, "little")
-    chunks += b"VP8X" + struct.pack("<I", len(vp8x)) + vp8x
-    data = b"\x00" * 16
-    chunks += b"VP8 " + struct.pack("<I", len(data)) + data
+    chunks = b"VP8X" + struct.pack("<I", 10) + vp8x + encoded[12:]
     if exif:
-        chunks += b"EXIF" + struct.pack("<I", 8) + b"GPSDATA!"
+        exif_data = exif_app1()[10:]
+        chunks += b"EXIF" + struct.pack("<I", len(exif_data)) + exif_data
+        if len(exif_data) % 2:
+            chunks += b"\x00"
     if xmp:
         chunks += b"XMP " + struct.pack("<I", 8) + b"XMPDATA!"
     payload = b"WEBP" + chunks

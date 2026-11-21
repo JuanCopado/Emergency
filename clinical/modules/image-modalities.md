@@ -43,8 +43,12 @@ review. Do not force a classification when required views or clinical data are a
 - Identify organ, plane, probe/setting when known, orientation marker, depth, gain, focus,
   Doppler settings and whether the input is a still, cine or compression sequence.
 - Describe visible echogenicity, borders, fluid, artifacts, shadowing/enhancement and calipers.
-- A still cannot prove lung sliding, compressibility, respiratory variation, valve motion,
-  ejection fraction or dynamic response. One color-Doppler frame cannot establish absent flow.
+- A single static B-mode frame cannot establish lung sliding, compressibility, respiratory
+  variation, valve motion, ejection fraction or dynamic response. An M-mode tracing of the
+  pleural line contains temporal information along the sampled line; assess only the
+  acquisition, location and recorded interval actually shown, with an identifiable time
+  axis. It does not establish that a complete cine or compression sequence has been
+  reviewed. One color-Doppler frame cannot establish absent flow.
 - For a binary focused question, list the minimum required views/dynamic manoeuvre and say
   whether they were supplied. A technically limited POCUS does not exclude a high-risk syndrome.
 - Preserve saved images/clips and seek expert or comprehensive imaging when the decision exceeds

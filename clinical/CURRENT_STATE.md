@@ -1,4 +1,10 @@
-## Continuidad v1.44 · 20/11/2026
+## Referencias de imagen aceptadas · 20/11/2026
+
+Registro vigente: **131 módulos, 129 GREEN / 2 YELLOW / 0 RED**, `CLINICALLY_PENDING`. El Dr. Juan Copado Ceballos responde «si claro que si» a las nueve fichas v1 enumeradas y a POCUS-MODE-20261120 v1. Se aplica únicamente el párrafo POCUS aceptado, se conservan los otros ocho textos y se sincronizan registro, índice y guías. Aceptación y alcance: `qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md` y su registro JSON. Los módulos `clinical-image-interpretation` y `clinical-note-diagnostic-support` conservan estado/fechas y validación real pendiente.
+
+PR49 corrigió la entrega de cobertura. El Sonar posterior al merge de PR50 superó su reintento 2: run 44805197675, job 136538151239, quality gate PASSED a las 20:09:13Z del 20/11, tras recuperar la cobertura original y analizar Python/LCOV. El bloqueo previo Automatic Analysis/CI queda resuelto en esa ejecución; no se afirma haber observado el cambio de configuración. La aceptación de las nueve fichas tiene además 12 pruebas de proyección, 4 de normalización y 2 del gate PASS; su QA remota posterior se registrará en los checks de la entrega. Se conservan las aceptaciones previas, las condiciones de producto, privacidad y operación; sin GO_RELEASE.
+
+## Continuidad anterior v1.44 · corte PR46 · 20/11/2026
 
 El registro vigente tras PR46 contiene 131 módulos: 119 GREEN, 12 YELLOW y 0 RED. El estado global es `CLINICALLY_PENDING`. La aprobación SCORE-REF-20261120 abarca los 13 formularios, con entrada manual o importación revisada y cálculo a petición del médico.
 

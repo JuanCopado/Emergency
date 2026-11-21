@@ -1,0 +1,88 @@
+{
+  "proposal_id": "POCUS-MODE-20261120 v1",
+  "state": "INACTIVE",
+  "owner_response": "NOT_RECORDED",
+  "scope": "Only third pocus-image paragraph and its generated sectionBody projection; no clinical or evidence status change.",
+  "base_commit": "e7c5722045852d654f756d5f3928d4c14daf2dbf",
+  "base_tree": "b49ea28981e84f234a90aa2095ac5bbebb4ef92d",
+  "source_dossier": {
+    "path": "clinical/qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md",
+    "sha256": "09e5e208baff73150b168eaf778cf4ba128943ca327dcb5d1183837a78357af8"
+  },
+  "changed_paths": [
+    "app/src/data/generatedClinicalGuides.json",
+    "clinical/modules/image-modalities.md"
+  ],
+  "paragraph_hash_encoding": "UTF-8, exact single-line dossier text, no quote marker or final newline",
+  "paragraph_text_before_sha256": "84efaed0576614507a5866d6bf06133841852108d8842c265ad0e505b03932d6",
+  "paragraph_text_after_sha256": "8cc70c79846ab441671acdd783dedbad008f33986da9fd6a7b2488701a1ef70c",
+  "canonical_bullet_hash_encoding": "UTF-8, includes bullet marker and source wrapping, excludes final newline",
+  "canonical_bullet_before_sha256": "6d450da684eb768550f7b3e78ece54fac7c5e62234d28eb93785b016c5ece518",
+  "canonical_bullet_after_sha256": "4d639ecbdafdfde69893cc4cbe2aa1c3ff6dd9eee24f652dd4df4929b246f9f9",
+  "patch": {
+    "path": "clinical/qa/proposals/POCUS_MODE_20261120_v1.patch",
+    "sha256": "f7c01481303505274fb4af89837efb9de1d7f82894645a8712a367c31b9a4fc1",
+    "bytes": 4311
+  },
+  "generation": {
+    "command": "node app/scripts/build-clinical-guides.mjs",
+    "exit_code": 0,
+    "stdout": "Generated 131 canonical clinical guides\n",
+    "stderr": ""
+  },
+  "focused_checks": [
+    {
+      "command": "node app/scripts/build-clinical-guides.mjs --check",
+      "exit_code": 0,
+      "stdout": "Checked 131 canonical clinical guides\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git apply --reverse --check /workspace/scratch/af19d00cca7f/clinical_pending_closure_20261120/clinical/qa/proposals/POCUS_MODE_20261120_v1.patch",
+      "cwd": "/workspace/scratch/af19d00cca7f/pocus_mode_candidate_20261120",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git apply --cached --check /workspace/scratch/af19d00cca7f/clinical_pending_closure_20261120/clinical/qa/proposals/POCUS_MODE_20261120_v1.patch",
+      "environment": "Temporary GIT_INDEX_FILE initialized with git read-tree e7c5722045852d654f756d5f3928d4c14daf2dbf",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "scope_verification": {
+    "guides_before": 131,
+    "guides_after": 131,
+    "generated_differences": [
+      {
+        "module": "pocus-image",
+        "field": "sectionBody"
+      }
+    ],
+    "canonical_change_is_only_exact_paragraph_replacement": true,
+    "all_module_ids_and_statuses_preserved": true,
+    "shared_active_files_unchanged_during_preparation": true
+  },
+  "shared_active_file_sha256_preserved": {
+    "app/src/data/generatedClinicalGuides.json": "ce5b3eb4b905154a77e11b3807c9dc0e6b8ecb77c82cbfd2aab90db53d4997aa",
+    "clinical/modules/image-modalities.md": "5463be5524ee75779bac2366723ac49f38c63e74fd78463107ead717bb219ea4"
+  },
+  "activation_performed": false,
+  "commit_or_push_performed": false,
+  "clinical_status": "CLINICALLY_PENDING",
+  "go_release": false,
+  "remote_equivalent_commit": "318364bacf00cef22932f1849c79d12eb1e99562",
+  "current_delivery_apply_check": {
+    "command": "git apply --check --whitespace=error-all clinical/qa/proposals/POCUS_MODE_20261120_v1.patch",
+    "exit_code": 0,
+    "applied": false
+  }
+}

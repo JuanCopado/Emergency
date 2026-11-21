@@ -6,7 +6,8 @@ diagnostic accuracy, sensitivity or specificity of any visual interpretation.
 """
 import base64
 import json
-import struct
+import io
+from PIL import Image
 import sys
 import unittest
 from pathlib import Path
@@ -140,11 +141,19 @@ class T3NoUsefulVisualContent(unittest.TestCase):
         prepared = prepare_upload("herida.png", "image/png", b64(si.png()), explicit_kind="skin_wound")
         self.assertEqual(prepared["media"]["status"], "ok")
 
-    def test_documented_ceiling_jpeg_blankness_not_assessed(self):
-        # JPEG pixel content is not decoded (stdlib only): structural JPEG is never 'unsuitable'
-        # for blankness. Recorded as a limitation, not a pass.
-        m = guard.inspect_media(si.jpeg(), "a.jpg", "image/jpeg")
-        self.assertNotIn("no_visual_content_suspected", m["quality_flags"])
+    def test_decoded_pixels_separate_solid_from_two_colours_in_all_formats(self):
+        for fmt, ext in (("PNG", "png"), ("JPEG", "jpg"), ("WEBP", "webp")):
+            for solid in (True, False):
+                with self.subTest(fmt=fmt, solid=solid), io.BytesIO() as data:
+                    image = Image.new("RGB", (256, 256), "white")
+                    if not solid:
+                        image.paste("blue", box=(0, 0, 128, 256))
+                    image.save(data, format=fmt)
+                    out, seen = interpret(data.getvalue(), "x." + ext, "image/" + fmt.lower())
+                    self.assertEqual("request" in seen, not solid)
+                    self.assertEqual(out["prepared"]["processing"]["status"],
+                                     "vision_abstained" if solid else "vision_interpreted")
+
 
 
 class T4AmbiguousInputs(unittest.TestCase):
@@ -270,6 +279,51 @@ class T6UnsupportedClinicalClaims(unittest.TestCase):
             self.assertIn(needle, sec)
 
 
+    def test_unsupported_reassurance_cannot_be_accepted_unchanged(self):
+        from clinical_note_support import new_note
+        for wording in ("No further assessment is needed.", "No requiere más valoración.",
+                        "Não precisa de nova avaliação."):
+            with self.subTest(wording=wording):
+                out, _ = interpret(si.png(), response=ok_response(impression=wording))
+                prepared = out["prepared"]
+                self.assertEqual(prepared["processing"]["status"], "vision_abstained")
+                self.assertIsNone(prepared["processing"]["impression"])
+                with self.assertRaisesRegex(ValueError, "reviewed"):
+                    accept_prepared_upload(new_note(), prepared, privacy_checked=True,
+                                           burned_in_identifiers_checked=True)
+
+    def test_abstention_rejects_wrong_field_types_and_confidence(self):
+        for key, value in (("findings", []), ("ai_interpretation", 3), ("model", {}),
+                           ("provider", 2), ("confidence", "high")):
+            with self.subTest(field=key), self.assertRaises(adapter.VisionAdapterError):
+                adapter._normalize_response({"contract_version": "1.0", "status": "abstain",
+                                             "limitations": ["Insufficient detail"], key: value})
+
+    def test_containers_excluded_from_facade_and_direct_adapter(self):
+        for fmt, mime, raw in (("pdf", "application/pdf", b"%PDF-1.4\n%%EOF"),
+                               ("dcm", "application/dicom", bytes(128) + b"DICM")):
+            with self.subTest(fmt=fmt):
+                out, calls = interpret(raw, filename="sample." + fmt, mime=mime)
+                self.assertEqual(out["prepared"]["processing"]["status"], "vision_abstained")
+                self.assertFalse(calls)
+                prepared = prepare_upload("sample." + fmt, mime, b64(raw), explicit_kind="skin_wound")
+                with self.assertRaises(adapter.VisionAdapterError):
+                    adapter.build_request(prepared, b64(raw))
+
+    def test_direct_adapter_normalizes_decoded_raster_and_excludes_solid(self):
+        for solid in (False, True):
+            with self.subTest(solid=solid):
+                raw = si.png(uniform=solid, extra_chunks=[(b"tEXt", b"Author\0SYNTHETIC")])
+                src = prepare_upload("image.png", "image/png", b64(raw), explicit_kind="skin_wound")
+                if solid:
+                    with self.assertRaises(adapter.VisionAdapterError):
+                        adapter.build_request(src, b64(raw))
+                else:
+                    sent = adapter.build_request(src, b64(raw))
+                    self.assertNotIn(b"SYNTHETIC", base64.b64decode(sent["content_base64"]))
+                    self.assertEqual(sent["mime_type"], "image/png")
+
+
 class T7IntegrityAndPrivacy(unittest.TestCase):
     def test_exif_gps_detected(self):
         m = guard.inspect_media(si.jpeg(exif=True, gps=True), "a.jpg", "image/jpeg")
@@ -282,18 +336,19 @@ class T7IntegrityAndPrivacy(unittest.TestCase):
         sent = base64.b64decode(seen["request"]["content_base64"])
         for needle in (b"SECRET-NAME", b"HIDDEN-TAIL"):
             self.assertNotIn(needle, sent)
-        meta = guard.inspect_media(sent, "a.jpg", "image/jpeg")["metadata"]
-        self.assertFalse(meta["gps"] or meta["xmp"] or meta["iptc"] or meta["comment"] or meta["trailing_data"])
+        self.assertEqual(seen["request"]["mime_type"], "image/png")
+        meta = guard.inspect_media(sent, "a.png", "image/png")["metadata"]
+        self.assertFalse(any(meta.values()))
         self.assertTrue(out["prepared"]["media"]["metadata_stripped_for_provider"])
 
     def test_jpeg_orientation_is_preserved_after_strip(self):
-        clean = guard.strip_metadata(si.jpeg(exif=True, gps=True), "jpeg")
-        seg = clean[2:]
-        self.assertTrue(seg.startswith(b"\xff\xe1"))
-        self.assertIn(struct.pack("<HHHIHH", 1, 0x0112, 3, 1, 6, 0), clean)
+        raw = si.jpeg(width=100, height=220, exif=True)
+        with Image.open(io.BytesIO(guard.strip_metadata(raw, "jpeg"))) as clean:
+            self.assertEqual(clean.size, (220, 100))
+            self.assertFalse(clean.getexif())
 
     def test_png_text_and_exif_chunks_removed(self):
-        raw = si.png(extra_chunks=[(b"tEXt", b"Author\x00SECRET-NAME"), (b"eXIf", b"MM\x00*GPS")],
+        raw = si.png(extra_chunks=[(b"tEXt", b"Author\x00SECRET-NAME"), (b"eXIf", si.exif_app1()[10:])],
                      trailing=b"TAIL")
         m = guard.inspect_media(raw, "a.png", "image/png")["metadata"]
         self.assertTrue(m["text_chunks"] and m["exif"] and m["trailing_data"])
@@ -309,7 +364,7 @@ class T7IntegrityAndPrivacy(unittest.TestCase):
         clean = guard.strip_metadata(raw, "webp")
         self.assertNotIn(b"GPSDATA!", clean)
         self.assertNotIn(b"XMPDATA!", clean)
-        self.assertFalse(any(guard.inspect_media(clean, "a.webp", "image/webp")["metadata"].values()))
+        self.assertFalse(any(guard.inspect_media(clean, "a.png", "image/png")["metadata"].values()))
 
     def test_provider_request_does_not_leak_filename_or_client_mime(self):
         raw = si.png()
