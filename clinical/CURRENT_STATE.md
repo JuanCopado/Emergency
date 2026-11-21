@@ -1,3 +1,7 @@
+## 21/11/2026 · Candidato técnico de nota clínica
+
+La nota expone negaciones, discriminantes documentados, relaciones no evaluables y contribución de menciones inciertas. 60 casos conservados. La clasificación de notas mixtas y el rendimiento clínico permanecen pendientes. [Alcance y límites](qa/NOTE_OBSERVATIONS_20261121.md).
+
 ## Referencias de imagen aceptadas · 20/11/2026
 
 Registro vigente: **131 módulos, 129 GREEN / 2 YELLOW / 0 RED**, `CLINICALLY_PENDING`. El Dr. Juan Copado Ceballos responde «si claro que si» a las nueve fichas v1 enumeradas y a POCUS-MODE-20261120 v1. Se aplica únicamente el párrafo POCUS aceptado, se conservan los otros ocho textos y se sincronizan registro, índice y guías. Aceptación y alcance: `qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md` y su registro JSON. Los módulos `clinical-image-interpretation` y `clinical-note-diagnostic-support` conservan estado/fechas y validación real pendiente.

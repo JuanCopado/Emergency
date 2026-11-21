@@ -51,6 +51,8 @@ def _candidate_lines(items):
         eva="; ".join(x.get("evidence_against",[]))
         miss="; ".join(x.get("missing_discriminating_data",[]))
         line=f"{i}. {x.get('diagnosis','')} [{x.get('confidence','')}]"
+        if x.get("weighted_uncertainty"):
+            line += " | Classificação inclui menções não confirmadas: " + "; ".join(x["weighted_uncertainty"])
         if evf: line += f" | a favor: {evf}"
         if eva: line += f" | contra: {eva}"
         if miss: line += f" | falta discriminar: {miss}"

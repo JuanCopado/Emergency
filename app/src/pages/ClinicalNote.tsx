@@ -356,13 +356,24 @@ export default function ClinicalNote(){
 
    {tab==='diagnostic'&&<section className="space-y-4">
     <div className={card}><div className="flex flex-wrap items-center gap-3"><div><h2 className="text-lg font-bold">{ui("Apoio diagnóstico")}</h2><p className="text-sm text-muted">{ui("Executado apenas sobre dados aceites e após preflight de privacidade.")}</p></div><button className="btn-primary ml-auto" disabled={busy||privacyStop||numericStop} onClick={()=>void runDiagnostic()}>{busy?ui("A processar…"):ui("Atualizar apoio diagnóstico")}</button></div>{diagnosticStale&&assessment&&<p className="mt-3 text-sm font-semibold text-warn">{ui("Os dados mudaram desde a última análise; resultado marcado como desatualizado.")}</p>}</div>
+    {assessment?.limitations?.length ? <div className={card}><h2 className="font-bold">{ui("Limitações:")}</h2><ul className="mt-2 space-y-2 text-sm">{assessment.limitations.map(line=><li key={line}>{line}</li>)}</ul></div> : null}
     {diagnosticAlerts.length>0&&<div className={card}><h2 className="font-bold text-danger">{ui("Alertas / red flags")}</h2><div className="mt-3 grid gap-2 md:grid-cols-2">{diagnosticAlerts.map((x,i)=><div key={`${x.code}-${i}`} className="rounded-xl border border-danger p-3 text-sm"><div className="font-bold">{x.severity} · {x.code}</div><p className="mt-1">{x.message}</p></div>)}</div></div>}
     <div className="grid gap-4 lg:grid-cols-2">
       {([
         [ui("Mais provável"),assessment?.likely_diagnoses||[]],
         [ui("Diferencial"),assessment?.differential_diagnoses||[]],
         [ui("Must not miss"),assessment?.must_not_miss||[]],
-      ] as const).map(([h,items])=><div className={card} key={h}><h2 className="font-bold">{h}</h2>{items.length?<div className="mt-3 space-y-3">{items.map((d,i)=><div key={i} className="rounded-xl border border-border p-3"><div className="flex items-center gap-2"><strong>{d.diagnosis}</strong><span className="chip ml-auto">{d.confidence}</span></div>{d.evidence_for.length>0&&<p className="mt-2 text-sm">{ui("A favor:")} {d.evidence_for.join(' · ')}</p>}{d.missing_discriminating_data.length>0&&<p className="mt-1 text-xs text-muted">{ui("Falta:")} {d.missing_discriminating_data.join(' · ')}</p>}<p className="mt-1 text-xs text-muted">{ui("Módulos:")} {d.source_modules.join(' · ')}</p></div>)}</div>:<p className="mt-3 text-sm text-muted">{ui("Sem resultado executado/aceite.")}</p>}</div>)}
+      ] as const).map(([h,items])=><div className={card} key={h}>
+        <h2 className="font-bold">{h}</h2>
+        {items.length ? <div className="mt-3 space-y-3">{items.map((d,i)=><div key={i} className="rounded-xl border border-border p-3">
+          <div className="flex items-center gap-2"><strong>{d.diagnosis}</strong><span className="chip ml-auto">{d.confidence}</span></div>
+          {d.weighted_uncertainty?.length ? <p className="mt-1 font-semibold text-warn">{ui("Classificação inclui menções não confirmadas:")} {d.weighted_uncertainty.join(' · ')}</p> : null}
+          {d.evidence_for.length>0&&<p className="mt-2 text-sm">{ui("A favor:")} {d.evidence_for.join(' · ')}</p>}
+          {d.evidence_against?.length>0&&<p className="mt-1 text-sm">{ui("Achados negados:")} {d.evidence_against.join(' · ')}</p>}
+          {d.missing_discriminating_data.length>0&&<p className="mt-1 text-xs text-muted">{ui("Falta:")} {d.missing_discriminating_data.join(' · ')}</p>}
+          <p className="mt-1 text-xs text-muted">{ui("Módulos:")} {d.source_modules.join(' · ')}</p>
+        </div>)}</div> : <p className="mt-3 text-sm text-muted">{ui("Sem resultado executado/aceite.")}</p>}
+      </div>)}
       <div className={card}><h2 className="font-bold">{ui("Dados em falta / contradições")}</h2><div className="mt-3 space-y-2 text-sm">{(assessment?.contradictions_to_clarify||[]).map((x,i)=><p key={i} className="rounded-xl border border-warn p-3">{x}</p>)}{!(assessment?.contradictions_to_clarify.length)&&<p className="text-muted">{ui("Sem contradições estruturadas neste momento.")}</p>}</div></div>
     </div>
    </section>}

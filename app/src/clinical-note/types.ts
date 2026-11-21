@@ -41,6 +41,7 @@ export type DiagnosticCandidate = {
   confidence: QualitativeConfidence;
   evidence_for: string[];
   evidence_against: string[];
+  weighted_uncertainty?: string[];
   missing_discriminating_data: string[];
   source_modules: string[];
 };
