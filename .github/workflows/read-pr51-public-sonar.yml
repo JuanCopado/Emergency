@@ -16,14 +16,13 @@ jobs:
           curl -fsS --max-time 20 --get https://sonarcloud.io/api/issues/search \
             --data-urlencode 'organization=juancopado' --data-urlencode 'componentKeys=JuanCopado_Emergency' \
             --data-urlencode 'pullRequest=51' --data-urlencode 'resolved=false' --data-urlencode 'ps=100' \
-            | jq -ce '{total, issues: [.issues[] | {rule,type,severity,impacts,component,line}]}'
-      - name: Read public GitHub check annotations of audited commit
-        if: always()
+            | jq -ce '{total, issues: [.issues[] | {rule,type,severity,impacts,component,line,message: ((.message // "")[:300])}]}'
+      - name: Read public PR51 per-file coverage metadata
         shell: bash
         run: |
           set -euo pipefail
-          endpoint='https://api.github.com/repos/JuanCopado/Emergency'
-          run=$(curl -fsS --max-time 20 "$endpoint/commits/8788395d7d337dec4a44af266188506171f416fd/check-runs?per_page=100" | jq -er '[.check_runs[] | select(.app.slug == "sonarqubecloud" or .app.slug == "sonarcloud")] | max_by(.id).id')
-          echo "public_check=$run"
-          curl -fsS --max-time 20 "$endpoint/check-runs/$run/annotations?per_page=100" \
-            | jq -ce '[.[] | {path,start_line,end_line,annotation_level,title,message: ((.message // "")[:220])}]'
+          curl -fsS --max-time 20 --get https://sonarcloud.io/api/measures/component_tree \
+            --data-urlencode 'component=JuanCopado_Emergency' --data-urlencode 'pullRequest=51' \
+            --data-urlencode 'metricKeys=new_lines_to_cover,new_uncovered_lines,new_conditions_to_cover,new_uncovered_conditions' \
+            --data-urlencode 'qualifiers=FIL' --data-urlencode 'ps=500' \
+            | jq -ce '{total:.paging.total,files:[.components[] | {path, measures:[.measures[]? | {metric,value:(.period.value // .periods[0].value // .value)}]} | select(any(.measures[]; (.metric=="new_uncovered_lines" or .metric=="new_uncovered_conditions") and ((.value|tonumber?)>0)))]}'
