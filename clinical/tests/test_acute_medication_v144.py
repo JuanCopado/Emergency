@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from acute_medication_api import catalog, calculate_request, export_request
+from acute_medication_api import _lines, catalog, calculate_request, export_request
 
 
 def request(regimen, **inputs):
@@ -100,6 +100,27 @@ class AmiodaroneFlow(unittest.TestCase):
 
 
 class SourceBoundFlowCases(unittest.TestCase):
+    def test_acute_report_prose_preserves_raw_snapshot_and_clinical_payload(self):
+        result = calculate_request(request('amiodarone-arrest-third', shock_count=3))
+        original = result['result']['source']['body']
+        self.assertIn('**Amiodarone for refractory VF/pVT:**', original)
+        self.assertEqual(result['report']['snapshot']['result']['source']['body'], original)
+        displayed = '\n'.join(p for _, paragraphs in result['report']['sections'] for p in paragraphs)
+        self.assertIn('• Amiodarone for refractory VF/pVT: 300 mg IV', displayed)
+        self.assertNotIn('**Amiodarone for refractory VF/pVT:**', displayed)
+        self.assertIn('dose: 300\ndose_unit: mg', displayed)
+
+    def test_only_known_source_prose_is_formatted(self):
+        source = '# Source\n- **Dose:** ≤ 0.5 mg/kg/min; **never** double.\n'
+        protected = ('~~~text\n- **literal fenced**\n~~~\n'
+                     '    - **indented**\n- `code **inside**`\n[title](url)\n'
+                     '| **table** | text |\n\\**escaped**\n***nested***\n2**3**4\n**unpaired')
+        literal = source + protected
+        displayed = 'Source\n• Dose: ≤ 0.5 mg/kg/min; never double.\n' + protected
+        for field in ('source.body', 'source.preamble', 'source.contract_review.body', 'monitoring_and_warnings'):
+            self.assertEqual(_lines(literal, field), [field + ': ' + displayed])
+        self.assertEqual(_lines(literal, 'inputs.note'), ['inputs.note: ' + literal])
+
     def test_every_contract_has_an_independent_browser_fixture(self):
         import json
         bank = json.loads((Path(__file__).resolve().parents[1] / 'qa/V1.44_ACUTE_MEDICATION_CASES.json').read_text(encoding='utf-8'))
