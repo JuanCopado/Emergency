@@ -85,18 +85,43 @@ _REASSURANCE = re.compile(
     r"n[aã]o (?:necessita de |precisa de |requer )(?:mais |nova )?avalia[cç][aã]o)\b", re.IGNORECASE)
 
 
+def _safe_skin_wound_reasons(reasons):
+    """Remove only provider entries overlapping recognized wording, including across entries."""
+    parts = [(index, " ".join(reason.split())) for index, reason in enumerate(reasons) if reason.strip()]
+    matches = iter(_REASSURANCE.finditer(" ".join(text for _, text in parts)))
+    match = next(matches, None)
+    flagged = set()
+    start = 0
+    for index, part in parts:
+        end = start + len(part)
+        while match and match.end() <= start:
+            match = next(matches, None)
+        if match and match.start() < end:
+            flagged.add(index)
+        start = end + 1
+    return [reason for index, reason in enumerate(reasons) if index not in flagged]
+
+
 def _skin_wound_guard(normalized):
     """Fail-safe post-processing for skin_wound output (no clinical judgement added).
 
-    - reassurance wording is flagged and surfaced in limitations (regex ceiling: also
+    - provider reassurance is removed and replaced with a local warning (the regex also
       matches negated forms such as 'cannot be excluded'; over-flagging is intended);
     - provider confidence is withheld: no diagnostic performance has been established.
     """
     text = " ".join(str(normalized.get(k) or "") for k in
                     ("ai_interpretation", "findings", "impression"))
     flags = list(normalized.get("safety_flags") or [])
-    limitations = list(normalized.get("limitations") or [])
-    if _REASSURANCE.search(text):
+    provider_limitations = normalized["limitations"]
+    limitations = _safe_skin_wound_reasons(provider_limitations)
+    removed_reassurance = len(limitations) != len(provider_limitations)
+    for label, fallback in (("provider", "configured-provider"), ("model", "unspecified")):
+        if _REASSURANCE.search(" ".join(normalized[label].split())):
+            normalized[label] = fallback
+            removed_reassurance = True
+    if normalized.get("abstained") and not removed_reassurance:
+        return normalized
+    if removed_reassurance or _REASSURANCE.search(" ".join(text.split())):
         flags.append("reassurance_language")
         normalized["abstained"] = True
         for field in ("ai_interpretation", "findings", "impression"):
@@ -280,7 +305,7 @@ def invoke(prepared, content_base64, *, privacy_checked=False,
     normalized = _normalize_response(response_payload)
     if any(item.get("severity") == "STOP" for item in scan_privacy(normalized)):
         raise VisionProviderResponseError("vision interpretation output contains possible direct identifiers")
-    if request_payload["kind"] == "skin_wound" and not normalized.get("abstained"):
+    if request_payload["kind"] == "skin_wound":
         normalized = _skin_wound_guard(normalized)
     if normalized.get("official_report"):
         raise VisionProviderResponseError(

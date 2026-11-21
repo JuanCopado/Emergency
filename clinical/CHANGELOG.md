@@ -4,6 +4,8 @@ Negaciones explícitas, discriminantes y contribuciones inciertas visibles en la
 
 ## 21/11/2026 · PR51 M10
 
+La revisión residual R4 amplía el control de falsa tranquilidad a la lista de limitaciones que entrega el proveedor, tanto en interpretaciones como en abstenciones. [Casos de prueba y límites](qa/M10_TECHNICAL_FOLLOWUP_20261121.md#revisión-residual-r4-sobre-la-integración-ca308af6).
+
 Corregida la preparación de imágenes para proveedor y la salida de abstención. Alcance verificable en `qa/M10_TECHNICAL_FOLLOWUP_20261121.md`. Se preservan la aceptación de PR52 y CLINICALLY_PENDING.
 
 ## 20/11/2026 · Nueve referencias de imagen aceptadas
