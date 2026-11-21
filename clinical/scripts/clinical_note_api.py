@@ -37,7 +37,8 @@ from patient_weight_request import parse_medication_request
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import export_docx, export_json, export_pdf
 from clinical_note_vision_adapter import (
-    VisionProviderResponseError, invoke as invoke_clinical_vision, is_configured as clinical_vision_is_configured,
+    VisionProviderConfigError, VisionProviderResponseError, VisionProviderUnavailable,
+    invoke as invoke_clinical_vision, is_configured as clinical_vision_is_configured,
 )
 import image_upload_guard
 from clinical_note_support import (
@@ -318,6 +319,10 @@ def _abstained_upload(prepared, media):
 
 
 def _accepted_provenance(prepared, ai_interpretation):
+    if prepared.get("processing", {}).get("status") == "vision_abstained":
+        # No automatic result exists: any accepted text was typed or edited by the clinician.
+        # The attempt stays auditable via the report limitations and prepared_integrity_token.
+        return "clinician_entry"
     if prepared.get("processing", {}).get("status") == "vision_interpreted":
         return "ai_document_extraction" if prepared.get("kind") == "pdf_document" else "ai_image_interpretation"
     if ai_interpretation:
@@ -612,6 +617,10 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
             self._send(HTTPStatus.BAD_REQUEST, {"error": "invalid JSON"})
         except VisionProviderResponseError:
             self._send(HTTPStatus.BAD_GATEWAY, {"error": "clinical vision provider returned an invalid response"})
+        except VisionProviderConfigError:
+            self._send(HTTPStatus.SERVICE_UNAVAILABLE, {"error": "clinical vision provider is not configured"})
+        except VisionProviderUnavailable:
+            self._send(HTTPStatus.SERVICE_UNAVAILABLE, {"error": "clinical vision provider unavailable"})
         except image_upload_guard.MediaRejected:
             self._send(HTTPStatus.UNPROCESSABLE_ENTITY, {"error": "invalid or unsupported clinical image or filename"})
         except ValueError as exc:

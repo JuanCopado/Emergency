@@ -36,6 +36,7 @@ No response is accepted into the medical record by this module itself.
 
 import base64
 import binascii
+import http.client
 import json
 import os
 import re
@@ -63,6 +64,14 @@ class VisionAdapterError(ValueError):
 
 class VisionProviderResponseError(VisionAdapterError):
     """The configured provider returned an unusable answer; the note is untouched."""
+
+
+class VisionProviderConfigError(VisionAdapterError):
+    """Provider configuration is missing or unsafe; not a problem with the request."""
+
+
+class VisionProviderUnavailable(VisionAdapterError):
+    """Provider unreachable, timed out or violated transport rules; not a request error."""
 
 
 # M10: rules already stated in modules/image-modalities.md#skin-wound-image, enforced on output.
@@ -148,9 +157,9 @@ def provider_config(env=None):
     try:
         timeout = int(timeout_raw)
     except ValueError as exc:
-        raise VisionAdapterError("invalid CLINICAL_VISION_TIMEOUT_SECONDS") from exc
+        raise VisionProviderConfigError("invalid CLINICAL_VISION_TIMEOUT_SECONDS") from exc
     if timeout < 1 or timeout > 180:
-        raise VisionAdapterError("CLINICAL_VISION_TIMEOUT_SECONDS must be 1..180")
+        raise VisionProviderConfigError("CLINICAL_VISION_TIMEOUT_SECONDS must be 1..180")
     return {"url": url, "token": token, "timeout": timeout}
 
 
@@ -161,9 +170,9 @@ def is_configured(env=None):
 
 def _validate_https(url):
     if not url:
-        raise VisionAdapterError("clinical vision provider is not configured")
+        raise VisionProviderConfigError("clinical vision provider is not configured")
     if not url.lower().startswith("https://"):
-        raise VisionAdapterError("clinical vision provider URL must use HTTPS")
+        raise VisionProviderConfigError("clinical vision provider URL must use HTTPS")
 
 
 def build_request(prepared, content_base64):
@@ -260,7 +269,7 @@ def _normalize_response(payload):
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
-        raise VisionAdapterError("clinical vision provider redirects are not allowed")
+        raise VisionProviderUnavailable("clinical vision provider redirects are not allowed")
 
 
 def invoke(prepared, content_base64, *, privacy_checked=False,
@@ -271,9 +280,9 @@ def invoke(prepared, content_base64, *, privacy_checked=False,
     if privacy.get("burned_in_identifier_review_required") and not burned_in_identifiers_checked:
         raise VisionAdapterError("burned-in identifier review is required before external interpretation")
 
-    request_payload = build_request(prepared, content_base64)
     cfg = provider_config(env)
     _validate_https(cfg["url"])
+    request_payload = build_request(prepared, content_base64)
 
     if transport is not None:
         response_payload = transport(cfg, request_payload)
@@ -293,8 +302,8 @@ def invoke(prepared, content_base64, *, privacy_checked=False,
                 raw = response.read(MAX_PROVIDER_RESPONSE_BYTES + 1)
         except VisionAdapterError:
             raise
-        except (urllib.error.URLError, TimeoutError, OSError) as exc:
-            raise VisionAdapterError("clinical vision provider request failed") from exc
+        except (urllib.error.URLError, TimeoutError, OSError, http.client.HTTPException) as exc:
+            raise VisionProviderUnavailable("clinical vision provider request failed") from exc
         if len(raw) > MAX_PROVIDER_RESPONSE_BYTES:
             raise VisionProviderResponseError("clinical vision provider response exceeds limit")
         try:

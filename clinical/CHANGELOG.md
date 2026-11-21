@@ -1,3 +1,5 @@
+R6 · 21/11/2026 · M10 N3/N2: un proveedor no configurado o no disponible responde 503 con mensaje fijo (la respuesta malformada sigue en 502 y la entrada inválida en 422); tras una abstención, el texto aceptado se registra como `clinician_entry`. Sin cambios en cálculos, reglas ni estados clínicos. CLINICALLY_PENDING.
+
 R4 · 21/11/2026 · Seguimiento de presentación. Se corrige el énfasis residual en prosa mixta de los informes de farmacología y la selección de idioma de la nota. Se conservan datos, cálculos y estados clínicos. CLINICALLY_PENDING.
 
 ## 21/11/2026 · Observaciones de la nota clínica

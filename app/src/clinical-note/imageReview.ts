@@ -41,5 +41,11 @@ export function uploadError(error: unknown, fallback: string, ui: (key: string) 
   if (error.message.startsWith('clinical vision provider returned an invalid response')) {
     return ui('O serviço devolveu uma resposta inválida. A proposta não foi aceite.');
   }
+  if (error.message === 'clinical vision provider is not configured') {
+    return ui('O serviço de interpretação não está configurado. A imagem não foi enviada; reveja manualmente.');
+  }
+  if (error.message === 'clinical vision provider unavailable') {
+    return ui('O serviço de interpretação está indisponível. Tente mais tarde ou reveja manualmente.');
+  }
   return error.message;
 }
