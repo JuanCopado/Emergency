@@ -24,33 +24,25 @@ jobs:
       - run: >-
           python -m pip install --only-binary=:all: --require-hashes -r ../security/requirements-ci.txt
       - run: npm ci --ignore-scripts --no-audit --no-fund && npm run postinstall --ignore-scripts && npm run build
-      - run: node scripts/visual_extra.mjs
+      - run: node scripts/visual_print.mjs
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome
-      - name: Preserve synthetic screenshots as a portable review copy
-        if: always()
+      - name: Preserve the verified synthetic PDF
+        if: success()
         run: |
           python - <<'PY'
           from pathlib import Path
-          import base64, json
-          from PIL import Image
-          import io
-          import hashlib
-          for p in sorted(Path('review-shots').glob('*.png')):
-              img=Image.open(p).convert('RGB')
-              img.thumbnail((950,750))
-              out=io.BytesIO()
-              img.save(out, format='JPEG', quality=65, optimize=True)
-              raw=out.getvalue()
-              enc=base64.b64encode(raw).decode('ascii')
-              for i in range(0,len(enc),3000):
-                  print('EMERGENCY_SHOT',p.stem,i,enc[i:i+3000])
-              print('EMERGENCY_HASH',p.stem,hashlib.sha256(raw).hexdigest())
+          import hashlib,base64
+          p=Path('review-shots/Q5_CHROMIUM_FRONTERA.pdf').read_bytes()
+          enc=base64.b64encode(p).decode('ascii')
+          for i in range(0,len(enc),3000):
+              print('EMERGENCY_PDF',i,enc[i:i+3000])
+          print('EMERGENCY_PDF_HASH',hashlib.sha256(p).hexdigest())
           PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: emergency-visual-extra-8179853e
+          name: emergency-print-8179853e
           path: app/review-shots/
           if-no-files-found: error
           retention-days: 14
