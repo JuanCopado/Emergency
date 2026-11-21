@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import {mkdirSync,writeFileSync} from 'node:fs';
+import {withClinicalApp} from './functional-harness.mjs';
+mkdirSync('review-shots',{recursive:true});
+const report=[];
+await withClinicalApp(async({page,base,browser})=>{
+ page.setDefaultTimeout(5000);
+ await page.route('**/*',route=>{const u=new URL(route.request().url()); return ['127.0.0.1','localhost'].includes(u.hostname)||['blob:','data:'].includes(u.protocol)?route.continue():route.abort()});
+ async function check(name,fn){try{await fn();await page.screenshot({path:'review-shots/'+name+'.png',animations:'disabled'});report.push({name,status:'PASS',route:new URL(page.url()).pathname});}catch(err){report.push({name,status:'BLOCKED',error:err.message.slice(0,230)});await page.screenshot({path:'review-shots/'+name+'-blocked.png'});} }
+ const go=async p=>{await page.goto(base+p);await page.locator('h1').first().waitFor();};
+ await check('01-inicio',async()=>{await page.setViewportSize({width:1360,height:900});await go('/');await page.keyboard.press('Tab');assert(await page.evaluate(()=>document.activeElement!==document.body));});
+ await check('02-inicio-movil',async()=>{await page.setViewportSize({width:390,height:844});await go('/');assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));});
+ await page.setViewportSize({width:1360,height:900});
+ await check('03-reanimacion',async()=>{await go('/guides/arrhythmias-cardiac-arrest');const n=page.getByRole('navigation',{name:'Circuitos de reanimación'});await n.scrollIntoViewIfNeeded();assert.equal(await n.getByRole('link').count(),4);});
+ await check('04-reanimacion-adulto',async()=>{await page.locator('a[href="/guides/adult-arrhythmias"]').first().click();await page.waitForURL('**/guides/adult-arrhythmias');});
+ await check('05-paises',async()=>{await go('/settings');const selectWith=v=>page.locator('select').filter({has:page.locator('option[value="'+v+'"]')});await selectWith('declared').selectOption('declared');await selectWith('PT').first().selectOption('PT');const cmp=page.getByLabel(/compar/i).filter({visible:true});await cmp.selectOption('ES');await page.getByRole('heading',{name:'Portugal',exact:true}).waitFor();await page.getByRole('heading',{name:'España',exact:true}).scrollIntoViewIfNeeded();});
+ await check('06-farmacos',async()=>{await go('/acute-medications');assert(await page.getByRole('button').count()>0);});
+ let requests=0;page.on('request',r=>{if(r.url().endsWith('/clinical-scores/calculate'))requests++;});
+ await check('07-escala-manual',async()=>{await go('/scores?score=news2');await page.locator('[data-field="respiratory_rate"]').fill('17');assert.equal(requests,0);});
+ await check('08-analitica-pegada',async()=>{await page.getByRole('radio',{name:/Importar PDF/}).check();const field=page.locator('[data-field="respiratory_rate"]');const title=(await field.locator('..').locator('.label').innerText()).replace(/ \(([^()]+)\)$/,'');await page.getByRole('textbox',{name:/pegue/}).fill(title+': 18');await field.scrollIntoViewIfNeeded();assert.equal(await field.inputValue(),'18');assert.equal(requests,0);});
+ await check('09-analitica-txt',async()=>{const f=page.locator('[data-field="respiratory_rate"]');const title=(await f.locator('..').locator('.label').innerText()).replace(/ \(([^()]+)\)$/,'');await page.locator('input[type=file]').setInputFiles({name:'sintetico.txt',mimeType:'text/plain',buffer:Buffer.from(title+': 19')});await page.waitForFunction(()=>document.querySelector('[data-field="respiratory_rate"]').value==='19');await f.fill('20');assert.equal(requests,0);});
+ await check('10-imagen',async()=>{await go('/clinical-note');const inp=page.locator('input[type=file]').first();await inp.scrollIntoViewIfNeeded();assert(await inp.isEnabled());});
+ await check('11-imagen-invalida',async()=>{const inp=page.locator('input[type=file]').first();const response=page.waitForResponse(r=>r.request().method()==='POST'&&r.url().includes('/api/'),{timeout:5000});await inp.setInputFiles({name:'fixture.png',mimeType:'image/png',buffer:Buffer.from('synthetic invalid image')});assert((await response).status()>=400);});
+ writeFileSync('review-shots/recibo.json',JSON.stringify({source:'8179853e34e005c3eab69103f5cf891ef49800a2',browser:browser.version(),results:report},null,2));
+ console.log(JSON.stringify(report));
+});
