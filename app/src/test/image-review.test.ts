@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { reviewMessage, uploadError } from '../clinical-note/imageReview';
+import { mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 
 const literal = (text: string) => text;
 
@@ -18,4 +18,22 @@ describe('image intake messages', () => {
     expect(uploadError(new Error('clinical vision provider returned an invalid response'),'',literal))
       .toBe('O serviço devolveu uma resposta inválida. A proposta não foi aceite.');
   });
+
+  it('translates each supported media quality flag once and ignores arbitrary values', () => {
+    const flags = [
+      'low_resolution', 'low_resolution', 'insufficient_resolution', 'no_visual_content_suspected',
+      'synthetic-private-id', 'confidence_withheld', 'abstained: low_resolution',
+      { code: 'low_resolution' }, 'constructor', null, 123,
+    ];
+    expect(mediaQualityMessages(flags, key => `UI: ${key}`)).toEqual([
+      'UI: Resolução insuficiente.',
+      'UI: Resolução limitada.',
+      'UI: Não foi possível confirmar conteúdo visual utilizável.',
+    ]);
+  });
+
+  it.each([undefined, null, 'low_resolution', { 0: 'low_resolution', length: 1 }])(
+    'ignores a non-array quality field (%s)',
+    flags => expect(mediaQualityMessages(flags, literal)).toEqual([]),
+  );
 });

@@ -20,6 +20,13 @@ export function reviewMessage(value: string, ui: (key: string) => string): strin
   return describe(value);
 }
 
+export function mediaQualityMessages(flags: unknown, ui: (key: string) => string): string[] {
+  if (!Array.isArray(flags)) return [];
+  return ['insufficient_resolution', 'low_resolution', 'no_visual_content_suspected']
+    .filter(code => flags.includes(code))
+    .map(code => reviewMessage(code, ui));
+}
+
 export function excludedContainer(prepared?: PreparedUpload) {
   return prepared?.media?.format === 'pdf' || prepared?.media?.format === 'dicom';
 }
