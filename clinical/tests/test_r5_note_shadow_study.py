@@ -18,7 +18,8 @@ class OfflineShadowStudy(unittest.TestCase):
         return subprocess.run(
             [sys.executable, "-B", str(SCRIPT), "--repo", str(ROOT), "--commit", commit,
              "--tree", tree, "--output", str(output)],
-            cwd=ROOT, capture_output=True, text=True, timeout=90, check=False)
+            # Measured CI instrumentation exceeded 90s for the full 153-case bank.
+            cwd=ROOT, capture_output=True, text=True, timeout=240, check=False)
 
     def test_full_study_preserves_accepted_outputs_and_is_offline(self):
         with tempfile.TemporaryDirectory(prefix="r5-study-test-") as folder:
