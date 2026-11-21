@@ -41,6 +41,7 @@ import json
 import os
 import re
 import ssl
+import unicodedata
 import urllib.error
 import urllib.request
 import uuid
@@ -94,9 +95,16 @@ _REASSURANCE = re.compile(
     r"n[aã]o (?:necessita de |precisa de |requer )(?:mais |nova )?avalia[cç][aã]o)\b", re.IGNORECASE)
 
 
+def _fold(text):
+    """Encoding-level normalization only: NFKC plus removal of invisible format characters
+    (zero-width, soft hyphen), then whitespace collapse. It adds no wording to the lexicon."""
+    text = unicodedata.normalize("NFKC", str(text))
+    return " ".join("".join(c for c in text if unicodedata.category(c) != "Cf").split())
+
+
 def _safe_skin_wound_reasons(reasons):
     """Remove only provider entries overlapping recognized wording, including across entries."""
-    parts = [(index, " ".join(reason.split())) for index, reason in enumerate(reasons) if reason.strip()]
+    parts = [(index, _fold(reason)) for index, reason in enumerate(reasons) if reason.strip()]
     matches = iter(_REASSURANCE.finditer(" ".join(text for _, text in parts)))
     match = next(matches, None)
     flagged = set()
@@ -125,12 +133,12 @@ def _skin_wound_guard(normalized):
     limitations = _safe_skin_wound_reasons(provider_limitations)
     removed_reassurance = len(limitations) != len(provider_limitations)
     for label, fallback in (("provider", "configured-provider"), ("model", "unspecified")):
-        if _REASSURANCE.search(" ".join(normalized[label].split())):
+        if _REASSURANCE.search(_fold(normalized[label])):
             normalized[label] = fallback
             removed_reassurance = True
     if normalized.get("abstained") and not removed_reassurance:
         return normalized
-    if removed_reassurance or _REASSURANCE.search(" ".join(text.split())):
+    if removed_reassurance or _REASSURANCE.search(_fold(text)):
         flags.append("reassurance_language")
         normalized["abstained"] = True
         for field in ("ai_interpretation", "findings", "impression"):
