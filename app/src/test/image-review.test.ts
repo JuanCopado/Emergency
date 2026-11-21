@@ -19,6 +19,14 @@ describe('image intake messages', () => {
       .toBe('O serviço devolveu uma resposta inválida. A proposta não foi aceite.');
   });
 
+  it('distinguishes provider configuration and availability from request errors', () => {
+    expect(uploadError(new Error('clinical vision provider is not configured'),'',literal))
+      .toBe('O serviço de interpretação não está configurado. A imagem não foi enviada; reveja manualmente.');
+    expect(uploadError(new Error('clinical vision provider unavailable'),'',literal))
+      .toBe('O serviço de interpretação está indisponível. Tente mais tarde ou reveja manualmente.');
+    expect(uploadError(new Error('invalid clinical request'),'',literal)).toBe('invalid clinical request');
+  });
+
   it('translates each supported media quality flag once and ignores arbitrary values', () => {
     const flags = [
       'low_resolution', 'low_resolution', 'insufficient_resolution', 'no_visual_content_suspected',

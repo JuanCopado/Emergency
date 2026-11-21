@@ -229,6 +229,8 @@
   "O conteúdo do ficheiro não corresponde ao formato declarado.": "文件内容与声明的格式不符。",
   "O ficheiro foi recusado na verificação do nome, formato ou integridade.": "文件未通过文件名、格式或完整性检查。",
   "O serviço devolveu uma resposta inválida. A proposta não foi aceite.": "服务返回了无效响应，拟议结果未被接受。",
+  "O serviço de interpretação não está configurado. A imagem não foi enviada; reveja manualmente.": "解读服务尚未配置。图像未发送，请人工审阅。",
+  "O serviço de interpretação está indisponível. Tente mais tarde ou reveja manualmente.": "解读服务不可用。请稍后重试或人工审阅。",
   "PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente.": "PDF 和 DICOM 文件不会发送至解读服务。请手动审阅文件。",
   "Envio ao serviço interrompido antes da interpretação.": "已在外部解读前停止发送。",
   "O serviço não forneceu uma interpretação.": "服务未提供解读。",
