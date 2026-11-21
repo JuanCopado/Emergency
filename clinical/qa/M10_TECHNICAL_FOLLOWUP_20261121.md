@@ -17,6 +17,8 @@ Una respuesta simulada de fotografía de piel podía incluir una frase de tranqu
 
 La primera revisión pasó 59 pruebas focales en Windows. Claude Code observó que las etiquetas de procedencia y las frases que ocupan varios motivos también llegan a la tarjeta de revisión. El adaptador sustituye una etiqueta reconocida por su valor técnico genérico, se abstiene y conserva la otra etiqueta cuando es válida. Revisa asimismo el texto conjunto de los motivos y retira sólo los elementos afectados. Las 62 pruebas focales de la segunda revisión pasaron en Windows. Se conservan el límite de 128 caracteres y el requisito de etiquetas imprimibles.
 
+Un segundo revisor comprobó la misma expresión de tranquilidad con un salto de línea en cada uno de los tres campos clínicos. La comparación de esos campos normaliza los espacios. La salida conserva el formato original cuando la propuesta supera el control. Pasaron en Windows las 63 pruebas focales, incluido un nuevo caso de regresión con cuatro variantes.
+
 ## Verificación anterior
 
 En Windows, 52 pruebas del módulo aprobaron con Pillow 13.0.0. El auditor independiente ejecutó además nueve contratos del flujo y seis casos raster estándar, con píxeles uniformes y bicolores y marcas sintéticas de metadatos. La revisión final se vincula a la identidad del candidato en la matriz de integración. Los resultados de estas pruebas no estiman sensibilidad ni especificidad clínica. No hay cohorte prospectiva ni aprobación para despliegue.

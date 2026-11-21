@@ -373,6 +373,22 @@ class T6UnsupportedClinicalClaims(unittest.TestCase):
                 self.assertEqual([r for r in proc["limitations"] if r in reasons],
                                  ["Poor lighting.", "Poor focus."])
 
+    def test_reassurance_in_multiline_clinical_fields_is_withdrawn(self):
+        wording = "No further assessment\nis needed."
+        for field in ("ai_interpretation", "findings", "impression"):
+            with self.subTest(field=field):
+                out, _ = interpret(si.png(), response=ok_response(**{field: wording}))
+                proc = out["prepared"]["processing"]
+                self.assertEqual(proc["status"], "vision_abstained")
+                self.assertIn("reassurance_language", proc["safety_flags"])
+                self.assertIsNone(out["prepared"]["extracted"]["ai_interpretation"])
+                self.assertIsNone(proc["findings"])
+                self.assertIsNone(proc["impression"])
+
+        safe = "Photograph shows an area of erythema.\nIllumination is uneven."
+        out, _ = interpret(si.png(), response=ok_response(findings=safe))
+        self.assertEqual(out["prepared"]["processing"]["findings"], safe)
+
     def test_other_modalities_and_safe_skin_labels_keep_metadata(self):
         for kind, label in (("skin_wound", "Synthetic Imaging"), ("xray", "Reassuring")):
             with self.subTest(kind=kind):

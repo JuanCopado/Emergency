@@ -121,7 +121,7 @@ def _skin_wound_guard(normalized):
             removed_reassurance = True
     if normalized.get("abstained") and not removed_reassurance:
         return normalized
-    if removed_reassurance or _REASSURANCE.search(text):
+    if removed_reassurance or _REASSURANCE.search(" ".join(text.split())):
         flags.append("reassurance_language")
         normalized["abstained"] = True
         for field in ("ai_interpretation", "findings", "impression"):
