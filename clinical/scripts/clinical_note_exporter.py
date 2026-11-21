@@ -22,7 +22,9 @@ LABELS = {
   "more_tests":"Exames complementares sugeridos","treatment":"Tratamento sugerido",
   "disposition":"Destino / reavaliação","clarify":"Dados a esclarecer / contradições",
   "limitations":"Limitações","privacy":"Privacidade e validação",
-  "uncertain_weight":"Classificação inclui menções não confirmadas"
+  "uncertain_weight":"Classificação inclui menções não confirmadas",
+  "dependent":"nível dependente de confirmação", "mixed":"inclui menções por confirmar",
+  "points":"Pontos da regra: {unconfirmed_points} de menções por confirmar e {remaining_points} dos restantes achados."
  },
  "es-ES":{
   "title":"Nota clínica de apoyo al diagnóstico","encounter":"Contexto clínico",
@@ -33,7 +35,9 @@ LABELS = {
   "must":"Diagnósticos que no se deben omitir","more_tests":"Pruebas complementarias sugeridas",
   "treatment":"Tratamiento sugerido","disposition":"Destino / reevaluación",
   "clarify":"Datos a aclarar / contradicciones","limitations":"Limitaciones","privacy":"Privacidad y validación",
-  "uncertain_weight":"La clasificación incluye menciones sin confirmar"
+  "uncertain_weight":"La clasificación incluye menciones sin confirmar",
+  "dependent":"nivel dependiente de confirmación", "mixed":"incluye menciones por confirmar",
+  "points":"Puntos de la regla: {unconfirmed_points} de menciones por confirmar y {remaining_points} de los demás hallazgos."
  }
 }
 
@@ -52,7 +56,13 @@ def _candidate_lines(items, labels):
         evf="; ".join(x.get("evidence_for",[]))
         eva="; ".join(x.get("evidence_against",[]))
         miss="; ".join(x.get("missing_discriminating_data",[]))
-        line=f"{i}. {x.get('diagnosis','')} [{x.get('confidence','')}]"
+        level = x.get('confidence','')
+        basis = x.get("score_basis") or {}
+        if x.get("weighted_uncertainty"):
+            level += " · " + labels["dependent" if basis.get("category_depends_on_unconfirmed") else "mixed"]
+        line=f"{i}. {x.get('diagnosis','')} [{level}]"
+        if basis:
+            line += " | " + labels["points"].format(**basis)
         if x.get("weighted_uncertainty"):
             line += f" | {labels['uncertain_weight']}: " + "; ".join(x["weighted_uncertainty"])
         if evf: line += f" | a favor: {evf}"

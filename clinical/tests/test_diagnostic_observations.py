@@ -75,6 +75,51 @@ class DiagnosticObservations(unittest.TestCase):
         affirmed = candidate(result("ST elevation. Possible STEMI."), "acute-coronary-syndrome")
         self.assertNotIn("weighted_uncertainty", affirmed)
 
+    def test_conditional_tier_counts_triggers_once_and_preserves_opposing_evidence(self):
+        response = result("Possible ST elevation. Possible STEMI. No ST elevation. Nausea.")
+        module = "acute-coronary-syndrome"
+        hit = next(h for h in response["rule_hits"] if h["module"] == module)
+        item = candidate(response, module)
+        self.assertEqual((hit["score"], item["confidence"]), (6, "high"))
+        self.assertEqual(item["score_basis"], dict(remaining_points=1, unconfirmed_points=5,
+                                                   category_depends_on_unconfirmed=True))
+        self.assertEqual(hit["score_basis"], item["score_basis"])
+        self.assertEqual(hit["weighted_uncertainty"], item["weighted_uncertainty"])
+        self.assertEqual(item["evidence_against"], ["Negado: st elevation"])
+        note = response["note"]
+        for language, conditional, points in (
+            ("pt-PT", "nível dependente de confirmação", "5 de menções por confirmar e 1 dos restantes achados"),
+            ("es-ES", "nivel dependiente de confirmación", "5 de menciones por confirmar y 1 de los demás hallazgos"),
+        ):
+            note["language"] = language
+            text = "\n".join(line for _, section in note_to_sections(note) for line in section)
+            self.assertIn(f"[high · {conditional}]", text)
+            self.assertIn(points, text)
+            self.assertIn("Negado: st elevation", text)
+
+    def test_sufficient_remaining_support_and_same_trigger_affirmation(self):
+        module = "acute-coronary-syndrome"
+        item = candidate(result("ST elevation. Chest pain. Possible nausea."), module)
+        self.assertEqual(item["score_basis"], dict(remaining_points=7, unconfirmed_points=1,
+                                                   category_depends_on_unconfirmed=False))
+        for text in ("ST elevation. Possible STEMI. Nausea.", "No ST elevation. Nausea.",
+                     "History of ST elevation. Nausea.", "Mother has ST elevation. Nausea.", "Nausea."):
+            with self.subTest(text=text):
+                self.assertNotIn("score_basis", candidate(result(text), module))
+
+    def test_mixed_historical_note_and_invalid_score_basis(self):
+        note = result("Possible ST elevation. Nausea.")["note"]
+        item = note["assessment"]["likely_diagnoses"][0]
+        basis = item.pop("score_basis")
+        self.assertEqual(validate_contract(note), [])
+        lines = [line for _, section in note_to_sections(note) for line in section]
+        self.assertTrue(any("[high · inclui menções por confirmar]" in line for line in lines))
+        for key, value in (("remaining_points", -1), ("remaining_points", True), ("unconfirmed_points", 1.5),
+                           ("unconfirmed_points", 0), ("category_depends_on_unconfirmed", "false")):
+            with self.subTest(key=key, value=value):
+                item["score_basis"] = {**basis, key: value}
+                self.assertTrue(validate_contract(note))
+
     def test_discriminants_use_exact_independent_structured_observations(self):
         case = "Sickle cell."
         def missing(**fields):

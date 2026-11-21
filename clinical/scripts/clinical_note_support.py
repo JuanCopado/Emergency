@@ -82,7 +82,7 @@ def validate_contract(value, definition=None):
         return {
             "object": isinstance(item, dict), "array": isinstance(item, list),
             "string": isinstance(item, str), "boolean": type(item) is bool,
-            "number": type(item) in (int, float), "null": item is None,
+            "number": type(item) in (int, float), "integer": type(item) is int, "null": item is None,
         }.get(kind, False)
 
     def visit(item, spec, path):

@@ -36,12 +36,15 @@ export type ReportItem = {
   routed_modules?: string[];
 };
 
+type ScoreBasis = { remaining_points: number; unconfirmed_points: number; category_depends_on_unconfirmed: boolean };
+
 export type DiagnosticCandidate = {
   diagnosis: string;
   confidence: QualitativeConfidence;
   evidence_for: string[];
   evidence_against: string[];
   weighted_uncertainty?: string[];
+  score_basis?: ScoreBasis;
   missing_discriminating_data: string[];
   source_modules: string[];
 };
@@ -177,7 +180,7 @@ export type DiagnosticApiResponse = {
   blocked: boolean;
   issues: { severity: string; code: string; message: string }[];
   signals?: { code: string; weight: number; label: string }[];
-  rule_hits?: { module: string; score: number; evidence: string[] }[];
+  rule_hits?: { module: string; score: number; evidence: string[]; weighted_uncertainty?: string[]; score_basis?: ScoreBasis }[];
   assessment: ClinicalAssessment | null;
   note: ClinicalNotePayload | null;
   medication_safety_gate: {
