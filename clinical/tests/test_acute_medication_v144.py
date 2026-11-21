@@ -137,9 +137,11 @@ class SourceBoundFlowCases(unittest.TestCase):
 
     def test_source_reference_targets_are_literal(self):
         source = ('- **Evidence:** [**trial**](https://example.test/**name**/path)\n'
-                  '[source](../references/**literal**.md) https://example.test/**raw**\n')
+                  '[source](../references/**literal**.md) https://example.test/**raw**\n'
+                  '[source](../refs/(part)/**name**.md) https://example.test/(part)/**name**/path\n')
         expected = ('• Evidence: [trial](https://example.test/**name**/path)\n'
-                    '[source](../references/**literal**.md) https://example.test/**raw**\n')
+                    '[source](../references/**literal**.md) https://example.test/**raw**\n'
+                  '[source](../refs/(part)/**name**.md) https://example.test/(part)/**name**/path\n')
         self.assertEqual(_lines(source, 'source.body'), ['source.body: ' + expected])
 
     def test_catalog_reports_have_no_residual_emphasis(self):

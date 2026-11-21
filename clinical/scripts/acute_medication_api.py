@@ -227,7 +227,7 @@ def _calculate(row, inputs):
 
 _SOURCE_PROSE = {'monitoring_and_warnings', 'source.body', 'source.preamble', 'source.contract_review.body'}
 _STRONG = re.compile(r'(?<![\w*])\*\*(?=\S)([^*\r\n]+?)(?<!\s)\*\*(?!\*)')
-_INLINE_LITERAL = re.compile(r'(`[^`\r\n]*`|\\.|(?<=\]\()[^)\r\n]+(?=\))|https?://[^\s)>]+)')
+_INLINE_LITERAL = re.compile(r'(`[^`\r\n]*`|\\.|(?<=\]\()[^\s]+|https?://[^\s<>]+)')
 
 
 def _report_prose(source):
