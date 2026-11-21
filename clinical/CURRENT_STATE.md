@@ -1,3 +1,5 @@
+R4 · 21/11/2026 · Seguimiento de presentación. Se corrige el énfasis residual en prosa mixta de los informes de farmacología y la selección de idioma de la nota. Se conservan datos, cálculos y estados clínicos. CLINICALLY_PENDING.
+
 ## 21/11/2026 · Candidato técnico de nota clínica
 
 La nota expone negaciones, discriminantes documentados, relaciones no evaluables y contribución de menciones inciertas. 60 casos conservados. La clasificación de notas mixtas y el rendimiento clínico permanecen pendientes. [Alcance y límites](qa/NOTE_OBSERVATIONS_20261121.md).

@@ -1,3 +1,4 @@
+import type { LangCode } from '../i18n';
 import { useClinicalUi } from '../i18n/useClinicalUi';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
@@ -74,10 +75,15 @@ const numberOrNull=(value:string)=>{
   return parseFiniteDecimal(value);
 };
 
+const noteLanguages: Record<LangCode, ClinicalNotePayload['language']> = {
+  pt: 'pt-PT', es: 'es-ES', en: 'en', zh: 'zh',
+};
+
 export default function ClinicalNote(){
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const ui = useClinicalUi();
   const f = useFormat();
+  const noteLanguage = noteLanguages[i18n.resolvedLanguage as LangCode] ?? 'en';
  const [tab,setTab]=useState<Tab>('history');
  const [age,setAge]=useState(''); const [sex,setSex]=useState<ClinicalNotePayload['encounter']['sex']>('unknown');
  const [origin,setOrigin]=useState(''); const [chief,setChief]=useState(''); const [hpi,setHpi]=useState('');
@@ -88,12 +94,22 @@ export default function ClinicalNote(){
  const [timeline,setTimeline]=useState<ClinicalNotePayload['timeline']>([]);
  const [reports,setReports]=useState<ClinicalNotePayload['complementary_tests']>(emptyReports);
  const [assessment,setAssessment]=useState<ClinicalAssessment|null>(null);
+ const [assessmentLanguage,setAssessmentLanguage]=useState<ClinicalNotePayload['language']|null>(null);
  const [diagnosticAlerts,setDiagnosticAlerts]=useState<{severity:string;code:string;message:string}[]>([]);
  const [medicationGate,setMedicationGate]=useState<{status:string;actionable:boolean;message:string}|null>(null);
  const [diagnosticStale,setDiagnosticStale]=useState(true);
  const [diagnosticBusy,setDiagnosticBusy]=useState(false);
  const noteRevision=useRef(0);
  const diagnosticRequestId=useRef(0);
+ const previousLanguage=useRef(noteLanguage);
+ useEffect(()=>{
+   if(previousLanguage.current===noteLanguage) return;
+   previousLanguage.current=noteLanguage;
+   noteRevision.current+=1;
+   setDiagnosticBusy(false);
+   setClinicianReviewed(false);
+   setDiagnosticStale(true);
+ },[noteLanguage]);
  const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
  const [clinicianReviewed,setClinicianReviewed]=useState(false);
  const [draftKind,setDraftKind]=useState('Outro'); const [draftName,setDraftName]=useState('');
@@ -118,7 +134,8 @@ export default function ClinicalNote(){
  const pending=mcdt.filter(x=>x.state==='pending').length;
  const busy=apiBusy||diagnosticBusy;
  const numericStop=Boolean(age.trim()) && (numberOrNull(age)===null || (numberOrNull(age) ?? 0)<0);
- const exportBlocked=numericStop||privacyStop||!privacyAck||!clinicianReviewed||pending>0||busy;
+ const assessmentLanguageChanged=Boolean(assessment&&assessmentLanguage!==noteLanguage);
+ const exportBlocked=numericStop||privacyStop||!privacyAck||!clinicianReviewed||pending>0||busy||assessmentLanguageChanged;
 
  function touch(){
    noteRevision.current+=1;
@@ -143,7 +160,7 @@ export default function ClinicalNote(){
    };
    const years=numberOrNull(age);
    return {
-     schema_version:'1.0',language:'pt-PT',
+     schema_version:'1.0',language:noteLanguage,
      encounter:{encounter_id:encounter,age:{years,months:null},sex,origin:origin||null,transfer_status:null,functional_status:null,cognitive_status:null,living_context:null},
      history:{
        chief_complaint:chief||null,present_illness:hpi||null,past_medical_history:lines(pmh),past_surgical_history:[],
@@ -311,6 +328,7 @@ export default function ClinicalNote(){
      if(!isCurrent()) return;
      if(result.blocked){setApiError(result.issues.map(x=>x.message).join(' · ')||ui("Análise bloqueada."));return;}
      setAssessment(result.assessment);
+     setAssessmentLanguage(note.language);
      setDiagnosticAlerts([
        ...(result.signals||[]).map(x=>({severity:x.weight>=2?'RED_FLAG':'ALERT',code:x.code,message:x.label})),
        ...result.issues.filter(x=>x.severity==='ALERT'||x.severity==='CAUTION').map(x=>({severity:x.severity,code:x.code,message:x.message})),
@@ -420,7 +438,8 @@ export default function ClinicalNote(){
     <label className="flex items-center gap-2"><input type="checkbox" checked={privacyAck} onChange={e=>setPrivacyAck(e.target.checked)}/>{ui("Identificadores diretos removidos; texto livre, metadados e privacidade revistos.")}</label>
     <label className="flex items-center gap-2"><input type="checkbox" checked={clinicianReviewed} onChange={e=>setClinicianReviewed(e.target.checked)}/>{ui("Médico reviu e valida o conteúdo clínico atual.")}</label>
     <p>{pending===0?ui("✓ Sem cartões MCDT pendentes"):ui("STOP: {{count}} MCDT pendente(s) de aceitar/editar/rejeitar.", {count:pending})}</p>
-    {diagnosticStale&&assessment&&<p className="text-warn">{ui("A análise diagnóstica está desatualizada; pode exportar apenas se o médico aceitar explicitamente o estado atual.")}</p>}
+    {assessmentLanguageChanged&&<p className="text-warn">{ui("O idioma mudou; atualize o apoio diagnóstico antes de exportar.")}</p>}
+    {diagnosticStale&&assessment&&!assessmentLanguageChanged&&<p className="text-warn">{ui("A análise diagnóstica está desatualizada; pode exportar apenas se o médico aceitar explicitamente o estado atual.")}</p>}
    </div><div className="mt-4 flex flex-wrap gap-2"><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('docx')}>Word (.docx)</button><button disabled={exportBlocked} className="btn-primary" onClick={()=>void doExport('pdf')}>PDF</button><button disabled={exportBlocked} className="btn-ghost" onClick={()=>void doExport('json')}>JSON</button></div>{exportBlocked&&<p role="status" className="mt-3 text-sm font-semibold text-danger">{ui("Exportação bloqueada até cumprir privacidade, revisão médica e resolução dos MCDT pendentes.")}</p>}</section>}
  </>;
 

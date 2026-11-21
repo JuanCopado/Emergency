@@ -29,3 +29,5 @@ Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según 
 - `main`, RC1 y v1.43 protegidos. Sin GO_RELEASE ni exactitud prospectiva inferida de pruebas técnicas.
 
 R4 · 21/11/2026 · Se verificó la presentación compartida de la fuente de farmacología aguda en ambos PDF. [Ensayo sintético de impresión](clinical/qa/R4_ACUTE_PRINT_MARKUP_20261121.md).
+
+R4 · Seguimiento de formato e idioma en copia aislada. El conversor de farmacología reconoce el énfasis en prosa mixta y conserva los literales de código. La nota transmite el idioma de interfaz y localiza sus avisos automáticos. Los cálculos y estados de evidencia se conservan. Las comprobaciones del PDF nativo y de la entrega se registran en el expediente de seguimiento.

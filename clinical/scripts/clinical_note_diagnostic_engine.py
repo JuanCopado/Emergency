@@ -16,6 +16,46 @@ from clinical_note_support import diagnostic_support_contract
 ROOT=Path(__file__).parents[1]
 RULES_PATH=ROOT/"qa"/"clinical-note-diagnostic-rules.json"
 
+
+LIMITATION_TEXT = {
+    "pt-PT": {
+        "uncertain": "Menções incertas que o motor pode pontuar: {terms}. Não estão confirmadas e exigem revisão médica.",
+        "unresolved": "Relação prioritária sem regra avaliável: {rule}. Requer revisão médica.",
+        "age": "Relação prioritária fora dos limites etários da regra: {rule}.",
+        "additional": "Relação prioritária adicional além das cinco apresentadas: {rule}.",
+        "insufficient": "Os dados atuais não ativam nenhuma regra sindrómica com suporte suficiente.",
+        "deterministic": "Motor determinista baseado em regras transparentes; não é um modelo diagnóstico calibrado e não substitui revisão clínica.",
+        "laboratory": "Sem dados laboratoriais estruturados na nota.",
+    },
+    "es-ES": {
+        "uncertain": "Menciones inciertas que el motor puede puntuar: {terms}. No están confirmadas y requieren revisión médica.",
+        "unresolved": "Relación prioritaria sin regla evaluable: {rule}. Requiere revisión médica.",
+        "age": "Relación prioritaria fuera de los límites de edad de la regla: {rule}.",
+        "additional": "Relación prioritaria adicional a las cinco presentadas: {rule}.",
+        "insufficient": "Los datos actuales no activan ninguna regla sindrómica con respaldo suficiente.",
+        "deterministic": "Motor determinista basado en reglas transparentes; no es un modelo diagnóstico calibrado y no sustituye la revisión clínica.",
+        "laboratory": "La nota no contiene datos de laboratorio estructurados.",
+    },
+    "en": {
+        "uncertain": "Uncertain mentions the engine may score: {terms}. They are unconfirmed and require medical review.",
+        "unresolved": "Priority relationship without an evaluable rule: {rule}. Requires medical review.",
+        "age": "Priority relationship outside the rule's age limits: {rule}.",
+        "additional": "Additional priority relationship beyond the five displayed: {rule}.",
+        "insufficient": "The current data do not activate any syndrome rule with sufficient support.",
+        "deterministic": "Deterministic engine based on transparent rules; it is not a calibrated diagnostic model and does not replace clinical review.",
+        "laboratory": "No structured laboratory data in the note.",
+    },
+    "zh": {
+        "uncertain": "引擎可能计分的未确定表述：{terms}。这些表述尚未确认，需要医生复核。",
+        "unresolved": "优先关联缺少可评估的规则：{rule}。需要医生复核。",
+        "age": "优先关联超出规则的年龄范围：{rule}。",
+        "additional": "除已显示的五项以外的其他优先关联：{rule}。",
+        "insufficient": "当前资料不足以触发有充分支持的综合征规则。",
+        "deterministic": "本引擎基于透明的确定性规则，并非经过校准的诊断模型，不能替代临床复核。",
+        "laboratory": "病历中没有结构化的实验室数据。",
+    },
+}
+
 from cli_paths import input_file
 
 def load_rules(path=RULES_PATH):
@@ -400,18 +440,18 @@ def analyze(note, rules=None, apply_to_note=False):
         for rid in rule.get("must_not_miss",[]):
             if rid not in must_ids: must_ids.append(rid)
     limitations=[]
+    limitation_text = LIMITATION_TEXT.get(note.get("language"), LIMITATION_TEXT["pt-PT"])
     uncertain_terms = list(dict.fromkeys(term for obs in observations.values() for term in obs.uncertain))
     if uncertain_terms:
-        limitations.append("Menções incertas que o motor pode pontuar: " + ", ".join(uncertain_terms)
-                           + ". Não estão confirmadas e exigem revisão médica.")
+        limitations.append(limitation_text["uncertain"].format(terms=", ".join(uncertain_terms)))
     for rid in must_ids:
         rr=_resolve_rule(rules,rid)
         if rr is None:
-            limitations.append(f"Relação prioritária sem regra avaliável: {rid}. Requer revisão médica.")
+            limitations.append(limitation_text["unresolved"].format(rule=rid))
         elif rid not in observations:
-            limitations.append(f"Relação prioritária fora dos limites etários da regra: {rid}.")
+            limitations.append(limitation_text["age"].format(rule=rid))
         elif len(must) >= 5:
-            limitations.append(f"Relação prioritária adicional além das cinco apresentadas: {rid}.")
+            limitations.append(limitation_text["additional"].format(rule=rid))
         else:
             obs = observations[rid]
             must.append(_candidate(rr,obs.score,obs.evidence,_confidence(max(obs.score,1),rules["qualitative_confidence"]),
@@ -434,10 +474,10 @@ def analyze(note, rules=None, apply_to_note=False):
         })
 
     if not scored:
-        limitations.append("Os dados atuais não ativam nenhuma regra sindrómica com suporte suficiente.")
-    limitations.append("Motor determinista baseado em regras transparentes; não é um modelo diagnóstico calibrado e não substitui revisão clínica.")
+        limitations.append(limitation_text["insufficient"])
+    limitations.append(limitation_text["deterministic"])
     if not note.get("complementary_tests",{}).get("laboratory"):
-        limitations.append("Sem dados laboratoriais estruturados na nota.")
+        limitations.append(limitation_text["laboratory"])
     contradictions=list(note.get("assessment",{}).get("contradictions_to_clarify",[]))
     for issue in contract.get("issues",[]):
         if issue.get("severity") in {"ALERT","CAUTION"}:
