@@ -6,7 +6,7 @@ El informe de farmacología presenta el énfasis de las líneas que contienen c�
 
 La nota solicita el idioma elegido en pantalla. Se localizan siete avisos automáticos y las etiquetas mecánicas de exportación. Un cambio de idioma conserva el borrador y exige actualizar el análisis antes de exportarlo. Los textos clínicos canónicos y el texto libre conservan su idioma original. Las 60 salidas históricas completas coincidieron con la base.
 
-Se corrigió la regresión de disponibilidad del PDF chino detectada al traducir sus cabeceras. Las fuentes CJK se distribuyen con licencia OFL, revisión y huellas verificables, pesos estáticos 400/700 y receta de reproducción. La fuente DejaVu sigue presentando los caracteres que ya cubría. Se conservan la comprobación de glifos y el rechazo de caracteres no disponibles. [Procedencia](../assets/fonts/noto-cjk-manifest.json) y [ensayos de idioma](NOTE_LANGUAGE_FOLLOWUP_20261121.md).
+Se corrigió la regresión de disponibilidad del PDF chino detectada al traducir sus cabeceras. Las fuentes CJK se distribuyen con licencia OFL, revisión y huellas verificables, pesos estáticos 400/700 y receta de reproducción. La fuente DejaVu sigue presentando los caracteres que ya cubría. Se conservan la comprobación de glifos y el rechazo de caracteres no disponibles. [Procedencia](../assets/fonts/noto-cjk-manifest.json) y [ensayos de idioma](R4_NOTE_LANGUAGE_20261121.md).
 
 ## Guardado nativo observado
 
