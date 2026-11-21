@@ -1,0 +1,26 @@
+# R4 · Trazabilidad técnica del candidato internacional
+
+**Corte del 21 de noviembre de 2026.** Base internacional `ca308af6d51c8ee51128f9756f1536cb77ec3ca0`, árbol `d0ffbad62635467bfc91e7bb7790acd96e04bb2e`. El registro conserva 131 módulos, 129 GREEN, 2 YELLOW y 0 RED. El estado global sigue en **CLINICALLY_PENDING**.
+
+| Frente | Qué se verificó | Límite de la evidencia |
+|---|---|---|
+| [Nota clínica, PR55](https://github.com/JuanCopado/Emergency/pull/55) | En el caso sintético de ST posible y náuseas, la categoría HIGH depende de 5 puntos inciertos de un total de 6. El desglose llega al resultado, la pantalla y la exportación. Se compararon los resultados completos de los 60 casos históricos, descontando únicamente el desglose añadido. | La incertidumbre y las contradicciones necesitan revisión. El rendimiento prospectivo, el umbral clínico y cuatro destinos de relaciones sin regla resoluble siguen pendientes. |
+| [Piel y heridas, PR56](https://github.com/JuanCopado/Emergency/pull/56) | Una frase de falsa tranquilidad reconocida podía publicarse en las limitaciones de una propuesta del proveedor. Se comprobó la abstención al recibirla, la retirada de la frase y la conservación de un motivo legítimo. | La guarda reconoce un conjunto limitado de expresiones. Faltan la cohorte independiente y la referencia ciega adjudicada para determinar exactitud. |
+| [Informe de medicamentos, PR57](https://github.com/JuanCopado/Emergency/pull/57) | En Windows y Edge se reprodujeron marcas literales de formato en ambos PDF y se revisó su presentación. El caso sintético conservó los campos de entrada, el resultado y la asociación entre dosis y unidad. | La comprobación cubre ese expediente y las salidas probadas. |
+| G05 | Los 19 archivos que el manifiesto declara inmutables coincidieron por SHA-256. Hubo 18/18 pruebas del consumidor Q4, 6/6 del laboratorio TLS en Linux y 81/81 de T05 en Windows con dependencias fijadas. | G05 global abierto. Se requieren propietarios y auditoría de los consumidores que se propongan, procedencia y derechos de uso por fuente, y evaluación del entorno previsto. El laboratorio opera con datos sintéticos. |
+| Accesibilidad | Se verificó el foco mediante teclado y la actividad de audio de la sesión de Narrador en Windows al recorrer CURB-65. | Queda pendiente que una persona coteje literalmente las locuciones con la pantalla. |
+
+La [conciliación de la nota](R4_NOTA_CONCILIACION_CIENTIFICA.md) contrasta las alternativas para los hallazgos inciertos, incluida su supresión, que produjo regresiones en dos casos históricos. El [protocolo de imágenes](R4_PROTOCOLO_PADRE_IMAGEN.md) acota tareas, modalidades, exclusiones, referencia, denominadores y fallos graves. Ambos módulos padre siguen YELLOW. El 21/11/2026 el médico propietario eligió la opción 1, «Sí, evaluar en modo silencioso». Aprobó estudiar exclusivamente en sospecha de síndrome coronario agudo una marca de revisión prioritaria por hallazgo no confirmado, manteniendo orden y alertas. El estudio debe medir omisiones y falsas prioridades frente a revisión médica independiente. La cohorte autorizada y la referencia adjudicada siguen pendientes. Cualquier cambio asistencial requiere su decisión y evidencia posterior.
+
+## Decisión médica registrada y ensayo sintético
+
+**R4-SCA-SILENT-20261121, v1 · 21/11/2026.** El propietario respondió «1», correspondiente a «Sí, evaluar en modo silencioso». El alcance se limita al estudio de una marca de revisión prioritaria por hallazgo no confirmado en la regla de síndrome coronario agudo. La marca se calculó fuera de la aplicación. Se conservaron el orden, las alertas y el criterio asistencial anterior.
+
+| Muestra sintética | Total | Regla coronaria activa | Categoría HIGH | Cumplió el criterio de marca |
+|---|---:|---:|---:|---:|
+| Banco histórico | 60 | 5 | 1 | 0 |
+| Controles construidos para comprobar el comportamiento | 12 | 11 | 7 | 4 |
+
+Las 72 salidas completas coincidieron antes y después de observarlas. Los cuatro controles marcados incluían tres que dependían de una mención incierta de ST y uno que dependía de náuseas posibles con ST afirmado. Taponamiento y endocarditis conservaron su posición histórica. Dos ejecuciones del observador produjeron el mismo JSON, SHA-256 `228d272655067dab3373ec38f172cda682d94cb2133358658db0417c17d3c3d3`. Estas frecuencias describen los casos sintéticos seleccionados. La medición de omisiones, falsas prioridades y utilidad clínica requiere una cohorte independiente y revisión médica adjudicada.
+
+Las verificaciones por versión están disponibles en [CI de la rama internacional](https://github.com/JuanCopado/Emergency/actions?query=branch%3Acodex%2Fv144-international-scope-20261116). Las aceptaciones previas y su alcance se conservan en [el estado clínico](../../clinical/CURRENT_STATE.md).
