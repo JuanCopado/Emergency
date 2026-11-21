@@ -21,8 +21,22 @@ El hallazgo es técnico y afecta a la fiabilidad de presentación. La verificaci
 
 Recibos externos al repositorio: `B-acute-tests-completed.log`, `B-prose-equivalence.log`, `B-m10-media-tests.log` y `B-open-issue.json`. La ejecución M10 usó el entorno local que ya tenía Pillow. No hubo proveedor real ni datos de pacientes.
 
-## Revisión independiente
+## Dictamen independiente de Claude Code
 
-Claude Code web, modelo Sonnet 5.5 Alto, en sesión autenticada de R5. Progreso observado al preparar este commit: «Estado: verificado SHA/árbol, S8786 evaluado (equivalencia 0 diferencias). Ahora reviso M10: guarda, adaptador y API en el candidato». Revisión M10 y dictamen final pendientes en este corte. [Sesión de Claude Code](https://claude.ai/code/session_01VWLTZ9itT8ZY4qGMZQKZ9U)
+**Resultado del 21/11/2026.** Claude Code web autenticado, `claude-sonnet-5-5` (Sonnet 5.5 Alto, modelo configurado y servido según el revisor). Verificó con Git el commit base y el árbol indicados y trabajó sobre una copia desechable extraída con `git archive`. Recomendó integrar el candidato inspeccionado y consideró equivalente la corrección S8786. No encontró P0 ni P1 en su alcance. La respuesta original y su adjunto `R5_AUDITORIA_M10_95c5f25.md` están en la sesión. [Sesión de Claude Code](https://claude.ai/code/session_01VWLTZ9itT8ZY4qGMZQKZ9U)
 
-Los controles M10 se conservan en [el seguimiento técnico](M10_TECHNICAL_FOLLOWUP_20261121.md). El filtro lingüístico cubre expresiones reconocidas. La revisión de identificadores visibles y la suficiencia de la imagen corresponden al profesional. Este alcance técnico no mide rendimiento diagnóstico ni autoriza despliegue.
+Claude informó cero diferencias en 600.000 líneas sintéticas, 30.000 fuentes multilínea sintéticas y 5.842 cadenas del catálogo. Pasaron 18/18 pruebas agudas antes y después de aplicar solo la corrección de código en su copia. El revisor observó que `splitlines` ya acota cada llamada a una línea. También pasaron 70 pruebas Python de M10 y procedencia, y siete pruebas de interfaz. En 1.084 rasters sintéticos modificados, observó aceptación o rechazo controlado. Verificó la normalización de metadatos, el control de integridad y la respuesta estática ante entradas de proveedor no válidas.
+
+| ID | Prioridad del revisor | Hallazgo y alcance |
+|---|---|---|
+| R5-1 | P2 | El filtro de expresiones tranquilizadoras de piel se activa según la categoría. Una foto ambigua o mal categorizada puede quedar fuera del filtro. La documentación previa recoge parte de este riesgo. Una ampliación a otras modalidades requiere revisar su alcance clínico y el impacto en abstenciones. |
+| R5-2 | P3 | La detección lingüística tiene cobertura parcial ante variantes Unicode y paráfrasis. |
+| R5-3 | P3 | Un raster preparado puede superar el límite de transporte tras normalizarse. Falla cerrado con un mensaje genérico. |
+| R5-4 | P3 | Los rechazos por ciertos perfiles de color, profundidades y formatos multimagen corresponden a restricciones publicadas. |
+| R5-5 | P3 | El flujo decodifica en preparación y en interpretación. El revisor no midió memoria ni concurrencia. |
+| R5-6 | P3 | La API utiliza un mensaje general de abstención para PDF y DICOM, aunque la interfaz los trata por separado. |
+| R5-7 | P3 | Pillow puede emitir un aviso de EXIF corrupto en stderr sin contenido del archivo, según el caso observado. |
+
+El revisor usó Pillow 12.3.0. Los resultados de Windows con Pillow 13.0.0 constan en la tabla local. Quedaron fuera de su alcance Sonar del nuevo candidato, CI, Windows, navegador real, proveedor real, pruebas de agotamiento y revisión integral de los demás cambios de PR55–60. El dictamen se refiere al árbol base y a la propuesta de formato aplicada en la copia del revisor.
+
+Los controles M10 se conservan en [el seguimiento técnico](M10_TECHNICAL_FOLLOWUP_20261121.md). La revisión de identificadores visibles y la suficiencia de la imagen corresponden al profesional. Este alcance técnico no mide rendimiento diagnóstico ni autoriza despliegue. El estado global sigue **CLINICALLY_PENDING**.
