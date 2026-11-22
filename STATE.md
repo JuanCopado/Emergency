@@ -49,3 +49,5 @@ R7 · 21/11/2026 · M10 R5-2 técnico: normalización de codificación en el fil
 R8 · 21/11/2026 · M10 R5-1 técnico de transparencia: categoría efectiva y origen visibles antes de interpretar; sin cambio de encaminamiento ni de criterios. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
 
 R8 · 21/11/2026 · M10 R5-1/R5-2: [contratos propuestos inactivos y corpus sintético](clinical/qa/R8_M10_R5_CONTRATOS_PROPUESTOS_20261121.md); decisiones DEC-CLIN-R7-03/06 pendientes. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
+
+R11 · 22/11/2026 · Decisiones médicas registradas ([expediente](clinical/qa/R10_DECISION_MEDICA_FASE_A_B_20261122.md)): `DEC-CLIN-R10-FASE-A` SÍ (instrumentación técnica de R5-1 sin modificar resultados clínicos, con HMAC, equivalencia, CI y auditoría independiente) y `DEC-CLIN-R10-FASE-B` SÍ a mantenerla desactivada (solo prototipos inactivos hasta tener evidencia de falsos avisos y usabilidad). R5-1/R5-2 siguen abiertos; opciones 2A–2E, clasificación visual y regex nuevas no autorizadas. CLINICALLY_PENDING.
