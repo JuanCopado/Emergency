@@ -214,12 +214,12 @@ function ClinicalNoteEditor(){
      return next;
    });
  }
- async function onUpload(file?:File,forcedKind?:string){
+ async function onUpload(file?:File,forcedKind?:string|null){
    if(!file) return;
    setUploadName(file.name); setDraftName(file.name);
    setApiError(''); setApiBusy(true);
    try{
-     const explicitKind=forcedKind??(draftKind==='Outro'?undefined:kindMap[draftKind]);
+     const explicitKind=forcedKind===undefined?(draftKind==='Outro'?undefined:kindMap[draftKind]):(forcedKind??undefined);
      const prepared=await prepareClinicalUpload(file,explicitKind);
      const selected=Object.keys(kindMap).find(label=>kindMap[label]===prepared.kind)??'Outro';
      const id=prepared.upload_id;

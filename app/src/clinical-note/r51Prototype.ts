@@ -11,8 +11,12 @@ export type PrototypeModalityId = 'skin_wound' | 'ecg' | 'xray' | 'pocus' | 'doc
 
 export interface ModalityContract {
   readonly id: PrototypeModalityId;
-  /** The explicit category sent to the server; never inferred from a filename or from pixels. */
-  readonly kind: string;
+  /**
+   * The explicit category sent to the server; never inferred from a filename or from pixels.
+   * null = send none and let the server infer exactly as it does today. Documents use null so that
+   * choosing «Documento» never moves a file to a different clinical circuit than it takes today.
+   */
+  readonly kind: string | null;
   readonly labelKey: string;
   /** Fixed, non-generated scope text. The wording per modality is pending medical approval. */
   readonly limitationKey: string;
@@ -31,7 +35,7 @@ export const MODALITIES: readonly ModalityContract[] = [
   { id: 'ecg', kind: 'ecg', labelKey: 'ECG', limitationKey: PROVISIONAL_LIMITATION, accept: `${IMAGES},.pdf`, dermatologicFilter: false },
   { id: 'xray', kind: 'xray', labelKey: 'Rx', limitationKey: PROVISIONAL_LIMITATION, accept: `${IMAGES},.pdf,.dcm`, dermatologicFilter: false },
   { id: 'pocus', kind: 'pocus', labelKey: 'Ecografia/POCUS', limitationKey: PROVISIONAL_LIMITATION, accept: `${IMAGES},.pdf,.dcm`, dermatologicFilter: false },
-  { id: 'document', kind: 'pdf_document', labelKey: 'Documento (PDF ou texto)', limitationKey: PROVISIONAL_LIMITATION, accept: '.pdf,.txt,.csv,.json,.xml', dermatologicFilter: false },
+  { id: 'document', kind: null, labelKey: 'Documento (PDF ou texto)', limitationKey: PROVISIONAL_LIMITATION, accept: '.pdf,.txt,.csv,.json,.xml', dermatologicFilter: false },
 ];
 
 /** Fail-closed: only an explicit '1' in a non-production build turns the prototype on. */

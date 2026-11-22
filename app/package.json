@@ -48,6 +48,8 @@
     "i18n:browser-check": "node scripts/check-locale-safety.mjs",
     "prei18n:browser-check": "node scripts/picomatch-mitigation.mjs --check",
     "pwa:offline-check": "node scripts/check-pwa-offline.mjs",
+    "r51:flag-check": "node scripts/check-r51-flag-production.mjs",
+    "prer51:flag-check": "node scripts/picomatch-mitigation.mjs --check",
     "prepwa:offline-check": "node scripts/picomatch-mitigation.mjs --check",
     "build:security": "npm run build && node scripts/build-dependency-guard.mjs --check-service-worker",
     "prebuild:security": "node scripts/picomatch-mitigation.mjs --check"

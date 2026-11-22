@@ -12,7 +12,7 @@ const PREVIEWABLE = new Set(['image/png', 'image/jpeg', 'image/webp']);
 export default function ModalityEntry({ busy, ui, onConfirm }: {
   busy: boolean;
   ui: (key: string, values?: Record<string, string | number>) => string;
-  onConfirm: (file: File, kind: string) => void;
+  onConfirm: (file: File, kind: string | null) => void;
 }) {
   const [modality, setModality] = useState<PrototypeModalityId | null>(null);
   const [file, setFile] = useState<File | null>(null);

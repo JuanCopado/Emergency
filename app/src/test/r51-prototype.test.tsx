@@ -6,6 +6,10 @@ import ClinicalNote from '../pages/ClinicalNote';
 import { MODALITIES, appliesDermatologicFilter, r51PrototypeEnabled } from '../clinical-note/r51Prototype';
 import { renderAt } from './render';
 
+const sources = import.meta.glob('../clinical-note/{r51Prototype.ts,ModalityEntry.tsx}', {
+  query: '?raw', import: 'default', eager: true,
+}) as Record<string, string>;
+
 function prepared(kind: string, assessment?: unknown) {
   return {
     api_version: '1.0', upload_id: `upload-${kind}`, filename: 'imagen.png', mime_type: 'image/png', size_bytes: 12,
@@ -104,7 +108,7 @@ describe('with the flag on (inactive prototype)', () => {
     const entry = screen.getByTestId('r51-modality-entry');
     await user.click(within(entry).getByRole('button', { name: String(labelKey), pressed: false }));
     const input = within(entry).getByLabelText('Upload clínico') as HTMLInputElement;
-    const textual = kind === 'pdf_document'; // documents accept PDF/text only, so there is nothing to preview as an image
+    const textual = _id === 'document'; // documents accept PDF/text only, so there is nothing to preview as an image
     await user.upload(input, textual ? new File(['informe sintético'], 'informe.txt', { type: 'text/plain' }) : png());
     if (textual) expect(within(entry).getByText(/Sem pré-visualização para este formato\./)).toBeInTheDocument();
     else expect(within(entry).getByRole('img')).toHaveAttribute('src', 'blob:preview');
@@ -113,7 +117,7 @@ describe('with the flag on (inactive prototype)', () => {
     await user.click(within(entry).getByRole('button', { name: `Confirmar e enviar como ${labelKey}` }));
     await screen.findByTestId('mcdt-review-card');
     expect(bodies).toHaveLength(1);
-    expect(bodies[0]?.explicit_kind).toBe(kind);
+    expect(bodies[0]?.explicit_kind).toBe(kind ?? undefined); // documents send no category: the server infers as it does today
     // the entry resets: no modality stays preselected for the next file
     expect(within(screen.getByTestId('r51-modality-entry')).queryByLabelText('Upload clínico')).toBeNull();
   });
@@ -142,6 +146,42 @@ describe('with the flag on (inactive prototype)', () => {
     expect(card).not.toHaveTextContent('skin_name_hint_not_effective');
     expect(card).not.toHaveTextContent(/nome do ficheiro.*(pele|ferida)/i);
   });
+
+  it('sends no category for a document, even if the classic selector was left on another one', async () => {
+    const bodies = mockService();
+    const user = await openMcdt();
+    await user.click(screen.getByRole('button', { name: '+ ECG' })); // classic selector, not the prototype
+    const entry = screen.getByTestId('r51-modality-entry');
+    await user.click(within(entry).getByRole('button', { name: 'Documento (PDF ou texto)' }));
+    await user.upload(within(entry).getByLabelText('Upload clínico') as HTMLInputElement, new File(['informe sintético'], 'informe.txt', { type: 'text/plain' }));
+    await user.click(within(entry).getByRole('button', { name: /Confirmar e enviar como Documento/ }));
+    await screen.findByTestId('mcdt-review-card');
+    expect(bodies[0]?.explicit_kind).toBeUndefined();
+  });
+
+  it('never presents the human confirmation as a verification of the content', async () => {
+    mockService();
+    const user = await openMcdt();
+    const entry = screen.getByTestId('r51-modality-entry');
+    await user.click(within(entry).getByRole('button', { name: 'ECG' }));
+    await user.upload(within(entry).getByLabelText('Upload clínico') as HTMLInputElement, png());
+    expect(entry.textContent).toContain('não verifica o conteúdo');
+    // only affirmative sentences count: «não é verificado automaticamente» is a negation, not a claim
+    const affirmative = (entry.textContent ?? '').split(/[.;:]/).filter(sentence => !/\bnão\b/i.test(sentence));
+    expect(affirmative.join('. ')).not.toMatch(/\b(verificad|validad|comprovad|certificad|aprovad)[oa]s?\b/i);
+  });
+});
+
+describe('what the prototype source does not contain', () => {
+  const read = (name: string) => sources[`../clinical-note/${name}`] ?? '';
+
+  it.each(['r51Prototype.ts', 'ModalityEntry.tsx'])('%s has no visual classification, no abstention, no Phase B and no network', (name) => {
+    expect(read(name).length, `${name} not found`).toBeGreaterThan(100);
+    const code = read(name).replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+    for (const forbidden of [/getImageData|ImageData|<canvas|document\.createElement\(.canvas/i, /tensorflow|onnx|classif/i,
+      /abstain|abstenc|abstención/i, /kind_assessment|kind_discordance|suspicion/i, /fetch\(|XMLHttpRequest|\/api\//])
+      expect(code, `${name}: ${forbidden}`).not.toMatch(forbidden);
+  });
 });
 
 describe('modality contract', () => {
@@ -152,7 +192,7 @@ describe('modality contract', () => {
   });
 
   it('declares explicit, distinct categories and a fixed provisional limitation for every modality', () => {
-    expect(new Set(MODALITIES.map(m => m.kind)).size).toBe(MODALITIES.length);
+    expect(new Set(MODALITIES.map(m => m.kind)).size).toBe(MODALITIES.length); // null (document) counts once
     for (const m of MODALITIES) {
       expect(m.limitationKey).toContain('{{modality}}');
       expect(m.limitationKey).toContain('redação médica pendente');
