@@ -108,11 +108,12 @@ describe('Drug list & home', () => {
     expect(screen.getByTestId('drug-card-norepinephrine')).toBeInTheDocument();
   });
 
-  it('home lists available categories and coming-soon groups', async () => {
+  it('home distinguishes adult tools from the current reference groups', async () => {
     await renderAt('/', [{ path: '/', element: <Home /> }]);
     expect(await screen.findByTestId('category-vasoactive')).toHaveTextContent('9 drugs');
     expect(screen.getByTestId('category-sedation')).toHaveTextContent('8 drugs');
-    expect(screen.getAllByText('Coming soon').length).toBe(9);
+    expect(screen.queryByText('Coming soon')).toBeNull();
+    expect(screen.getByTestId('reference-group-cardiovascular')).toHaveTextContent('18 guides');
   });
 });
 

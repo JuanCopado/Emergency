@@ -1,3 +1,9 @@
+## 22/11/2026 · Nomenclatura PROC-SP-003 y continuidad
+
+Correcciones técnicas actuales: Host/Origin y credencial de proceso local en la API general; rechazo explícito del texto excesivo; detector de correo lineal y etiquetas multilingües conservando espacios de documentos; aviso local de privacidad limitado. La nota mantiene un episodio en memoria al navegar, permite descarte explícito e invalida respuestas de aceptación obsoletas. Inicio deriva grupos/recuentos de las 131 guías; los controles de escalas/importación se localizan; la aplicación identifica su revisión y distingue el catálogo adulto. Los informes QA focales y el checklist contienen las ejecuciones observadas. No se alteran fórmulas, dosis, reglas médicas, estados ni fechas de evidencia.
+
+Sincronizados los títulos de los índices y JSON/derivados de PROC-SP-003 con el encabezado fuente existente, «Amputación: conservación de segmento». Cuerpo, fuentes, fechas, estado YELLOW y revisión clínica pendiente intactos. La regresión transversal deja de exceptuar este ID. Conciliada documentación vigente con selector contextual y aceptaciones existentes. [Checklist y evidencia](../docs/coordination/CURRENT_DEFECTS_CHECKLIST_20261122.md). CLINICALLY_PENDING.
+
 R8 · 21/11/2026 · M10 R5-1 (solo transparencia): la tarjeta de revisión muestra la categoría efectiva y su origen (elegida, inferida del nombre, inferida del contenedor o sin categoría), sin verificar la modalidad real. Encaminamiento, filtros, abstenciones, confianza y proveedor sin cambios. CLINICALLY_PENDING.
 
 R7 · 21/11/2026 · M10 R5-2 (solo codificación): el filtro de tranquilización normaliza NFKC y elimina caracteres invisibles antes de aplicar el mismo léxico; sin expresiones nuevas ni cambio de ámbito. R5-1 y las paráfrasis quedan reproducidos en [la ficha](qa/R7_M10_R5_RESIDUAL_FICHA_20261121.md) para decisión médica. CLINICALLY_PENDING.

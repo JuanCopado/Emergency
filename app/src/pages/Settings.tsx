@@ -4,6 +4,7 @@ import { BRAND } from '../config/brand';
 import { db } from '../data';
 import { LANGUAGES } from '../i18n';
 import ReferenceContextSelector from '../components/ReferenceContextSelector';
+import { BuildIdentity } from '../components/BuildIdentity';
 import { useSettings, type MicroSymbol, type ThemePref } from '../state/settings';
 
 function Radio<T extends string>({ name, value, current, onChange, children }: { name: string; value: T; current: T; onChange: (v: T) => void; children: React.ReactNode }) {
@@ -72,7 +73,7 @@ export default function Settings() {
         <h2 className="mb-2 text-base font-bold">{t('settings.dataTitle')}</h2>
         <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5">
           <dt className="text-muted">{t('settings.appVersion')}</dt>
-          <dd className="num font-semibold">{BRAND.name} {BRAND.appVersion}</dd>
+          <dd className="num font-semibold">{BRAND.name} {BRAND.appVersion}<br/><BuildIdentity /></dd>
           <dt className="text-muted">{t('settings.contentVersion')}</dt>
           <dd className="num font-semibold">{db.meta.contentVersion} ({db.meta.extractedAt})</dd>
           <dt className="text-muted">{t('settings.drugsCount')}</dt>

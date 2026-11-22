@@ -31,6 +31,7 @@ from pathlib import Path
 from http_transport import (
     BoundedHTTPServer, DeadlineRequestHandler, RequestRejection, json_request_size,
 )
+from clinical_http_boundary import configure_local_server, require_local_request
 from pediatric_outpatient_calculator import ZERO_ROUNDED_VOLUME_ERROR
 from patient_weight_request import parse_medication_request
 
@@ -60,6 +61,7 @@ except Exception:
 API_VERSION = "1.0"
 MAX_UPLOAD_BYTES = image_upload_guard.MAX_TRANSFER_BYTES
 MAX_TEXT_CHARS = 120_000
+TEXT_UPLOAD_TOO_LARGE_ERROR = "clinical text upload exceeds character limit"
 TEXT_EXTENSIONS = {".txt", ".csv", ".json", ".xml", ".md", ".log", ".tsv"}
 PREPARED_HMAC_KEY = (os.environ.get("CLINICAL_NOTE_PREPARED_HMAC_KEY") or "").encode("utf-8") or secrets.token_bytes(32)
 # M10: filename hints (es/pt/en) so skin/wound photos reach `skin-wound-image` guard-rails.
@@ -73,6 +75,9 @@ TEXT_MIME_TYPES = {
     "text/xml", "text/markdown", "text/tab-separated-values",
 }
 
+
+class TextUploadTooLarge(ValueError):
+    """A text upload must be rejected whole rather than silently shortened."""
 
 
 def _prepared_signature_payload(prepared):
@@ -170,7 +175,9 @@ def _extract_text(raw, filename, mime_type):
             continue
     if text is None:
         return None
-    return text[:MAX_TEXT_CHARS]
+    if len(text) > MAX_TEXT_CHARS:
+        raise TextUploadTooLarge(TEXT_UPLOAD_TOO_LARGE_ERROR)
+    return text
 
 
 def _privacy_for_text(text):
@@ -526,12 +533,21 @@ def dispatch(path, payload):
             "findings": findings,
         }
     if path == "/api/clinical-note/upload/prepare":
-        return HTTPStatus.OK, prepare_upload(
-            payload.get("filename"),
-            payload.get("mime_type"),
-            payload.get("content_base64"),
-            payload.get("explicit_kind"),
-        )
+        try:
+            prepared = prepare_upload(
+                payload.get("filename"),
+                payload.get("mime_type"),
+                payload.get("content_base64"),
+                payload.get("explicit_kind"),
+            )
+        except TextUploadTooLarge:
+            # Fixed public metadata only: never echo filename or document text.
+            return HTTPStatus.UNPROCESSABLE_ENTITY, {
+                "error": TEXT_UPLOAD_TOO_LARGE_ERROR,
+                "error_code": "text_upload_too_large",
+                "max_text_chars": MAX_TEXT_CHARS,
+            }
+        return HTTPStatus.OK, prepared
     if path == "/api/clinical-note/upload/interpret":
         return HTTPStatus.OK, interpret_prepared_upload(
             payload.get("prepared") or {},
@@ -600,6 +616,11 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
         self._send(code, {"error": "invalid HTTP request"}, head_only=self.command == "HEAD")
 
     def do_GET(self):
+        try:
+            require_local_request(self, credential=False)
+        except RequestRejection as exc:
+            self._send(exc.status, {"error": str(exc)})
+            return
         if self.path == "/api/clinical-note/health":
             self._send(HTTPStatus.OK, {"status": "ok", "api_version": API_VERSION})
         else:
@@ -608,6 +629,7 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
     def do_POST(self):
         self.close_connection = True
         try:
+            require_local_request(self)
             size = json_request_size(self.headers, MAX_UPLOAD_BYTES * 2 + 1_000_000)
             raw = self.rfile.read(size)
             if len(raw) != size:
@@ -656,27 +678,42 @@ class ClinicalNoteHandler(DeadlineRequestHandler):
         return
 
 
+def make_server(port=0, *, ui_port=None, session_token=None, host="127.0.0.1",
+                tls_context=None):
+    if host not in {"127.0.0.1", "localhost"}:
+        raise ValueError("Direct network exposure is disabled; an authenticated deployment is required")
+    server = BoundedHTTPServer((host, port), ClinicalNoteHandler, tls_context=tls_context)
+    try:
+        configure_local_server(server, ui_port=ui_port, session_token=session_token)
+    except Exception:
+        server.server_close()
+        raise
+    return server
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--ui-port", type=int, default=5173)
     parser.add_argument("--allow-network", action="store_true")
     parser.add_argument("--tls-cert")
     parser.add_argument("--tls-key")
     args = parser.parse_args()
-    loopback = args.host in {"127.0.0.1", "localhost", "::1"}
-    if not loopback and not args.allow_network:
-        raise SystemExit("Refusing non-loopback bind without --allow-network")
+    if args.allow_network or args.host not in {"127.0.0.1", "localhost"}:
+        parser.error("Direct network exposure is disabled; an authenticated deployment is required")
     if bool(args.tls_cert) != bool(args.tls_key):
         raise SystemExit("TLS requires both --tls-cert and --tls-key")
-    if not loopback and not args.tls_cert:
-        raise SystemExit("Network binding requires TLS certificate and key")
+    token = os.environ.get("EMERGENCY_LOCAL_API_TOKEN")
+    if not token:
+        parser.error("Start the local launcher to provision the private API session credential")
     context = None
     if args.tls_cert:
         context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
         context.minimum_version = ssl.TLSVersion.TLSv1_2
         context.load_cert_chain(args.tls_cert, args.tls_key)
-    server = BoundedHTTPServer((args.host, args.port), ClinicalNoteHandler, tls_context=context)
+    server = make_server(args.port, host=args.host, ui_port=args.ui_port,
+                         session_token=token, tls_context=context)
     print(f"Clinical-note API listening on {'HTTPS' if context else 'loopback HTTP'} port {args.port}")
     server.serve_forever()
 

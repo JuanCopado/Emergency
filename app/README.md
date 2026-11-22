@@ -28,6 +28,8 @@ npm run icons        # regenera los PNG del manifest a partir de public/favicon.
 npm run screenshots  # capturas Playwright de dist/ en screenshots/ (requiere build previo)
 ```
 
+Los comandos `dev` y `preview` por separado sirven la interfaz y la consulta estática. Para usar nota, escalas, pediatría o farmacología aguda con su API en una sesión sintética, siga la preparación y el comando de arranque correspondiente a Linux o Windows en la guía de [revisión local](../docs/LOCAL_REVIEW.md), usando el intérprete y los parámetros indicados desde la raíz del repositorio. Ese launcher comparte una credencial privada efímera entre Vite y Python. Sin ella, la API del proxy responde `503`; el backend directo requiere la credencial y un origen local admitido. No copie la credencial a variables `VITE_*`, archivos públicos ni código de navegador.
+
 `icons` y `screenshots` usan `playwright-core` con un Chromium ya instalado (no descargan navegadores). Ruta autodetectada en `scripts/chromium.mjs`; se puede forzar con `CHROMIUM_PATH=/ruta/chrome`.
 
 Para regenerar los valores de referencia de Python (validación cruzada):
@@ -38,7 +40,7 @@ python3 scripts/python_expected.py /ruta/al/paquete/v135 > src/lib/__fixtures__/
 
 ## Arquitectura
 
-Vite + React 18 + TypeScript (strict) + Tailwind CSS + react-router + i18next + vite-plugin-pwa. Consulta estática disponible como PWA; la nota clínica y el cálculo pediátrico requieren backend Python accesible. Desarrollo: proxy local; producción: configurar `VITE_CLINICAL_NOTE_API_BASE`. El despliegue no está validado.
+Vite + React 18 + TypeScript (strict) + Tailwind CSS + react-router + i18next + vite-plugin-pwa. Consulta estática disponible como PWA; la nota clínica y los cálculos de escalas, pediatría y farmacología aguda requieren el backend Python. La calculadora de perfusiones adulta conserva su motor TypeScript local. Para revisión sintética use el [launcher local](../docs/LOCAL_REVIEW.md), que configura la frontera de origen y una credencial privada entre procesos. La API general rechaza exposición directa por red; `VITE_CLINICAL_NOTE_API_BASE` no sustituye identidad/autorización de una futura pasarela de producción. El despliegue no está validado.
 
 ```
 src/

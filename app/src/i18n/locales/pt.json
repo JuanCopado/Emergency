@@ -67,7 +67,14 @@
     "outpatientPediatrics": "Pediatria de ambulatório",
     "insulinSimulation": "Insulinoterapia UCI · simulação",
     "bloodGasReview": "Gasometria · revisão local",
-    "t06Lab": "Laboratório T06 · dados sintéticos"
+    "t06Lab": "Laboratório T06 · dados sintéticos",
+    "referenceGuides": "Guias de referência disponíveis",
+    "referenceScope": "Consultar guias não ativa novas ferramentas nem altera a sua validação clínica.",
+    "referenceCount_one": "{{count}} guia",
+    "referenceCount_many": "{{count}} guias",
+    "referenceCount_other": "{{count}} guias",
+    "openReferences": "Ver guias",
+    "allReferenceGuides": "Ver todos os guias"
   },
   "groups": {
     "vasoactive": {
@@ -104,6 +111,18 @@
     },
     "clinicalImages": {
       "title": "Interpretação de imagens clínicas"
+    },
+    "imageFramework": {
+      "title": "Estrutura de interpretação de imagem"
+    },
+    "imageModalities": {
+      "title": "Modalidades de imagem"
+    },
+    "clinicalScores": {
+      "title": "Escalas e calculadoras clínicas"
+    },
+    "documentationGovernance": {
+      "title": "Documentação e revisão clínica"
     }
   },
   "categories": {
@@ -260,7 +279,7 @@
     "roundingInfo": "Os débitos da bomba são apresentados a 0,1 mL/h.",
     "dataTitle": "Dados e versão",
     "appVersion": "Aplicação",
-    "contentVersion": "Conteúdo clínico",
+    "contentVersion": "Catálogo de perfusão adulta",
     "drugsCount": "Fármacos"
   },
   "about": {
@@ -282,7 +301,8 @@
   },
   "footer": {
     "content": "conteúdo {{version}}",
-    "disclaimer": "Rascunho pendente de validação clínica — prevalecem os protocolos locais e o juízo clínico."
+    "disclaimer": "Rascunho pendente de validação clínica — prevalecem os protocolos locais e o juízo clínico.",
+    "adultContent": "catálogo de perfusão adulta {{version}}"
   },
   "notFound": {
     "title": "Página não encontrada",
@@ -353,5 +373,71 @@
     "all": "Todos os temas",
     "compare": "Comparar com outro país",
     "off": "Sem comparação"
+  },
+  "scores": {
+    "title": "Scores clínicos",
+    "scope": "CLINICALLY_PENDING · apoio ao juízo clínico, sem validação clínica prospetiva.",
+    "reference": "Referência canónica e limitações",
+    "loading": "A carregar formulários…",
+    "summary": "{{forms}} formulários · {{scales}} escalas e {{formulas}} fórmulas no registo. Evidência: {{status}}.",
+    "score": "Score",
+    "unavailable": "Score indisponível neste formulário.",
+    "source": "Fonte canónica",
+    "entry": "Entrada de dados",
+    "manual": "Introduzir manualmente",
+    "document": "Importar PDF ou análises",
+    "instructions": "Preencha os dados observados. Sem seleção significa não registado; não se presume normalidade.",
+    "unrecorded": "Não registado",
+    "optional": "Opcional",
+    "required": "Obrigatório",
+    "integer": "Inteiro",
+    "finite": "Número finito",
+    "calculate": "Calcular",
+    "calculating": "A calcular…",
+    "reset": "Reiniciar",
+    "result": "Resultado e interpretação",
+    "points": "{{value}} pontos",
+    "officialGrace": "Abrir calculadora oficial GRACE",
+    "validateGrace": "Validar e abrir GRACE oficial",
+    "sourceNotice": "Os termos, opções e resultados clínicos mantêm o idioma da fonte canónica (espanhol); mudar o idioma traduz apenas os controlos.",
+    "fieldRequired": "campo obrigatório",
+    "invalidOption": "valor não permitido",
+    "invalidNumber": "número inválido",
+    "outOfRange": "número fora do intervalo",
+    "wrongResult": "O resultado não corresponde ao formulário atual. Recarregue antes de calcular.",
+    "serviceError": "Não foi possível concluir o pedido. Verifique o serviço configurado e tente novamente.",
+    "serviceDetails": "Detalhe devolvido pelo serviço"
+  },
+  "scoreDoc": {
+    "title": "Importar análises",
+    "file": "PDF com texto ou ficheiro de texto",
+    "paste": "Ou cole resultados de análises",
+    "review": "Verifique a amostra, os valores e as unidades. Complete os campos em falta.",
+    "noText": "Sem texto extraível. Se for um PDF digitalizado, cole os resultados ou introduza-os manualmente.",
+    "textLimit": "Selecione um texto até 100 KB.",
+    "fileLimit": "O ficheiro excede 8 MB.",
+    "reading": "A ler documento…",
+    "readError": "Não foi possível ler o documento. Cole os resultados ou introduza-os manualmente.",
+    "selectSample": "Selecione a página ou amostra",
+    "choose": "Selecione uma",
+    "source": "Ver texto de origem",
+    "missing": "Não identificado no bloco selecionado. Verifique o original e complete os dados disponíveis.",
+    "noMatches": "Sem correspondências inequívocas para este formulário.",
+    "origin": "Origem",
+    "ambiguous": "Vários resultados. Selecione a linha correspondente à amostra.",
+    "chooseLine": "Escolher linha de origem",
+    "text": "Texto",
+    "page": "Página {{number}}",
+    "block": "bloco {{number}}"
+  },
+  "noteDraft": {
+    "new": "Nova nota",
+    "discardConfirm": "Eliminar o rascunho deste episódio e iniciar uma nota vazia? Esta ação não pode ser anulada.",
+    "memoryOnly": "O rascunho fica apenas na memória deste separador durante a navegação. Exporte antes de fechar ou recarregar; «Nova nota» elimina o episódio."
+  },
+  "buildIdentity": {
+    "label": "Compilação",
+    "unknown": "Identidade indisponível",
+    "localChanges": "alterações locais por confirmar"
   }
 }

@@ -10,12 +10,14 @@ import hashlib
 from http.client import HTTPConnection, HTTPException
 import json
 import os
+import secrets
 from pathlib import Path
 import shutil
 import signal
 import socket
 import subprocess
 import sys
+import tempfile
 import time
 
 
@@ -33,6 +35,25 @@ def port_number(value):
 
 def check_python(interpreter, code):
     return json.loads(subprocess.check_output([str(interpreter), '-c', code], text=True))
+
+
+def write_receipt(path, receipt):
+    """Publish a complete receipt before its final name signals readiness."""
+    serialized = json.dumps(receipt, indent=2) + '\n'
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf8', dir=path.parent,
+                                         prefix=f'.{path.name}.', suffix='.tmp', delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(serialized)
+            stream.flush()
+            os.fsync(stream.fileno())
+        # Close the temporary before replacement for Windows compatibility.
+        # The same directory keeps publication on one filesystem.
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
 def service_ready(name, ui_port):
@@ -142,8 +163,11 @@ def main():
     environment = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1', 'PYTHONUTF8': '1',
                    **({'BG_OCR_MODEL': str(model)} if model is not None else {}), 'NODE_PATH': str(ocr_modules),
                    'EMERGENCY_LOCAL_REVIEW': '1', 'EMERGENCY_LOCAL_REVIEW_PORT': str(args.ui_port)}
+    # Provision a fresh process credential for this launch; never log it or send it to T05/T06.
+    clinical_token = secrets.token_hex(32)
     commands = {
-        'clinical': [str(blood_python), '-B', 'clinical/scripts/clinical_note_api.py', '--port', '8765'],
+        'clinical': [str(blood_python), '-B', 'clinical/scripts/clinical_note_api.py', '--port', '8765',
+                     '--ui-port', str(args.ui_port)],
         'blood-gas': [str(blood_python), '-B', 'clinical/scripts/blood_gas_local.py', '--port', '8767',
                       '--ui-port', str(args.ui_port)],
         'app': [node, 'node_modules/vite/bin/vite.js', '--host', '127.0.0.1',
@@ -158,11 +182,15 @@ def main():
     started = datetime.now(timezone.utc).isoformat()
     try:
         for name, command in commands.items():
+            child_environment = {key: value for key, value in environment.items()
+                                 if key != 'EMERGENCY_LOCAL_API_TOKEN'}
+            if name in {'clinical', 'app'}:
+                child_environment['EMERGENCY_LOCAL_API_TOKEN'] = clinical_token
             log = (evidence / f'{name}.log').open('wb')
             logs.append(log)
             group = {'creationflags': subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == 'nt' else {'start_new_session': True}
             processes[name] = subprocess.Popen(command, cwd=ROOT / 'app' if name == 'app' else ROOT,
-                                                env=environment, stdout=log, stderr=subprocess.STDOUT, **group)
+                                                env=child_environment, stdout=log, stderr=subprocess.STDOUT, **group)
         pending, deadline = set(processes), time.monotonic() + 45
         while pending:
             for name, process in processes.items():
@@ -174,12 +202,12 @@ def main():
             if time.monotonic() >= deadline:
                 raise RuntimeError('Local startup did not complete: ' + ', '.join(sorted(pending)))
             time.sleep(0.1)
-        (evidence / 'LAUNCH.json').write_text(json.dumps({
+        write_receipt(evidence / 'LAUNCH.json', {
             'started_utc': started, 'origin': origin, 'state': 'CLINICALLY_PENDING',
             'synthetic_only': True, 'versions': versions, 'model_sha256': MODEL_SHA256,
             'capabilities': {'t05_native_extraction': native_extraction, 't06_transport': native_t06},
             'processes': {name: process.pid for name, process in processes.items()},
-        }, indent=2) + '\n', encoding='utf8')
+        })
         print(f'Emergency · revisión local con datos sintéticos: {origin}', flush=True)
         print(f'Gasometría: {origin}/blood-gas · T06: {origin}/t06-lab', flush=True)
         print('Extracción T05: ' + ('Windows disponible' if native_extraction else 'requiere Windows; bloqueada en Linux'), flush=True)
@@ -195,10 +223,10 @@ def main():
             stop_process(process)
         for log in logs:
             log.close()
-        (evidence / 'STOP.json').write_text(json.dumps({
+        write_receipt(evidence / 'STOP.json', {
             'stopped_utc': datetime.now(timezone.utc).isoformat(),
             'exit_codes': {name: process.returncode for name, process in processes.items()},
-        }, indent=2) + '\n', encoding='utf8')
+        })
 
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { Icon, type IconName } from '../components/Icon';
 import { drugs } from '../data';
-import { AVAILABLE_GROUPS, COMING_SOON_GROUPS } from '../data/moduleGroups';
+import { AVAILABLE_GROUPS, REFERENCE_GROUPS } from '../data/moduleGroups';
 import { DraftBanner } from '../components/DraftBanner';
 
 const GROUP_ICON: Record<string, IconName> = { vasoactive: 'heart', sedation: 'moon' };
@@ -109,27 +109,25 @@ export default function Home() {
         </ul>
       </section>
 
-      <section aria-labelledby="soon-title">
+      <section aria-labelledby="references-title">
         <div className="mb-3 flex items-baseline justify-between gap-3">
-          <h2 id="soon-title" className="text-lg font-bold">
-            {t('home.comingSoonTitle')}
+          <h2 id="references-title" className="text-lg font-bold">
+            {t('home.referenceGuides')}
           </h2>
-          <span className="text-xs text-muted">{t('home.comingSoonHint')}</span>
+          <span className="text-xs text-muted">{t('home.referenceScope')}</span>
         </div>
         <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-          {COMING_SOON_GROUPS.map((g) => (
-            <li
-              key={g.id}
-              aria-disabled="true"
-              className="flex items-center justify-between gap-3 rounded-2xl border border-dashed border-border bg-surface/60 px-4 py-3"
-            >
+          {REFERENCE_GROUPS.map((g) => (
+            <li key={g.id}>
+              <Link to={`/clinical?bundle=${encodeURIComponent(g.bundle)}`} data-testid={`reference-group-${g.id}`} className="flex min-h-[60px] items-center justify-between gap-3 rounded-2xl border border-border bg-surface px-4 py-3 hover:border-primary">
               <span className="min-w-0">
                 <span className="block font-semibold leading-snug text-fg/80">{t(`groups.${g.key}.title`)}</span>
-                <span className="block text-xs text-muted">{t('home.moduleCount', { count: g.moduleCount })}</span>
+                <span className="block text-xs text-muted">{t('home.referenceCount', { count: g.count })}</span>
               </span>
               <span className="shrink-0 rounded-full bg-surface-2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-muted">
-                {t('common.comingSoon')}
+                {t('home.openReferences')}
               </span>
+              </Link>
             </li>
           ))}
         </ul>

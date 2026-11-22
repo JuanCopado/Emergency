@@ -64,7 +64,13 @@
     "outpatientPediatrics": "Outpatient pediatrics",
     "insulinSimulation": "ICU insulin · simulation",
     "bloodGasReview": "Blood gas · local review",
-    "t06Lab": "T06 laboratory · synthetic data"
+    "t06Lab": "T06 laboratory · synthetic data",
+    "referenceGuides": "Available reference guides",
+    "referenceScope": "Reading guides does not activate new tools or change their clinical validation.",
+    "referenceCount_one": "{{count}} guide",
+    "referenceCount_other": "{{count}} guides",
+    "openReferences": "View guides",
+    "allReferenceGuides": "View all guides"
   },
   "groups": {
     "vasoactive": {
@@ -101,6 +107,18 @@
     },
     "clinicalImages": {
       "title": "Clinical image interpretation"
+    },
+    "imageFramework": {
+      "title": "Image interpretation framework"
+    },
+    "imageModalities": {
+      "title": "Image modalities"
+    },
+    "clinicalScores": {
+      "title": "Clinical scores and calculators"
+    },
+    "documentationGovernance": {
+      "title": "Documentation and clinical review"
     }
   },
   "categories": {
@@ -256,7 +274,7 @@
     "roundingInfo": "Pump rates are displayed to 0.1 mL/h.",
     "dataTitle": "Data & version",
     "appVersion": "App",
-    "contentVersion": "Clinical content",
+    "contentVersion": "Adult infusion catalog",
     "drugsCount": "Drugs"
   },
   "about": {
@@ -278,7 +296,8 @@
   },
   "footer": {
     "content": "content {{version}}",
-    "disclaimer": "Draft, pending clinical validation — local protocols and clinical judgment prevail."
+    "disclaimer": "Draft, pending clinical validation — local protocols and clinical judgment prevail.",
+    "adultContent": "adult infusion catalog {{version}}"
   },
   "notFound": {
     "title": "Page not found",
@@ -349,5 +368,71 @@
     "all": "All topics",
     "compare": "Compare with another country",
     "off": "No comparison"
+  },
+  "scores": {
+    "title": "Clinical scores",
+    "scope": "CLINICALLY_PENDING · support for clinical judgment, without prospective clinical validation.",
+    "reference": "Canonical reference and limitations",
+    "loading": "Loading forms…",
+    "summary": "{{forms}} forms · {{scales}} scales and {{formulas}} formulas in the registry. Evidence: {{status}}.",
+    "score": "Score",
+    "unavailable": "This score is not available in this form.",
+    "source": "Canonical source",
+    "entry": "Data entry",
+    "manual": "Enter manually",
+    "document": "Import PDF or lab results",
+    "instructions": "Enter observed data. An empty selection means not recorded; normality is not assumed.",
+    "unrecorded": "Not recorded",
+    "optional": "Optional",
+    "required": "Required",
+    "integer": "Integer",
+    "finite": "Finite number",
+    "calculate": "Calculate",
+    "calculating": "Calculating…",
+    "reset": "Reset",
+    "result": "Result and interpretation",
+    "points": "{{value}} points",
+    "officialGrace": "Open official GRACE calculator",
+    "validateGrace": "Validate and open official GRACE",
+    "sourceNotice": "Clinical terms, options and results retain their canonical source language (Spanish); changing language translates the controls only.",
+    "fieldRequired": "required field",
+    "invalidOption": "unsupported value",
+    "invalidNumber": "invalid number",
+    "outOfRange": "number outside the allowed range",
+    "wrongResult": "The result does not match the current form. Reload before calculating.",
+    "serviceError": "The request could not be completed. Check the configured service and try again.",
+    "serviceDetails": "Details returned by the service"
+  },
+  "scoreDoc": {
+    "title": "Import lab results",
+    "file": "Text-based PDF or text file",
+    "paste": "Or paste lab results",
+    "review": "Check the sample, values and units. Complete any missing fields.",
+    "noText": "No extractable text. For a scanned PDF, paste the results or enter them manually.",
+    "textLimit": "Select a text file up to 100 KB.",
+    "fileLimit": "The file exceeds 8 MB.",
+    "reading": "Reading document…",
+    "readError": "The document could not be read. Paste the results or enter them manually.",
+    "selectSample": "Select a page or sample",
+    "choose": "Select one",
+    "source": "View source text",
+    "missing": "Not identified in the selected block. Check the original and complete the available data.",
+    "noMatches": "No unambiguous matches for this form.",
+    "origin": "Source",
+    "ambiguous": "Multiple results. Select the line that belongs to the sample.",
+    "chooseLine": "Choose source line",
+    "text": "Text",
+    "page": "Page {{number}}",
+    "block": "block {{number}}"
+  },
+  "noteDraft": {
+    "new": "New note",
+    "discardConfirm": "Discard this episode draft and start an empty note? This cannot be undone.",
+    "memoryOnly": "The draft stays only in this tab’s memory while navigating. Export before closing or reloading; “New note” clears the episode."
+  },
+  "buildIdentity": {
+    "label": "Build",
+    "unknown": "Identity unavailable",
+    "localChanges": "uncommitted local changes"
   }
 }

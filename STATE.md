@@ -1,7 +1,9 @@
-# STATE · integración técnica de nota e imagen · 21/11/2026
+# STATE · correcciones de problemas actuales · 22/11/2026
 
 Estado global: **CLINICALLY_PENDING**. Registro: **129 GREEN / 2 YELLOW / 0 RED**, 131 módulos.
 Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según PR35.
+
+**22/11 · correcciones actuales integradas.** [PR70](https://github.com/JuanCopado/Emergency/pull/70) integra doce correcciones en `e8de202d874c6db588d3561ff13859e5ee53c96d`; [PR71](https://github.com/JuanCopado/Emergency/pull/71) añade la publicación atómica de recibos C14 en `842e4a2864f7b746659504dd8ae53faaac3e58b2`. El [checklist](docs/coordination/CURRENT_DEFECTS_CHECKLIST_20261122.md) registra **13 puntos OK** y **C12 pendiente de acceso administrativo**. Clinical QA del último candidato: 1.205 pruebas, 14 omitidas; Security and quality de push/PR: seis jobs PASS en cada ejecución, incluido T05 Windows. La evidencia UI 947/947 corresponde a PR70/e8; PR71 no cambia la interfaz. El [recibo](docs/coordination/PR70_INTEGRACION_20261122.md) conserva el fallo de arranque posterior a PR70, su corrección, las pruebas y los límites del escáner. Se mantienen decisiones clínicas, procesos en construcción y CLINICALLY_PENDING; no se acredita una instalación asistencial.
 
 Seguimiento de PR61, 21/11. [QA de PDF nativo y Narrador](clinical/qa/PR61_NATIVE_PDF_NARRATOR_QA_20261121.md) incorpora el informe R2 y el cotejo aportado por el usuario, con sus límites literales y evidencias verificadas. CLINICALLY_PENDING.
 
@@ -9,7 +11,7 @@ Seguimiento de PR61, 21/11. [QA de PDF nativo y Narrador](clinical/qa/PR61_NATIV
 
 - [PR53 · nota](https://github.com/JuanCopado/Emergency/pull/53) integrada en `fc8d5da2`. [PR51 · piel y heridas](https://github.com/JuanCopado/Emergency/pull/51) integrada en `bbd53d42`, árbol `46e7a8ceb69758be0ec3d9423f365722083c723c`.
 - En `8179853e`, de árbol idéntico al merge de PR51, [9/9 checks aprobados](https://github.com/JuanCopado/Emergency/pull/51/checks). Sonar registró 87,2 % de cobertura nueva. Pasaron [853 pruebas de interfaz](https://github.com/JuanCopado/Emergency/actions/runs/44902659649) y [Clinical QA](https://github.com/JuanCopado/Emergency/actions/runs/44902659668) contabilizó 1.148 pruebas, 14 omitidas.
-- [Recorrido Chromium del árbol integrado](https://github.com/JuanCopado/Emergency/actions/runs/44903275835): 12/12 comprobaciones sintéticas. La vista previa nativa de impresión y el lector de pantalla siguen pendientes. [Seguridad y calidad tras la fusión de PR51](https://github.com/JuanCopado/Emergency/actions/runs/44903396363).
+- [Recorrido Chromium del árbol integrado](https://github.com/JuanCopado/Emergency/actions/runs/44903275835): 12/12 comprobaciones sintéticas. En ese corte de PR51, impresión nativa y lector de pantalla estaban pendientes. La [QA posterior de PR61](clinical/qa/PR61_NATIVE_PDF_NARRATOR_QA_20261121.md) acredita un PDF nativo concreto y cinco cifras cotejadas; conserva límites de unidades/comparador y del recorrido gráfico completo. [Seguridad y calidad tras la fusión de PR51](https://github.com/JuanCopado/Emergency/actions/runs/44903396363).
 - T05/T06 integrados mediante PR33; correcciones previas Sonar en PR34. Alcance: `clinical/qa/T05_T06_INTEGRATION_20261119.md`.
 - PR48: accesibilidad y prototipo multimodal sintético E1; sin inferencia ciega ni validación diagnóstica.
 - Gate de referencia revisado íntegramente y GREEN con la aceptación PR35 ya existente; no es autorización asistencial.
@@ -27,8 +29,8 @@ Seguimiento de PR61, 21/11. [QA de PDF nativo y Narrador](clinical/qa/PR61_NATIV
 - SCORE-REF-20261120: 13 formularios aceptados, entrada manual o importación revisada y cálculo a petición médica.
 - ARR-SELECTOR-20261120: cuatro circuitos manuales aceptados; ocho recorridos Chromium verificados en dos vistas.
 - T02: once anotaciones aceptadas; escalas/fórmulas/PDF en PR41/44. Se conservan sus alcances y decisiones.
-- Preservar los 19 contratos agudos aceptados y sus 46 IDs; no restablecer bloqueos históricos ni repetir aceptación.
-- `main`, RC1 y v1.43 protegidos. Sin GO_RELEASE ni exactitud prospectiva inferida de pruebas técnicas.
+- Preservar los 46 IDs del catálogo y el alcance aceptado de los 19 contratos antes bloqueados; no restablecer bloqueos históricos ni repetir aceptación.
+- `main`, RC1 y v1.43 reservados por las instrucciones de colaboración. Esto no acredita protección automática de GitHub: el 22/11/2026 la API devuelve `protected: false` para `main` y la rama internacional, sin rulesets. Sin GO_RELEASE ni exactitud prospectiva inferida de pruebas técnicas.
 
 R4 · 21/11/2026 · Se verificó la presentación compartida de la fuente de farmacología aguda en ambos PDF. [Ensayo sintético de impresión](clinical/qa/R4_ACUTE_PRINT_MARKUP_20261121.md).
 

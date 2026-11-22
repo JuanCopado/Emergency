@@ -90,7 +90,7 @@ class HttpTransportTests(unittest.TestCase):
         self.assertEqual(int(handler.sent_headers['Content-Length']), len(raw))
         self.assertTrue(handler.sent_headers['Content-Type'].startswith('application/json'))
 
-    def test_network_bind_requires_explicit_tls_before_constructing_server(self):
+    def test_network_bind_is_rejected_before_constructing_server(self):
         for argv in (['api', '--host', '0.0.0.0'],
                      ['api', '--host', '0.0.0.0', '--allow-network'],
                      ['api', '--tls-cert', 'cert.pem']):
@@ -99,11 +99,12 @@ class HttpTransportTests(unittest.TestCase):
                 with self.assertRaises(SystemExit): api.main()
                 server.assert_not_called()
 
-    def test_tls_server_passes_explicit_context_to_bounded_transport(self):
-        with patch.object(sys, 'argv', ['api', '--host', '0.0.0.0', '--allow-network',
+    def test_local_tls_passes_explicit_context_to_private_server(self):
+        with patch.object(sys, 'argv', ['api', '--host', '127.0.0.1',
                                       '--tls-cert', 'synthetic-cert', '--tls-key', 'synthetic-key']), \
+             patch.dict(os.environ, {'EMERGENCY_LOCAL_API_TOKEN': 'a' * 64}), \
              patch.object(api.ssl, 'SSLContext') as context, \
-             patch.object(api, 'BoundedHTTPServer') as factory, redirect_stdout(io.StringIO()):
+             patch.object(api, 'make_server') as factory, redirect_stdout(io.StringIO()):
             api.main()
             context.return_value.load_cert_chain.assert_called_once_with('synthetic-cert', 'synthetic-key')
             context.return_value.wrap_socket.assert_not_called()
@@ -111,10 +112,13 @@ class HttpTransportTests(unittest.TestCase):
             factory.return_value.serve_forever.assert_called_once()
 
     def test_local_development_binding_remains_loopback(self):
-        with patch.object(sys, 'argv', ['api']), patch.object(api, 'BoundedHTTPServer') as factory, \
+        with patch.object(sys, 'argv', ['api']), patch.object(api, 'make_server') as factory, \
+             patch.dict(os.environ, {'EMERGENCY_LOCAL_API_TOKEN': 'a' * 64}), \
              patch.object(api.ssl, 'SSLContext') as context, redirect_stdout(io.StringIO()):
             api.main()
-            self.assertEqual(factory.call_args.args[0], ('127.0.0.1', 8765))
+            self.assertEqual(factory.call_args.args[0], 8765)
+            self.assertEqual(factory.call_args.kwargs['host'], '127.0.0.1')
+            self.assertEqual(factory.call_args.kwargs['session_token'], 'a' * 64)
             context.assert_not_called()
 
     def test_pinned_tls_uses_numeric_destination_and_original_hostname(self):

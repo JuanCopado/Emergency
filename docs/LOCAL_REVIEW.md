@@ -62,6 +62,10 @@ Use únicamente datos sintéticos. Los recibos y logs propios se escriben en `.l
 
 El modo local fija loopback, comprueba Host y dirección de conexión y habilita las proxies nuevas únicamente en esa sesión. Conserva Origin y la autenticación de sesión T05. Las cabeceras limitan las solicitudes de la aplicación al mismo origen y al WebSocket local de desarrollo. Esto no demuestra aislamiento de red del sistema operativo.
 
+La API clínica general añade una credencial aleatoria de proceso por arranque. El launcher la entrega solo a Python y al proxy Vite mediante `EMERGENCY_LOCAL_API_TOKEN`; no usa una variable `VITE_*`, no la imprime ni la entrega a T05/T06 o al navegador. Vite verifica Host, Origin, dirección local y metadatos de navegador antes de añadir la credencial al envío a `127.0.0.1:8765`. La API vuelve a validar el origen y exige esa credencial en todos los POST. El chequeo de salud solo devuelve estado/versión, con Host y Origin comprobados, sin emitir credenciales. Los consumidores de nota, escalas, pediatría y farmacología conservan sus contratos y la ruta a través del mismo origen.
+
+El arranque directo con `--allow-network` o una interfaz no local se rechaza incluso si se aportan certificados TLS. Esta autenticación identifica procesos de la sesión local, no médicos ni usuarios; no habilita uso multiusuario. Use el launcher para revisión sintética. Una distribución compartida requiere una pasarela con identidad y autorización propias; configurar `VITE_CLINICAL_NOTE_API_BASE` por sí solo no proporciona esas garantías. Los scripts de QA de navegador usan la misma frontera y una credencial efímera independiente por ejecución.
+
 La aceptación de navegador utiliza un perfil nuevo, sin un service worker previo. La marca de sesión impide registrar uno nuevo; no afirma borrar un worker instalado anteriormente. Para una reproducción manual utilice un perfil limpio o un puerto de interfaz nuevo.
 
 ## Verificación

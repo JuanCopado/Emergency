@@ -15,6 +15,7 @@ import sys
 import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
+from types import SimpleNamespace
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -23,6 +24,7 @@ import synthetic_images as si  # noqa: E402
 import image_upload_guard as guard  # noqa: E402
 from clinical_note_api import (  # noqa: E402
     prepare_upload, interpret_prepared_upload, infer_attachment_kind, accept_prepared_upload,
+    configure_local_server,
 )
 import clinical_note_vision_adapter as adapter  # noqa: E402
 
@@ -543,6 +545,12 @@ class T8IndependentReviewBoundaries(unittest.TestCase):
         handler.headers = Message()
         handler.headers["Content-Type"] = "application/json"
         handler.headers["Content-Length"] = str(len(body))
+        handler.server = SimpleNamespace(server_address=("127.0.0.1", 8765), server_port=8765)
+        configure_local_server(handler.server)
+        handler.client_address = ("127.0.0.1", 1)
+        handler.headers["Host"] = "127.0.0.1:8765"
+        handler.headers["Origin"] = "http://127.0.0.1:8765"
+        handler.headers["X-Emergency-Local-Token"] = handler.server.clinical_session_token
         handler.rfile = io.BytesIO(body)
         handler.path = path
         return handler
