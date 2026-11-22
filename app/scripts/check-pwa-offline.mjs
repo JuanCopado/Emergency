@@ -33,9 +33,9 @@ try {
   await page.evaluate(async () => { await navigator.serviceWorker.ready; });
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null, null, { timeout: 15000 });
   const precached = await page.evaluate(async () => {
-    const names = (await caches.keys()).filter((name) => name.includes('precache'));
+    const names = (await globalThis.caches.keys()).filter((name) => name.includes('precache'));
     let count = 0;
-    for (const name of names) count += (await (await caches.open(name)).keys()).length;
+    for (const name of names) count += (await (await globalThis.caches.open(name)).keys()).length;
     return count;
   });
   assert.ok(precached >= 30, `precache has ${precached} entries`);
