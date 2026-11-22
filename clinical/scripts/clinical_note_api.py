@@ -108,6 +108,29 @@ def _verify_prepared(prepared):
 
 
 
+# Ordered like the original chain of `if` tests: the first matching rule decides the routing.
+NAME_HINT_RULES = (
+    ("ecg", ("ecg", "ekg", "electrocard")),
+    ("blood_gas", ("gasometr", "blood_gas", "abg", "vbg")),
+    ("microbiology", ("microbi", "culture", "cultivo", "hemocult")),
+    ("laboratory_report", ("laborat", "analit", "analyt", "hemogram", "bioq")),
+    ("pocus", ("pocus", "ultrasound", "ecografia", "ultrasom")),
+    ("ct", ("ct_", "ct-", "tac", "tc_", "tc-", "mri", "rm_")),
+    ("xray", ("xray", "x-ray", "radiogr", "_rx", "rx_")),
+    ("skin_wound", SKIN_WOUND_NAME_HINTS),
+)
+
+
+def _clean_name(filename):
+    return image_upload_guard.clean_filename(filename).lower()
+
+
+def name_hint_categories(filename):
+    """Every category whose filename hint matches, in routing order (data only, never decides)."""
+    name = _clean_name(filename)
+    return [kind for kind, hints in NAME_HINT_RULES if any(x in name for x in hints)]
+
+
 def infer_attachment_kind_with_source(filename, mime_type=None, explicit_kind=None):
     """Return (kind, source). Same routing as ever; `source` only reports where it came from.
 
@@ -116,24 +139,11 @@ def infer_attachment_kind_with_source(filename, mime_type=None, explicit_kind=No
     """
     if explicit_kind:
         return str(explicit_kind).strip().lower(), "explicit"
-    name = image_upload_guard.clean_filename(filename).lower()
+    name = _clean_name(filename)
     mime = str(mime_type or "").lower()
-    if any(x in name for x in ("ecg", "ekg", "electrocard")):
-        return "ecg", "inferred_from_filename"
-    if any(x in name for x in ("gasometr", "blood_gas", "abg", "vbg")):
-        return "blood_gas", "inferred_from_filename"
-    if any(x in name for x in ("microbi", "culture", "cultivo", "hemocult")):
-        return "microbiology", "inferred_from_filename"
-    if any(x in name for x in ("laborat", "analit", "analyt", "hemogram", "bioq")):
-        return "laboratory_report", "inferred_from_filename"
-    if any(x in name for x in ("pocus", "ultrasound", "ecografia", "ultrasom")):
-        return "pocus", "inferred_from_filename"
-    if any(x in name for x in ("ct_", "ct-", "tac", "tc_", "tc-", "mri", "rm_")):
-        return "ct", "inferred_from_filename"
-    if any(x in name for x in ("xray", "x-ray", "radiogr", "_rx", "rx_")):
-        return "xray", "inferred_from_filename"
-    if any(x in name for x in SKIN_WOUND_NAME_HINTS):
-        return "skin_wound", "inferred_from_filename"
+    for kind, hints in NAME_HINT_RULES:
+        if any(x in name for x in hints):
+            return kind, "inferred_from_filename"
     if name.endswith(".dcm") or "dicom" in mime:
         return "other_image", "inferred_from_container"
     if name.endswith(".pdf") or mime == "application/pdf":
@@ -143,6 +153,39 @@ def infer_attachment_kind_with_source(filename, mime_type=None, explicit_kind=No
 
 def infer_attachment_kind(filename, mime_type=None, explicit_kind=None):
     return infer_attachment_kind_with_source(filename, mime_type, explicit_kind)[0]
+
+
+def kind_assessment(filename, kind, kind_source, explicit_kind=None):
+    """Technical, non-clinical record of how the category was reached.
+
+    It never changes routing, confidence, abstention or the provider request. `suspected` is a
+    heuristic from the filename only; `demonstrable` is reserved and is never emitted here because
+    nothing in this module can contradict the declared category from the container alone.
+    RGB, EXIF or a missing DICOM header are deliberately NOT used: a camera photo can legitimately
+    show an ECG, a radiograph or a POCUS screen.
+    """
+    hints = name_hint_categories(filename)
+    codes = []
+    if "skin_wound" in hints and kind != "skin_wound":
+        codes.append("skin_name_hint_not_effective")
+    if len(hints) >= 2:
+        codes.append("multiple_name_hints")
+    if kind_source == "explicit" and hints and kind not in hints:
+        codes.append("explicit_differs_from_name_hint")
+    if codes:
+        discordance = "suspected"
+    elif kind_source == "default_unclassified":
+        discordance = "unknown"
+        codes.append("no_category_no_hint")
+    else:
+        discordance = "none"
+    return {
+        "kind_explicit": str(explicit_kind).strip().lower() if explicit_kind else None,
+        "name_hints_matched": hints,
+        "modality_verification": "not_verified",
+        "kind_discordance": discordance,
+        "suspicion_codes": codes,
+    }
 
 
 def _decode_upload(content_base64):
@@ -223,6 +266,7 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
         "sha256": digest,
         "kind": kind,
         "kind_source": kind_source,
+        "kind_assessment": kind_assessment(filename, kind, kind_source, explicit_kind),
         "route": route,
         "privacy": {
             "status": privacy_status,
