@@ -25,14 +25,16 @@ const base = ['--no-pager', '-c', 'core.fsmonitor=false', '-c', 'core.untrackedC
 const productEnv = { PATH: '', GIT_CONFIG_NOSYSTEM: '1', GIT_CONFIG_GLOBAL: devNull, GIT_OPTIONAL_LOCKS: '0', GIT_TERMINAL_PROMPT: '0', SystemRoot: process.env.SystemRoot };
 out.variants = {
   inherited_env: run(root, base, process.env),
-  product_env_exact: run(root, base, productEnv),
-  product_env_plus_safe_directory_star: run(root, ['-c', 'safe.directory=*', ...base], productEnv),
-  product_env_without_GIT_CONFIG_GLOBAL: run(root, base, { ...productEnv, GIT_CONFIG_GLOBAL: undefined }),
-  product_env_without_NOSYSTEM: run(root, base, { ...productEnv, GIT_CONFIG_NOSYSTEM: undefined }),
-  product_env_plus_userprofile: run(root, base, { ...productEnv, USERPROFILE: process.env.USERPROFILE, HOMEDRIVE: process.env.HOMEDRIVE, HOMEPATH: process.env.HOMEPATH }),
-  product_env_plus_temp: run(root, base, { ...productEnv, TEMP: process.env.TEMP, TMP: process.env.TMP }),
-  product_env_plus_username: run(root, base, { ...productEnv, USERNAME: process.env.USERNAME, USERDOMAIN: process.env.USERDOMAIN }),
-  product_env_plus_windir: run(root, base, { ...productEnv, windir: process.env.windir, SystemDrive: process.env.SystemDrive, ComSpec: process.env.ComSpec }),
+  product_env_exact_devNull: run(root, base, productEnv),
+  global_NUL_upper: run(root, base, { ...productEnv, GIT_CONFIG_GLOBAL: 'NUL' }),
+  global_nul_lower: run(root, base, { ...productEnv, GIT_CONFIG_GLOBAL: 'nul' }),
+  global_slash_dev_null: run(root, base, { ...productEnv, GIT_CONFIG_GLOBAL: '/dev/null' }),
+  global_unset: run(root, base, { ...productEnv, GIT_CONFIG_GLOBAL: undefined }),
+  global_empty_file: (() => { const f = join(dir, 'empty.gitconfig'); writeFileSync(f, ''); return run(root, base, { ...productEnv, GIT_CONFIG_GLOBAL: f }); })(),
+  // Isolation proof: with a hostile global config present, which variants still ignore it?
+  hostile_global_unset_home_cleared: (() => { const f = join(dir, 'hostile.gitconfig'); writeFileSync(f, '[core]\n\tfsmonitor = true\n[user]\n\tname = Hostile\n'); return run(root, ['config', '--show-origin', '--get', 'user.name'], { ...productEnv, GIT_CONFIG_GLOBAL: undefined, USERPROFILE: undefined, HOME: undefined }); })(),
+  hostile_global_NUL_config_list: run(root, ['config', '--list', '--show-origin'], { ...productEnv, GIT_CONFIG_GLOBAL: 'NUL' }),
+  config_list_global_unset: run(root, ['config', '--list', '--show-origin'], { ...productEnv, GIT_CONFIG_GLOBAL: undefined }),
 };
 const owner = spawnSync('cmd.exe', ['/c', 'dir', '/q', dir], { encoding: 'utf8' });
 out.ownerListing = (owner.stdout || '').split('\n').slice(0, 12).join('\n');
