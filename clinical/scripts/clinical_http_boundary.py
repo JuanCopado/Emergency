@@ -26,7 +26,11 @@ def configure_local_server(server, *, ui_port=None, session_token=None):
     server.clinical_hosts = {f"127.0.0.1:{server.server_port}", f"localhost:{server.server_port}"}
     server.clinical_origins = {f"{scheme}://{host}" for host in server.clinical_hosts}
     if ui_port is not None:
-        server.clinical_origins.update(f"http://{host}:{ui_port}" for host in ("127.0.0.1", "localhost"))
+        # The UI is a local HTTP listener. Keep its complete authorities explicit:
+        # no caller-supplied host or external origin can enter this allowlist.
+        server.clinical_origins.update({
+            f"http://127.0.0.1:{ui_port}", f"http://localhost:{ui_port}",
+        })
     server.clinical_session_token = token
 
 

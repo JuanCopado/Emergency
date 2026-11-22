@@ -40,7 +40,7 @@ El catálogo territorial sirve para comprobar diferencias relevantes, no para di
 
 Cuando existan diferencias verificadas que afecten materialmente a la seguridad, indicación, producto, regulación o recursos necesarios, documentarlas como anexos o variantes puntuales del mismo módulo. Cada variante debe ser completa y coherente en el tramo que modifica, con fuente, versión, contexto y motivo de selección; no duplicar módulos ni crear un protocolo por país u hospital. No mezclar secuencias, promediar umbrales ni combinar dosis, máximos o criterios de guías incompatibles. La lengua de una fuente o de la interfaz no determina su jurisdicción clínica.
 
-La política `INT-02A` está preparada. La comprobación de diferencias módulo × jurisdicción permanece pendiente donde aún no se haya evaluado; esa matriz mide cobertura de revisión, no prescribe algoritmos separados. Consultar el núcleo no requiere elegir un país, centro o selector. Los controles opcionales de contexto siguen siendo desarrollos previstos y esta ampliación documental no los presenta como implementados.
+La política `INT-02A` está preparada. La comprobación de diferencias módulo × jurisdicción permanece pendiente donde aún no se haya evaluado; esa matriz mide cobertura de revisión, no prescribe algoritmos separados. Consultar el núcleo no requiere elegir un país, centro o selector. El selector opcional y declarativo de contexto de INT-01 ya está implementado en Ajustes; no selecciona automáticamente pautas ni acredita conformidad regional.
 
 ## Amplitud funcional
 

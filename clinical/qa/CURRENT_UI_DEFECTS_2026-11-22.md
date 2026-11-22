@@ -77,3 +77,19 @@ Pruebas nuevas en `clinical-note-acceptance-integrity.test.tsx`: edición de la 
 - **GREEN:** 16/16 en aceptación, navegación y exportación (3 archivos).
 - `npm run typecheck`, `npm run lint` y `git diff --check`: PASS.
 - Datos sintéticos y APIs simuladas. No se amplió la suite general ni se repitió el build de distribución.
+
+## Delta de seguridad C09 · identidad de compilación
+
+Base del delta: `a574ed4787b53b0c98d67c97d06be4f151ffbc9c`.
+
+La consulta de Git de `vite.config.ts` buscaba el ejecutable en `PATH`. Las pruebas previas a la corrección reprodujeron la ejecución de un homónimo sintético colocado al principio de esa variable. También reprodujeron la ejecución de un monitor de archivos configurado en el repositorio y dos identidades incorrectas: una copia sin metadatos que heredaba el SHA de su repositorio contenedor y variables `GIT_DIR`/`GIT_WORK_TREE` que dirigían la consulta a otro repositorio.
+
+La consulta se extrae a `scripts/build-identity.mjs`, con ejecutables de rutas absolutas fijas (`/usr/bin/git` o `C:\Program Files\Git\cmd\git.exe`), `shell: false`, tiempo y salida acotados y un entorno explícito sin `PATH` ni redirecciones Git heredados. Se desactiva `core.fsmonitor` y la caché de archivos sin seguimiento para consultar el árbol actual. Se exige `.git` en la raíz solicitada y se conserva Git nativo para resolver referencias empaquetadas y worktrees. Una instalación de Git en otra ubicación, metadatos inválidos o el fallo de cualquier consulta producen «Identidad no disponible», sin inventar una revisión ni afirmar que el árbol está limpio.
+
+La identidad continúa distinguiendo revisión de fuentes y cambios locales. Esto no es aislamiento de la compilación, firma de distribución ni certificación de un repositorio ajeno.
+
+- **RED:** 4 fallos / 8 éxitos en 12 casos con repositorios temporales reales, antes de aplicar la corrección.
+- **GREEN:** 15/15 en 2 archivos: 12 casos del helper y 3 de la etiqueta visible de identidad.
+- Los casos verifican árbol limpio, modificación, staging, archivo nuevo, archivo ignorado, refs empaquetadas, worktree, copia sin `.git`, metadatos inválidos, redirección heredada, homónimo de `PATH`, índice corrupto y monitor configurado. Algunos casos comprueban más de una condición.
+- `npm run typecheck`, `npm run lint` y `git diff --check`: PASS.
+- Observado en Linux con Git nativo. No se ejecutó la rama Windows ni una instalación macOS; sus rutas no estándar conservan el fallback explícito. No se amplió la suite ni se repitió el build. La revisión de Sonar corresponde al siguiente SHA publicado de la entrega compuesta.

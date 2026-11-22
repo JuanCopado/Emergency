@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 import threading
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -48,11 +49,15 @@ class ClinicalHttpBoundaryTests(unittest.TestCase):
             client.close()
 
     def test_legitimate_request_reaches_existing_contract(self):
-        status, headers, body = self.request(self.headers())
-        self.assertEqual(status, 200)
-        self.assertEqual(body["schema_version"], "1.0")
-        self.assertEqual(headers["Cache-Control"], "no-store")
-        self.assertNotIn(self.server.clinical_session_token, json.dumps(body))
+        for origin in ("http://127.0.0.1:5173", "http://localhost:5173"):
+            with self.subTest(origin=origin):
+                request_headers = self.headers()
+                request_headers[1] = ("Origin", origin)
+                status, headers, body = self.request(request_headers)
+                self.assertEqual(status, 200)
+                self.assertEqual(body["schema_version"], "1.0")
+                self.assertEqual(headers["Cache-Control"], "no-store")
+                self.assertNotIn(self.server.clinical_session_token, json.dumps(body))
 
     def test_missing_wrong_or_duplicate_credential_never_dispatch(self):
         original = self.headers()
@@ -70,6 +75,8 @@ class ClinicalHttpBoundaryTests(unittest.TestCase):
             [("Host", "attacker.invalid"), *headers[1:]],
             [headers[0], ("Origin", "https://attacker.invalid"), headers[2]],
             [headers[0], ("Origin", "null"), headers[2]],
+            [headers[0], ("Origin", "http://localhost.attacker.invalid:5173"), headers[2]],
+            [headers[0], ("Origin", "http://127.0.0.1:5173.attacker.invalid"), headers[2]],
             [headers[0], headers[2]], [*headers, headers[0]], [*headers, headers[1]],
             [*headers, ("Sec-Fetch-Site", "cross-site")],
             [*headers, ("Sec-Fetch-Site", "same-origin"), ("Sec-Fetch-Site", "same-origin")],
@@ -110,6 +117,21 @@ class ClinicalHttpBoundaryTests(unittest.TestCase):
                                 capture_output=True, text=True, timeout=5)
         self.assertEqual(result.returncode, 2)
         self.assertIn("Direct network exposure is disabled", result.stderr)
+
+    def test_boundary_configuration_rejects_nonloopback_server_addresses(self):
+        for host in ("0.0.0.0", "192.0.2.1", "::", "::ffff:192.0.2.1"):
+            with self.subTest(host=host), self.assertRaisesRegex(ValueError, "loopback bind"):
+                api.configure_local_server(SimpleNamespace(server_address=(host, 8765)))
+
+    def test_boundary_configuration_rejects_invalid_ui_ports(self):
+        for port in (True, 0, -1, 65536, 5173.0, "5173", "5173@attacker.invalid"):
+            with self.subTest(port=port), self.assertRaisesRegex(ValueError, "UI port"):
+                api.make_server(ui_port=port)
+
+    def test_boundary_configuration_rejects_malformed_session_credentials(self):
+        for token in (True, 123, b"a" * 64, "", "a" * 63, "g" * 64, "a" * 64 + "\n"):
+            with self.subTest(type=type(token).__name__), self.assertRaisesRegex(ValueError, "256-bit"):
+                api.make_server(session_token=token)
 
 
 if __name__ == "__main__":

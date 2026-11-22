@@ -5,17 +5,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
 import { auditBuild, productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
 import { clinicalApiBoundary, clinicalApiProxy } from './scripts/clinical-api-boundary.mjs';
-import { execFileSync } from 'node:child_process';
+import { readBuildIdentity } from './scripts/build-identity.mjs';
 import { fileURLToPath } from 'node:url';
 
-const sourceIdentity = (() => {
-  try {
-    const cwd = fileURLToPath(new URL('..', import.meta.url));
-    const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd, encoding:'utf8', stdio:['ignore','pipe','ignore'] }).trim();
-    const dirty = execFileSync('git', ['status', '--porcelain'], { cwd, encoding:'utf8', stdio:['ignore','pipe','ignore'] }).trim() !== '';
-    return { revision, dirty };
-  } catch { return { revision:'', dirty:false }; }
-})();
+const sourceIdentity = readBuildIdentity(fileURLToPath(new URL('..', import.meta.url)));
 
 const loopbackHost = '127.0.0.1';
 const localPeers = new Set([loopbackHost, `::ffff:${loopbackHost}`, '::1']);
