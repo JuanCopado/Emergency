@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MODALITIES, modalityContract, type PrototypeModalityId } from './r51Prototype';
+import { MODALITIES, limitationKeyFor, modalityContract, type PrototypeModalityId } from './r51Prototype';
 
 const PREVIEWABLE = new Set(['image/png', 'image/jpeg', 'image/webp']);
 
@@ -47,7 +47,7 @@ export default function ModalityEntry({ busy, ui, onConfirm }: {
             <input aria-label={ui('Upload clínico')} type="file" disabled={busy} accept={contract.accept}
               onChange={e => setFile(e.target.files?.[0] ?? null)} />
           </label>
-          <p className="text-xs text-muted">{ui(contract.limitationKey, { modality: label })}</p>
+          <p className="text-xs text-muted">{ui(limitationKeyFor(contract.id), { modality: label })}</p>
         </>
       )}
       {contract && file && (

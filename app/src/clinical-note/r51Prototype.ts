@@ -28,6 +28,40 @@ export interface ModalityContract {
 export const PROVISIONAL_LIMITATION =
   'Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.';
 
+/**
+ * Replacement mechanism for the fixed limitation text (R15, Mission D). Every text is PROVISIONAL until
+ * the medical owner expressly approves wording for a modality. An entry only replaces the provisional
+ * text when status is APPROVED AND it carries the decision id and an approval date; anything else
+ * falls back to the provisional text (fail-closed). No approved wording exists today, and the
+ * clauses of the Gemini R14 dossier are NOT incorporated (DEC-CLIN-R14-01 is not approved).
+ */
+export type LimitationStatus = 'PROVISIONAL' | 'APPROVED';
+
+export interface LimitationEntry {
+  readonly status: LimitationStatus;
+  /** Text (translation key) shown when approved; ignored while provisional. */
+  readonly approvedText?: string;
+  readonly approval?: { readonly decision: string; readonly date: string };
+}
+
+export const LIMITATION_TEXTS: Readonly<Record<PrototypeModalityId, LimitationEntry>> = {
+  skin_wound: { status: 'PROVISIONAL' },
+  ecg: { status: 'PROVISIONAL' },
+  xray: { status: 'PROVISIONAL' },
+  pocus: { status: 'PROVISIONAL' },
+  document: { status: 'PROVISIONAL' },
+};
+
+export function limitationKeyFor(id: PrototypeModalityId, table: Readonly<Record<PrototypeModalityId, LimitationEntry>> = LIMITATION_TEXTS): string {
+  const entry = table[id];
+  const approved = entry?.status === 'APPROVED' && !!entry.approvedText && !!entry.approval?.decision && /^\d{4}-\d{2}-\d{2}$/.test(entry.approval?.date ?? '');
+  return approved ? (entry.approvedText as string) : PROVISIONAL_LIMITATION;
+}
+
+export function limitationStatusFor(id: PrototypeModalityId, table: Readonly<Record<PrototypeModalityId, LimitationEntry>> = LIMITATION_TEXTS): LimitationStatus {
+  return limitationKeyFor(id, table) === PROVISIONAL_LIMITATION ? 'PROVISIONAL' : 'APPROVED';
+}
+
 const IMAGES = '.png,.jpg,.jpeg,.webp';
 
 export const MODALITIES: readonly ModalityContract[] = [

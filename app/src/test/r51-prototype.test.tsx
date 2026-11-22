@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import ClinicalNote from '../pages/ClinicalNote';
 import ModalityEntry from '../clinical-note/ModalityEntry';
-import { MODALITIES, appliesDermatologicFilter, r51PrototypeEnabled } from '../clinical-note/r51Prototype';
+import { LIMITATION_TEXTS, MODALITIES, PROVISIONAL_LIMITATION, appliesDermatologicFilter, limitationKeyFor, limitationStatusFor, r51PrototypeEnabled, type LimitationEntry, type PrototypeModalityId } from '../clinical-note/r51Prototype';
 import { renderAt } from './render';
 
 const sources = import.meta.glob('../clinical-note/{r51Prototype.ts,ModalityEntry.tsx}', {
@@ -208,5 +208,36 @@ describe('modality contract', () => {
       expect(m.limitationKey).toContain('{{modality}}');
       expect(m.limitationKey).toContain('redação médica pendente');
     }
+  });
+});
+
+describe('replacement of the provisional limitation texts', () => {
+  const ids = MODALITIES.map(m => m.id);
+  const table = (entry: LimitationEntry): Record<PrototypeModalityId, LimitationEntry> => ({ ...LIMITATION_TEXTS, ecg: entry });
+
+  it('every shipped text is provisional: no approved wording exists today', () => {
+    for (const id of ids) {
+      expect(LIMITATION_TEXTS[id].status).toBe('PROVISIONAL');
+      expect(limitationKeyFor(id)).toBe(PROVISIONAL_LIMITATION);
+      expect(limitationStatusFor(id)).toBe('PROVISIONAL');
+    }
+  });
+
+  it('only an APPROVED entry with decision id, date and text replaces the provisional text', () => {
+    const approved: LimitationEntry = { status: 'APPROVED', approvedText: 'Texto aprovado de teste.', approval: { decision: 'DEC-TEST', date: '2026-11-22' } };
+    expect(limitationKeyFor('ecg', table(approved))).toBe('Texto aprovado de teste.');
+    expect(limitationStatusFor('ecg', table(approved))).toBe('APPROVED');
+    expect(limitationKeyFor('xray', table(approved))).toBe(PROVISIONAL_LIMITATION);
+  });
+
+  it('fails closed to the provisional text when approval metadata is missing or malformed', () => {
+    const bad: LimitationEntry[] = [
+      { status: 'APPROVED', approvedText: 'x' },
+      { status: 'APPROVED', approvedText: 'x', approval: { decision: '', date: '2026-11-22' } },
+      { status: 'APPROVED', approvedText: 'x', approval: { decision: 'D', date: '22/11/2026' } },
+      { status: 'APPROVED', approval: { decision: 'D', date: '2026-11-22' } },
+      { status: 'PROVISIONAL', approvedText: 'x', approval: { decision: 'D', date: '2026-11-22' } },
+    ];
+    for (const entry of bad) expect(limitationKeyFor('ecg', table(entry))).toBe(PROVISIONAL_LIMITATION);
   });
 });
