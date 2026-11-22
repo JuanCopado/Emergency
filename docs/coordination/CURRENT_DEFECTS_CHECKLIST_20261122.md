@@ -12,19 +12,19 @@ Repositorio: `JuanCopado/Emergency`. Base inspeccionada: `0e68e5ee654e7be452cbb7
 
 | ID | Prioridad | Problema actual | Criterio de cierre | Estado |
 |---|---|---|---|---|
-| C01 | P1 | API general sin frontera Host/Origin y credencial de proceso equivalente a la API de gasometría; exposición de red sin identidad | Acceso local autorizado funciona; peticiones ajenas, credencial ausente/errónea y exposición de red no autenticada se rechazan | EN CURSO |
-| C02 | P1 | Documentos de texto se recortan silenciosamente a 120.000 caracteres | Rechazo explícito y localizable antes de procesar; documento en el límite conserva todo su texto | EN CURSO |
-| C03 | P1 | Detección de correo con coste cuadrático en texto adverso | Recorrido de coste acotado con equivalencia de detección y comprobación de entradas largas | EN CURSO |
-| C04 | P1 | Etiquetas identificativas reconocidas en idiomas incompletos | Casos ES/PT/EN/ZH y etiquetas observadas detienen el flujo cuando corresponde; controles negativos preservados | EN CURSO |
-| C05 | P2 | Aviso local de privacidad comunica una garantía mayor que el detector real | Mensaje describe alcance limitado y revisión humana necesaria; localizado en cuatro idiomas | EN CURSO |
-| C06 | P1 | Se pierde el borrador de nota al visitar gasometría y volver | Borrador en memoria por episodio, descarte explícito y respuestas antiguas aisladas; sin persistencia clínica en localStorage | EN CURSO |
-| C07 | P2 | Inicio etiqueta como futuras familias de guías ya disponibles | Disponibilidad y recuentos proceden del catálogo actual; acceso a guías sin prometer herramientas futuras | EN CURSO |
-| C08 | P2 | Controles existentes de escalas/importación permanecen en español con otros idiomas seleccionados | Controles localizados ES/PT/EN/ZH; texto clínico canónico identificado y preservado | EN CURSO |
-| C09 | P2 | Versión de catálogo adulto presentada como identidad de toda la aplicación | Identidad de aplicación/compilación separada de la versión del catálogo; sin inventar un SHA | EN CURSO |
-| C10 | P2 | Documentación vigente contradice funciones y aceptaciones ya existentes | Selector contextual, contratos aceptados, QA de impresión y reserva de ramas descritos con su alcance real; históricos preservados | EN CURSO |
-| C11 | P2 | PROC-SP-003 anuncia reimplantación aunque la ficha fuente describe conservación del segmento | Índices y derivados usan el título de la ficha fuente; cuerpo, estados y evidencia conservados | EN CURSO |
+| C01 | P1 | API general sin frontera Host/Origin y credencial de proceso equivalente a la API de gasometría; exposición de red sin identidad | Acceso local autorizado funciona; peticiones ajenas, credencial ausente/errónea y exposición de red no autenticada se rechazan | OK |
+| C02 | P1 | Documentos de texto se recortan silenciosamente a 120.000 caracteres | Rechazo explícito y localizable antes de procesar; documento en el límite conserva todo su texto | OK |
+| C03 | P1 | Detección de correo con coste cuadrático en texto adverso | Recorrido de coste acotado con equivalencia de detección y comprobación de entradas largas | OK |
+| C04 | P1 | Etiquetas identificativas reconocidas en idiomas incompletos | Casos ES/PT/EN/ZH y etiquetas observadas detienen el flujo cuando corresponde; controles negativos preservados | OK |
+| C05 | P2 | Aviso local de privacidad comunica una garantía mayor que el detector real | Mensaje describe alcance limitado y revisión humana necesaria; localizado en cuatro idiomas | OK |
+| C06 | P1 | Se pierde el borrador de nota al visitar gasometría y volver | Borrador en memoria por episodio, descarte explícito y respuestas antiguas aisladas; sin persistencia clínica en localStorage | OK |
+| C07 | P2 | Inicio etiqueta como futuras familias de guías ya disponibles | Disponibilidad y recuentos proceden del catálogo actual; acceso a guías sin prometer herramientas futuras | OK |
+| C08 | P2 | Controles existentes de escalas/importación permanecen en español con otros idiomas seleccionados | Controles localizados ES/PT/EN/ZH; texto clínico canónico identificado y preservado | OK |
+| C09 | P2 | Versión de catálogo adulto presentada como identidad de toda la aplicación | Identidad de aplicación/compilación separada de la versión del catálogo; sin inventar un SHA | OK |
+| C10 | P2 | Documentación vigente contradice funciones y aceptaciones ya existentes | Selector contextual, contratos aceptados, QA de impresión y reserva de ramas descritos con su alcance real; históricos preservados | OK |
+| C11 | P2 | PROC-SP-003 anuncia reimplantación aunque la ficha fuente describe conservación del segmento | Índices y derivados usan el título de la ficha fuente; cuerpo, estados y evidencia conservados | OK |
 | C12 | P1 | GitHub no exige comprobaciones ni protege automáticamente las ramas inspeccionadas | Protección remota activa, exigencia de comprobaciones aplicables y verificación posterior por API | PENDIENTE DE ACCESO |
-| C13 | P1 | Una aceptación MCDT tardía puede marcar como aceptado un informe editado o rechazado mientras esperaba | Respuestas de aceptación vinculadas a la revisión enviada; un cambio posterior conserva el estado actual y permite reintento sin instalar datos antiguos | EN CURSO |
+| C13 | P1 | Una aceptación MCDT tardía puede marcar como aceptado un informe editado o rechazado mientras esperaba | Respuestas de aceptación vinculadas a la revisión enviada; un cambio posterior conserva el estado actual y permite reintento sin instalar datos antiguos | OK |
 
 ## Límite de C12
 
@@ -40,7 +40,7 @@ Se conservan los 131 módulos, 129 GREEN / 2 YELLOW / 0 RED, las aceptaciones de
 
 ## Evidencia de entrega
 
-Las comprobaciones de cada bloque y los SHA de integración se añadirán al cerrar el lote. Este documento todavía no acredita una corrección integrada ni una instalación en un equipo asistencial.
+**Doce puntos OK y C12 pendiente de acceso.** [PR70](https://github.com/JuanCopado/Emergency/pull/70) integrada en `e8de202d874c6db588d3561ff13859e5ee53c96d` sobre la rama internacional. El árbol `4f3331e48474816d4487635bae2c05d24849acee` coincide exactamente con el head comprobado `e6a4e00cfd89d1aa7a625f9ef3d3ed9efe0ac1a1`. Los seis workflows de push y PR finalizaron SUCCESS antes de integrar. El [recibo de integración](PR70_INTEGRACION_20261122.md) conserva las pruebas, el alcance, las incidencias iniciales y la verificación remota. Esta entrega no acredita una instalación en un equipo asistencial.
 
 ### C10/C11 · comprobaciones locales
 
@@ -82,3 +82,7 @@ La conciliación final de C10 incluye la frase vigente de `docs/INTERNATIONAL_SC
 El delta local compuesto de cierre supera **26/26 Vitest en cuatro archivos**, los nueve métodos Python de frontera y los seis de integridad numérica HTTP, lint, TypeScript y build. La ejecución de los seis métodos HTTP utiliza el modo discovery esperado por sus imports de pruebas; una invocación conjunta anterior sin esa ruta de importación falló al cargar el módulo y no se contabiliza como prueba aprobada. La medición focal acredita las 34 líneas y nueve funciones del middleware, con 43/45 ramas; no se atribuye ese porcentaje al proyecto completo. La identidad de compilación usa Git nativo desde rutas absolutas fijas, entorno aislado y fsmonitor desactivado; doce casos con repositorios reales conservan SHA/dirty/unknown y verifican las redirecciones rechazadas. El import de ese helper y la frontera HTTP se conservaron juntos al resolver el conflicto de Vite. El siguiente head remoto debe superar el gate completo antes de integrar.
 
 Detalle de análisis de la frontera local y del hotspot de IP: [revisión Sonar de HTTP](../../clinical/qa/HTTP_LOCAL_BOUNDARY_SONAR_20261122.md). La dirección IPv4-mapped de loopback permanece literal en la lista de conexiones admitidas; no se ha ocultado ni cerrado administrativamente el hotspot para conseguir un PASS.
+
+### Cierre observado
+
+Clinical QA del head definitivo: **1.205 pruebas contabilizadas, 14 omitidas y 1.191 ejecutadas sin fallo**; App UI QA: **947/947 en 47 archivos**, con 13 formularios de escalas, ocho enlaces de reanimación, 21 casos agudos, cuatro PDF y cinco escenarios pediátricos. Los seis jobs de seguridad/calidad aprobaron en push y PR. Sonar del PR: **88,7 % de cobertura nueva, gate PASS**; rama: **84,1 %, gate PASS**. Son ámbitos de comparación distintos. Se conserva la anotación S1313 de loopback y la incidencia interna Protobuf/UTF-8 con sus límites, sin waivers ni cambios de umbral. El estado OK acredita estos defectos técnicos integrados, no una liberación clínica.
