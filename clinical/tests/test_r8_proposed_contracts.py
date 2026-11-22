@@ -24,7 +24,7 @@ SIGNS = ("chromatic_alteration", "exudate_compatible_surface_material", "necroti
 
 def valid_document(**changes):
     sign = {"state": "not_observable"}
-    doc = {"contract_version": "phase1-0.1-proposed",
+    doc = {"contract_version": "phase1-0.2-proposed",
            "modality": {"kind_effective": "other_image", "kind_source": "default_unclassified",
                         "modality_verification": "not_verified", "kind_discordance": "unknown",
                         "kind_explicit": None, "kind_inferred": None},
@@ -121,8 +121,41 @@ class ProposedPhase1Contract(unittest.TestCase):
         del doc["observations"]["visible_edge_separation"]
         self.assertFalse(self.validator.is_valid(doc))
 
+    def test_five_states_and_not_applicable_needs_a_confirmed_absent_premise(self):
+        signs = self.schema["properties"]["observations"]["properties"]
+        self.assertEqual(len(signs), 5)
+        for name, sign in signs.items():
+            self.assertEqual(sign["properties"]["state"]["enum"],
+                             ["observable", "not_observable", "uncertain", "not_assessable", "not_applicable"], name)
+            doc = valid_document()
+            doc["observations"][name] = {"state": "not_applicable", "premise_absent_confirmed": True}
+            self.validator.validate(doc)
+            for bad in ({"state": "not_applicable"},
+                        {"state": "not_applicable", "premise_absent_confirmed": False},
+                        {"state": "not_applicable", "premise_absent_confirmed": True, "uncertainty_causes": ["shadow"]},
+                        {"state": "not_applicable", "premise_absent_confirmed": "yes"},
+                        {"state": "observable", "premise_absent_confirmed": True},
+                        {"state": "not_observable", "premise_absent_confirmed": False},
+                        {"state": "not_assessable", "premise_absent_confirmed": True}):
+                doc = valid_document()
+                doc["observations"][name] = bad
+                self.assertFalse(self.validator.is_valid(doc), (name, bad))
+
+    def test_not_applicable_stays_inside_the_inactive_contract_and_phase2_stays_blocked(self):
+        self.assertEqual(self.schema["x-not-applicable"]["status"], "PROPOSED_INACTIVE")
+        self.assertEqual(self.schema["x-not-applicable"]["decision"], "DEC-CLIN-R8-03")
+        self.assertEqual(self.schema["x-not-applicable"]["premise_definitions"], "PENDING_MEDICAL_WORDING")
+        self.assertEqual(self.schema["x-not-applicable"]["source_of_confirmation"],
+                         "CLINICIAN_OR_EXPLICIT_CLINICAL_DATA_NEVER_IMAGE_ONLY")
+        self.assertIn("no se infiere solo de la imagen", self.schema["x-not-applicable"]["rule"])
+        for sign in self.schema["properties"]["observations"]["properties"].values():
+            self.assertIn("No se infiere solo de la imagen", sign["properties"]["premise_absent_confirmed"]["description"])
+        self.assertEqual(self.schema["x-phase2"]["status"], "BLOCKED")
+        for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
+            self.assertNotIn("premise_absent_confirmed", path.read_text(encoding="utf-8", errors="ignore"), str(path))
+
     def test_the_proposal_is_not_wired_into_the_product(self):
-        needles = ("skin-wound-phase1-contract", "phase1-0.1-proposed")
+        needles = ("skin-wound-phase1-contract", "phase1-0.1-proposed", "phase1-0.2-proposed")
         for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
             text = path.read_text(encoding="utf-8", errors="ignore")
             for needle in needles:

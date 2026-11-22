@@ -1,9 +1,9 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "$id": "emergency:skin-wound-phase1-contract:proposed-0.1",
+ "$id": "emergency:skin-wound-phase1-contract:proposed-0.2",
  "title": "Skin/wound photograph · Phase 1 descriptive output (PROPOSED, INACTIVE)",
  "x-status": "PROPOSED_INACTIVE",
- "x-notice": "Borrador técnico derivado de la propuesta Gemini v1.3. No está conectado al producto, no sustituye la salida libre actual y no tiene aprobación médica (DEC-CLIN-R7-03 y DEC-CLIN-R7-06 pendientes). CLINICALLY_PENDING.",
+ "x-notice": "Borrador técnico derivado de la propuesta Gemini v1.3. No está conectado al producto, no sustituye la salida libre actual y no tiene aprobación médica (DEC-CLIN-R7-03 y DEC-CLIN-R7-06 pendientes). CLINICALLY_PENDING. Enmienda 0.2 (DEC-CLIN-R8-03: SÍ, cinco estados, 22/11/2026): se incorpora «not_applicable» solo a este contrato inactivo y solo cuando se confirma la ausencia de la premisa clínica del signo. Las premisas de cada signo siguen pendientes de redacción médica; la Fase 2 sigue bloqueada.",
  "type": "object",
  "additionalProperties": false,
  "required": [
@@ -16,7 +16,7 @@
  ],
  "properties": {
   "contract_version": {
-   "const": "phase1-0.1-proposed"
+   "const": "phase1-0.2-proposed"
   },
   "modality": {
    "type": "object",
@@ -95,7 +95,8 @@
         "observable",
         "not_observable",
         "uncertain",
-        "not_assessable"
+        "not_assessable",
+        "not_applicable"
        ]
       },
       "uncertainty_causes": {
@@ -116,6 +117,10 @@
          "other"
         ]
        }
+      },
+      "premise_absent_confirmed": {
+       "type": "boolean",
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -135,6 +140,37 @@
          "uncertainty_causes": {
           "minItems": 1
          }
+        }
+       }
+      },
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "not_applicable"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "premise_absent_confirmed"
+        ],
+        "properties": {
+         "premise_absent_confirmed": {
+          "const": true
+         }
+        },
+        "not": {
+         "required": [
+          "uncertainty_causes"
+         ]
+        }
+       },
+       "else": {
+        "not": {
+         "required": [
+          "premise_absent_confirmed"
+         ]
         }
        }
       }
@@ -153,7 +189,8 @@
         "observable",
         "not_observable",
         "uncertain",
-        "not_assessable"
+        "not_assessable",
+        "not_applicable"
        ]
       },
       "uncertainty_causes": {
@@ -174,6 +211,10 @@
          "other"
         ]
        }
+      },
+      "premise_absent_confirmed": {
+       "type": "boolean",
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -193,6 +234,37 @@
          "uncertainty_causes": {
           "minItems": 1
          }
+        }
+       }
+      },
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "not_applicable"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "premise_absent_confirmed"
+        ],
+        "properties": {
+         "premise_absent_confirmed": {
+          "const": true
+         }
+        },
+        "not": {
+         "required": [
+          "uncertainty_causes"
+         ]
+        }
+       },
+       "else": {
+        "not": {
+         "required": [
+          "premise_absent_confirmed"
+         ]
         }
        }
       }
@@ -211,7 +283,8 @@
         "observable",
         "not_observable",
         "uncertain",
-        "not_assessable"
+        "not_assessable",
+        "not_applicable"
        ]
       },
       "uncertainty_causes": {
@@ -232,6 +305,10 @@
          "other"
         ]
        }
+      },
+      "premise_absent_confirmed": {
+       "type": "boolean",
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -251,6 +328,37 @@
          "uncertainty_causes": {
           "minItems": 1
          }
+        }
+       }
+      },
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "not_applicable"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "premise_absent_confirmed"
+        ],
+        "properties": {
+         "premise_absent_confirmed": {
+          "const": true
+         }
+        },
+        "not": {
+         "required": [
+          "uncertainty_causes"
+         ]
+        }
+       },
+       "else": {
+        "not": {
+         "required": [
+          "premise_absent_confirmed"
+         ]
         }
        }
       }
@@ -269,7 +377,8 @@
         "observable",
         "not_observable",
         "uncertain",
-        "not_assessable"
+        "not_assessable",
+        "not_applicable"
        ]
       },
       "uncertainty_causes": {
@@ -290,6 +399,10 @@
          "other"
         ]
        }
+      },
+      "premise_absent_confirmed": {
+       "type": "boolean",
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -309,6 +422,37 @@
          "uncertainty_causes": {
           "minItems": 1
          }
+        }
+       }
+      },
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "not_applicable"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "premise_absent_confirmed"
+        ],
+        "properties": {
+         "premise_absent_confirmed": {
+          "const": true
+         }
+        },
+        "not": {
+         "required": [
+          "uncertainty_causes"
+         ]
+        }
+       },
+       "else": {
+        "not": {
+         "required": [
+          "premise_absent_confirmed"
+         ]
         }
        }
       }
@@ -327,7 +471,8 @@
         "observable",
         "not_observable",
         "uncertain",
-        "not_assessable"
+        "not_assessable",
+        "not_applicable"
        ]
       },
       "uncertainty_causes": {
@@ -348,6 +493,10 @@
          "other"
         ]
        }
+      },
+      "premise_absent_confirmed": {
+       "type": "boolean",
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -367,6 +516,37 @@
          "uncertainty_causes": {
           "minItems": 1
          }
+        }
+       }
+      },
+      {
+       "if": {
+        "properties": {
+         "state": {
+          "const": "not_applicable"
+         }
+        }
+       },
+       "then": {
+        "required": [
+         "premise_absent_confirmed"
+        ],
+        "properties": {
+         "premise_absent_confirmed": {
+          "const": true
+         }
+        },
+        "not": {
+         "required": [
+          "uncertainty_causes"
+         ]
+        }
+       },
+       "else": {
+        "not": {
+         "required": [
+          "premise_absent_confirmed"
+         ]
         }
        }
       }
@@ -438,5 +618,12 @@
  "x-phase2": {
   "status": "BLOCKED",
   "note": "La clasificación de signos de alarma o priorización no forma parte de este contrato. additionalProperties=false impide añadirla."
+ },
+ "x-not-applicable": {
+  "status": "PROPOSED_INACTIVE",
+  "decision": "DEC-CLIN-R8-03",
+  "rule": "state=not_applicable exige premise_absent_confirmed=true y no admite uncertainty_causes; los demás estados no admiten premise_absent_confirmed. No equivale a not_observable (premisa presente y signo no visto) ni a not_assessable (no se puede valorar la imagen). La ausencia de la premisa clínica del signo no se infiere solo de la imagen: la confirma una persona o un dato clínico explícito, y por eso `premise_absent_confirmed` es una confirmación declarada, nunca una salida del modelo ni de un clasificador.",
+  "premise_definitions": "PENDING_MEDICAL_WORDING",
+  "source_of_confirmation": "CLINICIAN_OR_EXPLICIT_CLINICAL_DATA_NEVER_IMAGE_ONLY"
  }
 }
