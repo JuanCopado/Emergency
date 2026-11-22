@@ -42,7 +42,9 @@ it('supports packed refs and a linked worktree .git file', () => {
   run(root,'pack-refs','--all','--prune');
   expect(readBuildIdentity(root)).toEqual({revision,dirty:false});
   const worktree = join(directory,'linked-worktree');
-  run(root,'worktree','add','--quiet','--detach',worktree,'HEAD');
+  // Git for Windows applies core.autocrlf from the system config, so a CRLF checkout would differ from the index
+  // once readBuildIdentity (which deliberately ignores system config) compares it. Check out LF to test the worktree path.
+  run(root,'-c','core.autocrlf=false','worktree','add','--quiet','--detach',worktree,'HEAD');
   expect(readBuildIdentity(worktree)).toEqual({revision,dirty:false});
   writeFileSync(join(worktree,'tracked.txt'),'changed in worktree\n');
   expect(readBuildIdentity(worktree)).toEqual({revision,dirty:true});

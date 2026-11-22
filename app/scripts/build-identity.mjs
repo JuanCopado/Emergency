@@ -1,13 +1,12 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { devNull } from 'node:os';
 import { join } from 'node:path';
 
 // Git for Windows 2.56 rejects `os.devNull` (`\\.\nul`) as a config path ("unable to access ... Invalid argument",
 // exit 128), which made every Windows build report an unknown revision. `NUL` is its documented null device and
 // keeps the global configuration ignored (verified: `git config --list --show-origin` lists only .git/config).
 export function gitNullDevice(platform = process.platform) {
-  return platform === 'win32' ? 'NUL' : devNull;
+  return platform === 'win32' ? 'NUL' : '/dev/null';
 }
 
 export function readBuildIdentity(repositoryRoot) {
