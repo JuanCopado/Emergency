@@ -37,7 +37,7 @@ describe('clinical-note API connection failures', () => {
     vi.stubGlobal('fetch', fetchMock);
     const pending = analyzeClinicalNote(note).catch(error => error);
     await vi.advanceTimersByTimeAsync(REQUEST_TIMEOUT_MS - 1);
-    expect(fetchMock.mock.calls[0][1]?.signal?.aborted).toBe(false);
+    expect(fetchMock.mock.calls[0]?.[1]?.signal?.aborted).toBe(false);
     await vi.advanceTimersByTimeAsync(1);
     const failure = await pending;
     expect(failure).toBeInstanceOf(ClinicalApiConnectionError);
@@ -51,7 +51,7 @@ describe('clinical-note API connection failures', () => {
     vi.stubGlobal('fetch', fetchMock);
     const pending = interpretClinicalUpload(file, prepared, true, true).catch(error => error);
     await vi.advanceTimersByTimeAsync(REQUEST_TIMEOUT_MS + 1000);
-    expect(fetchMock.mock.calls[0][1]?.signal?.aborted).toBe(false);
+    expect(fetchMock.mock.calls[0]?.[1]?.signal?.aborted).toBe(false);
     await vi.advanceTimersByTimeAsync(PROVIDER_TIMEOUT_MS);
     expect((await pending).failure).toBe('timeout');
     expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -105,7 +105,7 @@ describe('connection messages', () => {
     for (const [name, locale] of Object.entries({ pt, es, en, zh }) as [string, Record<string, string>][]) {
       for (const key of Object.values(CONNECTION_MESSAGES)) {
         expect(typeof locale[key], `${name}: ${key}`).toBe('string');
-        expect(locale[key].length, `${name}: ${key}`).toBeGreaterThan(10);
+        expect(locale[key]?.length ?? 0, `${name}: ${key}`).toBeGreaterThan(10);
       }
     }
   });
