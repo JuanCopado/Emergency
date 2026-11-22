@@ -55,7 +55,11 @@ Persiste el error interno de deserialización Protobuf/UTF-8 observado en la aud
 
 ### Comprobación posterior a la integración
 
-La API de GitHub confirma PR70 cerrada y fusionada, y la rama `codex/v144-international-scope-20261116` apunta a `e8de202d874c6db588d3561ff13859e5ee53c96d`. El árbol integrado `4f3331e48474816d4487635bae2c05d24849acee` coincide byte a byte con el del head comprobado. La tabla anterior acredita la CI previa a integrar; no se atribuye a una ejecución posterior. Los workflows automáticos posteriores se identifican por el SHA del merge. Este recibo y el cierre del checklist se publican como un seguimiento documental separado. `main` permanece en `4f37263f581c41874fd3253147e6679b0b0685d8`; RC1 y v1.43 no son destinos de esta entrega.
+La API de GitHub confirmó PR70 cerrada y fusionada, y la rama `codex/v144-international-scope-20261116` en `e8de202d874c6db588d3561ff13859e5ee53c96d`. El árbol integrado `4f3331e48474816d4487635bae2c05d24849acee` coincide byte a byte con el del head comprobado. La tabla anterior acredita la CI previa a integrar; no se atribuye a una ejecución posterior. `main` permanece en `4f37263f581c41874fd3253147e6679b0b0685d8`; RC1 y v1.43 no son destinos de esta entrega.
+
+Las ejecuciones posteriores del merge acreditan Clinical QA `44995289620` PASS (1.205 pruebas contabilizadas, 14 omitidas, 1.191 ejecutadas) y App UI QA `44995289584` PASS (947/947, con navegador). Security and quality `44995289577` falla: los 81 tests nativos T05 pasan, pero el smoke compuesto del job `137124901477` lee LAUNCH.json vacío y termina con JSONDecodeError. Trivy, Semgrep, T06 y cobertura pasan; Sonar se omite por la dependencia fallida. El [artifact de la incidencia](https://github.com/JuanCopado/Emergency/actions/runs/44995289577/artifacts/14743990082) conserva sus registros. No se presenta este run como aprobado ni se sustituye su evidencia por un rerun.
+
+La inspección identifica que `Path.write_text` publica el nombre final antes de completar el JSON, mientras el lector espera únicamente su existencia. El seguimiento [PR71](https://github.com/JuanCopado/Emergency/pull/71) incorpora C14 para corregir ese defecto actual y registrar la comprobación posterior; por ello ya no se limita a documentación. Las comprobaciones de código de PR70 conservan su fecha y alcance.
 
 ## Alcance preservado
 

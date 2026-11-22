@@ -25,6 +25,7 @@ Repositorio: `JuanCopado/Emergency`. Base inspeccionada: `0e68e5ee654e7be452cbb7
 | C11 | P2 | PROC-SP-003 anuncia reimplantación aunque la ficha fuente describe conservación del segmento | Índices y derivados usan el título de la ficha fuente; cuerpo, estados y evidencia conservados | OK |
 | C12 | P1 | GitHub no exige comprobaciones ni protege automáticamente las ramas inspeccionadas | Protección remota activa, exigencia de comprobaciones aplicables y verificación posterior por API | PENDIENTE DE ACCESO |
 | C13 | P1 | Una aceptación MCDT tardía puede marcar como aceptado un informe editado o rechazado mientras esperaba | Respuestas de aceptación vinculadas a la revisión enviada; un cambio posterior conserva el estado actual y permite reintento sin instalar datos antiguos | OK |
+| C14 | P2 | El lector del arranque puede encontrar LAUNCH.json vacío porque el lanzador hace visible el archivo antes de terminar de escribir | Publicación atómica del recibo completo, reproducción determinista de la ventana y comprobación nativa del lanzador | EN CURSO |
 
 ## Límite de C12
 
@@ -41,6 +42,10 @@ Se conservan los 131 módulos, 129 GREEN / 2 YELLOW / 0 RED, las aceptaciones de
 ## Evidencia de entrega
 
 **Doce puntos OK y C12 pendiente de acceso.** [PR70](https://github.com/JuanCopado/Emergency/pull/70) integrada en `e8de202d874c6db588d3561ff13859e5ee53c96d` sobre la rama internacional. El árbol `4f3331e48474816d4487635bae2c05d24849acee` coincide exactamente con el head comprobado `e6a4e00cfd89d1aa7a625f9ef3d3ed9efe0ac1a1`. Los seis workflows de push y PR finalizaron SUCCESS antes de integrar. El [recibo de integración](PR70_INTEGRACION_20261122.md) conserva las pruebas, el alcance, las incidencias iniciales y la verificación remota. Esta entrega no acredita una instalación en un equipo asistencial.
+
+**Seguimiento posterior: C14 en curso.** La ejecución automática del merge detectó una lectura vacía de LAUNCH.json en el smoke T05 de Windows, después de 81 tests nativos aprobados. Clinical QA (1.205 pruebas, 14 omitidas) y App UI QA (947/947) de ese merge pasaron; Security and quality `44995289577` falló por el job T05 `137124901477` y no ejecutó Sonar. La inspección sitúa la ventana entre crear el archivo final con `write_text` y completar su contenido; el lector solo espera `is_file()`. C14 es un defecto actual del recibo, no una ampliación clínica o de plataforma. Su corrección y pruebas se registran en PR71; no se declara OK antes de comprobarlas e integrarlas.
+
+La corrección C14 escribe cada recibo en un temporal único del mismo directorio, vacía y sincroniza el archivo, lo cierra y publica mediante `os.replace`. Se aplica a LAUNCH.json y STOP.json; el lector permanece intacto y no se añaden reintentos. La reproducción detiene la escritura después de abrir el archivo real: con la escritura directa se observa el mismo JSONDecodeError. Tras corregir, pasan cuatro regresiones de publicación/limpieza y las dos de salud existentes (**6/6**, Linux/Python 3.12); también pasan al componer el delta. La comprobación nativa de Windows del nuevo head y la integración siguen pendientes en este corte.
 
 ### C10/C11 · comprobaciones locales
 

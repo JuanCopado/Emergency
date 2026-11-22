@@ -17,6 +17,7 @@ import signal
 import socket
 import subprocess
 import sys
+import tempfile
 import time
 
 
@@ -34,6 +35,25 @@ def port_number(value):
 
 def check_python(interpreter, code):
     return json.loads(subprocess.check_output([str(interpreter), '-c', code], text=True))
+
+
+def write_receipt(path, receipt):
+    """Publish a complete receipt before its final name signals readiness."""
+    serialized = json.dumps(receipt, indent=2) + '\n'
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf8', dir=path.parent,
+                                         prefix=f'.{path.name}.', suffix='.tmp', delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(serialized)
+            stream.flush()
+            os.fsync(stream.fileno())
+        # Close the temporary before replacement for Windows compatibility.
+        # The same directory keeps publication on one filesystem.
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
 def service_ready(name, ui_port):
@@ -182,12 +202,12 @@ def main():
             if time.monotonic() >= deadline:
                 raise RuntimeError('Local startup did not complete: ' + ', '.join(sorted(pending)))
             time.sleep(0.1)
-        (evidence / 'LAUNCH.json').write_text(json.dumps({
+        write_receipt(evidence / 'LAUNCH.json', {
             'started_utc': started, 'origin': origin, 'state': 'CLINICALLY_PENDING',
             'synthetic_only': True, 'versions': versions, 'model_sha256': MODEL_SHA256,
             'capabilities': {'t05_native_extraction': native_extraction, 't06_transport': native_t06},
             'processes': {name: process.pid for name, process in processes.items()},
-        }, indent=2) + '\n', encoding='utf8')
+        })
         print(f'Emergency · revisión local con datos sintéticos: {origin}', flush=True)
         print(f'Gasometría: {origin}/blood-gas · T06: {origin}/t06-lab', flush=True)
         print('Extracción T05: ' + ('Windows disponible' if native_extraction else 'requiere Windows; bloqueada en Linux'), flush=True)
@@ -203,10 +223,10 @@ def main():
             stop_process(process)
         for log in logs:
             log.close()
-        (evidence / 'STOP.json').write_text(json.dumps({
+        write_receipt(evidence / 'STOP.json', {
             'stopped_utc': datetime.now(timezone.utc).isoformat(),
             'exit_codes': {name: process.returncode for name, process in processes.items()},
-        }, indent=2) + '\n', encoding='utf8')
+        })
 
 
 if __name__ == '__main__':
