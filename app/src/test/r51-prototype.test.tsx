@@ -1,8 +1,9 @@
 // R13 · R5-1 policy layers 1-6, INACTIVE prototype. Synthetic upload only; the mocked service produces nothing clinical.
-import { screen, within } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import ClinicalNote from '../pages/ClinicalNote';
+import ModalityEntry from '../clinical-note/ModalityEntry';
 import { MODALITIES, appliesDermatologicFilter, r51PrototypeEnabled } from '../clinical-note/r51Prototype';
 import { renderAt } from './render';
 
@@ -181,6 +182,16 @@ describe('what the prototype source does not contain', () => {
     for (const forbidden of [/getImageData|ImageData|<canvas|document\.createElement\(.canvas/i, /tensorflow|onnx|classif/i,
       /abstain|abstenc|abstención/i, /kind_assessment|kind_discordance|suspicion/i, /fetch\(|XMLHttpRequest|\/api\//])
       expect(code, `${name}: ${forbidden}`).not.toMatch(forbidden);
+  });
+});
+
+describe('while a request is in flight', () => {
+  it.each([[true], [false]])('modality buttons are disabled only when busy (busy=%s)', (busy) => {
+    render(<ModalityEntry busy={busy} ui={(key) => key} onConfirm={() => undefined} />);
+    for (const button of within(screen.getByTestId('r51-modality-entry')).getAllByRole('button')) {
+      if (busy) expect(button).toBeDisabled();
+      else expect(button).toBeEnabled();
+    }
   });
 });
 

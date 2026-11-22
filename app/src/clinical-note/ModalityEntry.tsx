@@ -34,7 +34,7 @@ export default function ModalityEntry({ busy, ui, onConfirm }: {
       <span className="label">{ui('Escolha a modalidade antes de enviar')}</span>
       <div className="flex flex-wrap gap-2">
         {MODALITIES.map(m => (
-          <button key={m.id} type="button" aria-pressed={modality === m.id}
+          <button key={m.id} type="button" aria-pressed={modality === m.id} disabled={busy}
             className={`btn min-h-11 ${modality === m.id ? 'btn-primary' : 'btn-ghost'}`}
             onClick={() => { setModality(m.id); setFile(null); }}>{ui(m.labelKey)}</button>
         ))}
