@@ -3,6 +3,13 @@ import { existsSync } from 'node:fs';
 import { devNull } from 'node:os';
 import { join } from 'node:path';
 
+// Git for Windows 2.56 rejects `os.devNull` (`\\.\nul`) as a config path ("unable to access ... Invalid argument",
+// exit 128), which made every Windows build report an unknown revision. `NUL` is its documented null device and
+// keeps the global configuration ignored (verified: `git config --list --show-origin` lists only .git/config).
+export function gitNullDevice(platform = process.platform) {
+  return platform === 'win32' ? 'NUL' : devNull;
+}
+
 export function readBuildIdentity(repositoryRoot) {
   try {
     // A source archive must not inherit an enclosing checkout's identity.
@@ -20,7 +27,7 @@ export function readBuildIdentity(repositoryRoot) {
       env: {
         PATH: '',
         GIT_CONFIG_NOSYSTEM: '1',
-        GIT_CONFIG_GLOBAL: devNull,
+        GIT_CONFIG_GLOBAL: gitNullDevice(),
         GIT_OPTIONAL_LOCKS: '0',
         GIT_TERMINAL_PROMPT: '0',
         ...(process.platform === 'win32' ? {SystemRoot: process.env.SystemRoot} : {}),

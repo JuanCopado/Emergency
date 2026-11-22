@@ -49,3 +49,5 @@ R7 · 21/11/2026 · M10 R5-2 técnico: normalización de codificación en el fil
 R8 · 21/11/2026 · M10 R5-1 técnico de transparencia: categoría efectiva y origen visibles antes de interpretar; sin cambio de encaminamiento ni de criterios. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
 
 R8 · 21/11/2026 · M10 R5-1/R5-2: [contratos propuestos inactivos y corpus sintético](clinical/qa/R8_M10_R5_CONTRATOS_PROPUESTOS_20261121.md); decisiones DEC-CLIN-R7-03/06 pendientes. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
+
+R11 · 22/11/2026 · Identidad de compilación en Windows (técnico, sin cambio clínico): `readBuildIdentity` fijaba `GIT_CONFIG_GLOBAL=os.devNull` (`\\.\nul`), que Git for Windows 2.56.1 rechaza (exit 128), y devolvía revisión desconocida en Windows; ahora usa `NUL` en Windows y mantiene el aislamiento (medido: solo se lee `.git/config`). Defecto previo, ajeno a PR74. CLINICALLY_PENDING.

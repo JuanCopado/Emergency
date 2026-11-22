@@ -4,7 +4,7 @@ import { chmodSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } 
 import { tmpdir } from 'node:os';
 import { delimiter, join } from 'node:path';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
-import { readBuildIdentity } from './build-identity.mjs';
+import { gitNullDevice, readBuildIdentity } from './build-identity.mjs';
 
 const git = process.platform === 'win32' ? 'C:\\Program Files\\Git\\cmd\\git.exe' : '/usr/bin/git';
 const unknown = {revision:'',dirty:false};
@@ -102,4 +102,14 @@ it.skipIf(process.platform === 'win32')('does not invoke a repository-configured
   run(root,'config','core.fsmonitor',hook);
   expect(readBuildIdentity(root)).toEqual({revision,dirty:false});
   expect(existsSync(marker)).toBe(false);
+});
+
+it('uses a null device Git for Windows accepts, never the device-namespace path that made it exit 128', () => {
+  // Measured on windows-2025 with Git 2.56.1: `\\\\.\\nul` -> "fatal: unable to access ... Invalid argument";
+  // `NUL`, `nul`, `/dev/null`, an unset variable and an empty file all work.
+  expect(gitNullDevice('win32')).toBe('NUL');
+  expect(gitNullDevice('win32')).not.toContain('\\');
+  expect(gitNullDevice('linux')).toBe('/dev/null');
+  expect(gitNullDevice('darwin')).toBe('/dev/null');
+  expect(gitNullDevice()).toBe(process.platform === 'win32' ? 'NUL' : '/dev/null');
 });
