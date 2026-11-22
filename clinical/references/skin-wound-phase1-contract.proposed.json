@@ -1,9 +1,9 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "$id": "emergency:skin-wound-phase1-contract:proposed-0.2",
+ "$id": "emergency:skin-wound-phase1-contract:proposed-0.3",
  "title": "Skin/wound photograph · Phase 1 descriptive output (PROPOSED, INACTIVE)",
  "x-status": "PROPOSED_INACTIVE",
- "x-notice": "Borrador técnico derivado de la propuesta Gemini v1.3. No está conectado al producto, no sustituye la salida libre actual y no tiene aprobación médica (DEC-CLIN-R7-03 y DEC-CLIN-R7-06 pendientes). CLINICALLY_PENDING. Enmienda 0.2 (DEC-CLIN-R8-03: SÍ, cinco estados, 22/11/2026): se incorpora «not_applicable» solo a este contrato inactivo y solo cuando se confirma la ausencia de la premisa clínica del signo. Las premisas de cada signo siguen pendientes de redacción médica; la Fase 2 sigue bloqueada.",
+ "x-notice": "Borrador técnico derivado de la propuesta Gemini v1.3. No está conectado al producto, no sustituye la salida libre actual y no tiene aprobación médica (DEC-CLIN-R7-03 y DEC-CLIN-R7-06 pendientes). CLINICALLY_PENDING. Enmienda 0.2 (DEC-CLIN-R8-03: SÍ, cinco estados, 22/11/2026): se incorpora «not_applicable» solo a este contrato inactivo y solo cuando se confirma la ausencia de la premisa clínica del signo. Las premisas de cada signo siguen pendientes de redacción médica; la Fase 2 sigue bloqueada. Enmienda 0.3 (DEC-CLIN-R14-02: «SÍ, con precisión», 22/11/2026): endurece solo este contrato inactivo. `not_applicable` exige `premise_absent_confirmed=true` MÁS una `premise_confirmation_source` verificable (un booleano aislado no vale); se prohíbe para `necrotic_appearing_tissue`; en `visible_edge_separation` exige además `wound_closure_history=\"never_closed\"` (historial estructurado, nunca inferido de la foto); en los demás signos se prohíbe por ausencia de hallazgo, sombra, oclusión, mala iluminación, desenfoque o información insuficiente. Fase 1 sigue PROPOSED_INACTIVE y Fase 2 bloqueada.",
  "type": "object",
  "additionalProperties": false,
  "required": [
@@ -16,7 +16,7 @@
  ],
  "properties": {
   "contract_version": {
-   "const": "phase1-0.2-proposed"
+   "const": "phase1-0.3-proposed"
   },
   "modality": {
    "type": "object",
@@ -121,6 +121,40 @@
       "premise_absent_confirmed": {
        "type": "boolean",
        "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
+      },
+      "premise_confirmation_source": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "kind",
+        "reference",
+        "recorded_at",
+        "recorder_role"
+       ],
+       "description": "Procedencia verificable de la confirmación de premisa ausente: dato registrado por una persona o historia clínica estructurada. Nunca la imagen, un modelo ni la ausencia de hallazgo. `reference` es un código opaco que permite auditar el registro de origen (sin texto libre ni datos de la persona).",
+       "properties": {
+        "kind": {
+         "enum": [
+          "clinician_entry",
+          "structured_clinical_record"
+         ]
+        },
+        "reference": {
+         "type": "string",
+         "pattern": "^[A-Za-z0-9_-]{8,64}$"
+        },
+        "recorded_at": {
+         "type": "string",
+         "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "recorder_role": {
+         "enum": [
+          "physician",
+          "nurse",
+          "other_health_professional"
+         ]
+        }
+       }
       }
      },
      "allOf": [
@@ -153,7 +187,8 @@
        },
        "then": {
         "required": [
-         "premise_absent_confirmed"
+         "premise_absent_confirmed",
+         "premise_confirmation_source"
         ],
         "properties": {
          "premise_absent_confirmed": {
@@ -168,8 +203,17 @@
        },
        "else": {
         "not": {
-         "required": [
-          "premise_absent_confirmed"
+         "anyOf": [
+          {
+           "required": [
+            "premise_absent_confirmed"
+           ]
+          },
+          {
+           "required": [
+            "premise_confirmation_source"
+           ]
+          }
          ]
         }
        }
@@ -215,6 +259,40 @@
       "premise_absent_confirmed": {
        "type": "boolean",
        "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
+      },
+      "premise_confirmation_source": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "kind",
+        "reference",
+        "recorded_at",
+        "recorder_role"
+       ],
+       "description": "Procedencia verificable de la confirmación de premisa ausente: dato registrado por una persona o historia clínica estructurada. Nunca la imagen, un modelo ni la ausencia de hallazgo. `reference` es un código opaco que permite auditar el registro de origen (sin texto libre ni datos de la persona).",
+       "properties": {
+        "kind": {
+         "enum": [
+          "clinician_entry",
+          "structured_clinical_record"
+         ]
+        },
+        "reference": {
+         "type": "string",
+         "pattern": "^[A-Za-z0-9_-]{8,64}$"
+        },
+        "recorded_at": {
+         "type": "string",
+         "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "recorder_role": {
+         "enum": [
+          "physician",
+          "nurse",
+          "other_health_professional"
+         ]
+        }
+       }
       }
      },
      "allOf": [
@@ -247,7 +325,8 @@
        },
        "then": {
         "required": [
-         "premise_absent_confirmed"
+         "premise_absent_confirmed",
+         "premise_confirmation_source"
         ],
         "properties": {
          "premise_absent_confirmed": {
@@ -262,8 +341,17 @@
        },
        "else": {
         "not": {
-         "required": [
-          "premise_absent_confirmed"
+         "anyOf": [
+          {
+           "required": [
+            "premise_absent_confirmed"
+           ]
+          },
+          {
+           "required": [
+            "premise_confirmation_source"
+           ]
+          }
          ]
         }
        }
@@ -276,7 +364,7 @@
      "required": [
       "state"
      ],
-     "description": "Área superficial de aspecto necrótico.",
+     "description": "Área superficial de aspecto necrótico. `not_applicable` prohibido (DEC-CLIN-R14-02): un tejido superficial de aspecto necrótico no se descarta por premisa ausente.",
      "properties": {
       "state": {
        "enum": [
@@ -309,6 +397,40 @@
       "premise_absent_confirmed": {
        "type": "boolean",
        "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
+      },
+      "premise_confirmation_source": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "kind",
+        "reference",
+        "recorded_at",
+        "recorder_role"
+       ],
+       "description": "Procedencia verificable de la confirmación de premisa ausente: dato registrado por una persona o historia clínica estructurada. Nunca la imagen, un modelo ni la ausencia de hallazgo. `reference` es un código opaco que permite auditar el registro de origen (sin texto libre ni datos de la persona).",
+       "properties": {
+        "kind": {
+         "enum": [
+          "clinician_entry",
+          "structured_clinical_record"
+         ]
+        },
+        "reference": {
+         "type": "string",
+         "pattern": "^[A-Za-z0-9_-]{8,64}$"
+        },
+        "recorded_at": {
+         "type": "string",
+         "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "recorder_role": {
+         "enum": [
+          "physician",
+          "nurse",
+          "other_health_professional"
+         ]
+        }
+       }
       }
      },
      "allOf": [
@@ -341,7 +463,8 @@
        },
        "then": {
         "required": [
-         "premise_absent_confirmed"
+         "premise_absent_confirmed",
+         "premise_confirmation_source"
         ],
         "properties": {
          "premise_absent_confirmed": {
@@ -356,10 +479,31 @@
        },
        "else": {
         "not": {
-         "required": [
-          "premise_absent_confirmed"
+         "anyOf": [
+          {
+           "required": [
+            "premise_absent_confirmed"
+           ]
+          },
+          {
+           "required": [
+            "premise_confirmation_source"
+           ]
+          }
          ]
         }
+       }
+      },
+      {
+       "not": {
+        "properties": {
+         "state": {
+          "const": "not_applicable"
+         }
+        },
+        "required": [
+         "state"
+        ]
        }
       }
      ]
@@ -370,7 +514,7 @@
      "required": [
       "state"
      ],
-     "description": "Separación visible de bordes en herida con indicios de cierre previo.",
+     "description": "Separación visible de bordes en herida con indicios de cierre previo. Para separación de bordes tras un cierre previo, `not_applicable` solo con `wound_closure_history=\"never_closed\"`; si falta el historial no se infiere de la foto: usar `uncertain` con la causa `closure_history_unavailable`.",
      "properties": {
       "state": {
        "enum": [
@@ -396,13 +540,56 @@
          "overexposure",
          "oblique_angle",
          "occlusion",
-         "other"
+         "other",
+         "closure_history_unavailable"
         ]
        }
       },
       "premise_absent_confirmed": {
        "type": "boolean",
        "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
+      },
+      "premise_confirmation_source": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "kind",
+        "reference",
+        "recorded_at",
+        "recorder_role"
+       ],
+       "description": "Procedencia verificable de la confirmación de premisa ausente: dato registrado por una persona o historia clínica estructurada. Nunca la imagen, un modelo ni la ausencia de hallazgo. `reference` es un código opaco que permite auditar el registro de origen (sin texto libre ni datos de la persona).",
+       "properties": {
+        "kind": {
+         "enum": [
+          "clinician_entry",
+          "structured_clinical_record"
+         ]
+        },
+        "reference": {
+         "type": "string",
+         "pattern": "^[A-Za-z0-9_-]{8,64}$"
+        },
+        "recorded_at": {
+         "type": "string",
+         "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "recorder_role": {
+         "enum": [
+          "physician",
+          "nurse",
+          "other_health_professional"
+         ]
+        }
+       }
+      },
+      "wound_closure_history": {
+       "enum": [
+        "never_closed",
+        "previously_closed",
+        "unknown"
+       ],
+       "description": "Historial estructurado de cierre previo de la herida, aportado por registro clínico; nunca se infiere de la fotografía. Solo en `visible_edge_separation`."
       }
      },
      "allOf": [
@@ -435,11 +622,16 @@
        },
        "then": {
         "required": [
-         "premise_absent_confirmed"
+         "premise_absent_confirmed",
+         "premise_confirmation_source",
+         "wound_closure_history"
         ],
         "properties": {
          "premise_absent_confirmed": {
           "const": true
+         },
+         "wound_closure_history": {
+          "const": "never_closed"
          }
         },
         "not": {
@@ -450,8 +642,17 @@
        },
        "else": {
         "not": {
-         "required": [
-          "premise_absent_confirmed"
+         "anyOf": [
+          {
+           "required": [
+            "premise_absent_confirmed"
+           ]
+          },
+          {
+           "required": [
+            "premise_confirmation_source"
+           ]
+          }
          ]
         }
        }
@@ -497,6 +698,40 @@
       "premise_absent_confirmed": {
        "type": "boolean",
        "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
+      },
+      "premise_confirmation_source": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "kind",
+        "reference",
+        "recorded_at",
+        "recorder_role"
+       ],
+       "description": "Procedencia verificable de la confirmación de premisa ausente: dato registrado por una persona o historia clínica estructurada. Nunca la imagen, un modelo ni la ausencia de hallazgo. `reference` es un código opaco que permite auditar el registro de origen (sin texto libre ni datos de la persona).",
+       "properties": {
+        "kind": {
+         "enum": [
+          "clinician_entry",
+          "structured_clinical_record"
+         ]
+        },
+        "reference": {
+         "type": "string",
+         "pattern": "^[A-Za-z0-9_-]{8,64}$"
+        },
+        "recorded_at": {
+         "type": "string",
+         "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "recorder_role": {
+         "enum": [
+          "physician",
+          "nurse",
+          "other_health_professional"
+         ]
+        }
+       }
       }
      },
      "allOf": [
@@ -529,7 +764,8 @@
        },
        "then": {
         "required": [
-         "premise_absent_confirmed"
+         "premise_absent_confirmed",
+         "premise_confirmation_source"
         ],
         "properties": {
          "premise_absent_confirmed": {
@@ -544,8 +780,17 @@
        },
        "else": {
         "not": {
-         "required": [
-          "premise_absent_confirmed"
+         "anyOf": [
+          {
+           "required": [
+            "premise_absent_confirmed"
+           ]
+          },
+          {
+           "required": [
+            "premise_confirmation_source"
+           ]
+          }
          ]
         }
        }
@@ -622,8 +867,32 @@
  "x-not-applicable": {
   "status": "PROPOSED_INACTIVE",
   "decision": "DEC-CLIN-R8-03",
-  "rule": "state=not_applicable exige premise_absent_confirmed=true y no admite uncertainty_causes; los demás estados no admiten premise_absent_confirmed. No equivale a not_observable (premisa presente y signo no visto) ni a not_assessable (no se puede valorar la imagen). La ausencia de la premisa clínica del signo no se infiere solo de la imagen: la confirma una persona o un dato clínico explícito, y por eso `premise_absent_confirmed` es una confirmación declarada, nunca una salida del modelo ni de un clasificador.",
+  "rule": "state=not_applicable exige premise_absent_confirmed=true y no admite uncertainty_causes; los demás estados no admiten premise_absent_confirmed. No equivale a not_observable (premisa presente y signo no visto) ni a not_assessable (no se puede valorar la imagen). La ausencia de la premisa clínica del signo no se infiere solo de la imagen: la confirma una persona o un dato clínico explícito, y por eso `premise_absent_confirmed` es una confirmación declarada, nunca una salida del modelo ni de un clasificador. Desde 0.3 la confirmación exige además `premise_confirmation_source` con procedencia verificable; un booleano aislado no es confirmación.",
   "premise_definitions": "PENDING_MEDICAL_WORDING",
-  "source_of_confirmation": "CLINICIAN_OR_EXPLICIT_CLINICAL_DATA_NEVER_IMAGE_ONLY"
+  "source_of_confirmation": "CLINICIAN_OR_EXPLICIT_CLINICAL_DATA_NEVER_IMAGE_ONLY",
+  "amended_by": "DEC-CLIN-R14-02",
+  "phase1_status": "PROPOSED_INACTIVE",
+  "forbidden_bases": [
+   "absence_of_finding",
+   "shadow",
+   "occlusion",
+   "poor_lighting",
+   "blur",
+   "insufficient_information",
+   "image_only_inference",
+   "model_output",
+   "filename_or_metadata"
+  ],
+  "forbidden_signs": [
+   "necrotic_appearing_tissue"
+  ],
+  "conditional_signs": {
+   "visible_edge_separation": "wound_closure_history=never_closed (historial estructurado)"
+  },
+  "closure_history_missing": "no inferir de la foto; uncertain con causa closure_history_unavailable",
+  "confirmation_source_kinds": [
+   "clinician_entry",
+   "structured_clinical_record"
+  ]
  }
 }

@@ -22,9 +22,21 @@ SIGNS = ("chromatic_alteration", "exudate_compatible_surface_material", "necroti
          "visible_edge_separation", "apparent_deep_structure_exposure")
 
 
+NO_NOT_APPLICABLE = ("necrotic_appearing_tissue",)
+SOURCE = {"kind": "structured_clinical_record", "reference": "REC-2026-000123",
+          "recorded_at": "2026-11-22T10:15:00Z", "recorder_role": "physician"}
+
+
+def confirmed_not_applicable(name):
+    sign = {"state": "not_applicable", "premise_absent_confirmed": True, "premise_confirmation_source": dict(SOURCE)}
+    if name == "visible_edge_separation":
+        sign["wound_closure_history"] = "never_closed"
+    return sign
+
+
 def valid_document(**changes):
     sign = {"state": "not_observable"}
-    doc = {"contract_version": "phase1-0.2-proposed",
+    doc = {"contract_version": "phase1-0.3-proposed",
            "modality": {"kind_effective": "other_image", "kind_source": "default_unclassified",
                         "modality_verification": "not_verified", "kind_discordance": "unknown",
                         "kind_explicit": None, "kind_inferred": None},
@@ -127,19 +139,128 @@ class ProposedPhase1Contract(unittest.TestCase):
         for name, sign in signs.items():
             self.assertEqual(sign["properties"]["state"]["enum"],
                              ["observable", "not_observable", "uncertain", "not_assessable", "not_applicable"], name)
+            if name in NO_NOT_APPLICABLE:
+                continue
             doc = valid_document()
-            doc["observations"][name] = {"state": "not_applicable", "premise_absent_confirmed": True}
+            doc["observations"][name] = confirmed_not_applicable(name)
             self.validator.validate(doc)
             for bad in ({"state": "not_applicable"},
-                        {"state": "not_applicable", "premise_absent_confirmed": False},
-                        {"state": "not_applicable", "premise_absent_confirmed": True, "uncertainty_causes": ["shadow"]},
-                        {"state": "not_applicable", "premise_absent_confirmed": "yes"},
+                        {"state": "not_applicable", "premise_absent_confirmed": False, "premise_confirmation_source": dict(SOURCE)},
+                        {"state": "not_applicable", "premise_absent_confirmed": "yes", "premise_confirmation_source": dict(SOURCE)},
+                        {"state": "not_applicable", "premise_confirmation_source": dict(SOURCE)},
                         {"state": "observable", "premise_absent_confirmed": True},
                         {"state": "not_observable", "premise_absent_confirmed": False},
-                        {"state": "not_assessable", "premise_absent_confirmed": True}):
+                        {"state": "not_assessable", "premise_absent_confirmed": True},
+                        {"state": "uncertain", "uncertainty_causes": ["shadow"], "premise_confirmation_source": dict(SOURCE)}):
                 doc = valid_document()
                 doc["observations"][name] = bad
                 self.assertFalse(self.validator.is_valid(doc), (name, bad))
+            doc = valid_document()
+            doc["observations"][name] = dict(confirmed_not_applicable(name), uncertainty_causes=["shadow"])
+            self.assertFalse(self.validator.is_valid(doc), name)
+
+
+class R1402Hardening(unittest.TestCase):
+    """DEC-CLIN-R14-02 · enmienda 0.3 del contrato inactivo."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
+        cls.validator = jsonschema.Draft202012Validator(cls.schema)
+
+    def ok(self, name, sign):
+        doc = valid_document()
+        doc["observations"][name] = sign
+        return self.validator.is_valid(doc)
+
+    def test_version_and_status_stay_inactive(self):
+        self.assertEqual(self.schema["properties"]["contract_version"]["const"], "phase1-0.3-proposed")
+        self.assertEqual(self.schema["x-status"], "PROPOSED_INACTIVE")
+        self.assertEqual(self.schema["x-phase2"]["status"], "BLOCKED")
+        self.assertEqual(self.schema["x-not-applicable"]["amended_by"], "DEC-CLIN-R14-02")
+
+    def test_a_lone_boolean_is_not_a_confirmation_for_any_sign(self):
+        for name in SIGNS:
+            self.assertFalse(self.ok(name, {"state": "not_applicable", "premise_absent_confirmed": True}), name)
+
+    def test_source_must_be_verifiable_and_never_image_or_model_derived(self):
+        for name in SIGNS:
+            if name in NO_NOT_APPLICABLE:
+                continue
+            for field in ("kind", "reference", "recorded_at", "recorder_role"):
+                src = dict(SOURCE)
+                del src[field]
+                self.assertFalse(self.ok(name, dict(confirmed_not_applicable(name), premise_confirmation_source=src)), (name, field))
+            for bad in ({"kind": "image_inference"}, {"kind": "model_output"}, {"kind": "absence_of_finding"},
+                        {"kind": "photo_only"}, {"reference": "short"}, {"reference": "has spaces here!"},
+                        {"recorded_at": "yesterday"}, {"recorder_role": "model"}, {"free_text": "x"}):
+                src = dict(SOURCE, **bad)
+                self.assertFalse(self.ok(name, dict(confirmed_not_applicable(name), premise_confirmation_source=src)), (name, bad))
+        kinds = self.schema["properties"]["observations"]["properties"]["chromatic_alteration"][
+            "properties"]["premise_confirmation_source"]["properties"]["kind"]["enum"]
+        self.assertEqual(kinds, ["clinician_entry", "structured_clinical_record"])
+
+    def test_source_is_rejected_when_the_state_is_not_not_applicable(self):
+        for name in SIGNS:
+            for state in ("observable", "not_observable", "not_assessable"):
+                self.assertFalse(self.ok(name, {"state": state, "premise_confirmation_source": dict(SOURCE)}), (name, state))
+
+    def test_necrotic_appearing_tissue_never_accepts_not_applicable(self):
+        for sign in (confirmed_not_applicable("necrotic_appearing_tissue"),
+                     {"state": "not_applicable"},
+                     {"state": "not_applicable", "premise_absent_confirmed": True}):
+            self.assertFalse(self.ok("necrotic_appearing_tissue", sign), sign)
+        for state in ("observable", "not_observable", "not_assessable"):
+            self.assertTrue(self.ok("necrotic_appearing_tissue", {"state": state}), state)
+        self.assertTrue(self.ok("necrotic_appearing_tissue", {"state": "uncertain", "uncertainty_causes": ["shadow"]}))
+
+    def test_edge_separation_needs_structured_never_closed_history(self):
+        name = "visible_edge_separation"
+        self.assertTrue(self.ok(name, confirmed_not_applicable(name)))
+        base = {"state": "not_applicable", "premise_absent_confirmed": True, "premise_confirmation_source": dict(SOURCE)}
+        self.assertFalse(self.ok(name, base))
+        for history in ("previously_closed", "unknown", None, "", "never closed", True):
+            self.assertFalse(self.ok(name, dict(base, wound_closure_history=history)), history)
+
+    def test_missing_closure_history_is_uncertainty_not_a_photo_inference(self):
+        name = "visible_edge_separation"
+        self.assertTrue(self.ok(name, {"state": "uncertain", "uncertainty_causes": ["closure_history_unavailable"]}))
+        self.assertTrue(self.ok(name, {"state": "uncertain", "uncertainty_causes": ["closure_history_unavailable", "shadow"]}))
+        other = [n for n in SIGNS if n != name]
+        for n in other:
+            self.assertFalse(self.ok(n, {"state": "uncertain", "uncertainty_causes": ["closure_history_unavailable"]}), n)
+        for state in ("observable", "not_observable", "not_assessable", "uncertain"):
+            sign = {"state": state, "wound_closure_history": "never_closed"}
+            if state == "uncertain":
+                sign["uncertainty_causes"] = ["shadow"]
+            self.assertTrue(self.ok(name, sign), state)
+        for n in other:
+            self.assertFalse(self.ok(n, {"state": "observable", "wound_closure_history": "never_closed"}), n)
+
+    def test_each_forbidden_basis_is_rejected_for_every_sign_and_state(self):
+        """Ausencia de hallazgo, sombra, oclusión, mala iluminación, desenfoque o información insuficiente
+        no pueden sostener `not_applicable`: ni causas de incertidumbre ni confirmación sin fuente."""
+        causes = ("shadow", "occlusion", "lighting_tint", "overexposure", "oblique_angle", "no_physical_scale", "other")
+        for name in SIGNS:
+            for cause in causes:
+                self.assertFalse(self.ok(name, {"state": "not_applicable", "uncertainty_causes": [cause]}), (name, cause))
+                self.assertFalse(self.ok(name, {"state": "not_applicable", "premise_absent_confirmed": True,
+                                                "uncertainty_causes": [cause]}), (name, cause))
+            for state in ("observable", "not_observable", "uncertain", "not_assessable", "not_applicable"):
+                extra = {"state": state, "premise_absent_confirmed": True}
+                if state == "uncertain":
+                    extra["uncertainty_causes"] = ["shadow"]
+                self.assertFalse(self.ok(name, extra), (name, state))
+        bases = set(self.schema["x-not-applicable"]["forbidden_bases"])
+        self.assertTrue({"absence_of_finding", "shadow", "occlusion", "poor_lighting", "blur",
+                         "insufficient_information", "image_only_inference", "model_output"} <= bases)
+
+    def test_closed_surface_unchanged_no_free_text_or_new_fields(self):
+        for name in SIGNS:
+            if name in NO_NOT_APPLICABLE:
+                continue
+            for extra in ({"reason": "no finding"}, {"note": "blurry"}, {"not_applicable_reason": "shadow"}):
+                self.assertFalse(self.ok(name, dict(confirmed_not_applicable(name), **extra)), (name, extra))
 
     def test_not_applicable_stays_inside_the_inactive_contract_and_phase2_stays_blocked(self):
         self.assertEqual(self.schema["x-not-applicable"]["status"], "PROPOSED_INACTIVE")
@@ -155,7 +276,7 @@ class ProposedPhase1Contract(unittest.TestCase):
             self.assertNotIn("premise_absent_confirmed", path.read_text(encoding="utf-8", errors="ignore"), str(path))
 
     def test_the_proposal_is_not_wired_into_the_product(self):
-        needles = ("skin-wound-phase1-contract", "phase1-0.1-proposed", "phase1-0.2-proposed")
+        needles = ("skin-wound-phase1-contract", "phase1-0.1-proposed", "phase1-0.2-proposed", "phase1-0.3-proposed")
         for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
             text = path.read_text(encoding="utf-8", errors="ignore")
             for needle in needles:
