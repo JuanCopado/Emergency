@@ -61,6 +61,14 @@ Las ejecuciones posteriores del merge acreditan Clinical QA `44995289620` PASS (
 
 La inspección identifica que `Path.write_text` publica el nombre final antes de completar el JSON, mientras el lector espera únicamente su existencia. El seguimiento [PR71](https://github.com/JuanCopado/Emergency/pull/71) incorpora C14 para corregir ese defecto actual y registrar la comprobación posterior; por ello ya no se limita a documentación. Las comprobaciones de código de PR70 conservan su fecha y alcance.
 
+## C14 · cierre remoto e integración
+
+**OK.** [PR71](https://github.com/JuanCopado/Emergency/pull/71) integrada en `842e4a2864f7b746659504dd8ae53faaac3e58b2`, árbol `6470aaa2acc638cbce12837bed9eb5f831b7881e`, idéntico al del candidato `4ead414697dbc34c243f52b400bf0bf4549210fa`. Los cuatro workflows aplicables de push y PR finalizaron SUCCESS antes de integrar. Clinical QA (`44996165887` y `44996169239`) contabiliza 1.205 pruebas, 14 omitidas y 1.191 ejecutadas sin fallos en cada ejecución. Security and quality (`44996165913` y `44996169276`) supera sus seis jobs, incluido el smoke real T05 Windows que había fallado por la lectura vacía, T06 Linux y Sonar.
+
+Sonar del PR: gate PASS, 94,1 % de cobertura nueva y 0,0 % de duplicación nueva. Rama: gate PASS, 84,2 % y 0,2 %. Son ámbitos de comparación distintos. Se mantiene visible la incidencia interna Protobuf/UTF-8 observada en el escáner; aprobar el gate no la declara resuelta.
+
+El RED utilizó una extracción mecánica equivalente de la escritura directa anterior a un helper, con los mismos payloads; no se presenta como una ejecución contra el checkout e8 sin cambios. El GREEN verifica la publicación atómica. La interfaz no cambió en PR71 y no se ejecutó App UI QA por sus filtros: la evidencia 947/947 sigue vinculada a PR70/e8. El fallo postmerge original se conserva en el historial y no se convirtió en PASS por un rerun.
+
 ## Alcance preservado
 
 Calculadoras, fórmulas, dosis, referencias, registro de evidencia y aceptaciones clínicas conservan su contenido. En módulos solo cambian títulos de dos índices de procedimientos; el cuerpo de PROC-SP-003 permanece intacto. Se mantienen 46 IDs y el alcance aceptado de los 19 contratos antes bloqueados.
