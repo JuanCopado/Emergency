@@ -145,6 +145,11 @@ class ProposedPhase1Contract(unittest.TestCase):
         self.assertEqual(self.schema["x-not-applicable"]["status"], "PROPOSED_INACTIVE")
         self.assertEqual(self.schema["x-not-applicable"]["decision"], "DEC-CLIN-R8-03")
         self.assertEqual(self.schema["x-not-applicable"]["premise_definitions"], "PENDING_MEDICAL_WORDING")
+        self.assertEqual(self.schema["x-not-applicable"]["source_of_confirmation"],
+                         "CLINICIAN_OR_EXPLICIT_CLINICAL_DATA_NEVER_IMAGE_ONLY")
+        self.assertIn("no se infiere solo de la imagen", self.schema["x-not-applicable"]["rule"])
+        for sign in self.schema["properties"]["observations"]["properties"].values():
+            self.assertIn("No se infiere solo de la imagen", sign["properties"]["premise_absent_confirmed"]["description"])
         self.assertEqual(self.schema["x-phase2"]["status"], "BLOCKED")
         for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
             self.assertNotIn("premise_absent_confirmed", path.read_text(encoding="utf-8", errors="ignore"), str(path))

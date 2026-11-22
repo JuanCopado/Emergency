@@ -120,7 +120,7 @@
       },
       "premise_absent_confirmed": {
        "type": "boolean",
-       "description": "Confirmación de que falta la premisa clínica del signo; solo con state=not_applicable."
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -214,7 +214,7 @@
       },
       "premise_absent_confirmed": {
        "type": "boolean",
-       "description": "Confirmación de que falta la premisa clínica del signo; solo con state=not_applicable."
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -308,7 +308,7 @@
       },
       "premise_absent_confirmed": {
        "type": "boolean",
-       "description": "Confirmación de que falta la premisa clínica del signo; solo con state=not_applicable."
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -402,7 +402,7 @@
       },
       "premise_absent_confirmed": {
        "type": "boolean",
-       "description": "Confirmación de que falta la premisa clínica del signo; solo con state=not_applicable."
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -496,7 +496,7 @@
       },
       "premise_absent_confirmed": {
        "type": "boolean",
-       "description": "Confirmación de que falta la premisa clínica del signo; solo con state=not_applicable."
+       "description": "Confirmación declarada (persona o dato clínico explícito) de que falta la premisa clínica del signo; solo con state=not_applicable. No se infiere solo de la imagen."
       }
      },
      "allOf": [
@@ -622,7 +622,8 @@
  "x-not-applicable": {
   "status": "PROPOSED_INACTIVE",
   "decision": "DEC-CLIN-R8-03",
-  "rule": "state=not_applicable exige premise_absent_confirmed=true y no admite uncertainty_causes; los demás estados no admiten premise_absent_confirmed. No equivale a not_observable (premisa presente y signo no visto) ni a not_assessable (no se puede valorar la imagen).",
-  "premise_definitions": "PENDING_MEDICAL_WORDING"
+  "rule": "state=not_applicable exige premise_absent_confirmed=true y no admite uncertainty_causes; los demás estados no admiten premise_absent_confirmed. No equivale a not_observable (premisa presente y signo no visto) ni a not_assessable (no se puede valorar la imagen). La ausencia de la premisa clínica del signo no se infiere solo de la imagen: la confirma una persona o un dato clínico explícito, y por eso `premise_absent_confirmed` es una confirmación declarada, nunca una salida del modelo ni de un clasificador.",
+  "premise_definitions": "PENDING_MEDICAL_WORDING",
+  "source_of_confirmation": "CLINICIAN_OR_EXPLICIT_CLINICAL_DATA_NEVER_IMAGE_ONLY"
  }
 }
