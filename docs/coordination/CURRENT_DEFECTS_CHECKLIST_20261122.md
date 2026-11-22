@@ -66,3 +66,7 @@ Al componer se preservaron ambos lados de los dos conflictos esperados: aviso de
 Expedientes: [HTTP y launcher](../../clinical/qa/HTTP_LOCAL_BOUNDARY_20261122.md), [privacidad/documentos](../../clinical/qa/CURRENT_PRIVACY_DOCUMENTS_20261122.md), [interfaz y C13](../../clinical/qa/CURRENT_UI_DEFECTS_2026-11-22.md).
 
 Composición final con C13 y los espacios de documentos: **58/58 Vitest** en aceptación MCDT, navegación de nota, privacidad y frontera Vite/Python; **12/12 Python** de privacidad/importación. Comparación con la base: sin cambios en `clinical/calculators`, `clinical/references` ni `app/src/data/drugs.json`; los únicos módulos modificados son las dos etiquetas de los índices de procedimientos. Los cuerpos clínicos y las aceptaciones permanecen intactos.
+
+### Primer ciclo remoto y ajuste del cliente de pruebas
+
+Los primeros runs de Clinical QA de PR70 (`44991697629` y `44991732296`, head `bdb0dfc2`) ejecutaron 1.202 pruebas con 14 omitidas y fallaron en 67 subcasos de cinco métodos de `test_patient_weight_http.py`. Su helper aún enviaba peticiones sin Origin ni credencial, por lo que la nueva frontera las rechazaba antes de probar la validación numérica. Se corrigió únicamente ese cliente de prueba reutilizando `request_metadata(server)`. Se mantienen todas sus entradas, expectativas 200/422, comprobaciones de JSON exacto, cálculo y exportación. La ejecución focal posterior supera **6/6 métodos**. El siguiente ciclo remoto verifica el commit actualizado; el fallo inicial no se presenta como PASS.
