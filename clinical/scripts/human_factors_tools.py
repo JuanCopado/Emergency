@@ -68,10 +68,9 @@ def wilson(k, n, z=1.959964):
 
 
 def _pmf(i, n, p):
-    if p <= 0:
-        return 1.0 if i == 0 else 0.0
-    if p >= 1:
-        return 1.0 if i == n else 0.0
+    """Binomial probability mass; only the bisection calls it, always with 0 < p < 1."""
+    if not 0 < p < 1:
+        raise ValueError("p must be strictly between 0 and 1")
     log_comb = math.lgamma(n + 1) - math.lgamma(i + 1) - math.lgamma(n - i + 1)
     return math.exp(log_comb + i * math.log(p) + (n - i) * math.log1p(-p))
 

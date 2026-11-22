@@ -56,6 +56,19 @@ class Statistics(unittest.TestCase):
         self.assertIsNone(hf.clopper_pearson(0, 0))
         self.assertIsNone(hf.clopper_pearson(3, 2))
 
+    def test_extreme_sizes_and_the_precondition_of_the_binomial_mass(self):
+        low, high = hf.clopper_pearson(0, 1)
+        self.assertEqual(low, 0.0)
+        self.assertAlmostEqual(high, 0.975, places=4)
+        low, high = hf.clopper_pearson(500, 500)
+        self.assertEqual(high, 1.0)
+        self.assertAlmostEqual(low, 0.025 ** (1 / 500), places=4)
+        low, high = hf.clopper_pearson(250, 500)
+        self.assertAlmostEqual((low + high) / 2, 0.5, places=3)
+        for p in (0, 1, -0.1, 1.5):
+            with self.assertRaises(ValueError):
+                hf._pmf(0, 5, p)
+
     def test_the_exact_interval_is_never_narrower_than_wilson_for_a_zero_count(self):
         self.assertGreaterEqual(hf.clopper_pearson(0, 30)[1], hf.wilson(0, 30)[1])
 
