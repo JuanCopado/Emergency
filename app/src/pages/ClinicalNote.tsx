@@ -6,7 +6,7 @@ import { hasLocalIdentifierLabel } from '../clinical-note/privacy';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
 import { useEffect, useRef, useState } from 'react';
-import { excludedContainer, kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
+import { connectionErrorMessage, excludedContainer, kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 import { Link } from 'react-router-dom';
 import { ClinicalNoteDraftScope, useClinicalNoteDraft, useNoteDraftField, type NoteTab, type McdtCard } from '../clinical-note/draft';
 import { useTranslation } from 'react-i18next';
@@ -267,7 +267,7 @@ function ClinicalNoteEditor(){
        state:'pending',
      }:x));
      touch();setReviewFocus({id});
-   }catch(e){setApiError(uploadError(e,"Falha na interpretação clínica configurada.",ui));setReviewFocus({id:'error'});}
+   }catch(e){setApiError(uploadError(e,"Falha na interpretação clínica configurada.",ui,true));setReviewFocus({id:'error'});}
    finally{setApiBusy(false);}
  }
  function addManualMcdt(){
@@ -341,7 +341,7 @@ function ClinicalNoteEditor(){
      ]);
      setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);
    }catch(e){
-     if(isCurrent()) setApiError(e instanceof Error?e.message:ui("Backend clínico indisponível."));
+     if(isCurrent()) setApiError(connectionErrorMessage(e,ui)??(e instanceof Error?e.message:ui("Backend clínico indisponível.")));
    }finally{
      if(requestId===diagnosticRequestId.current) setDiagnosticBusy(false);
    }
@@ -357,7 +357,7 @@ function ClinicalNoteEditor(){
      const out=await exportClinicalNote(note,format);
      if(!active.current) return;
      downloadBlob(out.filename,out.blob);
-   }catch(e){setApiError(e instanceof Error?e.message:ui("Exportação bloqueada pelo backend."));}
+   }catch(e){setApiError(connectionErrorMessage(e,ui)??(e instanceof Error?e.message:ui("Exportação bloqueada pelo backend.")));}
    finally{setApiBusy(false);}
  }
  const card='rounded-2xl border border-border bg-surface p-4 shadow-card';

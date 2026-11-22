@@ -53,12 +53,44 @@ export function excludedContainer(prepared?: PreparedUpload) {
   return prepared?.media?.format === 'pdf' || prepared?.media?.format === 'dicom';
 }
 
-export function uploadError(error: unknown, fallback: string, ui: (key: string) => string) {
+export const CONNECTION_MESSAGES = {
+  network: 'Sem ligação ao serviço clínico. Verifique a rede e tente novamente; o que introduziu mantém-se nesta página.',
+  timeout: 'O serviço clínico não respondeu a tempo. Nada foi aceite nem guardado; tente novamente.',
+  providerNote: 'O pedido pode ter chegado ao serviço antes da falha; reveja manualmente e repita só se for necessário.',
+} as const;
+
+/** A connection failure is never a clinical result. Returns null for any other error. */
+export function connectionErrorMessage(error: unknown, ui: (key: string) => string, providerCall = false): string | null {
+  if (!(error instanceof Error) || error.name !== 'ClinicalApiConnectionError') return null;
+  const failure = (error as Error & { failure?: unknown }).failure === 'timeout' ? 'timeout' : 'network';
+  const base = ui(CONNECTION_MESSAGES[failure]);
+  return providerCall ? `${base} ${ui(CONNECTION_MESSAGES.providerNote)}` : base;
+}
+
+export const IMAGE_REJECTION_MESSAGES = {
+  tooLarge: 'A imagem excede o limite técnico de tamanho (largura × altura até cerca de 12,5 megapíxeis). Nada foi reduzido nem enviado. Se a câmara oferecer uma resolução menor, use-a; a redução faz-se fora da aplicação, conservando o original, e é decisão sua.',
+  format: 'Formato não suportado. São aceites PNG, JPEG e WebP. Para fotografias HEIC/HEIF (iPhone), exporte uma cópia em JPEG sem reduzir a resolução.',
+  unrecognized: 'O conteúdo do ficheiro não é reconhecido como imagem PNG, JPEG ou WebP (por exemplo, um ficheiro HEIC/HEIF com outra extensão).',
+} as const;
+
+/** Specific, non-clinical reasons for a refused image; any other reason keeps the generic message. */
+function imageRejectionMessage(reason: string, ui: (key: string) => string): string | null {
+  if (reason.endsWith('decoded_raster_too_large') || reason.endsWith('too_many_pixels')) return ui(IMAGE_REJECTION_MESSAGES.tooLarge);
+  if (reason.endsWith('unsupported_declared_extension')) return ui(IMAGE_REJECTION_MESSAGES.format);
+  if (reason.endsWith('unrecognized_type')) return ui(IMAGE_REJECTION_MESSAGES.unrecognized);
+  return null;
+}
+
+export function uploadError(error: unknown, fallback: string, ui: (key: string) => string, providerCall = false) {
+  const connection = connectionErrorMessage(error, ui, providerCall);
+  if (connection) return connection;
   if (!(error instanceof Error)) return ui(fallback);
   if (error.message === 'clinical text upload exceeds character limit') {
     return ui('O texto do ficheiro excede 120 000 caracteres. Nada foi importado; divida-o em documentos menores e reveja cada parte.');
   }
   if (error.message.startsWith('invalid image upload:') || error.message === 'invalid or unsupported clinical image or filename') {
+    const specific = imageRejectionMessage(error.message, ui);
+    if (specific) return specific;
     return ui(error.message.endsWith('signature_mismatch')
       ? 'O conteúdo do ficheiro não corresponde ao formato declarado.'
       : 'O ficheiro foi recusado na verificação do nome, formato ou integridade.');
