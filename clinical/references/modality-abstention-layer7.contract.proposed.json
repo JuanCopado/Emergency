@@ -1,0 +1,180 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "emergency:modality-abstention-layer7:proposed-0.1",
+ "title": "R5-1 layer 7 · neutral abstention on a demonstrable technical incompatibility or an undeclared modality (PROPOSED, INACTIVE)",
+ "x-status": "PROPOSED_INACTIVE",
+ "x-notice": "Borrador técnico de la capa 7 de la política R5-1 (DEC-CLIN-R8-06A). No está conectado al producto, no abstiene ni cambia ningún resultado, y no tiene aprobación médica: definir «modalidad no declarada», los códigos de incompatibilidad y el texto neutral exige decisión médica (DEC-CLIN-R7-06). CLINICALLY_PENDING.",
+ "x-forbidden-evidence": [
+  "rgb",
+  "exif",
+  "filename",
+  "dicom_absence",
+  "pixel_statistics",
+  "model_output"
+ ],
+ "x-codes-status": "PENDING_MEDICAL_DEFINITION",
+ "x-message-wording": "PENDING_MEDICAL_WORDING",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "contract_version",
+  "modality_declared",
+  "declared_kind",
+  "decision",
+  "provenance"
+ ],
+ "properties": {
+  "contract_version": {
+   "const": "layer7-0.1-proposed"
+  },
+  "modality_declared": {
+   "type": "boolean",
+   "description": "El usuario eligió expresamente una modalidad. Nunca se deduce del nombre del archivo, del contenido ni de metadatos."
+  },
+  "declared_kind": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "decision": {
+   "enum": [
+    "none",
+    "abstain_modality_not_declared",
+    "abstain_technical_incompatibility"
+   ]
+  },
+  "incompatibility": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "code",
+    "evidence"
+   ],
+   "properties": {
+    "code": {
+     "enum": [
+      "declared_container_signature_mismatch"
+     ],
+     "description": "Único código hoy: el formato declarado (extensión o MIME) no coincide con la firma del contenedor; el servidor ya rechaza esa subida. Más códigos exigen definición médica."
+    },
+    "evidence": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "sources"
+     ],
+     "properties": {
+      "sources": {
+       "type": "array",
+       "minItems": 1,
+       "uniqueItems": true,
+       "items": {
+        "enum": [
+         "container_signature",
+         "declared_mime_type",
+         "declared_extension"
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "neutral_message_id": {
+   "enum": [
+    "modality_not_declared",
+    "technical_incompatibility"
+   ],
+   "description": "Identificador de un texto fijo y neutral de la interfaz; el modelo nunca redacta ni elige el mensaje."
+  },
+  "provenance": {
+   "const": "deterministic_rule"
+  }
+ },
+ "allOf": [
+  {
+   "if": {
+    "properties": {
+     "decision": {
+      "const": "none"
+     }
+    }
+   },
+   "then": {
+    "properties": {
+     "modality_declared": {
+      "const": true
+     }
+    },
+    "not": {
+     "anyOf": [
+      {
+       "required": [
+        "incompatibility"
+       ]
+      },
+      {
+       "required": [
+        "neutral_message_id"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "decision": {
+      "const": "abstain_modality_not_declared"
+     }
+    }
+   },
+   "then": {
+    "required": [
+     "neutral_message_id"
+    ],
+    "properties": {
+     "modality_declared": {
+      "const": false
+     },
+     "declared_kind": {
+      "const": null
+     },
+     "neutral_message_id": {
+      "const": "modality_not_declared"
+     }
+    },
+    "not": {
+     "required": [
+      "incompatibility"
+     ]
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "decision": {
+      "const": "abstain_technical_incompatibility"
+     }
+    }
+   },
+   "then": {
+    "required": [
+     "incompatibility",
+     "neutral_message_id"
+    ],
+    "properties": {
+     "modality_declared": {
+      "const": true
+     },
+     "neutral_message_id": {
+      "const": "technical_incompatibility"
+     }
+    }
+   }
+  }
+ ]
+}
