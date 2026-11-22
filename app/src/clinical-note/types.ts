@@ -153,6 +153,14 @@ export type PreparedUpload = {
   integrity_token: string;
   kind: string;
   kind_source?: 'explicit' | 'inferred_from_filename' | 'inferred_from_container' | 'default_unclassified';
+  /** R10 Phase A: data only, not displayed. Never a verification of the real modality. */
+  kind_assessment?: {
+    kind_explicit: string | null;
+    name_hints_matched: string[];
+    modality_verification: 'not_verified' | 'metadata_consistent' | 'classifier_verified';
+    kind_discordance: 'none' | 'suspected' | 'unknown' | 'demonstrable';
+    suspicion_codes: string[];
+  };
   route: { kind: string; target_section: keyof ClinicalNotePayload['complementary_tests']; modules: string[] };
   privacy: {
     status: 'PASS' | 'REVIEW_REQUIRED' | 'STOP';
