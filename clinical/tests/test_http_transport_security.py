@@ -25,6 +25,7 @@ from http_transport import BoundedHTTPServer
 def running_server(*, tls_context=None, max_workers=2, request_timeout=.3, handler=api.ClinicalNoteHandler):
     server = BoundedHTTPServer(("127.0.0.1", 0), handler, tls_context=tls_context,
                                max_workers=max_workers, request_timeout=request_timeout)
+    api.configure_local_server(server, ui_port=5173)
     thread = threading.Thread(target=server.serve_forever,
                               kwargs={"poll_interval": .01}, daemon=True)
     thread.start()
@@ -47,7 +48,15 @@ def health(server, context=None):
         client.close()
 
 
+def request_metadata(server):
+    return [f"Host: 127.0.0.1:{server.server_port}", "Origin: http://localhost:5173",
+            f"X-Emergency-Local-Token: {server.clinical_session_token}"]
+
+
 def raw_request(server, headers, body=b"{}", *, half_close=False):
+    names = {header.split(":", 1)[0].lower() for header in headers}
+    headers = [*headers, *(header for header in request_metadata(server)
+                           if header.split(":", 1)[0].lower() not in names)]
     with socket.create_connection(server.server_address, timeout=2) as client:
         request = "POST /api/clinical-note/analyze HTTP/1.0\r\n" + "\r\n".join(headers) + "\r\n\r\n"
         client.sendall(request.encode("utf-8") + body)
@@ -186,7 +195,8 @@ class HttpAvailabilityTests(unittest.TestCase):
         with running_server(handler=SmallSendBuffer, max_workers=1) as server, \
              socket.create_connection(server.server_address, timeout=2) as client, \
              patch.object(api, "dispatch", return_value=(200, {"synthetic": "x" * (2 * 1024 * 1024)})):
-            client.sendall(b"POST /api/clinical-note/analyze HTTP/1.0\r\nContent-Length: 2\r\nContent-Type: application/json\r\n\r\n{}")
+            metadata = "\r\n".join(request_metadata(server)).encode()
+            client.sendall(b"POST /api/clinical-note/analyze HTTP/1.0\r\n" + metadata + b"\r\nContent-Length: 2\r\nContent-Type: application/json\r\n\r\n{}")
             self.assertTrue(started.wait(2))
             stop = threading.Event()
             def consume_slowly():
@@ -215,7 +225,8 @@ class HttpAvailabilityTests(unittest.TestCase):
     def test_partial_body_times_out_without_dispatch(self):
         with running_server() as server, patch.object(api, "dispatch") as dispatch:
             with socket.create_connection(server.server_address, timeout=2) as client:
-                client.sendall(b"POST /api/clinical-note/analyze HTTP/1.0\r\nContent-Length: 100\r\nContent-Type: application/json\r\n\r\n{")
+                metadata = "\r\n".join(request_metadata(server)).encode()
+                client.sendall(b"POST /api/clinical-note/analyze HTTP/1.0\r\n" + metadata + b"\r\nContent-Length: 100\r\nContent-Type: application/json\r\n\r\n{")
                 self.assertEqual(client.recv(1024), b"")
             dispatch.assert_not_called()
             self.assertEqual(health(server)[0], 200)
@@ -223,6 +234,8 @@ class HttpAvailabilityTests(unittest.TestCase):
     def assert_trickle_expires(self, prefix):
         with running_server() as server, socket.create_connection(server.server_address, timeout=2) as client:
             stop = threading.Event()
+            metadata = "\r\n".join(request_metadata(server)).encode()
+            prefix = prefix.replace(b"\r\n", b"\r\n" + metadata + b"\r\n", 1)
             client.sendall(prefix)
             def trickle():
                 while not stop.wait(.04):

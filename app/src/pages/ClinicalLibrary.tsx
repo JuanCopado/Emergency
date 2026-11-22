@@ -1,6 +1,7 @@
 import CountryReferences from '../components/CountryReferences';
+import { useTranslation } from 'react-i18next';
 import { useMemo, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
 import { getRelatedProcedures } from '../clinical-guides/relatedProcedures';
 import { ResuscitationCircuits } from '../components/ResuscitationCircuits';
@@ -27,6 +28,9 @@ function CanonicalContent({ guide }: { guide: CanonicalGuide }) {
 
 export default function ClinicalLibrary() {
   const { id } = useParams();
+  const { t } = useTranslation();
+  const [params] = useSearchParams();
+  const bundle = params.get('bundle');
   const [query, setQuery] = useState('');
   const sheetRef = useRef<HTMLDivElement>(null);
   const guide = useMemo(() => (id ? getCanonicalGuide(id) : undefined), [id]);
@@ -34,11 +38,10 @@ export default function ClinicalLibrary() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return canonicalGuides;
     return canonicalGuides.filter((item) =>
-      [item.id, item.title, item.bundle, item.body].some((value) => value.toLowerCase().includes(q)),
+      (!bundle || item.bundle===bundle) && (!q || [item.id, item.title, item.bundle, item.body].some((value) => value.toLowerCase().includes(q))),
     );
-  }, [query]);
+  }, [query,bundle]);
 
   const openFullscreen = async () => {
     if (!sheetRef.current) return;
@@ -54,6 +57,7 @@ export default function ClinicalLibrary() {
           <h1 className="mt-2 text-3xl font-extrabold tracking-tight">Patologías y módulos</h1>
           <p className="mt-2 max-w-3xl text-muted">Acceso directo al contenido clínico canónico con botones de algoritmo, pantalla completa, PDF y procedimientos relacionados.</p>
         </div>
+        {bundle && <Link to="/clinical" className="btn-ghost">{t('home.allReferenceGuides')}</Link>}
         <input aria-label="Buscar patología o módulo" className="input max-w-xl" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar patología o módulo…" />
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (

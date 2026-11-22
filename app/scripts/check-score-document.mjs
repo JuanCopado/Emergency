@@ -35,6 +35,6 @@ export async function checkDocument({page,browser,inputs,expected,button}) {
     assert.deepEqual((await (await response).json()).result,expected);
     assert.equal(requests,1);
     await page.getByRole('radio',{name:'Introducir a mano'}).check();
-    assert.equal(await page.getByRole('region',{name:'Resultado del score'}).count(),0);
+    assert.equal(await page.getByRole('region',{name:'Resultado e interpretación'}).count(),0);
   } finally { page.off('request',count); }
 }

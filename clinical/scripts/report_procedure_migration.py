@@ -46,7 +46,9 @@ def report():
         '## Discrepancias y prioridades', '',
         '- P0: ninguno identificado en esta migración estructural.',
         '- P1 resuelto: PROC-SP-002 = Medición de presión compartimental, según normalización histórica 9e50ffc, alineación de evidencia b679f19 y cobertura 08bbe958. Índices y derivados corregidos en 82e6ca9 sin cambiar la ficha; regresiones explícita y genérica. Ver V1.42_SP002_IDENTITY_REVIEW.md.',
-        '- P2 abierto: PROC-SP-003 incluye reimplantación temporal en el índice, mientras la ficha describe conservación del segmento. Revisar nomenclatura y alcance con responsable clínico.',
+        ('- P2 de nomenclatura resuelto: PROC-SP-003 usa en el índice el título de la ficha existente, Amputación: conservación de segmento. El cuerpo, el estado YELLOW y la revisión clínica pendiente se conservan. Ver ../../docs/coordination/CURRENT_DEFECTS_CHECKLIST_20261122.md.'
+         if cards['PROC-SP-003']['name'] == cards['PROC-SP-003']['card_name']
+         else '- P2 abierto: PROC-SP-003 incluye reimplantación temporal en el índice, mientras la ficha describe conservación del segmento. Revisar nomenclatura y alcance con responsable clínico.'),
         '- P1 técnico cerrado en la migración: el JSON previo podía añadir/simplificar instrucciones de seguridad no trazadas al texto. Se retiran enriquecimientos no sustentados de la salida activa, conservando el original en Git y los valores auditados. No se decide que una recomendación clínica sea falsa: queda pendiente revisión humana.',
         '- P2: schema antiguo y tests comprobaban presencia de rescue, no soporte textual; se sustituye por contrato de ausencia explícita y pruebas de fidelidad/schema real. Los 26 JSON antiguos validaban el schema, lo cual no garantizaba equivalencia clínica.',
         f'- P2: {sum(c["name"] != c["card_name"] for c in cards.values())} variantes de título índice/ficha y 10 niveles que omiten el modificador POCUS en la ficha (US-001..006, US-008..010 y WND-006). Se usa el índice y se retiene el heading original; otras variantes no se corrigen en el bloque SP-002.',

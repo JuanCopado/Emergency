@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from patient_weight_request import parse_medication_request
-from test_http_transport_security import running_server
+from test_http_transport_security import request_metadata, running_server
 import clinical_note_api as api
 
 
@@ -16,7 +16,9 @@ def post_literal(path, payload):
     with running_server(max_workers=1, request_timeout=2) as server:
         client = http.client.HTTPConnection(*server.server_address, timeout=2)
         try:
-            client.request('POST', path, payload, {'Content-Type': 'application/json'})
+            headers = dict(header.split(': ', 1) for header in request_metadata(server))
+            headers['Content-Type'] = 'application/json'
+            client.request('POST', path, payload, headers)
             response = client.getresponse()
             return response.status, json.loads(response.read())
         finally:

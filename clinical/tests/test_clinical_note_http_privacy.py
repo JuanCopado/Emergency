@@ -7,6 +7,7 @@ import unittest
 from email.message import Message
 from http import HTTPStatus
 from unittest.mock import Mock, patch
+from types import SimpleNamespace
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -19,6 +20,12 @@ def make_handler(payload=b"{}", path="/api/clinical-note/analyze"):
     handler.headers = Message()
     handler.headers["Content-Length"] = str(len(payload))
     handler.headers["Content-Type"] = "application/json"
+    handler.server = SimpleNamespace(server_address=("127.0.0.1", 8765), server_port=8765)
+    api.configure_local_server(handler.server)
+    handler.client_address = ("127.0.0.1", 1)
+    handler.headers["Host"] = "127.0.0.1:8765"
+    handler.headers["Origin"] = "http://127.0.0.1:8765"
+    handler.headers["X-Emergency-Local-Token"] = handler.server.clinical_session_token
     handler.connection = Mock()
     handler.rfile = io.BytesIO(payload)
     handler.wfile = io.BytesIO()

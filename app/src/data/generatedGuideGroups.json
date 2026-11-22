@@ -1,0 +1,62 @@
+[
+  {
+    "id": "cardiovascular",
+    "bundle": "modules/cardiovascular.md",
+    "count": 18
+  },
+  {
+    "id": "clinical-images",
+    "bundle": "modules/clinical-images.md",
+    "count": 1
+  },
+  {
+    "id": "clinical-scores-calculators",
+    "bundle": "modules/clinical-scores-calculators.md",
+    "count": 1
+  },
+  {
+    "id": "disposition-crosscutting",
+    "bundle": "modules/disposition-crosscutting.md",
+    "count": 7
+  },
+  {
+    "id": "documentation-governance",
+    "bundle": "modules/documentation-governance.md",
+    "count": 2
+  },
+  {
+    "id": "image-modalities",
+    "bundle": "modules/image-modalities.md",
+    "count": 9
+  },
+  {
+    "id": "infection-respiratory",
+    "bundle": "modules/infection-respiratory.md",
+    "count": 13
+  },
+  {
+    "id": "neurologic",
+    "bundle": "modules/neurologic.md",
+    "count": 9
+  },
+  {
+    "id": "procedures-pharmacology",
+    "bundle": "modules/procedures-pharmacology.md",
+    "count": 8
+  },
+  {
+    "id": "renal-metabolic",
+    "bundle": "modules/renal-metabolic.md",
+    "count": 16
+  },
+  {
+    "id": "special-populations",
+    "bundle": "modules/special-populations.md",
+    "count": 36
+  },
+  {
+    "id": "trauma-surgical",
+    "bundle": "modules/trauma-surgical.md",
+    "count": 11
+  }
+]

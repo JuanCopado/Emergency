@@ -110,12 +110,22 @@ for (const entry of entries) {
   });
 }
 
-const out = resolve(appRoot, 'src/data/generatedClinicalGuides.json');
-const serialized = JSON.stringify(guides, null, 2) + '\n';
-if (process.argv.includes('--check')) {
-  if ((await readCanonical(out)) !== serialized) throw new Error('Clinical guide projection is stale');
-  console.log('Checked ' + guides.length + ' canonical clinical guides');
-} else {
-  await writeFile(out, serialized, 'utf8');
-  console.log('Generated ' + guides.length + ' canonical clinical guides');
+// A small navigation projection avoids loading full clinical prose on Home.
+const grouped = new Map();
+for (const guide of guides) {
+  const group = grouped.get(guide.bundle) ?? { id: guide.bundle.split('/').pop().replace(/\.md$/, ''), bundle: guide.bundle, count: 0 };
+  group.count++;
+  grouped.set(guide.bundle, group);
 }
+const outputs = [
+  ['generatedClinicalGuides.json', guides],
+  ['generatedGuideGroups.json', [...grouped.values()].sort((a,b)=>a.bundle.localeCompare(b.bundle))],
+];
+for (const [filename, value] of outputs) {
+  const out = resolve(appRoot, 'src/data', filename);
+  const serialized = JSON.stringify(value, null, 2) + '\n';
+  if (process.argv.includes('--check')) {
+    if ((await readCanonical(out)) !== serialized) throw new Error('Clinical guide projection is stale: ' + filename);
+  } else await writeFile(out, serialized, 'utf8');
+}
+console.log((process.argv.includes('--check') ? 'Checked ' : 'Generated ') + guides.length + ' canonical clinical guides and navigation groups');

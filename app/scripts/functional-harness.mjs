@@ -3,9 +3,11 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
 import { chromiumPath } from './chromium.mjs';
+import { clinicalTestSession } from './clinical-test-session.mjs';
 
 export async function withClinicalApp(run) {
-  const api=spawn(process.env.CLINICAL_QA_PYTHON||'python',['-B','-u','-c','from http.server import ThreadingHTTPServer; from clinical_note_api import ClinicalNoteHandler; s=ThreadingHTTPServer(("127.0.0.1",0),ClinicalNoteHandler); print(s.server_port,flush=True); s.serve_forever()'],{cwd:fileURLToPath(new URL('../../clinical/scripts/',import.meta.url)),windowsHide:true,stdio:['ignore','pipe','pipe']});
+  const session=clinicalTestSession(4180);
+  const api=spawn(process.env.CLINICAL_QA_PYTHON||'python',['-B','-u','-c',session.python],{cwd:fileURLToPath(new URL('../../clinical/scripts/',import.meta.url)),env:session.environment,windowsHide:true,stdio:['ignore','pipe','pipe']});
   let server,browser;
   try {
     const port=await new Promise((resolve,reject)=>{
@@ -15,9 +17,9 @@ export async function withClinicalApp(run) {
       api.on('error',e=>{clearTimeout(timeout);reject(e);});
       api.on('exit',c=>{clearTimeout(timeout);reject(new Error(`API exited ${c}`));});
     });
-    server=await preview({preview:{host:'127.0.0.1',port:4180,strictPort:true,proxy:{'/api':`http://127.0.0.1:${port}`}},logLevel:'error'});
+    server=await preview({preview:{host:'127.0.0.1',port:4180,strictPort:true,proxy:{'/api':session.proxy(port)}},logLevel:'error'});
     browser=await chromium.launch({executablePath:chromiumPath(),headless:true});
-    const context=await browser.newContext({serviceWorkers:'block',acceptDownloads:true});
+    const context=await browser.newContext({serviceWorkers:'block',acceptDownloads:true,extraHTTPHeaders:session.headers});
     await context.addInitScript(()=>{localStorage.setItem('emergency.lang','es');});
     const page=await context.newPage();page.setDefaultTimeout(15000);
     await run({page,context,base:'http://127.0.0.1:4180',browser});
