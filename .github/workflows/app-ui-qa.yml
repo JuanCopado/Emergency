@@ -107,6 +107,10 @@ jobs:
         run: npm run build:security
       - name: Ensure build did not change committed catalogs
         run: git diff --exit-code -- src/data/generatedClinicalGuides.json src/data/generatedProcedures.json src/data/generatedPediatricOutpatient.json
+      - name: Verify the installed service worker serves local routes with the connection cut
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+        run: npm run pwa:offline-check
       - name: Verify all thirteen clinical score forms against the backend in Chromium
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome
