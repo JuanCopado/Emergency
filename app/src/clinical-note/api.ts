@@ -2,16 +2,43 @@ import type { ClinicalNotePayload, DiagnosticApiResponse, InterpretationFields, 
 
 const API_BASE=(import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/,'');
 
-async function postJson<T>(path:string, body:unknown):Promise<T>{
-  const response=await fetch(`${API_BASE}${path}`,{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    cache:'no-store',
-    body:JSON.stringify(body),
-  });
-  const payload=await response.json().catch(()=>({error:'Invalid backend response'}));
-  if(!response.ok) throw new Error(payload?.error || `Clinical-note API error ${response.status}`);
-  return payload as T;
+/** The service could not be reached or did not answer in time. No clinical content is attached. */
+export type ConnectionFailure='network'|'timeout';
+export class ClinicalApiConnectionError extends Error{
+  constructor(readonly failure:ConnectionFailure){
+    super(failure==='timeout'?'clinical API request timed out':'clinical API unreachable');
+    this.name='ClinicalApiConnectionError';
+  }
+}
+// Deterministic calls are bounded; the provider call must outlast the server's own provider timeout (max 180 s)
+// so the client never gives up while the server may still be forwarding the image.
+export const REQUEST_TIMEOUT_MS=60_000;
+export const PROVIDER_TIMEOUT_MS=200_000;
+
+async function postJson<T>(path:string, body:unknown, timeoutMs:number=REQUEST_TIMEOUT_MS):Promise<T>{
+  const serialized=JSON.stringify(body); // a serialization TypeError is a bug, not a connection failure
+  const controller=new AbortController();
+  let timedOut=false;
+  const timer=setTimeout(()=>{timedOut=true;controller.abort();},timeoutMs);
+  try{
+    const response=await fetch(`${API_BASE}${path}`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      cache:'no-store',
+      body:serialized,
+      signal:controller.signal,
+    });
+    const payload=await response.json().catch(()=>({error:'Invalid backend response'}));
+    if(!response.ok) throw new Error(payload?.error || `Clinical-note API error ${response.status}`);
+    return payload as T;
+  }catch(error){
+    // Server answers keep their original error; nothing is retried here.
+    if(timedOut) throw new ClinicalApiConnectionError('timeout');
+    if(error instanceof TypeError) throw new ClinicalApiConnectionError('network');
+    throw error;
+  }finally{
+    clearTimeout(timer);
+  }
 }
 
 function arrayBufferToBase64(buffer:ArrayBuffer){
@@ -45,7 +72,7 @@ export async function interpretClinicalUpload(
       prepared,content_base64,
       privacy_checked:privacyChecked,
       burned_in_identifiers_checked:burnedInIdentifiersChecked,
-    });
+    },PROVIDER_TIMEOUT_MS);
 }
 
 export async function acceptClinicalUpload(
