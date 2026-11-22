@@ -10,6 +10,7 @@ import hashlib
 from http.client import HTTPConnection, HTTPException
 import json
 import os
+import secrets
 from pathlib import Path
 import shutil
 import signal
@@ -142,8 +143,11 @@ def main():
     environment = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1', 'PYTHONUTF8': '1',
                    **({'BG_OCR_MODEL': str(model)} if model is not None else {}), 'NODE_PATH': str(ocr_modules),
                    'EMERGENCY_LOCAL_REVIEW': '1', 'EMERGENCY_LOCAL_REVIEW_PORT': str(args.ui_port)}
+    # Provision a fresh process credential for this launch; never log it or send it to T05/T06.
+    clinical_token = secrets.token_hex(32)
     commands = {
-        'clinical': [str(blood_python), '-B', 'clinical/scripts/clinical_note_api.py', '--port', '8765'],
+        'clinical': [str(blood_python), '-B', 'clinical/scripts/clinical_note_api.py', '--port', '8765',
+                     '--ui-port', str(args.ui_port)],
         'blood-gas': [str(blood_python), '-B', 'clinical/scripts/blood_gas_local.py', '--port', '8767',
                       '--ui-port', str(args.ui_port)],
         'app': [node, 'node_modules/vite/bin/vite.js', '--host', '127.0.0.1',
@@ -158,11 +162,15 @@ def main():
     started = datetime.now(timezone.utc).isoformat()
     try:
         for name, command in commands.items():
+            child_environment = {key: value for key, value in environment.items()
+                                 if key != 'EMERGENCY_LOCAL_API_TOKEN'}
+            if name in {'clinical', 'app'}:
+                child_environment['EMERGENCY_LOCAL_API_TOKEN'] = clinical_token
             log = (evidence / f'{name}.log').open('wb')
             logs.append(log)
             group = {'creationflags': subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == 'nt' else {'start_new_session': True}
             processes[name] = subprocess.Popen(command, cwd=ROOT / 'app' if name == 'app' else ROOT,
-                                                env=environment, stdout=log, stderr=subprocess.STDOUT, **group)
+                                                env=child_environment, stdout=log, stderr=subprocess.STDOUT, **group)
         pending, deadline = set(processes), time.monotonic() + 45
         while pending:
             for name, process in processes.items():

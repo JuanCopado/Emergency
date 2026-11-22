@@ -34,7 +34,7 @@ class ProcedureMigrationTests(unittest.TestCase):
     def test_cross_catalog_identity_has_no_new_unreviewed_variants(self):
         baseline = load(ROOT / 'qa/procedure-migration-baseline-v1.42.json')
         known_variants = {p['procedure_id'] for p in baseline['procedures']
-                          if p['index_card_title_differs']} - {'PROC-SP-002'}
+                          if p['index_card_title_differs']} - {'PROC-SP-002', 'PROC-SP-003'}
         frontend = {p['id']: p for p in load(ROOT.parent / 'app/src/data/generatedProcedures.json')}
         self.assertEqual(set(frontend), set(self.cards))
         for pid, card in self.cards.items():

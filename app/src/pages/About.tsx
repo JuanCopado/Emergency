@@ -4,6 +4,7 @@ import { Icon } from '../components/Icon';
 import { LogoMark } from '../components/Logo';
 import { BRAND } from '../config/brand';
 import { db } from '../data';
+import { BuildIdentity } from '../components/BuildIdentity';
 
 export default function About() {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ export default function About() {
         <div>
           <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">{t('about.title')}</h1>
           <p className="text-muted">
-            {BRAND.name} {BRAND.appVersion} · {t('footer.content', { version: db.meta.contentVersion })}
+            {BRAND.name} {BRAND.appVersion} · <BuildIdentity /> · {t('footer.adultContent', { version: db.meta.contentVersion })}
           </p>
         </div>
       </header>

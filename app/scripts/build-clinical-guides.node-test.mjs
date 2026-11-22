@@ -19,6 +19,12 @@ test('module table and every frontend status match authoritative evidence', asyn
     assert.equal(statuses.get(guide.id), evidence[guide.id].status, `MODULES: ${guide.id}`);
     assert.equal(guide.status, evidence[guide.id].status, `frontend: ${guide.id}`);
   }
+  const groups = JSON.parse(await readFile(resolve(repo, 'app/src/data/generatedGuideGroups.json'), 'utf8'));
+  assert.equal(groups.reduce((total, group) => total + group.count, 0), guides.length);
+  assert.equal(groups.length, new Set(guides.map(guide => guide.bundle)).size);
+  for (const group of groups) {
+    assert.equal(group.count, guides.filter(guide => guide.bundle === group.bundle).length, group.bundle);
+  }
 });
 
 async function runFixture(t, index, bundles, metadata = {}) {

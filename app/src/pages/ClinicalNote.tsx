@@ -1,10 +1,12 @@
 import type { LangCode } from '../i18n';
 import { useClinicalUi } from '../i18n/useClinicalUi';
+import { hasLocalIdentifierLabel } from '../clinical-note/privacy';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { excludedContainer, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 import { Link } from 'react-router-dom';
+import { ClinicalNoteDraftScope, useClinicalNoteDraft, useNoteDraftField, type NoteTab, type McdtCard } from '../clinical-note/draft';
 import { useTranslation } from 'react-i18next';
 import {
   acceptClinicalUpload,
@@ -19,9 +21,7 @@ import type {
   ClinicalAssessment,
   DiagnosticCandidate,
   ClinicalNotePayload,
-  PreparedUpload,
   ReportItem,
-  ReviewState,
 } from '../clinical-note/types';
 
 function CandidateHeading({ candidate }: { candidate: DiagnosticCandidate }) {
@@ -40,19 +40,11 @@ function CandidateHeading({ candidate }: { candidate: DiagnosticCandidate }) {
   </>;
 }
 
-type Tab='history'|'exam'|'mcdt'|'problems'|'diagnostic'|'plan'|'export';
-type McdtCard={
-  id:string;kind:string;name:string;official:string;ai:string;state:ReviewState;
-  provenance:string;prepared?:PreparedUpload;sourceFile?:File;privacyChecked:boolean;burnedChecked:boolean;
-  sourceReference:string;findings?:string;impression?:string;
-};
-
-const tabs:[Tab,string][]=[
+const tabs:[NoteTab,string][]=[
  ['history','História'],['exam','Exame'],['mcdt','MCDT'],['problems','Problemas'],
  ['diagnostic','Apoio diagnóstico'],['plan','Plano'],['export','Exportar'],
 ];
 const mcdtKinds=['Analítica','Gasometria','ECG','Rx','TC/RM','Ecografia/POCUS','Microbiologia','Pele/ferida','Outro'];
-const directId=/\b(nome|name|sns|nif|morada|endereço|address|telefone|telemóvel|phone|mrn)\b\s*[:-]/i;
 const kindMap:Record<string,string>={
   'Analítica':'laboratory_report','Gasometria':'blood_gas','ECG':'ecg','Rx':'xray',
   'TC/RM':'ct','Ecografia/POCUS':'pocus','Microbiologia':'microbiology','Pele/ferida':'skin_wound','Outro':'other_image',
@@ -80,41 +72,48 @@ const noteLanguages: Record<LangCode, ClinicalNotePayload['language']> = {
 };
 
 export default function ClinicalNote(){
+  return <ClinicalNoteDraftScope><ClinicalNoteEditor /></ClinicalNoteDraftScope>;
+}
+
+function ClinicalNoteEditor(){
+  const draftSession = useClinicalNoteDraft();
   const { t, i18n } = useTranslation();
   const ui = useClinicalUi();
   const f = useFormat();
   const noteLanguage = noteLanguages[i18n.resolvedLanguage as LangCode] ?? 'en';
- const [tab,setTab]=useState<Tab>('history');
- const [age,setAge]=useState(''); const [sex,setSex]=useState<ClinicalNotePayload['encounter']['sex']>('unknown');
- const [origin,setOrigin]=useState(''); const [chief,setChief]=useState(''); const [hpi,setHpi]=useState('');
- const [pmh,setPmh]=useState(''); const [meds,setMeds]=useState(''); const [allergies,setAllergies]=useState('');
- const [exam,setExam]=useState(''); const [problems,setProblems]=useState(''); const [plan,setPlan]=useState('');
- const [vitalDraft,setVitalDraft]=useState({time:'',bp:'',hr:'',rr:'',spo2:'',oxygen:'',temp:'',gcs:''});
- const [vitalSets,setVitalSets]=useState<ClinicalNotePayload['exam']['vitals']>([]);
- const [timeline,setTimeline]=useState<ClinicalNotePayload['timeline']>([]);
- const [reports,setReports]=useState<ClinicalNotePayload['complementary_tests']>(emptyReports);
- const [assessment,setAssessment]=useState<ClinicalAssessment|null>(null);
- const [assessmentLanguage,setAssessmentLanguage]=useState<ClinicalNotePayload['language']|null>(null);
- const [diagnosticAlerts,setDiagnosticAlerts]=useState<{severity:string;code:string;message:string}[]>([]);
- const [medicationGate,setMedicationGate]=useState<{status:string;actionable:boolean;message:string}|null>(null);
- const [diagnosticStale,setDiagnosticStale]=useState(true);
+ const [tab,setTab]=useNoteDraftField('tab');
+ const [age,setAge]=useNoteDraftField('age'); const [sex,setSex]=useNoteDraftField('sex');
+ const [origin,setOrigin]=useNoteDraftField('origin'); const [chief,setChief]=useNoteDraftField('chief'); const [hpi,setHpi]=useNoteDraftField('hpi');
+ const [pmh,setPmh]=useNoteDraftField('pmh'); const [meds,setMeds]=useNoteDraftField('meds'); const [allergies,setAllergies]=useNoteDraftField('allergies');
+ const [exam,setExam]=useNoteDraftField('exam'); const [problems,setProblems]=useNoteDraftField('problems'); const [plan,setPlan]=useNoteDraftField('plan');
+ const [vitalDraft,setVitalDraft]=useNoteDraftField('vitalDraft');
+ const [vitalSets,setVitalSets]=useNoteDraftField('vitalSets');
+ const [timeline,setTimeline]=useNoteDraftField('timeline');
+ const [reports,setReports]=useNoteDraftField('reports');
+ const [assessment,setAssessment]=useNoteDraftField('assessment');
+ const [assessmentLanguage,setAssessmentLanguage]=useNoteDraftField('assessmentLanguage');
+ const [diagnosticAlerts,setDiagnosticAlerts]=useNoteDraftField('diagnosticAlerts');
+ const [medicationGate,setMedicationGate]=useNoteDraftField('medicationGate');
+ const [diagnosticStale,setDiagnosticStale]=useNoteDraftField('diagnosticStale');
+ const [clinicianReviewed,setClinicianReviewed]=useNoteDraftField('clinicianReviewed');
+ const [draftLanguage,setDraftLanguage]=useNoteDraftField('language');
  const [diagnosticBusy,setDiagnosticBusy]=useState(false);
  const noteRevision=useRef(0);
  const diagnosticRequestId=useRef(0);
- const previousLanguage=useRef(noteLanguage);
+ const active=useRef(true);
+ useEffect(()=>{active.current=true;return()=>{active.current=false;};},[]);
  useEffect(()=>{
-   if(previousLanguage.current===noteLanguage) return;
-   previousLanguage.current=noteLanguage;
+   if(draftLanguage===noteLanguage) return;
+   setDraftLanguage(noteLanguage);
    noteRevision.current+=1;
    setDiagnosticBusy(false);
    setClinicianReviewed(false);
    setDiagnosticStale(true);
- },[noteLanguage]);
- const [mcdt,setMcdt]=useState<McdtCard[]>([]); const [privacyAck,setPrivacyAck]=useState(false);
- const [clinicianReviewed,setClinicianReviewed]=useState(false);
- const [draftKind,setDraftKind]=useState('Outro'); const [draftName,setDraftName]=useState('');
- const [draftOfficial,setDraftOfficial]=useState(''); const [draftAi,setDraftAi]=useState('');
- const [uploadName,setUploadName]=useState(''); const [apiBusy,setApiBusy]=useState(false);
+ },[draftLanguage,noteLanguage,setDraftLanguage,setClinicianReviewed,setDiagnosticStale]);
+ const [mcdt,setMcdt]=useNoteDraftField('mcdt'); const [privacyAck,setPrivacyAck]=useNoteDraftField('privacyAck');
+ const [draftKind,setDraftKind]=useNoteDraftField('draftKind'); const [draftName,setDraftName]=useNoteDraftField('draftName');
+ const [draftOfficial,setDraftOfficial]=useNoteDraftField('draftOfficial'); const [draftAi,setDraftAi]=useNoteDraftField('draftAi');
+ const [uploadName,setUploadName]=useNoteDraftField('uploadName'); const [apiBusy,setApiBusy]=useState(false);
  const [apiError,setApiError]=useState('');
  const [reviewFocus,setReviewFocus]=useState<{id:string}|null>(null);
  const reviewElements=useRef(new Map<string,HTMLElement>());
@@ -125,12 +124,12 @@ export default function ClinicalNote(){
    target?.focus();
    setReviewFocus(null);
  },[reviewFocus,tab]);
- const encounter=useMemo(()=>crypto.randomUUID?.() ?? `enc-${Date.now()}`,[]);
+ const encounter=draftSession.draft.encounter;
  const allAccepted=Object.values(reports).flat();
  const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,problems,plan,
    ...allAccepted.flatMap(x=>[x.official_report||'',x.ai_interpretation||'',x.findings||'',x.impression||'']),
    ...mcdt.flatMap(x=>[x.official,x.ai,x.findings,x.impression])].join('\n');
- const privacyStop=directId.test(freeText);
+ const privacyStop=hasLocalIdentifierLabel(freeText);
  const pending=mcdt.filter(x=>x.state==='pending').length;
  const busy=apiBusy||diagnosticBusy;
  const numericStop=Boolean(age.trim()) && (numberOrNull(age)===null || (numberOrNull(age) ?? 0)<0);
@@ -282,17 +281,22 @@ export default function ClinicalNote(){
    setApiError('');
    if(card.prepared){
      if(card.prepared.privacy.status==='STOP'){setApiError(ui("STOP de privacidade no ficheiro: remova os identificadores antes de aceitar."));return;}
+     const revision=noteRevision.current;
+     const isCurrent=()=>active.current&&revision===noteRevision.current;
      setApiBusy(true);
      try{
        const result=await acceptClinicalUpload(buildNote(),card.prepared,
          {official_report:card.official||null,ai_interpretation:card.ai||null,
           ...(card.prepared.processing.status==='vision_interpreted' ? {findings:card.findings||null,impression:card.impression||null} : {})},
          card.privacyChecked,card.burnedChecked);
+       // The response replaces both collections from the submitted note snapshot.
+       // Any intervening edit/rejection, including another card, makes it obsolete.
+       if(!isCurrent()) return;
        setReports(result.note.complementary_tests);
        setTimeline(result.note.timeline);
        setMcdt(v=>v.map(x=>x.id===id?{...x,state:'accepted'}:x));
        touch();setReviewFocus({id});
-     }catch(e){setApiError(uploadError(e,"Não foi possível aceitar o MCDT.",ui));setReviewFocus({id:'error'});}
+     }catch(e){if(isCurrent()){setApiError(uploadError(e,"Não foi possível aceitar o MCDT.",ui));setReviewFocus({id:'error'});}}
      finally{setApiBusy(false);}
      return;
    }
@@ -320,7 +324,7 @@ export default function ClinicalNote(){
    if (numericStop) return;
    const revision=noteRevision.current;
    const requestId=++diagnosticRequestId.current;
-   const isCurrent=()=>requestId===diagnosticRequestId.current&&revision===noteRevision.current;
+   const isCurrent=()=>active.current&&requestId===diagnosticRequestId.current&&revision===noteRevision.current;
    const note=buildNote();
    setApiError('');setDiagnosticBusy(true);setDiagnosticStale(true);
    try{
@@ -346,8 +350,10 @@ export default function ClinicalNote(){
    try{
      const note=buildNote();
      const preflight=await preflightClinicalNote(note);
+     if(!active.current) return;
      if(preflight.blocked){setApiError(preflight.findings.map(x=>x.message).join(' · '));return;}
      const out=await exportClinicalNote(note,format);
+     if(!active.current) return;
      downloadBlob(out.filename,out.blob);
    }catch(e){setApiError(e instanceof Error?e.message:ui("Exportação bloqueada pelo backend."));}
    finally{setApiBusy(false);}
@@ -453,14 +459,21 @@ export default function ClinicalNote(){
  return <div className="space-y-4" data-testid="clinical-note-workspace">
    <section className={card}>
     <div className="flex flex-wrap items-start gap-3">
-      <div className="min-w-0 flex-1"><p className="section-title">{ui("Nota clínica · episódio seudónimo")}</p><h1 className="mt-1 text-xl font-extrabold">{ui("Apoio ao diagnóstico")}</h1><p className="mt-1 break-all text-xs text-muted">{encounter}</p></div>
-      <span className={`chip ${privacyStop?'border-danger text-danger':'border-ok text-ok'}`}>{privacyStop?ui("STOP privacidade"):ui("Privacidade local OK")}</span>
+      <div className="min-w-0 flex-1"><p className="section-title">{ui("Nota clínica · episódio seudónimo")}</p><h1 className="mt-1 text-xl font-extrabold">{ui("Apoio ao diagnóstico")}</h1><p data-testid="note-encounter" className="mt-1 break-all text-xs text-muted">{encounter}</p></div>
+      <span className={`chip ${privacyStop?'border-danger text-danger':'text-muted'}`}>{privacyStop?ui("STOP privacidade"):ui("Sem identificadores detetados localmente")}</span>
       <span className="chip">{clinicianReviewed?ui("Revisto pelo médico"):ui("Revisão pendente")}</span>
       <span className="chip">{assessment&&!diagnosticStale?ui("Apoio atualizado"):ui("Apoio pendente")}</span>
     </div>
-    <Link to="/blood-gas" className="btn-ghost mt-3">{t('home.bloodGasReview')}</Link>
+    <div className="mt-3 flex flex-wrap gap-2">
+      <Link to="/blood-gas" className="btn-ghost">{t('home.bloodGasReview')}</Link>
+      <button type="button" className="btn-ghost" onClick={()=>{
+        if(!draftSession.hasContent || window.confirm(t('noteDraft.discardConfirm'))) draftSession.reset();
+      }}>{t('noteDraft.new')}</button>
+    </div>
+    <p className="mt-2 text-sm text-muted">{t('noteDraft.memoryOnly')}</p>
     <p id="note-number-policy" className="mt-3 text-sm text-muted">{ui("Entrada numérica: usa punto decimal (0.1), sin separadores de miles. La salida sigue el idioma seleccionado.")}</p>
     <p className="text-sm text-muted">{ui("Contenido clínico y exportaciones canónicas en el idioma de la fuente; traducción clínica integral pendiente.")}</p>
+    <p className="text-sm text-muted">{ui("A verificação automática é limitada. Reveja o texto e os ficheiros antes de aceitar ou exportar.")}</p>
     <div className="mt-4 grid gap-3 sm:grid-cols-3">
       <label><span className="label">{ui("Idade")}</span><input aria-label={ui("Idade")} className="input" inputMode="decimal" lang="en" aria-invalid={numericStop || undefined} aria-describedby="note-number-policy" value={age} onChange={e=>{setAge(e.target.value);touch()}} placeholder={ui("anos")}/></label>
       <label><span className="label">{ui("Sexo")}</span><select aria-label={ui("Sexo")} className="input" value={sex} onChange={e=>{setSex(e.target.value as ClinicalNotePayload['encounter']['sex']);touch()}}><option value="unknown">{ui("Não registado")}</option><option value="female">{ui("Feminino")}</option><option value="male">{ui("Masculino")}</option><option value="intersex">{ui("Intersexo")}</option></select></label>

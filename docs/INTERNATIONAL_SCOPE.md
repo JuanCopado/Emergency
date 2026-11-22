@@ -59,7 +59,7 @@ Distinguir siempre:
 3. Aceptación operativa de un perfil, organización o entorno.
 4. Evaluación prospectiva del rendimiento y seguridad en una población concreta.
 
-Una aceptación local conserva su valor y procedencia, pero no demuestra validación internacional. Una dependencia local pendiente limita la afirmación o función que depende de ella; no transforma todas las capacidades del proyecto en bloqueadas. `CLINICALLY_PENDING`, los 19 contratos agudos bloqueados y los estados existentes se mantienen hasta sus procesos de resolución. Esta directriz no cambia dosis ni constituye aprobación asistencial.
+Una aceptación local conserva su valor y procedencia, pero no demuestra validación internacional. Una dependencia local pendiente limita la afirmación o función que depende de ella; no transforma todas las capacidades del proyecto en bloqueadas. Se conserva `CLINICALLY_PENDING` y cada estado clínico en su alcance. Los 19 contratos antes bloqueados cuentan con la [aceptación del propietario del 16/11/2026](../clinical/references/acute-contract-owner-acceptance-2026-11-16.json) y la [entrega revisada](../clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md); sus controles específicos siguen vigentes. Las referencias históricas a esos bloqueos no anulan la aceptación posterior. Esta directriz no cambia dosis ni constituye aprobación asistencial.
 
 ## Instrucción común a colaboradores
 

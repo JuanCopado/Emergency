@@ -7,6 +7,7 @@ import { Icon, type IconName } from './Icon';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { LogoMark } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
+import { BuildIdentity } from './BuildIdentity';
 
 const NAV: { to: string; key: string; icon: IconName; end?: boolean; desktopOnly?: boolean }[] = [
   { to: '/', key: 'nav.home', icon: 'home', end: true },
@@ -79,7 +80,7 @@ export function Layout() {
 
       <footer className="mx-auto hidden max-w-6xl border-t border-border px-6 py-6 text-xs text-muted lg:block">
         <p>
-          {BRAND.name} {BRAND.appVersion} · {t('footer.content', { version: BRAND.contentVersion })} · {t('footer.disclaimer')}{' '}
+          {BRAND.name} {BRAND.appVersion} · <BuildIdentity /> · {t('footer.adultContent', { version: BRAND.contentVersion })} · {t('footer.disclaimer')}{' '}
           <Link to="/about" className="underline underline-offset-2 hover:text-fg">
             {t('nav.about')}
           </Link>

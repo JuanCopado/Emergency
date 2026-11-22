@@ -23,7 +23,7 @@ await withClinicalApp(async({page,base,browser})=>{
       const response=await responsePromise;const body=await response.json();
       assert.equal(response.status(),200,JSON.stringify(body));
       for(const [k,v] of Object.entries(c['expected_'+variant]))assert.deepEqual(body.result[k],v);
-      const result=page.getByRole('region',{name:'Resultado del score'});await result.waitFor();
+      const result=page.getByRole('region',{name:'Resultado e interpretación'});await result.waitFor();
       // Every scalar returned by the canonical engine is rendered, including warnings and units.
       const visible=await result.innerText();
       function check(value) {
@@ -46,7 +46,7 @@ await withClinicalApp(async({page,base,browser})=>{
     }
     await page.getByRole('button',{name:c.id==='grace-2'?'Validar y abrir GRACE oficial':'Calcular',exact:true}).click();
     await page.getByRole('alert').filter({hasText:'requerido'}).waitFor();
-    assert.equal(await page.getByRole('region',{name:'Resultado del score'}).count(),0);
+    assert.equal(await page.getByRole('region',{name:'Resultado e interpretación'}).count(),0);
     report.cases.push({id:c.id,normal:'PASS',pdf_equivalence:'PASS',boundary:'PASS',missing_input:'PASS',reset:'PASS',canonical_output_visible:'PASS'});
     console.log(`PASS ${c.id}: normal, boundary, missing, reset, canonical output`);
   }

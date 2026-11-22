@@ -1,7 +1,6 @@
 """Synthetic HTTP errors through an actual loopback socket, no external network."""
 import contextlib
 import http.client
-from http.server import ThreadingHTTPServer
 import io
 from pathlib import Path
 import sys
@@ -17,14 +16,16 @@ class HttpSocketPrivacyTests(unittest.TestCase):
     def request(self, body, error=None):
         captured = io.StringIO()
         with contextlib.redirect_stderr(captured):
-            server = ThreadingHTTPServer(('127.0.0.1', 0), api.ClinicalNoteHandler)
+            server = api.make_server()
             thread = threading.Thread(target=server.serve_forever, daemon=True)
             thread.start()
             try:
                 with patch.object(api, 'dispatch', side_effect=error):
                     connection = http.client.HTTPConnection('127.0.0.1', server.server_port, timeout=5)
                     connection.request('POST', '/api/clinical-note/analyze?case=R3_PRIVATE_SYNTHETIC',
-                                       body=body, headers={'Content-Type': 'application/json'})
+                                       body=body, headers={'Content-Type': 'application/json',
+                                           'Origin': f'http://127.0.0.1:{server.server_port}',
+                                           'X-Emergency-Local-Token': server.clinical_session_token})
                     response = connection.getresponse()
                     status, headers, result = response.status, dict(response.getheaders()), response.read()
                     connection.close()

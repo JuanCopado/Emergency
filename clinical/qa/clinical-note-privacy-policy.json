@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "name": "clinical-note-privacy-by-design",
   "principles": [
     "data_minimization",
@@ -31,24 +31,23 @@
   "free_text_flag_patterns": [
     {
       "id": "email",
-      "pattern": "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}",
-      "flags": "i"
+      "detector": "email_shape_linear"
     },
     {
       "id": "labelled_phone",
-      "pattern": "(?i)\\b(telefone|telemovel|telemóvel|phone|tel\\.?)\\b[^\\n]{0,20}\\+?[0-9][0-9 .()-]{7,}"
+      "pattern": "(?i)(?:\\b(telefone|telemovel|telemóvel|phone|telephone|tel[eé]fono|m[oó]vil|tel\\.?)\\b|电话|電話|手机|手機)[^\\r\\n]{0,20}\\+?[0-9][0-9 .()-]{7,}"
     },
     {
       "id": "labelled_identifier",
-      "pattern": "(?i)\\b(sns|nif|nhs|mrn|processo|process no|n\\.?\\s*processo|cc|cartao de cidadao|cartão de cidadão|passport)\\b[^\\n]{0,20}[A-Z0-9.-]{5,}"
+      "pattern": "(?i)(?:\\b(sns|nif|nhs|mrn|dni|nie|processo|process no|n\\.?\\s*processo|historia cl[ií]nica|n[uú]mero de historia|cc|cartao de cidadao|cartão de cidadão|passport|pasaporte)\\b|身份证|身份證|病历号|病歷號|护照|護照)[^\\r\\n]{0,20}[A-Z0-9.-]{5,}"
     },
     {
       "id": "labelled_address",
-      "pattern": "(?i)\\b(morada|endereco|endereço|address)\\b\\s*[:\\-]?\\s*[^\\n]{4,80}"
+      "pattern": "(?i)(?:\\b(morada|endereco|endereço|address|direcci[oó]n|domicilio)\\b|地址|住址)\\s*(?:[:：\\-]\\s*)?[^\\r\\n]{4,80}"
     },
     {
       "id": "labelled_name",
-      "pattern": "(?i)\\b(nome|name)\\b\\s*[:\\-]\\s*[^\\n]{2,80}"
+      "pattern": "(?i)(?:\\b(nome(?: completo| do paciente| do doente)?|name|patient(?: name)?|nombre(?: completo| del paciente)?|paciente|doente)\\b|(?:患者|病人)?姓名|患者|病人)\\s*[:：\\-]\\s*[^\\r\\n]{2,80}"
     }
   ],
   "attachment_rules": {

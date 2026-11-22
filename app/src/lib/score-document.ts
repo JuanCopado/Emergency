@@ -1,6 +1,6 @@
 export type Field = { key:string; label:string; type:'number'|'choice'; unit?:string; minimum?:number|null; maximum?:number|null; integer?:boolean; optional:boolean; options?:{value:string|number|boolean;label:string}[] };
 export type Candidate = { value:string; source:string };
-export type Sample = { label:string; lines:string[] };
+export type Sample = { label:string; lines:string[]; blockNumber:number; pageNumber?:number };
 const canonicalMicro = (s:string) => s.replaceAll('μ','µ');
 const fold = (s:string) => canonicalMicro(s).trim().normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/\s+/g,' ');
 const aliases:Record<string,string[]> = {
@@ -41,6 +41,6 @@ export function candidates(fields:Field[], lines:string[]) {
 export function samples(text:string, page:string):Sample[] {
   const sections = text.replace(/\r/g,'').split(/\n\s*\n|\n(?=(?:muestra|sample|amostra|fecha|hora)\s*[:=])/i);
   return sections.map(section=>section.trim().split('\n').map(line=>line.trim())).filter(lines=>lines.some(Boolean))
-    .map((lines,i)=>({label:`${page} · bloque ${i+1} · ${lines[0]!.slice(0,90)}`,lines}));
+    .map((lines,i)=>({label:`${page} · bloque ${i+1} · ${lines[0]!.slice(0,90)}`,lines,blockNumber:i+1}));
 }
 

@@ -61,7 +61,12 @@
     "outpatientPediatrics": "儿科门诊",
     "insulinSimulation": "ICU 胰岛素治疗 · 模拟",
     "bloodGasReview": "血气 · 本地复核",
-    "t06Lab": "T06 实验室 · 合成数据"
+    "t06Lab": "T06 实验室 · 合成数据",
+    "referenceGuides": "可用参考指南",
+    "referenceScope": "查看指南不会启用新工具，也不会改变其临床验证状态。",
+    "referenceCount_other": "{{count}} 份指南",
+    "openReferences": "查看指南",
+    "allReferenceGuides": "查看全部指南"
   },
   "groups": {
     "vasoactive": {
@@ -98,6 +103,18 @@
     },
     "clinicalImages": {
       "title": "临床影像判读"
+    },
+    "imageFramework": {
+      "title": "影像解读框架"
+    },
+    "imageModalities": {
+      "title": "影像模态"
+    },
+    "clinicalScores": {
+      "title": "临床评分与计算器"
+    },
+    "documentationGovernance": {
+      "title": "文档与临床审核"
     }
   },
   "categories": {
@@ -252,7 +269,7 @@
     "roundingInfo": "泵速显示精确到 0.1 mL/h。",
     "dataTitle": "数据与版本",
     "appVersion": "应用",
-    "contentVersion": "临床内容",
+    "contentVersion": "成人输注目录",
     "drugsCount": "药物"
   },
   "about": {
@@ -274,7 +291,8 @@
   },
   "footer": {
     "content": "内容 {{version}}",
-    "disclaimer": "草稿，待临床验证——以本地方案和临床判断为准。"
+    "disclaimer": "草稿，待临床验证——以本地方案和临床判断为准。",
+    "adultContent": "成人输注目录 {{version}}"
   },
   "notFound": {
     "title": "页面未找到",
@@ -345,5 +363,71 @@
     "all": "所有主题",
     "compare": "与其他国家比较",
     "off": "不比较"
+  },
+  "scores": {
+    "title": "临床评分",
+    "scope": "CLINICALLY_PENDING · 辅助临床判断，尚未完成前瞻性临床验证。",
+    "reference": "规范参考与局限",
+    "loading": "正在加载表单…",
+    "summary": "{{forms}} 个表单 · 登记中有 {{scales}} 个量表和 {{formulas}} 个公式。证据状态：{{status}}。",
+    "score": "评分",
+    "unavailable": "此表单不支持该评分。",
+    "source": "规范来源",
+    "entry": "输入数据",
+    "manual": "手动输入",
+    "document": "导入 PDF 或化验结果",
+    "instructions": "输入已观察的数据。未选择表示未记录，不默认正常。",
+    "unrecorded": "未记录",
+    "optional": "可选",
+    "required": "必填",
+    "integer": "整数",
+    "finite": "有限数值",
+    "calculate": "计算",
+    "calculating": "正在计算…",
+    "reset": "重置",
+    "result": "结果与解释",
+    "points": "{{value}} 分",
+    "officialGrace": "打开官方 GRACE 计算器",
+    "validateGrace": "验证并打开官方 GRACE",
+    "sourceNotice": "临床术语、选项和结果保留规范来源的语言（西班牙语）；切换语言仅翻译操作控件。",
+    "fieldRequired": "必填字段",
+    "invalidOption": "不支持的值",
+    "invalidNumber": "无效数值",
+    "outOfRange": "数值超出允许范围",
+    "wrongResult": "结果与当前表单不匹配。请重新加载后再计算。",
+    "serviceError": "无法完成请求。请检查已配置的服务后重试。",
+    "serviceDetails": "服务返回的详细信息"
+  },
+  "scoreDoc": {
+    "title": "导入化验结果",
+    "file": "带文本的 PDF 或文本文件",
+    "paste": "或粘贴化验结果",
+    "review": "请核对样本、数值及单位，并补充缺失字段。",
+    "noText": "未找到可提取文本。如果是扫描版 PDF，请粘贴结果或手动输入。",
+    "textLimit": "请选择不超过 100 KB 的文本文件。",
+    "fileLimit": "文件超过 8 MB。",
+    "reading": "正在读取文档…",
+    "readError": "无法读取文档。请粘贴结果或手动输入。",
+    "selectSample": "选择页面或样本",
+    "choose": "请选择",
+    "source": "查看原始文本",
+    "missing": "所选文本块中未识别。请核对原件并补充可用数据。",
+    "noMatches": "未找到与此表单明确匹配的数据。",
+    "origin": "来源",
+    "ambiguous": "存在多个结果。请选择对应样本的原始行。",
+    "chooseLine": "选择原始行",
+    "text": "文本",
+    "page": "第 {{number}} 页",
+    "block": "文本块 {{number}}"
+  },
+  "noteDraft": {
+    "new": "新建记录",
+    "discardConfirm": "是否丢弃本次就诊的草稿并开始空白记录？此操作无法撤销。",
+    "memoryOnly": "导航时草稿仅保留在当前标签页的内存中。关闭或刷新前请先导出；“新建记录”会清除本次就诊。"
+  },
+  "buildIdentity": {
+    "label": "构建版本",
+    "unknown": "版本标识不可用",
+    "localChanges": "含未提交的本地更改"
   }
 }

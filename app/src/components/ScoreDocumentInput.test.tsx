@@ -1,10 +1,12 @@
 import {cleanup,fireEvent,render,screen,waitFor} from '@testing-library/react';
-import {afterEach,expect,it,vi} from 'vitest';
+import {afterEach,beforeEach,expect,it,vi} from 'vitest';
 import ScoreDocumentInput from './ScoreDocumentInput';
 import {readPdf} from '../lib/score-pdf';
 import type {Field} from '../lib/score-document';
+import i18n from '../i18n';
 
 vi.mock('../lib/score-pdf',()=>({readPdf:vi.fn()}));
+beforeEach(async()=>{await i18n.changeLanguage('es');});
 afterEach(()=>{cleanup();vi.clearAllMocks();});
 const fields:Field[]=[
   {key:'urea',label:'Urea',type:'number',unit:'mmol/L',optional:false},
@@ -54,7 +56,7 @@ it('clears previous values on empty, unsupported, oversize and unreadable report
 it('discards late extraction after pasting a replacement report',async()=>{
   const {file,paste,onValues}=open();
   let finish!:()=>void;
-  vi.mocked(readPdf).mockImplementationOnce(()=>new Promise(resolve=>{finish=()=>resolve([{label:'old',lines:['Urea: 8 mmol/L']}]);}));
+  vi.mocked(readPdf).mockImplementationOnce(()=>new Promise(resolve=>{finish=()=>resolve([{label:'old',lines:['Urea: 8 mmol/L'],blockNumber:1,pageNumber:1}]);}));
   file('old.pdf');
   await waitFor(()=>expect(readPdf).toHaveBeenCalledOnce());
   paste('Urea: 3 mmol/L');

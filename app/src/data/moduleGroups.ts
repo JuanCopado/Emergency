@@ -1,7 +1,6 @@
-/**
- * Module groups of the v1.35 skill package (references/module-index.md, 106 module IDs).
- * Sprint 1 ships only the two adult infusion modules; the rest are shown as "coming soon".
- */
+import guideGroups from './generatedGuideGroups.json';
+
+// Adult infusion tools and current reference groups have distinct capabilities.
 export interface ModuleGroup {
   id: string;
   /** i18n key suffix under `groups.` */
@@ -19,14 +18,11 @@ export const AVAILABLE_GROUPS: ModuleGroup[] = [
   { id: 'sedation', key: 'sedation', bundle: 'modules/procedures-pharmacology.md', moduleCount: 1, status: 'available', category: 'icu-sedation-analgesia', moduleId: 'icu-sedation-analgesia-infusions' },
 ];
 
-export const COMING_SOON_GROUPS: ModuleGroup[] = [
-  { id: 'cardiovascular', key: 'cardiovascular', bundle: 'modules/cardiovascular.md', moduleCount: 17, status: 'coming-soon' },
-  { id: 'infection-respiratory', key: 'infectionRespiratory', bundle: 'modules/infection-respiratory.md', moduleCount: 13, status: 'coming-soon' },
-  { id: 'neurologic', key: 'neurologic', bundle: 'modules/neurologic.md', moduleCount: 9, status: 'coming-soon' },
-  { id: 'renal-metabolic', key: 'renalMetabolic', bundle: 'modules/renal-metabolic.md', moduleCount: 16, status: 'coming-soon' },
-  { id: 'trauma-surgical', key: 'traumaSurgical', bundle: 'modules/trauma-surgical.md', moduleCount: 11, status: 'coming-soon' },
-  { id: 'special-populations', key: 'specialPopulations', bundle: 'modules/special-populations.md', moduleCount: 15, status: 'coming-soon' },
-  { id: 'procedures-pharmacology', key: 'proceduresPharmacology', bundle: 'modules/procedures-pharmacology.md', moduleCount: 6, status: 'coming-soon' },
-  { id: 'disposition-crosscutting', key: 'dispositionCrosscutting', bundle: 'modules/disposition-crosscutting.md', moduleCount: 7, status: 'coming-soon' },
-  { id: 'clinical-images', key: 'clinicalImages', bundle: 'modules/clinical-images.md + modules/image-modalities.md', moduleCount: 10, status: 'coming-soon' },
-];
+const referenceKeys: Record<string,string> = {
+  cardiovascular:'cardiovascular', 'infection-respiratory':'infectionRespiratory', neurologic:'neurologic',
+  'renal-metabolic':'renalMetabolic', 'trauma-surgical':'traumaSurgical', 'special-populations':'specialPopulations',
+  'procedures-pharmacology':'proceduresPharmacology', 'disposition-crosscutting':'dispositionCrosscutting',
+  'clinical-images':'imageFramework', 'image-modalities':'imageModalities',
+  'clinical-scores-calculators':'clinicalScores', 'documentation-governance':'documentationGovernance',
+};
+export const REFERENCE_GROUPS = guideGroups.map(group => ({...group,key:referenceKeys[group.id] ?? group.id}));
