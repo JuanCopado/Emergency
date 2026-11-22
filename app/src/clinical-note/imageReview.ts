@@ -55,6 +55,9 @@ export function excludedContainer(prepared?: PreparedUpload) {
 
 export function uploadError(error: unknown, fallback: string, ui: (key: string) => string) {
   if (!(error instanceof Error)) return ui(fallback);
+  if (error.message === 'clinical text upload exceeds character limit') {
+    return ui('O texto do ficheiro excede 120 000 caracteres. Nada foi importado; divida-o em documentos menores e reveja cada parte.');
+  }
   if (error.message.startsWith('invalid image upload:') || error.message === 'invalid or unsupported clinical image or filename') {
     return ui(error.message.endsWith('signature_mismatch')
       ? 'O conteúdo do ficheiro não corresponde ao formato declarado.'

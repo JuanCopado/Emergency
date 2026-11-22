@@ -254,6 +254,45 @@ def _all_text(note):
         if isinstance(value, str) and value.strip():
             yield path, value
 
+
+# Keep the legacy ASCII/case-insensitive email shape, including Python re.I's
+# four additional case-folding letters. This is a privacy screen, not an RFC
+# validator. Each segment is scanned by find and one forward domain pass.
+_EMAIL_LETTERS = frozenset("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZİıſK")
+_EMAIL_LOCAL = _EMAIL_LETTERS | frozenset("0123456789._%+-")
+_EMAIL_DOMAIN = _EMAIL_LETTERS | frozenset("0123456789.-")
+
+
+def _email_domain_matches(text, start):
+    letters_after_dot = 0
+    eligible_dot = False
+    for index in range(start, len(text)):
+        char = text[index]
+        if char not in _EMAIL_DOMAIN:
+            return False
+        if char == ".":
+            eligible_dot = index > start
+            letters_after_dot = 0
+        elif eligible_dot and char in _EMAIL_LETTERS:
+            letters_after_dot += 1
+            if letters_after_dot >= 2:
+                return True
+        else:
+            eligible_dot = False
+    return False
+
+
+def contains_email_shape(text):
+    cursor = 0
+    while True:
+        at = text.find("@", cursor)
+        if at < 0:
+            return False
+        cursor = at + 1
+        if at > 0 and text[at - 1] in _EMAIL_LOCAL and _email_domain_matches(text, cursor):
+            return True
+
+
 def scan_privacy(note, policy=None):
     policy = policy or load_policy()
     forbidden = {x.lower() for x in policy["forbidden_direct_identifier_fields"]}
@@ -264,11 +303,16 @@ def scan_privacy(note, policy=None):
                              "message": f"Direct identifier field is not allowed: {key}"})
     compiled = []
     for rule in policy.get("free_text_flag_patterns", []):
+        if rule.get("detector") == "email_shape_linear":
+            compiled.append((rule["id"], contains_email_shape))
+            continue
+        if rule.get("detector") is not None:
+            raise ValueError("unknown privacy detector")
         flags = re.I if "i" in rule.get("flags", "").lower() else 0
-        compiled.append((rule["id"], re.compile(rule["pattern"], flags)))
+        compiled.append((rule["id"], re.compile(rule["pattern"], flags).search))
     for path, text in _all_text(note):
-        for rid, pattern in compiled:
-            if pattern.search(text):
+        for rid, matches in compiled:
+            if matches(text):
                 findings.append({"severity": "STOP", "code": "POSSIBLE_IDENTIFIER_IN_TEXT",
                                  "path": path, "pattern_id": rid,
                                  "message": f"Possible direct identifier detected in free text ({rid})."})

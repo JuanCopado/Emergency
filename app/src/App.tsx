@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import DrugList from './pages/DrugList';
 import DrugDetail from './pages/DrugDetail';
 import NotFound from './pages/NotFound';
+import { ClinicalNoteDraftProvider } from './clinical-note/draft';
 
 const Calculator = lazy(() => import('./pages/Calculator'));
 const Settings = lazy(() => import('./pages/Settings'));
@@ -22,7 +23,7 @@ const T06Lab = lazy(() => import('./t06/T06Lab'));
 
 export default function App() {
   return (
-    <Suspense fallback={<div className="p-8 text-center text-muted">…</div>}>
+    <ClinicalNoteDraftProvider><Suspense fallback={<div className="p-8 text-center text-muted">…</div>}>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
@@ -47,6 +48,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </Suspense>
+    </Suspense></ClinicalNoteDraftProvider>
   );
 }

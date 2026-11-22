@@ -51,11 +51,11 @@ P0 identifica fundamentos necesarios para aplicar el nuevo alcance. P1 identific
 
 **Aceptación siguiente:** documentar la selección de guía o algoritmo canónico por módulo y evaluar las diferencias materialmente relevantes. La matriz módulo × jurisdicción registra cobertura de revisión, no protocolos nuevos. Cada recomendación declara fuente, versión, población y ámbito de aplicación; cada diferencia justificada identifica un anexo o variante puntual, completo en el tramo que modifica, y sus limitaciones pendientes. Las discrepancias permanecen visibles, con decisión trazable; no se mezclan secuencias ni se promedian pautas. Se conserva un mismo módulo clínico y una aprobación organizativa no se convierte en aprobación mundial.
 
-**Límite de esta entrega:** la política está preparada; no se ha completado la evaluación de diferencias de todos los módulos. No se ha implementado un selector de jurisdicción ni se ha acreditado conformidad regional por publicar la política. Consultar el núcleo no exige un selector, país o centro. Los ámbitos aún no revisados se identifican como pendientes sin bloquear capacidades generales que no dependan de esa revisión, y sin crear protocolos superlocales.
+**Límite de esta entrega:** la política está preparada; no se ha completado la evaluación de diferencias de todos los módulos. El selector declarativo de contexto de INT-01 ya está implementado; no selecciona automáticamente pautas ni acredita conformidad regional. Consultar el núcleo no exige un país o centro. Los ámbitos aún no revisados se identifican como pendientes sin bloquear capacidades generales que no dependan de esa revisión, y sin crear protocolos superlocales.
 
 ### INT-03 — Farmacología y presentaciones
 
-**Base:** regímenes pediátricos, calculadoras y contratos agudos; 19 bloqueos conservados.
+**Base:** regímenes pediátricos, calculadoras y contratos agudos. Los 19 contratos antes bloqueados conservan la [aceptación del 16/11/2026](../clinical/references/acute-contract-owner-acceptance-2026-11-16.json) y sus controles por caso/producto.
 
 **Aceptación:** separar principio activo, pauta, producto, preparación, disponibilidad y protocolo del perfil. Cambiar un perfil no altera dosis canónicas; la ausencia de stock en un centro no se interpreta como inexistencia global. Preparaciones no verificadas conservan su limitación específica. Este plan no modifica fórmulas ni desbloquea contratos.
 

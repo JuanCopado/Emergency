@@ -6,15 +6,17 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
 import { chromiumPath } from './chromium.mjs';
+import { clinicalTestSession } from './clinical-test-session.mjs';
 
 const qa = new URL('../../clinical/qa/', import.meta.url);
 const pilot = process.argv.includes('--pilot');
 const bank = JSON.parse(readFileSync(new URL('V1.44_DEMO_CASES.json', qa), 'utf8'));
 const cases = bank.cases.filter(c => c.layer === 'note' && (!pilot || c.pilot));
 const report = { scope: pilot ? 'pilot-note-browser' : 'note-browser', base_sha: bank.base_sha, cases: [], errors: [] };
+const session = clinicalTestSession(4177);
 const backend = spawn(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-u', '-c',
-  'from http.server import ThreadingHTTPServer; from clinical_note_api import ClinicalNoteHandler; s=ThreadingHTTPServer(("127.0.0.1",0),ClinicalNoteHandler); print(s.server_port,flush=True); s.serve_forever()',
-], { cwd: fileURLToPath(new URL('../../clinical/scripts/', import.meta.url)), windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
+  session.python,
+], { cwd: fileURLToPath(new URL('../../clinical/scripts/', import.meta.url)), env: session.environment, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
 let server, browser;
 try {
   const port = await new Promise((resolve, reject) => {
@@ -25,7 +27,7 @@ try {
     backend.on('error', error => { clearTimeout(timeout); reject(error); });
     backend.on('exit', code => { clearTimeout(timeout); reject(new Error(`API exited ${code}`)); });
   });
-  server = await preview({ preview: { host: '127.0.0.1', port: 4177, strictPort: true, proxy: { '/api/clinical-note': `http://127.0.0.1:${port}` } }, logLevel: 'error' });
+  server = await preview({ preview: { host: '127.0.0.1', port: 4177, strictPort: true, proxy: { '/api/clinical-note': session.proxy(port) } }, logLevel: 'error' });
   browser = await chromium.launch({ executablePath: chromiumPath(), headless: true });
   report.browser = browser.version();
   const context = await browser.newContext({ serviceWorkers: 'block', acceptDownloads: true });

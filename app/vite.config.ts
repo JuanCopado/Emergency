@@ -4,6 +4,11 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { BRAND } from './src/config/brand';
 import { auditBuild, productionDependencyGuard } from './scripts/build-dependency-guard.mjs';
+import { clinicalApiBoundary, clinicalApiProxy } from './scripts/clinical-api-boundary.mjs';
+import { readBuildIdentity } from './scripts/build-identity.mjs';
+import { fileURLToPath } from 'node:url';
+
+const sourceIdentity = readBuildIdentity(fileURLToPath(new URL('..', import.meta.url)));
 
 const loopbackHost = '127.0.0.1';
 const localPeers = new Set([loopbackHost, `::ffff:${loopbackHost}`, '::1']);
@@ -14,6 +19,10 @@ if (localReview && (!Number.isInteger(reviewPort) || reviewPort < 1024 || review
 }
 
 export default defineConfig(({ mode }) => ({
+  define: {
+    'import.meta.env.VITE_BUILD_REVISION': JSON.stringify(sourceIdentity.revision),
+    'import.meta.env.VITE_BUILD_DIRTY': JSON.stringify(String(sourceIdentity.dirty)),
+  },
   build: { sourcemap: auditBuild ? 'hidden' : false },
   server: {
     ...(localReview ? {
@@ -35,10 +44,10 @@ export default defineConfig(({ mode }) => ({
       '../clinical/modules',
     ] } } : {}),
     proxy: {
-      '/api/clinical-note': 'http://127.0.0.1:8765',
-      '/api/pediatric-outpatient': 'http://127.0.0.1:8765',
-      '/api/clinical-scores': 'http://127.0.0.1:8765',
-      '/api/acute-medications': 'http://127.0.0.1:8765',
+      '/api/clinical-note': clinicalApiProxy(),
+      '/api/pediatric-outpatient': clinicalApiProxy(),
+      '/api/clinical-scores': clinicalApiProxy(),
+      '/api/acute-medications': clinicalApiProxy(),
       ...(localReview ? { '/api/blood-gas': {
         target: 'http://127.0.0.1:8767',
         changeOrigin: true,
@@ -51,6 +60,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [
+    clinicalApiBoundary(),
     productionDependencyGuard(),
     react(),
     {

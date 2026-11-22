@@ -1,6 +1,6 @@
 {
   "procedure_id": "PROC-SP-003",
-  "name": "Reimplantación temporal/protección de amputación",
+  "name": "Amputación: conservación de segmento",
   "family": "PROCEDIMIENTOS ESPECIALES / RESCATE",
   "level": "CORE",
   "schema_version": "1.42",

@@ -35,7 +35,7 @@ export async function readPdf(file:File, signal:AbortSignal):Promise<Sample[]> {
           const gap=prev ? item.x-prev.x-prev.width : 0;
           return (gap>0.7?' ':'')+item.text;
         }).join(''));
-      blocks.push(...samples(lines.join('\n'),`Página ${n}`));
+      blocks.push(...samples(lines.join('\n'),`Página ${n}`).map(block=>({...block,pageNumber:n})));
       page.cleanup();
     }
     return blocks;

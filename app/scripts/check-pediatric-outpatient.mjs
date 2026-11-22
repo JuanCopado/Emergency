@@ -7,10 +7,12 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
 import { chromiumPath } from './chromium.mjs';
+import { clinicalTestSession } from './clinical-test-session.mjs';
 
+const session = clinicalTestSession(4174);
 const backend = spawn(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-u', '-c',
-  'from http.server import ThreadingHTTPServer; from clinical_note_api import ClinicalNoteHandler; s=ThreadingHTTPServer(("127.0.0.1",0),ClinicalNoteHandler); print(s.server_port,flush=True); s.serve_forever()',
-], { cwd: fileURLToPath(new URL('../../clinical/scripts/', import.meta.url)), windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
+  session.python,
+], { cwd: fileURLToPath(new URL('../../clinical/scripts/', import.meta.url)), env: session.environment, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
 let server, browser;
 try {
   const port = await new Promise((resolve, reject) => {
@@ -24,7 +26,7 @@ try {
     backend.on('exit', (code) => { clearTimeout(timeout); reject(new Error(`API exited: ${code}`)); });
   });
   server = await preview({ preview: { host: '127.0.0.1', port: 4174, strictPort: true,
-    proxy: { '/api/pediatric-outpatient': `http://127.0.0.1:${port}` } }, logLevel: 'error' });
+    proxy: { '/api/pediatric-outpatient': session.proxy(port) } }, logLevel: 'error' });
   browser = await chromium.launch({ executablePath: chromiumPath(), headless: true });
   const page = await browser.newPage({ serviceWorkers: 'block' });
   await page.addInitScript(() => localStorage.setItem('emergency.lang','es'));

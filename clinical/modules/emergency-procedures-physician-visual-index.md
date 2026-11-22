@@ -271,7 +271,7 @@
 
 - **PROC-SP-001 — Fasciotomía/escisión de emergencia: reconocimiento y preparación** — SPECIALIST
 - **PROC-SP-002 — Medición de presión compartimental** — ADVANCED
-- **PROC-SP-003 — Reimplantación temporal/protección de amputación** — CORE
+- **PROC-SP-003 — Amputación: conservación de segmento** — CORE
 - **PROC-SP-004 — Extracción de empalamiento: principios de no retirada y control** — CORE
 - **PROC-SP-005 — Manejo inicial de mordeduras y heridas contaminadas complejas** — CORE
 - **PROC-SP-007 — Lavado gástrico en indicaciones excepcionales** — SPECIALIST

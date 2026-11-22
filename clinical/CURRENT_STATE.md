@@ -1,3 +1,11 @@
+## 22/11/2026 · Corrección documental y de nomenclatura
+
+Seguimiento técnico C14 integrado mediante [PR71](https://github.com/JuanCopado/Emergency/pull/71), commit `842e4a2864f7b746659504dd8ae53faaac3e58b2`: publicación atómica de LAUNCH.json y STOP.json, con regresiones deterministas y smoke nativo T05 Windows aprobado. Se conserva el fallo postmerge original y sus 81 tests nativos anteriores aprobados. Clinical QA del candidato suma 1.205 pruebas, 14 omitidas, sin fallos. No cambia contenido, aritmética o aceptación clínica.
+
+El lote técnico incluye además la [frontera HTTP local](qa/HTTP_LOCAL_BOUNDARY_20261122.md), [privacidad e importación íntegra](qa/CURRENT_PRIVACY_DOCUMENTS_20261122.md) y [borrador/controles de interfaz](qa/CURRENT_UI_DEFECTS_2026-11-22.md), incluida la invalidación de una aceptación MCDT si cambió la revisión enviada. Sus pruebas son sintéticas y técnicas. El checklist conserva el estado de integración y el punto administrativo pendiente.
+
+Integrado mediante [PR70](https://github.com/JuanCopado/Emergency/pull/70), commit `e8de202d874c6db588d3561ff13859e5ee53c96d`, sobre la base auditada `0e68e5ee`: PROC-SP-003 usa en los índices y derivados el título ya existente de su ficha, «Amputación: conservación de segmento». Solo cambia `name` en el JSON; el texto clínico, la procedencia, YELLOW y las revisiones pendientes se conservan. Conciliados el selector opcional de contexto, la aceptación vigente de los 19 contratos antes bloqueados y el alcance de la QA nativa de PR61. Las referencias anteriores mantienen su fecha y ámbito. El [checklist de correcciones actuales](../docs/coordination/CURRENT_DEFECTS_CHECKLIST_20261122.md) registra trece puntos OK, incluido C14, y C12 pendiente de acceso administrativo. El [recibo de integración](../docs/coordination/PR70_INTEGRACION_20261122.md) identifica el árbol y la CI observada. Registro y aceptaciones sin cambios: 129 GREEN / 2 YELLOW / 0 RED, **CLINICALLY_PENDING**.
+
 R4 · 21/11/2026 · Seguimiento de presentación. Se corrige el énfasis residual en prosa mixta de los informes de farmacología y la selección de idioma de la nota. Se conservan datos, cálculos y estados clínicos. CLINICALLY_PENDING.
 
 ## 21/11/2026 · Candidato técnico de nota clínica
