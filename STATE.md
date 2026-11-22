@@ -45,3 +45,5 @@ R6 · 21/11/2026 · M10 N3/N2 técnico: errores del proveedor distinguidos (503/
 R6 · 21/11/2026 · M10 N4/N1b técnico: cota de segmentos JPEG/WebP y avisos categóricos de metadatos. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
 
 R7 · 21/11/2026 · M10 R5-2 técnico: normalización de codificación en el filtro de tranquilización; R5-1/R5-2 restantes en [ficha](clinical/qa/R7_M10_R5_RESIDUAL_FICHA_20261121.md), sin decisión médica aún. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
+
+R8 · 21/11/2026 · M10 R5-1 técnico de transparencia: categoría efectiva y origen visibles antes de interpretar; sin cambio de encaminamiento ni de criterios. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.

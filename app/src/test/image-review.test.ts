@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
+import { kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 
 const literal = (text: string) => text;
 
@@ -52,6 +52,17 @@ describe('image intake messages', () => {
     for (const issues of [undefined, null, 'gps_metadata_present', { 0: 'gps_metadata_present', length: 1 }]) {
       expect(mediaPrivacyMessages(issues, false, ui)).toEqual([]);
       expect(mediaPrivacyMessages(issues, 'true', ui)).toEqual([]);
+    }
+  });
+
+  it('reports where the effective category came from and ignores unknown values', () => {
+    const ui = (key: string) => `UI: ${key}`;
+    expect(kindSourceMessage('explicit', ui)).toBe('UI: escolhida por si.');
+    expect(kindSourceMessage('inferred_from_filename', ui)).toContain('não verifica a modalidade real da imagem');
+    expect(kindSourceMessage('inferred_from_container', ui)).toContain('não verifica a modalidade real do conteúdo');
+    expect(kindSourceMessage('default_unclassified', ui)).toContain('A modalidade real não foi verificada');
+    for (const value of [undefined, null, '', 'constructor', 'verified', 7, { x: 'explicit' }, ['explicit']]) {
+      expect(kindSourceMessage(value, ui)).toBeNull();
     }
   });
 

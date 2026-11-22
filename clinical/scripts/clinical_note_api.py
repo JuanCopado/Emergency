@@ -108,32 +108,41 @@ def _verify_prepared(prepared):
 
 
 
-def infer_attachment_kind(filename, mime_type=None, explicit_kind=None):
+def infer_attachment_kind_with_source(filename, mime_type=None, explicit_kind=None):
+    """Return (kind, source). Same routing as ever; `source` only reports where it came from.
+
+    source: explicit | inferred_from_filename | inferred_from_container | default_unclassified.
+    None of these verifies the real modality of the file content.
+    """
     if explicit_kind:
-        return str(explicit_kind).strip().lower()
+        return str(explicit_kind).strip().lower(), "explicit"
     name = image_upload_guard.clean_filename(filename).lower()
     mime = str(mime_type or "").lower()
     if any(x in name for x in ("ecg", "ekg", "electrocard")):
-        return "ecg"
+        return "ecg", "inferred_from_filename"
     if any(x in name for x in ("gasometr", "blood_gas", "abg", "vbg")):
-        return "blood_gas"
+        return "blood_gas", "inferred_from_filename"
     if any(x in name for x in ("microbi", "culture", "cultivo", "hemocult")):
-        return "microbiology"
+        return "microbiology", "inferred_from_filename"
     if any(x in name for x in ("laborat", "analit", "analyt", "hemogram", "bioq")):
-        return "laboratory_report"
+        return "laboratory_report", "inferred_from_filename"
     if any(x in name for x in ("pocus", "ultrasound", "ecografia", "ultrasom")):
-        return "pocus"
+        return "pocus", "inferred_from_filename"
     if any(x in name for x in ("ct_", "ct-", "tac", "tc_", "tc-", "mri", "rm_")):
-        return "ct"
+        return "ct", "inferred_from_filename"
     if any(x in name for x in ("xray", "x-ray", "radiogr", "_rx", "rx_")):
-        return "xray"
+        return "xray", "inferred_from_filename"
     if any(x in name for x in SKIN_WOUND_NAME_HINTS):
-        return "skin_wound"
+        return "skin_wound", "inferred_from_filename"
     if name.endswith(".dcm") or "dicom" in mime:
-        return "other_image"
+        return "other_image", "inferred_from_container"
     if name.endswith(".pdf") or mime == "application/pdf":
-        return "pdf_document"
-    return "other_image"
+        return "pdf_document", "inferred_from_container"
+    return "other_image", "default_unclassified"
+
+
+def infer_attachment_kind(filename, mime_type=None, explicit_kind=None):
+    return infer_attachment_kind_with_source(filename, mime_type, explicit_kind)[0]
 
 
 def _decode_upload(content_base64):
@@ -181,7 +190,7 @@ def _privacy_for_text(text):
 def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
     filename = image_upload_guard.clean_filename(filename)
     raw = _decode_upload(content_base64)
-    kind = infer_attachment_kind(filename, mime_type, explicit_kind)
+    kind, kind_source = infer_attachment_kind_with_source(filename, mime_type, explicit_kind)
     route = route_attachment(kind)
     is_media = image_upload_guard.sniff(raw) is not None or image_upload_guard.declares_media(filename, mime_type)
     extracted_text = None if is_media else _extract_text(raw, filename, mime_type)
@@ -213,6 +222,7 @@ def prepare_upload(filename, mime_type, content_base64, explicit_kind=None):
         "size_bytes": len(raw),
         "sha256": digest,
         "kind": kind,
+        "kind_source": kind_source,
         "route": route,
         "privacy": {
             "status": privacy_status,
