@@ -49,3 +49,5 @@ R7 · 21/11/2026 · M10 R5-2 técnico: normalización de codificación en el fil
 R8 · 21/11/2026 · M10 R5-1 técnico de transparencia: categoría efectiva y origen visibles antes de interpretar; sin cambio de encaminamiento ni de criterios. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
 
 R8 · 21/11/2026 · M10 R5-1/R5-2: [contratos propuestos inactivos y corpus sintético](clinical/qa/R8_M10_R5_CONTRATOS_PROPUESTOS_20261121.md); decisiones DEC-CLIN-R7-03/06 pendientes. CLINICALLY_PENDING, 129 GREEN / 2 YELLOW / 0 RED.
+
+R11 · 22/11/2026 · Nota clínica, conexión (técnico, sin cambio clínico): `postJson` distingue fallo de red y tiempo agotado (60 s; 200 s para la llamada al proveedor, por encima de su máximo de 180 s) de una respuesta del servidor, muestra mensajes localizados pt/es/en/zh sin el texto crudo del navegador, avisa de que una petición al proveedor pudo haber llegado y nunca reintenta. Un fallo de conexión no es un resultado clínico. No añade almacenamiento ni cambia la API local. CLINICALLY_PENDING.

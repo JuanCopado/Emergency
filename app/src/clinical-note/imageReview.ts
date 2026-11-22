@@ -53,7 +53,23 @@ export function excludedContainer(prepared?: PreparedUpload) {
   return prepared?.media?.format === 'pdf' || prepared?.media?.format === 'dicom';
 }
 
-export function uploadError(error: unknown, fallback: string, ui: (key: string) => string) {
+export const CONNECTION_MESSAGES = {
+  network: 'Sem ligação ao serviço clínico. Verifique a rede e tente novamente; o que introduziu mantém-se nesta página.',
+  timeout: 'O serviço clínico não respondeu a tempo. Nada foi aceite nem guardado; tente novamente.',
+  providerNote: 'O pedido pode ter chegado ao serviço antes da falha; reveja manualmente e repita só se for necessário.',
+} as const;
+
+/** A connection failure is never a clinical result. Returns null for any other error. */
+export function connectionErrorMessage(error: unknown, ui: (key: string) => string, providerCall = false): string | null {
+  if (!(error instanceof Error) || error.name !== 'ClinicalApiConnectionError') return null;
+  const failure = (error as Error & { failure?: unknown }).failure === 'timeout' ? 'timeout' : 'network';
+  const base = ui(CONNECTION_MESSAGES[failure]);
+  return providerCall ? `${base} ${ui(CONNECTION_MESSAGES.providerNote)}` : base;
+}
+
+export function uploadError(error: unknown, fallback: string, ui: (key: string) => string, providerCall = false) {
+  const connection = connectionErrorMessage(error, ui, providerCall);
+  if (connection) return connection;
   if (!(error instanceof Error)) return ui(fallback);
   if (error.message === 'clinical text upload exceeds character limit') {
     return ui('O texto do ficheiro excede 120 000 caracteres. Nada foi importado; divida-o em documentos menores e reveja cada parte.');
