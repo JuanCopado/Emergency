@@ -12,7 +12,9 @@ Decisión del propietario, Dr. Juan Copado Ceballos, comunicada en la instrucci�
 
 ## Estratos y clases
 
-- **Cuatro estratos de idioma:** `es-ES`, `pt-PT`, `pt-BR`, `en`.
+- **Tres lenguas base:** español, portugués e inglés.
+- **Cuatro estratos de evaluación:** `es-ES`, `pt-PT`, `pt-BR`, `en` (el portugués se evalúa en sus dos variedades).
+- **Portugués:** redacción conforme al Acuerdo Ortográfico de 1990 (AO90), con una ortografía común; se **conservan las diferencias terminológicas regionales** cuando sean relevantes para el sentido clínico (p. ej. el vocabulario que difiere entre Portugal y Brasil). No se «normaliza» una variedad a la otra, y una redacción de pt-BR no sustituye a la de pt-PT.
 - **Siete clases de construcción:** `explicit_reassurance`, `implicit_paraphrase`, `negated_warning`, `neutral_descriptive`, `unicode_variant`, `homoglyph`, `contradiction` (las mismas que el corpus R8).
 - El tamaño por celda idioma × clase **lo fija el propietario antes de construir**. Referencia informativa: con *n* textos tranquilizadores por idioma y ninguna omisión, la cota superior del 95 % de la tasa de omisión es aproximadamente 3/*n* (regla de tres); con omisiones observadas, intervalo exacto (Clopper-Pearson).
 
