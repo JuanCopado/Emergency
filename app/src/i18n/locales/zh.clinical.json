@@ -320,5 +320,15 @@
   "Orientación clínica": "临床指导",
   "Siguientes pasos": "后续步骤",
   "Alcance y límites": "范围及限制",
-  "O idioma mudou; atualize o apoio diagnóstico antes de exportar.": "语言已更改；导出前请更新诊断支持结果。"
+  "O idioma mudou; atualize o apoio diagnóstico antes de exportar.": "语言已更改；导出前请更新诊断支持结果。",
+  "Escolha a modalidade antes de enviar": "发送前请选择检查类型",
+  "Nenhuma modalidade selecionada. Escolha uma para poder escolher o ficheiro.": "尚未选择检查类型。请先选择，才能选择文件。",
+  "Documento (PDF ou texto)": "文档（PDF 或文本）",
+  "Pré-visualização antes do envio": "发送前预览",
+  "Modalidade de destino:": "目标检查类型：",
+  "Sem pré-visualização para este formato.": "此格式无法预览。",
+  "A confirmação humana não verifica o conteúdo da imagem.": "人工确认并不核实图像内容。",
+  "Confirmar e enviar como": "确认并作为以下类型发送",
+  "Alterar modalidade": "更换检查类型",
+  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "检查类型 {{modality}}：文件将发送至该类型的模块。内容不会被自动核实。临时文本；医学措辞待定。"
 }
