@@ -3,9 +3,11 @@
 
 This module never loads the shipped filter and never contains corpus text. It prepares what an
 independent custodian needs: a manifest of counts and hash, adjudication packets without labels,
-validation of adjudicator records and agreement statistics. The corpus, the packets and the keys
-must live OUTSIDE the repository; every command refuses a path inside it. Nothing here authorises
-a new expression or a change of the filter, and none of it measures clinical performance.
+validation of adjudicator records and agreement statistics. Isolation by construction: it has NO
+file-system access at all. Input arrives on standard input and output goes to standard output, so
+the custodian alone decides where corpus, packets and keys live (outside the repository); a test
+fails if this module ever opens, reads or writes a file. Nothing here authorises a new expression
+or a change of the filter, and none of it measures clinical performance.
 """
 import argparse
 import hashlib
@@ -13,9 +15,7 @@ import json
 import random
 import sys
 from collections import Counter, defaultdict
-from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
 LANGUAGES = ("es-ES", "pt-PT", "pt-BR", "en")
 CLASSES = ("explicit_reassurance", "implicit_paraphrase", "negated_warning", "neutral_descriptive",
            "unicode_variant", "homoglyph", "contradiction")
@@ -25,16 +25,8 @@ ITEM_FIELDS = {"id", "lang", "class", "text"}
 FORBIDDEN_ITEM_FIELDS = {"label", "expected", "note", "filter_result", "intercepted"}
 
 
-def ensure_outside_repo(path, what):
-    resolved = Path(path).resolve()
-    if resolved == REPO_ROOT or REPO_ROOT in resolved.parents:
-        raise SystemExit(f"{what} must stay outside the repository (isolation): {resolved}")
-    return resolved
-
-
-def load_items(path):
-    path = ensure_outside_repo(path, "corpus file")
-    raw = path.read_bytes()
+def parse_items(raw):
+    """Validate a corpus given as bytes; returns (items, sha256 of the exact bytes)."""
     doc = json.loads(raw.decode("utf-8"))
     items = doc.get("items")
     if not isinstance(items, list) or not items:
@@ -58,9 +50,9 @@ def load_items(path):
     return items, hashlib.sha256(raw).hexdigest()
 
 
-def manifest(path):
+def manifest(raw):
     """Counts and hash only; never text."""
-    items, digest = load_items(path)
+    items, digest = parse_items(raw)
     cells = Counter((item["lang"], item["class"]) for item in items)
     return {"sha256": digest, "items": len(items),
             "by_language": dict(Counter(item["lang"] for item in items)),
@@ -145,40 +137,33 @@ def final_label(votes, first, second, tiebreaker):
     return t if t and t != "cannot_decide" else "unresolved"
 
 
-def _write_json(path, data):
-    Path(path).write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
-
-
-def main(argv=None):
+def run(argv, raw):
+    """Execute one command over the bytes received on standard input; returns the JSON-able result."""
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = parser.add_subparsers(dest="command", required=True)
-    p = sub.add_parser("manifest")
-    p.add_argument("corpus")
-    p = sub.add_parser("packets")
-    p.add_argument("corpus")
+    sub.add_parser("manifest", help="stdin: corpus -> counts and hash")
+    p = sub.add_parser("packets", help="stdin: corpus -> {packet, key}")
     p.add_argument("--adjudicator", required=True)
     p.add_argument("--langs", nargs="+", required=True, choices=LANGUAGES)
     p.add_argument("--seed", required=True)
-    p.add_argument("--out", required=True, help="directory outside the repository")
-    p = sub.add_parser("agreement")
-    p.add_argument("corpus")
-    p.add_argument("adjudications")
+    p = sub.add_parser("agreement", help='stdin: {"corpus": {...}, "adjudications": [...]} -> agreement')
     p.add_argument("--primary", nargs=2, required=True)
     args = parser.parse_args(argv)
-    items, _ = load_items(args.corpus)
     if args.command == "manifest":
-        print(json.dumps(manifest(args.corpus), indent=1, ensure_ascii=False))
-    elif args.command == "packets":
-        out = ensure_outside_repo(args.out, "output directory")
-        out.mkdir(parents=True, exist_ok=True)
+        return manifest(raw)
+    if args.command == "packets":
+        items, _ = parse_items(raw)
         packet, key = make_packet(items, args.adjudicator, set(args.langs), args.seed)
-        _write_json(out / f"packet-{args.adjudicator}.json", packet)
-        _write_json(out / f"key-{args.adjudicator}.json", key)
-        print(f"{len(packet['items'])} items; keep key-{args.adjudicator}.json with the custodian only")
-    else:
-        records = json.loads(ensure_outside_repo(args.adjudications, "adjudication file").read_text(encoding="utf-8"))
-        validate_adjudication(records, items)
-        print(json.dumps(agreement(items, records, args.primary), indent=1, ensure_ascii=False))
+        return {"packet": packet, "key": key}
+    bundle = json.loads(raw.decode("utf-8"))
+    items, _ = parse_items(json.dumps(bundle["corpus"]).encode("utf-8"))
+    validate_adjudication(bundle["adjudications"], items)
+    return agreement(items, bundle["adjudications"], args.primary)
+
+
+def main(argv=None):
+    result = run(sys.argv[1:] if argv is None else argv, sys.stdin.buffer.read())
+    sys.stdout.write(json.dumps(result, indent=1, ensure_ascii=False) + "\n")
     return 0
 
 

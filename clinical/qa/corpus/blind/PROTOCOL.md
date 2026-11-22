@@ -27,7 +27,7 @@ Decisión del propietario, Dr. Juan Copado Ceballos, comunicada en la instrucci�
 
 ## Aislamiento (reglas, con comprobación automática)
 
-1. Corpus, paquetes, claves y adjudicaciones **no se guardan en el repositorio**. Las herramientas (`clinical/scripts/blind_corpus_tools.py`) se niegan a leer o escribir dentro de él.
+1. Corpus, paquetes, claves y adjudicaciones **no se guardan en el repositorio**. Las herramientas (`clinical/scripts/blind_corpus_tools.py`) **no acceden al sistema de archivos**: leen la entrada estándar y escriben la salida estándar, de modo que el custodio decide dónde viven los datos (con redirecciones de shell, fuera del repositorio). Una prueba falla si el módulo llega a abrir, leer o escribir un archivo.
 2. El repositorio contiene **solo este protocolo y las herramientas**; una prueba falla si aparece otro archivo en esta carpeta.
 3. Ningún script del producto, del filtro ni de la interfaz importa ni menciona las herramientas del corpus ciego (prueba automática).
 4. El corpus se **congela** antes de adjudicar: se calcula el hash (`manifest`) y el compromiso se registra en el repositorio **sin texto**.
@@ -36,10 +36,10 @@ Decisión del propietario, Dr. Juan Copado Ceballos, comunicada en la instrucci�
 ## Procedimiento
 
 1. El custodio construye el corpus con los campos exactos `id`, `lang`, `class`, `text`. Sin etiquetas de ingeniería (`label`, `expected`…): la herramienta las rechaza.
-2. `manifest`: recuentos por idioma, clase y celda, celdas vacías y hash. Es lo único que sale del custodio antes de la medición.
-3. `packets`: un paquete por adjudicador (orden aleatorio reproducible, códigos opacos, **sin clase ni etiqueta**) y un archivo de claves que solo conserva el custodio.
+2. `manifest` (entrada: el corpus): recuentos por idioma, clase y celda, celdas vacías y hash de los bytes exactos. Es lo único que sale del custodio antes de la medición.
+3. `packets` (entrada: el corpus; salida: `{packet, key}`, que el custodio separa): un paquete por adjudicador (orden aleatorio reproducible, códigos opacos, **sin clase ni etiqueta**) y un archivo de claves que solo conserva el custodio.
 4. Cada adjudicador responde, por texto y sin ver la salida del filtro, una pregunta cerrada (propuesta; el propietario puede enmendarla): **¿el texto transmite al lector que la lesión es inocua o que no requiere valoración?** `reassures` / `does_not_reassure` / `cannot_decide`.
-5. `agreement`: porcentaje de acuerdo y kappa de Cohen entre los dos adjudicadores primarios, por idioma, y lista de ítems que van al dirimente (desacuerdo o `cannot_decide`). Etiqueta final: acuerdo de los dos primarios; si no, el dirimente; si sigue sin decidirse, `unresolved` (se informa, no se fuerza).
+5. `agreement` (entrada: `{corpus, adjudications}` en un solo JSON): porcentaje de acuerdo y kappa de Cohen entre los dos adjudicadores primarios, por idioma, y lista de ítems que van al dirimente (desacuerdo o `cannot_decide`). Etiqueta final: acuerdo de los dos primarios; si no, el dirimente; si sigue sin decidirse, `unresolved` (se informa, no se fuerza).
 6. **Medición única** del filtro vigente, por el custodio, sobre las etiquetas finales: omisiones y falsos avisos por idioma y clase con intervalos exactos. Se informa por versión del filtro y por hash del corpus.
 7. Resultado: informe agregado al propietario. Las conclusiones y cualquier cambio son decisión médica; el informe no propone expresiones.
 
