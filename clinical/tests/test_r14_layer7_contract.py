@@ -5,7 +5,6 @@ It must stay out of the product, admit no free text, and never admit RGB, EXIF, 
 absence of DICOM, pixel statistics or a model output as evidence of the modality.
 """
 import json
-import sys
 import unittest
 from pathlib import Path
 
@@ -19,7 +18,7 @@ def doc(**changes):
     base = {"contract_version": "layer7-0.1-proposed", "modality_declared": True, "declared_kind": "ecg",
             "decision": "none", "provenance": "deterministic_rule"}
     base.update(changes)
-    return {k: v for k, v in base.items() if v is not ...}
+    return base
 
 
 UNDECLARED = doc(modality_declared=False, declared_kind=None, decision="abstain_modality_not_declared",
