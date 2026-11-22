@@ -6,6 +6,10 @@ Sincronizados los títulos de los índices y JSON/derivados de PROC-SP-003 con e
 
 R11 · 22/11/2026 · Decisiones médicas registradas ([expediente](clinical/qa/R10_DECISION_MEDICA_FASE_A_B_20261122.md)): `DEC-CLIN-R10-FASE-A` SÍ (instrumentación técnica de R5-1 sin modificar resultados clínicos, con HMAC, equivalencia, CI y auditoría independiente) y `DEC-CLIN-R10-FASE-B` SÍ a mantenerla desactivada (solo prototipos inactivos hasta tener evidencia de falsos avisos y usabilidad). R5-1/R5-2 siguen abiertos; opciones 2A–2E, clasificación visual y regex nuevas no autorizadas. CLINICALLY_PENDING.
 
+R10 · 22/11/2026 · PWA (técnico, sin cambio clínico): prueba `pwa:offline-check` con el service worker instalado y la conexión cortada (servidor detenido y navegador sin red) sobre las rutas locales y `/api/*`; reproduce que, sin red, una navegación a `/api/*` recibía el shell de la aplicación y lo corrige con `navigateFallbackDenylist` solo para `/api/`. Límites: Chromium en Linux; no sustituye dispositivos Android/iOS ni verifica HEIC. CLINICALLY_PENDING.
+
+R11 · 22/11/2026 · Identidad de compilación en Windows (técnico, sin cambio clínico): `readBuildIdentity` fijaba `GIT_CONFIG_GLOBAL=os.devNull` (`\\.\nul`), que Git for Windows 2.56.1 rechaza (exit 128), y devolvía revisión desconocida en Windows; ahora usa `NUL` en Windows y mantiene el aislamiento (medido: solo se lee `.git/config`). Defecto previo, ajeno a PR74. CLINICALLY_PENDING.
+
 R8 · 21/11/2026 · M10 R5-1/R5-2, solo especificación inactiva: contrato futuro de categoría y esquema de Fase 1 (cinco observaciones, cláusula fija, Fase 2 bloqueada) y corpus sintético congelado es-ES/pt-PT/pt-BR/en con línea base del filtro (FN 27/52, FP 6/24; etiquetas sin adjudicar). Nada conectado al producto. [Documento](qa/R8_M10_R5_CONTRATOS_PROPUESTOS_20261121.md). CLINICALLY_PENDING.
 
 R8 · 21/11/2026 · M10 R5-1 (solo transparencia): la tarjeta de revisión muestra la categoría efectiva y su origen (elegida, inferida del nombre, inferida del contenedor o sin categoría), sin verificar la modalidad real. Encaminamiento, filtros, abstenciones, confianza y proveedor sin cambios. CLINICALLY_PENDING.

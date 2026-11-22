@@ -116,6 +116,8 @@ export default defineConfig(({ mode }) => ({
         sourcemap: auditBuild,
         globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
         navigateFallback: '/index.html',
+        // A navigation to an API path must fail or reach the server; it must never be answered with the app shell.
+        navigateFallbackDenylist: [/^\/api\//],
       },
     }),
   ],
