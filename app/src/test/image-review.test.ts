@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
+import { IMAGE_REJECTION_MESSAGES, kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
+import en from '../i18n/locales/en.clinical.json';
+import es from '../i18n/locales/es.clinical.json';
+import pt from '../i18n/locales/pt.clinical.json';
+import zh from '../i18n/locales/zh.clinical.json';
 
 const literal = (text: string) => text;
 
@@ -70,4 +74,43 @@ describe('image intake messages', () => {
     'ignores a non-array quality field (%s)',
     flags => expect(mediaQualityMessages(flags, literal)).toEqual([]),
   );
+});
+
+describe('refused photographs: specific reasons, nothing reduced automatically', () => {
+  const reject = (reason: string) => uploadError(new Error(`invalid image upload: ${reason}`), '', literal);
+
+  it('explains the size limit measured on the backend (width x height x 4 bytes within 50 MB)', () => {
+    expect(reject('decoded_raster_too_large')).toBe(IMAGE_REJECTION_MESSAGES.tooLarge);
+    expect(reject('too_many_pixels')).toBe(IMAGE_REJECTION_MESSAGES.tooLarge);
+    expect(IMAGE_REJECTION_MESSAGES.tooLarge).toContain('Nada foi reduzido nem enviado');
+    expect(IMAGE_REJECTION_MESSAGES.tooLarge).toContain('decisão sua');
+  });
+
+  it('names HEIC/HEIF and asks for a JPEG copy without reducing the resolution', () => {
+    expect(reject('unsupported_declared_extension')).toBe(IMAGE_REJECTION_MESSAGES.format);
+    expect(IMAGE_REJECTION_MESSAGES.format).toContain('HEIC/HEIF');
+    expect(IMAGE_REJECTION_MESSAGES.format).toContain('sem reduzir a resolução');
+    expect(reject('unrecognized_type')).toBe(IMAGE_REJECTION_MESSAGES.unrecognized);
+  });
+
+  it('keeps the generic and the signature messages for every other reason', () => {
+    expect(reject('signature_mismatch')).toBe('O conteúdo do ficheiro não corresponde ao formato declarado.');
+    expect(reject('bad_chunk_order')).toBe('O ficheiro foi recusado na verificação do nome, formato ou integridade.');
+    expect(uploadError(new Error('invalid or unsupported clinical image or filename'), '', literal))
+      .toBe('O ficheiro foi recusado na verificação do nome, formato ou integridade.');
+  });
+
+  it('never claims that the image was verified, resized or retained', () => {
+    for (const text of Object.values(IMAGE_REJECTION_MESSAGES)) {
+      expect(text).not.toMatch(/verificad|reduzida automaticamente|guardad/i);
+    }
+  });
+
+  it('has a translation of every message in every locale', () => {
+    for (const [name, locale] of Object.entries({ pt, es, en, zh }) as [string, Record<string, string>][]) {
+      for (const key of Object.values(IMAGE_REJECTION_MESSAGES)) {
+        expect(locale[key]?.length ?? 0, `${name}: ${key.slice(0, 40)}`).toBeGreaterThan(10);
+      }
+    }
+  });
 });
