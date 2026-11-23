@@ -1,0 +1,561 @@
+"""R14/R15 · R5-1 policy layer 8 tooling (human factors). Pseudonymous codes and placeholder values only.
+
+The decisive tests use CLUSTERED, CROSSED synthetic data: they prove the main analysis resamples
+participants (never single trials) and keeps the pairing between conditions.
+"""
+import ast
+import json
+import sys
+import unittest
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import human_factors_tools as hf  # noqa: E402
+
+TOOL = ROOT / "scripts" / "human_factors_tools.py"
+B = 400  # resamples: enough for the tests, fast
+
+
+def trial(participant="P01", scenario="S1", condition="baseline", intended="ecg", initial="ecg", chosen="ecg",
+          confirmed=True, seconds=10.0, comprehension=True, period=1, role="physician", changes=0,
+          platform="web", order=1):
+    return {"participant": participant, "role": role, "scenario_id": scenario, "condition": condition, "period": period,
+            "intended_modality": intended, "initial_modality": initial, "chosen_modality": chosen, "confirmed": confirmed,
+            "changed_modality_count": changes, "seconds": seconds, "comprehension_correct": comprehension,
+            "platform": platform, "order_in_period": order}
+
+
+def width(interval):
+    return interval[1] - interval[0]
+
+
+def clustered_baseline():
+    """8 participants x 10 trials; ALL the confirmation errors belong to P01 (errors cluster in people)."""
+    rows = []
+    for p in range(8):
+        for s in range(10):
+            wrong = p == 0
+            rows.append(trial(f"P{p:02d}", f"S{s}", "baseline", "ecg", "xray" if wrong else "ecg", "xray" if wrong else "ecg"))
+    return rows
+
+
+class Validation(unittest.TestCase):
+    def test_a_valid_crossed_set_passes(self):
+        rows = [trial(), trial(condition="prototype", period=2), trial(scenario="S2", chosen=None, confirmed=False, initial=None)]
+        self.assertEqual(hf.validate_records(rows), 3)
+
+    def test_free_text_names_unknown_values_and_inconsistencies_are_rejected(self):
+        for bad in (dict(trial(), comment="texto libre"), dict(trial(), name="Ana"), trial(participant="Ana Pérez"),
+                    trial(participant="Dra. Ana"), trial(scenario="S 1"), trial(role="student"), trial(condition="control"),
+                    trial(period=3), trial(period=True), trial(intended="ct"), trial(chosen="ct"), trial(initial="ct"),
+                    trial(confirmed="yes"), trial(confirmed=True, chosen=None), trial(changes=-1), trial(changes=True),
+                    trial(seconds=-1), trial(seconds=float("inf")), trial(comprehension="maybe")):
+            with self.assertRaises(ValueError, msg=str(bad)):
+                hf.validate_records([bad])
+        for invalid in ([], "text"):
+            with self.assertRaises(ValueError):
+                hf.validate_records(invalid)
+
+    def test_a_participant_cannot_repeat_a_scenario_in_the_same_condition(self):
+        with self.assertRaises(ValueError):
+            hf.validate_records([trial(), trial()])
+        self.assertEqual(hf.validate_records([trial(), trial(condition="prototype", period=2)]), 2)
+
+
+class DerivedFlags(unittest.TestCase):
+    def test_bypass_confirmation_error_and_false_cancellation_are_different_events(self):
+        skin_as_ecg = hf.flags(trial(intended="skin_wound", initial="skin_wound", chosen="ecg"))
+        self.assertTrue(skin_as_ecg["bypass"] and skin_as_ecg["confirmation_error"] and skin_as_ecg["false_cancellation"])
+        xray_as_pocus = hf.flags(trial(intended="xray", initial="pocus", chosen="pocus"))
+        self.assertTrue(xray_as_pocus["confirmation_error"])
+        self.assertFalse(xray_as_pocus["bypass"])  # bypass is only the skin photograph leaving the dermatological contract
+        self.assertFalse(xray_as_pocus["false_cancellation"])  # the first choice was already wrong
+        dropped = hf.flags(trial(intended="ecg", initial="ecg", chosen=None, confirmed=False))
+        self.assertTrue(dropped["false_cancellation"])
+        self.assertFalse(dropped["confirmation_error"])  # nothing was confirmed
+        correct = hf.flags(trial())
+        self.assertFalse(correct["bypass"] or correct["confirmation_error"] or correct["false_cancellation"])
+
+    def test_flags_are_derived_from_the_closed_fields_and_never_taken_from_the_input(self):
+        self.assertNotIn("bypass", hf.FIELDS)
+        with self.assertRaises(ValueError):
+            hf.validate_records([dict(trial(), bypass=False)])
+
+
+class ClusterBootstrap(unittest.TestCase):
+    def test_the_unit_of_resampling_is_the_participant_with_all_its_trials(self):
+        tables = {p: hf.tally([t for t in clustered_baseline() if t["participant"] == p]) for p in ("P00", "P01")}
+        key = ("baseline", ("all",))
+        self.assertEqual(hf.total(tables, ["P00"], key)["trials"], 10)
+        self.assertEqual(hf.total(tables, ["P00", "P00"], key)["trials"], 20)  # drawn twice: every trial twice
+        self.assertEqual(hf.total(tables, ["P00", "P01"], key)["confirmation_error_rate:num"], 10)
+        rng = hf.random.Random("t")
+        drawn = hf.cluster_resample(["P00", "P01", "P02"], rng)
+        self.assertEqual(len(drawn), 3)
+        self.assertTrue(set(drawn) <= {"P00", "P01", "P02"})
+
+    def test_clustered_errors_do_not_look_as_precise_as_independent_trials(self):
+        rows = clustered_baseline()  # 80 trials, 10 errors, all in one of 8 participants
+        out = hf.summarize(rows, resamples=B)
+        cluster_ci = out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]["cluster_bootstrap_95"]
+        naive = out["descriptive_exploration_only"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(naive["trials"], 80)
+        self.assertEqual(naive["events"], 10)
+        # treating the 80 trials as independent gives a narrow interval; resampling the 8 people is much wider
+        self.assertGreater(width(cluster_ci), 1.8 * width(naive["wilson_95"]))
+        self.assertGreater(width(cluster_ci), 1.8 * width(naive["exact_95"]))
+        self.assertLessEqual(cluster_ci[0], 0.0001)  # a resample without the one person who erred is possible
+        self.assertEqual(out["design"]["independence_of_trials"], "NOT_ASSUMED")
+
+    def test_the_pairing_between_conditions_is_preserved(self):
+        rows = []
+        for p in range(10):
+            high = p < 5  # people differ a lot: half of them err often, half never
+            for s in range(10):
+                base_wrong = high and s < 8
+                proto_wrong = high and s < 7
+                rows.append(trial(f"P{p:02d}", f"S{s}", "baseline", "ecg", "xray" if base_wrong else "ecg", "xray" if base_wrong else "ecg", period=1))
+                rows.append(trial(f"P{p:02d}", f"S{s}", "prototype", "ecg", "xray" if proto_wrong else "ecg", "xray" if proto_wrong else "ecg", period=2))
+        out = hf.summarize(rows, resamples=B)["trial_level_metrics"]
+        base = out["by_condition"]["baseline"]["confirmation_error_rate"]
+        diff = out["paired_difference_prototype_minus_baseline"]["confirmation_error_rate"]
+        self.assertAlmostEqual(diff["estimate"], -0.05, places=3)
+        self.assertGreater(width(base["cluster_bootstrap_95"]), 0.4)   # people differ: each condition alone is imprecise
+        self.assertLess(width(diff["cluster_bootstrap_95"]), 0.12)      # but the paired difference keeps the pairing
+        self.assertLessEqual(diff["cluster_bootstrap_95"][1], 0.0)
+
+    def test_only_participants_with_both_conditions_enter_the_paired_difference(self):
+        rows = [trial("P00", "S1", "baseline"), trial("P00", "S1", "prototype", period=2),
+                trial("P01", "S1", "baseline"), trial("P02", "S1", "prototype", period=2)]
+        design = hf.summarize(rows, resamples=50)["design"]
+        self.assertEqual(design["participants"], 3)
+        self.assertEqual(design["participants_with_both_conditions"], 1)
+
+    def test_results_are_deterministic_for_a_seed_and_a_single_participant_has_no_interval(self):
+        rows = clustered_baseline()
+        first_run = hf.summarize(rows, resamples=100, seed="a")
+        second_run = hf.summarize(rows, resamples=100, seed="a")
+        self.assertEqual(first_run, second_run)
+        one = hf.summarize([trial()], resamples=100)
+        self.assertEqual(one["design"]["resamples"], 0)
+        self.assertIsNone(one["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]["cluster_bootstrap_95"])
+        self.assertEqual(one["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]["estimate"], 0.0)
+
+
+class Reporting(unittest.TestCase):
+    def setUp(self):
+        rows = []
+        for p in range(4):
+            for scenario, intended in (("S1", "skin_wound"), ("S2", "ecg")):
+                rows.append(trial(f"P{p}", scenario, "baseline", intended, intended, "ecg" if intended == "skin_wound" and p == 0 else intended,
+                                  seconds=10 + p, comprehension=p != 3))
+                rows.append(trial(f"P{p}", scenario, "prototype", intended, intended, intended, seconds=13 + p, comprehension=True, period=2))
+        self.out = hf.summarize(rows, resamples=B)
+
+    def test_it_reports_by_condition_modality_scenario_and_participant(self):
+        primary = self.out["trial_level_metrics"]
+        self.assertEqual(set(primary["by_condition"]), {"baseline", "prototype"})
+        self.assertEqual(set(primary["by_condition_and_modality"]["baseline"]), {"skin_wound", "ecg"})
+        self.assertEqual(set(primary["by_condition_and_scenario"]["prototype"]), {"S1", "S2"})
+        self.assertEqual(set(self.out["by_participant"]), {"P0", "P1", "P2", "P3"})
+        self.assertEqual(self.out["by_participant"]["P0"]["baseline"]["trials"], 2)
+
+    def test_it_separates_bypass_confirmation_error_false_cancellation_time_and_comprehension(self):
+        by_mod = self.out["trial_level_metrics"]["by_condition_and_modality"]["baseline"]
+        self.assertEqual(by_mod["skin_wound"]["bypass_rate"]["estimate"], 0.25)           # 1 of 4 skin photographs
+        self.assertIsNone(by_mod["ecg"]["bypass_rate"]["estimate"])                        # bypass is defined for skin only
+        self.assertEqual(by_mod["skin_wound"]["confirmation_error_rate"]["estimate"], 0.25)
+        self.assertEqual(by_mod["skin_wound"]["false_cancellation_rate"]["estimate"], 0.25)
+        self.assertEqual(self.out["trial_level_metrics"]["by_condition"]["baseline"]["comprehension_rate"]["estimate"], 0.75)
+        self.assertEqual(self.out["trial_level_metrics"]["by_condition"]["prototype"]["comprehension_rate"]["estimate"], 1.0)
+        extra = self.out["trial_level_metrics"]["additional_time_seconds_prototype_minus_baseline"]
+        self.assertAlmostEqual(extra["estimate"], 3.0, places=3)
+
+    def test_it_sets_no_acceptance_margin_and_never_says_the_study_ran(self):
+        self.assertEqual(self.out["acceptance_margin"], "NOT_SET_MEDICAL_DECISION")
+        self.assertEqual(self.out["study_status"], "NOT_EXECUTED_TOOLING_ONLY")
+        note = self.out["descriptive_exploration_only"]["note"]
+        self.assertIn("independent", note)
+        self.assertIn("Descriptive only", note)
+
+    def test_the_descriptive_block_is_labelled_and_the_main_block_never_uses_it(self):
+        self.assertIn("descriptive_exploration_only", self.out)
+        self.assertNotIn("wilson_95", json.dumps(self.out["trial_level_metrics"]))
+        self.assertNotIn("exact_95", json.dumps(self.out["trial_level_metrics"]))
+
+
+class DescriptiveIntervals(unittest.TestCase):
+    def test_exact_interval_matches_known_values(self):
+        low, high = hf.clopper_pearson(0, 10)
+        self.assertEqual(low, 0.0)
+        self.assertAlmostEqual(high, 1 - 0.025 ** (1 / 10), places=4)
+        low, high = hf.clopper_pearson(5, 10)
+        self.assertAlmostEqual(low, 0.1871, places=3)
+        self.assertAlmostEqual(high, 0.8129, places=3)
+        low, high = hf.clopper_pearson(500, 500)
+        self.assertEqual(high, 1.0)
+        self.assertAlmostEqual(low, 0.025 ** (1 / 500), places=4)
+
+    def test_wilson_matches_known_values_and_empty_input_has_no_interval(self):
+        low, high = hf.wilson(5, 10)
+        self.assertAlmostEqual(low, 0.2366, places=3)
+        self.assertAlmostEqual(high, 0.7634, places=3)
+        self.assertIsNone(hf.wilson(0, 0))
+        self.assertIsNone(hf.clopper_pearson(0, 0))
+        self.assertIsNone(hf.clopper_pearson(3, 2))
+
+    def test_the_binomial_mass_rejects_points_outside_the_open_unit_interval(self):
+        for p in (0, 1, -0.1, 1.5):
+            with self.assertRaises(ValueError):
+                hf._pmf(0, 5, p)
+
+
+def crossed_rows(n_ab=4, n_ba=4, trials=6, err_proto=0, err_base=0, platform=lambda p: "web"):
+    """AB participants do baseline in period 1, BA participants prototype in period 1."""
+    rows = []
+    for i in range(n_ab + n_ba):
+        first = "baseline" if i < n_ab else "prototype"
+        second = "prototype" if first == "baseline" else "baseline"
+        pid = f"P{i:02d}"
+        for period, condition in ((1, first), (2, second)):
+            errors = err_base if condition == "baseline" else err_proto
+            for s in range(trials):
+                wrong = i < errors
+                rows.append(trial(pid, f"S{period}{s}", condition, "ecg", "ecg", "xray" if wrong else "ecg",
+                                  period=period, platform=platform(i), order=s + 1))
+    return rows
+
+
+class CrossedDesign(unittest.TestCase):
+    def test_a_participant_cannot_mix_conditions_inside_one_period(self):
+        with self.assertRaises(ValueError):
+            hf.validate_records([trial(), trial(scenario="S2", condition="prototype", period=1)])
+
+    def test_platform_and_order_are_closed_fields(self):
+        for bad in (trial(platform="desktop"), trial(platform=None), trial(order=0), trial(order=-1),
+                    trial(order=True), trial(order="1"), trial(order=1.5)):
+            with self.assertRaises(ValueError, msg=str(bad)):
+                hf.validate_records([bad])
+
+    def test_sequences_are_derived_from_the_period_in_which_each_condition_was_used(self):
+        seq = hf.sequences(crossed_rows(2, 3))
+        self.assertEqual(sorted(seq.values()), ["AB", "AB", "BA", "BA", "BA"])
+        self.assertEqual(hf.sequences([trial()]), {"P01": "single"})
+
+    def test_resampling_inside_strata_keeps_the_ab_ba_balance_of_the_sample(self):
+        strata = hf.sequences(crossed_rows(3, 5))
+        rng = hf.random.Random("s")
+        ids = sorted(strata)
+        for _ in range(50):
+            drawn = hf.cluster_resample(ids, rng, strata)
+            self.assertEqual(sum(strata[p] == "AB" for p in drawn), 3)
+            self.assertEqual(sum(strata[p] == "BA" for p in drawn), 5)
+
+    def test_the_default_number_of_resamples_is_at_least_5000_and_the_design_reports_the_sequences(self):
+        self.assertGreaterEqual(hf.DEFAULT_RESAMPLES, 5000)
+        out = hf.summarize(crossed_rows(2, 2, trials=2), resamples=30)
+        self.assertEqual(out["design"]["sequences"], {"AB": 2, "BA": 2})
+        self.assertTrue(out["design"]["resampling_stratified_by_sequence"])
+        self.assertEqual(out["design"]["crossed"], "AB/BA")
+        self.assertEqual(out["design"]["resamples_default"], hf.DEFAULT_RESAMPLES)
+
+
+class TrialAndParticipantLevel(unittest.TestCase):
+    def test_trial_rate_and_participant_risk_are_different_quantities(self):
+        # 8 participants, 2 of them err in 3 of 6 baseline trials: per-trial rate 6/48, participant risk 2/8
+        rows = []
+        for i in range(8):
+            first, second = ("baseline", "prototype") if i % 2 == 0 else ("prototype", "baseline")
+            for period, condition in ((1, first), (2, second)):
+                for s in range(6):
+                    wrong = condition == "baseline" and i in (0, 1) and s < 3
+                    rows.append(trial(f"P{i}", f"S{period}{s}", condition, "ecg", "ecg", "xray" if wrong else "ecg", period=period, order=s + 1))
+        out = hf.summarize(rows, resamples=B)
+        trial_rate = out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]["estimate"]
+        participant_risk = out["participant_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]["estimate"]
+        self.assertAlmostEqual(trial_rate, 6 / 48, places=3)
+        self.assertAlmostEqual(participant_risk, 2 / 8, places=3)
+        self.assertIn("at least one event", out["participant_level_metrics"]["note"])
+        self.assertEqual(set(out["participant_level_metrics"]["by_condition"]["baseline"]), set(hf.PARTICIPANT_METRICS))
+
+    def test_the_paired_participant_difference_uses_only_participants_with_both_conditions(self):
+        out = hf.summarize(crossed_rows(3, 3, trials=4, err_base=2, err_proto=1), resamples=B)
+        diff = out["participant_level_metrics"]["paired_difference_prototype_minus_baseline"]["confirmation_error_rate"]
+        self.assertAlmostEqual(diff["estimate"], (1 - 2) / 6, places=3)
+
+
+class ZeroEvents(unittest.TestCase):
+    def test_zero_events_are_not_reported_as_zero_risk(self):
+        out = hf.summarize(crossed_rows(3, 3, trials=5), resamples=B)
+        cell = out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(cell["estimate"], 0.0)
+        self.assertTrue(cell["degenerate_interval"])
+        self.assertIsNone(cell["cluster_bootstrap_95"])
+        self.assertIn("not evidence of zero risk", cell["note"])
+        descriptive = out["descriptive_exploration_only"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(descriptive["events"], 0)
+        self.assertGreater(descriptive["exact_95"][1], 0.0)   # the honest summary is the upper bound, not zero
+        self.assertIn("never 'zero risk'", descriptive["zero_events_note"])
+        participant = out["participant_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertTrue(participant["degenerate_interval"])
+
+    def test_cells_with_events_keep_their_interval(self):
+        out = hf.summarize(crossed_rows(4, 4, trials=5, err_base=3), resamples=B)
+        cell = out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertFalse(cell["degenerate_interval"])
+        self.assertEqual(len(cell["cluster_bootstrap_95"]), 2)
+        self.assertIsNone(cell["note"])
+
+
+class PeriodLearningPlatformAndLimits(unittest.TestCase):
+    def test_a_period_effect_is_estimated_separately_from_the_condition_effect(self):
+        rows = []
+        for i in range(8):
+            first, second = ("baseline", "prototype") if i < 4 else ("prototype", "baseline")
+            for period, condition in ((1, first), (2, second)):
+                for s in range(6):
+                    wrong = period == 1 and s < 3   # errors only in period 1, whatever the condition
+                    rows.append(trial(f"P{i}", f"S{period}{s}", condition, "ecg", "ecg", "xray" if wrong else "ecg", period=period, order=s + 1))
+        out = hf.summarize(rows, resamples=B)
+        self.assertAlmostEqual(out["period_and_learning"]["period_effect_period2_minus_period1"]["confirmation_error_rate"]["estimate"], -0.5, places=3)
+        self.assertAlmostEqual(out["trial_level_metrics"]["paired_difference_prototype_minus_baseline"]["confirmation_error_rate"]["estimate"], 0.0, places=3)
+
+    def test_learning_compares_late_with_early_trials(self):
+        rows = []
+        for i in range(6):
+            first, second = ("baseline", "prototype") if i < 3 else ("prototype", "baseline")
+            for period, condition in ((1, first), (2, second)):
+                for s in range(6):
+                    wrong = s < 3   # early trials err, late trials never do
+                    rows.append(trial(f"P{i}", f"S{period}{s}", condition, "ecg", "ecg", "xray" if wrong else "ecg", period=period, order=s + 1))
+        out = hf.summarize(rows, resamples=B)["period_and_learning"]
+        self.assertAlmostEqual(out["learning_late_minus_early"]["confirmation_error_rate"]["estimate"], -1.0, places=3)
+        self.assertEqual(out["early_late_split"]["median_order_in_period"], 3)
+
+    def test_web_and_mobile_are_reported_separately(self):
+        out = hf.summarize(crossed_rows(4, 4, trials=4, err_base=2, platform=lambda p: "web" if p < 4 else "mobile"), resamples=B)
+        by_platform = out["trial_level_metrics"]["by_condition_and_platform"]["baseline"]
+        self.assertEqual(set(by_platform), {"web", "mobile"})
+        web = by_platform["web"]["confirmation_error_rate"]["estimate"]
+        mobile = by_platform["mobile"]["confirmation_error_rate"]["estimate"]
+        self.assertGreater(web, mobile)  # the two participants who err use the web platform
+
+    def test_limitations_are_stated_and_no_sample_size_or_threshold_is_set(self):
+        out = hf.summarize(crossed_rows(2, 2, trials=2), resamples=20)
+        text = " ".join(out["limitations"])
+        for expected in ("small", "degenerate", "Learning", "Web and mobile", "No sample size"):
+            self.assertIn(expected, text)
+        self.assertEqual(out["sample_size"], "NOT_SET_STUDY_DESIGN_DECISION")
+        self.assertEqual(out["acceptance_margin"], "NOT_SET_MEDICAL_DECISION")
+        self.assertEqual(out["study_status"], "NOT_EXECUTED_TOOLING_ONLY")
+
+
+def manifest(**changes):
+    base = {"manifest_version": "v1", "scenarios": [
+        {"scenario_id": "S1", "intended_modality": "ecg", "synthetic": True, "case_code": "CASE001", "platforms": ["web", "mobile"]},
+        {"scenario_id": "S2", "intended_modality": "skin_wound", "synthetic": True, "case_code": "CASE002", "platforms": ["web"]}]}
+    base.update(changes)
+    return base
+
+
+def manifest_for(rows):
+    names = sorted({r["scenario_id"] for r in rows})
+    return manifest(scenarios=[{"scenario_id": n, "intended_modality": "ecg", "synthetic": True, "case_code": f"C{n}", "platforms": ["web"]} for n in names])
+
+
+class Stage1Infrastructure(unittest.TestCase):
+    def test_the_manifest_is_versioned_synthetic_closed_and_hashed(self):
+        out = hf.validate_manifest(manifest())
+        self.assertEqual((out["manifest_version"], out["scenarios"]), ("v1", 2))
+        self.assertEqual(len(out["sha256"]), 64)
+        self.assertEqual(out["sha256"], hf.validate_manifest(manifest())["sha256"])                  # reproducible
+        self.assertNotEqual(out["sha256"], hf.validate_manifest(manifest(manifest_version="v2"))["sha256"])  # versioned
+        good = manifest()["scenarios"][0]
+        for bad in (dict(good, synthetic=False), dict(good, synthetic="yes"), dict(good, comment="texto libre"),
+                    dict(good, case_code="Paciente Ana Pérez"), dict(good, scenario_id="S 1"), dict(good, intended_modality="ct"),
+                    dict(good, platforms=[]), dict(good, platforms=["web", "web"]), dict(good, platforms=["desktop"]),
+                    {k: v for k, v in good.items() if k != "case_code"}):
+            with self.assertRaises(ValueError, msg=str(bad)):
+                hf.validate_manifest(manifest(scenarios=[bad]))
+        for bad in (manifest(scenarios=[]), manifest(scenarios=[good, dict(good)]), {"scenarios": []},
+                    dict(manifest(), extra=1), manifest(manifest_version="v 1"), "text"):
+            with self.assertRaises(ValueError):
+                hf.validate_manifest(bad)
+
+    def test_the_ab_ba_allocation_is_balanced_deterministic_and_pseudonymous(self):
+        codes = [f"P{i:02d}" for i in range(7)]
+        out = hf.assign_sequences(codes, "s")
+        self.assertEqual(out["counts"], {"AB": 4, "BA": 3})
+        self.assertEqual(out, hf.assign_sequences(list(reversed(codes)), "s"))               # independent of input order
+        self.assertNotEqual(out["allocation"], hf.assign_sequences(codes, "other")["allocation"])
+        for code, slot in out["allocation"].items():
+            self.assertEqual({slot["period1"], slot["period2"]}, {"baseline", "prototype"})
+            self.assertEqual(slot["period1"], "baseline" if slot["sequence"] == "AB" else "prototype")
+        self.assertIn("no study has been run", out["note"])
+        for bad in ([], ["P1", "P1"], ["Ana Pérez"], [1], "P1"):
+            with self.assertRaises(ValueError):
+                hf.assign_sequences(bad)
+
+    def test_records_must_match_the_versioned_manifest(self):
+        rows = [trial("P1", "S1", "baseline", platform="mobile"), trial("P1", "S2", "prototype", intended="skin_wound", initial="skin_wound", chosen="skin_wound", period=2)]
+        hf.check_records_against_manifest(rows, manifest())
+        for bad in (trial("P1", "S9"), trial("P1", "S1", intended="xray", initial="xray", chosen="xray"), trial("P1", "S2", intended="skin_wound", initial="skin_wound", chosen="skin_wound", platform="mobile")):
+            with self.assertRaises(ValueError):
+                hf.check_records_against_manifest([bad], manifest())
+
+    def test_the_export_is_reproducible_and_carries_the_hashes_without_claiming_a_study(self):
+        rows = crossed_rows(2, 2, trials=2)
+        man = manifest_for(rows)
+        first = hf.export_package({"manifest": man, "records": rows}, resamples=40, seed="x")
+        second = hf.export_package({"manifest": man, "records": rows}, resamples=40, seed="x")
+        self.assertEqual(first, second)
+        self.assertEqual(first["summary_sha256"], hf.digest(first["summary"]))
+        self.assertEqual(first["records_sha256"], hf.digest(rows))
+        self.assertEqual(first["manifest_sha256"], hf.digest(man))
+        self.assertEqual(first["study_status"], "NOT_EXECUTED_TOOLING_ONLY")
+        self.assertNotEqual(first["summary_sha256"], hf.export_package({"manifest": man, "records": rows}, resamples=40, seed="y")["summary_sha256"])
+        for bad in ({"records": rows}, {"manifest": man}, {"manifest": man, "records": rows, "extra": 1}, "text"):
+            with self.assertRaises(ValueError):
+                hf.export_package(bad, resamples=10)
+
+    def test_the_cli_runs_the_stage_1_commands_over_standard_input_only(self):
+        participants = json.dumps({"participants": ["P1", "P2"]}).encode("utf-8")
+        self.assertEqual(hf.run(["assign", "--seed", "z"], participants)["counts"], {"AB": 1, "BA": 1})
+        self.assertEqual(hf.run(["manifest"], json.dumps(manifest()).encode("utf-8"))["scenarios"], 2)
+        with self.assertRaises(ValueError):
+            hf.run(["assign"], b"[]")
+        rows = crossed_rows(1, 1, trials=1)
+        man = manifest_for(rows)
+        out = hf.run(["export", "--resamples", "20"], json.dumps({"manifest": man, "records": rows}).encode("utf-8"))
+        self.assertEqual(out["tool_version"], hf.TOOL_VERSION)
+
+
+class R20StatisticalPlan(unittest.TestCase):
+    """Gemini R20 statistical plan: BCa, exact participant-level inference, zero events, small clusters, stage-2 inputs."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.out = hf.summarize(crossed_rows(4, 4, trials=5, err_base=3), resamples=B)
+        cls.zero = hf.summarize(crossed_rows(3, 3, trials=4), resamples=B)
+
+    def test_the_bca_interval_is_the_primary_interval_and_the_percentile_one_stays_available(self):
+        cell = self.out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(cell["primary_interval"], "bca")
+        self.assertEqual(len(cell["cluster_bootstrap_bca_95"]), 2)
+        self.assertEqual(len(cell["cluster_bootstrap_95"]), 2)
+        self.assertLessEqual(cell["cluster_bootstrap_bca_95"][0], cell["estimate"])
+        self.assertGreaterEqual(cell["cluster_bootstrap_bca_95"][1], cell["estimate"])
+
+    def test_bca_is_undefined_for_degenerate_or_tiny_samples(self):
+        self.assertIsNone(hf._bca(0.5, [0.5, 0.5], [0.5]))
+        self.assertIsNone(hf._bca(None, [0.1, 0.2, 0.3], [0.1, 0.2, 0.3]))
+        interval = hf._bca(0.3, [0.1, 0.2, 0.3, 0.4, 0.5, 0.35, 0.25], [0.28, 0.31, 0.3, 0.29])
+        self.assertTrue(0.0 < interval[0] <= interval[1] <= 1.0)
+        zero_cell = self.zero["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertIsNone(zero_cell["cluster_bootstrap_bca_95"])
+        self.assertIsNone(zero_cell["primary_interval"])
+        self.assertTrue(zero_cell["zero_event_degeneracy_flag"])
+
+    def test_the_small_cluster_warning_follows_the_participant_count(self):
+        self.assertTrue(self.out["design"]["small_cluster_warning"])
+        self.assertIn("30", self.out["design"]["small_cluster_note"])
+        big = hf.summarize(crossed_rows(15, 15, trials=1), resamples=20)
+        self.assertFalse(big["design"]["small_cluster_warning"])
+        self.assertEqual(big["design"]["participants"], 30)
+
+    def test_zero_events_report_both_denominators_and_the_participant_level_upper_bound_only(self):
+        report = self.zero["zero_event_reports"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(report["events_over_trials"], "0/24")
+        self.assertEqual(report["participants_with_event_over_participants"], "0/6")
+        self.assertAlmostEqual(report["participant_risk_upper_95_one_sided"], 1 - 0.05 ** (1 / 6), places=4)
+        self.assertAlmostEqual(report["participant_risk_upper_95_two_sided"], 1 - 0.025 ** (1 / 6), places=4)
+        self.assertIn("never an exact trial-rate interval", report["label"])
+        self.assertIn("0/N trials", report["forbidden"])
+        self.assertIsNone(self.out["zero_event_reports"]["baseline"]["confirmation_error_rate"])   # events present: no zero report
+        self.assertEqual(hf.zero_event_report(0, 10, 0, 0), None)
+
+    def test_participant_level_inference_is_exact_over_participants_and_mcnemar_is_exact(self):
+        exact = self.out["participant_level_metrics"]["exact_over_participants"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual((exact["participants"], exact["with_event"]), (8, 3))
+        low, high = hf.clopper_pearson(3, 8)
+        self.assertEqual(exact["exact_95_over_participants"], [round(low, 4), round(high, 4)])
+        mc = self.out["participant_level_metrics"]["mcnemar_exact"]["confirmation_error_rate"]
+        self.assertEqual((mc["baseline_only_event"], mc["prototype_only_event"]), (3, 0))
+        self.assertAlmostEqual(mc["p_value_exact_two_sided"], 0.25, places=4)
+        self.assertIn("never an acceptance verdict", mc["note"])
+        self.assertAlmostEqual(hf.mcnemar_exact(5, 1), 2 * (1 + 6) / 64, places=6)
+        self.assertEqual(hf.mcnemar_exact(0, 0), 1.0)
+        self.assertEqual(hf.mcnemar_exact(4, 4), 1.0)
+
+    def test_the_icc_and_the_design_effect_feed_the_stage_2_planning_inputs(self):
+        self.assertAlmostEqual(hf.icc_anova([(5, 5), (0, 5), (0, 5), (5, 5)]), 1.0, places=6)    # errors fully clustered
+        self.assertIsNone(hf.icc_anova([(1, 1)]))
+        self.assertIsNone(hf.icc_anova([(1, 1), (0, 1)]))                                         # no within-cluster information
+        planning = self.out["stage2_planning_inputs"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(planning["participants"], 8)
+        self.assertEqual(planning["p_trial"], 0.375)
+        self.assertAlmostEqual(planning["rho_hat_anova"], 1.0, places=3)
+        self.assertAlmostEqual(planning["deff_hat"], 1 + (5 - 1) * 1.0, places=3)
+
+    def test_the_models_are_declared_not_implemented_and_the_carryover_pretest_never_runs(self):
+        models = self.out["crossover_and_device_models"]
+        self.assertEqual(models["status"], "NOT_IMPLEMENTED_STDLIB_ONLY")
+        self.assertEqual(models["carryover_pretest"], "PROHIBITED_NEVER_PERFORMED")
+        self.assertIn("GLMM", models["primary_model_prespecified"])
+        self.assertIn("GEE", models["marginal_alternative_prespecified"])
+        self.assertIn("never a conditional switch", models["period1_sensitivity_descriptive"]["note"])
+        self.assertEqual(set(models["period1_sensitivity_descriptive"]["by_condition"]), {"baseline", "prototype"})
+
+    def test_no_acceptance_decision_is_taken_and_the_stage_is_declared(self):
+        self.assertEqual(self.out["acceptance_decision"], "PENDING_PHYSICIAN_OWNER_REVIEW")
+        self.assertEqual(self.out["design"]["study_stage"], "STAGE_1_FORMATIVE_ESTIMATION")
+        self.assertEqual(self.out["design"]["bootstrap_seed"], "r15")
+        self.assertEqual(self.out["study_status"], "NOT_EXECUTED_TOOLING_ONLY")
+        text = json.dumps(self.out)
+        self.assertNotIn('"PASS"', text)
+        self.assertNotIn('"FAIL"', text)
+
+    def test_the_export_records_the_commit_and_the_manifest_and_dataset_hashes(self):
+        rows = crossed_rows(2, 2, trials=2)
+        man = manifest_for(rows)
+        pkg = hf.export_package({"manifest": man, "records": rows}, resamples=20, seed="k", git_commit_sha="abc1234")
+        self.assertEqual(pkg["git_commit_sha"], "abc1234")
+        self.assertEqual(pkg["stimuli_manifest_sha256"], hf.digest(man))
+        self.assertEqual(pkg["dataset_sha256"], hf.digest(rows))
+        self.assertEqual((pkg["study_stage"], pkg["bootstrap_replicates"], pkg["bootstrap_seed"]), ("STAGE_1_FORMATIVE_ESTIMATION", 20, "k"))
+        self.assertIsNone(hf.export_package({"manifest": man, "records": rows}, resamples=20)["git_commit_sha"])
+        for bad in ("XYZ", "ABC1234", "12", "g" * 8):
+            with self.assertRaises(ValueError):
+                hf.export_package({"manifest": man, "records": rows}, resamples=20, git_commit_sha=bad)
+
+
+class CommandLine(unittest.TestCase):
+    def test_cli_runs_over_standard_input_only(self):
+        raw = json.dumps([trial(), trial(condition="prototype", period=2)]).encode("utf-8")
+        self.assertEqual(hf.run(["validate"], raw), {"valid": True, "records": 2})
+        out = hf.run(["summarize", "--resamples", "30", "--seed", "x"], raw)
+        self.assertEqual(out["design"]["trials"], 2)
+        self.assertEqual(out["design"]["seed"], "x")
+
+
+class Isolation(unittest.TestCase):
+    def test_the_tool_has_no_file_system_or_network_access(self):
+        tree = ast.parse(TOOL.read_text(encoding="utf-8"))
+        imported = {a.name.split(".")[0] for n in ast.walk(tree) if isinstance(n, ast.Import) for a in n.names}
+        imported |= {n.module.split(".")[0] for n in ast.walk(tree) if isinstance(n, ast.ImportFrom) and n.module}
+        self.assertEqual(imported & {"os", "pathlib", "shutil", "tempfile", "glob", "io", "subprocess", "socket", "urllib"}, set())
+        names = {n.id for n in ast.walk(tree) if isinstance(n, ast.Name)}
+        attrs = {n.attr for n in ast.walk(tree) if isinstance(n, ast.Attribute)}
+        self.assertEqual(names & {"open", "Path", "eval", "exec", "__import__"}, set())
+        self.assertEqual(attrs & {"read_text", "write_text", "read_bytes", "write_bytes", "mkdir", "unlink", "open"}, set())
+
+    def test_nothing_in_the_product_uses_it(self):
+        for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
+            if path.name != "human_factors_tools.py":
+                self.assertNotIn("human_factors_tools", path.read_text(encoding="utf-8", errors="ignore"), str(path))
+
+
+if __name__ == "__main__":
+    unittest.main()
