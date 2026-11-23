@@ -133,7 +133,9 @@ class ClusterBootstrap(unittest.TestCase):
 
     def test_results_are_deterministic_for_a_seed_and_a_single_participant_has_no_interval(self):
         rows = clustered_baseline()
-        self.assertEqual(hf.summarize(rows, resamples=100, seed="a"), hf.summarize(rows, resamples=100, seed="a"))
+        first_run = hf.summarize(rows, resamples=100, seed="a")
+        second_run = hf.summarize(rows, resamples=100, seed="a")
+        self.assertEqual(first_run, second_run)
         one = hf.summarize([trial()], resamples=100)
         self.assertEqual(one["design"]["resamples"], 0)
         self.assertIsNone(one["primary_cluster_bootstrap"]["by_condition"]["baseline"]["confirmation_error_rate"]["cluster_bootstrap_95"])
