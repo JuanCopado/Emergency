@@ -463,7 +463,8 @@ class R20StatisticalPlan(unittest.TestCase):
     def test_bca_is_undefined_for_degenerate_or_tiny_samples(self):
         self.assertIsNone(hf._bca(0.5, [0.5, 0.5], [0.5]))
         self.assertIsNone(hf._bca(None, [0.1, 0.2, 0.3], [0.1, 0.2, 0.3]))
-        interval = hf._bca(0.3, [0.1, 0.2, 0.3, 0.4, 0.5, 0.35, 0.25], [0.28, 0.31, 0.3, 0.29])
+        self.assertIsNone(hf._bca(0.3, [0.1, 0.2, 0.3, 0.4, 0.5, 0.35, 0.25], [0.28, 0.31, 0.3, 0.29]))   # R27 C4: B = 7, alpha < 1/B refused
+        interval = hf._bca(0.3, [i / 400 for i in range(1, 200)], [0.28, 0.31, 0.3, 0.29])
         self.assertTrue(0.0 < interval[0] <= interval[1] <= 1.0)
         zero_cell = self.zero["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
         self.assertIsNone(zero_cell["cluster_bootstrap_bca_95"])
