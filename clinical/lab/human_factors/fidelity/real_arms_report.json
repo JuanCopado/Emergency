@@ -7,8 +7,16 @@
  },
  "summary": {
   "arm_a_equals_production_everywhere": true,
-  "arm_a_max_box_delta_px": 0,
-  "arm_a_max_latency_delta_ms": 90,
+  "arm_a_max_relative_box_delta_px": 0,
+  "arm_a_cells_with_absolute_card_shift_over_4px": [
+   [
+    "en",
+    360,
+    "image",
+    16
+   ]
+  ],
+  "arm_a_max_latency_delta_ms": 81,
   "arm_b_extra_actions_vs_a": [
    2
   ],
@@ -145,7 +153,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
-    "latency_ms": 179
+    "latency_ms": 170
    },
    "A_dev": {
     "controls_before": [
@@ -268,7 +276,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
-    "latency_ms": 177
+    "latency_ms": 154
    },
    "B_dev": {
     "controls_before": [
@@ -423,18 +431,19 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
-    "latency_ms": 179
+    "latency_ms": 255
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      60,
      60
     ],
-    "latency_delta_ms": 2
+    "latency_delta_ms": 16
    }
   },
   {
@@ -565,7 +574,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
-    "latency_ms": 202
+    "latency_ms": 214
    },
    "A_dev": {
     "controls_before": [
@@ -688,7 +697,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
-    "latency_ms": 193
+    "latency_ms": 205
    },
    "B_dev": {
     "controls_before": [
@@ -843,11 +852,12 @@
     "explicit_kind_sent": "skin_wound",
     "review_card": true,
     "card_text": "Piel/herida · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: skin-wound-image Original no retenido Categoría efectiva: Piel/herida — elegida por usted. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: skin-wound-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
-    "latency_ms": 241
+    "latency_ms": 239
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
@@ -985,7 +995,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
-    "latency_ms": 186
+    "latency_ms": 165
    },
    "A_dev": {
     "controls_before": [
@@ -1108,7 +1118,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
-    "latency_ms": 171
+    "latency_ms": 197
    },
    "B_dev": {
     "controls_before": [
@@ -1263,18 +1273,19 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
-    "latency_ms": 177
+    "latency_ms": 209
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      0,
      0
     ],
-    "latency_delta_ms": 15
+    "latency_delta_ms": 32
    }
   },
   {
@@ -1405,7 +1416,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
-    "latency_ms": 196
+    "latency_ms": 203
    },
    "A_dev": {
     "controls_before": [
@@ -1528,7 +1539,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
-    "latency_ms": 211
+    "latency_ms": 207
    },
    "B_dev": {
     "controls_before": [
@@ -1683,18 +1694,19 @@
     "explicit_kind_sent": "skin_wound",
     "review_card": true,
     "card_text": "Piel/herida · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: skin-wound-image Original no retenido Categoría efectiva: Piel/herida — elegida por usted. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: skin-wound-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
-    "latency_ms": 268
+    "latency_ms": 217
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      0,
      0
     ],
-    "latency_delta_ms": 15
+    "latency_delta_ms": 4
    }
   },
   {
@@ -1825,7 +1837,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
-    "latency_ms": 135
+    "latency_ms": 169
    },
    "A_dev": {
     "controls_before": [
@@ -1948,7 +1960,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
-    "latency_ms": 145
+    "latency_ms": 167
    },
    "B_dev": {
     "controls_before": [
@@ -2103,18 +2115,19 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
-    "latency_ms": 219
+    "latency_ms": 207
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      60,
      60
     ],
-    "latency_delta_ms": 10
+    "latency_delta_ms": 2
    }
   },
   {
@@ -2245,7 +2258,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
-    "latency_ms": 173
+    "latency_ms": 199
    },
    "A_dev": {
     "controls_before": [
@@ -2368,7 +2381,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
-    "latency_ms": 227
+    "latency_ms": 260
    },
    "B_dev": {
     "controls_before": [
@@ -2523,18 +2536,19 @@
     "explicit_kind_sent": "skin_wound",
     "review_card": true,
     "card_text": "Pele/ferida · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: skin-wound-image Original não retido Categoria efetiva: Pele/ferida — escolhida por si. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: skin-wound-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
-    "latency_ms": 213
+    "latency_ms": 194
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      60,
      60
     ],
-    "latency_delta_ms": 54
+    "latency_delta_ms": 61
    }
   },
   {
@@ -2665,7 +2679,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
-    "latency_ms": 183
+    "latency_ms": 158
    },
    "A_dev": {
     "controls_before": [
@@ -2788,7 +2802,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
-    "latency_ms": 168
+    "latency_ms": 160
    },
    "B_dev": {
     "controls_before": [
@@ -2947,14 +2961,15 @@
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      0,
      0
     ],
-    "latency_delta_ms": 15
+    "latency_delta_ms": 2
    }
   },
   {
@@ -3085,7 +3100,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
-    "latency_ms": 166
+    "latency_ms": 197
    },
    "A_dev": {
     "controls_before": [
@@ -3208,7 +3223,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
-    "latency_ms": 165
+    "latency_ms": 206
    },
    "B_dev": {
     "controls_before": [
@@ -3363,18 +3378,19 @@
     "explicit_kind_sent": "skin_wound",
     "review_card": true,
     "card_text": "Pele/ferida · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: skin-wound-image Original não retido Categoria efetiva: Pele/ferida — escolhida por si. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: skin-wound-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
-    "latency_ms": 239
+    "latency_ms": 214
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      0,
      0
     ],
-    "latency_delta_ms": 1
+    "latency_delta_ms": 9
    }
   },
   {
@@ -3505,7 +3521,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
-    "latency_ms": 236
+    "latency_ms": 172
    },
    "A_dev": {
     "controls_before": [
@@ -3628,7 +3644,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
-    "latency_ms": 146
+    "latency_ms": 162
    },
    "B_dev": {
     "controls_before": [
@@ -3636,7 +3652,7 @@
       "role": "button:submit",
       "name": "+ Laboratory tests",
       "x": 33,
-      "y": 1252,
+      "y": 1268,
       "w": 159,
       "h": 44
      },
@@ -3644,7 +3660,7 @@
       "role": "button:submit",
       "name": "+ Blood gas",
       "x": 200,
-      "y": 1252,
+      "y": 1268,
       "w": 114,
       "h": 44
      },
@@ -3652,7 +3668,7 @@
       "role": "button:submit",
       "name": "+ ECG",
       "x": 33,
-      "y": 1304,
+      "y": 1320,
       "w": 76,
       "h": 44
      },
@@ -3660,7 +3676,7 @@
       "role": "button:submit",
       "name": "+ X-ray",
       "x": 117,
-      "y": 1304,
+      "y": 1320,
       "w": 88,
       "h": 44
      },
@@ -3668,7 +3684,7 @@
       "role": "button:submit",
       "name": "+ CT/MRI",
       "x": 213,
-      "y": 1304,
+      "y": 1320,
       "w": 97,
       "h": 44
      },
@@ -3676,7 +3692,7 @@
       "role": "button:submit",
       "name": "+ Ultrasound/POCUS",
       "x": 33,
-      "y": 1356,
+      "y": 1372,
       "w": 177,
       "h": 44
      },
@@ -3684,7 +3700,7 @@
       "role": "button:submit",
       "name": "+ Microbiology",
       "x": 33,
-      "y": 1408,
+      "y": 1424,
       "w": 135,
       "h": 44
      },
@@ -3692,7 +3708,7 @@
       "role": "button:submit",
       "name": "+ Skin/wound",
       "x": 176,
-      "y": 1408,
+      "y": 1424,
       "w": 127,
       "h": 44
      },
@@ -3700,7 +3716,7 @@
       "role": "button:submit",
       "name": "+ Other",
       "x": 33,
-      "y": 1460,
+      "y": 1476,
       "w": 83,
       "h": 44
      },
@@ -3708,7 +3724,7 @@
       "role": "button:button",
       "name": "Skin/wound",
       "x": 50,
-      "y": 1575,
+      "y": 1591,
       "w": 115,
       "h": 44
      },
@@ -3716,7 +3732,7 @@
       "role": "button:button",
       "name": "ECG",
       "x": 173,
-      "y": 1575,
+      "y": 1591,
       "w": 63,
       "h": 44
      },
@@ -3724,7 +3740,7 @@
       "role": "button:button",
       "name": "X-ray",
       "x": 50,
-      "y": 1627,
+      "y": 1643,
       "w": 75,
       "h": 44
      },
@@ -3732,7 +3748,7 @@
       "role": "button:button",
       "name": "Ultrasound/POCUS",
       "x": 133,
-      "y": 1627,
+      "y": 1643,
       "w": 164,
       "h": 44
      },
@@ -3740,7 +3756,7 @@
       "role": "button:button",
       "name": "Document (PDF or text)",
       "x": 50,
-      "y": 1679,
+      "y": 1695,
       "w": 193,
       "h": 44
      },
@@ -3748,7 +3764,7 @@
       "role": "input:text",
       "name": "Investigation name",
       "x": 33,
-      "y": 1796,
+      "y": 1812,
       "w": 294,
       "h": 46
      },
@@ -3756,7 +3772,7 @@
       "role": "textarea:textarea",
       "name": "",
       "x": 33,
-      "y": 1880,
+      "y": 1896,
       "w": 294,
       "h": 96
      },
@@ -3764,7 +3780,7 @@
       "role": "textarea:textarea",
       "name": "Kept separate from the official report",
       "x": 33,
-      "y": 2020,
+      "y": 2036,
       "w": 294,
       "h": 96
      },
@@ -3772,7 +3788,7 @@
       "role": "button:submit",
       "name": "Create review card",
       "x": 33,
-      "y": 2134,
+      "y": 2150,
       "w": 161,
       "h": 44
      }
@@ -3783,18 +3799,19 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
-    "latency_ms": 203
+    "latency_ms": 200
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      60,
      60
     ],
-    "latency_delta_ms": 90
+    "latency_delta_ms": 10
    }
   },
   {
@@ -3925,7 +3942,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
-    "latency_ms": 222
+    "latency_ms": 199
    },
    "A_dev": {
     "controls_before": [
@@ -3933,7 +3950,7 @@
       "role": "button:submit",
       "name": "+ Laboratory tests",
       "x": 33,
-      "y": 1268,
+      "y": 1252,
       "w": 159,
       "h": 44
      },
@@ -3941,7 +3958,7 @@
       "role": "button:submit",
       "name": "+ Blood gas",
       "x": 200,
-      "y": 1268,
+      "y": 1252,
       "w": 114,
       "h": 44
      },
@@ -3949,7 +3966,7 @@
       "role": "button:submit",
       "name": "+ ECG",
       "x": 33,
-      "y": 1320,
+      "y": 1304,
       "w": 76,
       "h": 44
      },
@@ -3957,7 +3974,7 @@
       "role": "button:submit",
       "name": "+ X-ray",
       "x": 117,
-      "y": 1320,
+      "y": 1304,
       "w": 88,
       "h": 44
      },
@@ -3965,7 +3982,7 @@
       "role": "button:submit",
       "name": "+ CT/MRI",
       "x": 213,
-      "y": 1320,
+      "y": 1304,
       "w": 97,
       "h": 44
      },
@@ -3973,7 +3990,7 @@
       "role": "button:submit",
       "name": "+ Ultrasound/POCUS",
       "x": 33,
-      "y": 1372,
+      "y": 1356,
       "w": 177,
       "h": 44
      },
@@ -3981,7 +3998,7 @@
       "role": "button:submit",
       "name": "+ Microbiology",
       "x": 33,
-      "y": 1424,
+      "y": 1408,
       "w": 135,
       "h": 44
      },
@@ -3989,7 +4006,7 @@
       "role": "button:submit",
       "name": "+ Skin/wound",
       "x": 176,
-      "y": 1424,
+      "y": 1408,
       "w": 127,
       "h": 44
      },
@@ -3997,7 +4014,7 @@
       "role": "button:submit",
       "name": "+ Other",
       "x": 33,
-      "y": 1476,
+      "y": 1460,
       "w": 83,
       "h": 44
      },
@@ -4005,7 +4022,7 @@
       "role": "input:file",
       "name": "Clinical upload",
       "x": 50,
-      "y": 1579,
+      "y": 1563,
       "w": 353,
       "h": 30
      },
@@ -4013,7 +4030,7 @@
       "role": "input:text",
       "name": "Investigation name",
       "x": 33,
-      "y": 1678,
+      "y": 1662,
       "w": 387,
       "h": 46
      },
@@ -4021,7 +4038,7 @@
       "role": "textarea:textarea",
       "name": "",
       "x": 33,
-      "y": 1762,
+      "y": 1746,
       "w": 387,
       "h": 96
      },
@@ -4029,7 +4046,7 @@
       "role": "textarea:textarea",
       "name": "Kept separate from the official report",
       "x": 33,
-      "y": 1902,
+      "y": 1886,
       "w": 387,
       "h": 96
      },
@@ -4037,7 +4054,7 @@
       "role": "button:submit",
       "name": "Create review card",
       "x": 33,
-      "y": 2016,
+      "y": 2000,
       "w": 161,
       "h": 44
      }
@@ -4048,7 +4065,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
-    "latency_ms": 213
+    "latency_ms": 220
    },
    "B_dev": {
     "controls_before": [
@@ -4203,18 +4220,19 @@
     "explicit_kind_sent": "skin_wound",
     "review_card": true,
     "card_text": "Skin/wound · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: skin-wound-image Original not retained Effective category: Skin/wound — chosen by you. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: skin-wound-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
-    "latency_ms": 204
+    "latency_ms": 206
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 16,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      60,
      60
     ],
-    "latency_delta_ms": 9
+    "latency_delta_ms": 21
    }
   },
   {
@@ -4345,7 +4363,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
-    "latency_ms": 176
+    "latency_ms": 159
    },
    "A_dev": {
     "controls_before": [
@@ -4468,7 +4486,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
-    "latency_ms": 167
+    "latency_ms": 185
    },
    "B_dev": {
     "controls_before": [
@@ -4623,18 +4641,19 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
-    "latency_ms": 208
+    "latency_ms": 199
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      0,
      0
     ],
-    "latency_delta_ms": 9
+    "latency_delta_ms": 26
    }
   },
   {
@@ -4765,7 +4784,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
-    "latency_ms": 170
+    "latency_ms": 161
    },
    "A_dev": {
     "controls_before": [
@@ -4888,7 +4907,7 @@
     "explicit_kind_sent": null,
     "review_card": true,
     "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
-    "latency_ms": 247
+    "latency_ms": 242
    },
    "B_dev": {
     "controls_before": [
@@ -5043,18 +5062,19 @@
     "explicit_kind_sent": "skin_wound",
     "review_card": true,
     "card_text": "Skin/wound · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: skin-wound-image Original not retained Effective category: Skin/wound — chosen by you. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: skin-wound-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
-    "latency_ms": 229
+    "latency_ms": 251
    },
    "A_vs_prod": {
     "same_control_names_and_order": true,
-    "max_box_delta_px": 0,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
     "same_card_text": true,
     "same_actions": true,
     "overflow_px": [
      0,
      0
     ],
-    "latency_delta_ms": 77
+    "latency_delta_ms": 81
    }
   }
  ]

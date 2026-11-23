@@ -36,8 +36,15 @@ function serveStatic(dir) {
   });
   return new Promise((r) => server.listen(0, "127.0.0.1", () => r({ url: "http://127.0.0.1:" + server.address().port, close: () => server.close() })));
 }
+function freePort() {                              // the OS picks the port: no pseudo-random number needed
+  return new Promise((resolve, reject) => {
+    const probe = require("net").createServer();
+    probe.on("error", reject);
+    probe.listen(0, "127.0.0.1", () => { const { port } = probe.address(); probe.close(() => resolve(port)); });
+  });
+}
 async function startVite(env) {
-  const port = 20000 + Math.floor(Math.random() * 20000);
+  const port = await freePort();
   const child = spawn("npx", ["vite", "--port", String(port), "--strictPort", "--host", "127.0.0.1"], { cwd: appDir, env: { ...process.env, ...env }, stdio: "ignore" });
   const url = "http://127.0.0.1:" + port;
   for (let i = 0; i < 90; i++) {
@@ -59,13 +66,25 @@ async function controls(page) {
     });
   });
 }
+/** Measure only after the layout has settled: fonts ready and two consecutive identical measurements (max ~4 s). */
+async function settledControls(page) {
+  await page.evaluate(() => document.fonts && document.fonts.ready);
+  let previous = JSON.stringify(await controls(page));
+  for (let i = 0; i < 26; i++) {
+    await page.waitForTimeout(150);
+    const current = JSON.stringify(await controls(page));
+    if (current === previous) return JSON.parse(current);
+    previous = current;
+  }
+  return JSON.parse(previous);
+}
 async function runTrial(browser, baseUrl, vp, lang, scenario, arm) {
   const ctx = await browser.newContext({ viewport: vp });
   await ctx.addInitScript((l) => { try { localStorage.setItem("emergency.lang", l); } catch (e) {} }, lang);
   const page = await ctx.newPage();
   let prepareCalls = 0, explicitKind = "unset";
   await page.route("**/api/**", async (route) => {
-    if (!route.request().url().endsWith("/api/clinical-note/upload/prepare")) return route.abort();
+    if (!route.request().url().endsWith("/api/clinical-note/upload/prepare")) return route.fulfill({ status: 503, contentType: "application/json", body: "{\"error\":\"lab-stub: endpoint not available\"}" });
     prepareCalls += 1;
     const body = JSON.parse(route.request().postData()); explicitKind = body.explicit_kind === undefined ? null : body.explicit_kind;
     const r = realPrepare(body);
@@ -74,7 +93,8 @@ async function runTrial(browser, baseUrl, vp, lang, scenario, arm) {
   await page.goto(baseUrl + "/clinical-note", { waitUntil: "networkidle" });
   let actions = 0;
   await openMcdt(page); actions += 1;
-  const before = await controls(page);
+  await page.waitForLoadState("networkidle");
+  const before = await settledControls(page);
   const overflow = await page.evaluate(() => Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth));
   const sc = SCENARIOS[scenario];
   const buffer = fs.readFileSync(path.join(STIMULI, sc.file));
@@ -98,9 +118,18 @@ async function runTrial(browser, baseUrl, vp, lang, scenario, arm) {
   return { controls_before: before, overflow_px: overflow, minimum_actions_to_review_card: actions, prepare_calls: prepareCalls, explicit_kind_sent: explicitKind, review_card: hasCard, card_text: text, latency_ms: latency };
 }
 
+function relativeBoxes(list) {
+  const x0 = list[0].x, y0 = list[0].y;
+  return list.map((c) => ({ x: c.x - x0, y: c.y - y0, w: c.w, h: c.h }));
+}
+/** Layout inside the card is compared RELATIVE to its first control; the absolute shift of the whole card (anything above it) is reported separately, never hidden. */
 function compare(a, p) {
-  const out = { same_control_names_and_order: JSON.stringify(a.controls_before.map((c) => [c.role, c.name])) === JSON.stringify(p.controls_before.map((c) => [c.role, c.name])), max_box_delta_px: null, same_card_text: a.card_text === p.card_text, same_actions: a.minimum_actions_to_review_card === p.minimum_actions_to_review_card, overflow_px: [a.overflow_px, p.overflow_px], latency_delta_ms: Math.abs(a.latency_ms - p.latency_ms) };
-  if (a.controls_before.length === p.controls_before.length) out.max_box_delta_px = Math.max(0, ...a.controls_before.map((c, i) => Math.max(Math.abs(c.x - p.controls_before[i].x), Math.abs(c.y - p.controls_before[i].y), Math.abs(c.w - p.controls_before[i].w), Math.abs(c.h - p.controls_before[i].h))));
+  const out = { same_control_names_and_order: JSON.stringify(a.controls_before.map((c) => [c.role, c.name])) === JSON.stringify(p.controls_before.map((c) => [c.role, c.name])), max_relative_box_delta_px: null, absolute_card_shift_px: null, same_card_text: a.card_text === p.card_text, same_actions: a.minimum_actions_to_review_card === p.minimum_actions_to_review_card, overflow_px: [a.overflow_px, p.overflow_px], latency_delta_ms: Math.abs(a.latency_ms - p.latency_ms) };
+  if (a.controls_before.length === p.controls_before.length && a.controls_before.length) {
+    const ra = relativeBoxes(a.controls_before), rp = relativeBoxes(p.controls_before);
+    out.max_relative_box_delta_px = Math.max(0, ...ra.map((c, i) => Math.max(Math.abs(c.x - rp[i].x), Math.abs(c.y - rp[i].y), Math.abs(c.w - rp[i].w), Math.abs(c.h - rp[i].h))));
+    out.absolute_card_shift_px = Math.max(Math.abs(a.controls_before[0].y - p.controls_before[0].y), Math.abs(a.controls_before[0].x - p.controls_before[0].x));
+  }
   return out;
 }
 
@@ -124,8 +153,9 @@ function compare(a, p) {
   } finally { await browser.close(); dev.A.close(); dev.B.close(); prod.close(); }
   const aVsProd = runs.map((r) => r.A_vs_prod);
   const summary = {
-    arm_a_equals_production_everywhere: aVsProd.every((c) => c.same_control_names_and_order && c.same_card_text && c.same_actions && (c.max_box_delta_px === null || c.max_box_delta_px <= 4) && c.overflow_px[0] === c.overflow_px[1]),
-    arm_a_max_box_delta_px: Math.max(...aVsProd.map((c) => c.max_box_delta_px || 0)),
+    arm_a_equals_production_everywhere: aVsProd.every((c) => c.same_control_names_and_order && c.same_card_text && c.same_actions && (c.max_relative_box_delta_px === null || c.max_relative_box_delta_px <= 4) && c.overflow_px[0] === c.overflow_px[1]),
+    arm_a_max_relative_box_delta_px: Math.max(...aVsProd.map((c) => c.max_relative_box_delta_px || 0)),
+    arm_a_cells_with_absolute_card_shift_over_4px: runs.filter((r) => r.A_vs_prod.absolute_card_shift_px > 4).map((r) => [r.lang, r.viewport.width, r.scenario, r.A_vs_prod.absolute_card_shift_px]),
     arm_a_max_latency_delta_ms: Math.max(...aVsProd.map((c) => c.latency_delta_ms)),
     arm_b_extra_actions_vs_a: [...new Set(runs.map((r) => r.B_dev.minimum_actions_to_review_card - r.A_dev.minimum_actions_to_review_card))],
     arm_b_layer7_abstention_ui: "BLOCKED: the app has no Layer 7 UI; adding it is an app change (see R26 report)",
