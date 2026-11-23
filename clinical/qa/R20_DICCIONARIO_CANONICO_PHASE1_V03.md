@@ -2,7 +2,7 @@
 
 **23 de noviembre de 2026 · `CLINICALLY_PENDING` · Fase 1 `PROPOSED_INACTIVE`, Fase 2 bloqueada**
 
-Diccionario de los nombres **reales** de [`skin-wound-phase1-contract.proposed.json`](../references/skin-wound-phase1-contract.proposed.json) (`phase1-0.3-proposed`, `DEC-CLIN-R14-02`). Una prueba (`test_the_canonical_dictionary_matches_the_real_contract_fields`) falla si este documento deja de nombrar algún campo, enumerado o causa del contrato. El informe Gemini con otras denominaciones **no está en el repositorio**: la equivalencia campo por campo con esas denominaciones es **No verificada**; este diccionario fija los nombres canónicos que usan el contrato y las pruebas, y cualquier diferencia de nombre es terminológica hasta que se aporte el original y se demuestre una diferencia de semántica o de requisitos.
+Diccionario de los nombres **reales** de [`skin-wound-phase1-contract.proposed.json`](../references/skin-wound-phase1-contract.proposed.json) (`phase1-0.3-proposed`, `DEC-CLIN-R14-02`). Una prueba (`test_the_canonical_dictionary_matches_the_real_contract_fields`) falla si este documento deja de nombrar algún campo, enumerado o causa del contrato. Los informes Gemini R19/R20 (denominaciones `clinician_structured_input`, `verified_structured_clinical_record`, `prior_closure_unconfirmed`) se aportaron al coordinador y se han contrastado con el JSON real (sección siguiente); este diccionario fija los nombres canónicos que usan el contrato y las pruebas.
 
 ## Campos por signo (`observations.<signo>`)
 
@@ -33,3 +33,16 @@ Diccionario de los nombres **reales** de [`skin-wound-phase1-contract.proposed.j
 ## Consumidores y serializadores
 
 Inspección del repositorio: el contrato solo lo referencian su prueba, su registro de decisión y los documentos de estado; **no hay consumidores ni serializadores** en el servidor ni en la aplicación (prueba de no-conexión). No amplía permisos clínicos ni cambia ninguna salida.
+
+## Equivalencia con las denominaciones de Gemini (R19/R20, matriz de la sección 8)
+
+| Denominación Gemini | Nombre canónico (contrato real) | Equivalencia |
+|---|---|---|
+| `clinician_structured_input` | `clinician_entry` | terminológica: entrada estructurada de un profesional, con `reference`, `recorded_at` y `recorder_role` |
+| `verified_structured_clinical_record` | `structured_clinical_record` | terminológica: registro clínico estructurado auditable por `reference` |
+| `prior_closure_unconfirmed` | `closure_history_unavailable` | terminológica: causa específica y cerrada de `uncertain` en `visible_edge_separation` cuando falta el historial de cierre |
+| `wound_closure_history == "never_closed"` | `wound_closure_history = never_closed` | idéntica |
+
+**Foco A (fuentes estructuradas): se cumplen todos los criterios de diferencia meramente terminológica.** (1) Solo fuentes estructuradas (`kind` cerrado a dos valores); (2) correspondencia semántica 1:1 de arriba; (3) fuente visual, de imagen, de modelo, texto libre, `null` o vacío: fallo de validación (pruebas con `direct_visual_fact`, `visual_inspection`, `photo`, `image`, `model`, `classifier`, `unverified`); (4) `premise_absent_confirmed = true` exigido, `not_applicable` prohibido en necrosis, y en separación de bordes solo con `never_closed`; sin consumidores ni serializadores que romper.
+**Foco B (historial ausente): se cumplen todos.** Con historial ausente o `unknown` el contrato exige `uncertain` con la causa específica `closure_history_unavailable` (separada de las causas visuales como `shadow` o `blood_clot`); `not_applicable`, `not_assessable` y `not_observable` no sustituyen a `uncertain`; forzar `not_applicable` con historial ausente o `unknown` falla la validación.
+**Dictamen:** diferencia meramente terminológica; se congela este diccionario como fuente única de nombres (sin nueva decisión médica ni cambio del contrato). Si el esquema de Gemini (`CRF-B`) usa otros literales, deben alinearse a estos.

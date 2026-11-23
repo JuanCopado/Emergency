@@ -299,6 +299,9 @@ class R1402Hardening(unittest.TestCase):
             | set(props["wound_closure_history"]["enum"]) | {"closure_history_unavailable", "never_closed", "not_applicable"}
         for name in names:
             self.assertIn(name, text, name)
+        for gemini in ("clinician_structured_input", "verified_structured_clinical_record", "prior_closure_unconfirmed"):
+            self.assertIn(gemini, text, gemini)            # the equivalence table names the other vocabulary
+            self.assertNotIn(gemini, json.dumps(self.schema), gemini)   # and the contract does not use it
 
     def _doc(self, name, sign):
         doc = valid_document()
