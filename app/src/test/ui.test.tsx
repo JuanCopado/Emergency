@@ -488,6 +488,16 @@ describe('Clinical note diagnostic workspace', () => {
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
+  it('R26 reflow: the clinical upload control cannot widen its grid track (min-w-0, full-width file input)', async () => {
+    const user = userEvent.setup();
+    await renderAt('/clinical-note', [{path:'/clinical-note',element:<ClinicalNote />}], 'pt');
+    await user.click(screen.getByRole('button',{name:'MCDT'}));
+    const input = screen.getByLabelText('Upload clínico');
+    expect(input.className).toContain('w-full');
+    expect(input.className).toContain('max-w-full');
+    expect(input.closest('label')?.className).toContain('min-w-0');
+  });
+
   it('R8-PDF: shows PDF/Documento as effective category for prepared.kind=pdf_document; legacy upload without kind_source shows no category line', async () => {
     const user = userEvent.setup();
     const body = (extra: object) => ({
