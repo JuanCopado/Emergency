@@ -25,11 +25,20 @@ MODALITIES = ("skin_wound", "ecg", "xray", "pocus", "document")
 ROLES = ("physician", "nurse", "paramedic", "other_professional")
 CONDITIONS = ("baseline", "prototype")
 PERIODS = (1, 2)
+PLATFORMS = ("web", "mobile")
 CODE = re.compile(r"^[A-Za-z0-9_-]{1,32}$")
 FIELDS = {"participant", "role", "scenario_id", "condition", "period", "intended_modality", "initial_modality",
-          "chosen_modality", "confirmed", "changed_modality_count", "seconds", "comprehension_correct"}
+          "chosen_modality", "confirmed", "changed_modality_count", "seconds", "comprehension_correct",
+          "platform", "order_in_period"}
 SKIN = "skin_wound"
-DEFAULT_RESAMPLES = 2000
+DEFAULT_RESAMPLES = 5000
+LIMITATIONS = (
+    "No sample size and no acceptance margin are set here: both are medical/study-design decisions.",
+    "Percentile bootstrap intervals can undercover when the number of participants is small; read them with the participant count.",
+    "A bootstrap interval over participants with zero observed events is degenerate and is not reported as evidence of zero risk.",
+    "Learning is estimated from the order of trials inside a period and is confounded with scenario difficulty unless scenarios are counterbalanced.",
+    "Web and mobile are compared descriptively; platform is not assumed to be randomised.",
+)
 DESCRIPTIVE_NOTE = ("Wilson and Clopper-Pearson assume independent trials; the trials of one participant are not. "
                     "Descriptive only, never for inference. The main analysis is the cluster bootstrap.")
 
@@ -40,6 +49,8 @@ METRICS = {
     "false_cancellation_rate": ("false_cancellation", "initial_correct"),  # a correct first choice was dropped
     "comprehension_rate": ("comprehension_correct", "comprehension_answered"),
 }
+# Participant-level risk is only defined for the error-type events (at least one in the participant's trials).
+PARTICIPANT_METRICS = ("bypass_rate", "confirmation_error_rate", "false_cancellation_rate")
 
 
 def _is_count(value):
@@ -65,6 +76,10 @@ def validate_records(records):
         for field in ("initial_modality", "chosen_modality"):
             if record[field] is not None and record[field] not in MODALITIES:
                 raise ValueError(f"unknown {field}")
+        if record["platform"] not in PLATFORMS:
+            raise ValueError("platform must be web or mobile")
+        if not _is_count(record["order_in_period"]) or record["order_in_period"] < 1 or isinstance(record["order_in_period"], bool):
+            raise ValueError("order_in_period must be a positive integer")
         if not isinstance(record["confirmed"], bool):
             raise ValueError("confirmed must be a boolean")
         if record["confirmed"] and record["chosen_modality"] is None:
@@ -80,7 +95,30 @@ def validate_records(records):
         if key in seen:
             raise ValueError(f"participant {key[0]} has scenario {key[1]} twice under {key[2]}")
         seen.add(key)
+    _check_crossed_periods(records)
     return len(records)
+
+
+def _check_crossed_periods(records):
+    """In a crossed AB/BA design a participant uses ONE condition per period (never both in the same period)."""
+    used = defaultdict(set)
+    for record in records:
+        used[(record["participant"], record["period"])].add(record["condition"])
+    for (participant, period), conditions in used.items():
+        if len(conditions) > 1:
+            raise ValueError(f"participant {participant} mixes conditions inside period {period}")
+
+
+def sequences(records):
+    """Participant -> 'AB' (baseline first), 'BA' (prototype first) or 'single' (only one condition observed)."""
+    first = {}
+    conditions = defaultdict(set)
+    for record in records:
+        participant = record["participant"]
+        conditions[participant].add(record["condition"])
+        if participant not in first or record["period"] < first[participant][0]:
+            first[participant] = (record["period"], record["condition"])
+    return {p: ("single" if len(conditions[p]) < 2 else ("AB" if first[p][1] == "baseline" else "BA")) for p in first}
 
 
 def flags(record):
@@ -107,12 +145,16 @@ def clusters(records):
     return grouped
 
 
-def tally(trials):
+def tally(trials, median_order=None):
     """Per (condition, group) counts for ONE participant; every later estimate is a ratio of summed counts."""
     cells = defaultdict(Counter)
     for trial in trials:
         derived = flags(trial)
-        for group in (("all",), ("modality", trial["intended_modality"]), ("scenario", trial["scenario_id"])):
+        groups = [("all",), ("modality", trial["intended_modality"]), ("scenario", trial["scenario_id"]),
+                  ("platform", trial["platform"]), ("period", trial["period"])]
+        if median_order is not None:
+            groups.append(("order", "early" if trial["order_in_period"] <= median_order else "late"))
+        for group in groups:
             cell = cells[(trial["condition"], group)]
             cell["trials"] += 1
             cell["seconds"] += trial["seconds"]
@@ -140,9 +182,18 @@ def mean_seconds(cell):
     return cell["seconds"] / cell["trials"] if cell["trials"] else None
 
 
-def cluster_resample(cluster_ids, rng):
-    """Draw participants with replacement; the same draw is used for every condition (pairing preserved)."""
-    return [cluster_ids[rng.randrange(len(cluster_ids))] for _ in cluster_ids]
+def cluster_resample(cluster_ids, rng, strata=None):
+    """Draw participants with replacement; the same draw is used for every condition (pairing preserved).
+
+    With `strata` (participant -> sequence) the draw is made inside each stratum, so every resample keeps
+    the AB/BA balance of the real sample."""
+    if not strata:
+        return [cluster_ids[rng.randrange(len(cluster_ids))] for _ in cluster_ids]
+    drawn = []
+    for stratum in sorted({strata[c] for c in cluster_ids}):
+        members = [c for c in cluster_ids if strata[c] == stratum]
+        drawn.extend(members[rng.randrange(len(members))] for _ in members)
+    return drawn
 
 
 def _percentile(sorted_values, q):
@@ -203,40 +254,60 @@ def clopper_pearson(k, n, alpha=0.05):
     return lower, upper
 
 
+ZERO_EVENTS_NOTE = ("No event observed: report the exact upper bound (about 3/n for n independent trials), "
+                    "never 'zero risk'; with clustered data the bound is optimistic.")
+DEGENERATE_NOTE = ("No variation across resamples (for example zero events in every participant): the interval "
+                   "is degenerate and is not evidence of zero risk.")
+
+
 def _descriptive(trials, metric):
     numerator_flag, denominator_flag = METRICS[metric]
     n = sum(flags(t)[denominator_flag] for t in trials)
     k = sum(flags(t)[numerator_flag] and flags(t)[denominator_flag] for t in trials)
     ci, wi = clopper_pearson(k, n), wilson(k, n)
     return {"events": k, "trials": n, "exact_95": [round(x, 4) for x in ci] if ci else None,
-            "wilson_95": [round(x, 4) for x in wi] if wi else None}
+            "wilson_95": [round(x, 4) for x in wi] if wi else None,
+            "zero_events_note": ZERO_EVENTS_NOTE if k == 0 and n > 0 else None}
 
 
 def _estimate(tables, drawn, key, measure):
     return measure(total(tables, drawn, key))
 
 
-def _bootstrap(tables, ids, resamples, rng, estimator):
+def _bootstrap(ids, resamples, rng, estimator, strata=None):
     """Point estimate on the real participants plus the percentile interval over participant resamples."""
     point = estimator(ids)
-    samples = [estimator(cluster_resample(ids, rng)) for _ in range(resamples)] if len(ids) >= 2 else []
-    return {"estimate": _rounded(point), "cluster_bootstrap_95": _interval(samples)}
+    samples = [estimator(cluster_resample(ids, rng, strata)) for _ in range(resamples)] if len(ids) >= 2 else []
+    observed = [v for v in samples if v is not None]
+    degenerate = len(observed) >= 2 and len(set(observed)) == 1
+    return {"estimate": _rounded(point), "cluster_bootstrap_95": None if degenerate else _interval(samples),
+            "degenerate_interval": degenerate, "note": DEGENERATE_NOTE if degenerate else None}
+
+
+def _participant_cell(tables, p, condition, metric):
+    return tables[p].get((condition, ("all",)), Counter())
 
 
 def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
     validate_records(records)
     grouped = clusters(records)
     ids = sorted(grouped)
-    tables = {p: tally(trials) for p, trials in grouped.items()}
+    strata = sequences(records)
+    orders = sorted(t["order_in_period"] for t in records)
+    median_order = orders[(len(orders) - 1) // 2]
+    tables = {p: tally(trials, median_order) for p, trials in grouped.items()}
     rng = random.Random(f"{seed}:{len(ids)}")
     both = {p for p in ids if {t["condition"] for t in grouped[p]} == set(CONDITIONS)}
     both_ids = sorted(both)
     scenarios = sorted({t["scenario_id"] for t in records})
     modalities = [m for m in MODALITIES if any(t["intended_modality"] == m for t in records)]
+    platforms = [pl for pl in PLATFORMS if any(t["platform"] == pl for t in records)]
+
+    def boot(pool, estimator):
+        return _bootstrap(pool, resamples, rng, estimator, strata)
 
     def cell(metric, condition, group):
-        return _bootstrap(tables, ids, resamples, rng,
-                          lambda drawn: _estimate(tables, drawn, (condition, group), lambda c: rate(c, metric)))
+        return boot(ids, lambda drawn: _estimate(tables, drawn, (condition, group), lambda c: rate(c, metric)))
 
     def paired(measure, group):
         def estimator(drawn):
@@ -244,23 +315,69 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
             proto = _estimate(tables, kept, ("prototype", group), measure)
             base = _estimate(tables, kept, ("baseline", group), measure)
             return None if proto is None or base is None else proto - base
-        return _bootstrap(tables, both_ids, resamples, rng, estimator)
+        return boot(both_ids, estimator)
 
     def rates(metric):
         return lambda c: rate(c, metric)
 
+    def share_with_event(drawn, condition, metric):
+        eligible = [p for p in drawn if _participant_cell(tables, p, condition, metric)[metric + ":den"] > 0]
+        if not eligible:
+            return None
+        return sum(_participant_cell(tables, p, condition, metric)[metric + ":num"] > 0 for p in eligible) / len(eligible)
+
+    def participant_cell(metric, condition):
+        return boot(ids, lambda drawn: share_with_event(drawn, condition, metric))
+
+    def participant_paired(metric):
+        def estimator(drawn):
+            kept = [p for p in drawn if p in both]
+            proto, base = share_with_event(kept, "prototype", metric), share_with_event(kept, "baseline", metric)
+            return None if proto is None or base is None else proto - base
+        return boot(both_ids, estimator)
+
+    def pooled_rate(metric, group):
+        def estimator(drawn):
+            summed = Counter()
+            for condition in CONDITIONS:
+                summed.update(total(tables, drawn, (condition, group)))
+            return rate(summed, metric)
+        return estimator
+
+    def contrast(metric, late_group, early_group):
+        def estimator(drawn):
+            late, early = pooled_rate(metric, late_group)(drawn), pooled_rate(metric, early_group)(drawn)
+            return None if late is None or early is None else late - early
+        return boot(ids, estimator)
+
     return {
         "design": {"unit_of_analysis": "participant", "trials": len(records), "participants": len(ids),
-                   "participants_with_both_conditions": len(both_ids), "paired": True, "resamples": resamples if len(ids) >= 2 else 0,
+                   "participants_with_both_conditions": len(both_ids), "paired": True, "crossed": "AB/BA",
+                   "sequences": dict(Counter(strata.values())), "resampling_stratified_by_sequence": True,
+                   "resamples": resamples if len(ids) >= 2 else 0, "resamples_default": DEFAULT_RESAMPLES,
                    "seed": str(seed), "trials_per_condition_and_period": dict(Counter(f"{t['condition']}@period{t['period']}" for t in records)),
                    "independence_of_trials": "NOT_ASSUMED"},
-        "primary_cluster_bootstrap": {
+        "trial_level_metrics": {
+            "note": "Rates per trial pooled over trials; participants are the resampling unit.",
             "by_condition": {c: {m: cell(m, c, ("all",)) for m in METRICS} for c in CONDITIONS},
             "by_condition_and_modality": {c: {mod: {m: cell(m, c, ("modality", mod)) for m in METRICS} for mod in modalities} for c in CONDITIONS},
-            "by_condition_and_scenario": {c: {s: {m: cell(m, c, ("scenario", s)) for m in METRICS} for s in scenarios} for c in CONDITIONS},
+            "by_condition_and_scenario": {c: {sc: {m: cell(m, c, ("scenario", sc)) for m in METRICS} for sc in scenarios} for c in CONDITIONS},
+            "by_condition_and_platform": {c: {pl: {m: cell(m, c, ("platform", pl)) for m in METRICS} for pl in platforms} for c in CONDITIONS},
             "paired_difference_prototype_minus_baseline": {m: paired(rates(m), ("all",)) for m in METRICS},
             "paired_difference_by_modality": {mod: {m: paired(rates(m), ("modality", mod)) for m in METRICS} for mod in modalities},
             "additional_time_seconds_prototype_minus_baseline": paired(mean_seconds, ("all",)),
+        },
+        "participant_level_metrics": {
+            "note": "Share of participants with at least one event among those with at least one eligible trial.",
+            "by_condition": {c: {m: participant_cell(m, c) for m in PARTICIPANT_METRICS} for c in CONDITIONS},
+            "paired_difference_prototype_minus_baseline": {m: participant_paired(m) for m in PARTICIPANT_METRICS},
+        },
+        "period_and_learning": {
+            "note": "Period effect = period 2 minus period 1 and learning = late minus early trials, both pooled over conditions; "
+                    "stratified resampling keeps the AB/BA balance so they are not read as condition effects.",
+            "period_effect_period2_minus_period1": {m: contrast(m, ("period", 2), ("period", 1)) for m in PARTICIPANT_METRICS},
+            "learning_late_minus_early": {m: contrast(m, ("order", "late"), ("order", "early")) for m in PARTICIPANT_METRICS},
+            "early_late_split": {"median_order_in_period": median_order, "early": "order_in_period <= median", "late": "order_in_period > median"},
         },
         "by_participant": {p: {c: {"trials": tables[p].get((c, ("all",)), Counter())["trials"],
                                    **{m: _rounded(rate(tables[p].get((c, ("all",)), Counter()), m)) for m in METRICS}}
@@ -268,7 +385,9 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
         "descriptive_exploration_only": {"note": DESCRIPTIVE_NOTE,
                                          "by_condition": {c: {m: _descriptive([t for t in records if t["condition"] == c], m) for m in METRICS}
                                                           for c in CONDITIONS}},
+        "limitations": list(LIMITATIONS),
         "acceptance_margin": "NOT_SET_MEDICAL_DECISION",
+        "sample_size": "NOT_SET_STUDY_DESIGN_DECISION",
         "study_status": "NOT_EXECUTED_TOOLING_ONLY",
     }
 
