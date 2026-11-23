@@ -473,6 +473,42 @@ class DryRun(unittest.TestCase):
         self.assertEqual(out["export"]["study_status"], "NOT_EXECUTED_PROTOCOL_ONLY")
 
 
+class ModelStatus(unittest.TestCase):
+    """GEE / GLMM / device x arm: code and tests decide, not prose."""
+
+    def test_the_core_tool_and_the_export_declare_what_is_not_implemented(self):
+        from human_factors import gee_reference
+        status = gee_reference.models_status()
+        self.assertEqual(status["core_tool_human_factors_tools"], "NOT_IMPLEMENTED_STDLIB_ONLY")
+        for key in ("GEE_SMALL_SAMPLE", "GLMM", "DEVICE_ARM_INTERACTION"):
+            self.assertTrue(status[key].startswith("NOT_IMPLEMENTED"), key)
+        out = hf.summarize(dryrun_legacy(), resamples=B)
+        self.assertEqual(out["crossover_and_device_models"]["status"], "NOT_IMPLEMENTED_STDLIB_ONLY")
+        self.assertEqual(export()["unimplemented_stage2_models"], ["GLMM", "GEE_SMALL_SAMPLE", "DEVICE_ARM_INTERACTION"])
+
+    def test_no_stage2_model_exists_in_the_core_tool_source(self):
+        source = (ROOT / "scripts" / "human_factors_tools.py").read_text(encoding="utf-8")
+        self.assertNotRegex(source, r"statsmodels|import numpy|import scipy|\bdef (fit_)?(glmm|gee)\b")
+
+    def test_the_optional_gee_exists_only_in_the_lab_and_is_labelled_uncorrected(self):
+        from human_factors import gee_reference
+        self.assertTrue(hasattr(gee_reference, "fit_gee"))
+        self.assertFalse(hasattr(gee_reference, "fit_glmm"))
+        status = gee_reference.models_status()
+        self.assertIn(status["gee_robust_uncorrected_lab_optional"], ("AVAILABLE_OPTIONAL_STATSMODELS", "NOT_AVAILABLE_STATSMODELS_MISSING"))
+        fit = gee_reference.fit_gee(dryrun_legacy(), "confirmation_error_rate")
+        if gee_reference.available():
+            self.assertIn(fit["status"], ("ESTIMATED", "NOT_ESTIMABLE"))
+            if fit["status"] == "ESTIMATED":
+                self.assertIn("anti-conservative", fit["warning"])
+        else:
+            self.assertEqual(fit["status"], "NOT_IMPLEMENTED")
+
+
+def dryrun_legacy():
+    return [alt_b.to_legacy(r, MANIFEST) for r in RECORDS if r["mechanism_id"] != "M2"]
+
+
 class Isolation(unittest.TestCase):
     NEEDLE = re.compile(r"alt_b|bank_r23|file_probe|dryrun|layer7_harness|human_factors|clinical/lab|VITE_R51_LAYER7")
 

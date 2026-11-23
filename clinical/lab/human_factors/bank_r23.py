@@ -129,17 +129,31 @@ def generate_files(directory=STIMULI_DIR):
 
 
 def dhash64(data):
-    """64-bit difference hash of an IMAGE (None for non-images)."""
+    """64-bit difference hash of an IMAGE (None for non-images). The 9x8 reduction is a plain integer block average over the decoded
+    grayscale pixels (no library resampling), so the hash is identical across Pillow versions."""
     from PIL import Image
     try:
-        img = Image.open(io.BytesIO(data)).convert("L").resize((9, 8))
+        img = Image.open(io.BytesIO(data)).convert("L")
+        width, height = img.size
+        raw = img.tobytes()
     except Exception:
         return None
-    pixels = list(img.tobytes())
+    cols, rows = 9, 8
+    cells = []
+    for r in range(rows):
+        y0, y1 = r * height // rows, max((r + 1) * height // rows, r * height // rows + 1)
+        for c in range(cols):
+            x0, x1 = c * width // cols, max((c + 1) * width // cols, c * width // cols + 1)
+            total = count = 0
+            for y in range(y0, min(y1, height)):
+                row = raw[y * width + x0: y * width + min(x1, width)]
+                total += sum(row)
+                count += len(row)
+            cells.append(total // count if count else 0)
     bits = 0
-    for row in range(8):
-        for col in range(8):
-            bits = (bits << 1) | (pixels[row * 9 + col] > pixels[row * 9 + col + 1])
+    for r in range(rows):
+        for c in range(cols - 1):
+            bits = (bits << 1) | (cells[r * cols + c] > cells[r * cols + c + 1])
     return f"{bits:016x}"
 
 

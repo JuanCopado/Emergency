@@ -1,0 +1,732 @@
+{
+ "fixtures_version": "ui-fixtures-0.1",
+ "layer7_execution_mode": "SIMULATED_LAB_HARNESS_ONLY",
+ "layer7_result_label": "SIMULATED_LAYER7_HARNESS_LAB_ONLY",
+ "options": [
+  "none",
+  "skin_wound",
+  "ecg",
+  "xray",
+  "pocus",
+  "document"
+ ],
+ "source": "layer7_harness.run_case over file_probe.describe of real stimulus bytes",
+ "trials": [
+  {
+   "by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "container": {
+    "container_parse_ok": true,
+    "extension": ".png",
+    "signature_kind": "png"
+   },
+   "file": "stimuli/S1-14.png",
+   "initial_modality": null,
+   "replacement_by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "scenario_code": "E1",
+   "sha256": "3279ec6a55f2630d6f2996bb1600b3f426c3953e5f1aaf91cea847c39467de84",
+   "stimulus_id": "S1-14"
+  },
+  {
+   "by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_B",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is not technically compatible with the selected modality. The content was not evaluated and no condition is ruled out. Upload a compatible file or choose the matching modality.",
+      "es": "El archivo no es técnicamente compatible con la modalidad seleccionada. No se ha evaluado el contenido ni se descarta patología. Suba un archivo compatible o elija la modalidad adecuada.",
+      "pt": "O ficheiro não é tecnicamente compatível com a modalidade selecionada. O conteúdo não foi avaliado nem se exclui patologia. Envie um ficheiro compatível ou escolha a modalidade adequada."
+     },
+     "trigger_id": "T7-04_FORMAT_CONTAINER_MISMATCH"
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "container": {
+    "container_parse_ok": true,
+    "extension": ".pdf",
+    "signature_kind": "pdf"
+   },
+   "file": "stimuli/S2-14.pdf",
+   "initial_modality": null,
+   "replacement_by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "scenario_code": "E1",
+   "sha256": "281353c78416bdd33faf21b3ca1db707f8894948db1b7013b11a77286fabd745",
+   "stimulus_id": "S2-14"
+  },
+  {
+   "by_modality": {
+    "document": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "ecg": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "skin_wound": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "xray": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    }
+   },
+   "container": {
+    "container_parse_ok": false,
+    "extension": ".jpg",
+    "signature_kind": "jpeg"
+   },
+   "file": "stimuli/S1-15.jpg",
+   "initial_modality": "skin_wound",
+   "replacement_by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "scenario_code": "E2",
+   "sha256": "611db5fe62c256dcf243ecd9a54aa04bd07e9885ae15e88e8b5ee79379a43eca",
+   "stimulus_id": "S1-15"
+  },
+  {
+   "by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_B",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is not technically compatible with the selected modality. The content was not evaluated and no condition is ruled out. Upload a compatible file or choose the matching modality.",
+      "es": "El archivo no es técnicamente compatible con la modalidad seleccionada. No se ha evaluado el contenido ni se descarta patología. Suba un archivo compatible o elija la modalidad adecuada.",
+      "pt": "O ficheiro não é tecnicamente compatível com a modalidade selecionada. O conteúdo não foi avaliado nem se exclui patologia. Envie um ficheiro compatível ou escolha a modalidade adequada."
+     },
+     "trigger_id": "T7-04_FORMAT_CONTAINER_MISMATCH"
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "container": {
+    "container_parse_ok": true,
+    "extension": ".pdf",
+    "signature_kind": "pdf"
+   },
+   "file": "stimuli/S2-15.pdf",
+   "initial_modality": "skin_wound",
+   "replacement_by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "scenario_code": "E2",
+   "sha256": "01212969ab9691e1b7b44436f9b0ae54fdca9ae983dcd5ded241d06543b9cede",
+   "stimulus_id": "S2-15"
+  },
+  {
+   "by_modality": {
+    "document": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_D",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format.",
+      "es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+      "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível."
+     },
+     "trigger_id": "T7-04_FORMAT_CONTAINER_MISMATCH"
+    },
+    "ecg": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_D",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format.",
+      "es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+      "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível."
+     },
+     "trigger_id": "T7-04_FORMAT_CONTAINER_MISMATCH"
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_D",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format.",
+      "es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+      "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível."
+     },
+     "trigger_id": "T7-04_FORMAT_CONTAINER_MISMATCH"
+    },
+    "skin_wound": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_D",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format.",
+      "es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+      "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível."
+     },
+     "trigger_id": "T7-04_FORMAT_CONTAINER_MISMATCH"
+    },
+    "xray": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_D",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format.",
+      "es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+      "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível."
+     },
+     "trigger_id": "T7-04_FORMAT_CONTAINER_MISMATCH"
+    }
+   },
+   "container": {
+    "container_parse_ok": true,
+    "extension": ".wav",
+    "signature_kind": "audio"
+   },
+   "file": "stimuli/QA-01.wav",
+   "initial_modality": "skin_wound",
+   "replacement_by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "scenario_code": "E2",
+   "sha256": "c726d333dd159a31423f3480dbb1c5c4a9dfcd30efe1f7e12ade390dc92e8908",
+   "stimulus_id": "QA-01"
+  },
+  {
+   "by_modality": {
+    "document": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "ecg": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "skin_wound": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    },
+    "xray": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_C",
+     "send_allowed": false,
+     "texts": {
+      "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+      "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+      "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra."
+     },
+     "trigger_id": "T7-03_CORRUPT_UNPROCESSABLE"
+    }
+   },
+   "container": {
+    "container_parse_ok": false,
+    "extension": ".jpg",
+    "signature_kind": "unknown"
+   },
+   "file": "stimuli/QA-02.jpg",
+   "initial_modality": "skin_wound",
+   "replacement_by_modality": {
+    "document": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "ecg": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "none": {
+     "decision": "abstain",
+     "message_id": "MSG_T7_A",
+     "send_allowed": false,
+     "texts": {
+      "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+      "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+      "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar."
+     },
+     "trigger_id": "T7-01_UNDECLARED_MODALITY"
+    },
+    "pocus": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "skin_wound": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    },
+    "xray": {
+     "decision": "none",
+     "message_id": null,
+     "send_allowed": true,
+     "texts": null,
+     "trigger_id": null
+    }
+   },
+   "scenario_code": "E2",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "stimulus_id": "QA-02"
+  }
+ ]
+}

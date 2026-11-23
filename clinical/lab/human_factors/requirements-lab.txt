@@ -1,0 +1,6 @@
+# OPTIONAL laboratory dependencies (NOT used by the product, NOT installed in CI). Verified locally with these versions (Python 3.13).
+statsmodels==0.15.0
+numpy==2.5.5
+pandas==3.1.1
+scipy==1.18.1
+patsy==1.0.3

@@ -68,3 +68,14 @@ def fit_gee(records, metric, structure="exchangeable"):
             "warning": "Small-cluster sandwich standard errors are anti-conservative; read with the participant count.",
             "coefficients": {n: {"log_odds": float(result.params[n]), "robust_se": float(result.bse[n]),
                                  "ci95": [float(ci.loc[n, 0]), float(ci.loc[n, 1])]} for n in names}}
+
+
+def models_status():
+    """Honest, machine-readable status of the Stage 2 models. Resolves the 'implemented vs not implemented' discrepancy by level:
+    the audited core tool (stdlib) implements NONE of them; this optional lab module offers an UNCORRECTED-sandwich GEE only when
+    statsmodels is installed. GEE with small-sample correction, GLMM and the device x arm interaction are NOT implemented anywhere."""
+    return {"core_tool_human_factors_tools": "NOT_IMPLEMENTED_STDLIB_ONLY",
+            "gee_robust_uncorrected_lab_optional": "AVAILABLE_OPTIONAL_STATSMODELS" if available() else "NOT_AVAILABLE_STATSMODELS_MISSING",
+            "GEE_SMALL_SAMPLE": "NOT_IMPLEMENTED (Mancl-DeRouen / Kauermann-Carroll corrections absent)",
+            "GLMM": GLMM_STATUS, "DEVICE_ARM_INTERACTION": "NOT_IMPLEMENTED",
+            "reproducibility": "GEE tests run only where statsmodels is installed (see requirements-lab.txt); they are skipped in the CI of the repository"}
