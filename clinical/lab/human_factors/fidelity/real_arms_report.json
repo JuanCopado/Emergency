@@ -1,0 +1,5081 @@
+{
+ "tool": "real_arms.cjs",
+ "variants": {
+  "P_prod": "production build, flag OFF",
+  "A_dev": "dev server, flag OFF (arm A)",
+  "B_dev": "dev server, VITE_R51_PROTOTYPE=1 (arm B selector)"
+ },
+ "summary": {
+  "arm_a_equals_production_everywhere": true,
+  "arm_a_max_relative_box_delta_px": 0,
+  "arm_a_cells_with_absolute_card_shift_over_4px": [
+   [
+    "en",
+    360,
+    "image",
+    16
+   ]
+  ],
+  "arm_a_max_latency_delta_ms": 81,
+  "arm_b_extra_actions_vs_a": [
+   2
+  ],
+  "arm_b_layer7_abstention_ui": "BLOCKED: the app has no Layer 7 UI; adding it is an app change (see R26 report)",
+  "browser": "chromium 157.0.8103.78",
+  "edge_checked": false
+ },
+ "runs": [
+  {
+   "lang": "es",
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "scenario": "document",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1134,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 148,
+      "y": 1134,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1186,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 117,
+      "y": 1186,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 33,
+      "y": 1238,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 134,
+      "y": 1238,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 33,
+      "y": 1290,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 181,
+      "y": 1290,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 33,
+      "y": 1342,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 50,
+      "y": 1445,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 33,
+      "y": 1544,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1628,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 33,
+      "y": 1768,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 33,
+      "y": 1882,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
+    "latency_ms": 170
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1134,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 148,
+      "y": 1134,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1186,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 117,
+      "y": 1186,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 33,
+      "y": 1238,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 134,
+      "y": 1238,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 33,
+      "y": 1290,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 181,
+      "y": 1290,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 33,
+      "y": 1342,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 50,
+      "y": 1445,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 33,
+      "y": 1544,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1628,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 33,
+      "y": 1768,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 33,
+      "y": 1882,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
+    "latency_ms": 154
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1134,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 148,
+      "y": 1134,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1186,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 117,
+      "y": 1186,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 33,
+      "y": 1238,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 134,
+      "y": 1238,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 33,
+      "y": 1290,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 181,
+      "y": 1290,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 33,
+      "y": 1342,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Piel/herida",
+      "x": 50,
+      "y": 1457,
+      "w": 108,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 166,
+      "y": 1457,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Radiografía",
+      "x": 50,
+      "y": 1509,
+      "w": 113,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografía/POCUS",
+      "x": 50,
+      "y": 1561,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF o texto)",
+      "x": 50,
+      "y": 1613,
+      "w": 205,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 33,
+      "y": 1730,
+      "w": 294,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1814,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 33,
+      "y": 1954,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 33,
+      "y": 2068,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
+    "latency_ms": 255
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     60,
+     60
+    ],
+    "latency_delta_ms": 16
+   }
+  },
+  {
+   "lang": "es",
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "scenario": "image",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1134,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 148,
+      "y": 1134,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1186,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 117,
+      "y": 1186,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 33,
+      "y": 1238,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 134,
+      "y": 1238,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 33,
+      "y": 1290,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 181,
+      "y": 1290,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 33,
+      "y": 1342,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 50,
+      "y": 1445,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 33,
+      "y": 1544,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1628,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 33,
+      "y": 1768,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 33,
+      "y": 1882,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
+    "latency_ms": 214
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1134,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 148,
+      "y": 1134,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1186,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 117,
+      "y": 1186,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 33,
+      "y": 1238,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 134,
+      "y": 1238,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 33,
+      "y": 1290,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 181,
+      "y": 1290,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 33,
+      "y": 1342,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 50,
+      "y": 1445,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 33,
+      "y": 1544,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1628,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 33,
+      "y": 1768,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 33,
+      "y": 1882,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
+    "latency_ms": 205
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1134,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 148,
+      "y": 1134,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1186,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 117,
+      "y": 1186,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 33,
+      "y": 1238,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 134,
+      "y": 1238,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 33,
+      "y": 1290,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 181,
+      "y": 1290,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 33,
+      "y": 1342,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Piel/herida",
+      "x": 50,
+      "y": 1457,
+      "w": 108,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 166,
+      "y": 1457,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Radiografía",
+      "x": 50,
+      "y": 1509,
+      "w": 113,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografía/POCUS",
+      "x": 50,
+      "y": 1561,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF o texto)",
+      "x": 50,
+      "y": 1613,
+      "w": 205,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 33,
+      "y": 1730,
+      "w": 294,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1814,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 33,
+      "y": 1954,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 33,
+      "y": 2068,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": "skin_wound",
+    "review_card": true,
+    "card_text": "Piel/herida · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: skin-wound-image Original no retenido Categoría efectiva: Piel/herida — elegida por usted. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: skin-wound-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
+    "latency_ms": 239
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     60,
+     60
+    ],
+    "latency_delta_ms": 9
+   }
+  },
+  {
+   "lang": "es",
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "scenario": "document",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 438,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 573,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 674,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 253,
+      "y": 638,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 381,
+      "y": 638,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 105,
+      "y": 1162,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
+    "latency_ms": 165
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 438,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 573,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 674,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 253,
+      "y": 638,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 381,
+      "y": 638,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 105,
+      "y": 1162,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
+    "latency_ms": 197
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 438,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 573,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 674,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 253,
+      "y": 638,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 381,
+      "y": 638,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Piel/herida",
+      "x": 122,
+      "y": 753,
+      "w": 108,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 238,
+      "y": 753,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Radiografía",
+      "x": 309,
+      "y": 753,
+      "w": 113,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografía/POCUS",
+      "x": 430,
+      "y": 753,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF o texto)",
+      "x": 592,
+      "y": 753,
+      "w": 205,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 105,
+      "y": 854,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 938,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 105,
+      "y": 1078,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 105,
+      "y": 1192,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: PDF/Documento — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Los archivos PDF y DICOM se excluyen del envío al servicio de interpretación. Revisa el documento manualmente. Aceptar Editar Rechazar",
+    "latency_ms": 209
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     0,
+     0
+    ],
+    "latency_delta_ms": 32
+   }
+  },
+  {
+   "lang": "es",
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "scenario": "image",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 438,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 573,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 674,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 253,
+      "y": 638,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 381,
+      "y": 638,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 105,
+      "y": 1162,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
+    "latency_ms": 203
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 438,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 573,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 674,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 253,
+      "y": 638,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 381,
+      "y": 638,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Carga clínica",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 105,
+      "y": 1162,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
+    "latency_ms": 207
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometría",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Radiografía",
+      "x": 438,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 573,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografía/POCUS",
+      "x": 674,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiología",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Piel/herida",
+      "x": 253,
+      "y": 638,
+      "w": 120,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Otro",
+      "x": 381,
+      "y": 638,
+      "w": 74,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Piel/herida",
+      "x": 122,
+      "y": 753,
+      "w": 108,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 238,
+      "y": 753,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Radiografía",
+      "x": 309,
+      "y": 753,
+      "w": 113,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografía/POCUS",
+      "x": 430,
+      "y": 753,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF o texto)",
+      "x": 592,
+      "y": 753,
+      "w": 205,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nombre de la prueba",
+      "x": 105,
+      "y": 854,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 938,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Separada del informe oficial",
+      "x": 105,
+      "y": 1078,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Crear tarjeta para revisión",
+      "x": 105,
+      "y": 1192,
+      "w": 211,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": "skin_wound",
+    "review_card": true,
+    "card_text": "Piel/herida · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: skin-wound-image Original no retenido Categoría efectiva: Piel/herida — elegida por usted. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: skin-wound-image · routed_external Metadatos e identificadores del archivo revisados. Identificadores visibles o incrustados revisados. Interpretar con módulo IA Aceptar Editar Rechazar",
+    "latency_ms": 217
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     0,
+     0
+    ],
+    "latency_delta_ms": 4
+   }
+  },
+  {
+   "lang": "pt",
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "scenario": "document",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1086,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 148,
+      "y": 1086,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1138,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 117,
+      "y": 1138,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 189,
+      "y": 1138,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 33,
+      "y": 1190,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 33,
+      "y": 1242,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 181,
+      "y": 1242,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 33,
+      "y": 1294,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 50,
+      "y": 1397,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 33,
+      "y": 1496,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1580,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 33,
+      "y": 1720,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 33,
+      "y": 1834,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
+    "latency_ms": 169
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1086,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 148,
+      "y": 1086,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1138,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 117,
+      "y": 1138,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 189,
+      "y": 1138,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 33,
+      "y": 1190,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 33,
+      "y": 1242,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 181,
+      "y": 1242,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 33,
+      "y": 1294,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 50,
+      "y": 1397,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 33,
+      "y": 1496,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1580,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 33,
+      "y": 1720,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 33,
+      "y": 1834,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
+    "latency_ms": 167
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1086,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 148,
+      "y": 1086,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1138,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 117,
+      "y": 1138,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 189,
+      "y": 1138,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 33,
+      "y": 1190,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 33,
+      "y": 1242,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 181,
+      "y": 1242,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 33,
+      "y": 1294,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Pele/ferida",
+      "x": 50,
+      "y": 1409,
+      "w": 109,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 167,
+      "y": 1409,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Rx",
+      "x": 238,
+      "y": 1409,
+      "w": 51,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografia/POCUS",
+      "x": 50,
+      "y": 1461,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF ou texto)",
+      "x": 50,
+      "y": 1513,
+      "w": 213,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 33,
+      "y": 1630,
+      "w": 294,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1714,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 33,
+      "y": 1854,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 33,
+      "y": 1968,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
+    "latency_ms": 207
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     60,
+     60
+    ],
+    "latency_delta_ms": 2
+   }
+  },
+  {
+   "lang": "pt",
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "scenario": "image",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1086,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 148,
+      "y": 1086,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1138,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 117,
+      "y": 1138,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 189,
+      "y": 1138,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 33,
+      "y": 1190,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 33,
+      "y": 1242,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 181,
+      "y": 1242,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 33,
+      "y": 1294,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 50,
+      "y": 1397,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 33,
+      "y": 1496,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1580,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 33,
+      "y": 1720,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 33,
+      "y": 1834,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
+    "latency_ms": 199
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1086,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 148,
+      "y": 1086,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1138,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 117,
+      "y": 1138,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 189,
+      "y": 1138,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 33,
+      "y": 1190,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 33,
+      "y": 1242,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 181,
+      "y": 1242,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 33,
+      "y": 1294,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 50,
+      "y": 1397,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 33,
+      "y": 1496,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1580,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 33,
+      "y": 1720,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 33,
+      "y": 1834,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
+    "latency_ms": 260
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 33,
+      "y": 1086,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 148,
+      "y": 1086,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1138,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 117,
+      "y": 1138,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 189,
+      "y": 1138,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 33,
+      "y": 1190,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 33,
+      "y": 1242,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 181,
+      "y": 1242,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 33,
+      "y": 1294,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Pele/ferida",
+      "x": 50,
+      "y": 1409,
+      "w": 109,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 167,
+      "y": 1409,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Rx",
+      "x": 238,
+      "y": 1409,
+      "w": 51,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografia/POCUS",
+      "x": 50,
+      "y": 1461,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF ou texto)",
+      "x": 50,
+      "y": 1513,
+      "w": 213,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 33,
+      "y": 1630,
+      "w": 294,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1714,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 33,
+      "y": 1854,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 33,
+      "y": 1968,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": "skin_wound",
+    "review_card": true,
+    "card_text": "Pele/ferida · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: skin-wound-image Original não retido Categoria efetiva: Pele/ferida — escolhida por si. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: skin-wound-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
+    "latency_ms": 194
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     60,
+     60
+    ],
+    "latency_delta_ms": 61
+   }
+  },
+  {
+   "lang": "pt",
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "scenario": "document",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 438,
+      "y": 586,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 510,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 612,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 253,
+      "y": 638,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 382,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 105,
+      "y": 1162,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
+    "latency_ms": 158
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 438,
+      "y": 586,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 510,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 612,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 253,
+      "y": 638,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 382,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 105,
+      "y": 1162,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
+    "latency_ms": 160
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 438,
+      "y": 586,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 510,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 612,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 253,
+      "y": 638,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 382,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Pele/ferida",
+      "x": 122,
+      "y": 753,
+      "w": 109,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 239,
+      "y": 753,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Rx",
+      "x": 310,
+      "y": 753,
+      "w": 51,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografia/POCUS",
+      "x": 369,
+      "y": 753,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF ou texto)",
+      "x": 531,
+      "y": 753,
+      "w": 213,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 105,
+      "y": 854,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 938,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 105,
+      "y": 1078,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 105,
+      "y": 1192,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-13.pdf Pendente Privacidade: REVIEW_REQUIRED Rota: clinical-note-diagnostic-support Original não retido Categoria efetiva: PDF/Documento — inferida do tipo de contentor; não verifica a modalidade real do conteúdo. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: clinical-note-diagnostic-support · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. PDF e DICOM ficam excluídos do envio ao serviço de interpretação. Reveja o documento manualmente. Aceitar Editar Rejeitar",
+    "latency_ms": 209
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     0,
+     0
+    ],
+    "latency_delta_ms": 2
+   }
+  },
+  {
+   "lang": "pt",
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "scenario": "image",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 438,
+      "y": 586,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 510,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 612,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 253,
+      "y": 638,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 382,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 105,
+      "y": 1162,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
+    "latency_ms": 197
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 438,
+      "y": 586,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 510,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 612,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 253,
+      "y": 638,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 382,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Upload clínico",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 105,
+      "y": 1162,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Outro · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: other-clinical-image Original não retido Categoria efetiva: Outro — nenhuma categoria enviada nem pista no nome do ficheiro; tratada como «Outro». A modalidade real não foi verificada. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: other-clinical-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
+    "latency_ms": 206
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Analítica",
+      "x": 105,
+      "y": 586,
+      "w": 107,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Gasometria",
+      "x": 220,
+      "y": 586,
+      "w": 126,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 354,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Rx",
+      "x": 438,
+      "y": 586,
+      "w": 64,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ TC/RM",
+      "x": 510,
+      "y": 586,
+      "w": 93,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ecografia/POCUS",
+      "x": 612,
+      "y": 586,
+      "w": 167,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiologia",
+      "x": 105,
+      "y": 638,
+      "w": 140,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Pele/ferida",
+      "x": 253,
+      "y": 638,
+      "w": 122,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Outro",
+      "x": 382,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Pele/ferida",
+      "x": 122,
+      "y": 753,
+      "w": 109,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 239,
+      "y": 753,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Rx",
+      "x": 310,
+      "y": 753,
+      "w": 51,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ecografia/POCUS",
+      "x": 369,
+      "y": 753,
+      "w": 154,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Documento (PDF ou texto)",
+      "x": 531,
+      "y": 753,
+      "w": 213,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Nome do exame",
+      "x": 105,
+      "y": 854,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 938,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Mantida separada do informe oficial",
+      "x": 105,
+      "y": 1078,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Criar cartão para revisão",
+      "x": 105,
+      "y": 1192,
+      "w": 204,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": "skin_wound",
+    "review_card": true,
+    "card_text": "Pele/ferida · S1-14.png Pendente Privacidade: REVIEW_REQUIRED Rota: skin-wound-image Original não retido Categoria efetiva: Pele/ferida — escolhida por si. INFORME OFICIAL / EXTRAÍDO INTERPRETAÇÃO IA Proveniência: skin-wound-image · routed_external Metadados/identificadores do ficheiro revistos. Identificadores visíveis/burned-in revistos. Interpretar com módulo IA Aceitar Editar Rejeitar",
+    "latency_ms": 214
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     0,
+     0
+    ],
+    "latency_delta_ms": 9
+   }
+  },
+  {
+   "lang": "en",
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "scenario": "document",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 33,
+      "y": 1268,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 200,
+      "y": 1268,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1320,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 117,
+      "y": 1320,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 213,
+      "y": 1320,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 33,
+      "y": 1372,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 33,
+      "y": 1424,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 176,
+      "y": 1424,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 33,
+      "y": 1476,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 50,
+      "y": 1579,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 33,
+      "y": 1678,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1762,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 33,
+      "y": 1902,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 33,
+      "y": 2016,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
+    "latency_ms": 172
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 33,
+      "y": 1268,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 200,
+      "y": 1268,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1320,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 117,
+      "y": 1320,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 213,
+      "y": 1320,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 33,
+      "y": 1372,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 33,
+      "y": 1424,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 176,
+      "y": 1424,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 33,
+      "y": 1476,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 50,
+      "y": 1579,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 33,
+      "y": 1678,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1762,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 33,
+      "y": 1902,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 33,
+      "y": 2016,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
+    "latency_ms": 162
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 33,
+      "y": 1268,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 200,
+      "y": 1268,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1320,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 117,
+      "y": 1320,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 213,
+      "y": 1320,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 33,
+      "y": 1372,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 33,
+      "y": 1424,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 176,
+      "y": 1424,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 33,
+      "y": 1476,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Skin/wound",
+      "x": 50,
+      "y": 1591,
+      "w": 115,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 173,
+      "y": 1591,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "X-ray",
+      "x": 50,
+      "y": 1643,
+      "w": 75,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ultrasound/POCUS",
+      "x": 133,
+      "y": 1643,
+      "w": 164,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Document (PDF or text)",
+      "x": 50,
+      "y": 1695,
+      "w": 193,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 33,
+      "y": 1812,
+      "w": 294,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1896,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 33,
+      "y": 2036,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 33,
+      "y": 2150,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
+    "latency_ms": 200
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     60,
+     60
+    ],
+    "latency_delta_ms": 10
+   }
+  },
+  {
+   "lang": "en",
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "scenario": "image",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 33,
+      "y": 1268,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 200,
+      "y": 1268,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1320,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 117,
+      "y": 1320,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 213,
+      "y": 1320,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 33,
+      "y": 1372,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 33,
+      "y": 1424,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 176,
+      "y": 1424,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 33,
+      "y": 1476,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 50,
+      "y": 1579,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 33,
+      "y": 1678,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1762,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 33,
+      "y": 1902,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 33,
+      "y": 2016,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
+    "latency_ms": 199
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 33,
+      "y": 1252,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 200,
+      "y": 1252,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1304,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 117,
+      "y": 1304,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 213,
+      "y": 1304,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 33,
+      "y": 1356,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 33,
+      "y": 1408,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 176,
+      "y": 1408,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 33,
+      "y": 1460,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 50,
+      "y": 1563,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 33,
+      "y": 1662,
+      "w": 387,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1746,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 33,
+      "y": 1886,
+      "w": 387,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 33,
+      "y": 2000,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 60,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
+    "latency_ms": 220
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 33,
+      "y": 1268,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 200,
+      "y": 1268,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 33,
+      "y": 1320,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 117,
+      "y": 1320,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 213,
+      "y": 1320,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 33,
+      "y": 1372,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 33,
+      "y": 1424,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 176,
+      "y": 1424,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 33,
+      "y": 1476,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Skin/wound",
+      "x": 50,
+      "y": 1591,
+      "w": 115,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 173,
+      "y": 1591,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "X-ray",
+      "x": 50,
+      "y": 1643,
+      "w": 75,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ultrasound/POCUS",
+      "x": 133,
+      "y": 1643,
+      "w": 164,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Document (PDF or text)",
+      "x": 50,
+      "y": 1695,
+      "w": 193,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 33,
+      "y": 1812,
+      "w": 294,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 33,
+      "y": 1896,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 33,
+      "y": 2036,
+      "w": 294,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 33,
+      "y": 2150,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": "skin_wound",
+    "review_card": true,
+    "card_text": "Skin/wound · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: skin-wound-image Original not retained Effective category: Skin/wound — chosen by you. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: skin-wound-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
+    "latency_ms": 206
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 16,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     60,
+     60
+    ],
+    "latency_delta_ms": 21
+   }
+  },
+  {
+   "lang": "en",
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "scenario": "document",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 105,
+      "y": 586,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 272,
+      "y": 586,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 395,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 479,
+      "y": 586,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 575,
+      "y": 586,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 680,
+      "y": 586,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 105,
+      "y": 638,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 248,
+      "y": 638,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 384,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 105,
+      "y": 1162,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
+    "latency_ms": 159
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 105,
+      "y": 586,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 272,
+      "y": 586,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 395,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 479,
+      "y": 586,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 575,
+      "y": 586,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 680,
+      "y": 586,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 105,
+      "y": 638,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 248,
+      "y": 638,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 384,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 105,
+      "y": 1162,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
+    "latency_ms": 185
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 105,
+      "y": 586,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 272,
+      "y": 586,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 395,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 479,
+      "y": 586,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 575,
+      "y": 586,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 680,
+      "y": 586,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 105,
+      "y": 638,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 248,
+      "y": 638,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 384,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Skin/wound",
+      "x": 122,
+      "y": 753,
+      "w": 115,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 245,
+      "y": 753,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "X-ray",
+      "x": 316,
+      "y": 753,
+      "w": 75,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ultrasound/POCUS",
+      "x": 399,
+      "y": 753,
+      "w": 164,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Document (PDF or text)",
+      "x": 571,
+      "y": 753,
+      "w": 193,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 105,
+      "y": 854,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 938,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 105,
+      "y": 1078,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 105,
+      "y": 1192,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-13.pdf Pending Privacy: REVIEW_REQUIRED Route: clinical-note-diagnostic-support Original not retained Effective category: PDF/Document — inferred from the container type; it does not verify the real modality of the content. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: clinical-note-diagnostic-support · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. PDF and DICOM files are excluded from the interpretation service. Review the document manually. Accept Edit Reject",
+    "latency_ms": 199
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     0,
+     0
+    ],
+    "latency_delta_ms": 26
+   }
+  },
+  {
+   "lang": "en",
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "scenario": "image",
+   "P_prod": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 105,
+      "y": 586,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 272,
+      "y": 586,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 395,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 479,
+      "y": 586,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 575,
+      "y": 586,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 680,
+      "y": 586,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 105,
+      "y": 638,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 248,
+      "y": 638,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 384,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 105,
+      "y": 1162,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
+    "latency_ms": 161
+   },
+   "A_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 105,
+      "y": 586,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 272,
+      "y": 586,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 395,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 479,
+      "y": 586,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 575,
+      "y": 586,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 680,
+      "y": 586,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 105,
+      "y": 638,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 248,
+      "y": 638,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 384,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "input:file",
+      "name": "Clinical upload",
+      "x": 122,
+      "y": 741,
+      "w": 353,
+      "h": 30
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 105,
+      "y": 824,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 908,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 105,
+      "y": 1048,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 105,
+      "y": 1162,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 2,
+    "prepare_calls": 1,
+    "explicit_kind_sent": null,
+    "review_card": true,
+    "card_text": "Other · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: other-clinical-image Original not retained Effective category: Other — no category was sent and the file name gives no hint; it is treated as “Other”. The real modality has not been verified. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: other-clinical-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
+    "latency_ms": 242
+   },
+   "B_dev": {
+    "controls_before": [
+     {
+      "role": "button:submit",
+      "name": "+ Laboratory tests",
+      "x": 105,
+      "y": 586,
+      "w": 159,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Blood gas",
+      "x": 272,
+      "y": 586,
+      "w": 114,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ ECG",
+      "x": 395,
+      "y": 586,
+      "w": 76,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ X-ray",
+      "x": 479,
+      "y": 586,
+      "w": 88,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ CT/MRI",
+      "x": 575,
+      "y": 586,
+      "w": 97,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Ultrasound/POCUS",
+      "x": 680,
+      "y": 586,
+      "w": 177,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Microbiology",
+      "x": 105,
+      "y": 638,
+      "w": 135,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Skin/wound",
+      "x": 248,
+      "y": 638,
+      "w": 127,
+      "h": 44
+     },
+     {
+      "role": "button:submit",
+      "name": "+ Other",
+      "x": 384,
+      "y": 638,
+      "w": 83,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Skin/wound",
+      "x": 122,
+      "y": 753,
+      "w": 115,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "ECG",
+      "x": 245,
+      "y": 753,
+      "w": 63,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "X-ray",
+      "x": 316,
+      "y": 753,
+      "w": 75,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Ultrasound/POCUS",
+      "x": 399,
+      "y": 753,
+      "w": 164,
+      "h": 44
+     },
+     {
+      "role": "button:button",
+      "name": "Document (PDF or text)",
+      "x": 571,
+      "y": 753,
+      "w": 193,
+      "h": 44
+     },
+     {
+      "role": "input:text",
+      "name": "Investigation name",
+      "x": 105,
+      "y": 854,
+      "w": 766,
+      "h": 46
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "",
+      "x": 105,
+      "y": 938,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "textarea:textarea",
+      "name": "Kept separate from the official report",
+      "x": 105,
+      "y": 1078,
+      "w": 766,
+      "h": 96
+     },
+     {
+      "role": "button:submit",
+      "name": "Create review card",
+      "x": 105,
+      "y": 1192,
+      "w": 161,
+      "h": 44
+     }
+    ],
+    "overflow_px": 0,
+    "minimum_actions_to_review_card": 4,
+    "prepare_calls": 1,
+    "explicit_kind_sent": "skin_wound",
+    "review_card": true,
+    "card_text": "Skin/wound · S1-14.png Pending Privacy: REVIEW_REQUIRED Route: skin-wound-image Original not retained Effective category: Skin/wound — chosen by you. OFFICIAL / EXTRACTED REPORT AI INTERPRETATION Provenance: skin-wound-image · routed_external File metadata/identifiers reviewed. Visible/burned-in identifiers reviewed. Interpret with AI module Accept Edit Reject",
+    "latency_ms": 251
+   },
+   "A_vs_prod": {
+    "same_control_names_and_order": true,
+    "max_relative_box_delta_px": 0,
+    "absolute_card_shift_px": 0,
+    "same_card_text": true,
+    "same_actions": true,
+    "overflow_px": [
+     0,
+     0
+    ],
+    "latency_delta_ms": 81
+   }
+  }
+ ]
+}
