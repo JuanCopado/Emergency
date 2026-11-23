@@ -14,6 +14,7 @@ data can enter. Synthetic images only. It measures a user-interface behaviour, n
 performance, sets no acceptance margin (a medical decision) and does not mean that the study has run.
 """
 import argparse
+import hashlib
 import json
 import math
 import random
@@ -392,17 +393,117 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
     }
 
 
+TOOL_VERSION = "hf-tools-0.3"
+SCENARIO_FIELDS = {"scenario_id", "intended_modality", "synthetic", "case_code", "platforms"}
+MANIFEST_FIELDS = {"manifest_version", "scenarios"}
+
+
+def canonical(value):
+    return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+
+
+def digest(value):
+    return hashlib.sha256(canonical(value).encode("utf-8")).hexdigest()
+
+
+def validate_manifest(manifest):
+    """Versioned list of SYNTHETIC scenarios: closed fields, opaque case codes, no free text and no image content."""
+    if not isinstance(manifest, dict) or set(manifest) != MANIFEST_FIELDS:
+        raise ValueError(f"manifest fields must be exactly {sorted(MANIFEST_FIELDS)}")
+    if not isinstance(manifest["manifest_version"], str) or not CODE.match(manifest["manifest_version"]):
+        raise ValueError("manifest_version must be a version code (letters, digits, - and _ only)")
+    scenarios = manifest["scenarios"]
+    if not isinstance(scenarios, list) or not scenarios:
+        raise ValueError("scenarios must be a non-empty list")
+    seen = set()
+    for scenario in scenarios:
+        if not isinstance(scenario, dict) or set(scenario) != SCENARIO_FIELDS:
+            raise ValueError(f"scenario fields must be exactly {sorted(SCENARIO_FIELDS)}")
+        for field in ("scenario_id", "case_code"):
+            if not isinstance(scenario[field], str) or not CODE.match(scenario[field]):
+                raise ValueError(f"{field} must be an opaque code (letters, digits, - and _ only)")
+        if scenario["intended_modality"] not in MODALITIES:
+            raise ValueError("unknown intended modality")
+        if scenario["synthetic"] is not True:
+            raise ValueError("every scenario must be synthetic (no patient data)")
+        platforms = scenario["platforms"]
+        if not isinstance(platforms, list) or not platforms or len(set(platforms)) != len(platforms) or any(x not in PLATFORMS for x in platforms):
+            raise ValueError("platforms must be a non-empty list of distinct web/mobile values")
+        if scenario["scenario_id"] in seen:
+            raise ValueError(f"scenario {scenario['scenario_id']} is listed twice")
+        seen.add(scenario["scenario_id"])
+    return {"valid": True, "manifest_version": manifest["manifest_version"], "scenarios": len(scenarios), "sha256": digest(manifest)}
+
+
+def assign_sequences(participants, seed="r15"):
+    """Balanced AB/BA allocation of pseudonymous participant codes (a deterministic seeded shuffle, then alternation)."""
+    if not isinstance(participants, list) or not participants:
+        raise ValueError("participants must be a non-empty list of pseudonymous codes")
+    if len(set(participants)) != len(participants):
+        raise ValueError("participant codes must be unique")
+    for code in participants:
+        if not isinstance(code, str) or not CODE.match(code):
+            raise ValueError("participant must be a pseudonymous code (letters, digits, - and _ only)")
+    order = sorted(participants)
+    random.Random(f"{seed}:assign:{len(order)}").shuffle(order)
+    allocation = {}
+    for index, code in enumerate(order):
+        sequence = "AB" if index % 2 == 0 else "BA"
+        first, second = ("baseline", "prototype") if sequence == "AB" else ("prototype", "baseline")
+        allocation[code] = {"sequence": sequence, "period1": first, "period2": second}
+    counts = Counter(v["sequence"] for v in allocation.values())
+    return {"allocation": {k: allocation[k] for k in sorted(allocation)}, "counts": dict(counts), "seed": str(seed),
+            "note": "Allocation only; no participant has been recruited and no study has been run."}
+
+
+def check_records_against_manifest(records, manifest):
+    validate_manifest(manifest)
+    known = {s["scenario_id"]: s for s in manifest["scenarios"]}
+    for record in records:
+        scenario = known.get(record["scenario_id"])
+        if scenario is None:
+            raise ValueError(f"scenario {record['scenario_id']} is not in the manifest")
+        if record["intended_modality"] != scenario["intended_modality"]:
+            raise ValueError(f"scenario {record['scenario_id']} has another intended modality in the manifest")
+        if record["platform"] not in scenario["platforms"]:
+            raise ValueError(f"scenario {record['scenario_id']} is not defined for platform {record['platform']}")
+
+
+def export_package(payload, resamples=DEFAULT_RESAMPLES, seed="r15"):
+    """Reproducible export: summary + hashes of the records and of the versioned scenario manifest."""
+    if not isinstance(payload, dict) or set(payload) != {"manifest", "records"}:
+        raise ValueError("export input must contain exactly manifest and records")
+    validate_records(payload["records"])
+    check_records_against_manifest(payload["records"], payload["manifest"])
+    summary = summarize(payload["records"], resamples, seed)
+    return {"tool_version": TOOL_VERSION, "manifest_version": payload["manifest"]["manifest_version"],
+            "manifest_sha256": digest(payload["manifest"]), "records_sha256": digest(payload["records"]),
+            "summary_sha256": digest(summary), "resamples": resamples, "seed": str(seed), "summary": summary,
+            "study_status": "NOT_EXECUTED_TOOLING_ONLY"}
+
+
+COMMANDS = ("validate", "summarize", "manifest", "assign", "export")
+
+
 def run(argv, raw):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("command", choices=("validate", "summarize"), help="stdin: JSON list of trial records")
+    parser.add_argument("command", choices=COMMANDS,
+                        help="stdin: records (validate, summarize), manifest, {participants} (assign) or {manifest, records} (export)")
     parser.add_argument("--resamples", type=int, default=DEFAULT_RESAMPLES)
     parser.add_argument("--seed", default="r15")
     args = parser.parse_args(argv)
-    records = json.loads(raw.decode("utf-8"))
+    payload = json.loads(raw.decode("utf-8"))
+    if args.command == "manifest":
+        return validate_manifest(payload)
+    if args.command == "assign":
+        if not isinstance(payload, dict) or "participants" not in payload:
+            raise ValueError("assign input must be an object with participants")
+        return assign_sequences(payload["participants"], args.seed)
+    if args.command == "export":
+        return export_package(payload, args.resamples, args.seed)
     if args.command == "validate":
-        validate_records(records)
-        return {"valid": True, "records": len(records)}
-    return summarize(records, args.resamples, args.seed)
+        return {"valid": True, "records": validate_records(payload)}
+    return summarize(payload, args.resamples, args.seed)
 
 
 def main(argv=None):

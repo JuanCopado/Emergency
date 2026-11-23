@@ -54,6 +54,16 @@ Un registro por participante, escenario y condición: código **seudónimo** de 
 - **Pocos participantes:** los intervalos percentiles pueden infracubrir; se leen junto al número de participantes. **No se fija tamaño muestral ni umbral clínico** (`sample_size = NOT_SET_STUDY_DESIGN_DECISION`, `acceptance_margin = NOT_SET_MEDICAL_DECISION`).
 - El estudio sigue `NOT_EXECUTED`; la capa 7 sigue `PROPOSED_INACTIVE` y desconectada del producto.
 
+## Etapa 1 (formativa) · infraestructura técnica preparada (`DEC-CLIN-R19-01`, [registro](R20_DECISION_MEDICA_R19_01_20261123.md))
+
+Programa en **dos etapas** (formativa → confirmatoria); **no** es un pretest de carryover con cambio condicional a un análisis del primer periodo: el diseño AB/BA y sus modelos se preespecifican sin esa selección.
+- **Escenarios:** manifiesto versionado (`manifest_version`, hash SHA-256) de escenarios **sintéticos** con códigos opacos, sin texto libre ni contenido de imagen en la herramienta; cada registro debe corresponder a un escenario, modalidad prevista y plataforma del manifiesto.
+- **Asignación AB/BA** equilibrada y determinista (semilla) sobre códigos seudónimos; la herramienta nunca recibe identidades.
+- **Registros** cerrados y seudónimos; separación ensayo/participante; análisis agrupado (remuestreo por participante, estratificado por secuencia); cero eventos sin «riesgo cero».
+- **Exportación reproducible** (`export`): resumen + huellas del manifiesto, de los registros y del resumen, con versión de la herramienta.
+- **Etapa 1 mide** (propuesto): errores de selección, bypass, confirmaciones erróneas, falsas cancelaciones en ECG/Rx/POCUS, experiencia y legibilidad móvil, tiempo, tasa basal y correlación intraparticipante; FDA/IEC 62366-1 solo como referencia formativa.
+- **No preparado todavía:** interfaz de captura propia del estudio (el prototipo R5-1 inactivo ya funciona en móvil y escritorio, pero la captura de los campos del registro no está implementada), imágenes sintéticas y sus etiquetas (las prepara una persona distinta de quien implementa), reclutamiento, aprobación institucional y el protocolo científico definitivo. **Etapa 2: sin `N`, márgenes ni umbrales**; requiere nueva decisión médica explícita. El estudio sigue `NOT_EXECUTED`.
+
 ## Pendiente
 
 - Margen de aceptación, número de participantes y de escenarios; participantes, responsable independiente del material y aprobación institucional.

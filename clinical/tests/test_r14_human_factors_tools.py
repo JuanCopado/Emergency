@@ -352,6 +352,86 @@ class PeriodLearningPlatformAndLimits(unittest.TestCase):
         self.assertEqual(out["study_status"], "NOT_EXECUTED_TOOLING_ONLY")
 
 
+def manifest(**changes):
+    base = {"manifest_version": "v1", "scenarios": [
+        {"scenario_id": "S1", "intended_modality": "ecg", "synthetic": True, "case_code": "CASE001", "platforms": ["web", "mobile"]},
+        {"scenario_id": "S2", "intended_modality": "skin_wound", "synthetic": True, "case_code": "CASE002", "platforms": ["web"]}]}
+    base.update(changes)
+    return base
+
+
+def manifest_for(rows):
+    names = sorted({r["scenario_id"] for r in rows})
+    return manifest(scenarios=[{"scenario_id": n, "intended_modality": "ecg", "synthetic": True, "case_code": f"C{n}", "platforms": ["web"]} for n in names])
+
+
+class Stage1Infrastructure(unittest.TestCase):
+    def test_the_manifest_is_versioned_synthetic_closed_and_hashed(self):
+        out = hf.validate_manifest(manifest())
+        self.assertEqual((out["manifest_version"], out["scenarios"]), ("v1", 2))
+        self.assertEqual(len(out["sha256"]), 64)
+        self.assertEqual(out["sha256"], hf.validate_manifest(manifest())["sha256"])                  # reproducible
+        self.assertNotEqual(out["sha256"], hf.validate_manifest(manifest(manifest_version="v2"))["sha256"])  # versioned
+        good = manifest()["scenarios"][0]
+        for bad in (dict(good, synthetic=False), dict(good, synthetic="yes"), dict(good, comment="texto libre"),
+                    dict(good, case_code="Paciente Ana Pérez"), dict(good, scenario_id="S 1"), dict(good, intended_modality="ct"),
+                    dict(good, platforms=[]), dict(good, platforms=["web", "web"]), dict(good, platforms=["desktop"]),
+                    {k: v for k, v in good.items() if k != "case_code"}):
+            with self.assertRaises(ValueError, msg=str(bad)):
+                hf.validate_manifest(manifest(scenarios=[bad]))
+        for bad in (manifest(scenarios=[]), manifest(scenarios=[good, dict(good)]), {"scenarios": []},
+                    dict(manifest(), extra=1), manifest(manifest_version="v 1"), "text"):
+            with self.assertRaises(ValueError):
+                hf.validate_manifest(bad)
+
+    def test_the_ab_ba_allocation_is_balanced_deterministic_and_pseudonymous(self):
+        codes = [f"P{i:02d}" for i in range(7)]
+        out = hf.assign_sequences(codes, "s")
+        self.assertEqual(out["counts"], {"AB": 4, "BA": 3})
+        self.assertEqual(out, hf.assign_sequences(list(reversed(codes)), "s"))               # independent of input order
+        self.assertNotEqual(out["allocation"], hf.assign_sequences(codes, "other")["allocation"])
+        for code, slot in out["allocation"].items():
+            self.assertEqual({slot["period1"], slot["period2"]}, {"baseline", "prototype"})
+            self.assertEqual(slot["period1"], "baseline" if slot["sequence"] == "AB" else "prototype")
+        self.assertIn("no study has been run", out["note"])
+        for bad in ([], ["P1", "P1"], ["Ana Pérez"], [1], "P1"):
+            with self.assertRaises(ValueError):
+                hf.assign_sequences(bad)
+
+    def test_records_must_match_the_versioned_manifest(self):
+        rows = [trial("P1", "S1", "baseline", platform="mobile"), trial("P1", "S2", "prototype", intended="skin_wound", initial="skin_wound", chosen="skin_wound", period=2)]
+        hf.check_records_against_manifest(rows, manifest())
+        for bad in (trial("P1", "S9"), trial("P1", "S1", intended="xray", initial="xray", chosen="xray"), trial("P1", "S2", intended="skin_wound", initial="skin_wound", chosen="skin_wound", platform="mobile")):
+            with self.assertRaises(ValueError):
+                hf.check_records_against_manifest([bad], manifest())
+
+    def test_the_export_is_reproducible_and_carries_the_hashes_without_claiming_a_study(self):
+        rows = crossed_rows(2, 2, trials=2)
+        man = manifest_for(rows)
+        first = hf.export_package({"manifest": man, "records": rows}, resamples=40, seed="x")
+        second = hf.export_package({"manifest": man, "records": rows}, resamples=40, seed="x")
+        self.assertEqual(first, second)
+        self.assertEqual(first["summary_sha256"], hf.digest(first["summary"]))
+        self.assertEqual(first["records_sha256"], hf.digest(rows))
+        self.assertEqual(first["manifest_sha256"], hf.digest(man))
+        self.assertEqual(first["study_status"], "NOT_EXECUTED_TOOLING_ONLY")
+        self.assertNotEqual(first["summary_sha256"], hf.export_package({"manifest": man, "records": rows}, resamples=40, seed="y")["summary_sha256"])
+        for bad in ({"records": rows}, {"manifest": man}, {"manifest": man, "records": rows, "extra": 1}, "text"):
+            with self.assertRaises(ValueError):
+                hf.export_package(bad, resamples=10)
+
+    def test_the_cli_runs_the_stage_1_commands_over_standard_input_only(self):
+        participants = json.dumps({"participants": ["P1", "P2"]}).encode("utf-8")
+        self.assertEqual(hf.run(["assign", "--seed", "z"], participants)["counts"], {"AB": 1, "BA": 1})
+        self.assertEqual(hf.run(["manifest"], json.dumps(manifest()).encode("utf-8"))["scenarios"], 2)
+        with self.assertRaises(ValueError):
+            hf.run(["assign"], b"[]")
+        rows = crossed_rows(1, 1, trials=1)
+        man = manifest_for(rows)
+        out = hf.run(["export", "--resamples", "20"], json.dumps({"manifest": man, "records": rows}).encode("utf-8"))
+        self.assertEqual(out["tool_version"], hf.TOOL_VERSION)
+
+
 class CommandLine(unittest.TestCase):
     def test_cli_runs_over_standard_input_only(self):
         raw = json.dumps([trial(), trial(condition="prototype", period=2)]).encode("utf-8")
