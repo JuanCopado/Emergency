@@ -40,7 +40,15 @@ _P = {
  15: (None, "skin_wound", "trigger_expected", ("Corrupción técnica (T7-03): JPEG truncado/cabecera rota (o 0 bytes / exceso PR66 > 512 segmentos) en ruta fotográfica.", "jpeg_corrupt", None), ("Incompatibilidad (T7-04): PDF textual sintético enviado a ruta exclusivamente fotográfica (modality_container_incompatible; el subcaso global_unsupported_format queda para el QA técnico).", "pdf", None)),
 }
 EXPECTED = {(14, 1): T01, (14, 2): T01, (15, 1): T03, (15, 2): T04}
-GENERATED_FILES = {"S1-13": "S1-13.pdf", "S1-14": "S1-14.png", "S2-14": "S2-14.pdf", "S1-15": "S1-15.jpg", "S2-15": "S2-15.pdf"}
+GENERATED_FILES = {"S1-08": "S1-08.jpg", "S2-08": "S2-08.jpg", "S1-09": "S1-09.webp", "S2-09": "S2-09.jpg", "S1-13": "S1-13.pdf",
+                   "S2-13": "S2-13.jpg", "S1-14": "S1-14.png", "S2-14": "S2-14.pdf", "S1-15": "S1-15.jpg", "S2-15": "S2-15.pdf"}
+PROCEDURAL_SCHEMATIC = {"S1-08", "S2-08", "S1-09", "S2-09", "S2-13"}   # R25: schematic renders, NOT clinical imagery
+IMPEDIMENT = {
+    "skin_wound": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing "
+                  "would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
+    "xray": "Needs an authorized synthetic or open-licence, PHI-free radiograph (and its screen photo); procedural drawing is not adequate.",
+    "pocus": "Needs an authorized phantom or open-licence ultrasound capture; procedural speckle is not adequate for FAST/lung windows.",
+}
 QA_TECH = [  # technical QA cases OUTSIDE the 30 pilot stimuli (they exercise subcases the 30 do not reach)
     {"stimulus_id": "QA-01", "file": "QA-01.wav", "route_modality": "skin_wound", "expected_layer7_trigger": T04, "expected_subreason": "global_unsupported_format",
      "spec_text": "Audio WAV de silencio enviado a la ruta fotográfica: formato global no admitido (Texto 4)."},
@@ -79,6 +87,91 @@ def _procedural_jpeg_truncated():
     return data[: int(len(data) * 0.45)]          # valid SOI + headers, truncated entropy-coded data: decoding fails
 
 
+def _ecg_wave(width, amplitude=1.0, rr=190):
+    """Synthetic sinus rhythm (P, QRS, T; isoelectric ST). Pure arithmetic, deterministic, no clinical data."""
+    import math
+    ys = []
+    for x in range(width):
+        t = (x % rr) / rr
+        v = 0.12 * math.exp(-((t - 0.18) / 0.035) ** 2) - 0.10 * math.exp(-((t - 0.36) / 0.012) ** 2) \
+            + 1.0 * math.exp(-((t - 0.385) / 0.011) ** 2) - 0.22 * math.exp(-((t - 0.41) / 0.014) ** 2) \
+            + 0.30 * math.exp(-((t - 0.66) / 0.06) ** 2)
+        ys.append(v * amplitude)
+    return ys
+
+
+def _ecg_strip(size, paper=(252, 232, 232), grid=(236, 150, 150), trace=(20, 20, 20), leads=1, label="SYNTHETIC ECG - NOT PATIENT DATA"):
+    from PIL import Image, ImageDraw
+    width, height = size
+    img = Image.new("RGB", size, paper)
+    draw = ImageDraw.Draw(img)
+    for x in range(0, width, 8):
+        draw.line([(x, 0), (x, height)], fill=grid, width=2 if x % 40 == 0 else 1)
+    for y in range(0, height, 8):
+        draw.line([(0, y), (width, y)], fill=grid, width=2 if y % 40 == 0 else 1)
+    rows = [(1, 1), (3, 4)][0 if leads == 1 else 1]
+    n_rows, n_cols = rows
+    cell_w, cell_h = width // n_cols, height // n_rows
+    for r in range(n_rows):
+        for c in range(n_cols):
+            wave = _ecg_wave(cell_w, amplitude=0.8 + 0.1 * ((r + c) % 3))
+            base = r * cell_h + cell_h * 0.62
+            pts = [(c * cell_w + x, base - v * cell_h * 0.42) for x, v in enumerate(wave)]
+            draw.line(pts, fill=trace, width=2)
+    draw.text((6, height - 14), label, fill=(70, 70, 70))
+    return img
+
+
+def _encode(img, fmt, **kw):
+    buffer = io.BytesIO()
+    img.save(buffer, format=fmt, **kw)          # no exif/icc/text passed: nothing identifying is written
+    return buffer.getvalue()
+
+
+def _tilted(img, degrees, background=(40, 40, 44)):
+    return img.rotate(degrees, resample=3, expand=True, fillcolor=background)
+
+
+def _ecg_paper_photo(degrees):
+    return _encode(_tilted(_ecg_strip((640, 280)), degrees), "JPEG", quality=88)
+
+
+def _ecg_monitor_webp():
+    from PIL import Image, ImageDraw
+    img = Image.new("RGB", (640, 360), (14, 16, 18))
+    strip = _ecg_strip((600, 150), paper=(8, 14, 10), grid=(22, 54, 30), trace=(90, 255, 120), label="SYNTHETIC MONITOR - NOT PATIENT DATA")
+    img.paste(strip, (20, 100))
+    draw = ImageDraw.Draw(img)
+    draw.rectangle([10, 10, 629, 349], outline=(70, 74, 78), width=4)
+    glare = Image.new("RGB", (640, 360), (255, 255, 255))
+    mask = Image.linear_gradient("L").resize((640, 360)).point(lambda v: 28 if v < 90 else 0)
+    img.paste(glare, (0, 0), mask)               # mild reflection
+    return _encode(img, "WEBP", quality=85, lossless=False)
+
+
+def _ecg_12_lead_jpeg():
+    from PIL import Image, ImageDraw
+    img = Image.new("RGB", (720, 460), (24, 26, 30))
+    sheet = _ecg_strip((680, 380), paper=(246, 246, 240), grid=(214, 218, 210), trace=(30, 30, 30), leads=12,
+                       label="SYNTHETIC 12-LEAD LAYOUT - NOT PATIENT DATA")
+    img.paste(sheet, (20, 40))
+    ImageDraw.Draw(img).text((20, 14), "SIMULATED CLINICAL SCREEN", fill=(160, 170, 180))
+    return _encode(img, "JPEG", quality=88)
+
+
+def _printed_sheet_photo():
+    from PIL import Image, ImageDraw
+    sheet = Image.new("RGB", (480, 640), (248, 247, 242))
+    draw = ImageDraw.Draw(sheet)
+    lines = ["INFORME SINTETICO DE ANALITICA - NO CLINICO", "", "Parametro        Resultado    Referencia",
+             "Parametro A      0,0          0,0 - 0,0", "Parametro B      0,0          0,0 - 0,0", "Parametro C      0,0          0,0 - 0,0", "",
+             "ES: Documento ficticio. Ningun dato real.", "PT: Documento ficticio. Nenhum dado real.", "EN: Fictitious document. No real data."]
+    for i, text in enumerate(lines):
+        draw.text((30, 40 + i * 24), text, fill=(30, 30, 30))
+    draw.line([(0, 330), (480, 342)], fill=(215, 213, 205), width=3)     # mild fold
+    return _encode(_tilted(sheet, -7, background=(176, 140, 98)), "JPEG", quality=88)   # light desk, opposite tilt
+
+
 def _pdf(pages):
     from reportlab.pdfgen import canvas
     buffer = io.BytesIO()
@@ -87,6 +180,7 @@ def _pdf(pages):
     pdf.setAuthor("")
     pdf.setSubject("")
     pdf.setCreator("")
+    pdf._doc.info.producer = ""            # drop the toolchain string; nothing identifying in the container
     for lines in pages:
         y = 780
         for line in lines:
@@ -113,7 +207,9 @@ def generate_bytes():
              "PT: Sem febre. Nao se observa derrame. Sem dor referida.", "EN: No fever. No effusion seen. No pain reported."],
             ["INFORME SINTETICO DE PRUEBA - NO CLINICO (pagina 2/2)", "ES: Documento ficticio; ningun dato real; no usar clinicamente.",
              "PT: Documento ficticio; nenhum dado real; nao usar clinicamente.", "EN: Fictitious document; no real data; not for clinical use."]]
-    return {"S1-13.pdf": _pdf(doc2), "S1-14.png": _procedural_png(),
+    return {"S1-08.jpg": _ecg_paper_photo(4), "S2-08.jpg": _ecg_paper_photo(-5), "S1-09.webp": _ecg_monitor_webp(),
+            "S2-09.jpg": _ecg_12_lead_jpeg(), "S2-13.jpg": _printed_sheet_photo(),
+            "S1-13.pdf": _pdf(doc2), "S1-14.png": _procedural_png(),
             "S2-14.pdf": _pdf([["DOCUMENTO SINTETICO DE PRUEBA - NO CLINICO", "Envio valido sin seleccion de modalidad (escenario E1)."]]),
             "S1-15.jpg": _procedural_jpeg_truncated(),
             "S2-15.pdf": _pdf([["PDF TEXTUAL SINTETICO - NO CLINICO", "Enviado a una ruta exclusivamente fotografica (escenario E2)."]]),
@@ -170,6 +266,54 @@ def interset_check(manifest):
     return {"perceptually_too_close": close, "duplicate_sha256": len(shas) != len(set(shas)), "image_hashes_compared": f"{len(s1)} x {len(s2)}"}
 
 
+def audit_metadata(data):
+    """Automated scan only (NOT a PHI review): reports identifying container metadata found in the bytes."""
+    findings = []
+    if data[:2] == b"\xff\xd8":
+        i = 2
+        while i + 4 <= len(data) and data[i] == 0xFF:
+            marker = data[i + 1]
+            if marker in (0xDA, 0xD9):
+                break
+            length = int.from_bytes(data[i + 2:i + 4], "big")
+            if marker == 0xE1:
+                findings.append("exif_or_xmp_app1")
+            elif marker == 0xE2:
+                findings.append("icc_profile_app2")
+            elif marker == 0xFE:
+                findings.append("jpeg_comment")
+            i += 2 + length
+    elif data[:8] == b"\x89PNG\r\n\x1a\n":
+        for chunk in (b"tEXt", b"iTXt", b"zTXt", b"eXIf", b"iCCP", b"tIME"):
+            if chunk in data:
+                findings.append("png_" + chunk.decode())
+    elif data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        for chunk in (b"EXIF", b"XMP ", b"ICCP"):
+            if chunk in data:
+                findings.append("webp_" + chunk.decode().strip())
+    elif data[:5] == b"%PDF-":
+        for key in (b"/Author", b"/Producer", b"/Creator", b"/Title"):
+            index = data.find(key)
+            if index != -1 and not data[index + len(key):index + len(key) + 3].strip().startswith((b"()", b"( )")):
+                findings.append("pdf_" + key.decode().lstrip("/").lower())
+    return findings
+
+
+def _file_facts(data):
+    """Format and dimensions (images) + automated metadata findings; all None for a stimulus without file."""
+    empty = {"image_format": None, "width": None, "height": None, "metadata_findings": None}
+    if data is None:
+        return empty
+    if data[:5] == b"%PDF-":
+        return {**empty, "image_format": "PDF", "metadata_findings": audit_metadata(data)}
+    try:
+        from PIL import Image
+        img = Image.open(io.BytesIO(data))
+        return {"image_format": img.format, "width": img.width, "height": img.height, "metadata_findings": audit_metadata(data)}
+    except Exception:
+        return {**empty, "image_format": "UNPARSEABLE_ON_PURPOSE", "metadata_findings": audit_metadata(data)}
+
+
 def build_manifest(directory=STIMULI_DIR):
     directory = Path(directory)
     stimuli = []
@@ -188,7 +332,11 @@ def build_manifest(directory=STIMULI_DIR):
                 "difficulty_level": difficulty, "container_spec": container, "spec_text": spec,
                 "file": f"stimuli/{file_name}" if generated else None, "bytes": len(data) if generated else None,
                 "sha256": sha256_bytes(data) if generated else None, "phash_64": dhash64(data) if generated else None,
-                "origin_type": "synthetic_procedural" if generated else None,
+                "origin_type": ("synthetic_procedural_schematic" if sid in PROCEDURAL_SCHEMATIC else "synthetic_procedural") if generated else None,
+                **_file_facts(data),
+                "visual_review_status": "PENDING_VISUAL_REVIEW" if generated else "NOT_APPLICABLE_NOT_GENERATED",
+                "clinical_adjudication_status": "PENDING_CLINICAL_ADJUDICATION",
+                "generation_impediment": None if generated else IMPEDIMENT.get(true_modality if sid != "S2-13" else "document"),
                 "license_ref": "CC0-1.0 (content generated by project code; no third-party material)" if generated else None,
                 "phi_audit_passed": None, "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING" if generated else "NOT_APPLICABLE_NOT_GENERATED",
                 "clinical_adjudicator_signoff": "PENDING", "generation_status": GENERATED if generated else PENDING})
@@ -228,6 +376,9 @@ def verify_bank(manifest, directory=STIMULI_DIR):
         problems.append(f"set1 x set2 perceptually too close: {summary['perceptually_too_close']}")
     if summary["duplicate_sha256"]:
         problems.append("duplicate SHA-256 among generated stimuli")
+    for s in manifest["stimuli"]:
+        if s.get("metadata_findings"):
+            problems.append(f"{s['stimulus_id']}: identifying metadata found {s['metadata_findings']}")
     return problems
 
 

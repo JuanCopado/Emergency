@@ -842,3 +842,5 @@ The v1.31 draft reconciles antithrombotic holding, selective reversal and restar
 
 
 The v1.32 draft adds a small-bowel bleeding diagnostic extension to the existing `lower-gi-bleeding` module after nondiagnostic upper/lower endoscopy. It distinguishes unstable active bleeding from stable early capsule evaluation, accounts for capsule-retention risk, and routes positive studies to device-assisted enteroscopy. No module IDs were added. See `updates/small-bowel-bleeding-review-2026-09-28.md`.
+
+R25 · 23/11/2026 · Banco de laboratorio: 10 de 30 estímulos físicos (5 esquemáticos procedurales nuevos: ECG y hoja impresa), 20 pendientes con impedimento documentado, auditoría de metadatos y campos de formato/dimensiones; sin adjudicación, sin congelar.
