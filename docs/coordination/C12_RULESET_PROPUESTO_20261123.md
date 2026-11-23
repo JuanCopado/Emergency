@@ -15,6 +15,21 @@ gh api -X POST repos/JuanCopado/Emergency/rulesets --input docs/coordination/C12
 - Impide eliminación y force-push; exige PR, resolución de conversaciones y las 6 comprobaciones (semgrep, trivy, real-test-coverage, T05 Windows, T06 Ubuntu, sonarqube) con la rama al día.
 - `Clinical QA` y `App UI QA` no se exigen como obligatorias porque tienen filtros de ruta: un workflow omitido por rutas quedaría pendiente y bloquearía entregas documentales (criterio de la auditoría R25).
 
+## Nombres de los seis checks: verificados (23/11/2026)
+Coinciden carácter a carácter con los `check_runs` reales de las PR #87–#92: `semgrep`, `trivy`, `real-test-coverage`, `Native local review with measured Python coverage / t05 native (windows-latest)`, `Native local review with measured Python coverage / t06 native (ubuntu-24.04)` y `sonarqube`. Cada PR ejecuta dos veces el workflow (eventos `push` y `pull_request`), así que cada nombre aparece dos veces; un contexto obligatorio se satisface con el check del commit evaluado.
+
+## Riesgo observado que condiciona la configuración
+El 23/11 entre ~12:07 y ~14:23 UTC, `sonarqube` falló en las ejecuciones de evento `pull_request` de #87, #89, #91 y #92 (error del escáner `Illegal base64 character 2d` al autoconfigurar la PR) mientras pasaba en las de evento `push`; los reintentos de las 14:24 pasaron. Con `sonarqube` obligatorio y **sin bypass**, una caída así bloquea toda fusión hasta que se recupere. Es el comportamiento buscado (no se aprueba sin análisis), pero el administrador debe saberlo y decidir el procedimiento (esperar, reintentar el job una vez, o aceptar el análisis de evento `push` del mismo SHA si la política lo permite; esta propuesta no lo asume).
+
+## Alternativas para el requisito de revisión (decisión mínima del propietario)
+| | A. `required_approving_review_count: 1` | B. `required_approving_review_count: 0` |
+|---|---|---|
+| PR obligatoria, 6 checks, sin force-push ni borrado, sin bypass | sí | sí |
+| Revisión humana previa a fusionar | sí, de otro usuario con escritura | no (la auditoría independiente sigue siendo un proceso externo) |
+| Consecuencia con un único colaborador | el propietario no puede fusionar sus propias PR (GitHub no permite autoaprobar): exige un segundo revisor con permiso de escritura | el propietario fusiona tras los checks |
+| Riesgo | bloqueo operativo si no hay segundo revisor | una fusión sin revisión humana si falla el proceso externo |
+Esta sesión no elige: es una decisión de gobernanza. Sin decisión, ninguna se aplica.
+
 ## Decisión del propietario antes de aplicar
 `required_approving_review_count: 1` impide al propietario fusionar sus propias PR (GitHub no permite autoaprobación) si es el único colaborador con escritura. Opciones sin crear bypass permanente: (a) un segundo revisor con permiso de escritura; (b) `0` aprobaciones manteniendo PR + comprobaciones + sin force-push. Es una decisión de gobernanza, no técnica; no se ha asumido.
 
