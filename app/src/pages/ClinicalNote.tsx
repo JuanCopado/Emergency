@@ -6,7 +6,7 @@ import { hasLocalIdentifierLabel } from '../clinical-note/privacy';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
 import { useEffect, useRef, useState } from 'react';
-import { connectionErrorMessage, excludedContainer, kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
+import { connectionErrorMessage, effectiveCategoryLabel, excludedContainer, kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 import { Link } from 'react-router-dom';
 import { ClinicalNoteDraftScope, useClinicalNoteDraft, useNoteDraftField, type NoteTab, type McdtCard } from '../clinical-note/draft';
 import { useTranslation } from 'react-i18next';
@@ -394,7 +394,7 @@ function ClinicalNoteEditor(){
       if(element) reviewElements.current.set(x.id,element); else reviewElements.current.delete(x.id);
     }} className={card} data-testid="mcdt-review-card"><div className="flex flex-wrap items-center gap-2"><strong>{ui(x.kind)} · {x.name}</strong><span className="chip ml-auto">{x.state==='pending'?ui("Pendente"):x.state==='accepted'?ui("Aceite"):ui("Rejeitado")}</span></div>
       {x.prepared&&<div className="mt-2 flex flex-wrap gap-2 text-xs"><span className="chip">{ui("Privacidade:")} {x.prepared.privacy.status}</span><span className="chip">{ui("Rota:")} {x.prepared.processing.modules.join(' · ')}</span><span className="chip">{ui("Original não retido")}</span></div>}
-      {x.prepared&&kindSourceMessage(x.prepared.kind_source,ui)&&<p className="mt-1 text-xs text-muted">{ui("Categoria efetiva:")} {ui(x.kind)} — {kindSourceMessage(x.prepared.kind_source,ui)}</p>}
+      {x.prepared&&kindSourceMessage(x.prepared.kind_source,ui)&&<p className="mt-1 text-xs text-muted">{ui("Categoria efetiva:")} {ui(effectiveCategoryLabel(x.prepared.kind,x.kind))} — {kindSourceMessage(x.prepared.kind_source,ui)}</p>}
       {qualityMessages.length > 0 && <p role="status" className="mt-2 rounded-xl border border-warn p-3 text-sm">{qualityMessages.join(' · ')}</p>}
       <p className="mt-3 text-xs font-semibold uppercase text-muted">{ui("Informe oficial / extraído")}</p><textarea aria-label={`${ui("Informe oficial / extraído")} ${x.name}`} className="input mt-1 min-h-20" value={x.official} onChange={e=>editCard(x.id,{official:e.target.value})}/>
       <p className="mt-3 text-xs font-semibold uppercase text-primary">{ui("Interpretação IA")}</p><textarea aria-label={`${ui("Interpretação IA")} ${x.name}`} className="input mt-1 min-h-20" value={x.ai} onChange={e=>editCard(x.id,{ai:e.target.value})}/><p className="mt-2 text-xs text-muted">{ui("Proveniência:")} {x.provenance}</p>

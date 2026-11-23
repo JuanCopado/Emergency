@@ -241,6 +241,7 @@
   "O ficheiro original contém dados adicionais após a imagem. Não são enviados ao serviço.": "原始文件在图像之后包含额外数据，不会发送给服务。",
   "O ficheiro original contém metadados. São removidos antes do envio ao serviço.": "原始文件包含元数据，发送给服务前会被移除。",
   "Categoria efetiva:": "有效类别：",
+  "PDF/Documento": "PDF/文档",
   "escolhida por si.": "由您选择。",
   "inferida do nome do ficheiro; não verifica a modalidade real da imagem.": "根据文件名推断；并不核实图像的真实类型。",
   "inferida do tipo de contentor; não verifica a modalidade real do conteúdo.": "根据容器类型推断；并不核实内容的真实类型。",
