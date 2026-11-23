@@ -6,6 +6,7 @@ Registro de una decisión del médico propietario, Dr. Juan Copado Ceballos. No 
 
 ## Procedencia
 
+- **Textos literales (R20):** el propietario comunicó en la instrucción R20 (23/11/2026) los cuatro mensajes exactos del expediente R18 y su correspondencia con los disparadores; se incorporan sin reescritura.
 - Registro de la decisión: [comentario de PR #83](https://github.com/JuanCopado/Emergency/pull/83#issuecomment-7088406106) («DEC-CLIN-R15-01: SÍ. Apruebo exclusivamente la especificación inactiva descrita en el expediente R18, sin activación clínica ni GO_RELEASE»), y la instrucción R19 del propietario que la confirma en la conversación de trabajo.
 - Es un **registro de instrucción: no es firma física ni revisión independiente del código**. El expediente `R18_GEMINI_DECISION_CLINICA_FINAL` (v1.0, apartado 1) **no está en el repositorio**: sus textos literales **no se han recibido**.
 
@@ -21,7 +22,16 @@ Registro de una decisión del médico propietario, Dr. Juan Copado Ceballos. No 
 
 [`modality-abstention-layer7.contract.proposed.json`](../references/modality-abstention-layer7.contract.proposed.json): disparadores cerrados con su evidencia exigida (T7-01 sin modalidad declarada; T7-02 tipo declarado fuera del registro de contratos; T7-03 error de análisis del contenedor; T7-04 firma del contenedor emparejada con formato declarado, nunca extensión sola), flujos protegidos, `send_allowed=false` en toda abstención, evidencia prohibida cerrada y bandera `VITE_R51_LAYER7` apagada (ignorada en producción). 14 pruebas (negativas por disparador y flujo; mutación verificada).
 
-**Pendiente: los cuatro textos literales** (`MSG_T7_01`–`MSG_T7_04`, es/pt/en). El contrato los lleva sin texto (`PENDING_APPROVED_LITERAL_TEXTS`) y una prueba falla si se rellenan con algo no aportado por el propietario. Se incorporan, sin cambiar su redacción, cuando se reciban.
+**Textos incorporados (R20), literales, es/pt AO90/en** (`x-message-texts`, prueba de igualdad con copia independiente):
+
+| Mensaje | Disparador(es) | Contenido |
+|---|---|---|
+| `MSG_T7_A` | T7-01 y T7-02 (comparten texto) | no se ha seleccionado una modalidad admitida; el sistema no identifica el tipo automáticamente |
+| `MSG_T7_B` | T7-04, variante incompatibilidad de modalidad (firma del contenedor frente al formato declarado) | archivo no compatible con la modalidad; contenido no evaluado |
+| `MSG_T7_C` | T7-03 (archivo dañado) | archivo dañado o no procesable; sin evaluación clínica |
+| `MSG_T7_D` | T7-04, variante formato global no admitido (`container_format_unsupported`) | formato no admitido por la función; contenido no analizado |
+
+T7-04 tiene dos variantes que fija **la causa técnica objetiva** (evidencia exigida distinta), nunca una inferencia clínica. Provenance de los textos: expediente R18 comunicado por el propietario; el expediente no está en el repositorio.
 
 ## Qué no cambia
 

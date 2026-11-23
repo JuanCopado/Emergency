@@ -3,19 +3,13 @@
  "$id": "emergency:modality-abstention-layer7:proposed-0.2",
  "title": "R5-1 layer 7 · neutral technical abstention, four closed triggers (PROPOSED, INACTIVE)",
  "x-status": "PROPOSED_INACTIVE",
- "x-notice": "Especificación INACTIVA de la capa 7 de la política R5-1. DEC-CLIN-R15-01 (SÍ, 23/11/2026, registro de instrucción sin firma física) aprueba exclusivamente esta especificación: cuatro disparadores cerrados y mensajes neutros fijos. No está conectada al producto, no abstiene ni cambia ningún resultado, queda tras bandera apagada y no autoriza producción, GO_RELEASE, regex ni filtros clínicos nuevos. Los textos literales de los mensajes proceden del expediente R18 (no disponible en el repositorio): hasta recibirlos permanecen sin texto (PENDING_APPROVED_LITERAL_TEXTS). CLINICALLY_PENDING.",
+ "x-notice": "Especificación INACTIVA de la capa 7 de la política R5-1. DEC-CLIN-R15-01 (SÍ, 23/11/2026, registro de instrucción sin firma física) aprueba exclusivamente esta especificación: cuatro disparadores cerrados y cuatro mensajes neutros fijos, cuyos textos literales proceden del expediente R18 según los comunicó el propietario en la instrucción R20 (el expediente no está en el repositorio). No está conectada al producto, no abstiene ni cambia ningún resultado, queda tras bandera apagada y no autoriza producción, GO_RELEASE, regex ni filtros clínicos nuevos. CLINICALLY_PENDING.",
  "x-decision": "DEC-CLIN-R15-01",
  "x-feature-flag": {
   "name": "VITE_R51_LAYER7",
   "default": false,
   "production": "IGNORED",
   "connected_to_product": false
- },
- "x-triggers": {
-  "T7-01_UNDECLARED_MODALITY": "MSG_T7_01",
-  "T7-02_UNKNOWN_CONTRACT": "MSG_T7_02",
-  "T7-03_CORRUPT_UNPROCESSABLE": "MSG_T7_03",
-  "T7-04_FORMAT_CONTAINER_MISMATCH": "MSG_T7_04"
  },
  "x-forbidden-evidence": [
   "rgb",
@@ -27,27 +21,27 @@
   "model_output",
   "unproven_clinical_suspicion"
  ],
- "x-message-texts-status": "PENDING_APPROVED_LITERAL_TEXTS",
+ "x-message-texts-status": "APPROVED_LITERAL_TEXTS_DEC-CLIN-R15-01",
  "x-message-texts": {
-  "MSG_T7_01": {
-   "es": null,
-   "pt": null,
-   "en": null
+  "MSG_T7_A": {
+   "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+   "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar.",
+   "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing."
   },
-  "MSG_T7_02": {
-   "es": null,
-   "pt": null,
-   "en": null
+  "MSG_T7_B": {
+   "es": "El archivo no es técnicamente compatible con la modalidad seleccionada. No se ha evaluado el contenido ni se descarta patología. Suba un archivo compatible o elija la modalidad adecuada.",
+   "pt": "O ficheiro não é tecnicamente compatível com a modalidade selecionada. O conteúdo não foi avaliado nem se exclui patologia. Envie um ficheiro compatível ou escolha a modalidade adequada.",
+   "en": "This file is not technically compatible with the selected modality. The content was not evaluated and no condition is ruled out. Upload a compatible file or choose the matching modality."
   },
-  "MSG_T7_03": {
-   "es": null,
-   "pt": null,
-   "en": null
+  "MSG_T7_C": {
+   "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+   "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra.",
+   "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file."
   },
-  "MSG_T7_04": {
-   "es": null,
-   "pt": null,
-   "en": null
+  "MSG_T7_D": {
+   "es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+   "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível.",
+   "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format."
   }
  },
  "x-protected-flows": {
@@ -101,10 +95,10 @@
   },
   "message_id": {
    "enum": [
-    "MSG_T7_01",
-    "MSG_T7_02",
-    "MSG_T7_03",
-    "MSG_T7_04"
+    "MSG_T7_A",
+    "MSG_T7_B",
+    "MSG_T7_C",
+    "MSG_T7_D"
    ],
    "description": "Identificador de un texto fijo y neutral de la interfaz; el modelo nunca redacta ni elige el mensaje."
   },
@@ -130,7 +124,8 @@
        "container_parse_error",
        "container_signature",
        "declared_mime_type",
-       "declared_extension"
+       "declared_extension",
+       "container_format_unsupported"
       ]
      }
     }
@@ -278,7 +273,7 @@
       "const": null
      },
      "message_id": {
-      "const": "MSG_T7_01"
+      "const": "MSG_T7_A"
      },
      "evidence": {
       "properties": {
@@ -315,7 +310,7 @@
       "type": "string"
      },
      "message_id": {
-      "const": "MSG_T7_02"
+      "const": "MSG_T7_A"
      },
      "evidence": {
       "properties": {
@@ -343,7 +338,7 @@
    "then": {
     "properties": {
      "message_id": {
-      "const": "MSG_T7_03"
+      "const": "MSG_T7_C"
      },
      "evidence": {
       "properties": {
@@ -369,29 +364,75 @@
     ]
    },
    "then": {
-    "properties": {
-     "message_id": {
-      "const": "MSG_T7_04"
-     },
-     "evidence": {
+    "oneOf": [
+     {
       "properties": {
-       "sources": {
-        "contains": {
-         "const": "container_signature"
-        },
-        "items": {
-         "enum": [
-          "container_signature",
-          "declared_mime_type",
-          "declared_extension"
-         ]
-        },
-        "minItems": 2
+       "message_id": {
+        "const": "MSG_T7_B"
+       },
+       "evidence": {
+        "properties": {
+         "sources": {
+          "minItems": 2,
+          "contains": {
+           "const": "container_signature"
+          },
+          "items": {
+           "enum": [
+            "container_signature",
+            "declared_mime_type",
+            "declared_extension"
+           ]
+          }
+         }
+        }
+       }
+      }
+     },
+     {
+      "properties": {
+       "message_id": {
+        "const": "MSG_T7_D"
+       },
+       "evidence": {
+        "properties": {
+         "sources": {
+          "const": [
+           "container_format_unsupported"
+          ]
+         }
+        }
        }
       }
      }
-    }
+    ]
    }
   }
- ]
+ ],
+ "x-message-texts-provenance": "Expediente R18 (R18_GEMINI_DECISION_CLINICA_FINAL), textos comunicados por el propietario en la instrucción R20 del 23/11/2026; sin firma física.",
+ "x-message-map": {
+  "T7-01_UNDECLARED_MODALITY": [
+   "MSG_T7_A"
+  ],
+  "T7-02_UNKNOWN_CONTRACT": [
+   "MSG_T7_A"
+  ],
+  "T7-03_CORRUPT_UNPROCESSABLE": [
+   "MSG_T7_C"
+  ],
+  "T7-04_FORMAT_CONTAINER_MISMATCH": [
+   "MSG_T7_B",
+   "MSG_T7_D"
+  ]
+ },
+ "x-t7-04-variants": {
+  "MSG_T7_B": "Incompatibilidad de modalidad: firma del contenedor frente al formato declarado (evidencia container_signature + declared_mime_type/declared_extension).",
+  "MSG_T7_D": "Formato global no admitido: el formato detectado por la firma no figura entre los formatos admitidos por la función (evidencia container_format_unsupported). La variante la fija la causa técnica objetiva, nunca una inferencia clínica."
+ },
+ "x-triggers": {
+  "T7-01_UNDECLARED_MODALITY": "MSG_T7_A",
+  "T7-02_UNKNOWN_CONTRACT": "MSG_T7_A",
+  "T7-03_CORRUPT_UNPROCESSABLE": "MSG_T7_C",
+  "T7-04_FORMAT_CONTAINER_MISMATCH": "MSG_T7_B | MSG_T7_D"
+ }
 }

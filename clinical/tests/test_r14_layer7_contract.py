@@ -31,10 +31,35 @@ def abstain(trigger, message, sources, **changes):
                evidence={"sources": sources}, **changes)
 
 
-T01 = abstain(T1, "MSG_T7_01", ["declared_modality_absent"], modality_declared=False, declared_kind=None)
-T02 = abstain(T2, "MSG_T7_02", ["declared_kind_not_in_contract_registry"], declared_kind="unknown_kind")
-T03 = abstain(T3, "MSG_T7_03", ["container_parse_error"])
-T04 = abstain(T4, "MSG_T7_04", ["container_signature", "declared_extension"])
+T01 = abstain(T1, "MSG_T7_A", ["declared_modality_absent"], modality_declared=False, declared_kind=None)
+T02 = abstain(T2, "MSG_T7_A", ["declared_kind_not_in_contract_registry"], declared_kind="unknown_kind")
+T03 = abstain(T3, "MSG_T7_C", ["container_parse_error"])
+T04 = abstain(T4, "MSG_T7_B", ["container_signature", "declared_extension"])
+T04D = abstain(T4, "MSG_T7_D", ["container_format_unsupported"])
+
+
+APPROVED_MESSAGES = {
+    "MSG_T7_A": {
+        "es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+        "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar.",
+        "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing.",
+    },
+    "MSG_T7_B": {
+        "es": "El archivo no es técnicamente compatible con la modalidad seleccionada. No se ha evaluado el contenido ni se descarta patología. Suba un archivo compatible o elija la modalidad adecuada.",
+        "pt": "O ficheiro não é tecnicamente compatível com a modalidade selecionada. O conteúdo não foi avaliado nem se exclui patologia. Envie um ficheiro compatível ou escolha a modalidade adequada.",
+        "en": "This file is not technically compatible with the selected modality. The content was not evaluated and no condition is ruled out. Upload a compatible file or choose the matching modality.",
+    },
+    "MSG_T7_C": {
+        "es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+        "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra.",
+        "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file.",
+    },
+    "MSG_T7_D": {
+        "es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+        "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível.",
+        "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format.",
+    },
+}
 
 
 class Layer7Contract(unittest.TestCase):
@@ -64,17 +89,48 @@ class Layer7Contract(unittest.TestCase):
         self.assertIs(flag["connected_to_product"], False)
         self.assertEqual(list(self.schema["x-triggers"]), [T1, T2, T3, T4])
 
-    def test_the_message_texts_are_not_invented_until_the_approved_literals_arrive(self):
-        self.assertEqual(self.schema["x-message-texts-status"], "PENDING_APPROVED_LITERAL_TEXTS")
-        self.assertEqual(sorted(self.schema["x-message-texts"]), ["MSG_T7_01", "MSG_T7_02", "MSG_T7_03", "MSG_T7_04"])
+    def test_the_four_approved_message_texts_are_literal_and_in_three_languages(self):
+        self.assertEqual(self.schema["x-message-texts-status"], "APPROVED_LITERAL_TEXTS_DEC-CLIN-R15-01")
+        self.assertIn("R18", self.schema["x-message-texts-provenance"])
+        self.assertEqual(self.schema["x-message-texts"], APPROVED_MESSAGES)   # independent literal copy of the approved wording
+        self.assertEqual(sorted(self.schema["x-message-texts"]), ["MSG_T7_A", "MSG_T7_B", "MSG_T7_C", "MSG_T7_D"])
         for texts in self.schema["x-message-texts"].values():
-            self.assertEqual(texts, {"es": None, "pt": None, "en": None})
+            self.assertEqual(sorted(texts), ["en", "es", "pt"])
+            for text in texts.values():
+                self.assertTrue(text and text == text.strip())
+
+    def test_the_texts_map_to_the_triggers_without_inventing_any(self):
+        mapping = self.schema["x-message-map"]
+        self.assertEqual(mapping, {T1: ["MSG_T7_A"], T2: ["MSG_T7_A"], T3: ["MSG_T7_C"], T4: ["MSG_T7_B", "MSG_T7_D"]})
+        self.assertEqual(set(self.schema["properties"]["message_id"]["enum"]), {"MSG_T7_A", "MSG_T7_B", "MSG_T7_C", "MSG_T7_D"})
+        used = {m for ids in mapping.values() for m in ids}
+        self.assertEqual(used, set(self.schema["x-message-texts"]))   # every approved text is used, none is extra
+
+    def test_every_text_states_that_no_clinical_evaluation_or_exclusion_was_made(self):
+        for key in ("MSG_T7_B", "MSG_T7_C", "MSG_T7_D"):
+            for lang, text in self.schema["x-message-texts"][key].items():
+                self.assertRegex(text, r"(?i)(no se ha|não foi|não foi realizada|no clinical|content was not|no condition|no se excluye|nem se exclui|se descarta|ruled out|nenhuma|ninguna|qualquer)", (key, lang))
+
+    def test_t7_04_has_two_variants_chosen_by_an_objective_technical_cause(self):
+        self.ok(T04)
+        self.ok(T04D)
+        self.ok(abstain(T4, "MSG_T7_B", ["container_signature", "declared_mime_type"]))
+        for bad in (abstain(T4, "MSG_T7_D", ["container_signature", "declared_extension"]),     # D needs the unsupported-format cause
+                    abstain(T4, "MSG_T7_B", ["container_format_unsupported"]),                  # B needs the signature/declared pair
+                    abstain(T4, "MSG_T7_D", ["container_format_unsupported", "container_signature"]),
+                    abstain(T4, "MSG_T7_A", ["container_signature", "declared_extension"]),
+                    abstain(T4, "MSG_T7_C", ["container_format_unsupported"]),
+                    abstain(T3, "MSG_T7_D", ["container_format_unsupported"]),
+                    abstain(T3, "MSG_T7_B", ["container_parse_error"])):
+            self.bad(bad)
+        self.assertEqual(set(self.schema["x-t7-04-variants"]), {"MSG_T7_B", "MSG_T7_D"})
+        self.assertIn("nunca una inferencia clínica", self.schema["x-t7-04-variants"]["MSG_T7_D"])
 
     def test_each_trigger_and_the_no_decision_case_have_their_own_shape(self):
         for valid in (doc(), T01, T02, T03, T04):
             self.ok(valid)
         self.bad(doc(trigger_id=T3), "no decision cannot carry a trigger")
-        self.bad(doc(message_id="MSG_T7_03"))
+        self.bad(doc(message_id="MSG_T7_C"))
         self.bad(doc(evidence={"sources": ["container_parse_error"]}))
         self.bad(doc(send_allowed=False))
         self.bad(doc(modality_declared=False, declared_kind=None), "in the modality entry no decision needs a declared modality")
@@ -87,14 +143,14 @@ class Layer7Contract(unittest.TestCase):
         self.bad(self.with_changes(T03, message_id="MSG_T7_05"))
 
     def test_t7_01_undeclared_modality(self):
-        for change in ({"modality_declared": True}, {"declared_kind": "ecg"}, {"message_id": "MSG_T7_02"},
+        for change in ({"modality_declared": True}, {"declared_kind": "ecg"}, {"message_id": "MSG_T7_C"},
                        {"flow": "classic_upload"}, {"flow": "document_legacy_bridge"},
                        {"evidence": {"sources": ["container_parse_error"]}},
                        {"evidence": {"sources": ["declared_modality_absent", "container_signature"]}}):
             self.bad(self.with_changes(T01, **change), change)
 
     def test_t7_02_unknown_contract(self):
-        for change in ({"modality_declared": False}, {"declared_kind": None}, {"message_id": "MSG_T7_01"},
+        for change in ({"modality_declared": False}, {"declared_kind": None}, {"message_id": "MSG_T7_C"},
                        {"flow": "classic_upload"}, {"flow": "document_legacy_bridge"},
                        {"evidence": {"sources": ["declared_modality_absent"]}}):
             self.bad(self.with_changes(T02, **change), change)
@@ -114,17 +170,17 @@ class Layer7Contract(unittest.TestCase):
         self.bad(doc(flow="document_legacy_bridge", declared_kind="ecg"))
 
     def test_t7_03_corrupt_or_unprocessable_needs_a_container_parse_error(self):
-        for change in ({"message_id": "MSG_T7_04"}, {"evidence": {"sources": ["container_signature"]}},
+        for change in ({"message_id": "MSG_T7_B"}, {"evidence": {"sources": ["container_signature"]}},
                        {"evidence": {"sources": ["container_parse_error", "container_signature"]}}):
             self.bad(self.with_changes(T03, **change), change)
 
     def test_t7_04_needs_the_signature_paired_with_a_declared_format_and_never_an_extension_alone(self):
-        self.ok(abstain(T4, "MSG_T7_04", ["container_signature", "declared_mime_type"]))
-        self.ok(abstain(T4, "MSG_T7_04", ["container_signature", "declared_extension", "declared_mime_type"]))
+        self.ok(abstain(T4, "MSG_T7_B", ["container_signature", "declared_mime_type"]))
+        self.ok(abstain(T4, "MSG_T7_B", ["container_signature", "declared_extension", "declared_mime_type"]))
         for sources in (["declared_extension"], ["declared_mime_type"], ["declared_extension", "declared_mime_type"],
                         ["container_signature"], ["container_signature", "container_parse_error"]):
-            self.bad(abstain(T4, "MSG_T7_04", sources), sources)
-        self.bad(self.with_changes(T04, message_id="MSG_T7_03"))
+            self.bad(abstain(T4, "MSG_T7_B", sources), sources)
+        self.bad(self.with_changes(T04, message_id="MSG_T7_C"))
 
     def test_forbidden_evidence_is_never_accepted(self):
         forbidden = self.schema["x-forbidden-evidence"]
@@ -154,7 +210,7 @@ class Layer7Contract(unittest.TestCase):
 
     def test_the_contract_is_not_wired_into_the_product(self):
         needles = ("modality-abstention-layer7", "layer7-0.1-proposed", "layer7-0.2-proposed", "VITE_R51_LAYER7",
-                   "T7-01_UNDECLARED_MODALITY", "MSG_T7_0")
+                   "T7-01_UNDECLARED_MODALITY", "MSG_T7_A", "MSG_T7_B", "MSG_T7_C", "MSG_T7_D")
         for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
             text = path.read_text(encoding="utf-8", errors="ignore")
             for needle in needles:
