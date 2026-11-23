@@ -347,6 +347,9 @@ def _bca(point, samples, jackknife):
     return _bca_diagnosed(point, samples, jackknife)[0]
 
 
+WILCOXON_TOLERANCE = 1e-12   # differences closer than this are one value (no float equality tests); seconds-scale data
+
+
 def wilcoxon_signed_rank(differences):
     """Paired Wilcoxon signed-rank test on PARTICIPANT-level differences (one value per participant, prototype minus baseline).
 
@@ -357,7 +360,7 @@ def wilcoxon_signed_rank(differences):
     values = [float(d) for d in differences if d is not None]
     if any(not math.isfinite(v) for v in values):
         raise ValueError("non-finite difference")
-    nonzero = [v for v in values if v != 0.0]
+    nonzero = [v for v in values if not math.isclose(v, 0.0, rel_tol=0.0, abs_tol=WILCOXON_TOLERANCE)]
     n = len(nonzero)
     out = {"method": "wilcoxon_signed_rank_participant_level", "n_participants": len(values), "n_zero_dropped": len(values) - n, "n_effective": n}
     if n == 0:
@@ -366,7 +369,7 @@ def wilcoxon_signed_rank(differences):
     ranks, i, tie_groups = [0.0] * n, 0, []
     while i < n:
         j = i
-        while j + 1 < n and abs(nonzero[order[j + 1]]) == abs(nonzero[order[i]]):
+        while j + 1 < n and math.isclose(abs(nonzero[order[j + 1]]), abs(nonzero[order[i]]), rel_tol=0.0, abs_tol=WILCOXON_TOLERANCE):
             j += 1
         for k in range(i, j + 1):
             ranks[order[k]] = (i + j) / 2 + 1
