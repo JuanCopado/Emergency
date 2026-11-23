@@ -74,5 +74,42 @@ class Bank(unittest.TestCase):
             self.assertEqual(a[name], b[name])
 
 
+class GeminiCriteria(unittest.TestCase):
+    def test_composition_per_set_matches_the_protocol(self):
+        self.assertEqual(bank.composition_audit(M), [])
+        broken = json.loads(json.dumps(M))
+        next(s for s in broken["stimuli"] if s["mechanism_id"] == "M3")["mechanism_id"] = "M1"
+        self.assertTrue(bank.composition_audit(broken))
+
+    def test_lifecycle_states_are_separated_and_nothing_is_frozen(self):
+        c = bank.status_counts(M)
+        self.assertEqual(c["lifecycle"], {"GENERATED_NOT_ADJUDICATED": 10, "PENDING_STIMULUS_GENERATION": 20, "FROZEN": 0})
+        for s in M["stimuli"]:
+            self.assertFalse(s["review_controls"]["freeze_seal_eligible"])
+            rc = s["review_controls"]["realism_review_360x640"]
+            self.assertEqual((rc["reviewer_1"], rc["reviewer_2"], rc["third_adjudicator_if_disagreement"]), ("PENDING",) * 3)
+            self.assertEqual(s["review_controls"]["visual_derivative_inspection"], "PENDING")
+
+    def test_schematic_stimuli_are_not_assumed_valid(self):
+        for s in M["stimuli"]:
+            note = s["review_controls"]["validity_note"]
+            if s["stimulus_id"] in bank.PROCEDURAL_SCHEMATIC:
+                self.assertEqual(note, "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW")
+            else:
+                self.assertIsNone(note)
+
+    def test_external_audit_report_records_what_was_and_was_not_run(self):
+        report = json.loads((bank.HERE / "bank" / "external_audit_report.json").read_text(encoding="utf-8"))
+        self.assertIn("exiftool", report["tools_found"])
+        listed = {f["stimulus_id"] for f in report["files"]}
+        self.assertEqual(listed, {s["stimulus_id"] for s in M["stimuli"] if s["file"]} | {q["stimulus_id"] for q in M["qa_technical"]})
+        for f in report["files"]:
+            if isinstance(f["pdfinfo"], dict):
+                self.assertEqual(f["pdfinfo"]["identifying_fields_with_value"], [])
+            if not report["tools_found"]["exiftool"]:
+                self.assertEqual(f["exiftool"], "NOT_RUN_TOOL_UNAVAILABLE")
+        self.assertIn("not a PHI review", report["scope"])
+
+
 if __name__ == "__main__":
     unittest.main()

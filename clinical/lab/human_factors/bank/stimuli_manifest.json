@@ -43,6 +43,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": 2,
@@ -51,6 +52,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "A",
    "set_id": 1,
@@ -75,6 +87,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": 3,
@@ -83,6 +96,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "A",
    "set_id": 2,
@@ -107,6 +131,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": 5,
@@ -115,6 +140,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "A",
    "set_id": 1,
@@ -139,6 +175,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": 6,
@@ -147,6 +184,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "A",
    "set_id": 2,
@@ -171,6 +219,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": 8,
@@ -179,6 +228,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "A",
    "set_id": 1,
@@ -203,6 +263,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": 9,
@@ -211,6 +272,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "A",
    "set_id": 2,
@@ -235,6 +307,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 4,
@@ -243,6 +316,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "B",
    "set_id": 1,
@@ -267,6 +351,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 7,
@@ -275,6 +360,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "B",
    "set_id": 2,
@@ -299,6 +395,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 5,
@@ -307,6 +404,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "B",
    "set_id": 1,
@@ -331,6 +439,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 4,
@@ -339,6 +448,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "B",
    "set_id": 2,
@@ -363,6 +483,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 6,
@@ -371,6 +492,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "xray",
    "scenario_code": "C",
    "set_id": 1,
@@ -395,6 +527,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 8,
@@ -403,6 +536,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "xray",
    "scenario_code": "C",
    "set_id": 2,
@@ -427,6 +571,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 5,
@@ -435,6 +580,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "pocus",
    "scenario_code": "D",
    "set_id": 1,
@@ -459,6 +615,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
    "mst_band": 3,
@@ -467,6 +624,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "pocus",
    "scenario_code": "D",
    "set_id": 2,
@@ -491,6 +659,7 @@
    "image_format": "JPEG",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
    "mst_band": null,
@@ -499,6 +668,17 @@
    "phash_64": "01032d2d2509117f",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "F",
    "set_id": 1,
@@ -523,6 +703,7 @@
    "image_format": "JPEG",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
    "mst_band": null,
@@ -531,6 +712,17 @@
    "phash_64": "7e272525252d1381",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "F",
    "set_id": 2,
@@ -555,6 +747,7 @@
    "image_format": "WEBP",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
    "mst_band": null,
@@ -563,6 +756,17 @@
    "phash_64": "8080804a4bb08080",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "F",
    "set_id": 1,
@@ -587,6 +791,7 @@
    "image_format": "JPEG",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
    "mst_band": null,
@@ -595,6 +800,17 @@
    "phash_64": "412b4b2b2b2b2b41",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "ecg",
    "scenario_code": "F",
    "set_id": 2,
@@ -619,6 +835,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": null,
@@ -627,6 +844,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "xray",
    "scenario_code": "F",
    "set_id": 1,
@@ -651,6 +879,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": null,
@@ -659,6 +888,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "xray",
    "scenario_code": "F",
    "set_id": 2,
@@ -683,6 +923,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": null,
@@ -691,6 +932,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "xray",
    "scenario_code": "F",
    "set_id": 1,
@@ -715,6 +967,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": null,
@@ -723,6 +976,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "xray",
    "scenario_code": "F",
    "set_id": 2,
@@ -747,6 +1011,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": null,
@@ -755,6 +1020,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "pocus",
    "scenario_code": "F",
    "set_id": 1,
@@ -779,6 +1055,7 @@
    "image_format": null,
    "language_stratum": "language_neutral",
    "license_ref": null,
+   "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
    "mst_band": null,
@@ -787,6 +1064,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "pocus",
    "scenario_code": "F",
    "set_id": 2,
@@ -811,6 +1099,7 @@
    "image_format": "PDF",
    "language_stratum": "multilingual_es_pt_en",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
    "mst_band": null,
@@ -819,6 +1108,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "document",
    "scenario_code": "F",
    "set_id": 1,
@@ -843,6 +1143,7 @@
    "image_format": "JPEG",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
    "mst_band": null,
@@ -851,6 +1152,17 @@
    "phash_64": "3f01416141010303",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "document",
    "scenario_code": "F",
    "set_id": 2,
@@ -875,6 +1187,7 @@
    "image_format": "PNG",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
    "mst_band": null,
@@ -883,6 +1196,17 @@
    "phash_64": "aad56171717154aa",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": null,
    "scenario_code": "E1",
    "set_id": 1,
@@ -907,6 +1231,7 @@
    "image_format": "PDF",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
    "mst_band": null,
@@ -915,6 +1240,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": null,
    "scenario_code": "E1",
    "set_id": 2,
@@ -939,6 +1275,7 @@
    "image_format": "JPEG",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
    "mst_band": null,
@@ -947,6 +1284,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "E2",
    "set_id": 1,
@@ -971,6 +1319,7 @@
    "image_format": "PDF",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
+   "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
    "mst_band": null,
@@ -979,6 +1328,17 @@
    "phash_64": null,
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
+   "review_controls": {
+    "freeze_seal_eligible": false,
+    "realism_review_360x640": {
+     "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
+     "reviewer_1": "PENDING",
+     "reviewer_2": "PENDING",
+     "third_adjudicator_if_disagreement": "PENDING"
+    },
+    "validity_note": null,
+    "visual_derivative_inspection": "PENDING"
+   },
    "route_modality": "skin_wound",
    "scenario_code": "E2",
    "set_id": 2,
