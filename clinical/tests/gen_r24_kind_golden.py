@@ -1,21 +1,19 @@
 """Regenerates tests/fixtures/r24_kind_oracle_golden.json from the EXACT base function.
 
 The base is the pre-R8 `infer_attachment_kind` at commit 2116899bf43fd836173384af27d6e22a6480c51d
-(read with `git show`; the base source is executed, never the current module's routing).
+(`git archive` of that commit, run in a separate process; the current module's routing is never used).
 Only needed to audit the golden file; the unit test never calls this script.
 """
 import hashlib
 import itertools
 import json
-import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 BASE = "2116899bf43fd836173384af27d6e22a6480c51d"
-sys.path.insert(0, str(ROOT / "scripts"))
-import image_upload_guard  # noqa: E402
 
 NAMES = [
     None, "", "upload", "foto.png", "IMG_1234.jpg", "DSC0042.jpg", "informe.pdf", "INFORME.PDF", "serie.dcm", "SERIE.DCM",
@@ -35,24 +33,36 @@ MIMES = [None, "", "image/png", "image/jpeg", "application/pdf", "APPLICATION/PD
 EXPLICIT = [None, "", " ", "skin_wound", "XRAY", " ecg ", "other_image", "pdf_document", "0"]
 
 
-def base_function():
-    text = subprocess.check_output(["git", "show", f"{BASE}:clinical/scripts/clinical_note_api.py"], cwd=ROOT, text=True)
-    hints = re.search(r"^SKIN_WOUND_NAME_HINTS = \(.*?^\)", text, re.S | re.M).group(0)
-    func = re.search(r"^def infer_attachment_kind\(.*?(?=^def )", text, re.S | re.M).group(0)
-    scope = {"image_upload_guard": image_upload_guard}
-    exec(hints + "\n" + func, scope)  # noqa: S102 - audited base source, local dev tool
-    return scope["infer_attachment_kind"]
+DRIVER = """
+import json, sys
+sys.path.insert(0, "clinical/scripts")
+import clinical_note_api as api
+import image_upload_guard as guard
+out = []
+for name, mime, explicit in json.load(sys.stdin):
+    try:
+        out.append(api.infer_attachment_kind(name, mime, explicit))
+    except guard.MediaRejected as exc:
+        out.append("REJECT:" + str(exc))
+json.dump(out, sys.stdout)
+"""
+
+
+def run_base(triples):
+    """Runs the EXACT base module (git archive of BASE) in a separate process; nothing is eval'ed here."""
+    with tempfile.TemporaryDirectory() as tmp:
+        archive = subprocess.run(["git", "archive", BASE, "clinical/scripts"], cwd=ROOT.parent, check=True,
+                                 capture_output=True).stdout
+        subprocess.run(["tar", "-x", "-C", tmp], input=archive, check=True)
+        done = subprocess.run([sys.executable, "-I", "-c", DRIVER], cwd=tmp, check=True, capture_output=True,
+                              input=json.dumps(triples).encode())
+    return json.loads(done.stdout)
 
 
 def main():
-    fn = base_function()
-    cases = []
-    for name, mime, explicit in itertools.product(NAMES, MIMES, EXPLICIT):
-        try:
-            expected = fn(name, mime, explicit)
-        except image_upload_guard.MediaRejected as exc:
-            expected = "REJECT:" + str(exc)
-        cases.append([name, mime, explicit, expected])
+    triples = [list(t) for t in itertools.product(NAMES, MIMES, EXPLICIT)]
+    results = run_base(triples)
+    cases = [t + [r] for t, r in zip(triples, results)]
     body = json.dumps(cases, ensure_ascii=False, separators=(",", ":"))
     out = {"base_commit": BASE, "function": "clinical/scripts/clinical_note_api.py::infer_attachment_kind",
            "count": len(cases), "cases_sha256": hashlib.sha256(body.encode()).hexdigest(), "cases": cases}
