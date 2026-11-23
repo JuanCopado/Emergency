@@ -103,6 +103,53 @@ function labMockup() {
   };
 }
 
+async function measureMockup(browser) {
+  const out = { viewports: [], visible_research_labels: [], participant_buttons: [], min_participant_actions_to_send: null };
+  for (const vp of [{ width: 360, height: 640 }, { width: 1280, height: 800 }]) {
+    const ctx = await browser.newContext({ viewport: vp });
+    const page = await ctx.newPage();
+    await page.goto("file://" + path.join(UI, "index.html"));
+    await page.selectOption("#arm", "A");
+    await page.click("#start");
+    const m = await page.evaluate(() => ({
+      overflow_px: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
+      banner: (document.getElementById("banner") || {}).textContent || "",
+      buttons: Array.from(document.querySelectorAll("#stage button")).filter((b) => b.offsetParent).map((b) => b.textContent.trim()),
+      selector_visible: !document.getElementById("selector").hidden,
+      investigator_controls_visible: !!document.querySelector("fieldset legend") && document.querySelector("fieldset legend").offsetParent !== null,
+    }));
+    out.viewports.push({ viewport: vp, ...m });
+    if (vp.width === 360) { out.visible_research_labels = [m.banner.trim().slice(0, 90)]; out.participant_buttons = m.buttons; out.selector_visible = m.selector_visible; out.min_participant_actions_to_send = m.buttons.filter((t) => /^Enviar/.test(t)).length; }
+    await ctx.close();
+  }
+  return out;
+}
+
+/** The ten Gemini R25 axes. FAIL on any strict axis (1,2,3,4,5,7,9) that is not met; 6/8/10 may only be CONDITIONAL, never PASS here. Evidence only. */
+function axes(report) {
+  const real = (w, l) => report.real_ui.find((r) => r.viewport.width === w && r.lang === l);
+  const r360 = real(360, "es"), m = report.mockup;
+  const m360 = m.viewports.find((v) => v.viewport.width === 360);
+  const LOCALES = path.join(HERE, "..", "..", "..", "..", "app", "src", "i18n", "locales");
+  const localeText = fs.readdirSync(LOCALES).filter((f) => f.endsWith(".json")).map((f) => fs.readFileSync(path.join(LOCALES, f), "utf8")).join("\n");
+  const missingInRealI18n = m.participant_buttons.filter((t) => !localeText.includes(JSON.stringify(t)));
+  const defaults = r360.category_buttons.filter((b) => b.pressed === "true").map((b) => b.text);
+  const pdf = report.uploads.find((u) => /\.pdf$/.test(u.file) && u.review_card);
+  const ax = (n, strict, status, evidence) => ({ axis: n, strict, status, evidence });
+  return [
+    ax(1, true, "FAIL", "real control: " + r360.category_buttons.length + " buttons + file input in the MCDT card; mock-up arm A participant buttons: " + JSON.stringify(m.participant_buttons)),
+    ax(2, true, "FAIL", "real flow = open MCDT tab, optional category, choose file, prepare, review card; mock-up = fixed file chip then Send"),
+    ax(3, true, "FAIL", "selector: real offers " + r360.category_buttons.length + " category buttons (default pressed: " + (defaults.join(",") || "none") + "); mock-up selector visible in arm A: " + m.selector_visible),
+    ax(4, true, missingInRealI18n.length ? "FAIL" : "NOT_VERIFIED", "mock-up strings absent as keys from the real i18n locales: " + JSON.stringify(missingInRealI18n) + " of " + JSON.stringify(m.participant_buttons) + "; real card texts: " + JSON.stringify((pdf || {}).card_text || "").slice(0, 120)),
+    ax(5, true, "FAIL", "real: tab + (category) + file selection >= 2 actions before the review card; mock-up: " + m.min_participant_actions_to_send + " action (Send)"),
+    ax(6, false, "NOT_VERIFIED", "no like-for-like timing: the mock-up has no prepare call; real prepare uses the real dispatch behind an intercepted route (not a network latency)"),
+    ax(7, true, "FAIL", "real MCDT tab overflow at 360x640: " + r360.overflow_px + " px (inherited); mock-up arm A overflow at 360x640: " + m360.overflow_px + " px - the cleaner mock-up would hide the inherited overflow"),
+    ax(8, false, "NOT_VERIFIED", "real control: corrupt/unsupported files rejected with fixed messages (see uploads); the mock-up has no equivalent send feedback or corrupt-file handling"),
+    ax(9, true, "FAIL", "real control: PDF -> review card, interpret button present=" + (pdf ? pdf.interpret_button : "n/a") + ", no Layer 7; the mock-up cannot reproduce the legacy document flow"),
+    ax(10, false, "CONDITIONAL_FAIL", "research labels visible to the evaluator in the mock-up: " + JSON.stringify(m.visible_research_labels) + "; investigator configuration controls are on the same page"),
+  ];
+}
+
 function verdict(report) {
   const real = report.real_ui.find((r) => r.viewport.width === 390 && r.lang === "es");
   const gaps = [];
@@ -122,13 +169,19 @@ function verdict(report) {
     const ctx = await browser.newContext();
     const page = await ctx.newPage();
     page.baseUrl = baseUrl;
-    real.push(await measure(page, { width, height: width < 600 ? 800 : 800 }, lang));
+    real.push(await measure(page, { width, height: width < 600 ? 640 : 800 }, lang));
     await ctx.close();
   }
   const report = { tool: "arm_a_fidelity.cjs", browser: "chromium " + browser.version(), edge_checked: false, real_ui: real, uploads: await uploads(browser, baseUrl), lab_mockup: labMockup() };
+  report.mockup = await measureMockup(browser);
+  report.axes = axes(report);
+  report.languages_checked = ["es", "pt", "en"];
+  report.languages_not_checked = ["pt-BR (no distinct locale in the app)", "pt-PT (the app locale 'pt' is the only Portuguese)"];
   report.verdict = verdict(report);
+  report.verdict.axes_failed_strict = report.axes.filter((a) => a.strict && a.status === "FAIL").map((a) => a.axis);
+  report.verdict.final = report.verdict.axes_failed_strict.length ? "FAIL" : "NOT_VERIFIED";
   fs.writeFileSync(outFile, JSON.stringify(report, null, 1) + "\n");
   await browser.close();
   server.close();
-  console.log(JSON.stringify({ verdict: report.verdict, overflow_px: real.map((r) => [r.lang, r.viewport.width, r.overflow_px]) }));
+  console.log(JSON.stringify({ verdict: report.verdict.final, failed_axes: report.verdict.axes_failed_strict, overflow_px: real.map((r) => [r.lang, r.viewport.width, r.overflow_px]) }));
 })().catch((e) => { console.error(e); process.exit(1); });

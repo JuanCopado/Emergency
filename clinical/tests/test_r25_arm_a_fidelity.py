@@ -38,6 +38,17 @@ class Report(unittest.TestCase):
         self.assertTrue(REPORT["verdict"]["gaps"])
         self.assertFalse(REPORT["edge_checked"])
 
+    def test_gemini_ten_axes_with_strict_failures(self):
+        axes = {a["axis"]: a for a in REPORT["axes"]}
+        self.assertEqual(sorted(axes), list(range(1, 11)))
+        self.assertEqual(REPORT["verdict"]["axes_failed_strict"], [1, 2, 3, 4, 5, 7, 9])
+        self.assertEqual(REPORT["verdict"]["final"], "FAIL")
+        for n in (6, 8):
+            self.assertEqual(axes[n]["status"], "NOT_VERIFIED")
+        self.assertNotEqual(axes[10]["status"], "PASS")
+        self.assertIn("hide the inherited overflow", axes[7]["evidence"])     # the cleaner mock-up must not hide the real overflow
+        self.assertIn("pt-BR", " ".join(REPORT["languages_not_checked"]))
+
     def test_measurement_covers_the_requested_viewports_and_languages(self):
         seen = {(r["lang"], r["viewport"]["width"]) for r in REPORT["real_ui"]}
         self.assertEqual(seen, {(l, w) for l in ("es", "pt", "en") for w in (320, 360, 390, 1280)})

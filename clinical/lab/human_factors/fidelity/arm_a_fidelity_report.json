@@ -6,7 +6,7 @@
   {
    "viewport": {
     "width": 320,
-    "height": 800
+    "height": 640
    },
    "lang": "es",
    "category_buttons": [
@@ -123,7 +123,7 @@
   {
    "viewport": {
     "width": 360,
-    "height": 800
+    "height": 640
    },
    "lang": "es",
    "category_buttons": [
@@ -240,7 +240,7 @@
   {
    "viewport": {
     "width": 390,
-    "height": 800
+    "height": 640
    },
    "lang": "es",
    "category_buttons": [
@@ -474,7 +474,7 @@
   {
    "viewport": {
     "width": 320,
-    "height": 800
+    "height": 640
    },
    "lang": "pt",
    "category_buttons": [
@@ -591,7 +591,7 @@
   {
    "viewport": {
     "width": 360,
-    "height": 800
+    "height": 640
    },
    "lang": "pt",
    "category_buttons": [
@@ -708,7 +708,7 @@
   {
    "viewport": {
     "width": 390,
-    "height": 800
+    "height": 640
    },
    "lang": "pt",
    "category_buttons": [
@@ -942,7 +942,7 @@
   {
    "viewport": {
     "width": 320,
-    "height": 800
+    "height": 640
    },
    "lang": "en",
    "category_buttons": [
@@ -950,7 +950,7 @@
      "text": "+ Laboratory tests",
      "pressed": "false",
      "x": 33,
-     "y": 2352,
+     "y": 2400,
      "w": 159,
      "h": 44
     },
@@ -958,7 +958,7 @@
      "text": "+ Blood gas",
      "pressed": "false",
      "x": 33,
-     "y": 2404,
+     "y": 2452,
      "w": 114,
      "h": 44
     },
@@ -966,7 +966,7 @@
      "text": "+ ECG",
      "pressed": "false",
      "x": 155,
-     "y": 2404,
+     "y": 2452,
      "w": 76,
      "h": 44
     },
@@ -974,7 +974,7 @@
      "text": "+ X-ray",
      "pressed": "false",
      "x": 33,
-     "y": 2456,
+     "y": 2504,
      "w": 88,
      "h": 44
     },
@@ -982,7 +982,7 @@
      "text": "+ CT/MRI",
      "pressed": "false",
      "x": 129,
-     "y": 2456,
+     "y": 2504,
      "w": 97,
      "h": 44
     },
@@ -990,7 +990,7 @@
      "text": "+ Ultrasound/POCUS",
      "pressed": "false",
      "x": 33,
-     "y": 2508,
+     "y": 2556,
      "w": 177,
      "h": 44
     },
@@ -998,7 +998,7 @@
      "text": "+ Microbiology",
      "pressed": "false",
      "x": 33,
-     "y": 2560,
+     "y": 2608,
      "w": 135,
      "h": 44
     },
@@ -1006,7 +1006,7 @@
      "text": "+ Skin/wound",
      "pressed": "false",
      "x": 33,
-     "y": 2612,
+     "y": 2660,
      "w": 127,
      "h": 44
     },
@@ -1014,7 +1014,7 @@
      "text": "+ Other",
      "pressed": "true",
      "x": 168,
-     "y": 2612,
+     "y": 2660,
      "w": 83,
      "h": 44
     },
@@ -1022,7 +1022,7 @@
      "text": "Create review card",
      "pressed": null,
      "x": 33,
-     "y": 3152,
+     "y": 3200,
      "w": 161,
      "h": 44
     }
@@ -1031,7 +1031,7 @@
     "aria": "Clinical upload",
     "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
     "x": 50,
-    "y": 2715,
+    "y": 2763,
     "w": 353
    },
    "reflow": {
@@ -1059,7 +1059,7 @@
   {
    "viewport": {
     "width": 360,
-    "height": 800
+    "height": 640
    },
    "lang": "en",
    "category_buttons": [
@@ -1176,7 +1176,7 @@
   {
    "viewport": {
     "width": 390,
-    "height": 800
+    "height": 640
    },
    "lang": "en",
    "category_buttons": [
@@ -1470,6 +1470,118 @@
    "Terminar ensayo"
   ]
  },
+ "mockup": {
+  "viewports": [
+   {
+    "viewport": {
+     "width": 360,
+     "height": 640
+    },
+    "overflow_px": 0,
+    "banner": "LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacientes, sin APIs clínicas",
+    "buttons": [
+     "Enviar",
+     "Terminar ensayo"
+    ],
+    "selector_visible": false,
+    "investigator_controls_visible": true
+   },
+   {
+    "viewport": {
+     "width": 1280,
+     "height": 800
+    },
+    "overflow_px": 0,
+    "banner": "LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacientes, sin APIs clínicas",
+    "buttons": [
+     "Enviar",
+     "Terminar ensayo"
+    ],
+    "selector_visible": false,
+    "investigator_controls_visible": true
+   }
+  ],
+  "visible_research_labels": [
+   "LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacient"
+  ],
+  "participant_buttons": [
+   "Enviar",
+   "Terminar ensayo"
+  ],
+  "min_participant_actions_to_send": 1,
+  "selector_visible": false
+ },
+ "axes": [
+  {
+   "axis": 1,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real control: 10 buttons + file input in the MCDT card; mock-up arm A participant buttons: [\"Enviar\",\"Terminar ensayo\"]"
+  },
+  {
+   "axis": 2,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real flow = open MCDT tab, optional category, choose file, prepare, review card; mock-up = fixed file chip then Send"
+  },
+  {
+   "axis": 3,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "selector: real offers 10 category buttons (default pressed: + Otro); mock-up selector visible in arm A: false"
+  },
+  {
+   "axis": 4,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "mock-up strings absent as keys from the real i18n locales: [\"Enviar\",\"Terminar ensayo\"] of [\"Enviar\",\"Terminar ensayo\"]; real card texts: \"Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Cate"
+  },
+  {
+   "axis": 5,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real: tab + (category) + file selection >= 2 actions before the review card; mock-up: 1 action (Send)"
+  },
+  {
+   "axis": 6,
+   "strict": false,
+   "status": "NOT_VERIFIED",
+   "evidence": "no like-for-like timing: the mock-up has no prepare call; real prepare uses the real dispatch behind an intercepted route (not a network latency)"
+  },
+  {
+   "axis": 7,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real MCDT tab overflow at 360x640: 60 px (inherited); mock-up arm A overflow at 360x640: 0 px - the cleaner mock-up would hide the inherited overflow"
+  },
+  {
+   "axis": 8,
+   "strict": false,
+   "status": "NOT_VERIFIED",
+   "evidence": "real control: corrupt/unsupported files rejected with fixed messages (see uploads); the mock-up has no equivalent send feedback or corrupt-file handling"
+  },
+  {
+   "axis": 9,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real control: PDF -> review card, interpret button present=false, no Layer 7; the mock-up cannot reproduce the legacy document flow"
+  },
+  {
+   "axis": 10,
+   "strict": false,
+   "status": "CONDITIONAL_FAIL",
+   "evidence": "research labels visible to the evaluator in the mock-up: [\"LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacient\"]; investigator configuration controls are on the same page"
+  }
+ ],
+ "languages_checked": [
+  "es",
+  "pt",
+  "en"
+ ],
+ "languages_not_checked": [
+  "pt-BR (no distinct locale in the app)",
+  "pt-PT (the app locale 'pt' is the only Portuguese)"
+ ],
  "verdict": {
   "functional_equivalence": "NOT_EQUIVALENT",
   "gaps": [
@@ -1477,6 +1589,16 @@
    "upload_flow: the real control has a file input; the mock-up has a fixed synthetic file chip",
    "review_card: the real control creates a review card (category, route, privacy, kind_source); the mock-up has none",
    "messages_and_layout: not compared pixel-by-pixel; no visual-equivalence test exists"
-  ]
+  ],
+  "axes_failed_strict": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   7,
+   9
+  ],
+  "final": "FAIL"
  }
 }
