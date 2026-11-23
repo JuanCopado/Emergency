@@ -50,6 +50,8 @@
     "pwa:offline-check": "node scripts/check-pwa-offline.mjs",
     "r51:flag-check": "node scripts/check-r51-flag-production.mjs",
     "prer51:flag-check": "node scripts/picomatch-mitigation.mjs --check",
+    "hf:lab-preflight": "node scripts/hf-lab-preflight.mjs",
+    "prehf:lab-preflight": "node scripts/picomatch-mitigation.mjs --check",
     "prepwa:offline-check": "node scripts/picomatch-mitigation.mjs --check",
     "build:security": "npm run build && node scripts/build-dependency-guard.mjs --check-service-worker",
     "prebuild:security": "node scripts/picomatch-mitigation.mjs --check"
