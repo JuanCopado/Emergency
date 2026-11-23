@@ -49,6 +49,11 @@ export function kindSourceMessage(source: unknown, ui: (key: string) => string):
   return typeof source === 'string' && known.includes(source) ? reviewMessage(source, ui) : null;
 }
 
+/** Visible label only. The transport category (card.kind -> kindMap) is not derived from it. */
+export function effectiveCategoryLabel(preparedKind: unknown, selectedLabel: string): string {
+  return preparedKind === 'pdf_document' ? 'PDF/Documento' : selectedLabel;
+}
+
 export function excludedContainer(prepared?: PreparedUpload) {
   return prepared?.media?.format === 'pdf' || prepared?.media?.format === 'dicom';
 }
