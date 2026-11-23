@@ -452,6 +452,22 @@ class DryRun(unittest.TestCase):
         expected = {(r["participant_opaque_id"], r["scenario_id"]) for r in RECORDS if r["mechanism_id"] == "M1" and dryrun._h(r["participant_opaque_id"], r["scenario_id"], "err") % 8 == 0}
         self.assertEqual(wrong, expected)
 
+    def test_the_only_arm_dependent_quantity_of_the_driver_is_the_documented_positive_control(self):
+        self.assertEqual(dryrun.POSITIVE_CONTROL_MS, 2500)
+        saved = dryrun.POSITIVE_CONTROL_MS
+        try:
+            dryrun.POSITIVE_CONTROL_MS = 0
+            null_driver, _ = dryrun.run(MANIFEST, count=4, seed="t")
+        finally:
+            dryrun.POSITIVE_CONTROL_MS = saved
+        for default, null in zip(RECORDS, null_driver):
+            diff = {k for k in default if default[k] != null[k]}
+            if default["arm"] == "B" and default["mechanism_id"] != "M2":
+                self.assertEqual(diff, {"task_duration_ms"})
+                self.assertEqual(default["task_duration_ms"] - null["task_duration_ms"], 2500)
+            else:
+                self.assertEqual(diff, set())
+
     def test_layer7_fires_only_on_m2_arm_b_and_only_as_the_manifest_expects(self):
         fired = [r for r in RECORDS if r["layer7_trigger_code"]]
         self.assertTrue(fired)

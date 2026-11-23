@@ -3,7 +3,8 @@
 A deterministic TECHNICAL DRIVER (not a participant) walks the 30 tasks (15 per period, two disjoint sets, two arms, AB/BA, M1/M2/M3, mobile
 and desktop labels) and produces telemetry records. Layer 7 decisions come from the audited harness evaluating the REAL BYTES of the stimuli that
 exist; for stimuli still PENDING_STIMULUS_GENERATION the descriptor is built from the specification and flagged. Error/cancellation events follow
-a neutral hash pattern that does NOT depend on the arm, so the output carries no built-in effect. Nothing here replaces human observation.
+a neutral hash pattern that does NOT depend on the arm. The ONLY arm-dependent item is POSITIVE_CONTROL_MS: a documented constant added to the duration
+of arm-B M1/M3 trials as a positive control of the additional-time computation (set it to 0 for a null driver). Nothing here replaces human observation.
 """
 import hashlib
 import random
@@ -18,6 +19,7 @@ import file_probe  # noqa: E402
 import human_factors_tools as hf  # noqa: E402
 import layer7_harness as harness  # noqa: E402
 
+POSITIVE_CONTROL_MS = 2500      # documented positive control for the delta-t pipeline; the only arm-dependent quantity of the driver
 LANGUAGE_OF = {"es-ES": "es", "pt-PT": "pt", "pt-BR": "pt", "en": "en"}
 CONTAINER_SIGNATURE = {"jpeg": "jpeg", "webp": "webp", "pdf": "pdf", "unspecified_image": "png"}
 MIME = {"jpeg": "image/jpeg", "webp": "image/webp", "pdf": "application/pdf", "png": "image/png"}
@@ -85,7 +87,7 @@ def run_trial(p, arm, period, device, order_index, entry, directory):
         confirmed, chosen = True, None                        # legacy interface: sends without a declared-modality gate (qualitative baseline)
     recovery = ("not_applicable" if not trigger else "recovered")
     outcome = "blocked_by_layer7" if trigger else ("abandoned" if false_cancel else "completed")
-    base_ms = 38000 + _h(p["id"], entry["stimulus_id"], "ms") % 12000 + (2500 if arm == "B" and mechanism != "M2" else 0)
+    base_ms = 38000 + _h(p["id"], entry["stimulus_id"], "ms") % 12000 + (POSITIVE_CONTROL_MS if arm == "B" and mechanism != "M2" else 0)
     return {"participant_opaque_id": p["id"], "role_group": p["role_group"], "language_stratum": p["language_stratum"], "sequence": p["sequence"],
             "period": period, "arm": arm, "device_type": device, "mechanism_id": mechanism, "scenario_id": entry["stimulus_id"], "scenario_code": code,
             "trial_order": order_index, "stimulus_hash_sha256": entry["sha256"],
