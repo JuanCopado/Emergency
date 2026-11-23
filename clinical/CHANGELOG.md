@@ -845,3 +845,4 @@ The v1.32 draft adds a small-bowel bleeding diagnostic extension to the existing
 
 R25 · 23/11/2026 · Fidelidad del brazo A: herramienta Chromium sobre la app real (flag R5-1 apagado) con el dispatch real de prepare; la maqueta NO es equivalente al control; desbordamiento horizontal preexistente en la pestaña MCDT a 320/360/390 px (Chromium).
 R24 · 23/11/2026 · R8-PDF (etiqueta visible PDF/Documento) y R8-ORACLE (oracle independiente congelado frente a 2116899b, 8316 casos, control de mutación); sin cambios de encaminamiento ni clínicos.
+- R28: entrada de laboratorio aislada de capa 7 para el brazo B (E1 con ?lab_entry=e1, banner T7-01..04 con textos del contrato, sin envio forzado), solo build no productivo con VITE_LAB_LAYER7=1; exclusion del bundle verificada. Aprobacion SI del Dr. Copado. Sin cambios clinicos.

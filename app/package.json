@@ -54,7 +54,8 @@
     "prehf:lab-preflight": "node scripts/picomatch-mitigation.mjs --check",
     "prepwa:offline-check": "node scripts/picomatch-mitigation.mjs --check",
     "build:security": "npm run build && node scripts/build-dependency-guard.mjs --check-service-worker",
-    "prebuild:security": "node scripts/picomatch-mitigation.mjs --check"
+    "prebuild:security": "node scripts/picomatch-mitigation.mjs --check",
+    "check:lab-exclusion": "node scripts/check-lab-exclusion.mjs dist"
   },
   "keywords": [],
   "author": "",
