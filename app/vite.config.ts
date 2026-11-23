@@ -135,7 +135,7 @@ export default defineConfig(({ mode }) => ({
     coverage: {
       provider: 'v8',
       reporter: ['text', ['lcov', { projectRoot: '..' }], 'json-summary'],
-      include: ['src/**/*.{ts,tsx}', 'scripts/**/*.{mjs,cjs}', 'vite.config.ts'],
+      include: ['src/**/*.{ts,tsx}', 'lab-entry/**/*.{ts,tsx}', 'scripts/**/*.{mjs,cjs}', 'vite.config.ts'],
       exclude: ['src/test/**', '**/*.test.*', 'scripts/check-*.mjs', 'scripts/**/*.node-test.mjs'],
     },
   },
