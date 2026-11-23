@@ -1,0 +1,155 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "emergency:human-factors-export:stage1-0.1",
+ "title": "Human-factors Stage 1 · reproducible export (tooling only; NOT an executed study)",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "study_stage",
+  "git_commit_sha",
+  "stimuli_manifest_sha256",
+  "dataset_sha256",
+  "bootstrap_replicates",
+  "bootstrap_seed",
+  "tool_version",
+  "manifest_version",
+  "manifest_sha256",
+  "records_sha256",
+  "summary_sha256",
+  "resamples",
+  "seed",
+  "summary",
+  "study_status"
+ ],
+ "properties": {
+  "study_stage": {
+   "const": "STAGE_1_FORMATIVE_ESTIMATION"
+  },
+  "git_commit_sha": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "pattern": "^[0-9a-f]{7,40}$"
+  },
+  "stimuli_manifest_sha256": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "dataset_sha256": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "manifest_sha256": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "records_sha256": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "summary_sha256": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "bootstrap_replicates": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "resamples": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "bootstrap_seed": {
+   "type": "string"
+  },
+  "seed": {
+   "type": "string"
+  },
+  "tool_version": {
+   "type": "string",
+   "pattern": "^hf-tools-[0-9]+\\.[0-9]+$"
+  },
+  "manifest_version": {
+   "type": "string",
+   "pattern": "^[A-Za-z0-9_-]{1,32}$"
+  },
+  "study_status": {
+   "const": "NOT_EXECUTED_TOOLING_ONLY"
+  },
+  "summary": {
+   "type": "object",
+   "required": [
+    "design",
+    "trial_level_metrics",
+    "participant_level_metrics",
+    "zero_event_reports",
+    "crossover_and_device_models",
+    "stage2_planning_inputs",
+    "acceptance_decision",
+    "limitations",
+    "acceptance_margin",
+    "sample_size",
+    "study_status"
+   ],
+   "properties": {
+    "acceptance_decision": {
+     "const": "PENDING_PHYSICIAN_OWNER_REVIEW"
+    },
+    "acceptance_margin": {
+     "const": "NOT_SET_MEDICAL_DECISION"
+    },
+    "sample_size": {
+     "const": "NOT_SET_STUDY_DESIGN_DECISION"
+    },
+    "study_status": {
+     "const": "NOT_EXECUTED_TOOLING_ONLY"
+    },
+    "crossover_and_device_models": {
+     "type": "object",
+     "required": [
+      "status",
+      "carryover_pretest"
+     ],
+     "properties": {
+      "carryover_pretest": {
+       "const": "PROHIBITED_NEVER_PERFORMED"
+      }
+     }
+    },
+    "design": {
+     "type": "object",
+     "required": [
+      "unit_of_analysis",
+      "participants",
+      "crossed",
+      "resampling_stratified_by_sequence",
+      "small_cluster_warning",
+      "independence_of_trials"
+     ],
+     "properties": {
+      "unit_of_analysis": {
+       "const": "participant"
+      },
+      "crossed": {
+       "const": "AB/BA"
+      },
+      "resampling_stratified_by_sequence": {
+       "const": true
+      },
+      "independence_of_trials": {
+       "const": "NOT_ASSUMED"
+      }
+     }
+    },
+    "limitations": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}

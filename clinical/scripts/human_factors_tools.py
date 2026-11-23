@@ -527,6 +527,9 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
 
 TOOL_VERSION = "hf-tools-0.3"
 SCENARIO_FIELDS = {"scenario_id", "intended_modality", "synthetic", "case_code", "platforms"}
+SCENARIO_OPTIONAL = {"bank_set", "stimulus_sha256"}
+BANK_SETS = ("set1", "set2")
+SHA256 = re.compile(r"^[0-9a-f]{64}$")
 MANIFEST_FIELDS = {"manifest_version", "scenarios"}
 
 
@@ -547,10 +550,10 @@ def validate_manifest(manifest):
     scenarios = manifest["scenarios"]
     if not isinstance(scenarios, list) or not scenarios:
         raise ValueError("scenarios must be a non-empty list")
-    seen = set()
+    seen, case_codes, hashes = set(), {}, set()
     for scenario in scenarios:
-        if not isinstance(scenario, dict) or set(scenario) != SCENARIO_FIELDS:
-            raise ValueError(f"scenario fields must be exactly {sorted(SCENARIO_FIELDS)}")
+        if not isinstance(scenario, dict) or not SCENARIO_FIELDS <= set(scenario) <= SCENARIO_FIELDS | SCENARIO_OPTIONAL:
+            raise ValueError(f"scenario fields must be {sorted(SCENARIO_FIELDS)} plus optionally {sorted(SCENARIO_OPTIONAL)}")
         for field in ("scenario_id", "case_code"):
             if not isinstance(scenario[field], str) or not CODE.match(scenario[field]):
                 raise ValueError(f"{field} must be an opaque code (letters, digits, - and _ only)")
@@ -564,7 +567,22 @@ def validate_manifest(manifest):
         if scenario["scenario_id"] in seen:
             raise ValueError(f"scenario {scenario['scenario_id']} is listed twice")
         seen.add(scenario["scenario_id"])
-    return {"valid": True, "manifest_version": manifest["manifest_version"], "scenarios": len(scenarios), "sha256": digest(manifest)}
+        bank = scenario.get("bank_set")
+        if "bank_set" in scenario and bank not in BANK_SETS:
+            raise ValueError("bank_set must be set1 or set2")
+        if scenario["case_code"] in case_codes and case_codes[scenario["case_code"]] != bank:
+            raise ValueError(f"case_code {scenario['case_code']} appears in both banks (the banks must be disjoint)")
+        case_codes[scenario["case_code"]] = bank
+        if "stimulus_sha256" in scenario:
+            digest_value = scenario["stimulus_sha256"]
+            if not isinstance(digest_value, str) or not SHA256.match(digest_value):
+                raise ValueError("stimulus_sha256 must be 64 lowercase hexadecimal characters")
+            if digest_value in hashes:
+                raise ValueError("two scenarios share the same stimulus_sha256 (scenario identity must be unique)")
+            hashes.add(digest_value)
+    frozen = all("stimulus_sha256" in sc for sc in scenarios)
+    return {"valid": True, "manifest_version": manifest["manifest_version"], "scenarios": len(scenarios), "sha256": digest(manifest),
+            "stimuli_frozen": frozen, "banks": sorted({sc.get("bank_set") for sc in scenarios if "bank_set" in sc})}
 
 
 def assign_sequences(participants, seed="r15"):

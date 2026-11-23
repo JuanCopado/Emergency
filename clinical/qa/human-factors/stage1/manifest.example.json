@@ -1,0 +1,115 @@
+{
+ "manifest_version": "example-v0",
+ "scenarios": [
+  {
+   "scenario_id": "SKI-1",
+   "intended_modality": "skin_wound",
+   "synthetic": true,
+   "case_code": "EX-SKI-1",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set1"
+  },
+  {
+   "scenario_id": "SKI-2",
+   "intended_modality": "skin_wound",
+   "synthetic": true,
+   "case_code": "EX-SKI-2",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set2"
+  },
+  {
+   "scenario_id": "ECG-1",
+   "intended_modality": "ecg",
+   "synthetic": true,
+   "case_code": "EX-ECG-1",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set1"
+  },
+  {
+   "scenario_id": "ECG-2",
+   "intended_modality": "ecg",
+   "synthetic": true,
+   "case_code": "EX-ECG-2",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set2"
+  },
+  {
+   "scenario_id": "XRA-1",
+   "intended_modality": "xray",
+   "synthetic": true,
+   "case_code": "EX-XRA-1",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set1"
+  },
+  {
+   "scenario_id": "XRA-2",
+   "intended_modality": "xray",
+   "synthetic": true,
+   "case_code": "EX-XRA-2",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set2"
+  },
+  {
+   "scenario_id": "POC-1",
+   "intended_modality": "pocus",
+   "synthetic": true,
+   "case_code": "EX-POC-1",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set1"
+  },
+  {
+   "scenario_id": "POC-2",
+   "intended_modality": "pocus",
+   "synthetic": true,
+   "case_code": "EX-POC-2",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set2"
+  },
+  {
+   "scenario_id": "DOC-1",
+   "intended_modality": "document",
+   "synthetic": true,
+   "case_code": "EX-DOC-1",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set1"
+  },
+  {
+   "scenario_id": "DOC-2",
+   "intended_modality": "document",
+   "synthetic": true,
+   "case_code": "EX-DOC-2",
+   "platforms": [
+    "web",
+    "mobile"
+   ],
+   "bank_set": "set2"
+  }
+ ]
+}
