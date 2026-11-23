@@ -43,6 +43,16 @@ EXPECTED = {(14, 1): T01, (14, 2): T01, (15, 1): T03, (15, 2): T04}
 GENERATED_FILES = {"S1-08": "S1-08.jpg", "S2-08": "S2-08.jpg", "S1-09": "S1-09.webp", "S2-09": "S2-09.jpg", "S1-13": "S1-13.pdf",
                    "S2-13": "S2-13.jpg", "S1-14": "S1-14.png", "S2-14": "S2-14.pdf", "S1-15": "S1-15.jpg", "S2-15": "S2-15.pdf"}
 PROCEDURAL_SCHEMATIC = {"S1-08", "S2-08", "S1-09", "S2-09", "S2-13"}   # R25: schematic renders, NOT clinical imagery
+SCHEMATIC_JUSTIFICATION = ("Stage 1 measures usage errors (modality selection, confirmation, false cancellation, comprehension of technical abstentions), not "
+                           "diagnostic performance. For the legitimate-negative controls (scenario F) the stimulus only has to be recognizable as its true "
+                           "modality and technically valid (RGB photo, no DICOM) so that the pipeline must NOT block it. A schematic is a candidate for that "
+                           "narrow role only; it is NOT assumed valid until two independent reviewers rate realism >= 4/5 and the owner signs.")
+SCHEMATIC_LIMITS = {
+    "S2-09": "Identical waveform in every lead: not a physiologically valid 12-lead ECG; expected to fail the realism review unless replaced.",
+    "S1-09": "Monitor strip is a flat render with a gradient reflection; no multiparametric monitor chrome.",
+    "S1-08": "Clean synthetic paper render; no print noise, no stray marks.", "S2-08": "Clean synthetic paper render; no print noise, no stray marks.",
+    "S2-13": "Synthetic text sheet with placeholder values (0,0); header and layout are generic.",
+}
 IMPEDIMENT = {
     "skin_wound": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing "
                   "would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -87,6 +97,25 @@ def _procedural_jpeg_truncated():
     return data[: int(len(data) * 0.45)]          # valid SOI + headers, truncated entropy-coded data: decoding fails
 
 
+def _font(size):
+    from PIL import ImageFont
+    try:
+        return ImageFont.load_default(size=size)
+    except TypeError:                                  # Pillow < 10.1: fixed bitmap font
+        return ImageFont.load_default()
+
+
+PX_PER_MM, PAPER_SPEED_MM_S = 8, 25                   # grid: 1 mm = 8 px; 25 mm/s -> 1 px = 5 ms
+ECG_RR_PX = {"S1-08": 190, "S2-08": 100, "S1-09": 190, "S2-09": 190}
+
+
+def ecg_parameters(stimulus_id):
+    """Rate derived from the generator constants (not measured from pixels): RR[px] * 5 ms."""
+    rr_ms = ECG_RR_PX[stimulus_id] * 1000.0 / (PX_PER_MM * PAPER_SPEED_MM_S)
+    return {"heart_rate_bpm": round(60000.0 / rr_ms), "paper_speed_mm_s": PAPER_SPEED_MM_S, "grid_px_per_mm": PX_PER_MM,
+            "rhythm": "regular synthetic sinus-like", "st_elevation": False}
+
+
 def _ecg_wave(width, amplitude=1.0, rr=190):
     """Synthetic sinus rhythm (P, QRS, T; isoelectric ST). Pure arithmetic, deterministic, no clinical data."""
     import math
@@ -100,7 +129,7 @@ def _ecg_wave(width, amplitude=1.0, rr=190):
     return ys
 
 
-def _ecg_strip(size, paper=(252, 232, 232), grid=(236, 150, 150), trace=(20, 20, 20), leads=1, label="SYNTHETIC ECG - NOT PATIENT DATA"):
+def _ecg_strip(size, paper=(252, 232, 232), grid=(236, 150, 150), trace=(20, 20, 20), leads=1, label="SYNTHETIC ECG - NOT PATIENT DATA", rr=190):
     from PIL import Image, ImageDraw
     width, height = size
     img = Image.new("RGB", size, paper)
@@ -114,7 +143,7 @@ def _ecg_strip(size, paper=(252, 232, 232), grid=(236, 150, 150), trace=(20, 20,
     cell_w, cell_h = width // n_cols, height // n_rows
     for r in range(n_rows):
         for c in range(n_cols):
-            wave = _ecg_wave(cell_w, amplitude=0.8 + 0.1 * ((r + c) % 3))
+            wave = _ecg_wave(cell_w, amplitude=0.8 + 0.1 * ((r + c) % 3), rr=rr)
             base = r * cell_h + cell_h * 0.62
             pts = [(c * cell_w + x, base - v * cell_h * 0.42) for x, v in enumerate(wave)]
             draw.line(pts, fill=trace, width=2)
@@ -132,8 +161,8 @@ def _tilted(img, degrees, background=(40, 40, 44)):
     return img.rotate(degrees, resample=3, expand=True, fillcolor=background)
 
 
-def _ecg_paper_photo(degrees):
-    return _encode(_tilted(_ecg_strip((640, 280)), degrees), "JPEG", quality=88)
+def _ecg_paper_photo(degrees, rr):
+    return _encode(_tilted(_ecg_strip((640, 280), rr=rr), degrees), "JPEG", quality=88)
 
 
 def _ecg_monitor_webp():
@@ -161,14 +190,15 @@ def _ecg_12_lead_jpeg():
 
 def _printed_sheet_photo():
     from PIL import Image, ImageDraw
-    sheet = Image.new("RGB", (480, 640), (248, 247, 242))
+    sheet = Image.new("RGB", (720, 960), (248, 247, 242))
     draw = ImageDraw.Draw(sheet)
+    big, small = _font(30), _font(24)
     lines = ["INFORME SINTETICO DE ANALITICA - NO CLINICO", "", "Parametro        Resultado    Referencia",
              "Parametro A      0,0          0,0 - 0,0", "Parametro B      0,0          0,0 - 0,0", "Parametro C      0,0          0,0 - 0,0", "",
              "ES: Documento ficticio. Ningun dato real.", "PT: Documento ficticio. Nenhum dado real.", "EN: Fictitious document. No real data."]
     for i, text in enumerate(lines):
-        draw.text((30, 40 + i * 24), text, fill=(30, 30, 30))
-    draw.line([(0, 330), (480, 342)], fill=(215, 213, 205), width=3)     # mild fold
+        draw.text((36, 48 + i * 44), text, fill=(30, 30, 30), font=big if i == 0 else small)
+    draw.line([(0, 500), (720, 516)], fill=(215, 213, 205), width=4)     # mild fold
     return _encode(_tilted(sheet, -7, background=(176, 140, 98)), "JPEG", quality=88)   # light desk, opposite tilt
 
 
@@ -207,7 +237,7 @@ def generate_bytes():
              "PT: Sem febre. Nao se observa derrame. Sem dor referida.", "EN: No fever. No effusion seen. No pain reported."],
             ["INFORME SINTETICO DE PRUEBA - NO CLINICO (pagina 2/2)", "ES: Documento ficticio; ningun dato real; no usar clinicamente.",
              "PT: Documento ficticio; nenhum dado real; nao usar clinicamente.", "EN: Fictitious document; no real data; not for clinical use."]]
-    return {"S1-08.jpg": _ecg_paper_photo(4), "S2-08.jpg": _ecg_paper_photo(-5), "S1-09.webp": _ecg_monitor_webp(),
+    return {"S1-08.jpg": _ecg_paper_photo(4, ECG_RR_PX["S1-08"]), "S2-08.jpg": _ecg_paper_photo(-5, ECG_RR_PX["S2-08"]), "S1-09.webp": _ecg_monitor_webp(),
             "S2-09.jpg": _ecg_12_lead_jpeg(), "S2-13.jpg": _printed_sheet_photo(),
             "S1-13.pdf": _pdf(doc2), "S1-14.png": _procedural_png(),
             "S2-14.pdf": _pdf([["DOCUMENTO SINTETICO DE PRUEBA - NO CLINICO", "Envio valido sin seleccion de modalidad (escenario E1)."]]),
@@ -299,6 +329,18 @@ def audit_metadata(data):
     return findings
 
 
+def _contain_scale(data):
+    """Scale applied when the image is shown with object-fit: contain in a 360x640 viewport (1.0 = no reduction); None for non-images."""
+    if data is None or data[:5] == b"%PDF-":
+        return None
+    try:
+        from PIL import Image
+        img = Image.open(io.BytesIO(data))
+        return round(min(360 / img.width, 640 / img.height, 1.0), 3)
+    except Exception:
+        return None
+
+
 def _file_facts(data):
     """Format and dimensions (images) + automated metadata findings; all None for a stimulus without file."""
     empty = {"image_format": None, "width": None, "height": None, "metadata_findings": None}
@@ -334,6 +376,8 @@ def build_manifest(directory=STIMULI_DIR):
                 "sha256": sha256_bytes(data) if generated else None, "phash_64": dhash64(data) if generated else None,
                 "origin_type": ("synthetic_procedural_schematic" if sid in PROCEDURAL_SCHEMATIC else "synthetic_procedural") if generated else None,
                 **_file_facts(data),
+                "mobile_360x640_contain_scale": _contain_scale(data),
+                "ecg_generator_parameters": ecg_parameters(sid) if sid in ECG_RR_PX else None,
                 "visual_review_status": "PENDING_VISUAL_REVIEW" if generated else "NOT_APPLICABLE_NOT_GENERATED",
                 "clinical_adjudication_status": "PENDING_CLINICAL_ADJUDICATION",
                 "lifecycle_status": "GENERATED_NOT_ADJUDICATED" if generated else PENDING,
@@ -341,7 +385,9 @@ def build_manifest(directory=STIMULI_DIR):
                     "realism_review_360x640": {"required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
                                                "reviewer_1": "PENDING", "reviewer_2": "PENDING", "third_adjudicator_if_disagreement": "PENDING"},
                     "visual_derivative_inspection": "PENDING", "freeze_seal_eligible": False,
-                    "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW" if sid in PROCEDURAL_SCHEMATIC else None},
+                    "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW" if sid in PROCEDURAL_SCHEMATIC else None,
+                    "validity_justification": SCHEMATIC_JUSTIFICATION if sid in PROCEDURAL_SCHEMATIC else None,
+                    "known_limitations": SCHEMATIC_LIMITS.get(sid)},
                 "generation_impediment": None if generated else IMPEDIMENT.get(true_modality if sid != "S2-13" else "document"),
                 "license_ref": "CC0-1.0 (content generated by project code; no third-party material)" if generated else None,
                 "phi_audit_passed": None, "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING" if generated else "NOT_APPLICABLE_NOT_GENERATED",

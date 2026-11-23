@@ -111,5 +111,37 @@ class GeminiCriteria(unittest.TestCase):
         self.assertIn("not a PHI review", report["scope"])
 
 
+class Plausibility(unittest.TestCase):
+    def test_ecg_rates_follow_the_stimulus_specification(self):
+        rate = {s["stimulus_id"]: s["ecg_generator_parameters"]["heart_rate_bpm"] for s in M["stimuli"] if s["ecg_generator_parameters"]}
+        self.assertEqual(set(rate), {"S1-08", "S2-08", "S1-09", "S2-09"})
+        self.assertTrue(60 <= rate["S1-08"] <= 100, rate)       # sinus rhythm
+        self.assertGreater(rate["S2-08"], 100)                  # sinus tachycardia (R25 sheet S2-08)
+        for s in M["stimuli"]:
+            if s["ecg_generator_parameters"]:
+                self.assertFalse(s["ecg_generator_parameters"]["st_elevation"])
+                self.assertEqual(s["ecg_generator_parameters"]["paper_speed_mm_s"], 25)
+
+    def test_schematics_carry_a_justification_and_their_limits(self):
+        for s in M["stimuli"]:
+            rc = s["review_controls"]
+            if s["stimulus_id"] in bank.PROCEDURAL_SCHEMATIC:
+                self.assertIn("NOT assumed valid", rc["validity_justification"])
+                self.assertTrue(rc["known_limitations"])
+            else:
+                self.assertIsNone(rc["validity_justification"])
+        twelve = next(s for s in M["stimuli"] if s["stimulus_id"] == "S2-09")["review_controls"]["known_limitations"]
+        self.assertIn("not a physiologically valid 12-lead", twelve)
+
+    def test_mobile_scale_is_recorded_for_images_only(self):
+        for s in M["stimuli"]:
+            if s["file"] and s["image_format"] == "PDF":
+                self.assertIsNone(s["mobile_360x640_contain_scale"])
+            elif s["file"] and s["phash_64"]:
+                self.assertTrue(0 < s["mobile_360x640_contain_scale"] <= 1.0)
+            if s["stimulus_id"] == "S2-13":
+                self.assertGreaterEqual(s["mobile_360x640_contain_scale"], 0.4)   # the printed text must survive the reduction
+
+
 if __name__ == "__main__":
     unittest.main()

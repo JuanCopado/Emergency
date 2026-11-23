@@ -35,6 +35,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "low_medium",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -46,6 +47,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 2,
    "origin_type": null,
    "pair_id": 1,
@@ -54,12 +56,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -79,6 +83,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "low_medium",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -90,6 +95,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 3,
    "origin_type": null,
    "pair_id": 1,
@@ -98,12 +104,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -123,6 +131,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "medium",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -134,6 +143,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 5,
    "origin_type": null,
    "pair_id": 2,
@@ -142,12 +152,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -167,6 +179,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "medium",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -178,6 +191,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 6,
    "origin_type": null,
    "pair_id": 2,
@@ -186,12 +200,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -211,6 +227,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "webp",
    "difficulty_level": "high",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -222,6 +239,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 8,
    "origin_type": null,
    "pair_id": 3,
@@ -230,12 +248,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -255,6 +275,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "webp",
    "difficulty_level": "high",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -266,6 +287,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 9,
    "origin_type": null,
    "pair_id": 3,
@@ -274,12 +296,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -299,6 +323,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "medium",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -310,6 +335,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 4,
    "origin_type": null,
    "pair_id": 4,
@@ -318,12 +344,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -343,6 +371,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "medium",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -354,6 +383,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 7,
    "origin_type": null,
    "pair_id": 4,
@@ -362,12 +392,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -387,6 +419,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "inspection_of_thumbnail_ignoring_filenames",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -398,6 +431,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 5,
    "origin_type": null,
    "pair_id": 5,
@@ -406,12 +440,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -431,6 +467,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "inspection_of_thumbnail_ignoring_filenames",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -442,6 +479,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 4,
    "origin_type": null,
    "pair_id": 5,
@@ -450,12 +488,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -475,6 +515,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "high_tonal_similarity",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -486,6 +527,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 6,
    "origin_type": null,
    "pair_id": 6,
@@ -494,12 +536,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -519,6 +563,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "high_tonal_similarity",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -530,6 +575,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 8,
    "origin_type": null,
    "pair_id": 6,
@@ -538,12 +584,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -563,6 +611,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "high_visual_similarity",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -574,6 +623,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 5,
    "origin_type": null,
    "pair_id": 7,
@@ -582,12 +632,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -607,6 +659,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "high_visual_similarity",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs authorized synthetic or open-licence skin/wound photographs with controlled skin tone and lighting; a procedural drawing would not be a scientifically adequate stimulus for appearance, skin tone or lighting variables.",
@@ -618,6 +671,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M1",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": 3,
    "origin_type": null,
    "pair_id": 7,
@@ -626,12 +680,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -651,6 +707,13 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "critical_control_zero_false_block",
+   "ecg_generator_parameters": {
+    "grid_px_per_mm": 8,
+    "heart_rate_bpm": 63,
+    "paper_speed_mm_s": 25,
+    "rhythm": "regular synthetic sinus-like",
+    "st_elevation": false
+   },
    "expected_layer7_trigger": null,
    "file": "stimuli/S1-08.jpg",
    "generation_impediment": null,
@@ -662,6 +725,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": 0.547,
    "mst_band": null,
    "origin_type": "synthetic_procedural_schematic",
    "pair_id": 8,
@@ -670,12 +734,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": "Clean synthetic paper render; no print noise, no stray marks.",
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": "Stage 1 measures usage errors (modality selection, confirmation, false cancellation, comprehension of technical abstentions), not diagnostic performance. For the legitimate-negative controls (scenario F) the stimulus only has to be recognizable as its true modality and technically valid (RGB photo, no DICOM) so that the pipeline must NOT block it. A schematic is a candidate for that narrow role only; it is NOT assumed valid until two independent reviewers rate realism >= 4/5 and the owner signs.",
     "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
     "visual_derivative_inspection": "PENDING"
    },
@@ -690,11 +756,18 @@
    "width": 658
   },
   {
-   "bytes": 93393,
+   "bytes": 94285,
    "clinical_adjudication_status": "PENDING_CLINICAL_ADJUDICATION",
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "critical_control_zero_false_block",
+   "ecg_generator_parameters": {
+    "grid_px_per_mm": 8,
+    "heart_rate_bpm": 120,
+    "paper_speed_mm_s": 25,
+    "rhythm": "regular synthetic sinus-like",
+    "st_elevation": false
+   },
    "expected_layer7_trigger": null,
    "file": "stimuli/S2-08.jpg",
    "generation_impediment": null,
@@ -706,27 +779,30 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": 0.544,
    "mst_band": null,
    "origin_type": "synthetic_procedural_schematic",
    "pair_id": 8,
-   "phash_64": "7e272525252d1381",
+   "phash_64": "7e27414565371381",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": "Clean synthetic paper render; no print noise, no stray marks.",
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": "Stage 1 measures usage errors (modality selection, confirmation, false cancellation, comprehension of technical abstentions), not diagnostic performance. For the legitimate-negative controls (scenario F) the stimulus only has to be recognizable as its true modality and technically valid (RGB photo, no DICOM) so that the pipeline must NOT block it. A schematic is a candidate for that narrow role only; it is NOT assumed valid until two independent reviewers rate realism >= 4/5 and the owner signs.",
     "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
     "visual_derivative_inspection": "PENDING"
    },
    "route_modality": "ecg",
    "scenario_code": "F",
    "set_id": 2,
-   "sha256": "6bd4a04beb53189cfe5d45f2e91efc0861c25fc7b8f28d4f84f709e90b4b9df5",
+   "sha256": "6b7ec6456cbdd04eee1dbed3357042199afbb4e08f6d34636087d7a22db32acd",
    "spec_text": "Foto móvil RGB sin DICOM (IMG_8022.jpg, inclinación 5°) de ECG sintético impreso (sin elevación ST).",
    "stimulus_id": "S2-08",
    "true_modality": "ecg",
@@ -739,6 +815,13 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "webp",
    "difficulty_level": "realism_of_screen_photo",
+   "ecg_generator_parameters": {
+    "grid_px_per_mm": 8,
+    "heart_rate_bpm": 63,
+    "paper_speed_mm_s": 25,
+    "rhythm": "regular synthetic sinus-like",
+    "st_elevation": false
+   },
    "expected_layer7_trigger": null,
    "file": "stimuli/S1-09.webp",
    "generation_impediment": null,
@@ -750,6 +833,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": 0.562,
    "mst_band": null,
    "origin_type": "synthetic_procedural_schematic",
    "pair_id": 9,
@@ -758,12 +842,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": "Monitor strip is a flat render with a gradient reflection; no multiparametric monitor chrome.",
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": "Stage 1 measures usage errors (modality selection, confirmation, false cancellation, comprehension of technical abstentions), not diagnostic performance. For the legitimate-negative controls (scenario F) the stimulus only has to be recognizable as its true modality and technically valid (RGB photo, no DICOM) so that the pipeline must NOT block it. A schematic is a candidate for that narrow role only; it is NOT assumed valid until two independent reviewers rate realism >= 4/5 and the owner signs.",
     "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
     "visual_derivative_inspection": "PENDING"
    },
@@ -783,6 +869,13 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "realism_of_screen_photo",
+   "ecg_generator_parameters": {
+    "grid_px_per_mm": 8,
+    "heart_rate_bpm": 63,
+    "paper_speed_mm_s": 25,
+    "rhythm": "regular synthetic sinus-like",
+    "st_elevation": false
+   },
    "expected_layer7_trigger": null,
    "file": "stimuli/S2-09.jpg",
    "generation_impediment": null,
@@ -794,6 +887,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": 0.5,
    "mst_band": null,
    "origin_type": "synthetic_procedural_schematic",
    "pair_id": 9,
@@ -802,12 +896,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": "Identical waveform in every lead: not a physiologically valid 12-lead ECG; expected to fail the realism review unless replaced.",
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": "Stage 1 measures usage errors (modality selection, confirmation, false cancellation, comprehension of technical abstentions), not diagnostic performance. For the legitimate-negative controls (scenario F) the stimulus only has to be recognizable as its true modality and technically valid (RGB photo, no DICOM) so that the pipeline must NOT block it. A schematic is a candidate for that narrow role only; it is NOT assumed valid until two independent reviewers rate realism >= 4/5 and the owner signs.",
     "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
     "visual_derivative_inspection": "PENDING"
    },
@@ -827,6 +923,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "critical_control_zero_false_block",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs an authorized synthetic or open-licence, PHI-free radiograph (and its screen photo); procedural drawing is not adequate.",
@@ -838,6 +935,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": null,
    "pair_id": 10,
@@ -846,12 +944,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -871,6 +971,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "critical_control_zero_false_block",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs an authorized synthetic or open-licence, PHI-free radiograph (and its screen photo); procedural drawing is not adequate.",
@@ -882,6 +983,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": null,
    "pair_id": 10,
@@ -890,12 +992,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -915,6 +1019,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "webp",
    "difficulty_level": "realism_urgent_xray",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs an authorized synthetic or open-licence, PHI-free radiograph (and its screen photo); procedural drawing is not adequate.",
@@ -926,6 +1031,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": null,
    "pair_id": 11,
@@ -934,12 +1040,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -959,6 +1067,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "realism_urgent_xray",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs an authorized synthetic or open-licence, PHI-free radiograph (and its screen photo); procedural drawing is not adequate.",
@@ -970,6 +1079,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": null,
    "pair_id": 11,
@@ -978,12 +1088,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -1003,6 +1115,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "critical_control_zero_false_block",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs an authorized phantom or open-licence ultrasound capture; procedural speckle is not adequate for FAST/lung windows.",
@@ -1014,6 +1127,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": null,
    "pair_id": 12,
@@ -1022,12 +1136,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -1047,6 +1163,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "critical_control_zero_false_block",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": null,
    "generation_impediment": "Needs an authorized phantom or open-licence ultrasound capture; procedural speckle is not adequate for FAST/lung windows.",
@@ -1058,6 +1175,7 @@
    "lifecycle_status": "PENDING_STIMULUS_GENERATION",
    "mechanism_id": "M3",
    "metadata_findings": null,
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": null,
    "pair_id": 12,
@@ -1066,12 +1184,14 @@
    "phi_audit_status": "NOT_APPLICABLE_NOT_GENERATED",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -1091,6 +1211,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "pdf",
    "difficulty_level": "pdf_and_photo_in_document_route",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": "stimuli/S1-13.pdf",
    "generation_impediment": null,
@@ -1102,6 +1223,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": "synthetic_procedural",
    "pair_id": 13,
@@ -1110,12 +1232,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -1130,48 +1254,52 @@
    "width": null
   },
   {
-   "bytes": 29405,
+   "bytes": 72047,
    "clinical_adjudication_status": "PENDING_CLINICAL_ADJUDICATION",
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg",
    "difficulty_level": "pdf_and_photo_in_document_route",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": null,
    "file": "stimuli/S2-13.jpg",
    "generation_impediment": null,
    "generation_status": "GENERATED_TECHNICAL_PLACEHOLDER",
-   "height": 694,
+   "height": 1042,
    "image_format": "JPEG",
    "language_stratum": "language_neutral",
    "license_ref": "CC0-1.0 (content generated by project code; no third-party material)",
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M3",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": 0.433,
    "mst_band": null,
    "origin_type": "synthetic_procedural_schematic",
    "pair_id": 13,
-   "phash_64": "3f01416141010303",
+   "phash_64": "3f13117141010303",
    "phi_audit_passed": null,
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": "Synthetic text sheet with placeholder values (0,0); header and layout are generic.",
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": "Stage 1 measures usage errors (modality selection, confirmation, false cancellation, comprehension of technical abstentions), not diagnostic performance. For the legitimate-negative controls (scenario F) the stimulus only has to be recognizable as its true modality and technically valid (RGB photo, no DICOM) so that the pipeline must NOT block it. A schematic is a candidate for that narrow role only; it is NOT assumed valid until two independent reviewers rate realism >= 4/5 and the owner signs.",
     "validity_note": "NOT_ASSUMED_VALID_REQUIRES_REALISM_REVIEW",
     "visual_derivative_inspection": "PENDING"
    },
    "route_modality": "document",
    "scenario_code": "F",
    "set_id": 2,
-   "sha256": "711d8879c0ac8e62fac4e7095541c56685485c789ffb988a3d67b390c05cdb54",
+   "sha256": "dab1bfeb66cba747b16927d245178e8d2cfdc8efcc9ab1c94aac9f835899d3de",
    "spec_text": "Foto móvil RGB (JPEG) de hoja impresa sintética de analítica/informe con pliegue leve por ruta Documento (puente kind=null).",
    "stimulus_id": "S2-13",
    "true_modality": "document",
    "visual_review_status": "PENDING_VISUAL_REVIEW",
-   "width": 556
+   "width": 832
   },
   {
    "bytes": 8933,
@@ -1179,6 +1307,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "unspecified_image",
    "difficulty_level": "trigger_expected",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": "T7-01_UNDECLARED_MODALITY",
    "file": "stimuli/S1-14.png",
    "generation_impediment": null,
@@ -1190,6 +1319,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": 1.0,
    "mst_band": null,
    "origin_type": "synthetic_procedural",
    "pair_id": 14,
@@ -1198,12 +1328,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -1223,6 +1355,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "pdf",
    "difficulty_level": "trigger_expected",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": "T7-01_UNDECLARED_MODALITY",
    "file": "stimuli/S2-14.pdf",
    "generation_impediment": null,
@@ -1234,6 +1367,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": "synthetic_procedural",
    "pair_id": 14,
@@ -1242,12 +1376,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -1267,6 +1403,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "jpeg_corrupt",
    "difficulty_level": "trigger_expected",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
    "file": "stimuli/S1-15.jpg",
    "generation_impediment": null,
@@ -1278,6 +1415,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": 1.0,
    "mst_band": null,
    "origin_type": "synthetic_procedural",
    "pair_id": 15,
@@ -1286,12 +1424,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
@@ -1311,6 +1451,7 @@
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "pdf",
    "difficulty_level": "trigger_expected",
+   "ecg_generator_parameters": null,
    "expected_layer7_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
    "file": "stimuli/S2-15.pdf",
    "generation_impediment": null,
@@ -1322,6 +1463,7 @@
    "lifecycle_status": "GENERATED_NOT_ADJUDICATED",
    "mechanism_id": "M2",
    "metadata_findings": [],
+   "mobile_360x640_contain_scale": null,
    "mst_band": null,
    "origin_type": "synthetic_procedural",
    "pair_id": 15,
@@ -1330,12 +1472,14 @@
    "phi_audit_status": "AUTOMATED_SCAN_ONLY_HUMAN_REVIEW_PENDING",
    "review_controls": {
     "freeze_seal_eligible": false,
+    "known_limitations": null,
     "realism_review_360x640": {
      "required": "clinical realism >= 4/5 from EACH of 2 independent reviewers, unambiguous true modality, agreed pair difficulty",
      "reviewer_1": "PENDING",
      "reviewer_2": "PENDING",
      "third_adjudicator_if_disagreement": "PENDING"
     },
+    "validity_justification": null,
     "validity_note": null,
     "visual_derivative_inspection": "PENDING"
    },
