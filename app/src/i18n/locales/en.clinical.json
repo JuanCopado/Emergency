@@ -241,6 +241,7 @@
   "O ficheiro original contém dados adicionais após a imagem. Não são enviados ao serviço.": "The original file contains extra data after the image. It is not sent to the service.",
   "O ficheiro original contém metadados. São removidos antes do envio ao serviço.": "The original file contains metadata. It is removed before sending to the service.",
   "Categoria efetiva:": "Effective category:",
+  "PDF/Documento": "PDF/Document",
   "escolhida por si.": "chosen by you.",
   "inferida do nome do ficheiro; não verifica a modalidade real da imagem.": "inferred from the file name; it does not verify the real modality of the image.",
   "inferida do tipo de contentor; não verifica a modalidade real do conteúdo.": "inferred from the container type; it does not verify the real modality of the content.",

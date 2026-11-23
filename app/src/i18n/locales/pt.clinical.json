@@ -241,6 +241,7 @@
   "O ficheiro original contém dados adicionais após a imagem. Não são enviados ao serviço.": "O ficheiro original contém dados adicionais após a imagem. Não são enviados ao serviço.",
   "O ficheiro original contém metadados. São removidos antes do envio ao serviço.": "O ficheiro original contém metadados. São removidos antes do envio ao serviço.",
   "Categoria efetiva:": "Categoria efetiva:",
+  "PDF/Documento": "PDF/Documento",
   "escolhida por si.": "escolhida por si.",
   "inferida do nome do ficheiro; não verifica a modalidade real da imagem.": "inferida do nome do ficheiro; não verifica a modalidade real da imagem.",
   "inferida do tipo de contentor; não verifica a modalidade real do conteúdo.": "inferida do tipo de contentor; não verifica a modalidade real do conteúdo.",
