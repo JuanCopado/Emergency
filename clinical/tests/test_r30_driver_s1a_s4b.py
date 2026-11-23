@@ -44,7 +44,10 @@ class Normative(unittest.TestCase):
                 self.assertIn({6: 7, 7: 6}[first], sub2)
 
     def test_expansion_is_deterministic_for_a_registered_seed(self):
-        self.assertEqual(cb.expand_normative("S2b", seed="X"), cb.expand_normative("S2b", seed="X"))
+        first = cb.expand_normative("S2b", seed="X")
+        second = cb.expand_normative("S2b", seed="X")                              # a fresh call, not the same object
+        self.assertEqual(first, second)
+        self.assertIsNot(first, second)
         self.assertNotEqual([t["pair"] for t in cb.expand_normative("S2b", seed="X")], [t["pair"] for t in cb.expand_normative("S2b", seed="Y")])
 
     def test_washout_is_fixed_at_ten_minutes(self):
