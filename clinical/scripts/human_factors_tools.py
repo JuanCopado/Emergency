@@ -289,26 +289,59 @@ def _quantile(sorted_values, q):
     return _percentile(sorted_values, min(max(q, 0.0), 1.0))
 
 
-def _bca(point, samples, jackknife):
-    """Bias-corrected and accelerated interval from bootstrap samples and leave-one-participant-out values."""
+BCA_MIN_PER_SEQUENCE = 2        # C2: each AB/BA stratum must hold >= 2 participants of the estimand. PROVISIONAL: the numeric
+                                # threshold is not in any source available to this tool (R26 Gemini table not received).
+BCA_C2_THRESHOLD_STATUS = "PROVISIONAL_NOT_SPECIFIED_IN_AVAILABLE_SOURCES"
+
+
+def _bca_diagnosed(point, samples, jackknife):
+    """Bias-corrected and accelerated interval from bootstrap samples and leave-one-participant-out values.
+
+    Returns (bounds | None, diagnostics). Nothing is silently replaced (C4): a degenerate bias correction, a null jackknife
+    variance (undefined acceleration), a non-positive denominator or an adjusted quantile outside (0, 1) withholds the interval
+    and says why, so the caller reports the cluster percentile interval instead."""
     observed = sorted(v for v in samples if v is not None)
     leave_out = [v for v in jackknife if v is not None]
+    diag = {"z0": None, "acceleration": None, "adjusted_alphas": None, "failure": None}
     if point is None or len(observed) < 2 or len(leave_out) < 2:
-        return None
+        diag["failure"] = "insufficient_bootstrap_or_jackknife_values"
+        return None, diag
     below = sum(v < point for v in observed) / len(observed)
-    below = min(max(below, 1 / (2 * len(observed))), 1 - 1 / (2 * len(observed)))
+    if below <= 0.0 or below >= 1.0:
+        diag["failure"] = "bias_correction_degenerate"                  # z0 would be infinite
+        return None, diag
     z0 = NORMAL.inv_cdf(below)
     mean = sum(leave_out) / len(leave_out)
     cubes = sum((mean - v) ** 3 for v in leave_out)
     squares = sum((mean - v) ** 2 for v in leave_out)
-    acceleration = cubes / (6 * squares ** 1.5) if squares > 0 else 0.0
-    bounds = []
+    if squares <= 0:
+        diag.update(z0=round(z0, 6), failure="acceleration_undefined_null_jackknife_variance")
+        return None, diag
+    acceleration = cubes / (6 * squares ** 1.5)
+    diag.update(z0=round(z0, 6), acceleration=round(acceleration, 6))
+    bounds, alphas = [], []
     for alpha in (0.025, 0.975):
         z = NORMAL.inv_cdf(alpha)
         denominator = 1 - acceleration * (z0 + z)
-        adjusted = NORMAL.cdf(z0 + (z0 + z) / denominator) if denominator > 0 else alpha
+        if denominator <= 0:
+            diag["failure"] = "adjusted_quantile_denominator_not_positive"
+            return None, diag
+        adjusted = NORMAL.cdf(z0 + (z0 + z) / denominator)
+        if not 0.0 < adjusted < 1.0 or adjusted != adjusted:
+            diag["failure"] = "adjusted_quantile_invalid"
+            return None, diag
+        alphas.append(round(adjusted, 6))
         bounds.append(round(_quantile(observed, adjusted), 4))
-    return bounds
+    if not alphas[0] < alphas[1]:
+        diag["failure"] = "adjusted_quantiles_not_ordered"
+        return None, diag
+    diag["adjusted_alphas"] = alphas
+    return bounds, diag
+
+
+def _bca(point, samples, jackknife):
+    """Historical interface (bounds or None); the diagnosed variant explains every refusal."""
+    return _bca_diagnosed(point, samples, jackknife)[0]
 
 
 def _bootstrap(ids, resamples, rng, estimator, strata=None, event_flags=None):
@@ -325,12 +358,23 @@ def _bootstrap(ids, resamples, rng, estimator, strata=None, event_flags=None):
     samples = [estimator(cluster_resample(ids, rng, strata)) for _ in range(resamples)] if len(ids) >= 2 else []
     observed = [v for v in samples if v is not None]
     degenerate = len(observed) >= 2 and len(set(observed)) == 1
-    bca_admissible = (participants >= BCA_MIN_PARTICIPANTS and not degenerate and len(ids) >= 3 and bool(samples)
-                      and (event_flags is None or (with_event >= BCA_MIN_WITH_EVENT and without_event >= BCA_MIN_WITHOUT_EVENT)))
-    bca = None
+    c1 = participants >= BCA_MIN_PARTICIPANTS
+    if strata:
+        per_stratum = Counter(strata[c] for c in ids)
+        c2 = len(per_stratum) >= 2 and all(n >= BCA_MIN_PER_SEQUENCE for n in per_stratum.values())
+    else:
+        c2 = None                                                       # not a crossed estimand: no sequence strata
+    c3 = (not degenerate and len(ids) >= 3 and bool(samples)
+          and (event_flags is None or (with_event >= BCA_MIN_WITH_EVENT and without_event >= BCA_MIN_WITHOUT_EVENT)))
+    bca_admissible = c1 and c3 and c2 is not False
+    bca, bca_parameters, c4 = None, None, None
     if bca_admissible:
         jackknife = [estimator([x for x in ids if x != left]) for left in ids]
-        bca = _bca(point, samples, jackknife)
+        bca, bca_parameters = _bca_diagnosed(point, samples, jackknife)
+        c4 = bca is not None
+    conditions = {"C1_min_participants": c1, "C2_sequences_represented": c2, "C3_variation_and_events": c3, "C4_parameters_valid": c4}
+    conditions["failed"] = [k for k in ("C1_min_participants", "C2_sequences_represented", "C3_variation_and_events",
+                                        "C4_parameters_valid") if conditions[k] is False]
     percentile = None if degenerate else _interval(samples)
     if bca:
         primary, status = "bca", "BCA_PRIMARY"
@@ -339,6 +383,7 @@ def _bootstrap(ids, resamples, rng, estimator, strata=None, event_flags=None):
         status = BCA_FALLBACK if not bca_admissible else "BCA_NOT_COMPUTABLE"
     return {"estimate": _rounded(point), "cluster_bootstrap_95": percentile,
             "cluster_bootstrap_bca_95": bca, "primary_interval": primary, "bca_status": status,
+            "bca_conditions": conditions, "bca_parameters": bca_parameters,
             "participants_in_estimand": participants, "participants_with_event": with_event, "participants_without_event": without_event,
             "small_cluster_warning": participants < SMALL_CLUSTER_REFERENCE,
             "very_small_cluster_descriptive_only": participants < VERY_SMALL_CLUSTER,
@@ -519,7 +564,7 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
                    "bootstrap_replicates": resamples if len(ids) >= 2 else 0, "bootstrap_seed": str(seed),
                    "small_cluster_warning": len(ids) < SMALL_CLUSTER_REFERENCE,
                    "very_small_cluster_descriptive_only": len(ids) < VERY_SMALL_CLUSTER,
-                   "bca_policy": {"min_participants": BCA_MIN_PARTICIPANTS, "min_with_event": BCA_MIN_WITH_EVENT,
+                   "bca_policy": {"conditions": "C1 participants>=20; C2 each AB/BA stratum >= min_per_sequence (" + BCA_C2_THRESHOLD_STATUS + "); C3 variation and events; C4 valid bias/acceleration/adjusted quantiles", "min_per_sequence": BCA_MIN_PER_SEQUENCE, "min_participants": BCA_MIN_PARTICIPANTS, "min_with_event": BCA_MIN_WITH_EVENT,
                                   "min_without_event": BCA_MIN_WITHOUT_EVENT, "otherwise": BCA_FALLBACK},
                    "small_cluster_note": "fewer participants than the literature reference for stable cluster-bootstrap coverage (30); read intervals with caution and with the model-based estimates once available"},
         "trial_level_metrics": {
@@ -570,7 +615,7 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
     }
 
 
-TOOL_VERSION = "hf-tools-0.4"
+TOOL_VERSION = "hf-tools-0.5"
 SCENARIO_FIELDS = {"scenario_id", "intended_modality", "synthetic", "case_code", "platforms"}
 SCENARIO_OPTIONAL = {"bank_set", "stimulus_sha256"}
 BANK_SETS = ("set1", "set2")

@@ -121,7 +121,9 @@ class Boundaries(unittest.TestCase):
         out, _ = run(12, 3)
         design = out["design"]
         self.assertTrue(design["very_small_cluster_descriptive_only"])
-        self.assertEqual(design["bca_policy"], {"min_participants": 20, "min_with_event": 2, "min_without_event": 2, "otherwise": hf.BCA_FALLBACK})
+        policy = design["bca_policy"]       # R27 adds C2/C4 keys; the R24 keys keep their values
+        for key, value in {"min_participants": 20, "min_with_event": 2, "min_without_event": 2, "otherwise": hf.BCA_FALLBACK}.items():
+            self.assertEqual(policy[key], value)
 
     def test_the_tool_never_claims_stage_2_models(self):
         out, _ = run(12, 3)
