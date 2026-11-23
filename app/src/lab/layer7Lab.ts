@@ -46,7 +46,7 @@ export async function evaluateLayer7(file: File, uiModality: string | null, kind
   return verdict;
 }
 
-/** Literal recovery controls per trigger (R27 §7). Labels exist in the three approved languages; none is a "force send". */
+/** Literal recovery controls per trigger (R27 §7). Labels exist in the three approved languages; none lets the user override the abstention. */
 export const RECOVERY_LABELS: Record<string, Record<'es' | 'pt' | 'en', { primary: string; secondary?: string }>> = {
   'T7-01': { es: { primary: 'Elegir modalidad' }, pt: { primary: 'Escolher modalidade' }, en: { primary: 'Choose modality' } },
   'T7-02': { es: { primary: 'Elegir modalidad' }, pt: { primary: 'Escolher modalidade' }, en: { primary: 'Choose modality' } },
