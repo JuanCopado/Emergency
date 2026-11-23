@@ -432,6 +432,105 @@ class Stage1Infrastructure(unittest.TestCase):
         self.assertEqual(out["tool_version"], hf.TOOL_VERSION)
 
 
+class R20StatisticalPlan(unittest.TestCase):
+    """Gemini R20 statistical plan: BCa, exact participant-level inference, zero events, small clusters, stage-2 inputs."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.out = hf.summarize(crossed_rows(4, 4, trials=5, err_base=3), resamples=B)
+        cls.zero = hf.summarize(crossed_rows(3, 3, trials=4), resamples=B)
+
+    def test_the_bca_interval_is_the_primary_interval_and_the_percentile_one_stays_available(self):
+        cell = self.out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(cell["primary_interval"], "bca")
+        self.assertEqual(len(cell["cluster_bootstrap_bca_95"]), 2)
+        self.assertEqual(len(cell["cluster_bootstrap_95"]), 2)
+        self.assertLessEqual(cell["cluster_bootstrap_bca_95"][0], cell["estimate"])
+        self.assertGreaterEqual(cell["cluster_bootstrap_bca_95"][1], cell["estimate"])
+
+    def test_bca_is_undefined_for_degenerate_or_tiny_samples(self):
+        self.assertIsNone(hf._bca(0.5, [0.5, 0.5], [0.5]))
+        self.assertIsNone(hf._bca(None, [0.1, 0.2, 0.3], [0.1, 0.2, 0.3]))
+        interval = hf._bca(0.3, [0.1, 0.2, 0.3, 0.4, 0.5, 0.35, 0.25], [0.28, 0.31, 0.3, 0.29])
+        self.assertTrue(0.0 < interval[0] <= interval[1] <= 1.0)
+        zero_cell = self.zero["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertIsNone(zero_cell["cluster_bootstrap_bca_95"])
+        self.assertIsNone(zero_cell["primary_interval"])
+        self.assertTrue(zero_cell["zero_event_degeneracy_flag"])
+
+    def test_the_small_cluster_warning_follows_the_participant_count(self):
+        self.assertTrue(self.out["design"]["small_cluster_warning"])
+        self.assertIn("30", self.out["design"]["small_cluster_note"])
+        big = hf.summarize(crossed_rows(15, 15, trials=1), resamples=20)
+        self.assertFalse(big["design"]["small_cluster_warning"])
+        self.assertEqual(big["design"]["participants"], 30)
+
+    def test_zero_events_report_both_denominators_and_the_participant_level_upper_bound_only(self):
+        report = self.zero["zero_event_reports"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(report["events_over_trials"], "0/24")
+        self.assertEqual(report["participants_with_event_over_participants"], "0/6")
+        self.assertAlmostEqual(report["participant_risk_upper_95_one_sided"], 1 - 0.05 ** (1 / 6), places=4)
+        self.assertAlmostEqual(report["participant_risk_upper_95_two_sided"], 1 - 0.025 ** (1 / 6), places=4)
+        self.assertIn("never an exact trial-rate interval", report["label"])
+        self.assertIn("0/N trials", report["forbidden"])
+        self.assertIsNone(self.out["zero_event_reports"]["baseline"]["confirmation_error_rate"])   # events present: no zero report
+        self.assertEqual(hf.zero_event_report(0, 10, 0, 0), None)
+
+    def test_participant_level_inference_is_exact_over_participants_and_mcnemar_is_exact(self):
+        exact = self.out["participant_level_metrics"]["exact_over_participants"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual((exact["participants"], exact["with_event"]), (8, 3))
+        low, high = hf.clopper_pearson(3, 8)
+        self.assertEqual(exact["exact_95_over_participants"], [round(low, 4), round(high, 4)])
+        mc = self.out["participant_level_metrics"]["mcnemar_exact"]["confirmation_error_rate"]
+        self.assertEqual((mc["baseline_only_event"], mc["prototype_only_event"]), (3, 0))
+        self.assertAlmostEqual(mc["p_value_exact_two_sided"], 0.25, places=4)
+        self.assertIn("never an acceptance verdict", mc["note"])
+        self.assertAlmostEqual(hf.mcnemar_exact(5, 1), 2 * (1 + 6) / 64, places=6)
+        self.assertEqual(hf.mcnemar_exact(0, 0), 1.0)
+        self.assertEqual(hf.mcnemar_exact(4, 4), 1.0)
+
+    def test_the_icc_and_the_design_effect_feed_the_stage_2_planning_inputs(self):
+        self.assertAlmostEqual(hf.icc_anova([(5, 5), (0, 5), (0, 5), (5, 5)]), 1.0, places=6)    # errors fully clustered
+        self.assertIsNone(hf.icc_anova([(1, 1)]))
+        self.assertIsNone(hf.icc_anova([(1, 1), (0, 1)]))                                         # no within-cluster information
+        planning = self.out["stage2_planning_inputs"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(planning["participants"], 8)
+        self.assertEqual(planning["p_trial"], 0.375)
+        self.assertAlmostEqual(planning["rho_hat_anova"], 1.0, places=3)
+        self.assertAlmostEqual(planning["deff_hat"], 1 + (5 - 1) * 1.0, places=3)
+
+    def test_the_models_are_declared_not_implemented_and_the_carryover_pretest_never_runs(self):
+        models = self.out["crossover_and_device_models"]
+        self.assertEqual(models["status"], "NOT_IMPLEMENTED_STDLIB_ONLY")
+        self.assertEqual(models["carryover_pretest"], "PROHIBITED_NEVER_PERFORMED")
+        self.assertIn("GLMM", models["primary_model_prespecified"])
+        self.assertIn("GEE", models["marginal_alternative_prespecified"])
+        self.assertIn("never a conditional switch", models["period1_sensitivity_descriptive"]["note"])
+        self.assertEqual(set(models["period1_sensitivity_descriptive"]["by_condition"]), {"baseline", "prototype"})
+
+    def test_no_acceptance_decision_is_taken_and_the_stage_is_declared(self):
+        self.assertEqual(self.out["acceptance_decision"], "PENDING_PHYSICIAN_OWNER_REVIEW")
+        self.assertEqual(self.out["design"]["study_stage"], "STAGE_1_FORMATIVE_ESTIMATION")
+        self.assertEqual(self.out["design"]["bootstrap_seed"], "r15")
+        self.assertEqual(self.out["study_status"], "NOT_EXECUTED_TOOLING_ONLY")
+        text = json.dumps(self.out)
+        self.assertNotIn('"PASS"', text)
+        self.assertNotIn('"FAIL"', text)
+
+    def test_the_export_records_the_commit_and_the_manifest_and_dataset_hashes(self):
+        rows = crossed_rows(2, 2, trials=2)
+        man = manifest_for(rows)
+        pkg = hf.export_package({"manifest": man, "records": rows}, resamples=20, seed="k", git_commit_sha="abc1234")
+        self.assertEqual(pkg["git_commit_sha"], "abc1234")
+        self.assertEqual(pkg["stimuli_manifest_sha256"], hf.digest(man))
+        self.assertEqual(pkg["dataset_sha256"], hf.digest(rows))
+        self.assertEqual((pkg["study_stage"], pkg["bootstrap_replicates"], pkg["bootstrap_seed"]), ("STAGE_1_FORMATIVE_ESTIMATION", 20, "k"))
+        self.assertIsNone(hf.export_package({"manifest": man, "records": rows}, resamples=20)["git_commit_sha"])
+        for bad in ("XYZ", "ABC1234", "12", "g" * 8):
+            with self.assertRaises(ValueError):
+                hf.export_package({"manifest": man, "records": rows}, resamples=20, git_commit_sha=bad)
+
+
 class CommandLine(unittest.TestCase):
     def test_cli_runs_over_standard_input_only(self):
         raw = json.dumps([trial(), trial(condition="prototype", period=2)]).encode("utf-8")

@@ -19,6 +19,7 @@ import json
 import math
 import random
 import re
+import statistics
 import sys
 from collections import Counter, defaultdict
 
@@ -275,14 +276,85 @@ def _estimate(tables, drawn, key, measure):
     return measure(total(tables, drawn, key))
 
 
+SMALL_CLUSTER_REFERENCE = 30   # literature reference for stable cluster-bootstrap coverage (Deen & de Rooij 2020), not a study threshold
+NORMAL = statistics.NormalDist()
+
+
+def _quantile(sorted_values, q):
+    return _percentile(sorted_values, min(max(q, 0.0), 1.0))
+
+
+def _bca(point, samples, jackknife):
+    """Bias-corrected and accelerated interval from bootstrap samples and leave-one-participant-out values."""
+    observed = sorted(v for v in samples if v is not None)
+    leave_out = [v for v in jackknife if v is not None]
+    if point is None or len(observed) < 2 or len(leave_out) < 2:
+        return None
+    below = sum(v < point for v in observed) / len(observed)
+    below = min(max(below, 1 / (2 * len(observed))), 1 - 1 / (2 * len(observed)))
+    z0 = NORMAL.inv_cdf(below)
+    mean = sum(leave_out) / len(leave_out)
+    cubes = sum((mean - v) ** 3 for v in leave_out)
+    squares = sum((mean - v) ** 2 for v in leave_out)
+    acceleration = cubes / (6 * squares ** 1.5) if squares > 0 else 0.0
+    bounds = []
+    for alpha in (0.025, 0.975):
+        z = NORMAL.inv_cdf(alpha)
+        denominator = 1 - acceleration * (z0 + z)
+        adjusted = NORMAL.cdf(z0 + (z0 + z) / denominator) if denominator > 0 else alpha
+        bounds.append(round(_quantile(observed, adjusted), 4))
+    return bounds
+
+
 def _bootstrap(ids, resamples, rng, estimator, strata=None):
-    """Point estimate on the real participants plus the percentile interval over participant resamples."""
+    """Point estimate on the real participants plus percentile and BCa intervals over participant resamples."""
     point = estimator(ids)
     samples = [estimator(cluster_resample(ids, rng, strata)) for _ in range(resamples)] if len(ids) >= 2 else []
     observed = [v for v in samples if v is not None]
     degenerate = len(observed) >= 2 and len(set(observed)) == 1
+    jackknife = [estimator([x for x in ids if x != left]) for left in ids] if len(ids) >= 3 and not degenerate and samples else []
+    bca = None if degenerate else _bca(point, samples, jackknife)
     return {"estimate": _rounded(point), "cluster_bootstrap_95": None if degenerate else _interval(samples),
-            "degenerate_interval": degenerate, "note": DEGENERATE_NOTE if degenerate else None}
+            "cluster_bootstrap_bca_95": bca, "primary_interval": "bca" if bca else ("percentile" if not degenerate else None),
+            "degenerate_interval": degenerate, "zero_event_degeneracy_flag": degenerate,
+            "note": DEGENERATE_NOTE if degenerate else None}
+
+
+def _binom_cdf(k, n, p=0.5):
+    return sum(math.comb(n, i) * p ** i * (1 - p) ** (n - i) for i in range(0, k + 1))
+
+
+def mcnemar_exact(b, c):
+    """Two-sided exact McNemar p-value from the discordant pairs (exploratory; never an acceptance verdict)."""
+    n = b + c
+    if n == 0:
+        return 1.0
+    return min(1.0, 2 * _binom_cdf(min(b, c), n))
+
+
+def icc_anova(clusters):
+    """One-way ANOVA intraclass correlation of binary outcomes for clusters of (events, trials); None if undefined."""
+    sizes = [m for _, m in clusters if m > 0]
+    k, total = len(sizes), sum(sizes)
+    if k < 2 or total <= k:
+        return None
+    ordered = [(e, m) for e, m in clusters if m > 0]
+    grand = sum(e for e, _ in ordered) / total
+    between = sum(m * (e / m - grand) ** 2 for e, m in ordered) / (k - 1)
+    within = sum(e * (1 - e / m) for e, m in ordered) / (total - k)   # sum over trials of (y - cluster mean)^2 for binary y
+    m0 = (total - sum(m * m for m in sizes) / total) / (k - 1)
+    denominator = between + (m0 - 1) * within
+    return None if denominator <= 0 else (between - within) / denominator
+
+
+def zero_event_report(events, trials, participants_with_events, participants):
+    if events != 0 or trials <= 0 or participants <= 0:
+        return None
+    return {"events_over_trials": f"0/{trials}", "participants_with_event_over_participants": f"0/{participants}",
+            "participant_risk_upper_95_one_sided": round(1 - 0.05 ** (1 / participants), 4),
+            "participant_risk_upper_95_two_sided": round(1 - 0.025 ** (1 / participants), 4),
+            "label": "upper bound of the participant-level risk P(Y_i >= 1); a worst-case envelope for the trial rate, never an exact trial-rate interval",
+            "forbidden": "Clopper-Pearson or Wilson over 0/N trials (assumes rho = 0)"}
 
 
 def _participant_cell(tables, p, condition, metric):
@@ -351,13 +423,60 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
             return None if late is None or early is None else late - early
         return boot(ids, estimator)
 
+    def eligible_counts(condition, metric):
+        cells = [_participant_cell(tables, q, condition, metric) for q in ids]
+        eligible = [c for c in cells if c[metric + ":den"] > 0]
+        return eligible, sum(c[metric + ":num"] > 0 for c in eligible)
+
+    def participant_exact(condition, metric):
+        eligible, with_event = eligible_counts(condition, metric)
+        interval = clopper_pearson(with_event, len(eligible))
+        report = zero_event_report(sum(c[metric + ":num"] for c in eligible), sum(c[metric + ":den"] for c in eligible),
+                                   with_event, len(eligible))
+        return {"participants": len(eligible), "with_event": with_event,
+                "exact_95_over_participants": [round(x, 4) for x in interval] if interval else None,
+                "zero_event_report": report}
+
+    def mcnemar(metric):
+        b = c = 0
+        for q in both_ids:
+            base, proto = _participant_cell(tables, q, "baseline", metric), _participant_cell(tables, q, "prototype", metric)
+            if base[metric + ":den"] == 0 or proto[metric + ":den"] == 0:
+                continue
+            base_event, proto_event = base[metric + ":num"] > 0, proto[metric + ":num"] > 0
+            b += base_event and not proto_event
+            c += proto_event and not base_event
+        return {"baseline_only_event": b, "prototype_only_event": c, "p_value_exact_two_sided": round(mcnemar_exact(b, c), 4),
+                "note": "exploratory; never an acceptance verdict"}
+
+    def trial_zero_report(condition, metric):
+        eligible, with_event = eligible_counts(condition, metric)
+        return zero_event_report(sum(c[metric + ":num"] for c in eligible), sum(c[metric + ":den"] for c in eligible),
+                                 with_event, len(eligible))
+
+    def stage2_inputs(condition, metric):
+        eligible, _ = eligible_counts(condition, metric)
+        clusters = [(c[metric + ":num"], c[metric + ":den"]) for c in eligible]
+        trials = sum(m for _, m in clusters)
+        rho = icc_anova(clusters)
+        mean_trials = trials / len(clusters) if clusters else None
+        return {"p_trial": _rounded(rate(total(tables, ids, (condition, ("all",))), metric)), "participants": len(clusters),
+                "mean_trials_per_participant": _rounded(mean_trials), "rho_hat_anova": _rounded(rho),
+                "deff_hat": _rounded(None if rho is None or mean_trials is None else 1 + (mean_trials - 1) * max(rho, 0.0))}
+
+    def period1(condition, metric):
+        return _rounded(rate(total(tables, ids, (condition, ("period", 1))), metric))
+
     return {
         "design": {"unit_of_analysis": "participant", "trials": len(records), "participants": len(ids),
                    "participants_with_both_conditions": len(both_ids), "paired": True, "crossed": "AB/BA",
                    "sequences": dict(Counter(strata.values())), "resampling_stratified_by_sequence": True,
                    "resamples": resamples if len(ids) >= 2 else 0, "resamples_default": DEFAULT_RESAMPLES,
                    "seed": str(seed), "trials_per_condition_and_period": dict(Counter(f"{t['condition']}@period{t['period']}" for t in records)),
-                   "independence_of_trials": "NOT_ASSUMED"},
+                   "independence_of_trials": "NOT_ASSUMED", "study_stage": "STAGE_1_FORMATIVE_ESTIMATION",
+                   "bootstrap_replicates": resamples if len(ids) >= 2 else 0, "bootstrap_seed": str(seed),
+                   "small_cluster_warning": len(ids) < SMALL_CLUSTER_REFERENCE,
+                   "small_cluster_note": "fewer participants than the literature reference for stable cluster-bootstrap coverage (30); read intervals with caution and with the model-based estimates once available"},
         "trial_level_metrics": {
             "note": "Rates per trial pooled over trials; participants are the resampling unit.",
             "by_condition": {c: {m: cell(m, c, ("all",)) for m in METRICS} for c in CONDITIONS},
@@ -372,7 +491,20 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
             "note": "Share of participants with at least one event among those with at least one eligible trial.",
             "by_condition": {c: {m: participant_cell(m, c) for m in PARTICIPANT_METRICS} for c in CONDITIONS},
             "paired_difference_prototype_minus_baseline": {m: participant_paired(m) for m in PARTICIPANT_METRICS},
+            "exact_over_participants": {c: {m: participant_exact(c, m) for m in PARTICIPANT_METRICS} for c in CONDITIONS},
+            "mcnemar_exact": {m: mcnemar(m) for m in PARTICIPANT_METRICS},
         },
+        "zero_event_reports": {c: {m: trial_zero_report(c, m) for m in PARTICIPANT_METRICS} for c in CONDITIONS},
+        "crossover_and_device_models": {
+            "status": "NOT_IMPLEMENTED_STDLIB_ONLY",
+            "primary_model_prespecified": "logistic GLMM: intervention + period + sequence + device + participant random intercept (preferred; needs a statistics package)",
+            "marginal_alternative_prespecified": "GEE exchangeable with small-sample robust variance (Mancl-DeRouen / Kauermann-Carroll)",
+            "carryover_pretest": "PROHIBITED_NEVER_PERFORMED",
+            "period1_sensitivity_descriptive": {"note": "pre-planned sensitivity analysis; no power control; between-participant; never a conditional switch",
+                                                "by_condition": {c: {m: period1(c, m) for m in PARTICIPANT_METRICS} for c in CONDITIONS}},
+        },
+        "stage2_planning_inputs": {c: {m: stage2_inputs(c, m) for m in PARTICIPANT_METRICS} for c in CONDITIONS},
+        "acceptance_decision": "PENDING_PHYSICIAN_OWNER_REVIEW",
         "period_and_learning": {
             "note": "Period effect = period 2 minus period 1 and learning = late minus early trials, both pooled over conditions; "
                     "stratified resampling keeps the AB/BA balance so they are not read as condition effects.",
@@ -469,14 +601,18 @@ def check_records_against_manifest(records, manifest):
             raise ValueError(f"scenario {record['scenario_id']} is not defined for platform {record['platform']}")
 
 
-def export_package(payload, resamples=DEFAULT_RESAMPLES, seed="r15"):
+def export_package(payload, resamples=DEFAULT_RESAMPLES, seed="r15", git_commit_sha=None):
     """Reproducible export: summary + hashes of the records and of the versioned scenario manifest."""
     if not isinstance(payload, dict) or set(payload) != {"manifest", "records"}:
         raise ValueError("export input must contain exactly manifest and records")
     validate_records(payload["records"])
     check_records_against_manifest(payload["records"], payload["manifest"])
+    if git_commit_sha is not None and not re.fullmatch(r"[0-9a-f]{7,40}", str(git_commit_sha)):
+        raise ValueError("git_commit_sha must be a 7-40 character lowercase hexadecimal commit id")
     summary = summarize(payload["records"], resamples, seed)
-    return {"tool_version": TOOL_VERSION, "manifest_version": payload["manifest"]["manifest_version"],
+    return {"study_stage": "STAGE_1_FORMATIVE_ESTIMATION", "git_commit_sha": git_commit_sha,
+            "stimuli_manifest_sha256": digest(payload["manifest"]), "dataset_sha256": digest(payload["records"]),
+            "bootstrap_replicates": resamples, "bootstrap_seed": str(seed), "tool_version": TOOL_VERSION, "manifest_version": payload["manifest"]["manifest_version"],
             "manifest_sha256": digest(payload["manifest"]), "records_sha256": digest(payload["records"]),
             "summary_sha256": digest(summary), "resamples": resamples, "seed": str(seed), "summary": summary,
             "study_status": "NOT_EXECUTED_TOOLING_ONLY"}
@@ -491,6 +627,7 @@ def run(argv, raw):
                         help="stdin: records (validate, summarize), manifest, {participants} (assign) or {manifest, records} (export)")
     parser.add_argument("--resamples", type=int, default=DEFAULT_RESAMPLES)
     parser.add_argument("--seed", default="r15")
+    parser.add_argument("--git-commit-sha", default=None, help="commit id recorded in the export (export only)")
     args = parser.parse_args(argv)
     payload = json.loads(raw.decode("utf-8"))
     if args.command == "manifest":
@@ -500,7 +637,7 @@ def run(argv, raw):
             raise ValueError("assign input must be an object with participants")
         return assign_sequences(payload["participants"], args.seed)
     if args.command == "export":
-        return export_package(payload, args.resamples, args.seed)
+        return export_package(payload, args.resamples, args.seed, args.git_commit_sha)
     if args.command == "validate":
         return {"valid": True, "records": validate_records(payload)}
     return summarize(payload, args.resamples, args.seed)
