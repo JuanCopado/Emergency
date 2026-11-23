@@ -1,11 +1,11 @@
 @page { size: A4; margin: 16mm 14mm 18mm 14mm; }
 html { font: 10pt/1.42 "DejaVu Sans", "Liberation Sans", Arial, sans-serif; color: #111; }
 body { margin: 0; }
-h1 { font-size: 17pt; margin: 0 0 6pt; } h2 { font-size: 13pt; margin: 16pt 0 5pt; break-after: avoid; } h3 { font-size: 11pt; margin: 12pt 0 4pt; break-after: avoid; }
+h1 { font-size: 17pt; margin: 0 0 6pt; break-before: page; } .cover h1 { break-before: auto; } h2 { font-size: 13pt; margin: 16pt 0 5pt; break-after: avoid; } h3 { font-size: 11pt; margin: 12pt 0 4pt; break-after: avoid; }
 p, li { orphans: 3; widows: 3; } code { font: 8.6pt "DejaVu Sans Mono", monospace; background: #f1f3f5; padding: 0 2pt; overflow-wrap: anywhere; }
 pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f6f7f9; border: 1px solid #d5d9e0; padding: 6pt; font: 8.2pt "DejaVu Sans Mono", monospace; break-inside: avoid; }
 .cover { border-bottom: 2px solid #333; margin-bottom: 10pt; padding-bottom: 6pt; }
-nav.toc { break-after: page; } nav.toc ol { list-style: none; padding-left: 0; } nav.toc li { margin: 2pt 0; } nav.toc li.l3 { margin-left: 14pt; font-size: 9pt; }
+nav.toc { break-after: page; } nav.toc ol { list-style: none; padding-left: 0; } nav.toc li { margin: 2pt 0; } nav.toc li.l1 { font-weight: 700; margin-top: 7pt; } nav.toc li.l3 { margin-left: 14pt; font-size: 9pt; }
 table { width: 100%; border-collapse: collapse; table-layout: auto; margin: 8pt 0 10pt; font-size: 8.6pt; }
 table.wide { font-size: 7.6pt; }
 th, td { border: 1px solid #8b93a0; padding: 3pt 4pt; vertical-align: top; overflow-wrap: break-word; word-break: normal; hyphens: manual; }

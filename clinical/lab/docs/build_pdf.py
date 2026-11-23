@@ -45,10 +45,12 @@ def number_headings(page_html):
     already = re.compile(r"^\s*\d+(?:\.\d+)*\.?\s")
     def repl(match):
         level, attrs, inner = int(match.group(1)), match.group(2), match.group(3)
-        if level == 1:
-            return match.group(0)
         plain = re.sub(r"<[^>]+>", "", inner)
         anchor = f"s{len(toc)}"
+        if level == 1:                                   # a document title: listed in the index, numbering restarts for the next document
+            counters[0] = counters[1] = 0
+            toc.append((1, "", plain, anchor))
+            return f'<h1 id="{anchor}"{attrs}>{inner}</h1>'
         if already.match(plain):
             toc.append((level, "", plain, anchor))
             return f'<h{level} id="{anchor}"{attrs}>{inner}</h{level}>'
