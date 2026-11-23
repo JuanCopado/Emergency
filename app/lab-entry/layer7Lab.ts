@@ -1,7 +1,8 @@
 /**
  * LAB_LAYER7_MARKER · Stage-1 formative study, arm B ONLY. SIMULATED_LAB_HARNESS_ONLY.
- * This module and everything under src/lab is loaded only through a dynamic import guarded by `!import.meta.env.PROD` and
- * VITE_LAB_LAYER7=1 in ClinicalNote.tsx, so a production build contains none of it (checked by scripts/check-lab-exclusion.mjs).
+ * This module lives OUTSIDE src/ and is reached only through the build-time alias '@r51-entry-override' (vite.config.ts: real module when
+ * VITE_LAB_LAYER7=1, otherwise a null stub inside src) plus a dynamic import guarded by `!import.meta.env.PROD` in ClinicalNote.tsx, so a
+ * production build contains none of it (checked by scripts/check-lab-exclusion.mjs). The product tree never names this folder or the lab.
  * The decision (which trigger fires and the approved text) is NOT computed here: it comes from the lab evaluator
  * (clinical/lab/human_factors/layer7_adapter.py, the R22 harness over the inactive contract). This file only transports a closed
  * technical descriptor and renders the answer. Fail-closed: an unreachable or malformed evaluator never lets the upload proceed.

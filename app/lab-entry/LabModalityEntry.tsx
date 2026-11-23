@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { MODALITIES, approvedLimitationText, modalityContract, type PrototypeModalityId } from '../clinical-note/r51Prototype';
+import { MODALITIES, approvedLimitationText, modalityContract, type PrototypeModalityId } from '../src/clinical-note/r51Prototype';
 import { RECOVERY_LABELS, evaluateLayer7, labEntryIsE1, labLanguage, recordLabEvent, recoveryKey, type Layer7Verdict } from './layer7Lab';
 
 /**

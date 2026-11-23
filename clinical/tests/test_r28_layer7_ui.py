@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 REPORT = ROOT / "clinical" / "lab" / "human_factors" / "fidelity" / "layer7_ui_report.json"
-LAB_SRC = ROOT / "app" / "src" / "lab"
+LAB_SRC = ROOT / "app" / "lab-entry"
 
 
 class Layer7UiReport(unittest.TestCase):
@@ -38,18 +38,20 @@ class Layer7UiReport(unittest.TestCase):
 
 
 class SourceIsolation(unittest.TestCase):
-    def test_the_lab_module_is_only_reachable_through_a_build_time_guarded_dynamic_import(self):
+    def test_the_lab_module_lives_outside_the_product_tree_and_is_reached_only_through_the_alias(self):
         note = (ROOT / "app" / "src" / "pages" / "ClinicalNote.tsx").read_text(encoding="utf-8")
-        self.assertEqual(len(re.findall(r"from '\.\./lab/|import\('\.\./lab/", note)), 1)
+        self.assertEqual(len(re.findall(r"@r51-entry-override", note)), 1)
         self.assertIn("!import.meta.env.PROD && import.meta.env.VITE_R51_PROTOTYPE === '1' && import.meta.env.VITE_LAB_LAYER7 === '1'", note)
+        config = (ROOT / "app" / "vite.config.ts").read_text(encoding="utf-8")
+        self.assertIn("process.env.VITE_LAB_LAYER7 === '1'", config)
+        self.assertIn("src/clinical-note/noEntryOverride.tsx", config)                    # default target is the null stub
         for path in (ROOT / "app" / "src").rglob("*.ts*"):
-            if LAB_SRC in path.parents or path.name == "ClinicalNote.tsx" or "test" in path.parts:
-                continue
             text = path.read_text(encoding="utf-8")
-            self.assertIsNone(re.search(r"from '(\.\./)+lab/|import\('(\.\./)+lab/", text), f"{path} imports the lab module")
+            self.assertNotIn("lab-entry", text, f"{path} names the lab folder")
+            self.assertNotIn("LAB_LAYER7_MARKER", text, path)
 
     def test_the_lab_module_has_no_force_send_and_no_visual_inference_terms(self):
-        text = "\n".join(p.read_text(encoding="utf-8") for p in LAB_SRC.glob("*"))
+        text = "\n".join(p.read_text(encoding="utf-8") for p in LAB_SRC.glob("*") if ".test." not in p.name)
         self.assertIsNone(re.search(r"""['">`][^'"<>`]*(forzar|forçar|force send|send anyway)[^'"<>`]*['"<`]""", text, re.I))   # no such UI string
         self.assertNotIn("getImageData", text)
 

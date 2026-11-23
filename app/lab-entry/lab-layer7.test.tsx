@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import LabModalityEntry from '../lab/LabModalityEntry';
-import { labEntryIsE1, recoveryKey, type Layer7Verdict } from '../lab/layer7Lab';
+import LabModalityEntry from './LabModalityEntry';
+import { labEntryIsE1, recoveryKey, type Layer7Verdict } from './layer7Lab';
 
 const ui = (key: string, values?: Record<string, string | number>) => (values ? `${key}${JSON.stringify(values)}` : key);
 const TEXT = { 'MSG_T7_NO_MODALITY': 'Texto aprobado 1', 'MSG_T7_CORRUPT_FILE': 'Texto aprobado 3' };

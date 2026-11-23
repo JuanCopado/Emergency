@@ -8,6 +8,11 @@ import { clinicalApiBoundary, clinicalApiProxy } from './scripts/clinical-api-bo
 import { readBuildIdentity } from './scripts/build-identity.mjs';
 import { fileURLToPath } from 'node:url';
 
+// Build-time target of the '@r51-entry-override' import in ClinicalNote.tsx: a null stub unless a non-production experiment opts in.
+const entryOverride = process.env.VITE_LAB_LAYER7 === '1'
+  ? fileURLToPath(new URL('./lab-entry/LabModalityEntry.tsx', import.meta.url))
+  : fileURLToPath(new URL('./src/clinical-note/noEntryOverride.tsx', import.meta.url));
+
 const sourceIdentity = readBuildIdentity(fileURLToPath(new URL('..', import.meta.url)));
 
 const loopbackHost = '127.0.0.1';
@@ -19,6 +24,7 @@ if (localReview && (!Number.isInteger(reviewPort) || reviewPort < 1024 || review
 }
 
 export default defineConfig(({ mode }) => ({
+  resolve: { alias: { '@r51-entry-override': entryOverride } },
   define: {
     'import.meta.env.VITE_BUILD_REVISION': JSON.stringify(sourceIdentity.revision),
     'import.meta.env.VITE_BUILD_DIRTY': JSON.stringify(String(sourceIdentity.dirty)),
