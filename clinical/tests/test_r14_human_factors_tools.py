@@ -440,9 +440,21 @@ class R20StatisticalPlan(unittest.TestCase):
         cls.out = hf.summarize(crossed_rows(4, 4, trials=5, err_base=3), resamples=B)
         cls.zero = hf.summarize(crossed_rows(3, 3, trials=4), resamples=B)
 
-    def test_the_bca_interval_is_the_primary_interval_and_the_percentile_one_stays_available(self):
+    def test_with_few_participants_bca_is_withheld_and_the_percentile_interval_is_primary(self):
+        """R24: with 8 participants (< 20) BCa is NOT the primary interval; the cluster percentile interval is reported instead."""
         cell = self.out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(cell["bca_status"], "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE")
+        self.assertEqual(cell["primary_interval"], "percentile")
+        self.assertIsNone(cell["cluster_bootstrap_bca_95"])
+        self.assertEqual(len(cell["cluster_bootstrap_95"]), 2)
+        self.assertTrue(cell["very_small_cluster_descriptive_only"])
+        self.assertTrue(cell["small_cluster_warning"])
+
+    def test_with_at_least_20_participants_and_events_bca_is_primary_and_the_percentile_one_stays_available(self):
+        out = hf.summarize(crossed_rows(10, 10, trials=5, err_base=3), resamples=B)
+        cell = out["trial_level_metrics"]["by_condition"]["baseline"]["confirmation_error_rate"]
         self.assertEqual(cell["primary_interval"], "bca")
+        self.assertEqual(cell["bca_status"], "BCA_PRIMARY")
         self.assertEqual(len(cell["cluster_bootstrap_bca_95"]), 2)
         self.assertEqual(len(cell["cluster_bootstrap_95"]), 2)
         self.assertLessEqual(cell["cluster_bootstrap_bca_95"][0], cell["estimate"])

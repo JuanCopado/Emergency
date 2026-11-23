@@ -16,6 +16,7 @@ ARMS = ("A", "B")
 LANGUAGES = ("es", "pt", "en")
 # Scenario classes of the Stage 1 protocol -> analysis stratum (kept separate in the analysis) and the independently stated expectation.
 SCENARIO_CLASSES = {
+    "A": ("non_interference", None),          # valid skin/wound photographs (R23 mechanism M3 together with F)
     "B": ("selector_bypass", None),
     "C": ("selector_bypass", None),
     "D": ("selector_bypass", None),
