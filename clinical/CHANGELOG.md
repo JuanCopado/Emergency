@@ -845,3 +845,6 @@ The v1.32 draft adds a small-bowel bleeding diagnostic extension to the existing
 
 R25 · 23/11/2026 · Fidelidad del brazo A: herramienta Chromium sobre la app real (flag R5-1 apagado) con el dispatch real de prepare; la maqueta NO es equivalente al control; desbordamiento horizontal preexistente en la pestaña MCDT a 320/360/390 px (Chromium).
 R24 · 23/11/2026 · R8-PDF (etiqueta visible PDF/Documento) y R8-ORACLE (oracle independiente congelado frente a 2116899b, 8316 casos, control de mutación); sin cambios de encaminamiento ni clínicos.
+- R27 conciliación PR94: C2 P_s>=8 por secuencia (fuente: cita del propietario de Gemini R26/R27; literal no recibido), C4 con alpha en [1/B,1-1/B] y SS jackknife >1e-12 sin clamping, telemetría v0.2 marcada PARTIAL_NOT_CANONICAL_R27_V1, pruebas 7/13·8/12·10/10·19/1 y P=16 (0.1707). Wilcoxon sigue NOT_IMPLEMENTED. Sin cambios clínicos.
+- R28: Wilcoxon pareado a nivel de participante (exacto n<=25, empates por rangos medios, aproximado n>25); sin cambios clínicos.
+- R28 (con R27 Gemini recibido): oráculos REF-STAT-01P/04/04-DEGEN, cluster_bootstrap_se, contrato canonical-r27-v1 estricto (laboratorio), auditoría de contrabalanceo S1-S4 (matriz publicada = 16/14, candidata 15/15 no validada). Sin cambios clínicos.
