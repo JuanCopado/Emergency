@@ -57,9 +57,14 @@ class Boundaries(unittest.TestCase):
                 _, cell = run(participants, with_event)
                 label = (participants, with_event)
                 if expected_bca(participants, with_event):
-                    self.assertEqual(cell["primary_interval"], "bca", label)
-                    self.assertEqual(cell["bca_status"], "BCA_PRIMARY", label)
-                    self.assertIsNotNone(cell["cluster_bootstrap_bca_95"], label)
+                    # R27 C4 (alpha within [1/B, 1-1/B], never clamped): an admissible cell is BCa or explicitly not computable
+                    self.assertIn(cell["bca_status"], ("BCA_PRIMARY", "BCA_NOT_COMPUTABLE"), label)
+                    if cell["bca_status"] == "BCA_PRIMARY":
+                        self.assertEqual(cell["primary_interval"], "bca", label)
+                        self.assertIsNotNone(cell["cluster_bootstrap_bca_95"], label)
+                    else:
+                        self.assertIsNone(cell["cluster_bootstrap_bca_95"], label)
+                        self.assertEqual(cell["primary_interval"], "percentile", label)
                 else:
                     self.assertEqual(cell["bca_status"], hf.BCA_FALLBACK, label)
                     self.assertIsNone(cell["cluster_bootstrap_bca_95"], label)
@@ -68,12 +73,13 @@ class Boundaries(unittest.TestCase):
                 self.assertEqual(cell["participants_without_event"], participants - with_event)
 
     def test_exactly_the_boundary_cases(self):
-        self.assertEqual(run(20, 2)[1]["bca_status"], "BCA_PRIMARY")            # 2 with, 18 without, P = 20
-        self.assertEqual(run(20, 18)[1]["bca_status"], "BCA_PRIMARY")           # 18 with, 2 without
+        admissible = ("BCA_PRIMARY", "BCA_NOT_COMPUTABLE")                      # C1-C3 met; C4 decides (never FALLBACK)
+        self.assertIn(run(20, 2)[1]["bca_status"], admissible)                  # 2 with, 18 without, P = 20
+        self.assertIn(run(20, 18)[1]["bca_status"], admissible)                 # 18 with, 2 without
         self.assertEqual(run(20, 1)[1]["bca_status"], hf.BCA_FALLBACK)          # only 1 with event
         self.assertEqual(run(20, 19)[1]["bca_status"], hf.BCA_FALLBACK)         # only 1 without event
         self.assertEqual(run(19, 9)[1]["bca_status"], hf.BCA_FALLBACK)          # P = 19 < 20
-        self.assertEqual(run(30, 15)[1]["bca_status"], "BCA_PRIMARY")
+        self.assertIn(run(30, 15)[1]["bca_status"], admissible)
 
     def test_zero_events_and_all_positive_are_degenerate_and_never_a_zero_interval(self):
         for participants in (1, 2, 12, 20, 30):
@@ -113,7 +119,7 @@ class Boundaries(unittest.TestCase):
             self.assertTrue(block["very_small_cluster_descriptive_only"])
         big, _ = run(24, 6)
         paired = big["trial_level_metrics"]["paired_difference_prototype_minus_baseline"]["confirmation_error_rate"]
-        self.assertEqual(paired["bca_status"], "BCA_PRIMARY")
+        self.assertIn(paired["bca_status"], ("BCA_PRIMARY", "BCA_NOT_COMPUTABLE"))
         self.assertFalse(paired["very_small_cluster_descriptive_only"])
         self.assertTrue(paired["small_cluster_warning"])   # 24 < 30
 

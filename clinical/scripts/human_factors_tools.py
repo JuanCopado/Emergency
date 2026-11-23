@@ -289,9 +289,11 @@ def _quantile(sorted_values, q):
     return _percentile(sorted_values, min(max(q, 0.0), 1.0))
 
 
-BCA_MIN_PER_SEQUENCE = 2        # C2: each AB/BA stratum must hold >= 2 participants of the estimand. PROVISIONAL: the numeric
-                                # threshold is not in any source available to this tool (R26 Gemini table not received).
-BCA_C2_THRESHOLD_STATUS = "PROVISIONAL_NOT_SPECIFIED_IN_AVAILABLE_SOURCES"
+BCA_MIN_PER_SEQUENCE = 8        # C2: each AB/BA stratum must hold >= 8 participants of the estimand (P >= 20 overall, C1).
+                                # Value as cited by the owner from the Gemini R26/R27 specification (PR94 coordination comment);
+                                # the literal Gemini text was not received by this tool: source status below, not a clinical decision.
+BCA_C2_THRESHOLD_STATUS = "OWNER_CITED_GEMINI_R26_R27_SPEC_LITERAL_NOT_RECEIVED"
+BCA_JACKKNIFE_SS_MIN = 1e-12    # C4: jackknife sum of squares must exceed this; otherwise the acceleration is undefined
 
 
 def _bca_diagnosed(point, samples, jackknife):
@@ -314,7 +316,7 @@ def _bca_diagnosed(point, samples, jackknife):
     mean = sum(leave_out) / len(leave_out)
     cubes = sum((mean - v) ** 3 for v in leave_out)
     squares = sum((mean - v) ** 2 for v in leave_out)
-    if squares <= 0:
+    if squares <= BCA_JACKKNIFE_SS_MIN:
         diag.update(z0=round(z0, 6), failure="acceleration_undefined_null_jackknife_variance")
         return None, diag
     acceleration = cubes / (6 * squares ** 1.5)
@@ -327,8 +329,9 @@ def _bca_diagnosed(point, samples, jackknife):
             diag["failure"] = "adjusted_quantile_denominator_not_positive"
             return None, diag
         adjusted = NORMAL.cdf(z0 + (z0 + z) / denominator)
-        if not math.isfinite(adjusted) or not 0.0 < adjusted < 1.0:
-            diag["failure"] = "adjusted_quantile_invalid"
+        resamples = len(samples)
+        if not math.isfinite(adjusted) or not 1.0 / resamples <= adjusted <= 1.0 - 1.0 / resamples:
+            diag["failure"] = "adjusted_quantile_invalid"           # C4: alpha must lie in [1/B, 1-1/B]; never clamped
             return None, diag
         alphas.append(round(adjusted, 6))
         bounds.append(round(_quantile(observed, adjusted), 4))

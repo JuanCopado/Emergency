@@ -76,6 +76,7 @@ def upgrade_record(record, extras=None, allow_inferred=False):
     out["outcome_events"] = list(extras["outcome_events"])
     out["entry_flow"], out["transport_mode"] = extras["entry_flow"], extras["transport_mode"]
     out["schema_version"] = SCHEMA_VERSION
+    out["conversion_status"] = "PARTIAL_NOT_CANONICAL_R27_V1"                   # never canonical-r27-v1: outcome_status stays None, HARD FAIL above if events are missing
     return out
 
 

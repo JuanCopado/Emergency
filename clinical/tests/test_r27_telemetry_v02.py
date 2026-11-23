@@ -92,3 +92,14 @@ class Adapter(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PartialConversionIsNeverCanonical(unittest.TestCase):
+    def test_converted_record_is_partial_and_outcome_status_is_not_assigned(self):
+        r = next(x for x in RECORDS if x["device_type"] == "desktop_web")
+        up = v02.upgrade_record(r, GOOD_EXTRAS, allow_inferred=True)
+        self.assertEqual(up["conversion_status"], "PARTIAL_NOT_CANONICAL_R27_V1")
+        self.assertIsNone(up["outcome_status"])                       # no M/E state derived from completed/abandoned/blocked
+        self.assertEqual(up["outcome_status_v01"], r["outcome_status"])
+        with self.assertRaises(v02.AmbiguousConversion):              # HARD FAIL when the observed events are missing
+            v02.upgrade_record(r, dict(GOOD_EXTRAS, outcome_events=[]), allow_inferred=True)

@@ -25,7 +25,8 @@ class Conditions(unittest.TestCase):
         out = hf.summarize(make_rows(20, 10), resamples=200, seed="r27")
         policy = out["design"]["bca_policy"]
         self.assertIn("C4", policy["conditions"])
-        self.assertIn("PROVISIONAL", policy["conditions"])
+        self.assertIn(hf.BCA_C2_THRESHOLD_STATUS, policy["conditions"])
+        self.assertEqual(policy["min_per_sequence"], 8)
 
     def test_all_four_conditions_met_gives_bca_with_parameters(self):
         cell = cell_of(make_rows(30, 12))
@@ -64,9 +65,36 @@ class Conditions(unittest.TestCase):
                 self.assertIsNone(bounds)
                 self.assertEqual(diag["failure"], reason)
                 self.assertIsNone(hf._bca(point, boot, jack))              # historical interface keeps returning None
-        bounds, diag = hf._bca_diagnosed(0.35, samples, [0.2, 0.3, 0.5, 0.4, 0.6])
+        wide = [i / 200 for i in range(1, 200)]                               # B = 199: alpha bound 1/B is far from 0.025
+        bounds, diag = hf._bca_diagnosed(0.5, wide, [0.2, 0.3, 0.5, 0.4, 0.6])
         self.assertIsNotNone(bounds)
         self.assertIsNone(diag["failure"])
+
+    def test_c4_alpha_interior_bounds_and_jackknife_variance_floor(self):
+        # B = 40 -> alpha must lie in [0.025, 0.975]; z0 pushes the lower adjusted alpha below 1/B: refused, never clamped
+        samples = [i / 40 for i in range(1, 41)]
+        bounds, diag = hf._bca_diagnosed(0.97, samples, [0.2, 0.3, 0.5, 0.4, 0.6])
+        self.assertIsNone(bounds)
+        self.assertEqual(diag["failure"], "adjusted_quantile_invalid")
+        # jackknife sum of squares at/below 1e-12: acceleration undefined, refused
+        tiny = [0.5 + k * 1e-8 for k in (-1, 0, 1)]
+        bounds, diag = hf._bca_diagnosed(0.5, [i / 200 for i in range(1, 200)], tiny)
+        self.assertIsNone(bounds)
+        self.assertEqual(diag["failure"], "acceleration_undefined_null_jackknife_variance")
+
+    def test_c2_sequence_boundaries_7_13_8_12_10_10_19_1(self):
+        ids = [f"P{i:02d}" for i in range(20)]
+        flags = {p: (i % 2 == 0) for i, p in enumerate(ids)}
+        est = lambda d: sum(flags[x] for x in d) / len(d)
+        expected = {(7, 13): False, (8, 12): True, (10, 10): True, (19, 1): False}
+        for (n_ab, n_ba), c2 in expected.items():
+            with self.subTest(split=(n_ab, n_ba)):
+                strata = {p: ("AB" if i < n_ab else "BA") for i, p in enumerate(ids)}
+                res = hf._bootstrap(ids, 200, random.Random(1), est, strata, flags)
+                self.assertEqual(res["bca_conditions"]["C2_sequences_represented"], c2)
+                if not c2:
+                    self.assertEqual(res["bca_status"], hf.BCA_FALLBACK)
+                    self.assertIsNone(res["cluster_bootstrap_bca_95"])
 
     def test_c4_large_acceleration_that_makes_the_denominator_non_positive_is_refused(self):
         samples = [i / 100 for i in range(1, 100)]
@@ -89,7 +117,20 @@ class Conditions(unittest.TestCase):
         balanced = {p: ("AB" if i < 10 else "BA") for i, p in enumerate(ids)}
         ok = hf._bootstrap(ids, 200, random.Random(1), lambda d: sum(flags[x] for x in d) / len(d), balanced, flags)
         self.assertTrue(ok["bca_conditions"]["C2_sequences_represented"])
-        self.assertEqual(hf.BCA_C2_THRESHOLD_STATUS, "PROVISIONAL_NOT_SPECIFIED_IN_AVAILABLE_SOURCES")
+        self.assertEqual(hf.BCA_C2_THRESHOLD_STATUS, "OWNER_CITED_GEMINI_R26_R27_SPEC_LITERAL_NOT_RECEIVED")
+
+
+class ZeroEventsP16Rounding(unittest.TestCase):
+    """Convention: bound = 1 - 0.05**(1/P) computed in double precision and rounded half-even to 4 decimals by round().
+    P = 16 -> 0.170749722982... -> 0.1707 (a 0.1708 in an external report is a rounding difference, not a regression)."""
+
+    def test_p16_unrounded_and_rounded_values(self):
+        exact = 1 - 0.05 ** (1 / 16)
+        self.assertAlmostEqual(exact, 0.170749722982, places=11)
+        self.assertEqual(round(exact, 4), 0.1707)
+        out = hf.summarize(make_rows(16, 0), resamples=200, seed="r27")
+        report = out["zero_event_reports"]["baseline"]["confirmation_error_rate"]
+        self.assertEqual(report["participant_risk_upper_95_one_sided"], 0.1707)
 
 
 def ref01_rows():
