@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MODALITIES, limitationKeyFor, modalityContract, type PrototypeModalityId } from './r51Prototype';
+import { MODALITIES, approvedLimitationText, modalityContract, type PrototypeModalityId } from './r51Prototype';
 
 const PREVIEWABLE = new Set(['image/png', 'image/jpeg', 'image/webp']);
 
@@ -9,8 +9,9 @@ const PREVIEWABLE = new Set(['image/png', 'image/jpeg', 'image/webp']);
  * shown next to its destination modality; the button names that modality; the change of modality is
  * one tap away. The human confirmation does not verify the image content, and the text says so.
  */
-export default function ModalityEntry({ busy, ui, onConfirm }: {
+export default function ModalityEntry({ busy, ui, language, onConfirm }: {
   busy: boolean;
+  language: string;
   ui: (key: string, values?: Record<string, string | number>) => string;
   onConfirm: (file: File, kind: string | null) => void;
 }) {
@@ -30,7 +31,7 @@ export default function ModalityEntry({ busy, ui, onConfirm }: {
   const label = contract ? ui(contract.labelKey) : '';
 
   return (
-    <div data-testid="r51-modality-entry" className="rounded-xl border border-dashed border-border p-4 grid gap-3">
+    <div data-testid="r51-modality-entry" className="rounded-xl border border-dashed border-border p-4 grid grid-cols-1 gap-3 min-w-0">
       <span className="label">{ui('Escolha a modalidade antes de enviar')}</span>
       <div className="flex flex-wrap gap-2">
         {MODALITIES.map(m => (
@@ -42,12 +43,12 @@ export default function ModalityEntry({ busy, ui, onConfirm }: {
       {!contract && <p className="text-xs text-muted">{ui('Nenhuma modalidade selecionada. Escolha uma para poder escolher o ficheiro.')}</p>}
       {contract && (
         <>
-          <label className="grid gap-1">
+          <label className="grid grid-cols-1 gap-1 min-w-0">
             <span className="label">{ui('Upload clínico')}</span>
-            <input aria-label={ui('Upload clínico')} type="file" disabled={busy} accept={contract.accept}
+            <input className="w-full min-w-0 max-w-full" aria-label={ui('Upload clínico')} type="file" disabled={busy} accept={contract.accept}
               onChange={e => setFile(e.target.files?.[0] ?? null)} />
           </label>
-          <p className="text-xs text-muted">{ui(limitationKeyFor(contract.id), { modality: label })}</p>
+          <p className="text-xs text-muted">{approvedLimitationText(contract.id, language) ?? ui(contract.limitationKey, { modality: label })}</p>
         </>
       )}
       {contract && file && (

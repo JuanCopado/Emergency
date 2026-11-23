@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 const appRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const viteBin = join(appRoot, 'node_modules', 'vite', 'bin', 'vite.js');
 // Code-only tokens: they exist in r51Prototype.ts / ModalityEntry.tsx and nowhere else (not in the locale JSON).
-const CODE_TOKENS = ['dermatologicFilter', 'max-h-64 max-w-full', '.pdf,.txt,.csv,.json,.xml', 'r51-modality-entry'];
+const CODE_TOKENS = ['dermatologicFilter', 'max-h-64 max-w-full', '.pdf,.txt,.csv,.json,.xml', 'r51-modality-entry', 'Superficial visual description only', 'DEC-CLIN-R14-01'];
 
 function bundleText(directory) {
   return readdirSync(directory, { recursive: true, withFileTypes: true })

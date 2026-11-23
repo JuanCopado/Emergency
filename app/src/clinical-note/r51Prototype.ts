@@ -7,6 +7,8 @@
  * skin_wound alone (the server already behaves like that). Human confirmation never verifies the
  * content of an image.
  */
+import approvedResource from './r51-limitations.approved.json';
+
 export type PrototypeModalityId = 'skin_wound' | 'ecg' | 'xray' | 'pocus' | 'document';
 
 export interface ModalityContract {
@@ -29,37 +31,53 @@ export const PROVISIONAL_LIMITATION =
   'Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.';
 
 /**
- * Replacement mechanism for the fixed limitation text (R15, Mission D). Every text is PROVISIONAL until
- * the medical owner expressly approves wording for a modality. An entry only replaces the provisional
- * text when status is APPROVED AND it carries the decision id and an approval date; anything else
- * falls back to the provisional text (fail-closed). No approved wording exists today, and the
- * clauses of the Gemini R14 dossier are NOT incorporated (DEC-CLIN-R14-01 is not approved).
+ * Fixed limitation text per modality (R16). The texts are deterministic resources approved by the medical
+ * owner (DEC-CLIN-R14-01, only for the inactive prototype and human-factors tests); they are never
+ * generated and never edited here. An entry replaces the provisional text only when it is APPROVED
+ * AND carries the decision id, an approval date and the three language texts; anything else falls
+ * back to the provisional text (fail-closed). zh has no approved wording: it shows the English text.
  */
 export type LimitationStatus = 'PROVISIONAL' | 'APPROVED';
+export type ApprovedLanguage = 'es' | 'pt' | 'en';
 
 export interface LimitationEntry {
   readonly status: LimitationStatus;
-  /** Text (translation key) shown when approved; ignored while provisional. */
-  readonly approvedText?: string;
+  readonly approvedTexts?: Readonly<Record<ApprovedLanguage, string>>;
   readonly approval?: { readonly decision: string; readonly date: string };
 }
 
-export const LIMITATION_TEXTS: Readonly<Record<PrototypeModalityId, LimitationEntry>> = {
-  skin_wound: { status: 'PROVISIONAL' },
-  ecg: { status: 'PROVISIONAL' },
-  xray: { status: 'PROVISIONAL' },
-  pocus: { status: 'PROVISIONAL' },
-  document: { status: 'PROVISIONAL' },
+export type LimitationTable = Readonly<Record<PrototypeModalityId, LimitationEntry>>;
+
+const approvedTexts = (id: PrototypeModalityId): LimitationEntry => ({
+  status: 'APPROVED',
+  approvedTexts: approvedResource.texts[id],
+  approval: { decision: approvedResource.decision, date: approvedResource.approved_on },
+});
+
+export const LIMITATION_TEXTS: LimitationTable = {
+  skin_wound: /* @__PURE__ */ approvedTexts('skin_wound'),
+  ecg: /* @__PURE__ */ approvedTexts('ecg'),
+  xray: /* @__PURE__ */ approvedTexts('xray'),
+  pocus: /* @__PURE__ */ approvedTexts('pocus'),
+  document: /* @__PURE__ */ approvedTexts('document'),
 };
 
-export function limitationKeyFor(id: PrototypeModalityId, table: Readonly<Record<PrototypeModalityId, LimitationEntry>> = LIMITATION_TEXTS): string {
-  const entry = table[id];
-  const approved = entry?.status === 'APPROVED' && !!entry.approvedText && !!entry.approval?.decision && /^\d{4}-\d{2}-\d{2}$/.test(entry.approval?.date ?? '');
-  return approved ? (entry.approvedText as string) : PROVISIONAL_LIMITATION;
+function isApproved(entry: LimitationEntry | undefined): entry is LimitationEntry & { approvedTexts: Readonly<Record<ApprovedLanguage, string>> } {
+  const t = entry?.approvedTexts;
+  return entry?.status === 'APPROVED' && !!t && !!t.es && !!t.pt && !!t.en
+    && !!entry.approval?.decision && /^\d{4}-\d{2}-\d{2}$/.test(entry.approval.date);
 }
 
-export function limitationStatusFor(id: PrototypeModalityId, table: Readonly<Record<PrototypeModalityId, LimitationEntry>> = LIMITATION_TEXTS): LimitationStatus {
-  return limitationKeyFor(id, table) === PROVISIONAL_LIMITATION ? 'PROVISIONAL' : 'APPROVED';
+/** The approved text for the language, or null while the modality is still provisional. */
+export function approvedLimitationText(id: PrototypeModalityId, language: string, table: LimitationTable = LIMITATION_TEXTS): string | null {
+  const entry = table[id];
+  if (!isApproved(entry)) return null;
+  const lang: ApprovedLanguage = language === 'es' || language === 'pt' ? language : 'en';
+  return entry.approvedTexts[lang];
+}
+
+export function limitationStatusFor(id: PrototypeModalityId, table: LimitationTable = LIMITATION_TEXTS): LimitationStatus {
+  return isApproved(table[id]) ? 'APPROVED' : 'PROVISIONAL';
 }
 
 const IMAGES = '.png,.jpg,.jpeg,.webp';

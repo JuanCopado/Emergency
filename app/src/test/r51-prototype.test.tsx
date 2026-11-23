@@ -4,8 +4,9 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import ClinicalNote from '../pages/ClinicalNote';
 import ModalityEntry from '../clinical-note/ModalityEntry';
-import { LIMITATION_TEXTS, MODALITIES, PROVISIONAL_LIMITATION, appliesDermatologicFilter, limitationKeyFor, limitationStatusFor, r51PrototypeEnabled, type LimitationEntry, type PrototypeModalityId } from '../clinical-note/r51Prototype';
+import { LIMITATION_TEXTS, MODALITIES, appliesDermatologicFilter, approvedLimitationText, limitationStatusFor, r51PrototypeEnabled, type LimitationEntry, type LimitationTable } from '../clinical-note/r51Prototype';
 import { renderAt } from './render';
+import approvedResource from '../clinical-note/r51-limitations.approved.json';
 
 const sources = import.meta.glob('../clinical-note/{r51Prototype.ts,ModalityEntry.tsx}', {
   query: '?raw', import: 'default', eager: true,
@@ -187,7 +188,7 @@ describe('what the prototype source does not contain', () => {
 
 describe('while a request is in flight', () => {
   it.each([[true], [false]])('modality buttons are disabled only when busy (busy=%s)', (busy) => {
-    render(<ModalityEntry busy={busy} ui={(key) => key} onConfirm={() => undefined} />);
+    render(<ModalityEntry busy={busy} language="es" ui={(key) => key} onConfirm={() => undefined} />);
     for (const button of within(screen.getByTestId('r51-modality-entry')).getAllByRole('button')) {
       if (busy) expect(button).toBeDisabled();
       else expect(button).toBeEnabled();
@@ -202,7 +203,7 @@ describe('modality contract', () => {
     expect(appliesDermatologicFilter('skin_wound')).toBe(true);
   });
 
-  it('declares explicit, distinct categories and a fixed provisional limitation for every modality', () => {
+  it('declares explicit, distinct categories and the provisional fallback text for every modality', () => {
     expect(new Set(MODALITIES.map(m => m.kind)).size).toBe(MODALITIES.length); // null (document) counts once
     for (const m of MODALITIES) {
       expect(m.limitationKey).toContain('{{modality}}');
@@ -211,33 +212,123 @@ describe('modality contract', () => {
   });
 });
 
-describe('replacement of the provisional limitation texts', () => {
-  const ids = MODALITIES.map(m => m.id);
-  const table = (entry: LimitationEntry): Record<PrototypeModalityId, LimitationEntry> => ({ ...LIMITATION_TEXTS, ecg: entry });
+// Independent literal copy of the texts approved in DEC-CLIN-R14-01: any edit of the resource fails here.
+const APPROVED_TEXTS = {
+  "skin_wound": {
+    "es": "Descripción superficial limitada a la foto según la modalidad elegida. No verifica la modalidad ni descarta infección profunda, isquemia o lesión interna. Requiere examen presencial.",
+    "pt": "Descrição superficial limitada à fotografia na modalidade selecionada. Não verifica a modalidade nem exclui infeção profunda, isquemia ou lesão interna. Requer avaliação presencial.",
+    "en": "Superficial visual description only for the selected modality. Does not verify modality or rule out deep infection, ischemia, or internal injury. In-person exam required."
+  },
+  "ecg": {
+    "es": "Apoyo limitado al trazado de ECG según la modalidad elegida. No verifica la modalidad ni descarta síndrome coronario agudo ni otras patologías. Correlacionar con clínica y ECG seriados.",
+    "pt": "Apoio limitado ao traçado de ECG na modalidade selecionada. Não verifica a modalidade nem exclui síndrome coronária aguda nem outras patologias. Correlacionar com a clínica e ECG seriados.",
+    "en": "Support limited to the submitted ECG tracing for the selected modality. Does not verify modality or rule out acute coronary syndrome or other conditions. Correlate clinically and with serial ECGs."
+  },
+  "xray": {
+    "es": "Apoyo limitado a hallazgos visibles en la radiografía según la modalidad elegida. No verifica la modalidad ni descarta patología oculta o fuera de proyección. Correlacionar clínicamente.",
+    "pt": "Apoio limitado aos achados visíveis na radiografia na modalidade selecionada. Não verifica a modalidade nem exclui patologia oculta ou fora de incidência. Correlacionar clinicamente.",
+    "en": "Support limited to visible findings on the radiograph for the selected modality. Does not verify modality or rule out occult or out-of-view pathology. Correlate clinically."
+  },
+  "pocus": {
+    "es": "Apoyo limitado al plano ecográfico aportado según la modalidad elegida. No verifica la modalidad, no sustituye el examen dinámico completo ni descarta patología fuera de ventana.",
+    "pt": "Apoio limitado ao plano ecográfico enviado na modalidade selecionada. Não verifica a modalidade, não substitui o exame dinâmico completo nem exclui patologia fora da janela.",
+    "en": "Support limited to the submitted ultrasound view for the selected modality. Does not verify modality, replace a full dynamic exam, or rule out out-of-plane pathology."
+  },
+  "document": {
+    "es": "Extracción limitada al texto legible del documento según la modalidad elegida. No verifica el tipo de documento ni infiere datos omitidos o ilegibles. Confirmar con el registro original.",
+    "pt": "Extração limitada ao texto legível do documento na modalidade selecionada. Não verifica o tipo de documento nem infere dados omitidos ou ilegíveis. Confirmar no registo original.",
+    "en": "Extraction limited to legible text in the document for the selected modality. Does not verify document type or infer missing or illegible data. Confirm against the original record."
+  }
+};
 
-  it('every shipped text is provisional: no approved wording exists today', () => {
+describe('approved limitation texts (DEC-CLIN-R14-01)', () => {
+  const ids = MODALITIES.map(m => m.id);
+
+  it('the resource preserves the approved wording literally, for the three languages', () => {
+    expect(approvedResource.texts).toEqual(APPROVED_TEXTS);
+    expect(approvedResource.decision).toBe('DEC-CLIN-R14-01');
+    expect(approvedResource.approved_on).toBe('2026-11-22');
+    expect(approvedResource.scope).toBe('INACTIVE_PROTOTYPE_AND_HUMAN_FACTORS_TESTS_ONLY');
+  });
+
+  it('every modality is approved and resolves to its exact text per language (zh shows English)', () => {
     for (const id of ids) {
-      expect(LIMITATION_TEXTS[id].status).toBe('PROVISIONAL');
-      expect(limitationKeyFor(id)).toBe(PROVISIONAL_LIMITATION);
-      expect(limitationStatusFor(id)).toBe('PROVISIONAL');
+      expect(limitationStatusFor(id)).toBe('APPROVED');
+      for (const lang of ['es', 'pt', 'en'] as const) expect(approvedLimitationText(id, lang), `${id}/${lang}`).toBe(APPROVED_TEXTS[id][lang]);
+      expect(approvedLimitationText(id, 'zh')).toBe(APPROVED_TEXTS[id].en);
     }
   });
 
-  it('only an APPROVED entry with decision id, date and text replaces the provisional text', () => {
-    const approved: LimitationEntry = { status: 'APPROVED', approvedText: 'Texto aprovado de teste.', approval: { decision: 'DEC-TEST', date: '2026-11-22' } };
-    expect(limitationKeyFor('ecg', table(approved))).toBe('Texto aprovado de teste.');
-    expect(limitationStatusFor('ecg', table(approved))).toBe('APPROVED');
-    expect(limitationKeyFor('xray', table(approved))).toBe(PROVISIONAL_LIMITATION);
+  it('a modality without complete approval falls back to the provisional text (fail-closed)', () => {
+    const base = (entry: LimitationEntry): LimitationTable => ({ ...LIMITATION_TEXTS, ecg: entry });
+    const texts = APPROVED_TEXTS.ecg;
+    const ok = { decision: 'DEC-TEST', date: '2026-11-22' };
+    const bad: LimitationEntry[] = [
+      { status: 'PROVISIONAL' },
+      { status: 'PROVISIONAL', approvedTexts: texts, approval: ok },
+      { status: 'APPROVED', approvedTexts: texts },
+      { status: 'APPROVED', approvedTexts: texts, approval: { decision: '', date: '2026-11-22' } },
+      { status: 'APPROVED', approvedTexts: texts, approval: { decision: 'D', date: '22/11/2026' } },
+      { status: 'APPROVED', approvedTexts: { ...texts, pt: '' }, approval: ok },
+    ];
+    for (const entry of bad) {
+      expect(approvedLimitationText('ecg', 'es', base(entry))).toBeNull();
+      expect(limitationStatusFor('ecg', base(entry))).toBe('PROVISIONAL');
+    }
   });
 
-  it('fails closed to the provisional text when approval metadata is missing or malformed', () => {
-    const bad: LimitationEntry[] = [
-      { status: 'APPROVED', approvedText: 'x' },
-      { status: 'APPROVED', approvedText: 'x', approval: { decision: '', date: '2026-11-22' } },
-      { status: 'APPROVED', approvedText: 'x', approval: { decision: 'D', date: '22/11/2026' } },
-      { status: 'APPROVED', approval: { decision: 'D', date: '2026-11-22' } },
-      { status: 'PROVISIONAL', approvedText: 'x', approval: { decision: 'D', date: '2026-11-22' } },
-    ];
-    for (const entry of bad) expect(limitationKeyFor('ecg', table(entry))).toBe(PROVISIONAL_LIMITATION);
+  it('no approved text claims the modality was verified, and each says what it does not rule out', () => {
+    for (const id of ids) for (const lang of ['es', 'pt', 'en'] as const) {
+      const text = APPROVED_TEXTS[id][lang];
+      expect(text, `${id}/${lang}`).toMatch(/No verifica|Não verifica|Does not verify/);
+    }
+  });
+});
+
+describe('approved text on screen (flag on)', () => {
+  afterEach(() => { vi.unstubAllEnvs(); });
+
+  it('shows the exact approved text of the chosen modality and never in production', async () => {
+    vi.stubEnv('VITE_R51_PROTOTYPE', '1');
+    const user = userEvent.setup();
+    render(<ModalityEntry busy={false} language="pt" ui={(k: string) => k} onConfirm={() => undefined} />);
+    for (const m of MODALITIES) {
+      await user.click(screen.getByRole('button', { name: m.labelKey }));
+      expect(screen.getByText(APPROVED_TEXTS[m.id].pt)).toBeTruthy();
+    }
+  });
+});
+
+describe('object URLs and double submission (ModalityEntry)', () => {
+  const png = () => new File([new Uint8Array([1, 2, 3])], 'a.png', { type: 'image/png' });
+
+  it('creates one object URL per previewed file and revokes it on change, reset and unmount', async () => {
+    const create = vi.fn().mockReturnValueOnce('blob:one').mockReturnValueOnce('blob:two');
+    const revoke = vi.fn();
+    vi.stubGlobal('URL', Object.assign(URL, { createObjectURL: create, revokeObjectURL: revoke }));
+    const user = userEvent.setup();
+    const { unmount } = render(<ModalityEntry busy={false} language="es" ui={(k: string) => k} onConfirm={() => undefined} />);
+    await user.click(screen.getByRole('button', { name: 'ECG' }));
+    const input = screen.getByLabelText('Upload clínico');
+    await user.upload(input, png());
+    expect(create).toHaveBeenCalledTimes(1);
+    await user.upload(input, png());
+    expect(revoke).toHaveBeenCalledWith('blob:one');
+    unmount();
+    expect(revoke).toHaveBeenCalledWith('blob:two');
+    expect(create).toHaveBeenCalledTimes(2);
+    vi.unstubAllGlobals();
+  });
+
+  it('confirming sends once: the confirm button disappears after the first click', async () => {
+    const send = vi.fn();
+    const user = userEvent.setup();
+    render(<ModalityEntry busy={false} language="es" ui={(k: string) => k} onConfirm={send} />);
+    await user.click(screen.getByRole('button', { name: 'ECG' }));
+    await user.upload(screen.getByLabelText('Upload clínico'), png());
+    const confirm = screen.getByRole('button', { name: /Confirmar e enviar como/ });
+    await user.dblClick(confirm);
+    expect(send).toHaveBeenCalledTimes(1);
+    expect(screen.queryByRole('button', { name: /Confirmar e enviar como/ })).toBeNull();
   });
 });
