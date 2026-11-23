@@ -1,5 +1,7 @@
 import type { LangCode } from '../i18n';
 import { useClinicalUi } from '../i18n/useClinicalUi';
+import ModalityEntry from '../clinical-note/ModalityEntry';
+import { r51PrototypeEnabled } from '../clinical-note/r51Prototype';
 import { hasLocalIdentifierLabel } from '../clinical-note/privacy';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
@@ -212,12 +214,12 @@ function ClinicalNoteEditor(){
      return next;
    });
  }
- async function onUpload(file?:File){
+ async function onUpload(file?:File,forcedKind?:string|null){
    if(!file) return;
    setUploadName(file.name); setDraftName(file.name);
    setApiError(''); setApiBusy(true);
    try{
-     const explicitKind=draftKind==='Outro'?undefined:kindMap[draftKind];
+     const explicitKind=forcedKind===undefined?(draftKind==='Outro'?undefined:kindMap[draftKind]):(forcedKind??undefined);
      const prepared=await prepareClinicalUpload(file,explicitKind);
      const selected=Object.keys(kindMap).find(label=>kindMap[label]===prepared.kind)??'Outro';
      const id=prepared.upload_id;
@@ -380,7 +382,7 @@ function ClinicalNoteEditor(){
    {tab==='mcdt'&&<section className="space-y-4">
     <div className={card}><h2 className="text-lg font-bold">{ui("Adicionar MCDT")}</h2><div className="mt-3 flex flex-wrap gap-2">{mcdtKinds.map(k=><button key={k} aria-pressed={draftKind===k} className={`btn ${draftKind===k?'btn-primary':'btn-ghost'}`} onClick={()=>setDraftKind(k)}>+ {ui(k)}</button>)}</div>
       <div className="mt-4 grid gap-3">
-      <label className="rounded-xl border border-dashed border-border p-4"><span className="label">{ui("Upload clínico")}</span><input aria-label={ui("Upload clínico")} type="file" disabled={busy} accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm" onChange={e=>void onUpload(e.target.files?.[0])}/><span className="mt-2 block text-xs text-muted">{uploadName?ui("Ficheiro selecionado: ")+uploadName:ui("O original não é guardado nem incorporado no relatório por defeito.")}</span></label>
+      {r51PrototypeEnabled()?<ModalityEntry busy={busy} ui={ui} language={i18n.resolvedLanguage ?? 'es'} onConfirm={(file,kind)=>void onUpload(file,kind)}/>:<label className="rounded-xl border border-dashed border-border p-4"><span className="label">{ui("Upload clínico")}</span><input aria-label={ui("Upload clínico")} type="file" disabled={busy} accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm" onChange={e=>void onUpload(e.target.files?.[0])}/><span className="mt-2 block text-xs text-muted">{uploadName?ui("Ficheiro selecionado: ")+uploadName:ui("O original não é guardado nem incorporado no relatório por defeito.")}</span></label>}
       <input aria-label={ui("Nome do exame")} className="input" value={draftName} onChange={e=>setDraftName(e.target.value)} placeholder={ui("Entrada manual, ex.: TC crânio 18:20")}/><label><span className="label">{ui("Informe oficial / dados extraídos")}</span><textarea className="input min-h-24" value={draftOfficial} onChange={e=>setDraftOfficial(e.target.value)}/></label><label><span className="label">{ui("Interpretação IA proposta")}</span><textarea className="input min-h-24" value={draftAi} onChange={e=>setDraftAi(e.target.value)} placeholder={ui("Mantida separada do informe oficial")}/></label><button className="btn-primary justify-self-start" onClick={addManualMcdt}>{ui("Criar cartão para revisão")}</button></div>
     </div>
     {mcdt.map(x=>{

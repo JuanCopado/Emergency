@@ -326,5 +326,15 @@
   "Orientación clínica": "Orientação clínica",
   "Siguientes pasos": "Próximos passos",
   "Alcance y límites": "Âmbito e limites",
-  "O idioma mudou; atualize o apoio diagnóstico antes de exportar.": "O idioma mudou; atualize o apoio diagnóstico antes de exportar."
+  "O idioma mudou; atualize o apoio diagnóstico antes de exportar.": "O idioma mudou; atualize o apoio diagnóstico antes de exportar.",
+  "Escolha a modalidade antes de enviar": "Escolha a modalidade antes de enviar",
+  "Nenhuma modalidade selecionada. Escolha uma para poder escolher o ficheiro.": "Nenhuma modalidade selecionada. Escolha uma para poder escolher o ficheiro.",
+  "Documento (PDF ou texto)": "Documento (PDF ou texto)",
+  "Pré-visualização antes do envio": "Pré-visualização antes do envio",
+  "Modalidade de destino:": "Modalidade de destino:",
+  "Sem pré-visualização para este formato.": "Sem pré-visualização para este formato.",
+  "A confirmação humana não verifica o conteúdo da imagem.": "A confirmação humana não verifica o conteúdo da imagem.",
+  "Confirmar e enviar como": "Confirmar e enviar como",
+  "Alterar modalidade": "Alterar modalidade",
+  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente."
 }

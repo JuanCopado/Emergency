@@ -111,6 +111,8 @@ jobs:
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome
         run: npm run pwa:offline-check
+      - name: Verify the inactive R5-1 prototype never reaches a production bundle
+        run: npm run r51:flag-check
       - name: Verify all thirteen clinical score forms against the backend in Chromium
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome

@@ -1,0 +1,33 @@
+{
+  "decision": "DEC-CLIN-R14-01",
+  "approved_on": "2026-11-22",
+  "scope": "INACTIVE_PROTOTYPE_AND_HUMAN_FACTORS_TESTS_ONLY",
+  "source": "Texts communicated by the medical owner in the R16 instruction (section 1.2 of the Gemini R15 dossier). No physical signature.",
+  "texts": {
+    "skin_wound": {
+      "es": "Descripción superficial limitada a la foto según la modalidad elegida. No verifica la modalidad ni descarta infección profunda, isquemia o lesión interna. Requiere examen presencial.",
+      "pt": "Descrição superficial limitada à fotografia na modalidade selecionada. Não verifica a modalidade nem exclui infeção profunda, isquemia ou lesão interna. Requer avaliação presencial.",
+      "en": "Superficial visual description only for the selected modality. Does not verify modality or rule out deep infection, ischemia, or internal injury. In-person exam required."
+    },
+    "ecg": {
+      "es": "Apoyo limitado al trazado de ECG según la modalidad elegida. No verifica la modalidad ni descarta síndrome coronario agudo ni otras patologías. Correlacionar con clínica y ECG seriados.",
+      "pt": "Apoio limitado ao traçado de ECG na modalidade selecionada. Não verifica a modalidade nem exclui síndrome coronária aguda nem outras patologias. Correlacionar com a clínica e ECG seriados.",
+      "en": "Support limited to the submitted ECG tracing for the selected modality. Does not verify modality or rule out acute coronary syndrome or other conditions. Correlate clinically and with serial ECGs."
+    },
+    "xray": {
+      "es": "Apoyo limitado a hallazgos visibles en la radiografía según la modalidad elegida. No verifica la modalidad ni descarta patología oculta o fuera de proyección. Correlacionar clínicamente.",
+      "pt": "Apoio limitado aos achados visíveis na radiografia na modalidade selecionada. Não verifica a modalidade nem exclui patologia oculta ou fora de incidência. Correlacionar clinicamente.",
+      "en": "Support limited to visible findings on the radiograph for the selected modality. Does not verify modality or rule out occult or out-of-view pathology. Correlate clinically."
+    },
+    "pocus": {
+      "es": "Apoyo limitado al plano ecográfico aportado según la modalidad elegida. No verifica la modalidad, no sustituye el examen dinámico completo ni descarta patología fuera de ventana.",
+      "pt": "Apoio limitado ao plano ecográfico enviado na modalidade selecionada. Não verifica a modalidade, não substitui o exame dinâmico completo nem exclui patologia fora da janela.",
+      "en": "Support limited to the submitted ultrasound view for the selected modality. Does not verify modality, replace a full dynamic exam, or rule out out-of-plane pathology."
+    },
+    "document": {
+      "es": "Extracción limitada al texto legible del documento según la modalidad elegida. No verifica el tipo de documento ni infiere datos omitidos o ilegibles. Confirmar con el registro original.",
+      "pt": "Extração limitada ao texto legível do documento na modalidade selecionada. Não verifica o tipo de documento nem infere dados omitidos ou ilegíveis. Confirmar no registo original.",
+      "en": "Extraction limited to legible text in the document for the selected modality. Does not verify document type or infer missing or illegible data. Confirm against the original record."
+    }
+  }
+}
