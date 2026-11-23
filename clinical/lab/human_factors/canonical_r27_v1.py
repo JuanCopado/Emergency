@@ -197,6 +197,7 @@ def validate_record_v11(r):
     _need(r["stimulus_id"][:2] == ("S1" if set_id == "SET_1" else "S2"), "stimulus_id set disagrees with set_id")
     pair = int(r["stimulus_id"][3:])
     _need(_cb.PAIR_SCENARIO[pair] == r["scenario_id"], "stimulus pair disagrees with scenario_id")
+    _need(pair in _cb._sub_pairs(r["subblock"], spec[2][0]), "stimulus pair does not belong to this sub-block of the matrix")
     _need(isinstance(r["stimulus_hash_sha256"], str) and SHA256.match(r["stimulus_hash_sha256"]), "stimulus_hash_sha256")
     _need(r["e1_entry_mode"] in E1_ENTRY_MODES, "e1_entry_mode")
     isolated = r["scenario_id"] == "E1" and r["arm"] == "B_prototype_alt_b"
@@ -209,6 +210,10 @@ def validate_record_v11(r):
 
 
 _SUBREASON_OF = {(trigger, message): sub for (trigger, sub), message in L7_MAP.items()}
+# Historical keys of the inactive contract (what the lab evaluator really returns) -> canonical keys of the R27/R28 Gemini table. The mapping is
+# verified literally (text by text, es/pt/en) in test_r30_canonical_v11; an unknown key is a HARD FAIL, never a guess.
+HISTORICAL_MESSAGE_KEYS = {"MSG_T7_A": "MSG_T7_NO_MODALITY", "MSG_T7_B": "MSG_T7_INCOMPATIBLE_MODALITY",
+                           "MSG_T7_C": "MSG_T7_CORRUPT_FILE", "MSG_T7_D": "MSG_T7_UNSUPPORTED_FORMAT"}
 CONTEXT_REQUIRED = ("participant_opaque_id", "role_group", "language_stratum", "sequence_code", "period", "subblock", "stimulus_id",
                     "stimulus_hash_sha256", "task_duration_ms", "force_attempts")
 
@@ -238,7 +243,8 @@ def from_lab_ui_log(log, context):
     banner_ms = None
     if banners:
         detail = banners[0]["detail"]
-        trigger, message = str(detail["trigger"])[:5], detail["message_id"]
+        trigger = str(detail["trigger"])[:5]
+        message = HISTORICAL_MESSAGE_KEYS.get(detail["message_id"], detail["message_id"])      # canonical keys pass through
         subreason = _SUBREASON_OF.get((trigger, message))
         _need(subreason is not None, "trigger/message combination has no approved subreason")
         actions = [e for e in log if e.get("type") in ("recovery_action", "modality_selected") and e["at_ms"] >= banners[0]["at_ms"]]

@@ -37,6 +37,28 @@ class Layer7UiReport(unittest.TestCase):
         self.assertTrue(all(r["adapter_trigger"] == "T7-01_UNDECLARED_MODALITY" and r["banner_shown"] for r in e1))
 
 
+class CanonicalExportFromTheUi(unittest.TestCase):
+    """R30: the events the PR95 lab entry really emits feed the canonical-r27-v1.1 converter; refusals are the finding, not a defect to hide."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.results = json.loads(REPORT.read_text(encoding="utf-8"))["results"]
+
+    def test_es_and_en_trials_of_the_bank_export_valid_records(self):
+        exported = [r for r in self.results if r["canonical_export"]["status"] == "EXPORTED"]
+        self.assertEqual(len(exported), 16)                                                    # 2 languages x 2 viewports x 4 bank scenarios
+        self.assertTrue(all(r["language"] in ("es", "en") and r["canonical_export"]["record_valid"] is True for r in exported))
+
+    def test_the_single_app_pt_is_refused_because_pt_pt_and_pt_br_cannot_be_told_apart(self):
+        refused = [r for r in self.results if r["canonical_export"]["status"] == "NOT_EXPORTED"]
+        self.assertEqual(len(refused), 8)
+        self.assertTrue(all(r["language"] == "pt" and "generic 'pt'" in r["canonical_export"]["reason"] for r in refused))
+
+    def test_technical_stimuli_outside_the_bank_are_not_exported(self):
+        skipped = {r["scenario"] for r in self.results if r["canonical_export"]["status"] == "NOT_APPLICABLE"}
+        self.assertEqual(skipped, {"E2_T7-04_audio_global_format", "F_valid_rgb_ecg"})
+
+
 class SourceIsolation(unittest.TestCase):
     def test_the_lab_module_lives_outside_the_product_tree_and_is_reached_only_through_the_alias(self):
         note = (ROOT / "app" / "src" / "pages" / "ClinicalNote.tsx").read_text(encoding="utf-8")

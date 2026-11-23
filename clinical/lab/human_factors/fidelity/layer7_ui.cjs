@@ -19,6 +19,7 @@ const LANGS = ["es", "pt", "en"];
 const VIEWPORTS = [{ width: 360, height: 640 }, { width: 390, height: 844 }];
 const FORCE = /forçar|forzar|force|enviar mesmo|enviar de todos modos|send anyway/i;
 
+const crypto = require("crypto");
 const run = (script, input) => JSON.parse(execFileSync("python3", ["-I", script], { input: JSON.stringify(input) }).toString());
 const realPrepare = (body) => run(path.join(HERE, "prepare_stub.py"), { path: "/api/clinical-note/upload/prepare", payload: body });
 const evaluate = (req) => run(path.join(HERE, "..", "layer7_adapter.py"), req);
@@ -37,14 +38,17 @@ async function openMcdt(page) {
   await (await tabs.first().elementHandle()).evaluate((el) => el.parentElement.children[2].click());
 }
 
+// `canonical`: where the trial sits in the normative driver matrix (sequence code, period, sub-block) so that the device of the trial matches the
+// matrix; trials without it use technical stimuli outside the 30-stimulus bank (QA files, or S1-14 used here as a valid ECG photo) and are not exported.
 const SCENARIOS = [
-  { id: "E1_T7-01_file_before_modality", entry: "e1", file: "S2-14.pdf", expect: "T7-01_UNDECLARED_MODALITY", recover: "ECG" },
-  { id: "E2_T7-03_corrupt_jpeg", file: "S1-15.jpg", modality: /Pele|Piel|Skin|Wound/i, expect: "T7-03_CORRUPT_UNPROCESSABLE" },
-  { id: "E2_T7-04_pdf_on_photo_route", file: "S2-15.pdf", modality: /Pele|Piel|Skin|Wound/i, expect: "T7-04_FORMAT_CONTAINER_MISMATCH" },
+  { id: "E1_T7-01_file_before_modality", entry: "e1", file: "S2-14.pdf", expect: "T7-01_UNDECLARED_MODALITY", recover: "ECG", confirm: true, canonical: { sequence_code: "S3a", period: 1, subblock: 1, stimulus_id: "S2-14" } },
+  { id: "E2_T7-03_corrupt_jpeg", file: "S1-15.jpg", modality: /Pele|Piel|Skin|Wound/i, expect: "T7-03_CORRUPT_UNPROCESSABLE", canonical: { sequence_code: "S4a", period: 1, subblock: 2, stimulus_id: "S1-15" } },
+  { id: "E2_T7-04_pdf_on_photo_route", file: "S2-15.pdf", modality: /Pele|Piel|Skin|Wound/i, expect: "T7-04_FORMAT_CONTAINER_MISMATCH", canonical: { sequence_code: "S1a", period: 2, subblock: 2, stimulus_id: "S2-15" } },
   { id: "E2_T7-04_audio_global_format", file: "QA-01.wav", modality: /Pele|Piel|Skin|Wound/i, expect: "T7-04_FORMAT_CONTAINER_MISMATCH" },
-  { id: "F_document_kind_null_selected", file: "S1-13.pdf", modality: /Document/i, expect: null },
+  { id: "F_document_kind_null_selected", file: "S1-13.pdf", modality: /Document/i, expect: null, canonical: { sequence_code: "S3b", period: 1, subblock: 1, stimulus_id: "S1-13" } },
   { id: "F_valid_rgb_ecg", file: "S1-14.png", modality: /ECG/i, expect: null },
 ];
+const LANGUAGE_STRATUM = { es: "ES", en: "EN", pt: "pt" };      // the app has ONE "pt": the converter must refuse it (pt-PT / pt-BR are not distinguishable)
 
 async function trial(browser, baseUrl, lang, vp, sc) {
   const ctx = await browser.newContext({ viewport: vp });
@@ -64,6 +68,7 @@ async function trial(browser, baseUrl, lang, vp, sc) {
   const fileInputBefore = await page.locator("input[type=file]").count();       // E1: present before any modality; other trials: absent
   if (sc.modality) await entry.getByRole("button", { name: sc.modality }).first().click();
   const buffer = fs.readFileSync(path.join(STIMULI, sc.file));
+  const startedAt = Date.now();
   await page.locator("input[type=file]").first().setInputFiles({ name: sc.file, mimeType: MIME[path.extname(sc.file)] || "application/octet-stream", buffer });
   const banner = page.getByTestId("lab-layer7-banner");
   await page.waitForTimeout(1200);
@@ -82,6 +87,7 @@ async function trial(browser, baseUrl, lang, vp, sc) {
       await entry.getByRole("button", { name: new RegExp("^" + sc.recover + "$", "i") }).first().click();
       await page.waitForTimeout(1200);
       out.recovered_after_modality_choice = (await banner.count()) === 0 && (await page.getByRole("button", { name: /Confirmar|Confirm/ }).count()) > 0;
+      if (sc.confirm && out.recovered_after_modality_choice) { await page.getByRole("button", { name: /Confirmar|Confirm/ }).first().click(); await page.waitForTimeout(600); }
     }
   } else {
     await page.getByRole("button", { name: /Confirmar|Confirm/ }).first().click();
@@ -89,7 +95,15 @@ async function trial(browser, baseUrl, lang, vp, sc) {
     out.review_card_created = (await page.getByTestId("mcdt-review-card").count()) > 0;
   }
   out.overflow_px = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-  out.lab_log_events = await page.evaluate(() => (window.__LAB_LAYER7_LOG__ || []).map((e) => e.type));
+  const fullLog = await page.evaluate(() => window.__LAB_LAYER7_LOG__ || []);
+  out.lab_log_events = fullLog.map((e) => e.type);
+  if (sc.canonical) {
+    const context = { participant_opaque_id: "DRYRUN-001", role_group: "M", language_stratum: LANGUAGE_STRATUM[lang], ...sc.canonical,
+      stimulus_hash_sha256: crypto.createHash("sha256").update(buffer).digest("hex"), task_duration_ms: Math.max(1, Date.now() - startedAt), force_attempts: 0 };
+    if (shown && !sc.confirm) context.trial_end = "abandoned";            // the lab driver took no recovery action: reported by the harness, not inferred by the UI
+    out.canonical_export = run(path.join(HERE, "export_canonical.py"), { log: fullLog, context });
+    if (out.canonical_export.record) out.canonical_export.record = undefined;     // keep the report small: validity is what matters here
+  } else out.canonical_export = { status: "NOT_APPLICABLE", reason: "technical stimulus outside the 30-stimulus bank or used with a different meaning" };
   out.real_prepare_calls = realPrepareCalls;
   await ctx.close();
   return out;
@@ -114,6 +128,9 @@ async function trial(browser, baseUrl, lang, vp, sc) {
     e1_recovery_by_choosing_modality: results.filter((r) => r.scenario.startsWith("E1")).every((r) => r.recovered_after_modality_choice === true),
     valid_trials_not_blocked: valid.every((r) => !r.banner_shown && r.review_card_created === true),
     languages: LANGS, viewports: VIEWPORTS.map((v) => v.width), contrast_measured: false, screen_reader_tested: false, edge_checked: false,
+    canonical_exported_valid: results.filter((r) => r.canonical_export.status === "EXPORTED").length,
+    canonical_refused_with_reason: results.filter((r) => r.canonical_export.status === "NOT_EXPORTED").map((r) => [r.language, r.viewport, r.scenario, r.canonical_export.reason]).slice(0, 6),
+    canonical_not_applicable: results.filter((r) => r.canonical_export.status === "NOT_APPLICABLE").length,
     execution_mode: "SYNTHETIC_TECHNICAL_DRIVER_ON_REAL_APP_LAB_BUILD_ONLY", study_with_humans: "NOT_AUTHORISED",
   };
   fs.writeFileSync(outFile, JSON.stringify({ tool: "layer7_ui.cjs", summary, results }, null, 1) + "\n");

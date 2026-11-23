@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "lab"))
+sys.path.insert(0, str(ROOT / "lab" / "human_factors"))
 from human_factors import canonical_r27_v1 as c  # noqa: E402
 from human_factors.canonical_r27_v1 import CanonicalViolation  # noqa: E402
 
@@ -14,6 +15,22 @@ SHA = "a" * 64
 
 def ev(kind, at, **detail):
     return {"type": kind, "at_ms": at, "detail": detail}
+
+
+GEMINI_TEXT = {  # R28/R29 Gemini literal texts (DEC-CLIN-R15-01) keyed by the canonical message key
+    "MSG_T7_NO_MODALITY": {"es": "No se ha seleccionado una modalidad admitida. Este sistema no identifica automáticamente el tipo de imagen o documento. Elija la modalidad correspondiente antes de continuar.",
+                           "pt": "Não foi selecionada uma modalidade admitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar.",
+                           "en": "No supported modality was selected. This system does not automatically identify the image or document type. Choose the appropriate modality before continuing."},
+    "MSG_T7_INCOMPATIBLE_MODALITY": {"es": "El archivo no es técnicamente compatible con la modalidad seleccionada. No se ha evaluado el contenido ni se descarta patología. Suba un archivo compatible o elija la modalidad adecuada.",
+                                     "pt": "O ficheiro não é tecnicamente compatível com a modalidade selecionada. O conteúdo não foi avaliado nem se exclui patologia. Envie um ficheiro compatível ou escolha a modalidade adequada.",
+                                     "en": "This file is not technically compatible with the selected modality. The content was not evaluated and no condition is ruled out. Upload a compatible file or choose the matching modality."},
+    "MSG_T7_CORRUPT_FILE": {"es": "El archivo está dañado o no puede procesarse técnicamente. No se ha realizado ninguna evaluación clínica. Repita la captura o cargue una copia íntegra del archivo.",
+                            "pt": "O ficheiro está danificado ou não pode ser processado tecnicamente. Não foi realizada qualquer avaliação clínica. Repita a captura ou carregue uma cópia íntegra.",
+                            "en": "This file is corrupted or cannot be technically processed. No clinical evaluation was performed. Retake the capture or upload an intact copy of the file."},
+    "MSG_T7_UNSUPPORTED_FORMAT": {"es": "El formato de archivo no está admitido por esta función. No se ha analizado el contenido ni se excluye ninguna afección. Convierta o vuelva a cargar el archivo en un formato compatible.",
+                                  "pt": "O formato do ficheiro não é suportado por esta função. O conteúdo não foi analisado nem se exclui qualquer condição. Converta ou reenvie num formato compatível.",
+                                  "en": "This file format is not supported by this feature. The content was not analyzed and no condition is ruled out. Convert or re-upload the file in a supported format."},
+}
 
 
 def context(**over):
@@ -41,7 +58,7 @@ class Converter(unittest.TestCase):
     def test_a_valid_m3_trial_without_banner_has_no_recovery_state(self):
         log = [ev("file_selected", 50, size=10, with_modality=True, viewport_width_px=360, e1_entry=False), ev("modality_selected", 20, modality="ecg", origin="initial"),
                ev("confirm_clicked", 800, modality="ecg")]
-        r = c.from_lab_ui_log(log, context(stimulus_id="S2-08", sequence_code="S1a", period=2, subblock=2))
+        r = c.from_lab_ui_log(log, context(stimulus_id="S2-08", sequence_code="S3a", period=1, subblock=1))
         self.assertEqual((r["scenario_id"], r["recovery_outcome"], r["layer7_trigger_code"], r["outcome_status"], r["e1_entry_mode"]), ("F", "NA", "NONE", "valid_completed", "NONE"))
         self.assertIsNone(r["layer7_banner_to_first_action_ms"])
 
@@ -102,6 +119,7 @@ class Validator(unittest.TestCase):
         self.reject(stimulus_id="S1-14")                                                     # set prefix disagrees
         self.reject(stimulus_id="S2-08")                                                     # pair disagrees with scenario E1
         self.reject(stimulus_hash_sha256="xyz")
+        self.reject(subblock=2, device_type="mobile_narrow_360", viewport_width_px=360)           # pair 14 belongs to sub-block 1, not 2
         self.reject(e1_entry_mode="NONE")                                                    # E1 in arm B must carry the isolated-entry label
         self.reject(task_duration_ms=0)
         self.reject(layer7_banner_to_first_action_ms=None)                                   # a banner was shown
@@ -117,3 +135,27 @@ class Validator(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HistoricalKeys(unittest.TestCase):
+    def test_the_evaluator_texts_equal_the_gemini_literals_and_the_key_crosswalk_is_exact(self):
+        import base64
+        import layer7_adapter as adapter
+        stimuli = ROOT / "lab" / "human_factors" / "bank" / "stimuli"
+
+        def body(name):
+            return {"filename": name, "mime_type": None, "content_base64": base64.b64encode((stimuli / name).read_bytes()).decode(), "explicit_kind": None}
+
+        cases = (("S2-14.pdf", None, "MSG_T7_A"), ("S2-15.pdf", "skin_wound", "MSG_T7_B"), ("S1-15.jpg", "skin_wound", "MSG_T7_C"), ("QA-01.wav", "skin_wound", "MSG_T7_D"))
+        for name, modality, historical in cases:
+            for language in ("es", "pt", "en"):
+                result = adapter.evaluate_upload(body(name), modality, language)
+                self.assertEqual(result["message_id"], historical)
+                self.assertEqual(result["message_text"], GEMINI_TEXT[c.HISTORICAL_MESSAGE_KEYS[historical]][language], (historical, language))
+        self.assertEqual(len(set(c.HISTORICAL_MESSAGE_KEYS.values())), 4)
+
+    def test_an_unknown_message_key_is_refused(self):
+        bad = copy.deepcopy(E1_LOG)
+        bad[1]["detail"]["message_id"] = "MSG_T7_Z"
+        with self.assertRaises(CanonicalViolation):
+            c.from_lab_ui_log(bad, context())

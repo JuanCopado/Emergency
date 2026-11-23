@@ -22,6 +22,46 @@
   "contrast_measured": false,
   "screen_reader_tested": false,
   "edge_checked": false,
+  "canonical_exported_valid": 16,
+  "canonical_refused_with_reason": [
+   [
+    "pt",
+    360,
+    "E1_T7-01_file_before_modality",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    360,
+    "E2_T7-03_corrupt_jpeg",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    360,
+    "E2_T7-04_pdf_on_photo_route",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    360,
+    "F_document_kind_null_selected",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    390,
+    "E1_T7-01_file_before_modality",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    390,
+    "E2_T7-03_corrupt_jpeg",
+    "language_stratum (generic 'pt' is refused)"
+   ]
+  ],
+  "canonical_not_applicable": 12,
   "execution_mode": "SYNTHETIC_TECHNICAL_DRIVER_ON_REAL_APP_LAB_BUILD_ONLY",
   "study_with_humans": "NOT_AUTHORISED"
  },
@@ -51,9 +91,14 @@
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
-    "recovery_action"
+    "recovery_action",
+    "confirm_clicked"
    ],
-   "real_prepare_calls": 0
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "real_prepare_calls": 1
   },
   {
    "scenario": "E2_T7-03_corrupt_jpeg",
@@ -80,6 +125,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -108,6 +157,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -136,6 +189,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -150,8 +207,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 1
   },
   {
@@ -166,8 +228,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 1
   },
   {
@@ -195,9 +262,14 @@
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
-    "recovery_action"
+    "recovery_action",
+    "confirm_clicked"
    ],
-   "real_prepare_calls": 0
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "real_prepare_calls": 1
   },
   {
    "scenario": "E2_T7-03_corrupt_jpeg",
@@ -224,6 +296,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -252,6 +328,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -280,6 +360,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -294,8 +378,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 1
   },
   {
@@ -310,8 +399,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 1
   },
   {
@@ -339,9 +433,14 @@
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
-    "recovery_action"
+    "recovery_action",
+    "confirm_clicked"
    ],
-   "real_prepare_calls": 0
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "real_prepare_calls": 1
   },
   {
    "scenario": "E2_T7-03_corrupt_jpeg",
@@ -368,6 +467,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -396,6 +499,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -424,6 +531,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -438,8 +549,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
    "real_prepare_calls": 1
   },
   {
@@ -454,8 +570,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 1
   },
   {
@@ -483,9 +604,14 @@
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
-    "recovery_action"
+    "recovery_action",
+    "confirm_clicked"
    ],
-   "real_prepare_calls": 0
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "real_prepare_calls": 1
   },
   {
    "scenario": "E2_T7-03_corrupt_jpeg",
@@ -512,6 +638,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -540,6 +670,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -568,6 +702,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -582,8 +720,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
    "real_prepare_calls": 1
   },
   {
@@ -598,8 +741,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 1
   },
   {
@@ -627,9 +775,14 @@
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
-    "recovery_action"
+    "recovery_action",
+    "confirm_clicked"
    ],
-   "real_prepare_calls": 0
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "real_prepare_calls": 1
   },
   {
    "scenario": "E2_T7-03_corrupt_jpeg",
@@ -656,6 +809,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -684,6 +841,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -712,6 +873,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -726,8 +891,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 1
   },
   {
@@ -742,8 +912,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 1
   },
   {
@@ -771,9 +946,14 @@
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
-    "recovery_action"
+    "recovery_action",
+    "confirm_clicked"
    ],
-   "real_prepare_calls": 0
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "real_prepare_calls": 1
   },
   {
    "scenario": "E2_T7-03_corrupt_jpeg",
@@ -800,6 +980,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -828,6 +1012,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 0
   },
   {
@@ -856,6 +1044,10 @@
     "file_selected",
     "layer7_banner_rendered"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 0
   },
   {
@@ -870,8 +1062,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
    "real_prepare_calls": 1
   },
   {
@@ -886,8 +1083,13 @@
    "overflow_px": 0,
    "lab_log_events": [
     "modality_selected",
-    "file_selected"
+    "file_selected",
+    "confirm_clicked"
    ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
    "real_prepare_calls": 1
   }
  ]

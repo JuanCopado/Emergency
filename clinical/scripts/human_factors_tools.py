@@ -293,7 +293,16 @@ BCA_MIN_PER_SEQUENCE = 8        # C2: each AB/BA stratum must hold >= 8 particip
                                 # Value as cited by the owner from the Gemini R26/R27 specification (PR94 coordination comment);
                                 # the literal Gemini text was not received by this tool: source status below, not a clinical decision.
 BCA_C2_THRESHOLD_STATUS = "OWNER_CITED_GEMINI_R26_R27_SPEC_LITERAL_NOT_RECEIVED"
-BCA_JACKKNIFE_SS_MIN = 1e-12    # C4: jackknife sum of squares must exceed this; otherwise the acceleration is undefined
+BCA_JACKKNIFE_SS_MIN = 1e-12
+
+# Documentary maps (R30). They are NOT emitted into any output: historical data keep their tokens. `bca_status_map_v1` states that the engine token
+# BCA_PRIMARY and the Gemini token COMPUTED_ELIGIBLE are the same logical state; the condition crosswalk maps the engine numbering (BCa-C1..C4) to the
+# Gemini numbering. BCa-C1..C4 are statistical eligibility conditions; they are unrelated to the HF-C1..HF-C4 comprehension questions of the study.
+BCA_STATUS_MAP_V1 = {"BCA_PRIMARY": "COMPUTED_ELIGIBLE", "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE": "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE",
+                     "BCA_NOT_COMPUTABLE": "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE"}
+BCA_CONDITION_CROSSWALK_V1 = {"C1_min_participants": "Gemini C1 (P >= 20)", "C2_sequences_represented": "Gemini C1 (P_s >= 8 per AB/BA sequence)",
+                              "C3_variation_and_events": "Gemini C2 (events and variation)", "C4_parameters_valid": "Gemini C3 (z0 finite) + C4 (jackknife > 1e-12; alpha in [1/B, 1-1/B])"}
+    # C4: jackknife sum of squares must exceed this; otherwise the acceleration is undefined
 
 
 def _bca_diagnosed(point, samples, jackknife):
