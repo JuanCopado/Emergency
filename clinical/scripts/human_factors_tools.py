@@ -347,6 +347,56 @@ def _bca(point, samples, jackknife):
     return _bca_diagnosed(point, samples, jackknife)[0]
 
 
+def wilcoxon_signed_rank(differences):
+    """Paired Wilcoxon signed-rank test on PARTICIPANT-level differences (one value per participant, prototype minus baseline).
+
+    Method (declared, not inferred): zero differences are dropped (Wilcoxon convention); tied absolute differences receive average
+    ranks. With n <= 25 non-zero differences the two-sided p-value is EXACT (dynamic-programming count of the sign-permutation null
+    distribution of W+ over the actual ranks; with ties it is the conditional permutation p, labelled). With n > 25 it is APPROXIMATE: normal approximation with tie-corrected variance and continuity
+    correction, labelled as such. Formative use only; never an A/B inference for M2."""
+    values = [float(d) for d in differences if d is not None]
+    if any(not math.isfinite(v) for v in values):
+        raise ValueError("non-finite difference")
+    nonzero = [v for v in values if v != 0.0]
+    n = len(nonzero)
+    out = {"method": "wilcoxon_signed_rank_participant_level", "n_participants": len(values), "n_zero_dropped": len(values) - n, "n_effective": n}
+    if n == 0:
+        return {**out, "w_plus": None, "w_minus": None, "p_value_two_sided": None, "p_value_kind": "NOT_COMPUTABLE_NO_NONZERO_DIFFERENCES", "ties": False}
+    order = sorted(range(n), key=lambda i: abs(nonzero[i]))
+    ranks, i, tie_groups = [0.0] * n, 0, []
+    while i < n:
+        j = i
+        while j + 1 < n and abs(nonzero[order[j + 1]]) == abs(nonzero[order[i]]):
+            j += 1
+        for k in range(i, j + 1):
+            ranks[order[k]] = (i + j) / 2 + 1
+        tie_groups.append(j - i + 1)
+        i = j + 1
+    w_plus = sum(r for r, v in zip(ranks, nonzero) if v > 0)
+    w_minus = sum(r for r, v in zip(ranks, nonzero) if v < 0)
+    ties = any(t > 1 for t in tie_groups)
+    total = n * (n + 1) / 2
+    out.update(w_plus=w_plus, w_minus=w_minus, ties=ties)
+    if n <= 25:
+        doubled = [int(round(2 * r)) for r in ranks]                    # average ranks are multiples of 0.5: exact integer arithmetic
+        counts = [0] * (sum(doubled) + 1)
+        counts[0] = 1
+        for r in doubled:
+            for w in range(len(counts) - 1, r - 1, -1):
+                counts[w] += counts[w - r]
+        smaller = int(round(2 * min(w_plus, w_minus)))
+        tail = sum(counts[: smaller + 1]) / 2 ** n
+        out.update(p_value_two_sided=min(1.0, 2 * tail), p_value_kind="EXACT_PERMUTATION_AVERAGE_RANKS" if ties else "EXACT_NO_TIES")
+        return out
+    mean = total / 2
+    variance = n * (n + 1) * (2 * n + 1) / 24 - sum(t ** 3 - t for t in tie_groups) / 48
+    if variance <= 0:
+        return {**out, "p_value_two_sided": None, "p_value_kind": "NOT_COMPUTABLE_ZERO_VARIANCE"}
+    z = (abs(w_plus - mean) - 0.5) / math.sqrt(variance)
+    out.update(p_value_two_sided=min(1.0, 2 * (1 - NORMAL.cdf(max(z, 0.0)))), p_value_kind="APPROXIMATE_NORMAL_TIE_CORRECTED_CONTINUITY")
+    return out
+
+
 def _bootstrap(ids, resamples, rng, estimator, strata=None, event_flags=None):
     """Point estimate on the real participants plus percentile and (when admissible) BCa intervals over participant resamples.
 

@@ -198,7 +198,7 @@ class GoldenFixtures(unittest.TestCase):
         low, high = hf.clopper_pearson(10, 12)
         self.assertLess(abs(low - 0.5159), 1e-4); self.assertLess(abs(high - 0.9791), 1e-4)
 
-    def test_ref_stat_03_m3_wilcoxon_reference_is_arithmetically_consistent_but_not_implemented_in_the_tool(self):
+    def test_ref_stat_03_m3_wilcoxon_reference_is_arithmetically_consistent_and_the_tool_computes_it_with_declared_tie_handling(self):
         deltas = [2, 3, 4, 5, 5, 6, 6, 7, 8, 9, 10, 13]
         self.assertAlmostEqual(sum(deltas) / 12, 6.5)
         self.assertEqual(sorted(deltas)[5:7], [6, 6])                          # median 6.0
@@ -207,8 +207,48 @@ class GoldenFixtures(unittest.TestCase):
         self.assertEqual(w_plus, 78)
         self.assertEqual(2 ** n, 4096)                                          # exact two-sided p = 2 / 2^n
         self.assertAlmostEqual(2 / 4096, 0.000488, places=6)
-        self.assertFalse(hasattr(hf, "wilcoxon_signed_rank"))                   # NOT_IMPLEMENTED: reported, not faked
+        res = hf.wilcoxon_signed_rank(deltas)                                   # the reference has ties (5,5 and 6,6)
+        self.assertEqual((res["w_plus"], res["w_minus"], res["ties"]), (78.0, 0.0, True))
+        self.assertEqual(res["p_value_kind"], "EXACT_PERMUTATION_AVERAGE_RANKS")
+        self.assertAlmostEqual(res["p_value_two_sided"], 2 / 4096, places=12)
 
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class WilcoxonParticipantLevel(unittest.TestCase):
+    @staticmethod
+    def brute_force_two_sided(diffs):
+        n = len(diffs)
+        order = sorted(range(n), key=lambda i: abs(diffs[i]))
+        rank = {i: r + 1 for r, i in enumerate(order)}                 # no ties in these fixtures
+        observed = sum(rank[i] for i in range(n) if diffs[i] > 0)
+        total = n * (n + 1) // 2
+        hits = 0
+        for mask in range(2 ** n):
+            w = sum(r for r in range(1, n + 1) if mask >> (r - 1) & 1)
+            if min(w, total - w) <= min(observed, total - observed):
+                hits += 1
+        return hits / 2 ** n
+
+    def test_exact_p_matches_brute_force_enumeration(self):
+        for diffs in ([1, 2, 3, 4, 5], [-1, 2, 3, -4, 5, 6], [0.5, -1.5, 2.5, 3.5, -4.5, 5.5, 6.5, 7.5], [-3, -1, -2]):
+            with self.subTest(diffs=diffs):
+                res = hf.wilcoxon_signed_rank(diffs)
+                self.assertEqual(res["p_value_kind"], "EXACT_NO_TIES")
+                self.assertAlmostEqual(res["p_value_two_sided"], self.brute_force_two_sided(diffs), places=12)
+        self.assertAlmostEqual(hf.wilcoxon_signed_rank([1, 2, 3, 4, 5])["p_value_two_sided"], 0.0625, places=12)
+
+    def test_zeros_dropped_ties_use_average_ranks_and_large_n_is_labelled_approximate(self):
+        res = hf.wilcoxon_signed_rank([0, 0, 1, -1, 2, 3])
+        self.assertEqual((res["n_zero_dropped"], res["n_effective"], res["ties"]), (2, 4, True))
+        self.assertEqual((res["w_plus"], res["w_minus"]), (8.5, 1.5))      # |1|,|1| share ranks 1.5; 2 -> 3; 3 -> 4
+        self.assertEqual(res["p_value_kind"], "EXACT_PERMUTATION_AVERAGE_RANKS")
+        big = hf.wilcoxon_signed_rank([i + 1 for i in range(30)])
+        self.assertTrue(big["p_value_kind"].startswith("APPROXIMATE"))     # n > 25: normal approximation, labelled
+        empty = hf.wilcoxon_signed_rank([0, 0, None])
+        self.assertIsNone(empty["p_value_two_sided"])
+        self.assertTrue(empty["p_value_kind"].startswith("NOT_COMPUTABLE"))
+        with self.assertRaises(ValueError):
+            hf.wilcoxon_signed_rank([1, float("nan")])
