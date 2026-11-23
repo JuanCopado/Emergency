@@ -40,17 +40,23 @@ def render_math(items, katex_dir):
 
 
 def number_headings(page_html):
+    """Adds 1., 1.1 numbering to h2/h3 and builds the index. A heading that already starts with its own number keeps it (no double numbering)."""
     counters, toc = [0, 0], []
+    already = re.compile(r"^\s*\d+(?:\.\d+)*\.?\s")
     def repl(match):
         level, attrs, inner = int(match.group(1)), match.group(2), match.group(3)
         if level == 1:
             return match.group(0)
+        plain = re.sub(r"<[^>]+>", "", inner)
+        anchor = f"s{len(toc)}"
+        if already.match(plain):
+            toc.append((level, "", plain, anchor))
+            return f'<h{level} id="{anchor}"{attrs}>{inner}</h{level}>'
         if level == 2:
             counters[0] += 1; counters[1] = 0; label = f"{counters[0]}."
         else:
             counters[1] += 1; label = f"{counters[0]}.{counters[1]}"
-        anchor = f"s{len(toc)}"
-        toc.append((level, label, re.sub(r"<[^>]+>", "", inner), anchor))
+        toc.append((level, label, plain, anchor))
         return f'<h{level} id="{anchor}"{attrs}>{label} {inner}</h{level}>'
     return re.sub(r"<h([1-3])([^>]*)>(.*?)</h\1>", repl, page_html, flags=re.S), toc
 
@@ -74,7 +80,7 @@ def build(sources, katex_dir, title):
         raise ValueError("a math placeholder was not restored")
     page, toc = number_headings(page)
     page = mark_wide_tables(page)
-    toc_html = "<nav class=\"toc\"><h2>Índice</h2><ol>" + "".join(f'<li class="l{lv}"><a href="#{a}">{lab} {html.escape(text)}</a></li>' for lv, lab, text, a in toc) + "</ol></nav>"
+    toc_html = "<nav class=\"toc\"><h2>Índice</h2><ol>" + "".join(f'<li class="l{lv}"><a href="#{a}">{(lab + " ") if lab else ""}{html.escape(text)}</a></li>' for lv, lab, text, a in toc) + "</ol></nav>"
     katex_css = (Path(katex_dir) / "node_modules" / "katex" / "dist" / "katex.min.css").resolve().as_uri()
     return (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{html.escape(title)}</title><link rel="stylesheet" href="{katex_css}">'
             f'<style>{(HERE / "style.css").read_text(encoding="utf-8")}</style></head><body><div class="cover"><h1>{html.escape(title)}</h1></div>{toc_html}{page}</body></html>')

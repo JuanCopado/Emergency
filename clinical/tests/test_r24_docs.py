@@ -31,6 +31,13 @@ class Pure(unittest.TestCase):
         self.assertIn("<h1>T</h1>", page)
         self.assertEqual([(lv, lab) for lv, lab, _, _ in toc], [(2, "1."), (3, "1.1"), (3, "1.2"), (2, "2.")])
 
+    def test_a_heading_that_already_carries_its_number_is_not_numbered_twice(self):
+        page, toc = build_pdf.number_headings("<h1>T</h1><h2>1. Resultado</h2><h2>Sin numero</h2><h3>2.1 ya numerado</h3>")
+        self.assertIn("<h2 id=\"s0\">1. Resultado</h2>", page)
+        self.assertNotIn("1. 1.", page)
+        self.assertIn(">1. Sin numero<", page)          # the unnumbered one is numbered by the generator
+        self.assertEqual(toc[0][1], "")
+
     def test_wide_tables_get_the_compact_class(self):
         narrow = "<table><thead><tr><th>a</th><th>b</th></tr></thead></table>"
         wide = "<table><thead><tr>" + "<th>x</th>" * 7 + "</tr></thead></table>"
