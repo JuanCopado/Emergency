@@ -38,8 +38,26 @@ class RealArms(unittest.TestCase):
             self.assertEqual(r["A_dev"]["prepare_calls"], 1)
             self.assertEqual(r["B_dev"]["prepare_calls"], 1)
 
-    def test_layer7_ui_is_blocked_not_simulated(self):
-        self.assertTrue(S["arm_b_layer7_abstention_ui"].startswith("BLOCKED"))
+    def test_layer7_on_the_real_app_via_the_lab_adapter(self):
+        L7 = REPORT["layer7"]
+        self.assertEqual(len(L7), 18)                                              # 6 scenarios x es/pt/en
+        self.assertTrue(S["layer7_all_as_expected"])
+        expected = {"E2_T7-03_corrupt_jpeg": "T7-03_CORRUPT_UNPROCESSABLE", "E2_T7-04_pdf_on_photo_route": "T7-04_FORMAT_CONTAINER_MISMATCH",
+                    "E2_T7-04_audio_global_format": "T7-04_FORMAT_CONTAINER_MISMATCH", "F_document_kind_null": None,
+                    "F_valid_rgb_ecg_route": None, "M1_valid_rgb_under_xray_route_no_visual_inference": None}
+        for r in L7:
+            self.assertEqual(r["adapter_trigger"], expected[r["scenario"]], r["scenario"])
+            self.assertEqual(r["force_send_controls"], 0)                          # no force-send path after a technical abstention
+            if expected[r["scenario"]]:
+                self.assertTrue(r["overlay_shown"] and r["overlay_text_equals_adapter_text"])
+                self.assertEqual((r["review_cards_created"], r["real_prepare_calls"]), (0, 0))
+            else:
+                self.assertFalse(r["overlay_shown"])
+
+    def test_ready_states_are_not_confused(self):
+        self.assertTrue(S["software_lab_ready"].startswith("SOFTWARE_LAB_READY_CANDIDATE_PENDING_AUDIT"))
+        self.assertTrue(S["study_with_humans_ready"].startswith("STUDY_WITH_HUMANS_READY: NO"))
+        self.assertIn("app has no Layer 7 UI and was not modified", S["arm_b_layer7"])
 
 
 if __name__ == "__main__":
