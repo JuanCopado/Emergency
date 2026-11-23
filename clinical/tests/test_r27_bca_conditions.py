@@ -327,3 +327,14 @@ class GeminiR27Oracles(unittest.TestCase):
         self.assertIsNone(paired["cluster_bootstrap_bca_95"])
         self.assertIn(paired["bca_status"], (hf.BCA_FALLBACK, "BCA_NOT_COMPUTABLE"))
         self.assertFalse(any(isinstance(v, float) and v != v for v in paired.values()))
+
+
+class Ref03B(unittest.TestCase):
+    def test_ref_stat_03b_no_ties_exact_p(self):
+        deltas = [2.0, 3.0, 4.0, 4.5, 5.0, 5.5, 6.5, 7.0, 8.0, 9.0, 10.0, 13.5]
+        res = hf.wilcoxon_signed_rank(deltas)
+        self.assertEqual((res["ties"], res["p_value_kind"]), (False, "EXACT_NO_TIES"))
+        self.assertAlmostEqual(res["p_value_two_sided"], 2 / 4096, places=5)
+        self.assertAlmostEqual(sum(deltas) / 12, 6.5)
+        self.assertAlmostEqual(sorted(deltas)[5] / 2 + sorted(deltas)[6] / 2, 6.0)          # median
+        self.assertEqual((res["w_plus"], res["w_minus"]), (78.0, 0.0))
