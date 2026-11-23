@@ -80,7 +80,7 @@ def validate_records(records):
         if key in seen:
             raise ValueError(f"participant {key[0]} has scenario {key[1]} twice under {key[2]}")
         seen.add(key)
-    return True
+    return len(records)
 
 
 def flags(record):

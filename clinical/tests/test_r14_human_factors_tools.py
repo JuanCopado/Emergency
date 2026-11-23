@@ -42,7 +42,7 @@ def clustered_baseline():
 class Validation(unittest.TestCase):
     def test_a_valid_crossed_set_passes(self):
         rows = [trial(), trial(condition="prototype", period=2), trial(scenario="S2", chosen=None, confirmed=False, initial=None)]
-        self.assertTrue(hf.validate_records(rows))
+        self.assertEqual(hf.validate_records(rows), 3)
 
     def test_free_text_names_unknown_values_and_inconsistencies_are_rejected(self):
         for bad in (dict(trial(), comment="texto libre"), dict(trial(), name="Ana"), trial(participant="Ana Pérez"),
@@ -59,7 +59,7 @@ class Validation(unittest.TestCase):
     def test_a_participant_cannot_repeat_a_scenario_in_the_same_condition(self):
         with self.assertRaises(ValueError):
             hf.validate_records([trial(), trial()])
-        self.assertTrue(hf.validate_records([trial(), trial(condition="prototype")]))
+        self.assertEqual(hf.validate_records([trial(), trial(condition="prototype")]), 2)
 
 
 class DerivedFlags(unittest.TestCase):
