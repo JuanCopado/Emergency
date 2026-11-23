@@ -275,6 +275,36 @@ class R1402Hardening(unittest.TestCase):
         for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
             self.assertNotIn("premise_absent_confirmed", path.read_text(encoding="utf-8", errors="ignore"), str(path))
 
+    def test_direct_visual_fact_and_other_image_derived_values_are_never_accepted_anywhere(self):
+        """R20 · the canonical dictionary admits no visual source: not as source kind, not as history, not as cause."""
+        for name in SIGNS:
+            if name in NO_NOT_APPLICABLE:
+                continue
+            for kind in ("direct_visual_fact", "visual_inspection", "photo", "image", "model", "classifier", "unverified"):
+                src = dict(SOURCE, kind=kind)
+                self.assertFalse(self.validator.is_valid(self._doc(name, dict(confirmed_not_applicable(name), premise_confirmation_source=src))), (name, kind))
+            self.assertFalse(self.validator.is_valid(self._doc(name, {"state": "observable", "direct_visual_fact": True})), name)
+        edge = dict(confirmed_not_applicable("visible_edge_separation"))
+        for history in ("direct_visual_fact", "visible_edge_no_scar", "never_closed_by_photo"):
+            self.assertFalse(self.validator.is_valid(self._doc("visible_edge_separation", dict(edge, wound_closure_history=history))), history)
+        self.assertEqual(self.schema["x-not-applicable"]["confirmation_source_kinds"], ["clinician_entry", "structured_clinical_record"])
+        self.assertNotIn("direct_visual_fact", json.dumps(self.schema))
+
+    def test_the_canonical_dictionary_matches_the_real_contract_fields(self):
+        """The qa dictionary names exactly the fields, enums and causes of the validated contract."""
+        text = (ROOT / "qa" / "R20_DICCIONARIO_CANONICO_PHASE1_V03.md").read_text(encoding="utf-8")
+        props = self.schema["properties"]["observations"]["properties"]["visible_edge_separation"]["properties"]
+        source = props["premise_confirmation_source"]["properties"]
+        names = set(props) | set(source) | set(source["kind"]["enum"]) | set(source["recorder_role"]["enum"]) \
+            | set(props["wound_closure_history"]["enum"]) | {"closure_history_unavailable", "never_closed", "not_applicable"}
+        for name in names:
+            self.assertIn(name, text, name)
+
+    def _doc(self, name, sign):
+        doc = valid_document()
+        doc["observations"][name] = sign
+        return doc
+
     def test_the_proposal_is_not_wired_into_the_product(self):
         needles = ("skin-wound-phase1-contract", "phase1-0.1-proposed", "phase1-0.2-proposed", "phase1-0.3-proposed")
         for path in list((ROOT / "scripts").glob("*.py")) + list((ROOT.parent / "app" / "src").rglob("*.ts*")):
