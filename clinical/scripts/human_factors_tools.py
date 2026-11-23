@@ -327,7 +327,7 @@ def _bca_diagnosed(point, samples, jackknife):
             diag["failure"] = "adjusted_quantile_denominator_not_positive"
             return None, diag
         adjusted = NORMAL.cdf(z0 + (z0 + z) / denominator)
-        if not 0.0 < adjusted < 1.0 or adjusted != adjusted:
+        if not math.isfinite(adjusted) or not 0.0 < adjusted < 1.0:
             diag["failure"] = "adjusted_quantile_invalid"
             return None, diag
         alphas.append(round(adjusted, 6))
