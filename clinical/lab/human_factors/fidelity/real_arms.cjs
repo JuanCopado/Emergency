@@ -123,6 +123,62 @@ function relativeBoxes(list) {
   return list.map((c) => ({ x: c.x - x0, y: c.y - y0, w: c.w, h: c.h }));
 }
 /** Layout inside the card is compared RELATIVE to its first control; the absolute shift of the whole card (anything above it) is reported separately, never hidden. */
+function layer7Evaluate(body, uiModality, language) {
+  const out = execFileSync("python3", ["-I", path.join(HERE, "..", "layer7_adapter.py")], { input: JSON.stringify({ body, ui_modality: uiModality, language }) });
+  return JSON.parse(out.toString());
+}
+const L7_SCENARIOS = [
+  { id: "E2_T7-03_corrupt_jpeg", file: "S1-15.jpg", modality: /Pele|Piel|Skin|Wound/i, ui: "skin_wound", expect: "T7-03_CORRUPT_UNPROCESSABLE" },
+  { id: "E2_T7-04_pdf_on_photo_route", file: "S2-15.pdf", modality: /Pele|Piel|Skin|Wound/i, ui: "skin_wound", expect: "T7-04_FORMAT_CONTAINER_MISMATCH" },
+  { id: "E2_T7-04_audio_global_format", file: "QA-01.wav", modality: /Pele|Piel|Skin|Wound/i, ui: "skin_wound", expect: "T7-04_FORMAT_CONTAINER_MISMATCH" },
+  { id: "F_document_kind_null", file: "S1-13.pdf", modality: /Document/i, ui: "document", expect: null },
+  { id: "F_valid_rgb_ecg_route", file: "S1-14.png", modality: /ECG/i, ui: "ecg", expect: null },
+  { id: "M1_valid_rgb_under_xray_route_no_visual_inference", file: "S1-14.png", modality: /Radiograf|X-ray|Rx/i, ui: "xray", expect: null },
+];
+/** Arm B on the REAL app + the lab Layer 7 adapter. The overlay is injected by the lab runner (the app has no Layer 7 UI); the app is not modified. */
+async function layer7Trial(browser, baseUrl, lang, sc) {
+  const ctx = await browser.newContext({ viewport: { width: 360, height: 640 } });
+  await ctx.addInitScript((l) => { try { localStorage.setItem("emergency.lang", l); } catch (e) {} }, lang);
+  const page = await ctx.newPage();
+  let realPrepareCalls = 0, verdict = null;
+  await page.route("**/api/**", async (route) => {
+    if (!route.request().url().endsWith("/api/clinical-note/upload/prepare")) return route.fulfill({ status: 503, contentType: "application/json", body: "{}" });
+    const body = JSON.parse(route.request().postData());
+    verdict = layer7Evaluate(body, sc.ui, lang);
+    if (verdict.abstains) {
+      await page.evaluate((v) => {
+        const style = document.createElement("style");
+        style.textContent = "[role=alert]:not([data-testid=lab-layer7]){display:none!important}";
+        document.head.appendChild(style);
+        const box = document.createElement("div");
+        box.setAttribute("role", "alert"); box.setAttribute("data-testid", "lab-layer7"); box.setAttribute("tabindex", "-1");
+        box.textContent = v.message_text;
+        document.querySelector("main").prepend(box); box.focus();
+      }, verdict);
+      return route.fulfill({ status: 422, contentType: "application/json", body: JSON.stringify({ error: "lab-layer7-abstention" }) });
+    }
+    realPrepareCalls += 1;
+    const r = realPrepare(body);
+    await route.fulfill({ status: r.status, contentType: "application/json", body: JSON.stringify(r.body) });
+  });
+  await page.goto(baseUrl + "/clinical-note", { waitUntil: "networkidle" });
+  await openMcdt(page);
+  await page.getByTestId("r51-modality-entry").getByRole("button", { name: sc.modality }).first().click();
+  const buffer = fs.readFileSync(path.join(STIMULI, sc.file));
+  await page.locator("input[type=file]").first().setInputFiles({ name: sc.file, mimeType: MIME[path.extname(sc.file)] || "application/octet-stream", buffer });
+  await page.getByRole("button", { name: /Confirmar|Confirm/ }).first().click();
+  await page.waitForTimeout(900);
+  const overlay = page.getByTestId("lab-layer7");
+  const shown = (await overlay.count()) > 0;
+  const text = shown ? (await overlay.first().innerText()) : null;
+  const forceSend = await page.getByRole("button", { name: /forçar|forzar|force|enviar mesmo|enviar de todos modos|send anyway/i }).count();
+  const cards = await page.getByTestId("mcdt-review-card").count();
+  await ctx.close();
+  return { scenario: sc.id, language: lang, expected_trigger: sc.expect, adapter_trigger: verdict && verdict.trigger_id, overlay_shown: shown,
+    overlay_text_equals_adapter_text: shown && text.trim() === verdict.message_text.trim(), force_send_controls: forceSend,
+    review_cards_created: cards, real_prepare_calls: realPrepareCalls, reachable_in_real_prototype_ui: verdict && verdict.reachable_in_real_prototype_ui };
+}
+
 function compare(a, p) {
   const out = { same_control_names_and_order: JSON.stringify(a.controls_before.map((c) => [c.role, c.name])) === JSON.stringify(p.controls_before.map((c) => [c.role, c.name])), max_relative_box_delta_px: null, absolute_card_shift_px: null, same_card_text: a.card_text === p.card_text, same_actions: a.minimum_actions_to_review_card === p.minimum_actions_to_review_card, overflow_px: [a.overflow_px, p.overflow_px], latency_delta_ms: Math.abs(a.latency_ms - p.latency_ms) };
   if (a.controls_before.length === p.controls_before.length && a.controls_before.length) {
@@ -143,6 +199,7 @@ function compare(a, p) {
     await w.waitForTimeout(4000); await w.reload({ waitUntil: "networkidle" }).catch(() => {}); await w.close();
   }
   const runs = [];
+  const layer7 = [];
   try {
     for (const lang of LANGS) for (const vp of VIEWPORTS) for (const scenario of Object.keys(SCENARIOS)) {
       const P = await runTrial(browser, prod.url, vp, lang, scenario, "A");
@@ -150,6 +207,7 @@ function compare(a, p) {
       const B = await runTrial(browser, dev.B.url, vp, lang, scenario, "B").catch((e) => { throw new Error("arm B failed at " + lang + " " + vp.width + " " + scenario + ": " + String(e.message).split("\n")[0]); });
       runs.push({ lang, viewport: vp, scenario, P_prod: P, A_dev: A, B_dev: B, A_vs_prod: compare(A, P) });
     }
+    for (const lang of LANGS) for (const sc of L7_SCENARIOS) layer7.push(await layer7Trial(browser, dev.B.url, lang, sc));
   } finally { await browser.close(); dev.A.close(); dev.B.close(); prod.close(); }
   const aVsProd = runs.map((r) => r.A_vs_prod);
   const summary = {
@@ -158,9 +216,12 @@ function compare(a, p) {
     arm_a_cells_with_absolute_card_shift_over_4px: runs.filter((r) => r.A_vs_prod.absolute_card_shift_px > 4).map((r) => [r.lang, r.viewport.width, r.scenario, r.A_vs_prod.absolute_card_shift_px]),
     arm_a_max_latency_delta_ms: Math.max(...aVsProd.map((c) => c.latency_delta_ms)),
     arm_b_extra_actions_vs_a: [...new Set(runs.map((r) => r.B_dev.minimum_actions_to_review_card - r.A_dev.minimum_actions_to_review_card))],
-    arm_b_layer7_abstention_ui: "BLOCKED: the app has no Layer 7 UI; adding it is an app change (see R26 report)",
+    arm_b_layer7: "LAB_ADAPTER_OVERLAY_ON_REAL_APP: abstentions come from the R22 harness via layer7_adapter.py; the app has no Layer 7 UI and was not modified",
+    layer7_all_as_expected: layer7.every((r) => r.adapter_trigger === r.expected_trigger && r.overlay_shown === (r.expected_trigger !== null) && (r.expected_trigger === null || (r.overlay_text_equals_adapter_text && r.review_cards_created === 0 && r.real_prepare_calls === 0)) && r.force_send_controls === 0),
+    software_lab_ready: "SOFTWARE_LAB_READY_CANDIDATE_PENDING_AUDIT",
+    study_with_humans_ready: "STUDY_WITH_HUMANS_READY: NO (bank 10/30 not adjudicated, arm A/B equivalence audit pending, ethics, devices)",
     browser: "chromium " + (await chromium.launch().then(async (b) => { const v = b.version(); await b.close(); return v; })), edge_checked: false,
   };
-  fs.writeFileSync(outFile, JSON.stringify({ tool: "real_arms.cjs", variants: { P_prod: "production build, flag OFF", A_dev: "dev server, flag OFF (arm A)", B_dev: "dev server, VITE_R51_PROTOTYPE=1 (arm B selector)" }, summary, runs }, null, 1) + "\n");
+  fs.writeFileSync(outFile, JSON.stringify({ tool: "real_arms.cjs", layer7, variants: { P_prod: "production build, flag OFF", A_dev: "dev server, flag OFF (arm A)", B_dev: "dev server, VITE_R51_PROTOTYPE=1 (arm B selector)" }, summary, runs }, null, 1) + "\n");
   console.log(JSON.stringify(summary));
 })().catch((e) => { console.error(e); process.exit(1); });
