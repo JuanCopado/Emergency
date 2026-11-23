@@ -158,3 +158,126 @@ def from_alt_b_01(record, capture):
            "layer7_subreason_code": capture["layer7_subreason_code"] if record["layer7_trigger_code"] is not None else "NONE", "layer7_message_key": capture["layer7_message_key"],
            "layer7_banner_rendered_ms": capture.get("layer7_banner_rendered_ms"), "schema_version": SCHEMA_VERSION}
     return validate_record(out)
+
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+# canonical-r27-v1.1 · additive, backwards-compatible extension (R29_GEMINI_INFORME_MAESTRO_INTEGRADO, part II s.4). canonical-r27-v1 is NOT
+# replaced: its validator is reused unchanged on the v1 projection of every v1.1 record. Laboratory only.
+# ---------------------------------------------------------------------------------------------------------------------------------
+import counterbalance as _cb  # noqa: E402
+
+SCHEMA_VERSION_V11 = "canonical-r27-v1.1"
+V11_ADDED = {"sequence_code", "subblock", "set_id", "e1_entry_mode", "stimulus_id", "stimulus_hash_sha256",
+             "layer7_banner_to_first_action_ms", "task_duration_ms"}
+E1_ENTRY_MODES = ("NONE", "ISOLATED_LAB_ENTRY_PR95")
+STIMULUS = re.compile(r"^S[12]-(0[1-9]|1[0-5])$")
+SHA256 = re.compile(r"^[a-f0-9]{64}$")
+CLASS_OF_DEVICE = {"mobile_narrow_360": "mobile", "mobile_narrow_390": "mobile", "desktop_web": "web"}
+
+
+def _count(value, minimum=0):
+    return isinstance(value, int) and not isinstance(value, bool) and value >= minimum
+
+
+def validate_record_v11(r):
+    _need(isinstance(r, dict) and set(r) == FIELDS | V11_ADDED, "closed record: fields must be exactly canonical-r27-v1.1")
+    _need(r["schema_version"] == SCHEMA_VERSION_V11, "schema_version must be canonical-r27-v1.1")
+    projection = {k: v for k, v in r.items() if k not in V11_ADDED}
+    projection["schema_version"] = SCHEMA_VERSION
+    validate_record(projection)                                                          # every v1 rule still applies, untouched
+    spec = _cb.NORMATIVE_R29.get(r["sequence_code"])
+    _need(spec is not None, "sequence_code must be one of S1a..S4b")
+    _need(r["period"] in (1, 2) and r["subblock"] in (1, 2), "period/subblock")
+    arm_code, set_id, devices = spec[r["period"] - 1]
+    _need(r["sequence"] == ("AB" if spec[0][0] == "A" else "BA"), "sequence disagrees with sequence_code")
+    _need(r["arm"] == {"A": "A_real_react_control", "B": "B_prototype_alt_b"}[arm_code], "arm disagrees with sequence_code and period")
+    _need(r["set_id"] == set_id, "set_id disagrees with sequence_code and period")
+    _need(CLASS_OF_DEVICE[r["device_type"]] == devices[r["subblock"] - 1], "device disagrees with the sub-block of the matrix")
+    _need(isinstance(r["stimulus_id"], str) and STIMULUS.match(r["stimulus_id"]), "stimulus_id")
+    _need(r["stimulus_id"][:2] == ("S1" if set_id == "SET_1" else "S2"), "stimulus_id set disagrees with set_id")
+    pair = int(r["stimulus_id"][3:])
+    _need(_cb.PAIR_SCENARIO[pair] == r["scenario_id"], "stimulus pair disagrees with scenario_id")
+    _need(isinstance(r["stimulus_hash_sha256"], str) and SHA256.match(r["stimulus_hash_sha256"]), "stimulus_hash_sha256")
+    _need(r["e1_entry_mode"] in E1_ENTRY_MODES, "e1_entry_mode")
+    isolated = r["scenario_id"] == "E1" and r["arm"] == "B_prototype_alt_b"
+    _need((r["e1_entry_mode"] == "ISOLATED_LAB_ENTRY_PR95") == isolated, "e1_entry_mode must be ISOLATED only for scenario E1 in arm B")
+    _need(_count(r["task_duration_ms"], 1), "task_duration_ms must be a positive integer (relative ms, never a calendar timestamp)")
+    banner = r["layer7_banner_to_first_action_ms"]
+    _need((banner is None) == (r["layer7_trigger_code"] == "NONE"), "banner-to-action time only when a layer 7 message was shown")
+    _need(banner is None or _count(banner), "layer7_banner_to_first_action_ms")
+    return r
+
+
+_SUBREASON_OF = {(trigger, message): sub for (trigger, sub), message in L7_MAP.items()}
+CONTEXT_REQUIRED = ("participant_opaque_id", "role_group", "language_stratum", "sequence_code", "period", "subblock", "stimulus_id",
+                    "stimulus_hash_sha256", "task_duration_ms", "force_attempts")
+
+
+def from_lab_ui_log(log, context):
+    """canonical-r27-v1.1 record from the events the PR95 lab entry really emits (window.__LAB_LAYER7_LOG__) plus the harness context.
+    Only facts the UI proves are derived (viewport, selection, banner, recovery by a confirmed upload). Abandonment, cancellation and
+    forced-send attempts have no UI event: they must come from the harness (`trial_end`, `force_attempts`) or the conversion HARD FAILS."""
+    _need(isinstance(log, list) and isinstance(context, dict), "log and context are required")
+    missing = [k for k in CONTEXT_REQUIRED if k not in context]
+    _need(not missing, f"harness context missing: {missing}")
+    spec = _cb.NORMATIVE_R29.get(context["sequence_code"])
+    _need(spec is not None and context["period"] in (1, 2), "sequence_code/period")
+    arm_code = spec[context["period"] - 1][0]
+    _need(STIMULUS.match(str(context["stimulus_id"])), "stimulus_id")
+    pair = int(context["stimulus_id"][3:])
+    scenario = _cb.PAIR_SCENARIO[pair]
+    mechanism = MECHANISM[_cb.PAIR_MECHANISM[pair]]
+    selected = [e for e in log if e.get("type") == "file_selected"]
+    _need(selected and _count(selected[0]["detail"].get("viewport_width_px"), 1), "viewport_width_px was not captured by the UI")
+    width = selected[0]["detail"]["viewport_width_px"]
+    modality_events = [e for e in log if e.get("type") == "modality_selected"]
+    declared = modality_events[-1]["detail"]["modality"] if modality_events else None
+    banners = [e for e in log if e.get("type") == "layer7_banner_rendered"]
+    confirmed = any(e.get("type") == "confirm_clicked" for e in log)
+    trigger = message = subreason = "NONE"
+    banner_ms = None
+    if banners:
+        detail = banners[0]["detail"]
+        trigger, message = str(detail["trigger"])[:5], detail["message_id"]
+        subreason = _SUBREASON_OF.get((trigger, message))
+        _need(subreason is not None, "trigger/message combination has no approved subreason")
+        actions = [e for e in log if e.get("type") in ("recovery_action", "modality_selected") and e["at_ms"] >= banners[0]["at_ms"]]
+        banner_ms = int(round(actions[0]["at_ms"] - banners[0]["at_ms"])) if actions else None
+        _need(banner_ms is not None or context.get("trial_end") == "abandoned", "no action after the banner and no abandonment reported by the harness")
+        banner_ms = banner_ms if banner_ms is not None else 0
+    end = context.get("trial_end") or ("completed" if confirmed else None)
+    _need(end in ("completed", "abandoned", "cancelled_by_user"), "trial end is not provable from the UI log: harness must report trial_end")
+    arm_b = arm_code == "B"
+    if banners and len(banners) >= 1:
+        last_banner = banners[-1]["at_ms"]
+        recovered = confirmed and any(e.get("type") == "confirm_clicked" and e["at_ms"] > last_banner for e in log)
+        recovery = "recovered_correctly" if recovered and end == "completed" else "abandoned" if end == "abandoned" else None
+        _need(recovery is not None, "recovery outcome is not provable (banner without a confirmed upload or an abandonment)")
+    else:
+        recovery = "NA"
+    if _cb.PAIR_MECHANISM[pair] == "M2":
+        outcome = "technical_abstention_correct"
+    elif _cb.PAIR_MECHANISM[pair] == "M1":
+        _need(end == "completed", "M1 without a confirmed upload needs an adjudicated outcome from the harness")
+        outcome = "bypass_residual"
+    else:
+        outcome = "valid_completed" if end == "completed" else "false_cancellation_human"
+    actions_taken = [e["detail"].get("action") for e in log if e.get("type") == "recovery_action"]
+    force = context["force_attempts"]
+    _need(_count(force), "force_attempts")
+    record = {"participant_opaque_id": context["participant_opaque_id"], "role_group": context["role_group"],
+              "language_stratum": context["language_stratum"], "sequence": "AB" if spec[0][0] == "A" else "BA", "period": context["period"],
+              "arm": {"A": "A_real_react_control", "B": "B_prototype_alt_b"}[arm_code], "arm_a_implementation_mode": None if arm_b else "real_react_r5_1_off",
+              "arm_a_verified_real_react": not arm_b, "layer7_ui_enabled": arm_b, "device_type": device_for_width(width), "viewport_width_px": width,
+              "mechanism_id": mechanism, "scenario_id": scenario, "outcome_status": outcome, "entry_flow": "explicit_prototype" if arm_b else "legacy_circuit",
+              "declared_modality": declared, "selection_origin": "explicit_user_selection" if declared else "none",
+              "transport_mode": "document_legacy_bridge" if declared == "document" else ("typed_contract" if arm_b else "legacy_passthrough"),
+              "recovery_outcome": recovery, "recovery_action_type": actions_taken[0] if actions_taken else None, "attempted_force_blocked": force > 0,
+              "layer7_execution_mode": "SIMULATED_LAB_HARNESS_ONLY" if arm_b else "DISCONNECTED_LEGACY",
+              "layer7_trigger_code": trigger, "layer7_subreason_code": subreason, "layer7_message_key": message,
+              "layer7_banner_rendered_ms": int(round(banners[0]["at_ms"])) if banners else None, "schema_version": SCHEMA_VERSION_V11,
+              "sequence_code": context["sequence_code"], "subblock": context["subblock"], "set_id": spec[context["period"] - 1][1],
+              "e1_entry_mode": "ISOLATED_LAB_ENTRY_PR95" if scenario == "E1" and arm_b else "NONE", "stimulus_id": context["stimulus_id"],
+              "stimulus_hash_sha256": context["stimulus_hash_sha256"], "layer7_banner_to_first_action_ms": banner_ms,
+              "task_duration_ms": context["task_duration_ms"]}
+    return validate_record_v11(record)

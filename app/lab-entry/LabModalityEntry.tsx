@@ -44,7 +44,7 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
   };
   const pick = (next: File | null) => {
     setFile(next); setVerdict(null);
-    if (next) { recordLabEvent('file_selected', { size: next.size, with_modality: modality !== null }); void evaluate(next, modality); }
+    if (next) { recordLabEvent('file_selected', { size: next.size, with_modality: modality !== null, viewport_width_px: window.innerWidth, e1_entry: e1 }); void evaluate(next, modality); }
   };
   const replaceFile = () => {
     recordLabEvent('recovery_action', { action: 'replace_file', trigger: verdict?.trigger_id ?? null });
@@ -98,7 +98,7 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
           <p className="text-xs text-muted">{ui('A confirmação humana não verifica o conteúdo da imagem.')}</p>
           <div className="flex flex-wrap gap-2">
             <button type="button" className="btn-primary min-h-11" disabled={busy}
-              onClick={() => { onConfirm(file, contract.kind); reset(); }}>{ui('Confirmar e enviar como')} {label}</button>
+              onClick={() => { recordLabEvent('confirm_clicked', { modality: contract.id }); onConfirm(file, contract.kind); reset(); }}>{ui('Confirmar e enviar como')} {label}</button>
             <button type="button" className="btn btn-ghost min-h-11" disabled={busy} onClick={reset}>{ui('Alterar modalidade')}</button>
           </div>
         </section>
