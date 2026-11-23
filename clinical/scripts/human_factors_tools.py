@@ -434,7 +434,8 @@ def _bootstrap(ids, resamples, rng, estimator, strata=None, event_flags=None):
     else:
         primary = "percentile" if percentile else None
         status = BCA_FALLBACK if not bca_admissible else "BCA_NOT_COMPUTABLE"
-    return {"estimate": _rounded(point), "cluster_bootstrap_95": percentile,
+    se = _rounded(statistics.pstdev(observed)) if len(observed) >= 2 and not degenerate else None   # plug-in SE over replicates
+    return {"estimate": _rounded(point), "cluster_bootstrap_95": percentile, "cluster_bootstrap_se": se,
             "cluster_bootstrap_bca_95": bca, "primary_interval": primary, "bca_status": status,
             "bca_conditions": conditions, "bca_parameters": bca_parameters,
             "participants_in_estimand": participants, "participants_with_event": with_event, "participants_without_event": without_event,

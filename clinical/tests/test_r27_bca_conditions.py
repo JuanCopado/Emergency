@@ -252,3 +252,78 @@ class WilcoxonParticipantLevel(unittest.TestCase):
         self.assertTrue(empty["p_value_kind"].startswith("NOT_COMPUTABLE"))
         with self.assertRaises(ValueError):
             hf.wilcoxon_signed_rank([1, float("nan")])
+
+
+def rows_per_arm(spec):
+    """spec: list of (sequence, events_under_A, events_under_B); 4 trials per arm (2 mobile, 2 web); A = baseline, B = prototype."""
+    out = []
+    for i, (seq, a, b) in enumerate(spec):
+        first = "baseline" if seq == "AB" else "prototype"
+        for period in (1, 2):
+            cond = first if period == 1 else ("prototype" if first == "baseline" else "baseline")
+            n = a if cond == "baseline" else b
+            for s in range(4):
+                out.append(trial(f"P{i:02d}", f"S{period}{s}", cond, "ecg", "ecg", "xray" if s < n else "ecg", period=period,
+                                 platform="mobile" if s < 2 else "web", order=s + 1))
+    return out
+
+
+class GeminiR27Oracles(unittest.TestCase):
+    """Numbers published in R27_GEMINI_INFORME_INTEGRADO_FINAL part III (synthetic software-audit fixtures; no clinical claim)."""
+
+    def test_ref_stat_01p_period_effect_and_stratified_bootstrap(self):
+        a_mob, a_web, b = [2, 2, 1, 0, 0, 0], [2, 1, 1, 0, 0, 0], [1, 0, 0, 0, 0, 0]
+        ba_mob, ba_web = [1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]
+        spec = [("AB", m + w, x) for m, w, x in zip(a_mob, a_web, b)] + [("BA", m + w, x) for m, w, x in zip(ba_mob, ba_web, b)]
+        out = hf.summarize(rows_per_arm(spec), resamples=5000, seed="ref01p")
+        tl, pl = out["trial_level_metrics"], out["participant_level_metrics"]
+        self.assertAlmostEqual(tl["by_condition"]["baseline"]["confirmation_error_rate"]["estimate"], 0.25, places=4)
+        self.assertAlmostEqual(tl["by_condition"]["prototype"]["confirmation_error_rate"]["estimate"], 2 / 48, places=4)
+        paired = tl["paired_difference_prototype_minus_baseline"]["confirmation_error_rate"]
+        self.assertAlmostEqual(paired["estimate"], -0.2083, places=4)
+        self.assertLess(abs(paired["cluster_bootstrap_se"] - 0.0741), 0.003)             # stratified; ~0.0825 would be the unstratified FAIL
+        self.assertGreater(paired["cluster_bootstrap_se"], 0.065)
+        self.assertLess(paired["cluster_bootstrap_se"], 0.0795)
+        self.assertEqual(paired["bca_status"], hf.BCA_FALLBACK)
+        by = pl["by_condition"]
+        self.assertAlmostEqual(by["baseline"]["confirmation_error_rate"]["estimate"], 5 / 12, places=4)
+        low, high = hf.clopper_pearson(5, 12)
+        self.assertLess(abs(low - 0.1517), 1e-4); self.assertLess(abs(high - 0.7233), 1e-4)
+        mc = pl["mcnemar_exact"]["confirmation_error_rate"]
+        self.assertEqual((mc["baseline_only_event"], mc["prototype_only_event"]), (3, 0))
+        self.assertAlmostEqual(mc["p_value_exact_two_sided"], 0.25, places=4)
+
+    def test_ref_stat_04_p20_bca_computed_and_parameters(self):
+        ya, yb = [3, 2, 2, 1, 1, 0, 0, 0, 0, 0], [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+        spec = [("AB", a, b) for a, b in zip(ya, yb)] + [("BA", a, b) for a, b in zip(ya, yb)]
+        out = hf.summarize(rows_per_arm(spec), resamples=5000, seed="ref04")
+        tl, pl = out["trial_level_metrics"], out["participant_level_metrics"]
+        self.assertAlmostEqual(tl["by_condition"]["baseline"]["confirmation_error_rate"]["estimate"], 18 / 80, places=4)
+        self.assertAlmostEqual(tl["by_condition"]["prototype"]["confirmation_error_rate"]["estimate"], 4 / 80, places=4)
+        paired = tl["paired_difference_prototype_minus_baseline"]["confirmation_error_rate"]
+        self.assertAlmostEqual(paired["estimate"], -0.175, places=4)
+        self.assertLess(abs(paired["cluster_bootstrap_se"] - 0.0437), 0.002)
+        # engine vocabulary is BCA_PRIMARY; Gemini names the same state COMPUTED_ELIGIBLE (alias documented, NOT renamed silently)
+        self.assertEqual(paired["bca_status"], "BCA_PRIMARY")
+        self.assertLess(abs(paired["bca_parameters"]["acceleration"] - (-0.0216)), 0.001)
+        self.assertTrue(paired["small_cluster_warning"])
+        self.assertFalse(paired["very_small_cluster_descriptive_only"])
+        base = out["stage2_planning_inputs"]["baseline"]["confirmation_error_rate"]
+        self.assertAlmostEqual(base["rho_hat_anova"], 0.2040, places=3)
+        self.assertAlmostEqual(base["deff_hat"], 1.6118, places=3)
+        for k, (lo, hi) in {"baseline": (0.2720, 0.7280), "prototype": (0.0573, 0.4366)}.items():
+            ev = pl["exact_over_participants"][k]["confirmation_error_rate"]
+            self.assertEqual(ev["participants"], 20)
+            self.assertLess(abs(ev["exact_95_over_participants"][0] - lo), 1e-4)
+            self.assertLess(abs(ev["exact_95_over_participants"][1] - hi), 1e-4)
+        mc = pl["mcnemar_exact"]["confirmation_error_rate"]
+        self.assertEqual((mc["baseline_only_event"], mc["prototype_only_event"]), (6, 0))
+        self.assertAlmostEqual(mc["p_value_exact_two_sided"], 0.03125, places=3)
+
+    def test_ref_stat_04_degen_constant_delta_falls_back_without_nan_or_exception(self):
+        spec = [("AB", 1, 0) for _ in range(10)] + [("BA", 1, 0) for _ in range(10)]            # delta_i = -0.25 for all 20
+        out = hf.summarize(rows_per_arm(spec), resamples=500, seed="degen")
+        paired = out["trial_level_metrics"]["paired_difference_prototype_minus_baseline"]["confirmation_error_rate"]
+        self.assertIsNone(paired["cluster_bootstrap_bca_95"])
+        self.assertIn(paired["bca_status"], (hf.BCA_FALLBACK, "BCA_NOT_COMPUTABLE"))
+        self.assertFalse(any(isinstance(v, float) and v != v for v in paired.values()))
