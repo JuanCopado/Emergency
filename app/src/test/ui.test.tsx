@@ -488,6 +488,30 @@ describe('Clinical note diagnostic workspace', () => {
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
+  it('R8-PDF: shows PDF/Documento as effective category for prepared.kind=pdf_document; legacy upload without kind_source shows no category line', async () => {
+    const user = userEvent.setup();
+    const body = (extra: object) => ({
+      upload_id:'pdf-card',kind:'pdf_document',sha256:'synthetic',media:{format:'pdf',status:'limited'},
+      privacy:{status:'REVIEW_REQUIRED',manual_file_privacy_review_required:true,burned_in_identifier_review_required:true},
+      extracted:{official_report:null,ai_interpretation:null},
+      processing:{status:'manual_review',modules:['document-review']},...extra,
+    });
+    const fetch = vi.spyOn(globalThis,'fetch');
+    fetch.mockResolvedValueOnce(Response.json(body({kind_source:'inferred_from_container'})));
+    await renderAt('/clinical-note', [{path:'/clinical-note',element:<ClinicalNote />}], 'pt');
+    await user.click(screen.getByRole('button',{name:'MCDT'}));
+    await user.upload(screen.getByLabelText('Upload clínico'),new File(['synthetic'],'laudo.pdf',{type:'application/pdf'}));
+    const card = await screen.findByTestId('mcdt-review-card');
+    expect(card).toHaveTextContent('Categoria efetiva: PDF/Documento');
+    expect(card).not.toHaveTextContent('Categoria efetiva: Outro');
+    expect(within(card).queryByRole('button',{name:'Interpretar com módulo IA'})).toBeNull();
+    fetch.mockResolvedValueOnce(Response.json(body({upload_id:'pdf-card-legacy'})));
+    await user.upload(screen.getByLabelText('Upload clínico'),new File(['synthetic'],'antigo.pdf',{type:'application/pdf'}));
+    const cards = await screen.findAllByTestId('mcdt-review-card');
+    expect(cards).toHaveLength(2);
+    expect(cards[1]).not.toHaveTextContent('Categoria efetiva:');
+  });
+
   it.each([
     ['invalid image upload: signature_mismatch','El contenido del archivo no coincide con el formato declarado.'],
     ['invalid or unsupported clinical image or filename','El archivo se rechazó al verificar su nombre, formato o integridad.'],
