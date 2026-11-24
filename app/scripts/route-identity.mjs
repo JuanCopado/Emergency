@@ -25,7 +25,7 @@ export const ROUTE_CONTRACTS = [
 ].map(([pattern, example, heading, controls]) => ({ pattern, example, heading, controls }));
 
 const NOT_FOUND = /(?:no encontrad[oa]|not found|não encontrad[oa]|未找到|找不到|404)/i;
-const pathname = path => new URL(path, 'http://route-audit.invalid').pathname;
+const pathname = path => new URL(path, 'https://route-audit.invalid').pathname;
 
 export function contractFor(path) {
   const contract = ROUTE_CONTRACTS.find(c => matchPath({ path: c.pattern, end: true }, pathname(path)));
