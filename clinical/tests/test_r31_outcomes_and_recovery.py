@@ -175,8 +175,10 @@ class RunnerRegression(unittest.TestCase):
         fidelity = ROOT / "lab" / "human_factors" / "fidelity"
         self.assertIn('data_provenance: "SYNTHETIC_LAB_HARNESS"', (fidelity / "layer7_ui.cjs").read_text(encoding="utf8"))
         report = json.loads((fidelity / "layer7_ui_report.json").read_text(encoding="utf8"))
-        self.assertEqual((report["canonical_exported_valid"], report["canonical_not_applicable"]), (16, 12))
-        self.assertTrue(all("generic 'pt'" in item[3] for item in report["canonical_refused_with_reason"]))
+        exports = [r["canonical_export"] for r in report["results"]]
+        count = lambda status: sum(1 for e in exports if e["status"] == status)
+        self.assertEqual((count("EXPORTED"), count("NOT_APPLICABLE"), count("NOT_EXPORTED")), (16, 12, 8))
+        self.assertTrue(all("generic 'pt'" in e["reason"] for e in exports if e["status"] == "NOT_EXPORTED"))
 
 
 if __name__ == "__main__":
