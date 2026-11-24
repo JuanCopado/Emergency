@@ -1,6 +1,8 @@
 # STATE · correcciones de problemas actuales · 22/11/2026
 
 Estado global: **CLINICALLY_PENDING**. Registro: **129 GREEN / 2 YELLOW / 0 RED**, 131 módulos.
+
+**R34 · 24/11/2026 (laboratorio, sin cambio clínico).** PR95 (capa 7/E1 aislada, `d3d1120f`) y PR96 (driver S1a–S4b, `5cb55817`) fusionadas; receptor `2377bbd3`, árbol `6b8e6b90`. PR97 abierta: contrato `canonical-r27-v1.2` (`payload_sha256`, `expected_modality` solo del manifiesto, procedencia cerrada; `STAGE1_HUMAN_PILOT` rechazada sin autorización) y `?lab_locale=pt-PT` solo en laboratorio; pt-BR falla cerrado (sin textos aprobados). 48 ensayos Chromium sobre la app real: 24 registros v1.2 sellados. Pendientes: CI de PR97, vectores Gemini R32 (archivo no recibido), banco 5/30 con hash en el receptor, C12. CLINICALLY_PENDING.
 Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según PR35.
 
 **R24 · 23/11 · R8-PDF y R8-ORACLE.** Rama `codex/r24-r8-p2-20261123` sobre `58fe00cf`: la categoría efectiva visible muestra PDF/Documento si `prepared.kind=pdf_document` (solo etiqueta; transporte, enrutamiento, filtro cutáneo y firma intactos) y la equivalencia de encaminamiento se comprueba con un oracle independiente congelado frente a `2116899b` (8316 casos, control de mutación). C12 sigue sin protección remota (BLOCKED, requiere administrador). Sin cambios clínicos; CLINICALLY_PENDING.

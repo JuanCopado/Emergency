@@ -62,6 +62,20 @@ export function recoveryKey(verdict: Layer7Verdict): string {
   return verdict.message_id === 'MSG_T7_UNSUPPORTED_FORMAT' ? 'T7-04A' : 'T7-04B';
 }
 
+export type LabLocale = { requested: string | null; variant: 'pt-PT' | 'pt-BR' | null; status: 'OK' | 'UNSUPPORTED' };
+
+/**
+ * Explicit regional Portuguese for the laboratory only (?lab_locale=pt-PT | pt-BR). The approved texts of the layer 7 contract are the
+ * European ones (e.g. "ficheiro"); no approved pt-BR text exists, so pt-BR fails closed. A generic `pt` is NEVER upgraded to a variant:
+ * without the parameter the variant stays null and the canonical exporter refuses the trial.
+ */
+export function resolveLabLocale(search: string, language: string): LabLocale {
+  const requested = new URLSearchParams(search).get('lab_locale');
+  if (requested === null) return { requested: null, variant: null, status: 'OK' };
+  if (requested === 'pt-PT' && language === 'pt') return { requested, variant: 'pt-PT', status: 'OK' };
+  return { requested, variant: requested === 'pt-BR' ? 'pt-BR' : null, status: 'UNSUPPORTED' };
+}
+
 export function labLanguage(language: string): 'es' | 'pt' | 'en' {
   return language === 'es' || language === 'pt' ? language : 'en';
 }
