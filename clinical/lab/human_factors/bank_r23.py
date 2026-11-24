@@ -8,6 +8,7 @@ specification. Hashes are SHA-256 over the REAL BYTES of each file. The bank is 
 import hashlib
 import io
 import json
+import math
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -48,7 +49,7 @@ SCHEMATIC_JUSTIFICATION = ("Stage 1 measures usage errors (modality selection, c
                            "modality and technically valid (RGB photo, no DICOM) so that the pipeline must NOT block it. A schematic is a candidate for that "
                            "narrow role only; it is NOT assumed valid until two independent reviewers rate realism >= 4/5 and the owner signs.")
 SCHEMATIC_LIMITS = {
-    "S2-09": "Identical waveform in every lead: not a physiologically valid 12-lead ECG; expected to fail the realism review unless replaced.",
+    "S2-09": "Synthetic model with derived limb leads and modeled R-wave progression; not clinically validated. The rendered screen and paired difficulty require independent realism review.",
     "S1-09": "Monitor strip is a flat render with a gradient reflection; no multiparametric monitor chrome.",
     "S1-08": "Clean synthetic paper render; no print noise, no stray marks.", "S2-08": "Clean synthetic paper render; no print noise, no stray marks.",
     "S2-13": "Synthetic text sheet with placeholder values (0,0); header and layout are generic.",
@@ -118,7 +119,6 @@ def ecg_parameters(stimulus_id):
 
 def _ecg_wave(width, amplitude=1.0, rr=190):
     """Synthetic sinus rhythm (P, QRS, T; isoelectric ST). Pure arithmetic, deterministic, no clinical data."""
-    import math
     ys = []
     for x in range(width):
         t = (x % rr) / rr
@@ -129,7 +129,7 @@ def _ecg_wave(width, amplitude=1.0, rr=190):
     return ys
 
 
-def _ecg_strip(size, paper=(252, 232, 232), grid=(236, 150, 150), trace=(20, 20, 20), leads=1, label="SYNTHETIC ECG - NOT PATIENT DATA", rr=190):
+def _ecg_strip(size, paper=(252, 232, 232), grid=(236, 150, 150), trace=(20, 20, 20), label="SYNTHETIC ECG - NOT PATIENT DATA", rr=190):
     from PIL import Image, ImageDraw
     width, height = size
     img = Image.new("RGB", size, paper)
@@ -138,15 +138,9 @@ def _ecg_strip(size, paper=(252, 232, 232), grid=(236, 150, 150), trace=(20, 20,
         draw.line([(x, 0), (x, height)], fill=grid, width=2 if x % 40 == 0 else 1)
     for y in range(0, height, 8):
         draw.line([(0, y), (width, y)], fill=grid, width=2 if y % 40 == 0 else 1)
-    rows = [(1, 1), (3, 4)][0 if leads == 1 else 1]
-    n_rows, n_cols = rows
-    cell_w, cell_h = width // n_cols, height // n_rows
-    for r in range(n_rows):
-        for c in range(n_cols):
-            wave = _ecg_wave(cell_w, amplitude=0.8 + 0.1 * ((r + c) % 3), rr=rr)
-            base = r * cell_h + cell_h * 0.62
-            pts = [(c * cell_w + x, base - v * cell_h * 0.42) for x, v in enumerate(wave)]
-            draw.line(pts, fill=trace, width=2)
+    wave = _ecg_wave(width, amplitude=0.8, rr=rr)
+    pts = [(x, height * 0.62 - value * height * 0.42) for x, value in enumerate(wave)]
+    draw.line(pts, fill=trace, width=2)
     draw.text((6, height - 14), label, fill=(70, 70, 70))
     return img
 
@@ -178,14 +172,63 @@ def _ecg_monitor_webp():
     return _encode(img, "WEBP", quality=85, lossless=False)
 
 
+ECG_LEAD_LAYOUT = (("I", "aVR", "V1", "V4"), ("II", "aVL", "V2", "V5"), ("III", "aVF", "V3", "V6"))
+# Approximate morphology in mV. Columns are P, Q, R, S and T amplitudes.
+_ECG_LEAD_AMPLITUDES = {
+    "I": (0.10, -0.07, 0.75, -0.14, 0.23),
+    "II": (0.15, -0.09, 1.05, -0.21, 0.32),
+    "V1": (0.04, 0.00, 0.19, -0.80, -0.06),
+    "V2": (0.07, 0.00, 0.35, -0.89, 0.14),
+    "V3": (0.10, 0.00, 0.59, -0.62, 0.24),
+    "V4": (0.12, -0.04, 1.05, -0.34, 0.34),
+    "V5": (0.12, -0.06, 1.17, -0.24, 0.37),
+    "V6": (0.10, -0.06, 0.95, -0.14, 0.30),
+}
+
+
+def ecg_12_lead_sample(seconds):
+    """Synchronized sample for a synthetic usability fixture, in mV."""
+    t = seconds % (ECG_RR_PX["S2-09"] / (PX_PER_MM * PAPER_SPEED_MM_S))
+    shapes = tuple(math.exp(-((t - center) / width) ** 2) for center, width in
+                   ((0.15, 0.029), (0.295, 0.010), (0.320, 0.014), (0.350, 0.013), (0.555, 0.061)))
+    values = {lead: sum(amplitude * shape for amplitude, shape in zip(amplitudes, shapes))
+              for lead, amplitudes in _ECG_LEAD_AMPLITUDES.items()}
+    lead_i, lead_ii = values["I"], values["II"]
+    values.update(III=lead_ii - lead_i, aVR=-(lead_i + lead_ii) / 2,
+                  aVL=lead_i - lead_ii / 2, aVF=lead_ii - lead_i / 2)
+    return values
+
+
 def _ecg_12_lead_jpeg():
     from PIL import Image, ImageDraw
-    img = Image.new("RGB", (720, 460), (24, 26, 30))
-    sheet = _ecg_strip((680, 380), paper=(246, 246, 240), grid=(214, 218, 210), trace=(30, 30, 30), leads=12,
-                       label="SYNTHETIC 12-LEAD LAYOUT - NOT PATIENT DATA")
-    img.paste(sheet, (20, 40))
-    ImageDraw.Draw(img).text((20, 14), "SIMULATED CLINICAL SCREEN", fill=(160, 170, 180))
-    return _encode(img, "JPEG", quality=88)
+
+    width, height = 1120, 572
+    img = Image.new("RGB", (width, height), (24, 26, 30))
+    draw = ImageDraw.Draw(img)
+    draw.text((20, 9), "SYNTHETIC 12-LEAD ECG - NOT PATIENT DATA", font=_font(29), fill=(246, 246, 240))
+    draw.text((20, 537), "25 mm/s   10 mm/mV   |   LAB SIMULATION", font=_font(24), fill=(246, 246, 240))
+    step, top, cell_width, row_height = PX_PER_MM, 52, 264, 156
+    sample_count = 224
+    samples = [ecg_12_lead_sample(x / (step * PAPER_SPEED_MM_S)) for x in range(sample_count)]
+    for row, leads in enumerate(ECG_LEAD_LAYOUT):
+        for column, lead in enumerate(leads):
+            left, y = 20 + column * (cell_width + 8), top + row * 160
+            draw.rectangle((left, y, left + cell_width, y + row_height), fill=(248, 244, 240))
+            for x in range(0, cell_width + 1, step):
+                draw.line((left + x, y, left + x, y + row_height), fill=(220, 187, 185) if x % 40 == 0 else (236, 214, 212))
+            for dy in range(0, row_height + 1, step):
+                draw.line((left, y + dy, left + cell_width, y + dy), fill=(220, 187, 185) if dy % 40 == 0 else (236, 214, 212))
+            draw.text((left + 6, y + 5), lead, font=_font(23), fill=(20, 22, 24))
+            pixels = [values[lead] * step * 10 for values in samples]
+            baseline = y + (row_height + max(pixels) + min(pixels)) / 2
+            points = [(left + 20 + x, baseline - value) for x, value in enumerate(pixels)]
+            draw.line(points, fill=(18, 24, 29), width=3)
+
+    # Mild simulated screen reflection, confined to an upper corner.
+    reflection = Image.new("L", img.size)
+    ImageDraw.Draw(reflection).polygon([(940, 52), (1092, 52), (1092, 164)], fill=12)
+    img.paste((255, 255, 255), (0, 0, width, height), reflection)
+    return _encode(img, "JPEG", quality=90)
 
 
 def _printed_sheet_photo():
