@@ -3,7 +3,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const MARKERS = ['LAB_LAYER7_MARKER', '/api/lab/layer7/evaluate', '__LAB_LAYER7_LOG__', 'SIMULATED_LAB_HARNESS_ONLY', 'data-lab-layer7'];
+// pt-BR laboratory texts (MED-DEC-R39-PTBR-FINAL) and the explicit locale parameter are lab-only as well.
+const MARKERS = ['LAB_LAYER7_MARKER', '/api/lab/layer7/evaluate', '__LAB_LAYER7_LOG__', 'SIMULATED_LAB_HARNESS_ONLY', 'data-lab-layer7',
+  'lab_locale', 'Verifique o arquivo na tela', 'Envio bloqueado', 'Substituir arquivo', 'Selecionar modalidade', 'Enviar arquivo'];
 const root = path.resolve(process.argv[2] ?? 'dist');
 if (!fs.existsSync(root)) { console.error(`no build output at ${root}`); process.exit(2); }
 
