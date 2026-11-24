@@ -1,0 +1,93 @@
+{
+ "tools_found": {
+  "pdfinfo": true,
+  "exiftool": false
+ },
+ "files": [
+  {
+   "stimulus_id": "S1-08",
+   "file": "stimuli/S1-08.jpg",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "S2-08",
+   "file": "stimuli/S2-08.jpg",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "S1-09",
+   "file": "stimuli/S1-09.webp",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "S2-09",
+   "file": "stimuli/S2-09.jpg",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "S1-13",
+   "file": "stimuli/S1-13.pdf",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": {
+    "identifying_fields_with_value": [],
+    "pages": "2"
+   },
+   "generic_pdf_producer": "ReportLab PDF Library - (opensource)"
+  },
+  {
+   "stimulus_id": "S2-13",
+   "file": "stimuli/S2-13.jpg",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "S1-14",
+   "file": "stimuli/S1-14.png",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "S2-14",
+   "file": "stimuli/S2-14.pdf",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": {
+    "identifying_fields_with_value": [],
+    "pages": "1"
+   },
+   "generic_pdf_producer": "ReportLab PDF Library - (opensource)"
+  },
+  {
+   "stimulus_id": "S1-15",
+   "file": "stimuli/S1-15.jpg",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "S2-15",
+   "file": "stimuli/S2-15.pdf",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": {
+    "identifying_fields_with_value": [],
+    "pages": "1"
+   },
+   "generic_pdf_producer": "ReportLab PDF Library - (opensource)"
+  },
+  {
+   "stimulus_id": "QA-01",
+   "file": "stimuli/QA-01.wav",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  },
+  {
+   "stimulus_id": "QA-02",
+   "file": "stimuli/QA-02.jpg",
+   "exiftool": "NOT_RUN_TOOL_UNAVAILABLE",
+   "pdfinfo": "NOT_APPLICABLE"
+  }
+ ],
+ "scope": "container metadata only; not a PHI review; visual review remains PENDING"
+}
