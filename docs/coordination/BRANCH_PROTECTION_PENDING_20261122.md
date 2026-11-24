@@ -1,5 +1,7 @@
 # C12 · configuración de protección preparada, pendiente de acceso
 
+**Documento histórico.** El ruleset activo `27994721` y sus diferencias se registran en el [cotejo R45](R45_CODEX_C12.md). El comando histórico de creación no corresponde a la regla existente.
+
 Fecha: 22/11/2026. Repositorio: `JuanCopado/Emergency`.
 
 La inspección de GitHub devuelve `protected: false` para `main` y `codex/v144-international-scope-20261116`, comprobaciones requeridas desactivadas y una lista vacía de rulesets. Las instrucciones de no modificar `main`, RC1 y la línea v1.43 siguen vigentes; no constituyen una regla automática del servidor.
