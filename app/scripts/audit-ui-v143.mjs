@@ -2,44 +2,16 @@
 /* global document, innerWidth */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-import { resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
 import { chromiumPath } from './chromium.mjs';
+import { routes, verifyRoute } from './route-audit.mjs';
 
 const phase = process.argv[2];
 if (!['before', 'after'].includes(phase)) throw new Error('Use before or after');
-const output = process.argv[3] ? resolve(process.argv[3]) + sep
-  : fileURLToPath(new URL(`../../clinical/qa/assets/v1.43/${phase}/`, import.meta.url));
+const output = fileURLToPath(new URL(`../../clinical/qa/assets/v1.43/${phase}/`, import.meta.url));
 mkdirSync(output, { recursive: true });
-const routes = [
-  ['home', '/', 'Apoyo clínico para urgencias y cuidados agudos'],
-  ['note', '/clinical-note', 'Apoyo al diagnóstico'],
-  ['drugs', '/drugs', 'Fármacos'],
-  ['drug', '/drugs/norepinephrine', 'Norepinephrine'],
-  ['calculator', '/calculator?drug=norepinephrine&weight=70&dose=0.05', 'Calculadora de perfusiones'],
-  ['pediatrics', '/pediatrics?regimen=paracetamol-pain-fever-home', 'Pediatría ambulatoria'],
-  ['clinical', '/clinical', 'Patologías y módulos'],
-  ['sepsis', '/clinical/sepsis-shock', 'Sepsis Shock'],
-  ['guides', '/guides', 'Pantalla completa · impresión · PDF'],
-  ['guide', '/guides/sepsis-shock', 'Sepsis Shock'],
-  ['scores', '/clinical/clinical-scores-calculators', 'Clinical Scores Calculators'],
-  ['pocus', '/clinical/pocus', 'Pocus'],
-  ['ecg', '/clinical/ecg-image', 'Ecg Image'],
-  ['procedures', '/procedures', 'Procedimientos'],
-  ['pilot', '/procedures/PROC-VASC-007', 'Catéter venoso central femoral ecoguiado'],
-  ['settings', '/settings', 'Ajustes'],
-  ['about', '/about', 'Acerca de y aviso legal'],
-  ['not-found', '/route-does-not-exist', 'Página no encontrada'],
-  ['unknown-module', '/clinical/unknown', 'Módulo no encontrado'],
-  ['unknown-guide', '/guides/unknown', 'Guía no encontrada'],
-  ['acute-medications', '/acute-medications', 'Farmacología aguda'],
-  ['insulin-uci', '/insulin-uci', 'Insulinoterapia UCI'],
-  ['score-calculator', '/scores', 'Scores clínicos'],
-  ['blood-gas', '/blood-gas', 'Revisión de gasometrías'],
-  ['t06-lab', '/t06-lab', 'Laboratorio T06 en localhost'],
-];
 const viewports = [[1366,768], [1920,1080], [768,1024], [1024,768], [375,812], [430,932]];
 const shots = new Set(['home', 'note', 'procedures', 'pediatrics', 'scores', 'pilot', 'drug']);
 const report = { phase, url: 'http://127.0.0.1:4175', browser: '', results: [] };
@@ -61,29 +33,7 @@ try {
     for (const [name, route, title] of routes) {
       errors = []; warnings = []; resources = [];
       await page.goto(report.url + route, { waitUntil: 'networkidle' });
-      await page.locator('main').getByRole('heading', { level: 1, name: title, exact: true }).waitFor();
-      const expected = new URL(route, report.url);
-      const actual = new URL(page.url());
-      assert.equal(actual.origin + actual.pathname, expected.origin + expected.pathname);
-      for (const [key, value] of expected.searchParams) assert.equal(actual.searchParams.get(key), value, route);
-      if (name === 'pediatrics') {
-        const regimen = new URL(page.url()).searchParams.get('regimen');
-        const filter = page.getByLabel('Fármaco o combinación');
-        const selection = page.getByLabel('Diagnóstico y régimen');
-        assert.equal(await selection.inputValue(), regimen);
-        await filter.selectOption('fluticasone-propionate');
-        assert.equal(await selection.inputValue(), '');
-        await page.goBack();
-        await filter.locator('option[value=paracetamol]:checked').waitFor({ state: 'attached' });
-        assert.equal(await filter.inputValue(), 'paracetamol');
-        assert.equal(await selection.inputValue(), regimen);
-        await page.goForward();
-        await filter.locator('option[value=fluticasone-propionate]:checked').waitFor({ state: 'attached' });
-        assert.equal(await filter.inputValue(), 'fluticasone-propionate');
-        assert.equal(await selection.inputValue(), '');
-        await page.goBack();
-        await filter.locator('option[value=paracetamol]:checked').waitFor({ state: 'attached' });
-      }
+      await verifyRoute(page, report.url, { name, route, title });
       const data = await page.evaluate(() => {
         const visible = el => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
         const controls = [...document.querySelectorAll('input, select, textarea, button')].filter(visible);
