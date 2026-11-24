@@ -65,7 +65,7 @@ def device_for_width(width):
     return "desktop_web"
 
 
-def validate_record(r):
+def validate_record(r, technical_error_na=False):
     _need(isinstance(r, dict) and set(r) == FIELDS, "closed record: fields must be exactly the canonical-r27-v1 fields")
     _need(r["schema_version"] == SCHEMA_VERSION, "schema_version")
     _need(isinstance(r["participant_opaque_id"], str) and OPAQUE.match(r["participant_opaque_id"]), "participant_opaque_id must be opaque")
@@ -122,7 +122,10 @@ def validate_record(r):
         _need(trigger != "T7-04", "M1 cannot trigger T7-04")
     # row 8: recovery
     if mech == MECHANISM["M2"] and arm == "B_prototype_alt_b":
-        _need(r["recovery_outcome"] != "NA", "M2 arm B needs a recovery state")
+        if technical_error_na and outcome == "system_technical_error":
+            _need(r["recovery_outcome"] == "NA", "a system technical error has no human recovery state (v1.1)")
+        else:
+            _need(r["recovery_outcome"] != "NA", "M2 arm B needs a recovery state")
     else:
         _need(r["recovery_outcome"] == "NA", "recovery states only in M2 arm B")
     if r["recovery_outcome"] == "attempted_force_blocked":
@@ -168,7 +171,9 @@ import counterbalance as _cb  # noqa: E402
 
 SCHEMA_VERSION_V11 = "canonical-r27-v1.1"
 V11_ADDED = {"sequence_code", "subblock", "set_id", "e1_entry_mode", "stimulus_id", "stimulus_hash_sha256",
-             "layer7_banner_to_first_action_ms", "task_duration_ms"}
+             "layer7_banner_to_first_action_ms", "task_duration_ms", "recovery_action_trace", "recovery_action_count",
+             "force_submit_attempts_count", "data_provenance"}
+DATA_PROVENANCE = ("SYNTHETIC_LAB_HARNESS", "HUMAN_PARTICIPANT")        # PROVISIONAL vocabulary (Gemini R31 report not received); synthetic is never promoted
 E1_ENTRY_MODES = ("NONE", "ISOLATED_LAB_ENTRY_PR95")
 STIMULUS = re.compile(r"^S[12]-(0[1-9]|1[0-5])$")
 SHA256 = re.compile(r"^[a-f0-9]{64}$")
@@ -184,7 +189,7 @@ def validate_record_v11(r):
     _need(r["schema_version"] == SCHEMA_VERSION_V11, "schema_version must be canonical-r27-v1.1")
     projection = {k: v for k, v in r.items() if k not in V11_ADDED}
     projection["schema_version"] = SCHEMA_VERSION
-    validate_record(projection)                                                          # every v1 rule still applies, untouched
+    validate_record(projection, technical_error_na=True)          # every v1 rule still applies; only the NA recovery of a technical error is added
     spec = _cb.NORMATIVE_R29.get(r["sequence_code"])
     _need(spec is not None, "sequence_code must be one of S1a..S4b")
     _need(r["period"] in (1, 2) and r["subblock"] in (1, 2), "period/subblock")
@@ -204,7 +209,18 @@ def validate_record_v11(r):
     _need((r["e1_entry_mode"] == "ISOLATED_LAB_ENTRY_PR95") == isolated, "e1_entry_mode must be ISOLATED only for scenario E1 in arm B")
     _need(_count(r["task_duration_ms"], 1), "task_duration_ms must be a positive integer (relative ms, never a calendar timestamp)")
     banner = r["layer7_banner_to_first_action_ms"]
-    _need((banner is None) == (r["layer7_trigger_code"] == "NONE"), "banner-to-action time only when a layer 7 message was shown")
+    technical = r["outcome_status"] == "system_technical_error"
+    no_action_possible = technical or r["recovery_outcome"] == "abandoned"      # banner shown, no action ever taken: null, never an invented 0
+    _need((banner is None) == (r["layer7_trigger_code"] == "NONE") or (no_action_possible and banner is None),
+          "banner-to-action time only when a layer 7 message was shown")
+    trace = r["recovery_action_trace"]
+    _need(isinstance(trace, list) and all(isinstance(t, str) and OPAQUE.match(t) for t in trace), "recovery_action_trace must be an ordered list of tokens")
+    _need(r["recovery_action_count"] == len(trace) and _count(r["recovery_action_count"]), "recovery_action_count must equal the trace length")
+    _need(r["recovery_action_type"] == (trace[-1] if trace else None), "recovery_action_type is the TERMINAL action of the trace")
+    _need(_count(r["force_submit_attempts_count"]) and r["attempted_force_blocked"] == (r["force_submit_attempts_count"] > 0),
+          "force_submit_attempts_count must agree with attempted_force_blocked")
+    _need(r["data_provenance"] in DATA_PROVENANCE, "data_provenance")
+    _need(not (technical and r["recovery_outcome"] != "NA" and r["mechanism_id"] != MECHANISM["M2"]), "technical error recovery state")
     _need(banner is None or _count(banner), "layer7_banner_to_first_action_ms")
     return r
 
@@ -215,7 +231,19 @@ _SUBREASON_OF = {(trigger, message): sub for (trigger, sub), message in L7_MAP.i
 HISTORICAL_MESSAGE_KEYS = {"MSG_T7_A": "MSG_T7_NO_MODALITY", "MSG_T7_B": "MSG_T7_INCOMPATIBLE_MODALITY",
                            "MSG_T7_C": "MSG_T7_CORRUPT_FILE", "MSG_T7_D": "MSG_T7_UNSUPPORTED_FORMAT"}
 CONTEXT_REQUIRED = ("participant_opaque_id", "role_group", "language_stratum", "sequence_code", "period", "subblock", "stimulus_id",
-                    "stimulus_hash_sha256", "task_duration_ms", "force_attempts")
+                    "stimulus_hash_sha256", "task_duration_ms", "force_attempts", "data_provenance")
+
+
+def _m1_outcome(modality_events, declared, end, expected):
+    """M1 is adjudicated only against the stimulus ground truth (`expected_modality`, from the stimulus manifest) and the observed selections.
+    A completed adversarial trial alone proves nothing."""
+    _need(expected in MODALITY, "M1 needs the expected modality of the stimulus from the harness (never assumed)")
+    _need(end == "completed", "M1 without a confirmed upload needs an adjudicated outcome from the harness")
+    selections = [e["detail"].get("modality") for e in modality_events]
+    _need(declared is not None and selections, "M1 submission without an observed modality selection cannot be adjudicated")
+    if declared != expected:
+        return "bypass_residual"                             # the wrong modality was submitted
+    return "detected_before_submit" if any(m != expected for m in selections) else "valid_completed"
 
 
 def from_lab_ui_log(log, context):
@@ -241,6 +269,8 @@ def from_lab_ui_log(log, context):
     confirmed = any(e.get("type") == "confirm_clicked" for e in log)
     trigger = message = subreason = "NONE"
     banner_ms = None
+    fault = context.get("technical_fault")
+    _need(fault is None or (isinstance(fault, str) and OPAQUE.match(fault)), "technical_fault must be null or a token")
     if banners:
         detail = banners[0]["detail"]
         trigger = str(detail["trigger"])[:5]
@@ -249,25 +279,38 @@ def from_lab_ui_log(log, context):
         _need(subreason is not None, "trigger/message combination has no approved subreason")
         actions = [e for e in log if e.get("type") in ("recovery_action", "modality_selected") and e["at_ms"] >= banners[0]["at_ms"]]
         banner_ms = int(round(actions[0]["at_ms"] - banners[0]["at_ms"])) if actions else None
-        _need(banner_ms is not None or context.get("trial_end") == "abandoned", "no action after the banner and no abandonment reported by the harness")
-        banner_ms = banner_ms if banner_ms is not None else 0
+        _need(banner_ms is not None or context.get("trial_end") == "abandoned" or fault, "no action after the banner and no abandonment or technical fault reported by the harness")
     end = context.get("trial_end") or ("completed" if confirmed else None)
-    _need(end in ("completed", "abandoned", "cancelled_by_user"), "trial end is not provable from the UI log: harness must report trial_end")
+    _need(end in ("completed", "abandoned", "cancelled_by_user") or (fault and end is None), "trial end is not provable from the UI log: harness must report trial_end")
     arm_b = arm_code == "B"
-    if banners and len(banners) >= 1:
+    m2 = _cb.PAIR_MECHANISM[pair] == "M2"
+    if fault:
+        recovery = "NA"                                      # a system failure is never a human recovery state
+    elif banners:
         last_banner = banners[-1]["at_ms"]
         recovered = confirmed and any(e.get("type") == "confirm_clicked" and e["at_ms"] > last_banner for e in log)
         recovery = "recovered_correctly" if recovered and end == "completed" else "abandoned" if end == "abandoned" else None
         _need(recovery is not None, "recovery outcome is not provable (banner without a confirmed upload or an abandonment)")
     else:
         recovery = "NA"
-    if _cb.PAIR_MECHANISM[pair] == "M2":
+    if fault:
+        outcome = "system_technical_error"
+    elif context.get("protocol_deviation") is True:
+        outcome = "protocol_deviation"
+    elif m2 and arm_b:
+        _need(banners and trigger in ("T7-01", "T7-03", "T7-04"), "M2 arm B without an observed layer 7 message cannot be adjudicated as an abstention")
         outcome = "technical_abstention_correct"
+    elif m2:
+        _need(end == "completed", "M2 arm A without a confirmed upload needs an adjudicated outcome from the harness")
+        outcome = "valid_completed"                          # arm A has no layer 7: no abstention is simulated; M2 stays out of A/B inference
     elif _cb.PAIR_MECHANISM[pair] == "M1":
-        _need(end == "completed", "M1 without a confirmed upload needs an adjudicated outcome from the harness")
-        outcome = "bypass_residual"
+        outcome = _m1_outcome(modality_events, declared, end, context.get("expected_modality"))
+    elif end == "completed":
+        outcome = "valid_completed"
     else:
-        outcome = "valid_completed" if end == "completed" else "false_cancellation_human"
+        _need(end == "cancelled_by_user" and context.get("cancel_origin") == "human_action",
+              "M3 without a completed upload is classified only with explicit human-action evidence (cancel_origin) and no technical fault")
+        outcome = "false_cancellation_human"
     actions_taken = [e["detail"].get("action") for e in log if e.get("type") == "recovery_action"]
     force = context["force_attempts"]
     _need(_count(force), "force_attempts")
@@ -278,12 +321,13 @@ def from_lab_ui_log(log, context):
               "mechanism_id": mechanism, "scenario_id": scenario, "outcome_status": outcome, "entry_flow": "explicit_prototype" if arm_b else "legacy_circuit",
               "declared_modality": declared, "selection_origin": "explicit_user_selection" if declared else "none",
               "transport_mode": "document_legacy_bridge" if declared == "document" else ("typed_contract" if arm_b else "legacy_passthrough"),
-              "recovery_outcome": recovery, "recovery_action_type": actions_taken[0] if actions_taken else None, "attempted_force_blocked": force > 0,
+              "recovery_outcome": recovery, "recovery_action_type": actions_taken[-1] if actions_taken else None, "attempted_force_blocked": force > 0,
               "layer7_execution_mode": "SIMULATED_LAB_HARNESS_ONLY" if arm_b else "DISCONNECTED_LEGACY",
               "layer7_trigger_code": trigger, "layer7_subreason_code": subreason, "layer7_message_key": message,
               "layer7_banner_rendered_ms": int(round(banners[0]["at_ms"])) if banners else None, "schema_version": SCHEMA_VERSION_V11,
               "sequence_code": context["sequence_code"], "subblock": context["subblock"], "set_id": spec[context["period"] - 1][1],
               "e1_entry_mode": "ISOLATED_LAB_ENTRY_PR95" if scenario == "E1" and arm_b else "NONE", "stimulus_id": context["stimulus_id"],
               "stimulus_hash_sha256": context["stimulus_hash_sha256"], "layer7_banner_to_first_action_ms": banner_ms,
-              "task_duration_ms": context["task_duration_ms"]}
+              "task_duration_ms": context["task_duration_ms"], "recovery_action_trace": list(actions_taken),
+              "recovery_action_count": len(actions_taken), "force_submit_attempts_count": force, "data_provenance": context["data_provenance"]}
     return validate_record_v11(record)

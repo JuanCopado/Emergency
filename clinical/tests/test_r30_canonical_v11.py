@@ -35,7 +35,8 @@ GEMINI_TEXT = {  # R28/R29 Gemini literal texts (DEC-CLIN-R15-01) keyed by the c
 
 def context(**over):
     base = {"participant_opaque_id": "HF1-P001", "role_group": "M", "language_stratum": "ES", "sequence_code": "S1a", "period": 2, "subblock": 1,
-            "stimulus_id": "S2-14", "stimulus_hash_sha256": SHA, "task_duration_ms": 9000, "force_attempts": 0}
+            "stimulus_id": "S2-14", "stimulus_hash_sha256": SHA, "task_duration_ms": 9000, "force_attempts": 0,
+            "data_provenance": "SYNTHETIC_LAB_HARNESS"}
     base.update(over)
     return base
 
