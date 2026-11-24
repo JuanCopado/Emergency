@@ -91,6 +91,9 @@ def validate_record_v12(r, manifest=None, stimuli_dir=DEFAULT_STIMULI):
     _need(truth is None or truth in c1.MODALITY, "manifest true_modality is outside the closed vocabulary")
     _need(isinstance(r["payload_sha256"], str) and c1.SHA256.match(r["payload_sha256"]) and r["payload_sha256"] == payload_hash(r),
           "payload_sha256 does not match the record (modified after sealing, absent or false)")
+    if r["outcome_status"] == "false_cancellation_human":                                    # R34 (Gemini COND-03): the cancellation must be an observed action
+        _need("cancel_explicit" in r["recovery_action_trace"],
+              "false_cancellation_human requires a cancel_explicit action in the trace (the lab UI emits no such event yet: unreachable from real evidence)")
     if r["mechanism_id"] == c1.MECHANISM["M1"]:                                              # conditional rules that need the ground truth
         _need(truth is not None, "M1 needs a manifest ground truth")
         declared = r["declared_modality"]

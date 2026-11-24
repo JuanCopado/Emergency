@@ -225,5 +225,47 @@ class Locale(unittest.TestCase):
                     self.export(stratum, events)
 
 
+class GeminiR34Vectors(unittest.TestCase):
+    """Corrected vectors of the Gemini R34 table, RECONSTRUCTED on the master record (the original R32 vector file was never received).
+    Names follow the real PR97 fields; Gemini's `rx_thorax` maps to the contract's `xray`."""
+    def setUp(self):
+        self.bank = Bank({"S1-04": "ecg", "S1-08": None, "S1-14": None})
+        self.addCleanup(self.bank.dir.cleanup)
+        self.plain = lambda w: [selected(w), ev("confirm_clicked", 500)]
+
+    def check(self, record):
+        return c.validate_record_v12(c.seal({k: v for k, v in record.items() if k != "payload_sha256"}), self.bank.manifest, self.bank.dir.name)
+
+    def test_m1_pos_01_and_neg_02(self):
+        bypass = self.bank.v12("S1a", 1, 4, lambda w: [selected(w), ev("modality_selected", 20, modality="xray", origin="initial"), ev("confirm_clicked", 900)],
+                               data_provenance="SYNTHETIC_FIXTURE")
+        self.assertEqual((bypass["outcome_status"], bypass["declared_modality"], bypass["expected_modality"]), ("bypass_residual", "xray", "ecg"))
+        with self.assertRaises(CanonicalViolation):
+            self.check({**bypass, "declared_modality": "ecg"})                               # TV-M1-NEG-02: bypass with submitted == expected
+
+    def test_m2a_neg_03_record_level(self):
+        control = self.bank.v12("S1a", 1, 14, self.plain, data_provenance="SYNTHETIC_FIXTURE")
+        self.assertEqual((control["arm"], control["outcome_status"]), ("A_real_react_control", "valid_completed"))
+        with self.assertRaises(CanonicalViolation):
+            self.check({**control, "outcome_status": "technical_abstention_correct"})
+
+    def test_m3_neg_06_needs_an_observed_cancel_action(self):
+        trial = self.bank.v12("S1a", 1, 8, self.plain, data_provenance="SYNTHETIC_FIXTURE")
+        with self.assertRaises(CanonicalViolation):
+            self.check({**trial, "outcome_status": "false_cancellation_human"})              # no trace at all
+        with self.assertRaises(CanonicalViolation):
+            self.check({**trial, "outcome_status": "false_cancellation_human", "recovery_action_trace": ["change_modality"], "recovery_action_count": 1,
+                        "recovery_action_type": "change_modality"})
+        observed = self.check({**trial, "outcome_status": "false_cancellation_human", "recovery_action_trace": ["cancel_explicit"], "recovery_action_count": 1,
+                               "recovery_action_type": "cancel_explicit"})                   # synthetic fixture of the positive path
+        self.assertEqual(observed["outcome_status"], "false_cancellation_human")
+
+    def test_the_harness_alone_cannot_export_a_human_cancellation(self):
+        context, width = self.bank.context("S1a", 1, 8, data_provenance="SYNTHETIC_FIXTURE", trial_end="cancelled_by_user", cancel_origin="human_action")
+        with self.assertRaises(CanonicalViolation):
+            c.from_lab_ui_log_v12([locale_event()] + [selected(width), ev("modality_selected", 20, modality="ecg", origin="initial")], context,
+                                  self.bank.manifest, self.bank.dir.name)
+
+
 if __name__ == "__main__":
     unittest.main()
