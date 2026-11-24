@@ -19,7 +19,7 @@ class Layer7UiReport(unittest.TestCase):
         for key in ("abstentions_as_expected", "banner_above_fold_everywhere", "banner_inside_viewport_width_everywhere", "no_horizontal_overflow",
                     "e1_file_input_before_modality", "other_trials_keep_approved_flow", "e1_recovery_by_choosing_modality", "valid_trials_not_blocked"):
             self.assertIs(self.summary[key], True, key)
-        self.assertEqual(self.summary["trials"], 36)
+        self.assertEqual(self.summary["trials"], 48)                                               # es, generic pt, explicit pt-PT, en x 2 viewports x 6 scenarios
         self.assertEqual(self.summary["study_with_humans"], "NOT_AUTHORISED")
         for key in ("contrast_measured", "screen_reader_tested", "edge_checked"):
             self.assertIs(self.summary[key], False, key)                    # NOT_VERIFIED is declared, not hidden
@@ -33,7 +33,7 @@ class Layer7UiReport(unittest.TestCase):
 
     def test_e1_is_observed_in_every_language_and_viewport(self):
         e1 = [r for r in self.report["results"] if r["scenario"].startswith("E1")]
-        self.assertEqual({(r["language"], r["viewport"]) for r in e1}, {(l, v) for l in ("es", "pt", "en") for v in (360, 390)})
+        self.assertEqual({(r["language"], r["viewport"]) for r in e1}, {(l, v) for l in ("es", "pt", "pt-PT", "en") for v in (360, 390)})
         self.assertTrue(all(r["adapter_trigger"] == "T7-01_UNDECLARED_MODALITY" and r["banner_shown"] for r in e1))
 
 
@@ -46,8 +46,8 @@ class CanonicalExportFromTheUi(unittest.TestCase):
 
     def test_es_and_en_trials_of_the_bank_export_valid_records(self):
         exported = [r for r in self.results if r["canonical_export"]["status"] == "EXPORTED"]
-        self.assertEqual(len(exported), 16)                                                    # 2 languages x 2 viewports x 4 bank scenarios
-        self.assertTrue(all(r["language"] in ("es", "en") and r["canonical_export"]["record_valid"] is True for r in exported))
+        self.assertEqual(len(exported), 24)                                                    # 3 proven strata (es, pt-PT, en) x 2 viewports x 4 bank scenarios
+        self.assertTrue(all(r["language"] in ("es", "pt-PT", "en") and r["canonical_export"]["record_valid"] is True for r in exported))
 
     def test_the_single_app_pt_is_refused_because_pt_pt_and_pt_br_cannot_be_told_apart(self):
         refused = [r for r in self.results if r["canonical_export"]["status"] == "NOT_EXPORTED"]

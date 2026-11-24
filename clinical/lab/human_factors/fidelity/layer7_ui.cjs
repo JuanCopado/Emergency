@@ -40,6 +40,7 @@ async function openMcdt(page) {
 
 // `canonical`: where the trial sits in the normative driver matrix (sequence code, period, sub-block) so that the device of the trial matches the
 // matrix; trials without it use technical stimuli outside the 30-stimulus bank (QA files, or S1-14 used here as a valid ECG photo) and are not exported.
+const RECORDS = [];
 const SCENARIOS = [
   { id: "E1_T7-01_file_before_modality", entry: "e1", file: "S2-14.pdf", expect: "T7-01_UNDECLARED_MODALITY", recover: "ECG", confirm: true, canonical: { sequence_code: "S3a", period: 1, subblock: 1, stimulus_id: "S2-14" } },
   { id: "E2_T7-03_corrupt_jpeg", file: "S1-15.jpg", modality: /Pele|Piel|Skin|Wound/i, expect: "T7-03_CORRUPT_UNPROCESSABLE", canonical: { sequence_code: "S4a", period: 1, subblock: 2, stimulus_id: "S1-15" } },
@@ -48,9 +49,10 @@ const SCENARIOS = [
   { id: "F_document_kind_null_selected", file: "S1-13.pdf", modality: /Document/i, expect: null, canonical: { sequence_code: "S3b", period: 1, subblock: 1, stimulus_id: "S1-13" } },
   { id: "F_valid_rgb_ecg", file: "S1-14.png", modality: /ECG/i, expect: null },
 ];
-const LANGUAGE_STRATUM = { es: "ES", en: "EN", pt: "pt" };      // the app has ONE "pt": the converter must refuse it (pt-PT / pt-BR are not distinguishable)
+const LANGUAGE_STRATUM = { es: "ES", en: "EN", pt: "pt", "pt-PT": "pt-PT" };      // generic "pt" (no lab_locale) is still refused; pt-PT needs the explicit ?lab_locale=pt-PT; pt-BR has no approved texts
+const LANG_RUNS = [["es", null], ["pt", null], ["pt", "pt-PT"], ["en", null]];
 
-async function trial(browser, baseUrl, lang, vp, sc) {
+async function trial(browser, baseUrl, lang, vp, sc, locale) {
   const ctx = await browser.newContext({ viewport: vp });
   await ctx.addInitScript((l) => { try { localStorage.setItem("emergency.lang", l); } catch (e) {} }, lang);
   const page = await ctx.newPage();
@@ -61,7 +63,8 @@ async function trial(browser, baseUrl, lang, vp, sc) {
     if (url.endsWith("/api/clinical-note/upload/prepare")) { realPrepareCalls += 1; const r = realPrepare(JSON.parse(route.request().postData())); return route.fulfill({ status: r.status, contentType: "application/json", body: JSON.stringify(r.body) }); }
     return route.fulfill({ status: 503, contentType: "application/json", body: "{}" });
   });
-  await page.goto(baseUrl + "/clinical-note" + (sc.entry ? "?lab_entry=" + sc.entry : ""), { waitUntil: "networkidle" });
+  const query = [sc.entry ? "lab_entry=" + sc.entry : null, locale ? "lab_locale=" + locale : null].filter(Boolean).join("&");
+  await page.goto(baseUrl + "/clinical-note" + (query ? "?" + query : ""), { waitUntil: "networkidle" });
   await openMcdt(page);
   const entry = page.getByTestId("r51-modality-entry");
   await entry.waitFor();
@@ -73,7 +76,7 @@ async function trial(browser, baseUrl, lang, vp, sc) {
   const banner = page.getByTestId("lab-layer7-banner");
   await page.waitForTimeout(1200);
   const shown = (await banner.count()) > 0;
-  const out = { scenario: sc.id, language: lang, viewport: vp.width, expected_trigger: sc.expect, adapter_trigger: verdicts.length ? verdicts[verdicts.length - 1].trigger_id : null,
+  const out = { scenario: sc.id, language: locale || lang, viewport: vp.width, expected_trigger: sc.expect, adapter_trigger: verdicts.length ? verdicts[verdicts.length - 1].trigger_id : null,
     file_input_present_before_modality: fileInputBefore > 0, banner_shown: shown };
   if (shown) {
     const box = await banner.boundingBox();
@@ -98,12 +101,14 @@ async function trial(browser, baseUrl, lang, vp, sc) {
   const fullLog = await page.evaluate(() => window.__LAB_LAYER7_LOG__ || []);
   out.lab_log_events = fullLog.map((e) => e.type);
   if (sc.canonical) {
-    const context = { participant_opaque_id: "DRYRUN-001", role_group: "M", language_stratum: LANGUAGE_STRATUM[lang], ...sc.canonical,
+    const context = { participant_opaque_id: "DRYRUN-001", role_group: "M", language_stratum: LANGUAGE_STRATUM[locale || lang], ...sc.canonical,
       stimulus_hash_sha256: crypto.createHash("sha256").update(buffer).digest("hex"), task_duration_ms: Math.max(1, Date.now() - startedAt), force_attempts: 0,
       data_provenance: "SYNTHETIC_LAB_HARNESS" };                        // scripted driver, never a person: never promotable to human data
     if (shown && !sc.confirm) context.trial_end = "abandoned";            // the lab driver took no recovery action: reported by the harness, not inferred by the UI
     out.canonical_export = run(path.join(HERE, "export_canonical.py"), { log: fullLog, context });
-    if (out.canonical_export.record) out.canonical_export.record = undefined;     // keep the report small: validity is what matters here
+    out.ui_log = fullLog;                                                          // the observable events that produced the record (trace of execution)
+    if (out.canonical_export.record) { RECORDS.push({ scenario: sc.id, language: locale || lang, viewport: vp.width, record: out.canonical_export.record,
+      record_file_sha256: crypto.createHash("sha256").update(JSON.stringify(out.canonical_export.record)).digest("hex") }); out.canonical_export.record = undefined; }
   } else out.canonical_export = { status: "NOT_APPLICABLE", reason: "technical stimulus outside the 30-stimulus bank or used with a different meaning" };
   out.real_prepare_calls = realPrepareCalls;
   await ctx.close();
@@ -116,8 +121,17 @@ async function trial(browser, baseUrl, lang, vp, sc) {
   const w = await browser.newPage();
   await w.goto(dev.url + "/clinical-note", { waitUntil: "networkidle" }).catch(() => {}); await w.waitForTimeout(4000); await w.reload({ waitUntil: "networkidle" }).catch(() => {}); await w.close();
   const results = [];
-  try { for (const lang of LANGS) for (const vp of VIEWPORTS) for (const sc of SCENARIOS) results.push(await trial(browser, dev.url, lang, vp, sc)); }
-  finally { await browser.close(); dev.close(); }
+  let ptBr = null;
+  try {
+    for (const [lang, locale] of LANG_RUNS) for (const vp of VIEWPORTS) for (const sc of SCENARIOS) results.push(await trial(browser, dev.url, lang, vp, sc, locale));
+    const ctxBr = await browser.newContext({ viewport: VIEWPORTS[0] });                // pt-BR: no approved texts -> the real app must fail closed
+    await ctxBr.addInitScript(() => { try { localStorage.setItem("emergency.lang", "pt"); } catch (e) {} });
+    const pageBr = await ctxBr.newPage();
+    await pageBr.goto(dev.url + "/clinical-note?lab_entry=e1&lab_locale=pt-BR", { waitUntil: "networkidle" }); await openMcdt(pageBr);
+    await pageBr.getByTestId("lab-locale-unsupported").waitFor();
+    ptBr = { notice_visible: true, file_inputs: await pageBr.locator("input[type=file]").count(), log: await pageBr.evaluate(() => window.__LAB_LAYER7_LOG__ || []) };
+    await ctxBr.close();
+  } finally { await browser.close(); dev.close(); }
   const abst = results.filter((r) => r.expected_trigger);
   const valid = results.filter((r) => !r.expected_trigger);
   const summary = {
@@ -128,12 +142,13 @@ async function trial(browser, baseUrl, lang, vp, sc) {
     other_trials_keep_approved_flow: results.filter((r) => !r.scenario.startsWith("E1")).every((r) => !r.file_input_present_before_modality),
     e1_recovery_by_choosing_modality: results.filter((r) => r.scenario.startsWith("E1")).every((r) => r.recovered_after_modality_choice === true),
     valid_trials_not_blocked: valid.every((r) => !r.banner_shown && r.review_card_created === true),
-    languages: LANGS, viewports: VIEWPORTS.map((v) => v.width), contrast_measured: false, screen_reader_tested: false, edge_checked: false,
+    languages: LANG_RUNS.map(([l, v]) => v || l), pt_br_fails_closed: !!ptBr && ptBr.notice_visible && ptBr.file_inputs === 0, viewports: VIEWPORTS.map((v) => v.width), contrast_measured: false, screen_reader_tested: false, edge_checked: false,
     canonical_exported_valid: results.filter((r) => r.canonical_export.status === "EXPORTED").length,
     canonical_refused_with_reason: results.filter((r) => r.canonical_export.status === "NOT_EXPORTED").map((r) => [r.language, r.viewport, r.scenario, r.canonical_export.reason]).slice(0, 6),
     canonical_not_applicable: results.filter((r) => r.canonical_export.status === "NOT_APPLICABLE").length,
     execution_mode: "SYNTHETIC_TECHNICAL_DRIVER_ON_REAL_APP_LAB_BUILD_ONLY", study_with_humans: "NOT_AUTHORISED",
   };
-  fs.writeFileSync(outFile, JSON.stringify({ tool: "layer7_ui.cjs", summary, results }, null, 1) + "\n");
+  fs.writeFileSync(outFile, JSON.stringify({ tool: "layer7_ui.cjs", summary, results, pt_br_fail_closed_trace: ptBr }, null, 1) + "\n");
+  fs.writeFileSync(outFile.replace(/\.json$/, "_records.json"), JSON.stringify(RECORDS, null, 1) + "\n");
   console.log(JSON.stringify(summary));
 })().catch((e) => { console.error(e); process.exit(1); });

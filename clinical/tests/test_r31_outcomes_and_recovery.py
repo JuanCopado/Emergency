@@ -177,8 +177,12 @@ class RunnerRegression(unittest.TestCase):
         report = json.loads((fidelity / "layer7_ui_report.json").read_text(encoding="utf8"))
         exports = [r["canonical_export"] for r in report["results"]]
         count = lambda status: sum(1 for e in exports if e["status"] == status)
-        self.assertEqual((count("EXPORTED"), count("NOT_APPLICABLE"), count("NOT_EXPORTED")), (16, 12, 8))
+        self.assertEqual((count("EXPORTED"), count("NOT_APPLICABLE"), count("NOT_EXPORTED")), (24, 16, 8))     # es, pt-PT and en exported; generic pt refused
         self.assertTrue(all("generic 'pt'" in e["reason"] for e in exports if e["status"] == "NOT_EXPORTED"))
+        self.assertTrue(report["summary"]["pt_br_fails_closed"])                              # pt-BR: no approved texts, the real app shows the notice and no file input
+        sealed = json.loads((fidelity / "layer7_ui_records_v12.json").read_text(encoding="utf8"))
+        self.assertEqual(len(sealed), 24)
+        self.assertTrue(all(item["record"]["schema_version"] == "canonical-r27-v1.2" and item["record"]["data_provenance"] == "SYNTHETIC_LAB_HARNESS" for item in sealed))
 
 
 if __name__ == "__main__":

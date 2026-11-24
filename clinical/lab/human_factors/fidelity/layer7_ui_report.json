@@ -1,7 +1,7 @@
 {
  "tool": "layer7_ui.cjs",
  "summary": {
-  "trials": 36,
+  "trials": 48,
   "abstentions_as_expected": true,
   "banner_above_fold_everywhere": true,
   "banner_inside_viewport_width_everywhere": true,
@@ -13,8 +13,10 @@
   "languages": [
    "es",
    "pt",
+   "pt-PT",
    "en"
   ],
+  "pt_br_fails_closed": true,
   "viewports": [
    360,
    390
@@ -22,7 +24,7 @@
   "contrast_measured": false,
   "screen_reader_tested": false,
   "edge_checked": false,
-  "canonical_exported_valid": 16,
+  "canonical_exported_valid": 24,
   "canonical_refused_with_reason": [
    [
     "pt",
@@ -61,7 +63,7 @@
     "language_stratum (generic 'pt' is refused)"
    ]
   ],
-  "canonical_not_applicable": 12,
+  "canonical_not_applicable": 16,
   "execution_mode": "SYNTHETIC_TECHNICAL_DRIVER_ON_REAL_APP_LAB_BUILD_ONLY",
   "study_with_humans": "NOT_AUTHORISED"
  },
@@ -88,6 +90,8 @@
    "recovered_after_modality_choice": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
@@ -98,6 +102,69 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 814,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 814,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 879,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 925,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2161,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2161,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3439,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -121,6 +188,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -129,6 +198,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 874,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 874,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 920,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 936,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1035,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -153,6 +270,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -161,6 +280,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 794,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 794,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 838,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 859,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 901,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -185,6 +352,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -206,6 +375,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -214,6 +385,53 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 817,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 817,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 850,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 861,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2101,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -227,6 +445,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -259,6 +479,8 @@
    "recovered_after_modality_choice": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
@@ -269,6 +491,69 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 872,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 872,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 899,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 942,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2157,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2157,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3389,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -292,6 +577,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -300,6 +587,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 825,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 825,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 866,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 880,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 989,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -324,6 +659,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -332,6 +669,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 820,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 820,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 868,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 887,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 928,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -356,6 +741,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -377,6 +764,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -385,6 +774,53 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 759,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 759,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 809,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 819,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2059,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -398,6 +834,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -430,6 +868,8 @@
    "recovered_after_modality_choice": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
@@ -440,6 +880,69 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 800,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 800,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 823,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 855,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2084,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2084,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3319,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -463,6 +966,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -471,6 +976,54 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 859,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 859,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 901,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 934,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1034,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -495,6 +1048,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -503,6 +1058,54 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 941,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 941,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 991,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1007,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1047,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -527,6 +1130,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -548,6 +1153,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -556,6 +1163,53 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 752,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 752,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 798,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 810,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2030,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -569,6 +1223,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -601,6 +1257,8 @@
    "recovered_after_modality_choice": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
@@ -611,6 +1269,69 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 795,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 795,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 821,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 865,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2077,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2077,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3310,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -634,6 +1355,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -642,6 +1365,54 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 781,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 781,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 833,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 847,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 936,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -666,6 +1437,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -674,6 +1447,54 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 752,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 752,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 788,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 800,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 843,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -698,6 +1519,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -719,6 +1542,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -727,6 +1552,53 @@
     "status": "NOT_EXPORTED",
     "reason": "language_stratum (generic 'pt' is refused)"
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 824,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 824,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 868,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 885,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2118,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -740,6 +1612,786 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 780,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 780,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 798,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 848,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2055,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2055,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3289,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 825,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 825,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 871,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 888,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 989,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 764,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 764,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 803,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 818,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 864,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 781,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 781,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 832,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 847,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2081,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 801,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 801,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 827,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 881,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2086,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2086,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3317,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 813,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 813,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 853,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 868,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 981,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 776,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 776,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 818,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 831,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 871,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 773,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 773,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 824,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 839,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2072,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -772,6 +2424,8 @@
    "recovered_after_modality_choice": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
@@ -782,6 +2436,69 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 819,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 819,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 843,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 897,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2102,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2102,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3333,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -805,6 +2522,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -813,6 +2532,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 765,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 765,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 818,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 833,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 920,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -837,6 +2604,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -845,6 +2614,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 785,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 785,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 845,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 872,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 917,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -869,6 +2686,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -890,6 +2709,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -898,6 +2719,53 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 775,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 775,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 827,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 838,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2060,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -911,6 +2779,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -943,6 +2813,8 @@
    "recovered_after_modality_choice": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "file_selected",
     "layer7_banner_rendered",
     "modality_selected",
@@ -953,6 +2825,69 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 765,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 765,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 790,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 834,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2040,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2040,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3276,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -976,6 +2911,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -984,6 +2921,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 777,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 777,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 826,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 836,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 920,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -1008,6 +2993,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -1016,6 +3003,54 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 813,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 813,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 857,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 868,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 921,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
    "real_prepare_calls": 0
   },
   {
@@ -1040,6 +3075,8 @@
    "confirm_buttons": 0,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "layer7_banner_rendered"
@@ -1061,6 +3098,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -1069,6 +3108,53 @@
     "status": "EXPORTED",
     "record_valid": true
    },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 786,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 786,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 840,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 852,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2091,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
    "real_prepare_calls": 1
   },
   {
@@ -1082,6 +3168,8 @@
    "review_card_created": true,
    "overflow_px": 0,
    "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
     "modality_selected",
     "file_selected",
     "confirm_clicked"
@@ -1092,5 +3180,31 @@
    },
    "real_prepare_calls": 1
   }
- ]
+ ],
+ "pt_br_fail_closed_trace": {
+  "notice_visible": true,
+  "file_inputs": 0,
+  "log": [
+   {
+    "type": "locale_resolved",
+    "at_ms": 768,
+    "detail": {
+     "language": "pt",
+     "lab_locale": "pt-BR",
+     "variant": "pt-BR",
+     "status": "UNSUPPORTED"
+    }
+   },
+   {
+    "type": "locale_resolved",
+    "at_ms": 768,
+    "detail": {
+     "language": "pt",
+     "lab_locale": "pt-BR",
+     "variant": "pt-BR",
+     "status": "UNSUPPORTED"
+    }
+   }
+  ]
+ }
 }
