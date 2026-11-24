@@ -1,0 +1,1604 @@
+{
+ "tool": "arm_a_fidelity.cjs",
+ "browser": "chromium 157.0.8103.78",
+ "edge_checked": false,
+ "real_ui": [
+  {
+   "viewport": {
+    "width": 320,
+    "height": 640
+   },
+   "lang": "es",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 33,
+     "y": 1178,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometría",
+     "pressed": "false",
+     "x": 148,
+     "y": 1178,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 1230,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Radiografía",
+     "pressed": "false",
+     "x": 117,
+     "y": 1230,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 33,
+     "y": 1282,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografía/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 1334,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiología",
+     "pressed": "false",
+     "x": 33,
+     "y": 1386,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Piel/herida",
+     "pressed": "false",
+     "x": 33,
+     "y": 1438,
+     "w": 120,
+     "h": 44
+    },
+    {
+     "text": "+ Otro",
+     "pressed": "true",
+     "x": 161,
+     "y": 1438,
+     "w": 74,
+     "h": 44
+    },
+    {
+     "text": "Crear tarjeta para revisión",
+     "pressed": null,
+     "x": 33,
+     "y": 1978,
+     "w": 211,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Carga clínica",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 1541,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 320
+   },
+   "overflow_px": 100,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometría",
+    "+ ECG",
+    "+ Radiografía",
+    "+ TC/RM",
+    "+ Ecografía/POCUS",
+    "+ Microbiología",
+    "+ Piel/herida",
+    "+ Otro",
+    "Carga clínica",
+    "Nombre de la prueba",
+    "textarea",
+    "textarea",
+    "Crear tarjeta para revisión"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "lang": "es",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 33,
+     "y": 1134,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometría",
+     "pressed": "false",
+     "x": 148,
+     "y": 1134,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 1186,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Radiografía",
+     "pressed": "false",
+     "x": 117,
+     "y": 1186,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 33,
+     "y": 1238,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografía/POCUS",
+     "pressed": "false",
+     "x": 134,
+     "y": 1238,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiología",
+     "pressed": "false",
+     "x": 33,
+     "y": 1290,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Piel/herida",
+     "pressed": "false",
+     "x": 181,
+     "y": 1290,
+     "w": 120,
+     "h": 44
+    },
+    {
+     "text": "+ Otro",
+     "pressed": "true",
+     "x": 33,
+     "y": 1342,
+     "w": 74,
+     "h": 44
+    },
+    {
+     "text": "Crear tarjeta para revisión",
+     "pressed": null,
+     "x": 33,
+     "y": 1882,
+     "w": 211,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Carga clínica",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 1445,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 360
+   },
+   "overflow_px": 60,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometría",
+    "+ ECG",
+    "+ Radiografía",
+    "+ TC/RM",
+    "+ Ecografía/POCUS",
+    "+ Microbiología",
+    "+ Piel/herida",
+    "+ Otro",
+    "Carga clínica",
+    "Nombre de la prueba",
+    "textarea",
+    "textarea",
+    "Crear tarjeta para revisión"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 390,
+    "height": 640
+   },
+   "lang": "es",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 33,
+     "y": 1086,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometría",
+     "pressed": "false",
+     "x": 148,
+     "y": 1086,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 1138,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Radiografía",
+     "pressed": "false",
+     "x": 117,
+     "y": 1138,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 251,
+     "y": 1138,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografía/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 1190,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiología",
+     "pressed": "false",
+     "x": 208,
+     "y": 1190,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Piel/herida",
+     "pressed": "false",
+     "x": 33,
+     "y": 1242,
+     "w": 120,
+     "h": 44
+    },
+    {
+     "text": "+ Otro",
+     "pressed": "true",
+     "x": 161,
+     "y": 1242,
+     "w": 74,
+     "h": 44
+    },
+    {
+     "text": "Crear tarjeta para revisión",
+     "pressed": null,
+     "x": 33,
+     "y": 1782,
+     "w": 211,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Carga clínica",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 1345,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 390
+   },
+   "overflow_px": 30,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometría",
+    "+ ECG",
+    "+ Radiografía",
+    "+ TC/RM",
+    "+ Ecografía/POCUS",
+    "+ Microbiología",
+    "+ Piel/herida",
+    "+ Otro",
+    "Carga clínica",
+    "Nombre de la prueba",
+    "textarea",
+    "textarea",
+    "Crear tarjeta para revisión"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "lang": "es",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 105,
+     "y": 586,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometría",
+     "pressed": "false",
+     "x": 220,
+     "y": 586,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 354,
+     "y": 586,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Radiografía",
+     "pressed": "false",
+     "x": 438,
+     "y": 586,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 573,
+     "y": 586,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografía/POCUS",
+     "pressed": "false",
+     "x": 674,
+     "y": 586,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiología",
+     "pressed": "false",
+     "x": 105,
+     "y": 638,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Piel/herida",
+     "pressed": "false",
+     "x": 253,
+     "y": 638,
+     "w": 120,
+     "h": 44
+    },
+    {
+     "text": "+ Otro",
+     "pressed": "true",
+     "x": 381,
+     "y": 638,
+     "w": 74,
+     "h": 44
+    },
+    {
+     "text": "Crear tarjeta para revisión",
+     "pressed": null,
+     "x": 105,
+     "y": 1162,
+     "w": 211,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Carga clínica",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 122,
+    "y": 741,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+   },
+   "overflow_px": 0,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometría",
+    "+ ECG",
+    "+ Radiografía",
+    "+ TC/RM",
+    "+ Ecografía/POCUS",
+    "+ Microbiología",
+    "+ Piel/herida",
+    "+ Otro",
+    "Carga clínica",
+    "Nombre de la prueba",
+    "textarea",
+    "textarea",
+    "Crear tarjeta para revisión"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 320,
+    "height": 640
+   },
+   "lang": "pt",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 33,
+     "y": 1170,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometria",
+     "pressed": "false",
+     "x": 148,
+     "y": 1170,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 1222,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Rx",
+     "pressed": "false",
+     "x": 117,
+     "y": 1222,
+     "w": 64,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 189,
+     "y": 1222,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografia/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 1274,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiologia",
+     "pressed": "false",
+     "x": 33,
+     "y": 1326,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Pele/ferida",
+     "pressed": "false",
+     "x": 33,
+     "y": 1378,
+     "w": 122,
+     "h": 44
+    },
+    {
+     "text": "+ Outro",
+     "pressed": "true",
+     "x": 163,
+     "y": 1378,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Criar cartão para revisão",
+     "pressed": null,
+     "x": 33,
+     "y": 1918,
+     "w": 204,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Upload clínico",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 1481,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 320
+   },
+   "overflow_px": 100,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometria",
+    "+ ECG",
+    "+ Rx",
+    "+ TC/RM",
+    "+ Ecografia/POCUS",
+    "+ Microbiologia",
+    "+ Pele/ferida",
+    "+ Outro",
+    "Upload clínico",
+    "Nome do exame",
+    "textarea",
+    "textarea",
+    "Criar cartão para revisão"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "lang": "pt",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 33,
+     "y": 1086,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometria",
+     "pressed": "false",
+     "x": 148,
+     "y": 1086,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 1138,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Rx",
+     "pressed": "false",
+     "x": 117,
+     "y": 1138,
+     "w": 64,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 189,
+     "y": 1138,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografia/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 1190,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiologia",
+     "pressed": "false",
+     "x": 33,
+     "y": 1242,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Pele/ferida",
+     "pressed": "false",
+     "x": 181,
+     "y": 1242,
+     "w": 122,
+     "h": 44
+    },
+    {
+     "text": "+ Outro",
+     "pressed": "true",
+     "x": 33,
+     "y": 1294,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Criar cartão para revisão",
+     "pressed": null,
+     "x": 33,
+     "y": 1834,
+     "w": 204,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Upload clínico",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 1397,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 360
+   },
+   "overflow_px": 60,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometria",
+    "+ ECG",
+    "+ Rx",
+    "+ TC/RM",
+    "+ Ecografia/POCUS",
+    "+ Microbiologia",
+    "+ Pele/ferida",
+    "+ Outro",
+    "Upload clínico",
+    "Nome do exame",
+    "textarea",
+    "textarea",
+    "Criar cartão para revisão"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 390,
+    "height": 640
+   },
+   "lang": "pt",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 33,
+     "y": 2432,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometria",
+     "pressed": "false",
+     "x": 148,
+     "y": 2432,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 2484,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Rx",
+     "pressed": "false",
+     "x": 117,
+     "y": 2484,
+     "w": 64,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 189,
+     "y": 2484,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografia/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 2536,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiologia",
+     "pressed": "false",
+     "x": 208,
+     "y": 2536,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Pele/ferida",
+     "pressed": "false",
+     "x": 33,
+     "y": 2588,
+     "w": 122,
+     "h": 44
+    },
+    {
+     "text": "+ Outro",
+     "pressed": "true",
+     "x": 163,
+     "y": 2588,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Criar cartão para revisão",
+     "pressed": null,
+     "x": 33,
+     "y": 3128,
+     "w": 204,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Upload clínico",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 2691,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 390
+   },
+   "overflow_px": 30,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometria",
+    "+ ECG",
+    "+ Rx",
+    "+ TC/RM",
+    "+ Ecografia/POCUS",
+    "+ Microbiologia",
+    "+ Pele/ferida",
+    "+ Outro",
+    "Upload clínico",
+    "Nome do exame",
+    "textarea",
+    "textarea",
+    "Criar cartão para revisão"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "lang": "pt",
+   "category_buttons": [
+    {
+     "text": "+ Analítica",
+     "pressed": "false",
+     "x": 105,
+     "y": 586,
+     "w": 107,
+     "h": 44
+    },
+    {
+     "text": "+ Gasometria",
+     "pressed": "false",
+     "x": 220,
+     "y": 586,
+     "w": 126,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 354,
+     "y": 586,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ Rx",
+     "pressed": "false",
+     "x": 438,
+     "y": 586,
+     "w": 64,
+     "h": 44
+    },
+    {
+     "text": "+ TC/RM",
+     "pressed": "false",
+     "x": 510,
+     "y": 586,
+     "w": 93,
+     "h": 44
+    },
+    {
+     "text": "+ Ecografia/POCUS",
+     "pressed": "false",
+     "x": 612,
+     "y": 586,
+     "w": 167,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiologia",
+     "pressed": "false",
+     "x": 105,
+     "y": 638,
+     "w": 140,
+     "h": 44
+    },
+    {
+     "text": "+ Pele/ferida",
+     "pressed": "false",
+     "x": 253,
+     "y": 638,
+     "w": 122,
+     "h": 44
+    },
+    {
+     "text": "+ Outro",
+     "pressed": "true",
+     "x": 382,
+     "y": 638,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Criar cartão para revisão",
+     "pressed": null,
+     "x": 105,
+     "y": 1162,
+     "w": 204,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Upload clínico",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 122,
+    "y": 741,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+   },
+   "overflow_px": 0,
+   "focus_order": [
+    "+ Analítica",
+    "+ Gasometria",
+    "+ ECG",
+    "+ Rx",
+    "+ TC/RM",
+    "+ Ecografia/POCUS",
+    "+ Microbiologia",
+    "+ Pele/ferida",
+    "+ Outro",
+    "Upload clínico",
+    "Nome do exame",
+    "textarea",
+    "textarea",
+    "Criar cartão para revisão"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 320,
+    "height": 640
+   },
+   "lang": "en",
+   "category_buttons": [
+    {
+     "text": "+ Laboratory tests",
+     "pressed": "false",
+     "x": 33,
+     "y": 2400,
+     "w": 159,
+     "h": 44
+    },
+    {
+     "text": "+ Blood gas",
+     "pressed": "false",
+     "x": 33,
+     "y": 2452,
+     "w": 114,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 155,
+     "y": 2452,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ X-ray",
+     "pressed": "false",
+     "x": 33,
+     "y": 2504,
+     "w": 88,
+     "h": 44
+    },
+    {
+     "text": "+ CT/MRI",
+     "pressed": "false",
+     "x": 129,
+     "y": 2504,
+     "w": 97,
+     "h": 44
+    },
+    {
+     "text": "+ Ultrasound/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 2556,
+     "w": 177,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiology",
+     "pressed": "false",
+     "x": 33,
+     "y": 2608,
+     "w": 135,
+     "h": 44
+    },
+    {
+     "text": "+ Skin/wound",
+     "pressed": "false",
+     "x": 33,
+     "y": 2660,
+     "w": 127,
+     "h": 44
+    },
+    {
+     "text": "+ Other",
+     "pressed": "true",
+     "x": 168,
+     "y": 2660,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Create review card",
+     "pressed": null,
+     "x": 33,
+     "y": 3200,
+     "w": 161,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Clinical upload",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 2763,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 320
+   },
+   "overflow_px": 100,
+   "focus_order": [
+    "+ Laboratory tests",
+    "+ Blood gas",
+    "+ ECG",
+    "+ X-ray",
+    "+ CT/MRI",
+    "+ Ultrasound/POCUS",
+    "+ Microbiology",
+    "+ Skin/wound",
+    "+ Other",
+    "Clinical upload",
+    "Investigation name",
+    "textarea",
+    "textarea",
+    "Create review card"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 360,
+    "height": 640
+   },
+   "lang": "en",
+   "category_buttons": [
+    {
+     "text": "+ Laboratory tests",
+     "pressed": "false",
+     "x": 33,
+     "y": 1268,
+     "w": 159,
+     "h": 44
+    },
+    {
+     "text": "+ Blood gas",
+     "pressed": "false",
+     "x": 200,
+     "y": 1268,
+     "w": 114,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 1320,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ X-ray",
+     "pressed": "false",
+     "x": 117,
+     "y": 1320,
+     "w": 88,
+     "h": 44
+    },
+    {
+     "text": "+ CT/MRI",
+     "pressed": "false",
+     "x": 213,
+     "y": 1320,
+     "w": 97,
+     "h": 44
+    },
+    {
+     "text": "+ Ultrasound/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 1372,
+     "w": 177,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiology",
+     "pressed": "false",
+     "x": 33,
+     "y": 1424,
+     "w": 135,
+     "h": 44
+    },
+    {
+     "text": "+ Skin/wound",
+     "pressed": "false",
+     "x": 176,
+     "y": 1424,
+     "w": 127,
+     "h": 44
+    },
+    {
+     "text": "+ Other",
+     "pressed": "true",
+     "x": 33,
+     "y": 1476,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Create review card",
+     "pressed": null,
+     "x": 33,
+     "y": 2016,
+     "w": 161,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Clinical upload",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 1579,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 360
+   },
+   "overflow_px": 60,
+   "focus_order": [
+    "+ Laboratory tests",
+    "+ Blood gas",
+    "+ ECG",
+    "+ X-ray",
+    "+ CT/MRI",
+    "+ Ultrasound/POCUS",
+    "+ Microbiology",
+    "+ Skin/wound",
+    "+ Other",
+    "Clinical upload",
+    "Investigation name",
+    "textarea",
+    "textarea",
+    "Create review card"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 390,
+    "height": 640
+   },
+   "lang": "en",
+   "category_buttons": [
+    {
+     "text": "+ Laboratory tests",
+     "pressed": "false",
+     "x": 33,
+     "y": 1096,
+     "w": 159,
+     "h": 44
+    },
+    {
+     "text": "+ Blood gas",
+     "pressed": "false",
+     "x": 200,
+     "y": 1096,
+     "w": 114,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 33,
+     "y": 1148,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ X-ray",
+     "pressed": "false",
+     "x": 117,
+     "y": 1148,
+     "w": 88,
+     "h": 44
+    },
+    {
+     "text": "+ CT/MRI",
+     "pressed": "false",
+     "x": 213,
+     "y": 1148,
+     "w": 97,
+     "h": 44
+    },
+    {
+     "text": "+ Ultrasound/POCUS",
+     "pressed": "false",
+     "x": 33,
+     "y": 1200,
+     "w": 177,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiology",
+     "pressed": "false",
+     "x": 218,
+     "y": 1200,
+     "w": 135,
+     "h": 44
+    },
+    {
+     "text": "+ Skin/wound",
+     "pressed": "false",
+     "x": 33,
+     "y": 1252,
+     "w": 127,
+     "h": 44
+    },
+    {
+     "text": "+ Other",
+     "pressed": "true",
+     "x": 168,
+     "y": 1252,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Create review card",
+     "pressed": null,
+     "x": 33,
+     "y": 1792,
+     "w": 161,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Clinical upload",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 50,
+    "y": 1355,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 420,
+    "clientWidth": 390
+   },
+   "overflow_px": 30,
+   "focus_order": [
+    "+ Laboratory tests",
+    "+ Blood gas",
+    "+ ECG",
+    "+ X-ray",
+    "+ CT/MRI",
+    "+ Ultrasound/POCUS",
+    "+ Microbiology",
+    "+ Skin/wound",
+    "+ Other",
+    "Clinical upload",
+    "Investigation name",
+    "textarea",
+    "textarea",
+    "Create review card"
+   ]
+  },
+  {
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "lang": "en",
+   "category_buttons": [
+    {
+     "text": "+ Laboratory tests",
+     "pressed": "false",
+     "x": 105,
+     "y": 586,
+     "w": 159,
+     "h": 44
+    },
+    {
+     "text": "+ Blood gas",
+     "pressed": "false",
+     "x": 272,
+     "y": 586,
+     "w": 114,
+     "h": 44
+    },
+    {
+     "text": "+ ECG",
+     "pressed": "false",
+     "x": 395,
+     "y": 586,
+     "w": 76,
+     "h": 44
+    },
+    {
+     "text": "+ X-ray",
+     "pressed": "false",
+     "x": 479,
+     "y": 586,
+     "w": 88,
+     "h": 44
+    },
+    {
+     "text": "+ CT/MRI",
+     "pressed": "false",
+     "x": 575,
+     "y": 586,
+     "w": 97,
+     "h": 44
+    },
+    {
+     "text": "+ Ultrasound/POCUS",
+     "pressed": "false",
+     "x": 680,
+     "y": 586,
+     "w": 177,
+     "h": 44
+    },
+    {
+     "text": "+ Microbiology",
+     "pressed": "false",
+     "x": 105,
+     "y": 638,
+     "w": 135,
+     "h": 44
+    },
+    {
+     "text": "+ Skin/wound",
+     "pressed": "false",
+     "x": 248,
+     "y": 638,
+     "w": 127,
+     "h": 44
+    },
+    {
+     "text": "+ Other",
+     "pressed": "true",
+     "x": 384,
+     "y": 638,
+     "w": 83,
+     "h": 44
+    },
+    {
+     "text": "Create review card",
+     "pressed": null,
+     "x": 105,
+     "y": 1162,
+     "w": 161,
+     "h": 44
+    }
+   ],
+   "file_input": {
+    "aria": "Clinical upload",
+    "accept": ".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm",
+    "x": 122,
+    "y": 741,
+    "w": 353
+   },
+   "reflow": {
+    "scrollWidth": 1280,
+    "clientWidth": 1280
+   },
+   "overflow_px": 0,
+   "focus_order": [
+    "+ Laboratory tests",
+    "+ Blood gas",
+    "+ ECG",
+    "+ X-ray",
+    "+ CT/MRI",
+    "+ Ultrasound/POCUS",
+    "+ Microbiology",
+    "+ Skin/wound",
+    "+ Other",
+    "Clinical upload",
+    "Investigation name",
+    "textarea",
+    "textarea",
+    "Create review card"
+   ]
+  }
+ ],
+ "uploads": [
+  {
+   "file": "QA-01.wav",
+   "review_card": false,
+   "card_text": null,
+   "interpret_button": false,
+   "alert": "El archivo se rechazó al verificar su nombre, formato o integridad."
+  },
+  {
+   "file": "QA-02.jpg",
+   "review_card": false,
+   "card_text": null,
+   "interpret_button": false,
+   "alert": "invalid clinical request"
+  },
+  {
+   "file": "S1-13.pdf",
+   "review_card": true,
+   "card_text": "Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: Otro — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visi",
+   "interpret_button": false,
+   "alert": null
+  },
+  {
+   "file": "S1-14.png",
+   "review_card": true,
+   "card_text": "Otro · S1-14.png Pendiente Privacidad: REVIEW_REQUIRED Ruta: other-clinical-image Original no retenido Categoría efectiva: Otro — no se envió ninguna categoría ni hay pista en el nombre del archivo; se trata como «Otro». La modalidad real no se ha verificado. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: other-clinical-image · routed_external Metadatos e identificadores del archivo rev",
+   "interpret_button": true,
+   "alert": null
+  },
+  {
+   "file": "S1-15.jpg",
+   "review_card": false,
+   "card_text": null,
+   "interpret_button": false,
+   "alert": "El archivo se rechazó al verificar su nombre, formato o integridad."
+  },
+  {
+   "file": "S2-14.pdf",
+   "review_card": true,
+   "card_text": "Otro · S2-14.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: Otro — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visi",
+   "interpret_button": false,
+   "alert": null
+  },
+  {
+   "file": "S2-15.pdf",
+   "review_card": true,
+   "card_text": "Otro · S2-15.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Categoría efectiva: Otro — inferida del tipo de contenedor; no verifica la modalidad real del contenido. INFORME OFICIAL / EXTRAÍDO INTERPRETACIÓN IA Procedencia: clinical-note-diagnostic-support · routed_external Metadatos e identificadores del archivo revisados. Identificadores visi",
+   "interpret_button": false,
+   "alert": null
+  }
+ ],
+ "lab_mockup": {
+  "arm_a_label": "A · interfaz vigente (maqueta, sin capa 7)",
+  "arm_a_has_category_buttons": false,
+  "arm_a_has_file_input": false,
+  "arm_a_has_review_card": false,
+  "arm_a_send_allowed_without_modality": true,
+  "controls_in_stage": [
+   "Enviar",
+   "Terminar ensayo"
+  ]
+ },
+ "mockup": {
+  "viewports": [
+   {
+    "viewport": {
+     "width": 360,
+     "height": 640
+    },
+    "overflow_px": 0,
+    "banner": "LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacientes, sin APIs clínicas",
+    "buttons": [
+     "Enviar",
+     "Terminar ensayo"
+    ],
+    "selector_visible": false,
+    "investigator_controls_visible": true
+   },
+   {
+    "viewport": {
+     "width": 1280,
+     "height": 800
+    },
+    "overflow_px": 0,
+    "banner": "LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacientes, sin APIs clínicas",
+    "buttons": [
+     "Enviar",
+     "Terminar ensayo"
+    ],
+    "selector_visible": false,
+    "investigator_controls_visible": true
+   }
+  ],
+  "visible_research_labels": [
+   "LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacient"
+  ],
+  "participant_buttons": [
+   "Enviar",
+   "Terminar ensayo"
+  ],
+  "min_participant_actions_to_send": 1,
+  "selector_visible": false
+ },
+ "axes": [
+  {
+   "axis": 1,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real control: 10 buttons + file input in the MCDT card; mock-up arm A participant buttons: [\"Enviar\",\"Terminar ensayo\"]"
+  },
+  {
+   "axis": 2,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real flow = open MCDT tab, optional category, choose file, prepare, review card; mock-up = fixed file chip then Send"
+  },
+  {
+   "axis": 3,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "selector: real offers 10 category buttons (default pressed: + Otro); mock-up selector visible in arm A: false"
+  },
+  {
+   "axis": 4,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "mock-up strings absent as keys from the real i18n locales: [\"Enviar\",\"Terminar ensayo\"] of [\"Enviar\",\"Terminar ensayo\"]; real card texts: \"Otro · S1-13.pdf Pendiente Privacidad: REVIEW_REQUIRED Ruta: clinical-note-diagnostic-support Original no retenido Cate"
+  },
+  {
+   "axis": 5,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real: tab + (category) + file selection >= 2 actions before the review card; mock-up: 1 action (Send)"
+  },
+  {
+   "axis": 6,
+   "strict": false,
+   "status": "NOT_VERIFIED",
+   "evidence": "no like-for-like timing: the mock-up has no prepare call; real prepare uses the real dispatch behind an intercepted route (not a network latency)"
+  },
+  {
+   "axis": 7,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real MCDT tab overflow at 360x640: 60 px (inherited); mock-up arm A overflow at 360x640: 0 px - the cleaner mock-up would hide the inherited overflow"
+  },
+  {
+   "axis": 8,
+   "strict": false,
+   "status": "NOT_VERIFIED",
+   "evidence": "real control: corrupt/unsupported files rejected with fixed messages (see uploads); the mock-up has no equivalent send feedback or corrupt-file handling"
+  },
+  {
+   "axis": 9,
+   "strict": true,
+   "status": "FAIL",
+   "evidence": "real control: PDF -> review card, interpret button present=false, no Layer 7; the mock-up cannot reproduce the legacy document flow"
+  },
+  {
+   "axis": 10,
+   "strict": false,
+   "status": "CONDITIONAL_FAIL",
+   "evidence": "research labels visible to the evaluator in the mock-up: [\"LABORATORIO AISLADO · SIMULATED_LAB_HARNESS_ONLY · no es el producto, sin datos de pacient\"]; investigator configuration controls are on the same page"
+  }
+ ],
+ "languages_checked": [
+  "es",
+  "pt",
+  "en"
+ ],
+ "languages_not_checked": [
+  "pt-BR (no distinct locale in the app)",
+  "pt-PT (the app locale 'pt' is the only Portuguese)"
+ ],
+ "verdict": {
+  "functional_equivalence": "NOT_EQUIVALENT",
+  "gaps": [
+   "modality_selection: the real control offers 10 category buttons; the mock-up shows none for arm A",
+   "upload_flow: the real control has a file input; the mock-up has a fixed synthetic file chip",
+   "review_card: the real control creates a review card (category, route, privacy, kind_source); the mock-up has none",
+   "messages_and_layout: not compared pixel-by-pixel; no visual-equivalence test exists"
+  ],
+  "axes_failed_strict": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   7,
+   9
+  ],
+  "final": "FAIL"
+ }
+}

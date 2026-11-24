@@ -276,6 +276,11 @@ def _estimate(tables, drawn, key, measure):
     return measure(total(tables, drawn, key))
 
 
+BCA_MIN_PARTICIPANTS = 20       # R23 protocol: BCa only with at least 20 participants in the estimand ...
+BCA_MIN_WITH_EVENT = 2          # ... and at least 2 participants with events
+BCA_MIN_WITHOUT_EVENT = 2       # ... and at least 2 without events
+VERY_SMALL_CLUSTER = 16         # R23 protocol: below this the intervals are descriptive only
+BCA_FALLBACK = "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE"
 SMALL_CLUSTER_REFERENCE = 30   # literature reference for stable cluster-bootstrap coverage (Deen & de Rooij 2020), not a study threshold
 NORMAL = statistics.NormalDist()
 
@@ -284,38 +289,170 @@ def _quantile(sorted_values, q):
     return _percentile(sorted_values, min(max(q, 0.0), 1.0))
 
 
-def _bca(point, samples, jackknife):
-    """Bias-corrected and accelerated interval from bootstrap samples and leave-one-participant-out values."""
+BCA_MIN_PER_SEQUENCE = 8        # C2: each AB/BA stratum must hold >= 8 participants of the estimand (P >= 20 overall, C1).
+                                # Value as cited by the owner from the Gemini R26/R27 specification (PR94 coordination comment);
+                                # the literal Gemini text was not received by this tool: source status below, not a clinical decision.
+BCA_C2_THRESHOLD_STATUS = "OWNER_CITED_GEMINI_R26_R27_SPEC_LITERAL_NOT_RECEIVED"
+BCA_JACKKNIFE_SS_MIN = 1e-12
+
+# Documentary maps (R30). They are NOT emitted into any output: historical data keep their tokens. `bca_status_map_v1` states that the engine token
+# BCA_PRIMARY and the Gemini token COMPUTED_ELIGIBLE are the same logical state; the condition crosswalk maps the engine numbering (BCa-C1..C4) to the
+# Gemini numbering. BCa-C1..C4 are statistical eligibility conditions; they are unrelated to the HF-C1..HF-C4 comprehension questions of the study.
+BCA_STATUS_MAP_V1 = {"BCA_PRIMARY": "COMPUTED_ELIGIBLE", "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE": "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE",
+                     "BCA_NOT_COMPUTABLE": "FALLBACK_SMALL_SAMPLE_OR_DEGENERATE"}
+BCA_CONDITION_CROSSWALK_V1 = {"C1_min_participants": "Gemini C1 (P >= 20)", "C2_sequences_represented": "Gemini C1 (P_s >= 8 per AB/BA sequence)",
+                              "C3_variation_and_events": "Gemini C2 (events and variation)", "C4_parameters_valid": "Gemini C3 (z0 finite) + C4 (jackknife > 1e-12; alpha in [1/B, 1-1/B])"}
+    # C4: jackknife sum of squares must exceed this; otherwise the acceleration is undefined
+
+
+def _bca_diagnosed(point, samples, jackknife):
+    """Bias-corrected and accelerated interval from bootstrap samples and leave-one-participant-out values.
+
+    Returns (bounds | None, diagnostics). Nothing is silently replaced (C4): a degenerate bias correction, a null jackknife
+    variance (undefined acceleration), a non-positive denominator or an adjusted quantile outside (0, 1) withholds the interval
+    and says why, so the caller reports the cluster percentile interval instead."""
     observed = sorted(v for v in samples if v is not None)
     leave_out = [v for v in jackknife if v is not None]
+    diag = {"z0": None, "acceleration": None, "adjusted_alphas": None, "failure": None}
     if point is None or len(observed) < 2 or len(leave_out) < 2:
-        return None
+        diag["failure"] = "insufficient_bootstrap_or_jackknife_values"
+        return None, diag
     below = sum(v < point for v in observed) / len(observed)
-    below = min(max(below, 1 / (2 * len(observed))), 1 - 1 / (2 * len(observed)))
+    if below <= 0.0 or below >= 1.0:
+        diag["failure"] = "bias_correction_degenerate"                  # z0 would be infinite
+        return None, diag
     z0 = NORMAL.inv_cdf(below)
     mean = sum(leave_out) / len(leave_out)
     cubes = sum((mean - v) ** 3 for v in leave_out)
     squares = sum((mean - v) ** 2 for v in leave_out)
-    acceleration = cubes / (6 * squares ** 1.5) if squares > 0 else 0.0
-    bounds = []
+    if squares <= BCA_JACKKNIFE_SS_MIN:
+        diag.update(z0=round(z0, 6), failure="acceleration_undefined_null_jackknife_variance")
+        return None, diag
+    acceleration = cubes / (6 * squares ** 1.5)
+    diag.update(z0=round(z0, 6), acceleration=round(acceleration, 6))
+    bounds, alphas = [], []
     for alpha in (0.025, 0.975):
         z = NORMAL.inv_cdf(alpha)
         denominator = 1 - acceleration * (z0 + z)
-        adjusted = NORMAL.cdf(z0 + (z0 + z) / denominator) if denominator > 0 else alpha
+        if denominator <= 0:
+            diag["failure"] = "adjusted_quantile_denominator_not_positive"
+            return None, diag
+        adjusted = NORMAL.cdf(z0 + (z0 + z) / denominator)
+        resamples = len(samples)
+        if not math.isfinite(adjusted) or not 1.0 / resamples <= adjusted <= 1.0 - 1.0 / resamples:
+            diag["failure"] = "adjusted_quantile_invalid"           # C4: alpha must lie in [1/B, 1-1/B]; never clamped
+            return None, diag
+        alphas.append(round(adjusted, 6))
         bounds.append(round(_quantile(observed, adjusted), 4))
-    return bounds
+    if not alphas[0] < alphas[1]:
+        diag["failure"] = "adjusted_quantiles_not_ordered"
+        return None, diag
+    diag["adjusted_alphas"] = alphas
+    return bounds, diag
 
 
-def _bootstrap(ids, resamples, rng, estimator, strata=None):
-    """Point estimate on the real participants plus percentile and BCa intervals over participant resamples."""
+def _bca(point, samples, jackknife):
+    """Historical interface (bounds or None); the diagnosed variant explains every refusal."""
+    return _bca_diagnosed(point, samples, jackknife)[0]
+
+
+WILCOXON_TOLERANCE = 1e-12   # differences closer than this are one value (no float equality tests); seconds-scale data
+
+
+def wilcoxon_signed_rank(differences):
+    """Paired Wilcoxon signed-rank test on PARTICIPANT-level differences (one value per participant, prototype minus baseline).
+
+    Method (declared, not inferred): zero differences are dropped (Wilcoxon convention); tied absolute differences receive average
+    ranks. With n <= 25 non-zero differences the two-sided p-value is EXACT (dynamic-programming count of the sign-permutation null
+    distribution of W+ over the actual ranks; with ties it is the conditional permutation p, labelled). With n > 25 it is APPROXIMATE: normal approximation with tie-corrected variance and continuity
+    correction, labelled as such. Formative use only; never an A/B inference for M2."""
+    values = [float(d) for d in differences if d is not None]
+    if any(not math.isfinite(v) for v in values):
+        raise ValueError("non-finite difference")
+    nonzero = [v for v in values if not math.isclose(v, 0.0, rel_tol=0.0, abs_tol=WILCOXON_TOLERANCE)]
+    n = len(nonzero)
+    out = {"method": "wilcoxon_signed_rank_participant_level", "n_participants": len(values), "n_zero_dropped": len(values) - n, "n_effective": n}
+    if n == 0:
+        return {**out, "w_plus": None, "w_minus": None, "p_value_two_sided": None, "p_value_kind": "NOT_COMPUTABLE_NO_NONZERO_DIFFERENCES", "ties": False}
+    order = sorted(range(n), key=lambda i: abs(nonzero[i]))
+    ranks, i, tie_groups = [0.0] * n, 0, []
+    while i < n:
+        j = i
+        while j + 1 < n and math.isclose(abs(nonzero[order[j + 1]]), abs(nonzero[order[i]]), rel_tol=0.0, abs_tol=WILCOXON_TOLERANCE):
+            j += 1
+        for k in range(i, j + 1):
+            ranks[order[k]] = (i + j) / 2 + 1
+        tie_groups.append(j - i + 1)
+        i = j + 1
+    w_plus = sum(r for r, v in zip(ranks, nonzero) if v > 0)
+    w_minus = sum(r for r, v in zip(ranks, nonzero) if v < 0)
+    ties = any(t > 1 for t in tie_groups)
+    total = n * (n + 1) / 2
+    out.update(w_plus=w_plus, w_minus=w_minus, ties=ties)
+    if n <= 25:
+        doubled = [int(round(2 * r)) for r in ranks]                    # average ranks are multiples of 0.5: exact integer arithmetic
+        counts = [0] * (sum(doubled) + 1)
+        counts[0] = 1
+        for r in doubled:
+            for w in range(len(counts) - 1, r - 1, -1):
+                counts[w] += counts[w - r]
+        smaller = int(round(2 * min(w_plus, w_minus)))
+        tail = sum(counts[: smaller + 1]) / 2 ** n
+        out.update(p_value_two_sided=min(1.0, 2 * tail), p_value_kind="EXACT_PERMUTATION_AVERAGE_RANKS" if ties else "EXACT_NO_TIES")
+        return out
+    mean = total / 2
+    variance = n * (n + 1) * (2 * n + 1) / 24 - sum(t ** 3 - t for t in tie_groups) / 48
+    if variance <= 0:
+        return {**out, "p_value_two_sided": None, "p_value_kind": "NOT_COMPUTABLE_ZERO_VARIANCE"}
+    z = (abs(w_plus - mean) - 0.5) / math.sqrt(variance)
+    out.update(p_value_two_sided=min(1.0, 2 * (1 - NORMAL.cdf(max(z, 0.0)))), p_value_kind="APPROXIMATE_NORMAL_TIE_CORRECTED_CONTINUITY")
+    return out
+
+
+def _bootstrap(ids, resamples, rng, estimator, strata=None, event_flags=None):
+    """Point estimate on the real participants plus percentile and (when admissible) BCa intervals over participant resamples.
+
+    `event_flags` (participant -> had at least one event) describes the participants that contribute to THIS estimand; when
+    given, the participant count and the with/without-event counts come from it. BCa is the primary interval only with
+    >= 20 participants, >= 2 with and >= 2 without events and a non-degenerate bootstrap; otherwise it is withheld
+    (bca_status FALLBACK_SMALL_SAMPLE_OR_DEGENERATE) and the cluster percentile interval is reported."""
+    participants = len(event_flags) if event_flags is not None else len(ids)
+    with_event = sum(event_flags.values()) if event_flags is not None else None
+    without_event = participants - with_event if event_flags is not None else None
     point = estimator(ids)
     samples = [estimator(cluster_resample(ids, rng, strata)) for _ in range(resamples)] if len(ids) >= 2 else []
     observed = [v for v in samples if v is not None]
     degenerate = len(observed) >= 2 and len(set(observed)) == 1
-    jackknife = [estimator([x for x in ids if x != left]) for left in ids] if len(ids) >= 3 and not degenerate and samples else []
-    bca = None if degenerate else _bca(point, samples, jackknife)
-    return {"estimate": _rounded(point), "cluster_bootstrap_95": None if degenerate else _interval(samples),
-            "cluster_bootstrap_bca_95": bca, "primary_interval": "bca" if bca else ("percentile" if not degenerate else None),
+    c1 = participants >= BCA_MIN_PARTICIPANTS
+    if strata:
+        per_stratum = Counter(strata[c] for c in ids)
+        c2 = len(per_stratum) >= 2 and all(n >= BCA_MIN_PER_SEQUENCE for n in per_stratum.values())
+    else:
+        c2 = None                                                       # not a crossed estimand: no sequence strata
+    c3 = (not degenerate and len(ids) >= 3 and bool(samples)
+          and (event_flags is None or (with_event >= BCA_MIN_WITH_EVENT and without_event >= BCA_MIN_WITHOUT_EVENT)))
+    bca_admissible = c1 and c3 and c2 is not False
+    bca, bca_parameters, c4 = None, None, None
+    if bca_admissible:
+        jackknife = [estimator([x for x in ids if x != left]) for left in ids]
+        bca, bca_parameters = _bca_diagnosed(point, samples, jackknife)
+        c4 = bca is not None
+    conditions = {"C1_min_participants": c1, "C2_sequences_represented": c2, "C3_variation_and_events": c3, "C4_parameters_valid": c4}
+    conditions["failed"] = [k for k in ("C1_min_participants", "C2_sequences_represented", "C3_variation_and_events",
+                                        "C4_parameters_valid") if conditions[k] is False]
+    percentile = None if degenerate else _interval(samples)
+    if bca:
+        primary, status = "bca", "BCA_PRIMARY"
+    else:
+        primary = "percentile" if percentile else None
+        status = BCA_FALLBACK if not bca_admissible else "BCA_NOT_COMPUTABLE"
+    se = _rounded(statistics.pstdev(observed)) if len(observed) >= 2 and not degenerate else None   # plug-in SE over replicates
+    return {"estimate": _rounded(point), "cluster_bootstrap_95": percentile, "cluster_bootstrap_se": se,
+            "cluster_bootstrap_bca_95": bca, "primary_interval": primary, "bca_status": status,
+            "bca_conditions": conditions, "bca_parameters": bca_parameters,
+            "participants_in_estimand": participants, "participants_with_event": with_event, "participants_without_event": without_event,
+            "small_cluster_warning": participants < SMALL_CLUSTER_REFERENCE,
+            "very_small_cluster_descriptive_only": participants < VERY_SMALL_CLUSTER,
             "degenerate_interval": degenerate, "zero_event_degeneracy_flag": degenerate,
             "note": DEGENERATE_NOTE if degenerate else None}
 
@@ -376,19 +513,35 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
     modalities = [m for m in MODALITIES if any(t["intended_modality"] == m for t in records)]
     platforms = [pl for pl in PLATFORMS if any(t["platform"] == pl for t in records)]
 
-    def boot(pool, estimator):
-        return _bootstrap(pool, resamples, rng, estimator, strata)
+    def boot(pool, estimator, flags_=None):
+        return _bootstrap(pool, resamples, rng, estimator, strata, flags_)
+
+    def profile(pool, metric, key_sets):
+        """participant -> had an event, for the participants that are eligible in EVERY key set of this estimand."""
+        out = {}
+        for p in pool:
+            sums = []
+            for keys in key_sets:
+                acc = Counter()
+                for key in keys:
+                    acc.update(tables[p].get(key, Counter()))
+                sums.append(acc)
+            if all(c[metric + ":den"] > 0 for c in sums):
+                out[p] = any(c[metric + ":num"] > 0 for c in sums)
+        return out
 
     def cell(metric, condition, group):
-        return boot(ids, lambda drawn: _estimate(tables, drawn, (condition, group), lambda c: rate(c, metric)))
+        return boot(ids, lambda drawn: _estimate(tables, drawn, (condition, group), lambda c: rate(c, metric)),
+                    profile(ids, metric, [[(condition, group)]]))
 
-    def paired(measure, group):
+    def paired(measure, group, metric=None):
         def estimator(drawn):
             kept = [p for p in drawn if p in both]
             proto = _estimate(tables, kept, ("prototype", group), measure)
             base = _estimate(tables, kept, ("baseline", group), measure)
             return None if proto is None or base is None else proto - base
-        return boot(both_ids, estimator)
+        flags_ = profile(both_ids, metric, [[("prototype", group)], [("baseline", group)]]) if metric else None
+        return boot(both_ids, estimator, flags_)
 
     def rates(metric):
         return lambda c: rate(c, metric)
@@ -400,14 +553,14 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
         return sum(_participant_cell(tables, p, condition, metric)[metric + ":num"] > 0 for p in eligible) / len(eligible)
 
     def participant_cell(metric, condition):
-        return boot(ids, lambda drawn: share_with_event(drawn, condition, metric))
+        return boot(ids, lambda drawn: share_with_event(drawn, condition, metric), profile(ids, metric, [[(condition, ("all",))]]))
 
     def participant_paired(metric):
         def estimator(drawn):
             kept = [p for p in drawn if p in both]
             proto, base = share_with_event(kept, "prototype", metric), share_with_event(kept, "baseline", metric)
             return None if proto is None or base is None else proto - base
-        return boot(both_ids, estimator)
+        return boot(both_ids, estimator, profile(both_ids, metric, [[("prototype", ("all",))], [("baseline", ("all",))]]))
 
     def pooled_rate(metric, group):
         def estimator(drawn):
@@ -421,7 +574,7 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
         def estimator(drawn):
             late, early = pooled_rate(metric, late_group)(drawn), pooled_rate(metric, early_group)(drawn)
             return None if late is None or early is None else late - early
-        return boot(ids, estimator)
+        return boot(ids, estimator, profile(ids, metric, [[(c, late_group) for c in CONDITIONS], [(c, early_group) for c in CONDITIONS]]))
 
     def eligible_counts(condition, metric):
         cells = [_participant_cell(tables, q, condition, metric) for q in ids]
@@ -476,6 +629,9 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
                    "independence_of_trials": "NOT_ASSUMED", "study_stage": "STAGE_1_FORMATIVE_ESTIMATION",
                    "bootstrap_replicates": resamples if len(ids) >= 2 else 0, "bootstrap_seed": str(seed),
                    "small_cluster_warning": len(ids) < SMALL_CLUSTER_REFERENCE,
+                   "very_small_cluster_descriptive_only": len(ids) < VERY_SMALL_CLUSTER,
+                   "bca_policy": {"conditions": "C1 participants>=20; C2 each AB/BA stratum >= min_per_sequence (" + BCA_C2_THRESHOLD_STATUS + "); C3 variation and events; C4 valid bias/acceleration/adjusted quantiles", "min_per_sequence": BCA_MIN_PER_SEQUENCE, "min_participants": BCA_MIN_PARTICIPANTS, "min_with_event": BCA_MIN_WITH_EVENT,
+                                  "min_without_event": BCA_MIN_WITHOUT_EVENT, "otherwise": BCA_FALLBACK},
                    "small_cluster_note": "fewer participants than the literature reference for stable cluster-bootstrap coverage (30); read intervals with caution and with the model-based estimates once available"},
         "trial_level_metrics": {
             "note": "Rates per trial pooled over trials; participants are the resampling unit.",
@@ -483,8 +639,8 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
             "by_condition_and_modality": {c: {mod: {m: cell(m, c, ("modality", mod)) for m in METRICS} for mod in modalities} for c in CONDITIONS},
             "by_condition_and_scenario": {c: {sc: {m: cell(m, c, ("scenario", sc)) for m in METRICS} for sc in scenarios} for c in CONDITIONS},
             "by_condition_and_platform": {c: {pl: {m: cell(m, c, ("platform", pl)) for m in METRICS} for pl in platforms} for c in CONDITIONS},
-            "paired_difference_prototype_minus_baseline": {m: paired(rates(m), ("all",)) for m in METRICS},
-            "paired_difference_by_modality": {mod: {m: paired(rates(m), ("modality", mod)) for m in METRICS} for mod in modalities},
+            "paired_difference_prototype_minus_baseline": {m: paired(rates(m), ("all",), m) for m in METRICS},
+            "paired_difference_by_modality": {mod: {m: paired(rates(m), ("modality", mod), m) for m in METRICS} for mod in modalities},
             "additional_time_seconds_prototype_minus_baseline": paired(mean_seconds, ("all",)),
         },
         "participant_level_metrics": {
@@ -525,7 +681,7 @@ def summarize(records, resamples=DEFAULT_RESAMPLES, seed="r15"):
     }
 
 
-TOOL_VERSION = "hf-tools-0.3"
+TOOL_VERSION = "hf-tools-0.5"
 SCENARIO_FIELDS = {"scenario_id", "intended_modality", "synthetic", "case_code", "platforms"}
 SCENARIO_OPTIONAL = {"bank_set", "stimulus_sha256"}
 BANK_SETS = ("set1", "set2")
