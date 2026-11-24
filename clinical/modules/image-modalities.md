@@ -6,8 +6,17 @@ and use `references/image-output-schema.json`. These are focused decision-suppor
 checklists, not replacements for original DICOM/series, formal reporting or specialist
 review. Do not force a classification when required views or clinical data are absent.
 
+No system output alone excludes urgent pathology. Integrate the clinical history,
+direct examination and appropriate complete investigations; escalate persistent
+clinical concern even when an image interpretation appears reassuring.
+
 ## musculoskeletal-xray
 
+- Use as adjunctive support; never replace the definitive radiology reading.
+  The clinician should interpret the radiograph before reviewing assisted output
+  to reduce automation bias and omission of non-fracture findings. NICE HTG739
+  evaluates specific fracture products in the NHS; it does not validate this module
+  or justify a blanket exclusion of pediatric use.
 - Identify region, supplied views, projection, laterality marker, skeletal maturity,
   image coverage, exposure, rotation and whether this is an original export or screen photo.
 - Review alignment, cortices, trabeculae, joint congruity/spaces and soft tissues.
@@ -29,6 +38,10 @@ review. Do not force a classification when required views or clinical data are a
 
 ## chest-xray
 
+- Use as adjunctive support; never replace the definitive radiology reading.
+  The clinician should interpret the radiograph before reviewing assisted output.
+  NICE HTG696 concerns primary-care referrals for suspected lung cancer; it does
+  not establish performance for acute emergency chest radiographs or this module.
 - Identify AP/PA, upright/supine, rotation, inspiration, exposure and field coverage.
 - Review airway, lungs, pleura, hila, cardiomediastinal contour, diaphragms, bones and devices.
 - State whether focal opacity, interstitial/alveolar pattern, pleural air/fluid, volume loss,
@@ -40,6 +53,12 @@ review. Do not force a classification when required views or clinical data are a
 
 ## pocus-image
 
+- Isolated static POCUS images do not exclude acute pathology.
+- POCUS is a dynamic, operator-dependent bedside examination, often following a
+  rule-in philosophy (ACEP 2023; IFEM 2021). Still images can document a supported
+  focal finding or be archived for QA. An isolated still without real-time
+  acquisition, complete required windows and clinical correlation cannot exclude
+  acute pathology or replace a complete dynamic POCUS examination.
 - Identify organ, plane, probe/setting when known, orientation marker, depth, gain, focus,
   Doppler settings and whether the input is a still, cine or compression sequence.
 - Describe visible echogenicity, borders, fluid, artifacts, shadowing/enhancement and calipers.
@@ -56,6 +75,8 @@ review. Do not force a classification when required views or clinical data are a
 
 ## ecg-image
 
+- Every algorithmic output or alert is provisional and requires direct medical
+  reading, clinical correlation and verification of tracing quality and calibration.
 - Confirm the complete 12-lead tracing is visible and record calibration, paper speed,
   lead labels, baseline quality and distortion/perspective.
 - Assess rhythm, approximate rate, axis, conduction, intervals and ST-T morphology only as
@@ -82,6 +103,19 @@ review. Do not force a classification when required views or clinical data are a
 
 ## skin-wound-image
 
+- Hand wounds require direct neurovascular and tendon examination. A photograph
+  cannot establish intact perfusion, sensation or tendon function.
+  Document this examination before local anesthesia (WSES/AcEMC 2016).
+  A superficial photograph cannot exclude retained foreign bodies or necrotizing
+  soft-tissue infection. Do not prescribe antimicrobials or tetanus/rabies schedules
+  from the photograph; use vaccination history and applicable clinical protocols.
+- Phototypes V–VI require special caution and clinical review. Do not use apparent
+  absence of erythema or other color changes as reassurance from a photograph alone.
+  Require direct in-person clinical and/or dermoscopic assessment; no system output
+  excludes malignancy. Accuracy in Fitzpatrick V–VI cannot be assumed without
+  stratified validation. NICE HTG746 concerns DERM in the adult NHS urgent suspected
+  skin-cancer pathway; its EVA review requirement is not a universal contraindication
+  for every dermatology system (R50; AAD AuI 2019).
 - Record body region, distribution, number, morphology, borders, surface, color, drainage,
   surrounding change and scale only if a reliable reference is present.
 - State that warmth, tenderness, fluctuance, crepitus, depth and pain out of proportion are not
@@ -93,6 +127,12 @@ review. Do not force a classification when required views or clinical data are a
 
 ## ct-mri-screenshot
 
+- Isolated CT/MRI screenshots or incomplete series do not replace a complete evaluation.
+- Urgent diagnostic assessment requires intact volumetric DICOM series and specialist
+  reading. Isolated slices, compressed screenshots or incomplete series cannot exclude
+  intracranial hemorrhage, acute ischemic stroke or other critical pathology. Do not
+  apply an unsupported universal hemorrhage-volume threshold. A focal visible finding
+  can justify escalation while the complete study is obtained and reviewed.
 - Identify stated modality, body region, plane, sequence/window, contrast phase and anatomic level.
 - For brain CT/MRI, explicitly review both convexities and extra-axial spaces,
   hemispheric symmetry, sulci, ventricles, basal cisterns, falx/septum/pineal midline,

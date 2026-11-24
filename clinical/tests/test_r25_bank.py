@@ -1,6 +1,9 @@
 """R25 · stimulus bank: generated vs pending, metadata audit, perceptual separation, no adjudication claimed. Laboratory only."""
+import io
 import json
+import shutil
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -64,6 +67,37 @@ class Bank(unittest.TestCase):
         broken = json.loads(json.dumps(M))
         next(s for s in broken["stimuli"] if s["file"])["metadata_findings"] = ["exif_or_xmp_app1"]
         self.assertTrue(any("identifying metadata" in p for p in bank.verify_bank(broken)))
+
+    def test_perceptual_hash_must_match_decoded_image(self):
+        manifest = json.loads(json.dumps(M))
+        row = next(s for s in manifest["stimuli"] if s["stimulus_id"] == "S1-08")
+        row["phash_64"] = None
+        self.assertIn("S1-08: perceptual hash does not match the manifest", bank.verify_bank(manifest))
+
+    def test_metadata_is_checked_even_when_manifest_and_sha_agree(self):
+        from PIL import Image
+
+        manifest = json.loads(json.dumps(M))
+        row = next(s for s in manifest["stimuli"] if s["stimulus_id"] == "S1-08")
+        with tempfile.TemporaryDirectory() as temp:
+            stimuli = Path(temp) / "stimuli"
+            shutil.copytree(bank.STIMULI_DIR, stimuli)
+            changed = io.BytesIO()
+            with Image.open(stimuli / "S1-08.jpg") as img:
+                img.save(changed, "JPEG", exif=b"Exif\x00\x00MM\x00*\x00\x00\x00\x08\x00\x00\x00\x00\x00\x00")
+            data = changed.getvalue()
+            (stimuli / "S1-08.jpg").write_bytes(data)
+            row.update(bytes=len(data), sha256=bank.sha256_bytes(data), phash_64=bank.dhash64(data))
+            self.assertIn("S1-08: identifying metadata found ['exif_or_xmp_app1']", bank.verify_bank(manifest, stimuli))
+
+    def test_duplicate_bytes_are_reported_with_stale_manifest_hashes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            stimuli = Path(temp) / "stimuli"
+            shutil.copytree(bank.STIMULI_DIR, stimuli)
+            shutil.copyfile(stimuli / "S1-08.jpg", stimuli / "S2-08.jpg")
+            problems = bank.verify_bank(M, stimuli)
+        self.assertIn("duplicate SHA-256 among generated stimuli", problems)
+        self.assertIn("S2-08: bytes do not match the manifest", problems)
 
     def test_qa_cases_stay_outside_the_30(self):
         self.assertEqual(len(M["qa_technical"]), 2)
