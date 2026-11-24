@@ -1,4 +1,5 @@
 """R41 · PR89 clean integration: verify every physical stimulus through canonical-r27-v1.2."""
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -25,6 +26,15 @@ class R41BankCanonicalV12(unittest.TestCase):
             with self.subTest(stimulus_id=stimulus_id):
                 verified = canonical.verified_stimulus(stimulus_id, self.manifest)
                 self.assertEqual(verified["sha256"], self.present[stimulus_id]["sha256"])
+
+    def test_all_historical_seals_validate_against_definitive_bank(self):
+        receipt = canonical.HERE / "fidelity" / "layer7_ui_records_v12.json"
+        records = json.loads(receipt.read_text(encoding="utf-8"))
+        self.assertEqual(len(records), 24)
+        for index, item in enumerate(records):
+            record = item["record"]
+            with self.subTest(index=index, stimulus_id=record["stimulus_id"]):
+                canonical.validate_record_v12(record, self.manifest, canonical.DEFAULT_STIMULI)
 
     def test_pending_positions_fail_closed(self):
         for stimulus_id in sorted(self.pending):

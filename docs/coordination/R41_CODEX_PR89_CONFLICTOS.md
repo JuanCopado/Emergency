@@ -19,7 +19,7 @@ PR89 arrastra cambios R24 de interfaz, oracle y laboratorio que el receptor ya i
 - **PASS:** rama nueva desde el receptor actual; sin force-push y sin modificar la rama original.
 - **PASS:** se trasladan únicamente el manifiesto, bytes del banco, auditoría, generador, dry-run, fixtures y pruebas focales de PR89.
 - **PASS:** no se reintroducen cambios antiguos de UI, traducciones, oracle R24, `STATE.md` ni changelog.
-- **PASS:** los cinco archivos físicos nuevos se añaden; los tres PDF existentes se sustituyen por sus variantes reproducibles con campos identificadores vacíos.
+- **PASS:** los cinco archivos físicos nuevos se añaden; los tres PDF existentes se conservan byte por byte desde el receptor para verificar los registros históricos v1.2.
 - **BLOCKED:** PR89 original continúa sin ser fusionable y debe considerarse sustituida por la PR limpia; no se cierra automáticamente.
 
 ## Delta seleccionado desde PR89

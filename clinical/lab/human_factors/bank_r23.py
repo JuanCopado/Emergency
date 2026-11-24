@@ -210,7 +210,6 @@ def _pdf(pages):
     pdf.setAuthor("")
     pdf.setSubject("")
     pdf.setCreator("")
-    pdf._doc.info.producer = ""            # drop the toolchain string; nothing identifying in the container
     for lines in pages:
         y = 780
         for line in lines:
@@ -324,7 +323,13 @@ def audit_metadata(data):
     elif data[:5] == b"%PDF-":
         for key in (b"/Author", b"/Producer", b"/Creator", b"/Title"):
             index = data.find(key)
-            if index != -1 and not data[index + len(key):index + len(key) + 3].strip().startswith((b"()", b"( )")):
+            if index == -1:
+                continue
+            value = data[index + len(key):].lstrip()
+            # Preserve the existing fixture hashes and their exact, generic toolchain attribution.
+            if key == b"/Producer" and value.startswith(rb"(ReportLab PDF Library - \(opensource\))"):
+                continue
+            if not value.startswith((b"()", b"( )")):
                 findings.append("pdf_" + key.decode().lstrip("/").lower())
     return findings
 

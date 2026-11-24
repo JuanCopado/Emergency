@@ -58,6 +58,7 @@ class Bank(unittest.TestCase):
         buf = io.BytesIO(); img.save(buf, "PNG")
         self.assertEqual(bank.audit_metadata(buf.getvalue()), [])
         self.assertIn("pdf_author", bank.audit_metadata(b"%PDF-1.4\n/Author (Dr X)\n"))
+        self.assertIn("pdf_producer", bank.audit_metadata(b"%PDF-1.4\n/Producer (Private workstation)\n"))
 
     def test_metadata_finding_fails_verification(self):
         broken = json.loads(json.dumps(M))
@@ -72,6 +73,7 @@ class Bank(unittest.TestCase):
         a, b = bank.generate_bytes(), bank.generate_bytes()
         for name in ("S1-13.pdf", "S2-14.pdf", "S2-15.pdf"):
             self.assertEqual(a[name], b[name])
+            self.assertEqual(a[name], (bank.STIMULI_DIR / name).read_bytes())
 
 
 class GeminiCriteria(unittest.TestCase):

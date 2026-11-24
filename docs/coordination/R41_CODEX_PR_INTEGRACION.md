@@ -11,9 +11,9 @@ Fecha: 24/11/2026.
 ## Alcance
 
 1. Manifiesto de 30 posiciones con 10 archivos presentes y 20 ausentes.
-2. Ocho blobs seleccionados desde PR89 (cinco nuevos y tres PDF reproducibles).
+2. Cinco blobs nuevos de PR89 y tres PDF históricos del receptor restaurados en R41.1.
 3. Generador, verificador, auditoría externa, dry-run y fixtures focales.
-4. Pruebas R25 y prueba R41 de integración con `canonical-r27-v1.2`.
+4. Pruebas R25 y regresión de los 24 registros históricos contra los archivos y el manifiesto definitivo de `canonical-r27-v1.2`.
 5. Informes R41 y fichas individuales.
 
 ## Exclusiones

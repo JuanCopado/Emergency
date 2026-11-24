@@ -5,12 +5,12 @@ Fecha: 24/11/2026.
 | Tarea | Estado | Evidencia |
 |---|---|---|
 | Estado e informes previos leídos | PASS | PR89, receptor y criterios Gemini conciliados |
-| Manifiestos y archivos físicos recuperados | PASS | 30 posiciones; 10 blobs PR89 |
+| Manifiestos y archivos físicos recuperados | PASS | 30 posiciones; 5 archivos del receptor y 5 nuevos de PR89 |
 | Comparación IDs/bytes/hashes sin suma automática | PASS | 5 receptor frente a 10 PR89; 10 SHA recalculados |
 | Causa de no fusionabilidad | PASS | 47 detrás, 5 delante, ancestro común y solapamientos |
 | Rama aislada sin force-push | PASS | `codex/r41-pr89-clean-integration-20261124` |
 | Rama limpia compatible con receptor | PASS | delta focal sin UI/R24 obsoletos |
-| Integridad `canonical-r27-v1.2` | PASS | prueba R41 verifica 10 presentes; 20 ausentes fallan cerrado |
+| Integridad `canonical-r27-v1.2` | PASS | prueba R41 verifica 10 presentes; 20 ausentes fallan cerrado; 24 sellos históricos verificados |
 | Procedencia/licencia | PASS | CC0 y origen sintético declarados para 10/10 presentes |
 | Privacidad completa | NOT_VERIFIED | escaneo de contenedor PASS; exiftool y revisión humana pendientes |
 | Modalidad técnica | PASS | manifiesto cerrado; 5 esquemas requieren realismo posterior |

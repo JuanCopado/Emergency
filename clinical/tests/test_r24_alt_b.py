@@ -354,7 +354,9 @@ class Bank(unittest.TestCase):
     def test_generated_files_are_clean_and_synthetic(self):
         for s in MANIFEST["stimuli"]:
             if s["file"]:
-                self.assertIn(s["origin_type"], ("synthetic_procedural", "synthetic_procedural_schematic"))
+                schematics = {"S1-08", "S2-08", "S1-09", "S2-09", "S2-13"}
+                expected = "synthetic_procedural_schematic" if s["stimulus_id"] in schematics else "synthetic_procedural"
+                self.assertEqual(s["origin_type"], expected)
                 self.assertTrue(s["license_ref"].startswith("CC0-1.0"))
         png = (bank.STIMULI_DIR / "S1-14.png").read_bytes()
         from PIL import Image

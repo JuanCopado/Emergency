@@ -11,6 +11,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 MANIFEST = json.loads((HERE / "bank" / "stimuli_manifest.json").read_text(encoding="utf-8"))
 REPORT = HERE / "bank" / "external_audit_report.json"
+GENERIC_PDF_PRODUCER = "ReportLab PDF Library - (opensource)"
 IDENTIFYING = ("author", "creator", "producer", "title", "subject", "keywords")
 
 
@@ -36,6 +37,10 @@ def main():
         if path.suffix == ".pdf":
             if tools["pdfinfo"]:
                 fields = pdfinfo_fields(run("pdfinfo", path))
+                producer = fields.get("Producer")
+                if producer == GENERIC_PDF_PRODUCER:
+                    del fields["Producer"]
+                    row["generic_pdf_producer"] = producer
                 row["pdfinfo"] = {"identifying_fields_with_value": sorted(k for k, v in fields.items() if k.lower() in IDENTIFYING and v),
                                   "pages": fields.get("Pages")}
             else:

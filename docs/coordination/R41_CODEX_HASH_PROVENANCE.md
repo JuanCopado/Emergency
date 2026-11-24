@@ -2,7 +2,7 @@
 
 Fecha: 24/11/2026.
 
-## Verificación criptográfica sobre bytes reales de PR89
+## Verificación criptográfica sobre bytes reales del banco definitivo
 
 | ID | Archivo | Bytes reales | SHA-256 recalculado | Coincidencia manifiesto | Firma inicial |
 |---|---|---:|---|---|---|
@@ -10,16 +10,16 @@ Fecha: 24/11/2026.
 | S2-08 | `stimuli/S2-08.jpg` | 94285 | `6b7ec6456cbdd04eee1dbed3357042199afbb4e08f6d34636087d7a22db32acd` | PASS | `ffd8ffe000104a4649460001` |
 | S1-09 | `stimuli/S1-09.webp` | 16052 | `38ff1bdd9a07434f017b01d74272dc1e1a38263f54a8e62aa493a7088ce79ebc` | PASS | `52494646ac3e000057454250` |
 | S2-09 | `stimuli/S2-09.jpg` | 90827 | `555d6c5717edac86b4b7a30352cca8638e52c3df1ac3c826493144ee8dbe0ce2` | PASS | `ffd8ffe000104a4649460001` |
-| S1-13 | `stimuli/S1-13.pdf` | 2225 | `0d56f22170421ea5d89b5143f47d83aa8fa52ad92cfa1deb1d886d6d332105dc` | PASS | `255044462d312e330a25938c` |
+| S1-13 | `stimuli/S1-13.pdf` | 2263 | `2c61bbdf6e1f6b002218320f17abf57a5df1d615acfc4f86899bc07f98b27aa1` | PASS | `255044462d312e330a25938c` |
 | S2-13 | `stimuli/S2-13.jpg` | 72047 | `dab1bfeb66cba747b16927d245178e8d2cfdc8efcc9ab1c94aac9f835899d3de` | PASS | `ffd8ffe000104a4649460001` |
 | S1-14 | `stimuli/S1-14.png` | 8933 | `3279ec6a55f2630d6f2996bb1600b3f426c3953e5f1aaf91cea847c39467de84` | PASS | `89504e470d0a1a0a0000000d` |
-| S2-14 | `stimuli/S2-14.pdf` | 1332 | `797e225702e190c423e665372fbb033c00c915569670b5bc86e4b5bec0f0c7ce` | PASS | `255044462d312e330a25938c` |
+| S2-14 | `stimuli/S2-14.pdf` | 1371 | `281353c78416bdd33faf21b3ca1db707f8894948db1b7013b11a77286fabd745` | PASS | `255044462d312e330a25938c` |
 | S1-15 | `stimuli/S1-15.jpg` | 4693 | `611db5fe62c256dcf243ecd9a54aa04bd07e9885ae15e88e8b5ee79379a43eca` | PASS | `ffd8ffe000104a4649460001` |
-| S2-15 | `stimuli/S2-15.pdf` | 1330 | `ce2260c4b4c317f62903bdeacc6d6c9c0a0a9086d2773ad22c067ab15dfb3d2c` | PASS | `255044462d312e330a25938c` |
+| S2-15 | `stimuli/S2-15.pdf` | 1368 | `01212969ab9691e1b7b44436f9b0ae54fdca9ae983dcd5ded241d06543b9cede` | PASS | `255044462d312e330a25938c` |
 
 Resultado: **PASS 10/10** para tamaño, SHA-256 y firma de contenedor.
 
-## Comparación con los cinco archivos del receptor
+## Comparación histórica entre el receptor y PR89
 
 | ID | SHA receptor | SHA PR89 | Resultado |
 |---|---|---|---|
@@ -29,7 +29,7 @@ Resultado: **PASS 10/10** para tamaño, SHA-256 y firma de contenedor.
 | S1-15 | `611db5fe62c256dcf243ecd9a54aa04bd07e9885ae15e88e8b5ee79379a43eca` | `611db5fe62c256dcf243ecd9a54aa04bd07e9885ae15e88e8b5ee79379a43eca` | SIN CAMBIO |
 | S2-15 | `01212969ab9691e1b7b44436f9b0ae54fdca9ae983dcd5ded241d06543b9cede` | `ce2260c4b4c317f62903bdeacc6d6c9c0a0a9086d2773ad22c067ab15dfb3d2c` | CAMBIO DE BYTES |
 
-Los cambios de `S1-13`, `S2-14` y `S2-15` corresponden a regeneración PDF reproducible. `pdfinfo` no encontró valores en Author, Creator, Producer, Title, Subject ni Keywords. Los nombres de campo vacíos siguen presentes en la sintaxis PDF y no se interpretan como datos identificadores.
+R41.1 conserva los bytes y hashes del receptor para los tres PDF, vinculados a 18 registros. Los 24 registros v1.2 se validan con el manifiesto definitivo y sus archivos físicos. `pdfinfo` detectó el productor genérico ReportLab y campos Author, Creator, Title, Subject y Keywords sin valor.
 
 ## Procedencia y licencia
 

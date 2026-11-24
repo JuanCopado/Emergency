@@ -1206,7 +1206,7 @@
    "width": null
   },
   {
-   "bytes": 2225,
+   "bytes": 2263,
    "clinical_adjudication_status": "PENDING_CLINICAL_ADJUDICATION",
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "pdf",
@@ -1246,7 +1246,7 @@
    "route_modality": "document",
    "scenario_code": "F",
    "set_id": 1,
-   "sha256": "0d56f22170421ea5d89b5143f47d83aa8fa52ad92cfa1deb1d886d6d332105dc",
+   "sha256": "2c61bbdf6e1f6b002218320f17abf57a5df1d615acfc4f86899bc07f98b27aa1",
    "spec_text": "PDF sintético multipágina (2 págs.: informe ficticio con negaciones válidas en ES/PT AO90/EN) por ruta Documento (puente kind=null).",
    "stimulus_id": "S1-13",
    "true_modality": "document",
@@ -1350,7 +1350,7 @@
    "width": 240
   },
   {
-   "bytes": 1332,
+   "bytes": 1371,
    "clinical_adjudication_status": "PENDING_CLINICAL_ADJUDICATION",
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "pdf",
@@ -1390,7 +1390,7 @@
    "route_modality": null,
    "scenario_code": "E1",
    "set_id": 2,
-   "sha256": "797e225702e190c423e665372fbb033c00c915569670b5bc86e4b5bec0f0c7ce",
+   "sha256": "281353c78416bdd33faf21b3ca1db707f8894948db1b7013b11a77286fabd745",
    "spec_text": "Envío de documento válido sintético sin elegir modalidad (declared_modality=null, selection_origin='none').",
    "stimulus_id": "S2-14",
    "true_modality": null,
@@ -1446,7 +1446,7 @@
    "width": 320
   },
   {
-   "bytes": 1330,
+   "bytes": 1368,
    "clinical_adjudication_status": "PENDING_CLINICAL_ADJUDICATION",
    "clinical_adjudicator_signoff": "PENDING",
    "container_spec": "pdf",
@@ -1486,7 +1486,7 @@
    "route_modality": "skin_wound",
    "scenario_code": "E2",
    "set_id": 2,
-   "sha256": "ce2260c4b4c317f62903bdeacc6d6c9c0a0a9086d2773ad22c067ab15dfb3d2c",
+   "sha256": "01212969ab9691e1b7b44436f9b0ae54fdca9ae983dcd5ded241d06543b9cede",
    "spec_text": "Incompatibilidad (T7-04): PDF textual sintético enviado a ruta exclusivamente fotográfica (modality_container_incompatible; el subcaso global_unsupported_format queda para el QA técnico).",
    "stimulus_id": "S2-15",
    "true_modality": null,
