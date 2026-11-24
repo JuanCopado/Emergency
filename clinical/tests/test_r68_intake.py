@@ -1,9 +1,13 @@
 """Exercise the local intake contract with synthetic file bytes."""
 import hashlib
+import io
+import json
 import sys
 import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lab"))
 from human_factors import intake_r68 as intake
@@ -39,6 +43,22 @@ class Intake(unittest.TestCase):
         self.assertEqual(result["assets"][0]["sha256"], self.asset["sha256"])
         self.assertIsNone(MANIFEST["stimuli"][0]["file"])
 
+    def test_cli_reads_receipt_and_fails_closed_on_changed_file(self):
+        bank = self.delivery.parent / "bank"
+        bank.mkdir()
+        (bank / "stimuli_manifest.json").write_text(json.dumps(MANIFEST), encoding="utf-8")
+        receipt = self.delivery / "recepcion.json"
+        receipt.write_text(json.dumps({"assets": [self.asset]}), encoding="utf-8")
+        output = io.StringIO()
+        with patch.object(intake, "BANK", bank), patch.object(sys, "argv", ["intake", str(receipt)]):
+            with redirect_stdout(output):
+                intake.main()
+            self.assertEqual(json.loads(output.getvalue())["status"], "BYTES_VERIFIED_REVIEW_PENDING")
+            self.file.write_bytes(b"changed")
+            with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as result:
+                intake.main()
+            self.assertEqual(result.exception.code, 1)
+
     def test_rejects_unusable_entries(self):
         for change in (
             {"bytes": 0}, {"sha256": "0" * 64}, {"permission_ref": ""},
@@ -47,5 +67,6 @@ class Intake(unittest.TestCase):
         ):
             with self.subTest(change=change), self.assertRaises(ValueError):
                 intake.check_receipt({"assets": [{**self.asset, **change}]}, self.delivery, MANIFEST)
-        with self.assertRaises(ValueError):
-            intake.check_receipt({"assets": [self.asset, self.asset]}, self.delivery, MANIFEST)
+        for assets in ([], [self.asset, self.asset]):
+            with self.assertRaises(ValueError):
+                intake.check_receipt({"assets": assets}, self.delivery, MANIFEST)

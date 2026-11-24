@@ -8,7 +8,7 @@
 | PR103 | Borrador a `8b3f7ab2aa02b16bf1eb6f6e78d99de16a81dbe9`. La rama de verificación combina ese candidato con el receptor |
 | Fichas, manifiesto y bytes | PASS en 30 IDs. S2-09 apunta a [la ficha R61](r54/dossiers/S2-09.r61.json) con SHA‑256 `e55d2d35203147e3f92c95c61e464a80dca4a28f08a7de495dd46648a21fa077` |
 | Trazabilidad anterior | PASS. La [ficha R54](r54/dossiers/S2-09.json) y su índice literal preservan `555d6c5717edac86b4b7a30352cca8638e52c3df1ac3c826493144ee8dbe0ce2`. El [índice operativo](r54/INVENTORY.md) enlaza el JPEG anterior por commit |
-| Focal local | 59 pruebas PASS, incluidas las regresiones de las fichas, los 24 sellos históricos y ocho pt-BR |
+| Focal local | 60 pruebas PASS, incluidas las regresiones de las fichas, los 24 sellos históricos y ocho pt-BR |
 | Conteo | 10/30 archivos, 20/30 pendientes y 0/30 adjudicados. M1=8, M2=4, M3=18 |
 | Activos Antigravity y Gemini R65 | BLOCKED. Sin nuevos archivos o informe disponibles para integrar |
 
