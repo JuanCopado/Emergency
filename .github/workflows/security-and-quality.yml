@@ -134,7 +134,9 @@ jobs:
       BG_TEST_FONT: ${{ github.workspace }}/clinical/assets/fonts/DejaVuSans.ttf
       NODE_PATH: ${{ github.workspace }}/tools/blood-gas-ocr/node_modules
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    # R39: the measured work of this job (locked dependencies, Python tests with coverage, frontend tests) takes about 17.7 min on a hosted runner,
+    # so the former 20 min limit left ~2 min of margin before any variability. 30 min = measured work + the 12 min cap of the FFmpeg step below.
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
@@ -158,10 +160,31 @@ jobs:
           npm ci --ignore-scripts --no-audit --no-fund --prefix tools/blood-gas-ocr
           python scripts/prepare_blood_gas_model.py
       - name: Prepare native FFmpeg for synthetic video coverage
+        # R39: the same 63 MB download took 19 s in some runs and 12-18 min in others (apt reported 61 kB/s on one connection). The step is capped
+        # so that a slow mirror fails here, explicitly, instead of silently consuming the test budget and cancelling the job.
+        timeout-minutes: 12
         run: |
-          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+          set -euo pipefail
+          if command -v ffmpeg >/dev/null && command -v ffprobe >/dev/null; then
+            echo "ffmpeg and ffprobe already present"
+          else
+            started=$(date +%s)
             sudo apt-get update
+            # Fetch the exact package set over parallel connections. `apt-get download` still verifies every .deb against the signed index and
+            # `apt-get install` re-checks the cached files; any package that was not prefetched is downloaded by the normal install below.
+            prefetch="$RUNNER_TEMP/ffmpeg-debs"
+            mkdir -p "$prefetch"
+            if ! ( cd "$prefetch" \
+                   && apt-get install --simulate --no-install-recommends ffmpeg | awk '/^Inst /{print $2}' > packages.txt \
+                   && test -s packages.txt \
+                   && xargs -a packages.txt -P 12 -n 4 apt-get download -q ); then
+              echo "::warning::parallel prefetch incomplete; the plain apt install will download the rest"
+            fi
+            if ls "$prefetch"/*.deb >/dev/null 2>&1; then
+              sudo cp -n "$prefetch"/*.deb /var/cache/apt/archives/
+            fi
             sudo apt-get install -y --no-install-recommends ffmpeg
+            echo "ffmpeg prepared in $(( $(date +%s) - started )) s ($(ls "$prefetch"/*.deb 2>/dev/null | wc -l) packages prefetched)"
           fi
           ffmpeg -version
           ffprobe -version
