@@ -167,7 +167,29 @@ class Plausibility(unittest.TestCase):
             else:
                 self.assertIsNone(rc["validity_justification"])
         twelve = next(s for s in M["stimuli"] if s["stimulus_id"] == "S2-09")["review_controls"]["known_limitations"]
-        self.assertIn("not a physiologically valid 12-lead", twelve)
+        self.assertIn("not clinically validated", twelve)
+
+    def test_s2_09_limb_lead_identities_and_precordial_progression(self):
+        leads = [bank.ecg_12_lead_sample(x / 200) for x in range(190)]
+        expected_names = {name for row in bank.ECG_LEAD_LAYOUT for name in row}
+        self.assertEqual(len(expected_names), 12)
+        self.assertEqual(set(leads[0]), expected_names)
+        for sample in leads:
+            i, ii = sample["I"], sample["II"]
+            self.assertAlmostEqual(sample["III"], ii - i)
+            self.assertAlmostEqual(sample["aVR"], -(i + ii) / 2)
+            self.assertAlmostEqual(sample["aVL"], i - ii / 2)
+            self.assertAlmostEqual(sample["aVF"], ii - i / 2)
+        self.assertEqual(len({tuple(sample[name] for sample in leads) for name in expected_names}), 12)
+        r_wave = leads[64]
+        s_wave = leads[70]
+        self.assertLess(r_wave["V1"], r_wave["V2"])
+        self.assertLess(r_wave["V2"], r_wave["V3"])
+        self.assertLess(r_wave["V3"], r_wave["V4"])
+        self.assertGreater(abs(s_wave["V1"]), r_wave["V1"])
+        self.assertLess(abs(s_wave["V5"]), r_wave["V5"])
+        for name in expected_names:
+            self.assertAlmostEqual(leads[86][name], 0, delta=0.02)
 
     def test_mobile_scale_is_recorded_for_images_only(self):
         for s in M["stimuli"]:
