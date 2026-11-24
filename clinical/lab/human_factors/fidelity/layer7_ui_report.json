@@ -1,0 +1,894 @@
+{
+ "tool": "layer7_ui.cjs",
+ "summary": {
+  "trials": 36,
+  "abstentions_as_expected": true,
+  "banner_above_fold_everywhere": true,
+  "banner_inside_viewport_width_everywhere": true,
+  "no_horizontal_overflow": true,
+  "e1_file_input_before_modality": true,
+  "other_trials_keep_approved_flow": true,
+  "e1_recovery_by_choosing_modality": true,
+  "valid_trials_not_blocked": true,
+  "languages": [
+   "es",
+   "pt",
+   "en"
+  ],
+  "viewports": [
+   360,
+   390
+  ],
+  "contrast_measured": false,
+  "screen_reader_tested": false,
+  "edge_checked": false,
+  "execution_mode": "SYNTHETIC_TECHNICAL_DRIVER_ON_REAL_APP_LAB_BUILD_ONLY",
+  "study_with_humans": "NOT_AUTHORISED"
+ },
+ "results": [
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Elegir modalidad"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cargar copia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Elegir modalidad"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cargar copia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Choose modality"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Upload intact copy / Retake capture"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Choose modality"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Upload intact copy / Retake capture"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "modality_selected",
+    "file_selected"
+   ],
+   "real_prepare_calls": 1
+  }
+ ]
+}

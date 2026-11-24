@@ -5,7 +5,7 @@ import { r51PrototypeEnabled } from '../clinical-note/r51Prototype';
 import { hasLocalIdentifierLabel } from '../clinical-note/privacy';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { connectionErrorMessage, effectiveCategoryLabel, excludedContainer, kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 import { Link } from 'react-router-dom';
 import { ClinicalNoteDraftScope, useClinicalNoteDraft, useNoteDraftField, type NoteTab, type McdtCard } from '../clinical-note/draft';
@@ -25,6 +25,10 @@ import type {
   ClinicalNotePayload,
   ReportItem,
 } from '../clinical-note/types';
+
+// Build-time override of the modality entry for non-production experiments. The condition is folded by Vite, so a production build drops it.
+const EntryOverride = (!import.meta.env.PROD && import.meta.env.VITE_R51_PROTOTYPE === '1' && import.meta.env.VITE_LAB_LAYER7 === '1')
+  ? lazy(() => import('@r51-entry-override')) : null;
 
 function CandidateHeading({ candidate }: { candidate: DiagnosticCandidate }) {
   const ui = useClinicalUi();
@@ -382,7 +386,7 @@ function ClinicalNoteEditor(){
    {tab==='mcdt'&&<section className="space-y-4">
     <div className={card}><h2 className="text-lg font-bold">{ui("Adicionar MCDT")}</h2><div className="mt-3 flex flex-wrap gap-2">{mcdtKinds.map(k=><button key={k} aria-pressed={draftKind===k} className={`btn ${draftKind===k?'btn-primary':'btn-ghost'}`} onClick={()=>setDraftKind(k)}>+ {ui(k)}</button>)}</div>
       <div className="mt-4 grid gap-3">
-      {r51PrototypeEnabled()?<ModalityEntry busy={busy} ui={ui} language={i18n.resolvedLanguage ?? 'es'} onConfirm={(file,kind)=>void onUpload(file,kind)}/>:<label className="min-w-0 rounded-xl border border-dashed border-border p-4"><span className="label">{ui("Upload clínico")}</span><input aria-label={ui("Upload clínico")} className="w-full max-w-full" type="file" disabled={busy} accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm" onChange={e=>void onUpload(e.target.files?.[0])}/><span className="mt-2 block text-xs text-muted">{uploadName?ui("Ficheiro selecionado: ")+uploadName:ui("O original não é guardado nem incorporado no relatório por defeito.")}</span></label>}
+      {r51PrototypeEnabled()?(EntryOverride?<Suspense fallback={null}><EntryOverride busy={busy} ui={ui} language={i18n.resolvedLanguage ?? 'es'} onConfirm={(file,kind)=>void onUpload(file,kind)}/></Suspense>:<ModalityEntry busy={busy} ui={ui} language={i18n.resolvedLanguage ?? 'es'} onConfirm={(file,kind)=>void onUpload(file,kind)}/>):<label className="min-w-0 rounded-xl border border-dashed border-border p-4"><span className="label">{ui("Upload clínico")}</span><input aria-label={ui("Upload clínico")} className="w-full max-w-full" type="file" disabled={busy} accept=".pdf,.png,.jpg,.jpeg,.webp,.txt,.csv,.json,.xml,.dcm" onChange={e=>void onUpload(e.target.files?.[0])}/><span className="mt-2 block text-xs text-muted">{uploadName?ui("Ficheiro selecionado: ")+uploadName:ui("O original não é guardado nem incorporado no relatório por defeito.")}</span></label>}
       <input aria-label={ui("Nome do exame")} className="input" value={draftName} onChange={e=>setDraftName(e.target.value)} placeholder={ui("Entrada manual, ex.: TC crânio 18:20")}/><label><span className="label">{ui("Informe oficial / dados extraídos")}</span><textarea className="input min-h-24" value={draftOfficial} onChange={e=>setDraftOfficial(e.target.value)}/></label><label><span className="label">{ui("Interpretação IA proposta")}</span><textarea className="input min-h-24" value={draftAi} onChange={e=>setDraftAi(e.target.value)} placeholder={ui("Mantida separada do informe oficial")}/></label><button className="btn-primary justify-self-start" onClick={addManualMcdt}>{ui("Criar cartão para revisão")}</button></div>
     </div>
     {mcdt.map(x=>{
