@@ -184,7 +184,7 @@ def _count(value, minimum=0):
     return isinstance(value, int) and not isinstance(value, bool) and value >= minimum
 
 
-def validate_record_v11(r):
+def validate_record_v11(r, provenance_vocab=None):
     _need(isinstance(r, dict) and set(r) == FIELDS | V11_ADDED, "closed record: fields must be exactly canonical-r27-v1.1")
     _need(r["schema_version"] == SCHEMA_VERSION_V11, "schema_version must be canonical-r27-v1.1")
     projection = {k: v for k, v in r.items() if k not in V11_ADDED}
@@ -219,7 +219,7 @@ def validate_record_v11(r):
     _need(r["recovery_action_type"] == (trace[-1] if trace else None), "recovery_action_type is the TERMINAL action of the trace")
     _need(_count(r["force_submit_attempts_count"]) and r["attempted_force_blocked"] == (r["force_submit_attempts_count"] > 0),
           "force_submit_attempts_count must agree with attempted_force_blocked")
-    _need(r["data_provenance"] in DATA_PROVENANCE, "data_provenance")
+    _need(r["data_provenance"] in (provenance_vocab or DATA_PROVENANCE), "data_provenance")
     _need(not (technical and r["recovery_outcome"] != "NA" and r["mechanism_id"] != MECHANISM["M2"]), "technical error recovery state")
     _need(banner is None or _count(banner), "layer7_banner_to_first_action_ms")
     return r

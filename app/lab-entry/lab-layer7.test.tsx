@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LabModalityEntry from './LabModalityEntry';
-import { labEntryIsE1, recoveryKey, type Layer7Verdict } from './layer7Lab';
+import { labEntryIsE1, recoveryKey, resolveLabLocale, type Layer7Verdict } from './layer7Lab';
 
 const ui = (key: string, values?: Record<string, string | number>) => (values ? `${key}${JSON.stringify(values)}` : key);
 const TEXT = { 'MSG_T7_NO_MODALITY': 'Texto aprobado 1', 'MSG_T7_CORRUPT_FILE': 'Texto aprobado 3' };
@@ -120,5 +120,36 @@ describe('lab Layer 7 entry (arm B, simulated harness)', () => {
   it('T7-04 maps to the right recovery set by message id', () => {
     expect(recoveryKey(verdict({ abstains: true, trigger_id: 'T7-04_FORMAT_CONTAINER_MISMATCH', message_id: 'MSG_T7_UNSUPPORTED_FORMAT', message_text: 'x' }))).toBe('T7-04A');
     expect(recoveryKey(verdict({ abstains: true, trigger_id: 'T7-04_FORMAT_CONTAINER_MISMATCH', message_id: 'MSG_T7_INCOMPATIBLE_MODALITY', message_text: 'x' }))).toBe('T7-04B');
+  });
+});
+
+describe('lab regional Portuguese (explicit, never inferred)', () => {
+  const log = () => (window as unknown as { __LAB_LAYER7_LOG__: { type: string; detail: Record<string, unknown> }[] }).__LAB_LAYER7_LOG__;
+
+  it('resolves only an explicit pt-PT on a pt UI; generic pt is never upgraded and pt-BR has no approved texts', () => {
+    expect(resolveLabLocale('?lab_locale=pt-PT', 'pt')).toEqual({ requested: 'pt-PT', variant: 'pt-PT', status: 'OK' });
+    expect(resolveLabLocale('', 'pt')).toEqual({ requested: null, variant: null, status: 'OK' });
+    expect(resolveLabLocale('?lab_locale=pt-BR', 'pt').status).toBe('UNSUPPORTED');
+    expect(resolveLabLocale('?lab_locale=pt-PT', 'es').status).toBe('UNSUPPORTED');       // conflicts with the UI language: no silent substitution
+    expect(resolveLabLocale('?lab_locale=pt', 'pt')).toEqual({ requested: 'pt', variant: null, status: 'UNSUPPORTED' });
+  });
+
+  it('pt-PT is recorded in the UI log together with the language', () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-PT');
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
+    expect(log().find(e => e.type === 'locale_resolved')?.detail).toEqual({ language: 'pt', lab_locale: 'pt-PT', variant: 'pt-PT', status: 'OK' });
+  });
+
+  it('generic pt without the parameter records a null variant', () => {
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
+    expect(log().find(e => e.type === 'locale_resolved')?.detail).toMatchObject({ language: 'pt', variant: null, status: 'OK' });
+  });
+
+  it('pt-BR fails closed: notice, no file input and no selector', () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-BR&lab_entry=e1');
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
+    expect(screen.getByTestId('lab-locale-unsupported')).toHaveAttribute('role', 'alert');
+    expect(screen.queryByLabelText('Upload clínico')).toBeNull();
+    expect(log().find(e => e.type === 'locale_resolved')?.detail).toMatchObject({ variant: 'pt-BR', status: 'UNSUPPORTED' });
   });
 });

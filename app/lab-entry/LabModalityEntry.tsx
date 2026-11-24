@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MODALITIES, approvedLimitationText, modalityContract, type PrototypeModalityId } from '../src/clinical-note/r51Prototype';
-import { RECOVERY_LABELS, evaluateLayer7, labEntryIsE1, labLanguage, recordLabEvent, recoveryKey, type Layer7Verdict } from './layer7Lab';
+import { RECOVERY_LABELS, evaluateLayer7, labEntryIsE1, labLanguage, recordLabEvent, recoveryKey, resolveLabLocale, type Layer7Verdict } from './layer7Lab';
 
 /**
  * LAB_LAYER7_MARKER · arm B of the Stage-1 formative study (SIMULATED_LAB_HARNESS_ONLY). Same R5-1 selector as ModalityEntry plus the
@@ -15,6 +15,7 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
 }) {
   const e1 = labEntryIsE1(window.location.search);
   const lang = labLanguage(language);
+  const locale = resolveLabLocale(window.location.search, language);
   const [modality, setModality] = useState<PrototypeModalityId | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [verdict, setVerdict] = useState<Layer7Verdict | null>(null);
@@ -26,6 +27,8 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
   const contract = modality ? modalityContract(modality) : null;
   const label = contract ? ui(contract.labelKey) : '';
 
+  useEffect(() => { recordLabEvent('locale_resolved', { language, lab_locale: locale.requested, variant: locale.variant, status: locale.status }); },
+    [language, locale.requested, locale.variant, locale.status]);
   useEffect(() => { if (verdict?.abstains) { shownAt.current = performance.now(); bannerRef.current?.focus();
     recordLabEvent('layer7_banner_rendered', { trigger: verdict.trigger_id, message_id: verdict.message_id }); } }, [verdict]);
 
@@ -55,6 +58,11 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
   const abstains = verdict?.abstains === true;
   const labels = abstains ? RECOVERY_LABELS[recoveryKey(verdict as Layer7Verdict)]?.[lang] : undefined;
   const showFile = e1 || contract !== null;
+
+  if (locale.status === 'UNSUPPORTED') {                                                 // fail closed: no approved text for this regional request
+    return <p role="alert" data-testid="lab-locale-unsupported" className="rounded-xl border border-dashed border-border p-4 text-sm">
+      {`Laboratory: locale "${locale.requested}" has no approved texts for this build. The upload is disabled.`}</p>;
+  }
 
   return (
     <div data-testid="r51-modality-entry" data-lab-layer7="simulated" className="rounded-xl border border-dashed border-border p-4 grid grid-cols-1 gap-3 min-w-0">
