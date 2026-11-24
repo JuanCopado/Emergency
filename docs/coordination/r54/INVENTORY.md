@@ -4,6 +4,8 @@ Fuente: manifiesto canónico; IDs/mecanismos leídos de cada fila, nunca inferid
 
 Cada ficha conserva firma/fecha/privacidad humana y revisión técnica PENDING. M3 clínicos requieren referencia independiente; N/A no significa negativo.
 
+**Historial de S2-09.** La [ficha R54](dossiers/S2-09.json) y el [JPEG anterior](https://github.com/JuanCopado/Emergency/blob/3b4f58b52fa7e0f1b75d0841cb5cac2b9f15a5a9/clinical/lab/human_factors/bank/stimuli/S2-09.jpg) conservan el SHA-256 `555d6c5717edac86b4b7a30352cca8638e52c3df1ac3c826493144ee8dbe0ce2`. La tabla vincula el candidato R61 con su nueva ficha pendiente.
+
 | ID real | Set | Escenario | Mecanismo | Modalidad | Archivo físico | SHA-256 | Diagnóstico | Ficha |
 |---|---|---|---|---|---|---|---|---|
 | S1-01 | 1 | A | M3 | skin_wound | PENDING_STIMULUS_GENERATION | — | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S1-01.json) |
@@ -23,7 +25,7 @@ Cada ficha conserva firma/fecha/privacidad humana y revisión técnica PENDING. 
 | S1-08 | 1 | F | M3 | ecg | [archivo](../../../clinical/lab/human_factors/bank/stimuli/S1-08.jpg) | e1ef94da909021ada458d5f501b07d978c2fdc59bfc97ccfa613a69bcf957620 | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S1-08.json) |
 | S2-08 | 2 | F | M3 | ecg | [archivo](../../../clinical/lab/human_factors/bank/stimuli/S2-08.jpg) | 6b7ec6456cbdd04eee1dbed3357042199afbb4e08f6d34636087d7a22db32acd | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S2-08.json) |
 | S1-09 | 1 | F | M3 | ecg | [archivo](../../../clinical/lab/human_factors/bank/stimuli/S1-09.webp) | 38ff1bdd9a07434f017b01d74272dc1e1a38263f54a8e62aa493a7088ce79ebc | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S1-09.json) |
-| S2-09 | 2 | F | M3 | ecg | [archivo](../../../clinical/lab/human_factors/bank/stimuli/S2-09.jpg) | 555d6c5717edac86b4b7a30352cca8638e52c3df1ac3c826493144ee8dbe0ce2 | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S2-09.json) |
+| S2-09 | 2 | F | M3 | ecg | [archivo](../../../clinical/lab/human_factors/bank/stimuli/S2-09.jpg) | e55d2d35203147e3f92c95c61e464a80dca4a28f08a7de495dd46648a21fa077 | PENDING_CLINICAL_ADJUDICATION | [ficha R61](dossiers/S2-09.r61.json) |
 | S1-10 | 1 | F | M3 | xray | PENDING_STIMULUS_GENERATION | — | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S1-10.json) |
 | S2-10 | 2 | F | M3 | xray | PENDING_STIMULUS_GENERATION | — | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S2-10.json) |
 | S1-11 | 1 | F | M3 | xray | PENDING_STIMULUS_GENERATION | — | PENDING_CLINICAL_ADJUDICATION | [ficha](dossiers/S1-11.json) |

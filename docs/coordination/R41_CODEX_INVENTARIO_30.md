@@ -1,5 +1,7 @@
 # R41 · Inventario canónico de 30 posiciones
 
+Corte histórico R41. Para el JPEG y la ficha actual de S2-09, consultar el [inventario de adjudicación](r54/INVENTORY.md).
+
 Fecha: 24/11/2026. Receptor: `dcc48b3cc115a7de5f45e9a2a89d06673ba8fe15`. Fuente candidata: PR89 `b969e5010014e292a4b47bd38ac06509f6c376fb`.
 
 ## Resultado
