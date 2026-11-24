@@ -56,7 +56,12 @@ jobs:
           if (-not $executable) { throw "Native browser executable missing: $env:R77_BROWSER" }
           $env:CHROMIUM_PATH = $executable
           $env:ROUTE_QA_OUTPUT = Join-Path $env:RUNNER_TEMP "r77-navigation-$env:R77_BROWSER.json"
+          $worktree = @(git status --porcelain)
+          $worktree | Write-Output
+          git diff --exit-code --ignore-space-at-eol HEAD
+          if ($LASTEXITCODE -ne 0) { throw "Build changed tracked content beyond line endings" }
           $browserEvidence = @{
+            worktree = $worktree
             platform = [System.Runtime.InteropServices.RuntimeInformation]::OSDescription
             browser = $env:R77_BROWSER
             executable = $executable
