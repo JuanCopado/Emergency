@@ -18,6 +18,6 @@ Fecha: 24/11/2026.
 | Incorporar solo material autorizado | PASS | ningún material externo o clínico nuevo |
 | Fichas médicas individuales | PASS | 30 secciones en inventario; decisión médica pendiente |
 | Adjudicación médica | BLOCKED | exclusiva del propietario; 0/30 firmados |
-| PR técnica | {{PR_STATUS}} | {{PR_URL}} |
+| PR técnica | PASS | [PR99](https://github.com/JuanCopado/Emergency/pull/99) |
 | Seis checks C12 | NOT_VERIFIED | pendientes de GitHub Actions |
 | Estado clínico | PASS | `CLINICALLY_PENDING`; sin reclutamiento |

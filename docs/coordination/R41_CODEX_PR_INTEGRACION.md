@@ -4,8 +4,8 @@ Fecha: 24/11/2026.
 
 - Rama: `codex/r41-pr89-clean-integration-20261124`.
 - Receptor: `codex/v144-international-scope-20261116` @ `dcc48b3cc115a7de5f45e9a2a89d06673ba8fe15`.
-- Commit de integración: `{{COMMIT_SHA}}`.
-- PR: {{PR_URL}}.
+- Commit de integración: `b5e8c1e1ec6226d4fca05d3fbc9f94a98776bfba`.
+- PR: [PR99](https://github.com/JuanCopado/Emergency/pull/99).
 - Sustituye técnicamente a PR89 sin modificarla ni forzar su historial.
 
 ## Alcance
