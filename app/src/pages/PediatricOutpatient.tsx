@@ -194,7 +194,22 @@ export default function PediatricOutpatient() {
   const ui = useClinicalUi();
   const [params, setParams] = useSearchParams();
   const selected = findRegimen(params.get('regimen') || '');
-  const [drug, setDrug] = useState(selected?.drug_id || '');
+  const requestedDrug = params.get('drug');
+  const drug = selected && requestedDrug !== '' ? selected.drug_id
+    : pediatricCatalog.drugs.find((entry) => entry.id === requestedDrug)?.id || '';
+  const changeDrug = (id: string) => {
+    const next = new URLSearchParams(params);
+    next.set('drug', id);
+    next.delete('regimen');
+    setParams(next);
+  };
+  const changeRegimen = (id: string) => {
+    const next = new URLSearchParams(params);
+    next.set('drug', drug);
+    if (id) next.set('regimen', id);
+    else next.delete('regimen');
+    setParams(next);
+  };
   const regimens = drug ? regimensForDrug(drug) : pediatricCatalog.regimens;
   return <div className="space-y-5">
     <header><h1 className="text-2xl font-bold">{ui("Pediatría ambulatoria")}</h1>
@@ -202,10 +217,10 @@ export default function PediatricOutpatient() {
       <p>{pediatricCatalog.inventory.regimens} {ui("regímenes ·")} {pediatricCatalog.inventory.drug_groups} {ui("fármacos o combinaciones ·")} {pediatricCatalog.inventory.diagnoses} {ui("diagnósticos. YELLOW: revisión pediátrica/farmacéutica pendiente.")}</p>
       <p>{ui("El catálogo general conserva todas las pautas; edad y peso se comprueban al calcular. Datos de referencia en el idioma de la fuente.")}</p>
     </header>
-    <label className="block">{ui("Fármaco o combinación")} <select className="input" value={drug} onChange={(e) => { setDrug(e.target.value); setParams({}); }}>
+    <label className="block">{ui("Fármaco o combinación")} <select className="input" value={drug} onChange={(e) => changeDrug(e.target.value)}>
         <option value="">{ui("Todos los fármacos")}</option>{pediatricCatalog.drugs.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
       </select></label>
-    <label className="block">{ui("Diagnóstico y régimen")} <select className="input" value={selected?.id || ''} onChange={(e) => setParams({ regimen: e.target.value })}>
+    <label className="block">{ui("Diagnóstico y régimen")} <select className="input" value={selected?.id || ''} onChange={(e) => changeRegimen(e.target.value)}>
         <option value="">{ui("Selecciona una pauta por indicación")}</option>{regimens.map((r) => <option key={r.id} value={r.id}>{r.drug} — {r.diagnosis} ({r.id})</option>)}
       </select></label>
     {selected && <RegimenForm key={selected.id} regimen={selected} />}
