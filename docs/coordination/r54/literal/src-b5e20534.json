@@ -1,0 +1,19 @@
+{
+      "source_id": "src-b5e20534",
+      "title": "Modality-specific professional guidance plus independent local reference diagnosis",
+      "organization": null,
+      "source_type": "guideline",
+      "url": null,
+      "persistent_id": null,
+      "version": "workflow v1.4; diagnostic performance not established",
+      "publication_date": null,
+      "last_verified": "2026-09-17",
+      "language": null,
+      "jurisdiction": null,
+      "license_status": "unknown",
+      "provenance": "legacy_evidence_registry",
+      "compound_identity": true,
+      "modules": [
+        "clinical-image-interpretation"
+      ]
+    }

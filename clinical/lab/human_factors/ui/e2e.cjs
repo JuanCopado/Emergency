@@ -3,10 +3,21 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("node:assert/strict");
+const http = require("node:http");
 const { chromium } = require("playwright");
 const contract = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "..", "references", "modality-abstention-layer7.contract.proposed.json"), "utf8"));
 const TEXTS = contract["x-message-texts"];
-const url = "file://" + path.join(__dirname, "index.html");
+// Some managed browsers prohibit file: navigation. Serve only these static lab
+// assets on an ephemeral loopback port; never expose a repository file server.
+const assets = new Map(["index.html", "fixtures.js", "ui-logic.js", "app.js"].map((name) =>
+  ["/" + name, { bytes: fs.readFileSync(path.join(__dirname, name)), type: name.endsWith(".html") ? "text/html" : "text/javascript" }]));
+let origin;
+const server = http.createServer((req, res) => {
+  const asset = assets.get(req.url);
+  if (req.method !== "GET" || !asset) { res.writeHead(404); res.end(); return; }
+  res.writeHead(200, { "Content-Type": asset.type, "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" });
+  res.end(asset.bytes);
+});
 const shots = process.argv[2];
 
 async function open(browser, viewport) {
@@ -14,8 +25,8 @@ async function open(browser, viewport) {
   const page = await ctx.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(String(e)));
-  page.on("request", (r) => { if (!r.url().startsWith("file:") && !r.url().startsWith("blob:") && !r.url().startsWith("data:")) errors.push("network request: " + r.url()); });
-  await page.goto(url);
+  page.on("request", (r) => { if (!r.url().startsWith(origin + "/") && !r.url().startsWith("blob:") && !r.url().startsWith("data:")) errors.push("external network request: " + r.url()); });
+  await page.goto(origin + "/index.html");
   await page.waitForSelector("html[data-ready='1']");
   return { page, errors, ctx };
 }
@@ -26,10 +37,13 @@ async function begin(page, arm, trial, lang) {
 const overflow = (page) => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
 
 (async () => {
-  const browser = await chromium.launch();
+  await new Promise((resolve, reject) => { server.once("error", reject); server.listen(0, "127.0.0.1", resolve); });
+  origin = "http://127.0.0.1:" + server.address().port;
+  let browser;
   const results = [];
   const check = (name, ok) => { results.push([name, ok]); if (!ok) process.exitCode = 1; };
   try {
+    browser = await chromium.launch();
     for (const [width, height] of [[360, 640], [390, 844], [1280, 800]]) {
       const { page, errors, ctx } = await open(browser, { width, height });
       const label = `${width}x${height}`;
@@ -73,11 +87,12 @@ const overflow = (page) => page.evaluate(() => document.documentElement.scrollWi
       await page.click("#send");
       check(`${label} arm A has no Layer 7 message`, !(await page.isVisible("#alert")) && await page.isVisible("#sentbox"));
       check(`${label} arm A labelled not applicable`, (await page.getAttribute("#lab", "data-layer7-execution-mode")) === "NOT_APPLICABLE_ARM_A");
-      check(`${label} no page errors and no network`, errors.length === 0);
+      check(`${label} no page errors and no external network`, errors.length === 0);
       await ctx.close();
     }
   } finally {
-    await browser.close();
+    try { if (browser) await browser.close(); }
+    finally { await new Promise((resolve) => server.close(resolve)); }
   }
   const failed = results.filter(([, ok]) => !ok);
   console.log(JSON.stringify({ checks: results.length, failed: failed.map(([n]) => n) }));

@@ -1,3 +1,17 @@
+## R54 · 24/11/2026 · Decisiones de imagen aprobadas
+
+MED-DEC-R46-01/02 registradas APPROVED_MEDICAL_OWNER por autorización expresa
+del propietario (SÍ, 24/11). Aplicadas precisiones corregidas R50, salvaguardas
+canónicas y proyección, protocolo de adjudicación y 30 fichas reales sin firmar.
+Banco 8 M1 / 4 M2 / 18 M3; 10 archivos comprobados, 20 pendientes, 0 adjudicados.
+Dosier literal de extracción R51/R54: `../docs/coordination/r54/README.md`.
+Los M3 clínicos quedan con referencia pendiente; M1/M2 y documentos no diagnósticos
+usan N/A. No se activa la clasificación de contenido erróneamente sugerida por
+los slots M1 de R56. Padre YELLOW, last_checked sin renovar, 129 GREEN / 2 YELLOW,
+CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE. R5-1, R5-2 y G05 siguen abiertos.
+Sin producción, estudio ni adjudicaciones inventadas. Los apartados siguientes
+conservan sus fechas y alcance históricos.
+
 ## 22/11/2026 · Corrección documental y de nomenclatura
 
 Seguimiento técnico C14 integrado mediante [PR71](https://github.com/JuanCopado/Emergency/pull/71), commit `842e4a2864f7b746659504dd8ae53faaac3e58b2`: publicación atómica de LAUNCH.json y STOP.json, con regresiones deterministas y smoke nativo T05 Windows aprobado. Se conserva el fallo postmerge original y sus 81 tests nativos anteriores aprobados. Clinical QA del candidato suma 1.205 pruebas, 14 omitidas, sin fallos. No cambia contenido, aritmética o aceptación clínica.
