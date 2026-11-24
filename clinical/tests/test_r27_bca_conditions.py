@@ -309,8 +309,8 @@ class GeminiR27Oracles(unittest.TestCase):
         self.assertTrue(paired["small_cluster_warning"])
         self.assertFalse(paired["very_small_cluster_descriptive_only"])
         base = out["stage2_planning_inputs"]["baseline"]["confirmation_error_rate"]
-        self.assertAlmostEqual(base["rho_hat_anova"], 0.2040, places=3)
-        self.assertAlmostEqual(base["deff_hat"], 1.6118, places=3)
+        self.assertEqual(base["rho_hat_anova"], round(331 / 1623, 4))                    # 0.2039: the earlier 0.2040 was a rounding slip
+        self.assertEqual(base["deff_hat"], round(2616 / 1623, 4))                         # 1.6118
         for k, (lo, hi) in {"baseline": (0.2720, 0.7280), "prototype": (0.0573, 0.4366)}.items():
             ev = pl["exact_over_participants"][k]["confirmation_error_rate"]
             self.assertEqual(ev["participants"], 20)
@@ -338,3 +338,19 @@ class Ref03B(unittest.TestCase):
         self.assertAlmostEqual(sum(deltas) / 12, 6.5)
         self.assertAlmostEqual(sorted(deltas)[5] / 2 + sorted(deltas)[6] / 2, 6.0)          # median
         self.assertEqual((res["w_plus"], res["w_minus"]), (78.0, 0.0))
+
+
+class DocumentaryMaps(unittest.TestCase):
+    def test_bca_status_map_v1_covers_every_status_the_engine_can_emit(self):
+        self.assertEqual(hf.BCA_STATUS_MAP_V1["BCA_PRIMARY"], "COMPUTED_ELIGIBLE")
+        for status in (hf.BCA_FALLBACK, "BCA_NOT_COMPUTABLE", "BCA_PRIMARY"):
+            self.assertIn(status, hf.BCA_STATUS_MAP_V1)
+
+    def test_the_condition_crosswalk_names_all_four_engine_conditions_and_is_not_emitted(self):
+        self.assertEqual(set(hf.BCA_CONDITION_CROSSWALK_V1), {"C1_min_participants", "C2_sequences_represented", "C3_variation_and_events", "C4_parameters_valid"})
+        out = hf.summarize(make_rows(20, 10), resamples=100, seed="map")
+        self.assertNotIn("COMPUTED_ELIGIBLE", str(out))                                    # historical output keeps the engine tokens
+
+    def test_wilcoxon_is_a_standalone_function_not_called_by_the_report(self):
+        out = hf.summarize(make_rows(20, 10), resamples=100, seed="w")
+        self.assertNotIn("wilcoxon", str(out).lower())                                     # NOT wired into summarize(): reported, not faked

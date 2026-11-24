@@ -48,6 +48,9 @@ describe('lab Layer 7 entry (arm B, simulated harness)', () => {
     expect(onConfirm).not.toHaveBeenCalled();
     const log = (window as unknown as { __LAB_LAYER7_LOG__: { type: string }[] }).__LAB_LAYER7_LOG__.map(e => e.type);
     expect(log).toEqual(expect.arrayContaining(['file_selected', 'layer7_banner_rendered']));
+    const selected = (window as unknown as { __LAB_LAYER7_LOG__: { type: string; detail: Record<string, unknown> }[] }).__LAB_LAYER7_LOG__.find(e => e.type === 'file_selected');
+    expect(selected?.detail.viewport_width_px).toBe(window.innerWidth);                 // device is recorded per trial, never per period
+    expect(selected?.detail.e1_entry).toBe(true);
   });
 
   it('E1 recovery: choosing a valid modality re-evaluates the SAME file and the abstention disappears', async () => {
@@ -110,6 +113,8 @@ describe('lab Layer 7 entry (arm B, simulated harness)', () => {
     await user.upload(screen.getByLabelText('Upload clínico') as HTMLInputElement, png());
     await user.click(await screen.findByText(/Confirmar e enviar como/));
     expect(onConfirm).toHaveBeenCalledWith(expect.any(File), 'ecg');
+    const log = (window as unknown as { __LAB_LAYER7_LOG__: { type: string }[] }).__LAB_LAYER7_LOG__.map(e => e.type);
+    expect(log).toContain('confirm_clicked');
   });
 
   it('T7-04 maps to the right recovery set by message id', () => {
