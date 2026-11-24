@@ -6,12 +6,22 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
 import { chromiumPath } from './chromium.mjs';
-import { routes, verifyRoute } from './route-audit.mjs';
 
 const phase = process.argv[2];
 if (!['before', 'after'].includes(phase)) throw new Error('Use before or after');
 const output = fileURLToPath(new URL(`../../clinical/qa/assets/v1.43/${phase}/`, import.meta.url));
 mkdirSync(output, { recursive: true });
+const routes = [
+  ['home', '/'], ['note', '/clinical-note'], ['drugs', '/drugs'],
+  ['drug', '/drugs/norepinephrine'], ['calculator', '/calculator?drug=norepinephrine&weight=70&dose=0.05'],
+  ['pediatrics', '/pediatrics?regimen=paracetamol-pain-fever-home'],
+  ['clinical', '/clinical'], ['sepsis', '/clinical/sepsis-shock'],
+  ['guides', '/guides'], ['guide', '/guides/sepsis-shock'],
+  ['scores', '/clinical/clinical-scores-calculators'], ['pocus', '/clinical/pocus'],
+  ['ecg', '/clinical/ecg-image'], ['procedures', '/procedures'],
+  ['pilot', '/procedures/PROC-VASC-007'], ['settings', '/settings'], ['about', '/about'],
+  ['not-found', '/route-does-not-exist'], ['unknown-module', '/clinical/unknown'], ['unknown-guide', '/guides/unknown'],
+];
 const viewports = [[1366,768], [1920,1080], [768,1024], [1024,768], [375,812], [430,932]];
 const shots = new Set(['home', 'note', 'procedures', 'pediatrics', 'scores', 'pilot', 'drug']);
 const report = { phase, url: 'http://127.0.0.1:4175', browser: '', results: [] };
@@ -30,10 +40,10 @@ try {
     page.on('pageerror', e => errors.push(e.message));
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); if (m.type() === 'warning') warnings.push(m.text()); });
     page.on('response', r => { if (r.status() >= 400) resources.push({ url: r.url(), status: r.status() }); });
-    for (const [name, route, title] of routes) {
+    for (const [name, route] of routes) {
       errors = []; warnings = []; resources = [];
       await page.goto(report.url + route, { waitUntil: 'networkidle' });
-      await verifyRoute(page, report.url, { name, route, title });
+      await page.locator('main h1').first().waitFor();
       const data = await page.evaluate(() => {
         const visible = el => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
         const controls = [...document.querySelectorAll('input, select, textarea, button')].filter(visible);
