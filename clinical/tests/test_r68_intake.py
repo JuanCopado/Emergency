@@ -9,11 +9,13 @@ from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
+from PIL import Image
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lab"))
 from human_factors import intake_r68 as intake
 
 MANIFEST = {"stimuli": [
-    {"stimulus_id": "S1-10", "file": None},
+    {"stimulus_id": "S1-10", "file": None, "container_spec": "jpeg"},
     {"stimulus_id": "S2-09", "file": "stimuli/S2-09.jpg"},
 ]}
 
@@ -25,7 +27,9 @@ class Intake(unittest.TestCase):
         root = Path(tmp.name)
         self.delivery = root / "incoming"
         self.delivery.mkdir()
-        data = b"synthetic test content"
+        output = io.BytesIO()
+        Image.new("RGB", (20, 20)).save(output, format="JPEG")
+        data = output.getvalue()
         (root / "outside.jpg").write_bytes(data)
         self.file = self.delivery / "original.jpg"
         self.file.write_bytes(data)
@@ -70,3 +74,19 @@ class Intake(unittest.TestCase):
         for assets in ([], [self.asset, self.asset]):
             with self.assertRaises(ValueError):
                 intake.check_receipt({"assets": assets}, self.delivery, MANIFEST)
+
+    def test_rejects_corrupt_images_even_when_the_receipt_matches(self):
+        data = self.file.read_bytes()[:-12]
+        self.file.write_bytes(data)
+        asset = {**self.asset, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+        with self.assertRaisesRegex(ValueError, "unreadable image"):
+            intake.check_receipt({"assets": [asset]}, self.delivery, MANIFEST)
+
+    def test_applies_canonical_format_to_derivatives_but_accepts_an_original_png(self):
+        png = self.delivery / "source.png"
+        Image.new("RGB", (20, 20)).save(png)
+        data = png.read_bytes()
+        asset = {**self.asset, "file": png.name, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+        intake.check_receipt({"assets": [asset]}, self.delivery, MANIFEST)
+        with self.assertRaisesRegex(ValueError, "stimulus specification"):
+            intake.check_receipt({"assets": [{**asset, "role": "derivative"}]}, self.delivery, MANIFEST)
