@@ -408,34 +408,44 @@ def build_manifest(directory=STIMULI_DIR):
 
 
 def verify_bank(manifest, directory=STIMULI_DIR):
-    """Recompute SHA-256 over the real bytes of every listed file. Returns a list of problems (empty = consistent)."""
+    """Verify the bank's physical files and measure duplicate and metadata checks from their bytes."""
     problems = []
     directory = Path(directory)
-    ids = [s["stimulus_id"] for s in manifest["stimuli"]]
+    stimuli = manifest["stimuli"]
+    ids = [s["stimulus_id"] for s in stimuli]
     if len(ids) != 30 or len(set(ids)) != 30:
         problems.append("the bank must list exactly 30 distinct stimuli")
     for set_id in (1, 2):
-        if sorted(s["pair_id"] for s in manifest["stimuli"] if s["set_id"] == set_id) != list(range(1, 16)):
+        if sorted(s["pair_id"] for s in stimuli if s["set_id"] == set_id) != list(range(1, 16)):
             problems.append(f"set {set_id} must contain pairs 01-15")
-    for s in list(manifest["stimuli"]) + list(manifest["qa_technical"]):
-        if s.get("file"):
-            path = directory.parent / s["file"]
-            if not path.exists():
-                problems.append(f"{s['stimulus_id']}: file missing")
+    measured = []
+    for entry in stimuli + manifest["qa_technical"]:
+        sid = entry["stimulus_id"]
+        findings = set(entry.get("metadata_findings") or [])
+        if entry.get("file"):
+            path = directory.parent / entry["file"]
+            if not path.is_file():
+                problems.append(f"{sid}: file missing")
                 continue
             data = path.read_bytes()
-            if sha256_bytes(data) != s["sha256"] or len(data) != s["bytes"]:
-                problems.append(f"{s['stimulus_id']}: bytes do not match the manifest")
-        elif s.get("generation_status") == GENERATED:
-            problems.append(f"{s['stimulus_id']}: marked generated but has no file")
-    summary = interset_check(manifest)
+            sha = sha256_bytes(data)
+            if sha != entry["sha256"] or len(data) != entry["bytes"]:
+                problems.append(f"{sid}: bytes do not match the manifest")
+            findings.update(audit_metadata(data))
+            if "set_id" in entry:
+                perceptual = dhash64(data)
+                if perceptual != entry["phash_64"]:
+                    problems.append(f"{sid}: perceptual hash does not match the manifest")
+                measured.append({**entry, "sha256": sha, "phash_64": perceptual})
+        elif entry.get("generation_status") == GENERATED:
+            problems.append(f"{sid}: marked generated but has no file")
+        if findings:
+            problems.append(f"{sid}: identifying metadata found {sorted(findings)}")
+    summary = interset_check({"stimuli": measured})
     if summary["perceptually_too_close"]:
         problems.append(f"set1 x set2 perceptually too close: {summary['perceptually_too_close']}")
     if summary["duplicate_sha256"]:
         problems.append("duplicate SHA-256 among generated stimuli")
-    for s in manifest["stimuli"]:
-        if s.get("metadata_findings"):
-            problems.append(f"{s['stimulus_id']}: identifying metadata found {s['metadata_findings']}")
     return problems
 
 
