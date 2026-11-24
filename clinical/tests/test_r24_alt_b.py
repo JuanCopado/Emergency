@@ -297,7 +297,7 @@ class Bank(unittest.TestCase):
     def test_the_bank_is_not_frozen_validated_or_adjudicated(self):
         self.assertEqual(MANIFEST["bank_status"], "NOT_FROZEN_NOT_VALIDATED")
         counts = bank.status_counts(MANIFEST)
-        self.assertEqual((counts["generated_technical"], counts["pending_stimulus_generation"], counts["adjudicated"]), (5, 25, 0))
+        self.assertEqual((counts["generated_technical"], counts["pending_stimulus_generation"], counts["adjudicated"]), (10, 20, 0))
         for s in MANIFEST["stimuli"]:
             self.assertEqual(s["clinical_adjudicator_signoff"], "PENDING")
             self.assertIsNone(s["phi_audit_passed"])                            # human pixel/metadata review is still pending
@@ -354,7 +354,7 @@ class Bank(unittest.TestCase):
     def test_generated_files_are_clean_and_synthetic(self):
         for s in MANIFEST["stimuli"]:
             if s["file"]:
-                self.assertEqual(s["origin_type"], "synthetic_procedural")
+                self.assertIn(s["origin_type"], ("synthetic_procedural", "synthetic_procedural_schematic"))
                 self.assertTrue(s["license_ref"].startswith("CC0-1.0"))
         png = (bank.STIMULI_DIR / "S1-14.png").read_bytes()
         from PIL import Image
@@ -479,7 +479,7 @@ class DryRun(unittest.TestCase):
         self.assertFalse([r for r in RECORDS if r["mechanism_id"] in ("M1", "M3") and r["layer7_trigger_code"]])
 
     def test_descriptor_sources_are_declared_real_bytes_versus_spec_only(self):
-        self.assertEqual(SOURCES, {"REAL_FILE_BYTES": 20, "SPEC_ONLY_NO_FILE": 100})
+        self.assertEqual(SOURCES, {"REAL_FILE_BYTES": 40, "SPEC_ONLY_NO_FILE": 80})
 
     def test_the_whole_pipeline_exports_validates_and_verifies_every_hash(self):
         out = dryrun.full_dry_run(resamples=B, count=4, seed="t")
