@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { preview } from 'vite';
 import { chromiumPath } from './chromium.mjs';
+import { inspectRoute } from './check-route-identity.mjs';
 
 const phase = process.argv[2];
 if (!['before', 'after'].includes(phase)) throw new Error('Use before or after');
@@ -42,8 +43,10 @@ try {
     page.on('response', r => { if (r.status() >= 400) resources.push({ url: r.url(), status: r.status() }); });
     for (const [name, route] of routes) {
       errors = []; warnings = []; resources = [];
-      await page.goto(report.url + route, { waitUntil: 'networkidle' });
+      const response = await page.goto(report.url + route, { waitUntil: 'networkidle' });
       await page.locator('main h1').first().waitFor();
+      const expectedValid = !['not-found', 'unknown-module', 'unknown-guide'].includes(name);
+      const identity = expectedValid ? await inspectRoute(page, route, response.status(), errors) : null;
       const data = await page.evaluate(() => {
         const visible = el => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
         const controls = [...document.querySelectorAll('input, select, textarea, button')].filter(visible);
@@ -54,8 +57,10 @@ try {
         const small = [...document.querySelectorAll('button,a,select,input:not([type=checkbox]):not([type=radio])')].filter(visible).filter(el => { const b = el.getBoundingClientRect(); return b.height < 44 || b.width < 44; }).length;
         return { title: document.querySelector('main h1')?.textContent, documentWidth: document.documentElement.scrollWidth, viewportWidth: innerWidth, unnamed, overflow, smallTargets: small, loadMs: Math.round(performance.getEntriesByType('navigation')[0].loadEventEnd), brokenImages: [...document.images].filter(i => !i.complete || i.naturalWidth === 0).length };
       });
-      report.results.push({ name, route, width, height, ...data, errors: [...errors], warnings: [...warnings], resources: [...resources] });
+      report.results.push({ name, route, width, height, ...data, expected_valid: expectedValid,
+        status: identity?.status ?? 'EXPECTED_NOT_FOUND', identity, errors: [...errors], warnings: [...warnings], resources: [...resources] });
       if (phase === 'after') {
+        if (identity) assert.deepEqual(identity.failures, [], `${route} rendered the wrong module`);
         assert(data.documentWidth <= width, `${route} overflows at ${width}: ${data.documentWidth}`);
         assert.deepEqual(data.unnamed, [], `${route} has unnamed controls`);
         assert.deepEqual(errors, [], `${route} has browser errors`);

@@ -1,3 +1,5 @@
+R69 · 24/11/2026 · QA de navegación rechaza soft-404 y falsos PASS R55, valida identidad funcional de módulos, 19 patrones y catálogo pediátrico 89/52; sin cambios de rutas canónicas, pautas, motores ni banco. CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE. Evidencia/checklist en `docs/coordination/R69_NAVIGATION_QA.md`.
+
 R54 · 24/11/2026 · MED-DEC-R46-01/02 APPROVED_MEDICAL_OWNER; salvaguardas corregidas R50 en imagen/proyección, protocolo y 30 fichas reales con N/A por aplicabilidad, 8/4/18 y extracción literal R51/R54 con SHA. Sin renovar last_checked, alterar banco/sellos ni adjudicar; YELLOW, CLINICALLY_PENDING, NO_GO_CLINICAL_RELEASE; R5-1/R5-2/G05 abiertos.
 
 ## 22/11/2026 · Nomenclatura PROC-SP-003 y continuidad
