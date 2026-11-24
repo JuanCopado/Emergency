@@ -127,5 +127,14 @@ def full_dry_run(resamples=hf.DEFAULT_RESAMPLES, count=4, seed="r24", git_commit
     records, sources = run(manifest, count=count, seed=seed)
     document = alt_b.export_alt_b(records, manifest, resamples, seed, git_commit_sha)
     alt_b.validate_export(document, records, manifest)
-    return {"bank_problems": problems, "bank_status": bank.status_counts(manifest), "participants": count, "tasks_per_participant": len(records) // count,
+    status = bank.status_counts(manifest)
+    blockers = []
+    if status["pending_stimulus_generation"]:
+        blockers.append(f"{status['pending_stimulus_generation']} of 30 stimulus files are not generated")
+    if not status["adjudicated"] == status["total"]:
+        blockers.append("stimuli are not clinically adjudicated or frozen")
+    blockers += ["no dedicated devices and no real interface session were used", "no timed 42-50 minute session was run with people"]
+    return {"dry_run_type": "SYNTHETIC_PIPELINE_SMOKE_TEST",
+            "full_30_stimuli_timed_dry_run": {"status": "BLOCKED", "reasons": blockers},
+            "bank_problems": problems, "bank_status": status, "participants": count, "tasks_per_participant": len(records) // count,
             "records": len(records), "descriptor_sources": sources, "export": document, "records_data": records, "manifest": manifest}
