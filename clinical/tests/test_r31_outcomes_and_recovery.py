@@ -168,5 +168,16 @@ class PortugueseAndProvenance(unittest.TestCase):
             c.from_lab_ui_log([selected(width), ev("confirm_clicked", 5)], context)
 
 
+class RunnerRegression(unittest.TestCase):
+    """R32: the real-app Chromium runner exported 0 canonical records after R31 because its context lacked data_provenance."""
+    def test_runner_context_declares_synthetic_provenance_and_report_exports_records(self):
+        import json
+        fidelity = ROOT / "lab" / "human_factors" / "fidelity"
+        self.assertIn('data_provenance: "SYNTHETIC_LAB_HARNESS"', (fidelity / "layer7_ui.cjs").read_text(encoding="utf8"))
+        report = json.loads((fidelity / "layer7_ui_report.json").read_text(encoding="utf8"))
+        self.assertEqual((report["canonical_exported_valid"], report["canonical_not_applicable"]), (16, 12))
+        self.assertTrue(all("generic 'pt'" in item[3] for item in report["canonical_refused_with_reason"]))
+
+
 if __name__ == "__main__":
     unittest.main()

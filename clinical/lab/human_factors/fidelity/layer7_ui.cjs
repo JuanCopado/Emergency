@@ -99,7 +99,8 @@ async function trial(browser, baseUrl, lang, vp, sc) {
   out.lab_log_events = fullLog.map((e) => e.type);
   if (sc.canonical) {
     const context = { participant_opaque_id: "DRYRUN-001", role_group: "M", language_stratum: LANGUAGE_STRATUM[lang], ...sc.canonical,
-      stimulus_hash_sha256: crypto.createHash("sha256").update(buffer).digest("hex"), task_duration_ms: Math.max(1, Date.now() - startedAt), force_attempts: 0 };
+      stimulus_hash_sha256: crypto.createHash("sha256").update(buffer).digest("hex"), task_duration_ms: Math.max(1, Date.now() - startedAt), force_attempts: 0,
+      data_provenance: "SYNTHETIC_LAB_HARNESS" };                        // scripted driver, never a person: never promotable to human data
     if (shown && !sc.confirm) context.trial_end = "abandoned";            // the lab driver took no recovery action: reported by the harness, not inferred by the UI
     out.canonical_export = run(path.join(HERE, "export_canonical.py"), { log: fullLog, context });
     if (out.canonical_export.record) out.canonical_export.record = undefined;     // keep the report small: validity is what matters here
