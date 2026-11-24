@@ -1,6 +1,8 @@
-# STATE · correcciones de problemas actuales · 22/11/2026
+# STATE · R54 · 24/11/2026
 
 Estado global: **CLINICALLY_PENDING**. Registro: **129 GREEN / 2 YELLOW / 0 RED**, 131 módulos.
+
+**R54 · candidato aislado sobre 2032374 (PR100).** MED-DEC-R46-01/02 APPROVED_MEDICAL_OWNER (SÍ, 24/11), formulaciones R50 incorporadas; cinco salvaguardas canónicas y proyección, protocolo y 30 fichas reales sin firmar. Banco 8 M1 / 4 M2 / 18 M3, 10 archivos / 20 pendientes / 0 adjudicados. [Dosier literal R51/R54](docs/coordination/r54/README.md) con SHA y discrepancia M1 de R56 documentada. `last_checked` intacto; padre YELLOW; R5-1 abierto, R5-2 pendiente, G05 bloqueado y NO_GO_CLINICAL_RELEASE. Sin producción ni fusión. Los cortes siguientes son históricos.
 
 **R39 · 24/11/2026 (infraestructura de CI, sin cambio clínico).** PR95, PR96 y PR97 fusionadas (laboratorio; contrato `canonical-r27-v1.2`, `?lab_locale=pt-PT` solo en laboratorio, pt-BR falla cerrado). PR98 fusionada: `real-test-coverage` con límite de 30 min y paso FFmpeg acotado a 12 min con prefetch paralelo (causa medida: descarga apt de 19 s a 12–18 min con el mismo commit). Receptor `573fd10c`, árbol `60f8c2cb`: Security and quality completo (Semgrep, Trivy, T05, T06, cobertura, Sonar) y Clinical QA en success. `a5eddf84` no tuvo CI completo (runs cancelados). Pendientes: vectores Gemini R32 (archivo no recibido), banco 5/30 con hash, C12 (BLOCKED_ADMIN) y decisiones del propietario del laboratorio. CLINICALLY_PENDING.
 Validador clínico final: Dr. Juan Copado Ceballos; Farmacia consultiva, según PR35.

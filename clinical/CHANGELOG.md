@@ -1,3 +1,5 @@
+R54 · 24/11/2026 · MED-DEC-R46-01/02 APPROVED_MEDICAL_OWNER; salvaguardas corregidas R50 en imagen/proyección, protocolo y 30 fichas reales con N/A por aplicabilidad, 8/4/18 y extracción literal R51/R54 con SHA. Sin renovar last_checked, alterar banco/sellos ni adjudicar; YELLOW, CLINICALLY_PENDING, NO_GO_CLINICAL_RELEASE; R5-1/R5-2/G05 abiertos.
+
 ## 22/11/2026 · Nomenclatura PROC-SP-003 y continuidad
 
 Correcciones técnicas actuales: Host/Origin y credencial de proceso local en la API general; rechazo explícito del texto excesivo; detector de correo lineal y etiquetas multilingües conservando espacios de documentos; aviso local de privacidad limitado. La nota mantiene un episodio en memoria al navegar, permite descarte explícito e invalida respuestas de aceptación obsoletas. Inicio deriva grupos/recuentos de las 131 guías; los controles de escalas/importación se localizan; la aplicación identifica su revisión y distingue el catálogo adulto. Los informes QA focales y el checklist contienen las ejecuciones observadas. No se alteran fórmulas, dosis, reglas médicas, estados ni fechas de evidencia.

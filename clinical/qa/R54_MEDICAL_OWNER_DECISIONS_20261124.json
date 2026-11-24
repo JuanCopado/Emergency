@@ -1,0 +1,23 @@
+{
+  "record_version": "1.0",
+  "authorization_reference": "EMERGENCY — CODEX R54 / AUTORIZACIÓN MÉDICA EXPRESA / user message in this chat / 2026-11-24",
+  "authorization_date": "2026-11-24",
+  "medical_owner": "Dr. Juan Copado Ceballos",
+  "decisions": [
+    {"id": "MED-DEC-R46-01", "status": "APPROVED_MEDICAL_OWNER", "response_literal": "MED-DEC-R46-01: SÍ."},
+    {"id": "MED-DEC-R46-02", "status": "APPROVED_MEDICAL_OWNER", "response_literal": "MED-DEC-R46-02: SÍ."}
+  ],
+  "scope": "Incorporar las salvaguardas y el protocolo de adjudicación aprobados según formulaciones corregidas de Gemini R50; no reabrir decisiones ni inventar adjudicaciones.",
+  "source_comparison": {
+    "gemini_r50": "RECEIVED_LITERAL_ARCHIVED_AND_COMPARED",
+    "r51_documentary_assignment": "EXTRACTION_COMPLETED_IN_R54_FROM_R50_R56_REQUIREMENTS",
+    "r46_source_sha256": "caadc710b44866f7ec4f6b97e1538c0637408816cef1fa6085732c263c1984f1",
+    "r50_source_sha256": "f955b7f06999309cd06799148f3bdbb7bf961855f6283a93fdec6daaaefe7b62",
+    "r56_source_sha256": "e8707e511297b5350936934c5b6c044440da88748d3fe266ff00239a8602e156",
+    "note": "R50 §§4/5/7 incorporados con las salvaguardas expresas de R54. R56 conserva sus slots sin vinculación y discrepancia de disparador M1: ver protocolo. La desagregación bibliográfica/regulatoria propuesta por R56 requiere cotejo primario propio antes de modificar el catálogo canónico. No se renueva last_checked."
+  },
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "clinical_status": "CLINICALLY_PENDING",
+  "parent_image_evidence_status": "YELLOW",
+  "open_requirements": ["R5-1", "R5-2", "G05"]
+}

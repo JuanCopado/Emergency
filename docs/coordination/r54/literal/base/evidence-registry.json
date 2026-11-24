@@ -1,0 +1,8 @@
+{
+  "priority": "high",
+  "primary_source": "Modality-specific professional guidance plus independent local reference diagnosis",
+  "stored_version": "workflow v1.4; diagnostic performance not established",
+  "last_checked": "2026-09-17",
+  "status": "yellow",
+  "note": "Technical workflow only. Do not promote to green until representative de-identified cases are independently adjudicated and safety metrics are reviewed. Verify syndrome-specific guidance for management advice."
+}

@@ -1,0 +1,234 @@
+{
+  "base_commit": "203237400698d9f5073c459202df59d0b8eb7ed4",
+  "manifest_sha256": "bb5eb46b70a652b8996bc56e0089c9923aa186f5367a6ccde1f29b62f848ce6f",
+  "artifacts": [
+    {
+      "original_path": "clinical/modules/clinical-images.md",
+      "snapshot": "base",
+      "path": "docs/coordination/r54/literal/base/clinical-images.md",
+      "sha256": "c7e57c6eb2714db5c1ed7e7895de2ce76b06f4bd74a823ef61f9fe3a94b5a19a",
+      "extraction": "literal bytes"
+    },
+    {
+      "original_path": "clinical/modules/clinical-images.md",
+      "snapshot": "candidate",
+      "path": "docs/coordination/r54/literal/candidate/clinical-images.md",
+      "sha256": "ec1e12141ee3cdc864f1c2e1071a1877dd859634ac1157bf882448db1167780a",
+      "extraction": "literal bytes"
+    },
+    {
+      "original_path": "clinical/modules/image-modalities.md",
+      "snapshot": "base",
+      "path": "docs/coordination/r54/literal/base/image-modalities.md",
+      "sha256": "30f2947566ec075da457c79d9cf3d75411b71d2535042fcc8a38e647f2902415",
+      "extraction": "literal bytes"
+    },
+    {
+      "original_path": "clinical/modules/image-modalities.md",
+      "snapshot": "candidate",
+      "path": "docs/coordination/r54/literal/candidate/image-modalities.md",
+      "sha256": "ffebf0f6e20201b2d52c5d614ef8853bebb3abe95dbd6f9134c8ad1e9d6a98a0",
+      "extraction": "literal bytes"
+    },
+    {
+      "original_path": "clinical/references/evidence-registry.json",
+      "snapshot": "base",
+      "path": "docs/coordination/r54/literal/base/evidence-registry.json",
+      "sha256": "327a5092fbb8b1e62b35fdbb5dc486358b15ecdfdf076c3c1d8c08f019a46967",
+      "extraction": "JSON value extracted without changing fields"
+    },
+    {
+      "original_path": "clinical/references/evidence-registry.json",
+      "snapshot": "candidate",
+      "path": "docs/coordination/r54/literal/candidate/evidence-registry.json",
+      "sha256": "327a5092fbb8b1e62b35fdbb5dc486358b15ecdfdf076c3c1d8c08f019a46967",
+      "extraction": "JSON value extracted without changing fields"
+    },
+    {
+      "original_path": "clinical/lab/human_factors/bank/stimuli_manifest.json",
+      "snapshot": "base",
+      "path": "docs/coordination/r54/literal/base/stimuli_manifest.json",
+      "sha256": "bb5eb46b70a652b8996bc56e0089c9923aa186f5367a6ccde1f29b62f848ce6f",
+      "extraction": "literal bytes"
+    },
+    {
+      "original_path": "clinical/lab/human_factors/bank/stimuli_manifest.json",
+      "snapshot": "candidate",
+      "path": "docs/coordination/r54/literal/candidate/stimuli_manifest.json",
+      "sha256": "bb5eb46b70a652b8996bc56e0089c9923aa186f5367a6ccde1f29b62f848ce6f",
+      "extraction": "literal bytes"
+    },
+    {
+      "original_path": "clinical/references/evidence-sources.json",
+      "path": "docs/coordination/r54/literal/src-b5e20534.json",
+      "sha256": "371a12f8bc40b194c868e10c82185e30c107decd2b48b79fbaeb18a4c970f55d",
+      "extraction": "literal object substring"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-01.json",
+      "sha256": "c99ab76a0355e089731a3a17eb90926fcbade265fcb71e9041f3e8bf8fcb3005",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-01.json",
+      "sha256": "04e9fb0d37a744884de9107e7689c545c61af5f1e4284b0ab55cca9e06d9ef5b",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-02.json",
+      "sha256": "6767fffa9a5da6e1eb14d5b3edc5a4c882eff44d6a3bbe6143699f2a7d80878e",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-02.json",
+      "sha256": "fe187027a190188ceac0c5cc766e4425430d9dc3fb913aed5331a22e434fa2ef",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-03.json",
+      "sha256": "5cebbfdbb290c4c8457391a9247f17096705093509a1c034bdfd66cdd809cf8c",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-03.json",
+      "sha256": "02baec08e3806b64dc16945c8d77a0405a05e02280ffd5924cf45074010162a0",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-04.json",
+      "sha256": "dbb88a5a6748cf521d2058ed86ad443d0cb1302d589d09b4add1a958186e07f6",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-04.json",
+      "sha256": "c364481038f96dac8bd5dc24862daf430e8312df6cf44bf49bf00e957ff97ea0",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-05.json",
+      "sha256": "9bd3c1387a542c5f0f5241e0f1892e3e8cf33993589f896b59dadac3723e8587",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-05.json",
+      "sha256": "d6d621b293e2c736e30e1bdd81a6d63e52a91e5f494ecf183edadad4bdba696d",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-06.json",
+      "sha256": "a386655988b801a97e51cca9fb870a73ff4c7009d5d52566963bacceb5e6ed43",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-06.json",
+      "sha256": "de3f6ee7a2fe5a7b126e82694c823e7e126bf8a3b2769cd56061d94219039772",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-07.json",
+      "sha256": "854c90de3b7a5c3fd645476b8812413fa38cb5052d221e65ea88ec7dd216af09",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-07.json",
+      "sha256": "564c7a90d37152a44f8fbf45bd8d84207aa3a2befb5b71c46d39845377ac49c1",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-08.json",
+      "sha256": "a00beba4eec48260476b5dce1d4fe9b3438ac192f75ccb8054bc08387584facf",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-08.json",
+      "sha256": "0e7be7a788160d3f113f75a5107be2aa2c8c21decde931f5ce430b45f7d38226",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-09.json",
+      "sha256": "2405ebd18efce2305705c4c140d1a2e9e692d9512c2178744839a709c96fc5d6",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-09.json",
+      "sha256": "57e7ac69976429647bb959a8bad336daeef475337e4f4d4017d60a39fca3f89b",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-10.json",
+      "sha256": "4b9843d3fbc25d8a1cc157471e3eed513f94aa9b60046b7e1f7a95e1f5d776a1",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-10.json",
+      "sha256": "be6cec763fd5e330632e870c627c3514a485b4df95750b096184957d56303cf1",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-11.json",
+      "sha256": "2dfc773ebbe665107c49c8c4eff120a7a9fe3a072e949632e09ee162e5b396da",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-11.json",
+      "sha256": "ae6fc51a0066279aacaafd14337afa816a6912904bfc231c472ec05a18b1ecbb",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-12.json",
+      "sha256": "a135a1b103d55498763d5b9efa5283bdcfc1511125e00e30547b5bfe7860a083",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-12.json",
+      "sha256": "f0fe06ab80aca03d7e844d6f5732d43cfa832141111f6833e2fbe3ee01d48385",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-13.json",
+      "sha256": "9303a999911c5c7d916fbecda374603be697495277e7b1d72e1a456ca904030e",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-13.json",
+      "sha256": "9fc49b534d8a8b7fe763c08261f1418486fdb8db19a0f45ddd0b9f5c1ff46932",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-14.json",
+      "sha256": "6e3f303b3d51f7cbb767d58b88760146723d6e1ca67d392631908c81a6316560",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-14.json",
+      "sha256": "df4dd707a59a1bf054287e3ce0e7e0116be095126fdc5b0abdb26858ec509c73",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S1-15.json",
+      "sha256": "006939300b0da03be7002b6979e9451f44eba557ca70546fa8fa7521cfdf14e2",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/dossiers/S2-15.json",
+      "sha256": "af3e683fce6997e7d8a769082f5932d4f63e08264cfd95d8bb85b79f6485cc65",
+      "extraction": "derived from manifest + physical bytes; unsigned"
+    },
+    {
+      "path": "docs/coordination/r54/sources/R46_GEMINI.md",
+      "sha256": "caadc710b44866f7ec4f6b97e1538c0637408816cef1fa6085732c263c1984f1",
+      "extraction": "literal user attachment"
+    },
+    {
+      "path": "docs/coordination/r54/sources/R50_GEMINI.md",
+      "sha256": "f955b7f06999309cd06799148f3bdbb7bf961855f6283a93fdec6daaaefe7b62",
+      "extraction": "literal user attachment"
+    },
+    {
+      "path": "docs/coordination/r54/sources/R56_GEMINI.md",
+      "sha256": "e8707e511297b5350936934c5b6c044440da88748d3fe266ff00239a8602e156",
+      "extraction": "literal user attachment"
+    }
+  ],
+  "initial_inspected_base_commit": "c1ab23f1d9159b8b24a5f29ea1d6d6081e10140a"
+}
