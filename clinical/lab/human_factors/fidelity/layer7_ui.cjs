@@ -1,6 +1,6 @@
 "use strict";
 /* R28 · Layer 7 UI of arm B observed in the REAL app (VITE_R51_PROTOTYPE=1 and VITE_LAB_LAYER7=1, dev server only). LABORATORY ONLY.
- * The banner is rendered by the app's own lab component (app/src/lab/LabModalityEntry.tsx); this runner only answers the two lab
+ * The banner is rendered by the app's own lab component (app/lab-entry/LabModalityEntry.tsx); this runner only answers the two lab
  * endpoints: /api/lab/layer7/evaluate (layer7_adapter.py -> R22 harness over the inactive contract) and /upload/prepare (real dispatch).
  * Scenarios are driven through the UI as a person would; nothing is generated outside the screen. SYNTHETIC technical driver, no people.
  * Usage: node layer7_ui.cjs <appDir> <out.json> */
@@ -8,14 +8,13 @@ const fs = require("fs");
 const path = require("path");
 const http = require("http");
 const { spawn, execFileSync } = require("child_process");
-const { chromium } = require("playwright");
 
 const [appDir, outFile] = process.argv.slice(2);
 if (!appDir || !outFile) { console.error("usage: node layer7_ui.cjs <appDir> <out.json>"); process.exit(2); }
+const { chromium } = require(require.resolve("playwright-core", { paths: [path.resolve(appDir)] }));
 const HERE = __dirname;
 const STIMULI = path.join(HERE, "..", "bank", "stimuli");
 const MIME = { ".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".wav": "audio/wav" };
-const LANGS = ["es", "pt", "en"];
 const VIEWPORTS = [{ width: 360, height: 640 }, { width: 390, height: 844 }];
 const FORCE = /forçar|forzar|force|enviar mesmo|enviar de todos modos|send anyway/i;
 
@@ -49,8 +48,8 @@ const SCENARIOS = [
   { id: "F_document_kind_null_selected", file: "S1-13.pdf", modality: /Document/i, expect: null, canonical: { sequence_code: "S3b", period: 1, subblock: 1, stimulus_id: "S1-13" } },
   { id: "F_valid_rgb_ecg", file: "S1-14.png", modality: /ECG/i, expect: null },
 ];
-const LANGUAGE_STRATUM = { es: "ES", en: "EN", pt: "pt", "pt-PT": "pt-PT" };      // generic "pt" (no lab_locale) is still refused; pt-PT needs the explicit ?lab_locale=pt-PT; pt-BR has no approved texts
-const LANG_RUNS = [["es", null], ["pt", null], ["pt", "pt-PT"], ["en", null]];
+const LANGUAGE_STRATUM = { es: "ES", en: "EN", pt: "pt", "pt-PT": "pt-PT", "pt-BR": "pt-BR" };      // generic "pt" (no lab_locale) is still refused; pt-PT / pt-BR need the explicit ?lab_locale=pt-PT / pt-BR (pt-BR texts approved 24/11/2026, MED-DEC-R39-PTBR-FINAL)
+const LANG_RUNS = [["es", null], ["pt", null], ["pt", "pt-PT"], ["pt", "pt-BR"], ["en", null]];
 
 async function trial(browser, baseUrl, lang, vp, sc, locale) {
   const ctx = await browser.newContext({ viewport: vp });
@@ -117,20 +116,27 @@ async function trial(browser, baseUrl, lang, vp, sc, locale) {
 
 (async () => {
   const dev = await startVite({ VITE_R51_PROTOTYPE: "1", VITE_LAB_LAYER7: "1" });
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({ executablePath: process.env.LAB_CHROMIUM_EXECUTABLE }).catch((error) => {
+    dev.close();
+    throw error;
+  });
   const w = await browser.newPage();
   await w.goto(dev.url + "/clinical-note", { waitUntil: "networkidle" }).catch(() => {}); await w.waitForTimeout(4000); await w.reload({ waitUntil: "networkidle" }).catch(() => {}); await w.close();
   const results = [];
   let ptBr = null;
   try {
     for (const [lang, locale] of LANG_RUNS) for (const vp of VIEWPORTS) for (const sc of SCENARIOS) results.push(await trial(browser, dev.url, lang, vp, sc, locale));
-    const ctxBr = await browser.newContext({ viewport: VIEWPORTS[0] });                // pt-BR: no approved texts -> the real app must fail closed
-    await ctxBr.addInitScript(() => { try { localStorage.setItem("emergency.lang", "pt"); } catch (e) {} });
-    const pageBr = await ctxBr.newPage();
-    await pageBr.goto(dev.url + "/clinical-note?lab_entry=e1&lab_locale=pt-BR", { waitUntil: "networkidle" }); await openMcdt(pageBr);
-    await pageBr.getByTestId("lab-locale-unsupported").waitFor();
-    ptBr = { notice_visible: true, file_inputs: await pageBr.locator("input[type=file]").count(), log: await pageBr.evaluate(() => window.__LAB_LAYER7_LOG__ || []) };
-    await ctxBr.close();
+    // Fail closed for requests that no approved text covers: pt-BR on a non-pt UI, and an unknown regional code on a pt UI.
+    ptBr = [];
+    for (const [uiLang, locale] of [["es", "pt-BR"], ["pt", "pt-AO"], ["pt", "pt"]]) {
+      const ctxBr = await browser.newContext({ viewport: VIEWPORTS[0] });
+      await ctxBr.addInitScript((l) => { try { localStorage.setItem("emergency.lang", l); } catch (e) {} }, uiLang);
+      const pageBr = await ctxBr.newPage();
+      await pageBr.goto(dev.url + "/clinical-note?lab_entry=e1&lab_locale=" + locale, { waitUntil: "networkidle" }); await openMcdt(pageBr);
+      await pageBr.getByTestId("lab-locale-unsupported").waitFor();
+      ptBr.push({ ui_language: uiLang, lab_locale: locale, notice_visible: true, file_inputs: await pageBr.locator("input[type=file]").count(), log: await pageBr.evaluate(() => window.__LAB_LAYER7_LOG__ || []) });
+      await ctxBr.close();
+    }
   } finally { await browser.close(); dev.close(); }
   const abst = results.filter((r) => r.expected_trigger);
   const valid = results.filter((r) => !r.expected_trigger);
@@ -142,13 +148,13 @@ async function trial(browser, baseUrl, lang, vp, sc, locale) {
     other_trials_keep_approved_flow: results.filter((r) => !r.scenario.startsWith("E1")).every((r) => !r.file_input_present_before_modality),
     e1_recovery_by_choosing_modality: results.filter((r) => r.scenario.startsWith("E1")).every((r) => r.recovered_after_modality_choice === true),
     valid_trials_not_blocked: valid.every((r) => !r.banner_shown && r.review_card_created === true),
-    languages: LANG_RUNS.map(([l, v]) => v || l), pt_br_fails_closed: !!ptBr && ptBr.notice_visible && ptBr.file_inputs === 0, viewports: VIEWPORTS.map((v) => v.width), contrast_measured: false, screen_reader_tested: false, edge_checked: false,
+    languages: LANG_RUNS.map(([l, v]) => v || l), unapproved_regional_requests_fail_closed: !!ptBr && ptBr.length === 3 && ptBr.every((r) => r.notice_visible && r.file_inputs === 0), viewports: VIEWPORTS.map((v) => v.width), contrast_measured: false, screen_reader_tested: false, edge_checked: false,
     canonical_exported_valid: results.filter((r) => r.canonical_export.status === "EXPORTED").length,
     canonical_refused_with_reason: results.filter((r) => r.canonical_export.status === "NOT_EXPORTED").map((r) => [r.language, r.viewport, r.scenario, r.canonical_export.reason]).slice(0, 6),
     canonical_not_applicable: results.filter((r) => r.canonical_export.status === "NOT_APPLICABLE").length,
     execution_mode: "SYNTHETIC_TECHNICAL_DRIVER_ON_REAL_APP_LAB_BUILD_ONLY", study_with_humans: "NOT_AUTHORISED",
   };
-  fs.writeFileSync(outFile, JSON.stringify({ tool: "layer7_ui.cjs", summary, results, pt_br_fail_closed_trace: ptBr }, null, 1) + "\n");
+  fs.writeFileSync(outFile, JSON.stringify({ tool: "layer7_ui.cjs", summary, results, unapproved_regional_fail_closed_trace: ptBr }, null, 1) + "\n");
   fs.writeFileSync(outFile.replace(/\.json$/, "_records.json"), JSON.stringify(RECORDS, null, 1) + "\n");
   console.log(JSON.stringify(summary));
 })().catch((e) => { console.error(e); process.exit(1); });

@@ -1,0 +1,25 @@
+{
+  "x-status": "APPROVED_LITERAL_TEXTS_MED-DEC-R39-PTBR-FINAL",
+  "x-decision": "MED-DEC-R39-PTBR-FINAL",
+  "x-approved-on": "2026-11-24",
+  "x-scope": "LABORATORY ONLY. Regional pt-BR texts of the four R15-01 messages. Selected only by ?lab_locale=pt-BR on a pt UI. pt-PT texts stay in the (historical) contract; this file never overrides them.",
+  "x-message-map": {
+    "T1": "MSG_T7_A",
+    "T2": "MSG_T7_B",
+    "T3": "MSG_T7_C",
+    "T4": "MSG_T7_D"
+  },
+  "message-texts": {
+    "MSG_T7_A": "Não foi selecionada uma modalidade permitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar.",
+    "MSG_T7_B": "O arquivo não é tecnicamente compatível com a modalidade selecionada. O conteúdo não foi avaliado nem se exclui patologia. Envie um arquivo compatível ou escolha a modalidade adequada.",
+    "MSG_T7_C": "O arquivo está danificado ou não pode ser processado tecnicamente. Não foi realizada nenhuma avaliação clínica. Repita a captura ou envie uma cópia íntegra.",
+    "MSG_T7_D": "O formato do arquivo não é suportado por esta função. O conteúdo não foi analisado nem se exclui nenhuma condição. Converta ou reenvie em um formato compatível."
+  },
+  "controls": [
+    "Substituir arquivo",
+    "Verifique o arquivo na tela",
+    "Enviar arquivo",
+    "Selecionar modalidade",
+    "Envio bloqueado"
+  ]
+}

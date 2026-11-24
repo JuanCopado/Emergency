@@ -120,16 +120,24 @@ describe('lab Layer 7 entry (arm B, simulated harness)', () => {
   it('T7-04 maps to the right recovery set by message id', () => {
     expect(recoveryKey(verdict({ abstains: true, trigger_id: 'T7-04_FORMAT_CONTAINER_MISMATCH', message_id: 'MSG_T7_UNSUPPORTED_FORMAT', message_text: 'x' }))).toBe('T7-04A');
     expect(recoveryKey(verdict({ abstains: true, trigger_id: 'T7-04_FORMAT_CONTAINER_MISMATCH', message_id: 'MSG_T7_INCOMPATIBLE_MODALITY', message_text: 'x' }))).toBe('T7-04B');
+    for (const variant of [null, 'pt-PT', 'pt-BR'] as const) {
+      const format = verdict({ abstains: true, trigger_id: 'T7-04_FORMAT_CONTAINER_MISMATCH', message_id: 'MSG_T7_D', variant });
+      expect(recoveryKey(format)).toBe(variant === 'pt-BR' ? 'T7-04A' : 'T7-04B');
+      expect(recoveryKey({ ...format, message_id: 'MSG_T7_B' })).toBe('T7-04B');
+    }
   });
 });
 
 describe('lab regional Portuguese (explicit, never inferred)', () => {
   const log = () => (window as unknown as { __LAB_LAYER7_LOG__: { type: string; detail: Record<string, unknown> }[] }).__LAB_LAYER7_LOG__;
 
-  it('resolves only an explicit pt-PT on a pt UI; generic pt is never upgraded and pt-BR has no approved texts', () => {
+  it('resolves only an explicit pt-PT or pt-BR on a pt UI; generic pt is never upgraded', () => {
     expect(resolveLabLocale('?lab_locale=pt-PT', 'pt')).toEqual({ requested: 'pt-PT', variant: 'pt-PT', status: 'OK' });
     expect(resolveLabLocale('', 'pt')).toEqual({ requested: null, variant: null, status: 'OK' });
-    expect(resolveLabLocale('?lab_locale=pt-BR', 'pt').status).toBe('UNSUPPORTED');
+    expect(resolveLabLocale('?lab_locale=pt-BR', 'pt')).toEqual({ requested: 'pt-BR', variant: 'pt-BR', status: 'OK' });
+    expect(resolveLabLocale('?lab_locale=pt-BR', 'es').status).toBe('UNSUPPORTED');       // conflicts with the UI language
+    expect(resolveLabLocale('?lab_locale=pt-AO', 'pt')).toEqual({ requested: 'pt-AO', variant: null, status: 'UNSUPPORTED' });
+    expect(resolveLabLocale('?lab_locale=PT-BR', 'pt').status).toBe('UNSUPPORTED');       // exact code only
     expect(resolveLabLocale('?lab_locale=pt-PT', 'es').status).toBe('UNSUPPORTED');       // conflicts with the UI language: no silent substitution
     expect(resolveLabLocale('?lab_locale=pt', 'pt')).toEqual({ requested: 'pt', variant: null, status: 'UNSUPPORTED' });
   });
@@ -144,12 +152,113 @@ describe('lab regional Portuguese (explicit, never inferred)', () => {
     render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
     expect(log().find(e => e.type === 'locale_resolved')?.detail).toMatchObject({ language: 'pt', variant: null, status: 'OK' });
   });
+  it('pt-BR on a non-pt UI and an unknown regional code fail closed: notice, no file input and no selector', () => {
+    for (const [language, search] of [['es', '/?lab_locale=pt-BR&lab_entry=e1'], ['pt', '/?lab_locale=pt-AO&lab_entry=e1'], ['pt', '/?lab_locale=pt&lab_entry=e1']] as const) {
+      window.history.replaceState({}, '', search);
+      const view = render(<LabModalityEntry busy={false} ui={ui} language={language} onConfirm={vi.fn()} />);
+      expect(screen.getByTestId('lab-locale-unsupported')).toHaveAttribute('role', 'alert');
+      expect(screen.queryByLabelText('Upload clínico')).toBeNull();
+      expect(log().at(-1)?.detail).toMatchObject({ status: 'UNSUPPORTED' });
+      view.unmount();
+    }
+  });
 
-  it('pt-BR fails closed: notice, no file input and no selector', () => {
+  it('pt-BR is recorded as an observable locale_resolved event and enables the entry', () => {
     window.history.replaceState({}, '', '/?lab_locale=pt-BR&lab_entry=e1');
     render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
-    expect(screen.getByTestId('lab-locale-unsupported')).toHaveAttribute('role', 'alert');
-    expect(screen.queryByLabelText('Upload clínico')).toBeNull();
-    expect(log().find(e => e.type === 'locale_resolved')?.detail).toMatchObject({ variant: 'pt-BR', status: 'UNSUPPORTED' });
+    expect(log().find(e => e.type === 'locale_resolved')?.detail).toEqual({ language: 'pt', lab_locale: 'pt-BR', variant: 'pt-BR', status: 'OK' });
+    expect(screen.getByLabelText('Upload clínico')).toBeInTheDocument();
+    expect(screen.queryByTestId('lab-locale-unsupported')).toBeNull();
+  });
+});
+
+describe('lab pt-BR approved texts and controls (MED-DEC-R39-PTBR-FINAL)', () => {
+  const T1 = 'Não foi selecionada uma modalidade permitida. Este sistema não identifica automaticamente o tipo de imagem ou documento. Selecione a modalidade adequada antes de continuar.';
+  const T3 = 'O arquivo está danificado ou não pode ser processado tecnicamente. Não foi realizada nenhuma avaliação clínica. Repita a captura ou envie uma cópia íntegra.';
+  const T4 = 'O formato do arquivo não é suportado por esta função. O conteúdo não foi analisado nem se exclui nenhuma condição. Converta ou reenvie em um formato compatível.';
+  const log = () => (window as unknown as { __LAB_LAYER7_LOG__: { type: string; detail: Record<string, unknown> }[] }).__LAB_LAYER7_LOG__;
+
+  it('sends variant pt-BR to the evaluator and shows the literal approved T1 text with the literal control', async () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-BR&lab_entry=e1');
+    const calls = mockEvaluator(() => verdict({ abstains: true, trigger_id: 'T7-01_UNDECLARED_MODALITY', message_id: 'MSG_T7_A', message_text: T1, variant: 'pt-BR' }));
+    const onConfirm = vi.fn();
+    const user = userEvent.setup();
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={onConfirm} />);
+    await user.upload(screen.getByLabelText('Upload clínico') as HTMLInputElement, png());
+    const banner = await screen.findByTestId('lab-layer7-banner');
+    expect(banner).toHaveTextContent(T1);
+    expect(calls[0]).toMatchObject({ language: 'pt', variant: 'pt-BR' });
+    const controls = within(banner).getAllByRole('button');
+    expect(controls.map(c => c.textContent)).toEqual(['Selecionar modalidade']);
+    expect(screen.queryByText(/Confirmar e enviar/)).toBeNull();                       // no way to send
+    expect(onConfirm).not.toHaveBeenCalled();
+  });
+
+  it('T3 offers "Substituir arquivo", discards the file and never a force-send control', async () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-BR');
+    mockEvaluator(() => verdict({ abstains: true, trigger_id: 'T7-03_CORRUPT_UNPROCESSABLE', message_id: 'MSG_T7_C', message_text: T3, variant: 'pt-BR' }));
+    const user = userEvent.setup();
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
+    await user.click(screen.getByRole('button', { name: 'ECG' }));
+    await user.upload(screen.getByLabelText('Upload clínico') as HTMLInputElement, png());
+    const banner = await screen.findByTestId('lab-layer7-banner');
+    expect(banner).toHaveTextContent(T3);
+    const controls = within(banner).getAllByRole('button');
+    expect(controls.map(c => c.textContent)).toEqual(['Substituir arquivo']);
+    await user.click(controls[0] as HTMLElement);
+    expect(screen.queryByTestId('lab-layer7-banner')).toBeNull();
+    expect(screen.queryByRole('button', { name: /forzar|force|forçar|forçar/i })).toBeNull();
+  });
+
+  it('T4 (real message id MSG_T7_D) keeps the abstention with literal controls', async () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-BR');
+    mockEvaluator(() => verdict({ abstains: true, trigger_id: 'T7-04_FORMAT_CONTAINER_MISMATCH', message_id: 'MSG_T7_D', message_text: T4, variant: 'pt-BR' }));
+    const user = userEvent.setup();
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
+    await user.click(screen.getByRole('button', { name: 'ECG' }));
+    await user.upload(screen.getByLabelText('Upload clínico') as HTMLInputElement, png());
+    const banner = await screen.findByTestId('lab-layer7-banner');
+    expect(banner).toHaveTextContent(T4);
+    const labels = within(banner).getAllByRole('button').map(c => c.textContent);
+    expect(labels).toEqual(['Enviar arquivo']);
+  });
+
+  it('an evaluator answer without variant pt-BR is rejected: fail closed with "Envio bloqueado" and no European text is shown', async () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-BR');
+    mockEvaluator(() => verdict({ abstains: true, trigger_id: 'T7-03_CORRUPT_UNPROCESSABLE', message_id: 'MSG_T7_C', message_text: 'O ficheiro está danificado', variant: 'pt-PT' }));
+    const onConfirm = vi.fn();
+    const user = userEvent.setup();
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={onConfirm} />);
+    await user.click(screen.getByRole('button', { name: 'ECG' }));
+    await user.upload(screen.getByLabelText('Upload clínico') as HTMLInputElement, png());
+    expect(await screen.findByTestId('lab-layer7-failure')).toHaveTextContent('Envio bloqueado');
+    expect(screen.queryByTestId('lab-layer7-banner')).toBeNull();
+    expect(screen.queryByText(/ficheiro/)).toBeNull();
+    expect(onConfirm).not.toHaveBeenCalled();
+    expect(log().some(e => e.type === 'evaluator_failure')).toBe(true);
+  });
+
+  it('a valid file in pt-BR shows the "Verifique o arquivo na tela" preview and still sends only through confirmation', async () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-BR');
+    mockEvaluator(() => verdict({ variant: 'pt-BR' }));
+    const onConfirm = vi.fn();
+    const user = userEvent.setup();
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={onConfirm} />);
+    await user.click(screen.getByRole('button', { name: 'ECG' }));
+    await user.upload(screen.getByLabelText('Upload clínico') as HTMLInputElement, png());
+    expect(await screen.findByRole('region', { name: 'Verifique o arquivo na tela' })).toBeInTheDocument();
+    await user.click(screen.getByText(/Confirmar e enviar como/));
+    expect(onConfirm).toHaveBeenCalledWith(expect.any(File), 'ecg');
+  });
+
+  it('pt-PT is unchanged: its request carries no variant and its controls stay European', async () => {
+    window.history.replaceState({}, '', '/?lab_locale=pt-PT&lab_entry=e1');
+    const calls = mockEvaluator(() => verdict({ abstains: true, trigger_id: 'T7-01_UNDECLARED_MODALITY', message_id: 'MSG_T7_A', message_text: 'Texto europeu' }));
+    const user = userEvent.setup();
+    render(<LabModalityEntry busy={false} ui={ui} language="pt" onConfirm={vi.fn()} />);
+    await user.upload(screen.getByLabelText('Upload clínico') as HTMLInputElement, png());
+    const banner = await screen.findByTestId('lab-layer7-banner');
+    expect(Object.keys(calls[0] as object).sort()).toEqual(['body', 'language', 'ui_modality']);
+    expect(within(banner).getAllByRole('button').map(c => c.textContent)).toEqual(['Escolher modalidade']);
   });
 });

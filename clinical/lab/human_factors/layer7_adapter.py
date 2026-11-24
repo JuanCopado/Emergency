@@ -39,16 +39,17 @@ def descriptor_for(body, ui_modality):
             "declared_mime_type": body.get("mime_type") or EXTENSION_MIME.get(suffix), "declared_extension": suffix or None}
 
 
-def evaluate_upload(body, ui_modality, language="es"):
+def evaluate_upload(body, ui_modality, language="es", variant=None):
     if ui_modality is not None and ui_modality not in UI_MODALITIES:
         raise ValueError("unknown UI modality")
     descriptor = descriptor_for(body, ui_modality)
     # Document through the legacy bridge has modality_declared False by design (kind=null); the simulator accepts that flow.
     if descriptor["flow"] == "document_legacy_bridge":
         descriptor["modality_declared"] = False
-    result = harness.run_case("B", descriptor, language)
+    result = harness.run_case("B", descriptor, language, variant=variant)
     return {"mode": MODE, "arm": "B", "abstains": bool(result["layer7_shown"]), "trigger_id": result["trigger_id"],
             "message_id": result.get("message_id"), "message_text": result["message_text"], "language": language,
+            **({"variant": variant} if variant is not None else {}),
             "force_send_available": False, "descriptor": descriptor,
             "reachable_in_real_prototype_ui": ui_modality is not None}
 
@@ -56,4 +57,4 @@ def evaluate_upload(body, ui_modality, language="es"):
 if __name__ == "__main__":                                   # lab runner entry point: JSON on stdin -> JSON on stdout
     import json
     request = json.load(sys.stdin)
-    print(json.dumps(evaluate_upload(request["body"], request.get("ui_modality"), request.get("language", "es"))))
+    print(json.dumps(evaluate_upload(request["body"], request.get("ui_modality"), request.get("language", "es"), request.get("variant"))))

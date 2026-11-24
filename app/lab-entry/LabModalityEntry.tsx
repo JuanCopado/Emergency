@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MODALITIES, approvedLimitationText, modalityContract, type PrototypeModalityId } from '../src/clinical-note/r51Prototype';
-import { RECOVERY_LABELS, evaluateLayer7, labEntryIsE1, labLanguage, recordLabEvent, recoveryKey, resolveLabLocale, type Layer7Verdict } from './layer7Lab';
+import { PTBR_UI, RECOVERY_LABELS, evaluateLayer7, labEntryIsE1, labLanguage, recordLabEvent, recoveryKey, resolveLabLocale, type Layer7Verdict } from './layer7Lab';
 
 /**
  * LAB_LAYER7_MARKER · arm B of the Stage-1 formative study (SIMULATED_LAB_HARNESS_ONLY). Same R5-1 selector as ModalityEntry plus the
@@ -35,7 +35,7 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
   const evaluate = async (next: File, nextModality: PrototypeModalityId | null) => {
     setFailure(false); setVerdict(null);
     const kind = nextModality ? modalityContract(nextModality).kind : null;
-    try { setVerdict(await evaluateLayer7(next, nextModality, kind, lang)); } catch { setFailure(true); recordLabEvent('evaluator_failure'); }
+    try { setVerdict(await evaluateLayer7(next, nextModality, kind, lang, locale.variant)); } catch { setFailure(true); recordLabEvent('evaluator_failure'); }
   };
 
   const choose = (id: PrototypeModalityId) => {
@@ -56,7 +56,7 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
   const reset = () => { setModality(null); setFile(null); setVerdict(null); };
 
   const abstains = verdict?.abstains === true;
-  const labels = abstains ? RECOVERY_LABELS[recoveryKey(verdict as Layer7Verdict)]?.[lang] : undefined;
+  const labels = abstains ? RECOVERY_LABELS[recoveryKey(verdict as Layer7Verdict)]?.[locale.variant === 'pt-BR' ? 'pt-BR' : lang] : undefined;
   const showFile = e1 || contract !== null;
 
   if (locale.status === 'UNSUPPORTED') {                                                 // fail closed: no approved text for this regional request
@@ -90,7 +90,7 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
           )}
         </div>
       )}
-      {failure && <p role="alert" className="text-sm" data-testid="lab-layer7-failure">{ui('Erro técnico do laboratório: o envio foi bloqueado.')}</p>}
+      {failure && <p role="alert" className="text-sm" data-testid="lab-layer7-failure">{locale.variant === 'pt-BR' ? PTBR_UI.sendBlocked : ui('Erro técnico do laboratório: o envio foi bloqueado.')}</p>}
       {!showFile && <p className="text-xs text-muted">{ui('Nenhuma modalidade selecionada. Escolha uma para poder escolher o ficheiro.')}</p>}
       {showFile && (
         <label className="grid grid-cols-1 gap-1 min-w-0">
@@ -101,7 +101,7 @@ export default function LabModalityEntry({ busy, ui, language, onConfirm }: {
       )}
       {contract && <p className="text-xs text-muted">{approvedLimitationText(contract.id, language) ?? ui(contract.limitationKey, { modality: label })}</p>}
       {contract && file && verdict && !abstains && (
-        <section aria-label={ui('Pré-visualização antes do envio')} className="grid gap-2">
+        <section aria-label={locale.variant === 'pt-BR' ? PTBR_UI.verifyOnScreen : ui('Pré-visualização antes do envio')} className="grid gap-2">
           <p className="text-sm font-semibold">{ui('Modalidade de destino:')} {label}</p>
           <p className="text-xs text-muted">{ui('A confirmação humana não verifica o conteúdo da imagem.')}</p>
           <div className="flex flex-wrap gap-2">

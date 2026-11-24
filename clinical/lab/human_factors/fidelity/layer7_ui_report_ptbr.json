@@ -1,0 +1,4047 @@
+{
+ "tool": "layer7_ui.cjs",
+ "summary": {
+  "trials": 60,
+  "abstentions_as_expected": true,
+  "banner_above_fold_everywhere": true,
+  "banner_inside_viewport_width_everywhere": true,
+  "no_horizontal_overflow": true,
+  "e1_file_input_before_modality": true,
+  "other_trials_keep_approved_flow": true,
+  "e1_recovery_by_choosing_modality": true,
+  "valid_trials_not_blocked": true,
+  "languages": [
+   "es",
+   "pt",
+   "pt-PT",
+   "pt-BR",
+   "en"
+  ],
+  "unapproved_regional_requests_fail_closed": true,
+  "viewports": [
+   360,
+   390
+  ],
+  "contrast_measured": false,
+  "screen_reader_tested": false,
+  "edge_checked": false,
+  "canonical_exported_valid": 32,
+  "canonical_refused_with_reason": [
+   [
+    "pt",
+    360,
+    "E1_T7-01_file_before_modality",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    360,
+    "E2_T7-03_corrupt_jpeg",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    360,
+    "E2_T7-04_pdf_on_photo_route",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    360,
+    "F_document_kind_null_selected",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    390,
+    "E1_T7-01_file_before_modality",
+    "language_stratum (generic 'pt' is refused)"
+   ],
+   [
+    "pt",
+    390,
+    "E2_T7-03_corrupt_jpeg",
+    "language_stratum (generic 'pt' is refused)"
+   ]
+  ],
+  "canonical_not_applicable": 20,
+  "execution_mode": "SYNTHETIC_TECHNICAL_DRIVER_ON_REAL_APP_LAB_BUILD_ONLY",
+  "study_with_humans": "NOT_AUTHORISED"
+ },
+ "results": [
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Elegir modalidad"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1879,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1879,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1941,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 2092,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 3328,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 3329,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 4621,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cargar copia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1354,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1354,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1451,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1474,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1624,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1564,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1564,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1679,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1747,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1880,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1699,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1699,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1807,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1832,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3105,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "es",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Elegir modalidad"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1818,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1818,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1856,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 2002,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 3168,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 3168,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 4503,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cargar copia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1665,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1665,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1780,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1855,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 2055,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1695,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1695,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1792,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1844,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1937,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Cambiar modalidad",
+    "Subir otro archivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1677,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1677,
+     "detail": {
+      "language": "es",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1723,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1772,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3113,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "es",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1623,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1623,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1707,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1835,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 3043,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 3043,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 4429,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1471,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1471,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1540,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1569,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1746,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1293,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1293,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1384,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1436,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1523,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1258,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1258,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1303,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1340,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2579,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1386,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1387,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1425,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1517,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2809,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2809,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 4072,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1204,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1204,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1246,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1285,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1399,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1353,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1353,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1423,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1456,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1504,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_EXPORTED",
+    "reason": "language_stratum (generic 'pt' is refused)"
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1510,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1510,
+     "detail": {
+      "language": "pt",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1559,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1601,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2852,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1223,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1223,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1245,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1330,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2531,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2531,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3860,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1546,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1546,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1677,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1718,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1847,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1368,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1368,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1452,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1483,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1536,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1105,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1105,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1331,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1355,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2581,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt-PT",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Escolher modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1362,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1362,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1383,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1467,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2894,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2894,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 4275,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Carregar cópia íntegra / Repetir captura"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1126,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1126,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1169,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1202,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1293,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1086,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1087,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1177,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1272,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1331,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Alterar modalidade",
+    "Enviar outro ficheiro"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1155,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1155,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-PT",
+      "variant": "pt-PT",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1196,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1214,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2461,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt-PT",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt-BR",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Selecionar modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1159,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1159,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1178,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1236,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2440,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2440,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3688,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt-BR",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Substituir arquivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1112,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1112,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1143,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1165,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1271,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt-BR",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Selecionar modalidade",
+    "Enviar arquivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1088,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1088,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1149,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1170,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1231,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt-BR",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Enviar arquivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt-BR",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1135,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1135,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1181,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1204,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2451,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt-BR",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "pt-BR",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Selecionar modalidade"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1124,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1124,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1142,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1202,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2407,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2407,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3640,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "pt-BR",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Substituir arquivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1085,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1085,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1129,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1160,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1252,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "pt-BR",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Selecionar modalidade",
+    "Enviar arquivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1091,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1091,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1136,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1156,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1207,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "pt-BR",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Enviar arquivo"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "pt-BR",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1096,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1096,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1141,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1158,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2391,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "pt-BR",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Choose modality"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1089,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1089,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1112,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 360,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1179,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2381,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2381,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3614,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Upload intact copy / Retake capture"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1065,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1065,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1113,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1135,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1221,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1061,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1061,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1129,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1190,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1245,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1109,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1109,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1154,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1169,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 360,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2422,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "en",
+   "viewport": 360,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E1_T7-01_file_before_modality",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-01_UNDECLARED_MODALITY",
+   "adapter_trigger": "T7-01_UNDECLARED_MODALITY",
+   "file_input_present_before_modality": true,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Choose modality"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "recovered_after_modality_choice": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "file_selected",
+    "layer7_banner_rendered",
+    "modality_selected",
+    "recovery_action",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1087,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1087,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1110,
+     "detail": {
+      "size": 1371,
+      "with_modality": false,
+      "viewport_width_px": 390,
+      "e1_entry": true
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1157,
+     "detail": {
+      "trigger": "T7-01_UNDECLARED_MODALITY",
+      "message_id": "MSG_T7_A"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 2449,
+     "detail": {
+      "modality": "ecg",
+      "origin": "after_layer7"
+     }
+    },
+    {
+     "type": "recovery_action",
+     "at_ms": 2449,
+     "detail": {
+      "action": "change_modality",
+      "trigger": "T7-01_UNDECLARED_MODALITY"
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 3700,
+     "detail": {
+      "modality": "ecg"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "E2_T7-03_corrupt_jpeg",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "adapter_trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Upload intact copy / Retake capture"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1125,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1125,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1167,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1187,
+     "detail": {
+      "size": 4693,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1284,
+     "detail": {
+      "trigger": "T7-03_CORRUPT_UNPROCESSABLE",
+      "message_id": "MSG_T7_C"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_pdf_on_photo_route",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1105,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1105,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1145,
+     "detail": {
+      "modality": "skin_wound",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1162,
+     "detail": {
+      "size": 1368,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "layer7_banner_rendered",
+     "at_ms": 1218,
+     "detail": {
+      "trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+      "message_id": "MSG_T7_B"
+     }
+    }
+   ],
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "E2_T7-04_audio_global_format",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "adapter_trigger": "T7-04_FORMAT_CONTAINER_MISMATCH",
+   "file_input_present_before_modality": false,
+   "banner_shown": true,
+   "text_equals_adapter_text": true,
+   "role_alert": true,
+   "aria_live": "assertive",
+   "focused": true,
+   "above_fold": true,
+   "fully_in_viewport_width": true,
+   "recovery_controls": [
+    "Change modality",
+    "Upload another file"
+   ],
+   "force_send_controls": 0,
+   "confirm_buttons": 0,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "layer7_banner_rendered"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 0
+  },
+  {
+   "scenario": "F_document_kind_null_selected",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "EXPORTED",
+    "record_valid": true
+   },
+   "ui_log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1074,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1074,
+     "detail": {
+      "language": "en",
+      "lab_locale": null,
+      "variant": null,
+      "status": "OK"
+     }
+    },
+    {
+     "type": "modality_selected",
+     "at_ms": 1120,
+     "detail": {
+      "modality": "document",
+      "origin": "initial"
+     }
+    },
+    {
+     "type": "file_selected",
+     "at_ms": 1145,
+     "detail": {
+      "size": 2263,
+      "with_modality": true,
+      "viewport_width_px": 390,
+      "e1_entry": false
+     }
+    },
+    {
+     "type": "confirm_clicked",
+     "at_ms": 2386,
+     "detail": {
+      "modality": "document"
+     }
+    }
+   ],
+   "real_prepare_calls": 1
+  },
+  {
+   "scenario": "F_valid_rgb_ecg",
+   "language": "en",
+   "viewport": 390,
+   "expected_trigger": null,
+   "adapter_trigger": null,
+   "file_input_present_before_modality": false,
+   "banner_shown": false,
+   "review_card_created": true,
+   "overflow_px": 0,
+   "lab_log_events": [
+    "locale_resolved",
+    "locale_resolved",
+    "modality_selected",
+    "file_selected",
+    "confirm_clicked"
+   ],
+   "canonical_export": {
+    "status": "NOT_APPLICABLE",
+    "reason": "technical stimulus outside the 30-stimulus bank or used with a different meaning"
+   },
+   "real_prepare_calls": 1
+  }
+ ],
+ "unapproved_regional_fail_closed_trace": [
+  {
+   "ui_language": "es",
+   "lab_locale": "pt-BR",
+   "notice_visible": true,
+   "file_inputs": 0,
+   "log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 974,
+     "detail": {
+      "language": "es",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "UNSUPPORTED"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 974,
+     "detail": {
+      "language": "es",
+      "lab_locale": "pt-BR",
+      "variant": "pt-BR",
+      "status": "UNSUPPORTED"
+     }
+    }
+   ]
+  },
+  {
+   "ui_language": "pt",
+   "lab_locale": "pt-AO",
+   "notice_visible": true,
+   "file_inputs": 0,
+   "log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1038,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-AO",
+      "variant": null,
+      "status": "UNSUPPORTED"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1039,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt-AO",
+      "variant": null,
+      "status": "UNSUPPORTED"
+     }
+    }
+   ]
+  },
+  {
+   "ui_language": "pt",
+   "lab_locale": "pt",
+   "notice_visible": true,
+   "file_inputs": 0,
+   "log": [
+    {
+     "type": "locale_resolved",
+     "at_ms": 1105,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt",
+      "variant": null,
+      "status": "UNSUPPORTED"
+     }
+    },
+    {
+     "type": "locale_resolved",
+     "at_ms": 1105,
+     "detail": {
+      "language": "pt",
+      "lab_locale": "pt",
+      "variant": null,
+      "status": "UNSUPPORTED"
+     }
+    }
+   ]
+  }
+ ]
+}
