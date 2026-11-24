@@ -1,5 +1,7 @@
 # R41 · Hash, procedencia y privacidad
 
+Corte histórico R41. Para el JPEG y la ficha actual de S2-09, consultar el [inventario de adjudicación](r54/INVENTORY.md).
+
 Fecha: 24/11/2026.
 
 ## Verificación criptográfica sobre bytes reales del banco definitivo

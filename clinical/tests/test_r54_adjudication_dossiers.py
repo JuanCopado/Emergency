@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -48,6 +49,27 @@ class Dossiers(unittest.TestCase):
             else:
                 self.assertIsNone(r['stimulus_hash_sha256'])
                 self.assertEqual(r['physical_status'], 'PENDING_STIMULUS_GENERATION')
+
+    def test_indexed_review_dossiers_match_manifest_and_physical_bytes(self):
+        review = ROOT.parent / "docs/coordination/r54"
+        index = (review / "INVENTORY.md").read_text(encoding="utf-8")
+        rows = {line.split("|")[1].strip(): line for line in index.splitlines() if line.startswith(("| S1-", "| S2-"))}
+        current = dossiers.build_dossiers(MANIFEST, BANK)
+        self.assertEqual(set(rows), {row["stimulus_id"] for row in current})
+        for row in current:
+            with self.subTest(stimulus_id=row["stimulus_id"]):
+                line = rows[row["stimulus_id"]]
+                path = re.search(r"\((dossiers/[^)]+\.json)\)", line).group(1)
+                self.assertEqual(json.loads((review / path).read_text(encoding="utf-8")), row)
+                self.assertEqual(line.split("|")[7].strip(), row["stimulus_hash_sha256"] or "—")
+
+    def test_original_s2_09_dossier_stays_bound_to_historical_manifest(self):
+        review = ROOT.parent / "docs/coordination/r54"
+        original = json.loads((review / "literal/base/stimuli_manifest.json").read_text(encoding="utf-8"))
+        old = next(row for row in original["stimuli"] if row["stimulus_id"] == "S2-09")
+        reference = json.loads((review / "dossiers/S2-09.json").read_text(encoding="utf-8"))
+        self.assertEqual(reference["stimulus_hash_sha256"], old["sha256"])
+        self.assertEqual(reference["bytes"], old["bytes"])
 
     def test_m1_never_invents_layer7_mismatch_trigger(self):
         for r in dossiers.build_dossiers(MANIFEST, BANK):
