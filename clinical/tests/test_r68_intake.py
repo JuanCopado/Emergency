@@ -288,3 +288,14 @@ class Intake(unittest.TestCase):
                 self.assertEqual(result["status"], "BYTES_VERIFIED_REVIEW_PENDING")
                 self.assertEqual(result["assets"][0]["sha256"], receipt["assets"][0]["sha256"])
                 self.assertIsNone(MANIFEST["stimuli"][0]["file"])
+
+    def test_direct_cli_accepts_a_matching_physical_receipt(self):
+        import subprocess
+        receipt = self.delivery / "recepcion.json"
+        receipt.write_text(json.dumps({"assets": [self.asset]}), encoding="utf-8")
+        run = subprocess.run(
+            [sys.executable, str(Path(intake.__file__).resolve()), str(receipt)],
+            capture_output=True, text=True, timeout=30,
+        )
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual(json.loads(run.stdout)["status"], "BYTES_VERIFIED_REVIEW_PENDING")

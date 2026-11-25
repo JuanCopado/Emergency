@@ -7,7 +7,10 @@ from pathlib import Path
 
 from PIL import Image
 
-from human_factors.image_structure import VALIDATORS
+if __package__:
+    from .image_structure import VALIDATORS
+else:
+    from image_structure import VALIDATORS
 
 BANK = Path(__file__).resolve().parent / "bank"
 KINDS = {"synthetic", "phantom", "authorized_clinical"}
