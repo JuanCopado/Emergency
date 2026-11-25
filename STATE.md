@@ -1,4 +1,15 @@
-# STATE · R54 · 24/11/2026
+# STATE · R83 · 25/11/2026
+
+**R83 · integración BLOCKED, sin fusiones.** Receptor `bba8827`;
+secuencia PR105 → PR104 → PR106 conservada. R85 de PR105 no disponible
+(confirmación expresa del propietario); CLI de anotaciones devuelve Forbidden,
+regla/impacto NO VERIFICABLES. PR106 avanzó de `a24a62c` a `f459751`:
+cobertura y Sonar del SHA auditado quedaron cancelados; el R84 aportado no
+acredita el sucesor, cuya CI y reverificación se registran por separado.
+PR104 tiene R84 MERGE_READY solo sobre la base anterior y exige CI/auditoría
+nuevas tras PR105. [Checklist R83](docs/coordination/R83_INTEGRATION_CHECKLIST.md).
+C12 intacto; main y producción sin cambios. CLINICALLY_PENDING ·
+NO_GO_CLINICAL_RELEASE. Las entradas siguientes conservan su corte histórico.
 
 Estado global: **CLINICALLY_PENDING**. Registro: **129 GREEN / 2 YELLOW / 0 RED**, 131 módulos.
 

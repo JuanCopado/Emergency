@@ -1,3 +1,5 @@
+R83 · 25/11/2026 · Registro técnico de integración: PR105 → PR104 → PR106 sin iniciar por R85 pendiente; anotación Sonar inaccesible mediante CLI (Forbidden). PR106 actual f459751 requiere dictamen propio; cobertura/Sonar de a24a62c cancelados, sin extrapolar R84. Checklist y originales con hash en docs/coordination/R83_INTEGRATION_CHECKLIST.md. Sin cambios clínicos, C12, main, producción, banco ni last_checked. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
 R54 · 24/11/2026 · MED-DEC-R46-01/02 APPROVED_MEDICAL_OWNER; salvaguardas corregidas R50 en imagen/proyección, protocolo y 30 fichas reales con N/A por aplicabilidad, 8/4/18 y extracción literal R51/R54 con SHA. Sin renovar last_checked, alterar banco/sellos ni adjudicar; YELLOW, CLINICALLY_PENDING, NO_GO_CLINICAL_RELEASE; R5-1/R5-2/G05 abiertos.
 
 ## 22/11/2026 · Nomenclatura PROC-SP-003 y continuidad
