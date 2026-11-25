@@ -26,12 +26,13 @@ const report = { clinical_status: 'CLINICALLY_PENDING', release_status: 'NO_GO_C
     head: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: appRoot, encoding: 'utf8' }).trim(),
     dirty: !!execFileSync('git', ['status', '--porcelain'], { cwd: appRoot, encoding: 'utf8' }).trim(),
     sha256: Object.fromEntries(['src/App.tsx', 'src/data/generatedPediatricOutpatient.json',
+      'src/pages/PediatricOutpatient.tsx', 'src/test/pediatric-outpatient.test.tsx', 'src/test/route-identity.test.mjs',
       'scripts/check-route-navigation.mjs', 'scripts/check-route-identity.mjs', 'scripts/route-identity.mjs',
       'scripts/functional-harness.mjs', 'dist/index.html',
       ...readdirSync(join(appRoot, 'dist/assets')).sort().map(name => `dist/assets/${name}`),
     ].map(path => [path, createHash('sha256').update(readFileSync(join(appRoot, path))).digest('hex')])),
   },
-  routes: [], negative_controls: [], links: [], catalog: {}, errors: [], status: 'RUNNING' };
+  routes: [], pediatric_history: [], negative_controls: [], links: [], catalog: {}, errors: [], status: 'RUNNING' };
 const screenshots = process.env.ROUTE_QA_SCREENSHOTS;
 const bloodGas = spawn(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-u', '-c',
   'from blood_gas_local import make_server; s=make_server(ui_port=4180); print(s.server_port,flush=True); s.serve_forever()'],
@@ -89,9 +90,96 @@ async function checkCatalog(page) {
   report.catalog = { regimens: catalog.regimens.length, drug_groups: catalog.drugs.length, all_groups_checked: true, selected_form_interactive: true };
 }
 
+async function checkPediatricHistory(page, base, verify) {
+  const drug = page.getByLabel('Fármaco o combinación');
+  const regimen = page.getByLabel('Diagnóstico y régimen');
+  const snapshot = async (mode, expectedDrug, expectedRegimen) => {
+    await page.waitForFunction(({ expectedDrug, expectedRegimen }) => {
+      const selects = document.querySelectorAll('main select');
+      return selects[0]?.value === expectedDrug && selects[1]?.value === expectedRegimen;
+    }, { expectedDrug, expectedRegimen });
+    assert.equal(await drug.inputValue(), expectedDrug);
+    assert.equal(await regimen.inputValue(), expectedRegimen);
+    assert.equal(await page.locator('form#pediatric-input').count(), expectedRegimen ? 1 : 0);
+    await verify('/pediatrics', `history-${mode}`);
+    report.pediatric_history.push({ mode, url: page.url(), drug: await drug.inputValue(), regimen: await regimen.inputValue(), status: 'PASS' });
+  };
+  await page.goto(base + '/pediatrics');
+  await snapshot('direct', '', '');
+  await drug.selectOption('paracetamol');
+  await regimen.selectOption('paracetamol-pain-fever-home');
+  await snapshot('selected-paracetamol', 'paracetamol', 'paracetamol-pain-fever-home');
+  await drug.selectOption('fluticasone-propionate');
+  await snapshot('filter-fluticasone', 'fluticasone-propionate', '');
+  await page.goBack();
+  await snapshot('back', 'paracetamol', 'paracetamol-pain-fever-home');
+  if (screenshots) await page.screenshot({ path: join(screenshots, 'history-back-paracetamol.png'), fullPage: false });
+  await page.goForward();
+  await snapshot('forward', 'fluticasone-propionate', '');
+  await page.reload();
+  await snapshot('reload-filter', 'fluticasone-propionate', '');
+  await page.goto(base + '/pediatrics?regimen=paracetamol-pain-fever-home');
+  await snapshot('direct-regimen', 'paracetamol', 'paracetamol-pain-fever-home');
+  await page.reload();
+  await snapshot('reload-regimen', 'paracetamol', 'paracetamol-pain-fever-home');
+  await page.getByRole('link', { name: 'Inicio', exact: true }).click();
+  await page.locator('a[href="/pediatrics"]').filter({ visible: true }).first().click();
+  await snapshot('internal-link', '', '');
+}
+
+async function checkBrowserNegatives(page, context, base) {
+  const record = (kind, observed) => {
+    assert.equal(observed.status, 'FAIL', kind);
+    report.negative_controls.push({ kind, expected_valid: false, status: 'REJECTED_INVALID_MODULE', observed });
+  };
+  await page.route('**/pediatrics?qa=404', route => route.fulfill({ status: 404, contentType: 'text/html', body: readFileSync(join(appRoot, 'dist/index.html'), 'utf8') }));
+  try {
+    const response = await page.goto(base + '/pediatrics?qa=404');
+    const observed = await inspectRoute(page, '/pediatrics', response.status());
+    assert.ok(observed.failures.includes('HTTP_ERROR'));
+    record('real-http-404-with-module', observed);
+  } finally { await page.unroute('**/pediatrics?qa=404'); }
+
+  await page.goto(base + '/pediatrics');
+  await page.locator('main select').first().waitFor();
+  // Leave one visible select: a correct heading and partial clinical UI must fail.
+  await page.locator('main select').last().evaluate(element => element.remove());
+  const missing = await inspectRoute(page, '/pediatrics', 200);
+  assert.ok(missing.failures.some(failure => failure.startsWith('MISSING_MODULE_CONTROL')));
+  record('correct-heading-missing-required-control', missing);
+
+  await page.goto(base + '/pediatrics');
+  const errors = [];
+  const listener = error => errors.push(error.message);
+  page.on('pageerror', listener);
+  try {
+    const observedError = page.waitForEvent('pageerror');
+    await page.evaluate(() => { setTimeout(() => { throw new Error('R92 synthetic browser error'); }, 0); });
+    await observedError;
+    const observed = await inspectRoute(page, '/pediatrics', 200, errors);
+    assert.ok(observed.failures.includes('BROWSER_ERRORS'));
+    record('uncaught-browser-error', observed);
+  } finally { page.off('pageerror', listener); }
+
+  const broken = await context.newPage();
+  const loadErrors = [];
+  broken.setDefaultTimeout(1500);
+  broken.on('pageerror', error => loadErrors.push(error.message));
+  broken.on('console', message => { if (message.type() === 'error') loadErrors.push(message.text()); });
+  let aborted = 0;
+  await broken.route('**/assets/PediatricOutpatient-*.js', route => { aborted++; return route.abort('failed'); });
+  try {
+    await broken.goto(base + '/pediatrics');
+    await assert.rejects(() => assertRouteIdentity(broken, '/pediatrics', 200, loadErrors));
+    assert.ok(aborted > 0, 'The pediatric chunk must actually have been blocked');
+    assert.ok(loadErrors.length > 0, 'The failed load must be observed by the real browser');
+    report.negative_controls.push({ kind: 'aborted-pediatric-module-load', expected_valid: false, status: 'REJECTED_LOAD_FAILURE', aborted_requests: aborted, errors: loadErrors });
+  } finally { await broken.close(); }
+}
+
 try {
   const bloodPort = await bloodGasPort;
-  await withClinicalApp(async ({ page, base, browser }) => {
+  await withClinicalApp(async ({ page, context, base, browser }) => {
     report.browser = browser.version();
     let errors = [], documentStatus = null;
     const links = new Set(literalLinks(join(appRoot, 'src')));
@@ -134,12 +222,15 @@ try {
       mkdirSync(screenshots, { recursive: true });
       await page.screenshot({ path: join(screenshots, 'pediatrics-mobile.png'), fullPage: false });
     }
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await checkPediatricHistory(page, base, verify);
     for (const [path, expected] of [['/pediatric-outpatient', '/pediatrics'], ['/clinical-scores', '/scores'], ['/no-such-route', '/'], ['/drugs/unknown', '/drugs/norepinephrine'], ['/guides/unknown', '/guides/sepsis-shock'], ['/clinical/unknown', '/clinical/sepsis-shock'], ['/procedures/unknown', '/procedures/PROC-VASC-007']]) {
       await goto(path);
       const row = await inspectRoute(page, expected, documentStatus, errors);
       assert.equal(row.status, 'FAIL'); assert.ok(row.failures.includes('NOT_FOUND_PAGE'), path);
       report.negative_controls.push({ requested_route: path, expected_valid: false, status: 'REJECTED_INVALID_ROUTE', observed: row });
     }
+    await checkBrowserNegatives(page, context, base);
     report.links = [...links].sort().map(path => ({ path, registered: matchesRegisteredRoute(path, patterns) }));
     assert.deepEqual(report.links.filter(link => !link.registered), [], 'Navigation targets must match a registered non-wildcard route');
     report.status = 'PASS';

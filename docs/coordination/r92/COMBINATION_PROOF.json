@@ -1,0 +1,30 @@
+{
+  "base": "bba8827bad22b67d8c38cfd83558920a1bb52cd1",
+  "pr104": "fa376712297cce4297d64e30fc60853952e14bcd",
+  "pr105": "7017c7d9abd282e65643313f55b77c7e2d988b85",
+  "pr104_files": [
+    "app/src/pages/PediatricOutpatient.tsx",
+    "app/src/test/pediatric-outpatient.test.tsx"
+  ],
+  "pr105_files": [
+    ".github/workflows/app-ui-qa.yml",
+    "STATE.md",
+    "app/scripts/audit-ui-v143.mjs",
+    "app/scripts/check-route-identity.mjs",
+    "app/scripts/check-route-navigation.mjs",
+    "app/scripts/fixtures/r55-browser-accessibility-audit.json",
+    "app/scripts/functional-harness.mjs",
+    "app/scripts/route-identity.mjs",
+    "app/scripts/route-identity.node-test.mjs",
+    "app/src/test/route-identity-cases.mjs",
+    "app/src/test/route-identity.test.mjs",
+    "clinical/CHANGELOG.md",
+    "docs/coordination/R69_NAVIGATION_QA.md"
+  ],
+  "overlap": [],
+  "clinical_form_prefix_unchanged": true,
+  "clinical_sources_unchanged": true,
+  "catalog_sha256": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+  "original_negatives_preserved": true,
+  "explicit_s2187_test_preserved": true
+}

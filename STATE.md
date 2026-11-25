@@ -1,4 +1,15 @@
-# STATE · R69 · 24/11/2026
+# STATE · R92 · 25/11/2026
+
+**R92 · candidato combinado aislado PR104/PR105, sin integración en receptor.**
+Base `bba8827`; historias `fa37671` y `7017c7d` conservadas mediante merges,
+sin archivos solapados. Test S2187 significativo, seis negativos originales
+conservados; regresiones combinadas React/navegador, 106 estados, nueve de
+historial, once negativos y catálogo 89/52 intacto. Frontend local 1.044 PASS;
+resultados remotos, SHA y árbol finales en el recibo de la PR candidata y
+[cinco informes R92](docs/coordination/r92/R92_CODEX_CHECKLIST.md).
+Auditoría independiente pendiente antes de fusionar. Sin dosis, fórmulas,
+reglas clínicas, main, RC1, producción ni C12 alterados.
+CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Cortes siguientes históricos.
 
 Estado global: **CLINICALLY_PENDING**. Registro: **129 GREEN / 2 YELLOW / 0 RED**, 131 módulos.
 
