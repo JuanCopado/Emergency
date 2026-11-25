@@ -1,0 +1,49 @@
+name: R94 Windows original Git bytes
+on:
+  push:
+    branches: [codex/r94-git-bytes-windows-20261125]
+    paths: [.github/workflows/r94-git-bytes-windows.yml]
+permissions:
+  contents: read
+jobs:
+  original-bytes:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: f67523e2838ab057b50218dde0a3eaa9709247c8
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Verify original blob bytes and report checkout newline differences
+        shell: python
+        run: |
+          import hashlib, json, pathlib, platform, subprocess
+          ref = "f67523e2838ab057b50218dde0a3eaa9709247c8"
+          def blob(path):
+              return subprocess.check_output(["git", "show", ref + ":" + path])
+          bank = "clinical/lab/human_factors/bank/"
+          manifest = json.loads(blob(bank + "stimuli_manifest.json"))
+          rows = []
+          for entry in manifest["stimuli"]:
+              if not entry["file"]:
+                  continue
+              path = bank + entry["file"]
+              raw = blob(path)
+              checkout = pathlib.Path(path).read_bytes()
+              digest = hashlib.sha256(raw).hexdigest()
+              assert digest == entry["sha256"] and len(raw) == entry["bytes"], path
+              rows.append(dict(id=entry["stimulus_id"], sha256=digest,
+                               bytes=len(raw), checkout_sha256=hashlib.sha256(checkout).hexdigest(),
+                               checkout_matches_blob=checkout == raw))
+          assert len(rows) == 10
+          report = dict(status="PASS", platform=platform.platform(), sha=ref,
+                        method="subprocess Git stdout captured as bytes", assets=rows)
+          pathlib.Path("r94-windows-original-bytes.json").write_text(json.dumps(report, indent=2))
+          print(json.dumps(report, indent=2))
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r94-windows-original-git-bytes
+          path: r94-windows-original-bytes.json
