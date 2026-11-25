@@ -1,0 +1,207 @@
+{
+  "timestamp": "2026-11-24T19:35:12.784Z",
+  "browsers": {
+    "msedge": {
+      "channel": "msedge",
+      "version": "158.0.4370.33",
+      "routes": {
+        "/": {
+          "title": "Emergency",
+          "hasNav": true,
+          "hasMain": true,
+          "status": "PASS"
+        },
+        "/clinical-note": {
+          "rendered": true,
+          "inputsAccessible": true,
+          "hasExportTab": true,
+          "status": "PASS"
+        },
+        "/pediatric-outpatient": {
+          "rendered": true,
+          "heading": "Página no encontrada",
+          "status": "PASS"
+        },
+        "/clinical-scores": {
+          "rendered": true,
+          "interactiveElementsCount": 17,
+          "status": "PASS"
+        }
+      },
+      "keyboard": {
+        "tabStarts": true,
+        "firstActiveTag": "A",
+        "firstActiveText": "Nota clínica",
+        "hasFocusRing": true,
+        "status": "PASS"
+      },
+      "contrast": {
+        "light": {
+          "text/bg": {
+            "ratio": 16.5,
+            "pass": true
+          },
+          "muted/bg": {
+            "ratio": 7,
+            "pass": true
+          },
+          "primary/bg": {
+            "ratio": 5.48,
+            "pass": true
+          },
+          "danger/bg": {
+            "ratio": 5.98,
+            "pass": true
+          }
+        },
+        "dark": {
+          "text/bg": {
+            "ratio": 16.62,
+            "pass": true
+          },
+          "muted/bg": {
+            "ratio": 7.94,
+            "pass": true
+          },
+          "primary/bg": {
+            "ratio": 9.12,
+            "pass": true
+          },
+          "danger/bg": {
+            "ratio": 7.07,
+            "pass": true
+          }
+        }
+      },
+      "responsive": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "hasHorizontalOverflow": false,
+          "pass": true
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "hasHorizontalOverflow": false,
+          "pass": true
+        },
+        "desktop": {
+          "width": 1280,
+          "height": 800,
+          "hasHorizontalOverflow": false,
+          "pass": true
+        }
+      },
+      "pdf_export": {},
+      "errors": []
+    },
+    "chrome": {
+      "channel": "chrome",
+      "version": "158.0.8127.37",
+      "routes": {
+        "/": {
+          "title": "Emergency",
+          "hasNav": true,
+          "hasMain": true,
+          "status": "PASS"
+        },
+        "/clinical-note": {
+          "rendered": true,
+          "inputsAccessible": true,
+          "hasExportTab": true,
+          "status": "PASS"
+        },
+        "/pediatric-outpatient": {
+          "rendered": true,
+          "heading": "Página no encontrada",
+          "status": "PASS"
+        },
+        "/clinical-scores": {
+          "rendered": true,
+          "interactiveElementsCount": 17,
+          "status": "PASS"
+        }
+      },
+      "keyboard": {
+        "tabStarts": true,
+        "firstActiveTag": "A",
+        "firstActiveText": "Nota clínica",
+        "hasFocusRing": true,
+        "status": "PASS"
+      },
+      "contrast": {
+        "light": {
+          "text/bg": {
+            "ratio": 16.5,
+            "pass": true
+          },
+          "muted/bg": {
+            "ratio": 7,
+            "pass": true
+          },
+          "primary/bg": {
+            "ratio": 5.48,
+            "pass": true
+          },
+          "danger/bg": {
+            "ratio": 5.98,
+            "pass": true
+          }
+        },
+        "dark": {
+          "text/bg": {
+            "ratio": 16.62,
+            "pass": true
+          },
+          "muted/bg": {
+            "ratio": 7.94,
+            "pass": true
+          },
+          "primary/bg": {
+            "ratio": 9.12,
+            "pass": true
+          },
+          "danger/bg": {
+            "ratio": 7.07,
+            "pass": true
+          }
+        }
+      },
+      "responsive": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "hasHorizontalOverflow": false,
+          "pass": true
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "hasHorizontalOverflow": false,
+          "pass": true
+        },
+        "desktop": {
+          "width": 1280,
+          "height": 800,
+          "hasHorizontalOverflow": false,
+          "pass": true
+        }
+      },
+      "pdf_export": {},
+      "errors": []
+    }
+  },
+  "contrast_matrix": [],
+  "keyboard_navigation": [],
+  "responsive_viewports": [],
+  "security_audit": {
+    "external_network_requests": 0,
+    "credentials_exposed_in_client": 0,
+    "picomatch_advisory_contained": true,
+    "production_lab_markers_excluded": true,
+    "data_privacy_hipaa_gdpr_simulated_only": true,
+    "status": "PASS"
+  },
+  "verdict": "PASS"
+}
