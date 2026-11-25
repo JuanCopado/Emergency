@@ -1,3 +1,16 @@
+# Actualización R96 · 25/11/2026
+
+El estado vigente y las evidencias de integración están en [el recibo R96](r96/R96_CODEX_PR106_INTEGRATION.md).
+PR106 integrada en `1733faa2a63ea93a63e2edb1b8fa4a37b21a3c3a` tras auditoría
+independiente del HEAD `52881a609bdd75445781c141f3fe793515f4d005`.
+Recepción 20/20 y navegador postmerge PASS. C12 ruleset27994721 activo;
+no se repiten PR104/105/108. Banco 10/30 técnico, 20 pendientes, 0 adjudicados,
+8 M1 / 4 M2 / 18 M3. YELLOW · CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+El resto del archivo conserva su trazabilidad histórica; sus estados anteriores
+no sustituyen este corte ni acreditan adjudicación clínica.
+
+---
+
 # R68 · Conciliación R54/R61 y recepción local
 
 **CLINICALLY_PENDING · YELLOW · NO_GO_CLINICAL_RELEASE · NOT_FROZEN_NOT_VALIDATED.**

@@ -1,3 +1,35 @@
+# R96 · Integración técnica comprobada · 25/11/2026
+
+PR106 integrada en `1733faa2a63ea93a63e2edb1b8fa4a37b21a3c3a`, árbol
+`1ba2630c0184b9c09b2f7d27fea546f2bb78b3dd`, sobre receptor PR108
+`f67523e2838ab057b50218dde0a3eaa9709247c8`.
+El [dictamen independiente MERGE_READY](https://github.com/JuanCopado/Emergency/pull/106#issuecomment-7163208626)
+acredita el HEAD exacto `52881a609bdd75445781c141f3fe793515f4d005`.
+Se retiró Draft y se fusionó con comprobación de ese SHA, sin modificar su rama.
+
+Sobre el merge real: 20 pruebas de recepción PASS con Pillow 13.0.0;
+Chromium/Linux PASS en 106 estados de navegación, nueve de historial pediátrico,
+once controles negativos y 513 enlaces; catálogo 89 pautas / 52 grupos intacto.
+No certifica Edge/Chrome nativos en Windows ni validación diagnóstica.
+CI push real: [Clinical QA](https://github.com/JuanCopado/Emergency/actions/runs/45620530571)
+y [Security and quality](https://github.com/JuanCopado/Emergency/actions/runs/45620530573).
+El recibo final y sus conclusiones se registran en `docs/coordination/r96/`.
+
+C12: ruleset 27994721 activo, rama protegida, seis checks obligatorios,
+strict=true, bloqueo de force-push y borrado, sin bypass. Cero aprobaciones
+nativas exigidas: la auditoría independiente del proyecto es una condición
+separada y se satisfizo para PR106. No se cambió la configuración.
+PR89 cerrada sin merge como sustituida por PR99; PR107 permanece cerrada
+sin merge como antecedente. PR104/105 ya integradas por PR108: no se repitieron.
+
+Banco: 10/30 archivos técnicos, 20 pendientes, 0/30 adjudicados; M1=8, M2=4,
+M3=18. Historial S2-09 y ficha sucesora preservados. Sin cambios de dosis,
+fórmulas, catálogos, algoritmos, `last_checked`, main, RC1 o producción.
+YELLOW · CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. R5-1, R5-2 y G05
+conservan sus requisitos pendientes. Los cortes siguientes son históricos.
+
+---
+
 # STATE · R92 · 25/11/2026
 
 **R92 · candidato combinado aislado PR104/PR105, sin integración en receptor.**
