@@ -1,4 +1,14 @@
-# STATE · R83 · 25/11/2026
+# STATE · R94 · 25/11/2026
+
+**R94 · PR108 integrada.** Receptor verificado
+`f67523e2838ab057b50218dde0a3eaa9709247c8`, árbol
+`837fbe471792fdbcdfe94298ba51517bfed4782d`. PR104 y PR105 constan
+integradas mediante ese merge, con historias conservadas. Clinical QA y App UI QA
+postmerge aprobadas; C12 postmerge en comprobación. PR106 sigue pendiente de
+actualizar su base y obtener reverificación del nuevo HEAD. R91 definitivo
+MERGE_READY cubre f459751 y R93 comunicado cubre PR108 25f662e.
+Banco 10/30 físicos, 20 pendientes, 0 adjudicados. CLINICALLY_PENDING ·
+NO_GO_CLINICAL_RELEASE. El corte R83 siguiente es histórico.
 
 **R83 · integración BLOCKED, sin fusiones.** Receptor `bba8827`;
 secuencia PR105 → PR104 → PR106 conservada. R85 de PR105 no disponible
@@ -11,7 +21,21 @@ nuevas tras PR105. [Checklist R83](docs/coordination/R83_INTEGRATION_CHECKLIST.m
 C12 intacto; main y producción sin cambios. CLINICALLY_PENDING ·
 NO_GO_CLINICAL_RELEASE. Las entradas siguientes conservan su corte histórico.
 
+
+**R92 · candidato combinado aislado PR104/PR105, sin integración en receptor.**
+Base `bba8827`; historias `fa37671` y `7017c7d` conservadas mediante merges,
+sin archivos solapados. Test S2187 significativo, seis negativos originales
+conservados; regresiones combinadas React/navegador, 106 estados, nueve de
+historial, once negativos y catálogo 89/52 intacto. Frontend local 1.044 PASS;
+resultados remotos, SHA y árbol finales en el recibo de la PR candidata y
+[cinco informes R92](docs/coordination/r92/R92_CODEX_CHECKLIST.md).
+Auditoría independiente pendiente antes de fusionar. Sin dosis, fórmulas,
+reglas clínicas, main, RC1, producción ni C12 alterados.
+CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Cortes siguientes históricos.
+
 Estado global: **CLINICALLY_PENDING**. Registro: **129 GREEN / 2 YELLOW / 0 RED**, 131 módulos.
+
+**R69 · candidato técnico sobre bba8827, tras PR103.** R55 usó `/pediatric-outpatient` y `/clinical-scores` en vez de `/pediatrics` y `/scores`; HTTP 200 + marco/h1 no acreditaban módulo. Nuevos gates de identidad/controles y negativos en CI; 97 estados, siete rechazos y 510 enlaces verificados; catálogo 89/52 intacto. Frontend 1.042 pruebas; Clinical QA inicial 1.674 (16 omitidas), repetición final en recibo de la PR. [Causa, evidencia y checklist](docs/coordination/R69_NAVIGATION_QA.md). PR102/103 fusionadas; sucesora de ficha S2-09 preparada en R68, pendiente de incorporar y sin duplicarla. Sin cambio clínico ni producción; NO_GO_CLINICAL_RELEASE. Los cortes siguientes son históricos.
 
 **R54 · candidato aislado sobre 2032374 (PR100).** MED-DEC-R46-01/02 APPROVED_MEDICAL_OWNER (SÍ, 24/11), formulaciones R50 incorporadas; cinco salvaguardas canónicas y proyección, protocolo y 30 fichas reales sin firmar. Banco 8 M1 / 4 M2 / 18 M3, 10 archivos / 20 pendientes / 0 adjudicados. [Dosier literal R51/R54](docs/coordination/r54/README.md) con SHA y discrepancia M1 de R56 documentada. `last_checked` intacto; padre YELLOW; R5-1 abierto, R5-2 pendiente, G05 bloqueado y NO_GO_CLINICAL_RELEASE. Sin producción ni fusión. Los cortes siguientes son históricos.
 

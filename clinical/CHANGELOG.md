@@ -1,4 +1,10 @@
+R94 · 25/11/2026 · PR108 fusionada en f67523e con árbol auditado 837fbe4 e historias PR104/PR105 conservadas. Conciliación de PR107 con el receptor posterior a PR108. Clinical QA y App UI QA postmerge PASS; C12 postmerge en comprobación. PR106 pendiente de actualización y reverificación. S1313 MINOR preexistente registrado aparte. Verificación Windows de bytes originales Git PASS, con tres PDF de checkout afectados por conversión LF a CRLF, sin alterar activos ni sellos. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
 R83 · 25/11/2026 · Registro técnico de integración: PR105 → PR104 → PR106 sin iniciar por R85 pendiente; anotación Sonar inaccesible mediante CLI (Forbidden). PR106 actual f459751 requiere dictamen propio; cobertura/Sonar de a24a62c cancelados, sin extrapolar R84. Checklist y originales con hash en docs/coordination/R83_INTEGRATION_CHECKLIST.md. Sin cambios clínicos, C12, main, producción, banco ni last_checked. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
+R92 · 25/11/2026 · Candidato aislado PR104/PR105 con historia preservada, corrección S2187 existente y regresión combinada de historial pediátrico/identidad. QA ampliada: HTTP 404 real, controles incompletos, error y carga abortada. Catálogo y RegimenForm intactos; sin nuevas recomendaciones, dosis, banco, adjudicaciones, last_checked, C12, main, RC1 ni producción. Auditoría independiente previa a integrar. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
+R69 · 24/11/2026 · QA de navegación rechaza soft-404 y falsos PASS R55, valida identidad funcional de módulos, 19 patrones y catálogo pediátrico 89/52; sin cambios de rutas canónicas, pautas, motores ni banco. CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE. Evidencia/checklist en `docs/coordination/R69_NAVIGATION_QA.md`.
 
 R54 · 24/11/2026 · MED-DEC-R46-01/02 APPROVED_MEDICAL_OWNER; salvaguardas corregidas R50 en imagen/proyección, protocolo y 30 fichas reales con N/A por aplicabilidad, 8/4/18 y extracción literal R51/R54 con SHA. Sin renovar last_checked, alterar banco/sellos ni adjudicar; YELLOW, CLINICALLY_PENDING, NO_GO_CLINICAL_RELEASE; R5-1/R5-2/G05 abiertos.
 
