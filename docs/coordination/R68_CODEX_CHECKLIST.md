@@ -41,3 +41,51 @@ python clinical/lab/human_factors/intake_r68.py /ruta/al/paquete/recepcion.json
 ```
 
 `BYTES_VERIFIED_REVIEW_PENDING` acredita coincidencia del archivo con el recibo. La comprobación es local y de solo lectura. Antes de incorporar un derivado, cotejar las referencias de permisos y privacidad, aplicar la especificación por ID, revisar metadatos y píxeles, validar formato, dimensiones y representación a 360×640, y comprobar duplicados y la composición de cada galería. Actualizar el índice y la ficha correspondiente con el hash en la misma entrega que el manifiesto. [Protocolo de adjudicación](../../clinical/qa/R54_IMAGE_ADJUDICATION_PROTOCOL_20261124.md)
+
+## R83 · Cierre de regresiones R84 — 25/11/2026
+
+R84 exige cambios sobre `1a8a14ec2460962b1974bc6cd3af5f8b02d9be38`.
+Se reutiliza la corrección estructural de R78 publicada en
+`a24a62c2fe3c1a0dcf1cdeb180c6145f6ff92774`, árbol
+`93ad4c427df3c0d924e54d0c29f8a9c72610065a`; no se duplica su implementación.
+
+### Contrato de recepción de contenedores
+El archivo completo debe contener una única imagen estática JPEG, PNG o WebP.
+La coincidencia de tamaño y SHA-256 del recibo es necesaria, pero no suficiente.
+Antes de decodificar:
+- PNG: firma, límites y CRC de todos los chunks; IHDR inicial; IDAT contiguos;
+  IEND vacío obligatorio y exactamente al final. Rechazar truncamientos incluso
+  cuando el decodificador pueda recuperar los píxeles.
+- JPEG: recorrer segmentos y todos los scans hasta el EOI real. Rechazar cualquier
+  byte posterior al EOI, incluidos espacios, otro EOI e imágenes concatenadas.
+  Un marcador EOI dentro de metadatos con longitud válida no es el final de imagen.
+- WebP: longitud RIFF exacta, límites de todos los chunks, padding par nulo y
+  exactamente una imagen; rechazar sobrantes y animación.
+Los metadatos internos estructuralmente válidos se aceptan para su revisión
+de privacidad posterior. Esta política no certifica privacidad ni adjudicación.
+
+### Evidencia R83 observada
+`test_r68_intake.py`: **20 pruebas PASS** localmente, Python 3.14 / Pillow 13.0.0.
+Se añaden tres pruebas por `check_receipt` que escriben físicamente cada candidato
+y recalculan tamaño y SHA-256 sobre sus bytes:
+- 7 negativos PNG/JPEG: sin IEND, truncado dentro de IDAT, CRC IDAT inválido,
+  payload/espacio/segundo EOI tras EOI e imágenes JPEG concatenadas.
+- 6 negativos WebP: truncado, sobrantes, concatenación, longitud de chunk,
+  padding ausente y padding no nulo, ajustando RIFF cuando corresponde.
+- 14 variantes válidas: JPEG basal/progresivo/gris/CMYK/EXIF; PNG RGB con texto,
+  RGBA, paleta, gris y 16 bits; WebP con pérdida, sin pérdida, RGBA y EXIF.
+Se comprueba aceptación con `BYTES_VERIFIED_REVIEW_PENDING`, hash exacto y
+manifiesto sin promoción.
+
+Las tres pruebas nuevas se ejecutaron también contra el intake de `1a8a14e`:
+9 fallos de subcaso esperados, 0 errores; la prueba de variantes válidas pasa.
+En Pillow 13.0.0 el caso PNG `[:-20]` ya se rechaza en el código anterior,
+a diferencia de R84/Pillow 12.3.0; se conserva la regresión y se exige CI con
+las dependencias fijadas. No se extrapola esa diferencia a una corrección del código.
+
+C12 y Clinical QA deben completarse sobre el nuevo HEAD publicado. Los resultados
+de `1a8a14e` y `a24a62c` no se atribuyen a un SHA posterior.
+**Dictamen independiente vigente: CHANGES_REQUIRED sobre 1a8a14e; nueva auditoría
+Antigravity pendiente sobre el HEAD sucesor. PR106 no se fusiona sin dictamen
+favorable y controles completos.** Banco, manifiesto, sellos y adjudicaciones
+sin cambios en R83. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.

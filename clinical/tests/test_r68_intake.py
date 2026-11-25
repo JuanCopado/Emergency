@@ -21,6 +21,13 @@ MANIFEST = {"stimuli": [
 
 
 class Intake(unittest.TestCase):
+    def receipt_for_bytes(self, data, suffix):
+        """Bind the receipt to the actual candidate, even when it is malformed."""
+        path = self.delivery / ("candidate" + suffix)
+        path.write_bytes(data)
+        return {"assets": [{**self.asset, "file": path.name,
+                            "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}]}
+
     def setUp(self):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
@@ -210,3 +217,74 @@ class Intake(unittest.TestCase):
             Image.new("RGB", (21, 19)).save(output, format=fmt)
             with patch.object(image_structure, "MAX_PARTS", 0), self.assertRaises(ValueError):
                 intake.check_image("S1-10", output.getvalue(), suffix, None)
+
+    def test_receipt_rejects_r84_png_and_jpeg_defects_with_matching_hashes(self):
+        output = io.BytesIO()
+        Image.new("RGB", (20, 20)).save(output, format="PNG")
+        png = output.getvalue()
+        # Corrupt the IDAT CRC while preserving every other chunk and IEND.
+        idat = png.index(b"IDAT")
+        crc_offset = idat + 4 + int.from_bytes(png[idat - 4:idat], "big")
+        bad_crc = bytearray(png)
+        bad_crc[crc_offset] ^= 1
+        jpeg = self.file.read_bytes()
+        cases = (
+            ("png_without_iend", ".png", png[:-12]),
+            ("png_truncated_inside_idat", ".png", png[:-20]),
+            ("png_invalid_idat_crc", ".png", bytes(bad_crc)),
+            ("jpeg_payload_after_eoi", ".jpg", jpeg + b"payload"),
+            ("jpeg_space_after_eoi", ".jpg", jpeg + b" "),
+            ("jpeg_second_eoi", ".jpg", jpeg + b"\xff\xd9"),
+            ("jpeg_concatenated_image", ".jpg", jpeg + jpeg),
+        )
+        for name, suffix, data in cases:
+            receipt = self.receipt_for_bytes(data, suffix)
+            with self.subTest(case=name), self.assertRaisesRegex(ValueError, "unreadable image"):
+                intake.check_receipt(receipt, self.delivery, MANIFEST)
+
+    def test_receipt_rejects_webp_framing_with_matching_hashes(self):
+        output = io.BytesIO()
+        Image.new("RGB", (20, 20)).save(output, format="WEBP")
+        webp = output.getvalue()
+        odd_chunk = b"test" + (1).to_bytes(4, "little") + b"x"
+        cases = [webp[:-2], webp + b"payload", webp + webp,
+                 webp[:16] + b"\xff\xff\xff\xff" + webp[20:]]
+        for pad in (b"", b"\x01"):
+            data = webp + odd_chunk + pad
+            cases.append(data[:4] + (len(data) - 8).to_bytes(4, "little") + data[8:])
+        for index, data in enumerate(cases):
+            receipt = self.receipt_for_bytes(data, ".webp")
+            with self.subTest(case=index), self.assertRaisesRegex(ValueError, "unreadable image"):
+                intake.check_receipt(receipt, self.delivery, MANIFEST)
+
+    def test_receipt_accepts_compatible_valid_variants_in_all_three_formats(self):
+        from PIL.PngImagePlugin import PngInfo
+        text = PngInfo()
+        text.add_text("Comment", "synthetic fixture")
+        exif = Image.Exif()
+        exif[270] = "synthetic fixture metadata"
+        variants = (
+            ("JPEG", ".jpg", "RGB", {}),
+            ("JPEG", ".jpeg", "RGB", {"progressive": True}),
+            ("JPEG", ".jpg", "L", {}),
+            ("JPEG", ".jpg", "CMYK", {}),
+            ("JPEG", ".jpg", "RGB", {"exif": exif.tobytes()}),
+            ("PNG", ".png", "RGB", {"pnginfo": text}),
+            ("PNG", ".png", "RGBA", {}),
+            ("PNG", ".png", "P", {}),
+            ("PNG", ".png", "L", {}),
+            ("PNG", ".png", "I;16", {}),
+            ("WEBP", ".webp", "RGB", {}),
+            ("WEBP", ".webp", "RGB", {"lossless": True}),
+            ("WEBP", ".webp", "RGBA", {"lossless": True}),
+            ("WEBP", ".webp", "RGB", {"exif": exif.tobytes()}),
+        )
+        for fmt, suffix, mode, options in variants:
+            output = io.BytesIO()
+            Image.new(mode, (21, 19)).save(output, format=fmt, **options)
+            receipt = self.receipt_for_bytes(output.getvalue(), suffix)
+            with self.subTest(fmt=fmt, mode=mode, options=options):
+                result = intake.check_receipt(receipt, self.delivery, MANIFEST)
+                self.assertEqual(result["status"], "BYTES_VERIFIED_REVIEW_PENDING")
+                self.assertEqual(result["assets"][0]["sha256"], receipt["assets"][0]["sha256"])
+                self.assertIsNone(MANIFEST["stimuli"][0]["file"])
