@@ -4,8 +4,9 @@
 `f67523e2838ab057b50218dde0a3eaa9709247c8`, árbol
 `837fbe471792fdbcdfe94298ba51517bfed4782d`. PR104 y PR105 constan
 integradas mediante ese merge, con historias conservadas. Clinical QA y App UI QA
-postmerge aprobadas; C12 postmerge en comprobación. PR106 sigue pendiente de
-actualizar su base y obtener reverificación del nuevo HEAD. R91 definitivo
+postmerge aprobadas; seis checks C12 postmerge aprobados. PR106 actualizada
+a 52881a6, con seis checks C12 y Clinical QA aprobados; falta reverificación
+independiente de ese HEAD antes de integrar. R91 definitivo
 MERGE_READY cubre f459751 y R93 comunicado cubre PR108 25f662e.
 Banco 10/30 físicos, 20 pendientes, 0 adjudicados. CLINICALLY_PENDING ·
 NO_GO_CLINICAL_RELEASE. El corte R83 siguiente es histórico.

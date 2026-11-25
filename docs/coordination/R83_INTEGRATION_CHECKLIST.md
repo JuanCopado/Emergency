@@ -1,3 +1,12 @@
+## R94 · corte vigente de coordinación
+
+PR108 integrada en f67523e con CI postmerge completa PASS. PR104 y PR105 constan
+integradas mediante el mismo merge. PR106 actualizada a 52881a6, árbol 1ba2630c,
+con C12 seis checks y Clinical QA PASS; pendiente de reverificación independiente.
+PR107 conserva su cierre histórico sin merge. Las entradas R83 siguientes
+conservan su fecha y alcance. Banco 10/30 físicos, 20 pendientes y 0 adjudicados.
+CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
 # R83 · Registro de integración · 25/11/2026
 
 **BLOCKED · CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.**
