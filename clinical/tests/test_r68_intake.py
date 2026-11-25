@@ -90,3 +90,123 @@ class Intake(unittest.TestCase):
         intake.check_receipt({"assets": [asset]}, self.delivery, MANIFEST)
         with self.assertRaisesRegex(ValueError, "stimulus specification"):
             intake.check_receipt({"assets": [{**asset, "role": "derivative"}]}, self.delivery, MANIFEST)
+
+    def test_static_formats_decode_and_have_complete_containers(self):
+        for fmt, suffix, options in (
+            ("JPEG", ".jpg", {}), ("JPEG", ".jpg", {"progressive": True}),
+            ("PNG", ".png", {}), ("WEBP", ".webp", {}),
+            ("WEBP", ".webp", {"lossless": True}),
+        ):
+            with self.subTest(fmt=fmt, options=options):
+                output = io.BytesIO()
+                Image.new("RGB", (21, 19)).save(output, format=fmt, **options)
+                intake.check_image("S1-10", output.getvalue(), suffix, None)
+
+    def test_rejects_incomplete_and_trailing_containers_for_every_format(self):
+        for fmt, suffix in (("JPEG", ".jpg"), ("PNG", ".png"), ("WEBP", ".webp")):
+            output = io.BytesIO()
+            Image.new("RGB", (21, 19)).save(output, format=fmt)
+            data = output.getvalue()
+            missing_end = data[:-12] if fmt == "PNG" else data[:-2]
+            for mutated in (missing_end, data + b"trailer", data + b"\xff\xd9", data + data):
+                with self.subTest(fmt=fmt, size=len(mutated)), self.assertRaises(ValueError):
+                    intake.check_image("S1-10", mutated, suffix, None)
+
+    def test_png_crc_length_and_end_chunk_are_checked(self):
+        import zlib
+        output = io.BytesIO()
+        Image.new("RGB", (21, 19)).save(output, format="PNG")
+        data = output.getvalue()
+        bad_crc = bytearray(data)
+        bad_crc[-1] ^= 1
+        body = b"x"
+        malformed_iend = (1).to_bytes(4, "big") + b"IEND" + body
+        malformed_iend += zlib.crc32(b"IEND" + body).to_bytes(4, "big")
+        for mutated in (bytes(bad_crc), data[:-12] + malformed_iend, data[:8] + b"\xff\xff\xff\xff" + data[12:]):
+            with self.subTest(size=len(mutated)), self.assertRaises(ValueError):
+                intake.check_image("S1-10", mutated, ".png", None)
+
+    def test_webp_riff_size_chunk_length_and_padding_are_checked(self):
+        output = io.BytesIO()
+        Image.new("RGB", (21, 19)).save(output, format="WEBP")
+        data = output.getvalue()
+        too_short = data[:4] + (len(data) - 10).to_bytes(4, "little") + data[8:]
+        bad_chunk = data[:16] + b"\xff\xff\xff\xff" + data[20:]
+        fragment = data + b"x"
+        fragment = fragment[:4] + (len(fragment) - 8).to_bytes(4, "little") + fragment[8:]
+        for mutated in (too_short, bad_chunk, fragment):
+            with self.subTest(size=len(mutated)), self.assertRaises(ValueError):
+                intake.check_image("S1-10", mutated, ".webp", None)
+
+    def test_jpeg_eoi_in_metadata_is_not_the_image_end(self):
+        data = self.file.read_bytes()
+        payload = b"embedded\xff\xd9marker"
+        comment = b"\xff\xfe" + (len(payload) + 2).to_bytes(2, "big") + payload
+        intake.check_image("S1-10", data[:2] + comment + data[2:], ".jpg", None)
+        for mutated in (data[:2] + comment + data[2:-2], data[:2] + b"\xff\xfe\xff\xff" + data[2:]):
+            with self.assertRaises(ValueError):
+                intake.check_image("S1-10", mutated, ".jpg", None)
+
+    def test_resolution_and_receipt_size_limits_remain_enforced(self):
+        with patch.object(intake, "MAX_IMAGE_PIXELS", 10), self.assertRaises(ValueError):
+            intake.check_image("S1-10", self.file.read_bytes(), ".jpg", None)
+        with patch.object(intake, "MAX_ASSET_BYTES", 10), self.assertRaises(ValueError):
+            intake.check_receipt({"assets": [self.asset]}, self.delivery, MANIFEST)
+
+    def test_transparency_remains_supported(self):
+        for fmt, suffix in (("PNG", ".png"), ("WEBP", ".webp")):
+            output = io.BytesIO()
+            Image.new("RGBA", (21, 19), (2, 3, 4, 100)).save(output, format=fmt)
+            intake.check_image("S1-10", output.getvalue(), suffix, None)
+
+    def test_webp_nonzero_or_missing_padding_is_rejected(self):
+        output = io.BytesIO()
+        Image.new("RGB", (21, 19)).save(output, format="WEBP")
+        data = output.getvalue()
+        chunk = b"test" + (1).to_bytes(4, "little") + b"x"
+        for pad in (b"\x01", b""):
+            mutated = data + chunk + pad
+            mutated = mutated[:4] + (len(mutated) - 8).to_bytes(4, "little") + mutated[8:]
+            with self.assertRaises(ValueError):
+                intake.check_image("S1-10", mutated, ".webp", None)
+
+    def test_animated_containers_remain_rejected(self):
+        for fmt, suffix in (("PNG", ".png"), ("WEBP", ".webp")):
+            output = io.BytesIO()
+            Image.new("RGB", (21, 19), "red").save(
+                output, format=fmt, save_all=True,
+                append_images=[Image.new("RGB", (21, 19), "blue")], duration=100,
+            )
+            with self.assertRaises(ValueError):
+                intake.check_image("S1-10", output.getvalue(), suffix, None)
+
+    def test_every_truncated_prefix_is_rejected_structurally(self):
+        from human_factors.image_structure import VALIDATORS
+        for fmt in ("JPEG", "PNG", "WEBP"):
+            output = io.BytesIO()
+            Image.new("RGB", (2, 2)).save(output, format=fmt)
+            data = output.getvalue()
+            for cut in range(len(data)):
+                with self.subTest(fmt=fmt, cut=cut), self.assertRaises(ValueError):
+                    VALIDATORS[fmt](data[:cut])
+
+    def test_jpeg_rejects_false_markers_and_unterminated_scans(self):
+        from human_factors.image_structure import jpeg
+        for data in (
+            b"\xff\xd8\xff\xd9", b"\xff\xd8\xff\xd8", b"\xff\xd8\xff\x00",
+            b"\xff\xd8\xff\xda\x00\x02abc",
+            b"\xff\xd8\xff\xda\x00\x02abc\xff",
+            b"\xff\xd8\xff\xda\x00\x02abc\xff\xff\x00\xff\xd9",
+            b"\xff\xd8\xff\xda\x00\x02abc\xff\x00",
+            b"\xff\xd8\xff\xfe\x00\x01",
+        ):
+            with self.subTest(data=data), self.assertRaises(ValueError):
+                jpeg(data)
+
+    def test_segment_work_budget_rejects_even_decodable_containers(self):
+        from human_factors import image_structure
+        for fmt, suffix in (("JPEG", ".jpg"), ("PNG", ".png"), ("WEBP", ".webp")):
+            output = io.BytesIO()
+            Image.new("RGB", (21, 19)).save(output, format=fmt)
+            with patch.object(image_structure, "MAX_PARTS", 0), self.assertRaises(ValueError):
+                intake.check_image("S1-10", output.getvalue(), suffix, None)

@@ -7,6 +7,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from human_factors.image_structure import VALIDATORS
+
 BANK = Path(__file__).resolve().parent / "bank"
 KINDS = {"synthetic", "phantom", "authorized_clinical"}
 ROLES = {"original", "derivative", "target", "distractor"}
@@ -20,6 +22,12 @@ def check_image(sid, data, suffix, required_format):
     expected_format = IMAGE_SUFFIXES.get(suffix)
     if not expected_format:
         raise ValueError(f"{sid}: unsupported image extension")
+    if not 0 < len(data) <= MAX_ASSET_BYTES:
+        raise ValueError(f"{sid}: image size is outside intake limits")
+    try:
+        VALIDATORS[expected_format](data)
+    except ValueError as error:
+        raise ValueError(f"{sid}: unreadable image container") from error
     try:
         with Image.open(io.BytesIO(data), formats=[expected_format]) as image:
             if required_format and image.format.lower() != required_format:
