@@ -1,0 +1,30 @@
+{
+  "assets": [
+    {
+      "stimulus_id": "S1-01",
+      "file": "S1-01-source.jpg",
+      "role": "original",
+      "kind": "authorized_clinical",
+      "source": "Berteun; public-domain self-photo; https://commons.wikimedia.org/wiki/File:Abrasion_on_hand_20050906.jpg; acquired from immutable GitHub mirror https://raw.githubusercontent.com/ReffRizz/hive-apps/f9a2ffd714e18a9c529a0745d988fd59453b4be8/doctor/photos/p385217.jpg",
+      "license": "Public domain dedication by copyright holder, worldwide; primary Commons page verified",
+      "permission_ref": "https://commons.wikimedia.org/wiki/File:Abrasion_on_hand_20050906.jpg",
+      "privacy_ref": "Technical visual inspection: cropped hand surface only, no face, text, names or contextual identifiers observed. Independent pixel privacy review pending.",
+      "transformation": "Mirror derivative, reported resizing only by mirror; original full-resolution Wikimedia bytes unavailable",
+      "bytes": 16840,
+      "sha256": "8f91995c4ec6969885b8b2dcd1383ce2d41dc29143d6dd6c751146f55acbfe4c"
+    },
+    {
+      "stimulus_id": "S1-01",
+      "file": "S1-01.jpg",
+      "role": "derivative",
+      "kind": "authorized_clinical",
+      "source": "Berteun; public-domain self-photo; https://commons.wikimedia.org/wiki/File:Abrasion_on_hand_20050906.jpg; acquired from immutable GitHub mirror https://raw.githubusercontent.com/ReffRizz/hive-apps/f9a2ffd714e18a9c529a0745d988fd59453b4be8/doctor/photos/p385217.jpg",
+      "license": "Public domain dedication by copyright holder, worldwide; primary Commons page verified",
+      "permission_ref": "https://commons.wikimedia.org/wiki/File:Abrasion_on_hand_20050906.jpg",
+      "privacy_ref": "Technical visual inspection: cropped hand surface only, no face, text, names or contextual identifiers observed. Independent pixel privacy review pending.",
+      "transformation": "RGB re-encoding with metadata omitted; no pixel recoloring, geometry or anatomy edits",
+      "bytes": 43637,
+      "sha256": "8bcc20bc199de5ec5d5f645fcb6df3d23c871a3c4271cba8467385949a7e5252"
+    }
+  ]
+}
