@@ -97,6 +97,8 @@ jobs:
         run: npm run lint
       - name: Evidence writer regression
         run: node --test scripts/write-qa-evidence.node-test.mjs
+      - name: Reject R55 soft-404 and missing-module false positives
+        run: node --test scripts/route-identity.node-test.mjs
       - name: Typecheck
         run: npm run typecheck
       - name: Test
@@ -143,3 +145,15 @@ jobs:
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome
         run: npm run pediatrics:browser-check
+      - name: Verify route identity, reload, internal navigation and negative controls
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+          ROUTE_QA_OUTPUT: ${{ runner.temp }}/route-navigation.json
+        run: node scripts/check-route-navigation.mjs
+      - name: Publish route navigation evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: route-navigation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/route-navigation.json
+          if-no-files-found: error

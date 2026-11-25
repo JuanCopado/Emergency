@@ -1,5 +1,6 @@
 import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
+import { useNavigate } from 'react-router-dom';
 import PediatricOutpatient from '../pages/PediatricOutpatient';
 import { pediatricCatalog, regimensForDrug, numericInput } from '../pediatrics/catalog';
 import { renderAt } from './render';
@@ -30,6 +31,25 @@ it('groups multiple formulations and indications under one active drug', async (
   expect(options).toHaveLength(4);
   expect(options.map((o) => o.textContent).join(' ')).toMatch(/rhinitis/);
   expect(options.map((o) => o.textContent).join(' ')).toMatch(/asthma/);
+});
+
+it('restores the matching pediatric filter and regimen on back and forward', async () => {
+  function Screen() {
+    const navigate = useNavigate();
+    return <><button onClick={() => navigate(-1)}>Back</button>
+      <button onClick={() => navigate(1)}>Forward</button><PediatricOutpatient /></>;
+  }
+  await renderAt(`/pediatrics?regimen=${paracetamol}`, [
+    { path: '/pediatrics', element: <Screen /> },
+  ], 'es');
+  enter('Fármaco o combinación', 'fluticasone-propionate');
+  expect(screen.getByLabelText('Fármaco o combinación')).toHaveValue('fluticasone-propionate');
+  fireEvent.click(screen.getByRole('button', { name: 'Back' }));
+  expect(screen.getByLabelText('Fármaco o combinación')).toHaveValue('paracetamol');
+  expect(screen.getByLabelText('Diagnóstico y régimen')).toHaveValue(paracetamol);
+  fireEvent.click(screen.getByRole('button', { name: 'Forward' }));
+  expect(screen.getByLabelText('Fármaco o combinación')).toHaveValue('fluticasone-propionate');
+  expect(screen.getByLabelText('Diagnóstico y régimen')).toHaveValue('');
 });
 
 it('renders canonical dose, ideal weight, limits, administration and the unconfirmed home gate', async () => {

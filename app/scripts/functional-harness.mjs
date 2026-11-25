@@ -5,7 +5,7 @@ import { preview } from 'vite';
 import { chromiumPath } from './chromium.mjs';
 import { clinicalTestSession } from './clinical-test-session.mjs';
 
-export async function withClinicalApp(run) {
+export async function withClinicalApp(run, additionalProxy = {}) {
   const session=clinicalTestSession(4180);
   const api=spawn(process.env.CLINICAL_QA_PYTHON||'python',['-B','-u','-c',session.python],{cwd:fileURLToPath(new URL('../../clinical/scripts/',import.meta.url)),env:session.environment,windowsHide:true,stdio:['ignore','pipe','pipe']});
   let server,browser;
@@ -17,7 +17,7 @@ export async function withClinicalApp(run) {
       api.on('error',e=>{clearTimeout(timeout);reject(e);});
       api.on('exit',c=>{clearTimeout(timeout);reject(new Error(`API exited ${c}`));});
     });
-    server=await preview({preview:{host:'127.0.0.1',port:4180,strictPort:true,proxy:{'/api':session.proxy(port)}},logLevel:'error'});
+    server=await preview({preview:{host:'127.0.0.1',port:4180,strictPort:true,proxy:{...additionalProxy,'/api':session.proxy(port)}},logLevel:'error'});
     browser=await chromium.launch({executablePath:chromiumPath(),headless:true});
     const context=await browser.newContext({serviceWorkers:'block',acceptDownloads:true,extraHTTPHeaders:session.headers});
     await context.addInitScript(()=>{localStorage.setItem('emergency.lang','es');});
