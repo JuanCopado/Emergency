@@ -1,4 +1,4 @@
-name: R77 native Windows browser QA
+name: R97 native Windows browser QA
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
-          ref: 809236fbe147e54ea1b0b20045faf3a74c9bfc12
+          ref: a3b05dee88e43e9cf51e81054e4b0fbd5eeec69d
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
