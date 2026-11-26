@@ -103,7 +103,62 @@
         "assessment": "Shared ingredient/reference identity; not proof of duplicate therapy."
       }
     ],
-    "limits": "No automatic synonym/salt/product equivalence. Repeated indications, concentrations and combination components are not deduplicated into prescriptions. No patient medication reconciliation performed."
+    "limits": "No automatic synonym/salt/product equivalence. Repeated indications, concentrations and combination components are not deduplicated into prescriptions. No patient medication reconciliation performed.",
+    "current_acute_contracts": {
+      "records": 46,
+      "duplicate_ids": [],
+      "contract_ids": [
+        "amiodarone-arrest-third",
+        "amiodarone-arrest-fifth",
+        "amiodarone-failed-cardioversion",
+        "amiodarone-maintenance",
+        "insulin-dka",
+        "insulin-mixed",
+        "insulin-dextrose",
+        "insulin-hhs",
+        "sodium-hyponatremia",
+        "sodium-icp",
+        "status-lorazepam",
+        "status-diazepam",
+        "status-midazolam",
+        "status-levetiracetam",
+        "status-fosphenytoin",
+        "status-valproate",
+        "status-phenytoin-local",
+        "status-refractory",
+        "anaphylaxis-adult",
+        "anaphylaxis-over12",
+        "anaphylaxis-6to12",
+        "anaphylaxis-6monthsto6",
+        "anaphylaxis-under6months",
+        "anaphylaxis-refractory",
+        "reversal-dabigatran",
+        "reversal-apixaban",
+        "reversal-rivaroxaban",
+        "reversal-ufh",
+        "reversal-enoxaparin-early",
+        "reversal-enoxaparin-late",
+        "reversal-enoxaparin-repeat",
+        "reversal-vka-pcc",
+        "reversal-superwarfarin",
+        "reversal-edoxaban",
+        "reversal-betrixaban",
+        "reversal-fondaparinux",
+        "reversal-other-lmwh",
+        "reversal-enoxaparin-over12",
+        "reversal-argatroban",
+        "reversal-bivalirudin",
+        "reversal-other-dti",
+        "reversal-danaparoid",
+        "reversal-fibrinolytics",
+        "reversal-antiplatelets",
+        "reversal-unknown",
+        "reversal-dabigatran-repeat"
+      ],
+      "source_revision": "192db63a45cb8482d3176b8b1f3eea5799e8f70c224b4439b6197bc4554bd1b4",
+      "distinct_recorded_drug_labels": 29,
+      "interpretation": "Contract/indication records, not 46 unique active substances. Existing 19 accepted contracts are preserved; no regulatory product equivalence inferred."
+    }
   },
   "new_clinical_decisions": {
     "received_in_this_dispatch": [],
@@ -119,6 +174,8 @@
     "clinical/references/acute-contract-owner-acceptance-2026-11-16.json": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
     "app/src/data/drugs.json": "084f4090a4d9ddd68b60c2b731eb17be632a22e795598cef8b6fa2276b032893",
     "app/src/data/generatedPediatricOutpatient.json": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
-    "clinical/pharmacology/corticosteroids.json": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499"
+    "clinical/pharmacology/corticosteroids.json": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499",
+    "clinical/scripts/acute_medication_api.py": "e550335681a6e4fcbaec82ed63a952adf3fbce1a3fbb9d0cdc31fd132dce6037",
+    "clinical/scripts/acute_medication_contracts.py": "887e1f0ef384f82b30189ebf174f336caed57ee9af6b256a0164547602241a7a"
   }
 }
