@@ -102,9 +102,39 @@ def cohen_kappa(first, second):
     return None if chance == 1 else (observed - chance) / (1 - chance)
 
 
+ROLES = ("author", "evaluator", "custodian", "adjudicator")
+
+
+def check_roles(roles):
+    """Independence of the blind corpus: nobody may hold two roles. `roles` maps role -> list of names.
+
+    Returns the people per role; raises ValueError naming every person who appears in more than one role
+    (authors wrote the corpus, evaluators ran the filter, custodians keep the key, adjudicators judge).
+    """
+    if not isinstance(roles, dict) or set(roles) - set(ROLES):
+        raise ValueError(f"roles must be an object with keys from {list(ROLES)}")
+    held = defaultdict(list)
+    for role in ROLES:
+        names = roles.get(role, [])
+        if not isinstance(names, list) or any(not isinstance(n, str) or not n.strip() for n in names):
+            raise ValueError(f"role {role}: names must be a list of non-empty strings")
+        if len(set(names)) != len(names):
+            raise ValueError(f"role {role}: duplicated name")
+        for name in names:
+            held[name].append(role)
+    clashes = {name: rs for name, rs in held.items() if len(rs) > 1}
+    if clashes:
+        raise ValueError(f"role separation violated: {json.dumps(clashes, sort_keys=True)}")
+    if len(roles.get("adjudicator", [])) < 3:
+        raise ValueError("at least three adjudicators are needed (two primary plus one tiebreaker)")
+    return {role: sorted(roles.get(role, [])) for role in ROLES}
+
+
 def agreement(items, records, adjudicators):
     """Per-language agreement of the two primary adjudicators and the items that need the tiebreaker."""
     first, second = adjudicators
+    if first == second:
+        raise ValueError("the two primary adjudicators must be different people")
     by_lang = defaultdict(lambda: {"both": 0, "agree": 0, "a": [], "b": []})
     verdict = defaultdict(dict)
     for record in records:
@@ -130,6 +160,8 @@ def agreement(items, records, adjudicators):
 
 def final_label(votes, first, second, tiebreaker):
     """Two primary adjudicators agree -> that verdict; otherwise the tiebreaker; else unresolved."""
+    if len({first, second, tiebreaker}) != 3:
+        raise ValueError("the two primary adjudicators and the tiebreaker must be three different people")
     a, b = votes.get(first), votes.get(second)
     if a and a == b and a != "cannot_decide":
         return a
@@ -146,9 +178,12 @@ def run(argv, raw):
     p.add_argument("--adjudicator", required=True)
     p.add_argument("--langs", nargs="+", required=True, choices=LANGUAGES)
     p.add_argument("--seed", required=True)
-    p = sub.add_parser("agreement", help='stdin: {"corpus": {...}, "adjudications": [...]} -> agreement')
+    p = sub.add_parser("agreement", help='stdin: {"corpus": {...}, "adjudications": [...], "roles": {...}?} -> agreement')
     p.add_argument("--primary", nargs=2, required=True)
+    sub.add_parser("roles", help='stdin: {"author": [...], "evaluator": [...], "custodian": [...], "adjudicator": [...]} -> people per role')
     args = parser.parse_args(argv)
+    if args.command == "roles":
+        return check_roles(json.loads(raw.decode("utf-8")))
     if args.command == "manifest":
         return manifest(raw)
     if args.command == "packets":
@@ -158,6 +193,11 @@ def run(argv, raw):
     bundle = json.loads(raw.decode("utf-8"))
     items, _ = parse_items(json.dumps(bundle["corpus"]).encode("utf-8"))
     validate_adjudication(bundle["adjudications"], items)
+    if "roles" in bundle:
+        people = check_roles(bundle["roles"])
+        outsiders = {r["adjudicator"] for r in bundle["adjudications"]} | set(args.primary)
+        if outsiders - set(people["adjudicator"]):
+            raise ValueError(f"adjudications by people outside the adjudicator role: {sorted(outsiders - set(people['adjudicator']))}")
     return agreement(items, bundle["adjudications"], args.primary)
 
 
