@@ -197,3 +197,8 @@ main section[id], main form[id] { scroll-margin-top: 6rem; }
   .acute-print-sheet h3 { break-after: avoid; }
   .acute-print-sheet .acute-print-measure { break-inside: avoid; page-break-inside: avoid; }
 }
+
+/* Shared evidence labels retain their canonical value and color mapping. */
+.evidence-status-pill {
+  @apply inline-flex shrink-0 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wide;
+}

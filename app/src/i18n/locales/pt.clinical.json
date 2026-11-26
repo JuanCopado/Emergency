@@ -337,5 +337,13 @@
   "A confirmação humana não verifica o conteúdo da imagem.": "A confirmação humana não verifica o conteúdo da imagem.",
   "Confirmar e enviar como": "Confirmar e enviar como",
   "Alterar modalidade": "Alterar modalidade",
-  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente."
+  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.",
+  "{{count}} de {{total}} módulos": "{{count}} de {{total}} módulos",
+  "Ningún módulo coincide con la búsqueda.": "Nenhum módulo corresponde à pesquisa.",
+  "Prueba otro término o borra la búsqueda.": "Experimente outro termo ou limpe a pesquisa.",
+  "Borrar búsqueda": "Limpar pesquisa",
+  "Restablecer búsqueda y filtros": "Repor pesquisa e filtros",
+  "Ir a los circuitos Adulto / Pediatría": "Ir para os circuitos Adulto / Pediatria",
+  "La búsqueda y el filtro se aplican a «Todos los módulos clínicos».": "A pesquisa e o filtro aplicam-se a «Todos os módulos clínicos».",
+  "Prueba otro término o restablece la búsqueda y los filtros.": "Experimente outro termo ou reponha a pesquisa e os filtros."
 }
