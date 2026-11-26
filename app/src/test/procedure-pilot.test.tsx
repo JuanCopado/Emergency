@@ -31,7 +31,7 @@ it('searches 196 canonical rows by alias without duplicating the result', async 
   expect(screen.getByRole('status')).toHaveTextContent('1 procedimientos');
   expect(screen.getByRole('heading', { name: procedure.name })).toBeVisible();
   fireEvent.change(screen.getByLabelText('Nombre o PROC-ID'), { target: { value: 'no-such-id' } });
-  expect(screen.getByText(/No hay coincidencias/)).toBeVisible();
+  expect(screen.getByRole('heading', { name: 'No matches.' })).toBeVisible();
 });
 
 it('renders the canonical SP-002 technique outside the former pilot', async () => {
@@ -50,7 +50,7 @@ it('combines family and ID filters and links to the canonical detail', async () 
   expect(screen.getByRole('status')).toHaveTextContent('1 procedimientos');
   expect(screen.getByRole('link', { name: new RegExp(chosen.id) })).toHaveAttribute('href', `/procedures/${chosen.id}`);
   fireEvent.change(screen.getByLabelText('Familia'), { target: { value: canonicalProcedures.find(p => p.family !== chosen.family)!.family } });
-  expect(screen.getByText(/No hay coincidencias/)).toBeVisible();
+  expect(screen.getByRole('heading', { name: 'No matches.' })).toBeVisible();
 });
 
 it('places drug precautions and expanded module rules before opening the calculator', async () => {

@@ -71,6 +71,7 @@ main section[id], main form[id] { scroll-margin-top: 6rem; }
   .label { @apply mb-1.5 block text-sm font-medium text-fg; }
   .chip { @apply inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-sm font-medium min-h-[36px]; }
   .section-title { @apply text-xs font-semibold uppercase tracking-wider text-muted; }
+  .catalog-title { @apply text-2xl font-extrabold tracking-tight sm:text-3xl; }
   .num { font-variant-numeric: tabular-nums; }
 }
 
