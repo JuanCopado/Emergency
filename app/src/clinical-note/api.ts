@@ -28,7 +28,12 @@ async function postJson<T>(path:string, body:unknown, timeoutMs:number=REQUEST_T
       body:serialized,
       signal:controller.signal,
     });
-    const payload=await response.json().catch(()=>({error:'Invalid backend response'}));
+    const payload=await response.json().catch(error=>{
+      // Reading the body can fail after HTTP 200 headers. Never turn that
+      // failure into a resolved clinical result or expose a parser's body text.
+      if(timedOut || error instanceof TypeError) throw error;
+      throw new Error('Invalid backend response');
+    });
     if(!response.ok) throw new Error(payload?.error || `Clinical-note API error ${response.status}`);
     return payload as T;
   }catch(error){

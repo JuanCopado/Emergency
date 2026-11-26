@@ -1,3 +1,17 @@
+# R5/G05 · candidato técnico aislado · 26/11/2026
+
+Base internacional `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`; rama
+`fix/r5-g05-functional-20261126`. Corregida la resolución errónea de una
+respuesta HTTP 200 cuando falla su lectura JSON, por red o timeout en el
+cliente de nota clínica. Tres regresiones fallan antes y pasan después.
+React: 1.045 PASS y dos omitidas; suites Python de nota/HTTP y M10: 116 PASS.
+Sin cambio de dosis, fórmulas, lexicón, ámbito de abstención o contratos médicos.
+[Expediente y seis requisitos G05](docs/coordination/r5-g05-20261126/README.md).
+CI del candidato, pruebas nativas y auditoría independiente deben acreditarse
+por el SHA de entrega. PR108–110 ya integradas; no se repiten sus cambios.
+R5-1, R5-2 y G05 siguen pendientes por evidencia y alcance concretos;
+CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Cortes siguientes históricos.
+
 # R96 · Integración técnica comprobada · 25/11/2026
 
 PR106 integrada en `1733faa2a63ea93a63e2edb1b8fa4a37b21a3c3a`, árbol

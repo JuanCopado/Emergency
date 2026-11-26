@@ -13,6 +13,12 @@ Este componente ejecuta el cliente **R6**, el transporte **B1** y el consumidor 
 
 `SOURCE_PROVENANCE.json` identifica el paquete de origen, sus árboles históricos y cada archivo copiado. Los comentarios originales que describen consumidores aislados documentan su procedencia; esta incorporación monta Q4 solamente en el laboratorio local. El proveedor sintético sustituye al servicio público; R6, B1, TLS, normalización y Q4 sí se ejecutan realmente.
 
+### Adaptación de prueba Unicode · 26/11/2026
+
+El recibo histórico permanece byte-idéntico (SHA-256 `e39c0a81ea1f0af477c378053459b9563ad7e7b9496e7c00a9418e438df76929`). `CURRENT_ADAPTATIONS.json` declara una única adaptación: dos literales surrogate de `viewModel.test.ts` se construyen en ejecución para evitar strings AST no válidos en Protobuf de Sonar. Se preservan los14 controles y todas las aserciones. El original se conserva intacto en `provenance/viewModel.test.ts.original.txt`, con su SHA histórico.
+
+La comprobación vigente exige18 destinos idénticos al recibo, la fuente original número19 conservada y exactamente la transformación revisada del test actual, con su SHA nuevo. No se presentan19 destinos actuales como byte-idénticos. Los dos adaptadores históricos siguen con su alcance previo. Pruebas negativas rechazan borrar una aserción, alterar el original o reetiquetar un hash. Los manifiestos/hashes anteriores no se sustituyen, ni se elimina la guarda de procedencia. T06 Linux debe pasar nuevamente su prueba nativa; una prueba pura local en Windows no certifica su transporte.
+
 ## Entorno separado y arranque
 
 Mantener un entorno Python propio de T06. El lock original `recovered/b1/requirements.lock` conserva `h11==0.16.0` y `cryptography==50.0.1`. No sustituir el entorno del backend clínico ni los lockfiles Node de la aplicación.
