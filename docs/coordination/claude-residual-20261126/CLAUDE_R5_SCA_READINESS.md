@@ -7,7 +7,7 @@ Herramientas del corpus ciego R5-2: `clinical/scripts/blind_corpus_tools.py`.
 - Defecto demostrado: la herramienta aceptaba `--primary ana ana` (acuerdo trivial) y un desempate igual a un primario, y no comprobaba separación de roles.
 - Corrección: dos primarios distintos; desempate distinto de ambos; función y subcomando `roles` (autor, evaluador, custodio, adjudicador): ninguna persona con dos roles, mínimo tres adjudicadores; `agreement` con `roles` rechaza jueces fuera del rol de adjudicador.
 - Sigue sin acceso a archivos (entrada y salida estándar), sin texto de corpus y sin etiquetas de ingeniería.
-- Pruebas: `clinical/tests/test_r12_blind_corpus_tools.py` 20/20 PASS (5 nuevas, datos sintéticos). Las nuevas fallarían sin la corrección (comprobadas por construcción: lanzan `ValueError` solo si existe la regla).
+- Pruebas: `clinical/tests/test_r12_blind_corpus_tools.py` 20/20 PASS (5 nuevas, datos sintéticos). Comprobado: contra la versión anterior de la herramienta (`87a17301`) fallan las 5 nuevas (2 fallos y 3 errores); con la corrección, 20/20.
 
 ## Estado de R5-2 (corpus textual ciego)
 | Componente | Estado |
