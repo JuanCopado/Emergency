@@ -1,3 +1,5 @@
+26/11/2026 · Windows/Picomatch: preservación LF de la fuente de corticoides para mantener su SHA exacto; prueba real de checkout autocrlf y negativo de cambio de metadatos. Sin dosis ni controles alterados. CLINICALLY_PENDING.
+
 26/11/2026 · Candidato aislado PR115/PR116: PR111 conciliada sin repetir delta; preservados transporte y revisión terapéutica, procedencia T06 y expectativas diagnósticas; inventario residual documentado sin cambiar pautas. CLINICALLY_PENDING.
 
 26/11/2026 · PR116: adaptación del arnés histórico al recibo terapéutico real, sin cambiar expectativas clínicas; regresiones positivas/negativas de exportación histórica, privacidad e integridad. CLINICALLY_PENDING.

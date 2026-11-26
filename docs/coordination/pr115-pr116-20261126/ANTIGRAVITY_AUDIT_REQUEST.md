@@ -1,6 +1,6 @@
 # Solicitud de auditoría independiente · candidato PR115/PR116
 
-Estado: PREPARED_FOR_EXTERNAL_AUDIT; recepción y dictamen no acreditados.
+Estado: PUBLISHED_FOR_COLLECTION_IN_PR118, autorizado por el propietario el 26/11/2026; recepción y dictamen no acreditados.
 
 Auditar el HEAD exacto de `codex/pr115-pr116-integrated-20261126` publicado en la PR candidata y en el recibo final. No auditar solo la base `815afcd`, ni atribuir a este árbol los PASS antiguos de PR115/PR116.
 

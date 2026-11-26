@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "receiver": "87a17301c395546536dce12150307a5b1474f844",
   "pr115": "82278d37dc29fe49e6afbc8db7aafe8d7e4166c1",
-  "pr116": "43d62015838d0b190869482ecde645cf86b56249",
+  "pr116": "cd1e55e3b5fef41c05a53110648dd7562a4d3fd3",
   "receiver_plus_pr115_tree": "05c2ec1c1a8d871cfe83c05c4540e941f35d30f3",
   "original_pr115_tree": "05c2ec1c1a8d871cfe83c05c4540e941f35d30f3",
   "no_duplicate_pr111_delta": true,
@@ -179,7 +179,7 @@
       "pr": 114,
       "path": "STATE.md",
       "pr115_sha256": "002b50ad170702aef93a4008f0526c8bef1f8bf6cba800e8efa6cbeadc864798",
-      "candidate_sha256": "3aaaef4f620688248f19de8759a3971fb9d46df0254d9c71f0ee9a9e2adb2aa2",
+      "candidate_sha256": "44511d34035cd2ba4be5b8c90d6366c089b4d0a19217bf35f194c885a09f1d84",
       "identical": false
     },
     {
@@ -274,5 +274,6 @@
     "app/scripts/check-functional-v144.mjs"
   ],
   "accepted_contracts_sha256": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
-  "clinical_status": "CLINICALLY_PENDING"
+  "clinical_status": "CLINICALLY_PENDING",
+  "first_pr116_regression_fix": "43d62015838d0b190869482ecde645cf86b56249"
 }

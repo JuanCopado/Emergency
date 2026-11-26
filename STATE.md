@@ -1,3 +1,5 @@
+26/11 · Seguimiento de CI: corregida identidad de fuente corticoide bajo checkout Windows mediante atributo LF específico, con regresión Git real y negativo de metadatos; fuentes/dosis intactas. Se conserva el FAIL previo y se repite CI del SHA final. Antigravity: paquete y orden publicados para recogida según instrucción del propietario; dictamen pendiente.
+
 ## 26/11/2026 · Candidato aislado PR115 + PR116
 
 Receptor leído `87a1730` con PR111 ya incorporada. Conciliación de PR115 `82278d3` y PR116 corregida `43d6201` en `codex/pr115-pr116-integrated-20261126`; sin reintroducir el delta PR111. Se conservan transporte fail-closed, errores tipados terapéuticos, procedencia T06 y controles médicos. Chromium integrado 16/16 API/UI/JSON y PDF/Word PASS; frontend 1.110 PASS, T06 Linux 9/9. QA completa/CI del SHA final en recibos; auditoría Antigravity y recepción pendientes. Entregables `CODEX_PR116_REGRESSION_RESULTS.md`, `CODEX_PR115_RECONCILIATION.md` y `CODEX_RESIDUAL_CLINICAL_CONTRACTS.json`. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Sin fusión ni despliegue. Cortes siguientes históricos.

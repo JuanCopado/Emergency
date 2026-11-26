@@ -6,7 +6,7 @@ Estado: candidato aislado; CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Sin mod
 
 - Receptor leído, sin modificar: `87a17301c395546536dce12150307a5b1474f844`, ya incorpora PR111.
 - PR115 original: `82278d37dc29fe49e6afbc8db7aafe8d7e4166c1`, árbol `05c2ec1c1a8d871cfe83c05c4540e941f35d30f3`.
-- PR116 corregida: `43d62015838d0b190869482ecde645cf86b56249`.
+- PR116: primera corrección `43d62015838d0b190869482ecde645cf86b56249`; después `cd1e55e` fija LF de la fuente JSON para preservar su SHA en Windows, con prueba Git RED→GREEN.
 - Conciliación de código local: `815afcd8dd5b2e402be0d36ce7e16598347a0328`, árbol `0e6f4bc229f9d449b81aa74d3b8fcc9e34a20f95`. El candidato final añade pruebas focales y los entregables; su SHA exacto se entrega en el recibo CI final.
 - Rama de candidato: `codex/pr115-pr116-integrated-20261126`; worktree `/workspace/emergency-integrated`.
 
@@ -19,7 +19,8 @@ Se mantienen todos los archivos fuente PR112/113 del manifiesto de composición 
 1. `STATE.md`: conservar ambos cortes y anteponer un estado integrado verificable; las declaraciones históricas no se presentan como conclusiones nuevas.
 2. `app/src/clinical-note/api.ts`: PR116 partía del cliente anterior a la corrección PR114. Mantener el rechazo de JSON malformado, error de red/timeout durante lectura y privacidad de cuerpos; conservar además `ClinicalApiResponseError` con HTTP status/código para invalidar correctamente una revisión terapéutica. Se reprodujeron tres fallos eligiendo solo la variante PR116; pasan al combinar ambos contratos.
 3. Harness funcional de PR115: seguir comprobando los 16 diagnósticos, discriminantes, acciones visibles, MCDT pendiente, idioma y salidas reales; después obtener una pauta sintética no prescriptiva y recibo mediante UI/API. Un booleano solo continúa sin habilitar exportación. JSON coincide exactamente con la petición de UI y la única pauta revisada. PDF/Word reales conservan diagnóstico y texto de revisión.
-4. El workflow conserva el recorrido funcional de PR114, incorpora el terapéutico de PR116 y mantiene los restantes controles. Sin exclusiones o umbrales relajados.
+4. Windows: integrar el atributo LF específico y dos regresiones de identidad del catálogo; conservar la huella estricta y los valores clínicos.
+5. El workflow conserva el recorrido funcional de PR114, incorpora el terapéutico de PR116 y mantiene los restantes controles. Sin exclusiones o umbrales relajados.
 
 ## Evidencia y límites
 
@@ -31,6 +32,6 @@ La QA completa, la matriz Picomatch, T05 Windows, T06 Linux, cobertura, Semgrep/
 
 `CODEX_RESIDUAL_CLINICAL_CONTRACTS.json` delimita exclusivamente GMA-P1-003, inventario/duplicidades y decisiones clínicas nuevas documentadas por Gemini y aprobadas explícitamente por el propietario. Se conservan los 19 contratos aceptados el 16/11. No hay nueva decisión clínica aprobada en este despacho ni se inventa conciliación regulatoria de protamina.
 
-Antigravity debe auditar el SHA final y sus recibos. El expediente anterior documenta una denegación de permisos antes de cualquier lectura, no un dictamen. Este entorno no expone un canal operativo de envío a Antigravity; se publica el paquete de auditoría y se declara recepción/dictamen pendientes. No se sustituye esa auditoría por tests de Codex ni se declara MERGE_READY.
+Antigravity debe auditar el SHA final y sus recibos. El expediente anterior documenta una denegación de permisos antes de cualquier lectura, no un dictamen. El propietario autoriza dejar el paquete y la orden para recogida (26/11). Se publican en PR118; recepción y dictamen pendientes. No se sustituye esa auditoría por tests de Codex ni se declara MERGE_READY.
 
 Graphify y Ponytail no están instalados ni expuestos como herramientas operativas en este entorno; se usa el grafo determinista de procedencia y las relaciones Git reales, sin atribuirles ejecución ficticia. El grafo no es evidencia clínica nueva.
