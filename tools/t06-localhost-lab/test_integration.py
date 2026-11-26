@@ -16,6 +16,61 @@ import unittest
 
 ROOT = Path(__file__).resolve().parent
 APP_HEADER = {"X-Emergency-T06-Lab": "synthetic-loopback"}
+HISTORICAL_MANIFEST_SHA256 = "e39c0a81ea1f0af477c378053459b9563ad7e7b9496e7c00a9418e438df76929"
+Q4_TEST = "app/src/t06/viewModel.test.ts"
+ORIGINAL_TEST_SHA256 = "ba17ff4a6823253ff06615db9381f3e013410528151af31b6e854f4f5e79d6da"
+ADAPTED_TEST_SHA256 = "f26b06b9cb2a57598ccdd91625b5c829c5465db499a02a24772290382fb71d7a"
+AMENDMENT = {
+    "id": "T06-Q4-SURROGATE-AST-20261126",
+    "destination": Q4_TEST,
+    "source_sha256": ORIGINAL_TEST_SHA256,
+    "source_snapshot": "provenance/viewModel.test.ts.original.txt",
+    "adapted_sha256": ADAPTED_TEST_SHA256,
+    "transformation": "construct_surrogate_controls_at_runtime_v1",
+}
+
+
+def adapted_test_source(original):
+    """One exact, reviewed source adaptation; no assertion or case removed."""
+    if hashlib.sha256(original).hexdigest() != ORIGINAL_TEST_SHA256:
+        raise ValueError("Original Q4 test identity changed")
+    pair = b"'\\ud800', '\\udfff'"
+    anchor = b"  it.each(['\\u0000'"
+    if original.count(pair) != 1 or original.count(anchor) != 1:
+        raise ValueError("Unexpected Q4 source layout")
+    comment = (b"  // Keep lone-surrogate inputs at runtime without malformed string values in\n"
+               b"  // the source AST consumed by the analyzer's UTF-8 Protobuf serializer.\n")
+    return original.replace(pair, b"String.fromCharCode(0xd800), String.fromCharCode(0xdfff)").replace(anchor, comment + anchor)
+
+
+def verify_test_amendment(original, current, amendment):
+    if amendment != AMENDMENT:
+        raise ValueError("Q4 amendment differs from the reviewed contract")
+    if current != adapted_test_source(original) or hashlib.sha256(current).hexdigest() != ADAPTED_TEST_SHA256:
+        raise ValueError("Current Q4 test differs from the exact reviewed adaptation")
+
+
+class SourceAmendmentTests(unittest.TestCase):
+    def setUp(self):
+        self.original = (ROOT / AMENDMENT["source_snapshot"]).read_bytes()
+
+    def test_reviewed_current_test_matches_exact_original_transformation(self):
+        current = (ROOT.parents[1] / Q4_TEST).read_text(encoding="utf-8").encode("utf-8")
+        verify_test_amendment(self.original, current, AMENDMENT)
+
+    def test_deleted_assertion_is_rejected(self):
+        current = adapted_test_source(self.original)
+        assertion = b"expect(buildT06ViewModel(service, input)).toEqual(rejected);"
+        self.assertIn(assertion, current)
+        with self.assertRaises(ValueError):
+            verify_test_amendment(self.original, current.replace(assertion, b"", 1), AMENDMENT)
+
+    def test_changed_original_or_relabelled_hash_is_rejected(self):
+        current = adapted_test_source(self.original)
+        with self.assertRaises(ValueError):
+            verify_test_amendment(self.original + b"\n", current, AMENDMENT)
+        with self.assertRaises(ValueError):
+            verify_test_amendment(self.original, current, {**AMENDMENT, "adapted_sha256": ORIGINAL_TEST_SHA256})
 
 
 class ComposedT06Tests(unittest.TestCase):
@@ -56,14 +111,27 @@ class ComposedT06Tests(unittest.TestCase):
         finally:
             connection.close()
 
-    def test_recovered_components_remain_byte_identical(self):
+    def test_recovered_sources_and_explicit_adaptation_match_provenance(self):
         repository = ROOT.parents[1]
-        manifest = json.loads((ROOT / "SOURCE_PROVENANCE.json").read_text())
+        historical = (ROOT / "SOURCE_PROVENANCE.json").read_bytes()
+        self.assertEqual(hashlib.sha256(historical).hexdigest(), HISTORICAL_MANIFEST_SHA256)
+        manifest = json.loads(historical)
+        amendment = json.loads((ROOT / "CURRENT_ADAPTATIONS.json").read_text(encoding="utf-8"))
+        self.assertEqual(amendment, {"historical_manifest_sha256": HISTORICAL_MANIFEST_SHA256, "adaptations": [AMENDMENT]})
         unchanged = [item for item in manifest["files"] if item["identity_preserved"]]
         self.assertEqual(len(unchanged), 19)
+        self.assertEqual(sum(item["destination"] == Q4_TEST for item in unchanged), 1)
+        exact_destinations = 0
         for item in unchanged:
             with self.subTest(path=item["destination"]):
-                self.assertEqual(hashlib.sha256((repository / item["destination"]).read_bytes()).hexdigest(), item["source_sha256"])
+                current = (repository / item["destination"]).read_bytes()
+                if item["destination"] == Q4_TEST:
+                    self.assertEqual(item["source_sha256"], ORIGINAL_TEST_SHA256)
+                    verify_test_amendment((ROOT / AMENDMENT["source_snapshot"]).read_bytes(), current, AMENDMENT)
+                else:
+                    self.assertEqual(hashlib.sha256(current).hexdigest(), item["source_sha256"])
+                    exact_destinations += 1
+        self.assertEqual(exact_destinations, 18)
 
     def test_real_r6_b1_tls_success_and_aggregate_unicode_limit(self):
         self.assertEqual(self.ready["bind"][0], "127.0.0.1")
