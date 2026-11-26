@@ -2,7 +2,7 @@
 
 26/11/2026. Repositorio JuanCopado/Emergency. Base internacional verificada `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`. Rama propuesta `review/final-closure-20261126`. La rama internacional está protegida por C12 y la orden actual prohíbe modificar ramas protegidas: se prepara un candidato aislado, sin fusionar PR111–114 ni cambiar el receptor, main, RC1 o producción.
 
-`FUENTES_CANDIDATO.json` identifica los cuatro HEAD exactos y sus deltas: 32 archivos, cero archivos solapados. La composición mediante parches conserva los commits fuente en sus ramas; no es una fusión consumada ni una auditoría favorable implícita. Se incluye el delta UI acotado de PR111, no los prototipos UX/UI 2.0 pendientes de selección estética.
+`FUENTES_CANDIDATO.json` identifica los cuatro HEAD exactos y sus deltas: 37 archivos, cero archivos solapados, más dos documentos centrales. La composición mediante parches conserva los commits fuente en sus ramas; no es una fusión consumada ni una auditoría favorable implícita. Se incluye el delta UI acotado de PR111, no los prototipos UX/UI 2.0 pendientes de selección estética.
 
 ## 1. Estado clínico vigente
 
@@ -33,6 +33,8 @@ Se conservan también dos candidatos SCIN del par01, con eMST documentado por la
 **COMPLETADO en el delta técnico comprobado:** errores de lectura JSON tras HTTP200 dejan de resolverse como éxito en el cliente de nota; tres regresiones reproducen el fallo anterior. El arnés histórico usa selectores españoles coherentes y comprueba16 casos API/pantalla/JSON, PDF y Word. Se integra ese recorrido en App UI QA con artefacto y procedencia. Las ejecuciones anteriores se atribuyen a sus SHA, no automáticamente al candidato combinado.
 
 **CORRECCIÓN PUBLICADA/PENDIENTE DE SCANNER:** dos literales surrogate aislados de una prueba se construyen ahora con String.fromCharCode. Reproducción con mapeador/esquema del tag SonarJS14.6.0.46571: dos strings AST no válidos pasan a cero, conservando los14 controles idénticos. Suite focal138 PASS y lint PASS. Fuentes y límites en `../r5-g05-20261126/SONAR_UNICODE.md`. La CI exacta debe confirmar si desaparece el diagnóstico; no se certifica exhaustividad AST por un contador o gate verde.
+
+La CI inicial del parche y de la composición falló realmente en T06: el sello histórico incluía el test modificado. La conciliación vigente mantiene `SOURCE_PROVENANCE.json` byte-idéntico y los19 hashes originales. `CURRENT_ADAPTATIONS.json` y un original congelado permiten comprobar18 destinos idénticos y una transformación exacta del destino19, sin retirar los14 controles. Tres pruebas puras adicionales detectan retirada de aserción, cambio del original y reetiquetado de hash. Se conserva el fallo inicial y se exige repetición nativa Linux; esos tres PASS locales no acreditan transporte T06. No se presenta el estado actual como19 destinos byte-idénticos.
 
 **BLOQUEADO para cierre global:** R5-1 requiere banco admisible/adjudicado, institución/consentimiento, estudio y datos; R5-2, corpus textual ciego independiente de cuatro lenguas por siete clases, custodio, criterios preespecificados y adjudicadores. El banco de imágenes no lo sustituye. `../r5-g05-20261126/G05_REQUISITOS.json` conserva los seis requisitos: consumidor, derechos, privacidad, RAG, QA/aceptación y PTBR-PIX. Laboratorio local verificado no habilita consumidores públicos, RAG o píxeles. PTBR-MOD no sustituye aprobación PTBR-PIX.
 

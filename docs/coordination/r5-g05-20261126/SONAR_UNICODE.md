@@ -22,3 +22,7 @@ El parche aplica esas dos sustituciones exclusivamente al test y explica el moti
 La reproducción demuestra el mecanismo y corrige esa entrada concreta del serializador. Los logs anteriores no identifican su payload fallido, por lo que no se atribuye retrospectivamente ese error a un archivo con certeza. Debe ejecutarse CI y Sonar sobre el SHA publicado con el parche y comprobar si desaparece el diagnóstico. Su ausencia permitirá registrar que no se reproduce en esa ejecución, no certificar exhaustivamente todos los consumidores AST o validez clínica.
 
 Auditoría independiente del mismo candidato y CI completa siguen siendo condiciones de integración. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
+## Conciliación de procedencia T06
+
+La primera CI con la sustitución falló realmente: la guarda T06 esperaba el hash del test Q4 original entre19 archivos recuperados. No se registra ese intento como PASS. Se mantiene `SOURCE_PROVENANCE.json` intacto y se añade una adaptación vigente explícita en `CURRENT_ADAPTATIONS.json`, con original congelado y hashes anterior/nuevo. El verificador exige18 destinos idénticos y la transformación exacta del destino19, conservando sus bytes originales en custodia. Tres pruebas puras adicionales detectan retirada de aserción, alteración del original o reetiquetado de hash. No se cambian los dos adaptadores históricos ni el transporte R6/B1. La prueba Linux completa se vuelve a ejecutar sobre el SHA publicado con esta conciliación.

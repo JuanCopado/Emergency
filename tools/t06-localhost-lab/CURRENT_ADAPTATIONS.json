@@ -1,0 +1,13 @@
+{
+  "historical_manifest_sha256": "e39c0a81ea1f0af477c378053459b9563ad7e7b9496e7c00a9418e438df76929",
+  "adaptations": [
+    {
+      "id": "T06-Q4-SURROGATE-AST-20261126",
+      "destination": "app/src/t06/viewModel.test.ts",
+      "source_sha256": "ba17ff4a6823253ff06615db9381f3e013410528151af31b6e854f4f5e79d6da",
+      "source_snapshot": "provenance/viewModel.test.ts.original.txt",
+      "adapted_sha256": "f26b06b9cb2a57598ccdd91625b5c829c5465db499a02a24772290382fb71d7a",
+      "transformation": "construct_surrogate_controls_at_runtime_v1"
+    }
+  ]
+}

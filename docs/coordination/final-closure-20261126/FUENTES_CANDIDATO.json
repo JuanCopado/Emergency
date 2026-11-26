@@ -1,8 +1,8 @@
 {
   "base": "228cd21d75d14e1012beb7f5dfe82c2c920c4ccc",
   "candidate_branch": "review/final-closure-20261126",
-  "preparation": "Disjoint patch composition only; source PRs remain open and unmerged",
-  "files_total": 32,
+  "preparation": "Disjoint patch composition; exact T06 provenance amendment preserves historical manifest. Source PRs remain open and unmerged.",
+  "files_total": 37,
   "overlapping_files": [],
   "sources": [
     {
@@ -51,7 +51,7 @@
     },
     {
       "pr": 114,
-      "head": "43e2e336c031ddad2917ff4bd11f07e5d947e94a",
+      "head": "cf681c092194ae656183d35e9afdd3e00fbdf8be",
       "files": [
         ".github/workflows/app-ui-qa.yml",
         "STATE.md",
@@ -61,9 +61,14 @@
         "app/src/test/clinical-note-connection.test.ts",
         "docs/coordination/r5-g05-20261126/G05_REQUISITOS.json",
         "docs/coordination/r5-g05-20261126/README.md",
-        "docs/coordination/r5-g05-20261126/SONAR_UNICODE.md"
+        "docs/coordination/r5-g05-20261126/SONAR_UNICODE.md",
+        "tools/t06-localhost-lab/.gitattributes",
+        "tools/t06-localhost-lab/CURRENT_ADAPTATIONS.json",
+        "tools/t06-localhost-lab/README.md",
+        "tools/t06-localhost-lab/provenance/viewModel.test.ts.original.txt",
+        "tools/t06-localhost-lab/test_integration.py"
       ],
-      "patch_sha256": "10ccfbdb98f7eb3002a9cf644438d2ee54dcda36f18b84202e39e09174a96ac7"
+      "patch_sha256": "ed4538b1915841aa9faf8f7a96da6a71887aacbaba145ec00b39c8cd9bd00bf5"
     }
   ],
   "registry_counts": {

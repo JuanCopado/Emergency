@@ -2,11 +2,14 @@
 
 Receptor confirmado `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`, protegido por
 C12 y sin modificar. Propuesta `review/final-closure-20261126`: composición
-de PR111–114, 32 archivos sin solapamientos; las PR fuente siguen abiertas.
+de PR111–114, 37 archivos fuente sin solapamientos y dos documentos centrales;
+las PR fuente siguen abiertas.
 Se corrigen el manejo de cuerpos HTTP200, el arnés de nota localizado,
 metadatos textuales R89 mal codificados y dos literales de prueba cuyo AST
 reproduce UTF-8 inválido en Protobuf de Sonar. Sin retirar controles ni cambiar
-reglas/exclusiones. CI del candidato final por comprobar en su recibo.
+reglas/exclusiones. El fallo real del sello T06 se concilia manteniendo el
+manifiesto histórico y sus19 hashes:18 destinos idénticos y una adaptación
+exacta con original conservado. CI del candidato final por comprobar en su recibo.
 Registro confirmado 129 GREEN/2 YELLOW/0 RED, intacto. Banco 10/30 canónicos,
 20 pendientes, cero adjudicaciones; se recuperan cinco tomas físicas ya
 preparadas y cinco selecciones del propietario para preparación con límites.
