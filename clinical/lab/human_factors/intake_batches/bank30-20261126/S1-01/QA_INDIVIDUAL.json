@@ -1,0 +1,113 @@
+{
+  "id": "S1-01",
+  "technical_status": "BYTES_VERIFIED_REVIEW_PENDING",
+  "source_sha1": "e6a0325943b887ebcca0b1e72f3c6a2b0b9dc1b0",
+  "expected_source_sha1": "e6a0325943b887ebcca0b1e72f3c6a2b0b9dc1b0",
+  "source_sha256": "b4e6e7a62ba07eb996464fca80a0603562cb0a146a03d8bf00861d7cd12e548a",
+  "derived_sha256": "3584e973cc0545d6207c06cf494735d018636c424bde4542ef1b9024033071d0",
+  "source_dimensions": [
+    2816,
+    2112
+  ],
+  "derived_dimensions": [
+    2816,
+    2112
+  ],
+  "original_mode": "RGB",
+  "original_exif_tags": [
+    "ExifOffset",
+    "Make",
+    "Model",
+    "Orientation",
+    "ResolutionUnit",
+    "XResolution",
+    "YCbCrPositioning",
+    "YResolution"
+  ],
+  "derived_metadata_findings": [],
+  "gps_present": false,
+  "visual_inspection": "Superficie cutánea abierta de mano, sin suturas, rostro o identificadores textuales observados. Inspección técnica de Codex, sin juicio diagnóstico ni puntuación de realismo.",
+  "mst2": "PENDING_SOURCE_DOCUMENTATION",
+  "lighting": "PENDING_CONTROLLED_OR_SOURCE_EVIDENCE",
+  "realism_2_reviewers": "PENDING",
+  "independent_privacy": "PENDING",
+  "independent_reference": "PENDING",
+  "pair_equivalence": "PENDING_S2_01",
+  "medical_adjudication": "PENDING",
+  "canonical_incorporation": "NOT_ACCEPTED",
+  "comparisons_to_canonical": [
+    {
+      "id": "S1-08",
+      "sha_duplicate": false,
+      "dhash_distance": 29
+    },
+    {
+      "id": "S2-08",
+      "sha_duplicate": false,
+      "dhash_distance": 31
+    },
+    {
+      "id": "S1-09",
+      "sha_duplicate": false,
+      "dhash_distance": 27
+    },
+    {
+      "id": "S2-09",
+      "sha_duplicate": false,
+      "dhash_distance": 31
+    },
+    {
+      "id": "S1-13",
+      "sha_duplicate": false,
+      "dhash_distance": null
+    },
+    {
+      "id": "S2-13",
+      "sha_duplicate": false,
+      "dhash_distance": 24
+    },
+    {
+      "id": "S1-14",
+      "sha_duplicate": false,
+      "dhash_distance": 27
+    },
+    {
+      "id": "S2-14",
+      "sha_duplicate": false,
+      "dhash_distance": null
+    },
+    {
+      "id": "S1-15",
+      "sha_duplicate": false,
+      "dhash_distance": null
+    },
+    {
+      "id": "S2-15",
+      "sha_duplicate": false,
+      "dhash_distance": null
+    }
+  ],
+  "mirror_lineage": {
+    "file": "D:\\ChatGPT_Trabajo\\BANCO30_RECEPCION_20261126\\repositorio\\clinical\\lab\\human_factors\\intake_batches\\r98\\lot-01\\S1-01-source.jpg",
+    "sha256": "8f91995c4ec6969885b8b2dcd1383ce2d41dc29143d6dd6c751146f55acbfe4c",
+    "dhash_distance": 1,
+    "relationship": "Misma fotografía que PR110, resuelta ahora en su original de mayor resolución. No es un caso independiente ni un segundo slot."
+  },
+  "receipt_result": {
+    "status": "BYTES_VERIFIED_REVIEW_PENDING",
+    "assets": [
+      {
+        "stimulus_id": "S1-01",
+        "role": "original",
+        "bytes": 1876910,
+        "sha256": "b4e6e7a62ba07eb996464fca80a0603562cb0a146a03d8bf00861d7cd12e548a"
+      },
+      {
+        "stimulus_id": "S1-01",
+        "role": "derivative",
+        "bytes": 1965280,
+        "sha256": "3584e973cc0545d6207c06cf494735d018636c424bde4542ef1b9024033071d0"
+      }
+    ]
+  }
+}

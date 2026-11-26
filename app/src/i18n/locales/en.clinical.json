@@ -337,5 +337,13 @@
   "A confirmação humana não verifica o conteúdo da imagem.": "Human confirmation does not verify the image content.",
   "Confirmar e enviar como": "Confirm and send as",
   "Alterar modalidade": "Change modality",
-  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "Modality {{modality}}: the file is sent to this modality's module. The content is not verified automatically. Provisional text; medical wording pending."
+  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "Modality {{modality}}: the file is sent to this modality's module. The content is not verified automatically. Provisional text; medical wording pending.",
+  "{{count}} de {{total}} módulos": "{{count}} of {{total}} modules",
+  "Ningún módulo coincide con la búsqueda.": "No modules match your search.",
+  "Prueba otro término o borra la búsqueda.": "Try another term or clear your search.",
+  "Borrar búsqueda": "Clear search",
+  "Restablecer búsqueda y filtros": "Reset search and filters",
+  "Ir a los circuitos Adulto / Pediatría": "Go to Adult / Pediatric circuits",
+  "La búsqueda y el filtro se aplican a «Todos los módulos clínicos».": "Search and filters apply to “All clinical modules”.",
+  "Prueba otro término o restablece la búsqueda y los filtros.": "Try another term or reset your search and filters."
 }
