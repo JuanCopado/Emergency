@@ -17,14 +17,14 @@ R89 cuenta con 12 PDF y un manuscrito íntegro HTML. La edición publicada en PD
 | HTG708 | National Institute for Health and Care Excellence (NICE) | Publicada 23/01/2024. PDF actualizado 02/05/2024. | PDF, 31 | 177196 |
 | HTG746 | National Institute for Health and Care Excellence (NICE) | Publicada 01/05/2025. PDF actualizado 17/03/2026. | PDF, 25 | 155422 |
 | ACR-SIIM-217 | American College of Radiology y Society for Imaging Informatics in Medicine | Adopted 2026, Resolution 13. Portal oficial DocId 217. | PDF, 11 | 161333 |
-| EU-2026-1744 | Parlamento Europeo y Consejo de la Unión Europea | Acto de 08/07/2026. DOUE L 2026/1744 de 24/07/2026, versiÃ³n inglesa. CELEX 32026R1744, ELI reg/2026/1744/oj. | PDF, 41 | 1121625 |
-| AHA-2024-1201 | Antonis A. Armoundas et al.; American Heart Association | Manuscrito depositado NIHMS1979537, disponible 24/04/2024, en inglÃ©s. Referencia editorial Circulation 149(14), e1028â€“e1050, DOI 10.1161/CIR.0000000000001201. | HTML, sin paginación PDF | 491981 |
-| EHRA-2025-euaf071 | Emma Svennberg et al.; EHRA, HRS y ESC Working Group on E-Cardiology | Europace 27(5), mayo 2025, euaf071. PublicaciÃ³n en lÃ­nea 31/03/2025. | PDF, 20 | 5784918 |
-| ACEP-2023-37596025 | American College of Emergency Physicians | Ann Emerg Med 82(3), e115â€“e155. DOI 10.1016/j.annemergmed.2023.06.005. | PDF, 41 | 1050183 |
+| EU-2026-1744 | Parlamento Europeo y Consejo de la Unión Europea | Acto de 08/07/2026. DOUE L 2026/1744 de 24/07/2026, versión inglesa. CELEX 32026R1744, ELI reg/2026/1744/oj. | PDF, 41 | 1121625 |
+| AHA-2024-1201 | Antonis A. Armoundas et al.; American Heart Association | Manuscrito depositado NIHMS1979537, disponible 24/04/2024, en inglés. Referencia editorial Circulation 149(14), e1028–e1050, DOI 10.1161/CIR.0000000000001201. | HTML, sin paginación PDF | 491981 |
+| EHRA-2025-euaf071 | Emma Svennberg et al.; EHRA, HRS y ESC Working Group on E-Cardiology | Europace 27(5), mayo 2025, euaf071. Publicación en línea 31/03/2025. | PDF, 20 | 5784918 |
+| ACEP-2023-37596025 | American College of Emergency Physicians | Ann Emerg Med 82(3), e115–e155. DOI 10.1016/j.annemergmed.2023.06.005. | PDF, 41 | 1050183 |
 | IFEM-POCUS | International Federation for Emergency Medicine, Emergency Ultrasound Special Interest Group | Marzo de 2014, ISBN 978-0-9873901-2-7. La ficha web es del 23/11/2021. | PDF, 63 | 1013536 |
-| AHA-ASA-STROKE-2026 | Shyam Prabhakaran, Nestor R. Gonzalez, Kori S. Zachrison et al.; AHA/ASA Guideline Writing Group | Stroke 57(8), e316â€“e436, agosto 2026. PublicaciÃ³n en lÃ­nea 26/01/2026. | PDF, 121 | 13410117 |
-| IDSA-SSTI-2014 | Dennis L. Stevens, Alan L. Bisno, Henry F. Chambers et al.; Infectious Diseases Society of America | Clinical Infectious Diseases 59(2), e10â€“e52, julio 2014. DOI 10.1093/cid/ciu296. | PDF, 43 | 1048509 |
-| AAD-JAAD-2019-06032 | Carrie Kovarik, Ivy Lee y Justin Ko | VersiÃ³n editorial JAAD 81(4), octubre2019, pp998â€“1000; online25/06/2019 | PDF, 3 | 618882 |
+| AHA-ASA-STROKE-2026 | Shyam Prabhakaran, Nestor R. Gonzalez, Kori S. Zachrison et al.; AHA/ASA Guideline Writing Group | Stroke 57(8), e316–e436, agosto 2026. Publicación en línea 26/01/2026. | PDF, 121 | 13410117 |
+| IDSA-SSTI-2014 | Dennis L. Stevens, Alan L. Bisno, Henry F. Chambers et al.; Infectious Diseases Society of America | Clinical Infectious Diseases 59(2), e10–e52, julio 2014. DOI 10.1093/cid/ciu296. | PDF, 43 | 1048509 |
+| AAD-JAAD-2019-06032 | Carrie Kovarik, Ivy Lee y Justin Ko | Versión editorial JAAD 81(4), octubre2019, pp998–1000; online25/06/2019 | PDF, 3 | 618882 |
 
 Las correcciones AHA-ASA-2026-ERR-0530, IDSA-CIV113 e IDSA-CIV114 también se verificaron. inventario.json conserva por archivo título, autoría, versión, enlace científico, páginas, tamaño, SHA-256 y derechos. El inventario físico completo y el script reproducible están en D:\ChatGPT_Trabajo\CIERRE_DOCUMENTAL_R89_R99_20261126.
 
@@ -51,11 +51,11 @@ La consulta actual de PDF.net identificó ambos documentos exigidos por sus IDs.
 
 | Alcance | Causa específica |
 |---|---|
-| AHA-2024-1201-VOR | Texto Ã­ntegro HTML del manuscrito existente y verificado. PDF de ediciÃ³n publicada sigue pendiente. Ruta editorial consultada devuelve HTTP403. |
-| IFEM-TABLE-I | PDF original recuperado.25 marcas CID0 Wingdings2 sin ToUnicode de tabla I,p41. Falta tabla autÃ©ntica legible para completar revisiÃ³n cientÃ­fica. |
-| RESTRICTED-RIGHTS | AAD y prÃ©stamos conservados para consulta local. RedistribuciÃ³n y carga IA pendientes de permiso institucional. |
-| SCIENTIFIC-REVIEW | AdquisiciÃ³n13/13 no cierra revisiÃ³n cientÃ­fica ni revisiÃ³n humana. |
-| R99-FINAL-STIMULI | Originales4/4 recuperados. Capturas mÃ³viles reales, S2-12 conforme, revisiones humanas y adjudicaciÃ³n pendientes. |
+| AHA-2024-1201-VOR | Texto íntegro HTML del manuscrito existente y verificado. PDF de edición publicada sigue pendiente. Ruta editorial consultada devuelve HTTP403. |
+| IFEM-TABLE-I | PDF original recuperado.25 marcas CID0 Wingdings2 sin ToUnicode de tabla I,p41. Falta tabla auténtica legible para completar revisión científica. |
+| RESTRICTED-RIGHTS | AAD y préstamos conservados para consulta local. Redistribución y carga IA pendientes de permiso institucional. |
+| SCIENTIFIC-REVIEW | Adquisición13/13 no cierra revisión científica ni revisión humana. |
+| R99-FINAL-STIMULI | Originales4/4 recuperados. Capturas móviles reales, S2-12 conforme, revisiones humanas y adjudicación pendientes. |
 
 Las dos rutas candidatas AHA_2024_candidate.pdf y AHA_2024_PMC_manuscript.pdf de R95 no se incorporan como PDF editorial. La primera contiene HTML y pdfinfo rechaza su estructura. El manuscrito completo está acreditado en el HTML de PMC.
 
