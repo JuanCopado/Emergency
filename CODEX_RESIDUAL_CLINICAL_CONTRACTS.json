@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "review_date": "2026-11-26",
+  "clinical_status": "CLINICALLY_PENDING",
+  "scope": [
+    "GMA-P1-003",
+    "substances_products_possible_duplicates",
+    "new_Gemini_decisions_with_explicit_owner_approval"
+  ],
+  "accepted_19_contracts": {
+    "status": "PRESERVED_NOT_REOPENED",
+    "acceptance_source": "clinical/references/acute-contract-owner-acceptance-2026-11-16.json",
+    "sha256": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0"
+  },
+  "contracts": [
+    {
+      "id": "GMA-P1-003",
+      "status": "OPEN_DOCUMENTED_SOURCE_CONFLICT",
+      "product_id": "PROTAMINE_HOSPIRA_10",
+      "product_profile_runtime_enabled": false,
+      "recorded_product_limit": "<5 mg/min",
+      "canonical_reference_limit": "≤5 mg/min",
+      "product_source": {
+        "id": "S22-protamine",
+        "url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+        "retrieved_at_utc": "2026-10-17T14:55:55.608656+00:00",
+        "http_status": 200,
+        "final_url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+        "content_type": "text/html; charset=UTF-8",
+        "sha256": "2e8757604fb2059587bf3728446509ee709d5ec06d062f3eb1dfddaa89f36442",
+        "local_artifact": "S22-protamine.html",
+        "bytes": 70119,
+        "access": "RETRIEVED",
+        "review_status": "FOCUSED_SOURCE_REVIEW_NOT_HUMAN_APPROVAL",
+        "reviewed_sections": "4.2, 4.4, 6.1-6.6",
+        "professional_signoff": null,
+        "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+        "document_version_or_revision": "May 2020"
+      },
+      "interpretation": "Existing documentary discrepancy at equality; no new regulatory verification or clinical adjudication. The product profile remains inactive. No pump rate or dose changed.",
+      "required_decision": "Document exact product/source reconciliation by Gemini and explicit approval by Dr. Juan Copado Ceballos. Pharmacy is consultative, not a required project signatory."
+    }
+  ],
+  "inventory": {
+    "historical_snapshot": {
+      "entities": 270,
+      "named_active_substances": 252,
+      "unresolved_or_complex": 18,
+      "product_records": 93,
+      "named_regulatory_profiles": 19,
+      "formulation_descriptors": 74,
+      "warning": "Snapshot predates reviewed-contract release; its runtime/block statuses are historical, not current gates."
+    },
+    "current_catalogs": {
+      "adult_infusions": {
+        "records": 17,
+        "duplicate_ids": []
+      },
+      "pediatric_groups": {
+        "records": 52,
+        "duplicate_ids": []
+      },
+      "corticosteroids": {
+        "records": 8,
+        "duplicate_ids": []
+      }
+    },
+    "pediatric_regimens": 89,
+    "historical_duplicate_entity_ids": [],
+    "historical_duplicate_product_ids": [],
+    "historical_normalized_alias_collisions": {},
+    "shared_ids_across_current_catalogs": [
+      {
+        "id": "dexamethasone",
+        "catalogs": [
+          "pediatric_groups",
+          "corticosteroids"
+        ],
+        "assessment": "Shared ingredient/reference identity; not proof of duplicate therapy."
+      },
+      {
+        "id": "epinephrine",
+        "catalogs": [
+          "adult_infusions",
+          "pediatric_groups"
+        ],
+        "assessment": "Shared ingredient/reference identity; not proof of duplicate therapy."
+      },
+      {
+        "id": "hydrocortisone",
+        "catalogs": [
+          "pediatric_groups",
+          "corticosteroids"
+        ],
+        "assessment": "Shared ingredient/reference identity; not proof of duplicate therapy."
+      },
+      {
+        "id": "prednisolone",
+        "catalogs": [
+          "pediatric_groups",
+          "corticosteroids"
+        ],
+        "assessment": "Shared ingredient/reference identity; not proof of duplicate therapy."
+      }
+    ],
+    "limits": "No automatic synonym/salt/product equivalence. Repeated indications, concentrations and combination components are not deduplicated into prescriptions. No patient medication reconciliation performed."
+  },
+  "new_clinical_decisions": {
+    "received_in_this_dispatch": [],
+    "implemented": [],
+    "status": "NO_NEW_DOCUMENTED_AND_APPROVED_DECISION_AVAILABLE",
+    "policy": "Implement only a concrete Gemini decision with source, version, scope, and explicit owner approval; do not infer approval from CI."
+  },
+  "source_sha256": {
+    "clinical/qa/global-medication-audit-v144/entity-inventory.json": "13cce0812ef609dd2cfd2dca2afdfbdb37f1ea4b19569a1aaa7072f876a986c1",
+    "clinical/qa/global-medication-audit-v144/products.json": "97d1ab95edebd3c46074c06c9d806e8d5b05cc14578be8e86d96819e76d0a502",
+    "clinical/qa/global-medication-audit-v144/counts.json": "51ca9222172ffb4b6970842b80b16a246a3c6e33d77da437bf16039beaee6ea8",
+    "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json": "b42eb3007f2481de488bb4a8dbabd36f590cb325c4452628a4d1e70264aa1274",
+    "clinical/references/acute-contract-owner-acceptance-2026-11-16.json": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
+    "app/src/data/drugs.json": "084f4090a4d9ddd68b60c2b731eb17be632a22e795598cef8b6fa2276b032893",
+    "app/src/data/generatedPediatricOutpatient.json": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+    "clinical/pharmacology/corticosteroids.json": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499"
+  }
+}

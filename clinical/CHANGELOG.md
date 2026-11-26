@@ -1,3 +1,5 @@
+26/11/2026 · Candidato aislado PR115/PR116: PR111 conciliada sin repetir delta; preservados transporte y revisión terapéutica, procedencia T06 y expectativas diagnósticas; inventario residual documentado sin cambiar pautas. CLINICALLY_PENDING.
+
 26/11/2026 · PR116: adaptación del arnés histórico al recibo terapéutico real, sin cambiar expectativas clínicas; regresiones positivas/negativas de exportación histórica, privacidad e integridad. CLINICALLY_PENDING.
 
 26/11/2026 · THERAPY/CORT: comparador de 8 corticoides con Endotext/ESE separados, hidrocortisona adulta/pediátrica, aclaraciones focales sepsis/anafilaxia, curso corto de Bell como subsección ENT y banda explícita de asma de 12–17 años; pauta seleccionada editable y recibo de revisión por versión, rojo→verde→rojo tras cambio. Salida Word/PDF/JSON sin pautas antiguas duplicadas. Fuentes canónicas y calculadoras existentes conservadas; sin promover validación global. Expediente `qa/THERAPEUTIC_PLAN_REVIEW_20261126.md`.

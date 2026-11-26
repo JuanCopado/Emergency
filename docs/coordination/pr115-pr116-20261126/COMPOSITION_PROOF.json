@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0",
+  "receiver": "87a17301c395546536dce12150307a5b1474f844",
+  "pr115": "82278d37dc29fe49e6afbc8db7aafe8d7e4166c1",
+  "pr116": "43d62015838d0b190869482ecde645cf86b56249",
+  "receiver_plus_pr115_tree": "05c2ec1c1a8d871cfe83c05c4540e941f35d30f3",
+  "original_pr115_tree": "05c2ec1c1a8d871cfe83c05c4540e941f35d30f3",
+  "no_duplicate_pr111_delta": true,
+  "source_files": [
+    {
+      "pr": 111,
+      "path": "app/src/components/CatalogEmptyState.tsx",
+      "pr115_sha256": "258726c6a6719037ce75b010921b54b7d1254c883bd56ff5f5e45f4973914d94",
+      "candidate_sha256": "258726c6a6719037ce75b010921b54b7d1254c883bd56ff5f5e45f4973914d94",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/components/EvidenceStatusPill.tsx",
+      "pr115_sha256": "eec5bfc53a1f37d5b25576a28f5435e33a222351faf5f6c9fa8edfef1a435ec0",
+      "candidate_sha256": "eec5bfc53a1f37d5b25576a28f5435e33a222351faf5f6c9fa8edfef1a435ec0",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/components/ResuscitationCircuits.tsx",
+      "pr115_sha256": "3c9aa6c44a8a35b84f4c63dd40742baee203d7b59417311605abbcfe9fed55cc",
+      "candidate_sha256": "3c9aa6c44a8a35b84f4c63dd40742baee203d7b59417311605abbcfe9fed55cc",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/i18n/locales/en.clinical.json",
+      "pr115_sha256": "94767aa03403602cb2797fceadf7eda6f5746c3ddaacc2b22ad8a349dfddd0f2",
+      "candidate_sha256": "94767aa03403602cb2797fceadf7eda6f5746c3ddaacc2b22ad8a349dfddd0f2",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/i18n/locales/es.clinical.json",
+      "pr115_sha256": "5296700e0d39b1402625a5ac173e46dfe29f721488f8dac8bb138f73d1cf9016",
+      "candidate_sha256": "5296700e0d39b1402625a5ac173e46dfe29f721488f8dac8bb138f73d1cf9016",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/i18n/locales/pt.clinical.json",
+      "pr115_sha256": "90218f6727d7e426edfc27c5e86f9423d10ebfcdf03726721d3e5303118532b7",
+      "candidate_sha256": "90218f6727d7e426edfc27c5e86f9423d10ebfcdf03726721d3e5303118532b7",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/i18n/locales/zh.clinical.json",
+      "pr115_sha256": "9d77b50389848138ab6b7111d6f125c81e47f1199a9cbfe0b4184fa24d5a3fe3",
+      "candidate_sha256": "9d77b50389848138ab6b7111d6f125c81e47f1199a9cbfe0b4184fa24d5a3fe3",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/index.css",
+      "pr115_sha256": "40d6f331d3697372f49270f65be3429c7fdecc2cd23c4b895808b683b99c90a7",
+      "candidate_sha256": "40d6f331d3697372f49270f65be3429c7fdecc2cd23c4b895808b683b99c90a7",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/pages/ClinicalGuides.tsx",
+      "pr115_sha256": "6c8d8b1a28094371c7f44b64d6eadcce0cbd9e8a1eb0c006f718399b683fda5a",
+      "candidate_sha256": "6c8d8b1a28094371c7f44b64d6eadcce0cbd9e8a1eb0c006f718399b683fda5a",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/pages/ClinicalLibrary.tsx",
+      "pr115_sha256": "d5790707cd8cb696681fca0753b45f8a4a0c6cbae6b5e5ca440265d642c8153a",
+      "candidate_sha256": "d5790707cd8cb696681fca0753b45f8a4a0c6cbae6b5e5ca440265d642c8153a",
+      "identical": true
+    },
+    {
+      "pr": 111,
+      "path": "app/src/test/catalog-empty-state.test.tsx",
+      "pr115_sha256": "fc3e9b4772cbfb33f93f02acab6570993443dff03e32ccb336bf54470e0205ae",
+      "candidate_sha256": "fc3e9b4772cbfb33f93f02acab6570993443dff03e32ccb336bf54470e0205ae",
+      "identical": true
+    },
+    {
+      "pr": 112,
+      "path": "docs/coordination/r89-r99-custody-20261126/README.md",
+      "pr115_sha256": "e1957587a635eecf7e96d324f835d159c3e5dba6c1a3d7f06b3765d9cf3d009c",
+      "candidate_sha256": "e1957587a635eecf7e96d324f835d159c3e5dba6c1a3d7f06b3765d9cf3d009c",
+      "identical": true
+    },
+    {
+      "pr": 112,
+      "path": "docs/coordination/r89-r99-custody-20261126/inventario.json",
+      "pr115_sha256": "85f2c6acd0f570d69dd7ea34aff43ebb77baa910288ee090e427e0d3188d3e0d",
+      "candidate_sha256": "85f2c6acd0f570d69dd7ea34aff43ebb77baa910288ee090e427e0d3188d3e0d",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "clinical/lab/human_factors/bank/stimuli/.gitattributes",
+      "pr115_sha256": "2fe06d18b27c49dc040f5f7a879fba56dc2150753463f8b7790a2ab8cda4913a",
+      "candidate_sha256": "2fe06d18b27c49dc040f5f7a879fba56dc2150753463f8b7790a2ab8cda4913a",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/Abrasion_on_hand_20050906-original.jpg",
+      "pr115_sha256": "b4e6e7a62ba07eb996464fca80a0603562cb0a146a03d8bf00861d7cd12e548a",
+      "candidate_sha256": "b4e6e7a62ba07eb996464fca80a0603562cb0a146a03d8bf00861d7cd12e548a",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/QA_INDIVIDUAL.json",
+      "pr115_sha256": "5d6df8a6b64f78fa947bfa55ebc4ea3311b81291736940a071d9084465c3dcad",
+      "candidate_sha256": "5d6df8a6b64f78fa947bfa55ebc4ea3311b81291736940a071d9084465c3dcad",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/S1-01-fullres-review.jpg",
+      "pr115_sha256": "3584e973cc0545d6207c06cf494735d018636c424bde4542ef1b9024033071d0",
+      "candidate_sha256": "3584e973cc0545d6207c06cf494735d018636c424bde4542ef1b9024033071d0",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/receipt.json",
+      "pr115_sha256": "cbba66d1cd83fd44d1b7d363303a311ba3258d01459df705f1470461fd4515e6",
+      "candidate_sha256": "cbba66d1cd83fd44d1b7d363303a311ba3258d01459df705f1470461fd4515e6",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/review-360x640.png",
+      "pr115_sha256": "d67ac532e3bde05c1fee527d7076df1606efb80b7e7592957361c0f1a1ef00d1",
+      "candidate_sha256": "d67ac532e3bde05c1fee527d7076df1606efb80b7e7592957361c0f1a1ef00d1",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "docs/coordination/bank30-20261126/MATRIZ_30_POSICIONES.json",
+      "pr115_sha256": "8a4444365f47c4e8d98f47f184168e0fb0d7603107358cebb4905e4c2a560745",
+      "candidate_sha256": "8a4444365f47c4e8d98f47f184168e0fb0d7603107358cebb4905e4c2a560745",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "docs/coordination/bank30-20261126/PRUEBAS.json",
+      "pr115_sha256": "92f6a479503f1ee5f7feebb99def17f7f0e2de79f0b98f9542e3f3830948d8a7",
+      "candidate_sha256": "92f6a479503f1ee5f7feebb99def17f7f0e2de79f0b98f9542e3f3830948d8a7",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "docs/coordination/bank30-20261126/README.md",
+      "pr115_sha256": "364f1ee39d41fbbfa0ad415c5ac1b0418c4fd9a3862c34d3417b02ee8ad9caca",
+      "candidate_sha256": "364f1ee39d41fbbfa0ad415c5ac1b0418c4fd9a3862c34d3417b02ee8ad9caca",
+      "identical": true
+    },
+    {
+      "pr": 113,
+      "path": "docs/coordination/bank30-20261126/RECUPERACION_BLOBS_PDF.json",
+      "pr115_sha256": "a455bc2e5b77af3ca37b9daae86de6a1775df78e35e2ef3cf9fa6f23d02af655",
+      "candidate_sha256": "a455bc2e5b77af3ca37b9daae86de6a1775df78e35e2ef3cf9fa6f23d02af655",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": ".github/workflows/app-ui-qa.yml",
+      "pr115_sha256": "60ce3bc425ec207603b797920cc3d592da9afa6c866248cfa1b23b56487e2aaa",
+      "candidate_sha256": "e77565cc28bae0673432d621041e21ef3cb6076edc5f4443849ace7ab38b64f0",
+      "identical": false
+    },
+    {
+      "pr": 114,
+      "path": "STATE.md",
+      "pr115_sha256": "002b50ad170702aef93a4008f0526c8bef1f8bf6cba800e8efa6cbeadc864798",
+      "candidate_sha256": "3aaaef4f620688248f19de8759a3971fb9d46df0254d9c71f0ee9a9e2adb2aa2",
+      "identical": false
+    },
+    {
+      "pr": 114,
+      "path": "app/scripts/check-functional-v144.mjs",
+      "pr115_sha256": "67bc494aa4b68104543d13d6f884869f26bb01eef8a3b83b940b91772cbcb02b",
+      "candidate_sha256": "96b9b094fe31fe2030a50f7ce93a93dfa90d7dede08bcb3dad0b4e972c831744",
+      "identical": false
+    },
+    {
+      "pr": 114,
+      "path": "app/src/clinical-note/api.ts",
+      "pr115_sha256": "815a5f11b57182a661ee78bcd4737820c2bdb6a849f958efbded8109f210b108",
+      "candidate_sha256": "b747fe16db878b44758df4af2a1ed7a2da12b24248d591f47d6f8489601f0e56",
+      "identical": false
+    },
+    {
+      "pr": 114,
+      "path": "app/src/t06/viewModel.test.ts",
+      "pr115_sha256": "f26b06b9cb2a57598ccdd91625b5c829c5465db499a02a24772290382fb71d7a",
+      "candidate_sha256": "f26b06b9cb2a57598ccdd91625b5c829c5465db499a02a24772290382fb71d7a",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "app/src/test/clinical-note-connection.test.ts",
+      "pr115_sha256": "e66197d23ef116444c55774e82190411ed72f966c7b87e8f18b840b321e46851",
+      "candidate_sha256": "e66197d23ef116444c55774e82190411ed72f966c7b87e8f18b840b321e46851",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "docs/coordination/r5-g05-20261126/G05_REQUISITOS.json",
+      "pr115_sha256": "c5ab01649e1df9c8c9d7948f632e62f80b3adcbcde2807c21386cc7e37a68e2d",
+      "candidate_sha256": "c5ab01649e1df9c8c9d7948f632e62f80b3adcbcde2807c21386cc7e37a68e2d",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "docs/coordination/r5-g05-20261126/README.md",
+      "pr115_sha256": "f4fc536d6afb710e082b9a5520575e581d996a8345860923664723d76201bb31",
+      "candidate_sha256": "f4fc536d6afb710e082b9a5520575e581d996a8345860923664723d76201bb31",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "docs/coordination/r5-g05-20261126/SONAR_UNICODE.md",
+      "pr115_sha256": "ffc18d60e35c7137e2a57dd2b3815472285f2972d0b878e347c1e8278aea3c93",
+      "candidate_sha256": "ffc18d60e35c7137e2a57dd2b3815472285f2972d0b878e347c1e8278aea3c93",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "tools/t06-localhost-lab/.gitattributes",
+      "pr115_sha256": "c832b97176a2c61bd0fab7c35e329e169c0ccf7cf58f811c25424489bc6bac3f",
+      "candidate_sha256": "c832b97176a2c61bd0fab7c35e329e169c0ccf7cf58f811c25424489bc6bac3f",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "tools/t06-localhost-lab/CURRENT_ADAPTATIONS.json",
+      "pr115_sha256": "47eb89786bebcd089e458c4bfd1c964409cc2809e361b8d45292b42ebb3f5240",
+      "candidate_sha256": "47eb89786bebcd089e458c4bfd1c964409cc2809e361b8d45292b42ebb3f5240",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "tools/t06-localhost-lab/README.md",
+      "pr115_sha256": "177a8e4dba10f2d8f56c8477c020beb7c9561124e92e2a725b858b1c38341660",
+      "candidate_sha256": "177a8e4dba10f2d8f56c8477c020beb7c9561124e92e2a725b858b1c38341660",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "tools/t06-localhost-lab/provenance/viewModel.test.ts.original.txt",
+      "pr115_sha256": "ba17ff4a6823253ff06615db9381f3e013410528151af31b6e854f4f5e79d6da",
+      "candidate_sha256": "ba17ff4a6823253ff06615db9381f3e013410528151af31b6e854f4f5e79d6da",
+      "identical": true
+    },
+    {
+      "pr": 114,
+      "path": "tools/t06-localhost-lab/test_integration.py",
+      "pr115_sha256": "21cbf29fff1ddd9493997ee53e54575202911c6a8fbe3c4d91a188cc3ec1ba7b",
+      "candidate_sha256": "21cbf29fff1ddd9493997ee53e54575202911c6a8fbe3c4d91a188cc3ec1ba7b",
+      "identical": true
+    }
+  ],
+  "modified_pr114_paths_explained": [
+    "STATE.md",
+    ".github/workflows/app-ui-qa.yml",
+    "app/src/clinical-note/api.ts",
+    "app/scripts/check-functional-v144.mjs"
+  ],
+  "accepted_contracts_sha256": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
+  "clinical_status": "CLINICALLY_PENDING"
+}
