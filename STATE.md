@@ -1,3 +1,9 @@
+# 26/11/2026 · Corticoides y pauta terapéutica por versión
+
+Candidato de implementación en `codex/corticosteroids-therapeutic-review-20261126`, desde `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`: consulta de corticoides adultos/pediatría y circuito de pauta editable, revisión roja/verde ligada a contenido y salida comprobada. Alcance, límites y evidencia: [THERAPY-20261126](clinical/qa/THERAPEUTIC_PLAN_REVIEW_20261126.md). Esta entrada no declara merge ni despliegue. Se conservan estados clínicos y aceptaciones previas.
+
+Actualización de cierre: Bell tiene acceso focal y el asma incorpora la banda explícita de 12–17 años; sus candidatos diagnósticos remiten al módulo apropiado a la edad conocida. La revisión de dosis sigue siendo médica. Navegación real pendiente y publicación no completada.
+
 # R96 · Integración técnica comprobada · 25/11/2026
 
 PR106 integrada en `1733faa2a63ea93a63e2edb1b8fa4a37b21a3c3a`, árbol

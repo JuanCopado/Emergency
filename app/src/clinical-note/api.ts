@@ -1,4 +1,4 @@
-import type { ClinicalNotePayload, DiagnosticApiResponse, InterpretationFields, PreparedUpload } from './types';
+import type { ClinicalNotePayload, DiagnosticApiResponse, InterpretationFields, PreparedUpload, TherapeuticConfirmations, TherapeuticPlan, TherapeuticReview, TherapyCatalogEntry, TherapyContext, TherapyIssue, TherapySelection } from './types';
 
 const API_BASE=(import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/,'');
 
@@ -8,6 +8,13 @@ export class ClinicalApiConnectionError extends Error{
   constructor(readonly failure:ConnectionFailure){
     super(failure==='timeout'?'clinical API request timed out':'clinical API unreachable');
     this.name='ClinicalApiConnectionError';
+  }
+}
+/** An authoritative HTTP rejection, distinct from transport failure. */
+export class ClinicalApiResponseError extends Error {
+  constructor(readonly status:number,message:string,readonly code:string|null=null){
+    super(message);
+    this.name='ClinicalApiResponseError';
   }
 }
 // Deterministic calls are bounded; the provider call must outlast the server's own provider timeout (max 180 s)
@@ -29,7 +36,11 @@ async function postJson<T>(path:string, body:unknown, timeoutMs:number=REQUEST_T
       signal:controller.signal,
     });
     const payload=await response.json().catch(()=>({error:'Invalid backend response'}));
-    if(!response.ok) throw new Error(payload?.error || `Clinical-note API error ${response.status}`);
+    if(!response.ok) throw new ClinicalApiResponseError(
+      response.status,
+      typeof payload?.error==='string'?payload.error:`Clinical-note API error ${response.status}`,
+      typeof payload?.error_code==='string'?payload.error_code:typeof payload?.code==='string'?payload.code:null,
+    );
     return payload as T;
   }catch(error){
     // Server answers keep their original error; nothing is retried here.
@@ -95,6 +106,20 @@ export async function preflightClinicalNote(note:ClinicalNotePayload){
 
 export async function analyzeClinicalNote(note:ClinicalNotePayload){
   return postJson<DiagnosticApiResponse>('/api/clinical-note/analyze',{note});
+}
+
+export async function getTherapyCatalog() {
+  return postJson<{ modules: TherapyCatalogEntry[] }>('/api/clinical-note/therapy/catalog', {});
+}
+
+export async function suggestTherapeuticPlan(note: ClinicalNotePayload, selection: TherapySelection, context: TherapyContext) {
+  return postJson<{ blocked: boolean; issues: TherapyIssue[]; plan: TherapeuticPlan | null }>(
+    '/api/clinical-note/therapy/suggest', { note, selection, context });
+}
+
+export async function validateTherapeuticPlan(note: ClinicalNotePayload, confirmations: TherapeuticConfirmations) {
+  return postJson<{ blocked: boolean; issues: TherapyIssue[]; review: TherapeuticReview | null }>(
+    '/api/clinical-note/therapy/validate', { note, confirmations });
 }
 
 function base64ToBlob(content:string,mime:string){

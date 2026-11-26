@@ -170,6 +170,7 @@ Apply [international clinical context](../references/international-context.md): 
 
 ## medication-selection-safety
 
+- **Systemic corticosteroids:** consult the [attributed corticosteroid reference](../references/corticosteroids.md) and the comparison page at `/corticosteroids`. Select one complete Endotext 2018 or ESE/Endocrine Society 2024 table; retain the same single-dose or 24-hour-total basis. Anti-inflammatory equivalence does not select a regimen, account for mineralocorticoid replacement, convert topical/inhaled/depot products, or derive a pediatric dose from an adult regimen. Use the indication-specific module for hydrocortisone, monitoring and product checks.
 - Define the exact syndrome, therapeutic purpose, current value and target before selecting a drug. Distinguish treating the underlying disease from changing a physiologic number or treating a similarly named condition.
 - When a user proposes an agent, state one of: recommended, not routinely indicated, conditional, contraindicated or uncertain. Give the decisive indication mismatch, contraindication or monitoring issue before offering a dose.
 - For a recommendation, provide generic drug, route, initial dose, titration/redosing, maximum when applicable, organ-function adjustment, key contraindications, monitoring, hold/stop condition and reassessment interval. Do not imply a checklist is prescribing clearance.

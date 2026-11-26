@@ -13,6 +13,7 @@ sys.path[:0] = [str(ROOT / 'scripts'), str(ROOT / 'tests')]
 from clinical_note_diagnostic_engine import analyze
 from clinical_note_exporter import note_to_sections, export_docx, export_pdf, export_sections_pdf
 from run_clinical_note_diagnostic_cases import build
+from therapy_test_fixtures import review_synthetic_therapy
 
 LANGUAGES = {
     'pt-PT': ('Menções incertas', 'Sem dados laboratoriais', 'Nota Clínica', 'Limitações'),
@@ -51,6 +52,7 @@ class NoteLanguage(unittest.TestCase):
                 note['history']['chief_complaint'] = 'QA synthetic <unchanged> 7.4 mg'
                 note = analyze(note, apply_to_note=True)['note']
                 note['clinician_validation']['reviewed'] = True
+                review_synthetic_therapy(note)
                 sections = note_to_sections(note)
                 self.assertIn(title, sections[0][0])
                 self.assertIn(limitations, [heading for heading, _ in sections])

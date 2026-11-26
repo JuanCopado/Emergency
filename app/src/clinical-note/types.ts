@@ -70,9 +70,56 @@ export type ClinicalAssessment = {
   limitations: string[];
 };
 
+export type TherapySelection = {
+  label: string;
+  module_id: string | null;
+  selection: 'diagnostic' | 'manual';
+};
+export type TherapyContext = { weight_kg: number | null; allergies_reviewed: boolean };
+export type TherapeuticSections = {
+  initial_actions: string;
+  medications: string;
+  monitoring: string;
+  reassessment: string;
+  disposition: string;
+};
+export type TherapeuticConfirmations = { individualized: boolean; medication_safety_reviewed: boolean };
+export type TherapeuticPlan = {
+  schema_version: '1.0';
+  plan_id: string;
+  diagnosis: TherapySelection;
+  population: 'adult' | 'pediatric';
+  context: TherapyContext;
+  sections: TherapeuticSections;
+  source_refs: { module_id: string; path: string; sha256: string; language: string }[];
+  reference_text: string;
+  source_revision: string;
+  generated_from_digest: string;
+  generation_token: string;
+  suggested_content_digest: string;
+  missing_requirements: string[];
+  medication_safety: { status: 'REVIEW_REQUIRED'; actionable: false; required_module: 'medication-selection-safety' };
+};
+export type TherapeuticReview = {
+  status: 'validated';
+  mode: 'as_suggested' | 'edited';
+  scope: 'physician_review_of_this_version';
+  confirmations: TherapeuticConfirmations;
+  reviewed_at: string;
+  plan_digest: string;
+  context_digest: string;
+  validation_token: string;
+};
+export type TherapyIssue = { severity: string; code: string; message: string };
+export type TherapyCatalogEntry = {
+  id: string; title: string; populations: ('adult' | 'pediatric')[]; source_language: string;
+};
+
 export type ClinicalNotePayload = {
   schema_version: '1.0';
   language: 'pt-PT' | 'es-ES' | 'en' | 'zh';
+  therapeutic_plan?: TherapeuticPlan;
+  therapeutic_review?: TherapeuticReview;
   encounter: {
     encounter_id: string;
     age: { years: number | null; months: number | null };

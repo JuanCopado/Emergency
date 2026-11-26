@@ -4,10 +4,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import ClinicalNote from '../pages/ClinicalNote';
 import * as api from '../clinical-note/api';
 import { renderAt } from './render';
+import { syntheticTherapeuticPlan, syntheticTherapeuticReview } from './fixtures/therapeuticPlan';
+import { THERAPY_COPY } from '../clinical-note/therapyCopy';
 
 beforeEach(() => {
   vi.restoreAllMocks();
   localStorage.clear();
+  vi.spyOn(api,'getTherapyCatalog').mockResolvedValue({modules:[]});
 });
 
 const response = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
@@ -24,6 +27,8 @@ async function openExport() {
 
 describe('Synthetic note export and privacy contracts', () => {
   it.each(['json', 'pdf', 'docx'] as const)('preserves all entered fields through preflight and %s export, then invalidates review after editing', async (format) => {
+    vi.spyOn(api,'suggestTherapeuticPlan').mockImplementation(async(note,selection,context)=>({blocked:false,issues:[],plan:syntheticTherapeuticPlan(note,selection,context)}));
+    vi.spyOn(api,'validateTherapeuticPlan').mockResolvedValue({blocked:false,issues:[],review:syntheticTherapeuticReview('edited')});
     const requests: { path: string; body: Record<string, unknown> }[] = [];
     const mime = { json: 'application/json', pdf: 'application/pdf', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }[format];
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input, init) => {
@@ -51,12 +56,21 @@ describe('Synthetic note export and privacy contracts', () => {
     change('Exploração', 'Exploração sintética');
     await user.click(screen.getByRole('button', { name: 'Plano' }));
     change('Plano médico', 'Plano sintético preservado');
+    change(THERAPY_COPY.pt.diagnosis,'SYNTHETIC_DIAGNOSIS');
+    await user.click(screen.getByRole('checkbox',{name:THERAPY_COPY.pt.privacy}));
+    await user.click(screen.getByText(THERAPY_COPY.pt.previous));
+    await user.click(screen.getByRole('checkbox',{name:THERAPY_COPY.pt.includePrevious}));
+    await user.click(screen.getByRole('button',{name:THERAPY_COPY.pt.suggest}));
+    expect(await screen.findByLabelText(THERAPY_COPY.pt.medications)).toHaveValue('SYNTHETIC_MEDICATION_REGIMEN\n\nPlano sintético preservado');
+    await user.click(screen.getByRole('checkbox',{name:THERAPY_COPY.pt.individualized}));
+    await user.click(screen.getByRole('checkbox',{name:THERAPY_COPY.pt.safety}));
+    await user.click(screen.getByRole('button',{name:THERAPY_COPY.pt.validate}));
+    await screen.findByRole('button',{name:THERAPY_COPY.pt.validated});
     await user.click(screen.getByRole('button', { name: 'Exportar' }));
     const label = { json: 'JSON', pdf: 'PDF', docx: 'Word (.docx)' }[format];
-    expect(screen.getByRole('button', { name: label })).toBeDisabled();
-    await user.click(screen.getByRole('checkbox', { name: /Identificadores diretos removidos/ }));
-    expect(screen.getByRole('button', { name: label })).toBeDisabled();
-    await user.click(screen.getByRole('checkbox', { name: /Médico reviu e valida/ }));
+    expect(screen.getByRole('button', { name: label })).toBeEnabled();
+    expect(screen.getByRole('checkbox', { name: /Identificadores diretos removidos/ })).toBeChecked();
+    expect(screen.getByRole('checkbox', { name: /Médico reviu e valida/ })).toBeChecked();
     await user.click(screen.getByRole('button', { name: label }));
     await waitFor(() => expect(download).toHaveBeenCalledTimes(1));
     expect(requests.map(r => r.path)).toEqual(['/api/clinical-note/preflight', '/api/clinical-note/export']);
@@ -72,7 +86,9 @@ describe('Synthetic note export and privacy contracts', () => {
         allergies: [{ substance: 'Substância sintética' }],
       },
       exam: { general: 'Exploração sintética', vitals: [{ time_label: 'synthetic-t0', bp: '120/80', hr: 80, temperature_c: 36.5 }] },
-      assessment: { treatment_suggestions: [{ action: 'Plano sintético preservado' }] },
+      assessment: { treatment_suggestions: [] },
+      therapeutic_plan: { sections: { medications: 'SYNTHETIC_MEDICATION_REGIMEN\n\nPlano sintético preservado' } },
+      therapeutic_review: { status:'validated',mode:'edited' },
       clinician_validation: { reviewed: true, reviewer_role: 'treating_clinician' },
       privacy: { direct_identifiers_removed: true, export_allowed: true },
     });

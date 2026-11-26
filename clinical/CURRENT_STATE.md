@@ -1,3 +1,9 @@
+## 26/11/2026 · Pauta terapéutica y corticoides
+
+Implementación a petición del propietario: `/corticosteroids` para adultos y pediatría, y pauta editable con revisión de versión en nota clínica. Verde acredita revisión humana de esa versión; la exportación vuelve a verificar firma, contexto y fuente. [Expediente y límites](qa/THERAPEUTIC_PLAN_REVIEW_20261126.md). El catálogo de múltiples indicaciones se consulta sin mezclar tratamientos en un caso. Registro clínico y aceptaciones anteriores conservados; sin despliegue ni promoción global.
+
+Pautas cortas: Bell explícito, asma adulta/pediátrica con banda de 12–17 años y selección de referencia diagnóstica de asma según edad conocida. Comprobación final de flujo/fuentes: 36/36 PASS; build PASS. La selección de la dosis sigue requiriendo individualización médica; QA visual y publicación pendientes.
+
 ## R54 · 24/11/2026 · Decisiones de imagen aprobadas
 
 MED-DEC-R46-01/02 registradas APPROVED_MEDICAL_OWNER por autorización expresa

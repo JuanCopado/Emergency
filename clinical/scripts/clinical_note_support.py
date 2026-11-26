@@ -249,10 +249,20 @@ def _walk(obj, path="$", key=None):
         for i, v in enumerate(obj):
             yield from _walk(v, f"{path}[{i}]")
 
-def _all_text(note):
-    for path, key, value in _walk(note):
-        if isinstance(value, str) and value.strip():
-            yield path, value
+def _all_text(value, path="$", components=()):
+    """Keep exact structural locations separate from human-readable JSONPath.
+
+    A literal key containing dots/brackets must not impersonate an exempt
+    canonical-source field when extension properties are present.
+    """
+    if isinstance(value, str) and value.strip():
+        yield path, components, value
+    elif isinstance(value, dict):
+        for key, child in value.items():
+            yield from _all_text(child, f"{path}.{key}", (*components, key))
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            yield from _all_text(child, f"{path}[{index}]", (*components, index))
 
 
 # Keep the legacy ASCII/case-insensitive email shape, including Python re.I's
@@ -310,7 +320,13 @@ def scan_privacy(note, policy=None):
             raise ValueError("unknown privacy detector")
         flags = re.I if "i" in rule.get("flags", "").lower() else 0
         compiled.append((rule["id"], re.compile(rule["pattern"], flags).search))
-    for path, text in _all_text(note):
+    trusted_paths = set()
+    if note.get("therapeutic_plan"):
+        from therapeutic_plan_workflow import trusted_source_paths
+        trusted_paths = trusted_source_paths(note)
+    for path, components, text in _all_text(note):
+        if components in trusted_paths:
+            continue
         for rid, matches in compiled:
             if matches(text):
                 findings.append({"severity": "STOP", "code": "POSSIBLE_IDENTIFIER_IN_TEXT",
@@ -377,6 +393,10 @@ def validate_for_export(note):
     if p.get("mode") == "external_anonymized" and has_embedded_image_interpretation and p.get("burned_in_identifiers_checked") is not True:
         findings.append({"severity": "STOP", "code": "BURNED_IN_IDENTIFIERS_NOT_CHECKED",
                          "message": "Burned-in identifiers must be checked for external export of image-derived content."})
+    # Shared by HTTP, PDF, DOCX and JSON exporters; omitting the plan cannot turn
+    # old treatment suggestions into a reviewed prescription via a boolean.
+    from therapeutic_plan_workflow import export_findings
+    findings.extend(export_findings(note))
     blocked = any(x["severity"] == "STOP" for x in findings)
     return {"blocked": blocked, "findings": findings, "export_allowed": not blocked}
 
