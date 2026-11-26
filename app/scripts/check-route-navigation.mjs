@@ -27,12 +27,14 @@ const report = { clinical_status: 'CLINICALLY_PENDING', release_status: 'NO_GO_C
     dirty: !!execFileSync('git', ['status', '--porcelain'], { cwd: appRoot, encoding: 'utf8' }).trim(),
     sha256: Object.fromEntries(['src/App.tsx', 'src/data/generatedPediatricOutpatient.json',
       'src/pages/PediatricOutpatient.tsx', 'src/test/pediatric-outpatient.test.tsx', 'src/test/route-identity.test.mjs',
+      'src/test/route-identity-cases.mjs', 'src/pages/Corticosteroids.tsx', 'src/corticosteroids/calculator.ts',
+      'src/corticosteroids/catalog.generated.json', 'src/corticosteroids/copy.ts', 'src/corticosteroids/ShortCourseReferences.tsx',
       'scripts/check-route-navigation.mjs', 'scripts/check-route-identity.mjs', 'scripts/route-identity.mjs',
       'scripts/functional-harness.mjs', 'dist/index.html',
       ...readdirSync(join(appRoot, 'dist/assets')).sort().map(name => `dist/assets/${name}`),
     ].map(path => [path, createHash('sha256').update(readFileSync(join(appRoot, path))).digest('hex')])),
   },
-  routes: [], pediatric_history: [], negative_controls: [], links: [], catalog: {}, errors: [], status: 'RUNNING' };
+  routes: [], pediatric_history: [], negative_controls: [], links: [], catalog: {}, corticosteroids: {}, errors: [], status: 'RUNNING' };
 const screenshots = process.env.ROUTE_QA_SCREENSHOTS;
 const bloodGas = spawn(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-u', '-c',
   'from blood_gas_local import make_server; s=make_server(ui_port=4180); print(s.server_port,flush=True); s.serve_forever()'],
@@ -127,6 +129,36 @@ async function checkPediatricHistory(page, base, verify) {
   await snapshot('internal-link', '', '');
 }
 
+async function checkCorticosteroidComparator(page) {
+  const reference = page.getByLabel('Referencia de equivalencia', { exact: true });
+  const dose = page.getByLabel('Cantidad en mg', { exact: true });
+  const result = page.getByRole('region', { name: 'Equivalencias aproximadas', exact: true });
+  await reference.selectOption('endotext-2018');
+  await page.getByLabel('Corticoide de origen', { exact: true }).selectOption('hydrocortisone');
+  await dose.fill('20');
+  await page.getByLabel('Vía sistémica de la comparación', { exact: true }).selectOption('iv');
+  await page.getByLabel('Qué cantidad estás comparando', { exact: true }).selectOption('daily_total');
+  await page.getByRole('button', { name: 'Comparar', exact: true }).click();
+  await result.waitFor();
+  assert.equal(await result.locator('tbody tr').count(), 8);
+  assert.equal(await result.locator('[data-drug="dexamethasone"] [data-amount="mg"]').innerText(), '0,75');
+  await reference.selectOption('ese-es-2024');
+  await result.waitFor({ state: 'detached' });
+  assert.equal(await result.count(), 0, 'Changing the source must invalidate the previous comparison');
+  await page.getByRole('button', { name: 'Comparar', exact: true }).click();
+  await result.waitFor();
+  assert.equal(await result.locator('[data-drug="dexamethasone"] [data-amount="mg"]').innerText(), '0,5');
+  await dose.fill('21');
+  await result.waitFor({ state: 'detached' });
+  assert.equal(await result.count(), 0, 'Changing the quantity must invalidate the previous comparison');
+  await page.getByRole('button', { name: 'Reiniciar', exact: true }).click();
+  assert.equal(await dose.inputValue(), '');
+  assert.equal(await reference.inputValue(), '');
+  assert.equal(await result.count(), 0);
+  report.corticosteroids = { compared_drugs: 8, source_specific_results: true,
+    edits_invalidate_results: true, reset_checked: true, status: 'PASS' };
+}
+
 async function checkBrowserNegatives(page, context, base) {
   const record = (kind, observed) => {
     assert.equal(observed.status, 'FAIL', kind);
@@ -208,6 +240,9 @@ try {
       errors = []; await page.goBack(); await verify(parent, 'back');
       errors = []; await page.goForward(); await verify(contract.example, 'forward');
     }
+    await goto('/corticosteroids'); await verify('/corticosteroids', 'comparator-ready');
+    await checkCorticosteroidComparator(page);
+    await verify('/corticosteroids', 'comparator-interactive');
     await goto('/pediatrics'); await verify('/pediatrics', 'catalog-ready');
     if (screenshots) {
       mkdirSync(screenshots, { recursive: true });
