@@ -69,7 +69,9 @@ describe('Q4 R6 ViewModel boundary', () => {
     expect(buildT06ViewModel('nvd', input)).toEqual(rejected);
   });
 
-  it.each(['\u0000', '\t', '\n', '\r', '\u007f', '\u0085', '\u200b', '\u202e', '\u2066', '\ufeff', '\ud800', '\udfff', '\u2028', '\u2029'])('rejects R6-forbidden control %j in displayed text', control => {
+  // Keep lone-surrogate inputs at runtime without malformed string values in
+  // the source AST consumed by the analyzer's UTF-8 Protobuf serializer.
+  it.each(['\u0000', '\t', '\n', '\r', '\u007f', '\u0085', '\u200b', '\u202e', '\u2066', '\ufeff', String.fromCharCode(0xd800), String.fromCharCode(0xdfff), '\u2028', '\u2029'])('rejects R6-forbidden control %j in displayed text', control => {
     for (const [service, key] of [['europe_pmc', 'title'], ['nvd', 'description_en']] as const) {
       const input = fixture(service); input.records[0] = { ...input.records[0], [key]: `before${control}after` };
       expect(buildT06ViewModel(service, input)).toEqual(rejected);

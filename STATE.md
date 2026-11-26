@@ -1,3 +1,40 @@
+# Supercoordinación final · candidato aislado · 26/11/2026
+
+Receptor confirmado `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`, protegido por
+C12 y sin modificar. Propuesta `review/final-closure-20261126`: composición
+de PR111–114, 37 archivos fuente sin solapamientos y dos documentos centrales;
+las PR fuente siguen abiertas.
+Se corrigen el manejo de cuerpos HTTP200, el arnés de nota localizado,
+metadatos textuales R89 mal codificados y dos literales de prueba cuyo AST
+reproduce UTF-8 inválido en Protobuf de Sonar. Sin retirar controles ni cambiar
+reglas/exclusiones. El fallo real del sello T06 se concilia manteniendo el
+manifiesto histórico y sus19 hashes:18 destinos idénticos y una adaptación
+exacta con original conservado. CI del candidato final por comprobar en su recibo.
+Registro confirmado 129 GREEN/2 YELLOW/0 RED, intacto. Banco 10/30 canónicos,
+20 pendientes, cero adjudicaciones; se recuperan cinco tomas físicas ya
+preparadas y cinco selecciones del propietario para preparación con límites.
+No repetir esas aceptaciones ni confundirlas con adjudicación clínica.
+Custodia R89/R99 verificada; AHA editorial, tabla IFEM legible, derechos,
+estudios R5 y G05 conservan bloqueos reales. Nueva auditoría Antigravity
+rechazada por permisos antes de leer; sin dictamen. Gemini previo recuperado,
+nuevo encargo no enviado por bloqueo de entrada. [Informe y fuentes](docs/coordination/final-closure-20261126/README.md).
+CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE.
+No fusión en receptor protegido, despliegue o promoción. Cortes siguientes históricos.
+
+# R5/G05 · candidato técnico aislado · 26/11/2026
+
+Base internacional `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`; rama
+`fix/r5-g05-functional-20261126`. Corregida la resolución errónea de una
+respuesta HTTP 200 cuando falla su lectura JSON, por red o timeout en el
+cliente de nota clínica. Tres regresiones fallan antes y pasan después.
+React: 1.045 PASS y dos omitidas; suites Python de nota/HTTP y M10: 116 PASS.
+Sin cambio de dosis, fórmulas, lexicón, ámbito de abstención o contratos médicos.
+[Expediente y seis requisitos G05](docs/coordination/r5-g05-20261126/README.md).
+CI del candidato, pruebas nativas y auditoría independiente deben acreditarse
+por el SHA de entrega. PR108–110 ya integradas; no se repiten sus cambios.
+R5-1, R5-2 y G05 siguen pendientes por evidencia y alcance concretos;
+CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Cortes siguientes históricos.
+
 # R96 · Integración técnica comprobada · 25/11/2026
 
 PR106 integrada en `1733faa2a63ea93a63e2edb1b8fa4a37b21a3c3a`, árbol

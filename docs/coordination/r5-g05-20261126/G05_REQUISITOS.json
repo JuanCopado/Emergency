@@ -1,0 +1,133 @@
+{
+  "base_commit": "228cd21d75d14e1012beb7f5dfe82c2c920c4ccc",
+  "source_document": "D:\\ChatGPT_Trabajo\\WORK_SUPERCOORDINADOR_20261126\\R88_R89\\R88_G05_REQUIREMENTS.json",
+  "source_sha256": "416ecf0f4f4316932ea355e3e26bcdfb2b5e087b5aea69038dcd79bd47d44b8f",
+  "global_status": "BLOCKED",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "requirements": [
+    {
+      "id": "G05-01",
+      "area": "Consumidor y despliegue",
+      "required_evidence": [
+        "Inventario de consumidores habilitados, finalidad, usuarios, datos/campos permitidos y grafo del flujo",
+        "SHA y árbol exactos, arquitectura y plataforma por adaptador, perfiles y fronteras de red",
+        "Pruebas tanto del flujo permitido como de ausencia de rutas externas y activación involuntaria"
+      ],
+      "responsible_role": "Ingeniería",
+      "status": "PENDING_PUBLIC_SCOPE",
+      "current_status": "LAB_LOCAL_ONLY_PUBLIC_SCOPE_UNDEFINED",
+      "current_evidence": [
+        "app/src/t06/T06Lab.tsx",
+        "app/src/t06/viewModel.ts",
+        "scripts/run_local_review.py",
+        "clinical/qa/T05_T06_INTEGRATION_20261119.md"
+      ],
+      "action_necessary": "Conservar 18 escenarios locales; no habilitar consumidores externos. Congelar finalidad, campos, plataforma y destinatarios antes de proponer consumidor público.",
+      "result_obtained": "Alcance local conservado; no cierre global ni habilitación pública.",
+      "acceptance_authority": "Dr. Juan Copado Ceballos para alcance clínico; titular para licencias; revisión técnica independiente para el mismo candidato."
+    },
+    {
+      "id": "G05-02",
+      "area": "Derechos y procedencia",
+      "required_evidence": [
+        "Permisos, titular, edición y licencia por fuente, campo y uso",
+        "Autorización para almacenamiento, reutilización y redistribución cuando aplique",
+        "Registro de cuotas, restricciones de acceso y atribución de cada proveedor",
+        "Licencia del código propio y de dependencias, lock y SBOM del entorno"
+      ],
+      "responsible_role": "Titular de fuentes y responsable de licencias",
+      "status": "DOCUMENTS_REVIEWED_RIGHTS_BY_FIELD_PENDING",
+      "current_status": "RIGHTS_BY_FIELD_AND_OWN_CODE_LICENSE_PENDING",
+      "current_evidence": [
+        "docs/coordination/R6_G05_20261121.md",
+        "app/package.json",
+        "app/package-lock.json",
+        "security/requirements-ci.txt"
+      ],
+      "action_necessary": "Recibos R89/PR112 conservan títulos, originales y derechos por documento; ello no autoriza RAG ni redistribución. Decisión del titular sobre licencia propia y permisos por campo/uso del futuro consumidor pendiente.",
+      "result_obtained": "Alcance local conservado; no cierre global ni habilitación pública.",
+      "acceptance_authority": "Dr. Juan Copado Ceballos para alcance clínico; titular para licencias; revisión técnica independiente para el mismo candidato."
+    },
+    {
+      "id": "G05-03",
+      "area": "Privacidad, autenticidad y seguridad",
+      "required_evidence": [
+        "Inventario y minimización de datos, acceso, retención, registro y responsabilidad",
+        "Aislamiento del entorno y control de Host/Origin/Fetch Metadata, autenticidad TLS, límites, cancelación y errores sin datos",
+        "QA sintética sin PII/PHI, pruebas negativas y auditoría independiente del mismo candidato"
+      ],
+      "responsible_role": "Seguridad y privacidad",
+      "status": "PENDING_PUBLIC_SCOPE",
+      "current_status": "LOCAL_CONTROLS_TESTED_PUBLIC_PRIVACY_SCOPE_PENDING",
+      "current_evidence": [
+        "clinical/tests/test_clinical_note_http_privacy.py",
+        "clinical/tests/test_blood_gas_http_boundary.py",
+        "tools/t06-localhost-lab",
+        "app/src/test/clinical-note-connection.test.ts"
+      ],
+      "action_necessary": "Corregida lectura de respuesta fallida tras HTTP 200. Mantener controles HTTP, minimización, errores sin cuerpos y adaptadores separados. Auditoría independiente del candidato y alcance público pendiente.",
+      "result_obtained": "Alcance local conservado; no cierre global ni habilitación pública.",
+      "acceptance_authority": "Dr. Juan Copado Ceballos para alcance clínico; titular para licencias; revisión técnica independiente para el mismo candidato."
+    },
+    {
+      "id": "G05-04",
+      "area": "Integridad del contenido externo",
+      "required_evidence": [
+        "Cotejo clínico de fuente primaria, revisión humana y tratamiento como información externa hasta aceptación",
+        "Si se propone RAG/LLM, contrato de recuperación y consumo, separación de datos e instrucciones, aislamiento y prueba de ausencia de mutación clínica"
+      ],
+      "responsible_role": "Ingeniería y autoridad clínica",
+      "status": "NOT_IMPLEMENTED_PUBLIC_RAG",
+      "current_status": "PUBLIC_RAG_NOT_IMPLEMENTED_NOT_ENABLED",
+      "current_evidence": [
+        "rag/README.md",
+        "docs/coordination/R5_G05_20261121.md"
+      ],
+      "action_necessary": "No crear un consumidor para poder certificarlo. Fuentes externas no se promueven a evidencia clínica. Contrato de recuperación y consumo solo si se propone habilitar RAG/LLM.",
+      "result_obtained": "Alcance local conservado; no cierre global ni habilitación pública.",
+      "acceptance_authority": "Dr. Juan Copado Ceballos para alcance clínico; titular para licencias; revisión técnica independiente para el mismo candidato."
+    },
+    {
+      "id": "G05-05",
+      "area": "Liberación y trazabilidad",
+      "required_evidence": [
+        "QA obligatoria y CI del SHA exacto, comprobación de controles de seguridad, registro de evidencia y notas de cambio",
+        "Revisión humana de módulos de alto riesgo con fuentes/versiones, limitaciones, fecha y decisión firmada",
+        "Cotejo local operativo de protocolos, formulación y equipos cuando se afirme aplicabilidad",
+        "Aprobación expresa de alcance, fecha, responsable y auditoría independiente sobre el mismo candidato"
+      ],
+      "responsible_role": "Propietario clínico y responsables de QA",
+      "status": "BLOCKED",
+      "current_status": "EXACT_CANDIDATE_QA_AND_INDEPENDENT_REVIEW_REQUIRED",
+      "current_evidence": [
+        "clinical/qa/RELEASE_GATES.md",
+        ".github/workflows/security-and-quality.yml",
+        ".github/workflows/local-review-qa.yml",
+        ".github/workflows/app-ui-qa.yml"
+      ],
+      "action_necessary": "Ejecutar CI del SHA publicado, conservar checks C12 y revisar el mismo candidato. Las aceptaciones clínicas previas mantienen su alcance. Farmacia es consultiva, no aprobador obligatorio.",
+      "result_obtained": "Alcance local conservado; no cierre global ni habilitación pública.",
+      "acceptance_authority": "Dr. Juan Copado Ceballos para alcance clínico; titular para licencias; revisión técnica independiente para el mismo candidato."
+    },
+    {
+      "id": "G05-06",
+      "area": "PTBR-PIX",
+      "required_evidence": [
+        "Contrato literal específico con versión, escenarios, disparadores, mensajes, acciones y límites de acceso a píxeles",
+        "Revisión de privacidad/seguridad y pruebas del contrato incluyendo negativas y separación de pt-PT y pt-BR",
+        "Ficha de decisión médica específica y recibo de aprobación del propietario"
+      ],
+      "responsible_role": "Ingeniería, revisión independiente y propietario clínico",
+      "status": "BLOCKED_LITERAL_CONTRACT_AND_APPROVAL_PENDING",
+      "related_approved_scope": "MED-DEC-R39-PTBR-FINAL/PTBR-MOD exclusivamente",
+      "current_status": "BLOCKED_PTBR_PIX_LITERAL_CONTRACT_AND_OWNER_APPROVAL",
+      "current_evidence": [
+        "docs/coordination/R43_CODEX_PTBR_INTEGRACION.md"
+      ],
+      "action_necessary": "PTBR-MOD no acepta PTBR-PIX. No implementar acceso a píxeles, nuevos mensajes o disparadores sin contrato literal específico, revisión de privacidad y aceptación del propietario.",
+      "result_obtained": "Alcance local conservado; no cierre global ni habilitación pública.",
+      "acceptance_authority": "Dr. Juan Copado Ceballos para alcance clínico; titular para licencias; revisión técnica independiente para el mismo candidato."
+    }
+  ]
+}

@@ -81,6 +81,38 @@ describe('clinical-note API connection failures', () => {
     await analyzeClinicalNote(note);
     expect(vi.getTimerCount()).toBe(0);
   });
+
+  it('rejects malformed HTTP 200 JSON without exposing the response body', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('SYNTHETIC_PRIVATE_BODY', { status: 200 })));
+    await expect(analyzeClinicalNote(note)).rejects.toThrow('Invalid backend response');
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('keeps a body-read timeout after HTTP 200 headers as a connection failure', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (_url: string, init?: RequestInit) => ({
+      ok: true,
+      json: () => new Promise((_resolve, reject) => {
+        init?.signal?.addEventListener('abort', () => reject(new DOMException('aborted', 'AbortError')));
+      }),
+    })));
+    const pending = analyzeClinicalNote(note).catch(error => error);
+    await vi.advanceTimersByTimeAsync(REQUEST_TIMEOUT_MS);
+    expect(await pending).toBeInstanceOf(ClinicalApiConnectionError);
+    expect((await pending).failure).toBe('timeout');
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('keeps a network failure while reading the response body as a connection failure', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: true,
+      json: () => Promise.reject(new TypeError('SYNTHETIC_PRIVATE_BODY')),
+    })));
+    const failure = await analyzeClinicalNote(note).catch(error => error);
+    expect(failure).toBeInstanceOf(ClinicalApiConnectionError);
+    expect(failure.failure).toBe('network');
+    expect(failure.message).not.toContain('SYNTHETIC_PRIVATE_BODY');
+    expect(vi.getTimerCount()).toBe(0);
+  });
 });
 
 describe('connection messages', () => {
