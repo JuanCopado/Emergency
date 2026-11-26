@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'qa'))
 from run_functional_v144 import QA, run, build, analyze, export_note_bytes
 from clinical_note_support import new_note
+from synthetic_therapy_review import review_synthetic_plan
 
 
 class FunctionalV144Tests(unittest.TestCase):
@@ -35,6 +36,7 @@ class FunctionalV144Tests(unittest.TestCase):
         case = json.loads((QA / 'V1.44_DEMO_CASES.json').read_text(encoding='utf-8'))['cases'][0]['input']
         note = analyze(build(case), apply_to_note=True)['note']
         note['clinician_validation'].update(reviewed=True, reviewer_role='treating_clinician')
+        review_synthetic_plan(note)
         for fmt in ('', 'exe', None, {}, []):
             with self.subTest(format=fmt), self.assertRaisesRegex(ValueError, 'format must be'):
                 export_note_bytes(note, fmt)

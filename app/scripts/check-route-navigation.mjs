@@ -130,14 +130,14 @@ async function checkPediatricHistory(page, base, verify) {
 }
 
 async function checkCorticosteroidComparator(page) {
-  const reference = page.getByLabel('Referencia de equivalencia', { exact: true });
+  const reference = page.getByRole('combobox', { name: 'Referencia de equivalencia', exact: true });
   const dose = page.getByLabel('Cantidad en mg', { exact: true });
   const result = page.getByRole('region', { name: 'Equivalencias aproximadas', exact: true });
   await reference.selectOption('endotext-2018');
-  await page.getByLabel('Corticoide de origen', { exact: true }).selectOption('hydrocortisone');
+  await page.getByRole('combobox', { name: 'Corticoide de origen', exact: true }).selectOption('hydrocortisone');
   await dose.fill('20');
-  await page.getByLabel('Vía sistémica de la comparación', { exact: true }).selectOption('iv');
-  await page.getByLabel('Qué cantidad estás comparando', { exact: true }).selectOption('daily_total');
+  await page.getByRole('combobox', { name: 'Vía sistémica de la comparación', exact: true }).selectOption('iv');
+  await page.getByRole('combobox', { name: 'Qué cantidad estás comparando', exact: true }).selectOption('daily_total');
   await page.getByRole('button', { name: 'Comparar', exact: true }).click();
   await result.waitFor();
   assert.equal(await result.locator('tbody tr').count(), 8);

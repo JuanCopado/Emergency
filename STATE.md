@@ -1,3 +1,7 @@
+## 26/11/2026 · Regresión PR116
+
+El arnés funcional usa ahora generación y revisión terapéutica reales con contenido sintético no prescriptivo; se conservan las expectativas clínicas históricas. Notas sin tratamiento siguen exportándose con los controles existentes. Nuevas regresiones de recibo ausente/falso/obsoleto y privacidad; QA completa y conciliación PR115 se registran por SHA en los recibos de cierre. CLINICALLY_PENDING; sin fusión ni despliegue.
+
 # 26/11/2026 · Corticoides y pauta terapéutica por versión
 
 Candidato de implementación en `codex/corticosteroids-therapeutic-review-20261126`, desde `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`: consulta de corticoides adultos/pediatría y circuito de pauta editable, revisión roja/verde ligada a contenido y salida comprobada. Alcance, límites y evidencia: [THERAPY-20261126](clinical/qa/THERAPEUTIC_PLAN_REVIEW_20261126.md). Esta entrada no declara merge ni despliegue. Se conservan estados clínicos y aceptaciones previas.

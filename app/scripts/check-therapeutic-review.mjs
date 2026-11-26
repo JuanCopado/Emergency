@@ -72,7 +72,7 @@ const syntheticSections = {
 async function fillSyntheticPlan(page) {
   await page.getByRole('button', { name: 'Editar pauta', exact: true }).click();
   for (const [label, value] of Object.entries(syntheticSections)) {
-    await page.getByLabel(label, { exact: true }).fill(value);
+    await page.getByRole('textbox', { name: label, exact: true }).fill(value);
   }
 }
 
@@ -83,6 +83,12 @@ async function confirmAndReview(page) {
   assert.equal(response.data.review.scope, 'physician_review_of_this_version');
   await page.getByRole('button', { name: 'Pauta validada', exact: true }).waitFor();
   assert.match(await page.getByTestId('therapy-review-state').innerText(), /Revisión médica vigente/);
+  // The button transitions its background; inspect the settled reviewed color.
+  await page.waitForFunction(() => {
+    const button = globalThis.document.querySelector('button[aria-describedby="therapy-review-help"]');
+    const rgb = button && globalThis.getComputedStyle(button).backgroundColor.match(/\d+/g)?.map(Number);
+    return rgb && rgb[1] > rgb[0];
+  }, null, { timeout: 5000 });
   const color = await page.getByRole('button', { name: 'Pauta validada', exact: true }).evaluate(element => globalThis.getComputedStyle(element).backgroundColor);
   const rgb = color.match(/\d+/g)?.map(Number);
   assert.ok(rgb && rgb[1] > rgb[0], `Validated button is not green: ${color}`);
@@ -92,13 +98,13 @@ async function confirmAndReview(page) {
 async function prepareCase(page, { age, unit, weight, moduleId, label }) {
   await page.goto(`${baseUrl}/clinical-note`);
   await page.getByTestId('clinical-note-workspace').waitFor();
-  await page.getByLabel('Unidad de edad', { exact: true }).selectOption(unit);
+  await page.getByRole('combobox', { name: 'Unidad de edad', exact: true }).selectOption(unit);
   await page.getByLabel('Edad', { exact: true }).fill(age);
   await page.getByLabel('Motivo de consulta', { exact: true }).fill('Evaluación sintética de QA sin paciente real.');
   await page.getByTestId('note-tab-plan').click();
   await page.getByLabel('Diagnóstico o patología', { exact: true }).fill(label);
-  await page.getByLabel('Referencia clínica', { exact: true }).locator(`option[value="${moduleId}"]`).waitFor({ state: 'attached' });
-  await page.getByLabel('Referencia clínica', { exact: true }).selectOption(moduleId);
+  await page.getByRole('combobox', { name: 'Referencia clínica', exact: true }).locator(`option[value="${moduleId}"]`).waitFor({ state: 'attached' });
+  await page.getByRole('combobox', { name: 'Referencia clínica', exact: true }).selectOption(moduleId);
   await page.getByLabel('Peso (kg)', { exact: true }).fill(weight);
   await page.getByLabel('He revisado las alergias de este caso', { exact: true }).check();
   await page.getByLabel('He retirado identificadores y revisado la privacidad del texto y de los archivos', { exact: true }).check();
@@ -126,10 +132,10 @@ try {
   const comparator = await newPage();
   await comparator.goto(`${baseUrl}/corticosteroids`);
   await comparator.getByRole('heading', { name: 'Corticoides', level: 1 }).waitFor();
-  await comparator.getByLabel('Referencia de equivalencia', { exact: true }).selectOption('endotext-2018');
+  await comparator.getByRole('combobox', { name: 'Referencia de equivalencia', exact: true }).selectOption('endotext-2018');
   await comparator.getByLabel('Cantidad en mg', { exact: true }).fill('20');
-  await comparator.getByLabel('Vía sistémica de la comparación', { exact: true }).selectOption('iv');
-  await comparator.getByLabel('Qué cantidad estás comparando', { exact: true }).selectOption('daily_total');
+  await comparator.getByRole('combobox', { name: 'Vía sistémica de la comparación', exact: true }).selectOption('iv');
+  await comparator.getByRole('combobox', { name: 'Qué cantidad estás comparando', exact: true }).selectOption('daily_total');
   await comparator.getByRole('button', { name: 'Comparar', exact: true }).click();
   const result = comparator.getByRole('region', { name: 'Equivalencias aproximadas', exact: true });
   await result.waitFor();
@@ -177,7 +183,7 @@ try {
 
   await adult.getByTestId('note-tab-plan').click();
   await adult.getByRole('button', { name: 'Editar pauta', exact: true }).click();
-  await adult.getByLabel('Destino y seguimiento', { exact: true }).fill(`${syntheticSections['Destino y seguimiento']} Edición sintética posterior.`);
+  await adult.getByRole('textbox', { name: 'Destino y seguimiento', exact: true }).fill(`${syntheticSections['Destino y seguimiento']} Edición sintética posterior.`);
   assert.match(await adult.getByTestId('therapy-review-state').innerText(), /Pendiente de validación médica/);
   await adult.getByTestId('note-tab-export').click();
   assert.equal(await adult.getByRole('button', { name: 'JSON', exact: true }).isDisabled(), true, 'Editing the plan must block export');

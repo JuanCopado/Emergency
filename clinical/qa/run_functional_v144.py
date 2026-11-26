@@ -17,6 +17,7 @@ from clinical_note_api import dispatch, export_note_bytes
 from clinical_note_support import validate_for_export
 from pediatric_outpatient_calculator import calculate
 from pediatric_catalog import build_catalog
+from synthetic_therapy_review import review_synthetic_plan
 
 
 from cli_paths import output_file
@@ -44,15 +45,25 @@ def check_note(case):
     assert accepted['clinician_validation']['reviewed'] is False
     assert validate_for_export(accepted)['blocked']
     accepted['clinician_validation'].update(reviewed=True, reviewer_role='treating_clinician', reviewed_at='2026-10-12T00:00:00Z')
+    # The historical boolean remains insufficient for therapeutic output.
+    assert validate_for_export(accepted)['blocked']
+    assessment_before_review = deepcopy(accepted['assessment'])
+    review_synthetic_plan(accepted)
     assert not validate_for_export(accepted)['blocked']
     exported = json.loads(export_note_bytes(accepted, 'json'))
-    assert exported == accepted, 'JSON export changed note'
+    expected = deepcopy(accepted)
+    for key in ('treatment_suggestions', 'disposition', 'reassessment'):
+        expected['assessment'][key] = []
+    assert exported == expected, 'JSON export changed content outside replaced therapeutic outputs'
+    assert accepted['assessment'] == assessment_before_review, 'review altered diagnostic expectations'
     json.dumps(exported, allow_nan=False)
     # Check representative actual binary contents, not merely file extensions.
     if case['id'] == 'acs-st-elevation':
         from pypdf import PdfReader
         sample = 'DEMO Unicode SpO₂ ≤ 92% → ≥ 38 °C ± β µ'
         accepted['history']['present_illness'] = '\n'.join([sample] * 120 + ['DEMO FINAL ≥'])
+        assert validate_for_export(accepted)['blocked'], 'context edit did not invalidate review'
+        review_synthetic_plan(accepted)
         pdf = PdfReader(io.BytesIO(export_note_bytes(accepted, 'pdf')))
         text = '\n'.join(p.extract_text() for p in pdf.pages)
         assert len(pdf.pages) > 2 and text.count(sample) == 120 and 'DEMO FINAL ≥' in text
