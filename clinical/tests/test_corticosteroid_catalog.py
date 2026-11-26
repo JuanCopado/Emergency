@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 
@@ -14,6 +15,34 @@ from build_corticosteroid_catalog import SOURCE, OUTPUT, build_catalog, rendered
 
 
 class CorticosteroidCatalogTests(unittest.TestCase):
+    def test_windows_style_git_checkout_preserves_exact_source_and_projection(self):
+        # Real Git conversion, independent of the host OS; preserve byte identity
+        # rather than normalizing away an unrecognized source at build time.
+        with tempfile.TemporaryDirectory() as directory:
+            checkout = Path(directory)
+            source = checkout / SOURCE.relative_to(ROOT)
+            source.parent.mkdir(parents=True)
+            source.write_bytes(SOURCE.read_bytes())
+            attributes = ROOT / '.gitattributes'
+            if attributes.exists():
+                (checkout / '.gitattributes').write_bytes(attributes.read_bytes())
+            for args in (['init', '--quiet'], ['-c', 'core.autocrlf=false', 'add', '.']):
+                subprocess.run(['git', *args], cwd=checkout, check=True, capture_output=True)
+            source.unlink()
+            subprocess.run(['git', '-c', 'core.autocrlf=true', 'checkout-index', '--force', '--all'],
+                           cwd=checkout, check=True, capture_output=True)
+            self.assertEqual(source.read_bytes(), SOURCE.read_bytes())
+            self.assertEqual(rendered_catalog(source), OUTPUT.read_text(encoding='utf-8'))
+
+    def test_changed_source_metadata_still_invalidates_projection(self):
+        data = json.loads(SOURCE.read_text(encoding='utf-8'))
+        data['version'] += '-synthetic-change'
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'catalog.json'
+            source.write_text(json.dumps(data, ensure_ascii=False), encoding='utf-8')
+            self.assertNotEqual(rendered_catalog(source), OUTPUT.read_text(encoding='utf-8'))
+            self.assertNotEqual(build_catalog(source)['source_sha256'], build_catalog()['source_sha256'])
+
     def test_projection_is_current_and_has_canonical_fingerprint(self):
         projected = json.loads(OUTPUT.read_text())
         self.assertEqual(OUTPUT.read_text(), rendered_catalog())
