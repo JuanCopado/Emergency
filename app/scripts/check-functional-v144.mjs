@@ -30,6 +30,33 @@ report.provenance = {
     .map(path => [path, createHash('sha256').update(readFileSync(join(repoRoot, path))).digest('hex')])),
 };
 const session = clinicalTestSession(4177);
+// Exercise review with non-prescribing synthetic content, never auto-accept a
+// generated clinical regimen or change the bank's diagnostic expectations.
+async function reviewSyntheticPlan(page) {
+  await page.getByTestId('note-tab-plan').click();
+  await page.getByRole('textbox', { name: 'Diagnóstico o patología', exact: true }).fill('Synthetic QA workflow');
+  await page.getByRole('combobox', { name: 'Referencia clínica', exact: true }).selectOption('');
+  await page.getByRole('checkbox', { name: 'He revisado las alergias de este caso', exact: true }).check();
+  const generation = page.waitForResponse(r => r.url().endsWith('/api/clinical-note/therapy/suggest'));
+  await page.getByRole('button', { name: 'Preparar pauta', exact: true }).click();
+  const draft = await generation;
+  assert.equal(draft.status(), 200);
+  assert.equal((await draft.json()).blocked, false);
+  await page.getByRole('button', { name: 'Editar pauta', exact: true }).click();
+  for (const label of ['Actuaciones iniciales', 'Medicación y pauta completa', 'Monitorización', 'Reevaluación', 'Destino y seguimiento']) {
+    await page.getByRole('textbox', { name: label, exact: true }).fill(`Synthetic QA ${label}; no prescription or real patient.`);
+  }
+  await page.getByRole('checkbox', { name: 'He revisado el caso actual y la pauta completa', exact: false }).check();
+  await page.getByRole('checkbox', { name: 'He aplicado la seguridad farmacológica central', exact: false }).check();
+  const validation = page.waitForResponse(r => r.url().endsWith('/api/clinical-note/therapy/validate'));
+  await page.getByRole('button', { name: 'Validar pauta', exact: true }).click();
+  const response = await validation;
+  assert.equal(response.status(), 200);
+  const reviewed = await response.json();
+  assert.equal(reviewed.blocked, false);
+  assert.equal(reviewed.review.scope, 'physician_review_of_this_version');
+  await page.getByRole('button', { name: 'Pauta validada', exact: true }).waitFor();
+}
 const backend = spawn(process.env.CLINICAL_QA_PYTHON || 'python', ['-B', '-u', '-c',
   session.python,
 ], { cwd: fileURLToPath(new URL('../../clinical/scripts/', import.meta.url)), env: session.environment, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -110,6 +137,9 @@ try {
       await page.getByRole('button', { name: 'Exportar', exact: true }).click();
       assert(await page.getByRole('button', { name: 'JSON', exact: true }).isDisabled());
       await page.getByLabel(ui('Médico reviu e valida o conteúdo clínico atual.'), { exact: true }).check();
+      assert(await page.getByRole('button', { name: 'JSON', exact: true }).isDisabled(), 'A boolean alone must not export treatment');
+      await reviewSyntheticPlan(page);
+      await page.getByTestId('note-tab-export').click();
       const exportPromise = page.waitForResponse(r => r.url().endsWith('/api/clinical-note/export'));
       const downloadPromise = page.waitForEvent('download');
       await page.getByRole('button', { name: 'JSON', exact: true }).click();
@@ -120,7 +150,10 @@ try {
       const exported = JSON.parse(readFileSync(await download.path(), 'utf8'));
       const submitted = exportResponse.request().postDataJSON().note;
       assert.deepEqual(exported, submitted, 'download differs from UI submitted note');
-      assert.deepEqual(exported.assessment, a, 'export differs from analysis');
+      const expectedAssessment = { ...a, treatment_suggestions: [], disposition: [], reassessment: [] };
+      assert.deepEqual(exported.assessment, expectedAssessment, 'export changed diagnostic analysis outside replaced therapeutic outputs');
+      assert.equal(exported.therapeutic_review.scope, 'physician_review_of_this_version');
+      assert.equal(exported.therapeutic_plan.medication_safety.actionable, false);
       if (c.id === 'acs-st-elevation') {
         row.binary_downloads = [];
         for (const [label, format] of [['PDF', 'pdf'], ['Word (.docx)', 'docx']]) {

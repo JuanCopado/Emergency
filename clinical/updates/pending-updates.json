@@ -2272,6 +2272,23 @@
       "reviewed_on": "2026-11-16",
       "review_source_url": "https://cima.aemps.es/cima/dochtml/ft/64538/FichaTecnica_64538.html",
       "human_review_required": true
+    },
+    {
+      "module": "medication-selection-safety",
+      "identified_on": "2026-11-26",
+      "source_url": "https://academic.oup.com/ejendo/article/190/5/G25/7663654",
+      "status": "implemented_pending_integration",
+      "finding_id": "CORT-20261126",
+      "action": "Owner-requested systemic corticosteroid comparison and adult/pediatric hydrocortisone reference. Distinct Endotext/ESE tables; no automatic therapeutic substitution. See qa/CORTICOSTEROIDS_REVIEW_20261126.md.",
+      "human_review_required": true
+    },
+    {
+      "module": "clinical-note-diagnostic-support",
+      "identified_on": "2026-11-26",
+      "status": "implemented_pending_integration",
+      "finding_id": "THERAPY-20261126",
+      "action": "Owner-requested editable therapeutic draft, red/green physician review of exact version, source-bound receipt and gated exports. Canonical reference projection is not universal individualized prescribing. See qa/THERAPEUTIC_PLAN_REVIEW_20261126.md.",
+      "human_review_required": true
     }
   ]
 }

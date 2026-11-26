@@ -5,6 +5,9 @@ import { r51PrototypeEnabled } from '../clinical-note/r51Prototype';
 import { hasLocalIdentifierLabel } from '../clinical-note/privacy';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
+import TherapeuticPlanPanel from '../clinical-note/TherapeuticPlanPanel';
+import { useTherapyCopy } from '../clinical-note/therapyCopy';
+import { hasTherapeuticReceipt, THERAPEUTIC_SECTION_KEYS, therapyContextSnapshot, therapyReviewSnapshot, therapySourceSnapshot } from '../clinical-note/therapeuticReview';
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { connectionErrorMessage, effectiveCategoryLabel, excludedContainer, kindSourceMessage, mediaPrivacyMessages, mediaQualityMessages, reviewMessage, uploadError } from '../clinical-note/imageReview';
 import { Link } from 'react-router-dom';
@@ -18,12 +21,21 @@ import {
   interpretClinicalUpload,
   preflightClinicalNote,
   prepareClinicalUpload,
+  getTherapyCatalog,
+  suggestTherapeuticPlan,
+  validateTherapeuticPlan,
+  ClinicalApiResponseError,
 } from '../clinical-note/api';
 import type {
   ClinicalAssessment,
   DiagnosticCandidate,
   ClinicalNotePayload,
   ReportItem,
+  TherapeuticConfirmations,
+  TherapeuticSections,
+  TherapyCatalogEntry,
+  TherapyContext,
+  TherapySelection,
 } from '../clinical-note/types';
 
 // Build-time override of the modality entry for non-production experiments. The condition is folded by Vite, so a production build drops it.
@@ -86,9 +98,11 @@ function ClinicalNoteEditor(){
   const { t, i18n } = useTranslation();
   const ui = useClinicalUi();
   const f = useFormat();
+  const therapyCopy = useTherapyCopy();
   const noteLanguage = noteLanguages[i18n.resolvedLanguage as LangCode] ?? 'en';
  const [tab,setTab]=useNoteDraftField('tab');
  const [age,setAge]=useNoteDraftField('age'); const [sex,setSex]=useNoteDraftField('sex');
+ const [ageUnit,setAgeUnit]=useNoteDraftField('ageUnit');
  const [origin,setOrigin]=useNoteDraftField('origin'); const [chief,setChief]=useNoteDraftField('chief'); const [hpi,setHpi]=useNoteDraftField('hpi');
  const [pmh,setPmh]=useNoteDraftField('pmh'); const [meds,setMeds]=useNoteDraftField('meds'); const [allergies,setAllergies]=useNoteDraftField('allergies');
  const [exam,setExam]=useNoteDraftField('exam'); const [problems,setProblems]=useNoteDraftField('problems'); const [plan,setPlan]=useNoteDraftField('plan');
@@ -103,9 +117,26 @@ function ClinicalNoteEditor(){
  const [diagnosticStale,setDiagnosticStale]=useNoteDraftField('diagnosticStale');
  const [clinicianReviewed,setClinicianReviewed]=useNoteDraftField('clinicianReviewed');
  const [draftLanguage,setDraftLanguage]=useNoteDraftField('language');
+ const [therapySelection,setTherapySelection]=useNoteDraftField('therapySelection');
+ const [therapyWeight,setTherapyWeight]=useNoteDraftField('therapyWeight');
+ const [therapyAllergiesReviewed,setTherapyAllergiesReviewed]=useNoteDraftField('therapyAllergiesReviewed');
+ const [therapeuticPlan,setTherapeuticPlan]=useNoteDraftField('therapeuticPlan');
+ const [therapeuticReview,setTherapeuticReview]=useNoteDraftField('therapeuticReview');
+ const [therapyGeneratedContext,setTherapyGeneratedContext]=useNoteDraftField('therapyGeneratedContext');
+ const [therapyValidatedSnapshot,setTherapyValidatedSnapshot]=useNoteDraftField('therapyValidatedSnapshot');
+ const [therapyOriginalSections,setTherapyOriginalSections]=useNoteDraftField('therapyOriginalSections');
+ const [therapyOriginalMetadata,setTherapyOriginalMetadata]=useNoteDraftField('therapyOriginalMetadata');
+ const [therapyConfirmations,setTherapyConfirmations]=useNoteDraftField('therapyConfirmations');
+ const [therapyEditing,setTherapyEditing]=useNoteDraftField('therapyEditing');
+ const [therapyIncludePrevious,setTherapyIncludePrevious]=useNoteDraftField('therapyIncludePrevious');
+ const [therapyBusy,setTherapyBusy]=useState<'suggest'|'validate'|null>(null);
+ const [therapyCatalog,setTherapyCatalog]=useState<TherapyCatalogEntry[]>([]);
+ const [therapyCatalogRequested,setTherapyCatalogRequested]=useState(false);
+ const [therapyCatalogError,setTherapyCatalogError]=useState(false);
  const [diagnosticBusy,setDiagnosticBusy]=useState(false);
  const noteRevision=useRef(0);
  const diagnosticRequestId=useRef(0);
+ const therapyRequestId=useRef(0);
  const active=useRef(true);
  useEffect(()=>{active.current=true;return()=>{active.current=false;};},[]);
  useEffect(()=>{
@@ -115,7 +146,21 @@ function ClinicalNoteEditor(){
    setDiagnosticBusy(false);
    setClinicianReviewed(false);
    setDiagnosticStale(true);
- },[draftLanguage,noteLanguage,setDraftLanguage,setClinicianReviewed,setDiagnosticStale]);
+   therapyRequestId.current+=1;
+   setTherapyBusy(null);
+   setTherapeuticReview(null);
+   setTherapyValidatedSnapshot(null);
+   setTherapyConfirmations({individualized:false,medication_safety_reviewed:false});
+ },[draftLanguage,noteLanguage,setDraftLanguage,setClinicianReviewed,setDiagnosticStale,setTherapeuticReview,setTherapyValidatedSnapshot,setTherapyConfirmations]);
+ useEffect(()=>{
+   if(tab!=='plan'||therapyCatalogRequested) return;
+   setTherapyCatalogRequested(true);
+   void getTherapyCatalog().then(result=>{
+     if(!active.current) return;
+     if(Array.isArray(result.modules)) setTherapyCatalog(result.modules);
+     else setTherapyCatalogError(true);
+   }).catch(()=>{if(active.current) setTherapyCatalogError(true);});
+ },[tab,therapyCatalogRequested]);
  const [mcdt,setMcdt]=useNoteDraftField('mcdt'); const [privacyAck,setPrivacyAck]=useNoteDraftField('privacyAck');
  const [draftKind,setDraftKind]=useNoteDraftField('draftKind'); const [draftName,setDraftName]=useNoteDraftField('draftName');
  const [draftOfficial,setDraftOfficial]=useNoteDraftField('draftOfficial'); const [draftAi,setDraftAi]=useNoteDraftField('draftAi');
@@ -132,15 +177,45 @@ function ClinicalNoteEditor(){
  },[reviewFocus,tab]);
  const encounter=draftSession.draft.encounter;
  const allAccepted=Object.values(reports).flat();
- const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,problems,plan,
+ const therapySourceUnchanged=Boolean(therapeuticPlan&&therapyOriginalMetadata===therapySourceSnapshot(therapeuticPlan));
+ // Only exact source strings returned by the service avoid the local free-text
+ // heuristic. Edits are scanned normally; the server re-verifies source/token.
+ const therapyTextToScreen=therapeuticPlan?THERAPEUTIC_SECTION_KEYS.filter(key=>!therapySourceUnchanged||therapeuticPlan.sections[key]!==therapyOriginalSections?.[key]).map(key=>therapeuticPlan.sections[key]):[];
+ const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,problems,plan,therapySelection.label,
+   ...therapyTextToScreen,
    ...allAccepted.flatMap(x=>[x.official_report||'',x.ai_interpretation||'',x.findings||'',x.impression||'']),
    ...mcdt.flatMap(x=>[x.official,x.ai,x.findings,x.impression])].join('\n');
  const privacyStop=hasLocalIdentifierLabel(freeText);
  const pending=mcdt.filter(x=>x.state==='pending').length;
- const busy=apiBusy||diagnosticBusy;
+ const busy=apiBusy||diagnosticBusy||therapyBusy!==null;
  const numericStop=Boolean(age.trim()) && (numberOrNull(age)===null || (numberOrNull(age) ?? 0)<0);
  const assessmentLanguageChanged=Boolean(assessment&&assessmentLanguage!==noteLanguage);
- const exportBlocked=numericStop||privacyStop||!privacyAck||!clinicianReviewed||pending>0||busy||assessmentLanguageChanged;
+ const baseExportBlocked=numericStop||privacyStop||!privacyAck||!clinicianReviewed||pending>0||busy||assessmentLanguageChanged;
+ const weightNumber=numberOrNull(therapyWeight);
+ const therapyWeightInvalid=Boolean(therapyWeight.trim())&&(weightNumber===null||weightNumber<=0);
+ const therapyContext:TherapyContext={weight_kg:weightNumber,allergies_reviewed:therapyAllergiesReviewed};
+ const therapyCaseCurrent=Boolean(therapeuticPlan&&!numericStop&&therapyGeneratedContext===therapyContextSnapshot(buildNote(),therapySelection,therapyContext));
+ const therapyReviewValid=Boolean(therapyCaseCurrent&&hasTherapeuticReceipt(therapeuticReview)&&therapyValidatedSnapshot===therapyReviewSnapshot(buildNote()));
+ const therapyRequired=Boolean(therapeuticPlan||plan.trim()||assessment?.treatment_suggestions.length);
+ const exportBlocked=baseExportBlocked||(therapyRequired&&!therapyReviewValid);
+ const canSuggestTherapy=Boolean(age.trim()&&!numericStop&&!therapyWeightInvalid&&!privacyStop&&privacyAck&&!busy);
+ const canValidateTherapy=Boolean(therapeuticPlan&&therapyCaseCurrent&&!privacyStop&&!numericStop&&!therapyWeightInvalid&&
+   THERAPEUTIC_SECTION_KEYS.every(key=>therapeuticPlan.sections[key].trim())&&
+   therapyConfirmations.individualized&&therapyConfirmations.medication_safety_reviewed&&!busy);
+
+ function clearTherapyReview(){
+   therapyRequestId.current+=1;
+   setTherapyBusy(null);
+   setTherapeuticReview(null);
+   setTherapyValidatedSnapshot(null);
+   setTherapyConfirmations({individualized:false,medication_safety_reviewed:false});
+ }
+ function revokeTherapyAuthorization(){
+   if(!therapeuticPlan) return;
+   clearTherapyReview();
+   setTherapyGeneratedContext(null);
+   setClinicianReviewed(false);
+ }
 
  function touch(){
    noteRevision.current+=1;
@@ -148,25 +223,28 @@ function ClinicalNoteEditor(){
    setDiagnosticBusy(false);
    setClinicianReviewed(false);
    setDiagnosticStale(true);
+   clearTherapyReview();
  }
- function buildNote():ClinicalNotePayload{
+ function buildNote(exportAllowed=false):ClinicalNotePayload{
    if(numericStop) throw new Error(ui('{{label}}: introduce un número finito con punto decimal.', {label:ui('Idade')}));
    const baseAssessment:ClinicalAssessment=assessment?{
      ...assessment,
      active_problems:lines(problems).length?lines(problems):assessment.active_problems,
-     treatment_suggestions:[
+     disposition:therapeuticPlan?[]:assessment.disposition,
+     reassessment:therapeuticPlan?[]:assessment.reassessment,
+     treatment_suggestions:therapeuticPlan?[]:[
        ...assessment.treatment_suggestions,
        ...(plan.trim()?[{action:plan.trim(),priority:'routine' as const,rationale:'Plano introduzido pelo médico.',source_modules:['clinician-entry']}]:[]),
      ],
    }:{
      ...emptyAssessment,
      active_problems:lines(problems),
-     treatment_suggestions:plan.trim()?[{action:plan.trim(),priority:'routine',rationale:'Plano introduzido pelo médico.',source_modules:['clinician-entry']}]:[],
+     treatment_suggestions:!therapeuticPlan&&plan.trim()?[{action:plan.trim(),priority:'routine',rationale:'Plano introduzido pelo médico.',source_modules:['clinician-entry']}]:[],
    };
    const years=numberOrNull(age);
    return {
      schema_version:'1.0',language:noteLanguage,
-     encounter:{encounter_id:encounter,age:{years,months:null},sex,origin:origin||null,transfer_status:null,functional_status:null,cognitive_status:null,living_context:null},
+     encounter:{encounter_id:encounter,age:{years:ageUnit==='years'?years:null,months:ageUnit==='months'?years:null},sex,origin:origin||null,transfer_status:null,functional_status:null,cognitive_status:null,living_context:null},
      history:{
        chief_complaint:chief||null,present_illness:hpi||null,past_medical_history:lines(pmh),past_surgical_history:[],
        chronic_medications:lines(meds).map(name=>({name,dose:null,schedule:null,source:'clinician_entry'})),
@@ -180,6 +258,8 @@ function ClinicalNoteEditor(){
      },
      complementary_tests:reports,
      assessment:baseAssessment,
+     ...(therapeuticPlan?{therapeutic_plan:therapeuticPlan}:{}),
+     ...(therapeuticReview?{therapeutic_review:therapeuticReview}:{}),
      clinician_validation:{
        reviewed:clinicianReviewed,reviewer_role:clinicianReviewed?'treating_clinician':null,
        reviewed_at:clinicianReviewed?new Date().toISOString():null,
@@ -187,9 +267,69 @@ function ClinicalNoteEditor(){
      },
      privacy:{
        mode:'clinical_pseudonymized',direct_identifiers_removed:privacyAck,free_text_screened:privacyAck,
-       source_metadata_checked:privacyAck,burned_in_identifiers_checked:privacyAck,export_allowed:!exportBlocked,privacy_notes:[],
+       source_metadata_checked:privacyAck,burned_in_identifiers_checked:privacyAck,export_allowed:exportAllowed,privacy_notes:[],
      },
    };
+ }
+
+ function changeTherapySelection(selection:TherapySelection){setTherapySelection(selection);touch();}
+ function changePrivacy(checked:boolean){setPrivacyAck(checked);touch();}
+ function changeTherapySection(key:keyof TherapeuticSections,value:string){
+   setTherapeuticPlan(current=>current?{...current,sections:{...current.sections,[key]:value}}:null);
+   touch();
+ }
+ function changeTherapyConfirmation(key:keyof TherapeuticConfirmations,checked:boolean){
+   noteRevision.current+=1;
+   therapyRequestId.current+=1;
+   setTherapyBusy(null);
+   setTherapeuticReview(null);
+   setTherapyValidatedSnapshot(null);
+   setTherapyConfirmations(current=>({...current,[key]:checked}));
+   setClinicianReviewed(false);
+ }
+ async function requestTherapy(selection:TherapySelection=therapySelection){
+   setTab('plan');
+   if(!canSuggestTherapy||!selection.label.trim()) return;
+   touch();
+   const revision=noteRevision.current;
+   const requestId=++therapyRequestId.current;
+   const isCurrent=()=>active.current&&revision===noteRevision.current&&requestId===therapyRequestId.current;
+   const note=buildNote();
+   const contextSnapshot=therapyContextSnapshot(note,selection,therapyContext);
+   setApiError('');setTherapyBusy('suggest');
+   try{
+     const result=await suggestTherapeuticPlan(note,selection,therapyContext);
+     if(!isCurrent()) return;
+     if(result.blocked||!result.plan){setApiError(result.issues.map(issue=>issue.message).join(' · ')||therapyCopy.errorSuggest);return;}
+     const includePrior=!therapeuticPlan&&therapyIncludePrevious&&Boolean(plan.trim());
+     setTherapyOriginalSections({...result.plan.sections});
+     setTherapyOriginalMetadata(therapySourceSnapshot(result.plan));
+     const proposal=includePrior?{...result.plan,sections:{...result.plan.sections,medications:[result.plan.sections.medications,plan.trim()].filter(Boolean).join('\n\n')}}:result.plan;
+     setTherapeuticPlan(proposal);
+     setTherapyGeneratedContext(contextSnapshot);
+     setTherapyEditing(includePrior);
+     setTherapySelection(selection);
+   }catch(error){if(isCurrent())setApiError(connectionErrorMessage(error,ui)??(error instanceof Error?error.message:therapyCopy.errorSuggest));}
+   finally{if(requestId===therapyRequestId.current)setTherapyBusy(null);}
+ }
+ async function validateTherapy(){
+   if(!canValidateTherapy||!therapeuticPlan) return;
+   const revision=noteRevision.current;
+   const requestId=++therapyRequestId.current;
+   const isCurrent=()=>active.current&&revision===noteRevision.current&&requestId===therapyRequestId.current;
+   const note=buildNote();
+   const snapshot=therapyReviewSnapshot(note);
+   setApiError('');setTherapyBusy('validate');
+   try{
+     const result=await validateTherapeuticPlan(note,therapyConfirmations);
+     if(!isCurrent()) return;
+     if(result.blocked||!hasTherapeuticReceipt(result.review)){setApiError(result.issues.map(issue=>issue.message).join(' · ')||therapyCopy.errorValidate);return;}
+     setTherapeuticReview(result.review);
+     setTherapyValidatedSnapshot(snapshot);
+     setTherapyEditing(false);
+     setClinicianReviewed(true);
+   }catch(error){if(isCurrent())setApiError(connectionErrorMessage(error,ui)??(error instanceof Error?error.message:therapyCopy.errorValidate));}
+   finally{if(requestId===therapyRequestId.current)setTherapyBusy(null);}
  }
  function addVital(){
    for (const key of ['hr','rr','spo2','temp'] as const) {
@@ -344,6 +484,8 @@ function ClinicalNoteEditor(){
        ...result.issues.filter(x=>x.severity==='ALERT'||x.severity==='CAUTION').map(x=>({severity:x.severity,code:x.code,message:x.message})),
      ]);
      setMedicationGate(result.medication_safety_gate);setDiagnosticStale(false);setClinicianReviewed(false);
+     noteRevision.current+=1;
+     clearTherapyReview();
    }catch(e){
      if(isCurrent()) setApiError(connectionErrorMessage(e,ui)??(e instanceof Error?e.message:ui("Backend clínico indisponível.")));
    }finally{
@@ -352,16 +494,25 @@ function ClinicalNoteEditor(){
  }
  async function doExport(format:'docx'|'pdf'|'json'){
    if (exportBlocked) return;
+   const revision=noteRevision.current;
+   const isCurrent=()=>active.current&&revision===noteRevision.current;
    setApiError('');setApiBusy(true);
    try{
-     const note=buildNote();
+     const note=buildNote(true);
      const preflight=await preflightClinicalNote(note);
-     if(!active.current) return;
-     if(preflight.blocked){setApiError(preflight.findings.map(x=>x.message).join(' · '));return;}
+     if(!isCurrent()) return;
+     if(preflight.blocked){revokeTherapyAuthorization();setApiError(preflight.findings.map(x=>x.message).join(' · '));return;}
      const out=await exportClinicalNote(note,format);
-     if(!active.current) return;
+     if(!isCurrent()) return;
      downloadBlob(out.filename,out.blob);
-   }catch(e){setApiError(connectionErrorMessage(e,ui)??(e instanceof Error?e.message:ui("Exportação bloqueada pelo backend.")));}
+   }catch(e){
+     if(isCurrent()){
+       // A server rejection can revoke a previously valid source/receipt after a
+       // backend restart or source change. Network failures do not claim that.
+       if(e instanceof ClinicalApiResponseError&&((e.status>=400&&e.status<500)||/THERAPY_|RECEIPT|SOURCE/i.test(e.code??''))) revokeTherapyAuthorization();
+       setApiError(connectionErrorMessage(e,ui)??(e instanceof Error?e.message:ui("Exportação bloqueada pelo backend.")));
+     }
+   }
    finally{setApiBusy(false);}
  }
  const card='rounded-2xl border border-border bg-surface p-4 shadow-card';
@@ -441,6 +592,10 @@ function ClinicalNoteEditor(){
           {d.evidence_against?.length>0&&<p className="mt-1 text-sm">{ui("Achados negados:")} {d.evidence_against.join(' · ')}</p>}
           {d.missing_discriminating_data.length>0&&<p className="mt-1 text-xs text-muted">{ui("Falta:")} {d.missing_discriminating_data.join(' · ')}</p>}
           <p className="mt-1 text-xs text-muted">{ui("Módulos:")} {d.source_modules.join(' · ')}</p>
+          <button type="button" className="btn-ghost mt-3" disabled={busy} onClick={()=>{
+            const selection:TherapySelection={label:d.diagnosis,module_id:d.source_modules[0]??null,selection:'diagnostic'};
+            changeTherapySelection(selection);void requestTherapy(selection);
+          }}>{therapyCopy.suggest}</button>
         </div>)}</div> : <p className="mt-3 text-sm text-muted">{ui("Sem resultado executado/aceite.")}</p>}
       </div>)}
       <div className={card}><h2 className="font-bold">{ui("Dados em falta / contradições")}</h2><div className="mt-3 space-y-2 text-sm">{(assessment?.contradictions_to_clarify||[]).map((x,i)=><p key={i} className="rounded-xl border border-warn p-3">{x}</p>)}{!(assessment?.contradictions_to_clarify.length)&&<p className="text-muted">{ui("Sem contradições estruturadas neste momento.")}</p>}</div></div>
@@ -448,15 +603,27 @@ function ClinicalNoteEditor(){
    </section>}
 
    {tab==='plan'&&<section className="space-y-4">
-    <div className={card}><h2 className="text-lg font-bold">{ui("Plano médico")}</h2><textarea className="input mt-4 min-h-40" aria-label={ui("Plano médico")} value={plan} onChange={e=>{setPlan(e.target.value);touch()}} placeholder={ui("Plano introduzido/revisto pelo médico")}/></div>
+    <TherapeuticPlanPanel selection={therapySelection} catalog={therapyCatalog} catalogError={therapyCatalogError}
+      onSelection={changeTherapySelection} weight={therapyWeight} weightInvalid={therapyWeightInvalid}
+      onWeight={value=>{setTherapyWeight(value);touch();}} allergiesReviewed={therapyAllergiesReviewed}
+      onAllergiesReviewed={checked=>{setTherapyAllergiesReviewed(checked);touch();}}
+      privacyReviewed={privacyAck} onPrivacyReviewed={changePrivacy}
+      canSuggest={canSuggestTherapy&&Boolean(therapySelection.label.trim())} busy={therapyBusy} onSuggest={()=>void requestTherapy()}
+      plan={therapeuticPlan} reviewValid={therapyReviewValid} needsRegeneration={Boolean(therapeuticPlan&&!therapyCaseCurrent)}
+      editing={therapyEditing} onEdit={()=>{setTherapyEditing(true);touch();}} onSection={changeTherapySection}
+      confirmations={therapyConfirmations} onConfirmation={changeTherapyConfirmation}
+      canValidate={canValidateTherapy} onValidate={()=>void validateTherapy()}
+      previousPlan={plan} includePrevious={therapyIncludePrevious} onIncludePrevious={setTherapyIncludePrevious}/>
+    {!therapeuticPlan&&<div className={card}><h2 className="text-lg font-bold">{ui("Plano médico")}</h2><textarea className="input mt-4 min-h-40" aria-label={ui("Plano médico")} value={plan} onChange={e=>{setPlan(e.target.value);touch()}} placeholder={ui("Plano introduzido/revisto pelo médico")}/></div>}
     <div className={card}><h2 className="font-bold">{ui("Pruebas sugeridas")}</h2>{assessment?.suggested_tests.length?<ul className="mt-3 space-y-2 text-sm">{assessment.suggested_tests.map((x,i)=><li key={i} className="rounded-xl border border-border p-3">{x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">{ui("Sem sugestões executadas.")}</p>}</div>
-    <div className={card}><h2 className="font-bold">{ui("Tratamento sugerido")}</h2>{medicationGate&&<div className={`mt-3 rounded-xl border p-3 text-sm ${medicationGate.actionable?'border-ok text-ok':'border-warn bg-warn-bg text-warn'}`}>{medicationGate.message}</div>}{assessment?.treatment_suggestions.length?<ul className="mt-3 space-y-2 text-sm">{assessment.treatment_suggestions.map((x,i)=><li key={i} className="rounded-xl border border-border p-3"><strong>{x.priority||'routine'}</strong> · {x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">{ui("Sem tratamento gerado.")}</p>}</div>
-    <div className="grid gap-4 md:grid-cols-2"><div className={card}><h2 className="font-bold">{ui("Destino")}</h2>{assessment?.disposition.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div><div className={card}><h2 className="font-bold">{ui("Reavaliação")}</h2>{assessment?.reassessment.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div></div>
+    {!therapeuticPlan&&<div className={card}><h2 className="font-bold">{ui("Tratamento sugerido")}</h2>{medicationGate&&<div className={`mt-3 rounded-xl border p-3 text-sm ${medicationGate.actionable?'border-ok text-ok':'border-warn bg-warn-bg text-warn'}`}>{medicationGate.message}</div>}{assessment?.treatment_suggestions.length?<ul className="mt-3 space-y-2 text-sm">{assessment.treatment_suggestions.map((x,i)=><li key={i} className="rounded-xl border border-border p-3"><strong>{x.priority||'routine'}</strong> · {x.action}</li>)}</ul>:<p className="mt-2 text-sm text-muted">{ui("Sem tratamento gerado.")}</p>}</div>}
+    {!therapeuticPlan&&<div className="grid gap-4 md:grid-cols-2"><div className={card}><h2 className="font-bold">{ui("Destino")}</h2>{assessment?.disposition.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div><div className={card}><h2 className="font-bold">{ui("Reavaliação")}</h2>{assessment?.reassessment.map((x,i)=><p className="mt-2 text-sm" key={i}>{x.action}</p>)}</div></div>}
    </section>}
 
    {tab==='export'&&<section className={card}><h2 className="text-lg font-bold">{ui("Revisão e exportação")}</h2><div className="mt-4 grid gap-2 text-sm">
-    <label className="flex items-center gap-2"><input type="checkbox" checked={privacyAck} onChange={e=>setPrivacyAck(e.target.checked)}/>{ui("Identificadores diretos removidos; texto livre, metadados e privacidade revistos.")}</label>
-    <label className="flex items-center gap-2"><input type="checkbox" checked={clinicianReviewed} onChange={e=>setClinicianReviewed(e.target.checked)}/>{ui("Médico reviu e valida o conteúdo clínico atual.")}</label>
+    <label className="flex items-center gap-2"><input type="checkbox" checked={privacyAck} onChange={e=>changePrivacy(e.target.checked)}/>{ui("Identificadores diretos removidos; texto livre, metadados e privacidade revistos.")}</label>
+    <label className="flex items-center gap-2"><input type="checkbox" checked={clinicianReviewed} onChange={e=>{setClinicianReviewed(e.target.checked);noteRevision.current+=1;}}/>{ui("Médico reviu e valida o conteúdo clínico atual.")}</label>
+    {therapyRequired&&!therapyReviewValid&&<div role="status" className="rounded-xl border border-danger p-3 text-danger"><p>{therapyCopy.reviewNeeded}</p><button type="button" className="btn-ghost mt-2" onClick={()=>setTab('plan')}>{therapyCopy.reviewPlan}</button></div>}
     <p>{pending===0?ui("✓ Sem cartões MCDT pendentes"):ui("STOP: {{count}} MCDT pendente(s) de aceitar/editar/rejeitar.", {count:pending})}</p>
     {assessmentLanguageChanged&&<p className="text-warn">{ui("O idioma mudou; atualize o apoio diagnóstico antes de exportar.")}</p>}
     {diagnosticStale&&assessment&&!assessmentLanguageChanged&&<p className="text-warn">{ui("A análise diagnóstica está desatualizada; pode exportar apenas se o médico aceitar explicitamente o estado atual.")}</p>}
@@ -482,7 +649,7 @@ function ClinicalNoteEditor(){
     <p className="text-sm text-muted">{ui("Contenido clínico y exportaciones canónicas en el idioma de la fuente; traducción clínica integral pendiente.")}</p>
     <p className="text-sm text-muted">{ui("A verificação automática é limitada. Reveja o texto e os ficheiros antes de aceitar ou exportar.")}</p>
     <div className="mt-4 grid gap-3 sm:grid-cols-3">
-      <label><span className="label">{ui("Idade")}</span><input aria-label={ui("Idade")} className="input" inputMode="decimal" lang="en" aria-invalid={numericStop || undefined} aria-describedby="note-number-policy" value={age} onChange={e=>{setAge(e.target.value);touch()}} placeholder={ui("anos")}/></label>
+      <div className="grid grid-cols-2 gap-2"><label><span className="label">{ui("Idade")}</span><input aria-label={ui("Idade")} className="input" inputMode="decimal" lang="en" aria-invalid={numericStop || undefined} aria-describedby="note-number-policy" value={age} onChange={e=>{setAge(e.target.value);touch()}} placeholder={ageUnit==='years'?therapyCopy.years:therapyCopy.months}/></label><label><span className="label">{therapyCopy.ageUnit}</span><select className="input" value={ageUnit} onChange={e=>{setAgeUnit(e.target.value as 'years'|'months');setAge('');touch();}}><option value="years">{therapyCopy.years}</option><option value="months">{therapyCopy.months}</option></select></label></div>
       <label><span className="label">{ui("Sexo")}</span><select aria-label={ui("Sexo")} className="input" value={sex} onChange={e=>{setSex(e.target.value as ClinicalNotePayload['encounter']['sex']);touch()}}><option value="unknown">{ui("Não registado")}</option><option value="female">{ui("Feminino")}</option><option value="male">{ui("Masculino")}</option><option value="intersex">{ui("Intersexo")}</option></select></label>
       <label><span className="label">{ui("Origem / transferência")}</span><input data-testid="note-origin" aria-label={ui("Origem")} className="input" value={origin} onChange={e=>{setOrigin(e.target.value);touch()}} placeholder={ui("Sem identificadores diretos")}/></label>
     </div>

@@ -163,6 +163,11 @@ jobs:
           CHROMIUM_PATH: /usr/bin/google-chrome
           ROUTE_QA_OUTPUT: ${{ runner.temp }}/route-navigation.json
         run: node scripts/check-route-navigation.mjs
+      - name: Verify version-bound therapeutic review and export in Chromium
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
+          UI_QA_SCREENSHOTS: ${{ runner.temp }}/therapeutic-review
+        run: npm run therapy:browser-check
       - name: Publish route navigation evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

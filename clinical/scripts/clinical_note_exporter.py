@@ -293,10 +293,13 @@ def note_to_sections(note):
         sections.append((L["must"], _candidate_lines(a["must_not_miss"], L)))
     if a.get("suggested_tests"):
         sections.append((L["more_tests"], _suggestion_lines(a["suggested_tests"])))
-    if a.get("treatment_suggestions"):
+    if note.get("therapeutic_plan"):
+        from therapeutic_plan_workflow import export_sections
+        sections.extend(export_sections(note))
+    elif a.get("treatment_suggestions"):
         sections.append((L["treatment"], _suggestion_lines(a["treatment_suggestions"])))
 
-    disposition = _suggestion_lines(a.get("disposition")) + _suggestion_lines(a.get("reassessment"))
+    disposition = [] if note.get("therapeutic_plan") else _suggestion_lines(a.get("disposition")) + _suggestion_lines(a.get("reassessment"))
     if disposition:
         sections.append((L["disposition"], disposition))
     if a.get("contradictions_to_clarify"):
@@ -455,5 +458,6 @@ def export_sections_pdf(sections, out_path):
 def export_json(note,out_path):
     gate=validate_for_export(note)
     if gate["blocked"]: raise ValueError("export blocked")
-    Path(out_path).write_text(json.dumps(note,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    from therapeutic_plan_workflow import export_payload
+    Path(out_path).write_text(json.dumps(export_payload(note),ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     return str(out_path)

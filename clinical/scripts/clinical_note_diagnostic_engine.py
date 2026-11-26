@@ -351,12 +351,20 @@ def _documented_discriminants(note):
         documented["ECG"] = "ECG: relatório oficial registado; verificar conteúdo e adequação."
     return documented
 
-def _candidate(rule,score,evidence,confidence,relation_note=None,*,observation=None,documented=None,attribution=None):
+def _candidate(rule,score,evidence,confidence,relation_note=None,*,observation=None,documented=None,attribution=None,age_years=None):
     documented = documented or {}
     missing = [documented.get(item, item) for item in rule.get("missing_if_absent", [])]
     missing = [item for item in missing if item is not None]
     if relation_note and relation_note not in missing:
         missing.insert(0,relation_note)
+    source_modules = list(rule.get("source_modules", [rule["id"]]))
+    asthma_modules = {"acute-severe-asthma", "pediatric-acute-asthma"}
+    if rule["id"] in asthma_modules and age_years is not None:
+        # Only route the reference; preserve diagnostic evidence and scoring.
+        # The existing validated encounter age keeps adolescent asthma in its
+        # pediatric module without changing the adult boundary for other care.
+        age_module = "pediatric-acute-asthma" if age_years < 18 else "acute-severe-asthma"
+        source_modules = [age_module] + [item for item in source_modules if item not in asthma_modules]
     return {
         "diagnosis":rule.get("diagnosis",rule["id"]),
         "confidence":confidence,
@@ -364,7 +372,7 @@ def _candidate(rule,score,evidence,confidence,relation_note=None,*,observation=N
         "evidence_against":list(observation.denied) if observation else [],
         **(attribution or {}),
         "missing_discriminating_data":missing,
-        "source_modules":list(rule.get("source_modules", [rule["id"]]))
+        "source_modules":source_modules
     }
 
 def _dedupe_suggestions(items):
@@ -425,7 +433,7 @@ def analyze(note, rules=None, apply_to_note=False):
     for score,rule,evidence in scored:
         conf=_confidence(score,rules["qualitative_confidence"])
         cand=_candidate(rule,score,evidence,conf,observation=observations[rule["id"]],documented=documented,
-                        attribution=attributions[rule["id"]])
+                        attribution=attributions[rule["id"]],age_years=age_years)
         if score>=rules["qualitative_confidence"]["moderate"]["minimum_score"]:
             likely.append(cand)
         else:
@@ -456,7 +464,7 @@ def analyze(note, rules=None, apply_to_note=False):
             obs = observations[rid]
             must.append(_candidate(rr,obs.score,obs.evidence,_confidence(max(obs.score,1),rules["qualitative_confidence"]),
                                    "Hipótese tempo-dependente relacionada com o síndrome principal",
-                                   observation=obs,documented=documented,attribution=attributions[rid]))
+                                   observation=obs,documented=documented,attribution=attributions[rid],age_years=age_years))
 
     source_rules=[]
     for score,rule,evidence in scored[:5]:
@@ -511,7 +519,8 @@ def analyze(note, rules=None, apply_to_note=False):
         out_note=deepcopy(note)
         out_note["assessment"]=assessment
         # AI-generated assessment requires clinician acceptance again.
-        out_note["clinician_validation"]["reviewed"]=False
+        out_note.pop("therapeutic_review", None)
+        out_note.setdefault("clinician_validation", {})["reviewed"]=False
         out_note["clinician_validation"]["changes_made"]="AI/deterministic diagnostic-support assessment generated; clinician review required."
     return {
         "blocked":False,
