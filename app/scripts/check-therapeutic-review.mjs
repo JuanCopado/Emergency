@@ -25,9 +25,9 @@ let server, browser;
 
 async function noHorizontalOverflow(page, label) {
   const dimensions = await page.evaluate(() => ({
-    viewport: window.innerWidth,
-    document: document.documentElement.scrollWidth,
-    body: document.body.scrollWidth,
+    viewport: globalThis.window.innerWidth,
+    document: globalThis.document.documentElement.scrollWidth,
+    body: globalThis.document.body.scrollWidth,
   }));
   assert.ok(dimensions.document <= dimensions.viewport + 1 && dimensions.body <= dimensions.viewport + 1,
     `${label}: horizontal overflow ${JSON.stringify(dimensions)}`);
@@ -83,7 +83,7 @@ async function confirmAndReview(page) {
   assert.equal(response.data.review.scope, 'physician_review_of_this_version');
   await page.getByRole('button', { name: 'Pauta validada', exact: true }).waitFor();
   assert.match(await page.getByTestId('therapy-review-state').innerText(), /Revisión médica vigente/);
-  const color = await page.getByRole('button', { name: 'Pauta validada', exact: true }).evaluate(element => getComputedStyle(element).backgroundColor);
+  const color = await page.getByRole('button', { name: 'Pauta validada', exact: true }).evaluate(element => globalThis.getComputedStyle(element).backgroundColor);
   const rgb = color.match(/\d+/g)?.map(Number);
   assert.ok(rgb && rgb[1] > rgb[0], `Validated button is not green: ${color}`);
   return response.data.review;
@@ -150,7 +150,7 @@ try {
   assert.equal(suggested.data.plan.medication_safety.actionable, false);
   await fillSyntheticPlan(adult);
   const redButton = adult.getByRole('button', { name: 'Validar pauta', exact: true });
-  const red = await redButton.evaluate(element => getComputedStyle(element).backgroundColor);
+  const red = await redButton.evaluate(element => globalThis.getComputedStyle(element).backgroundColor);
   const redRgb = red.match(/\d+/g)?.map(Number);
   assert.ok(redRgb && redRgb[0] > redRgb[1], `Unreviewed button is not red: ${red}`);
   await captureAtWidths(adult, redButton, 'therapy-unreviewed');
