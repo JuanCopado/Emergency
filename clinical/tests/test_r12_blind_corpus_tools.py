@@ -161,5 +161,47 @@ class Adjudication(unittest.TestCase):
         self.assertEqual(tools.final_label({"ana": "cannot_decide", "bruno": "cannot_decide", "carla": "cannot_decide"}, *pair), "unresolved")
 
 
+class RoleSeparation(unittest.TestCase):
+    ROLES = {"author": ["a1"], "evaluator": ["e1"], "custodian": ["c1"], "adjudicator": ["ana", "bruno", "carla"]}
+
+    def test_valid_roles_return_the_people_per_role(self):
+        self.assertEqual(tools.check_roles(self.ROLES)["adjudicator"], ["ana", "bruno", "carla"])
+        self.assertEqual(tools.run(["roles"], as_bytes(self.ROLES))["custodian"], ["c1"])
+
+    def test_a_person_with_two_roles_is_rejected_and_named(self):
+        for first, second in (("author", "adjudicator"), ("evaluator", "adjudicator"), ("custodian", "adjudicator"),
+                              ("author", "custodian"), ("author", "evaluator"), ("evaluator", "custodian")):
+            roles = {role: list(names) for role, names in self.ROLES.items()}
+            roles[second].append(roles[first][0])
+            with self.assertRaises(ValueError) as caught:
+                tools.check_roles(roles)
+            self.assertIn(roles[first][0], str(caught.exception), (first, second))
+
+    def test_malformed_roles_and_too_few_adjudicators_are_rejected(self):
+        for bad in ({"author": ["a1"], "judge": ["x"]}, {**self.ROLES, "author": ["a1", "a1"]}, {**self.ROLES, "author": [""]},
+                    {**self.ROLES, "adjudicator": ["ana", "bruno"]}, ["not", "an", "object"]):
+            with self.assertRaises(ValueError):
+                tools.check_roles(bad)
+
+    def test_primary_adjudicators_and_tiebreaker_must_be_three_different_people(self):
+        items, _ = tools.parse_items(as_bytes(placeholder_corpus()))
+        with self.assertRaises(ValueError):
+            tools.agreement(items, [], ("ana", "ana"))
+        for pair in (("ana", "ana", "carla"), ("ana", "bruno", "ana"), ("ana", "bruno", "bruno")):
+            with self.assertRaises(ValueError):
+                tools.final_label({}, *pair)
+
+    def test_agreement_with_roles_rejects_judges_outside_the_adjudicator_role(self):
+        ids = [i["id"] for i in tools.parse_items(as_bytes(placeholder_corpus()))[0] if i["lang"] == "en"][:2]
+        records = [{"adjudicator": who, "item": item, "verdict": "reassures"} for item in ids for who in ("ana", "bruno")]
+        bundle = {"corpus": placeholder_corpus(), "adjudications": records, "roles": self.ROLES}
+        self.assertIn("by_language", tools.run(["agreement", "--primary", "ana", "bruno"], as_bytes(bundle)))
+        with self.assertRaises(ValueError):
+            tools.run(["agreement", "--primary", "ana", "a1"], as_bytes({**bundle, "adjudications": records + [
+                {"adjudicator": "a1", "item": ids[0], "verdict": "reassures"}]}))
+        with self.assertRaises(ValueError):
+            tools.run(["agreement", "--primary", "ana", "bruno"], as_bytes({**bundle, "roles": {**self.ROLES, "author": ["ana"]}}))
+
+
 if __name__ == "__main__":
     unittest.main()
