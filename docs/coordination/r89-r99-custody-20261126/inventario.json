@@ -1,0 +1,367 @@
+{
+  "task": "R89_R99_DOCUMENTARY_RECONCILIATION",
+  "verified_utc": "2026-11-26T19:56:35.497414+00:00",
+  "reference_count": 13,
+  "corrections": 3,
+  "pocus": 4,
+  "physical_custody": "D:/ChatGPT_Trabajo",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "references": [
+    {
+      "id": "HTG739",
+      "title": "Fracturas en radiografÃ­as en atenciÃ³n urgente",
+      "version": "Publicada 14/01/2025. PDF actualizado 23/10/2026.",
+      "bibliographic_author_or_institution": "National Institute for Health and Care Excellence (NICE)",
+      "source": "https://www.nice.org.uk/guidance/htg739",
+      "rights": {
+        "policy": "https://www.nice.org.uk/terms-and-conditions#notice-of-rights",
+        "condition": "Fuera del Reino Unido, consulta privada, estudio o investigaciÃ³n personal. Otros usos requieren autorizaciÃ³n. La custodia local no cubre redistribuciÃ³n de proyecto ni carga a un servicio de IA."
+      },
+      "format": "PDF",
+      "pages": 26,
+      "bytes_measured": 168379,
+      "sha256_measured": "6502df20461f37770c4cf5647f98dc094f99a45791b36576aa2813f7b9addb83",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "HTG696",
+      "title": "AnÃ¡lisis de radiografÃ­a de tÃ³rax para sospecha de cÃ¡ncer de pulmÃ³n",
+      "version": "Publicada 28/09/2023. PDF actualizado 10/02/2025.",
+      "bibliographic_author_or_institution": "National Institute for Health and Care Excellence (NICE)",
+      "source": "https://www.nice.org.uk/guidance/htg696",
+      "rights": {
+        "policy": "https://www.nice.org.uk/terms-and-conditions#notice-of-rights",
+        "condition": "Fuera del Reino Unido, consulta privada, estudio o investigaciÃ³n personal. Otros usos requieren autorizaciÃ³n. La custodia local no cubre redistribuciÃ³n de proyecto ni carga a un servicio de IA."
+      },
+      "format": "PDF",
+      "pages": 25,
+      "bytes_measured": 138425,
+      "sha256_measured": "17b0560b2e77ae77bf6bb0b1b32fdd7c2e91e9ed1cd62d39f7ed350db46c66fe",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "HTG708",
+      "title": "Ayuda al diagnÃ³stico y decisiÃ³n en ictus",
+      "version": "Publicada 23/01/2024. PDF actualizado 02/05/2024.",
+      "bibliographic_author_or_institution": "National Institute for Health and Care Excellence (NICE)",
+      "source": "https://www.nice.org.uk/guidance/htg708",
+      "rights": {
+        "policy": "https://www.nice.org.uk/terms-and-conditions#notice-of-rights",
+        "condition": "Fuera del Reino Unido, consulta privada, estudio o investigaciÃ³n personal. Otros usos requieren autorizaciÃ³n. La custodia local no cubre redistribuciÃ³n de proyecto ni carga a un servicio de IA."
+      },
+      "format": "PDF",
+      "pages": 31,
+      "bytes_measured": 177196,
+      "sha256_measured": "d346410f8e78246f66b7e828b94b53bbb212116b866c96c7807cf9614060e87a",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "HTG746",
+      "title": "ValoraciÃ³n y triaje de lesiones cutÃ¡neas",
+      "version": "Publicada 01/05/2025. PDF actualizado 17/03/2026.",
+      "bibliographic_author_or_institution": "National Institute for Health and Care Excellence (NICE)",
+      "source": "https://www.nice.org.uk/guidance/htg746",
+      "rights": {
+        "policy": "https://www.nice.org.uk/terms-and-conditions#notice-of-rights",
+        "condition": "Fuera del Reino Unido, consulta privada, estudio o investigaciÃ³n personal. Otros usos requieren autorizaciÃ³n. La custodia local no cubre redistribuciÃ³n de proyecto ni carga a un servicio de IA."
+      },
+      "format": "PDF",
+      "pages": 25,
+      "bytes_measured": 155422,
+      "sha256_measured": "c4752289689adfd25b45d54b34b7db75ff5e2119cc561660c2cb32d7c22b1d80",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "ACR-SIIM-217",
+      "title": "ACRâ€“SIIM Practice Parameter for Imaging Artificial Intelligence",
+      "version": "Adopted 2026, Resolution 13. Portal oficial DocId 217.",
+      "bibliographic_author_or_institution": "American College of Radiology y Society for Imaging Informatics in Medicine",
+      "source": "https://gravitas.acr.org/PPTS/GetDocumentView?docId=217",
+      "rights": {
+        "condition": "Acceso oficial para consulta y custodia local. Sin permiso general acreditado de redistribuciÃ³n ni de reutilizaciÃ³n comercial o en IA."
+      },
+      "format": "PDF",
+      "pages": 11,
+      "bytes_measured": 161333,
+      "sha256_measured": "53c079adf540f7dad6202df04b7ed56dc8ec0b8d0d924df8327dada4ecc60325",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "EU-2026-1744",
+      "title": "Regulation (EU) 2026/1744, Digital Omnibus on AI",
+      "version": "Acto de 08/07/2026. DOUE L 2026/1744 de 24/07/2026, versiÃ³n inglesa. CELEX 32026R1744, ELI reg/2026/1744/oj.",
+      "bibliographic_author_or_institution": "Parlamento Europeo y Consejo de la Unión Europea",
+      "source": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202601744",
+      "rights": {
+        "policy": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+        "condition": "Texto legal oficial de la UniÃ³n Europea. Indicar procedencia y conservar el acto Ã­ntegro."
+      },
+      "format": "PDF",
+      "pages": 41,
+      "bytes_measured": 1121625,
+      "sha256_measured": "0bea4d808256b08275777949ba9cb3c70b7d02e4ebb3ac9b205671b1f552d386",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "AHA-2024-1201",
+      "title": "Use of Artificial Intelligence in Improving Outcomes in Heart Disease",
+      "version": "Manuscrito depositado NIHMS1979537, disponible 24/04/2024, en inglÃ©s. Referencia editorial Circulation 149(14), e1028â€“e1050, DOI 10.1161/CIR.0000000000001201.",
+      "bibliographic_author_or_institution": "Antonis A Armoundas; Sanjiv M Narayan; Donna K Arnett; Kayte Spector-Bagdady; Derrick A Bennett; Leo Anthony Celi; Paul A Friedman; Michael H Gollob; Jennifer L Hall; Anne E Kwitek; Elle Lett; Bijoy K Menon; Katherine A Sheehan; Salah S Al-Zaiti; American Heart Association Institute for Precision Cardiovascular Medicine; Council on Cardiovascular and Stroke Nursing; Council on Lifelong Congenital Heart Disease and Heart Health in the Young; Council on Cardiovascular Radiology and Intervention; Council on Hypertension; Council on the Kidney in Cardiovascular Disease; Stroke Council",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11042786/",
+      "rights": {
+        "policy": "https://pmc.ncbi.nlm.nih.gov/about/copyright/",
+        "condition": "Lectura pÃºblica del manuscrito. No consta licencia abierta de redistribuciÃ³n. Copia de consulta local."
+      },
+      "format": "HTML",
+      "pages": null,
+      "bytes_measured": 491981,
+      "sha256_measured": "fa64b09083bee52468364020cb69fbb53ab4d217bff1efd91ec583abb07bfa8e",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "EHRA-2025-euaf071",
+      "title": "State of the Art of Artificial Intelligence in Clinical Electrophysiology in 2025",
+      "version": "Europace 27(5), mayo 2025, euaf071. PublicaciÃ³n en lÃ­nea 31/03/2025.",
+      "bibliographic_author_or_institution": "Emma Svennberg et al.; EHRA, HRS y ESC Working Group on E-Cardiology",
+      "source": "https://academic.oup.com/europace/article/27/5/euaf071/8100285",
+      "rights": {
+        "spdx": "CC-BY-NC-ND-4.0",
+        "policy": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "condition": "Copia Ã­ntegra, atribuciÃ³n Svennberg et al. y ESC 2025, uso no comercial, sin derivados."
+      },
+      "format": "PDF",
+      "pages": 20,
+      "bytes_measured": 5784918,
+      "sha256_measured": "29fe643200734e4d6954a9dfe0b555400546ff03699130c61b0bd6c58d9185ec",
+      "verification": "PASS",
+      "provided_original_editor": "https://app.pdf.net/edit/cP-sKNO6VVaf0O4ZD3B7e"
+    },
+    {
+      "id": "ACEP-2023-37596025",
+      "title": "ACEP Ultrasound Guidelines 2023",
+      "version": "Ann Emerg Med 82(3), e115â€“e155. DOI 10.1016/j.annemergmed.2023.06.005.",
+      "bibliographic_author_or_institution": "American College of Emergency Physicians",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/37596025/",
+      "rights": {
+        "condition": "Copyright ACEP 2023. Ejemplar recibido por prÃ©stamo interbibliotecario para consulta. Permiso de redistribuciÃ³n o carga a terceros no acreditado."
+      },
+      "format": "PDF",
+      "pages": 41,
+      "bytes_measured": 1050183,
+      "sha256_measured": "c7cc1ac2da1903f32cfe5ac9da1a5713049faeec1bd3023ee5df262e824e498d",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "IFEM-POCUS",
+      "title": "IFEM Point-of-Care Ultrasound Curriculum Guidelines",
+      "version": "Marzo de 2014, ISBN 978-0-9873901-2-7. La ficha web es del 23/11/2021.",
+      "bibliographic_author_or_institution": "International Federation for Emergency Medicine, Emergency Ultrasound Special Interest Group",
+      "source": "https://www.ifem.cc/point_of_care_ultrasound_curriculum_guidelines",
+      "rights": {
+        "condition": "ReproducciÃ³n para estudio/formaciÃ³n con atribuciÃ³n a IFEM. Sin uso comercial ni venta. Otros usos requieren permiso escrito."
+      },
+      "format": "PDF",
+      "pages": 63,
+      "bytes_measured": 1013536,
+      "sha256_measured": "b6f3480d2e62df8bbe25f70b267086de5eb1454c2ab0a5c7c5974fd4f5b933a0",
+      "verification": "PASS",
+      "provided_original_editor": "https://app.pdf.net/edit/mjpmwl_0a6zFtMW8F8ZdN"
+    },
+    {
+      "id": "AHA-ASA-STROKE-2026",
+      "title": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+      "version": "Stroke 57(8), e316â€“e436, agosto 2026. PublicaciÃ³n en lÃ­nea 26/01/2026.",
+      "bibliographic_author_or_institution": "Shyam Prabhakaran, Nestor R. Gonzalez, Kori S. Zachrison et al.; AHA/ASA Guideline Writing Group",
+      "source": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+      "rights": {
+        "condition": "Acceso oficial para consulta y custodia local. Sin permiso general acreditado de redistribuciÃ³n ni de reutilizaciÃ³n comercial o en IA."
+      },
+      "format": "PDF",
+      "pages": 121,
+      "bytes_measured": 13410117,
+      "sha256_measured": "43356fbdb74cfb7cd842c93138bad7e9b4a7d9a060aa5c3f7615bb5a5757d0c3",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "IDSA-SSTI-2014",
+      "title": "IDSA Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections",
+      "version": "Clinical Infectious Diseases 59(2), e10â€“e52, julio 2014. DOI 10.1093/cid/ciu296.",
+      "bibliographic_author_or_institution": "Dennis L. Stevens, Alan L. Bisno, Henry F. Chambers et al.; Infectious Diseases Society of America",
+      "source": "https://www.idsociety.org/globalassets/idsa/practice-guidelines/practice-guidelines-for-the-diagnosis-and-management-of-skin-and-soft-tissue-infections-2014-update-by-the-infectious-diseases-society-of-america.pdf",
+      "rights": {
+        "condition": "Acceso oficial para consulta y custodia local. Sin permiso general acreditado de redistribuciÃ³n ni de reutilizaciÃ³n comercial o en IA.",
+        "policy": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/"
+      },
+      "format": "PDF",
+      "pages": 43,
+      "bytes_measured": 1048509,
+      "sha256_measured": "1a6b9ca7797fc9c81d68d993b1539201584b4d14d16d9ec7424d0386d8d5d4ad",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "AAD-JAAD-2019-06032",
+      "title": "AAD Commentary: Position statement on augmented intelligence (AuI)",
+      "version": "VersiÃ³n editorial JAAD 81(4), octubre2019, pp998â€“1000; online25/06/2019",
+      "bibliographic_author_or_institution": "Carrie Kovarik, Ivy Lee y Justin Ko",
+      "source": "https://doi.org/10.1016/j.jaad.2019.06.032",
+      "rights": {
+        "copyright_notice": "Â© 2019 by the American Academy of Dermatology, Inc.",
+        "open_license_verified": false,
+        "authorized_local_consultation": "Suministro institucional solicitado para estudio privado; no acredita redistribuciÃ³n ni carga en IA.",
+        "full_text_Gemini_upload": "PENDING_PERMISSION_NOT_SENT",
+        "library_director_consultation": "Delfina confirma haber reenviado la consulta a la directora de la biblioteca; respuesta sustantiva de derechos pendiente."
+      },
+      "format": null,
+      "pages": 3,
+      "bytes_measured": 618882,
+      "sha256_measured": "8c98ce8543fd8aa7d120541d67fd0135406463dd36612e8df502dab6e8513fba",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "AHA-ASA-2026-ERR-0530",
+      "title": "Correction to the 2026 AHA/ASA Acute Ischemic Stroke Guideline",
+      "version": "Stroke 57(8), e461â€“e467, agosto 2026. DOI 10.1161/STR.0000000000000530.",
+      "bibliographic_author_or_institution": "Corrección editorial de la referencia enlazada",
+      "source": "https://www.ahajournals.org/doi/epdf/10.1161/STR.0000000000000530",
+      "rights": {
+        "condition": "Acceso oficial para consulta y custodia local. Sin permiso general acreditado de redistribuciÃ³n ni de reutilizaciÃ³n comercial o en IA."
+      },
+      "format": "PDF",
+      "pages": 7,
+      "bytes_measured": 241268,
+      "sha256_measured": "05d9129c04bf1886ad4a2b43ca679de37cc2b5b493dc470e5f9302b5def19dd3",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "IDSA-CIV113",
+      "title": "Errata IDSA, civ113",
+      "version": "Clinical Infectious Diseases 60(9), p. 1448, mayo 2015, DOI 10.1093/cid/civ113.",
+      "bibliographic_author_or_institution": "Corrección editorial de la referencia enlazada",
+      "source": "https://academic.oup.com/cid/article/60/9/1448/406027",
+      "rights": {
+        "condition": "Acceso oficial para consulta y custodia local. Sin permiso general acreditado de redistribuciÃ³n ni de reutilizaciÃ³n comercial o en IA."
+      },
+      "format": "HTML",
+      "pages": null,
+      "bytes_measured": 163108,
+      "sha256_measured": "7e0595eb0cdf5255873c5eed57d6ea6d50cf82ed3e2ce3ea2c5ece040f76e1a6",
+      "verification": "PASS",
+      "provided_original_editor": null
+    },
+    {
+      "id": "IDSA-CIV114",
+      "title": "Errata IDSA, civ114",
+      "version": "Clinical Infectious Diseases 60(9), p. 1448, mayo 2015, DOI 10.1093/cid/civ114.",
+      "bibliographic_author_or_institution": "Corrección editorial de la referencia enlazada",
+      "source": "https://academic.oup.com/cid/article/60/9/1448/406029",
+      "rights": {
+        "condition": "Acceso oficial para consulta y custodia local. Sin permiso general acreditado de redistribuciÃ³n ni de reutilizaciÃ³n comercial o en IA."
+      },
+      "format": "HTML",
+      "pages": null,
+      "bytes_measured": 164669,
+      "sha256_measured": "a1a8243ee2fb2683febce76d25ea32b89a38d36f24264f35b5b759fbd5c6c575",
+      "verification": "PASS",
+      "provided_original_editor": null
+    }
+  ],
+  "pocus_originals": [
+    {
+      "file": "CAND-POCUS-01_Fig10.webp",
+      "slot": "S1-12",
+      "measured_bytes": 668504,
+      "measured_sha256": "021623e92890139587533b3e69d5e624735403eed788485ac59d8941de36c75e",
+      "measured_dimensions": [
+        1480,
+        1297
+      ],
+      "format": "WEBP",
+      "source_image_url": "https://www.frontiersin.org/files/Articles/1244616/xml-images/fbioe-11-1244616-g010.webp",
+      "license_evidence": "CC BY 4.0; original published figure; attribution recorded in LICENCIAS_R76.md",
+      "permission_ref": "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1244616/full Copyright and linked CC BY4.0 deed; applies to published figure, not restricted underlying dataset",
+      "status": "ORIGINAL_PHYSICAL_BYTES_VERIFIED"
+    },
+    {
+      "file": "CAND-POCUS-01_Fig8.webp",
+      "slot": "S1-12",
+      "measured_bytes": 499040,
+      "measured_sha256": "d3160878f8d50f57d6bc7365c067f49bb4dbef83405506bf73e64b1d66e88cd0",
+      "measured_dimensions": [
+        1772,
+        732
+      ],
+      "format": "WEBP",
+      "source_image_url": "https://www.frontiersin.org/files/Articles/1244616/xml-images/fbioe-11-1244616-g008.webp",
+      "license_evidence": "CC BY 4.0; original published figure; attribution recorded in LICENCIAS_R76.md",
+      "permission_ref": "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1244616/full Copyright and linked CC BY4.0 deed; applies to published figure, not restricted underlying dataset",
+      "status": "ORIGINAL_PHYSICAL_BYTES_VERIFIED"
+    },
+    {
+      "file": "CAND-POCUS-01_Fig3.webp",
+      "slot": "S2-12",
+      "measured_bytes": 518526,
+      "measured_sha256": "742a2f14615dcccfe88758b3b19194abee0dee8f55bc3bbe0ee121e78c185596",
+      "measured_dimensions": [
+        1772,
+        952
+      ],
+      "format": "WEBP",
+      "source_image_url": "https://www.frontiersin.org/files/Articles/1244616/xml-images/fbioe-11-1244616-g003.webp",
+      "license_evidence": "CC BY 4.0; original published figure; attribution recorded in LICENCIAS_R76.md",
+      "permission_ref": "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1244616/full Copyright and linked CC BY4.0 deed; applies to published figure, not restricted underlying dataset",
+      "status": "ORIGINAL_PHYSICAL_BYTES_VERIFIED"
+    },
+    {
+      "file": "CAND-POCUS-02_Fig2.jpg",
+      "slot": "S2-12",
+      "measured_bytes": 133859,
+      "measured_sha256": "de5ec5fee646315fe0285dbba1afed5b6c666ef76c28339b3331508809a62911",
+      "measured_dimensions": [
+        992,
+        613
+      ],
+      "format": "JPEG",
+      "source_image_url": "https://www.innovationsincrm.com/images/articles/CRM1298_Seslar-f2.jpg",
+      "license_evidence": "CC BY 4.0; original published figure; attribution recorded in LICENCIAS_R76.md",
+      "permission_ref": "https://www.innovationsincrm.com/images/pdf/CRM1298_Seslar.pdf page1 CC BY4.0",
+      "status": "ORIGINAL_PHYSICAL_BYTES_VERIFIED"
+    }
+  ],
+  "pending": [
+    {
+      "id": "AHA-2024-1201-VOR",
+      "cause": "Texto Ã­ntegro HTML del manuscrito existente y verificado. PDF de ediciÃ³n publicada sigue pendiente. Ruta editorial consultada devuelve HTTP403."
+    },
+    {
+      "id": "IFEM-TABLE-I",
+      "cause": "PDF original recuperado.25 marcas CID0 Wingdings2 sin ToUnicode de tabla I,p41. Falta tabla autÃ©ntica legible para completar revisiÃ³n cientÃ­fica."
+    },
+    {
+      "id": "RESTRICTED-RIGHTS",
+      "cause": "AAD y prÃ©stamos conservados para consulta local. RedistribuciÃ³n y carga IA pendientes de permiso institucional."
+    },
+    {
+      "id": "SCIENTIFIC-REVIEW",
+      "cause": "AdquisiciÃ³n13/13 no cierra revisiÃ³n cientÃ­fica ni revisiÃ³n humana."
+    },
+    {
+      "id": "R99-FINAL-STIMULI",
+      "cause": "Originales4/4 recuperados. Capturas mÃ³viles reales, S2-12 conforme, revisiones humanas y adjudicaciÃ³n pendientes."
+    }
+  ],
+  "new_downloads": 0,
+  "source_full_manifest_sha256": "86397bbf1d9c6fcade4fde8e454124a205bd0d5a91e4f7d76f975fb920bd49c9"
+}
