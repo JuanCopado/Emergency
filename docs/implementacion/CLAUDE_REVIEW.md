@@ -1,0 +1,18 @@
+# CLAUDE — contraste independiente de arquitectura de IMPLEMENTACIÓN
+
+**ID IMP-00/01** · revisión solicitada por el propietario el 27/11/2026. **Estado:** READY_FOR_DISPATCH. Work debe transmitir este encargo a Claude Code en la sesión autenticada existente, recoger su acuse y respuesta íntegra. No afirmar recepción hasta observarla.
+
+Actúa como arquitecto principal independiente, no como confirmador de la propuesta de ChatGPT. Examina la base receptora actual, AGENTS.md, docs/ARCHITECTURE.md, los informes Claude previos, el perímetro Python loopback y los candidatos PR129–133. Lee [IMPLEMENTACIÓN](../IMPLEMENTACION.md), pero presenta primero tu alternativa independiente y luego contrástala. Producto: médicos de urgencias individuales; no construir una plataforma hospitalaria innecesaria. No implementar ni contratar en esta fase.
+
+## Entrega obligatoria
+1. Inventario verificable de qué es operativo, laboratorio, pendiente o no aplicable. Señala riesgos de reutilizar servidor loopback, Vite dev, sesiones, caches y APIs.
+2. Al menos dos arquitecturas alternativas reales; local-first/híbrida, contenedor gestionado UE, VPS europeo, separación CDN/API si aporta beneficio. Compara los proveedores concretos que consideres adecuados, incluyendo opciones de identidad/DB/hosting, regionalidad, DPA, subprocesadores, backups, lock-in y costes. No inventes precios.
+3. Threat model: límites de confianza, autenticación profesional vs verificación, autorización por usuario, XSS/CSRF/SSRF, abuso, cadena de suministro, fugas RAG/LLM, pérdida de equipo/conexión, recuperación, indisponibilidad del IdP/proveedor, filtraciones en logs, cachés o exportaciones. Controles y casos negativos por riesgo.
+4. Modelo de datos mínimo, clasificación de información, retención y recuperación; no persistir PHI remota por defecto. Valora cuándo evitar una base/vector DB o introducirla; no añadir infraestructura sin dependencia real.
+5. Comparativa ponderada (pesos propuestos, debatibles): fiabilidad y seguridad 30%; rapidez y UX/offline 25%; carga operativa 15%; TCO 15%; portabilidad/escalabilidad 10%; plazo de implementación 5%. Justificar cada puntuación, indicar incertidumbre, hipótesis y evidencias; no fingir benchmarks. Modelar 10/100/1000 médicos activos con consumo/picos explícitos; separar cifras hipotéticas y observadas.
+6. ADR y recomendación: stack preferido y alternativa; escenarios que cambiarían la elección, migración por fases sin rehacer el núcleo, plan de implementación y criterios de stop. Detallar RPO/RTO/SLO propuestos y cómo medirlos, staging privado, CI, firma/procedencia, rollback y recuperación.
+7. Lista de acuerdos, objeciones y mejoras frente a IMPLEMENTACIÓN. Clasificar críticas P0/P1/P2, no crear tareas cosméticas ni nuevos requisitos institucionales genéricos. Delimitar obligaciones regulatorias/privacidad para su revisión por Gemini/propietario sin asegurar exención o clasificación no verificada.
+8. Proponer el máximo de 5 decisiones materiales que falten (si hay menos, indicar menos), con alternativas y recomendación; no pedir decisiones ya concedidas.
+
+## Formato
+Publicar `docs/implementacion/CLAUDE_COMPARATIVA.md` y `docs/implementacion/ADR_PROPUESTAS.json` en rama aislada o entregar sus enlaces/recibos a Work. Incluir base SHA, fuentes primarias con fecha y localizador, evidencias, límites y estado. Work cotejará propuestas y actualizará la referencia única mediante PR documental. No desplegar, gastar, copiar credenciales, enviar datos clínicos o documentación restringida, ni modificar main/rama protegida. CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE intactos. Usar herramientas MCP ya operativas sin sondeos redundantes. Caveman en coordinación; rigor completo en arquitectura.

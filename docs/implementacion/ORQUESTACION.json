@@ -1,0 +1,200 @@
+{
+  "schema": "emergency.implementation.orchestration.v1",
+  "plan_id": "IMP-20261127",
+  "version": "0.1",
+  "plan": "docs/IMPLEMENTACION.md",
+  "review": "docs/implementacion/CLAUDE_REVIEW.md",
+  "branch": "docs/implementacion-viva-20261127",
+  "observed_receiver": "fa2381dcfe77253f575ac843860b3167125f1e1e",
+  "observed_candidate": {
+    "pr": 133,
+    "sha": "e4d3f71975a75389bbc9df146670b5823ce4677b"
+  },
+  "scope": "individual_emergency_physician",
+  "parallel_to_clinical_closure": true,
+  "clinical_registry": "Existing Work clinical matrix; reference IDs, do not duplicate",
+  "constraints": {
+    "clinical": "CLINICALLY_PENDING",
+    "release": "NO_GO_CLINICAL_RELEASE",
+    "deploy_authorized": false,
+    "purchases_authorized": false,
+    "real_patient_data_authorized": false,
+    "protected_branch_merge_authorized": false
+  },
+  "dispatch": {
+    "coordinator": "Work",
+    "claude": "Existing authenticated Claude Code session through Work",
+    "method": "MCP/authorized Computer Use if available; never infer receipt",
+    "states": [
+      "READY_FOR_DISPATCH",
+      "DISPATCHED",
+      "IN_PROGRESS",
+      "DELIVERED",
+      "VERIFIED",
+      "REVIEWED",
+      "INTEGRATED",
+      "BLOCKED_WITH_CAUSE"
+    ],
+    "receipt_fields": [
+      "task_id",
+      "agent",
+      "timestamp_utc",
+      "source_sha",
+      "acknowledgement_or_execution_evidence",
+      "deliverable_path_or_commit",
+      "tests",
+      "limitations",
+      "next_action"
+    ],
+    "maintenance": "Review only material deltas; update plan and queue in isolated branch, no duplicate work or automatic deployment. Hold implementation tasks until prerequisites satisfied."
+  },
+  "tasks": [
+    {
+      "id": "IMP-00",
+      "hito": "I0",
+      "agent": "Claude",
+      "dependencies": [],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Independent architecture review, risk inventory and product scope",
+      "acceptance": "Exact receiver and candidates; threat model, local-vs-remote scope and material risks",
+      "receipt": null
+    },
+    {
+      "id": "IMP-01",
+      "hito": "I0",
+      "agent": "Claude",
+      "dependencies": [],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Compare architectures, providers, identity, database and TCO",
+      "acceptance": "Weighted alternatives, official sources, assumptions, preferred stack and fallback; no purchase",
+      "receipt": null
+    },
+    {
+      "id": "IMP-02",
+      "hito": "I0",
+      "agent": "Gemini",
+      "dependencies": [],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Bound clinical/regulatory/privacy applicability by function",
+      "acceptance": "Primary sources, limits, national vs institutional dependencies; no legal certainty invented",
+      "receipt": null
+    },
+    {
+      "id": "IMP-03",
+      "hito": "I1",
+      "agent": "Codex",
+      "dependencies": [
+        "IMP-00"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Reproducible local install/update/rollback",
+      "acceptance": "Existing engines retained; synthetic smoke tests, safe offline and artifact integrity",
+      "receipt": null
+    },
+    {
+      "id": "IMP-04",
+      "hito": "I2",
+      "agent": "Codex",
+      "dependencies": [
+        "IMP-00",
+        "IMP-01"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Production gateway/API adapter separate from loopback",
+      "acceptance": "Synthetic contract/negative tests, no exposed dev server or real data",
+      "receipt": null
+    },
+    {
+      "id": "IMP-05",
+      "hito": "I2",
+      "agent": "Codex",
+      "dependencies": [
+        "IMP-01",
+        "IMP-02",
+        "IMP-04"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "OIDC identity and permissions",
+      "acceptance": "Synthetic provider, secure sessions and cross-account/revocation tests",
+      "receipt": null
+    },
+    {
+      "id": "IMP-06",
+      "hito": "I2",
+      "agent": "Codex",
+      "dependencies": [
+        "IMP-01",
+        "IMP-02",
+        "IMP-04"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Minimal user-data storage and migration",
+      "acceptance": "Synthetic DB restore, user isolation and no patient data by default",
+      "receipt": null
+    },
+    {
+      "id": "IMP-07",
+      "hito": "I3",
+      "agent": "Codex",
+      "dependencies": [
+        "IMP-04",
+        "IMP-05",
+        "IMP-06"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Parameterized staging, CI, backups and observability",
+      "acceptance": "Local dry-run, rollback/runbooks, no cloud resource or spend",
+      "receipt": null
+    },
+    {
+      "id": "IMP-08",
+      "hito": "I3",
+      "agent": "Claude",
+      "dependencies": [
+        "IMP-07"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Review architecture as implemented, costs and failure modes",
+      "acceptance": "Exact SHA findings and material risk closure; no duplicate audit",
+      "receipt": null
+    },
+    {
+      "id": "IMP-09",
+      "hito": "I4",
+      "agent": "Antigravity",
+      "dependencies": [
+        "IMP-08"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Technical safety/QA and representative emergency workflows",
+      "acceptance": "Exact SHA and reproducible evidence, limits of accessibility/offline/clinical claims",
+      "receipt": null
+    },
+    {
+      "id": "IMP-10",
+      "hito": "I4",
+      "agent": "Work",
+      "dependencies": [
+        "IMP-02",
+        "IMP-09"
+      ],
+      "status": "READY_FOR_DISPATCH",
+      "objective": "Consolidate release-readiness decision and scope",
+      "acceptance": "Finite candidate, unresolved blockers per capability, deployment/rollback/cost decision packet",
+      "receipt": null
+    },
+    {
+      "id": "IMP-11",
+      "hito": "I5",
+      "agent": "Work",
+      "dependencies": [
+        "IMP-10"
+      ],
+      "status": "BLOCKED_WITH_CAUSE",
+      "objective": "Authorized deployment and gated activation",
+      "acceptance": "Explicit applicable authorization, staging restore and release scope verified",
+      "receipt": null,
+      "blocker": "No authorization to provision, spend, deploy or release clinically"
+    }
+  ]
+}

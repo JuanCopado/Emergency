@@ -14,6 +14,8 @@ Rama de entrega autorizada: `codex/v144-reviewed-contracts-enable-20261116`, bas
 
 ## Alcance vigente
 
+**Directriz del propietario 27/11/2026 — uso individual e IMPLEMENTACIÓN.** Priorizar utilidad, fiabilidad, agilidad y facilidad de uso del emergencista. Mantener núcleo internacional y diferencias nacionales materialmente justificadas. Integración hospitalaria, investigación multicéntrica y perfiles institucionales no bloquean capacidades individuales que no dependen de ellos; conservar requisitos clínicos, regulatorios y de privacidad que sí apliquen. Consultar el plan vivo [IMPLEMENTACIÓN](docs/IMPLEMENTACION.md) y [ORQUESTACIÓN](docs/implementacion/ORQUESTACION.json). Preparar infraestructura en paralelo al cierre clínico; no expandir indefinidamente el producto ni confundir QA con autorización clínica.
+
 Emergency es un proyecto internacional y ampliable de apoyo clínico, formación, investigación y coordinación en urgencias y cuidados agudos. Aplicar [docs/INTERNATIONAL_SCOPE.md](docs/INTERNATIONAL_SCOPE.md), directriz del propietario del 16/11/2026, a todas las tareas.
 
 Mantener un núcleo clínico global coherente y un mismo módulo/algoritmo canónico. El núcleo funciona sin seleccionar país ni hospital. No inferirlos del idioma, de la biografía del propietario o de un ejemplo. Portugal/Azores/Horta son contextos posibles; preservar sus decisiones con procedencia y alcance propios.
