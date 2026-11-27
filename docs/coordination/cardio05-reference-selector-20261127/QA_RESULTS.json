@@ -1,0 +1,369 @@
+{
+  "task": "CARDIO05-PARTIAL-INFORMATIONAL-REFERENCE-SELECTOR",
+  "code_commit": "e58d33e8565e51aef9dfbdbb640c1e27a05bddb1",
+  "code_tree": "80a974ad1199f4be27c5b6e5a36e414ac37c9eea",
+  "base_commit": "83139c2a79486efae6b75ecff94558b1f48e24fc",
+  "source_identity": [
+    {
+      "path": "app/src/components/IvAntihypertensiveReference.tsx",
+      "workspace_raw_sha256": "3f4a0071b4391a3a151475c3ac0543d5c7a11c4dd0a03bcd8c40dae4fa902e77",
+      "git_normalized_blob_sha1": "1cc98729a3df712bda5c69f913f1d96e6874cc5e"
+    },
+    {
+      "path": "app/src/clinical-guides/iv-antihypertensive-reference.json",
+      "workspace_raw_sha256": "b1a41c7e10abb917fd01c3f10ee5e6f8d861b57225b2a93b878f135fd47fcacd",
+      "git_normalized_blob_sha1": "25161fe3ef40fa44dc71a3fc3c9baaf273c746ff"
+    },
+    {
+      "path": "app/src/pages/ClinicalLibrary.tsx",
+      "workspace_raw_sha256": "942f22fc9b92bfd93fafa89f04f9558037e9a52c0e7d46a4faec918a0f82528a",
+      "git_normalized_blob_sha1": "9cd3285503fc112cf683fdcac27e7e5f7837b670"
+    },
+    {
+      "path": "app/src/pages/ClinicalGuides.tsx",
+      "workspace_raw_sha256": "61a5ebed76650bdf8f6ed3454ba169864f47989935cba94e2213999876dded8e",
+      "git_normalized_blob_sha1": "7ac354b29cb21efbd929ade45fb697cc46d83d03"
+    },
+    {
+      "path": "app/src/data/generatedClinicalGuides.json",
+      "workspace_raw_sha256": "e61c44241651771171f4cb4a8ec2059b0e242b4fae01f7dc13f4c8ce760393f0",
+      "git_normalized_blob_sha1": "ee75705f68d60778d41bcbcf837e4667cc90cb56"
+    },
+    {
+      "path": "clinical/modules/cardiovascular.md",
+      "workspace_raw_sha256": "0d3ca9f237d8e1f9c9ac435e62dc3892be337aeab8c5a8dbb6702f34088d60ff",
+      "git_normalized_blob_sha1": "616768fba704f178a8e454b3bcdb0b5fb709d8dd"
+    },
+    {
+      "path": "clinical/references/evidence-registry.json",
+      "workspace_raw_sha256": "233c1465f9fce1349de0299b9775c3257557efd2b3186261c85923837b78a224",
+      "git_normalized_blob_sha1": "8c35584d797397e184d482c6bad29abf93a81064"
+    },
+    {
+      "path": "app/src/i18n/locales/es.clinical.json",
+      "workspace_raw_sha256": "35ca9af5f3e82072f27e53e0860da670af571e5a7e5beb8efa7341ad3655715d",
+      "git_normalized_blob_sha1": "46ece4ec1a7dda9efe4eef4b5d03aa152e6e7439"
+    },
+    {
+      "path": "app/src/i18n/locales/pt.clinical.json",
+      "workspace_raw_sha256": "392e97d02bd19ad79a8113645bb09d00dfeb88bc23396ec7e945d339e041e53a",
+      "git_normalized_blob_sha1": "c27a22a16fe440a0167a726c5cbfeb199177ed61"
+    },
+    {
+      "path": "app/src/i18n/locales/en.clinical.json",
+      "workspace_raw_sha256": "0b0f22d1ad3964c93641b3e15516f2c288182701cac4c8e8bb099a5578468216",
+      "git_normalized_blob_sha1": "5f0925ed68cba47c75d34c6a78881e698a3559e7"
+    },
+    {
+      "path": "app/src/i18n/locales/zh.clinical.json",
+      "workspace_raw_sha256": "b71b742c7116b82660938d545927c56b05b2cb110d26b039c78276cc1559f03c",
+      "git_normalized_blob_sha1": "6968a04edb351627f69bf6e2bbf74b692bae68e5"
+    },
+    {
+      "path": "app/src/test/iv-antihypertensive-reference.test.tsx",
+      "workspace_raw_sha256": "88ec3dd01bec303039d384e6f8d8f0312d9b8e5a6314db0ecf63eeebcfe5f0ad",
+      "git_normalized_blob_sha1": "caf3251a47cd3a63f3f115d11c006242d4806f64"
+    }
+  ],
+  "tests": {
+    "react_focal": {
+      "passed": 16,
+      "failed": 0,
+      "command": "node node_modules/vitest/vitest.mjs run src/test/iv-antihypertensive-reference.test.tsx"
+    },
+    "canonical_projection": {
+      "passed": 12,
+      "failed": 0,
+      "command": "node --test app/scripts/build-clinical-guides.node-test.mjs"
+    },
+    "module_validator": {
+      "resolved": 131,
+      "status": "PASS"
+    },
+    "typescript": {
+      "command": "tsc -b app/tsconfig.json",
+      "status": "PASS"
+    },
+    "eslint_focal": "PASS"
+  },
+  "build": {
+    "build_security": "PASS",
+    "source_cut_full_pipeline": "Uncommitted source later frozen as e58d33e; identical runtime hashes",
+    "final_sha_vite_rebuild": "e58d33e8565e51aef9dfbdbb640c1e27a05bddb1",
+    "final_service_worker_guard": "PASS",
+    "containment_emitted_modules": 165,
+    "picomatch_in_production": "ABSENT",
+    "advisory_status": "OPEN",
+    "service_worker_source_maps": 2,
+    "service_worker_sources": 44
+  },
+  "first_failed_build": {
+    "status": "FAIL_STRICT_TYPES",
+    "cause": "Possible undefined source-review lookup and typed test-control array access",
+    "corrected": "Explicit unknown-source state and checked typed control tuple; no clinical fact changed",
+    "raw_log_sha256": "2258787dfd630e9ab7dea907e7d51aff5cd1440e7286d206acf41c9266b7f3a7"
+  },
+  "browser": {
+    "head": "e58d33e8565e51aef9dfbdbb640c1e27a05bddb1",
+    "dirty": "",
+    "browser": "158.0.8127.37",
+    "status": "PASS",
+    "states": 2,
+    "errors": 0,
+    "transport": "Built artifacts fulfilled by Playwright on synthetic origin; no HTTP server/backend/source fetch",
+    "print_scope": "Print media CSS only: panel hidden/canonical guard visible, not native preview/PDF/Word"
+  },
+  "dist_manifest": [
+    {
+      "path": "apple-touch-icon.png",
+      "workspace_raw_sha256": "d8dd8cae46a26c4468c4e0f6d31fd8be83e75522e3f92047fe2dee5ea6979835"
+    },
+    {
+      "path": "assets/About-DTACRFNl.js",
+      "workspace_raw_sha256": "e21882aa2de4ef28e88ffca353a7aaf8d5fb19d9c962427739453884da6ca592"
+    },
+    {
+      "path": "assets/About-DTACRFNl.js.map",
+      "workspace_raw_sha256": "da1f92e1e3b9a49dc047bb5954ec132c2808cc3248b0be4cf7c9c3b5cda3b405"
+    },
+    {
+      "path": "assets/AcuteMedications-DSS0hrs9.js",
+      "workspace_raw_sha256": "9890058d4b36a80d7c150008abd4099577bfe5e4a856b7a74655ee6d719c6007"
+    },
+    {
+      "path": "assets/AcuteMedications-DSS0hrs9.js.map",
+      "workspace_raw_sha256": "f9bd2dcfc484f7963ba8cb88778414d0e6024c9ea31e8ff3b165e5738f147d56"
+    },
+    {
+      "path": "assets/BloodGas-D_9pchd5.js",
+      "workspace_raw_sha256": "870d9c09befa047ac689a05abd818e3a3173b0eac672b5b2a3793964667e0221"
+    },
+    {
+      "path": "assets/BloodGas-D_9pchd5.js.map",
+      "workspace_raw_sha256": "174e18358fada7f757785ed90c56b7110f304d6579bddc719aafb990092677b3"
+    },
+    {
+      "path": "assets/Calculator-D403_Uym.js",
+      "workspace_raw_sha256": "98fe38ffabf691673b42a3ea302ad4a71a9be32483f23bb5d0faf047469934aa"
+    },
+    {
+      "path": "assets/Calculator-D403_Uym.js.map",
+      "workspace_raw_sha256": "d52059b0ae062b9ad70cfa61fc8936123c8d55f9882b8f7c39c6000b7aeac45b"
+    },
+    {
+      "path": "assets/ClinicalGuides-DpfbImnS.js",
+      "workspace_raw_sha256": "6389379d7639856465e78f33dcda4ecce07987d1d6e266c5030572140f5a5211"
+    },
+    {
+      "path": "assets/ClinicalGuides-DpfbImnS.js.map",
+      "workspace_raw_sha256": "8111f4e41b7c5096e8856a3be0c651c4839f7418f2676fc8b1f9ce92300bb46f"
+    },
+    {
+      "path": "assets/ClinicalLibrary-DIm9oD-L.js",
+      "workspace_raw_sha256": "ad1f82e6b1b3ce3e9fb581289b310c95c47819e0c86b7ea95c8cbe1737dea443"
+    },
+    {
+      "path": "assets/ClinicalLibrary-DIm9oD-L.js.map",
+      "workspace_raw_sha256": "28e0abe2e34935244021fa03edc89db442c45f0c1c3a274abed66af763295f29"
+    },
+    {
+      "path": "assets/ClinicalNote-dM_GeV5E.js",
+      "workspace_raw_sha256": "c8b46f482fbe6c9b494c12d50f901331853ac0de48412d1e3f77671f919475f9"
+    },
+    {
+      "path": "assets/ClinicalNote-dM_GeV5E.js.map",
+      "workspace_raw_sha256": "466f33be1c8579d4b59907273b0bb10e947de46a8635c7163af66cc6c19c76fd"
+    },
+    {
+      "path": "assets/ClinicalScores-9vU-UX59.js",
+      "workspace_raw_sha256": "62ec0808c0b5488190153afa0c62a069dce70919b91199f56a33ecc052727e5f"
+    },
+    {
+      "path": "assets/ClinicalScores-9vU-UX59.js.map",
+      "workspace_raw_sha256": "66ed1fedc97f76b629fa8e25d0192cb5eda87841315f9d4573e1c0bcaea973f8"
+    },
+    {
+      "path": "assets/ClinicalValue-FopfWKla.js",
+      "workspace_raw_sha256": "cec6e8a3d111f3dcf758fc511a92719290d515cb6622ea4468430f7a2d1901c3"
+    },
+    {
+      "path": "assets/ClinicalValue-FopfWKla.js.map",
+      "workspace_raw_sha256": "60d7299d22b03c15472dc4b25e75175fd03bda70233ffb7391c0edc64055a7a7"
+    },
+    {
+      "path": "assets/Corticosteroids-BT7lSzSM.js",
+      "workspace_raw_sha256": "f1efe3c829eb4b63c5d5d355ae14da26afe93e4d2a8cd2e6525c0e099e64e152"
+    },
+    {
+      "path": "assets/Corticosteroids-BT7lSzSM.js.map",
+      "workspace_raw_sha256": "fb4530b68c8234fde2a1250831ff221a509fcfbaddfdfb24c0d62df38fd7271e"
+    },
+    {
+      "path": "assets/index-C1GH6blB.css",
+      "workspace_raw_sha256": "56f5033b24654a201c352918be65988e563717d242487cdb31ae236c4356925c"
+    },
+    {
+      "path": "assets/index-Di-siBJR.js",
+      "workspace_raw_sha256": "d0e10c8f6fff6b5d11dedc48c130f8ee05e9f651455491225b18f10ce5e324f5"
+    },
+    {
+      "path": "assets/index-Di-siBJR.js.map",
+      "workspace_raw_sha256": "5e473b35409dc1e8050d71f740ae4c78c62eacb4308c333fe516496265a9874f"
+    },
+    {
+      "path": "assets/index-Dx2AAWuu.js",
+      "workspace_raw_sha256": "1d14577cda8ec55e31edddf8c57cbe197859c49da46d839b5fbfee2259bd8d00"
+    },
+    {
+      "path": "assets/index-Dx2AAWuu.js.map",
+      "workspace_raw_sha256": "dd5f0e6f72c8780713edd887787278922744b851ae2df800b665b9c4587d2738"
+    },
+    {
+      "path": "assets/InsulinUci-B00xKUYf.js",
+      "workspace_raw_sha256": "cd04038943a1e04c8b45f4609609e457776d7faf9330357a403f1a517bd70a8b"
+    },
+    {
+      "path": "assets/InsulinUci-B00xKUYf.js.map",
+      "workspace_raw_sha256": "112bd132d939bdfd5297898f95ad27a7fcfc5ec3c8dffe5b9ff7b6973cc6020b"
+    },
+    {
+      "path": "assets/IvAntihypertensiveReference-CJYDuZgU.js",
+      "workspace_raw_sha256": "973b7e3dc3851ea8ed9ec9436e6073d1a4f191cece7a4fc12eeeb312a1d601d8"
+    },
+    {
+      "path": "assets/IvAntihypertensiveReference-CJYDuZgU.js.map",
+      "workspace_raw_sha256": "1ad2d70a02e39078f0775b5dcd3fddc999dc436aac387b2f394edc2f4e5db668"
+    },
+    {
+      "path": "assets/patientWeight-30zHUSnb.js",
+      "workspace_raw_sha256": "8d48b588ea5305c389d75526dbe4d7fa406ac10b207b73c99caaec99827fd257"
+    },
+    {
+      "path": "assets/patientWeight-30zHUSnb.js.map",
+      "workspace_raw_sha256": "8a89b51c286f053aff8131414443077f67a18c239bbc16325b57ff13dd7117cb"
+    },
+    {
+      "path": "assets/pdf.worker.min-CIqJB0yW.mjs",
+      "workspace_raw_sha256": "1e64c8240e54735ec5913b37acd5134747799cb8c6bb3777c70adbc01232d2aa"
+    },
+    {
+      "path": "assets/PediatricOutpatient-DccGz4Fe.js",
+      "workspace_raw_sha256": "f3d54cd33c5e40e22c913582fdf415ab76ea48fabd32f0ee5dab853ca2c383dd"
+    },
+    {
+      "path": "assets/PediatricOutpatient-DccGz4Fe.js.map",
+      "workspace_raw_sha256": "390433494257cfb5f325b62bd413e831f131bb85bc6ec4baa38e9586c9ea8905"
+    },
+    {
+      "path": "assets/Procedures-BZuFJtOQ.js",
+      "workspace_raw_sha256": "b709b6a45afa2d0ca92d05d699a7c93fbc813a7c1da2a71ca32a1ddb26fe68da"
+    },
+    {
+      "path": "assets/Procedures-BZuFJtOQ.js.map",
+      "workspace_raw_sha256": "3c9e5ca4c378f6701c12f77618fc62175d8a134afd26c85e1946c3d0dd98eaa6"
+    },
+    {
+      "path": "assets/procedures-DW-L4hCk.js",
+      "workspace_raw_sha256": "584223008baf60694df11b3fc58fab7429ce4ae90a3446d6f946d154ea1e0440"
+    },
+    {
+      "path": "assets/procedures-DW-L4hCk.js.map",
+      "workspace_raw_sha256": "938e1d183c19fa47fed3787701d65c7318747b6e9fcf0f66f21e16009ae91090"
+    },
+    {
+      "path": "assets/score-pdf-DU87VpDa.js",
+      "workspace_raw_sha256": "36c8fe951ebf9ac0021d2bb1233c3ef6cf0ef5aa32c7c5ae325883a752bba4e1"
+    },
+    {
+      "path": "assets/score-pdf-DU87VpDa.js.map",
+      "workspace_raw_sha256": "3ad7c64696fca2640820ce002cfa2d98ba70e357b28a0df03a20e1dfc6b5693c"
+    },
+    {
+      "path": "assets/Settings-D_UZUum8.js",
+      "workspace_raw_sha256": "e1c7c56796dace6f122acd9d786b1d062362f920b3e801b644c000d0f6b84ffa"
+    },
+    {
+      "path": "assets/Settings-D_UZUum8.js.map",
+      "workspace_raw_sha256": "460e39be024c61ec34eb201b0c151479b2bbb9fb75246406858d2214cadefadb"
+    },
+    {
+      "path": "assets/T06Lab-bDqnutf8.css",
+      "workspace_raw_sha256": "d09a91cc0966afb586dfe2b4db546cbf74d8aa9b7a7dc89d7658463c2e671863"
+    },
+    {
+      "path": "assets/T06Lab-DEZgutEF.js",
+      "workspace_raw_sha256": "6b0417ccc9dfb7e99eda08ea3e11b4d28f6e279698bd938e598f52f200284bc9"
+    },
+    {
+      "path": "assets/T06Lab-DEZgutEF.js.map",
+      "workspace_raw_sha256": "64eb57e752d2a39fe781ab2d09df5c00093cff5cb4a8a8e02a6926f05b616137"
+    },
+    {
+      "path": "assets/workbox-window.prod.es5-BBnX5xw4.js",
+      "workspace_raw_sha256": "cadd21be4a88598a4dec91a26a025df0a5790ff6baec54a884e401c3f5c95557"
+    },
+    {
+      "path": "assets/workbox-window.prod.es5-BBnX5xw4.js.map",
+      "workspace_raw_sha256": "ab8068dd15ff297903fcfae1160527387d8e2ebd24fd41cb88345f28fd1d3e16"
+    },
+    {
+      "path": "design/clinical-minimal-physician.svg",
+      "workspace_raw_sha256": "56b484ee30913d5803a74b7b9aa13ff64a4bc1303caba1488492ad116a3bfce1"
+    },
+    {
+      "path": "favicon.svg",
+      "workspace_raw_sha256": "3ff42192b9a299a2b34e74491d8335218aff32d06625bc9fc277b68382497738"
+    },
+    {
+      "path": "index.html",
+      "workspace_raw_sha256": "82d9489858d73147d6a0c198dc737facb2ec4ddd630ecb36353a5e8f70dd81ae"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "workspace_raw_sha256": "4579af83c4f4f1d7f012be05357cd0b781b5b7da6e1fbedb312d8bf8022ac002"
+    },
+    {
+      "path": "maskable-512x512.png",
+      "workspace_raw_sha256": "238ddf27a15e9572a9e31af821b4405451fdd9ee45b802fae7792a17f486dd51"
+    },
+    {
+      "path": "pwa-192x192.png",
+      "workspace_raw_sha256": "5daa91ca632551011462b563ad3c0245c56e681be1cf7dc6d2f5dc37249def44"
+    },
+    {
+      "path": "pwa-512x512.png",
+      "workspace_raw_sha256": "51aea219a98115abcca0b4d2258d305ead8d255875d4612fe08b40b5e3800483"
+    },
+    {
+      "path": "sw.js",
+      "workspace_raw_sha256": "1b561b2b28e55285d36432f8e6e7c946a66311c5e1473ebd2383c82efdfda635"
+    },
+    {
+      "path": "sw.js.map",
+      "workspace_raw_sha256": "3a4d1c574b5c6852d647a28bccb5c4db372ea81b45531ddde2811767220db8ca"
+    },
+    {
+      "path": "workbox-9c191d2f.js",
+      "workspace_raw_sha256": "7e309c8aa685d823ceda00413955fd83e4fb3055db29fc4c9a73610c0fe72d5b"
+    },
+    {
+      "path": "workbox-9c191d2f.js.map",
+      "workspace_raw_sha256": "a6d59850a88f044376d5cc8c48afdca951d8f4ad19fb9273c633f128a59695e2"
+    }
+  ],
+  "source_reference_rows": {
+    "generic_rows": 7,
+    "specific_product_source_rows": 5,
+    "PT_unknown_separate": true
+  },
+  "not_executed": [
+    "Full coverage rerun",
+    "Backend or HTTP integration",
+    "Native print preview",
+    "PDF/Word generation",
+    "Clinical validation or independent human adjudication"
+  ],
+  "limits": "PARTIAL05_INFORMATIONAL; PT product/RCM/availability and compound-source original labetalol identity remain unknown; no operational product profile enabled",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE"
+}

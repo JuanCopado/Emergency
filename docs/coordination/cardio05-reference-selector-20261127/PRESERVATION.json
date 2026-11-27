@@ -1,0 +1,21 @@
+{
+  "base": "83139c2a79486efae6b75ecff94558b1f48e24fc",
+  "combined_base": "04063b5e0b60047b08041af62a6291231b6cb697",
+  "only_appended_guard": true,
+  "existing_numeric_tokens_identical": true,
+  "changed_catalog_ids_vs_base": [
+    "iv-antihypertensive-selection"
+  ],
+  "unchanged_catalog_records_vs_base": 130,
+  "combined_changed_catalog_ids": [
+    "hypertensive-emergencies",
+    "iv-antihypertensive-selection",
+    "critical-valvular-disease"
+  ],
+  "combined_unchanged_catalog_records": 128,
+  "all_131_states_unchanged": true,
+  "all_registry_fields_and_review_dates_unchanged_except_05_followup": true,
+  "dose_formula_pharmacology_and_17drug_library_diff": "NONE",
+  "guard_in_canonical_and_generated_body": true,
+  "export_limit": "Canonical/raw body presence verified; no new PDF, Word or native print execution claimed."
+}

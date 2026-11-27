@@ -1,0 +1,405 @@
+{
+  "task": "CARDIO04-APPROVED-STABLE-SUBSEQUENT-PHASE",
+  "observed_utc": "2026-11-27T08:56:20.157698+00:00",
+  "base_commit": "5b695e9b7dacd5e2806d4fa94a0e832fda990b3a",
+  "author_role": "Implementation and author QA only; independent review separate",
+  "commands": [
+    {
+      "command": "python clinical/scripts/validate_modules.py",
+      "status": "PASS",
+      "modules": 131
+    },
+    {
+      "command": "python clinical/scripts/normalize_evidence_sources.py --check",
+      "status": "PASS",
+      "sources": 254,
+      "modules": 131
+    },
+    {
+      "command": "python -m unittest clinical.tests.test_skill.ModularCoreTests.test_cardiovascular_safety_audit_is_preserved",
+      "status": "PASS",
+      "tests": 1
+    },
+    {
+      "command": "node --test scripts/build-clinical-guides.node-test.mjs (app)",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "npm run build:security (app), EMERGENCY_SECURITY_AUDIT=1",
+      "status": "PASS",
+      "containment_emitted_modules": 163,
+      "picomatch_in_production": false,
+      "service_worker_maps": 2,
+      "service_worker_sources": 44,
+      "advisory_status": "OPEN",
+      "warnings": "Existing zod PURE annotations and >500kB chunks, nonfatal"
+    },
+    {
+      "command": "npx eslint scripts/check-cardio04-phase-export.mjs (app)",
+      "status": "PASS",
+      "scope": "new focal QA script only; no app runtime code changed"
+    },
+    {
+      "command": "node scripts/check-cardio04-phase-export.mjs (app)",
+      "status": "PASS",
+      "routes": 2,
+      "receipt": "BROWSER_PDF_QA.json"
+    }
+  ],
+  "exact_change_controls": {
+    "entire_cardiovascular_source_recovers_base_when_unique_append_removed": true,
+    "changed_catalog_modules": [
+      "hypertensive-emergencies"
+    ],
+    "all_131_existing_evidence_records_restored_after_removing_only_followup_pointer": true,
+    "four_other_generated_catalogs_content_unchanged_after_LF_normalization": true,
+    "review_dates_and_states_changed": false,
+    "accepted_19_contracts_and_med_dec_r46_01_02_files_changed": false,
+    "new_medication_doses_formulas_products": false
+  },
+  "source_identity": [
+    {
+      "path": "clinical/modules/cardiovascular.md",
+      "workspace_raw_sha256": "7d45639c12e112252d1b550d652f77c34926a01c3b21148cc5336f5258915341",
+      "git_normalized_LF_sha256": "e5c41c7e28c1e6ca57e4c1630fde2cc9ae8432ae15ae328555b3f51011536715"
+    },
+    {
+      "path": "app/src/data/generatedClinicalGuides.json",
+      "workspace_raw_sha256": "26acb2f2c6e3a75bf4d871e6c6ea4949d8db93bb5a0634b7915ba951c3ac2944",
+      "git_normalized_LF_sha256": "26acb2f2c6e3a75bf4d871e6c6ea4949d8db93bb5a0634b7915ba951c3ac2944"
+    },
+    {
+      "path": "clinical/references/evidence-registry.json",
+      "workspace_raw_sha256": "ef803c59522ece7dc6f43b4d5290e91e7b14a292b8d88f7a4160a31cbe38127c",
+      "git_normalized_LF_sha256": "ef803c59522ece7dc6f43b4d5290e91e7b14a292b8d88f7a4160a31cbe38127c"
+    },
+    {
+      "path": "app/scripts/check-cardio04-phase-export.mjs",
+      "workspace_raw_sha256": "8da2b240f9529dd8dd44acfafbe7f76eda0eb93ad796ee3af46dffe5a85d81ae",
+      "git_normalized_LF_sha256": "8da2b240f9529dd8dd44acfafbe7f76eda0eb93ad796ee3af46dffe5a85d81ae"
+    }
+  ],
+  "initial_qa_failures_retained": [
+    {
+      "scope": "new browser QA harness cleanup",
+      "failure": "PDFJS6 document.destroy not a function after first PDF text assertions",
+      "fix": "Destroy loadingTask instead; rerun completed both routes"
+    },
+    {
+      "scope": "new QA script lint",
+      "failure": "bare getComputedStyle not recognized as global",
+      "fix": "Use element.ownerDocument.defaultView.getComputedStyle; final focused ESLint and both-route PDF check PASS"
+    },
+    {
+      "scope": "default Python PDF extractor",
+      "failure": "pypdf not installed",
+      "fallback": "Existing installed pdfjs-dist6.5.438 used successfully; no dependency installed"
+    }
+  ],
+  "limits": [
+    "No full clinical suite or coverage measurement; no inherited 28tests from CARDIO06 claimed for this phase.",
+    "No Word export or native operator printing; actual headless browser PDFs parsed through existing pdfjs-dist.",
+    "No full guideline reading, new source alias, date refresh, clinical-state promotion or protected merge.",
+    "Partial accepted phase implementation, not whole CARDIO04 closure."
+  ],
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "dist_manifest": [
+    {
+      "path": "apple-touch-icon.png",
+      "bytes": 3714,
+      "sha256": "d8dd8cae46a26c4468c4e0f6d31fd8be83e75522e3f92047fe2dee5ea6979835"
+    },
+    {
+      "path": "assets/About-BSD_ZwyD.js",
+      "bytes": 3094,
+      "sha256": "f8390ab55759456c6aff0bbb2a851387823b71d344d65ae0bf7ad4ba54d85abd"
+    },
+    {
+      "path": "assets/About-BSD_ZwyD.js.map",
+      "bytes": 6568,
+      "sha256": "f2498c13796bf0506096b5285472649617c42eb709f705274f8bfeea56993323"
+    },
+    {
+      "path": "assets/AcuteMedications-B4k162St.js",
+      "bytes": 10344,
+      "sha256": "41fd9dba73dae4b7b219ac2d66326bc9c330171affc64dccffca898a5448698b"
+    },
+    {
+      "path": "assets/AcuteMedications-B4k162St.js.map",
+      "bytes": 24728,
+      "sha256": "7f97026d0641354ef941c7baa51f521ad79a47910ddd2e1ddfe2abfce8941b96"
+    },
+    {
+      "path": "assets/BloodGas-C3ACLYnl.js",
+      "bytes": 18457,
+      "sha256": "b2d70f17d44d338c26e5192b0c67ccfc9923f171beed00c5e0eb5e25c66b645e"
+    },
+    {
+      "path": "assets/BloodGas-C3ACLYnl.js.map",
+      "bytes": 44621,
+      "sha256": "c664e46e1a50c73e10a35b22ef0b4d2c5b2e246c694c6cc1c96e1f07aaf68435"
+    },
+    {
+      "path": "assets/Calculator-C3GGp0th.js",
+      "bytes": 25560,
+      "sha256": "1f5ef47317eed7ef92b90ddcf1df15c2a256de5f4d10852ecdfb9da979d3e167"
+    },
+    {
+      "path": "assets/Calculator-C3GGp0th.js.map",
+      "bytes": 80077,
+      "sha256": "a2ec1142d5e037ef77a8256f58c77871eba6da9890d00aed0c5a9ac45c0046a5"
+    },
+    {
+      "path": "assets/ChestPainCircuits-CwyKBq4j.js",
+      "bytes": 592940,
+      "sha256": "42fc695757689e6d8ef85c9f9c53aed244d3eefae2a5f485a94a7f3e3f90ac81"
+    },
+    {
+      "path": "assets/ChestPainCircuits-CwyKBq4j.js.map",
+      "bytes": 8281,
+      "sha256": "672904a373ff1902ea21547348b9c0bd6e9db9f919fbd702d10a3d58fbd52fa2"
+    },
+    {
+      "path": "assets/ClinicalGuides-BiwEzQ3G.js",
+      "bytes": 15236,
+      "sha256": "a00696dc376b7f7e20913aaec0d1991d97ca42687e3f1bf7953dd1af83b512af"
+    },
+    {
+      "path": "assets/ClinicalGuides-BiwEzQ3G.js.map",
+      "bytes": 30503,
+      "sha256": "41cd4c0b11e89f76b226ae956c9214c49f3f1b442a87b6d0a53ed50899260870"
+    },
+    {
+      "path": "assets/ClinicalLibrary-DsmmYCyE.js",
+      "bytes": 7407,
+      "sha256": "9135c0bfd8c14c44037ebcb55b9c225c605d51e6070fdda1f0d4d7806291f142"
+    },
+    {
+      "path": "assets/ClinicalLibrary-DsmmYCyE.js.map",
+      "bytes": 18317,
+      "sha256": "3c105ab3aaa8bd21c4024b06dbb3a79eaf10f062420688464680ac6c1a6994f0"
+    },
+    {
+      "path": "assets/ClinicalNote-D-7RR4Tm.js",
+      "bytes": 65045,
+      "sha256": "0c2dc369e827df78926512e1915ef07c5be5a1ded7bd3e801eda80f51398c5be"
+    },
+    {
+      "path": "assets/ClinicalNote-D-7RR4Tm.js.map",
+      "bytes": 140772,
+      "sha256": "5219bf05e3f1f51749fe91272604133b9767fec5440818a6585d8890da066c07"
+    },
+    {
+      "path": "assets/ClinicalScores-DgBuB6r4.js",
+      "bytes": 11373,
+      "sha256": "9aa1ddb2cd4fcd4600000960b7b124200083a094ad174f05b1449db43b721f6e"
+    },
+    {
+      "path": "assets/ClinicalScores-DgBuB6r4.js.map",
+      "bytes": 29801,
+      "sha256": "7e73147212324ebb1fede9ca34ae1738f2ece0645df3d18f67ee9b572cd0c5d9"
+    },
+    {
+      "path": "assets/ClinicalValue-Dng52cGT.js",
+      "bytes": 957,
+      "sha256": "a260fd778461d46767a3a65eadf18b0725f9485cfd15b5592fea7d8ee239ed1a"
+    },
+    {
+      "path": "assets/ClinicalValue-Dng52cGT.js.map",
+      "bytes": 2697,
+      "sha256": "c19f97dad9b0a9a84a97ae20b8ed0d4d884a03548e79da5687af7e5c1cae5903"
+    },
+    {
+      "path": "assets/Corticosteroids-CPD6FG5N.js",
+      "bytes": 46457,
+      "sha256": "401afe2425a3579edd21e29c35d7f65f8961d157be23a1285845097c608289f4"
+    },
+    {
+      "path": "assets/Corticosteroids-CPD6FG5N.js.map",
+      "bytes": 42651,
+      "sha256": "713a6decd18429c07154fca3483c3d5d8b2fdfb342a3316ce1d2d57868d3dd1a"
+    },
+    {
+      "path": "assets/index-BR7yOsh_.js",
+      "bytes": 608810,
+      "sha256": "b7797f1b5c6fb255eac889a966b11d73be93229e1b742a37d7451b73414f15e0"
+    },
+    {
+      "path": "assets/index-BR7yOsh_.js.map",
+      "bytes": 1642366,
+      "sha256": "656a9f133a77e66a6dffc117cd0a020bb5859670ff365316f31a73229f49faa4"
+    },
+    {
+      "path": "assets/index-C1GH6blB.css",
+      "bytes": 39779,
+      "sha256": "56f5033b24654a201c352918be65988e563717d242487cdb31ae236c4356925c"
+    },
+    {
+      "path": "assets/index-ChmKaIRD.js",
+      "bytes": 66,
+      "sha256": "35a4eb6bdf8af0a9b11843ac02b37da4cfb725e2671117d925924e80b85487d5"
+    },
+    {
+      "path": "assets/index-ChmKaIRD.js.map",
+      "bytes": 98,
+      "sha256": "ea0cbb2a20eadd3399c943d902a49f69288674d1a5cbb362d880ddeb6c6a5805"
+    },
+    {
+      "path": "assets/InsulinUci-CmxyOkBz.js",
+      "bytes": 15294,
+      "sha256": "8933e84c6fd4ad6d40eb6417b3f1e532dc125b163160f8dec007e9115ccb8166"
+    },
+    {
+      "path": "assets/InsulinUci-CmxyOkBz.js.map",
+      "bytes": 29777,
+      "sha256": "07bbf8a6f719c47e477d085e745bbf0625dfbad422f465062f4d389c633fb362"
+    },
+    {
+      "path": "assets/patientWeight-30zHUSnb.js",
+      "bytes": 590,
+      "sha256": "8d48b588ea5305c389d75526dbe4d7fa406ac10b207b73c99caaec99827fd257"
+    },
+    {
+      "path": "assets/patientWeight-30zHUSnb.js.map",
+      "bytes": 2478,
+      "sha256": "8a89b51c286f053aff8131414443077f67a18c239bbc16325b57ff13dd7117cb"
+    },
+    {
+      "path": "assets/pdf.worker.min-CIqJB0yW.mjs",
+      "bytes": 1271915,
+      "sha256": "1e64c8240e54735ec5913b37acd5134747799cb8c6bb3777c70adbc01232d2aa"
+    },
+    {
+      "path": "assets/PediatricOutpatient-B2DtKFCp.js",
+      "bytes": 150515,
+      "sha256": "91434022840ed4e674f2d7a835a90d71b11b3e4452813d96145d19fd5ff0c51c"
+    },
+    {
+      "path": "assets/PediatricOutpatient-B2DtKFCp.js.map",
+      "bytes": 40563,
+      "sha256": "57880469debe790368885d54635d9de3102e3acc03277d3dd2f5b5869d647419"
+    },
+    {
+      "path": "assets/Procedures-CAIC9Sgr.js",
+      "bytes": 472570,
+      "sha256": "af1cac3dc440c3c201086d4d00609032eaee84067f9963f96c10ed84097de5f4"
+    },
+    {
+      "path": "assets/Procedures-CAIC9Sgr.js.map",
+      "bytes": 14021,
+      "sha256": "c7c71169969e513191844201ed65ecb237c0759abcdcfa331f389cfc39ad9387"
+    },
+    {
+      "path": "assets/procedures-DW-L4hCk.js",
+      "bytes": 55395,
+      "sha256": "584223008baf60694df11b3fc58fab7429ce4ae90a3446d6f946d154ea1e0440"
+    },
+    {
+      "path": "assets/procedures-DW-L4hCk.js.map",
+      "bytes": 1051,
+      "sha256": "938e1d183c19fa47fed3787701d65c7318747b6e9fcf0f66f21e16009ae91090"
+    },
+    {
+      "path": "assets/score-pdf-DlC_pGwV.js",
+      "bytes": 501275,
+      "sha256": "14ecd8dccf0fc98ed316165ff96bc8e29e20d318236da729841a02447458c65f"
+    },
+    {
+      "path": "assets/score-pdf-DlC_pGwV.js.map",
+      "bytes": 1623423,
+      "sha256": "03d45aa77187db74283666f45429d5acc9d8e29c11b3522117adf313efa17e7a"
+    },
+    {
+      "path": "assets/Settings-CakCZlDT.js",
+      "bytes": 6580,
+      "sha256": "39f4195fd17f85ccdd0aa0f63397a89d5b3dcc6497f774b2244bf3d7a685f2f9"
+    },
+    {
+      "path": "assets/Settings-CakCZlDT.js.map",
+      "bytes": 15748,
+      "sha256": "e3a84a1ccb67134c7b50c5bd658296879da0c37854017c3e9858524f052b6b18"
+    },
+    {
+      "path": "assets/T06Lab-bDqnutf8.css",
+      "bytes": 2714,
+      "sha256": "d09a91cc0966afb586dfe2b4db546cbf74d8aa9b7a7dc89d7658463c2e671863"
+    },
+    {
+      "path": "assets/T06Lab-CrQII0Ja.js",
+      "bytes": 12202,
+      "sha256": "a5966bbecfe8e04ebdd664817325a57ef8ca38932807a52b3f812bfbff70e911"
+    },
+    {
+      "path": "assets/T06Lab-CrQII0Ja.js.map",
+      "bytes": 30906,
+      "sha256": "935e11a1769be697998239918533da20de0eec07706598564f3f6d49a31e2b64"
+    },
+    {
+      "path": "assets/workbox-window.prod.es5-BBnX5xw4.js",
+      "bytes": 5748,
+      "sha256": "cadd21be4a88598a4dec91a26a025df0a5790ff6baec54a884e401c3f5c95557"
+    },
+    {
+      "path": "assets/workbox-window.prod.es5-BBnX5xw4.js.map",
+      "bytes": 13526,
+      "sha256": "ab8068dd15ff297903fcfae1160527387d8e2ebd24fd41cb88345f28fd1d3e16"
+    },
+    {
+      "path": "design/clinical-minimal-physician.svg",
+      "bytes": 3570,
+      "sha256": "56b484ee30913d5803a74b7b9aa13ff64a4bc1303caba1488492ad116a3bfce1"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 367,
+      "sha256": "3ff42192b9a299a2b34e74491d8335218aff32d06625bc9fc277b68382497738"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1614,
+      "sha256": "31335ced0870a64f050c5f7aab7f1cd4e0713c5d7ec039b9af34ce301ff2305e"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 669,
+      "sha256": "4579af83c4f4f1d7f012be05357cd0b781b5b7da6e1fbedb312d8bf8022ac002"
+    },
+    {
+      "path": "maskable-512x512.png",
+      "bytes": 6544,
+      "sha256": "238ddf27a15e9572a9e31af821b4405451fdd9ee45b802fae7792a17f486dd51"
+    },
+    {
+      "path": "pwa-192x192.png",
+      "bytes": 3692,
+      "sha256": "5daa91ca632551011462b563ad3c0245c56e681be1cf7dc6d2f5dc37249def44"
+    },
+    {
+      "path": "pwa-512x512.png",
+      "bytes": 10532,
+      "sha256": "51aea219a98115abcca0b4d2258d305ead8d255875d4612fe08b40b5e3800483"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 3080,
+      "sha256": "20dfd7cdf3b50a18ed564b1bd0872282532a80f9a5d679d28ad905186a41fea6"
+    },
+    {
+      "path": "sw.js.map",
+      "bytes": 7273,
+      "sha256": "ba4df402e3f4eb3570e37f3cb3633deb9e6646205a2c4fa9d6d267dc88f3f873"
+    },
+    {
+      "path": "workbox-9c191d2f.js",
+      "bytes": 15202,
+      "sha256": "7e309c8aa685d823ceda00413955fd83e4fb3055db29fc4c9a73610c0fe72d5b"
+    },
+    {
+      "path": "workbox-9c191d2f.js.map",
+      "bytes": 148731,
+      "sha256": "a6d59850a88f044376d5cc8c48afdca951d8f4ad19fb9273c633f128a59695e2"
+    }
+  ]
+}

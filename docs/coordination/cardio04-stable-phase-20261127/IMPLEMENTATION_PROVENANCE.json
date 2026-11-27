@@ -1,0 +1,47 @@
+{
+  "task": "CARDIO04-APPROVED-STABLE-SUBSEQUENT-PHASE",
+  "base_commit": "5b695e9b7dacd5e2806d4fa94a0e832fda990b3a",
+  "base_tree": "232155f763f44a3e8aa6b66e9c8e825cb0fa2fae",
+  "owner_decision": "MED-RES-CARDIO-04 v1",
+  "original_proposal": {
+    "bytes": 11634,
+    "sha256": "2d4d303c835779143d126b31917060e403f5aa7f1b5d86d5aef60b401ceaa036"
+  },
+  "literal_acceptance": {
+    "bytes": 404,
+    "sha256": "10f5dcb68a6e02cae4341d3996fc95348befd305af9603a6627506bba21647ec",
+    "scope": "Six YES responses; exact proposed scope only, no unreviewed doses or clinical release"
+  },
+  "owner_record_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+  "source": {
+    "existing_module_primary_source": "AHA/ACC BP2025 section6.2; ESC hypertension2024; syndrome-specific guidance",
+    "existing_doi": "10.1161/CIR.0000000000001356",
+    "official_hub": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/",
+    "public_slides_url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/-/media/62AED2D10C754B11B98E884CAF1D7528.ashx",
+    "format": "PPTX, not PDF",
+    "bytes": 3321549,
+    "sha256": "f5f7485619a0fdc72f51ffda04ebefc52f3f103f5e70637062e2f69953048425",
+    "direct_read_by_implementer": "Only ppt/slides/slide144.xml and slide145.xml using ZipFile+ElementTree; SHA256 recomputed",
+    "population": "Adults with hypertensive emergency, nonpregnant/nonstroke, without compelling condition",
+    "middle_phase_only": {
+      "prior_phase_required": true,
+      "clinical_stability_required": true,
+      "operator": "strict below, not equal",
+      "bp_mmHg": "160/100",
+      "interval": "next 2 to 6 hours"
+    },
+    "later_24_to_48_hour_phase_implemented": false,
+    "no_full_guideline_or_PDF_read_claim": true,
+    "no_source_redistribution": true,
+    "cross_reference_discrepancy_preserved": "Slide144 pregnancy section5.5 versus prior indexed PDF fragment11.5; not silently reconciled"
+  },
+  "source_addendum": {
+    "source_commit": "9d017a92776079ac5baaf6e019d04cedc1201f7f",
+    "relative_path": "docs/coordination/cardio04-focal-source-20261127/CARDIO04_DIRECT_SLIDES_ADDENDUM.json",
+    "scope": "Earlier documentary receipt did not itself authorize numeric implementation; exact original proposal plus literal acceptance recovered and read for this implementation.",
+    "sha256": "bc96a924431c88ff0a68a3b1d02e8cd47724049c94e56be7d9679976e4f2ba66"
+  },
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "qa": "QA_RESULTS.json"
+}

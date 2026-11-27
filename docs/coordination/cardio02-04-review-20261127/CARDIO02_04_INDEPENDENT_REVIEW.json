@@ -1,0 +1,113 @@
+{
+  "task": "CARDIO02-CARDIO04-COMBINED-INDEPENDENT-REVIEW",
+  "reviewer": "Separate Codex agent from author; not independent human clinical adjudication",
+  "verdict": "FAVORABLE_EXACT_LIMITED_TECHNICAL_AND_DOCUMENTARY_SCOPE",
+  "status": "AUDITADA",
+  "reviewed_commit": "5588a4c1d9ff63205090baf5267de85d2e0cd776",
+  "reviewed_tree": "9673199197aa4ccde09987685e44839c04905639",
+  "base_commit": "5b695e9b7dacd5e2806d4fa94a0e832fda990b3a",
+  "preserved_phase04_commit": "e5f788a793ad84cc46d2c5d42dd6d8d957cab292",
+  "observed_at_utc": "2026-11-27T09:05:19.420565+00:00",
+  "owner_scope": "Exact original11634Bproposal and404Bacceptance reused; no repeated vote or expanded clinical approval",
+  "own_code_checks": {
+    "only_changed_sections": [
+      "hypertensive-emergencies",
+      "critical-valvular-disease"
+    ],
+    "only_changed_catalog_modules": [
+      "hypertensive-emergencies",
+      "critical-valvular-disease"
+    ],
+    "other129_catalog_records_equal": true,
+    "phase04_body_exactly_preserved_from_e5": true,
+    "five_valve_branch_labels": [
+      "Critical aortic stenosis:",
+      "Acute severe mitral regurgitation:",
+      "Acute severe aortic regurgitation:",
+      "Prosthetic dysfunction in this critical presentation:",
+      "Suspected complicated infective endocarditis:"
+    ],
+    "six_monitoring_domains_qualified_by_severity": true,
+    "prosthetic_scope": "Critical presentation only; urgent echo and specialist; no inferred treatment",
+    "IE_destination_id_exists": true,
+    "POCUS_boundary_preserved": true,
+    "valve_numeric_tokens_equal_to_base": true,
+    "all131_registry_states_and_dates_preserved": true,
+    "registry_returns_base_after_two_followup_removals": true,
+    "protected_calculators_pharmacology_contracts_and_CARDIO06_UI_unchanged": true,
+    "three_git_LF_source_identities_verified": [
+      {
+        "path": "clinical/modules/cardiovascular.md",
+        "git_blob_LF_sha256": "1f8c0f42f626c3a4db684442e49c2f60614ab6714f93dec144fed430a24d498e"
+      },
+      {
+        "path": "app/src/data/generatedClinicalGuides.json",
+        "git_blob_LF_sha256": "8ddeeb49b54990485d0eaff7ab3b9fa44f5b200935d7392b640c1dc68b08a1f8"
+      },
+      {
+        "path": "clinical/references/evidence-registry.json",
+        "git_blob_LF_sha256": "f6ac88abdc288ea3ae256449c3eb23d6688e2449b761690ff0a76a952209dd07"
+      }
+    ]
+  },
+  "source_attribution": {
+    "CARDIO04": "Own direct focal XML144/145 read of official PPTX; see prior CARDIO04_INDEPENDENT_REVIEW.json for physical/part identities and limits",
+    "CARDIO02": "Own reading of exact owner proposal, acceptance, canonical delta, and source-author focal map; original ESC/IE primary reading attributed to its documentary reviewer, not repeated or falsely claimed here",
+    "CARDIO02_map_commit": "7478b306adb98aacb9382200d8edf4e9a67cf78a",
+    "CARDIO02_map_workspace_raw_sha256": "01b1220a6ad01f04c10876f0002898a3b7b8d72b894e34d6574b31ca8f37364d",
+    "rights": "OUP permissions/TDM limitations retained; no full guideline reproduction, bulk processing or broad reuse permission claimed"
+  },
+  "review_finding_resolved": {
+    "id": "AS-OWNER-EXPLICIT-SAFEGUARDS",
+    "finding": "Initial valve split omitted explicit hypotension/abruptpreload words from exact accepted original",
+    "resolution": "Final AS row adds only those accepted concepts while preserving prior AS safeguards",
+    "state": "RESOLVED_IN_REVIEWED_SHA"
+  },
+  "own_check_correction": "Initial overbroad no-digits check also matched the existing source year2025; corrected to numeric-token equality against baseline, which passes. Not a code finding.",
+  "author_QA_reused": [
+    {
+      "command": "python clinical/scripts/validate_modules.py",
+      "status": "PASS",
+      "modules": 131
+    },
+    {
+      "command": "python clinical/scripts/normalize_evidence_sources.py --check",
+      "status": "PASS",
+      "sources": 254,
+      "modules": 131
+    },
+    {
+      "command": "python -m unittest clinical.tests.test_skill.ModularCoreTests.test_cardiovascular_safety_audit_is_preserved",
+      "status": "PASS",
+      "tests": 1
+    },
+    {
+      "command": "node --test app/scripts/build-clinical-guides.node-test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "npm run build:security (app), EMERGENCY_SECURITY_AUDIT=1",
+      "status": "PASS",
+      "exit_code": 0,
+      "containment_modules": 163,
+      "picomatch_absent": true,
+      "service_worker_maps": 2,
+      "service_worker_sources": 44,
+      "advisory_status": "OPEN",
+      "log_scope": "Command output observed directly; machine-specific transient raw log not included in public delivery",
+      "warnings": "Existing zod PURE annotations and >500kB chunk warning, nonfatal"
+    }
+  ],
+  "qa_attribution": "Final author131modules/254sources,1cardiovascular+12projection regressions and securitybuild reused with explicit attribution; no suites repeated by reviewer. Earlier e5headlessPDF check remains historical04 evidence only, not new02PDF validation.",
+  "blocking_findings": [],
+  "limits": [
+    "Partial structured reference increments only; not whole CARDIO02/CARDIO04 clinical closure",
+    "No new medication/dose/formula/product or global release; no independent human adjudication",
+    "No new PDF/Word/native-print run for02 claimed",
+    "No new full primarysource reading or evidence-status promotion",
+    "CI/publication of final candidate remains separate exact-SHA evidence"
+  ],
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE"
+}

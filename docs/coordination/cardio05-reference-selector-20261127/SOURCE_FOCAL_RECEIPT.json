@@ -1,0 +1,92 @@
+{
+  "document_type": "CARDIO05_FOCAL_PRODUCT_PROVENANCE_NO_RUNTIME_CHANGE",
+  "observed_date": "2026-11-27",
+  "executor": "Codex documentary focal review; not an independent clinical adjudication",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "owner_scope": {
+    "original": "MED_RES_CARDIO_ORIGINAL_V1_TEXTO_RENDERIZADO.txt section 5 CARDIO-05",
+    "original_sha256": "2d4d303c835779143d126b31917060e403f5aa7f1b5d86d5aef60b401ceaa036",
+    "acceptance_sha256": "10f5dcb68a6e02cae4341d3996fc95348befd305af9603a6627506bba21647ec",
+    "accepted": "Indication/contraindication selector with separate product/jurisdiction profiles and no administration calculations for unverified products; no unreviewed doses or clinical release."
+  },
+  "reused_receipts": [
+    "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/CIENCIA/LOTE_ADULTOS/COTEJO_FOCAL_18_ADULTOS.json: sources and iv-antihypertensive-selection module",
+    "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/CIENCIA/LOTE_ADULTOS/CONCILIACION_LABETALOL.json",
+    "clinical/references/evidence-sources.json: src-cleviprex-dailymed-2022 and src-nicardipine-dailymed-2026; registry metadata attributed, not a new label reading"
+  ],
+  "product_matrix": [
+    {
+      "drug": "clevidipine", "country": "US", "product": "CLEVIPREX injectable emulsion", "identity": "setid a6826aa3-fabb-4ff1-a7a3-cd4c34e3a330",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a6826aa3-fabb-4ff1-a7a3-cd4c34e3a330",
+      "version": "Registry: label updated 2022-11-09; focal receipt observed 2026-11-27. Not asserted to be newly revised today.",
+      "locator": "2.1-2.3; 4.1-4.3; 5.1-5.2",
+      "evidence": "REUSED_FOCAL_PRIMARY_TEXT_READ",
+      "summary": "Individual titration and monitoring; lipid load, soy/egg hypersensitivity, defective lipid metabolism and severe aortic stenosis restrictions. Existing canonical setid matches the focal receipt; no Portugal identity or availability established.",
+      "comparison": "Original documents different starting instructions between US and Spain at the same concentration; retain separate labels, not a universal conversion or error correction. Dose/volume table deliberately not replicated."
+    },
+    {
+      "drug": "clevidipine", "country": "ES", "product": "Cleviprex 0.5 mg/ml emulsion inyectable", "identity": "CIMA registration 76595; CHIESI ESPANA S.A.U.",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/76595/FT_76595.html",
+      "version": "Text revision 10/2024 (section 10), observed 2026-11-27; first authorization and renewal dates are not text revision dates.",
+      "locator": "1-2 identity; 4.1 indication; 4.2 administration; 4.3 contraindications; 7-10 holder/registration/revision",
+      "evidence": "NEW_FOCAL_OFFICIAL_HTML_READ_NO_PDF_ACQUISITION",
+      "summary": "Adult perioperative rapid BP reduction is the Spanish licensed indication. Contraindications include soy/peanut/egg-related hypersensitivity, defective lipid metabolism and severe aortic stenosis. Titration, continuous vital-sign monitoring and lipid burden constraints are product-specific. Neither the label nor its existence proves current local stock or licenses every emergency phenotype.",
+      "comparison": "Spanish starting instruction is one value within the US starting interval described by the original and prior US receipt, not incompatible units. Equal concentration does not authorize collapsing jurisdiction profiles. No new numeric calculations or substitutions."
+    },
+    {
+      "drug": "labetalol", "country": "US", "product": "Labetalol hydrochloride injection, Onesource Specialty Pharma Limited", "identity": "setid 6cb2c117-584c-4440-acfb-e4b1af4dc509; NDC 83270-178-01 / 83270-179-01",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6cb2c117-584c-4440-acfb-e4b1af4dc509",
+      "version": "Label updated 2026-06-29; prior focal observation 2026-11-27",
+      "locator": "DOSAGE AND ADMINISTRATION: repeated intravenous injection; contraindications",
+      "evidence": "REUSED_FOCAL_PRIMARY_TEXT_READ",
+      "summary": "The fixed-start canonical regimen has official-label support. Cardiac/respiratory contraindication gates remain. This does not identify the setid originally used inside compound source src-05cc8d80 or establish a local product."
+    },
+    {
+      "drug": "labetalol", "country": "US", "product": "Labetalol injection, Hikma Pharmaceuticals USA Inc.", "identity": "setid 99a715a0-4579-410c-b102-7ef6fab8db55",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=99a715a0-4579-410c-b102-7ef6fab8db55",
+      "version": "Header revised 2024-09; footer August 2024; both preserved as prior receipt reports",
+      "locator": "2.2 dosage; 3 presentations; 4 contraindications",
+      "evidence": "REUSED_FOCAL_PRIMARY_TEXT_READ",
+      "summary": "A distinct weight-based starting instruction is documented. No universal dosing error or obligation to normalize labels is established. No retrospective original-product identification, newer-label claim or Portugal availability is inferred."
+    },
+    {
+      "drug": "nicardipine", "country": "US", "product": "Nicardipine Hydrochloride Injection", "identity": "setid f8b49f59-7a54-425d-9eca-dfa4022a08d1",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f8b49f59-7a54-425d-9eca-dfa4022a08d1",
+      "version": "Inherited registry label updated 2026-04-20; last_verified 2026-10-02",
+      "evidence": "ATTRIBUTED_CANONICAL_REGISTRY_METADATA_NOT_NEW_LABEL_REVIEW",
+      "summary": "Individual US source identity exists in the canonical registry. This focal does not newly validate all presentations, contraindications or any ES/PT product identity; retain existing safety restrictions."
+    },
+    {
+      "drug": "all CARDIO05 reference generics", "country": "PT", "product": null, "identity": null,
+      "evidence": "PRODUCT_NOT_IDENTIFIED_IN_THIS_DOSSIER",
+      "official_lookup": "https://www.infarmed.pt/web/infarmed/servicos-on-line/pesquisa-do-medicamento",
+      "access_observation": "Official general lookup page accessible; targeted indexed official search returned no specific Cleviprex RCM in this execution. No product-specific Portuguese record or RCM was obtained.",
+      "summary": "No conclusion about absence, authorization, commercialization or stock. Need actual local product name, authorization identifier, formulation, current RCM/version and hospital availability before operational profile activation. UI language is not jurisdiction or prescription evidence."
+    }
+  ],
+  "reference_generic_rows_not_reacquired": [
+    {"drug":"nicardipine","owner_role":"Selected neurological presentations","owner_guard":"Hypotension/tachycardia"},
+    {"drug":"labetalol","owner_role":"Selected alternative","owner_guard":"Bradycardia, AV block, bronchospasm, decompensated heart failure"},
+    {"drug":"clevidipine","owner_role":"Titratable arterial alternative","owner_guard":"Severe aortic stenosis and lipid emulsion restrictions"},
+    {"drug":"esmolol","owner_role":"Aortic anti-impulse","owner_guard":"Bradycardia/hypotension"},
+    {"drug":"nitroglycerin","owner_role":"Hypertensive pulmonary edema and selected ACS","owner_guard":"Hypotension, preload dependence, PDE5 inhibitors"},
+    {"drug":"hydralazine","owner_role":"Specific obstetric pathway","owner_guard":"Variable hemodynamic response"},
+    {"drug":"nitroprusside","owner_role":"Selected rescue","owner_guard":"Toxicity/intensive monitoring"}
+  ],
+  "safe_remaining_actions": [
+    "Represent the seven accepted reference rows and existing contraindication guards without adding regimens or assigning a marketed product automatically.",
+    "Display explicit jurisdiction, product identity, source locator/version and verification status; keep verified source metadata separate from local availability.",
+    "Disaggregate compound source provenance while preserving the inherited source and both labetalol labels; no automatic dose or formula replacement.",
+    "Leave unverified administration profiles disabled. Resolve Portugal using an actual product/RCM and local availability record, not language or failed search.",
+    "Preserve separate ES perioperative indication and US label context; do not apply either as blanket authorization for all emergency phenotypes."
+  ],
+  "actual_gaps": [
+    "Exact original labetalol product in compound source src-05cc8d80 remains unidentifiable from existing receipts.",
+    "Portuguese product/RCM/formulation/version and local availability remain unestablished.",
+    "Esmolol, nitroglycerin, hydralazine and nitroprusside remain reference-generic rows in this focal; no new specific marketed product is asserted.",
+    "Focal adult receipt did not complete all aortic, ACS/edema, pregnancy or sympathetic-crisis source contexts; do not relabel these as fully reviewed here."
+  ],
+  "verdict": "DOCUMENTARY_STRUCTURE_IMPLEMENTABLE_WITHIN_ACCEPTED_SCOPE; NO_MATERIAL_UNIVERSAL_LABETALOL_IMPLEMENTATION_ERROR_DEMONSTRATED; PRODUCT_SPECIFIC_OPERATIONAL_PROFILES_REQUIRE_EXACT_LOCAL_IDENTITY",
+  "qa": {"runtime_changes":false,"dose_or_formula_changes":false,"new_owner_vote_requested":false,"full_label_rereviews":false,"new_pdf_acquisition":false,"verbatim_source_quote_words":0}
+}
