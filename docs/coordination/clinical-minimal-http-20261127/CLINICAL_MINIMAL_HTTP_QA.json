@@ -1,0 +1,991 @@
+{
+  "scope": "Previously unverified Clinical Minimal integration; no clinical validity or native printing certification",
+  "platform": "linux",
+  "architecture": "x64",
+  "transport": "REAL_LOOPBACK_HTTP_WITH_AUTHENTICATED_PYTHON_API",
+  "browserControl": "playwright-core/preinstalled browser; Browser plugin js unavailable; CUA initialization failed",
+  "responseInterception": false,
+  "sourceRevision": "a606a442c071b3f84c17b43f45704ae62d30d44a",
+  "harnessSha256": "233d4adfda5a9feec67af47e4f4dedd064fb06920901d5b33f084880ff4f34c7",
+  "status": "PASS",
+  "complementaryHeroStates": [
+    {
+      "lang": "es",
+      "theme": "dark",
+      "width": 360,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    },
+    {
+      "lang": "es",
+      "theme": "dark",
+      "width": 1366,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    },
+    {
+      "lang": "pt",
+      "theme": "light",
+      "width": 360,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    },
+    {
+      "lang": "pt",
+      "theme": "light",
+      "width": 1366,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    },
+    {
+      "lang": "en",
+      "theme": "dark",
+      "width": 360,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    },
+    {
+      "lang": "en",
+      "theme": "dark",
+      "width": 1366,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    },
+    {
+      "lang": "zh",
+      "theme": "light",
+      "width": 360,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    },
+    {
+      "lang": "zh",
+      "theme": "light",
+      "width": 1366,
+      "heading": "PASS",
+      "illustration": "loaded",
+      "focus": "visible",
+      "overflow": false
+    }
+  ],
+  "navigation": [
+    {
+      "lang": "es",
+      "href": "/clinical-note",
+      "actualUrl": "http://127.0.0.1:4180/clinical-note",
+      "heading": "Apoyo al diagnóstico"
+    },
+    {
+      "lang": "es",
+      "href": "/procedures",
+      "actualUrl": "http://127.0.0.1:4180/procedures",
+      "heading": "Procedimientos"
+    },
+    {
+      "lang": "es",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "Pediatría ambulatoria"
+    },
+    {
+      "lang": "es",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "es",
+      "href": "/scores",
+      "actualUrl": "http://127.0.0.1:4180/scores",
+      "heading": "Scores clínicos"
+    },
+    {
+      "lang": "es",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "es",
+      "href": "/calculator",
+      "actualUrl": "http://127.0.0.1:4180/calculator?drug=norepinephrine&prep=ne-8mg-200ml&dose=0.05",
+      "heading": "Calculadora de perfusiones"
+    },
+    {
+      "lang": "es",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "es",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical",
+      "actualUrl": "http://127.0.0.1:4180/clinical",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "Pediatría ambulatoria"
+    },
+    {
+      "lang": "es",
+      "href": "/corticosteroids",
+      "actualUrl": "http://127.0.0.1:4180/corticosteroids",
+      "heading": "Corticoides"
+    },
+    {
+      "lang": "es",
+      "href": "/insulin-uci",
+      "actualUrl": "http://127.0.0.1:4180/insulin-uci",
+      "heading": "Insulinoterapia UCI"
+    },
+    {
+      "lang": "es",
+      "href": "/blood-gas",
+      "actualUrl": "http://127.0.0.1:4180/blood-gas",
+      "heading": "Revisión de gasometrías"
+    },
+    {
+      "lang": "es",
+      "href": "/t06-lab",
+      "actualUrl": "http://127.0.0.1:4180/t06-lab",
+      "heading": "Laboratorio T06 en localhost"
+    },
+    {
+      "lang": "es",
+      "href": "/about",
+      "actualUrl": "http://127.0.0.1:4180/about",
+      "heading": "Acerca de y aviso legal"
+    },
+    {
+      "lang": "es",
+      "href": "/drugs?category=vasoactive-inotrope",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=vasoactive-inotrope",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "es",
+      "href": "/drugs?category=icu-sedation-analgesia",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=icu-sedation-analgesia",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fcardiovascular.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fcardiovascular.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fclinical-images.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-images.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fimage-modalities.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fimage-modalities.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Finfection-respiratory.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Finfection-respiratory.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fneurologic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fneurologic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Frenal-metabolic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Frenal-metabolic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Fspecial-populations.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fspecial-populations.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "es",
+      "href": "/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical-note",
+      "actualUrl": "http://127.0.0.1:4180/clinical-note",
+      "heading": "Apoio ao diagnóstico"
+    },
+    {
+      "lang": "pt",
+      "href": "/procedures",
+      "actualUrl": "http://127.0.0.1:4180/procedures",
+      "heading": "Procedimientos"
+    },
+    {
+      "lang": "pt",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "Pediatria de ambulatório"
+    },
+    {
+      "lang": "pt",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "pt",
+      "href": "/scores",
+      "actualUrl": "http://127.0.0.1:4180/scores",
+      "heading": "Scores clínicos"
+    },
+    {
+      "lang": "pt",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "pt",
+      "href": "/calculator",
+      "actualUrl": "http://127.0.0.1:4180/calculator?drug=norepinephrine&prep=ne-8mg-200ml&dose=0.05",
+      "heading": "Calculadora de perfusões"
+    },
+    {
+      "lang": "pt",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "pt",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical",
+      "actualUrl": "http://127.0.0.1:4180/clinical",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "Pediatria de ambulatório"
+    },
+    {
+      "lang": "pt",
+      "href": "/corticosteroids",
+      "actualUrl": "http://127.0.0.1:4180/corticosteroids",
+      "heading": "Corticosteroides"
+    },
+    {
+      "lang": "pt",
+      "href": "/insulin-uci",
+      "actualUrl": "http://127.0.0.1:4180/insulin-uci",
+      "heading": "Insulinoterapia UCI"
+    },
+    {
+      "lang": "pt",
+      "href": "/blood-gas",
+      "actualUrl": "http://127.0.0.1:4180/blood-gas",
+      "heading": "Revisión de gasometrías"
+    },
+    {
+      "lang": "pt",
+      "href": "/t06-lab",
+      "actualUrl": "http://127.0.0.1:4180/t06-lab",
+      "heading": "Laboratorio T06 en localhost"
+    },
+    {
+      "lang": "pt",
+      "href": "/about",
+      "actualUrl": "http://127.0.0.1:4180/about",
+      "heading": "Sobre e aviso legal"
+    },
+    {
+      "lang": "pt",
+      "href": "/drugs?category=vasoactive-inotrope",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=vasoactive-inotrope",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "pt",
+      "href": "/drugs?category=icu-sedation-analgesia",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=icu-sedation-analgesia",
+      "heading": "Fármacos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fcardiovascular.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fcardiovascular.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fclinical-images.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-images.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fimage-modalities.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fimage-modalities.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Finfection-respiratory.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Finfection-respiratory.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fneurologic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fneurologic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Frenal-metabolic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Frenal-metabolic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Fspecial-populations.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fspecial-populations.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "pt",
+      "href": "/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical-note",
+      "actualUrl": "http://127.0.0.1:4180/clinical-note",
+      "heading": "Diagnostic support"
+    },
+    {
+      "lang": "en",
+      "href": "/procedures",
+      "actualUrl": "http://127.0.0.1:4180/procedures",
+      "heading": "Procedimientos"
+    },
+    {
+      "lang": "en",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "Paediatric outpatient care"
+    },
+    {
+      "lang": "en",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "Drugs"
+    },
+    {
+      "lang": "en",
+      "href": "/scores",
+      "actualUrl": "http://127.0.0.1:4180/scores",
+      "heading": "Clinical scores"
+    },
+    {
+      "lang": "en",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "en",
+      "href": "/calculator",
+      "actualUrl": "http://127.0.0.1:4180/calculator?drug=norepinephrine&prep=ne-8mg-200ml&dose=0.05",
+      "heading": "Infusion calculator"
+    },
+    {
+      "lang": "en",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "Drugs"
+    },
+    {
+      "lang": "en",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical",
+      "actualUrl": "http://127.0.0.1:4180/clinical",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "Paediatric outpatient care"
+    },
+    {
+      "lang": "en",
+      "href": "/corticosteroids",
+      "actualUrl": "http://127.0.0.1:4180/corticosteroids",
+      "heading": "Corticosteroids"
+    },
+    {
+      "lang": "en",
+      "href": "/insulin-uci",
+      "actualUrl": "http://127.0.0.1:4180/insulin-uci",
+      "heading": "Insulinoterapia UCI"
+    },
+    {
+      "lang": "en",
+      "href": "/blood-gas",
+      "actualUrl": "http://127.0.0.1:4180/blood-gas",
+      "heading": "Revisión de gasometrías"
+    },
+    {
+      "lang": "en",
+      "href": "/t06-lab",
+      "actualUrl": "http://127.0.0.1:4180/t06-lab",
+      "heading": "Laboratorio T06 en localhost"
+    },
+    {
+      "lang": "en",
+      "href": "/about",
+      "actualUrl": "http://127.0.0.1:4180/about",
+      "heading": "About & disclaimer"
+    },
+    {
+      "lang": "en",
+      "href": "/drugs?category=vasoactive-inotrope",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=vasoactive-inotrope",
+      "heading": "Drugs"
+    },
+    {
+      "lang": "en",
+      "href": "/drugs?category=icu-sedation-analgesia",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=icu-sedation-analgesia",
+      "heading": "Drugs"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fcardiovascular.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fcardiovascular.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fclinical-images.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-images.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fimage-modalities.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fimage-modalities.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Finfection-respiratory.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Finfection-respiratory.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fneurologic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fneurologic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Frenal-metabolic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Frenal-metabolic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Fspecial-populations.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fspecial-populations.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "en",
+      "href": "/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical-note",
+      "actualUrl": "http://127.0.0.1:4180/clinical-note",
+      "heading": "诊断支持"
+    },
+    {
+      "lang": "zh",
+      "href": "/procedures",
+      "actualUrl": "http://127.0.0.1:4180/procedures",
+      "heading": "Procedimientos"
+    },
+    {
+      "lang": "zh",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "儿科门诊"
+    },
+    {
+      "lang": "zh",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "药物"
+    },
+    {
+      "lang": "zh",
+      "href": "/scores",
+      "actualUrl": "http://127.0.0.1:4180/scores",
+      "heading": "临床评分"
+    },
+    {
+      "lang": "zh",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "zh",
+      "href": "/calculator",
+      "actualUrl": "http://127.0.0.1:4180/calculator?drug=norepinephrine&prep=ne-8mg-200ml&dose=0.05",
+      "heading": "输注计算器"
+    },
+    {
+      "lang": "zh",
+      "href": "/drugs",
+      "actualUrl": "http://127.0.0.1:4180/drugs",
+      "heading": "药物"
+    },
+    {
+      "lang": "zh",
+      "href": "/guides",
+      "actualUrl": "http://127.0.0.1:4180/guides",
+      "heading": "Pantalla completa · impresión · PDF"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical",
+      "actualUrl": "http://127.0.0.1:4180/clinical",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/pediatrics",
+      "actualUrl": "http://127.0.0.1:4180/pediatrics",
+      "heading": "儿科门诊"
+    },
+    {
+      "lang": "zh",
+      "href": "/corticosteroids",
+      "actualUrl": "http://127.0.0.1:4180/corticosteroids",
+      "heading": "糖皮质激素"
+    },
+    {
+      "lang": "zh",
+      "href": "/insulin-uci",
+      "actualUrl": "http://127.0.0.1:4180/insulin-uci",
+      "heading": "Insulinoterapia UCI"
+    },
+    {
+      "lang": "zh",
+      "href": "/blood-gas",
+      "actualUrl": "http://127.0.0.1:4180/blood-gas",
+      "heading": "Revisión de gasometrías"
+    },
+    {
+      "lang": "zh",
+      "href": "/t06-lab",
+      "actualUrl": "http://127.0.0.1:4180/t06-lab",
+      "heading": "Laboratorio T06 en localhost"
+    },
+    {
+      "lang": "zh",
+      "href": "/about",
+      "actualUrl": "http://127.0.0.1:4180/about",
+      "heading": "关于与免责声明"
+    },
+    {
+      "lang": "zh",
+      "href": "/drugs?category=vasoactive-inotrope",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=vasoactive-inotrope",
+      "heading": "药物"
+    },
+    {
+      "lang": "zh",
+      "href": "/drugs?category=icu-sedation-analgesia",
+      "actualUrl": "http://127.0.0.1:4180/drugs?category=icu-sedation-analgesia",
+      "heading": "药物"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fcardiovascular.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fcardiovascular.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fclinical-images.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-images.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fclinical-scores-calculators.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdisposition-crosscutting.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fdocumentation-governance.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fimage-modalities.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fimage-modalities.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Finfection-respiratory.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Finfection-respiratory.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fneurologic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fneurologic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fprocedures-pharmacology.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Frenal-metabolic.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Frenal-metabolic.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Fspecial-populations.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Fspecial-populations.md",
+      "heading": "Patologías y módulos"
+    },
+    {
+      "lang": "zh",
+      "href": "/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "actualUrl": "http://127.0.0.1:4180/clinical?bundle=modules%2Ftrauma-surgical.md",
+      "heading": "Patologías y módulos"
+    }
+  ],
+  "clinicalFlows": [
+    {
+      "lang": "es",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "es-clinical-note.json",
+          "bytes": 9234,
+          "httpStatus": 200
+        }
+      ]
+    },
+    {
+      "lang": "pt",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "pt-clinical-note.json",
+          "bytes": 9234,
+          "httpStatus": 200
+        },
+        {
+          "format": "PDF",
+          "filename": "pt-clinical-note.pdf",
+          "bytes": 45826,
+          "httpStatus": 200
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "en-clinical-note.json",
+          "bytes": 9231,
+          "httpStatus": 200
+        }
+      ]
+    },
+    {
+      "lang": "zh",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "zh-clinical-note.json",
+          "bytes": 9231,
+          "httpStatus": 200
+        },
+        {
+          "format": "Word",
+          "filename": "zh-clinical-note.docx",
+          "bytes": 3467,
+          "httpStatus": 200
+        }
+      ]
+    }
+  ],
+  "apiResponses": [
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No screen reader or native Word/PDF application/print dialog operated by this script",
+    "Blood gas and T06 entry navigation does not certify their separate native services"
+  ],
+  "browser": "154.0.8037.57",
+  "origin": "http://127.0.0.1:4180",
+  "servedBuildRevision": "a606a442c071b3f84c17b43f45704ae62d30d44a"
+}

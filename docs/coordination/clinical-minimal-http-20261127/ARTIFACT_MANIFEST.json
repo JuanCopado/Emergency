@@ -1,0 +1,81 @@
+{
+  "classification": "SYNTHETIC_QA_ONLY",
+  "location": "/workspace/nextphase-minimal-http-linux",
+  "files": [
+    {
+      "name": "CLINICAL_MINIMAL_HTTP_QA.json",
+      "bytes": 29489,
+      "sha256": "88ed458b964f50f7e335f20de8b926bc1183628e2ba038935994d1cb804b80b3"
+    },
+    {
+      "name": "complementary-en-dark-1366.png",
+      "bytes": 315945,
+      "sha256": "f5c74e0a681470b0e6a54d38c00791528ab8f5aa57ecbf174449186531beb8f1"
+    },
+    {
+      "name": "complementary-en-dark-360.png",
+      "bytes": 252567,
+      "sha256": "19f5683b19cdd5b2656d034daaa3321e2ffae8394b08ef3caba64d51e6d7faaf"
+    },
+    {
+      "name": "complementary-es-dark-1366.png",
+      "bytes": 327301,
+      "sha256": "61b437d63ee75a0d318b01901fc889e97c5b23d198b984a0753c9c1912c730f4"
+    },
+    {
+      "name": "complementary-es-dark-360.png",
+      "bytes": 255104,
+      "sha256": "99b5fea4f176393e0a2f9bdc8f1753c0a0bf416d5fa32a18fc377f2694fe851f"
+    },
+    {
+      "name": "complementary-pt-light-1366.png",
+      "bytes": 324650,
+      "sha256": "0e4875b78619bebd2a4920eab38be22d7d0e02350b828d17b8378fd77cc46c35"
+    },
+    {
+      "name": "complementary-pt-light-360.png",
+      "bytes": 252621,
+      "sha256": "138a221cb2bfa1a4a2c08789e58149bb0ea16c4fd731a71fbbc9fd15be36df21"
+    },
+    {
+      "name": "complementary-zh-light-1366.png",
+      "bytes": 305744,
+      "sha256": "1dce663cc6ba38fb3b84839e11f11159ae96cb99a9d0fe2e7d76f58bed7c93ae"
+    },
+    {
+      "name": "complementary-zh-light-360.png",
+      "bytes": 225451,
+      "sha256": "3555ab3d5936f522143f0f1c6ddfc8037ff8704f4d48ff3152eac275235537bf"
+    },
+    {
+      "name": "en-clinical-note.json",
+      "bytes": 9231,
+      "sha256": "ba3bcbf30e8c88218941e34e861240d92aa8d5b26285b90602a319bbe4a1755c"
+    },
+    {
+      "name": "es-clinical-note.json",
+      "bytes": 9234,
+      "sha256": "4f417d24667e00e3eedfc5c73d9a48c18765718f0e80fbfd5e8296c33f788cb0"
+    },
+    {
+      "name": "pt-clinical-note.json",
+      "bytes": 9234,
+      "sha256": "84be15429f1cbcca6bc11a9dcb26a5e1e2afd9b5cd251416c74d54861c8d7cbf"
+    },
+    {
+      "name": "pt-clinical-note.pdf",
+      "bytes": 45826,
+      "sha256": "fe32100f6e41d4d649b398563d2fa481807a36900ade2c58845315c02c6f0a1b"
+    },
+    {
+      "name": "zh-clinical-note.docx",
+      "bytes": 3467,
+      "sha256": "15824bcad234dcd6f8ad487b449cf6e07f762281132cd95a9ed7d52cecb7c68b"
+    },
+    {
+      "name": "zh-clinical-note.json",
+      "bytes": 9231,
+      "sha256": "5161f8e5d1b907ddace8b6b2393964028dd98a8d789a8e0aeea4cb6a8425d6e4"
+    }
+  ]
+}
