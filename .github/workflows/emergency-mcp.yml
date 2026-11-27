@@ -52,7 +52,8 @@ jobs:
           python-version: '3.12'
           architecture: 'x64'
       - name: Install Windows SDK runtime from locked binary wheels
-        run: python -m pip install --disable-pip-version-check --no-input --only-binary=:all: --require-hashes -r tools/emergency-mcp/requirements-lock.txt
+        run: |
+          python -m pip install --disable-pip-version-check --no-input --only-binary=:all: --require-hashes -r tools/emergency-mcp/requirements-lock.txt
       - name: Verify canonical readers and source protection
         run: python -B -X utf8 -m unittest discover -s clinical/tests -p test_emergency_mcp_readonly.py -v
       - name: Verify real stdio initialize, tools and semantic results
