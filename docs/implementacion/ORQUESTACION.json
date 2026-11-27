@@ -421,8 +421,8 @@
       "review_state": "BOUNDED_CODEX_REVIEW_NO_OPEN_FINDINGS_NOT_EXTERNAL_AUDIT",
       "current_increment": {
         "scope": "Signed Windows offline Python backend, same-origin PWA update and rollback",
-        "backend_unit_tests": 14,
-        "auth_tests": 17,
+        "backend_tests": 16,
+        "auth_tests": 21,
         "stable_tests": 9,
         "new_react_tests": 13,
         "affected_react_regressions": 17,
