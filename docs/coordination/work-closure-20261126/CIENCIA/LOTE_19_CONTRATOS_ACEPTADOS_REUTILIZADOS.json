@@ -1,0 +1,3701 @@
+{
+  "candidate_head": "1fb768da8507e29d8293dbd45696c4e7c6280cdb",
+  "count": 19,
+  "acceptance_source": {
+    "schema_version": 1,
+    "date": "2026-11-16",
+    "reviewer": "Juan Copado",
+    "reviewer_role": "physician and project owner",
+    "acceptance_type": "explicit_owner_clinical_validation_and_implementation_authorization",
+    "declaration": "RESUELVELO DE LA FORMA MAS EFICAZ , usa todas las fuentes necesarias ya hablamos de fenitoina anafilaxia anticoagulantes estatus epileptico busca y haz tu trabajo ya te dije que esta validado por mi y que tiene que desbloquearse todo lo realizado ya",
+    "scope": "Incorporar revisiones previas y actuales en los 19 contratos agudos, eliminar bloqueos administrativos heredados y habilitar calculos respaldados o flujos de decision especializados segun el alcance real de cada contrato.",
+    "contract_ids": [
+      "status-refractory",
+      "status-phenytoin-local",
+      "anaphylaxis-under6months",
+      "anaphylaxis-refractory",
+      "reversal-vka-pcc",
+      "reversal-superwarfarin",
+      "reversal-edoxaban",
+      "reversal-betrixaban",
+      "reversal-fondaparinux",
+      "reversal-other-lmwh",
+      "reversal-enoxaparin-over12",
+      "reversal-argatroban",
+      "reversal-bivalirudin",
+      "reversal-other-dti",
+      "reversal-danaparoid",
+      "reversal-fibrinolytics",
+      "reversal-antiplatelets",
+      "reversal-unknown",
+      "reversal-dabigatran-repeat"
+    ],
+    "inherited_acceptance": [
+      "clinical/qa/STATUS_OWNER_ACCEPTANCE_AND_MIDAZOLAM_FIX_2026-11-13.json",
+      "clinical/qa/ANAPHYLAXIS_ANTIBIOTICS_ACCEPTANCE_2026-11-13.json",
+      "clinical/qa/REVERSAL_GENERIC_PCC_OWNER_ACCEPTANCE_2026-11-13.json"
+    ],
+    "base_commit": "062d890b4fc92369b83c87664bb4bb0205ccb33f",
+    "patient_specific_safety_gates_retained": true,
+    "independent_pharmacy_signature_claimed": false,
+    "prospective_validation_claimed": false,
+    "clinical_status": "CLINICALLY_PENDING",
+    "notes": [
+      "La aceptacion del propietario ya esta documentada; no se exige repetirla para el mismo alcance.",
+      "Los datos del paciente, el producto cuando modifica el calculo y los recursos necesarios se verifican en cada uso.",
+      "Un flujo de decision sin pauta numerica universal no se presenta como una dosis calculada.",
+      "La validacion tecnica y esta declaracion no se atribuyen a un revisor externo ni a una evaluacion prospectiva."
+    ]
+  },
+  "acceptance_sha256": "bc5563c6e353975b7cc4a486beda17b3896df141a8a13ec13ab2f0b339b4d267",
+  "items": [
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/16::status-phenytoin-local",
+      "canonical_id": "status-phenytoin-local",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "status-epilepticus",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": null,
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "status-phenytoin-local",
+        "label": "Fenitoína IV — carga inicial adulta; dosis o preparación verificada",
+        "group": "status",
+        "group_label": "Status epiléptico",
+        "drug": "Fenitoína sódica",
+        "bundle": "neurologic.md",
+        "module": "status-epilepticus",
+        "anchors": [
+          "second-line"
+        ],
+        "route": "IV",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "route",
+            "label": "Vía",
+            "kind": "choice",
+            "options": [
+              "IV",
+              "IM",
+              "SC",
+              "PO"
+            ],
+            "expected": "IV"
+          },
+          {
+            "key": "indication_confirmed",
+            "label": "Indicación y fase confirmadas por el profesional",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "allergy_contraindication_present",
+            "label": "Alergia o contraindicación para esta opción",
+            "kind": "boolean",
+            "expected": false
+          },
+          {
+            "key": "interaction_reviewed",
+            "label": "Interacciones, función renal/hepática y embarazo revisados",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "monitoring_ready",
+            "label": "ECG, presión arterial y respiración monitorizados, con medios de rescate disponibles",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "local_protocol_verified",
+            "label": "Pauta clínica seleccionada y contexto de uso verificados",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "age_years",
+            "label": "Edad (años); este contrato se limita a adultos de 18 años o más",
+            "kind": "number",
+            "minimum": 18
+          },
+          {
+            "key": "weight_kg",
+            "label": "Peso corporal verificado (kg)",
+            "kind": "number",
+            "positive": true,
+            "minimum": 1.0,
+            "maximum": 180.0
+          },
+          {
+            "key": "convulsive_status_confirmed",
+            "label": "Estatus convulsivo confirmado y persistente tras benzodiazepina adecuada",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "adequate_benzodiazepine_given",
+            "label": "Benzodiazepina y dosis previa adecuadas confirmadas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "previous_phenytoin_or_fosphenytoin",
+            "label": "Fenitoína/fosfenitoína previa o tratamiento habitual: requiere evaluación de recarga",
+            "kind": "boolean",
+            "expected": false
+          },
+          {
+            "key": "cause_specific_pathway_required",
+            "label": "Se requiere una pauta causal diferente, como eclampsia o crisis tóxicas",
+            "kind": "boolean",
+            "expected": false
+          },
+          {
+            "key": "cardiac_contraindication_present",
+            "label": "Bradicardia sinusal, bloqueo sinoauricular/AV de segundo o tercer grado, o Adams–Stokes",
+            "kind": "boolean",
+            "expected": false
+          },
+          {
+            "key": "standard_loading_appropriate",
+            "label": "La carga seleccionada de 20 mg/kg (máx. 2 g) es adecuada tras revisión clínica, hepática, cardíaca y de interacciones",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "elderly_or_cardiac_risk",
+            "label": "Paciente de edad avanzada o con enfermedad cardíaca; revisión de velocidad reducida",
+            "kind": "boolean"
+          },
+          {
+            "key": "max_rate_mg_min",
+            "label": "Velocidad máxima individual seleccionada (mg/min; nunca superior a 50)",
+            "kind": "number",
+            "positive": true,
+            "maximum": 50
+          },
+          {
+            "key": "duration_min",
+            "label": "Duración elegida para esta carga (min); referencia de proyecto: al menos 40",
+            "kind": "number",
+            "minimum": 40
+          },
+          {
+            "key": "calculation_scope",
+            "label": "Alcance del resultado",
+            "kind": "choice",
+            "options": [
+              "dose_only",
+              "verified_preparation"
+            ],
+            "option_labels": {
+              "dose_only": "Dosis y tiempo",
+              "verified_preparation": "Dosis, preparación verificada y bomba"
+            }
+          },
+          {
+            "key": "preparation_product",
+            "label": "Producto exacto cubierto por la preparación Galway",
+            "kind": "choice",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "options": [
+              "Epanutin 250 mg/5 mL",
+              "Phenytoin (Mercury) 250 mg/5 mL"
+            ]
+          },
+          {
+            "key": "concentration",
+            "label": "Concentración del producto comprobada (mg/mL)",
+            "kind": "number",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": 50,
+            "positive": true
+          },
+          {
+            "key": "product_preparation_matched",
+            "label": "Producto y procedimiento completo cotejados; no basta una concentración equivalente",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "diluent",
+            "label": "Diluyente de esta preparación",
+            "kind": "choice",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "options": [
+              "NaCl 0.9%"
+            ],
+            "expected": "NaCl 0.9%"
+          },
+          {
+            "key": "diluent_volume_ml",
+            "label": "Volumen real verificado de NaCl 0,9% antes de añadir el fármaco (mL)",
+            "kind": "number",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "positive": true
+          },
+          {
+            "key": "final_volume_ml",
+            "label": "Volumen FINAL real verificado, incluyendo fármaco (mL)",
+            "kind": "number",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "positive": true
+          },
+          {
+            "key": "actual_volumes_verified",
+            "label": "Volúmenes reales y manejo de sobrellenado comprobados; no se usa solo el volumen nominal de la bolsa",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "elapsed_since_preparation_min",
+            "label": "Tiempo transcurrido desde la preparación antes del inicio previsto (min)",
+            "kind": "number",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "minimum": 0
+          },
+          {
+            "key": "immediate_start_confirmed",
+            "label": "Preparación para inicio inmediato; no almacenar ni programar una espera",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "drawup_filter_5micron_verified",
+            "label": "Extracción con filtro de 5 micras conforme a esta preparación",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "inline_filter_0_2micron_verified",
+            "label": "Filtro en línea de 0,2 micras y sistema de infusión verificados",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "large_vein_access_verified",
+            "label": "Acceso venoso de gran calibre y vigilancia del punto de infusión disponibles",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "pre_flush_confirmed",
+            "label": "Lavado previo con NaCl 0,9% confirmado",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "post_flush_volume_ml",
+            "label": "Volumen verificado de lavado final que administra el fármaco residual del sistema (mL)",
+            "kind": "number",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "positive": true
+          },
+          {
+            "key": "post_flush_plan_verified",
+            "label": "Lavado final con NaCl 0,9% a la MISMA velocidad de bomba; volumen suficiente del sistema confirmado",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          },
+          {
+            "key": "solution_clear",
+            "label": "Ampolla y mezcla sin turbidez ni precipitado",
+            "kind": "boolean",
+            "required_if": {
+              "key": "calculation_scope",
+              "equals": "verified_preparation"
+            },
+            "expected": true
+          }
+        ],
+        "model": "reviewed_phenytoin",
+        "dose": null,
+        "dose_unit": "mg",
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": {
+          "value": 2000,
+          "unit": "mg",
+          "scope": "carga inicial de esta pauta"
+        },
+        "administration": "Carga IV inicial seleccionada: 20 mg/kg, máximo 2 g. Respetar la velocidad individual y monitorizar ECG, presión arterial y respiración. No convertir mg en mg PE.",
+        "limitations": [
+          "Adultos de 18 años o más con estatus convulsivo; no calcula recarga, mantenimiento, pediatría ni una pauta causal específica.",
+          "La dosis clínica seleccionada no hace intercambiables las fichas de producto. Algunas fichas recomiendan otra carga o preparación; verificar su aplicabilidad al caso.",
+          "Los 40 min mínimos son la referencia adoptada previamente por el propietario para este contrato, no una exigencia universal de Galway.",
+          "En edad avanzada/enfermedad cardíaca este contrato usa un techo conservador de 25 mg/min; puede requerirse una velocidad aún menor u otra pauta individual."
+        ],
+        "reviewed_workflow": "status",
+        "review_reference": "references/acute-status-reviewed-2026-11-16.md",
+        "regimen_source": {
+          "url": "https://www.medinfogalway.ie/ivguides/phenytoin-intravenous-adults",
+          "checked": "2026-11-16",
+          "scope": "adult initial loading; source-specific preparation when requested"
+        }
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/17::status-refractory",
+      "canonical_id": "status-refractory",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "status-epilepticus",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": null,
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "status-refractory",
+        "label": "Estatus refractario o falta de recuperación — escalada especializada",
+        "group": "status",
+        "group_label": "Status epiléptico",
+        "drug": "Valoración y escalada; sin pauta anestésica automática",
+        "bundle": "neurologic.md",
+        "module": "status-epilepticus",
+        "anchors": [
+          "Refractory status epilepticus"
+        ],
+        "route": null,
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "indication_confirmed",
+            "label": "Indicación y fase confirmadas por el profesional",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "monitoring_ready",
+            "label": "Monitorización clínica y fisiológica disponible",
+            "kind": "boolean"
+          },
+          {
+            "key": "local_protocol_verified",
+            "label": "Guía de escalada y contexto clínico revisados",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "age_years",
+            "label": "Edad (años); este flujo se limita a adultos de 18 años o más",
+            "kind": "number",
+            "minimum": 18
+          },
+          {
+            "key": "obstetric_context",
+            "label": "Contexto obstétrico/eclampsia: requiere su circuito específico",
+            "kind": "boolean",
+            "expected": false
+          },
+          {
+            "key": "adequate_benzodiazepine_given",
+            "label": "Tratamiento inicial adecuado con benzodiazepina confirmado",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "adequate_second_line_given",
+            "label": "Segunda línea adecuada completada; dosis, vía, tiempo y respuesta revisados",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "second_line_agent",
+            "label": "Antiepiléptico de segunda línea ya administrado",
+            "kind": "choice",
+            "options": [
+              "levetiracetam",
+              "valproate",
+              "fosphenytoin",
+              "phenytoin"
+            ]
+          },
+          {
+            "key": "current_state",
+            "label": "Situación actual tras el tratamiento",
+            "kind": "choice",
+            "options": [
+              "ongoing_convulsions",
+              "no_convulsions_impaired_consciousness",
+              "electrographic_seizures"
+            ],
+            "option_labels": {
+              "ongoing_convulsions": "Persisten las convulsiones",
+              "no_convulsions_impaired_consciousness": "Sin convulsiones visibles, sin recuperación de conciencia",
+              "electrographic_seizures": "Crisis documentadas por EEG"
+            }
+          },
+          {
+            "key": "eeg_evidence_available",
+            "label": "Existe EEG que documenta la actividad epiléptica actual",
+            "kind": "boolean"
+          },
+          {
+            "key": "expert_team_contacted",
+            "label": "Equipo experto de UCI/anestesia/neurología ya contactado",
+            "kind": "boolean"
+          },
+          {
+            "key": "critical_care_available",
+            "label": "Cuidados críticos adecuados disponibles para el paciente",
+            "kind": "boolean"
+          },
+          {
+            "key": "continuous_eeg_available",
+            "label": "EEG continuo accesible de inmediato o mediante un circuito establecido",
+            "kind": "boolean"
+          },
+          {
+            "key": "airway_support_available",
+            "label": "Equipo y medios para soporte avanzado de vía aérea/ventilación disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "cause_specific_pathway_required",
+            "label": "Se sospecha causa que requiere tratamiento específico, por ejemplo tóxica o metabólica",
+            "kind": "boolean"
+          }
+        ],
+        "model": "specialist_decision_support",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Apoyo a la evaluación urgente, monitorización, consulta y traslado; la selección de anestesia y antiepilépticos adicionales corresponde al equipo experto.",
+        "limitations": [
+          "Flujo adulto no obstétrico. No genera dosis, preparación, velocidad de bomba ni autorización para anestesia.",
+          "La ausencia de recuperación de conciencia tras cesar las convulsiones no confirma por sí sola estatus no convulsivo: requiere evaluación y EEG.",
+          "La falta de recursos activa acciones de escalada/traslado y no impide consultar este flujo."
+        ],
+        "reviewed_workflow": "status",
+        "review_reference": "references/acute-status-reviewed-2026-11-16.md",
+        "regimen_source": {
+          "urls": [
+            "https://www.nice.org.uk/guidance/ng217/chapter/treating-status-epilepticus-repeated-or-cluster-seizures-and-prolonged-seizures",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC12062632/"
+          ],
+          "checked": "2026-11-16",
+          "scope": "adult specialist escalation and EEG; no automatic anaesthetic regimen"
+        }
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [
+        "route"
+      ],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/22::anaphylaxis-under6months",
+      "canonical_id": "anaphylaxis-under6months",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anaphylaxis",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "calculation",
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "anaphylaxis-under6months",
+        "label": "Anafilaxia — menor de 6 meses, adrenalina IM ponderal",
+        "group": "anaphylaxis",
+        "group_label": "Adrenalina / anafilaxia",
+        "drug": "Adrenalina",
+        "bundle": "infection-respiratory.md",
+        "module": "anaphylaxis",
+        "anchors": [
+          "0.01 mg/kg",
+          "1 mg/mL",
+          "100--150 micrograms"
+        ],
+        "route": "IM",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población; adulto desde 18 años para este formulario",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "pediatric"
+          },
+          {
+            "key": "route",
+            "label": "Vía de esta pauta",
+            "kind": "choice",
+            "options": [
+              "IM",
+              "IV"
+            ],
+            "expected": "IM"
+          },
+          {
+            "key": "indication_confirmed",
+            "label": "Anafilaxia confirmada clínicamente por el profesional",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "clinical_situation",
+            "label": "Situación clínica",
+            "kind": "choice",
+            "options": [
+              "anaphylaxis",
+              "cardiac_arrest",
+              "resuscitation_at_birth"
+            ],
+            "expected": "anaphylaxis"
+          },
+          {
+            "key": "adrenaline_risk_assessment_completed",
+            "label": "Riesgos, interacciones y producto valorados; no retrasar IM por contraindicaciones relativas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "age_months",
+            "label": "Edad cronológica verificada (meses; menos de 6)",
+            "kind": "number",
+            "minimum": 0,
+            "exclusive_maximum": 6
+          },
+          {
+            "key": "weight_kg",
+            "label": "Peso actual verificado (kg)",
+            "kind": "number",
+            "positive": true,
+            "minimum": 1.0,
+            "maximum": 180.0
+          },
+          {
+            "key": "abc_compromise",
+            "label": "Compromiso actual de vía aérea, respiración o circulación por anafilaxia",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "concentration",
+            "label": "Concentración IM del producto (mg/mL)",
+            "kind": "number",
+            "expected": 1,
+            "positive": true
+          },
+          {
+            "key": "undiluted_im",
+            "label": "Producto de 1 mg/mL SIN DILUIR para vía IM",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "product_verified",
+            "label": "Producto, integridad, caducidad y vía IM comprobados",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "measurement_increment_ml",
+            "label": "Incremento medible validado del dispositivo (mL)",
+            "kind": "number",
+            "positive": true
+          },
+          {
+            "key": "minimum_measurable_volume_ml",
+            "label": "Menor volumen con exactitud de entrega verificada (mL)",
+            "kind": "number",
+            "positive": true
+          },
+          {
+            "key": "syringe_capacity_ml",
+            "label": "Capacidad de la jeringa seleccionada (mL)",
+            "kind": "number",
+            "positive": true
+          },
+          {
+            "key": "device_delivery_accuracy_verified",
+            "label": "Exactitud del volumen entregado verificada; no basta la graduación",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "im_needle_and_site_verified",
+            "label": "Aguja adecuada para llegar al músculo y cara anterolateral del muslo verificadas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "monitoring_and_help_plan",
+            "label": "Reevaluación, monitorización cuanto antes y ayuda de reanimación previstas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "dose_phase",
+            "label": "Primera dosis o repetición",
+            "kind": "choice",
+            "options": [
+              "initial",
+              "repeat"
+            ]
+          },
+          {
+            "key": "prior_im_doses",
+            "label": "Número real de dosis IM previas",
+            "kind": "number",
+            "minimum": 1,
+            "integer": true,
+            "required_if": {
+              "key": "dose_phase",
+              "equals": "repeat"
+            }
+          },
+          {
+            "key": "last_im_dose_micrograms",
+            "label": "Última dosis IM realmente administrada (microgramos)",
+            "kind": "number",
+            "positive": true,
+            "maximum": 500,
+            "required_if": {
+              "key": "dose_phase",
+              "equals": "repeat"
+            }
+          },
+          {
+            "key": "last_im_dose_regimen",
+            "label": "Pauta de la dosis IM previa",
+            "kind": "choice",
+            "options": [
+              "erc_wao_weight_based",
+              "rcuk_age_banded"
+            ],
+            "required_if": {
+              "key": "dose_phase",
+              "equals": "repeat"
+            }
+          },
+          {
+            "key": "elapsed_min",
+            "label": "Minutos desde la última dosis IM",
+            "kind": "number",
+            "positive": true,
+            "required_if": {
+              "key": "dose_phase",
+              "equals": "repeat"
+            }
+          },
+          {
+            "key": "early_repeat_context",
+            "label": "Decisión experta documentada; no habilita cálculo antes de 5 min",
+            "kind": "choice",
+            "options": [
+              "none",
+              "documented_expert_decision_for_life_threatening_recurrence"
+            ],
+            "required_if": {
+              "key": "dose_phase",
+              "equals": "repeat"
+            }
+          },
+          {
+            "key": "refractory_escalation_active",
+            "label": "Tras dos dosis: escalada experta por posible anafilaxia refractaria activa",
+            "kind": "boolean",
+            "required_if": {
+              "key": "dose_phase",
+              "equals": "repeat"
+            }
+          },
+          {
+            "key": "iv_infusion_running",
+            "label": "¿Ya está administrándose la perfusión IV de adrenalina?",
+            "kind": "boolean",
+            "expected": false,
+            "required_if": {
+              "key": "dose_phase",
+              "equals": "repeat"
+            }
+          }
+        ],
+        "model": "reviewed_anaphylaxis_im",
+        "dose": null,
+        "dose_unit": "micrograms",
+        "concentration": {
+          "value": 1,
+          "unit": "mg/mL",
+          "role": "undiluted IM product"
+        },
+        "preparation": "Adrenalina 1 mg/mL SIN DILUIR. 0,01 mg/kg = 10 microgramos/kg = 0,01 mL/kg; sin mínimo de 0,1 mg y sin redondeo automático.",
+        "compatibility": "Vía IM exclusivamente en este contrato. No diluir a 0,1 mg/mL ni usar la bolsa IV de 10 microgramos/mL.",
+        "stability": "Producto íntegro y vigente; uso inmediato tras apertura según su ficha. No se asigna vida útil a una dilución.",
+        "maximum": {
+          "value": 500,
+          "unit": "micrograms",
+          "scope": "ERC/WAO single-dose ceiling, not an infant minimum"
+        },
+        "administration": "IM en tercio medio anterolateral del muslo. Reevaluar y repetir a los 5 min si persiste compromiso ABC. Antes de 5 min, este contrato ofrece orientación sin dosificación; la actuación urgente sigue la decisión médica individual.",
+        "limitations": [
+          "Pauta seleccionada ERC 2025/WAO 2020; la banda RCUK de 100–150 microgramos para menores de 6 meses es una discrepancia explícita, no un mínimo ni una dosis que se promedie.",
+          "El formulario comprueba el cálculo y el dispositivo declarado; no acredita exactitud física, peso plausible ni diagnóstico. Confirmar especialmente neonatos y prematuros, sin retrasar tratamiento necesario.",
+          "No cubre reanimación al nacimiento, parada cardíaca, autoinyectores ni otras vías. La valoración de riesgos relativos no equivale a contraindicar adrenalina IM en anafilaxia.",
+          "Tras dos dosis adecuadas y compromiso persistente, activar ayuda experta; puede continuar IM mientras se prepara una perfusión segura. No continuar IM automáticamente cuando la perfusión esté en marcha."
+        ],
+        "reviewed_workflow": "anaphylaxis",
+        "review_reference": "references/acute-anaphylaxis-reviewed-2026-11-16.md",
+        "available_result_kinds": [
+          "calculation",
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/23::anaphylaxis-refractory",
+      "canonical_id": "anaphylaxis-refractory",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anaphylaxis",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "calculation",
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "anaphylaxis-refractory",
+        "label": "Anafilaxia refractaria — inicio experto de perfusión IV",
+        "group": "anaphylaxis",
+        "group_label": "Adrenalina / anafilaxia",
+        "drug": "Adrenalina",
+        "bundle": "infection-respiratory.md",
+        "module": "anaphylaxis",
+        "anchors": [
+          "Refractory anaphylaxis",
+          "1 mg made up to a final volume of 100 mL",
+          "0.5--1 mL/kg/h"
+        ],
+        "route": "IV",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población; adulto desde 18 años para este formulario",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ]
+          },
+          {
+            "key": "route",
+            "label": "Vía de esta pauta",
+            "kind": "choice",
+            "options": [
+              "IM",
+              "IV"
+            ],
+            "expected": "IV"
+          },
+          {
+            "key": "indication_confirmed",
+            "label": "Anafilaxia confirmada clínicamente por el profesional",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "clinical_situation",
+            "label": "Situación clínica",
+            "kind": "choice",
+            "options": [
+              "anaphylaxis",
+              "cardiac_arrest",
+              "resuscitation_at_birth"
+            ],
+            "expected": "anaphylaxis"
+          },
+          {
+            "key": "adrenaline_risk_assessment_completed",
+            "label": "Riesgos, interacciones y producto valorados; no retrasar IM por contraindicaciones relativas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "age_years",
+            "label": "Edad cronológica verificada (años; puede contener decimales)",
+            "kind": "number",
+            "minimum": 0
+          },
+          {
+            "key": "weight_kg",
+            "label": "Peso actual verificado (kg)",
+            "kind": "number",
+            "positive": true,
+            "minimum": 1.0,
+            "maximum": 180.0
+          },
+          {
+            "key": "persistent_compromise",
+            "label": "Compromiso persistente tras dosis IM adecuadas",
+            "kind": "choice",
+            "options": [
+              "respiratory",
+              "circulatory",
+              "both"
+            ]
+          },
+          {
+            "key": "prior_im_doses",
+            "label": "Número real de dosis IM previas",
+            "kind": "number",
+            "minimum": 2,
+            "integer": true
+          },
+          {
+            "key": "previous_im_dose_micrograms",
+            "label": "Penúltima dosis IM administrada (microgramos)",
+            "kind": "number",
+            "positive": true,
+            "maximum": 500
+          },
+          {
+            "key": "previous_im_dose_regimen",
+            "label": "Pauta de la penúltima dosis IM",
+            "kind": "choice",
+            "options": [
+              "erc_wao_weight_based",
+              "rcuk_age_banded"
+            ]
+          },
+          {
+            "key": "minutes_since_previous_im",
+            "label": "Minutos desde la penúltima dosis IM",
+            "kind": "number",
+            "minimum": 0
+          },
+          {
+            "key": "last_im_dose_micrograms",
+            "label": "Última dosis IM administrada (microgramos)",
+            "kind": "number",
+            "positive": true,
+            "maximum": 500
+          },
+          {
+            "key": "last_im_dose_regimen",
+            "label": "Pauta de la última dosis IM",
+            "kind": "choice",
+            "options": [
+              "erc_wao_weight_based",
+              "rcuk_age_banded"
+            ]
+          },
+          {
+            "key": "minutes_since_last_im",
+            "label": "Minutos desde la última dosis IM",
+            "kind": "number",
+            "minimum": 0
+          },
+          {
+            "key": "early_repeat_context",
+            "label": "Decisión experta previa documentada; no acredita un intervalo de 5 min",
+            "kind": "choice",
+            "options": [
+              "none",
+              "documented_expert_decision_for_life_threatening_recurrence"
+            ]
+          },
+          {
+            "key": "initial_severity",
+            "label": "Gravedad seleccionada por el experto: moderada 0,5; grave hipotensa/hipóxica 1 mL/kg/h",
+            "kind": "choice",
+            "options": [
+              "moderate",
+              "severe_hypotensive_or_hypoxic"
+            ]
+          },
+          {
+            "key": "expert_present",
+            "label": "Profesional experimentado en vasopresores presente para iniciar y titular",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "fluid_resuscitation_assessed",
+            "label": "Reanimación con fluidos y respuesta evaluadas individualmente",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "stock_concentration_mg_ml",
+            "label": "Concentración del producto de partida (mg/mL)",
+            "kind": "number",
+            "expected": 1
+          },
+          {
+            "key": "drug_amount_mg",
+            "label": "Cantidad total de adrenalina de la preparación (mg)",
+            "kind": "number",
+            "expected": 1
+          },
+          {
+            "key": "final_volume_ml",
+            "label": "Volumen FINAL verificado de la preparación (mL)",
+            "kind": "number",
+            "expected": 100
+          },
+          {
+            "key": "volume_basis",
+            "label": "El volumen incluye el fármaco y corrige el sobrellenado",
+            "kind": "choice",
+            "options": [
+              "verified_final_volume"
+            ],
+            "expected": "verified_final_volume"
+          },
+          {
+            "key": "concentration",
+            "label": "Concentración FINAL de la perfusión (microgramos/mL)",
+            "kind": "number",
+            "expected": 10
+          },
+          {
+            "key": "diluent",
+            "label": "Diluyente de la pauta seleccionada",
+            "kind": "choice",
+            "options": [
+              "NaCl_0.9_percent"
+            ],
+            "expected": "NaCl_0.9_percent"
+          },
+          {
+            "key": "product_compatibility_stability_verified",
+            "label": "Producto, diluyente, recipiente, luz y plazo de uso de ESTA mezcla verificados",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "preparation_age_min",
+            "label": "Minutos transcurridos desde preparación",
+            "kind": "number",
+            "minimum": 0
+          },
+          {
+            "key": "verified_use_limit_min",
+            "label": "Límite total de uso verificado para el producto/sistema (min; no valor universal)",
+            "kind": "number",
+            "positive": true
+          },
+          {
+            "key": "immediate_use_and_asepsis_verified",
+            "label": "Preparación para uso inmediato y condiciones asépticas verificadas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "pump_ready",
+            "label": "Bomba disponible y capaz de administrar la velocidad calculada",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "dedicated_primed_line_ready",
+            "label": "Línea dedicada cebada y permeable, sin conexión compartida",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "no_bp_cuff_on_infusion_arm",
+            "label": "Manguito de presión en otro brazo",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "continuous_ecg_spo2_ready",
+            "label": "ECG y SpO2 continuos disponibles",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "bp_interval_min",
+            "label": "Intervalo real previsto entre mediciones de PA (min)",
+            "kind": "number",
+            "positive": true,
+            "maximum": 5
+          },
+          {
+            "key": "extravasation_surveillance_ready",
+            "label": "Inspección frecuente del acceso y respuesta a extravasación preparadas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "suspected_adrenaline_toxicity",
+            "label": "Sospecha actual de toxicidad por adrenalina: hipertensión, arritmia u otros signos",
+            "kind": "boolean",
+            "expected": false
+          }
+        ],
+        "model": "reviewed_anaphylaxis_infusion",
+        "dose": null,
+        "dose_unit": "micrograms/min",
+        "concentration": {
+          "value": 10,
+          "unit": "micrograms/mL",
+          "role": "final"
+        },
+        "preparation": "Adrenalina 1 mg (1 mL del producto de 1 mg/mL), hasta volumen FINAL de 100 mL con NaCl 0,9%: 10 microgramos/mL. Contabilizar fármaco y sobrellenado; no sumar 1 mL a un volumen nominal de 100 mL.",
+        "compatibility": "Receta RCUK seleccionada, condicionada al producto y sistema reales. Línea dedicada; no inferir compatibilidad en Y ni sustituir automáticamente por glucosa 5%, 0,1 mg/mL o otra receta.",
+        "stability": "Preparar para uso inmediato; verificar plazo y condiciones de la preparación concreta. No se asignan 24 h universales ni se equipara estabilidad fisicoquímica a seguridad microbiológica.",
+        "maximum": null,
+        "administration": "Inicio IV mediante bomba: 0,5 mL/kg/h si moderada; 1 mL/kg/h si grave con hipotensión/hipoxia. Titulación experta al menor efecto necesario; monitorización continua y PA al menos cada 5 min. No es un bolo.",
+        "limitations": [
+          "RCUK 2021, apartado 6.6, aplicable a adultos y niños; población/edad verificadas. La mayoría de edad de 18 años clasifica el formulario y no cambia la fórmula.",
+          "Solo calcula el inicio seleccionado; no programa ni titula una bomba. 1 mL/kg/h es el extremo del inicio descrito, no un máximo universal de mantenimiento.",
+          "Valora las dos últimas dosis IM, sus pautas y tiempos reales. No declara refractariedad por un contador aislado ni por lesiones cutáneas sin compromiso respiratorio/circulatorio.",
+          "No cubre bolos IV, parada cardíaca, reanimación al nacimiento, vía IO ni otras concentraciones. No requiere seleccionar hospital; sí recursos, producto y competencia presentes.",
+          "Reducir o detener y reevaluar ante efectos adversos importantes; vigilar extravasación. La selección de glucagón u otro vasopresor y la retirada quedan fuera de este cálculo inicial."
+        ],
+        "reviewed_workflow": "anaphylaxis",
+        "review_reference": "references/acute-anaphylaxis-reviewed-2026-11-16.md",
+        "available_result_kinds": [
+          "calculation",
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/31::reversal-vka-pcc",
+      "canonical_id": "reversal-vka-pcc",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "calculation",
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-vka-pcc",
+        "label": "AVK — PCC específico o selección de producto",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "PCC de cuatro factores",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "IV",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "vka_confirmed",
+            "label": "Exposición a antagonista de vitamina K confirmada",
+            "kind": "boolean"
+          },
+          {
+            "key": "pcc_profile",
+            "label": "Producto y tabla de dosificación seleccionados",
+            "kind": "choice",
+            "options": [
+              "octaplex_uk_smpc_2024",
+              "octaplex_pt_rcm_2020_review",
+              "other_or_unverified"
+            ]
+          },
+          {
+            "key": "weight_kg",
+            "label": "Peso medido (kg)",
+            "kind": "number",
+            "positive": true,
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            },
+            "minimum": 1.0,
+            "maximum": 180.0
+          },
+          {
+            "key": "pretreatment_inr",
+            "label": "INR previo a PCC",
+            "kind": "number",
+            "minimum": 2,
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            }
+          },
+          {
+            "key": "pcc_presentation",
+            "label": "Presentación Octaplex de esta ficha",
+            "kind": "choice",
+            "options": [
+              "500_iu_20_ml",
+              "1000_iu_40_ml"
+            ],
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            }
+          },
+          {
+            "key": "product_and_iv_route_verified",
+            "label": "Producto, ficha aplicable y vía IV verificados",
+            "kind": "boolean",
+            "expected": true,
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            }
+          },
+          {
+            "key": "pcc_contraindication_present",
+            "label": "Hipersensibilidad, alergia/heparina-HIT o déficit IgA con anti-IgA",
+            "kind": "boolean",
+            "expected": false,
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            }
+          },
+          {
+            "key": "thrombosis_dic_context_reviewed",
+            "label": "Riesgo trombótico/CID y contexto de coagulopatía revisados",
+            "kind": "boolean",
+            "expected": true,
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            }
+          },
+          {
+            "key": "vitamin_k_plan_confirmed",
+            "label": "Plan concomitante de vitamina K confirmado para AVK",
+            "kind": "boolean",
+            "expected": true,
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            }
+          },
+          {
+            "key": "pcc_already_given_this_episode",
+            "label": "Ya se administró PCC en este episodio",
+            "kind": "boolean",
+            "expected": false,
+            "required_if": {
+              "key": "pcc_profile",
+              "equals": "octaplex_uk_smpc_2024"
+            }
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "OCTAPLEX_UK_2024",
+          "C05_PRIOR_2026"
+        ],
+        "available_result_kinds": [
+          "calculation",
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/32::reversal-superwarfarin",
+      "canonical_id": "reversal-superwarfarin",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-superwarfarin",
+        "label": "Superwarfarina — toxicología, INR y seguimiento prolongado",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Vitamina K / hemostasia dirigida",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "exposure_status",
+            "label": "Exposición a rodenticida anticoagulante",
+            "kind": "choice",
+            "options": [
+              "confirmed",
+              "suspected",
+              "unknown"
+            ]
+          },
+          {
+            "key": "inr_state",
+            "label": "Resultado del INR",
+            "kind": "choice",
+            "options": [
+              "elevated",
+              "within_reference",
+              "pending"
+            ]
+          },
+          {
+            "key": "toxicology_followup_available",
+            "label": "Toxicología y seguimiento seriado accesibles",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "CDC_BRODIFACOUM_2022",
+          "CAPQ_VITAMIN_K"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/33::reversal-edoxaban",
+      "canonical_id": "reversal-edoxaban",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-edoxaban",
+        "label": "Edoxabán — control hemorrágico y estrategia de reversión",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Edoxabán",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "exact_agent_confirmed",
+            "label": "Fármaco exacto confirmado",
+            "kind": "boolean"
+          },
+          {
+            "key": "residual_activity",
+            "label": "Actividad anticoagulante residual",
+            "kind": "choice",
+            "options": [
+              "present_or_likely",
+              "not_detected_reliable_assay",
+              "unknown"
+            ]
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "source_control_insufficient",
+            "label": "Hemorragia persiste pese a medidas de hemostasia/soporte",
+            "kind": "boolean"
+          },
+          {
+            "key": "pcc_product_available",
+            "label": "PCC de cuatro factores disponible para valorar",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "EDOXABAN_EMA",
+          "TRAUMA_2023",
+          "NCS_2026"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/34::reversal-betrixaban",
+      "canonical_id": "reversal-betrixaban",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-betrixaban",
+        "label": "Betrixabán — control hemorrágico y estrategia de reversión",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Betrixabán",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "exact_agent_confirmed",
+            "label": "Fármaco exacto confirmado",
+            "kind": "boolean"
+          },
+          {
+            "key": "residual_activity",
+            "label": "Actividad anticoagulante residual",
+            "kind": "choice",
+            "options": [
+              "present_or_likely",
+              "not_detected_reliable_assay",
+              "unknown"
+            ]
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "source_control_insufficient",
+            "label": "Hemorragia persiste pese a medidas de hemostasia/soporte",
+            "kind": "boolean"
+          },
+          {
+            "key": "pcc_product_available",
+            "label": "PCC de cuatro factores disponible para valorar",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "BETRIXABAN_FDA_2017",
+          "NCS_2026"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/35::reversal-fondaparinux",
+      "canonical_id": "reversal-fondaparinux",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-fondaparinux",
+        "label": "Fondaparinux — contexto terapéutico y acumulación",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Fondaparinux",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "exposure_intensity",
+            "label": "Pauta de fondaparinux",
+            "kind": "choice",
+            "options": [
+              "therapeutic",
+              "prophylactic",
+              "unknown"
+            ]
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "residual_activity",
+            "label": "Actividad residual/acumulación",
+            "kind": "choice",
+            "options": [
+              "present_or_likely",
+              "not_detected_reliable_assay",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bioaccumulation_evidence",
+            "label": "Evidencia de bioacumulación por encima del efecto profiláctico esperado",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "FONDAPARINUX_LABEL",
+          "NCS_2016"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/36::reversal-other-lmwh",
+      "canonical_id": "reversal-other-lmwh",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "calculation",
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-other-lmwh",
+        "label": "Otras HBPM — dalteparina específica o revisión del agente",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Protamina / estrategia por HBPM",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "IV",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "lmwh_pathway",
+            "label": "Pauta seleccionada",
+            "kind": "choice",
+            "options": [
+              "dalteparin_fragmin_protamine",
+              "other_lmwh_assessment"
+            ]
+          },
+          {
+            "key": "lmwh_agent",
+            "label": "HBPM identificada",
+            "kind": "choice",
+            "options": [
+              "dalteparin",
+              "tinzaparin",
+              "nadroparin",
+              "other",
+              "unknown"
+            ]
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "residual_activity",
+            "label": "Actividad anticoagulante residual",
+            "kind": "choice",
+            "options": [
+              "present_or_likely",
+              "not_detected_reliable_assay",
+              "unknown"
+            ]
+          },
+          {
+            "key": "dalteparin_dose_to_neutralize_anti_xa_iu",
+            "label": "Dosis reciente de dalteparina a neutralizar (UI anti-Xa)",
+            "kind": "number",
+            "positive": true,
+            "required_if": {
+              "key": "lmwh_pathway",
+              "equals": "dalteparin_fragmin_protamine"
+            }
+          },
+          {
+            "key": "timing_and_anti_xa_units_confirmed",
+            "label": "Hora, dosis relevante y unidades anti-Xa confirmadas",
+            "kind": "boolean",
+            "expected": true,
+            "required_if": {
+              "key": "lmwh_pathway",
+              "equals": "dalteparin_fragmin_protamine"
+            }
+          },
+          {
+            "key": "dalteparin_fragmin_product_verified",
+            "label": "Producto dalteparina/Fragmin y ficha aplicable verificados",
+            "kind": "boolean",
+            "expected": true,
+            "required_if": {
+              "key": "lmwh_pathway",
+              "equals": "dalteparin_fragmin_protamine"
+            }
+          },
+          {
+            "key": "protamine_product_iv_verified",
+            "label": "Producto protamina, vía IV y administración lenta de al menos 10 min verificados",
+            "kind": "boolean",
+            "expected": true,
+            "required_if": {
+              "key": "lmwh_pathway",
+              "equals": "dalteparin_fragmin_protamine"
+            }
+          },
+          {
+            "key": "protamine_contraindication_present",
+            "label": "Contraindicación o reacción previa relevante a protamina",
+            "kind": "boolean",
+            "expected": false,
+            "required_if": {
+              "key": "lmwh_pathway",
+              "equals": "dalteparin_fragmin_protamine"
+            }
+          },
+          {
+            "key": "protamine_risk_reviewed",
+            "label": "Riesgo de anafilaxia/hipotensión y factores de riesgo revisados",
+            "kind": "boolean",
+            "expected": true,
+            "required_if": {
+              "key": "lmwh_pathway",
+              "equals": "dalteparin_fragmin_protamine"
+            }
+          },
+          {
+            "key": "prior_protamine_this_episode",
+            "label": "Protamina ya administrada en este episodio",
+            "kind": "boolean",
+            "expected": false,
+            "required_if": {
+              "key": "lmwh_pathway",
+              "equals": "dalteparin_fragmin_protamine"
+            }
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "FRAGMIN_SMPC",
+          "PROTAMINE_LABEL"
+        ],
+        "available_result_kinds": [
+          "calculation",
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/37::reversal-enoxaparin-over12",
+      "canonical_id": "reversal-enoxaparin-over12",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-enoxaparin-over12",
+        "label": "Enoxaparina >12 h — comprobar actividad antes de protamina",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Enoxaparina / protamina",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "last_dose_hours",
+            "label": "Horas desde última dosis de enoxaparina",
+            "kind": "number",
+            "exclusive_minimum": 12
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "residual_activity",
+            "label": "Actividad residual con ensayo e interpretación adecuados",
+            "kind": "choice",
+            "options": [
+              "present_or_likely",
+              "not_detected_reliable_assay",
+              "unknown"
+            ]
+          },
+          {
+            "key": "ongoing_bleeding",
+            "label": "Sangrado activo persistente",
+            "kind": "boolean"
+          },
+          {
+            "key": "prior_protamine_this_episode",
+            "label": "Protamina ya administrada en este episodio",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "CLEXANE_SMPC"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/38::reversal-argatroban",
+      "canonical_id": "reversal-argatroban",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-argatroban",
+        "label": "Argatrobán — detener perfusión, soporte y reevaluación",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Argatrobán",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "infusion_running",
+            "label": "Perfusión todavía en curso",
+            "kind": "boolean"
+          },
+          {
+            "key": "hepatic_function",
+            "label": "Función hepática",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "coagulation_test_state",
+            "label": "Tendencia de coagulación pertinente",
+            "kind": "choice",
+            "options": [
+              "prolonged",
+              "normalized",
+              "pending"
+            ]
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "ARGATROBAN_FDA_2026"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/39::reversal-bivalirudin",
+      "canonical_id": "reversal-bivalirudin",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-bivalirudin",
+        "label": "Bivalirudina — detener perfusión, soporte y reevaluación",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Bivalirudina",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "infusion_running",
+            "label": "Perfusión todavía en curso",
+            "kind": "boolean"
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "coagulation_test_state",
+            "label": "Tendencia de coagulación pertinente",
+            "kind": "choice",
+            "options": [
+              "prolonged",
+              "normalized",
+              "pending"
+            ]
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "BIVALIRUDIN_LABEL"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/40::reversal-other-dti",
+      "canonical_id": "reversal-other-dti",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-other-dti",
+        "label": "Otros inhibidores directos de trombina — identificar y dirigir",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Inhibidor directo de trombina",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "agent_status",
+            "label": "Identificación del inhibidor",
+            "kind": "choice",
+            "options": [
+              "dabigatran",
+              "argatroban",
+              "bivalirudin",
+              "another_confirmed_dti",
+              "unknown"
+            ]
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "residual_activity",
+            "label": "Actividad anticoagulante residual",
+            "kind": "choice",
+            "options": [
+              "present_or_likely",
+              "not_detected_reliable_assay",
+              "unknown"
+            ]
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "NCS_2016",
+          "PRAXBIND_SMPC"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/41::reversal-danaparoid",
+      "canonical_id": "reversal-danaparoid",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-danaparoid",
+        "label": "Danaparoide — hemostasia y aclaramiento",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Danaparoide",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          },
+          {
+            "key": "residual_activity",
+            "label": "Actividad anti-Xa residual calibrada",
+            "kind": "choice",
+            "options": [
+              "present_or_likely",
+              "not_detected_reliable_assay",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_controlled",
+            "label": "Hemorragia controlada con medidas iniciales",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "DANAPAROID_SMPC",
+          "NCS_2016"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/42::reversal-fibrinolytics",
+      "canonical_id": "reversal-fibrinolytics",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-fibrinolytics",
+        "label": "Fibrinolíticos — hemorragia sintomática y fibrinógeno",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Hemostasia tras fibrinólisis",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "fibrinolytic_agent",
+            "label": "Fibrinolítico",
+            "kind": "choice",
+            "options": [
+              "alteplase",
+              "tenecteplase",
+              "other_or_unknown"
+            ]
+          },
+          {
+            "key": "fibrinolysis_indication",
+            "label": "Indicación de la fibrinólisis",
+            "kind": "choice",
+            "options": [
+              "acute_ischemic_stroke",
+              "other_or_unknown"
+            ]
+          },
+          {
+            "key": "fibrinolytic_timing",
+            "label": "Tiempo desde fibrinólisis",
+            "kind": "choice",
+            "options": [
+              "within_24_hours",
+              "over_24_hours",
+              "unknown"
+            ]
+          },
+          {
+            "key": "symptomatic_intracranial_bleeding",
+            "label": "Hemorragia intracraneal sintomática atribuida a fibrinólisis",
+            "kind": "boolean"
+          },
+          {
+            "key": "cryoprecipitate_available_appropriate",
+            "label": "Crioprecipitado disponible a tiempo y apropiado",
+            "kind": "boolean"
+          },
+          {
+            "key": "fibrinogen_state",
+            "label": "Fibrinógeno actual",
+            "kind": "choice",
+            "options": [
+              "below_150_mg_dl",
+              "at_least_150_mg_dl",
+              "pending"
+            ]
+          },
+          {
+            "key": "initial_cryoprecipitate_already_given",
+            "label": "Ya se administró la dosis inicial de crioprecipitado",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "AHA_AIS_2026",
+          "NCS_2016"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/43::reversal-antiplatelets",
+      "canonical_id": "reversal-antiplatelets",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-antiplatelets",
+        "label": "Antiagregantes — decisiones según localización y neurocirugía",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Antiagregantes / hemostasia",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "antiplatelet_agent",
+            "label": "Exposición antiagregante",
+            "kind": "choice",
+            "options": [
+              "aspirin",
+              "p2y12_inhibitor",
+              "dual_or_multiple",
+              "gpiibiiia",
+              "other_or_unknown"
+            ]
+          },
+          {
+            "key": "urgent_neurosurgery_planned",
+            "label": "Intervención neuroquirúrgica urgente prevista",
+            "kind": "boolean"
+          },
+          {
+            "key": "independent_platelet_transfusion_indication",
+            "label": "Existe otra indicación transfusional (p. ej., trombocitopenia relevante)",
+            "kind": "boolean"
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "NCS_2026"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/44::reversal-unknown",
+      "canonical_id": "reversal-unknown",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-unknown",
+        "label": "Agente desconocido — identificar sin retrasar estabilización",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Agente antitrombótico no identificado",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "N/A",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población de esta ruta",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "clinical_context",
+            "label": "Situación clínica actual",
+            "kind": "choice",
+            "options": [
+              "critical_or_uncontrolled_bleeding",
+              "major_controlled_bleeding",
+              "nonmajor_or_no_bleeding",
+              "urgent_procedure",
+              "unknown"
+            ]
+          },
+          {
+            "key": "bleeding_site",
+            "label": "Localización del sangrado",
+            "kind": "choice",
+            "options": [
+              "spontaneous_intraparenchymal",
+              "traumatic_intracranial",
+              "other_intracranial",
+              "extracranial",
+              "none_or_unknown"
+            ]
+          },
+          {
+            "key": "immediate_resources_available",
+            "label": "Medios inmediatos de estabilización y escalada disponibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "medication_records_accessible",
+            "label": "Envases/receta/registro farmacológico accesibles",
+            "kind": "boolean"
+          },
+          {
+            "key": "drug_calibrated_anti_xa_available",
+            "label": "Ensayo anti-Xa calibrado para el fármaco accesible",
+            "kind": "boolean"
+          },
+          {
+            "key": "dabigatran_assay_available",
+            "label": "dTT/ECT o prueba pertinente de dabigatrán accesible",
+            "kind": "boolean"
+          },
+          {
+            "key": "renal_function",
+            "label": "Función renal",
+            "kind": "choice",
+            "options": [
+              "preserved",
+              "impaired",
+              "unknown"
+            ]
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "NCS_2016",
+          "TRAUMA_2023"
+        ],
+        "available_result_kinds": [
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    },
+    {
+      "record_key": "clinical/scripts/acute_medication_contracts.py#regimens/45::reversal-dabigatran-repeat",
+      "canonical_id": "reversal-dabigatran-repeat",
+      "source_path": "clinical/scripts/acute_medication_contracts.py",
+      "source_sha256": "6ef9c175d6a2657b7ac0e5d81547f4e0b7c9dc417e05e100b41d4fe5ec476e7c",
+      "canonical_module_id": "anticoagulation-reversal",
+      "catalog_kind": "ACUTE_CANONICAL_CONTRACT_METADATA",
+      "owner_accepted_20261116": true,
+      "review_readiness": "REUSABLE_ACCEPTED_CONTRACT_WITH_EXISTING_PATIENT_GATES",
+      "available_result_kinds_as_source": [
+        "calculation",
+        "decision_support"
+      ],
+      "no_universal_numeric_dose_inferred_from_null": true,
+      "canonical_record": {
+        "id": "reversal-dabigatran-repeat",
+        "label": "Dabigatrán — segunda tanda justificada de idarucizumab",
+        "group": "reversal",
+        "group_label": "Reversión",
+        "drug": "Idarucizumab",
+        "bundle": "procedures-pharmacology.md",
+        "module": "anticoagulation-reversal",
+        "anchors": [
+          "Identificar"
+        ],
+        "route": "IV",
+        "fields": [
+          {
+            "key": "population",
+            "label": "Población",
+            "kind": "choice",
+            "options": [
+              "adult",
+              "pediatric"
+            ],
+            "expected": "adult"
+          },
+          {
+            "key": "route",
+            "label": "Vía de administración",
+            "kind": "choice",
+            "options": [
+              "IV",
+              "IM",
+              "SC",
+              "PO"
+            ],
+            "expected": "IV"
+          },
+          {
+            "key": "dabigatran_confirmed",
+            "label": "Dabigatrán confirmado como agente a revertir",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "previous_complete_5g_courses",
+            "label": "Tandas previas completas de 5 g en este episodio",
+            "kind": "number",
+            "minimum": 0,
+            "integer": true
+          },
+          {
+            "key": "repeat_indication",
+            "label": "Motivo de considerar otra tanda",
+            "kind": "choice",
+            "options": [
+              "recurrent_clinically_relevant_bleeding",
+              "life_threatening_rebleeding_risk",
+              "second_emergency_surgery",
+              "none"
+            ]
+          },
+          {
+            "key": "coagulation_test",
+            "label": "Prueba de coagulación prolongada",
+            "kind": "choice",
+            "options": [
+              "aPTT",
+              "dTT",
+              "ECT",
+              "INR",
+              "unknown"
+            ]
+          },
+          {
+            "key": "coagulation_prolonged",
+            "label": "Prolongación pertinente confirmada tras la primera tanda",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "repeat_indication_reviewed",
+            "label": "Repetición indicada tras reevaluación clínica",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "praxbind_product_verified",
+            "label": "Praxbind 2,5 g/50 mL verificado",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "hypersensitivity_fructose_risk_reviewed",
+            "label": "Hipersensibilidad e intolerancia hereditaria a fructosa valoradas",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "renal_function_and_rebound_reviewed",
+            "label": "Función renal y posible rebote de dabigatrán revisados",
+            "kind": "boolean",
+            "expected": true
+          },
+          {
+            "key": "monitoring_rescue_available",
+            "label": "Monitorización y medios de rescate disponibles",
+            "kind": "boolean",
+            "expected": true
+          }
+        ],
+        "model": "reviewed_reversal",
+        "dose": null,
+        "dose_unit": null,
+        "concentration": null,
+        "preparation": null,
+        "compatibility": null,
+        "stability": null,
+        "maximum": null,
+        "administration": "Seguir la decisión contextual y las condiciones del producto seleccionado.",
+        "limitations": [
+          "Ruta adulta. La autorización del propietario corresponde a la implementación; no sustituye la valoración del paciente.",
+          "Un resultado de apoyo de decisión no autoriza una dosis ni una velocidad de administración.",
+          "No confirma existencias, equivalencia entre productos ni revisión de otros módulos."
+        ],
+        "reviewed_workflow": "reversal",
+        "review_reference": "references/acute-reversal-reviewed-2026-11-16.md",
+        "source_ids": [
+          "PRAXBIND_SMPC"
+        ],
+        "available_result_kinds": [
+          "calculation",
+          "decision_support"
+        ]
+      },
+      "explicit_root_field_coverage": {
+        "indication": [
+          "label"
+        ],
+        "eligibility_and_patient_data": [
+          "fields"
+        ],
+        "medication": [
+          "drug",
+          "model"
+        ],
+        "route": [
+          "route"
+        ],
+        "frequency_and_duration": [
+          "administration"
+        ],
+        "safety_and_adjustments": [
+          "limitations",
+          "fields"
+        ],
+        "sources": [
+          "source_ids",
+          "review_reference",
+          "anchors"
+        ]
+      },
+      "missing_explicit_root_fields": [],
+      "coverage_limit": "Root-field presence is structural only; it does not establish a complete reviewed prescription or fill absent information. Whole canonical record retained."
+    }
+  ],
+  "preparation_use": "Existing accepted contract metadata, eligibility gates, labels, source pointers and decision/numeric distinction preserved for the version-specific review workflow. No new calculation executed and no acceptance repeated.",
+  "new_clinical_authorization": false,
+  "no_universal_dose_inferred": true
+}

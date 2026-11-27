@@ -1,0 +1,22 @@
+{
+  "status": "QUARANTINED_NUMERIC_DISCREPANCY_CONFIRMED",
+  "new_work": "Independent focused comparison of current official HTML and official flowchart367802-A; physical originals archived. No583-file rerun.",
+  "html": {
+    "url": "https://www.cdc.gov/tetanus/hcp/clinical-guidance/",
+    "page_reviewed": "2026-09-08",
+    "locator": "Vaccination recommended / For clean and minor wounds / For dirty or major wounds",
+    "clean_minor_years": 10,
+    "dirty_major_years": 5
+  },
+  "flowchart": {
+    "url": "https://www.cdc.gov/tetanus/media/pdfs/2026/10/367802-A_Tetanus-Flow-Chart_8.5x11_508.pdf",
+    "locator": "Page1 left clean/minor wound branch, completed primary series",
+    "question_years": 5,
+    "evidence_method": "Official PDF textual parse; screenshot API unavailable, no new visual adjudication claimed."
+  },
+  "reused_MMWR": "FUENTES_FOCALES/MMWR_ss7501a1_OFICIAL_CORREGIDO.pdf",
+  "editorial_resolution_found": false,
+  "automatic_numeric_rule_or_source_hierarchy_chosen": false,
+  "medical_vote_ready": false,
+  "code_changed": false
+}

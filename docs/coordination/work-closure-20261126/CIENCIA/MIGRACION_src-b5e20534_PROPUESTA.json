@@ -1,0 +1,331 @@
+{
+  "candidate_head_at_mapping": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+  "source_registry_path": "clinical/references/evidence-sources.json",
+  "source_registry_binary_sha256": "f0d179b6df9836b8b40c44f1b96715125cab7b98ae25e722d43a59ac821b18d2",
+  "legacy_source_exact": {
+    "source_id": "src-b5e20534",
+    "title": "Modality-specific professional guidance plus independent local reference diagnosis",
+    "organization": null,
+    "source_type": "guideline",
+    "url": null,
+    "persistent_id": null,
+    "version": "workflow v1.4; diagnostic performance not established",
+    "publication_date": null,
+    "last_verified": "2026-09-17",
+    "language": null,
+    "jurisdiction": null,
+    "license_status": "unknown",
+    "provenance": "legacy_evidence_registry",
+    "compound_identity": true,
+    "modules": [
+      "clinical-image-interpretation"
+    ]
+  },
+  "current_bindings": [
+    {
+      "source_id": "src-b5e20534",
+      "role": "canonical_registry_identity",
+      "claim_scope": "module-level"
+    },
+    {
+      "source_id": "src-internal-image-safety-workflow",
+      "role": "historical_component_pending_reconciliation",
+      "claim_scope": "image intake, quality, uncertainty and abstention"
+    },
+    {
+      "source_id": "src-internal-clinical-image-reference-set",
+      "role": "historical_component_pending_reconciliation",
+      "claim_scope": "independent local reference diagnoses for evaluation"
+    }
+  ],
+  "matrix_source_path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\RESCATE_HISTORICO_20261126\\CIENCIA\\ENTREGA\\MATRIZ18_VIGENTE_ACTUALIZADA.json",
+  "proposed_individual_sources": [
+    {
+      "id": "src-rx-nice-htg739",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "radiology_rx",
+      "authority": "NICE",
+      "title": "Artificial intelligence technologies to help detect fractures on X-rays in urgent care: early value assessment (HTG739, formerly HTE20)",
+      "doi": null,
+      "primary_source_url": "https://www.nice.org.uk/guidance/htg739",
+      "scope_limit": "Adjunctive fracture detection in urgent care for specific named EVA technologies; does not replace definitive radiologist review; not generalizable to non-fracture findings or other AI tools.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-rx-nice-htg696",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "radiology_rx",
+      "authority": "NICE",
+      "title": "Artificial intelligence-derived software to analyse chest X-rays for suspected lung cancer in primary care referrals: early value assessment (HTG696, formerly HTE12)",
+      "doi": null,
+      "primary_source_url": "https://www.nice.org.uk/guidance/htg696",
+      "scope_limit": "Strictly primary care referrals for suspected lung cancer; NOT applicable to acute emergency chest X-ray triage.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-ecg-aha-2024",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "ecg",
+      "authority": "AHA",
+      "title": "Use of Artificial Intelligence in Improving Outcomes in Heart Disease: A Scientific Statement From the American Heart Association",
+      "doi": "10.1161/CIR.0000000000001201",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11042786/",
+      "scope_limit": "Augments clinician judgment; requires direct physician review and clinical correlation.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-ecg-ehra-2025",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "ecg",
+      "authority": "EHRA/HRS/ESC",
+      "title": "State of the Art of Artificial Intelligence in Clinical Electrophysiology in 2025",
+      "doi": "10.1093/europace/euaf071",
+      "primary_source_url": "https://academic.oup.com/europace/article/27/5/euaf071/8100285",
+      "scope_limit": "External validation, signal calibration and EHRA reporting checklist required prior to clinical use.",
+      "review_state": "REVISION_INTEGRA_DOCUMENTAL_AI_REUSED",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-pocus-acep-2023",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "pocus",
+      "authority": "ACEP",
+      "title": "Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine",
+      "doi": "10.1016/j.annemergmed.2023.06.005",
+      "primary_source_url": "https://pubmed.ncbi.nlm.nih.gov/37596025/",
+      "scope_limit": "Dynamic operator-dependent bedside procedure; static captures valid for QA archiving do not rule out acute pathology.",
+      "review_state": "LOCAL_CUSTODY_ONLY_EXTERNAL_PROCESSING_NOT_AUTHORIZED",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-pocus-ifem-2021",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "pocus",
+      "authority": "IFEM",
+      "title": "Point-of-Care Ultrasound Curriculum Guidelines",
+      "doi": null,
+      "primary_source_url": "https://www.ifem.cc/point_of_care_ultrasound_curriculum_guidelines",
+      "scope_limit": "Rule-in clinical philosophy; isolated static frame cannot exclude acute emergency conditions.",
+      "review_state": "PARTIAL_REUSED_TABLE_I_25_GLYPHS_UNREADABLE",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-ct-aha-asa-2026",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "ct_mri",
+      "authority": "AHA/ASA",
+      "title": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+      "doi": "10.1161/STR.0000000000000513",
+      "primary_source_url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+      "scope_limit": "AHA/ASA2026 supports appropriate brain/vascular imaging and specialist clinical interpretation in the relevant stroke pathways and trial contexts; it does not specify DICOM in the reviewed121-page guideline and does not validate isolated monitor captures or a universal ICH volume threshold. Full volumetric DICOM series are a separate technical safeguard of PR102, not a literal AHA/ASA requirement.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-ct-nice-htg708",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "ct_mri",
+      "authority": "NICE",
+      "title": "Artificial intelligence-derived software to help clinical decision making in stroke (HTG708, formerly DG57)",
+      "doi": null,
+      "primary_source_url": "https://www.nice.org.uk/guidance/htg708",
+      "scope_limit": "Specific CE-marked stroke triage tools as specialist adjunct only; never autonomous reporting.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-wounds-wses-2016",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "wounds",
+      "authority": "WSES/AcEMC",
+      "title": "Management of traumatic wounds in the Emergency Department: position paper from the Academy of Emergency Medicine and Care and the World Society of Emergency Surgery",
+      "doi": "10.1186/s13017-016-0084-3",
+      "primary_source_url": "https://link.springer.com/content/pdf/10.1186/s13017-016-0084-3.pdf",
+      "scope_limit": "Photograph does not exclude tendon/nerve injury (mandatory pre-anesthesia hand exam) or retained foreign body.",
+      "review_state": "REVISION_INTEGRA_DOCUMENTAL_IA_CON_LIMITACIONES",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-ssti-wses-2022",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "wounds_ssti",
+      "authority": "WSES/GAIS/WSIS/SIS-E/AAST",
+      "title": "Global clinical pathways for patients with skin and soft tissue infections",
+      "doi": "10.1186/s13017-022-00406-2",
+      "primary_source_url": "https://link.springer.com/content/pdf/10.1186/s13017-022-00406-2.pdf",
+      "scope_limit": "Clinical exam and local antibiograms govern SSTI/NSTI management; no image-only antibiotic recommendation.",
+      "review_state": "REVISION_INTEGRA_DOCUMENTAL_IA_CON_LIMITACIONES",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-ssti-idsa-2014",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "wounds_ssti",
+      "authority": "IDSA",
+      "title": "Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 Update",
+      "doi": "10.1093/cid/ciu296",
+      "primary_source_url": "https://www.idsociety.org/globalassets/idsa/practice-guidelines/practice-guidelines-for-the-diagnosis-and-management-of-skin-and-soft-tissue-infections-2014-update-by-the-infectious-diseases-society-of-america.pdf",
+      "scope_limit": "Historical baseline (>12 years); must be paired with WSES 2022 and local susceptibility data.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-tetanus-cdc-2026",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "wounds",
+      "authority": "CDC",
+      "title": "Clinical Guidance for Wound Management to Prevent Tetanus",
+      "doi": null,
+      "primary_source_url": "https://www.cdc.gov/tetanus/hcp/clinical-guidance/",
+      "scope_limit": "Vaccination/TIG decisions depend on immunization history and national protocols, never on wound images alone.",
+      "review_state": "REVISION_INTEGRA_DOCUMENTAL_IA_CON_LIMITACIONES",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-derm-nice-htg746",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "dermatology",
+      "authority": "NICE",
+      "title": "Artificial intelligence technologies for assessing and triaging skin lesions referred to the urgent suspected skin cancer pathway: early value assessment (HTG746, formerly HTE24)",
+      "doi": null,
+      "primary_source_url": "https://www.nice.org.uk/guidance/htg746",
+      "scope_limit": "Scoped to DERM (Skin Analytics) in NHS adults >=18y; Rec 1.2 mandates clinician review for Fitzpatrick V-VI during EVA due to evidence gap; not a universal ban on other validated dermatology tools.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-derm-aad-2019",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "dermatology",
+      "authority": "AAD",
+      "title": "Position Statement on Augmented Intelligence (AuI)",
+      "doi": null,
+      "primary_source_url": "https://doi.org/10.1016/j.jaad.2019.06.032",
+      "scope_limit": "Augmented intelligence framework requiring independent validation and skin-tone equity.",
+      "review_state": "LOCAL_CUSTODY_ONLY_EXTERNAL_PROCESSING_NOT_AUTHORIZED",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-gov-acr-siim-2026",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "cross_modality_governance",
+      "authority": "ACR-SIIM",
+      "title": "ACR-SIIM Practice Parameter for Imaging Artificial Intelligence (AI) (DocId 217)",
+      "doi": null,
+      "primary_source_url": "https://gravitas.acr.org/PPTS/GetDocumentView?docId=217",
+      "scope_limit": "Requires local acceptance testing, subgroup stratification, drift monitoring and stopping rules.",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-reg-fda-cds-2026",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "regulatory_us",
+      "authority": "U.S. FDA",
+      "title": "Clinical Decision Support Software: Final Guidance (Docket FDA-2017-D-6569)",
+      "doi": null,
+      "primary_source_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software",
+      "scope_limit": "Software acquiring, processing, or analyzing medical images or signals fails Criterion 1 (device software function).",
+      "review_state": "REVISION_INTEGRA_DOCUMENTAL_IA_CON_LIMITACIONES",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-reg-eu-ai-act-2026-1744",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "regulatory_eu",
+      "authority": "European Union",
+      "title": "Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744 (Digital Omnibus on AI; CELEX:02024R1689-20260727)",
+      "doi": null,
+      "primary_source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202601744",
+      "scope_limit": "Art. 50 transparency in force 2026-08-02 (Art. 50(2) marking 2026-12-02); Annex III 2027-12-02; Annex I (MDR/IVDR) 2028-08-02; MDR/IVDR unchanged.",
+      "review_state": "REVISION_INTEGRA_DOCUMENTAL_AI_REUSED",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    },
+    {
+      "id": "src-reg-mdcg-2025-6",
+      "supersedes": [
+        "src-b5e20534"
+      ],
+      "modality": "regulatory_eu",
+      "authority": "CE/MDCG & AIB",
+      "title": "MDCG 2025-6 / AIB 2025-1: FAQ on Interplay between the Medical Devices Regulation & In vitro Diagnostic Medical Devices Regulation and the Artificial Intelligence Act",
+      "doi": null,
+      "primary_source_url": "https://health.ec.europa.eu/document/download/b78a17d7-e3cd-4943-851d-e02a2f22bbb4_en?filename=mdcg_2025-6_en.pdf",
+      "scope_limit": "Non-binding joint guidance requiring effective human oversight against automation bias.",
+      "review_state": "REVISION_INTEGRA_DOCUMENTAL_IA_CON_LIMITACIONES",
+      "clinical_human_review": "PENDING",
+      "last_checked_renewed": false
+    }
+  ],
+  "migration_steps": [
+    "Add independently identified source records with verified URI, version, license/use restrictions and exact claim scope; keep restricted source states.",
+    "Bind individual sources only to supported modality/claim; keep the two internal evaluation/workflow sources and their unresolved validation limits.",
+    "Keep src-b5e20534 as a legacy superseded audit object; do not refresh its date or silently replace its title with multiple sources.",
+    "Validate referential integrity, unique IDs, explicit per-claim support, unchanged clinical text and state.",
+    "Obtain scientific review of the exact mapping before enabling imports; no GREEN promotion follows metadata migration."
+  ],
+  "acceptance_checks": [
+    "18 individual matrix IDs unique and still traceable",
+    "15/18 previous reviews retained without new completed-review claims",
+    "No absent-URI/unknown-license record becomes verified by copy",
+    "All consumer source bindings resolve to explicit records",
+    "No evidence last_verified/last_checked changed as a side effect",
+    "No sensitivity/accuracy claim imported from external device studies"
+  ],
+  "runtime_modified": false,
+  "status": "PREPARED_CONTROLLED_MIGRATION_NOT_APPLIED"
+}

@@ -1,0 +1,83 @@
+{
+  "commentary": {
+    "id": "src-derm-aad-2019",
+    "supersedes": [
+      "src-b5e20534"
+    ],
+    "modality": "dermatology",
+    "authority": "AAD",
+    "title": "Commentary: Position statement on augmented intelligence (AuI)",
+    "published_date": "2019-10",
+    "scope_limit": "Augmented intelligence framework requiring independent validation and skin-tone equity.",
+    "row": 14,
+    "record_id_preserved_from_R75": true,
+    "acquisition_record_id": "AAD-JAAD-2019-06032",
+    "full_text_material_recovered": true,
+    "review_state": "LOCAL_CUSTODY_ONLY_EXTERNAL_PROCESSING_NOT_AUTHORIZED",
+    "review_coverage_and_limitations": "AAD2019:PDF de préstamo en LOCAL_CUSTODY_ONLY,618882bytes; no autorización suficiente acreditada para enviar íntegro a servicioIA. Consulta de derechos trasladada a directoraUAc; no repetir solicitud. La política institucionalAAD no sustituye el comentarioJAAD deDOI10.1016/j.jaad.2019.06.032.",
+    "citation_locator": "DOI10.1016/j.jaad.2019.06.032. Comentario JAAD; declaración institucional AAD de referencia4 es documento separado.",
+    "project_applicability_inference": "Principios de IA aumentada, validación y privacidad; no demuestra precisión dermatológica de Emergency ni calidad de banco.",
+    "clinical_human_review": "PENDING",
+    "last_checked_renewed": false,
+    "primary_source_url": "https://doi.org/10.1016/j.jaad.2019.06.032",
+    "physical_file_identity": {
+      "name": "1-s2.0-S0190962219310205-main.pdf",
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\R89_AAD_CUSTODIA_20261126\\LOCAL_CUSTODY_ONLY\\1-s2.0-S0190962219310205-main.pdf",
+      "bytes": 618882,
+      "sha256": "8c98ce8543fd8aa7d120541d67fd0135406463dd36612e8df502dab6e8513fba"
+    },
+    "source_pages": 3,
+    "rights": {
+      "copyright_notice": "© 2019 by the American Academy of Dermatology, Inc.",
+      "open_license_verified": false,
+      "authorized_local_consultation": "Suministro institucional solicitado para estudio privado; no acredita redistribución ni carga en IA.",
+      "full_text_Gemini_upload": "PENDING_PERMISSION_NOT_SENT",
+      "library_director_consultation": "Delfina confirma haber reenviado la consulta a la directora de la biblioteca; respuesta sustantiva de derechos pendiente."
+    },
+    "rights_review_basis": "R89 manifest, not a new permission grant",
+    "review_completed_here": false,
+    "reconciled_material_title": "Commentary: Position statement on augmented intelligence (AuI), JAAD 2019;81(4):998–1000, DOI10.1016/j.jaad.2019.06.032",
+    "separate_AAD_policy_statement_in_reference_4": "NOT_RECOVERED_OR_REVIEWED_IN_THIS_UPDATE; not a reopening of the closed commentary acquisition",
+    "historical_review_states": [
+      {
+        "date": "2026-11-26",
+        "cycle": "ANTES_RESCATE_HISTORICO",
+        "review_state": "RECOVERED_LOCAL_CUSTODY_IDENTITY_VERIFIED",
+        "review_coverage_and_limitations": "AAD618882bytes,3páginas998–1000; Gemini no recibió PDF; consulta de derechos remitida a directoraUAc."
+      }
+    ],
+    "residual_update": {
+      "new_status": "RESTRICTED_COPY_FULL_REVIEW_PENDING",
+      "action": "JAAD public route returned403. Institutional library reply supplied article and forwarded rights question; no substantive rights answer found in focused search.",
+      "identity": "Commentary DOI10.1016/j.jaad.2019.06.032, not the distinct institutional AAD policy.",
+      "external_dependency": "Existing rights consultation, no repeat request or acquisition."
+    },
+    "metadata_identity_prior": {
+      "title": "Position Statement on Augmented Intelligence (AuI)",
+      "authority": "AAD",
+      "published_date": "2019-01-01"
+    },
+    "citation": "J Am Acad Dermatol. 2019;81(4):998–1000",
+    "authors": [
+      "Kovarik C",
+      "Lee I",
+      "Ko J"
+    ],
+    "doi": "10.1016/j.jaad.2019.06.032",
+    "object_type": "JOURNAL_COMMENTARY_NOT_INSTITUTIONAL_POSITION_STATEMENT",
+    "metadata_status": "PROPOSED_RECONCILED_IDENTITY_NO_FULL_TEXT_REVIEW"
+  },
+  "separate_institutional_policy": {
+    "parent_reference_id": "src-derm-aad-2019",
+    "object_type": "DISTINCT_AAD_INSTITUTIONAL_POLICY_REFERENCED_BY_COMMENTARY",
+    "title": "Position Statement on Augmented Intelligence",
+    "editorial_url": "https://server.aad.org/Forms/Policies/Uploads/PS/PS-Augmented%20Intelligence.pdf",
+    "physical_file_recovered": false,
+    "read_in_full": false,
+    "status": "SOURCE_ROUTE_502_OR_LOGIN_NO_BYPASS",
+    "rights_not_inherited_from_commentary": true
+  },
+  "runtime_changed": false,
+  "new_integral_reviews": 0,
+  "previous_documentary_reviews_preserved": "15/18"
+}
