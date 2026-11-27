@@ -38,6 +38,12 @@ python -m unittest discover -s tools/interop-local -v
 
 El destino debe ser nuevo; no se sobrescriben archivos. Las entradas son archivos
 locales de tamaño limitado; no se admiten rutas UNC ni enlaces simbólicos.
+El subconjunto numérico admite hasta nueve dígitos enteros y seis decimales,
+sin exponente, y exige que el literal se emita idéntico mediante JSON. Si una
+conversión perdería ceros significativos o precisión (por ejemplo 13.20), se
+rechaza la entrada antes de crear salidas. No se redondea ni normaliza por
+inferencia. Esta restricción afecta a la recepción HL7 y FHIR por archivo;
+no se anuncia soporte completo para decimales FHIR.
 Los rechazos CLI no imprimen contenido de entrada. El recibo conserva SHA-256
 del original y de cada resultado. Abrir `viewer.html` es opcional y no inicia
 un servidor. El visor muestra únicamente PNG generado desde el fantoma registrado.
@@ -64,5 +70,13 @@ su texto. Los mensajes e imágenes son producción procedural propia sintética,
 sin pacientes ni activos de terceros. Los derechos de fuentes clínicas, PTBR-PIX,
 retención y responsables operativos siguen pendientes para cualquier consumidor real.
 El límite técnico de datos no constituye prueba clínica, estudio o certificación.
+
+Los dos códigos de terminología se acompañan de la atribución y licencia oficial
+en [LOINC_short_license.txt](LOINC_short_license.txt), conforme al apartado10.1
+de [LOINC License](https://loinc.org/license), consultado el27/11/2026.
+Se conservan los códigos con sus Long Common Names oficiales:
+[718-7](https://loinc.org/718-7) y [2345-7](https://loinc.org/2345-7),
+conforme al apartado10.3; no se presentan alias locales como nombres oficiales.
+No se reclama aval de Regenstrief ni del comité LOINC.
 
 **CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE.**

@@ -10,9 +10,9 @@ Las flags false delimitan consumo y corpus RAG generado, no publicación del có
 
 `content-laboratory.json` registra permisos por archivo, uso, versión y hash. El código restringe las fuentes propias a esos dos archivos canónicos y sus hashes del commit autorizado. Los textos inventados en `fixtures/content/` tienen otra clase, IDs, permisos y citas; no se añaden al catálogo clínico o al grafo. `PERMISSION.txt` expresa el permiso de ensayo, sin atribuir una licencia externa nueva.
 
-El índice observado contiene58fragmentos de dos documentos propios y un fixture vigente. Otro fixture está caducado y el adversarial conocido queda en cuarentena. Las254entradas del catálogo clínico se auditan individualmente y permanecen bloqueadas para recuperación textual hasta disponer de permiso literal por contenido/uso. Esto no impide recuperar los dos documentos propios expresamente autorizados.
+El índice observado contiene64fragmentos de dos documentos de gobernanza, un workflow propio canónico acotado y un fixture vigente. Otro fixture está caducado y el adversarial conocido queda en cuarentena. Las254entradas del catálogo se auditan individualmente:1workflow tiene contenido local autorizado y253conservan sus restricciones reales. No se deduce una denegación sólo por faltar un campo cuando ya existe permiso explícito y binding exacto.
 
-Se revisaron los dos registros `license_status=verified`: `src-internal-image-safety-workflow` carece de versión y localizador literal del contenido bajo esta autorización; `src-who-meningitis-2025` conserva versión2025, pero su relación histórica sigue pendiente y el catálogo no contiene una concesión de indexación/cita de su texto por uso. No se descargaron ni indexaron esos originales ni se infirieron permisos de la etiqueta verified. El auditado no sustituye una evaluación jurídica externa.
+El cotejo posterior resuelve `src-internal-image-safety-workflow`: autorización local ya existente, join canónico y spans exactos permiten recuperar sólo esa copia interna, conservando versión declarada null y rol histórico. Véase [el adaptador canónico](CANONICAL_WORKFLOW.md). `src-who-meningitis-2025` conserva versión2025, pero su relación histórica y derechos de contenido no se resuelven por esta excepción. No se descarga su original ni se infieren derechos externos de una etiqueta verified.
 
 ## Indexación y consulta
 

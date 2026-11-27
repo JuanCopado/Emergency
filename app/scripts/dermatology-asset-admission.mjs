@@ -3,12 +3,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 
+// Preserve Array.sort's original UTF-16 code-unit order, independent of locale.
+function compareCodeUnits(left, right) {
+  if (left < right) return -1;
+  if (left > right) return 1;
+  return 0;
+}
+
 const IDENTITY_DIGEST = '938e04ec4500be994a5b0d39fa36a469c456d074c8cdf22fed813f2f0dc5fdce';
 const FACIAL_IDS = new Set(['DERMA_CDC_2874', 'DERMA_CDC_27799']);
 const MEDIA_ADMISSIONS = ['product_media_admitted', 'repository_media_redistribution_admitted',
   'independent_evaluation_admitted', 'ai_training_admitted', 'external_service_transfer_admitted'];
 const RECORD_KEYS = ['asset_id', 'case_id', 'source_sha256', 'technical_derivative_sha256',
-  'local_reference_scope', ...MEDIA_ADMISSIONS].sort();
+  'local_reference_scope', ...MEDIA_ADMISSIONS].sort(compareCodeUnits);
 const SKIP_DIRECTORIES = new Set(['.git', 'node_modules', 'dist', 'coverage', '__pycache__',
   '.pytest_cache', '.venv', '.cache']);
 const RASTER_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.tif', '.tiff']);
@@ -31,7 +38,7 @@ export function validateManifest(manifest) {
     && new Set(assets.map((asset) => asset.asset_id)).size === 24
     && new Set(assets.map((asset) => asset.case_id)).size === 23);
   for (const asset of assets) {
-    requirePolicy(JSON.stringify(Object.keys(asset).sort()) === JSON.stringify(RECORD_KEYS)
+    requirePolicy(JSON.stringify(Object.keys(asset).sort(compareCodeUnits)) === JSON.stringify(RECORD_KEYS)
       && MEDIA_ADMISSIONS.every((key) => asset[key] === false)
       && /^[a-f0-9]{64}$/.test(asset.source_sha256)
       && (asset.technical_derivative_sha256 === null || /^[a-f0-9]{64}$/.test(asset.technical_derivative_sha256)));

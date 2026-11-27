@@ -1,7 +1,7 @@
 {
   "schema": "emergency-rag-content-laboratory-v1",
   "task_id": "F4-RAG-FHIR-HL7-PACS-AGENTES-G05",
-  "scope": "own_governance_and_separate_synthetic_fixtures_only",
+  "scope": "own_governance_bound_internal_workflow_and_separate_synthetic_fixtures_only",
   "authority": "owner_instruction_for_this_local_laboratory_2026-11-27",
   "source_commit": "1f0fed8d731f65168ac338b5ddb18f451fccc6d6",
   "allowed_uses": [
@@ -35,7 +35,17 @@
     "check",
     "birch",
     "blue",
-    "reset"
+    "reset",
+    "image",
+    "access",
+    "safety",
+    "cannot",
+    "triage",
+    "pixels",
+    "identifiers",
+    "annotation",
+    "review",
+    "external"
   ],
   "documents": [
     {
@@ -148,6 +158,53 @@
         "clinical_use": false,
         "restriction_scope": "generated_rag_corpus_and_consumption_only"
       }
+    },
+    {
+      "source_id": "src-internal-image-safety-workflow",
+      "source_class": "project_owned_workflow",
+      "path": "clinical/modules/clinical-images.md",
+      "version": "git:1f0fed8d731f65168ac338b5ddb18f451fccc6d6",
+      "sha256": "ec1e12141ee3cdc864f1c2e1071a1877dd859634ac1157bf882448db1167780a",
+      "allowed_spans": [
+        {
+          "start_line": 3,
+          "end_line": 15,
+          "utf8_lf_sha256": "8f120b409fe1080fc2ce948d7aefa5975e1f41d5a7c5518fe5babc233043d07b"
+        },
+        {
+          "start_line": 35,
+          "end_line": 47,
+          "utf8_lf_sha256": "9742540724432e20633298cccafd45cd2586ad53a7e59b2bd4f2f7388d73a068"
+        }
+      ],
+      "permission": {
+        "status": "explicit_owner_local_laboratory_permission",
+        "allowed_uses": [
+          "local_indexing",
+          "local_retrieval",
+          "local_quotation",
+          "local_testing"
+        ],
+        "authorized_version": "git:1f0fed8d731f65168ac338b5ddb18f451fccc6d6",
+        "authorized_sha256": "ec1e12141ee3cdc864f1c2e1071a1877dd859634ac1157bf882448db1167780a",
+        "authorized_spans": [
+          {
+            "start_line": 3,
+            "end_line": 15,
+            "utf8_lf_sha256": "8f120b409fe1080fc2ce948d7aefa5975e1f41d5a7c5518fe5babc233043d07b"
+          },
+          {
+            "start_line": 35,
+            "end_line": 47,
+            "utf8_lf_sha256": "9742540724432e20633298cccafd45cd2586ad53a7e59b2bd4f2f7388d73a068"
+          }
+        ],
+        "redistribution": false,
+        "training": false,
+        "clinical_use": false,
+        "restriction_scope": "generated_rag_corpus_and_consumption_only"
+      },
+      "authorization_basis": "Existing explicit owner local indexing authorization with exact canonical join; no extra owner permission or primary-evidence approval inferred."
     }
   ],
   "restriction_scope": "generated_rag_corpus_and_consumption_not_original_source_or_code_publication"

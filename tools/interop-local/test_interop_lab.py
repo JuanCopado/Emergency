@@ -206,4 +206,50 @@ class FileIngressTests(unittest.TestCase):
         with patch.object(Path,"is_junction",return_value=True):
             with self.assertRaises(lab.ContractError):lab.local_path("synthetic-file")
 
+class PrecisionRegressionTests(unittest.TestCase):
+    def test_reject_hl7_precision_loss(self):
+        for value in ["13.20", "13.200", "-0", "0.000001", "999999999.123450"]:
+            with self.subTest(value=value):
+                with self.assertRaises(lab.ContractError):
+                    lab.hl7_to_fhir(lab.hl7_fixture(value=value).encode("ascii"))
+
+    def test_hl7_supported_integer_and_decimal_emit_identically(self):
+        for value in ["13", "13.2", "13.0", "100.25", "0", "-13.5"]:
+            with self.subTest(value=value):
+                result=lab.hl7_to_fhir(lab.hl7_fixture(value=value).encode("ascii"))
+                actual=result["bundle"]["entry"][1]["resource"]["valueQuantity"]["value"]
+                self.assertEqual(json.dumps(actual),value)
+
+    def test_fhir_rejects_non_roundtrippable_lexeme_before_output(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            base=json.dumps(lab.bundle_for(lab.synthetic_observation()))
+            for index,value in enumerate(["13.20", "13.200", "-0", "1e1", "0.000001", "999999999.123450"]):
+                with self.subTest(value=value):
+                    source=root/str(index);source.write_text(base.replace('"value": 13.2','"value": '+value))
+                    target=root/("out"+str(index))
+                    with self.assertRaises(lab.ContractError):lab.receive_file("fhir",source,target)
+                    self.assertFalse(target.exists())
+
+    def test_fhir_accepted_numeric_lexeme_preserved_without_network(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            base=json.dumps(lab.bundle_for(lab.synthetic_observation()))
+            with patch("socket.socket", side_effect=AssertionError("network forbidden")):
+                for index,value in enumerate(["13", "13.2", "13.0", "100.25", "0", "-13.5"]):
+                    source=root/str(index);source.write_text(base.replace('"value": 13.2','"value": '+value))
+                    target=root/("out"+str(index));lab.receive_file("fhir",source,target)
+                    emitted=(target/"bundle.json").read_text(encoding="utf8")
+                    self.assertIn('"value": '+value,emitted)
+
+    def test_loinc_identifiers_and_official_names_preserved(self):
+        expected={"718-7":"Hemoglobin [Mass/volume] in Blood",
+                  "2345-7":"Glucose [Mass/volume] in Serum or Plasma"}
+        for code,display in expected.items():
+            with self.subTest(code=code):
+                with patch("socket.socket", side_effect=AssertionError("network forbidden")):
+                    result=lab.hl7_to_fhir(lab.hl7_fixture(code).encode("ascii"))
+                coding=result["bundle"]["entry"][1]["resource"]["code"]["coding"][0]
+                self.assertEqual(coding,{"system":"http://loinc.org","code":code,"display":display})
+
 if __name__=="__main__":unittest.main()

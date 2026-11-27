@@ -19,7 +19,8 @@ MAX_MESSAGE = 65536
 MAX_DICOM = 1048576
 UCUM = "http://unitsofmeasure.org"
 LOINC = "http://loinc.org"
-CODES = {"718-7": ("Hemoglobin", "g/dL"), "2345-7": ("Glucose", "mg/dL")}
+CODES = {"718-7": ("Hemoglobin [Mass/volume] in Blood", "g/dL"),
+         "2345-7": ("Glucose [Mass/volume] in Serum or Plasma", "mg/dL")}
 TS = "1.2.840.10008.1.2.1"
 SC = "1.2.840.10008.5.1.4.1.1.7"
 UID = "2.25.174369344098436458120176449251973554101"
@@ -36,6 +37,16 @@ def require(condition, reason):
 
 def exact_keys(obj, keys):
     require(isinstance(obj, dict) and set(obj) == set(keys), "unexpected structure/fields")
+
+
+def lossless_number(text):
+    """Reject numeric lexemes this closed JSON subset cannot emit unchanged."""
+    require(re.fullmatch(r"-?(?:0|[1-9]\d{0,8})(?:\.\d{1,6})?", text) is not None,
+            "unsupported numeric representation")
+    value = float(text) if "." in text else int(text)
+    require(json.dumps(value, allow_nan=False) == text,
+            "numeric representation would lose source precision")
+    return value
 
 
 def synthetic_observation(code="718-7", value=13.2):
@@ -137,7 +148,7 @@ def hl7_to_fhir(raw):
     require(code_parts == [code, display, "LN"] and obr[4] == obx[3], "order/result coding mismatch")
     require(obx[6] == unit+"^"+unit+"^UCUM", "unrecognized units; no inference")
     require(re.fullmatch(r"-?\d{1,9}(?:\.\d{1,6})?", obx[5]) is not None, "invalid NM value")
-    result = bundle_for(synthetic_observation(code, float(obx[5])))
+    result = bundle_for(synthetic_observation(code, lossless_number(obx[5])))
     ack = ("MSH|^~\\&|EMERGENCY_LAB|SYNTHETIC|EMERGENCY_LAB|SYNTHETIC|20261127120000||"
            "ACK^R01^ACK|SYNTHETIC-ACK-0001|T|2.5.1\rMSA|AA|SYNTHETIC-0001\r")
     return {"fhir_version": FHIR_VERSION, "source_version": HL7_VERSION,
@@ -271,7 +282,8 @@ def receive_file(kind, source, output):
         outputs = {"bundle.json": (json.dumps(result["bundle"], indent=2)+"\n").encode("utf8"),
                    "ack.hl7": result["ack"].encode("ascii")}
     elif kind == "fhir":
-        parsed = json.loads(raw, object_pairs_hook=_unique_object)
+        parsed = json.loads(raw, object_pairs_hook=_unique_object,
+                            parse_float=lossless_number, parse_int=lossless_number)
         result = validate_fhir(parsed, FHIR_VERSION)
         outputs = {"bundle.json": (json.dumps(result, indent=2)+"\n").encode("utf8")}
     else:

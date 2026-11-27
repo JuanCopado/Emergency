@@ -32,6 +32,10 @@ function fixture(run, initial = policy) {
 
 describe('product/repository dermatology admission contract', () => {
   it('reads the real repository evidence and supplies an empty media catalog', () => {
+    expect(policy.identity_digest).toBe('938e04ec4500be994a5b0d39fa36a469c456d074c8cdf22fed813f2f0dc5fdce');
+    const reordered = { ...policy, assets: policy.assets.map((asset) =>
+      Object.fromEntries(Object.entries(asset).reverse())) };
+    expect(validateManifest(reordered)).toMatchObject({ assets: 24, cases: 23, product_media_admitted: 0 });
     expect(checkRepository(repository)).toMatchObject({ status: 'PASS', registry_assets: 24,
       product_catalog_size: 0, product_media_admitted: 0, clinical: 'CLINICALLY_PENDING' });
     expect(productAssetCatalog(policy)).toEqual([]);

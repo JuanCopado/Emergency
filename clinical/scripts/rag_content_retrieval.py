@@ -15,6 +15,7 @@ import re
 
 from cli_paths import input_file, output_file
 from rag_provenance_retrieval import ROOT, SOURCE_COMMIT, TASK_ID, load_snapshot, sha256
+import rag_canonical_workflow as workflow
 
 MANIFEST_PATH = "rag/content-laboratory.json"
 MAX_SOURCE_BYTES = 65536
@@ -55,7 +56,7 @@ def load_manifest(root=ROOT):
     if not isinstance(manifest, dict):
         raise ContentRejected("INVALID_CONTENT_MANIFEST")
     expected = {"schema": "emergency-rag-content-laboratory-v1", "task_id": TASK_ID,
-                "scope": "own_governance_and_separate_synthetic_fixtures_only",
+                "scope": "own_governance_bound_internal_workflow_and_separate_synthetic_fixtures_only",
                 "authority": "owner_instruction_for_this_local_laboratory_2026-11-27",
                 "source_commit": SOURCE_COMMIT, "allowed_uses": USES,
                 "restriction_scope": "generated_rag_corpus_and_consumption_not_original_source_or_code_publication",
@@ -74,21 +75,42 @@ def load_manifest(root=ROOT):
     return manifest
 
 
-def canonical_content_audit(snapshot):
+def _workflow_audit(snapshot, manifest, root):
+    items = [item for item in manifest["documents"] if item.get("source_id") == workflow.SOURCE_ID]
+    if len(items) != 1:
+        raise ContentRejected("CANONICAL_WORKFLOW_NOT_AUTHORIZED")
+    item = items[0]
+    text = _document(item, root)
+    binding = workflow.validate_binding(snapshot, root)
+    workflow.sections(text, binding)
+    return binding
+
+
+def canonical_content_audit(snapshot, manifest=None, *, root=ROOT):
     """A verified license label alone is not a field/use content permission."""
     graph_ids = {node["id"] for node in snapshot["graph"]["nodes"]}
-    result = []
-    for source in snapshot["catalog"]["sources"]:
-        reasons = ["CONTENT_PERMISSION_BY_FIELD_AND_USE_MISSING"]
-        if source.get("compound_identity"):
-            reasons.append("COMPOUND_IDENTITY_UNRESOLVED")
-        if not source.get("version"):
-            reasons.append("CONTENT_VERSION_UNRESOLVED")
-        if "source:" + source["source_id"] not in graph_ids:
-            reasons.append("GRAPH_SOURCE_MISSING")
-        result.append({"source_id": source["source_id"], "license_status_unchanged": source.get("license_status"),
-                       "content_status": "BLOCKED", "reasons": reasons})
-    return result
+    manifest = load_manifest(root) if manifest is None else manifest
+    return [_audit_source(source, snapshot, manifest, root, graph_ids) for source in snapshot["catalog"]["sources"]]
+
+
+def _audit_source(source, snapshot, manifest, root, graph_ids):
+    reason = "SOURCE_CONTENT_USE_NOT_CLEARED_FOR_THIS_LAB_SCOPE"
+    if source["source_id"] == workflow.SOURCE_ID:
+        try:
+            binding = _workflow_audit(snapshot, manifest, root)
+            return {"source_id": source["source_id"], "license_status_unchanged": source.get("license_status"),
+                    "content_status": "AUTHORIZED_LOCAL_WORKFLOW_SPANS", "reasons": [], **binding}
+        except (workflow.WorkflowRejected, ContentRejected, OSError) as error:
+            reason = str(error) if isinstance(error, ValueError) else "CANONICAL_WORKFLOW_UNAVAILABLE"
+    reasons = [reason]
+    if source.get("compound_identity"):
+        reasons.append("COMPOUND_IDENTITY_UNRESOLVED")
+    if not source.get("version"):
+        reasons.append("CONTENT_VERSION_UNRESOLVED")
+    if "source:" + source["source_id"] not in graph_ids:
+        reasons.append("GRAPH_SOURCE_MISSING")
+    return {"source_id": source["source_id"], "license_status_unchanged": source.get("license_status"),
+            "content_status": "BLOCKED", "reasons": reasons}
 
 
 def _check_permission(item):
@@ -106,7 +128,7 @@ def _check_permission(item):
         raise ContentRejected("SOURCE_PERMISSION_OR_VERSION_MISMATCH")
 
 
-def _source_path(item, root):
+def _source_class_guard(item):
     source_class, relative, version = item["source_class"], item["path"], item["version"]
     if source_class == "project_governance":
         if relative not in OWN or (item.get("source_id"), item.get("sha256")) != OWN[relative] or version != "git:" + SOURCE_COMMIT:
@@ -114,8 +136,18 @@ def _source_path(item, root):
     elif source_class == "synthetic_fixture":
         if not relative.startswith("rag/fixtures/content/") or not str(item.get("source_id", "")).startswith("fixture-"):
             raise ContentRejected("FIXTURE_SOURCE_NOT_SEPARATE")
+    elif source_class == "project_owned_workflow":
+        try:
+            workflow.validate_identity(item)
+        except workflow.WorkflowRejected as error:
+            raise ContentRejected(str(error)) from None
     else:
         raise ContentRejected("SOURCE_CLASS_NOT_AUTHORIZED")
+
+
+def _source_path(item, root):
+    _source_class_guard(item)
+    source_class, relative = item["source_class"], item["path"]
     target = (root / relative).resolve()
     if not target.is_relative_to(root.resolve()) or not target.is_file():
         raise ContentRejected("SOURCE_PATH_NOT_PERMITTED")
@@ -155,16 +187,29 @@ def _chunks(text):
         yield {"line_start": start, "line_end": start + len(group) - 1, "text": "\n".join(group)}
 
 
-def _index_document(item, root, evaluated):
-    text = _document(item, root)
-    expiry = item.get("fixture_valid_through")
-    if expiry is not None and evaluated > _date(expiry):
-        raise ContentRejected("SOURCE_STALE")
+def _index_section(item, section):
+    text, offset, binding = section
     if OVERRIDE_MARKERS.search(text):
         raise ContentRejected("DOCUMENT_OVERRIDE_MARKERS_QUARANTINED")
     return [{"source_id": item["source_id"], "source_class": item["source_class"],
              "version": item["version"], "path": item["path"], "source_sha256": item["sha256"],
-             "source_hash_mode": "utf8_lf_normalized", **chunk} for chunk in _chunks(text)]
+             "source_hash_mode": "utf8_lf_normalized", **chunk,
+             "line_start": chunk["line_start"] + offset, "line_end": chunk["line_end"] + offset,
+             **binding} for chunk in _chunks(text)]
+
+
+def _index_document(item, root, evaluated, snapshot):
+    text = _document(item, root)
+    expiry = item.get("fixture_valid_through")
+    if expiry is not None and evaluated > _date(expiry):
+        raise ContentRejected("SOURCE_STALE")
+    sections = [(text, 0, {})]
+    if item["source_class"] == "project_owned_workflow":
+        try:
+            sections = workflow.sections(text, workflow.validate_binding(snapshot, root))
+        except workflow.WorkflowRejected as error:
+            raise ContentRejected(str(error)) from None
+    return [chunk for section in sections for chunk in _index_section(item, section)]
 
 
 def build_index(snapshot, manifest, as_of, *, root=ROOT):
@@ -175,7 +220,7 @@ def build_index(snapshot, manifest, as_of, *, root=ROOT):
     for item in manifest["documents"]:
         # A single poisoned/unauthorized source is an explicit per-source block.
         try:
-            rows.extend(_index_document(item, root, evaluated))
+            rows.extend(_index_document(item, root, evaluated, snapshot))
         except ContentRejected as error:
             excluded.append({"source_id": item["source_id"], "reason": str(error)})
     if len(rows) > 256:
@@ -227,7 +272,7 @@ def _query_error(snapshot, manifest, query):
     version = query.get("expected_version")
     if version is not None and (not isinstance(version, str) or not 1 <= len(version) <= 96):
         return "CONTENT_VERSION_MISMATCH"
-    if source_id in {source["source_id"] for source in snapshot["catalog"]["sources"]}:
+    if source_id != workflow.SOURCE_ID and source_id in {source["source_id"] for source in snapshot["catalog"]["sources"]}:
         return "CANONICAL_SOURCE_CONTENT_NOT_AUTHORIZED"
     return None
 
@@ -280,10 +325,14 @@ def _rank_matches(index, query, expired):
 
 def _citation(row):
     citation = {key: row[key] for key in ("source_id", "source_class", "version", "path", "source_sha256", "source_hash_mode", "line_start", "line_end")}
-    own = row["source_class"] == "project_governance"
+    own = row["source_class"] in {"project_governance", "project_owned_workflow"}
+    scopes = {"project_governance": "governance_not_primary_clinical_evidence",
+              "project_owned_workflow": "internal_workflow_not_primary_evidence"}
     citation.update(quote=inert_quote(row["text"]), quote_encoding="html-and-markdown-escaped-untrusted-text",
                     source_commit=SOURCE_COMMIT if own else None,
-                    scope="governance_not_primary_clinical_evidence" if own else "invented_nonclinical_fixture")
+                    scope=scopes.get(row["source_class"], "invented_nonclinical_fixture"))
+    if row["source_class"] == "project_owned_workflow":
+        citation.update({key: row[key] for key in workflow.CITATION_FIELDS})
     return citation
 
 
@@ -336,7 +385,7 @@ def main(argv=None):
                 raise ContentRejected("INDEX_OR_QUERY_SIZE_LIMIT")
             result = retrieve_content(snapshot, manifest, json.loads(args.index.read_text(encoding="utf-8")),
                                       json.loads(args.query.read_text(encoding="utf-8")))
-    except (OSError, ValueError, KeyError, TypeError) as error:
+    except (OSError, ValueError, KeyError, TypeError, RecursionError) as error:
         result = _result(str(error) if isinstance(error, ContentRejected) else "INVALID_OR_UNAVAILABLE_CONTENT_INPUT")
     print(json.dumps(result, ensure_ascii=True, indent=2))
     return 2 if result["status"] == "ABSTAIN" else 0

@@ -1,0 +1,8 @@
+{
+  "synthetic": true,
+  "text": "image access",
+  "source_id": "src-internal-image-safety-workflow",
+  "expected_version": "git:1f0fed8d731f65168ac338b5ddb18f451fccc6d6",
+  "as_of": "2026-11-27",
+  "top_k": 2
+}
