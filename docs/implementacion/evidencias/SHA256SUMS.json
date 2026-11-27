@@ -1,0 +1,74 @@
+[
+  {
+    "path": "calcular_costes.py",
+    "sha256": "3e8de9cdad9df2a1de0e25863b80086a8501a6a3d407cbaf6ed7a68e5e6bdeb3",
+    "bytes": 2781,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "CLAUDE_COTEJO.json",
+    "sha256": "c9f9329b32e12308a49d318e7f44f0f7ab0b68996dbab4a73eda1f16e67a7d3e",
+    "bytes": 2918,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "CLAUDE_EJECUCION.json",
+    "sha256": "dfc428e8520e9e2f734fbc4eddce3e9d9cdf0419b4571c8c143227a83afd6c44",
+    "bytes": 1384,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "COSTES_ESCENARIOS_WORK.json",
+    "sha256": "a7bbabbf59f031d823591fe3fbc6124fae876b5633f92eefde307bebf47d54fc",
+    "bytes": 3669,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "GEMINI_EJECUCION.json",
+    "sha256": "6dd160abcd1b249fc884a4b0c150795c60c603c6f91378bc2a214f92c5617a60",
+    "bytes": 3888,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "IMP03_NAVEGADOR.json",
+    "sha256": "8445b907e8d0240e5625cbcca4d77b74576fb05300b583db053b09f4f1acca4b",
+    "bytes": 1704,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "IMP03_PAQUETES.json",
+    "sha256": "e45f3731ea02eb6e73dcb2c7619e89f294fe01221604a457eeee16d55afe9055",
+    "bytes": 1537,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "IMP03_PRUEBAS.json",
+    "sha256": "a09df60101cde1011dd1542032a2d2537be39897451f363ce8cdbd69828e219e",
+    "bytes": 1901,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "IMP03_REVISION_CODEX.json",
+    "sha256": "cf7b21f539dc2a42d406213f888b446bab8d06ae2bdf169ceb550c6e87b50c38",
+    "bytes": 5380,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "IMP03_REVISION_CODEX.md",
+    "sha256": "da9b87d4b6c9fe0d30f449975e81b4ea02719773f043345764e45112aa227d71",
+    "bytes": 10786,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": "INVENTARIO_EJECUCION.json",
+    "sha256": "9ec6e27ade2b13edd9640332d4c95a6bcdb577793d893c5cdfb99949ed5877e5",
+    "bytes": 8365,
+    "hash_mode": "RAW_BYTES"
+  },
+  {
+    "path": ".gitattributes",
+    "sha256": "3f5a49434d9dd25f94064f18815ef289b891e2f885d16297d8d8134e2999bcee",
+    "bytes": 116,
+    "hash_mode": "RAW_BYTES"
+  }
+]
