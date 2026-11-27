@@ -2,7 +2,10 @@ import hashlib
 import json
 from pathlib import Path
 import tempfile
+import subprocess
+import sys
 import unittest
+import backend_runtime
 import zipfile
 from unittest.mock import patch
 import bootstrap_individual as boot
@@ -66,12 +69,61 @@ class BootstrapTests(unittest.TestCase):
 
     def test_existing_actions_use_verified_persistent_runtime_without_archive(self):
         with patch.object(boot,'verified_verifier',return_value=self.root/'verifier.exe') as verify,\
-             patch.object(boot.subprocess,'run') as run:
+             patch.object(boot.subprocess,'run') as run,patch.object(boot,'supervise_serve') as serve:
             boot.run_existing(self.root,'activate','synthetic-v1')
             boot.run_existing(self.root,'serve')
         self.assertEqual(verify.call_count,2)
         self.assertIn('activate',run.call_args_list[0].args[0])
-        self.assertIn('serve',run.call_args_list[1].args[0])
+        self.assertIn('serve',serve.call_args.args[0]);self.assertIn('--parent-gate',serve.call_args.args[0])
+
+    @unittest.skipUnless(boot.os.name=='nt','Windows bootstrap Job containment')
+    def test_bootstrap_job_assignment_failure_never_opens_start_gate(self):
+        from unittest.mock import Mock
+        process=Mock();process.stdin.closed=False
+        with patch.object(boot.subprocess,'Popen',return_value=process),\
+             patch.object(backend_runtime,'_WindowsChildJob',side_effect=OSError('synthetic')):
+            with self.assertRaises(OSError):boot.supervise_serve(['synthetic'])
+        process.stdin.write.assert_not_called();process.stdin.close.assert_called_once()
+
+    @unittest.skipUnless(boot.os.name=='nt','Windows bootstrap Job containment')
+    def test_bootstrap_job_precedes_gate_and_closes(self):
+        from unittest.mock import Mock
+        events=[];process=Mock();process.stdin.closed=False;process.wait.return_value=0
+        process.stdin.write.side_effect=lambda value:events.append(('start',value))
+        job=Mock();job.close.side_effect=lambda:events.append(('closed',))
+        def assign(_):events.append(('assigned',));return job
+        with patch.object(boot.subprocess,'Popen',return_value=process),\
+             patch.object(backend_runtime,'_WindowsChildJob',side_effect=assign):boot.supervise_serve(['synthetic'])
+        self.assertEqual(events,[('assigned',),('start',b'START\n'),('closed',)])
+
+    @unittest.skipUnless(boot.os.name=='nt','Windows bootstrap real descendant containment')
+    def test_bootstrap_parent_death_kills_owned_child_and_grandchild(self):
+        import ctypes
+        from ctypes import wintypes
+        child="import sys,subprocess,os,json;assert sys.stdin.buffer.readline(7)==b'START\\n';p=subprocess.Popen([sys.executable,'-I','-B','-c','import time;time.sleep(60)']);print(json.dumps([os.getpid(),p.pid]),flush=True);p.wait()"
+        helper="import sys;sys.path.insert(0,sys.argv[1]);import bootstrap_individual as b;b.supervise_serve([sys.executable,'-I','-B','-c',sys.argv[2]])"
+        process=subprocess.Popen([sys.executable,'-I','-B','-c',helper,str(Path(boot.__file__).parent),child],
+                                 stdout=subprocess.PIPE,text=True,env=boot.environment())
+        kernel=ctypes.WinDLL('kernel32',use_last_error=True)
+        kernel.OpenProcess.argtypes=[wintypes.DWORD,wintypes.BOOL,wintypes.DWORD]
+        kernel.OpenProcess.restype=wintypes.HANDLE
+        kernel.WaitForSingleObject.argtypes=[wintypes.HANDLE,wintypes.DWORD]
+        kernel.TerminateProcess.argtypes=[wintypes.HANDLE,wintypes.UINT]
+        kernel.CloseHandle.argtypes=[wintypes.HANDLE]
+        handles=[]
+        try:
+            pids=json.loads(process.stdout.readline())
+            handles=[kernel.OpenProcess(0x00100001,False,pid) for pid in pids]
+            self.assertTrue(all(handles))
+            process.kill();process.wait(timeout=10)
+            for handle in handles:self.assertEqual(kernel.WaitForSingleObject(handle,10000),0)
+        finally:
+            if process.poll() is None:process.kill();process.wait(timeout=10)
+            for handle in handles:
+                if handle:
+                    if kernel.WaitForSingleObject(handle,0)!=0:kernel.TerminateProcess(handle,1)
+                    kernel.CloseHandle(handle)
+            process.stdout.close()
 
     def test_persistent_verifier_extra_or_tampered_bytes_rejected(self):
         directory,fingerprint=boot.verifier_location(self.root)

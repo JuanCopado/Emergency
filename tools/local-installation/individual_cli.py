@@ -74,7 +74,7 @@ def main():
     prepare.add_argument("--python", default=sys.executable)
     for name in ("activate", "rollback"):
         commands.add_parser(name).add_argument("--version", required=True)
-    commands.add_parser("serve")
+    commands.add_parser("serve").add_argument("--parent-gate", action="store_true")
     private = commands.add_parser("_serve", help=argparse.SUPPRESS)
     private.add_argument("--expected-version", required=True)
     for name, command in commands.choices.items():
@@ -98,6 +98,8 @@ def main():
     elif args.command in {"activate", "rollback"}:
         result = auth.activate_signed(args.root, args.version, rollback=args.command == "rollback")
     elif args.command == "serve":
+        if args.parent_gate:
+            local.require(sys.stdin.buffer.readline(7) == b"START\n", "Missing trusted bootstrap startup gate")
         directory, _, _, selected = auth.active_signed_snapshot(args.root)
         fingerprint = runtime_fingerprint(directory)
         python = verify_runtime(Path(args.root) / "runtimes" / fingerprint, fingerprint)

@@ -39,6 +39,10 @@ La instalación imprime su versión real y los argumentos `next_activate` y
 Para rollback se usa `-Action rollback -Version 'VERSION_ANTERIOR_INSTALADA'`.
 Estas acciones no requieren de nuevo el ZIP: verifican el verificador persistente
 y ejecutan el CLI externo de confianza, que autentica íntegramente la versión.
+En Windows el bootstrap mantiene un Job Object antes de enviar la compuerta
+`START` al CLI; al terminar abruptamente se elimina también su árbol de procesos.
+Una prueba real comprueba la muerte del hijo y nieto propios, y otra verifica que
+fallar la asignación al Job no permite abrir la compuerta.
 Actualizar implica ejecutar de nuevo `INSTALL_INDIVIDUAL.ps1` con el nuevo ZIP y
 su firma, conservando el mismo editor/fingerprint de confianza, y activar su
 versión explícitamente. No se presupone Python de otra aplicación propietaria.

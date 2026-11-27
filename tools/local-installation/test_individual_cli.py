@@ -16,6 +16,14 @@ import stable_launcher
 
 
 class IndividualCliSupervisionTests(unittest.TestCase):
+    def test_public_serve_optional_bootstrap_gate_rejects_before_auth(self):
+        for value in (b'',b'OTHER\n'):
+            with patch.object(sys,'argv',['individual_cli.py','serve','--root','synthetic','--parent-gate']),\
+                 patch.object(sys,'stdin',type('Input',(),{'buffer':io.BytesIO(value)})()),\
+                 patch.object(cli.auth,'active_signed_snapshot') as verify:
+                with self.assertRaises(local.ReleaseError):cli.main()
+                verify.assert_not_called()
+
     def test_private_serve_rejects_missing_gate_before_reading_release(self):
         for value in (b'', b'START WITHOUT NEWLINE', b'OTHER\n'):
             with self.subTest(gate=value), patch.object(sys, 'stdin', type('Input', (), {'buffer': io.BytesIO(value)})()), \

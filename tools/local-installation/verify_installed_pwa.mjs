@@ -8,14 +8,15 @@ import {chromium} from '../../app/node_modules/playwright-core/index.mjs';
 const repository=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const root=path.resolve(process.argv[2]);
 const proof=JSON.parse(fs.readFileSync(path.join(root,'EVIDENCIAS/PAQUETES_FIRMADOS.json')));
-const cli=path.join(repository,'tools/local-installation/individual_cli.py');
+const cli=path.join(repository,'tools/local-installation/bootstrap_individual.py');
+const bootstrapPython=proof.bootstrap_python??proof.python;
 const result={synthetic_only:true,steps:[],errors:[],native_pwa:{status:'NOT_EXECUTED'}};
 let context,session,owned,manifestId,nativeInstalled=false;
 function select(artifact,command='activate'){
- return JSON.parse(execFileSync(proof.python,['-I','-B',cli,command,'--root',proof.installer_root,'--version',artifact.version],{encoding:'utf8',windowsHide:true}));
+ return JSON.parse(execFileSync(bootstrapPython,['-I','-B',cli,'--action',command,'--root',proof.installer_root,'--version',artifact.version],{encoding:'utf8',windowsHide:true}));
 }
 async function launch(){
- const child=spawn(proof.python,['-I','-B',cli,'serve','--root',proof.installer_root],{windowsHide:true,stdio:['ignore','pipe','pipe']});
+ const child=spawn(bootstrapPython,['-I','-B',cli,'--action','serve','--root',proof.installer_root],{windowsHide:true,stdio:['ignore','pipe','pipe']});
  let errors='';child.stderr.on('data',b=>{errors+=b.toString()});
  const info=await new Promise((resolve,reject)=>{
   const timer=setTimeout(()=>reject(new Error('server startup timeout: '+errors)),45000);

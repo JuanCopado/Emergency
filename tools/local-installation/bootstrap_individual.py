@@ -123,7 +123,27 @@ def run_existing(root,action,version=None):
     command=[str(verified_verifier(root)),'-I','-B',str(Path(__file__).with_name('individual_cli.py')),
              action,'--root',str(root)]
     if action!='serve':command+=['--version',version]
-    subprocess.run(command,check=True,env=environment())
+    if action=='serve':
+        command+=['--parent-gate']
+        supervise_serve(command)
+    else:subprocess.run(command,check=True,env=environment())
+
+def supervise_serve(command):
+    from backend_runtime import _WindowsChildJob
+    process=subprocess.Popen(command,stdin=subprocess.PIPE,env=environment(),
+        creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
+    job=None
+    try:
+        job=_WindowsChildJob(process) if os.name=='nt' else None
+        process.stdin.write(b'START\n');process.stdin.flush()
+        code=process.wait()
+        if code:raise subprocess.CalledProcessError(code,command)
+    finally:
+        if process.stdin and not process.stdin.closed:process.stdin.close()
+        try:process.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            process.kill();process.wait(timeout=5)
+        if job:job.close()
 
 def run_install(archive,signature,root,python,publisher,fingerprint):
     local.require(bool(re.fullmatch('[a-f0-9]{64}',fingerprint)),'Independent publisher fingerprint required')
