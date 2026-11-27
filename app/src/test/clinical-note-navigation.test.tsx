@@ -106,7 +106,7 @@ it('rearms a pending acceptance after navigation and ignores its late response',
   await act(async () => { resolve({note:accept.mock.calls[0]![0]}); await pending; });
   expect(screen.getByTestId('mcdt-review-card')).toHaveTextContent('Pendente');
   expect(screen.getByRole('button', { name: 'Aceitar' })).toBeEnabled();
-  expect(screen.getByLabelText('Informe oficial / extraído synthetic.txt')).toHaveValue('SYNTHETIC_REPORT');
+  expect(screen.getByLabelText('Relatório oficial / extraído synthetic.txt')).toHaveValue('SYNTHETIC_REPORT');
 });
 
 it('invalidates clinician review if the language changes while the note route is closed', async () => {
