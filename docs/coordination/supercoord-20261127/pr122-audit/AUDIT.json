@@ -1,0 +1,89 @@
+{
+  "artifact": "SEPARATE_CODEX_REVIEW_PR122",
+  "date": "2026-11-27",
+  "reviewer": "Codex coordination child; not Antigravity or an independent human clinical reviewer",
+  "candidate": {
+    "pr": 122,
+    "url": "https://github.com/JuanCopado/Emergency/pull/122",
+    "sha": "a625267c2aea5b23e1d517d59251eb3d4924856f",
+    "tree": "cf01aba0df5143ee6093618de13cba73e8d37c18",
+    "base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+    "tree_verified_via": "GitHub git/commits API, not inferred from a comment",
+    "changed_files_reviewed": 15
+  },
+  "verdict": "FAVORABLE_TECHNICAL_HISTORICAL_PROTAMINE_SCOPE_WITH_DOCUMENTARY_FOLLOWUP",
+  "findings": [],
+  "protamine": {
+    "owner_decision": "MED-RES-PROT-01 v1",
+    "product": "PROTAMINE_HOSPIRA_10",
+    "classification": "HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION",
+    "jurisdiction": "ES",
+    "runtime_enabled": false,
+    "historical_strict_limit_preserved": true,
+    "active_routes_unchanged_in_diff": true,
+    "automatic_replacement": false,
+    "scope_matches_original_and_owner_record": true
+  },
+  "own_checks": {
+    "full_changed_file_diff_review": true,
+    "new_documentary_validator_and_18_test_definitions_reviewed": true,
+    "linear_table_parser_reviewed": true,
+    "source_record_binding_and_strict_type_checks_reviewed": true,
+    "clinical_runtime_sources_routes_catalogs_not_changed_in_diff": true,
+    "preservation_receipt_12_expected_hashes_match_local_base_git_blobs": true,
+    "base_local_tree_equals_receiver_tree": true,
+    "numerical_or_clinical_tests_executed_by_this_reviewer": false,
+    "full_suites_executed_by_this_reviewer": false
+  },
+  "ci_at_single_observed_query": {
+    "sha": "a625267c2aea5b23e1d517d59251eb3d4924856f",
+    "security": {"run": 45959957685, "status": "in_progress", "conclusion": null},
+    "clinical": {"run": 45959957789, "status": "in_progress", "conclusion": null},
+    "app": {"run": 45959957750, "status": "in_progress", "conclusion": null},
+    "earlier_94a983b_gate_not_transferred": true,
+    "local_18_regressions_claim_attributed_to_executor_comment": true,
+    "local_18_regressions_independently_reexecuted": false
+  },
+  "cardiovascular_original_recovery": {
+    "proposal_drive_id": "140CfhtYK1EilimdiwmAWACsmRZdS_juf",
+    "proposal_bytes": 11634,
+    "proposal_sha256": "2d4d303c835779143d126b31917060e403f5aa7f1b5d86d5aef60b401ceaa036",
+    "acceptance_drive_id": "1xPyMd_ZxPhAPXc2EB0RQ5fKGniO454R3",
+    "acceptance_bytes": 404,
+    "acceptance_sha256": "10f5dcb68a6e02cae4341d3996fc95348befd305af9603a6627506bba21647ec",
+    "receipt_drive_id": "1DAppB2ulQKvDjNOmb9tdQiPNu6n6pv8p",
+    "receipt_bytes": 4710,
+    "receipt_sha256": "6ce1167b7de7724cff39b5eacc3cd66c470a3867a7f557f43ef302bb96889884",
+    "metadata_read_before_fetch": true,
+    "proposal_and_acceptance_connector_text_read": true,
+    "raw_stream_references_received_without_inline_base64": true,
+    "existing_local_original_bytes_used_without_reconstruction": true,
+    "existing_local_original_hashes_match_recovery_receipt_and_comment": true,
+    "original_rendered_text_not_original_markdown": true,
+    "timestamps_from_prior_record_not_independent_dom_clock": true,
+    "six_yes_in_exact_original_structural_scope_confirmed": true,
+    "receipt_of_original_no_longer_a_blocker": true,
+    "full_primary_source_reverification_or_clinical_implementation_completed": false,
+    "new_owner_vote_needed": false,
+    "coordination_comment": "https://github.com/JuanCopado/Emergency/pull/122#issuecomment-7212715237"
+  },
+  "documentary_followup": [
+    "Keep a625267 as an immutable reviewed snapshot; subsequent control documents should record that the original CARDIO proposals have now been received.",
+    "The validator and registry intentionally retain RECORDED_PENDING_ORIGINAL_FICHE/null in this snapshot; a later reviewed metadata version must distinguish receipt, scientific comparison and implementation.",
+    "Do not force IMPLEMENTED just to satisfy a test; current validation rejects that unsupported state.",
+    "Do not transplant numerical BP targets, jurisdiction-specific clevidipine data, or any unreviewed dose from the recovered proposal into runtime.",
+    "Complete exact-candidate CI and obtain any required distinct technical audit before integration."
+  ],
+  "composition": {
+    "pr121_tree": "74b50e9a83b65c4325304e438c1565bbac52f1f6",
+    "pr122_changed_paths_disjoint_from_pr121_changed_paths": true,
+    "composition_permitted_scope": "Prepare isolated candidate with preserved source SHAs; no protected-branch merge",
+    "combined_candidate_needs_its_own_qa_and_ci": true,
+    "possible_semantic_document_overlap": "Prior owner-decision TASK_CONTROL status is a dated snapshot; current matrix must reconcile newly received PR122 and original CARDIO evidence."
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "new_images_or_patient_data_copied": false,
+  "runtime_modified_by_reviewer": false,
+  "new_antigravity_transmission_or_audit_claimed": false
+}

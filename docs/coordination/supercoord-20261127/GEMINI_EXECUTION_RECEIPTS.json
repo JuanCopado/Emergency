@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-27",
+  "recorder": "Codex coordination through visible browser DOM",
+  "candidate_unchanged": "282863761b1d4e80f5afc3347bbc54b969adf350",
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "prior_final_documentary_review": {
+    "session_url": "https://gemini.google.com/app/b69d880d472636da?hl=es_419",
+    "response_dom_id": "model-response-message-contentr_04d32d259a966ea3",
+    "visible_text_characters": 21952,
+    "verdict": "FAVORABLE_ALCANCE_DOCUMENTAL",
+    "received": {
+      "V3_parts": 15,
+      "focal_parts": 8,
+      "unique_module_ids": 37
+    },
+    "existing_work_receipts": [
+      "science/DICTAMEN_CIENTIFICO_FINAL_RECIBIDO.md",
+      "science/CIERRE_LECTURA_FINAL.json"
+    ],
+    "integral_primary_review_claimed": false,
+    "whole_module_clinical_validation_claimed": false,
+    "new_hashes_by_gemini_claimed": false
+  },
+  "new_dispatches": [
+    {
+      "id": "B-FOCAL-NEW-01",
+      "agent": "Gemini web, existing scientific session",
+      "session_url": "https://gemini.google.com/app/b69d880d472636da?hl=es_419",
+      "transmitted": true,
+      "transmission_evidence": "Own user message visibly present after DOM fill and send click",
+      "completed": true,
+      "completion_evidence": "Full visible response and no Stop response control",
+      "response_dom_id": "model-response-message-contentr_9fc3a430f5c9115e",
+      "visible_text_characters": 10997,
+      "units": [
+        "potassium-emergencies: adult IV hypokalaemia product scope",
+        "orthopedic-emergencies: suspected scaphoid fracture imaging",
+        "ent-emergencies: epistaxis first measures and anticoagulation boundary",
+        "urologic-emergencies: Fournier source control",
+        "hematology-oncology: rasburicase G6PD contraindication"
+      ],
+      "codex_primary_audit": "science/PRIMARY_FOCAL_AUDIT.json",
+      "scope_limits": "Separate first Codex audit obtained three direct primaries and two primary indexed fragments. Coordinator then directly read NICE1.2.3 and PubMedabstractKAS in Chrome, giving five direct focal anchors. No integral reviews, universal product extrapolation or clinical implementation."
+    },
+    {
+      "id": "C-LICENSE-NEW-01",
+      "agent": "Gemini web, separate rights session",
+      "session_url": "https://gemini.google.com/app/d1daf4ef68f7df05?hl=es_419",
+      "transmitted": true,
+      "transmission_evidence": "Own user message visibly present after DOM fill and send click",
+      "completed": true,
+      "completion_evidence": "Full visible response and no Stop response control",
+      "response_dom_id": "model-response-message-contentr_10998e0b60834e10",
+      "visible_text_characters": 14355,
+      "scope": "Eight SCIN and one Commons asset, public documentary metadata and URLs only",
+      "result": "Public license evidence and dataset-level consent provenance supported with qualifications; no third-party rights warranty, pixel audit or bank-wide privacy clearance",
+      "qualifications": [
+        "SCIN is AS-IS and excludes privacy/personality rights from its grant",
+        "SCIN permits sharing under conditions; product/dataset restrictions here originate in project governance, not a blanket SCIN contractual ban",
+        "Commons uploader CC0 declaration does not prove subject consent or author=subject",
+        "Gemini read README main and did not independently confirm fixed-commit parity; Codex fixed-commit evidence remains separately attributed"
+      ],
+      "images_sent": 0,
+      "restricted_documents_sent": 0,
+      "new_owner_votes": 0
+    },
+    {
+      "id": "B-FOCAL-NEW-02",
+      "agent": "Gemini web, existing scientific session",
+      "session_url": "https://gemini.google.com/app/b69d880d472636da?hl=es_419",
+      "transmitted": true,
+      "transmission_evidence": "Own continuation message visibly present with Stop response control",
+      "completed": true,
+      "requested_scope": "Pending canonical contexts for testicular torsion, complicated urinary retention, haematuria with clots and two existing individual toxicology contexts; substitute only an existing ophthalmology gap if no canonical toxicology unit exists",
+      "runtime_effect_authorized": false,
+      "response_dom_id": "model-response-message-contentr_a0b8a6afefa04979",
+      "visible_text_characters": 12700,
+      "completion_evidence": "Complete rendered response including closing paragraph collected by coordinator",
+      "units": [
+        "annotation:24 testicular torsion",
+        "annotation:25 complicated urinary retention",
+        "annotation:28 haematuria with clot retention",
+        "context:35:22 high-dose methotrexate delayed elimination",
+        "context:35:32 methaemoglobinaemia"
+      ],
+      "verification_level": "PUBLIC_INDEXED_FOCAL_EXCERPTS_ONLY_NOT_DIRECT_INTEGRAL_READING",
+      "result": "Two EMA focal access gaps resolved; Proveblue universal 4 mg/kg summary rejected as subgroup-dependent. Three urology units retain indexed-focal scope. No runtime changes.",
+      "codex_followup": "science/B2_EMA_FOCAL_AUDIT.json: direct official EMA ES/PT Proveblue and EN Voraxaze focal reading completed"
+    }
+  ],
+  "antigravity": {
+    "new_transmission_confirmed": false,
+    "new_audit_received": false,
+    "native_input_blocker": "Coordinate input geometry unavailable despite readable accessibility state",
+    "web_fallback_blocker": "Local HTTPS certificate authority invalid",
+    "certificate_warning_bypassed": false,
+    "prior_audit_not_transferred_to_new_candidate": true
+  }
+}

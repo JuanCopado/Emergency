@@ -1,0 +1,414 @@
+{
+  "artifact": "PRIMARY_LICENSE_ADDENDUM_9_ASSETS",
+  "created_utc": "2026-11-27T07:09:08.339974+00:00",
+  "author": "Codex; not Gemini; not a human independent clinical/legal reviewer",
+  "published_candidate_untouched": "PR12174b50 (identity supplied by root; this addendum does not modify or audit that commit)",
+  "status": "PRIMARY_DOCUMENTARY_VERIFICATION_AND_FIELD_PROPOSALS_ONLY",
+  "sources": [
+    {
+      "id": "SCIN-LICENSE",
+      "url": "https://github.com/google-research-datasets/scin/blob/b5a498233ef23b24c2f9fdb41b53e162c6eeb98d/LICENSE",
+      "version": "b5a498233ef23b24c2f9fdb41b53e162c6eeb98d",
+      "git_blob_sha": "b73abe395e1a01467c215f456fe1b95f80a12a49",
+      "retrieval": "GitHub connector fetched exact revision successfully; web exact revision disabled, current main also readable",
+      "locators": [
+        "Section2(a)(1):reproduce/share/adapt",
+        "Section2(a)(4):technical formats",
+        "Section2(b)(1):other rights limitation",
+        "Section3(a):attribution notices changes license/disclaimer",
+        "Section3(b):no reidentification/relinking"
+      ],
+      "finding": "Copyright reuse, sharing and adaptation are licensed subject to conditions. Privacy/personality rights are not generally licensed. This is not a clinical validity or unrestricted consent certificate.",
+      "local_prior_license_identity": {
+        "raw_git_blob_sha": "b73abe395e1a01467c215f456fe1b95f80a12a49",
+        "lf_normalized_git_blob_sha": "b73abe395e1a01467c215f456fe1b95f80a12a49",
+        "matches_exact_primary_blob": true
+      }
+    },
+    {
+      "id": "SCIN-README",
+      "url": "https://github.com/google-research-datasets/scin/blob/b5a498233ef23b24c2f9fdb41b53e162c6eeb98d/README.md",
+      "version": "b5a498233ef23b24c2f9fdb41b53e162c6eeb98d",
+      "git_blob_sha": "c621e9c9c0e2a95735ac188bb0c20c633a5960c6",
+      "retrieval": "GitHub connector exact revision lines1-20",
+      "locators": [
+        "SCIN Dataset opening paragraph"
+      ],
+      "finding": "Source describes voluntary consented donation and intended health education/research use."
+    },
+    {
+      "id": "SCIN-PUBLISHER-PRIVACY",
+      "url": "https://research.google/blog/scin-a-new-resource-for-representative-dermatology-images/",
+      "version": "Published2024-03-19; observed2026-11-27",
+      "locators": [
+        "Dataset composition paragraphs1-2, lines115-119",
+        "Crowdsourcing method final privacy paragraph, lines140-143"
+      ],
+      "finding": "Publisher reports informed consent, source study IRB approval and privacy curation. Contributors were warned of reidentification risk; source redaction/cropping, duplicate searches and metadata reduction are described. Perfect deidentification is not guaranteed. These are dataset-level provenance facts, not individual consent forms or Emergency study authorization."
+    },
+    {
+      "id": "COMMONS-FILE",
+      "url": "https://commons.wikimedia.org/wiki/File:Scabies_on_an_adult_hand_01.jpg",
+      "version": "Pageoldid1070322858; page last edited2025-08-11; original upload2024-04-14",
+      "permanent_url": "https://commons.wikimedia.org/w/index.php?title=File:Scabies_on_an_adult_hand_01.jpg&oldid=1070322858",
+      "retrieval": "Current official page readable and canonical permanent revision shown; direct oldid fetch inaccessible",
+      "locators": [
+        "Summary lines116-123",
+        "Licensing lines124-130",
+        "File history lines131-137",
+        "Metadata lines144-186"
+      ],
+      "finding": "Uploader Taofeeq Abdulkareem declares own work and CC0. No subject consent declaration was found in this file page. Authorship is not proof the photographer is the depicted subject."
+    },
+    {
+      "id": "CC0-LEGALCODE",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en",
+      "version": "CC0 1.0 Universal",
+      "locators": [
+        "Sections1-3",
+        "Section4(c) limitations and third-party rights"
+      ],
+      "finding": "Affirmer waives rights they hold and offers a fallback license. Other persons rights and necessary consents are not cleared by CC0. Attribution is retained here for provenance, not invented as a CC0 requirement."
+    }
+  ],
+  "counts": {
+    "cases": 9,
+    "assets": 9,
+    "copyright_fields_verified": 9,
+    "source_dataset_consent_provenance_documented": 8,
+    "individual_consent_forms_examined": 0,
+    "new_image_acquisitions": 0,
+    "external_image_uploads": 0,
+    "physical_original_hashes_repeated": 0,
+    "new_votes_requested": 0,
+    "runtime_changes": 0,
+    "published_overlay_changes": 0
+  },
+  "proposals": [
+    {
+      "asset_id": "DERMA_SCIN_-3768594983498155183",
+      "case_id": "SCIN_CASE_-3768594983498155183",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Relieves cutáneos visibles en primer plano; encuadre y enfoque suficientes para consulta contextual. Sin rostro ni identificador legible observado. No establece urticaria clínica ni anafilaxia."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA_SCIN_3083550471820565612",
+      "case_id": "SCIN_CASE_3083550471820565612",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Extremidad en primer plano, textura visible; iluminación lateral desigual y sombras. Sin rostro ni identificador legible observado. eMST8/8 procede exclusivamente del etiquetado."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA_SCIN_2600794538114860588",
+      "case_id": "SCIN_CASE_2600794538114860588",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Antebrazo y área de interés visibles con fondo doméstico; enfoque suficiente, luz no calibrada. No se establece exposición causal ni alérgeno."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA_SCIN_3730083867318674656",
+      "case_id": "SCIN_CASE_3730083867318674656",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Extremidad con borde trazado mediante rotulador original; detalle visible. La marca introduce pista contextual y no se elimina. Diferencial fuente celulitis0.67/vasculitis0.33, sin confirmación independiente."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA_SCIN_579682856480983647",
+      "case_id": "SCIN_CASE_579682856480983647",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Zona localizada con relieve/eritema visible en primer plano; detalle moderado, leve desenfoque y borde de ropa/cuello parcial sin rostro completo. No permite demostrar colección o fluctuación."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA_SCIN_3689862615752795245",
+      "case_id": "SCIN_CASE_3689862615752795245",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Dorso de mano visible y zona costrosa. Máscara negra ya presente en el archivo SCIN; conservada intacta. Etiqueta foliculitis no confirma etiología ni excluye otros diagnósticos."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA_SCIN_-3518984822601104202",
+      "case_id": "SCIN_CASE_-3518984822601104202",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Áreas cutáneas bien enfocadas; sin rostro/identificador legible observado. Etiqueta Drug Rash de origen; duración autorreferida1–3meses, no se demuestra reacción aguda ni fármaco causal."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA_SCIN_-3902972343084754168",
+      "case_id": "SCIN_CASE_-3902972343084754168",
+      "source_evidence_refs": [
+        "SCIN-LICENSE",
+        "SCIN-README",
+        "SCIN-PUBLISHER-PRIVACY"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_SCIN_CONDITIONAL_REUSE",
+        "privacy.source_consent_provenance": "SOURCE_DATASET_CONSENT_DOCUMENTED",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "SOURCE_DATASET_CURATION_DOCUMENTED",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; inspección técnica, no revisión médica humana",
+          "original_opened": true,
+          "observations": "Extremidad con textura visible; fondo interior de vehículo, luz no calibrada. Sin texto identificativo legible observado. No hay control experimental de iluminación."
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": null,
+        "admissibility.local_consultation_development_proposal": "ELIGIBLE_WITH_EXISTING_OWNER_SCOPE_AND_SOURCE_SAFEGUARDS",
+        "admissibility.copyright_only_redistribution": "PERMITTED_IF_LICENSE_CONDITIONS_MET",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    },
+    {
+      "asset_id": "DERMA-COMMONS-5de1c08f376a",
+      "case_id": "COMMONS_CASE_5de1c08f376aedda",
+      "source_evidence_refs": [
+        "COMMONS-FILE",
+        "CC0-LEGALCODE"
+      ],
+      "fields_to_add_or_refine_only_after_review": {
+        "copyright.primary_license_status": "VERIFIED_CC0_1_0",
+        "privacy.source_consent_provenance": "SUBJECT_CONSENT_NOT_DOCUMENTED_ON_SOURCE_PAGE",
+        "privacy.individual_consent_form_examined": false,
+        "privacy.source_deidentification_provenance": "NOT_ASSERTED_BY_SOURCE",
+        "privacy.known_asset_specific_direct_identifier_obstacle_from_available_records": false,
+        "privacy.available_prior_pixel_assessment": {
+          "actor": "Codex IA; no revisión clínica humana",
+          "observations": "Mano/dedos y fondo de teclado, sin rostro o texto identificativo observado en las dosframes. Zonas brillantes y detalle irregular.",
+          "frames_reviewed": [
+            {
+              "index": 0,
+              "dimensions": [
+                1708,
+                3672
+              ],
+              "mode": "RGB",
+              "strict_decode": true,
+              "visual_AI_reviewed": true,
+              "visible_direct_identifiers_observed": false
+            },
+            {
+              "index": 1,
+              "dimensions": [
+                854,
+                1836
+              ],
+              "mode": "L",
+              "strict_decode": true,
+              "visual_AI_reviewed": true,
+              "visible_direct_identifiers_observed": false
+            }
+          ],
+          "human_privacy_review": "PENDING"
+        },
+        "privacy.GPS_in_prior_checked_metadata": false,
+        "privacy.available_prior_metadata_review": {
+          "EXIF_present": true,
+          "XMP_present": true,
+          "ICC_present": true,
+          "MPF_present": true,
+          "GPSInfo_in_checked_EXIF": false,
+          "GPS_or_location_named_fields_in_checked_XMP": false,
+          "metadata_removed": false,
+          "private_values_or_coordinates_copied": false,
+          "scope": "Inspección técnica, no certificado exhaustivo de anonimato. Fechas/software/cámara originales se conservan en la fuente."
+        },
+        "admissibility.local_consultation_development_proposal": "COPYRIGHT_ELIGIBLE_LOCAL_SCOPE_PRIVACY_CONTEXT_REVIEW_REMAINS",
+        "admissibility.copyright_only_redistribution": "CC0_PERMITS_NO_ADDITIONAL_COPYRIGHT_PERMISSION_REQUIRED",
+        "admissibility.public_product_release": "NOT_DECIDED_BY_THIS_ADDENDUM_CONSUMER_PURPOSE_AND_PRIVACY_CONTEXT_REQUIRED",
+        "admissibility.independent_validation_dataset": "INELIGIBLE_DEVELOPMENT_EXPOSED",
+        "admissibility.unrestricted_consent_confirmed": false,
+        "runtime_enabled": false
+      },
+      "scope_limit_ref": "COMMON_LIMITS"
+    }
+  ],
+  "common_limits": {
+    "id": "COMMON_LIMITS",
+    "copyright_and_consent_are_distinct": true,
+    "source_consent_is_not_absent_merely_because_individual_forms_are_not_public": true,
+    "source_level_evidence_does_not_guarantee_universal_anonymity": true,
+    "local_consultation_scope": "For8SCINassets the source evidence supports removing an undifferentiated missing-consent/copyright blocker for already-approved local education/development, while retaining no-reidentification, preserved source redactions and context safeguards. No new blanket individual signature requirement is invented.",
+    "commons_scope": "Copyright closed. No explicit subject consent attested; prior two-frame assessment found no direct identifiers/GPS. This supports a narrow local-risk review, not a blanket claim of absent consent, universal prohibition or full privacy clearance.",
+    "distribution_scope": "Copyright permission is documented separately; publication in Emergency or transfer to reviewers needs the actual consumer/purpose/privacy context, not a repeat copyright acquisition.",
+    "independent_evaluation": "Development exposure and absent independent adjudication remain regardless of licensing.",
+    "no_reidentification_or_relinking": true,
+    "new_clinical_validation": false
+  },
+  "verification": {
+    "assets_9_unique": true,
+    "scin_8": true,
+    "commons_1": true,
+    "overlay_unchanged": true
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "historical_parent_overlay_sha256": "6540e7e6c88ef9ff07868d641ae0cf77206341d34892ddd42828ff2f3cb915e7",
+  "current_parent_overlay_sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599"
+}

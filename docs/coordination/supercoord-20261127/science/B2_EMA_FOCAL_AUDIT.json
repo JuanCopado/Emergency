@@ -1,0 +1,74 @@
+{
+  "artifact": "B2_EMA_FOCAL_PRODUCT_SAFETY_AUDIT",
+  "date": "2026-11-27",
+  "executor": "Codex separate primary documentary check",
+  "scope": "Specified SmPC sections only; not integral guideline/product review or a prescription",
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "runtime_changed": false,
+  "last_checked_changed": false,
+  "numerical_tests_or_ci_run": false,
+  "patient_data_processed": false,
+  "products": [
+    {
+      "product": "Methylthioninium chloride Proveblue 5 mg/mL",
+      "portal": "https://www.ema.europa.eu/en/medicines/human/EPAR/methylthioninium-chloride-proveblue",
+      "ema_portal_file_updated": "2025-12-19",
+      "file_timestamp_is_not_sm_pc_revision_date": true,
+      "clinical_source": {
+        "url": "https://www.ema.europa.eu/es/documents/product-information/methylthioninium-chloride-proveblue-epar-product-information_es.pdf",
+        "language": "ES",
+        "access": "OFFICIAL_PUBLIC_PDF_DIRECT_FOCAL_READ",
+        "locators": ["4.1-4.2 printed pages 2-3", "4.3-4.4 printed pages 4-5", "4.5 printed page 5"],
+        "retrieval_ref": "turn727070611view0"
+      },
+      "pharmaceutical_source": {
+        "url": "https://www.ema.europa.eu/pt/documents/product-information/methylthioninium-chloride-proveblue-epar-product-information_pt.pdf",
+        "language": "PT",
+        "access": "OFFICIAL_PUBLIC_PDF_DIRECT_FOCAL_READ",
+        "locators": ["6.2", "6.6"],
+        "retrieval_ref": "turn227884992view0"
+      },
+      "discrepancy": "A universal cumulative ceiling of 4 mg/kg is unsupported.",
+      "cumulative_limits_mg_per_kg": {
+        "general_adult_label": 7,
+        "aniline_or_dapsone": 4,
+        "renal_age_over_3_months_eGFR_30_59": 2,
+        "renal_age_over_3_months_eGFR_15_29_single_dose": 1,
+        "eGFR_units": "mL/min/1.73m2"
+      },
+      "renal_and_age_limits": "At age <=3 months with renal impairment, data are absent: caution and lower cumulative exposure (<0.5 mg/kg) may be considered. End-stage renal disease with/without dialysis lacks established safety/efficacy.",
+      "indication_boundary": "Acute symptomatic medicine/chemical-induced methaemoglobinaemia; newborn/infant dosing differs.",
+      "contraindications": ["G6PD deficiency", "NADPH reductase deficiency", "nitrite-induced methaemoglobinaemia during cyanide treatment", "chlorate poisoning", "active-substance/thiazine-dye hypersensitivity"],
+      "interaction_boundary": "Serotonergic medicines/opioids carry severe serotonin-syndrome risk; avoid combination, with specific unavoidable-use precautions in 4.5.",
+      "pharmaceutical_boundaries": "No mixing except specified exceptions; sodium chloride 0.9% reduces solubility. Optional dilution: 50 mL glucose 5%. Single use; particle/precipitate inspection.",
+      "access_limits": "EN and subsequent ES requests were rate-limited (429). ES clinical and PT pharmaceutical focal sections were obtained; no integral translation-parity claim.",
+      "runtime_acceptance": "DO_NOT_IMPORT_NUMERICAL_PARAMETERS_OR_CHANGE_PRODUCT_SELECTION"
+    },
+    {
+      "product": "Voraxaze 1000 units powder for solution for injection",
+      "portal": "https://www.ema.europa.eu/en/medicines/human/EPAR/voraxaze",
+      "ema_portal_index_file_updated": "2025-12-05",
+      "file_timestamp_is_not_sm_pc_revision_date": true,
+      "source": {
+        "url": "https://www.ema.europa.eu/en/documents/product-information/voraxaze-epar-product-information_en.pdf",
+        "language": "EN",
+        "access": "OFFICIAL_PUBLIC_PDF_DIRECT_FOCAL_READ",
+        "locators": ["4.1", "4.2 Posology/Specific populations/Method", "4.3", "4.4 assay interference", "4.5", "6.2", "6.6"],
+        "retrieval_refs": ["turn309227838view1", "turn855854618view6", "turn981428516view3"]
+      },
+      "indication_boundary": "Adults and children >=28 days with delayed methotrexate elimination or toxicity risk; timing/thresholds depend on MTX regimen and protocol.",
+      "label_anchor": "Single 50 units/kg IV over 5 minutes. No recommended renal dose adjustment; no data below 28 days.",
+      "timing_boundary": "Optimal delayed-elimination window 48-60 hours from high-dose MTX start is not an absolute loss-of-effect cutoff.",
+      "folinic_boundary": "Separate folinic acid by at least two hours before/after glucarpidase; intracellular rescue remains necessary.",
+      "assay_boundary": "DAMPA distorts immunoassays; HPLC is preferred. Forty-eight hours is not a universal guarantee of reliable immunoassay results; interference can persist longer.",
+      "contraindication": "Active-substance/excipient hypersensitivity; monitor allergic reactions and retain MTX/renal surveillance and supportive care.",
+      "pharmaceutical_boundaries": "Reconstitute a vial with 1 mL sterile sodium chloride 0.9%; no further dilution. Flush line before/after. No mixing without compatibility data.",
+      "not_transcribed": "Regimen-dependent MTX intervention tables and additional folate interactions remain at exact source locators; no universal table reconstructed.",
+      "runtime_acceptance": "DOCUMENTARY_PRODUCT_GAP_RESOLVED_ONLY_NO_LOCAL_PREPARATION_OR_AVAILABILITY_AUTHORIZATION"
+    }
+  ],
+  "overall_verdict": "PROVEBLUE_UNIVERSAL_4MGKG_CLAIM_REQUIRES_CORRECTION;VORAXAZE_FOCAL_PRIMARY_SOURCE_OBTAINED",
+  "legal_access": "Only official public EMA product information; no borrowed/restricted document uploaded and no full PDF redistributed",
+  "implementation_dependency": "Executor must reconcile these documentary qualifications with existing canonical contexts before proposing any clinical delta; existing implementation tasks are not duplicated"
+}

@@ -1,0 +1,574 @@
+{
+  "artifact": "PRIMARY_LICENSE_ADDENDUM_REMAINING_15_ASSETS",
+  "author": "Codex documentary verification; not Gemini or human independent clinical adjudication",
+  "created_utc": "2026-11-27T07:36:34.317991+00:00",
+  "scope": "Copyright permission evidence only; internal governance and unresolved privacy remain separate. No guarantee of title, third-party rights or fitness.",
+  "counts": {
+    "assets": 15,
+    "cases": 14,
+    "CDC": 9,
+    "PMC_figures": 5,
+    "Frontiers_figures": 1,
+    "copyright_permissions_documented": 15,
+    "new_primary_image_acquisitions": 0,
+    "prior_CDC_primary_pages_reused": 7,
+    "prior_PMC_primary_XMLs_reused": 4,
+    "new_focal_CDC_web_pages": 2,
+    "new_focal_Frontiers_web_page": 1,
+    "global_privacy_clearances": 0,
+    "new_original_hashes": 0
+  },
+  "assets": [
+    {
+      "asset_id": "DERMA_CDC_PHIL_5153",
+      "case_id": "CASE_CDC_PHIL_5153",
+      "source": "CDC_PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=5153",
+        "method": "PRIOR_OFFICIAL_PRIMARY_HTML_REUSED_ATTRIBUTED",
+        "version": "Archived2026-11-26; no new download",
+        "localizer": "ID#5153; Copyright Restrictions; Content Provider(s)",
+        "metadata_document_sha256": "8fcd156d8e3efb2eed8844b8655ea32ddfd4ba30adce376baae1b2223c434719",
+        "evidence_document": "CDC_PHIL_5153_ficha.html"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "Source: CDC/PHIL, ID5153; CDC. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=5153.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_6478",
+      "case_id": "CASE_CDC_PHIL_6478",
+      "source": "CDC_PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=6478",
+        "method": "PRIOR_OFFICIAL_PRIMARY_HTML_REUSED_ATTRIBUTED",
+        "version": "Archived2026-11-26; no new download",
+        "localizer": "ID#6478; Copyright Restrictions; Content Provider(s)",
+        "metadata_document_sha256": "c7c328f0e49f660f9333c5c02323f22de2d337acda90baf1e029c46d3109f164",
+        "evidence_document": "CDC_PHIL_6478_ficha.html"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "Source: CDC/PHIL, ID6478; CDC/ Dr. Dancewiez. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=6478.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_6482",
+      "case_id": "CASE_CDC_PHIL_6482",
+      "source": "CDC_PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=6482",
+        "method": "PRIOR_OFFICIAL_PRIMARY_HTML_REUSED_ATTRIBUTED",
+        "version": "Archived2026-11-26; no new download",
+        "localizer": "ID#6482; Copyright Restrictions; Content Provider(s)",
+        "metadata_document_sha256": "12328bb36a4866eab148fbd5ffeac30b770f32b79269a30ea1649bda6530de48",
+        "evidence_document": "CDC_PHIL_6482_ficha.html"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "Source: CDC/PHIL, ID6482; CDC/ Dr. Thomas Sellers, Emory University. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=6482.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_24379",
+      "case_id": "CASE_CDC_PHIL_24379",
+      "source": "CDC_PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=24379",
+        "method": "PRIOR_OFFICIAL_PRIMARY_HTML_REUSED_ATTRIBUTED",
+        "version": "Archived2026-11-26; no new download",
+        "localizer": "ID#24379; Copyright Restrictions; Content Provider(s)",
+        "metadata_document_sha256": "013e51c3845dc536cada9a9cd1a0b5c5601d3640d2ea83c6a0e2a060db8efe39",
+        "evidence_document": "CDC_PHIL_24379_ficha.html"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "Source: CDC/PHIL, ID24379; CDC. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=24379.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_28632",
+      "case_id": "CASE_CDC_PHIL_28632",
+      "source": "CDC_PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=28632",
+        "method": "PRIOR_OFFICIAL_PRIMARY_HTML_REUSED_ATTRIBUTED",
+        "version": "Archived2026-11-26; no new download",
+        "localizer": "ID#28632; Copyright Restrictions; Content Provider(s)",
+        "metadata_document_sha256": "56c1982d82489bcc8df87e1ed48147c6bd3a669be32c099ebe3199d9fee74910",
+        "evidence_document": "CDC_PHIL_28632_ficha.html"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "Source: CDC/PHIL, ID28632; Lauren Bishop. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=28632.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_1337",
+      "case_id": "CASE_CDC_PHIL_1337",
+      "source": "CDC_PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=1337",
+        "method": "PRIOR_OFFICIAL_PRIMARY_HTML_REUSED_ATTRIBUTED",
+        "version": "Archived2026-11-26; no new download",
+        "localizer": "ID#1337; Copyright Restrictions; Content Provider(s)",
+        "metadata_document_sha256": "6e5104b6c0f27293bcc6afc103cbb8ae836fef469c5a135b7bf0879bed5b34eb",
+        "evidence_document": "CDC_PHIL_1337_ficha.html"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "Source: CDC/PHIL, ID1337; CDC/ Mr. Gust. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=1337.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_2332",
+      "case_id": "CASE_CDC_PHIL_2332",
+      "source": "CDC_PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=2332",
+        "method": "PRIOR_OFFICIAL_PRIMARY_HTML_REUSED_ATTRIBUTED",
+        "version": "Archived2026-11-26; no new download",
+        "localizer": "ID#2332; Copyright Restrictions; Content Provider(s)",
+        "metadata_document_sha256": "4f841adeda3f571dbe4bbebdfc994e00fb28c5460ca2efa6201d7510124bb426",
+        "evidence_document": "CDC_PHIL_2332_ficha.html"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "Source: CDC/PHIL, ID2332; CDC/Dr. Philip S. Brachman. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=2332.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_PMC7176330_FIG2",
+      "case_id": "CASE_PMC7176330",
+      "source": "PMC_OPEN_ACCESS",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_CC_BY",
+      "license": "CC BY3.0",
+      "primary_evidence": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7176330/",
+        "method": "PRIOR_OFFICIAL_PMC_PRIMARY_XML_REUSED_FOCAL_PERMISSIONS_AND_FIGURE_CHECK",
+        "version": 1,
+        "localizer": "article/front/article-meta/permissions/license; fig[@id=\"FIG2\"]",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "evidence_document": "PMC7176330_PMC7176330.xml",
+        "metadata_document_sha256": "c5fc1ba121751f2fddc99fdfa6ee5064be558285afe41a30429d763f41a7b9d6",
+        "third_party_credit_exclusion_found_in_selected_figure": false
+      },
+      "conditions": [
+        "Credit original author and source/figure.",
+        "Link applicable license; indicate changes when applicable.",
+        "Do not imply endorsement; retain figure annotations and diagnostic limitations."
+      ],
+      "attribution_as_previously_recorded": "Dutt Jonathan; Sapra Amit; Sheth-Dutt Pooja; Bhandari Priyanka; Gupta Supriya; Stevens-Johnson Syndrome: A Perplexing Diagnosis; Cureus. 2020 Mar 23;12(3):e7374. doi: 10.7759/cureus.7374; Figure FIG2; https://creativecommons.org/licenses/by/3.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_PMC7176330_FIG3",
+      "case_id": "CASE_PMC7176330",
+      "source": "PMC_OPEN_ACCESS",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_CC_BY",
+      "license": "CC BY3.0",
+      "primary_evidence": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7176330/",
+        "method": "PRIOR_OFFICIAL_PMC_PRIMARY_XML_REUSED_FOCAL_PERMISSIONS_AND_FIGURE_CHECK",
+        "version": 1,
+        "localizer": "article/front/article-meta/permissions/license; fig[@id=\"FIG3\"]",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "evidence_document": "PMC7176330_PMC7176330.xml",
+        "metadata_document_sha256": "c5fc1ba121751f2fddc99fdfa6ee5064be558285afe41a30429d763f41a7b9d6",
+        "third_party_credit_exclusion_found_in_selected_figure": false
+      },
+      "conditions": [
+        "Credit original author and source/figure.",
+        "Link applicable license; indicate changes when applicable.",
+        "Do not imply endorsement; retain figure annotations and diagnostic limitations."
+      ],
+      "attribution_as_previously_recorded": "Dutt Jonathan; Sapra Amit; Sheth-Dutt Pooja; Bhandari Priyanka; Gupta Supriya; Stevens-Johnson Syndrome: A Perplexing Diagnosis; Cureus. 2020 Mar 23;12(3):e7374. doi: 10.7759/cureus.7374; Figure FIG3; https://creativecommons.org/licenses/by/3.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_PMC11585283_FIG1",
+      "case_id": "CASE_PMC11585283",
+      "source": "PMC_OPEN_ACCESS",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_CC_BY",
+      "license": "CC BY4.0",
+      "primary_evidence": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11585283/",
+        "method": "PRIOR_OFFICIAL_PMC_PRIMARY_XML_REUSED_FOCAL_PERMISSIONS_AND_FIGURE_CHECK",
+        "version": 1,
+        "localizer": "article/front/article-meta/permissions/license; fig[@id=\"FIG1\"]",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "evidence_document": "PMC11585283_PMC11585283.xml",
+        "metadata_document_sha256": "0a25a1c9475c94a8c7ef42a6fd9c9e4462f7abdb65ef75ba4ca0d9e439ca0079",
+        "third_party_credit_exclusion_found_in_selected_figure": false
+      },
+      "conditions": [
+        "Credit original author and source/figure.",
+        "Link applicable license; indicate changes when applicable.",
+        "Do not imply endorsement; retain figure annotations and diagnostic limitations."
+      ],
+      "attribution_as_previously_recorded": "Jayakumar Anjali; S Harikrishnan; Philip Tomy; Jomey Meenu Rose; Leflunomide-Induced Drug Reaction With Eosinophilia and Systemic Symptoms: A Diagnostic Dilemma; Cureus. 2024 Oct 24;16(10):e72287. doi: 10.7759/cureus.72287; Figure FIG1; https://creativecommons.org/licenses/by/4.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_PMC8203330_fig1",
+      "case_id": "CASE_PMC8203330",
+      "source": "PMC_OPEN_ACCESS",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_CC_BY",
+      "license": "CC BY4.0",
+      "primary_evidence": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8203330/",
+        "method": "PRIOR_OFFICIAL_PMC_PRIMARY_XML_REUSED_FOCAL_PERMISSIONS_AND_FIGURE_CHECK",
+        "version": 1,
+        "localizer": "article/front/article-meta/permissions/license; fig[@id=\"fig1\"]",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "evidence_document": "PMC8203330_PMC8203330.xml",
+        "metadata_document_sha256": "ca9dfd3455dc31f9b31b9c29c0d1700a26c97421f9991b689e564f8132d235e0",
+        "third_party_credit_exclusion_found_in_selected_figure": false
+      },
+      "conditions": [
+        "Credit original author and source/figure.",
+        "Link applicable license; indicate changes when applicable.",
+        "Do not imply endorsement; retain figure annotations and diagnostic limitations."
+      ],
+      "attribution_as_previously_recorded": "Zadroga John A.; Mogulla Vanajakshi; Grant Christopher; Jevtic Djordje; Virata Andrew; Dumic Igor; The Many Faces of Purpura: Vancomycin-Induced Leukocytoclastic Vasculitis; Case Rep Infect Dis. 2021 Jun 4;2021:9932425. doi: 10.1155/2021/9932425; Figure fig1; https://creativecommons.org/licenses/by/4.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_PMC11619809_FIG1",
+      "case_id": "CASE_PMC11619809",
+      "source": "PMC_OPEN_ACCESS",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_CC_BY",
+      "license": "CC BY4.0",
+      "primary_evidence": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11619809/",
+        "method": "PRIOR_OFFICIAL_PMC_PRIMARY_XML_REUSED_FOCAL_PERMISSIONS_AND_FIGURE_CHECK",
+        "version": 1,
+        "localizer": "article/front/article-meta/permissions/license; fig[@id=\"FIG1\"]",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "evidence_document": "PMC11619809_PMC11619809.xml",
+        "metadata_document_sha256": "710d1c39dd844fe012ea068143fd58b4bf830dca288b2edbeb60307f641f6230",
+        "third_party_credit_exclusion_found_in_selected_figure": false
+      },
+      "conditions": [
+        "Credit original author and source/figure.",
+        "Link applicable license; indicate changes when applicable.",
+        "Do not imply endorsement; retain figure annotations and diagnostic limitations."
+      ],
+      "attribution_as_previously_recorded": "Posner Kevin M; Bakus Cassandra; Sodha Samir; Rapid Healing of Necrotizing Fasciitis Using the Kerecis Fish Skin Xenograft: A Clinical Case Report; Cureus. 2024 Nov 5;16(11):e73060. doi: 10.7759/cureus.73060; Figure FIG1; https://creativecommons.org/licenses/by/4.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Consultar manifiesto de origen; revisión humana específica pendiente.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_FRONTIERS_1048480_F1",
+      "case_id": "FRONTIERS_1048480_F1",
+      "source": "Frontiers in Medicine / PMC9756157",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_CC_BY_PUBLISHER_STATEMENT",
+      "license": "CC BY (numeric version unspecified in verified publisher text)",
+      "primary_evidence": {
+        "url": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2022.1048480/full",
+        "method": "CURRENT_PUBLISHER_PRIMARY_FOCAL_READ",
+        "version": "Published2022-12-02; observed2026-11-27",
+        "localizer": "Figure1 caption lines315-319; Ethics statement389-391; Copyright655-658",
+        "web_refs": [
+          "turn500620740view2",
+          "turn592217915view0",
+          "turn592217915view2"
+        ],
+        "license_version_detail": "CC BY named; numeric version not independently established from retrieved link. Do not infer4.0.",
+        "consent_localizer": "Figure1 caption expressly reports patient consent; article Ethics reports publication consent"
+      },
+      "conditions": [
+        "Credit original authors/copyright owners and cite original journal publication.",
+        "Use/reproduction must comply with publisher attribution statement."
+      ],
+      "attribution_as_previously_recorded": "Buttgereit T, Fijen LM, Vera C, Bergmann KC, Maurer M, Magerl M. Front Med 2022;9:1048480. DOI 10.3389/fmed.2022.1048480, figura 1.",
+      "consent_scope": "SOURCE_FIGURE_PUBLICATION_CONSENT_REPORTED_NOT_UNRESTRICTED_FUTURE_USE",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Mano; pie de figura declara consentimiento obtenido. No se acredita consentimiento específico para cualquier estudio futuro o reidentificación.",
+        "potentially_identifiable_face": false,
+        "facial_reuse_obstacle": null,
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_2874",
+      "case_id": "CDC_2874_24913_24914",
+      "source": "CDC/PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=2874",
+        "method": "CURRENT_OFFICIAL_WEB_FOCAL_READ",
+        "version": "Observed2026-11-27",
+        "localizer": "ID#2874; Copyright Restrictions line74; Content Provider(s) line42",
+        "web_ref": "turn500620740view0"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "CDC / Dr. Thomas F. Sellers, Emory University. PHIL 2874 (1963). Fuente gratuita CDC; sin respaldo institucional a Emergency.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Rostro visible potencialmente identificable. No se localizó consentimiento individual explícito en la ficha. Revisión médica de privacidad obligatoria antes de admitir.",
+        "potentially_identifiable_face": true,
+        "facial_reuse_obstacle": "UNRESOLVED_SUBJECT_CONSENT_OR_EQUIVALENT_PRIVACY_BASIS",
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    },
+    {
+      "asset_id": "DERMA_CDC_27799",
+      "case_id": "CDC_27799",
+      "source": "CDC/PHIL",
+      "copyright_status": "COPYRIGHT_PERMISSION_DOCUMENTED_PUBLIC_DOMAIN_WITH_SOURCE_CONDITIONS",
+      "license": "Public domain as declared on individual CDC/PHIL page",
+      "primary_evidence": {
+        "url": "https://wwwn.cdc.gov/phil/Details.aspx?pid=27799",
+        "method": "CURRENT_OFFICIAL_WEB_FOCAL_READ",
+        "version": "Observed2026-11-27",
+        "localizer": "ID#27799; Copyright Restrictions line79; Content Provider(s) line42",
+        "web_ref": "turn500620740view1"
+      },
+      "conditions": [
+        "Credit CDC and known photographer; identify CDC as free source.",
+        "No institutional endorsement inferred."
+      ],
+      "attribution_as_previously_recorded": "CDC / Dr. M.S. Ferguson. PHIL 27799 (1959). Fuente gratuita CDC; sin respaldo institucional a Emergency.",
+      "consent_scope": "NOT_ESTABLISHED_BY_COPYRIGHT_PERMISSION",
+      "privacy": {
+        "source_copyright_does_not_clear_privacy": true,
+        "prior_assessment_preserved": "Frente y parte de rostro potencialmente identificables. No se localizó consentimiento individual explícito en la ficha; decisión de privacidad pendiente.",
+        "potentially_identifiable_face": true,
+        "facial_reuse_obstacle": "UNRESOLVED_SUBJECT_CONSENT_OR_EQUIVALENT_PRIVACY_BASIS",
+        "new_pixel_review": false,
+        "new_global_privacy_clearance": false
+      },
+      "purpose_separation": {
+        "copyright_only_reuse": "PERMITTED_IN_VERIFIED_LICENSE_SCOPE_IF_CONDITIONS_MET",
+        "product_runtime_activation": "NOT_AUTHORIZED_BY_THIS_DOCUMENTARY_ADDENDUM",
+        "independent_validation": "NOT_ESTABLISHED_BY_LICENSE_OR_OWNER_REPRESENTATIVENESS_REVIEW",
+        "owner_medical_vote": "DO_NOT_REPEAT_PREVIOUSLY_ACCEPTED_SCOPE"
+      }
+    }
+  ],
+  "combined_with_prior_9_addendum": {
+    "copyright_permission_evidence": 24,
+    "global_privacy_clearance": false,
+    "all_images_product_admissible": false,
+    "Frontiers_license_numeric_version_not_inferred": true
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

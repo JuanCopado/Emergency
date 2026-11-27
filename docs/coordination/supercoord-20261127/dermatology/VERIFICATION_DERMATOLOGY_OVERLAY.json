@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "checks": {
+    "source_files_unchanged": true,
+    "cases_23": true,
+    "assets_24": true,
+    "unique_ids_24": true,
+    "unique_hashes_24": true,
+    "owner_decisions_23": true,
+    "every_owner_decision_matched": true,
+    "all_hashes_match_prior_21_plus_3_metadata": true,
+    "prior_audit_confirms_24_physical_hashes": true,
+    "no_runtime_admission": true,
+    "no_independent_dataset_admission": true,
+    "no_global_consent_asserted": true,
+    "historical_pending_unchanged": true
+  },
+  "source_hashes_before": {
+    "cases": "049aaf53f5f0f4a629a008b890155f078a4b32451442496820e3574bc4b48ae2",
+    "bank": "63120ab7ad30ca3a2b25e805061a8a4c3fc24e036c51c10a736339b8312fcae1",
+    "receipt3": "4b533c246e60ebc2f8ccc3c6ca96bf24b6d1cedc1d0ddf4e2bb53d23a7942b63",
+    "audit": "96202bbdeee34d8bd80d06e5f4411ee2aaf4d79d49de0049e4ba3c4ea4cc381b",
+    "owner": "07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348"
+  },
+  "source_hashes_after": {
+    "cases": "049aaf53f5f0f4a629a008b890155f078a4b32451442496820e3574bc4b48ae2",
+    "bank": "63120ab7ad30ca3a2b25e805061a8a4c3fc24e036c51c10a736339b8312fcae1",
+    "receipt3": "4b533c246e60ebc2f8ccc3c6ca96bf24b6d1cedc1d0ddf4e2bb53d23a7942b63",
+    "audit": "96202bbdeee34d8bd80d06e5f4411ee2aaf4d79d49de0049e4ba3c4ea4cc381b",
+    "owner": "07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348"
+  },
+  "manifest_sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599",
+  "limits": "Metadata consistency and decisions only. Prior physical hashes and pixel inspection reused with attribution; no current original-byte hashes, legal clearance, privacy clearance or independent clinical adjudication.",
+  "publication_review_correction": {
+    "prior_overlay_sha256": "6540e7e6c88ef9ff07868d641ae0cf77206341d34892ddd42828ff2f3cb915e7",
+    "current_overlay_sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599",
+    "primary_check_required_before_new_use": true,
+    "all_24_assets_checked": true,
+    "original_bytes_rehashed_now": false
+  },
+  "historical_manifest_sha256": "6540e7e6c88ef9ff07868d641ae0cf77206341d34892ddd42828ff2f3cb915e7"
+}
