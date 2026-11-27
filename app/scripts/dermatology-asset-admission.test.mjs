@@ -36,7 +36,9 @@ describe('product/repository dermatology admission contract', () => {
     const reordered = { ...policy, assets: policy.assets.map((asset) =>
       Object.fromEntries(Object.entries(asset).reverse())) };
     expect(validateManifest(reordered)).toMatchObject({ assets: 24, cases: 23, product_media_admitted: 0 });
-    expect(checkRepository(repository)).toMatchObject({ status: 'PASS', registry_assets: 24,
+    const repositoryResult = checkRepository(repository);
+    expect(repositoryResult.issues).toEqual([]);
+    expect(repositoryResult).toMatchObject({ status: 'PASS', registry_assets: 24,
       product_catalog_size: 0, product_media_admitted: 0, clinical: 'CLINICALLY_PENDING' });
     expect(productAssetCatalog(policy)).toEqual([]);
     expect(protectedHashIndex(policy).size).toBe(31);
@@ -149,6 +151,17 @@ describe('product/repository dermatology admission contract', () => {
     expect(result.examined_raster_files).toBe(locations.length);
     expect(result.issues).toHaveLength(locations.length);
     expect(result.issues.every((issue) => issue.code === 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED')).toBe(true);
+  }));
+
+  it('isolates the exact OCR dependency boundary while retaining the real repository scan and public rejection', () => fixture(({ root, put }) => {
+    const target = path.dirname(put('fixture-target/package.txt', 'synthetic package'));
+    const bins = path.join(root, 'tools/blood-gas-ocr/node_modules/.bin');
+    fs.mkdirSync(bins, { recursive: true });
+    fs.symlinkSync(target, path.join(bins, 'fixture'), process.platform === 'win32' ? 'junction' : 'dir');
+    expect(checkRepository(root).status).toBe('PASS');
+    put('app/public/tools/blood-gas-ocr/node_modules/hidden.png', bytes);
+    expect(scanMediaFiles(root, new Map([[hash(bytes), 'SYNTHETIC_ASSET']])).issues)
+      .toContainEqual({ code: 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED', asset_id: 'SYNTHETIC_ASSET' });
   }));
 
   it('retains reserved namespace protection below nested artifact and dependency names', () => fixture(({ root, put }) => {

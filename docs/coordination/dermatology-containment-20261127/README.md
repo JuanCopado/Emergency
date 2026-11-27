@@ -48,7 +48,8 @@ por nombre de carpeta a cualquier profundidad: `dist`, `coverage` o
 `node_modules` dentro de `app/public` podían ocultar bytes protegidos que Vite
 publicaría. Las exclusiones son ahora rutas exactas relativas a la raíz:
 `.git`, `node_modules`, `dist`, `coverage`, `__pycache__`, `.pytest_cache`,
-`.venv`, `.cache`, `app/node_modules`, `app/dist` y `app/coverage`, únicamente
+`.venv`, `.cache`, `app/node_modules`, `app/dist`, `app/coverage` y
+`tools/blood-gas-ocr/node_modules`, únicamente
 cuando la entrada es un directorio real. Todos los enlaces y junctions se
 rechazan antes de aplicar las exclusiones, incluso `app/node_modules`.
 Un archivo raster llamado `dist` sin extensión tampoco queda excluido.
@@ -59,6 +60,14 @@ nombres de archivo engañosos y enlaces bajo rutas públicas y de dependencias.
 La configuración focal de Vitest reutiliza dependencias locales existentes;
 no instala paquetes ni sustituye la CI completa. No cambia el manifiesto ni
 la admisión de ningún activo.
+
+La ruta exacta de dependencias OCR figura en la instalación de CI
+(`npm ci --prefix tools/blood-gas-ocr`). Sus enlaces internos `.bin` pertenecen
+a esa frontera de dependencias, como los de `app/node_modules`. Una copia del
+nombre de ruta bajo `app/public` sigue inspeccionándose. Las pruebas adicionales
+reproducen este árbol con un enlace sintético: 24/24 Node y 15/15 Vitest. Se
+conserva la comprobación del repositorio real; no se excluyen directorios
+temporales arbitrarios ni se relajan los controles de enlaces públicos.
 
 ```powershell
 npm.cmd run security:dermatology:test --prefix app

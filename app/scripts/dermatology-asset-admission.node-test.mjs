@@ -211,9 +211,21 @@ test('only exact real dependency and build directory boundaries are ignored', ()
   assert.equal(scanMediaFiles(root, new Map([[sha(fixtureBytes), 'SYNTHETIC_ASSET']])).status, 'PASS');
 }));
 
+test('the CI OCR dependency tree may contain package-bin links without hiding public media', () => temporary((root) => {
+  const target = put(root, 'fixture-target', 'synthetic package executable');
+  const bins = path.join(root, 'tools/blood-gas-ocr/node_modules/.bin');
+  fs.mkdirSync(bins, { recursive: true });
+  // A directory junction also models dependency links on Windows without requiring file-symlink privileges.
+  fs.symlinkSync(path.dirname(target), path.join(bins, 'fixture'), process.platform === 'win32' ? 'junction' : 'dir');
+  assert.equal(scanMediaFiles(root, new Map()).status, 'PASS');
+  put(root, 'app/public/tools/blood-gas-ocr/node_modules/hidden.png', fixtureBytes);
+  const result = scanMediaFiles(root, new Map([[sha(fixtureBytes), 'SYNTHETIC_ASSET']]));
+  assert.deepEqual(result.issues, [{ code: 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED', asset_id: 'SYNTHETIC_ASSET' }]);
+}));
+
 test('the actual base repository has no admitted corpus media and an empty product catalog', () => {
   const result = checkRepository(REPO);
-  assert.equal(result.status, 'PASS');
+  assert.equal(result.status, 'PASS', JSON.stringify(result.issues));
   assert.equal(result.registry_assets, 24);
   assert.equal(result.product_catalog_size, 0);
 });

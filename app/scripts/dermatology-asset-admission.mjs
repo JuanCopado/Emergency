@@ -25,7 +25,7 @@ const RECORD_KEYS = ['asset_id', 'case_id', 'source_sha256', 'technical_derivati
 // Links are rejected before these exclusions, including dependency junctions.
 const SKIP_DIRECTORY_PATHS = new Set(['.git', 'node_modules', 'dist', 'coverage',
   '__pycache__', '.pytest_cache', '.venv', '.cache',
-  'app/node_modules', 'app/dist', 'app/coverage']);
+  'app/node_modules', 'app/dist', 'app/coverage', 'tools/blood-gas-ocr/node_modules']);
 const RASTER_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.tif', '.tiff']);
 const RESERVED_MEDIA = /^(app\/(public|src\/assets)|clinical\/assets)\/dermatology(?:\/|$)/i;
 const digest = (value) => createHash('sha256').update(value).digest('hex');
