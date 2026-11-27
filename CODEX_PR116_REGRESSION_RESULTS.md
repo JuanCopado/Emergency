@@ -53,3 +53,7 @@ El helper de revisión está exclusivamente en `clinical/qa/`: simula al operado
 CI remota histórica de `43d6201` (incluye el FAIL Windows que originó la segunda corrección): [App UI](https://github.com/JuanCopado/Emergency/actions/runs/45909319215), [Clinical](https://github.com/JuanCopado/Emergency/actions/runs/45909319221), [Picomatch](https://github.com/JuanCopado/Emergency/actions/runs/45909319401), [Security](https://github.com/JuanCopado/Emergency/actions/runs/45909319195). Sus conclusiones y las del candidato integrado se registran en el recibo final, sin extrapolar PASS locales.
 
 Logs originales y locales: `/workspace/receipts-pr116/`. Los recorridos iniciales declaran `dirty=true`; la CI remota identifica el checkout exacto. Recibo final y SHA del árbol integrado en `CODEX_PR115_RECONCILIATION.md` y el paquete de auditoría.
+
+## Recepción del avance externo PR117
+
+El receptor avanzó externamente de `87a1730` a `570aa11`. Su delta de catálogos se conserva en la fuente PR116 `50462b00a4c0af30889f8600be95aedd69d6c293` y en el candidato integrado, sin modificar ramas protegidas. Las correcciones de regresión/Windows/Sonar anteriores permanecen y la CI del nuevo SHA se registra aparte.
