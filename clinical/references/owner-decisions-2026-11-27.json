@@ -1,0 +1,483 @@
+{
+  "schema_version": "1.0",
+  "recorded_on": "2026-11-27",
+  "receiving_base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "decision_registry_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+  "decision_source": "docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md",
+  "decision_source_sha256": "07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "protamine": {
+    "id": "MED-RES-PROT-01",
+    "version": "v1",
+    "response": "SÍ",
+    "decided_at_utc": "2026-11-27T06:14:21Z",
+    "finding_id": "GMA-P1-003",
+    "resolution_status": "RESOLVED_HISTORICAL_PROFILE_SCOPE",
+    "product_id": "PROTAMINE_HOSPIRA_10",
+    "jurisdiction": "ES",
+    "classification": "HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION",
+    "runtime_enabled": false,
+    "replacement_product_id": null,
+    "active_routes_changed": false,
+    "historical_rate_limit": {
+      "operator": "<",
+      "value": 5,
+      "unit": "mg/min",
+      "scope": "PROTAMINE_HOSPIRA_10_ONLY"
+    },
+    "original_fiche": "docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md",
+    "original_drive_url": "https://docs.google.com/document/d/1yIPlybffYNeucGu3y8_mHIwpLRLtWc36/edit",
+    "source": {
+      "id": "S22-protamine",
+      "url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+      "stored_revision": "May 2020",
+      "reviewed_on": "2026-11-27",
+      "locators": [
+        "revocation warning",
+        "4.2"
+      ],
+      "review_scope": "Focused warning and historical strict administration limit; no new dose or full-label review claimed"
+    },
+    "limits": [
+      "No automatic LEO/Prosulf replacement; no active product selected.",
+      "No universal speed-limit change; active reversal routes retained.",
+      "No stock, jurisdictional equivalence or operational authorization inferred."
+    ],
+    "original_fiche_sha256": "48396e7bc9306d5174aacf6a5c29c58d20b2c35bd610c148f0bb63399da61737"
+  },
+  "cardiovascular": [
+    {
+      "id": "MED-RES-CARDIO-01",
+      "version": "v1",
+      "response": "SÍ",
+      "decided_at_utc": "2026-11-27T06:12:33Z",
+      "scope_summary": "router de monitorización y cuatro circuitos de reanimación existentes, conservar decisiones ARR-SELECTOR y excepciones pediátricas; no cambiar dosis ni algoritmos.",
+      "canonical_modules": [
+        "arrhythmias-cardiac-arrest",
+        "adult-arrhythmias",
+        "pediatric-arrhythmias",
+        "adult-cardiac-arrest",
+        "pediatric-cardiac-arrest"
+      ],
+      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
+      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
+      "original_fiche": null,
+      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
+      "new_doses_authorized": false
+    },
+    {
+      "id": "MED-RES-CARDIO-02",
+      "version": "v1",
+      "response": "SÍ",
+      "decided_at_utc": "2026-11-27T06:12:33Z",
+      "scope_summary": "circuitos diferenciados por lesión valvular y situación hemodinámica; no pauta universal.",
+      "canonical_modules": [
+        "critical-valvular-disease"
+      ],
+      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
+      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
+      "original_fiche": null,
+      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
+      "new_doses_authorized": false
+    },
+    {
+      "id": "MED-RES-CARDIO-03",
+      "version": "v1",
+      "response": "SÍ",
+      "decided_at_utc": "2026-11-27T06:12:33Z",
+      "scope_summary": "circuitos específicos de dispositivo y complicación, con monitorización y especialista cuando corresponda; no pauta universal.",
+      "canonical_modules": [
+        "device-complications"
+      ],
+      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
+      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
+      "original_fiche": null,
+      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
+      "new_doses_authorized": false
+    },
+    {
+      "id": "MED-RES-CARDIO-04",
+      "version": "v1",
+      "response": "SÍ",
+      "decided_at_utc": "2026-11-27T06:12:33Z",
+      "scope_summary": "objetivos de presión arterial diferenciados según indicación, preservar vías específicas; la secuencia general requiere la fuente exacta y no sustituye las vías específicas.",
+      "canonical_modules": [
+        "hypertensive-emergencies"
+      ],
+      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
+      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
+      "original_fiche": null,
+      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
+      "new_doses_authorized": false
+    },
+    {
+      "id": "MED-RES-CARDIO-05",
+      "version": "v1",
+      "response": "SÍ",
+      "decided_at_utc": "2026-11-27T06:12:33Z",
+      "scope_summary": "selección por indicación, contraindicaciones, producto y jurisdicción; no habilitar cálculos con productos no verificados.",
+      "canonical_modules": [
+        "iv-antihypertensive-selection"
+      ],
+      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
+      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
+      "original_fiche": null,
+      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
+      "new_doses_authorized": false
+    },
+    {
+      "id": "MED-RES-CARDIO-06",
+      "version": "v1",
+      "response": "SÍ",
+      "decided_at_utc": "2026-11-27T06:12:33Z",
+      "scope_summary": "dolor torácico no coronario por causa, no antitrombótico genérico ni alta automática por una sola prueba/puntuación.",
+      "canonical_modules": [
+        "non-coronary-chest-pain"
+      ],
+      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
+      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
+      "original_fiche": null,
+      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
+      "new_doses_authorized": false
+    }
+  ],
+  "dermatology": {
+    "cases": [
+      {
+        "id": "MED-RES-DERMA-FRONTIERS_1048480_F1",
+        "case": "Angioedema hereditario",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:23:15Z",
+        "scope_summary": "Consulta y desarrollo exclusivamente; privacidad de reutilización no aprobada.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CDC_2874_24913_24914",
+        "case": "Erisipela facial",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:23:56Z",
+        "scope_summary": "Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad.",
+        "scope_kind": "CLINICAL_REPRESENTATIVENESS_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CDC_27799",
+        "case": "Forunculosis frontal",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:24:14Z",
+        "scope_summary": "Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad.",
+        "scope_kind": "CLINICAL_REPRESENTATIVENESS_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_CDC_PHIL_5153",
+        "case": "Impétigo",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:24:48Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_CDC_PHIL_6478",
+        "case": "Herpes zóster",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:25:09Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_CDC_PHIL_6482",
+        "case": "Herpes simple",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:25:37Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_CDC_PHIL_24379",
+        "case": "Tiña corporal",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:26:18Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad; respuestas repetidas cuentan una vez.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_CDC_PHIL_28632",
+        "case": "Reacción a mosquito",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:27:05Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_CDC_PHIL_1337",
+        "case": "Meningococemia (gangrena de mano)",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:27:31Z",
+        "scope_summary": "Consulta/desarrollo, manifestación avanzada; condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_CDC_PHIL_2332",
+        "case": "Carbunco cutáneo",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:28:06Z",
+        "scope_summary": "Consulta/desarrollo; conservar limitaciones; condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_PMC7176330",
+        "case": "Espectro SJS/TEN",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:28:31Z",
+        "scope_summary": "Un solo caso con figuras 2 y 3; consulta/desarrollo y privacidad; sin inferir superficie desprendida.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_PMC11585283",
+        "case": "DRESS",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:28:50Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad; no confirmar causalidad a partir de la imagen.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_PMC8203330",
+        "case": "Vasculitis leucocitoclástica",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:29:16Z",
+        "scope_summary": "Consulta/desarrollo, conservar limitaciones y condicionar a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-CASE_PMC11619809",
+        "case": "Fascitis necrosante",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:29:50Z",
+        "scope_summary": "Consulta/desarrollo como imagen posterior al desbridamiento, no presentación inicial; privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-COMMONS_CASE_5de1c08f376aedda",
+        "case": "Escabiosis",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:30:15Z",
+        "scope_summary": "Consulta/desarrollo, conservar limitaciones y condicionar a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_-3768594983498155183",
+        "case": "Urticaria",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:30:46Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_3083550471820565612",
+        "case": "Eccema",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:31:09Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_2600794538114860588",
+        "case": "Dermatitis alérgica de contacto",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:31:34Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_3730083867318674656",
+        "case": "Celulitis",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:33:01Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_579682856480983647",
+        "case": "Absceso",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:33:19Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_3689862615752795245",
+        "case": "Foliculitis",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:33:43Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_-3518984822601104202",
+        "case": "Erupción farmacológica",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:34:08Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad; sin establecer causalidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      },
+      {
+        "id": "MED-RES-DERMA-SCIN_CASE_-3902972343084754168",
+        "case": "Eccema, segundo caso",
+        "version": "v1",
+        "response": "SÍ",
+        "decided_at_utc": "2026-11-27T06:34:31Z",
+        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
+        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
+        "redistribution_authorized": false,
+        "product_incorporation_authorized": false,
+        "diagnostic_validation": false,
+        "privacy_review_required": true
+      }
+    ],
+    "case_count": 23,
+    "photograph_inventory_count": 24,
+    "original_manifest": "DERMATOLOGIA_CASOS_HEREDADO.json",
+    "per_asset_file_hashes_reconciled": false,
+    "experimental_adjudications": 0,
+    "scope": "Preserve 23 owner decisions; privacy and rights remain per asset. No images or private paths included."
+  },
+  "clinical_minimal": {
+    "response": "SÍ",
+    "decided_at_utc": "2026-11-27T06:37:53Z",
+    "repeated_response_at_utc": "2026-11-27T06:38:10Z",
+    "decision_count": 1,
+    "scope": "VISUAL_BASE_FOR_FUTURE_INTERFACE",
+    "deployed": false,
+    "ux2_preserved": true
+  },
+  "independent_review": {
+    "reviewers_available": false,
+    "review_status": "NOT_PERFORMED",
+    "owner_instruction_at_utc": "2026-11-27T06:38:38Z",
+    "technical_work_may_continue": true
+  },
+  "preserved_sha256": {
+    "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json": "b42eb3007f2481de488bb4a8dbabd36f590cb325c4452628a4d1e70264aa1274",
+    "clinical/qa/global-medication-audit-v144/products.json": "97d1ab95edebd3c46074c06c9d806e8d5b05cc14578be8e86d96819e76d0a502",
+    "clinical/references/acute-contract-owner-acceptance-2026-11-16.json": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
+    "clinical/references/evidence-registry.json": "6fa010e4646bc0de288e799c2e8b5ce93231c71171339a4ce5a9d4b2847713d0",
+    "clinical/references/router.md": "65ee959e0a7e3ede06b985cbc9b0a073887b525320971173b45fc35f70421eb3",
+    "clinical/modules/cardiovascular.md": "22a3f6094c114ec7a50452e8246a29dfab778c60309a7c9bac8d315fc97d64e1",
+    "clinical/modules/special-populations.md": "4a9240a93d96993dc750bcb1060f9e01e8abab557812b8667b1d57ad847db025",
+    "clinical/scripts/acute_medication_contracts.py": "887e1f0ef384f82b30189ebf174f336caed57ee9af6b256a0164547602241a7a",
+    "clinical/scripts/acute_reviewed_reversal.py": "f4e78b6543b2faad35d1c66a1d709e367fc74a9b0b053d27c94596de09e85bb2",
+    "app/src/data/drugs.json": "084f4090a4d9ddd68b60c2b731eb17be632a22e795598cef8b6fa2276b032893",
+    "app/src/data/generatedPediatricOutpatient.json": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+    "clinical/pharmacology/corticosteroids.json": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499"
+  }
+}

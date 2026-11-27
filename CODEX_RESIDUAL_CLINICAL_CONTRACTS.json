@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "review_date": "2026-11-26",
+  "review_date": "2026-11-27",
   "clinical_status": "CLINICALLY_PENDING",
   "scope": [
     "GMA-P1-003",
@@ -15,7 +15,7 @@
   "contracts": [
     {
       "id": "GMA-P1-003",
-      "status": "OPEN_DOCUMENTED_SOURCE_CONFLICT",
+      "status": "RESOLVED_HISTORICAL_PROFILE_SCOPE",
       "product_id": "PROTAMINE_HOSPIRA_10",
       "product_profile_runtime_enabled": false,
       "recorded_product_limit": "<5 mg/min",
@@ -37,8 +37,10 @@
         "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
         "document_version_or_revision": "May 2020"
       },
-      "interpretation": "Existing documentary discrepancy at equality; no new regulatory verification or clinical adjudication. The product profile remains inactive. No pump rate or dose changed.",
-      "required_decision": "Document exact product/source reconciliation by Gemini and explicit approval by Dr. Juan Copado Ceballos. Pharmacy is consultative, not a required project signatory."
+      "interpretation": "Owner approved MED-RES-PROT-01 v1 at 2026-11-27T06:14:21Z. Product classified HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION; runtime_enabled=false. Preserve historical <5 mg/min; no LEO/Prosulf substitution or active/global speed-limit change.",
+      "owner_response_pending": false,
+      "current_disposition": "clinical/references/owner-decisions-2026-11-27.json#protamine",
+      "remaining_conditions": "Any different/current product requires its own verified identity and operational controls; outside this historical closure."
     }
   ],
   "inventory": {
@@ -161,10 +163,21 @@
     }
   },
   "new_clinical_decisions": {
-    "received_in_this_dispatch": [],
-    "implemented": [],
-    "status": "NO_NEW_DOCUMENTED_AND_APPROVED_DECISION_AVAILABLE",
-    "policy": "Implement only a concrete Gemini decision with source, version, scope, and explicit owner approval; do not infer approval from CI."
+    "received_in_this_dispatch": [
+      "MED-RES-PROT-01 v1",
+      "MED-RES-CARDIO-01 v1",
+      "MED-RES-CARDIO-02 v1",
+      "MED-RES-CARDIO-03 v1",
+      "MED-RES-CARDIO-04 v1",
+      "MED-RES-CARDIO-05 v1",
+      "MED-RES-CARDIO-06 v1"
+    ],
+    "implemented": [
+      "MED-RES-PROT-01 v1 historical classification"
+    ],
+    "cardiovascular_status": "APPROVED_STRUCTURAL_SCOPE; EXPEDIENT_TRACEABILITY_PENDING; no substantive clinical delta inferred",
+    "current_record": "clinical/references/owner-decisions-2026-11-27.json",
+    "policy": "Recover exact original cardiovascular proposal message 2026-11-27T06:10:21Z and bind acceptance 06:12:33Z. No repeated vote or reconstructed original."
   },
   "source_sha256": {
     "clinical/qa/global-medication-audit-v144/entity-inventory.json": "13cce0812ef609dd2cfd2dca2afdfbdb37f1ea4b19569a1aaa7072f876a986c1",
@@ -177,5 +190,6 @@
     "clinical/pharmacology/corticosteroids.json": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499",
     "clinical/scripts/acute_medication_api.py": "e550335681a6e4fcbaec82ed63a952adf3fbce1a3fbb9d0cdc31fd132dce6037",
     "clinical/scripts/acute_medication_contracts.py": "887e1f0ef384f82b30189ebf174f336caed57ee9af6b256a0164547602241a7a"
-  }
+  },
+  "supersedes_own_2026_11_26_owner_response_pending": true
 }

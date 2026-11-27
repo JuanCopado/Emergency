@@ -1,3 +1,7 @@
+## 27/11/2026 · Reconciliación de decisiones del propietario
+
+MED-RES-PROT-01 v1 aplicada en su alcance documental histórico: GMA-P1-003 cerrado sin activar producto, sustituirlo ni cambiar las rutas de reversión aceptadas. Registro vigente: `references/owner-decisions-2026-11-27.json`. CARDIO-01–06 conservan SÍ estructural; falta recuperar su mensaje original para cualquier delta clínico sustantivo. 23 decisiones dermatológicas y Clinical Minimal preservados, sin conceder derechos de publicación, validación diagnóstica o despliegue. QA/CI y auditoría del candidato por SHA en `../docs/coordination/owner-decisions-20261127/`. CLINICALLY_PENDING. Los cortes siguientes son históricos.
+
 ## 26/11/2026 · Conciliación técnica PR115/PR116
 
 Candidato aislado conserva los 19 contratos aceptados y todos los estados clínicos. Se adapta QA histórica al recibo terapéutico real; ninguna nueva dosis o decisión médica. Perfil de protamina GMA-P1-003 sigue abierto; inventario y límites en `../CODEX_RESIDUAL_CLINICAL_CONTRACTS.json`. CI y auditoría externa del SHA final por recibo. CLINICALLY_PENDING.
