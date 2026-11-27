@@ -1,9 +1,14 @@
 # Instalación individual · contrato de entrega
 
-Fuente A del ensayo: `180477d2c0c22bfb51526380d590ffb8525b9b83`.
+Fuente A del ensayo final: `3199849f140db5e524dccfd56e0f79fa2d32b80d`.
 El siguiente commit incorpora este contrato y el arnés reproducible; no modifica
 motores clínicos. A y B se compilan por separado con su identidad Git real para
 probar actualización y rollback del service worker, no solo cambiar un puntero.
+Ambas versiones finales incluyen la corrección de navegación obsoleta, pins
+oficiales de seis wheels y staging del verificador. No se atribuye esa protección
+retroactivamente a los paquetes preliminares A2/B2, conservados como históricos.
+Los contadores del ensayo son A4=4 y B4=5. La aceptación no equivale a una lista
+de revocaciones: el rollback comprueba firma e integridad e intención explícita.
 
 Los paquetes contienen frontend compilado, fuentes canónicas seleccionadas,
 fuentes tipográficas y licencias, seis wheels fijados y launcher autenticado.
