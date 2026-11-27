@@ -1,3 +1,5 @@
+26/11 · Sonar: diagnóstico exacto recuperado por rama aislada de solo lectura. Los diccionarios ES/PT/EN/ZH pasan a recursos JSON con acceso tipado y valores íntegros; etiqueta then renombrada, ordenación canónica explícita sin depender de idioma. Se conservan los FAIL y se repite CI del nuevo SHA. CLINICALLY_PENDING.
+
 26/11 · Seguimiento de CI: corregida identidad de fuente corticoide bajo checkout Windows mediante atributo LF específico, con regresión Git real y negativo de metadatos; fuentes/dosis intactas. Se conserva el FAIL previo y se repite CI del SHA final. Antigravity: paquete y orden publicados para recogida según instrucción del propietario; dictamen pendiente.
 
 ## 26/11/2026 · Candidato aislado PR115 + PR116

@@ -156,7 +156,7 @@ export default function Corticosteroids() {
         <div className="grid gap-6 lg:grid-cols-2">
           <article className="space-y-3"><h4 className="font-bold">{ui.adrenal}</h4>
             <p><strong>{ui.initial}: {fmt(adult.initial_mg)} mg IV/IM</strong></p>
-            <p>{ui.then}: {fmt(adult.maintenance_total_mg_per_24h)} mg/24 h · {ui.continuous}; {ui.alternative}: {fmt(adult.maintenance_alternative_mg)} mg IV/IM {ui.every} {adult.maintenance_interval_hours} h.</p>
+            <p>{ui.maintenanceLabel}: {fmt(adult.maintenance_total_mg_per_24h)} mg/24 h · {ui.continuous}; {ui.alternative}: {fmt(adult.maintenance_alternative_mg)} mg IV/IM {ui.every} {adult.maintenance_interval_hours} h.</p>
             <p lang="es">{adult.summary_es}</p>
             <Link className="underline inline-block" to={`/clinical/${adult.module_id}`}>{ui.openModule}</Link>
             <SourceLinks ids={adult.source_ids} label={ui.source} />

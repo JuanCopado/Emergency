@@ -6,7 +6,7 @@ Estado: candidato aislado; CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Sin mod
 
 - Receptor leído, sin modificar: `87a17301c395546536dce12150307a5b1474f844`, ya incorpora PR111.
 - PR115 original: `82278d37dc29fe49e6afbc8db7aafe8d7e4166c1`, árbol `05c2ec1c1a8d871cfe83c05c4540e941f35d30f3`.
-- PR116: primera corrección `43d62015838d0b190869482ecde645cf86b56249`; después `cd1e55e` fija LF de la fuente JSON para preservar su SHA en Windows, con prueba Git RED→GREEN.
+- PR116: primera corrección `43d62015838d0b190869482ecde645cf86b56249`; después `cd1e55e` fija LF con prueba Git RED→GREEN y `31358266149a5dc52c589d094e09558479493009` separa datos localizados y hace explícito el orden canónico para resolver los cinco hallazgos Sonar, sin cambiar valores clínicos.
 - Conciliación de código local: `815afcd8dd5b2e402be0d36ce7e16598347a0328`, árbol `0e6f4bc229f9d449b81aa74d3b8fcc9e34a20f95`. El candidato final añade pruebas focales y los entregables; su SHA exacto se entrega en el recibo CI final.
 - Rama de candidato: `codex/pr115-pr116-integrated-20261126`; worktree `/workspace/emergency-integrated`.
 
@@ -21,6 +21,10 @@ Se mantienen todos los archivos fuente PR112/113 del manifiesto de composición 
 3. Harness funcional de PR115: seguir comprobando los 16 diagnósticos, discriminantes, acciones visibles, MCDT pendiente, idioma y salidas reales; después obtener una pauta sintética no prescriptiva y recibo mediante UI/API. Un booleano solo continúa sin habilitar exportación. JSON coincide exactamente con la petición de UI y la única pauta revisada. PDF/Word reales conservan diagnóstico y texto de revisión.
 4. Windows: integrar el atributo LF específico y dos regresiones de identidad del catálogo; conservar la huella estricta y los valores clínicos.
 5. El workflow conserva el recorrido funcional de PR114, incorpora el terapéutico de PR116 y mantiene los restantes controles. Sin exclusiones o umbrales relajados.
+
+## Seguimiento Sonar
+
+El primer integrado `55c53dd` superó App UI, Clinical QA, seis combinaciones Picomatch y cinco jobs de seguridad/cobertura, pero Sonar rechazó duplicación 10,3 % y fiabilidad D. No se declara PASS global. El diagnóstico exacto identifica diccionarios localizados y cinco incidencias concretas; el delta fuente `3135826` se incorpora sin repetir los deltas anteriores. Los textos son idénticos en los cuatro idiomas, salvo el nombre técnico de una clave. La CI completa se vuelve a ejecutar sobre el árbol final. La orden para Antigravity debe usar el SHA actualizado y no el corte anterior `55c53dd`.
 
 ## Evidencia y límites
 
