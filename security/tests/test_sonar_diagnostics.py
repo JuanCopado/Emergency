@@ -55,7 +55,12 @@ class SonarDiagnosticsTests(unittest.TestCase):
                 return response
 
         stdout, stderr = io.StringIO(), io.StringIO()
-        with patch.dict(os.environ, ENV if environment is None else environment, clear=True), \
+        isolated_environment = dict(ENV if environment is None else environment)
+        # Windows' certificate store needs its OS directory even with synthetic
+        # credentials and intercepted HTTPS. Keep TLS verification enabled.
+        if os.name == 'nt' and 'SystemRoot' in os.environ:
+            isolated_environment['SystemRoot'] = os.environ['SystemRoot']
+        with patch.dict(os.environ, isolated_environment, clear=True), \
                 patch.object(DIAGNOSTICS, "HTTPSHandler", SyntheticHTTPS), \
                 redirect_stdout(stdout), redirect_stderr(stderr):
             code = DIAGNOSTICS.main(list(argv))

@@ -148,7 +148,7 @@ test('standard npm development/build hooks preserve security and actually stop a
   }
   put(root, 'app/package.json', JSON.stringify({ type: 'module', scripts: { prebuild: production.scripts.prebuild } }));
   put(root, 'app/public/dermatology/prohibited.png', fixtureBytes);
-  assert.ok(process.env.npm_execpath, 'Run via npm run dermatology:gate:test to verify the npm lifecycle');
+  assert.ok(process.env.npm_execpath, 'Run via npm run security:dermatology:test to verify the npm lifecycle');
   const result = spawnSync(process.execPath, [process.env.npm_execpath, 'run', 'prebuild'],
     { cwd: path.join(root, 'app'), encoding: 'utf8', windowsHide: true });
   assert.notEqual(result.status, 0);

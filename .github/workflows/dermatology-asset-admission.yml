@@ -25,5 +25,5 @@ jobs:
       - name: Verify media admission and purpose boundaries
         working-directory: app
         run: |
-          npm run dermatology:gate
-          npm run dermatology:gate:test
+          npm run security:dermatology:check
+          npm run security:dermatology:test
