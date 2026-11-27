@@ -1,0 +1,23 @@
+{
+  "scope": "Previously unverified Clinical Minimal integration; no clinical validity or native printing certification",
+  "selectedCoverage": "COMPLEMENTARY_VISUAL_NAVIGATION_AND_CLINICAL_FLOWS",
+  "platform": "linux",
+  "architecture": "x64",
+  "transport": "REAL_LOOPBACK_HTTP_WITH_AUTHENTICATED_PYTHON_API",
+  "browserControl": "playwright-core/preinstalled browser",
+  "responseInterception": false,
+  "sourceRevision": null,
+  "harnessSha256": "f1b27ff367f2c7f90d8fc3c990db6c5215a50cb1b62ec9bae20628d1c3a3fd81",
+  "status": "FAIL",
+  "complementaryHeroStates": [],
+  "navigation": [],
+  "clinicalFlows": [],
+  "apiResponses": [],
+  "errors": [
+    "Windows evidence requires a real Windows process\n\n'linux' !== 'win32'\n"
+  ],
+  "limits": [
+    "No screen reader or native Word/PDF application/print dialog operated by this script",
+    "Blood gas and T06 entry navigation does not certify their separate native services"
+  ]
+}
