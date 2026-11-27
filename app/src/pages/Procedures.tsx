@@ -1,9 +1,11 @@
 import CountryReferences from '../components/CountryReferences';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 import { canonicalProcedures, getCanonicalProcedure } from '../clinical-guides/procedures';
 import { getProcedureSheet } from '../clinical-guides/procedureSheets';
+import { SearchEmptyState } from '../components/SearchEmptyState';
+import { useClinicalUi } from '../i18n/useClinicalUi';
 
 const families = [...new Set(canonicalProcedures.map(p => p.family))];
 const levels = [...new Set(canonicalProcedures.map(p => p.level))];
@@ -12,6 +14,8 @@ const sectionId = (title: string) => `procedure-${fold(title).replace(/[^a-z0-9]
 
 export default function Procedures() {
   const { i18n } = useTranslation();
+  const ui = useClinicalUi();
+  const searchRef = useRef<HTMLInputElement>(null);
   const { id } = useParams();
   const [query, setQuery] = useState('');
   const [family, setFamily] = useState('');
@@ -63,14 +67,20 @@ export default function Procedures() {
 
   const matches = canonicalProcedures.filter(p => (!family || p.family === family) && (!level || p.level === level) && fold([p.id, p.name, getProcedureSheet(p.id)?.name || '', ...p.aliases].join(' ')).includes(fold(query.trim())));
   return <div lang="es" className="space-y-5">
-    <header><h1 className="text-3xl font-extrabold">Procedimientos</h1><p className="mt-2">196 canónicos · 4 alias · 16 familias · YELLOW: revisión clínica pendiente.</p><p className="text-sm text-muted">196 fichas completas desde la fuente canónica; imágenes sujetas a revisión separada.</p></header>
-    <div className="grid gap-3 sm:grid-cols-3">
-      <label>Nombre o PROC-ID<input className="input mt-1" type="search" value={query} onChange={e => setQuery(e.target.value)} /></label>
+    <header><h1 className="catalog-title">Procedimientos</h1><p className="mt-2">196 canónicos · 4 alias · 16 familias · YELLOW: revisión clínica pendiente.</p><p className="text-sm text-muted">196 fichas completas desde la fuente canónica; imágenes sujetas a revisión separada.</p></header>
+    <div className="card grid gap-3 p-4 sm:grid-cols-3">
+      <label>Nombre o PROC-ID<input ref={searchRef} className="input mt-1" type="search" value={query} onChange={e => setQuery(e.target.value)} /></label>
       <label className="min-w-0">Familia<select className="input mt-1" value={family} onChange={e => setFamily(e.target.value)}><option value="">Todas</option>{families.map(f => <option key={f}>{f}</option>)}</select></label>
       <label>Nivel<select className="input mt-1" value={level} onChange={e => setLevel(e.target.value)}><option value="">Todos</option>{levels.map(l => <option key={l}>{l}</option>)}</select></label>
     </div>
-    <p role="status">{matches.length} procedimientos</p>
-    {matches.length === 0 && <p>No hay coincidencias. Prueba otro nombre, ID o filtro.</p>}
+    <p role="status" aria-live="polite" aria-atomic="true" className="text-sm text-muted">{matches.length} procedimientos</p>
+    {matches.length === 0 && <SearchEmptyState
+      lang={i18n.resolvedLanguage ?? i18n.language}
+      heading={ui('No hay coincidencias.')}
+      hint={ui('Prueba otro nombre, ID o filtro.')}
+      resetLabel={ui('Restablecer búsqueda y filtros')}
+      onReset={() => { setQuery(''); setFamily(''); setLevel(''); searchRef.current?.focus(); }}
+    />}
     <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">{matches.map(p => <li key={p.id} className="min-w-0"><Link to={`/procedures/${p.id}`} className="card block h-full p-4 hover:border-primary">
       <p className="text-xs font-semibold text-muted">{p.id} · {p.level}</p><h2 className="mt-1 font-bold">{p.name}</h2><p className="mt-2 text-xs">{p.family}</p><p className="mt-2 text-sm text-warn">⚠ YELLOW · {getProcedureSheet(p.id) ? 'Ficha completa' : 'No disponible'}</p>
     </Link></li>)}</ul>

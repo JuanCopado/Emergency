@@ -69,7 +69,7 @@ export default function ClinicalGuides() {
       <div className="space-y-8">
         <div>
           <p className="section-title">Guías clínicas exportables</p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight">Pantalla completa · impresión · PDF</h1>
+          <h1 className="catalog-title mt-2">Pantalla completa · impresión · PDF</h1>
           <p className="mt-2 max-w-3xl text-muted">
             Cobertura automática de los {canonicalGuides.length} módulos clínicos del manifiesto, conservando el contenido canónico y su estado de evidencia. Los algoritmos rápidos seleccionados disponen además de una vista resumida específica.
           </p>

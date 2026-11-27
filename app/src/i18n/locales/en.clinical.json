@@ -345,5 +345,7 @@
   "Restablecer búsqueda y filtros": "Reset search and filters",
   "Ir a los circuitos Adulto / Pediatría": "Go to Adult / Pediatric circuits",
   "La búsqueda y el filtro se aplican a «Todos los módulos clínicos».": "Search and filters apply to “All clinical modules”.",
-  "Prueba otro término o restablece la búsqueda y los filtros.": "Try another term or reset your search and filters."
+  "Prueba otro término o restablece la búsqueda y los filtros.": "Try another term or reset your search and filters.",
+  "No hay coincidencias.": "No matches.",
+  "Prueba otro nombre, ID o filtro.": "Try another name, ID or filter."
 }
