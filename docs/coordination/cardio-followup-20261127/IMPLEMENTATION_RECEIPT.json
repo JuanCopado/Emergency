@@ -1,0 +1,41 @@
+{
+  "base": "a606a442c071b3f84c17b43f45704ae62d30d44a",
+  "status": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "original_proposal_sha256": "2d4d303c835779143d126b31917060e403f5aa7f1b5d86d5aef60b401ceaa036",
+  "original_acceptance_sha256": "10f5dcb68a6e02cae4341d3996fc95348befd305af9603a6627506bba21647ec",
+  "original_message_id": "35f0be0e-838d-4fa7-a94c-3ae12b48c74a",
+  "acceptance_message_id": "1149ef4b-cdc5-4b06-a18d-51539ce02e73",
+  "approval_status": "ALL_SIX_V1_ALREADY_ACCEPTED_NO_REAPPROVAL_REQUEST",
+  "source_timestamps": "27/11/2026 06:10:21 and 06:12:33 UTC from registry; seconds not independently exposed by rendered DOM",
+  "canonical_guides_unchanged": true,
+  "canonical_guide_count": 131,
+  "inherited_reference_fields_unchanged": true,
+  "protected_sections": {
+    "critical-valvular-disease": {
+      "section_sha256": "7776be40c60cb94d9c37099641f6ff32c982fc96379d3e0f309cbfefa4aba5a9",
+      "shared_preamble_sha256": "85963ce10a08e35311541d085f2e4926083ba0299bc3f05d181d2c47840da55a",
+      "status": "green"
+    },
+    "acute-aortic-syndrome": {
+      "section_sha256": "5bffee340f1c5763fcd2338f43a3e1c6fa2109c256907bb9bc4a06f6f0cadea1",
+      "shared_preamble_sha256": "85963ce10a08e35311541d085f2e4926083ba0299bc3f05d181d2c47840da55a",
+      "status": "green"
+    }
+  },
+  "no_last_checked_changes": true,
+  "dermatology_23_approvals": "PRESERVED_NO_DIFF",
+  "clinical_minimal_approval": "PRESERVED_NO_PRODUCT_DIFF_IN_THIS_BRANCH",
+  "insulin_product": "SIN_IDENTIFICAR",
+  "labetalol_original_product": "SIN_IDENTIFICAR",
+  "qa": {
+    "red": "10 new regressions failed; 44 existing passed before implementation",
+    "green": "62/62 focused tests PASS; 4 files incl clinical-ui",
+    "build": "EMERGENCY_SECURITY_AUDIT=1 npm run build PASS",
+    "browser": "8 real Linux mobile cases, 4 languages x 2 views PASS",
+    "lint": "focused changed TypeScript + browser script PASS",
+    "review": "internal read-only scope review; not independent audit"
+  },
+  "matrix": "Work sole writer; untouched",
+  "drive": "Work sole writer; untouched"
+}
