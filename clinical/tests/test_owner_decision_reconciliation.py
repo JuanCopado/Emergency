@@ -1,7 +1,10 @@
 """Prevent accepted owner scopes from becoming product or release permission."""
 import copy
 import json
+import os
+import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -16,6 +19,37 @@ class OwnerDecisionReconciliationTests(unittest.TestCase):
 
     def test_current_reconciliation_accepts_only_recorded_scopes(self):
         self.assertEqual(validate(self.record, ROOT.parent), [])
+
+    def test_verified_originals_survive_git_checkout_with_autocrlf(self):
+        import hashlib
+        expected = {
+            self.record["decision_source"]: self.record["decision_source_sha256"],
+            self.record["protamine"]["original_fiche"]: self.record["protamine"]["original_fiche_sha256"],
+        }
+        env = dict(os.environ, GIT_CONFIG_NOSYSTEM="1",
+                   GIT_CONFIG_GLOBAL="NUL" if os.name == "nt" else os.devnull)
+        with tempfile.TemporaryDirectory() as temporary:
+            checkout = Path(temporary)
+            (checkout / ".gitattributes").write_bytes((ROOT.parent / ".gitattributes").read_bytes())
+            for relative in expected:
+                path = checkout / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes((ROOT.parent / relative).read_bytes())
+
+            def git(*args):
+                subprocess.run(["git", "-C", temporary, *args], env=env, check=True, capture_output=True)
+
+            git("init", "-q")
+            git("config", "core.autocrlf", "false")
+            git("add", ".")
+            git("-c", "user.name=Synthetic QA", "-c", "user.email=qa@example.invalid", "commit", "-qm", "checkout fixture")
+            git("config", "core.autocrlf", "true")
+            for relative in expected:
+                (checkout / relative).unlink()
+            git("checkout", "HEAD", "--", *expected)
+            for relative, digest in expected.items():
+                with self.subTest(relative=relative):
+                    self.assertEqual(hashlib.sha256((checkout / relative).read_bytes()).hexdigest(), digest)
 
     def test_historical_product_cannot_be_reactivated_or_substituted(self):
         for key, value in [("runtime_enabled", True), ("runtime_enabled", 0), ("replacement_product_id", "UNREVIEWED"),
